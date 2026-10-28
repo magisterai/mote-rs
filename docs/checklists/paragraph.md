@@ -26,9 +26,11 @@ style resolution and output remain separate.
 - [x] `style`: paragraph-style reference; resolution of effective properties remains pending.
 - [x] `border`: `top`, `right`, `bottom`, `left`, and `all`; each side accepts a
   style string or `style`/`val`, `size`/`width`, `space`, and `color` fields.
+  Only the outer argument's object type is checked; side contents remain metadata.
 - [x] `fill`: paragraph shading color.
 - [x] `tabs`: a tab-stop object or array of objects, with `position`, `alignment`,
   and optional `leader`; include the single-entry alignment/position shorthand.
+  Only the outer collection type is checked; stop contents remain metadata.
 - [x] `keep_with_next`: boolean pagination request recorded in the model.
 - [x] `keep_together`: boolean pagination request recorded in the model.
 - [x] `page_break_before`: boolean pagination request recorded in the model.
@@ -54,6 +56,9 @@ not additional direct paragraph controls here.
   verify native PDF and PNG independently, including spacing and pagination.
 
 ## Evidence
+
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [evaluation tests](../../tests/evaluation.rs),

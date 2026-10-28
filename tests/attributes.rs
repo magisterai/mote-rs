@@ -241,12 +241,25 @@ fn preserved_code_keeps_nested_whitespace_and_normalizes_line_endings() {
         let code = find_element(&document.content, "code");
         assert_eq!(code.attributes["preserve_space"], Value::Boolean(true));
         assert_eq!(code.attributes["language"], Value::String("text".into()));
-        assert_eq!(code.children[0], Content::Text("  first  \n \t\n".into()));
+        assert_eq!(
+            &code.children[..2],
+            &[
+                Content::Text("  first  ".into()),
+                Content::Text("\n \t\n".into())
+            ]
+        );
         assert_eq!(
             find_element(&code.children, "strong").children,
-            [Content::Text("bold\n next".into())]
+            [
+                Content::Text("bold".into()),
+                Content::Text("\n".into()),
+                Content::Text(" next".into())
+            ]
         );
-        assert_eq!(code.children[2], Content::Text("  \tend\n".into()));
+        assert_eq!(
+            &code.children[3..],
+            &[Content::Text("  \tend".into()), Content::Text("\n".into())]
+        );
     }
     let document = compile("#code(\"a\\r\\nb\\rc\",preserve_space=true)[ignored]").unwrap();
     assert_eq!(
@@ -258,7 +271,11 @@ fn preserved_code_keeps_nested_whitespace_and_normalizes_line_endings() {
             .unwrap();
     assert_eq!(
         find_element(&document.content, "emphasis").children,
-        [Content::Text("a\n b".into())]
+        [
+            Content::Text("a".into()),
+            Content::Text("\n".into()),
+            Content::Text(" b".into())
+        ]
     );
     let outer_code = find_element(&document.content, "code");
     let inner_code = find_element(&outer_code.children, "code");
@@ -266,7 +283,14 @@ fn preserved_code_keeps_nested_whitespace_and_normalizes_line_endings() {
         inner_code.attributes["preserve_space"],
         Value::Boolean(false)
     );
-    assert_eq!(inner_code.children, [Content::Text("c\n d".into())]);
+    assert_eq!(
+        inner_code.children,
+        [
+            Content::Text("c".into()),
+            Content::Text("\n".into()),
+            Content::Text(" d".into())
+        ]
+    );
     let document =
         compile("#code(preserve_space=true)[  #strong[first]\n\t#emphasis[second]\n  text]")
             .unwrap();
@@ -275,11 +299,18 @@ fn preserved_code_keeps_nested_whitespace_and_normalizes_line_endings() {
         matches!(&code.children[0], Content::Element(element) if element.kind.as_text() == "strong")
     );
     assert_eq!(code.children[1], Content::Text("\n".into()));
-    assert_eq!(code.children[3], Content::Text("\n  text".into()));
+    assert_eq!(
+        &code.children[3..],
+        &[Content::Text("\n".into()), Content::Text("  text".into())]
+    );
     let source = "#paragraph[a \\\nb]";
     assert_eq!(
         find_element(&compile(source).unwrap().content, "paragraph").children,
-        [Content::Text("a \nb".into())]
+        [
+            Content::Text("a ".into()),
+            Content::Text("\n".into()),
+            Content::Text("b".into())
+        ]
     );
 }
 
@@ -374,12 +405,9 @@ fn normalization_covers_boolean_spellings_spacing_rules_and_number_formats() {
 }
 
 #[test]
-fn invalid_attribute_values_and_out_of_scope_fields_fail_with_diagnostics() {
+fn invalid_normalized_values_and_argument_types_fail_with_diagnostics() {
     for source in [
         "#paragraph(style=2)[Text]",
-        "#strong(font=true)[Text]",
-        "#emphasis(size=pt(-1))[Text]",
-        "#strong(color=\"red\")[Text]",
         "#code(language=false)[Text]",
         "#code(preserve_space=1)[Text]",
         "#paragraph(fill=\"#12345g\")[Text]",
@@ -391,6 +419,28 @@ fn invalid_attribute_values_and_out_of_scope_fields_fail_with_diagnostics() {
         "#paragraph(spacing={line={rule=\"exact\",value=-1}})[Text]",
         "#paragraph(spacing={line={rule=\"single\",value=1}})[Text]",
         "#paragraph(indent={left=-1})[Text]",
+        "#paragraph(outline_level=-1)[Text]",
+        "#paragraph(properties={})[Text]",
+        "#heading(numbering={format=\"bullet\"})[Text]",
+        "#heading(numbering={start=1.5})[Text]",
+        "#ordered_list(level=0)[#item[Text]]",
+        "#list(restart=2)[#item[Text]]",
+        "#item(checkbox={kind=\"widget\"})[Text]",
+        "#item(checkbox={checked=1})[Text]",
+        "#item(checked=\"yes\")[Text]",
+    ] {
+        let error = compile(source).expect_err(source);
+        assert!(!error.message.is_empty(), "{source}");
+        assert!(error.span.end <= source.len(), "{source}: {error}");
+    }
+}
+
+#[test]
+fn retained_metadata_is_accepted_without_claiming_a_formatting_effect() {
+    for source in [
+        "#strong(font=true)[Text]",
+        "#emphasis(size=pt(-1))[Text]",
+        "#strong(color=\"red\")[Text]",
         "#paragraph(indent={unknown=1})[Text]",
         "#paragraph(border={top={size=-1}})[Text]",
         "#paragraph(border={insideH=\"single\"})[Text]",
@@ -398,23 +448,12 @@ fn invalid_attribute_values_and_out_of_scope_fields_fail_with_diagnostics() {
         "#paragraph(tabs={alignment=\"right\"})[Text]",
         "#paragraph(tabs={true})[Text]",
         "#paragraph(tabs={{position=pt(-1)}})[Text]",
-        "#paragraph(outline_level=-1)[Text]",
-        "#paragraph(properties={})[Text]",
         "#paragraph(properties={unknown=true})[Text]",
-        "#heading(numbering={format=\"bullet\"})[Text]",
         "#heading(numbering={label=\"Chapter\"})[Text]",
-        "#heading(numbering={start=1.5})[Text]",
-        "#ordered_list(level=0)[#item[Text]]",
-        "#list(restart=2)[#item[Text]]",
-        "#item(checkbox={kind=\"widget\"})[Text]",
-        "#item(checkbox={checked=1})[Text]",
-        "#item(checked=\"yes\")[Text]",
         "#blockquote(alignment=\"Center\")[Text]",
         "#line_break(properties={style=\"Named\"})",
         "#strong(kerning=2)[Text]",
     ] {
-        let error = compile(source).expect_err(source);
-        assert!(!error.message.is_empty(), "{source}");
-        assert!(error.span.end <= source.len(), "{source}: {error}");
+        assert!(compile(source).is_ok(), "{source}");
     }
 }

@@ -137,35 +137,6 @@ pub(super) fn normalize_color(
     Ok(Value::Color(format!("#{}", digits.to_ascii_lowercase())))
 }
 
-pub(super) fn require_string(
-    value: Value,
-    span: Span,
-    property: &str,
-) -> Result<Value, Diagnostic> {
-    match value {
-        Value::String(_) => Ok(value),
-        _ => Err(Diagnostic::new(
-            span,
-            format!("{property} must be a string"),
-        )),
-    }
-}
-
-pub(super) fn normalize_identifier(
-    value: Value,
-    span: Span,
-    property: &str,
-) -> Result<Value, Diagnostic> {
-    match value {
-        Value::String(_) => Ok(value),
-        Value::Number(number) if number.is_finite() => Ok(Value::String(number.to_string())),
-        _ => Err(Diagnostic::new(
-            span,
-            format!("{property} must be a string or number"),
-        )),
-    }
-}
-
 pub(super) fn normalize_enum(
     value: Value,
     span: Span,
@@ -193,21 +164,4 @@ pub(super) fn require_object(
             format!("{property} must be a property object"),
         )),
     }
-}
-
-pub(super) fn require_fields(
-    fields: &Properties,
-    choices: &[&str],
-    span: Span,
-    property: &str,
-) -> Result<(), Diagnostic> {
-    for name in fields.keys() {
-        if !choices.contains(&name.as_str()) {
-            return Err(Diagnostic::new(
-                span,
-                format!("unsupported {property} property: {name}"),
-            ));
-        }
-    }
-    Ok(())
 }

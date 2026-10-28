@@ -15,7 +15,14 @@ fn markdown_and_explicit_directives_have_the_same_meaning() {
     let markdown = "# Quarterly report\n\nRevenue increased by **12%**.";
     let directives =
         "#heading(level=1)[Quarterly report]\n\n#paragraph[Revenue increased by #strong[12%].]";
-    let document = compile(markdown).unwrap();
+    let mut document = compile(markdown).unwrap();
+    let Content::Element(heading) = &mut document.content[0] else {
+        panic!("expected heading")
+    };
+    assert_eq!(
+        heading.attributes.remove("marker"),
+        Some(Value::String("#".into()))
+    );
     assert_eq!(document, compile(directives).unwrap());
     assert_eq!(document.content.len(), 2);
     assert_eq!(element(&document.content[0]).kind, ElementKind::Heading);
@@ -53,7 +60,13 @@ fn attributes_and_helpers_produce_typed_values() {
             unit: Unit::Point
         }
     );
-    assert_eq!(paragraph.children, [Content::Text("Status: PAID".into())]);
+    assert_eq!(
+        paragraph.children,
+        [
+            Content::Text("Status: ".into()),
+            Content::Text("PAID".into())
+        ]
+    );
 }
 
 #[test]
@@ -63,7 +76,11 @@ fn paragraphs_flow_around_blocks_and_preserve_explicit_body_spaces() {
     assert_eq!(document.content.len(), 4);
     assert_eq!(
         element(&document.content[0]).children,
-        [Content::Text("Before line.".into())]
+        [
+            Content::Text("Before".into()),
+            Content::Text(" ".into()),
+            Content::Text("line.".into())
+        ]
     );
     assert_eq!(
         element(&document.content[1]).attributes["level"],
@@ -81,7 +98,11 @@ fn paragraphs_flow_around_blocks_and_preserve_explicit_body_spaces() {
     let document = compile("#paragraph[First\n\nsecond]").unwrap();
     assert_eq!(
         element(&document.content[0]).children,
-        [Content::Text("First\n\nsecond".into())]
+        [
+            Content::Text("First".into()),
+            Content::Text("\n\n".into()),
+            Content::Text("second".into())
+        ]
     );
 }
 
@@ -208,10 +229,6 @@ fn invalid_calls_report_the_problem_without_producing_a_document() {
         (
             "#paragraph(spacing={after=missing(12)})[Text]",
             "unsupported helper",
-        ),
-        (
-            "#paragraph(kerning=12)[Text]",
-            "unsupported paragraph attribute",
         ),
     ] {
         let error = compile(source).expect_err(source);

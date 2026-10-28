@@ -16,6 +16,32 @@ pub enum Value {
     Length { value: f64, unit: Unit },
 }
 
+impl Value {
+    /// Textual representation used when a property explicitly requests coercion.
+    pub fn to_text(&self) -> String {
+        match self {
+            Self::String(text) | Self::Color(text) => text.clone(),
+            Self::Number(number) => number.to_string(),
+            Self::Boolean(boolean) => boolean.to_string(),
+            Self::Nil => String::new(),
+            Self::Length { value, unit } => format!("{value}{}", unit.as_text()),
+            Self::Array(values) => values
+                .iter()
+                .map(Self::to_text)
+                .collect::<Vec<_>>()
+                .join(", "),
+            Self::Object(fields) => format!(
+                "{{{}}}",
+                fields
+                    .iter()
+                    .map(|(name, value)| format!("{name}: {}", value.to_text()))
+                    .collect::<Vec<_>>()
+                    .join(", ")
+            ),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Unit {
     Point,

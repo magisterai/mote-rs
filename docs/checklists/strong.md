@@ -16,6 +16,9 @@ Checked items cover evaluation, validation, and model storage as defined in
 [Formatting attributes](../specification/formatting-attributes.md). Effective
 style resolution and output remain separate.
 
+All attributes retain their authored values without normalization or field-type
+checks. The names below describe formatting conventions, not extra validation.
+
 - [x] `style`: named character style.
 - [x] `font`: font name or declared font alias.
 - [x] `size`: text size.
@@ -39,6 +42,9 @@ Style and font references are recorded without resolving their declarations.
 - [ ] Verify editable Office text and independently painted native PDF/PNG text.
 
 ## Evidence
+
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [evaluation tests](../../tests/evaluation.rs),

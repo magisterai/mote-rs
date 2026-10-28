@@ -52,6 +52,9 @@ and marker font/alignment controls are not goals here.
 
 ## Evidence
 
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
+
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [list tests](../../tests/content.rs), and
 [specification examples](../../tests/conformance.rs) cover the checked items.

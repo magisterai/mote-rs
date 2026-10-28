@@ -28,7 +28,7 @@ fn emphasis_and_strong_forms_preserve_nested_inline_structure() {
     }
     assert_eq!(
         content_model("#emphasis[]")["content"][0]["children"][0],
-        json!({"kind":"emphasis","category":"inline","children":[]})
+        json!({"kind":"emphasis","category":"inline"})
     );
 }
 
@@ -75,7 +75,7 @@ fn code_arguments_are_literal_while_bodies_evaluate_inline_content() {
     for source in ["#code()", "#code[]"] {
         assert_eq!(
             content_model(source)["content"][0]["children"][0]["children"],
-            json!([])
+            Value::Null
         );
     }
     assert_eq!(
@@ -91,8 +91,8 @@ fn code_arguments_are_literal_while_bodies_evaluate_inline_content() {
         compile("#code(\"false\")").unwrap()
     );
     assert_eq!(
-        compile("#code[first\nsecond]").unwrap(),
-        compile("#code(\"first second\")").unwrap()
+        content_model("#code[first\nsecond]")["content"][0]["children"][0]["children"],
+        json!([{ "kind":"text", "text":"first" }, {"kind":"text", "text":" "}, {"kind":"text", "text":"second"}])
     );
 }
 
@@ -104,10 +104,8 @@ fn hard_breaks_stay_within_paragraphs_and_explicit_breaks_keep_their_element() {
             format!("first\\{ending}second"),
         ] {
             assert_eq!(
-                content_model(&source),
-                json!({"content":[{
-                    "kind":"paragraph","category":"block","children":[{"kind":"text","text":"first\nsecond"}]
-                }]})
+                content_model(&source)["content"][0]["children"],
+                json!([{ "kind":"text", "text":"first" }, {"kind":"text", "text":"\n"}, {"kind":"text", "text":"second"}])
             );
         }
     }
@@ -115,7 +113,7 @@ fn hard_breaks_stay_within_paragraphs_and_explicit_breaks_keep_their_element() {
         content_model("#paragraph[first#line_break()second]")["content"][0]["children"],
         json!([
             {"kind":"text","text":"first"},
-            {"kind":"line_break","category":"inline","children":[]},
+            {"kind":"line_break","category":"inline"},
             {"kind":"text","text":"second"}
         ])
     );
@@ -134,11 +132,11 @@ fn explicit_lists_require_items_and_items_normalize_paragraphs() {
     assert_eq!(list["children"][1]["children"].as_array().unwrap().len(), 2);
     assert_eq!(
         content_model("#list[]")["content"][0]["children"],
-        json!([])
+        Value::Null
     );
     assert_eq!(
         content_model("#list[#item[]]")["content"][0]["children"][0]["children"],
-        json!([])
+        Value::Null
     );
 }
 
@@ -177,22 +175,22 @@ fn markdown_lists_preserve_markers_continuations_and_parent_boundaries() {
         assert_eq!(list["children"].as_array().unwrap().len(), 2);
         let first = &list["children"][0];
         assert_eq!(first["attributes"], json!({"marker":"-"}));
-        assert_eq!(first["children"][0]["text"], "Parent continuation ");
-        assert_eq!(first["children"][1]["kind"], "ordered_list");
+        assert_eq!(&first["children"].as_array().unwrap()[..4], json!([{ "kind":"text", "text":"Parent" }, {"kind":"text", "text":" "}, {"kind":"text", "text":"continuation"}, {"kind":"text", "text":" "}]).as_array().unwrap());
+        assert_eq!(first["children"][4]["kind"], "ordered_list");
         assert_eq!(
-            first["children"][1]["children"][0]["attributes"],
+            first["children"][4]["children"][0]["attributes"],
             json!({"marker":"3."})
         );
         assert_eq!(
-            first["children"][1]["children"][0]["children"][1]["kind"],
+            first["children"][4]["children"][0]["children"][2]["kind"],
             "list"
         );
     }
     let model = content_model("- A\n\n  continued\n\n- B\n+ C\n3. D\n8. E");
     assert_eq!(model["content"][0]["children"].as_array().unwrap().len(), 3);
     assert_eq!(
-        model["content"][0]["children"][0]["children"][0]["text"],
-        "A\n\ncontinued"
+        model["content"][0]["children"][0]["children"],
+        json!([{ "kind":"text", "text":"A" }, {"kind":"text", "text":"\n\n"}, {"kind":"text", "text":"continued"}])
     );
     assert_eq!(
         model["content"][1]["children"][1]["attributes"]["marker"],
@@ -214,7 +212,7 @@ fn markdown_items_can_fill_an_explicit_list_without_an_extra_container() {
     let model = content_model("#list[#item[\n- Parent\n  - Child\n]]");
     let nested = &model["content"][0]["children"][0]["children"][0];
     assert_eq!(nested["kind"], "list");
-    assert_eq!(nested["children"][0]["children"][1]["kind"], "list");
+    assert_eq!(nested["children"][0]["children"][2]["kind"], "list");
 }
 
 #[test]
@@ -232,7 +230,7 @@ fn blockquotes_have_block_bodies_and_markdown_quote_lines_remain_separate() {
     assert_eq!(model["content"][0]["children"][2]["kind"], "list");
     assert_eq!(
         content_model("#blockquote[]")["content"][0]["children"],
-        json!([])
+        Value::Null
     );
 }
 
@@ -252,8 +250,11 @@ fn new_content_contracts_reject_invalid_arguments_and_children() {
             "#code(\"literal\")[#paragraph[Block]]",
             "inline content cannot contain",
         ),
-        ("#line_break()[Text]", "no arguments or content body"),
-        ("#line_break(1)", "no arguments or content body"),
+        (
+            "#line_break()[Text]",
+            "no positional arguments or content body",
+        ),
+        ("#line_break(1)", "no positional arguments or content body"),
         ("#list()", "requires one content body"),
         ("#item()", "requires one content body"),
         ("#list[Text]", "only items"),
@@ -262,7 +263,7 @@ fn new_content_contracts_reject_invalid_arguments_and_children() {
         ("#list[\n- Parent\n  - Child\n]", "nested Markdown items"),
         ("#ordered_list(start=0)[#item[Text]]", "positive integer"),
         ("#ordered_list(start=1.5)[#item[Text]]", "positive integer"),
-        ("#item(marker=1)[Text]", "marker must be a string"),
+        ("#item(marker=1)[Text]", "marker must have string type"),
         (
             "#paragraph[#list[#item[Text]]]",
             "inline content cannot contain",

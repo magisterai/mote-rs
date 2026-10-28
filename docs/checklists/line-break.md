@@ -4,19 +4,22 @@
 
 ## Content and arguments
 
-- [x] An inline `line_break` element with no arguments or body.
+- [x] An inline `line_break` element with no positional arguments or body.
 - [x] A break remains inside its paragraph and adds no surrounding spaces.
 - [x] Markdown hard breaks from two trailing spaces or a backslash before a line
   ending; their model representation is a line feed in text.
 
 ## Attributes
 
+- [x] Accept named metadata and the shared `properties` object; retain values
+  without formatting normalization. Positional arguments and bodies remain invalid.
+
 Checked items cover evaluation, validation, and model storage as defined in
 [Formatting attributes](../specification/formatting-attributes.md). Effective
 style resolution and output remain separate.
 
-None. The argument-free form is the complete attribute scope. Page and column
-breaks belong to a separate future directive and checklist.
+Named attributes are retained metadata and do not create page or column breaks.
+Those belong to a separate future directive and checklist.
 
 ## Output
 
@@ -26,6 +29,9 @@ breaks belong to a separate future directive and checklist.
   existing paragraph.
 
 ## Evidence
+
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [inline tests](../../tests/content.rs), and

@@ -19,7 +19,8 @@ level, a blank line ends an implicit paragraph. A block directive also ends any
 preceding implicit paragraph. Leading and trailing spaces, tabs, and line
 endings at the edges of an implicit paragraph are discarded.
 
-An explicit body preserves its surrounding spaces and indentation. A blank line
+An explicit body preserves content spaces and indentation, except syntactic
+indentation before directives and block markers as defined in the syntax chapter. A blank line
 inside that body contributes two line-feed characters to its text; it does not
 create a nested paragraph. Use separate paragraph directives for separate
 paragraph blocks. [Inline text](inline-text.md) defines hard line-break syntax.
@@ -94,6 +95,11 @@ ending. Thus the Markdown equivalent is:
 ```mote
 ## Results
 ```
+
+The Markdown form also retains `marker = "#"` in the inspection model; the
+numeric `level` records the number of hashes. The explicit directive does not
+add that source marker. Adjacent text fragments remain separate in the model,
+including line breaks and helper results; joining their text gives visible text.
 
 If `level` is omitted, the evaluated heading leaves it unspecified. That is
 distinct from authoring `level = 1`; examples that need a particular hierarchy

@@ -1,11 +1,12 @@
-//! Attribute contracts for the existing content directives.
+//! Argument validation, property merging, and directive-specific normalization.
 
 use super::{evaluate_expression, values::*};
+use crate::diagnostics::{Diagnostic, Span};
 use crate::model::{ElementKind, Properties, Value};
-use crate::syntax::{Argument, Diagnostic, ExpressionKind, Span};
+use crate::syntax::{Argument, Expression, ExpressionKind};
 use std::collections::BTreeMap;
 
-const ALIGNMENTS: &[&str] = &["left", "center", "right", "justify"];
+pub(super) const ALIGNMENTS: &[&str] = &["left", "center", "right", "justify"];
 const NUMBER_FORMATS: &[&str] = &[
     "decimal",
     "lower_alpha",
@@ -13,102 +14,66 @@ const NUMBER_FORMATS: &[&str] = &[
     "lower_roman",
     "upper_roman",
 ];
-const LIST_FORMATS: &[&str] = &[
-    "bullet",
-    "decimal",
-    "lower_alpha",
-    "upper_alpha",
-    "lower_roman",
-    "upper_roman",
-];
-const PARAGRAPH_ATTRIBUTES: &[&str] = &[
-    "style",
-    "alignment",
-    "spacing",
-    "spacing_before",
-    "spacing_after",
-    "line_spacing",
-    "indent",
-    "border",
-    "fill",
-    "tabs",
-    "keep_with_next",
-    "keep_together",
-    "page_break_before",
-    "widow_control",
-    "outline_level",
-];
-const HEADING_ATTRIBUTES: &[&str] = &[
-    "level",
-    "style",
-    "alignment",
-    "spacing",
-    "spacing_before",
-    "spacing_after",
-    "line_spacing",
-    "indent",
-    "keep_with_next",
-    "keep_together",
-    "page_break_before",
-    "widow_control",
-    "numbering",
-];
-const INLINE_ATTRIBUTES: &[&str] = &["style", "font", "size", "color"];
-const CODE_ATTRIBUTES: &[&str] = &[
-    "style",
-    "font",
-    "size",
-    "color",
-    "language",
-    "preserve_space",
-];
-const LIST_ATTRIBUTES: &[&str] = &[
-    "id", "style", "start", "marker", "format", "restart", "tight", "level", "indent", "spacing",
-];
-const ITEM_ATTRIBUTES: &[&str] = &[
-    "style", "marker", "level", "tight", "checked", "checkbox", "indent", "spacing",
-];
-const QUOTE_ATTRIBUTES: &[&str] = &[
-    "style",
-    "border",
-    "fill",
-    "alignment",
-    "spacing",
-    "spacing_before",
-    "spacing_after",
-    "line_spacing",
-    "indent",
-];
+
+pub(super) struct EvaluatedArgument<'expression> {
+    pub value: Value,
+    pub source_expression: &'expression Expression,
+}
+
+pub(super) fn evaluate_named_arguments(
+    arguments: &[Argument],
+) -> Result<BTreeMap<String, EvaluatedArgument<'_>>, Diagnostic> {
+    let mut evaluated = BTreeMap::new();
+    for argument in arguments {
+        if let Some(name) = &argument.name {
+            evaluated.insert(
+                name.clone(),
+                EvaluatedArgument {
+                    value: evaluate_expression(&argument.value)?,
+                    source_expression: &argument.value,
+                },
+            );
+        }
+    }
+    Ok(evaluated)
+}
 
 pub(super) fn evaluate_attributes(
     kind: ElementKind,
     arguments: &[Argument],
 ) -> Result<Properties, Diagnostic> {
-    let mut attributes = BTreeMap::new();
-    let mut property_fields = BTreeMap::new();
-    for argument in arguments {
-        let Some(name) = &argument.name else { continue };
-        let value = evaluate_expression(&argument.value)?;
-        if name == "properties" {
-            let fields = require_object(value, argument.value.span, "properties")?;
-            property_fields.clear();
-            for (name, value) in fields {
-                let span = if let ExpressionKind::Object(expressions) = &argument.value.kind {
-                    expressions
-                        .iter()
-                        .rev()
-                        .find(|field| field.name.as_ref() == Some(&name))
-                        .map_or(argument.value.span, |field| field.value.span)
-                } else {
-                    argument.value.span
-                };
-                property_fields.insert(name, (value, span));
-            }
+    let mut named_arguments = evaluate_named_arguments(arguments)?;
+    // Repeated names use their final value. Outer types are checked before overrides.
+    for (name, argument) in &named_arguments {
+        validate_named_argument(kind, name, &argument.value, argument.source_expression.span)?;
+    }
+    let properties_argument = named_arguments.remove("properties");
+    let mut attributes: BTreeMap<_, _> = named_arguments
+        .into_iter()
+        .map(|(name, argument)| (name, (argument.value, argument.source_expression.span)))
+        .collect();
+    if let Some(argument) = properties_argument {
+        let expression = argument.source_expression;
+        let fields = require_object(argument.value, expression.span, "properties")?;
+        let locations: BTreeMap<_, _> = if let ExpressionKind::Object(fields) = &expression.kind {
+            fields
+                .iter()
+                .filter_map(|field| field.name.as_deref().map(|name| (name, field.value.span)))
+                .collect()
         } else {
-            attributes.insert(name.clone(), (value, argument.value.span));
+            BTreeMap::new()
+        };
+        for (name, value) in fields {
+            if name == "properties" {
+                continue;
+            }
+            let location = locations
+                .get(name.as_str())
+                .copied()
+                .unwrap_or(expression.span);
+            attributes.insert(name, (value, location));
         }
     }
-    attributes.extend(property_fields);
     if kind == ElementKind::Heading
         && let Some(argument) = arguments.iter().find(|argument| argument.name.is_none())
     {
@@ -129,143 +94,190 @@ pub(super) fn evaluate_attributes(
         .collect()
 }
 
-fn normalize_attribute(
+#[derive(Clone, Copy)]
+enum ArgumentType {
+    String,
+    NumberOrString,
+    Length,
+    Color,
+    Boolean,
+    Object,
+    Collection,
+}
+
+impl ArgumentType {
+    fn accepts(self, value: &Value) -> bool {
+        match self {
+            Self::String => matches!(value, Value::String(_)),
+            Self::NumberOrString => matches!(value, Value::Number(_) | Value::String(_)),
+            Self::Length => matches!(
+                value,
+                Value::Number(_) | Value::String(_) | Value::Length { .. }
+            ),
+            Self::Color => matches!(value, Value::String(_) | Value::Color(_)),
+            Self::Boolean => matches!(value, Value::Boolean(_) | Value::String(_)),
+            Self::Object => matches!(value, Value::Object(_)),
+            Self::Collection => matches!(value, Value::Object(_) | Value::Array(_)),
+        }
+    }
+
+    fn description(self) -> &'static str {
+        match self {
+            Self::String => "string",
+            Self::NumberOrString => "number or string",
+            Self::Length => "length",
+            Self::Color => "color",
+            Self::Boolean => "boolean",
+            Self::Object => "object",
+            Self::Collection => "collection",
+        }
+    }
+}
+
+fn validate_named_argument(
+    kind: ElementKind,
+    name: &str,
+    value: &Value,
+    span: Span,
+) -> Result<(), Diagnostic> {
+    use ElementKind::*;
+    let constraint = if name == "properties" {
+        Some(ArgumentType::Object)
+    } else {
+        match kind {
+            Paragraph => match name {
+                "style" | "alignment" => Some(ArgumentType::String),
+                "spacing_before" | "spacing_after" | "line_spacing" => Some(ArgumentType::Length),
+                "spacing" | "indent" | "border" => Some(ArgumentType::Object),
+                "fill" => Some(ArgumentType::Color),
+                "tabs" => Some(ArgumentType::Collection),
+                "keep_with_next" | "keep_together" | "page_break_before" | "widow_control" => {
+                    Some(ArgumentType::Boolean)
+                }
+                "outline_level" => Some(ArgumentType::NumberOrString),
+                _ => None,
+            },
+            Heading => match name {
+                "level" => Some(ArgumentType::NumberOrString),
+                "style" | "alignment" => Some(ArgumentType::String),
+                "spacing_before" | "spacing_after" => Some(ArgumentType::Length),
+                "spacing" | "indent" | "numbering" => Some(ArgumentType::Object),
+                "keep_with_next" | "page_break_before" | "widow_control" => {
+                    Some(ArgumentType::Boolean)
+                }
+                _ => None,
+            },
+            Code => match name {
+                "style" | "language" => Some(ArgumentType::String),
+                "preserve_space" => Some(ArgumentType::Boolean),
+                _ => None,
+            },
+            List | OrderedList => match name {
+                "id" | "start" | "level" => Some(ArgumentType::NumberOrString),
+                "style" | "marker" | "format" => Some(ArgumentType::String),
+                "restart" | "tight" => Some(ArgumentType::Boolean),
+                "indent" | "spacing" => Some(ArgumentType::Object),
+                _ => None,
+            },
+            ListItem => match name {
+                "marker" => Some(ArgumentType::String),
+                "level" => Some(ArgumentType::NumberOrString),
+                "tight" | "checked" => Some(ArgumentType::Boolean),
+                "checkbox" | "indent" | "spacing" => Some(ArgumentType::Object),
+                _ => None,
+            },
+            Blockquote => match name {
+                "style" => Some(ArgumentType::String),
+                "border" => Some(ArgumentType::Object),
+                "fill" => Some(ArgumentType::Color),
+                _ => None,
+            },
+            Strong | Emphasis | LineBreak => None,
+        }
+    };
+    if let Some(constraint) = constraint
+        && !constraint.accepts(value)
+    {
+        return Err(Diagnostic::new(
+            span,
+            format!("{name} must have {} type", constraint.description()),
+        ));
+    }
+    Ok(())
+}
+
+pub(super) fn normalize_attribute(
     kind: ElementKind,
     name: &str,
     value: Value,
     span: Span,
 ) -> Result<Value, Diagnostic> {
-    let allowed = match kind {
-        ElementKind::Paragraph => PARAGRAPH_ATTRIBUTES,
-        ElementKind::Heading => HEADING_ATTRIBUTES,
-        ElementKind::Strong | ElementKind::Emphasis => INLINE_ATTRIBUTES,
-        ElementKind::Code => CODE_ATTRIBUTES,
-        ElementKind::List | ElementKind::OrderedList => LIST_ATTRIBUTES,
-        ElementKind::ListItem => ITEM_ATTRIBUTES,
-        ElementKind::Blockquote => QUOTE_ATTRIBUTES,
-        ElementKind::LineBreak => &[],
-    };
-    if !allowed.contains(&name) {
-        return Err(Diagnostic::new(
-            span,
-            format!("unsupported {} attribute: {name}", kind.as_text()),
-        ));
-    }
-    let is_list = matches!(
-        kind,
-        ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem
-    );
-    match name {
-        "style" | "font" | "language" | "marker" => require_string(
-            value,
-            span,
-            if kind == ElementKind::ListItem && name == "marker" {
-                "item marker"
-            } else {
-                name
-            },
-        ),
-        "id" => normalize_identifier(value, span, name),
-        "level" => normalize_integer(
-            value,
-            span,
-            if kind == ElementKind::Heading {
-                "heading level"
-            } else {
-                "list level"
-            },
-            1,
-        ),
-        "start" => normalize_integer(value, span, "list start", 1),
-        "outline_level" => normalize_integer(value, span, name, 0),
-        "alignment" => normalize_enum(value, span, name, ALIGNMENTS).map_err(|_| {
-            Diagnostic::new(span, "alignment must be left, center, right, or justify")
-        }),
-        "keep_with_next" | "keep_together" | "page_break_before" | "widow_control" | "restart"
-        | "tight" | "checked" | "preserve_space" => normalize_boolean(value, span, name),
-        "fill" => normalize_color(value, span, name),
-        "color" => {
-            normalize_color(value.clone(), span, name)?;
-            Ok(value)
-        }
-        "size" => {
-            normalize_length(value.clone(), span, name)?;
-            Ok(value)
-        }
-        "spacing_before" | "spacing_after" | "line_spacing" => {
-            let normalized = normalize_length(value.clone(), span, name)?;
-            Ok(if kind == ElementKind::Blockquote {
-                value
-            } else {
-                normalized
-            })
-        }
-        "spacing" => {
-            let normalized = normalize_spacing(value.clone(), span)?;
-            Ok(if kind == ElementKind::Blockquote {
-                value
-            } else {
-                normalized
-            })
-        }
-        "indent" => {
-            let fields = require_object(value.clone(), span, name)?;
-            require_fields(
-                &fields,
-                if is_list {
-                    &["left", "hanging", "level"]
-                } else {
-                    &["left", "right", "first_line", "hanging"]
-                },
+    use ElementKind::*;
+    match kind {
+        Paragraph | Heading => match name {
+            "spacing_before" | "spacing_after" | "line_spacing" => {
+                normalize_length(value, span, name)
+            }
+            "spacing" => normalize_spacing(value, span),
+            "indent" => normalize_length_map(value, span, name),
+            "keep_with_next" | "keep_together" | "page_break_before" | "widow_control" => {
+                normalize_boolean(value, span, name)
+            }
+            "fill" => normalize_color(value, span, name),
+            "outline_level" => normalize_integer(value, span, name, 0),
+            "alignment" => normalize_enum(value, span, name, ALIGNMENTS),
+            "level" if kind == Heading => normalize_integer(value, span, "heading level", 1),
+            "numbering" if kind == Heading => normalize_numbering(value, span),
+            _ => Ok(value),
+        },
+        List | OrderedList | ListItem => match name {
+            "id" if kind != ListItem => Ok(Value::String(value.to_text())),
+            "start" if kind != ListItem => normalize_integer(value, span, "list start", 1),
+            "level" => normalize_integer(value, span, "list level", 1),
+            "restart" if kind != ListItem => normalize_boolean(value, span, name),
+            "checked" if kind == ListItem => normalize_boolean(value, span, name),
+            "tight" => normalize_boolean(value, span, name),
+            "indent" => normalize_length_map(value, span, name),
+            "spacing" => normalize_spacing(value, span),
+            "format" if kind != ListItem => normalize_enum(
+                value,
                 span,
-                name,
-            )?;
-            let normalized = fields
-                .into_iter()
-                .map(|(name, value)| {
-                    Ok((
-                        name.clone(),
-                        normalize_length(value, span, &format!("indent.{name}"))?,
-                    ))
-                })
-                .collect::<Result<Properties, Diagnostic>>()?;
-            Ok(if kind == ElementKind::Blockquote {
-                value
-            } else {
-                Value::Object(normalized)
-            })
-        }
-        "format" => normalize_enum(value, span, "list format", LIST_FORMATS),
-        "numbering" => normalize_numbering(value, span),
-        "checkbox" => normalize_checkbox(value, span),
-        "border" => {
-            validate_border(&value, span)?;
-            Ok(value)
-        }
-        "tabs" => {
-            validate_tabs(&value, span)?;
-            Ok(value)
-        }
-        _ => unreachable!("attribute inventory and normalizers must agree"),
+                "list format",
+                &[
+                    "bullet",
+                    "decimal",
+                    "lower_alpha",
+                    "upper_alpha",
+                    "lower_roman",
+                    "upper_roman",
+                ],
+            ),
+            "checkbox" if kind == ListItem => normalize_checkbox(value, span),
+            _ => Ok(value),
+        },
+        Blockquote if name == "fill" => normalize_color(value, span, name),
+        Code if name == "preserve_space" => normalize_boolean(value, span, name),
+        _ => Ok(value),
     }
 }
 
+pub(super) fn normalize_length_map(
+    value: Value,
+    span: Span,
+    property: &str,
+) -> Result<Value, Diagnostic> {
+    require_object(value, span, property)?
+        .into_iter()
+        .map(|(name, value)| {
+            let value = normalize_length(value, span, &format!("{property}.{name}"))?;
+            Ok((name, value))
+        })
+        .collect::<Result<Properties, Diagnostic>>()
+        .map(Value::Object)
+}
+
 fn normalize_spacing(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    let fields = require_object(value, span, "spacing")?;
-    require_fields(
-        &fields,
-        &[
-            "before",
-            "after",
-            "line",
-            "spacing_before",
-            "spacing_after",
-            "line_spacing",
-        ],
-        span,
-        "spacing",
-    )?;
-    fields
+    require_object(value, span, "spacing")?
         .into_iter()
         .map(|(name, value)| {
             let value = if matches!(name.as_str(), "line" | "line_spacing") {
@@ -284,7 +296,6 @@ fn normalize_line_spacing(value: Value, span: Span) -> Result<Value, Diagnostic>
         return normalize_length(value, span, "spacing.line");
     }
     let mut fields = require_object(value, span, "spacing.line")?;
-    require_fields(&fields, &["rule", "value"], span, "spacing.line")?;
     let rule = fields
         .remove("rule")
         .ok_or_else(|| Diagnostic::new(span, "spacing.line.rule is required"))?;
@@ -311,29 +322,27 @@ fn normalize_line_spacing(value: Value, span: Span) -> Result<Value, Diagnostic>
     } else {
         normalize_length(value, span, "spacing.line.value")?
     };
-    Ok(Value::Object(Properties::from([
-        ("rule".into(), rule),
-        ("value".into(), value),
-    ])))
+    fields.insert("rule".into(), rule);
+    fields.insert("value".into(), value);
+    Ok(Value::Object(fields))
 }
 
 fn normalize_numbering(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    let fields = require_object(value, span, "numbering")?;
-    require_fields(
-        &fields,
-        &["enabled", "id", "format", "separator", "start", "restart"],
-        span,
-        "numbering",
-    )?;
-    fields
+    require_object(value, span, "numbering")?
         .into_iter()
         .map(|(name, value)| {
             let property = format!("numbering.{name}");
             let value = match name.as_str() {
                 "enabled" | "restart" => normalize_boolean(value, span, &property)?,
                 "start" => normalize_integer(value, span, &property, 1)?,
-                "format" => normalize_enum(value, span, &property, NUMBER_FORMATS)?,
-                _ => normalize_identifier(value, span, &property)?,
+                "format" => normalize_enum(
+                    Value::String(value.to_text()),
+                    span,
+                    &property,
+                    NUMBER_FORMATS,
+                )?,
+                "id" | "label" | "prefix" | "separator" => Value::String(value.to_text()),
+                _ => value,
             };
             Ok((name, value))
         })
@@ -342,14 +351,7 @@ fn normalize_numbering(value: Value, span: Span) -> Result<Value, Diagnostic> {
 }
 
 fn normalize_checkbox(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    let fields = require_object(value, span, "checkbox")?;
-    require_fields(
-        &fields,
-        &["checked", "kind", "name", "title"],
-        span,
-        "checkbox",
-    )?;
-    fields
+    require_object(value, span, "checkbox")?
         .into_iter()
         .map(|(name, value)| {
             let property = format!("checkbox.{name}");
@@ -361,107 +363,11 @@ fn normalize_checkbox(value: Value, span: Span) -> Result<Value, Diagnostic> {
                     &property,
                     &["content_control", "legacy_form_field"],
                 )?,
-                _ => normalize_identifier(value, span, &property)?,
+                "name" | "title" => Value::String(value.to_text()),
+                _ => value,
             };
             Ok((name, value))
         })
         .collect::<Result<Properties, Diagnostic>>()
         .map(Value::Object)
-}
-
-fn validate_border(value: &Value, span: Span) -> Result<(), Diagnostic> {
-    let fields = require_object(value.clone(), span, "border")?;
-    require_fields(
-        &fields,
-        &["top", "right", "bottom", "left", "all"],
-        span,
-        "border",
-    )?;
-    for (side, value) in fields {
-        if matches!(value, Value::String(_)) {
-            continue;
-        }
-        let property = format!("border.{side}");
-        let fields = require_object(value, span, &property)?;
-        require_fields(
-            &fields,
-            &["style", "val", "size", "width", "space", "color"],
-            span,
-            &property,
-        )?;
-        for (name, value) in fields {
-            let property = format!("border.{side}.{name}");
-            match name.as_str() {
-                "style" | "val" => {
-                    require_string(value, span, &property)?;
-                }
-                "color" => {
-                    normalize_color(value, span, &property)?;
-                }
-                "width" => {
-                    normalize_length(value, span, &property)?;
-                }
-                _ => {
-                    normalize_integer(value, span, &property, 0)?;
-                }
-            }
-        }
-    }
-    Ok(())
-}
-
-fn validate_tabs(value: &Value, span: Span) -> Result<(), Diagnostic> {
-    let stops = match value {
-        Value::Array(stops) => stops.as_slice(),
-        Value::Object(_) => std::slice::from_ref(value),
-        _ => {
-            return Err(Diagnostic::new(
-                span,
-                "tabs must be a property object or array",
-            ));
-        }
-    };
-    for stop in stops {
-        let fields = require_object(stop.clone(), span, "tab stop")?;
-        if fields.len() == 1 {
-            let (alignment, position) = fields.first_key_value().unwrap();
-            if [
-                "left", "center", "right", "decimal", "bar", "clear", "start", "end",
-            ]
-            .contains(&alignment.as_str())
-            {
-                normalize_length(position.clone(), span, "tab stop position")?;
-                continue;
-            }
-        }
-        require_fields(
-            &fields,
-            &[
-                "position",
-                "pos",
-                "alignment",
-                "align",
-                "leader",
-                "left",
-                "center",
-                "right",
-            ],
-            span,
-            "tab stop",
-        )?;
-        if !["position", "pos", "left", "center", "right"]
-            .iter()
-            .any(|name| fields.contains_key(*name))
-        {
-            return Err(Diagnostic::new(span, "tab stop position is required"));
-        }
-        for (name, value) in fields {
-            if matches!(name.as_str(), "alignment" | "align" | "leader") {
-                require_string(value, span, &format!("tab stop {name}"))?;
-            } else {
-                normalize_length(value, span, "tab stop position")?;
-            }
-        }
-    }
-    Ok(())
 }

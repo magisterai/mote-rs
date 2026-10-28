@@ -55,15 +55,21 @@ directive can exist before those definitions; its tasks remain unchecked.
 
 ## Shared attribute work
 
+- [x] Retain extra element properties without implying a formatting effect;
+  validate declared outer argument types before merging `properties`, then
+  normalize only the receiving directive's designated fields. Preserve extra
+  nested fields; spacing and indent maps normalize every length entry.
+- [x] JSON inspection omits empty optional fields and includes document geometry
+  objects and implicit section content.
 - [x] Array expressions for ordered tab stops, including empty arrays; reject
   mixed named and positional collection entries.
 - [x] Typed `color` helper and hexadecimal color values.
 - [x] Preserve code-body whitespace through nested inline content and normalize
   its line endings without changing ordinary flowing text.
 - [x] `properties`: an attribute object flattened into the receiving element's
-  attributes. Its entries override same-named outer arguments. Specify precedence
-  and validation using only attributes in that directive's checklist; this is
-  not arbitrary OOXML passthrough.
+  attributes. Its entries override same-named outer arguments after signature
+  type checks. Designated fields normalize; extra fields remain metadata. This
+  does not establish arbitrary OOXML output mappings.
 - [x] Shared value rules for colors, font names and aliases, named styles, and
   boolean normalization. Preserve the distinction between omitted and explicit
   values.

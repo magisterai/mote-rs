@@ -17,6 +17,9 @@ Checked items cover evaluation, validation, and model storage as defined in
 [Formatting attributes](../specification/formatting-attributes.md). Effective
 style resolution and output remain separate.
 
+Outer `style` and `language` arguments require strings; `preserve_space` is
+normalized after merging. Other attributes retain their authored values.
+
 - [x] `style`: character-style reference; omission remains unspecified in the model.
 - [x] `preserve_space`: boolean control for literal spaces, blank lines, and line
   ending normalization through nested inline bodies. Tabs remain text until output.
@@ -45,6 +48,9 @@ separate presentation verification and truthful warnings for degraded output.
   blank lines, mixed inline formatting, and line endings.
 
 ## Evidence
+
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [inline tests](../../tests/content.rs), and

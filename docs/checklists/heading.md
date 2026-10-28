@@ -37,14 +37,18 @@ style resolution and output remain separate.
 - [x] `numbering.separator`: separator between hierarchical numbering levels.
 - [x] `numbering.start`: positive starting number.
 - [x] `numbering.restart`: restart or continue the sequence.
+- [x] `numbering.label` and `numbering.prefix`: text metadata; no heading-label
+  generation is implied.
+- [x] `fill` and `outline_level`: normalize as on paragraphs.
+- [x] Markdown `marker = "#"`: retain source identity separately from level.
 - [x] `properties`: the shared attribute-object mechanism in the index.
 
 ## Dependencies and limits
 
 Style references, sequence intent, and pagination requests are defined in the
 formatting chapter. Effective styles and counters remain layout/output work.
-Numbering does not include figure-style `label` or `prefix` fields. An authored
-marker is not an arbitrary heading-number template.
+Numbering retains `label` and `prefix` as text metadata, without generating
+heading labels. An authored marker is not an arbitrary heading-number template.
 
 Presentation container text defaults belong to their future container checklist;
 an unrestricted nested `text` object is not a direct heading-formatting target.
@@ -60,6 +64,9 @@ verification, independently of the completed attribute contract.
   heading pagination and numbered sequences.
 
 ## Evidence
+
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [evaluation tests](../../tests/evaluation.rs),

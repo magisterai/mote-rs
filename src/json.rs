@@ -10,11 +10,20 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
         .iter()
         .map(content_as_json)
         .collect::<Result<Vec<_>, _>>()?;
-    serde_json::to_string_pretty(&json!({"content": content}))
+    let mut output = json!({"page":{}, "margin":{}, "columns":{}, "content": content});
+    if !document.content.is_empty() {
+        output["sections"] = json!([{
+            "section_properties":{}, "page_numbering":{}, "page":{},
+            "margin":{}, "columns":{}, "header_properties":{},
+            "footer_properties":{}, "content":output["content"],
+        }]);
+    }
+    serde_json::to_string_pretty(&output)
 }
 
 fn content_as_json(content: &Content) -> Result<JsonValue, serde_json::Error> {
     Ok(match content {
+        Content::Text(text) if text.is_empty() => json!({"kind":"text"}),
         Content::Text(text) => json!({"kind": "text", "text": text}),
         Content::Element(element) => {
             let children = element
@@ -25,8 +34,10 @@ fn content_as_json(content: &Content) -> Result<JsonValue, serde_json::Error> {
             let mut object = json!({
                 "kind": element.kind.as_text(),
                 "category": if element.kind.is_block() { "block" } else { "inline" },
-                "children": children,
             });
+            if !children.is_empty() {
+                object["children"] = JsonValue::Array(children);
+            }
             if !element.attributes.is_empty() {
                 object["attributes"] = properties_as_json(&element.attributes)?;
             }

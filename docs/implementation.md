@@ -51,12 +51,13 @@ content uses an explicit item body or a nested list container.
 Each Markdown quote line creates a separate quote block.
 
 The evaluator implements the attribute contracts in
-[Formatting attributes](specification/formatting-attributes.md) for all ten
-current directives: paragraph/heading geometry and pagination requests, borders,
+[Formatting attributes](specification/formatting-attributes.md): paragraph/heading geometry and pagination requests, borders,
 tab stops, heading numbering, inline font/style references, list layout and
-numbering metadata, item checkbox metadata, and quote formatting. Unsupported
-attributes and nested fields report diagnostics. The shared `properties` object
-merges before validation, with its entries taking precedence over outer arguments.
+numbering metadata, item checkbox metadata, and quote formatting. Extra attributes
+and nested fields are retained without implying formatting support. Declared
+outer argument types are checked before merging `properties`; its entries take
+precedence, then designated fields normalize. Border/tab contents, strong/emphasis
+attributes, and most quote geometry remain unvalidated authored metadata.
 
 `code(preserve_space = true)` preserves whitespace through nested inline bodies
 after removing syntactic indentation before directives and block markers, and
@@ -91,11 +92,16 @@ The tool writes the complete evaluated model to standard output. Errors go to
 standard error with a source name, line, and column, and return a nonzero exit
 status. It accepts one source file. `--help` describes the available options.
 
-JSON contains a root `content` array. Elements have `kind`, `category`, and
-`children`, plus `attributes` when present. Text nodes have `kind = "text"` and
-`text`. Objects retain named fields; lengths carry `value`, `unit`, and a readable
+JSON contains a root `content` array and empty `page`, `margin`, and `columns`
+objects until document configuration is implemented. Nonempty content also
+appears in one implicit `sections` entry, alongside empty section geometry,
+numbering, and header/footer property objects. Empty content omits `sections`.
+Elements have `kind` and `category`; empty `children` and `attributes` are omitted.
+Text nodes have `kind = "text"` and omit `text` only when empty. Adjacent fragments
+remain distinct, including helper results, escaped characters, and line breaks.
+Markdown headings retain `marker = "#"` alongside their numeric level. Objects retain named fields; lengths carry `value`, `unit`, and a readable
 `text` representation. Arrays retain order; typed colors serialize as normalized
-hexadecimal strings. This deterministic inspection format contains no layout
+hexadecimal strings. This deterministic inspection format contains no computed layout
 geometry and is not yet a stable interchange schema. JSON output does not enable
 the deferred `json(...)` data-loading helper.
 

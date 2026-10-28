@@ -84,8 +84,14 @@ fn literal_values_and_string_escapes() {
 fn content_escapes_do_not_become_directives_or_string_escapes() {
     let tree = parse(r"\#strong[text\] \n \\").unwrap();
     assert_eq!(
-        tree.nodes[0].kind,
-        NodeKind::Text("#strong[text] n \\".into())
+        tree.nodes
+            .iter()
+            .map(|node| match &node.kind {
+                NodeKind::Text(text) => text.as_str(),
+                _ => panic!("expected literal text"),
+            })
+            .collect::<String>(),
+        "#strong[text] n \\"
     );
 }
 

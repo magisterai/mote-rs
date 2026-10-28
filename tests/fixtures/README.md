@@ -6,7 +6,9 @@ one-based position of its Mote code block.
 
 The expected models record the documented content, structure, and attribute
 values. They are reviewable expectations, not automatically regenerated output.
-The Markdown and directive versions of the quarterly report share one model.
+Models retain text fragment boundaries and source markers; Markdown and directive
+forms can have the same visible meaning with different inspection metadata.
+The document envelope includes implicit section content and empty property groups.
 
 The conformance test reads the source directly from the chapters. Adding or
 removing an example requires updating its outcome here. Successful examples must

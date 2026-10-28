@@ -113,7 +113,7 @@ element:
 ## 4. Explicit line breaks
 
 A **line break** starts another line within the same paragraph or heading. It
-does not create a new paragraph. The `line_break` directive takes no arguments
+does not create a new paragraph. The `line_break` directive takes no positional arguments
 and no body; its empty parentheses make it a call:
 
 ```mote

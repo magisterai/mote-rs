@@ -88,7 +88,10 @@ fn evaluate_nodes(
             }),
             NodeKind::Heading { level, body } => Content::Element(Element {
                 kind: ElementKind::Heading,
-                attributes: Properties::from([("level".into(), Value::Number(*level as f64))]),
+                attributes: Properties::from([
+                    ("level".into(), Value::Number(*level as f64)),
+                    ("marker".into(), Value::String("#".into())),
+                ]),
                 children: evaluate_nodes(body, ContentMode::Inline, context)?,
             }),
             NodeKind::Strong(body) => Content::Element(Element {
@@ -169,7 +172,13 @@ fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
         }
         let list_kind = match &node {
             Content::Element(element) if element.kind == ElementKind::ListItem => {
-                let ordered = matches!(element.attributes.get("marker"), Some(Value::String(marker)) if marker.as_bytes().first().is_some_and(u8::is_ascii_digit));
+                let ordered = element
+                    .attributes
+                    .get("marker")
+                    .map(Value::to_text)
+                    .is_some_and(|marker| {
+                        marker.as_bytes().first().is_some_and(u8::is_ascii_digit)
+                    });
                 Some(if ordered {
                     ElementKind::OrderedList
                 } else {
@@ -204,15 +213,6 @@ fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
 }
 
 fn push_content(output: &mut Vec<Content>, content: Content) {
-    if let Content::Text(text) = &content {
-        if text.is_empty() {
-            return;
-        }
-        if let Some(Content::Text(previous)) = output.last_mut() {
-            previous.push_str(text);
-            return;
-        }
-    }
     output.push(content);
 }
 
@@ -247,15 +247,20 @@ fn evaluate_call(
         return evaluate_code(call, span, context);
     }
     if call.name == "line_break" {
-        if !call.arguments.is_empty() || !call.bodies.is_empty() {
+        if call
+            .arguments
+            .iter()
+            .any(|argument| argument.name.is_none())
+            || !call.bodies.is_empty()
+        {
             return Err(Diagnostic::new(
                 span,
-                "line_break accepts no arguments or content body",
+                "line_break accepts no positional arguments or content body",
             ));
         }
         return Ok(Content::Element(Element {
             kind: ElementKind::LineBreak,
-            attributes: Properties::new(),
+            attributes: evaluate_attributes(ElementKind::LineBreak, &call.arguments)?,
             children: Vec::new(),
         }));
     }

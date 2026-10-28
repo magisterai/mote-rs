@@ -15,6 +15,9 @@ Checked items cover evaluation, validation, and model storage as defined in
 [Formatting attributes](../specification/formatting-attributes.md). Effective
 style resolution and output remain separate.
 
+All attributes retain their authored values without normalization or field-type
+checks. The names below describe formatting conventions, not extra validation.
+
 - [x] `style`: named character style.
 - [x] `font`: font name or declared font alias.
 - [x] `size`: text size.
@@ -25,8 +28,8 @@ style resolution and output remain separate.
 
 These direct attributes target native and presentation text formatting. DOCX
 italic content uses inherited run formatting; direct attributes on `emphasis`
-are not part of its mapping in this scope. Composition through styled spans
-belongs to the future span directive.
+are not part of its mapping in this scope. Composition through styled spans belongs
+to the future span directive.
 
 Style and font references are recorded without resolving their declarations.
 
@@ -37,6 +40,9 @@ Style and font references are recorded without resolving their declarations.
 - [ ] Verify editable Office text and independently painted native PDF/PNG text.
 
 ## Evidence
+
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [inline tests](../../tests/content.rs), and

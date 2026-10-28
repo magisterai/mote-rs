@@ -45,15 +45,21 @@ for tab stops; it does not introduce scripting or data-loading syntax.
 
 ## 2. Attribute objects and precedence
 
-Every directive in this chapter except `line_break` accepts `properties`, a
+Every directive in this chapter accepts `properties`, a
 nonempty property object. Its fields become ordinary attributes of the receiving
 element, and `properties` itself is not retained. A field in this object overrides
-a same-named outer argument regardless of argument order. Validate the resulting
-attributes after this merge. Repeated names within an object or argument list use
+a same-named outer argument regardless of argument order. Declared outer argument
+types are checked first; designated attributes normalize after merging. Thus an
+outer alignment string can be replaced before checking its spelling, but an
+outer numeric alignment is invalid even if overridden. Repeated names within an object or argument list use
 the last supplied value; all expressions are still evaluated.
 
-An unknown attribute or nested property is an error, including when supplied
-through `properties`. This object is not an arbitrary output-format escape hatch.
+Extra attributes and nested fields are retained. Retention does not implement
+their formatting or establish an output mapping. Normalization applies only to
+the fields identified below; spacing and indent maps normalize every entry as
+a length, with the special line-spacing rules below. A nested `properties` key
+is discarded during flattening. `line_break` retains named attributes without
+normalization and still accepts no positional arguments or body.
 A positional heading level takes precedence over a `properties.level` field
 before value validation;
 direct positional and named `level` arguments still cannot be combined.
@@ -77,7 +83,9 @@ This example names a style reference; it does not declare or resolve a style.
 | `size` | Non-negative text size, using a length value or unitless number/string. |
 | `color` | Hexadecimal string or typed color. |
 
-Values are validated and retained in their authored form. In particular, a
+These are formatting conventions, not additional evaluator type restrictions.
+`strong` and `emphasis` retain all attribute values unchanged; `code` checks
+outer `style` and `language` strings and normalizes `preserve_space`. In particular, a
 quoted `size` remains a string and a quoted color retains its spelling; the
 typed `color` helper performs normalization explicitly. Formatting attributes
 remain on the authored element. Evaluation does not copy them into nested nodes.
@@ -105,7 +113,8 @@ them into one value. Within a later effective property lookup, nested spacing
 takes precedence over its flat counterpart, with `before`, `after`, and `line`
 preferred over the corresponding aliases inside `spacing`.
 
-`spacing.line` can be a length or an object containing exactly `rule` and `value`:
+`spacing.line` can be a length or an object requiring `rule` and `value`;
+additional fields are retained:
 
 | Rule | Value | Requested behaviour |
 | --- | --- | --- |
@@ -132,8 +141,8 @@ Both directives record four optional pagination booleans:
 | `page_break_before` | Begin the block on a new page. |
 | `widow_control` | Avoid isolated first or last paragraph lines across pages. |
 
-These requests do not calculate breaks during evaluation. Paragraphs additionally
-accept `outline_level`, a non-negative integer, and `fill`, a shading color
+These requests do not calculate breaks during evaluation. Both also normalize
+`outline_level`, a non-negative integer, and `fill`, a shading color
 normalized to a typed color. Heading hierarchy uses its existing `level` attribute.
 
 ```mote
@@ -160,17 +169,20 @@ Each side is a border-style string or a property object with these fields:
 
 `all` supplies sides that are not authored individually. `single` requests a
 single stroke; `none` or `nil` as strings requests no visible border. Evaluation
-validates the object shape and value types but retains the authored side objects,
-aliases, and values. Output support for individual border-style spellings must be
+checks that an outer `border` argument is an object, then retains its contents
+without validating individual sides or values. A border supplied through
+`properties` is retained without that outer type check. Output support for individual border-style spellings must be
 verified separately; a stored string is not a conformance claim.
 
 `tabs` accepts one tab-stop object, an array of such objects, or `{}` for an empty
-array. A tab stop requires a position length: `position` or its alias `pos`.
+array. For formatting, a tab stop uses a position length: `position` or its alias `pos`.
 `alignment` or `align` is an optional string; `leader` is an optional string for
 the repeated fill character. The usual alignment values are `left`, `center`,
 `right`, and `decimal`; `dot` requests a dotted leader. A single-entry object
 such as `{ right = pt(72) }` is alignment/position shorthand. Stops retain their
 order and authored fields; no sorting, merging, or tab insertion occurs.
+Evaluation checks only the outer collection type, not stop fields or positions.
+A `tabs` value supplied through `properties` is retained as supplied.
 
 ```mote
 #paragraph(
@@ -186,9 +198,11 @@ is a position setting; this example does not insert a tab character.
 
 A heading's `numbering` object accepts `enabled` and `restart` booleans, an `id`
 for sequence identity, a `separator` string, a positive integer `start`, and
-`format`. Identifiers and separators also accept numbers, converted to strings.
+`format`. Identifiers and separators convert any supplied value to its text
+representation. `label` and `prefix` are also retained as text metadata; they
+do not create heading labels during evaluation.
 The formats are `decimal`, `lower_alpha`, `upper_alpha`, `lower_roman`, and
-`upper_roman`. There are no figure-label or prefix fields on heading numbering.
+`upper_roman`. Extra fields remain unchanged.
 
 `enabled` requests numbering, `start` supplies an initial counter, `restart`
 requests a fresh sequence, and `id` identifies shared sequence intent. The
@@ -226,7 +240,8 @@ has an authored boolean `checked`: true means checked, false means unchecked,
 and omission means no explicit task state.
 
 `checkbox` carries a boolean `checked`, a `kind` of `content_control` or
-`legacy_form_field`, and `name`/`title` strings or numbers converted to strings.
+`legacy_form_field`, and `name`/`title` values converted to text. Extra fields
+remain unchanged.
 The item's `checked` controls its marker; a conflicting nested value remains
 metadata and does not win. Nested state alone does not create a task item.
 `title` is content-control metadata, without a legacy-form-field mapping.
@@ -273,8 +288,9 @@ preservation and any degraded presentation output need separate verification.
 ## 9. Quoted-block attributes
 
 `blockquote` accepts `style`, `border`, `fill`, `alignment`, `spacing`, `indent`,
-the flat spacing aliases, and `properties`. The shapes and value constraints are
-the paragraph forms above. `fill` normalizes to a typed color. Other geometry
+the flat spacing aliases, and `properties`. The intended formatting shapes are
+the paragraph forms above. Only outer `style`, `border`, and `fill` types are
+checked; `fill` normalizes to a typed color after merging. Other geometry
 values remain in their authored form, including quoted lengths and line-spacing
 values. The model does not distribute them into the quote's child paragraphs.
 
@@ -302,20 +318,20 @@ A line-height multiple must be positive:
 #paragraph(spacing = { line = { rule = "multiple", value = 0 } })[Text]
 ```
 
-A tab-stop position cannot be negative:
+An indentation length cannot be negative:
 
 ```mote
-#paragraph(tabs = { { position = pt(-1) } })[Text]
+#paragraph(indent = { left = pt(-1) })[Text]
 ```
 
-A color must be hexadecimal:
+A normalized paragraph fill must be hexadecimal:
 
 ```mote
-#strong(color = "red")[Text]
+#paragraph(fill = "red")[Text]
 ```
 
-Unsupported attributes remain errors rather than successful formatting:
+The outer style argument on a paragraph requires a string:
 
 ```mote
-#strong(kerning = pt(1))[Text]
+#paragraph(style = 1)[Text]
 ```

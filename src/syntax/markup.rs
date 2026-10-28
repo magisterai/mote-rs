@@ -213,7 +213,10 @@ impl Parser<'_> {
                         }
                         Some(value) => {
                             self.advance_character();
-                            push_text(&mut nodes, value, self.span(start));
+                            nodes.push(Node {
+                                kind: NodeKind::Text(value.to_string()),
+                                span: self.span(start),
+                            });
                         }
                         None => push_text(&mut nodes, '\\', self.span(start)),
                     }
@@ -363,6 +366,8 @@ fn push_text(nodes: &mut Vec<Node>, character: char, span: Span) {
         kind: NodeKind::Text(text),
         span: previous,
     }) = nodes.last_mut()
+        && previous.end == span.start
+        && previous.end - previous.start == text.len()
     {
         text.push(character);
         previous.end = span.end;

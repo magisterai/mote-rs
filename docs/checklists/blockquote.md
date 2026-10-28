@@ -14,6 +14,9 @@ Checked items cover evaluation, validation, and model storage as defined in
 [Formatting attributes](../specification/formatting-attributes.md). Effective
 style resolution and output remain separate.
 
+Only outer `style`, `border`, and `fill` types are checked. After property
+merging, `fill` normalizes; other geometry remains unvalidated metadata.
+
 - [x] `style`: paragraph-style reference, preserving omission without inserting a default.
 - [x] `border`: `top`, `right`, `bottom`, `left`, and `all`; side values as on
   [paragraphs](paragraph.md).
@@ -47,6 +50,9 @@ checklists; they are not extra direct quote-formatting controls in this scope.
   lists, nesting, and quote formatting.
 
 ## Evidence
+
+[Property-contract tests](../../tests/property_contracts.rs) cover retention,
+signature checks, normalization, and property overrides.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [quote tests](../../tests/content.rs), and
