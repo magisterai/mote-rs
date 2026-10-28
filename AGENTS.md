@@ -2,6 +2,30 @@
 
 Read [README.md](README.md) for the project goal.
 
+## Code naming
+
+Use complete, descriptive names for functions, methods, variables, parameters,
+fields, and types, including in tests. Avoid abbreviated or single-letter names
+such as `ch`, `expr`, `attrs`, `buf`, and `n`; prefer `character`, `expression`,
+`attributes`, `buffer`, and `number`. Method names should make their action clear.
+
+Keep established technical terms such as JSON, XML, PDF, and UTF-8, and names
+required by Rust traits or external APIs, such as `fmt`. Do not invent awkward
+expansions of standard terminology or rename externally defined interfaces.
+
+## Crate organization
+
+Create substantial, logically grouped crates around cohesive responsibilities
+and meaningful dependency boundaries. Do not create tiny, single-file crates
+for individual types, helpers, or modules. Use modules within a crate to organize
+related code; extract a crate when its responsibility and interface justify an
+independent boundary. Neither file count nor an arbitrary size target is a reason
+to split or combine responsibilities.
+
+The initial source-language parser, evaluator, document model, and JSON inspection
+belong together in the current crate. Reconsider boundaries as substantial
+capabilities develop rather than pre-creating a collection of small crates.
+
 ## Specification
 
 Start with [docs/specification/README.md](docs/specification/README.md) for Mote's
