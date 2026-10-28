@@ -22,7 +22,7 @@ endings at the edges of an implicit paragraph are discarded.
 An explicit body preserves its surrounding spaces and indentation. A blank line
 inside that body contributes two line-feed characters to its text; it does not
 create a nested paragraph. Use separate paragraph directives for separate
-paragraph blocks. Hard line-break syntax is outside this chapter.
+paragraph blocks. [Inline text](inline-text.md) defines hard line-break syntax.
 
 An **omitted attribute** is unspecified: no explicit value for that property is
 added to the element. In particular, omitted spacing is distinct from an
@@ -238,3 +238,5 @@ The boolean `true` is not a numeric magnitude:
 
 Each failure must report a diagnostic. Exact wording and internal model
 serialization are separate from these language rules.
+
+Continue with [Inline text](inline-text.md) for emphasis, code, and line breaks.

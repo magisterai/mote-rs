@@ -14,6 +14,8 @@ Status: initial draft.
    literals, property objects, helper expressions, escapes, and errors.
 3. [Basic content](basic-content.md): paragraphs, headings, strong text, body
    rules, omitted attributes, length helpers, alignment, spacing, and invalid uses.
+4. [Inline text](inline-text.md): emphasis, literal and evaluated code content,
+   nesting, whitespace, and explicit line breaks.
 
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful

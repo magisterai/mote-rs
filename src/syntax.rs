@@ -2,6 +2,8 @@
 
 use std::fmt;
 
+mod markup;
+
 /// A half-open UTF-8 byte range in the source passed to the parser.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Span {
@@ -80,6 +82,8 @@ pub enum NodeKind {
     ParagraphBreak,
     Heading { level: usize, body: Vec<Node> },
     Strong(Vec<Node>),
+    Emphasis(Vec<Node>),
+    Code(String),
     Call(Call),
     Reference(String),
 }
@@ -147,7 +151,7 @@ pub fn parse_expression(source: &str) -> Result<Expression, Diagnostic> {
 enum End {
     Source,
     Body,
-    Strong,
+    Delimited(&'static str),
     Line,
 }
 
@@ -221,9 +225,12 @@ impl Parser<'_> {
                 self.advance_character();
                 break;
             }
-            if end == End::Strong && self.starts_with("**") {
-                self.position += 2;
-                break;
+            match end {
+                End::Delimited(marker) if self.starts_with(marker) => {
+                    self.position += marker.len();
+                    break;
+                }
+                _ => {}
             }
             if end == End::Line && matches!(self.peek_character(), None | Some('\r' | '\n' | ']')) {
                 break;
@@ -232,8 +239,10 @@ impl Parser<'_> {
                 if end == End::Body {
                     return Err(self.error("missing closing ']' for content body"));
                 }
-                if end == End::Strong {
-                    return Err(self.error("missing closing '**' for strong content"));
+                if let End::Delimited(marker) = end {
+                    return Err(
+                        self.error(format!("missing closing '{marker}' for inline content"))
+                    );
                 }
                 break;
             };
@@ -321,15 +330,41 @@ impl Parser<'_> {
                 }
                 '*' if self.starts_with("**") => {
                     self.position += 2;
-                    let body = self.parse_markup(End::Strong)?;
+                    let body = self.parse_markup(End::Delimited("**"))?;
                     nodes.push(Node {
                         kind: NodeKind::Strong(body),
                         span: self.span(start),
                     });
                 }
-                '*' | '_' | '`' => return Err(self.error(
-                    "this inline Markdown form is not supported yet; escape literal punctuation",
-                )),
+                '_' if self.starts_with("__") => {
+                    self.position += 2;
+                    let body = self.parse_markup(End::Delimited("__"))?;
+                    nodes.push(Node {
+                        kind: NodeKind::Strong(body),
+                        span: self.span(start),
+                    });
+                }
+                '*' | '_' => {
+                    self.advance_character();
+                    let marker = if character == '*' { "*" } else { "_" };
+                    let body = self.parse_markup(End::Delimited(marker))?;
+                    nodes.push(Node {
+                        kind: if character == '*' {
+                            NodeKind::Strong(body)
+                        } else {
+                            NodeKind::Emphasis(body)
+                        },
+                        span: self.span(start),
+                    });
+                }
+                '`' => {
+                    if let Some(node) = self.parse_code_span() {
+                        nodes.push(node);
+                    } else {
+                        self.advance_character();
+                        push_text(&mut nodes, character, self.span(start));
+                    }
+                }
                 '\\' => {
                     self.advance_character();
                     match self.peek_character() {
@@ -350,8 +385,10 @@ impl Parser<'_> {
                         None => push_text(&mut nodes, '\\', self.span(start)),
                     }
                 }
-                ']' if end == End::Strong => {
-                    return Err(self.error("missing closing '**' before content body ends"));
+                ']' if matches!(end, End::Delimited(_)) => {
+                    return Err(
+                        self.error("missing closing inline delimiter before content body ends")
+                    );
                 }
                 _ => {
                     self.advance_character();

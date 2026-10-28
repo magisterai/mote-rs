@@ -33,6 +33,16 @@ fn evaluate_nodes(nodes: &[Node], inline: bool) -> Result<Vec<Content>, Diagnost
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, true)?,
             }),
+            NodeKind::Emphasis(body) => Content::Element(Element {
+                kind: ElementKind::Emphasis,
+                attributes: Properties::new(),
+                children: evaluate_nodes(body, true)?,
+            }),
+            NodeKind::Code(text) => Content::Element(Element {
+                kind: ElementKind::Code,
+                attributes: Properties::new(),
+                children: vec![Content::Text(text.clone())],
+            }),
             NodeKind::Call(call) => evaluate_call(call, node.span)?,
             NodeKind::Reference(name) => {
                 return Err(Diagnostic::new(
@@ -52,7 +62,7 @@ fn evaluate_nodes(nodes: &[Node], inline: bool) -> Result<Vec<Content>, Diagnost
             result.push(content);
             continue;
         }
-        push_content(if inline { &mut result } else { &mut paragraph }, content);
+        push_content(if !inline { &mut paragraph } else { &mut result }, content);
     }
     if !inline {
         flush_paragraph(&mut paragraph, &mut result);
@@ -96,10 +106,27 @@ fn flush_paragraph(buffer: &mut Vec<Content>, result: &mut Vec<Content>) {
 }
 
 fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
+    if call.name == "code" {
+        return evaluate_code(call, span);
+    }
+    if call.name == "line_break" {
+        if !call.arguments.is_empty() || !call.bodies.is_empty() {
+            return Err(Diagnostic::new(
+                span,
+                "line_break accepts no arguments or content body",
+            ));
+        }
+        return Ok(Content::Element(Element {
+            kind: ElementKind::LineBreak,
+            attributes: Properties::new(),
+            children: Vec::new(),
+        }));
+    }
     let kind = match call.name.as_str() {
         "paragraph" => ElementKind::Paragraph,
         "heading" => ElementKind::Heading,
         "strong" => ElementKind::Strong,
+        "emphasis" => ElementKind::Emphasis,
         _ => {
             if !call.bodies.is_empty() {
                 return Err(Diagnostic::new(
@@ -172,16 +199,59 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
     }))
 }
 
+fn evaluate_code(call: &Call, span: Span) -> Result<Content, Diagnostic> {
+    if call.bodies.len() > 1 {
+        return Err(Diagnostic::new(
+            span,
+            "code accepts at most one content body",
+        ));
+    }
+    if call.arguments.len() > 1
+        || call
+            .arguments
+            .first()
+            .is_some_and(|argument| argument.name.is_some())
+    {
+        return Err(Diagnostic::new(
+            span,
+            "code accepts at most one positional argument in this subset",
+        ));
+    }
+    let mut children = if let Some(body) = call.bodies.first() {
+        evaluate_nodes(body, true)?
+    } else {
+        Vec::new()
+    };
+    if let Some(argument) = call.arguments.first() {
+        let value = evaluate_expression(&argument.value)?;
+        if !matches!(
+            value,
+            Value::String(_) | Value::Number(_) | Value::Boolean(_)
+        ) {
+            return Err(Diagnostic::new(
+                argument.value.span,
+                "code text must be a string, number, or boolean",
+            ));
+        }
+        children = vec![Content::Text(value_as_text(&value, argument.value.span)?)];
+    }
+    Ok(Content::Element(Element {
+        kind: ElementKind::Code,
+        attributes: Properties::new(),
+        children,
+    }))
+}
+
 fn normalize_attribute(
     kind: ElementKind,
     name: &str,
     value: Value,
     span: Span,
 ) -> Result<Value, Diagnostic> {
-    if kind == ElementKind::Strong {
+    if matches!(kind, ElementKind::Strong | ElementKind::Emphasis) {
         return Err(Diagnostic::new(
             span,
-            "strong attributes are not supported yet",
+            format!("{} attributes are not supported yet", kind.as_text()),
         ));
     }
     match name {

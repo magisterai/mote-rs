@@ -117,6 +117,70 @@
       "example": "basic-content/17",
       "invalid": "A boolean is not a numeric length magnitude.",
       "diagnostic": "length magnitude must be a finite number"
+    },
+    {
+      "example": "inline-text/1",
+      "model": "emphasized-word"
+    },
+    {
+      "example": "inline-text/2",
+      "model": "emphasized-word"
+    },
+    {
+      "example": "inline-text/3",
+      "model": "strong-emphasis"
+    },
+    {
+      "example": "inline-text/4",
+      "model": "literal-code"
+    },
+    {
+      "example": "inline-text/5",
+      "model": "literal-code"
+    },
+    {
+      "example": "inline-text/6",
+      "model": "backtick-in-code"
+    },
+    {
+      "example": "inline-text/7",
+      "model": "code-padding"
+    },
+    {
+      "example": "inline-text/8",
+      "model": "code-with-strong"
+    },
+    {
+      "example": "inline-text/9",
+      "model": "empty-code"
+    },
+    {
+      "example": "inline-text/10",
+      "model": "explicit-line-break"
+    },
+    {
+      "example": "inline-text/11",
+      "model": "markdown-hard-break"
+    },
+    {
+      "example": "inline-text/12",
+      "invalid": "Emphasis requires one inline body.",
+      "diagnostic": "requires one content body"
+    },
+    {
+      "example": "inline-text/13",
+      "invalid": "A code body accepts only inline content.",
+      "diagnostic": "inline content cannot contain a block element"
+    },
+    {
+      "example": "inline-text/14",
+      "invalid": "Code text cannot be nil.",
+      "diagnostic": "code text must be a string, number, or boolean"
+    },
+    {
+      "example": "inline-text/15",
+      "invalid": "A line break takes no content body.",
+      "diagnostic": "line_break accepts no arguments or content body"
     }
   ],
   "models": {
@@ -402,6 +466,238 @@
             {
               "kind": "text",
               "text": "Lengths: 12pt, 1in, 2.54cm, 25.4mm, 20twip."
+            }
+          ]
+        }
+      ]
+    },
+    "emphasized-word": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Read "
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "this"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " carefully."
+            }
+          ]
+        }
+      ]
+    },
+    "strong-emphasis": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Both"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "literal-code": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Write "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "#strong[text]"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " literally."
+            }
+          ]
+        }
+      ]
+    },
+    "backtick-in-code": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Code: "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "a ` b"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    "code-padding": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Code: "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": " padded "
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    "code-with-strong": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Code: "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "name"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    "empty-code": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": []
+            },
+            {
+              "kind": "text",
+              "text": " after."
+            }
+          ]
+        }
+      ]
+    },
+    "explicit-line-break": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First line"
+            },
+            {
+              "kind": "line_break",
+              "category": "inline",
+              "children": []
+            },
+            {
+              "kind": "text",
+              "text": "Second line"
+            }
+          ]
+        }
+      ]
+    },
+    "markdown-hard-break": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First line\nSecond line"
             }
           ]
         }

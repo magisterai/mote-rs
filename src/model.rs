@@ -69,6 +69,9 @@ pub enum ElementKind {
     Paragraph,
     Heading,
     Strong,
+    Emphasis,
+    Code,
+    LineBreak,
 }
 
 impl ElementKind {
@@ -77,10 +80,16 @@ impl ElementKind {
             Self::Paragraph => "paragraph",
             Self::Heading => "heading",
             Self::Strong => "strong",
+            Self::Emphasis => "emphasis",
+            Self::Code => "code",
+            Self::LineBreak => "line_break",
         }
     }
 
     pub fn is_block(self) -> bool {
-        self != Self::Strong
+        !matches!(
+            self,
+            Self::Strong | Self::Emphasis | Self::Code | Self::LineBreak
+        )
     }
 }

@@ -7,25 +7,30 @@ what this crate currently implements.
 ## Parser
 
 `mote::syntax::parse` returns a syntax tree with UTF-8 byte ranges or a diagnostic.
-It handles text, hash headings, `**strong**`, content escapes, paragraph breaks,
-directive calls with nested bodies, and core argument expressions. Expressions
-include strings, finite decimal numbers, booleans, `nil`, nonempty property
+It handles text, hash headings, strong and emphasis spans, literal backtick code,
+content escapes, paragraph and hard line breaks, directive calls with nested
+bodies, and core argument
+expressions. Expressions include strings, finite decimal numbers, booleans, `nil`, nonempty property
 objects, paths, and helper calls. Names currently use ASCII identifiers.
 
 Calls and paths are parsed without checking whether they are defined. Syntax
 success alone does not mean that a document can be evaluated or rendered.
 
-The parser is deliberately incomplete: additional Markdown forms, collections,
-control flow, and Lua are deferred. Unsupported recognized Markdown forms return
-diagnostics; this is not a general Markdown parser. Recursive nesting is limited
+The parser is deliberately incomplete: task lists, fenced code blocks, additional
+Markdown forms, collections, control flow, and Lua are deferred. Unsupported
+recognized Markdown forms return diagnostics; this is not a general Markdown
+parser. Recursive nesting is limited
 to protect the parser from excessive input depth.
 
 ## Evaluation
 
 `mote::compile` parses and evaluates a source string into a document model.
-Markdown headings and strong spans share semantics with `heading` and `strong`
+Markdown headings, strong spans, and emphasis share semantics with their
 directives. Bare inline content becomes paragraphs. Explicit `paragraph`,
-`heading`, and `strong` bodies accept inline content and reject nested blocks.
+`heading`, `strong`, and `emphasis` bodies accept inline content and reject nested
+blocks. Code supports literal scalar arguments and evaluated inline bodies;
+backtick spans retain literal text. Explicit `line_break` calls retain an inline
+element, while Markdown hard breaks are line feeds in text.
 
 The initial evaluator supports heading levels, paragraph alignment, the
 `keep_with_next`, `keep_together`, `page_break_before`, and `widow_control`
