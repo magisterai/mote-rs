@@ -38,6 +38,27 @@ Document configuration, bindings, JSON loading, styles, defaults, Lua, layout,
 and Office/PDF/PNG output remain deferred. The model records formatting intent;
 it does not demonstrate rendered behaviour or Office conformance.
 
+## JSON inspection
+
+Run the command-line tool with a source file, or omit the file to read standard
+input:
+
+```sh
+cargo run -- --format json report.mote
+printf '%s\n' '#heading(1)[Report]' | cargo run -- --format json -
+```
+
+The tool writes the complete evaluated model to standard output. Errors go to
+standard error with a source name, line, and column, and return a nonzero exit
+status. It accepts one source file. `--help` describes the available options.
+
+JSON contains a root `content` array. Elements have `kind`, `category`, and
+`children`, plus `attributes` when present. Text nodes have `kind = "text"` and
+`text`. Objects retain named fields; lengths carry `value`, `unit`, and a readable
+`text` representation. This deterministic inspection format contains no layout
+geometry and is not yet a stable interchange schema. JSON output does not enable
+the deferred `json(...)` data-loading helper.
+
 ## Development
 
 Use a Rust toolchain supporting edition 2024:

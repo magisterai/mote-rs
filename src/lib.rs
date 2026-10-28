@@ -1,6 +1,7 @@
 //! Mote's source language core. See `docs/implementation.md` for coverage.
 
 pub mod evaluation;
+pub mod json;
 pub mod model;
 pub mod syntax;
 
