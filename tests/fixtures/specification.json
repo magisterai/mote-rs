@@ -241,6 +241,36 @@
       "example": "lists/14",
       "invalid": "A list block cannot be placed inside a paragraph body.",
       "diagnostic": "inline content cannot contain a block element"
+    },
+    {
+      "example": "block-quotes/1",
+      "model": "emphasized-quote"
+    },
+    {
+      "example": "block-quotes/2",
+      "model": "quote-paragraphs"
+    },
+    {
+      "example": "block-quotes/3",
+      "model": "emphasized-quote"
+    },
+    {
+      "example": "block-quotes/4",
+      "model": "separate-quotes"
+    },
+    {
+      "example": "block-quotes/5",
+      "model": "quote-with-list"
+    },
+    {
+      "example": "block-quotes/6",
+      "invalid": "A block quote requires one body.",
+      "diagnostic": "requires one content body"
+    },
+    {
+      "example": "block-quotes/7",
+      "invalid": "A quote block cannot be placed inside a paragraph body.",
+      "diagnostic": "inline content cannot contain a block element"
     }
   ],
   "models": {
@@ -1179,6 +1209,164 @@
               "kind": "list_item",
               "category": "block",
               "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "emphasized-quote": {
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Read "
+                },
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "carefully"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "quote-paragraphs": {
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second paragraph."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "separate-quotes": {
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First quote."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second quote."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "quote-with-list": {
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Review these points."
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Check the totals."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Read the summary."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

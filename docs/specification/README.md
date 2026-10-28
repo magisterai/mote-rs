@@ -18,6 +18,8 @@ Status: initial draft.
    nesting, whitespace, and explicit line breaks.
 5. [Lists](lists.md): list and item bodies, ordered lists, markers, continuation,
    nesting, and Markdown forms.
+6. [Block quotes](block-quotes.md): quoted block content, Markdown quote lines,
+   and lists within quotes.
 
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful

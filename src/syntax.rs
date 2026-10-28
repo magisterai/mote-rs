@@ -85,6 +85,7 @@ pub enum NodeKind {
     Emphasis(Vec<Node>),
     Code(String),
     ListItem { marker: String, body: Vec<Node> },
+    Blockquote(Vec<Node>),
     Call(Call),
     Reference(String),
 }
@@ -285,8 +286,12 @@ impl Parser<'_> {
                     nodes.push(node);
                     continue;
                 }
+                if let Some(node) = self.parse_blockquote()? {
+                    nodes.push(node);
+                    continue;
+                }
                 // These block forms need their own syntax and semantics.
-                if [">", "```", "~~~", "---"]
+                if ["```", "~~~", "---"]
                     .iter()
                     .any(|marker| self.starts_with(marker))
                 {

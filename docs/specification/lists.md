@@ -208,3 +208,6 @@ An inline paragraph body cannot contain a list block:
 ```mote
 #paragraph[#list[#item[Text]]]
 ```
+
+Continue with [Block quotes](block-quotes.md) for a container whose body follows
+ordinary block-content rules.

@@ -219,6 +219,25 @@ fn markdown_items_can_fill_an_explicit_list_without_an_extra_container() {
 }
 
 #[test]
+fn blockquotes_have_block_bodies_and_markdown_quote_lines_remain_separate() {
+    assert_eq!(
+        compile("> Read _this_.").unwrap(),
+        compile("#blockquote[Read #emphasis[this].]").unwrap()
+    );
+    assert_eq!(
+        compile("> One\n> Two").unwrap(),
+        compile("#blockquote[One]#blockquote[Two]").unwrap()
+    );
+    let model = content_model("#blockquote[First\n\nSecond\n#list[#item[Third]]]");
+    assert_eq!(model["content"][0]["children"].as_array().unwrap().len(), 3);
+    assert_eq!(model["content"][0]["children"][2]["kind"], "list");
+    assert_eq!(
+        content_model("#blockquote[]")["content"][0]["children"],
+        json!([])
+    );
+}
+
+#[test]
 fn new_content_contracts_reject_invalid_arguments_and_children() {
     for (source, expected_message) in [
         ("#emphasis()", "requires one content body"),
@@ -249,6 +268,11 @@ fn new_content_contracts_reject_invalid_arguments_and_children() {
             "#paragraph[#list[#item[Text]]]",
             "inline content cannot contain",
         ),
+        ("#blockquote()", "requires one content body"),
+        (
+            "#paragraph[#blockquote[Text]]",
+            "inline content cannot contain",
+        ),
     ] {
         let error = compile(source).expect_err(source);
         assert!(
@@ -267,7 +291,11 @@ fn nested_markup_retains_unicode_source_ranges_and_bounded_recursion() {
     };
     let nested = &body[2];
     assert_eq!(&source[nested.span.start..nested.span.end], "- _汉字_");
-    for source in [source, "#paragraph[``résumé ` text`` _ready_]"] {
+    for source in [
+        source,
+        "#paragraph[``résumé ` text`` _ready_]",
+        "> #emphasis[Quoted]",
+    ] {
         for end in source.char_indices().map(|(position, _)| position) {
             let _ = parse(&source[..end]);
         }

@@ -27,6 +27,20 @@ impl Parser<'_> {
         })
     }
 
+    pub(super) fn parse_blockquote(&mut self) -> Result<Option<Node>, Diagnostic> {
+        if self.peek_character() != Some('>') {
+            return Ok(None);
+        }
+        let start = self.position;
+        self.advance_character();
+        self.skip_horizontal_whitespace();
+        let body = self.parse_markup(End::Line)?;
+        Ok(Some(Node {
+            kind: NodeKind::Blockquote(body),
+            span: self.span(start),
+        }))
+    }
+
     pub(super) fn parse_list_item(&mut self) -> Result<Option<Node>, Diagnostic> {
         let start = self.position;
         let marker_column = self.source_column(start);

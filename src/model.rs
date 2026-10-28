@@ -75,6 +75,7 @@ pub enum ElementKind {
     List,
     OrderedList,
     ListItem,
+    Blockquote,
 }
 
 impl ElementKind {
@@ -89,6 +90,7 @@ impl ElementKind {
             Self::List => "list",
             Self::OrderedList => "ordered_list",
             Self::ListItem => "list_item",
+            Self::Blockquote => "blockquote",
         }
     }
 

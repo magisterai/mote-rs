@@ -30,7 +30,8 @@ argument list when both are present:
 At the start of a line, hashes followed by a space or tab introduce a Markdown
 heading. Thus `# Quarterly report` is a level-one heading, while `#heading(...)`
 is a directive call. `**text**` marks strong inline content. Later chapters define
-[additional inline forms](inline-text.md) and [lists](lists.md).
+[additional inline forms](inline-text.md), [lists](lists.md), and
+[block quotes](block-quotes.md).
 
 ## 2. Calls and arguments
 

@@ -56,6 +56,11 @@ fn evaluate_nodes(nodes: &[Node], mode: ContentMode) -> Result<Vec<Content>, Dia
                 attributes: Properties::from([("marker".into(), Value::String(marker.clone()))]),
                 children: evaluate_nodes(body, ContentMode::MarkdownItem)?,
             }),
+            NodeKind::Blockquote(body) => Content::Element(Element {
+                kind: ElementKind::Blockquote,
+                attributes: Properties::new(),
+                children: evaluate_nodes(body, ContentMode::Block)?,
+            }),
             NodeKind::Call(call) => evaluate_call(call, node.span)?,
             NodeKind::Reference(name) => {
                 return Err(Diagnostic::new(
@@ -203,6 +208,7 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
         "list" => ElementKind::List,
         "ordered_list" => ElementKind::OrderedList,
         "item" => ElementKind::ListItem,
+        "blockquote" => ElementKind::Blockquote,
         _ => {
             if !call.bodies.is_empty() {
                 return Err(Diagnostic::new(
@@ -270,7 +276,7 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
     }
     let body_mode = match kind {
         ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
-        ElementKind::ListItem => ContentMode::Block,
+        ElementKind::ListItem | ElementKind::Blockquote => ContentMode::Block,
         _ => ContentMode::Inline,
     };
     let mut children = evaluate_nodes(&call.bodies[0], body_mode)?;
@@ -344,7 +350,10 @@ fn normalize_attribute(
     value: Value,
     span: Span,
 ) -> Result<Value, Diagnostic> {
-    if matches!(kind, ElementKind::Strong | ElementKind::Emphasis) {
+    if matches!(
+        kind,
+        ElementKind::Strong | ElementKind::Emphasis | ElementKind::Blockquote
+    ) {
         return Err(Diagnostic::new(
             span,
             format!("{} attributes are not supported yet", kind.as_text()),
