@@ -1,4 +1,8 @@
-use mote::{compile, json::to_json};
+use mote::{
+    compile,
+    json::to_json,
+    syntax::{NodeKind, parse},
+};
 use serde_json::{Value, json};
 
 fn content_model(source: &str) -> Value {
@@ -119,6 +123,102 @@ fn hard_breaks_stay_within_paragraphs_and_explicit_breaks_keep_their_element() {
 }
 
 #[test]
+fn explicit_lists_require_items_and_items_normalize_paragraphs() {
+    let model = content_model(
+        "#ordered_list(start=\"3\")[\n #item[First]\n #item[Second\n\nAnother paragraph.]\n]",
+    );
+    let list = &model["content"][0];
+    assert_eq!(list["kind"], "ordered_list");
+    assert_eq!(list["attributes"], json!({"start":3.0}));
+    assert_eq!(list["children"].as_array().unwrap().len(), 2);
+    assert_eq!(list["children"][0]["children"][0]["kind"], "paragraph");
+    assert_eq!(list["children"][1]["children"].as_array().unwrap().len(), 2);
+    assert_eq!(
+        content_model("#list[]")["content"][0]["children"],
+        json!([])
+    );
+    assert_eq!(
+        content_model("#list[#item[]]")["content"][0]["children"][0]["children"],
+        json!([])
+    );
+}
+
+#[test]
+fn standalone_items_group_by_kind_and_paragraphs_end_a_group() {
+    let model = content_model("#item[A]\n\n#item[B]\nText\n#item[C]\n#item(marker=\"3.\")[D]");
+    let content = model["content"].as_array().unwrap();
+    assert_eq!(
+        content
+            .iter()
+            .map(|node| node["kind"].as_str().unwrap())
+            .collect::<Vec<_>>(),
+        ["list", "paragraph", "list", "ordered_list"]
+    );
+    assert_eq!(content[0]["children"].as_array().unwrap().len(), 2);
+    assert_eq!(
+        content[3]["children"][0]["attributes"],
+        json!({"marker":"3."})
+    );
+}
+
+#[test]
+fn markdown_lists_preserve_markers_continuations_and_parent_boundaries() {
+    for ending in ["\n", "\r\n", "\r"] {
+        let source = [
+            "- Parent",
+            "  continuation",
+            "  3. Child",
+            "    - Deep",
+            "- Last",
+        ]
+        .join(ending);
+        let model = content_model(&source);
+        let list = &model["content"][0];
+        assert_eq!(list["kind"], "list");
+        assert_eq!(list["children"].as_array().unwrap().len(), 2);
+        let first = &list["children"][0];
+        assert_eq!(first["attributes"], json!({"marker":"-"}));
+        assert_eq!(first["children"][0]["text"], "Parent continuation ");
+        assert_eq!(first["children"][1]["kind"], "ordered_list");
+        assert_eq!(
+            first["children"][1]["children"][0]["attributes"],
+            json!({"marker":"3."})
+        );
+        assert_eq!(
+            first["children"][1]["children"][0]["children"][1]["kind"],
+            "list"
+        );
+    }
+    let model = content_model("- A\n\n  continued\n\n- B\n+ C\n3. D\n8. E");
+    assert_eq!(model["content"][0]["children"].as_array().unwrap().len(), 3);
+    assert_eq!(
+        model["content"][0]["children"][0]["children"][0]["text"],
+        "A\n\ncontinued"
+    );
+    assert_eq!(
+        model["content"][1]["children"][1]["attributes"]["marker"],
+        "8."
+    );
+    assert!(model["content"][1].get("attributes").is_none());
+}
+
+#[test]
+fn markdown_items_can_fill_an_explicit_list_without_an_extra_container() {
+    let model = content_model("#list[\n- First\n- Second\n]");
+    assert_eq!(model["content"][0]["children"].as_array().unwrap().len(), 2);
+    assert_eq!(model["content"][0]["children"][0]["kind"], "list_item");
+    let model = content_model("#list[#item[Parent\n#list[#item[Child]]]]");
+    assert_eq!(
+        model["content"][0]["children"][0]["children"][1]["kind"],
+        "list"
+    );
+    let model = content_model("#list[#item[\n- Parent\n  - Child\n]]");
+    let nested = &model["content"][0]["children"][0]["children"][0];
+    assert_eq!(nested["kind"], "list");
+    assert_eq!(nested["children"][0]["children"][1]["kind"], "list");
+}
+
+#[test]
 fn new_content_contracts_reject_invalid_arguments_and_children() {
     for (source, expected_message) in [
         ("#emphasis()", "requires one content body"),
@@ -136,6 +236,19 @@ fn new_content_contracts_reject_invalid_arguments_and_children() {
         ),
         ("#line_break()[Text]", "no arguments or content body"),
         ("#line_break(1)", "no arguments or content body"),
+        ("#list()", "requires one content body"),
+        ("#item()", "requires one content body"),
+        ("#list[Text]", "only items"),
+        ("#list[#paragraph[Text]]", "only items"),
+        ("#list[#list[#item[Text]]]", "only items"),
+        ("#list[\n- Parent\n  - Child\n]", "nested Markdown items"),
+        ("#ordered_list(start=0)[#item[Text]]", "positive integer"),
+        ("#ordered_list(start=1.5)[#item[Text]]", "positive integer"),
+        ("#item(marker=1)[Text]", "marker must be a string"),
+        (
+            "#paragraph[#list[#item[Text]]]",
+            "inline content cannot contain",
+        ),
     ] {
         let error = compile(source).expect_err(source);
         assert!(
@@ -143,4 +256,35 @@ fn new_content_contracts_reject_invalid_arguments_and_children() {
             "{source}: {error}"
         );
     }
+}
+
+#[test]
+fn nested_markup_retains_unicode_source_ranges_and_bounded_recursion() {
+    let source = "- Résumé\n  - _汉字_\n- Last";
+    let tree = parse(source).unwrap();
+    let NodeKind::ListItem { body, .. } = &tree.nodes[0].kind else {
+        panic!("expected item");
+    };
+    let nested = &body[2];
+    assert_eq!(&source[nested.span.start..nested.span.end], "- _汉字_");
+    for source in [source, "#paragraph[``résumé ` text`` _ready_]"] {
+        for end in source.char_indices().map(|(position, _)| position) {
+            let _ = parse(&source[..end]);
+        }
+    }
+    let nested = (0..100)
+        .map(|depth| format!("{}- item\n", "  ".repeat(depth)))
+        .collect::<String>();
+    assert!(
+        parse(&nested)
+            .unwrap_err()
+            .message
+            .contains("nesting limit")
+    );
+    assert!(
+        parse("- [x] Task")
+            .unwrap_err()
+            .message
+            .contains("task list")
+    );
 }

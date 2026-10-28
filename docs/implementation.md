@@ -8,8 +8,8 @@ what this crate currently implements.
 
 `mote::syntax::parse` returns a syntax tree with UTF-8 byte ranges or a diagnostic.
 It handles text, hash headings, strong and emphasis spans, literal backtick code,
-content escapes, paragraph and hard line breaks, directive calls with nested
-bodies, and core argument
+content escapes, paragraph and hard line breaks, Markdown list items with indented
+continuations, directive calls with nested bodies, and core argument
 expressions. Expressions include strings, finite decimal numbers, booleans, `nil`, nonempty property
 objects, paths, and helper calls. Names currently use ASCII identifiers.
 
@@ -31,6 +31,16 @@ directives. Bare inline content becomes paragraphs. Explicit `paragraph`,
 blocks. Code supports literal scalar arguments and evaluated inline bodies;
 backtick spans retain literal text. Explicit `line_break` calls retain an inline
 element, while Markdown hard breaks are line feeds in text.
+
+Lists support explicit `list`, `ordered_list`, and `item` calls, a positive
+`start` attribute on list containers, and string item markers. Explicit item
+bodies normalize ordinary text into paragraphs. List
+bodies accept only items and separating whitespace. Markdown items retain their
+markers and direct content, including indented continuations and nested lists.
+Adjacent items are grouped by kind during block-content normalization. Source
+indentation determines Markdown parentage and is not a physical length.
+Direct Markdown items in an explicit list body are limited to flat items; nested
+content uses an explicit item body or a nested list container.
 
 The initial evaluator supports heading levels, paragraph alignment, the
 `keep_with_next`, `keep_together`, `page_break_before`, and `widow_control`

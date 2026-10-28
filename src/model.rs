@@ -72,6 +72,9 @@ pub enum ElementKind {
     Emphasis,
     Code,
     LineBreak,
+    List,
+    OrderedList,
+    ListItem,
 }
 
 impl ElementKind {
@@ -83,6 +86,9 @@ impl ElementKind {
             Self::Emphasis => "emphasis",
             Self::Code => "code",
             Self::LineBreak => "line_break",
+            Self::List => "list",
+            Self::OrderedList => "ordered_list",
+            Self::ListItem => "list_item",
         }
     }
 

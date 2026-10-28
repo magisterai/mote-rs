@@ -7,15 +7,23 @@ use crate::syntax::{
 
 pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
     Ok(Document {
-        content: evaluate_nodes(&tree.nodes, false)?,
+        content: evaluate_nodes(&tree.nodes, ContentMode::Block)?,
     })
 }
 
-fn evaluate_nodes(nodes: &[Node], inline: bool) -> Result<Vec<Content>, Diagnostic> {
+#[derive(Clone, Copy, PartialEq)]
+enum ContentMode {
+    Block,
+    Inline,
+    MarkdownItem,
+    ListBody,
+}
+
+fn evaluate_nodes(nodes: &[Node], mode: ContentMode) -> Result<Vec<Content>, Diagnostic> {
     let mut result = Vec::new();
     let mut paragraph = Vec::new();
     for node in nodes {
-        if !inline && matches!(node.kind, NodeKind::ParagraphBreak) {
+        if mode == ContentMode::Block && matches!(node.kind, NodeKind::ParagraphBreak) {
             flush_paragraph(&mut paragraph, &mut result);
             continue;
         }
@@ -26,22 +34,27 @@ fn evaluate_nodes(nodes: &[Node], inline: bool) -> Result<Vec<Content>, Diagnost
             NodeKind::Heading { level, body } => Content::Element(Element {
                 kind: ElementKind::Heading,
                 attributes: Properties::from([("level".into(), Value::Number(*level as f64))]),
-                children: evaluate_nodes(body, true)?,
+                children: evaluate_nodes(body, ContentMode::Inline)?,
             }),
             NodeKind::Strong(body) => Content::Element(Element {
                 kind: ElementKind::Strong,
                 attributes: Properties::new(),
-                children: evaluate_nodes(body, true)?,
+                children: evaluate_nodes(body, ContentMode::Inline)?,
             }),
             NodeKind::Emphasis(body) => Content::Element(Element {
                 kind: ElementKind::Emphasis,
                 attributes: Properties::new(),
-                children: evaluate_nodes(body, true)?,
+                children: evaluate_nodes(body, ContentMode::Inline)?,
             }),
             NodeKind::Code(text) => Content::Element(Element {
                 kind: ElementKind::Code,
                 attributes: Properties::new(),
                 children: vec![Content::Text(text.clone())],
+            }),
+            NodeKind::ListItem { marker, body } => Content::Element(Element {
+                kind: ElementKind::ListItem,
+                attributes: Properties::from([("marker".into(), Value::String(marker.clone()))]),
+                children: evaluate_nodes(body, ContentMode::MarkdownItem)?,
             }),
             NodeKind::Call(call) => evaluate_call(call, node.span)?,
             NodeKind::Reference(name) => {
@@ -52,7 +65,7 @@ fn evaluate_nodes(nodes: &[Node], inline: bool) -> Result<Vec<Content>, Diagnost
             }
         };
         if matches!(&content, Content::Element(element) if element.kind.is_block()) {
-            if inline {
+            if mode == ContentMode::Inline {
                 return Err(Diagnostic::new(
                     node.span,
                     "inline content cannot contain a block element",
@@ -62,12 +75,72 @@ fn evaluate_nodes(nodes: &[Node], inline: bool) -> Result<Vec<Content>, Diagnost
             result.push(content);
             continue;
         }
-        push_content(if !inline { &mut paragraph } else { &mut result }, content);
+        push_content(
+            if mode == ContentMode::Block {
+                &mut paragraph
+            } else {
+                &mut result
+            },
+            content,
+        );
     }
-    if !inline {
+    if mode == ContentMode::Block {
         flush_paragraph(&mut paragraph, &mut result);
     }
-    Ok(result)
+    if mode == ContentMode::Block {
+        Ok(group_adjacent_list_items(result))
+    } else {
+        Ok(result)
+    }
+}
+
+fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
+    let mut result = Vec::new();
+    let mut current_list: Option<Element> = None;
+    for mut node in content {
+        // Explicit containers have already validated their item-only bodies.
+        match &mut node {
+            Content::Element(element)
+                if !matches!(element.kind, ElementKind::List | ElementKind::OrderedList) =>
+            {
+                element.children = group_adjacent_list_items(std::mem::take(&mut element.children));
+            }
+            _ => {}
+        }
+        let list_kind = match &node {
+            Content::Element(element) if element.kind == ElementKind::ListItem => {
+                let ordered = matches!(element.attributes.get("marker"), Some(Value::String(marker)) if marker.as_bytes().first().is_some_and(u8::is_ascii_digit));
+                Some(if ordered {
+                    ElementKind::OrderedList
+                } else {
+                    ElementKind::List
+                })
+            }
+            _ => None,
+        };
+        if current_list
+            .as_ref()
+            .is_some_and(|list| Some(list.kind) != list_kind)
+        {
+            result.push(Content::Element(current_list.take().unwrap()));
+        }
+        if let Some(kind) = list_kind {
+            current_list
+                .get_or_insert_with(|| Element {
+                    kind,
+                    attributes: Properties::new(),
+                    children: Vec::new(),
+                })
+                .children
+                .push(node);
+        } else {
+            result.push(node);
+        }
+    }
+    if let Some(list) = current_list {
+        result.push(Content::Element(list));
+    }
+    result
 }
 
 fn push_content(output: &mut Vec<Content>, content: Content) {
@@ -127,6 +200,9 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
         "heading" => ElementKind::Heading,
         "strong" => ElementKind::Strong,
         "emphasis" => ElementKind::Emphasis,
+        "list" => ElementKind::List,
+        "ordered_list" => ElementKind::OrderedList,
+        "item" => ElementKind::ListItem,
         _ => {
             if !call.bodies.is_empty() {
                 return Err(Diagnostic::new(
@@ -192,10 +268,30 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
     if let Some(level) = positional_level {
         attributes.insert("level".into(), level);
     }
+    let body_mode = match kind {
+        ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
+        ElementKind::ListItem => ContentMode::Block,
+        _ => ContentMode::Inline,
+    };
+    let mut children = evaluate_nodes(&call.bodies[0], body_mode)?;
+    if body_mode == ContentMode::ListBody {
+        children.retain(|child| !matches!(child, Content::Text(text) if text.trim().is_empty()));
+        if children.iter().any(|child| !matches!(child, Content::Element(element) if element.kind == ElementKind::ListItem)) {
+            return Err(Diagnostic::new(span, "list bodies accept only items and separating whitespace"));
+        }
+        for child in &children {
+            match child {
+                Content::Element(item) if item.children.iter().any(|child| matches!(child, Content::Element(element) if element.kind == ElementKind::ListItem)) => {
+                    return Err(Diagnostic::new(span, "nested Markdown items in an explicit list require an item body or a nested list container"));
+                }
+                _ => {}
+            }
+        }
+    }
     Ok(Content::Element(Element {
         kind,
         attributes,
-        children: evaluate_nodes(&call.bodies[0], true)?,
+        children,
     }))
 }
 
@@ -218,7 +314,7 @@ fn evaluate_code(call: &Call, span: Span) -> Result<Content, Diagnostic> {
         ));
     }
     let mut children = if let Some(body) = call.bodies.first() {
-        evaluate_nodes(body, true)?
+        evaluate_nodes(body, ContentMode::Inline)?
     } else {
         Vec::new()
     };
@@ -253,6 +349,26 @@ fn normalize_attribute(
             span,
             format!("{} attributes are not supported yet", kind.as_text()),
         ));
+    }
+    if matches!(
+        kind,
+        ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem
+    ) {
+        return match (name, value) {
+            ("start", value) if kind != ElementKind::ListItem => {
+                normalize_positive_integer(value, span, "list start")
+            }
+            ("marker", Value::String(marker)) if kind == ElementKind::ListItem => {
+                Ok(Value::String(marker))
+            }
+            ("marker", _) if kind == ElementKind::ListItem => {
+                Err(Diagnostic::new(span, "item marker must be a string"))
+            }
+            _ => Err(Diagnostic::new(
+                span,
+                format!("unsupported {} attribute: {name}", kind.as_text()),
+            )),
+        };
     }
     match name {
         "level" if kind == ElementKind::Heading => normalize_level(value, span),
@@ -300,6 +416,14 @@ fn normalize_attribute(
 }
 
 fn normalize_level(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    normalize_positive_integer(value, span, "heading level")
+}
+
+fn normalize_positive_integer(
+    value: Value,
+    span: Span,
+    property: &str,
+) -> Result<Value, Diagnostic> {
     let number = match value {
         Value::Number(number) => Some(number),
         Value::String(text) => text.parse::<u32>().ok().map(f64::from),
@@ -311,7 +435,7 @@ fn normalize_level(value: Value, span: Span) -> Result<Value, Diagnostic> {
         }
         _ => Err(Diagnostic::new(
             span,
-            "heading level must be a positive integer",
+            format!("{property} must be a positive integer"),
         )),
     }
 }

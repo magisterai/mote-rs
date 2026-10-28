@@ -181,6 +181,66 @@
       "example": "inline-text/15",
       "invalid": "A line break takes no content body.",
       "diagnostic": "line_break accepts no arguments or content body"
+    },
+    {
+      "example": "lists/1",
+      "model": "explicit-list"
+    },
+    {
+      "example": "lists/2",
+      "model": "explicit-ordered-list"
+    },
+    {
+      "example": "lists/3",
+      "model": "item-with-paragraphs"
+    },
+    {
+      "example": "lists/4",
+      "model": "explicit-nested-list"
+    },
+    {
+      "example": "lists/5",
+      "model": "markdown-list"
+    },
+    {
+      "example": "lists/6",
+      "model": "markdown-ordered-list"
+    },
+    {
+      "example": "lists/7",
+      "model": "markdown-nested-list"
+    },
+    {
+      "example": "lists/8",
+      "model": "markdown-list"
+    },
+    {
+      "example": "lists/9",
+      "model": "standalone-items"
+    },
+    {
+      "example": "lists/10",
+      "model": "empty-item"
+    },
+    {
+      "example": "lists/11",
+      "invalid": "A list body accepts only items and separating whitespace.",
+      "diagnostic": "list bodies accept only items"
+    },
+    {
+      "example": "lists/12",
+      "invalid": "A nested list must belong to an item.",
+      "diagnostic": "list bodies accept only items"
+    },
+    {
+      "example": "lists/13",
+      "invalid": "An explicit list starting number must be positive.",
+      "diagnostic": "list start must be a positive integer"
+    },
+    {
+      "example": "lists/14",
+      "invalid": "A list block cannot be placed inside a paragraph body.",
+      "diagnostic": "inline content cannot contain a block element"
     }
   ],
   "models": {
@@ -698,6 +758,427 @@
             {
               "kind": "text",
               "text": "First line\nSecond line"
+            }
+          ]
+        }
+      ]
+    },
+    "explicit-list": {
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Read the report."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Check the totals."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "explicit-ordered-list": {
+      "content": [
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "attributes": {
+            "start": 3.0
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Read the report."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Check the totals."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "item-with-paragraphs": {
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Read "
+                    },
+                    {
+                      "kind": "emphasis",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "carefully"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Check "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "every"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " total."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "explicit-nested-list": {
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Prepare the report."
+                    }
+                  ]
+                },
+                {
+                  "kind": "ordered_list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Check the totals."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Write the summary."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Share the report."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "markdown-list": {
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Read the report."
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Check the totals."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "markdown-ordered-list": {
+      "content": [
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "3."
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Read the report."
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "4."
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Check the totals."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "markdown-nested-list": {
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Prepare the report carefully. "
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Check the totals."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Share the report."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "standalone-items": {
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Read the report."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Check the totals."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "empty-item": {
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": []
             }
           ]
         }

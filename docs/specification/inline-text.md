@@ -166,3 +166,5 @@ A line-break directive cannot take a body:
 ```mote
 #line_break()[Text]
 ```
+
+Continue with [Lists](lists.md), which introduces blocks that contain items.

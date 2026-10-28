@@ -16,6 +16,8 @@ Status: initial draft.
    rules, omitted attributes, length helpers, alignment, spacing, and invalid uses.
 4. [Inline text](inline-text.md): emphasis, literal and evaluated code content,
    nesting, whitespace, and explicit line breaks.
+5. [Lists](lists.md): list and item bodies, ordered lists, markers, continuation,
+   nesting, and Markdown forms.
 
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful

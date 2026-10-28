@@ -84,6 +84,7 @@ pub enum NodeKind {
     Strong(Vec<Node>),
     Emphasis(Vec<Node>),
     Code(String),
+    ListItem { marker: String, body: Vec<Node> },
     Call(Call),
     Reference(String),
 }
@@ -153,6 +154,7 @@ enum End {
     Body,
     Delimited(&'static str),
     Line,
+    ListItem { marker_column: usize },
 }
 
 struct Parser<'source> {
@@ -220,6 +222,7 @@ impl Parser<'_> {
         self.enter_nested_construct()?;
         let mut nodes = Vec::new();
         let content_start = self.position;
+        let mut continuation_start = false;
         loop {
             if end == End::Body && self.peek_character() == Some(']') {
                 self.advance_character();
@@ -247,16 +250,43 @@ impl Parser<'_> {
                 break;
             };
             let start = self.position;
-            if matches!(end, End::Source | End::Body)
-                && (self.is_at_line_start() || start == content_start)
+            if let End::ListItem { marker_column } = end {
+                if character == ']' {
+                    break;
+                }
+                if matches!(character, '\r' | '\n') {
+                    let Some(paragraph_break) = self.consume_list_continuation(marker_column)
+                    else {
+                        break;
+                    };
+                    nodes.push(Node {
+                        kind: if paragraph_break {
+                            NodeKind::ParagraphBreak
+                        } else {
+                            NodeKind::LineBreak { hard: false }
+                        },
+                        span: self.span(start),
+                    });
+                    continuation_start = true;
+                    continue;
+                }
+            }
+            if (matches!(end, End::Source | End::Body)
+                && (self.is_at_line_start() || start == content_start))
+                || continuation_start
             {
+                continuation_start = false;
                 self.skip_horizontal_whitespace();
                 if let Some(node) = self.parse_heading()? {
                     nodes.push(node);
                     continue;
                 }
+                if let Some(node) = self.parse_list_item()? {
+                    nodes.push(node);
+                    continue;
+                }
                 // These block forms need their own syntax and semantics.
-                if ["- ", "+ ", ">", "```", "~~~", "---"]
+                if [">", "```", "~~~", "---"]
                     .iter()
                     .any(|marker| self.starts_with(marker))
                 {
