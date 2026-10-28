@@ -68,3 +68,10 @@ cargo test
 cargo fmt --check
 cargo clippy --all-targets -- -D warnings
 ```
+
+The conformance test reads the fenced Mote examples directly from the
+specification and checks their declared outcomes in
+[tests/fixtures/specification.json](../tests/fixtures/specification.json).
+Currently ten examples have expected document models and two explicitly record
+deferred configuration and data features. See the
+[fixture guide](../tests/fixtures/README.md) when adding or promoting examples.

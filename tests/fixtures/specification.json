@@ -1,0 +1,109 @@
+{
+  "cases": [
+    {"example": "fundamentals/1", "model": "quarterly-report"},
+    {"example": "fundamentals/2", "model": "quarterly-report"},
+    {"example": "fundamentals/3", "model": "paragraph-attributes"},
+    {"example": "fundamentals/4", "model": "helper-in-content"},
+    {
+      "example": "fundamentals/5",
+      "deferred": "Document configuration has not been implemented.",
+      "diagnostic": "unsupported helper: document"
+    },
+    {
+      "example": "fundamentals/6",
+      "deferred": "Bindings, JSON loading, and path interpolation have not been implemented.",
+      "diagnostic": "unsupported helper: let"
+    },
+    {"example": "syntax-and-values/1", "model": "heading-one"},
+    {"example": "syntax-and-values/2", "model": "heading-two"},
+    {"example": "syntax-and-values/3", "model": "paragraph-spacing"},
+    {"example": "syntax-and-values/4", "model": "upper-text"},
+    {"example": "syntax-and-values/5", "model": "revenue"},
+    {"example": "syntax-and-values/6", "model": "escaped-content"}
+  ],
+  "models": {
+    "quarterly-report": {
+      "content": [
+        {
+          "kind": "heading", "category": "block", "attributes": {"level": 1.0},
+          "children": [{"kind": "text", "text": "Quarterly report"}]
+        },
+        {
+          "kind": "paragraph", "category": "block",
+          "children": [
+            {"kind": "text", "text": "Revenue increased by "},
+            {"kind": "strong", "category": "inline", "children": [{"kind": "text", "text": "12%"}]},
+            {"kind": "text", "text": "."}
+          ]
+        }
+      ]
+    },
+    "paragraph-attributes": {
+      "content": [{
+        "kind": "paragraph", "category": "block",
+        "attributes": {
+          "alignment": "center", "keep_with_next": true,
+          "spacing": {
+            "before": {"value": 6.0, "unit": "pt", "text": "6pt"},
+            "after": {"value": 12.0, "unit": "pt", "text": "12pt"}
+          }
+        },
+        "children": [{"kind": "text", "text": "Quarterly report"}]
+      }]
+    },
+    "helper-in-content": {
+      "content": [{
+        "kind": "paragraph", "category": "block",
+        "attributes": {"spacing": {"after": {"value": 12.0, "unit": "pt", "text": "12pt"}}},
+        "children": [{"kind": "text", "text": "Status: PAID"}]
+      }]
+    },
+    "heading-one": {
+      "content": [{
+        "kind": "heading", "category": "block", "attributes": {"level": 1.0},
+        "children": [{"kind": "text", "text": "Quarterly report"}]
+      }]
+    },
+    "heading-two": {
+      "content": [{
+        "kind": "heading", "category": "block", "attributes": {"level": 2.0},
+        "children": [{"kind": "text", "text": "Results"}]
+      }]
+    },
+    "paragraph-spacing": {
+      "content": [{
+        "kind": "paragraph", "category": "block",
+        "attributes": {
+          "alignment": "center",
+          "spacing": {
+            "before": {"value": 6.0, "unit": "pt", "text": "6pt"},
+            "after": {"value": 12.0, "unit": "pt", "text": "12pt"}
+          }
+        },
+        "children": [{"kind": "text", "text": "Quarterly report"}]
+      }]
+    },
+    "upper-text": {
+      "content": [{
+        "kind": "paragraph", "category": "block",
+        "children": [{"kind": "text", "text": "Status: PAID"}]
+      }]
+    },
+    "revenue": {
+      "content": [{
+        "kind": "paragraph", "category": "block",
+        "children": [
+          {"kind": "text", "text": "Revenue increased by "},
+          {"kind": "strong", "category": "inline", "children": [{"kind": "text", "text": "12%"}]},
+          {"kind": "text", "text": "."}
+        ]
+      }]
+    },
+    "escaped-content": {
+      "content": [{
+        "kind": "paragraph", "category": "block",
+        "children": [{"kind": "text", "text": "Write #strong[text] to show the syntax."}]
+      }]
+    }
+  }
+}
