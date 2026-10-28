@@ -119,6 +119,21 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
             format!("{} requires one content body", call.name),
         ));
     }
+    if kind == ElementKind::Heading
+        && call
+            .arguments
+            .iter()
+            .any(|argument| argument.name.is_none())
+        && call
+            .arguments
+            .iter()
+            .any(|argument| argument.name.as_deref() == Some("level"))
+    {
+        return Err(Diagnostic::new(
+            span,
+            "heading level cannot be supplied both positionally and by name",
+        ));
+    }
     let mut attributes = Properties::new();
     let mut positional_level = None;
     for argument in &call.arguments {
@@ -171,18 +186,17 @@ fn normalize_attribute(
     }
     match name {
         "level" if kind == ElementKind::Heading => normalize_level(value, span),
-        "alignment" => {
-            if let Value::String(text) = value {
-                let text = text.trim().to_ascii_lowercase();
-                if matches!(text.as_str(), "left" | "center" | "right" | "justify") {
-                    return Ok(Value::String(text));
-                }
+        "alignment" => match value {
+            Value::String(text)
+                if matches!(text.as_str(), "left" | "center" | "right" | "justify") =>
+            {
+                Ok(Value::String(text))
             }
-            Err(Diagnostic::new(
+            _ => Err(Diagnostic::new(
                 span,
                 "alignment must be left, center, right, or justify",
-            ))
-        }
+            )),
+        },
         "keep_with_next" | "keep_together" | "page_break_before" | "widow_control" => match value {
             Value::Boolean(_) => Ok(value),
             Value::String(text) => match text.as_str() {

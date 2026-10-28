@@ -78,6 +78,111 @@ fn paragraphs_flow_around_blocks_and_preserve_explicit_body_spaces() {
         [Content::Text(" padded ".into())]
     );
     assert!(compile(" \n\n\t").unwrap().content.is_empty());
+    let document = compile("#paragraph[First\n\nsecond]").unwrap();
+    assert_eq!(
+        element(&document.content[0]).children,
+        [Content::Text("First\n\nsecond".into())]
+    );
+}
+
+#[test]
+fn heading_level_forms_agree_and_cannot_be_combined() {
+    let expected = compile("#heading(level=2)[Results]").unwrap();
+    for source in ["#heading(2)[Results]", "#heading(level=\"2\")[Results]"] {
+        assert_eq!(compile(source).unwrap(), expected, "{source}");
+    }
+    for source in [
+        "#heading(2, level=3)[Results]",
+        "#heading(level=3, 2)[Results]",
+    ] {
+        let error = compile(source).expect_err(source);
+        assert!(error.message.contains("both positionally and by name"));
+    }
+    let error = compile("#heading(\"2\")[Results]").unwrap_err();
+    assert!(
+        error
+            .message
+            .contains("positional heading level must be a number")
+    );
+}
+
+#[test]
+fn alignment_requires_the_exact_defined_spelling() {
+    for directive in ["paragraph", "heading"] {
+        for alignment in ["left", "center", "right", "justify"] {
+            let source = format!("#{directive}(alignment=\"{alignment}\")[Text]");
+            let document = compile(&source).unwrap();
+            assert_eq!(
+                element(&document.content[0]).attributes["alignment"],
+                Value::String(alignment.into())
+            );
+        }
+        for alignment in ["Center", "LEFT", " right", "justify "] {
+            let source = format!("#{directive}(alignment=\"{alignment}\")[Text]");
+            let error = compile(&source).expect_err(&source);
+            assert!(error.message.contains("alignment must be"));
+        }
+    }
+}
+
+#[test]
+fn empty_bodies_and_omitted_attributes_remain_distinct_from_explicit_values() {
+    for (source, expected_kind) in [
+        ("#paragraph[]", ElementKind::Paragraph),
+        ("#heading[]", ElementKind::Heading),
+    ] {
+        let document = compile(source).unwrap();
+        let block = element(&document.content[0]);
+        assert_eq!(block.kind, expected_kind);
+        assert!(block.children.is_empty());
+        assert!(block.attributes.is_empty());
+    }
+    let document = compile("#strong[]").unwrap();
+    let paragraph = element(&document.content[0]);
+    assert_eq!(paragraph.kind, ElementKind::Paragraph);
+    let strong = element(&paragraph.children[0]);
+    assert_eq!(strong.kind, ElementKind::Strong);
+    assert!(strong.children.is_empty());
+    assert!(strong.attributes.is_empty());
+
+    let document = compile("#paragraph(spacing={after=pt(0)})[]").unwrap();
+    let attributes = &element(&document.content[0]).attributes;
+    assert_eq!(attributes.len(), 1);
+    let Value::Object(spacing) = &attributes["spacing"] else {
+        panic!("expected spacing object")
+    };
+    assert_eq!(spacing.len(), 1);
+    assert_eq!(
+        spacing["after"],
+        Value::Length {
+            value: 0.0,
+            unit: Unit::Point
+        }
+    );
+}
+
+#[test]
+fn length_helpers_accept_numeric_magnitudes_with_exactly_one_positional_argument() {
+    assert_eq!(compile("#pt(12)").unwrap(), compile("#pt(\"12\")").unwrap());
+    assert_eq!(compile("#in(1)").unwrap(), compile("#inch(1)").unwrap());
+    let document = compile("#pt(-1)").unwrap();
+    assert_eq!(
+        element(&document.content[0]).children,
+        [Content::Text("-1pt".into())]
+    );
+    for source in ["#pt()", "#pt(value=12)", "#pt(12, 13)"] {
+        let error = compile(source).expect_err(source);
+        assert!(error.message.contains("requires one positional argument"));
+    }
+    for source in ["#pt(true)", "#pt(\"12pt\")", "#pt(\"NaN\")", "#pt(\"inf\")"] {
+        let error = compile(source).expect_err(source);
+        assert!(
+            error
+                .message
+                .contains("length magnitude must be a finite number")
+        );
+    }
+    assert!(compile("#pt(12)[]").is_err());
 }
 
 #[test]
