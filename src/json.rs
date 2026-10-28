@@ -61,6 +61,10 @@ fn value_as_json(value: &Value) -> Result<JsonValue, serde_json::Error> {
         Value::Boolean(boolean) => JsonValue::Bool(*boolean),
         Value::Nil => JsonValue::Null,
         Value::Object(properties) => properties_as_json(properties)?,
+        Value::Array(values) => {
+            JsonValue::Array(values.iter().map(value_as_json).collect::<Result<_, _>>()?)
+        }
+        Value::Color(color) => JsonValue::String(color.clone()),
         Value::Length { value, unit } => json!({
             "value": number_as_json(*value)?, "unit": unit.as_text(),
             "text": format!("{value}{}", unit.as_text()),

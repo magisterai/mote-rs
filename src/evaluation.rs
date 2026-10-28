@@ -1,13 +1,32 @@
-//! Evaluation for the first content and attribute subset.
+//! Evaluation of content directives and their formatting attributes.
 
 use crate::model::{Content, Document, Element, ElementKind, Properties, Unit, Value};
 use crate::syntax::{
     Argument, Call, Diagnostic, Expression, ExpressionKind, Node, NodeKind, Span, SyntaxTree,
 };
 
+mod attributes;
+mod values;
+
+use attributes::evaluate_attributes;
+use values::{normalize_color, numeric_value};
+
+#[derive(Clone, Copy)]
+struct EvaluationContext<'source> {
+    source: &'source str,
+    preserve_space: bool,
+}
+
 pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
     Ok(Document {
-        content: evaluate_nodes(&tree.nodes, ContentMode::Block)?,
+        content: evaluate_nodes(
+            &tree.nodes,
+            ContentMode::Block,
+            EvaluationContext {
+                source: &tree.source,
+                preserve_space: false,
+            },
+        )?,
     })
 }
 
@@ -19,7 +38,11 @@ enum ContentMode {
     ListBody,
 }
 
-fn evaluate_nodes(nodes: &[Node], mode: ContentMode) -> Result<Vec<Content>, Diagnostic> {
+fn evaluate_nodes(
+    nodes: &[Node],
+    mode: ContentMode,
+    context: EvaluationContext<'_>,
+) -> Result<Vec<Content>, Diagnostic> {
     let mut result = Vec::new();
     let mut paragraph = Vec::new();
     for node in nodes {
@@ -27,24 +50,56 @@ fn evaluate_nodes(nodes: &[Node], mode: ContentMode) -> Result<Vec<Content>, Dia
             flush_paragraph(&mut paragraph, &mut result);
             continue;
         }
+        if !context.preserve_space
+            && matches!(node.kind, NodeKind::LineBreak { hard: true })
+            && !context
+                .source
+                .get(node.span.start..node.span.end)
+                .is_some_and(|source| source.starts_with('\\'))
+        {
+            let preceding = if mode == ContentMode::Block {
+                &mut paragraph
+            } else {
+                &mut result
+            };
+            if let Some(Content::Text(text)) = preceding.last_mut() {
+                text.truncate(text.trim_end_matches(' ').len());
+            }
+        }
         let content = match &node.kind {
             NodeKind::Text(text) => Content::Text(text.clone()),
-            NodeKind::LineBreak { hard } => Content::Text(if *hard { "\n" } else { " " }.into()),
-            NodeKind::ParagraphBreak => Content::Text("\n\n".into()),
+            NodeKind::LineBreak { hard } => Content::Text(
+                if *hard || context.preserve_space {
+                    "\n"
+                } else {
+                    " "
+                }
+                .into(),
+            ),
+            NodeKind::ParagraphBreak => Content::Text(if context.preserve_space {
+                normalize_line_endings(
+                    context
+                        .source
+                        .get(node.span.start..node.span.end)
+                        .unwrap_or("\n\n"),
+                )
+            } else {
+                "\n\n".into()
+            }),
             NodeKind::Heading { level, body } => Content::Element(Element {
                 kind: ElementKind::Heading,
                 attributes: Properties::from([("level".into(), Value::Number(*level as f64))]),
-                children: evaluate_nodes(body, ContentMode::Inline)?,
+                children: evaluate_nodes(body, ContentMode::Inline, context)?,
             }),
             NodeKind::Strong(body) => Content::Element(Element {
                 kind: ElementKind::Strong,
                 attributes: Properties::new(),
-                children: evaluate_nodes(body, ContentMode::Inline)?,
+                children: evaluate_nodes(body, ContentMode::Inline, context)?,
             }),
             NodeKind::Emphasis(body) => Content::Element(Element {
                 kind: ElementKind::Emphasis,
                 attributes: Properties::new(),
-                children: evaluate_nodes(body, ContentMode::Inline)?,
+                children: evaluate_nodes(body, ContentMode::Inline, context)?,
             }),
             NodeKind::Code(text) => Content::Element(Element {
                 kind: ElementKind::Code,
@@ -54,14 +109,14 @@ fn evaluate_nodes(nodes: &[Node], mode: ContentMode) -> Result<Vec<Content>, Dia
             NodeKind::ListItem { marker, body } => Content::Element(Element {
                 kind: ElementKind::ListItem,
                 attributes: Properties::from([("marker".into(), Value::String(marker.clone()))]),
-                children: evaluate_nodes(body, ContentMode::MarkdownItem)?,
+                children: evaluate_nodes(body, ContentMode::MarkdownItem, context)?,
             }),
             NodeKind::Blockquote(body) => Content::Element(Element {
                 kind: ElementKind::Blockquote,
                 attributes: Properties::new(),
-                children: evaluate_nodes(body, ContentMode::Block)?,
+                children: evaluate_nodes(body, ContentMode::Block, context)?,
             }),
-            NodeKind::Call(call) => evaluate_call(call, node.span)?,
+            NodeKind::Call(call) => evaluate_call(call, node.span, context)?,
             NodeKind::Reference(name) => {
                 return Err(Diagnostic::new(
                     node.span,
@@ -183,9 +238,13 @@ fn flush_paragraph(buffer: &mut Vec<Content>, result: &mut Vec<Content>) {
     }
 }
 
-fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
+fn evaluate_call(
+    call: &Call,
+    span: Span,
+    context: EvaluationContext<'_>,
+) -> Result<Content, Diagnostic> {
     if call.name == "code" {
-        return evaluate_code(call, span);
+        return evaluate_code(call, span, context);
     }
     if call.name == "line_break" {
         if !call.arguments.is_empty() || !call.bodies.is_empty() {
@@ -243,43 +302,25 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
             "heading level cannot be supplied both positionally and by name",
         ));
     }
-    let mut attributes = Properties::new();
-    let mut positional_level = None;
-    for argument in &call.arguments {
-        let value = evaluate_expression(&argument.value)?;
-        match &argument.name {
-            Some(name) => {
-                attributes.insert(
-                    name.clone(),
-                    normalize_attribute(kind, name, value, argument.value.span)?,
-                );
-            }
-            None if kind == ElementKind::Heading && positional_level.is_none() => {
-                if !matches!(value, Value::Number(_)) {
-                    return Err(Diagnostic::new(
-                        argument.value.span,
-                        "positional heading level must be a number",
-                    ));
-                }
-                positional_level = Some(normalize_level(value, argument.value.span)?);
-            }
-            None => {
-                return Err(Diagnostic::new(
-                    argument.span,
-                    "unexpected positional argument",
-                ));
-            }
-        }
+    let permitted_positional_arguments = usize::from(kind == ElementKind::Heading);
+    if let Some(argument) = call
+        .arguments
+        .iter()
+        .filter(|argument| argument.name.is_none())
+        .nth(permitted_positional_arguments)
+    {
+        return Err(Diagnostic::new(
+            argument.span,
+            "unexpected positional argument",
+        ));
     }
-    if let Some(level) = positional_level {
-        attributes.insert("level".into(), level);
-    }
+    let attributes = evaluate_attributes(kind, &call.arguments)?;
     let body_mode = match kind {
         ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
         ElementKind::ListItem | ElementKind::Blockquote => ContentMode::Block,
         _ => ContentMode::Inline,
     };
-    let mut children = evaluate_nodes(&call.bodies[0], body_mode)?;
+    let mut children = evaluate_nodes(&call.bodies[0], body_mode, context)?;
     if body_mode == ContentMode::ListBody {
         children.retain(|child| !matches!(child, Content::Text(text) if text.trim().is_empty()));
         if children.iter().any(|child| !matches!(child, Content::Element(element) if element.kind == ElementKind::ListItem)) {
@@ -301,30 +342,41 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
     }))
 }
 
-fn evaluate_code(call: &Call, span: Span) -> Result<Content, Diagnostic> {
+fn evaluate_code(
+    call: &Call,
+    span: Span,
+    context: EvaluationContext<'_>,
+) -> Result<Content, Diagnostic> {
     if call.bodies.len() > 1 {
         return Err(Diagnostic::new(
             span,
             "code accepts at most one content body",
         ));
     }
-    if call.arguments.len() > 1
-        || call
-            .arguments
-            .first()
-            .is_some_and(|argument| argument.name.is_some())
-    {
+    let positional: Vec<_> = call
+        .arguments
+        .iter()
+        .filter(|argument| argument.name.is_none())
+        .collect();
+    if positional.len() > 1 {
         return Err(Diagnostic::new(
             span,
-            "code accepts at most one positional argument in this subset",
+            "code accepts at most one positional argument",
         ));
     }
+    let attributes = evaluate_attributes(ElementKind::Code, &call.arguments)?;
+    let preserve_space =
+        context.preserve_space || attributes.get("preserve_space") == Some(&Value::Boolean(true));
+    let context = EvaluationContext {
+        preserve_space,
+        ..context
+    };
     let mut children = if let Some(body) = call.bodies.first() {
-        evaluate_nodes(body, ContentMode::Inline)?
+        evaluate_nodes(body, ContentMode::Inline, context)?
     } else {
         Vec::new()
     };
-    if let Some(argument) = call.arguments.first() {
+    if let Some(argument) = positional.first() {
         let value = evaluate_expression(&argument.value)?;
         if !matches!(
             value,
@@ -337,157 +389,27 @@ fn evaluate_code(call: &Call, span: Span) -> Result<Content, Diagnostic> {
         }
         children = vec![Content::Text(value_as_text(&value, argument.value.span)?)];
     }
+    if preserve_space {
+        normalize_preserved_content(&mut children);
+    }
     Ok(Content::Element(Element {
         kind: ElementKind::Code,
-        attributes: Properties::new(),
+        attributes,
         children,
     }))
 }
 
-fn normalize_attribute(
-    kind: ElementKind,
-    name: &str,
-    value: Value,
-    span: Span,
-) -> Result<Value, Diagnostic> {
-    if matches!(
-        kind,
-        ElementKind::Strong | ElementKind::Emphasis | ElementKind::Blockquote
-    ) {
-        return Err(Diagnostic::new(
-            span,
-            format!("{} attributes are not supported yet", kind.as_text()),
-        ));
-    }
-    if matches!(
-        kind,
-        ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem
-    ) {
-        return match (name, value) {
-            ("start", value) if kind != ElementKind::ListItem => {
-                normalize_positive_integer(value, span, "list start")
-            }
-            ("marker", Value::String(marker)) if kind == ElementKind::ListItem => {
-                Ok(Value::String(marker))
-            }
-            ("marker", _) if kind == ElementKind::ListItem => {
-                Err(Diagnostic::new(span, "item marker must be a string"))
-            }
-            _ => Err(Diagnostic::new(
-                span,
-                format!("unsupported {} attribute: {name}", kind.as_text()),
-            )),
-        };
-    }
-    match name {
-        "level" if kind == ElementKind::Heading => normalize_level(value, span),
-        "alignment" => match value {
-            Value::String(text)
-                if matches!(text.as_str(), "left" | "center" | "right" | "justify") =>
-            {
-                Ok(Value::String(text))
-            }
-            _ => Err(Diagnostic::new(
-                span,
-                "alignment must be left, center, right, or justify",
-            )),
-        },
-        "keep_with_next" | "keep_together" | "page_break_before" | "widow_control" => match value {
-            Value::Boolean(_) => Ok(value),
-            Value::String(text) => match text.as_str() {
-                "true" | "True" | "TRUE" | "t" | "T" | "1" => Ok(Value::Boolean(true)),
-                "false" | "False" | "FALSE" | "f" | "F" | "0" => Ok(Value::Boolean(false)),
-                _ => Err(Diagnostic::new(span, format!("{name} must be a boolean"))),
-            },
-            _ => Err(Diagnostic::new(span, format!("{name} must be a boolean"))),
-        },
-        "spacing" => {
-            let Value::Object(fields) = value else {
-                return Err(Diagnostic::new(span, "spacing must be a property object"));
-            };
-            let mut result = Properties::new();
-            for (key, value) in fields {
-                if !matches!(key.as_str(), "before" | "after") {
-                    return Err(Diagnostic::new(
-                        span,
-                        format!("unsupported spacing property: {key}"),
-                    ));
-                }
-                result.insert(key, normalize_length(value, span)?);
-            }
-            Ok(Value::Object(result))
-        }
-        _ => Err(Diagnostic::new(
-            span,
-            format!("unsupported {} attribute: {name}", kind.as_text()),
-        )),
-    }
+fn normalize_line_endings(text: &str) -> String {
+    text.replace("\r\n", "\n").replace('\r', "\n")
 }
 
-fn normalize_level(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    normalize_positive_integer(value, span, "heading level")
-}
-
-fn normalize_positive_integer(
-    value: Value,
-    span: Span,
-    property: &str,
-) -> Result<Value, Diagnostic> {
-    let number = match value {
-        Value::Number(number) => Some(number),
-        Value::String(text) => text.parse::<u32>().ok().map(f64::from),
-        _ => None,
-    };
-    match number {
-        Some(number) if number.is_finite() && number >= 1.0 && number.fract() == 0.0 => {
-            Ok(Value::Number(number))
-        }
-        _ => Err(Diagnostic::new(
-            span,
-            format!("{property} must be a positive integer"),
-        )),
-    }
-}
-
-fn numeric_value(value: &Value) -> Option<f64> {
-    let number = match value {
-        Value::Number(number) => *number,
-        Value::String(text) => text.parse::<f64>().ok()?,
-        _ => return None,
-    };
-    number.is_finite().then_some(number)
-}
-
-fn normalize_length(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    if let Value::Length {
-        value: magnitude, ..
-    } = &value
-    {
-        if *magnitude >= 0.0 && magnitude.is_finite() {
-            return Ok(value);
-        }
-    } else if let Some(magnitude) = numeric_value(&value) {
-        if magnitude >= 0.0 {
-            return Ok(value);
-        }
-    } else if let Value::String(text) = &value {
-        for name in ["twip", "pt", "in", "cm", "mm"] {
-            let magnitude = text
-                .strip_suffix(name)
-                .and_then(|text| text.trim().parse::<f64>().ok())
-                .filter(|number| *number >= 0.0 && number.is_finite());
-            if let Some(magnitude) = magnitude {
-                return Ok(Value::Length {
-                    value: magnitude,
-                    unit: Unit::from_name(name).unwrap(),
-                });
-            }
+fn normalize_preserved_content(content: &mut [Content]) {
+    for node in content {
+        match node {
+            Content::Text(text) => *text = normalize_line_endings(text),
+            Content::Element(element) => normalize_preserved_content(&mut element.children),
         }
     }
-    Err(Diagnostic::new(
-        span,
-        "spacing must be a non-negative length",
-    ))
 }
 
 fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
@@ -496,6 +418,12 @@ fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
         ExpressionKind::Number(number) => Value::Number(*number),
         ExpressionKind::Boolean(boolean) => Value::Boolean(*boolean),
         ExpressionKind::Nil => Value::Nil,
+        ExpressionKind::Array(entries) => Value::Array(
+            entries
+                .iter()
+                .map(evaluate_expression)
+                .collect::<Result<_, _>>()?,
+        ),
         ExpressionKind::Object(fields) => {
             let mut object = Properties::new();
             for field in fields {
@@ -520,7 +448,7 @@ fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
 
 fn evaluate_helper(name: &str, arguments: &[Argument], span: Span) -> Result<Value, Diagnostic> {
     let unit = Unit::from_name(name);
-    if unit.is_none() && name != "upper" {
+    if unit.is_none() && !matches!(name, "upper" | "color") {
         return Err(Diagnostic::new(span, format!("unsupported helper: {name}")));
     }
     if arguments.len() != 1 || arguments[0].name.is_some() {
@@ -530,6 +458,9 @@ fn evaluate_helper(name: &str, arguments: &[Argument], span: Span) -> Result<Val
         ));
     }
     let value = evaluate_expression(&arguments[0].value)?;
+    if name == "color" {
+        return normalize_color(value, arguments[0].value.span, "color");
+    }
     if let Some(unit) = unit {
         let Some(magnitude) = numeric_value(&value) else {
             return Err(Diagnostic::new(
@@ -554,15 +485,15 @@ fn evaluate_helper(name: &str, arguments: &[Argument], span: Span) -> Result<Val
 
 fn value_as_text(value: &Value, span: Span) -> Result<String, Diagnostic> {
     Ok(match value {
-        Value::String(text) => text.clone(),
+        Value::String(text) | Value::Color(text) => text.clone(),
         Value::Number(number) => number.to_string(),
         Value::Boolean(boolean) => boolean.to_string(),
         Value::Nil => String::new(),
         Value::Length { value, unit } => format!("{value}{}", unit.as_text()),
-        Value::Object(_) => {
+        Value::Object(_) | Value::Array(_) => {
             return Err(Diagnostic::new(
                 span,
-                "property objects cannot be inserted as text in this subset",
+                "property objects and arrays cannot be inserted as text",
             ));
         }
     })

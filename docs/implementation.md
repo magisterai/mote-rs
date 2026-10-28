@@ -4,20 +4,27 @@ The Rust crate is at an initial language-core stage. The
 [specification](specification/README.md) describes the language; this page records
 what this crate currently implements.
 
+The [directive checklists](checklists/README.md) track attribute-level work.
+Checked items have a specification, implementation, and tests. Partial model
+support is noted beside unchecked items; output verification is tracked separately.
+
 ## Parser
 
 `mote::syntax::parse` returns a syntax tree with UTF-8 byte ranges or a diagnostic.
 It handles text, hash headings, strong and emphasis spans, literal backtick code,
 content escapes, paragraph and hard line breaks, Markdown list items with indented
 continuations, quote lines, directive calls with nested bodies, and core argument
-expressions. Expressions include strings, finite decimal numbers, booleans, `nil`, nonempty property
-objects, paths, and helper calls. Names currently use ASCII identifiers.
+expressions. Expressions include strings, finite decimal numbers, booleans,
+`nil`, nonempty property objects, ordered arrays (including empty arrays), paths,
+and helper calls. Mixed named/unnamed collections are rejected. Names currently
+use ASCII identifiers. The syntax tree retains source text for exact preserved
+whitespace evaluation.
 
 Calls and paths are parsed without checking whether they are defined. Syntax
 success alone does not mean that a document can be evaluated or rendered.
 
 The parser is deliberately incomplete: task lists, fenced code blocks, additional
-Markdown forms, collections, control flow, and Lua are deferred. Unsupported
+Markdown forms, control flow, and Lua are deferred. Unsupported
 recognized Markdown forms return diagnostics; this is not a general Markdown
 parser. Recursive nesting is limited
 to protect the parser from excessive input depth.
@@ -43,24 +50,32 @@ Direct Markdown items in an explicit list body are limited to flat items; nested
 content uses an explicit item body or a nested list container.
 Each Markdown quote line creates a separate quote block.
 
-The initial evaluator supports heading levels, paragraph alignment, the
-`keep_with_next`, `keep_together`, `page_break_before`, and `widow_control`
-booleans, and `spacing.before` and `spacing.after`. Length helpers are `pt`, `in`,
-`inch`, `cm`, `mm`, and `twip`. `upper` currently accepts ASCII text only. Values
-retain their types and physical units. Other attributes and helpers report that
-they are unsupported.
+The evaluator implements the attribute contracts in
+[Formatting attributes](specification/formatting-attributes.md) for all ten
+current directives: paragraph/heading geometry and pagination requests, borders,
+tab stops, heading numbering, inline font/style references, list layout and
+numbering metadata, item checkbox metadata, and quote formatting. Unsupported
+attributes and nested fields report diagnostics. The shared `properties` object
+merges before validation, with its entries taking precedence over outer arguments.
+
+`code(preserve_space = true)` preserves whitespace through nested inline bodies
+after removing syntactic indentation before directives and block markers, and
+normalizes CRLF/CR to LF. Tabs remain literal in the model. Language labels
+are metadata; syntax highlighting is not implemented. Style/font references are
+stored without declaration lookup or effective-style resolution. Pagination,
+numbering, indentation, and checkbox values record intent without rendering it.
+
+Length helpers are `pt`, `in`, `inch`, `cm`, `mm`, and `twip`; `color` constructs
+normalized typed hexadecimal colors. `upper` remains ASCII-only and awaits its
+detailed specification. Values retain their documented types and physical units.
 
 Alignment values must match their defined spelling exactly. A heading rejects a
-level supplied both positionally and by name. Omitted attributes remain absent
-from the model, and an explicit empty body still creates its element.
+level supplied both directly positionally and by name. Omitted attributes remain
+absent from the model, and an explicit empty body still creates its element.
 
-The pagination booleans and `upper` have initial implementation coverage but
-await their detailed specification chapters. Introductory examples use only the
-defined basic content and length helpers.
-
-Document configuration, bindings, JSON loading, styles, defaults, Lua, layout,
-and Office/PDF/PNG output remain deferred. The model records formatting intent;
-it does not demonstrate rendered behaviour or Office conformance.
+Document configuration, bindings, JSON loading, style/font declarations and
+resolution, defaults, Lua, layout, and Office/PDF/PNG output remain deferred.
+Model support does not demonstrate rendered behaviour or Office conformance.
 
 ## JSON inspection
 
@@ -79,7 +94,8 @@ status. It accepts one source file. `--help` describes the available options.
 JSON contains a root `content` array. Elements have `kind`, `category`, and
 `children`, plus `attributes` when present. Text nodes have `kind = "text"` and
 `text`. Objects retain named fields; lengths carry `value`, `unit`, and a readable
-`text` representation. This deterministic inspection format contains no layout
+`text` representation. Arrays retain order; typed colors serialize as normalized
+hexadecimal strings. This deterministic inspection format contains no layout
 geometry and is not yet a stable interchange schema. JSON output does not enable
 the deferred `json(...)` data-loading helper.
 

@@ -81,3 +81,6 @@ A paragraph accepts only inline content, so it cannot contain a block quote:
 ```mote
 #paragraph[#blockquote[Quoted text.]]
 ```
+
+Continue with [Formatting attributes](formatting-attributes.md) for the attribute
+contracts of the directives introduced so far.

@@ -66,6 +66,7 @@ impl std::error::Error for Diagnostic {}
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct SyntaxTree {
+    pub source: String,
     pub nodes: Vec<Node>,
 }
 
@@ -117,6 +118,7 @@ pub enum ExpressionKind {
     Boolean(bool),
     Nil,
     Object(Vec<Argument>),
+    Array(Vec<Expression>),
     Call {
         name: String,
         arguments: Vec<Argument>,
@@ -131,6 +133,7 @@ pub fn parse(source: &str) -> Result<SyntaxTree, Diagnostic> {
         depth: 0,
     };
     Ok(SyntaxTree {
+        source: source.to_owned(),
         nodes: parser.parse_markup(End::Source)?,
     })
 }
@@ -239,7 +242,7 @@ impl Parser<'_> {
             if end == End::Line && matches!(self.peek_character(), None | Some('\r' | '\n' | ']')) {
                 break;
             }
-            let Some(character) = self.peek_character() else {
+            let Some(mut character) = self.peek_character() else {
                 if end == End::Body {
                     return Err(self.error("missing closing ']' for content body"));
                 }
@@ -297,7 +300,11 @@ impl Parser<'_> {
                 {
                     return Err(self.error("this Markdown block form is not supported yet"));
                 }
-                self.position = start;
+                if self.peek_character() == Some('#') {
+                    character = '#';
+                } else {
+                    self.position = start;
+                }
             }
             match character {
                 '\r' | '\n' => {
@@ -317,12 +324,7 @@ impl Parser<'_> {
                             ..
                         }) = nodes.last_mut()
                         {
-                            if text.ends_with("  ") {
-                                text.truncate(text.trim_end_matches(' ').len());
-                                true
-                            } else {
-                                false
-                            }
+                            text.ends_with("  ")
                         } else {
                             false
                         };
@@ -486,8 +488,13 @@ impl Parser<'_> {
         loop {
             if self.peek_character() == Some(close) {
                 self.advance_character();
-                if object && arguments.is_empty() {
-                    return Err(self.error("empty collections are not supported yet"));
+                if object
+                    && arguments
+                        .iter()
+                        .any(|argument: &Argument| argument.name.is_some())
+                    && arguments.iter().any(|argument| argument.name.is_none())
+                {
+                    return Err(self.error("collections cannot mix named fields and array entries"));
                 }
                 return Ok(arguments);
             }
@@ -502,9 +509,6 @@ impl Parser<'_> {
                 } else {
                     self.position = start;
                 }
-            }
-            if object && name.is_none() {
-                return Err(self.error("expected a named property; arrays are not supported yet"));
             }
             let value = self.parse_expression()?;
             arguments.push(Argument {
@@ -530,7 +534,14 @@ impl Parser<'_> {
         let start = self.position;
         let kind = match self.peek_character() {
             Some('\'' | '"') => ExpressionKind::String(self.parse_string()?),
-            Some('{') => ExpressionKind::Object(self.parse_arguments('}', true)?),
+            Some('{') => {
+                let entries = self.parse_arguments('}', true)?;
+                if entries.first().is_some_and(|entry| entry.name.is_some()) {
+                    ExpressionKind::Object(entries)
+                } else {
+                    ExpressionKind::Array(entries.into_iter().map(|entry| entry.value).collect())
+                }
+            }
             Some(character) if character.is_ascii_digit() || character == '-' => {
                 if character == '-' {
                     self.advance_character();

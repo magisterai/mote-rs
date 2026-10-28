@@ -68,7 +68,6 @@ fn code_arguments_are_literal_while_bodies_evaluate_inline_content() {
     assert_eq!(
         body["content"][0]["children"][0]["children"],
         json!([
-            {"kind":"text","text":" "},
             {"kind":"strong","category":"inline","children":[{"kind":"text","text":"text"}]},
             {"kind":"text","text":" "}
         ])

@@ -11,8 +11,10 @@ Markdown or expression grammar. Every example uses those defined forms.
 Source is UTF-8 text. LF, CRLF, and CR are line endings. Within ordinary flowing
 text, a single line ending supplies a space; a blank line separates paragraphs.
 Leading and trailing whitespace around an implicit paragraph is discarded.
-Whitespace inside an explicit content body is content: indentation is not a
-formatting convention that automatically disappears.
+Whitespace inside an explicit content body is content, except indentation before
+a directive or block marker at the start of the body or a source line. That
+indentation belongs to the syntax and is discarded; indentation before ordinary
+text remains content.
 
 The portable identifier form used in this chapter starts with an ASCII letter
 or underscore, followed by ASCII letters, digits, or underscores. Names are
@@ -104,7 +106,8 @@ Values can be nested objects or helper calls. As defined in the fundamentals,
 ```
 
 This chapter specifies objects with at least one named field. Empty collections
-and arrays are outside its scope.
+and arrays are introduced later in
+[Formatting attributes](formatting-attributes.md#1-shared-values).
 
 Helpers return values before the enclosing call uses them. `pt(12)` constructs a
 length with magnitude 12 and unit `pt`; the result retains its unit. A negative

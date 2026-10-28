@@ -11,6 +11,8 @@ pub enum Value {
     Boolean(bool),
     Nil,
     Object(Properties),
+    Array(Vec<Value>),
+    Color(String),
     Length { value: f64, unit: Unit },
 }
 

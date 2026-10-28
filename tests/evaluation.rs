@@ -210,7 +210,7 @@ fn invalid_calls_report_the_problem_without_producing_a_document() {
             "unsupported helper",
         ),
         (
-            "#paragraph(style=\"Body\")[Text]",
+            "#paragraph(kerning=12)[Text]",
             "unsupported paragraph attribute",
         ),
     ] {

@@ -30,6 +30,24 @@ fn nested_content_keeps_structure_and_source_ranges() {
 }
 
 #[test]
+fn directive_indentation_is_syntax_but_text_indentation_is_content() {
+    let source = "  #paragraph[ \t#strong[first]\n  #emphasis[second]\n  text]";
+    let tree = parse(source).unwrap();
+    assert_eq!(tree.nodes.len(), 1);
+    assert_eq!(tree.nodes[0].span.start, 0);
+    let NodeKind::Call(paragraph) = &tree.nodes[0].kind else {
+        panic!("expected paragraph call")
+    };
+    let strong = &paragraph.bodies[0][0];
+    assert!(matches!(&strong.kind, NodeKind::Call(call) if call.name == "strong"));
+    assert_eq!(
+        &source[strong.span.start..strong.span.end],
+        " \t#strong[first]"
+    );
+    assert_eq!(paragraph.bodies[0][4].kind, NodeKind::Text("  text".into()));
+}
+
+#[test]
 fn nested_objects_helpers_and_quoted_delimiters() {
     let expression =
         parse_expression("{ label = 'a, ) ] }', spacing = {after = pt(12),}, enabled = true, }")
@@ -122,6 +140,40 @@ fn incomplete_prefixes_and_deep_input_do_not_panic() {
     let objects = format!("{}1{}", "{a=".repeat(100), "}".repeat(100));
     assert!(
         parse_expression(&objects)
+            .unwrap_err()
+            .message
+            .contains("nesting limit")
+    );
+}
+
+#[test]
+fn arrays_preserve_entry_order_spans_and_empty_collection_identity() {
+    let source = "{ {position=pt(12)}, {position=pt(24)}, }";
+    let expression = parse_expression(source).unwrap();
+    let ExpressionKind::Array(entries) = expression.kind else {
+        panic!("expected array")
+    };
+    assert_eq!(entries.len(), 2);
+    assert_eq!(
+        &source[entries[0].span.start..entries[0].span.end],
+        "{position=pt(12)}"
+    );
+    assert!(matches!(entries[1].kind, ExpressionKind::Object(_)));
+    assert_eq!(
+        parse_expression("{}").unwrap().kind,
+        ExpressionKind::Array(vec![])
+    );
+    for source in ["{name=1,2}", "{1,name=2}"] {
+        assert!(
+            parse_expression(source)
+                .unwrap_err()
+                .message
+                .contains("cannot mix")
+        );
+    }
+    let source = format!("{}1{}", "{".repeat(100), "}".repeat(100));
+    assert!(
+        parse_expression(&source)
             .unwrap_err()
             .message
             .contains("nesting limit")

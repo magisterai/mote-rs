@@ -39,6 +39,23 @@ within the documented basics. A note that implementation is deferred does not
 substitute for a language definition. Give successful examples expected models
 and clearly identify intentional invalid examples and the rules they violate.
 
+## Directive checklists
+
+Read [docs/checklists/README.md](docs/checklists/README.md) before extending a
+directive. Create and index a directive's checklist before its specification or
+implementation; update an existing checklist before adding attributes. Inventory
+its arguments, body rules, attributes and nested fields, value rules, dependencies,
+and output limits first. Stay within the recorded scope; external OOXML references
+do not authorize additional features. Retaining an unknown property is not
+evidence that its formatting behaviour is supported.
+
+Check an item only when the stated behaviour is specified, implemented, and
+covered by meaningful tests. Describe partial implementation beside an unchecked
+item. Link the relevant specification and tests, and update the checklist with
+each change. Keep output and visual conformance status separate from language and
+model completion. Checklist entries are planning notes, not permission to use
+undefined features in introductory examples.
+
 ## Reference reading
 
 1. Start with [docs/reference/README.md](docs/reference/README.md).

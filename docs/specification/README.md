@@ -20,6 +20,9 @@ Status: initial draft.
    nesting, and Markdown forms.
 6. [Block quotes](block-quotes.md): quoted block content, Markdown quote lines,
    and lists within quotes.
+7. [Formatting attributes](formatting-attributes.md): shared value rules, property
+   overrides, style/font references, paragraph geometry, borders, tabs, heading
+   numbering, list/task metadata, and preserved code whitespace.
 
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
@@ -29,6 +32,11 @@ the rule they violate. Implementation deferrals do not replace definitions.
 Later chapters will introduce bindings, data loading, additional formatting,
 document configuration, scripting, and layout. Their syntax is not used in the
 introductory examples.
+
+The [directive checklists](../checklists/README.md) record planned attributes and
+current completion separately from this reading order. Create or update the
+relevant checklist before extending a directive, then define each new concept
+here before demonstrating it.
 
 The [reference library](../reference/README.md) contains the external file-format
 and language standards used alongside this specification.

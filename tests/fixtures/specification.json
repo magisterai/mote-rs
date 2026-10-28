@@ -271,6 +271,63 @@
       "example": "block-quotes/7",
       "invalid": "A quote block cannot be placed inside a paragraph body.",
       "diagnostic": "inline content cannot contain a block element"
+    },
+    {
+      "example": "formatting-attributes/1",
+      "model": "attribute-object-precedence"
+    },
+    {
+      "example": "formatting-attributes/2",
+      "model": "inline-formatting-references"
+    },
+    {
+      "example": "formatting-attributes/3",
+      "model": "paragraph-formatting-attributes"
+    },
+    {
+      "example": "formatting-attributes/4",
+      "model": "paragraph-borders-tabs"
+    },
+    {
+      "example": "formatting-attributes/5",
+      "model": "heading-numbering-attributes"
+    },
+    {
+      "example": "formatting-attributes/6",
+      "model": "list-task-attributes"
+    },
+    {
+      "example": "formatting-attributes/7",
+      "model": "preserved-code-attributes"
+    },
+    {
+      "example": "formatting-attributes/8",
+      "model": "quoted-block-attributes"
+    },
+    {
+      "example": "formatting-attributes/9",
+      "invalid": "An empty array is not an attribute property object.",
+      "diagnostic": "properties must be a property object"
+    },
+    {
+      "example": "formatting-attributes/10",
+      "invalid": "A line-spacing multiple must be positive.",
+      "diagnostic": "spacing.line.value must be a positive number"
+    },
+    {
+      "example": "formatting-attributes/11",
+      "invalid": "Tab-stop positions must be non-negative.",
+      "diagnostic": "tab stop position must be a non-negative length"
+    },
+    {
+      "example": "formatting-attributes/12",
+      "invalid": "Named colors are not hexadecimal color values.",
+      "diagnostic": "color must be a hex color"
+    },
+    {
+      "example": "formatting-attributes/13",
+      "invalid": "Kerning is outside the supported attribute scope.",
+      "diagnostic": "unsupported strong attribute: kerning"
     }
   ],
   "models": {
@@ -1369,6 +1426,317 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    "attribute-object-precedence": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text"
+            }
+          ],
+          "attributes": {
+            "style": "Body",
+            "alignment": "right"
+          }
+        }
+      ]
+    },
+    "inline-formatting-references": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Bold"
+                }
+              ],
+              "attributes": {
+                "font": "Aptos",
+                "size": {
+                  "value": 12.0,
+                  "unit": "pt",
+                  "text": "12pt"
+                },
+                "color": "#aabbcc"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Italic"
+                }
+              ],
+              "attributes": {
+                "style": "Accent"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "paragraph-formatting-attributes": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text"
+            }
+          ],
+          "attributes": {
+            "spacing": {
+              "before": {
+                "value": 2.0,
+                "unit": "pt",
+                "text": "2pt"
+              },
+              "after": {
+                "value": 6.0,
+                "unit": "pt",
+                "text": "6pt"
+              },
+              "line": {
+                "rule": "exact",
+                "value": {
+                  "value": 14.0,
+                  "unit": "pt",
+                  "text": "14pt"
+                }
+              }
+            },
+            "indent": {
+              "left": {
+                "value": 12.0,
+                "unit": "pt",
+                "text": "12pt"
+              },
+              "first_line": {
+                "value": 6.0,
+                "unit": "pt",
+                "text": "6pt"
+              }
+            },
+            "fill": "#eeeeff",
+            "keep_with_next": true,
+            "keep_together": false,
+            "page_break_before": false,
+            "widow_control": true,
+            "outline_level": 0.0
+          }
+        }
+      ]
+    },
+    "paragraph-borders-tabs": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text"
+            }
+          ],
+          "attributes": {
+            "border": {
+              "bottom": {
+                "style": "single",
+                "width": {
+                  "value": 1.0,
+                  "unit": "pt",
+                  "text": "1pt"
+                },
+                "color": "#123"
+              }
+            },
+            "tabs": [
+              {
+                "position": {
+                  "value": 1.0,
+                  "unit": "in",
+                  "text": "1in"
+                },
+                "alignment": "right",
+                "leader": "dot"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "heading-numbering-attributes": {
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Scope"
+            }
+          ],
+          "attributes": {
+            "level": 2.0,
+            "numbering": {
+              "enabled": true,
+              "id": "chapters",
+              "format": "decimal",
+              "separator": ".",
+              "start": 1.0,
+              "restart": false
+            }
+          }
+        }
+      ]
+    },
+    "list-task-attributes": {
+      "content": [
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Review"
+                    }
+                  ]
+                }
+              ],
+              "attributes": {
+                "checked": false,
+                "checkbox": {
+                  "kind": "content_control",
+                  "name": "review",
+                  "title": "Review"
+                },
+                "spacing": {
+                  "after": {
+                    "value": 2.0,
+                    "unit": "pt",
+                    "text": "2pt"
+                  }
+                }
+              }
+            }
+          ],
+          "attributes": {
+            "id": "steps",
+            "start": 3.0,
+            "format": "upper_roman",
+            "restart": false,
+            "tight": true,
+            "indent": {
+              "left": {
+                "value": 36.0,
+                "unit": "pt",
+                "text": "36pt"
+              },
+              "hanging": {
+                "value": 18.0,
+                "unit": "pt",
+                "text": "18pt"
+              },
+              "level": {
+                "value": 18.0,
+                "unit": "pt",
+                "text": "18pt"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "preserved-code-attributes": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "first\n"
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "second\n third"
+                    }
+                  ]
+                }
+              ],
+              "attributes": {
+                "language": "text",
+                "preserve_space": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "quoted-block-attributes": {
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quoted"
+                }
+              ]
+            }
+          ],
+          "attributes": {
+            "style": "Quote",
+            "fill": "#eeeeff",
+            "indent": {
+              "left": {
+                "value": 12.0,
+                "unit": "pt",
+                "text": "12pt"
+              }
+            }
+          }
         }
       ]
     }
