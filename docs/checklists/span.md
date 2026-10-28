@@ -23,16 +23,17 @@
 
 ## Resolution and output
 
-- [ ] Resolve enclosing text formatting, named style, and direct attributes in
+- [x] Resolve enclosing text formatting, named style, and direct attributes in
   order, without modifying the authored model.
 - [ ] Verify editable Office output and independent native PDF/PNG.
 
 ## Evidence
 
 [Property-contract tests](../../tests/property_contracts.rs) cover retention,
-signature checks, normalization, and property overrides.
+signature checks, normalization, and declaration boundaries.
 
 [Specification](../specification/spans.md),
 [implementation](../../src/evaluation/attributes.rs),
-[language tests](../../tests/spans.rs), and
+[language tests](../../tests/spans.rs), [resolver](../../src/formatting.rs),
+[resolution tests](../../tests/formatting.rs), and
 [specification examples](../../tests/conformance.rs) cover the checked items.

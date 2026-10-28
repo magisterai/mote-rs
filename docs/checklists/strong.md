@@ -44,7 +44,7 @@ Style and font references are recorded without resolving their declarations.
 ## Evidence
 
 [Property-contract tests](../../tests/property_contracts.rs) cover retention,
-signature checks, normalization, and property overrides.
+signature checks, normalization, and declaration boundaries.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [evaluation tests](../../tests/evaluation.rs),

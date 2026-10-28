@@ -35,6 +35,7 @@ fn attributes(source: &str, kind: &str) -> JsonValue {
     let element = find_element(&document.content, kind).clone();
     let document = mote::model::Document {
         content: vec![Content::Element(element)],
+        ..mote::model::Document::default()
     };
     let output: JsonValue = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
     output["content"][0]["attributes"].clone()

@@ -64,7 +64,7 @@ attributes, and most quote geometry remain unvalidated authored metadata.
 after removing syntactic indentation before directives and block markers, and
 normalizes CRLF/CR to LF. Tabs remain literal in the model. Language labels
 are metadata; syntax highlighting is not implemented. Style/font references are
-stored without declaration lookup or effective-style resolution. Pagination,
+stored separately from declarations and resolved formatting. Pagination,
 numbering, indentation, and checkbox values record intent without rendering it.
 
 Length helpers are `pt`, `in`, `inch`, `cm`, `mm`, and `twip`; `color` constructs
@@ -75,9 +75,36 @@ Alignment values must match their defined spelling exactly. A heading rejects a
 level supplied both directly positionally and by name. Omitted attributes remain
 absent from the model, and an explicit empty body still creates its element.
 
-Document configuration, bindings, JSON loading, style/font declarations and
-resolution, defaults, Lua, layout, and Office/PDF/PNG output remain deferred.
+`font` and `style` register document-wide declarations without creating content
+nodes. Later declarations replace earlier entries with the same exact name.
+Fonts record script-specific typefaces and line-height metadata. Styles support
+paragraph/character/table types, relationships, flat properties, and paragraph/run/
+table property objects. Table declaration normalization is available; applying
+table styles and resolving conditional regions await the table model. Numeric
+font/style names produce source-located warnings in `Document.warnings`.
+
+Document configuration, bindings, JSON loading, defaults, Lua, layout, and
+Office/PDF/PNG output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
+
+## Formatting resolution
+
+`formatting::StyleResolver` provides explicit named-style, paragraph, inline, and
+font-alias resolution. It reads the completed declaration registry, allowing
+forward references, and follows `based_on` from base to derived. Paragraph
+properties merge recursively with spacing-alias precedence; explicit false and
+zero remain meaningful. Missing styles and cycles report resolution issues while
+retaining discovered properties. Direct formatting follows named-style values.
+
+Resolution returns new maps without modifying authored attributes. Callers pass
+a parent's resolved run properties into each inline child; siblings remain
+independent. Font resolution returns declared script mappings or a direct
+typeface name without looking up installed fonts. See
+[Styles and fonts](specification/styles-and-fonts.md) for the exact contracts.
+
+Implicit output styles, document/list/container defaults, font-file lookup,
+glyph coverage, measured line height, and output-specific formatting remain
+future work. The resolver does not lay out or render documents.
 
 ## JSON inspection
 
@@ -102,7 +129,11 @@ Text nodes have `kind = "text"` and omit `text` only when empty. Adjacent fragme
 remain distinct, including helper results, escaped characters, and line breaks.
 Markdown headings retain `marker = "#"` alongside their numeric level. Objects retain named fields; lengths carry `value`, `unit`, and a readable
 `text` representation. Arrays retain order; typed colors serialize as normalized
-hexadecimal strings. This deterministic inspection format contains no computed layout
+hexadecimal strings. Documents with declarations also contain `fonts` and
+`styles` arrays sorted by name. Nonempty authored properties and structural
+fields are exposed as defined in [Styles and fonts](specification/styles-and-fonts.md).
+Empty registries are omitted. Conversion warnings go to standard error and stay
+out of JSON. This deterministic inspection format contains no computed layout
 geometry and is not yet a stable interchange schema. JSON output does not enable
 the deferred `json(...)` data-loading helper.
 

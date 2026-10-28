@@ -3,8 +3,8 @@
 [Documentation](../README.md) · [Specification](../specification/README.md)
 
 These checklists record the planned scope and current completion of each
-directive. They begin with the ten directives already introduced. Add a page for
-each future directive before writing its specification or implementation.
+directive. They cover content directives and document-wide declarations. Add a
+page for each future directive before its specification or implementation.
 
 ## Reading status
 
@@ -17,11 +17,13 @@ each future directive before writing its specification or implementation.
 - Output tasks remain unchecked until their own mappings and verification exist.
   No current directive has Rust Office, PDF, or PNG output.
 
-All current directive attribute tasks are specified in
-[Formatting attributes](../specification/formatting-attributes.md), implemented,
-and covered by [attribute tests](../../tests/attributes.rs). Effective style
-resolution and output tasks remain open. Future pending descriptions are planning
-notes; define their concepts before using them in examples.
+Content attribute contracts are specified in
+[Formatting attributes](../specification/formatting-attributes.md) and
+[Spans](../specification/spans.md). [Styles and fonts](../specification/styles-and-fonts.md)
+defines declarations and explicit formatting resolution. Each checklist links its
+implementation and tests. Output defaults, table-style application, font measurement, and
+rendering remain open. Future pending descriptions are planning notes; define
+their concepts before using them in examples.
 
 ## Directives
 
@@ -37,7 +39,9 @@ notes; define their concepts before using them in examples.
 | `ordered_list` | [Ordered list](ordered-list.md) | Item container, nesting, numbering/layout attributes. |
 | `item` | [Item](item.md) | Block body, markers, layout and task metadata. |
 | `blockquote` | [Block quote](blockquote.md) | Block body, quote lines, scoped formatting attributes. |
-| `span` | [Span](span.md) | General inline formatting and normalized attributes. |
+| `span` | [Span](span.md) | General inline formatting and explicit resolution. |
+| `font` | [Font declaration](font.md) | Named script mappings and alias resolution. |
+| `style` | [Style declaration](style.md) | Style declarations, paragraph/run inheritance, and table-property storage. |
 
 ## Scope and output boundaries
 
@@ -60,8 +64,10 @@ directive can exist before those definitions; its tasks remain unchecked.
   validate declared outer argument types before merging `properties`, then
   normalize only the receiving directive's designated fields. Preserve extra
   nested fields; spacing and indent maps normalize every length entry.
-- [x] JSON inspection omits empty optional fields and includes document geometry
-  objects and implicit section content.
+- [x] JSON inspection uses sorted declaration arrays, omits empty optional
+  fields, and includes document geometry objects and implicit section content.
+- [x] Numeric declaration names produce source-located warnings, available to
+  library callers and printed separately from JSON by the CLI.
 - [x] Array expressions for ordered tab stops, including empty arrays; reject
   mixed named and positional collection entries.
 - [x] Typed `color` helper and hexadecimal color values.
@@ -76,12 +82,14 @@ directive can exist before those definitions; its tasks remain unchecked.
   values.
 - [x] Length validation and model storage, including unitless values and retained
   flat/nested spacing fields; physical resolution remains layout work.
-- [ ] Style resolution, inheritance, and direct-attribute precedence. Keep a
-  reference to a style distinct from resolving its effective properties.
+- [x] Explicit style resolution, inheritance, and direct-attribute precedence.
+  Keep authored references separate from resolved properties; report missing
+  styles and cycles. See the [style checklist](style.md).
+- [ ] Implicit output styles and document/list/container defaults.
 
 The current attribute implementation work covers evaluation, validation, and
-model storage. Style/font references can be complete at that layer while style
-declarations, effective formatting, layout, and output tasks remain separate.
+model storage. Declaration and explicit resolution tasks now have their own
+checklists; their completion does not establish layout or output conformance.
 
 ## Checklist-first workflow
 

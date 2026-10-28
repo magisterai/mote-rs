@@ -137,6 +137,35 @@ pub(super) fn normalize_color(
     Ok(Value::Color(format!("#{}", digits.to_ascii_lowercase())))
 }
 
+pub(super) fn require_string(
+    value: Value,
+    span: Span,
+    property: &str,
+) -> Result<Value, Diagnostic> {
+    match value {
+        Value::String(_) => Ok(value),
+        _ => Err(Diagnostic::new(
+            span,
+            format!("{property} must be a string"),
+        )),
+    }
+}
+
+pub(super) fn normalize_identifier(
+    value: Value,
+    span: Span,
+    property: &str,
+) -> Result<String, Diagnostic> {
+    match value {
+        Value::String(text) => Ok(text),
+        Value::Number(number) if number.is_finite() => Ok(number.to_string()),
+        _ => Err(Diagnostic::new(
+            span,
+            format!("{property} must be a string or number"),
+        )),
+    }
+}
+
 pub(super) fn normalize_enum(
     value: Value,
     span: Span,

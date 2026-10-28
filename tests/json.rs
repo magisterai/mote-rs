@@ -31,6 +31,7 @@ fn invalid_numeric_model_values_are_not_silently_emitted_as_null() {
             attributes: Properties::from([("value".into(), Value::Number(f64::NAN))]),
             children: vec![],
         })],
+        ..Document::default()
     };
     assert!(
         to_json(&document)
@@ -48,14 +49,16 @@ fn inspection_envelope_omits_empty_fields_and_projects_implicit_content() {
         empty,
         json!({"page":{},"margin":{},"columns":{},"content":[]})
     );
-    let document = compile("#paragraph[]").unwrap();
+    let document = compile("#font(name=\"z\")#font(name=\"a\",latin=\"Aptos\")#style(name=\"Z\")#style(name=\"A\",type=\"character\",based_on=\"Z\",next=\"\",link=\"Z\",font=\"a\",run={bold=true})#span[]").unwrap();
     let output: serde_json::Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
-    let content = json!([{"kind":"paragraph","category":"block"}]);
+    let content = json!([{"kind":"paragraph","category":"block","children":[{"kind":"span","category":"inline"}]}]);
     assert_eq!(
         output,
         json!({
             "page":{},"margin":{},"columns":{},"content":content,
-            "sections":[{"section_properties":{},"page_numbering":{},"page":{},"margin":{},"columns":{},"header_properties":{},"footer_properties":{},"content":content}]
+            "sections":[{"section_properties":{},"page_numbering":{},"page":{},"margin":{},"columns":{},"header_properties":{},"footer_properties":{},"content":content}],
+            "fonts":[{"name":"a","latin":"Aptos","properties":{"latin":"Aptos"}},{"name":"z"}],
+            "styles":[{"name":"A","type":"character","based_on":"Z","link":"Z","font":"a","run":{"bold":true},"properties":{"type":"character","based_on":"Z","next":"","link":"Z","font":"a","run":{"bold":true}}},{"name":"Z","type":"paragraph"}]
         })
     );
 }

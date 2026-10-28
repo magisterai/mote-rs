@@ -355,6 +355,47 @@
       "example": "spans/6",
       "invalid": "The span underline attribute is a boolean, not an underline-style name.",
       "diagnostic": "underline must be a boolean"
+    },
+    {
+      "example": "styles-and-fonts/1",
+      "model": "declared-font-reference"
+    },
+    {
+      "example": "styles-and-fonts/2",
+      "model": "paragraph-character-declarations"
+    },
+    {
+      "example": "styles-and-fonts/3",
+      "model": "replaced-style-forward-reference"
+    },
+    {
+      "example": "styles-and-fonts/4",
+      "model": "inherited-style-direct-paragraph"
+    },
+    {
+      "example": "styles-and-fonts/5",
+      "invalid": "A font declaration requires a name.",
+      "diagnostic": "font requires name"
+    },
+    {
+      "example": "styles-and-fonts/6",
+      "invalid": "A style declaration cannot have a content body.",
+      "diagnostic": "style accepts named arguments and no content body"
+    },
+    {
+      "example": "styles-and-fonts/7",
+      "invalid": "Section is not a supported style type.",
+      "diagnostic": "style type must be one of paragraph, character"
+    },
+    {
+      "example": "styles-and-fonts/8",
+      "invalid": "A run boolean does not accept numeric one.",
+      "diagnostic": "bold must be a boolean"
+    },
+    {
+      "example": "styles-and-fonts/9",
+      "invalid": "A final style declaration cannot be based directly on itself.",
+      "diagnostic": "style \"Body\" cannot be based on itself"
     }
   ],
   "models": {
@@ -4245,6 +4286,410 @@
                   "text": " third"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    "declared-font-reference": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "fonts": [
+        {
+          "name": "body",
+          "latin": "Aptos",
+          "east_asian": "Yu Gothic",
+          "complex_script": "Arial",
+          "properties": {
+            "complex_script": "Arial",
+            "east_asian": "Yu Gothic",
+            "latin": "Aptos",
+            "word_line_height": 1.25
+          }
+        }
+      ],
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "font": "body"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Hello"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "body"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Hello"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "paragraph-character-declarations": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "styles": [
+        {
+          "name": "Accent",
+          "type": "character",
+          "run": {
+            "bold": true,
+            "color": "#336699"
+          },
+          "properties": {
+            "run": {
+              "bold": true,
+              "color": "#336699"
+            },
+            "type": "character"
+          }
+        },
+        {
+          "name": "Body",
+          "type": "paragraph",
+          "font": "Aptos",
+          "paragraph": {
+            "spacing": {
+              "after": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6.0
+              }
+            }
+          },
+          "properties": {
+            "font": "Aptos",
+            "paragraph": {
+              "spacing": {
+                "after": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6.0
+                }
+              }
+            },
+            "size": {
+              "text": "11pt",
+              "unit": "pt",
+              "value": 11.0
+            }
+          }
+        }
+      ],
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "style": "Body"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Read "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Accent"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "this"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "style": "Body"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Read "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Accent"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "this"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    "replaced-style-forward-reference": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "styles": [
+        {
+          "name": "Accent",
+          "type": "character",
+          "properties": {
+            "italic": true,
+            "type": "character"
+          }
+        }
+      ],
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Accent"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Ready"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Accent"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Ready"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "inherited-style-direct-paragraph": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "styles": [
+        {
+          "name": "Base",
+          "type": "paragraph",
+          "paragraph": {
+            "keep_with_next": true,
+            "spacing": {
+              "after": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6.0
+              },
+              "before": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2.0
+              }
+            }
+          },
+          "run": {
+            "bold": true,
+            "color": "#336699"
+          },
+          "properties": {
+            "paragraph": {
+              "keep_with_next": true,
+              "spacing": {
+                "after": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6.0
+                },
+                "before": {
+                  "text": "2pt",
+                  "unit": "pt",
+                  "value": 2.0
+                }
+              }
+            },
+            "run": {
+              "bold": true,
+              "color": "#336699"
+            }
+          }
+        },
+        {
+          "name": "Body",
+          "type": "paragraph",
+          "based_on": "Base",
+          "paragraph": {
+            "keep_with_next": false,
+            "spacing": {
+              "after": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0.0
+              }
+            }
+          },
+          "run": {
+            "bold": false
+          },
+          "properties": {
+            "based_on": "Base",
+            "paragraph": {
+              "keep_with_next": false,
+              "spacing": {
+                "after": {
+                  "text": "0pt",
+                  "unit": "pt",
+                  "value": 0.0
+                }
+              }
+            },
+            "run": {
+              "bold": false
+            }
+          }
+        }
+      ],
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "spacing_before": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4.0
+                },
+                "style": "Body"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "spacing_before": {
+              "text": "4pt",
+              "unit": "pt",
+              "value": 4.0
+            },
+            "style": "Body"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text"
             }
           ]
         }

@@ -88,3 +88,20 @@ fn help_describes_the_current_output_boundary() {
             .contains("Only JSON inspection")
     );
 }
+
+#[test]
+fn conversion_warnings_are_located_on_stderr_and_leave_json_clean() {
+    let output = run(&[], "é\n#font(name=7)\n#style(name=8)".as_bytes());
+    assert!(output.status.success());
+    assert_eq!(
+        String::from_utf8(output.stderr).unwrap(),
+        concat!(
+            "<stdin>:2:1: warning: font name was coerced from number to string \"7\"\n",
+            "<stdin>:3:1: warning: style name was coerced from number to string \"8\"\n"
+        )
+    );
+    let document: serde_json::Value = serde_json::from_slice(&output.stdout).unwrap();
+    assert_eq!(document["fonts"][0]["name"], "7");
+    assert_eq!(document["styles"][0]["name"], "8");
+    assert!(document.get("warnings").is_none());
+}

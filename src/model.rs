@@ -74,9 +74,44 @@ impl Unit {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, Default, PartialEq)]
 pub struct Document {
     pub content: Vec<Content>,
+    pub fonts: BTreeMap<String, FontDeclaration>,
+    pub styles: BTreeMap<String, StyleDeclaration>,
+    /// Non-fatal evaluation diagnostics, kept separate from JSON inspection.
+    pub warnings: Vec<crate::diagnostics::Diagnostic>,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct FontDeclaration {
+    pub name: String,
+    pub properties: Properties,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct StyleDeclaration {
+    pub name: String,
+    pub kind: StyleKind,
+    pub properties: Properties,
+    pub span: crate::diagnostics::Span,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum StyleKind {
+    Paragraph,
+    Character,
+    Table,
+}
+
+impl StyleKind {
+    pub fn as_text(self) -> &'static str {
+        match self {
+            Self::Paragraph => "paragraph",
+            Self::Character => "character",
+            Self::Table => "table",
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq)]

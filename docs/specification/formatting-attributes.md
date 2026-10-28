@@ -13,7 +13,8 @@ A **style reference** is a string naming a paragraph or character style. A
 **font reference** is a string naming a typeface or font alias. Evaluation records
 these references without looking up declarations, substituting fonts, or copying
 effective properties into children. Omission remains distinct from an explicit
-value. Style declarations and inheritance will be defined separately.
+value. [Styles and fonts](styles-and-fonts.md) later defines declarations and
+explicit resolution without changing this authored model.
 
 A **color** uses `#` followed by three or six hexadecimal digits. The
 `color` helper accepts exactly one positional string, without a body or named

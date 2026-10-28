@@ -65,6 +65,15 @@ fn run() -> Result<(), String> {
     })?;
     let mut json =
         mote::json::to_json(&document).map_err(|error| format!("JSON output: {error}"))?;
+    for warning in &document.warnings {
+        let (line, column) = warning.location(&source);
+        writeln!(
+            io::stderr().lock(),
+            "{name}:{line}:{column}: warning: {}",
+            warning.message
+        )
+        .map_err(|error| format!("standard error: {error}"))?;
+    }
     json.push('\n');
     output(&json)
 }

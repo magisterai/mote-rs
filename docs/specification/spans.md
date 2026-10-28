@@ -86,4 +86,5 @@ directive:
 #span(underline = "wave")[Text]
 ```
 
-Output support is tracked separately in the [span checklist](../checklists/span.md).
+Continue with [Styles and fonts](styles-and-fonts.md). Output support is tracked
+separately in the [span checklist](../checklists/span.md).

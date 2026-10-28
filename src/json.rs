@@ -18,6 +18,44 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
             "footer_properties":{}, "content":output["content"],
         }]);
     }
+    if !document.fonts.is_empty() {
+        let fonts: Vec<JsonValue> = document
+            .fonts
+            .values()
+            .map(|font| {
+                let mut output = json!({"name":font.name});
+                copy_nonempty_properties(&mut output, &font.properties)?;
+                for name in ["latin", "east_asian", "complex_script"] {
+                    copy_nonempty_field(&mut output, &font.properties, name)?;
+                }
+                Ok(output)
+            })
+            .collect::<Result<_, serde_json::Error>>()?;
+        output["fonts"] = JsonValue::Array(fonts);
+    }
+    if !document.styles.is_empty() {
+        let styles: Vec<JsonValue> = document
+            .styles
+            .values()
+            .map(|style| {
+                let mut output = json!({"name":style.name, "type":style.kind.as_text()});
+                copy_nonempty_properties(&mut output, &style.properties)?;
+                for name in [
+                    "based_on",
+                    "next",
+                    "link",
+                    "font",
+                    "paragraph",
+                    "run",
+                    "table",
+                ] {
+                    copy_nonempty_field(&mut output, &style.properties, name)?;
+                }
+                Ok(output)
+            })
+            .collect::<Result<_, serde_json::Error>>()?;
+        output["styles"] = JsonValue::Array(styles);
+    }
     serde_json::to_string_pretty(&output)
 }
 
@@ -44,6 +82,34 @@ fn content_as_json(content: &Content) -> Result<JsonValue, serde_json::Error> {
             object
         }
     })
+}
+
+fn copy_nonempty_properties(
+    output: &mut JsonValue,
+    properties: &Properties,
+) -> Result<(), serde_json::Error> {
+    if !properties.is_empty() {
+        output["properties"] = properties_as_json(properties)?;
+    }
+    Ok(())
+}
+
+fn copy_nonempty_field(
+    output: &mut JsonValue,
+    properties: &Properties,
+    name: &str,
+) -> Result<(), serde_json::Error> {
+    if let Some(value) = properties.get(name) {
+        let empty = match value {
+            Value::String(text) => text.is_empty(),
+            Value::Object(fields) => fields.is_empty(),
+            _ => false,
+        };
+        if !empty {
+            output[name] = value_as_json(value)?;
+        }
+    }
+    Ok(())
 }
 
 fn properties_as_json(properties: &Properties) -> Result<JsonValue, serde_json::Error> {

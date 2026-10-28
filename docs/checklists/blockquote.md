@@ -52,7 +52,7 @@ checklists; they are not extra direct quote-formatting controls in this scope.
 ## Evidence
 
 [Property-contract tests](../../tests/property_contracts.rs) cover retention,
-signature checks, normalization, and property overrides.
+signature checks, normalization, and declaration boundaries.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [quote tests](../../tests/content.rs), and

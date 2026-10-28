@@ -2,6 +2,7 @@
 
 pub mod diagnostics;
 pub mod evaluation;
+pub mod formatting;
 pub mod json;
 pub mod model;
 pub mod syntax;

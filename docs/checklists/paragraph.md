@@ -23,7 +23,8 @@ style resolution and output remain separate.
 - [x] `spacing_before`, `spacing_after`, `line_spacing`: flat spacing aliases,
   including their precedence relative to `spacing` fields.
 - [x] `indent`: `left`, `right`, `first_line`, and `hanging` lengths.
-- [x] `style`: paragraph-style reference; resolution of effective properties remains pending.
+- [x] `style`: paragraph-style reference; explicit resolution is covered by the
+  [style checklist](style.md).
 - [x] `border`: `top`, `right`, `bottom`, `left`, and `all`; each side accepts a
   style string or `style`/`val`, `size`/`width`, `space`, and `color` fields.
   Only the outer argument's object type is checked; side contents remain metadata.
@@ -41,8 +42,8 @@ style resolution and output remain separate.
 ## Dependencies and limits
 
 Style references, colors, borders, tab-stop arrays, and pagination requests are
-defined in the formatting chapter. Style declarations and presentation containers
-remain future work. Tab stops and outline levels require explicit
+defined in the formatting chapter. Style declarations have their own checklist;
+presentation containers remain future work. Tab stops and outline levels require explicit
 output coverage; they are not established by the current model. Text direction
 is not a general paragraph attribute in this checklist. Presentation container
 `text` and `list` defaults belong to their future container checklists; they are
@@ -58,7 +59,7 @@ not additional direct paragraph controls here.
 ## Evidence
 
 [Property-contract tests](../../tests/property_contracts.rs) cover retention,
-signature checks, normalization, and property overrides.
+signature checks, normalization, and declaration boundaries.
 
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [evaluation tests](../../tests/evaluation.rs),
