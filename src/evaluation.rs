@@ -1,16 +1,16 @@
 //! Evaluation of content directives and their formatting attributes.
 
-use crate::model::{Content, Document, Element, ElementKind, Properties, Unit, Value};
-use crate::syntax::{
-    Argument, Call, Diagnostic, Expression, ExpressionKind, Node, NodeKind, Span, SyntaxTree,
-};
+use crate::diagnostics::{Diagnostic, Span};
+use crate::model::{Content, Document, Element, ElementKind, Properties, Value};
+use crate::syntax::{Call, Node, NodeKind, SyntaxTree};
 
 mod attributes;
 mod declarations;
+mod expressions;
 mod values;
 
 use attributes::evaluate_attributes;
-use values::{normalize_color, numeric_value};
+use expressions::{evaluate_expression, evaluate_helper, value_as_text};
 
 #[derive(Clone, Copy)]
 struct EvaluationContext<'source> {
@@ -448,91 +448,4 @@ fn normalize_preserved_content(content: &mut [Content]) {
             Content::Element(element) => normalize_preserved_content(&mut element.children),
         }
     }
-}
-
-fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
-    Ok(match &expression.kind {
-        ExpressionKind::String(text) => Value::String(text.clone()),
-        ExpressionKind::Number(number) => Value::Number(*number),
-        ExpressionKind::Boolean(boolean) => Value::Boolean(*boolean),
-        ExpressionKind::Nil => Value::Nil,
-        ExpressionKind::Array(entries) => Value::Array(
-            entries
-                .iter()
-                .map(evaluate_expression)
-                .collect::<Result<_, _>>()?,
-        ),
-        ExpressionKind::Object(fields) => {
-            let mut object = Properties::new();
-            for field in fields {
-                let Some(name) = &field.name else {
-                    return Err(Diagnostic::new(field.span, "object fields must be named"));
-                };
-                object.insert(name.clone(), evaluate_expression(&field.value)?);
-            }
-            Value::Object(object)
-        }
-        ExpressionKind::Call { name, arguments } => {
-            evaluate_helper(name, arguments, expression.span)?
-        }
-        ExpressionKind::Path(name) => {
-            return Err(Diagnostic::new(
-                expression.span,
-                format!("binding references are not supported yet: {name}"),
-            ));
-        }
-    })
-}
-
-fn evaluate_helper(name: &str, arguments: &[Argument], span: Span) -> Result<Value, Diagnostic> {
-    let unit = Unit::from_name(name);
-    if unit.is_none() && !matches!(name, "upper" | "color") {
-        return Err(Diagnostic::new(span, format!("unsupported helper: {name}")));
-    }
-    if arguments.len() != 1 || arguments[0].name.is_some() {
-        return Err(Diagnostic::new(
-            span,
-            format!("{name} requires one positional argument"),
-        ));
-    }
-    let value = evaluate_expression(&arguments[0].value)?;
-    if name == "color" {
-        return normalize_color(value, arguments[0].value.span, "color");
-    }
-    if let Some(unit) = unit {
-        let Some(magnitude) = numeric_value(&value) else {
-            return Err(Diagnostic::new(
-                arguments[0].value.span,
-                "length magnitude must be a finite number",
-            ));
-        };
-        return Ok(Value::Length {
-            value: magnitude,
-            unit,
-        });
-    }
-    let text = value_as_text(&value, arguments[0].value.span)?;
-    if !text.is_ascii() {
-        return Err(Diagnostic::new(
-            span,
-            "upper currently supports ASCII text only",
-        ));
-    }
-    Ok(Value::String(text.to_ascii_uppercase()))
-}
-
-fn value_as_text(value: &Value, span: Span) -> Result<String, Diagnostic> {
-    Ok(match value {
-        Value::String(text) | Value::Color(text) => text.clone(),
-        Value::Number(number) => number.to_string(),
-        Value::Boolean(boolean) => boolean.to_string(),
-        Value::Nil => String::new(),
-        Value::Length { value, unit } => format!("{value}{}", unit.as_text()),
-        Value::Object(_) | Value::Array(_) => {
-            return Err(Diagnostic::new(
-                span,
-                "property objects and arrays cannot be inserted as text",
-            ));
-        }
-    })
 }

@@ -1,7 +1,7 @@
 //! Shared validation for attribute values and typed helpers.
 
+use crate::diagnostics::{Diagnostic, Span};
 use crate::model::{Properties, Unit, Value};
-use crate::syntax::{Diagnostic, Span};
 
 pub(super) fn numeric_value(value: &Value) -> Option<f64> {
     let number = match value {
@@ -85,15 +85,21 @@ pub(super) fn normalize_length(
             return Ok(value);
         }
     } else if let Value::String(text) = &value {
-        for name in ["twip", "pt", "in", "cm", "mm"] {
+        for unit in [
+            Unit::Twip,
+            Unit::Point,
+            Unit::Inch,
+            Unit::Centimetre,
+            Unit::Millimetre,
+        ] {
             if let Some(magnitude) = text
-                .strip_suffix(name)
+                .strip_suffix(unit.as_text())
                 .and_then(|text| text.trim().parse::<f64>().ok())
                 .filter(|number| *number >= 0.0 && number.is_finite())
             {
                 return Ok(Value::Length {
                     value: magnitude,
-                    unit: Unit::from_name(name).unwrap(),
+                    unit,
                 });
             }
         }

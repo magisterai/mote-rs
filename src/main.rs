@@ -9,7 +9,7 @@ use std::{
 const HELP: &str = "Usage: mote [--format json] [SOURCE|-]\n\nEvaluate the supported Mote language subset and print its document model as JSON.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nOnly JSON inspection is available; layout and Office output are not implemented.\n";
 
 fn main() -> ExitCode {
-    match run() {
+    match run_command() {
         Ok(()) => ExitCode::SUCCESS,
         Err(message) => {
             let _ = writeln!(io::stderr().lock(), "{message}");
@@ -18,14 +18,14 @@ fn main() -> ExitCode {
     }
 }
 
-fn run() -> Result<(), String> {
+fn run_command() -> Result<(), String> {
     let mut arguments = env::args_os().skip(1);
     let mut input: Option<OsString> = None;
-    let mut literal = false;
+    let mut literal_arguments = false;
     while let Some(argument) = arguments.next() {
-        match argument.to_str().filter(|_| !literal) {
-            Some("--help" | "-h") => return output(HELP),
-            Some("--") => literal = true,
+        match argument.to_str().filter(|_| !literal_arguments) {
+            Some("--help" | "-h") => return write_stdout(HELP),
+            Some("--") => literal_arguments = true,
             Some("--format" | "-format") => {
                 if arguments.next().as_deref() != Some(std::ffi::OsStr::new("json")) {
                     return Err(
@@ -75,10 +75,10 @@ fn run() -> Result<(), String> {
         .map_err(|error| format!("standard error: {error}"))?;
     }
     json.push('\n');
-    output(&json)
+    write_stdout(&json)
 }
 
-fn output(text: &str) -> Result<(), String> {
+fn write_stdout(text: &str) -> Result<(), String> {
     match io::stdout().lock().write_all(text.as_bytes()) {
         Ok(()) => Ok(()),
         Err(error) if error.kind() == io::ErrorKind::BrokenPipe => Ok(()),

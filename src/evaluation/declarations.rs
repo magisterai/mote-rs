@@ -1,6 +1,6 @@
 //! Document-wide declarations; evaluating one does not produce visible content.
 
-use super::{attributes, attributes::evaluate_named_arguments, values::*};
+use super::{attributes, expressions::evaluate_named_arguments, values::*};
 use crate::diagnostics::{Diagnostic, Span};
 use crate::model::{
     Document, ElementKind, FontDeclaration, Properties, StyleDeclaration, StyleKind, Value,

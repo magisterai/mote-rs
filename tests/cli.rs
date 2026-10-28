@@ -38,11 +38,11 @@ fn invalid_source_has_a_location_and_no_partial_json() {
 
 #[test]
 fn reads_source_files_and_reports_missing_paths() {
-    static NEXT: AtomicUsize = AtomicUsize::new(0);
+    static NEXT_INPUT_IDENTIFIER: AtomicUsize = AtomicUsize::new(0);
     let path = std::env::temp_dir().join(format!(
         "mote-cli-{}-{}.mote",
         std::process::id(),
-        NEXT.fetch_add(1, Ordering::Relaxed)
+        NEXT_INPUT_IDENTIFIER.fetch_add(1, Ordering::Relaxed)
     ));
     fs::write(&path, "Hello **world**.").unwrap();
     let output = Command::new(env!("CARGO_BIN_EXE_mote"))

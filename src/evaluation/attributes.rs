@@ -1,9 +1,12 @@
 //! Argument validation, property merging, and directive-specific normalization.
 
-use super::{evaluate_expression, values::*};
+use super::{
+    expressions::{evaluate_expression, evaluate_named_arguments},
+    values::*,
+};
 use crate::diagnostics::{Diagnostic, Span};
 use crate::model::{ElementKind, Properties, Value};
-use crate::syntax::{Argument, Expression, ExpressionKind};
+use crate::syntax::{Argument, ExpressionKind};
 use std::collections::BTreeMap;
 
 pub(super) const ALIGNMENTS: &[&str] = &["left", "center", "right", "justify"];
@@ -14,29 +17,6 @@ const NUMBER_FORMATS: &[&str] = &[
     "lower_roman",
     "upper_roman",
 ];
-
-pub(super) struct EvaluatedArgument<'expression> {
-    pub value: Value,
-    pub source_expression: &'expression Expression,
-}
-
-pub(super) fn evaluate_named_arguments(
-    arguments: &[Argument],
-) -> Result<BTreeMap<String, EvaluatedArgument<'_>>, Diagnostic> {
-    let mut evaluated = BTreeMap::new();
-    for argument in arguments {
-        if let Some(name) = &argument.name {
-            evaluated.insert(
-                name.clone(),
-                EvaluatedArgument {
-                    value: evaluate_expression(&argument.value)?,
-                    source_expression: &argument.value,
-                },
-            );
-        }
-    }
-    Ok(evaluated)
-}
 
 pub(super) fn evaluate_attributes(
     kind: ElementKind,

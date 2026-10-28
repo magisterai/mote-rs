@@ -8,6 +8,26 @@ The [directive checklists](checklists/README.md) track attribute-level work.
 Checked items have a specification, implementation, and tests. Partial model
 support is noted beside unchecked items; output verification is tracked separately.
 
+## Code organization
+
+The language core stays in one crate. Modules divide responsibilities within it;
+new capabilities should justify a separate crate through a substantial boundary.
+
+| Module | Responsibility |
+| --- | --- |
+| [diagnostics](../src/diagnostics.rs) | Shared source ranges and diagnostic locations. |
+| [syntax](../src/syntax.rs) | Syntax tree and parser entry points, with separate markup and expression parsers. |
+| [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, and value-normalization modules. |
+| [model](../src/model.rs) | Evaluated content, values, and declaration registries. |
+| [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
+| [json](../src/json.rs) | Deterministic model inspection. |
+| [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
+
+Parsing does not depend on evaluation. The model shares diagnostic types without
+depending on the parser; formatting and JSON inspection operate on the model.
+Named-argument evaluation retains each value with its source expression so type
+checks and conversion diagnostics keep the correct location.
+
 ## Parser
 
 `mote::syntax::parse` returns a syntax tree with UTF-8 byte ranges or a diagnostic.
