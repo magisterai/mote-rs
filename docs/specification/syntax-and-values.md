@@ -2,11 +2,9 @@
 
 [Specification index](README.md) · [Fundamentals](fundamentals.md)
 
-Status: initial draft. This chapter specifies the core forms introduced in the
-fundamentals. It is not a complete Markdown or expression grammar. Bindings,
-paths, arrays, control flow, Lua, and the full directive and helper catalogues
-will be specified separately. Implementation coverage is a separate concern
-from the language described here.
+Status: initial draft. Read [Fundamentals](fundamentals.md) first. This chapter
+specifies the spelling of the core forms introduced there. It is not a complete
+Markdown or expression grammar. Every example uses those defined forms.
 
 ## 1. Source and names
 
@@ -18,8 +16,8 @@ formatting convention that automatically disappears.
 
 The portable identifier form used in this chapter starts with an ASCII letter
 or underscore, followed by ASCII letters, digits, or underscores. Names are
-case-sensitive. Use `keep_with_next`, not `keep-with-next`. Rules for other
-identifier characters are outside this chapter.
+case-sensitive. Separate words in a name with underscores rather than hyphens.
+Rules for other identifier characters are outside this chapter.
 
 A directive starts with `#` immediately followed by its name. An opening `(` or
 `[` immediately follows the name, and a content body immediately follows an
@@ -48,18 +46,20 @@ Arguments are comma-separated. A trailing comma is allowed. Spaces, tabs, and
 line endings may surround arguments and `=`. Parentheses and braces inside
 quoted strings do not close the surrounding call or object.
 
-A named argument has the form `identifier = expression`. A positional argument
-is an expression without a name. Each callable defines the allowed arguments,
-their types, and whether a body is required. For example, a heading accepts a
+An **expression** is source that evaluates to a value. A named argument has the
+form `identifier = expression`. A positional argument is an expression without
+a name. Each callable defines the allowed arguments, their types, and whether a
+body is required. For example, a heading accepts a
 positional level:
 
 ```mote
 #heading(2)[Results]
 ```
 
-The argument expression forms specified here are strings, decimal numbers,
-booleans, `nil`, property objects, and helper calls. A helper call inside an
-expression has no `#`, as in `spacing = { after = pt(12) }`.
+The expression forms specified here are strings, decimal numbers, booleans,
+`nil`, property objects, and helper calls. A helper call inside an expression has
+no `#`, as in
+`spacing = { after = pt(12) }`.
 
 ## 3. Literal values
 
@@ -90,7 +90,10 @@ unquoted and distinct from the strings `"true"`, `"false"`, and `"nil"`.
 
 A property object groups named fields inside braces. Fields use the same
 `name = expression` syntax, separated by commas, with an optional trailing comma.
-Values can be nested objects or helper calls:
+Values can be nested objects or helper calls. As defined in the fundamentals,
+`spacing.before` and `spacing.after` request distances outside a paragraph, and
+`pt` constructs a length in points. The dot in this explanatory notation means
+“the field within the object”; source writes the fields inside braces:
 
 ```mote
 #paragraph(
@@ -99,22 +102,23 @@ Values can be nested objects or helper calls:
 )[Quarterly report]
 ```
 
-This chapter specifies objects with at least one named field; empty collections
-and arrays will be covered with collection values.
+This chapter specifies objects with at least one named field. Empty collections
+and arrays are outside its scope.
 
 Helpers return values before the enclosing call uses them. `pt(12)` constructs a
 length with magnitude 12 and unit `pt`; the result retains its unit. A negative
 length can be constructed, but a property such as paragraph spacing requires a
 non-negative value. Accepted values therefore depend on the receiving property.
 
-Prefixing a helper call with `#` in content inserts its result there:
+Prefixing a helper call with `#` in content inserts its result there. A length
+becomes its magnitude followed by its unit:
 
 ```mote
-#paragraph[Status: #upper("paid")]
+#paragraph[Length: #pt(12).]
 ```
 
-The paragraph contains “Status: PAID”. The helpers used in this chapter do not
-require Lua.
+The paragraph contains “Length: 12pt.” The length helpers and their accepted
+arguments are defined in [Basic content](basic-content.md#5-length-helpers).
 
 ## 5. Content bodies and escapes
 
@@ -150,4 +154,5 @@ callable's rules. For example, `#heading(level = 0)[Title]` has valid syntax but
 an invalid level: heading levels must be positive integers.
 
 An implementation must report unsupported directives or helper calls rather
-than silently treating them as successful document content.
+than silently treating them as successful document content. The next chapter,
+[Basic content](basic-content.md), defines the calls used here in more detail.

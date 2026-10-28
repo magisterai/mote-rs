@@ -1,4 +1,4 @@
-//! Each fenced Mote example must have an expected model or an explicit deferral.
+//! Each fenced Mote example must produce its model or a documented validation error.
 
 use mote::{compile, json::to_json, syntax::parse};
 use serde_json::Value;
@@ -31,6 +31,15 @@ fn specification_examples_match_their_declared_outcomes() {
         let source = examples.remove(example_identifier).unwrap_or_else(|| {
             panic!("duplicate or missing specification example: {example_identifier}")
         });
+        assert!(
+            case.get("deferred").is_none(),
+            "{example_identifier}: deferred implementation is not an example outcome"
+        );
+        assert_ne!(
+            case.get("model").is_some(),
+            case.get("diagnostic").is_some(),
+            "{example_identifier}: declare exactly one model or intentional diagnostic"
+        );
         parse(&source).unwrap_or_else(|error| panic!("{example_identifier}: {error}"));
         if let Some(model_name) = case["model"].as_str() {
             let expected = models
@@ -41,18 +50,17 @@ fn specification_examples_match_their_declared_outcomes() {
             let actual: Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
             assert_eq!(&actual, expected, "{example_identifier}");
         } else {
-            let reason = case["deferred"]
+            let reason = case["invalid"]
                 .as_str()
-                .expect("a case must declare a model or a deferral");
+                .expect("an invalid example must explain the rule it violates");
             assert!(
                 !reason.is_empty(),
-                "{example_identifier}: a deferral must explain the missing feature"
+                "{example_identifier}: an invalid example must explain the rule it violates"
             );
             let message = case["diagnostic"]
                 .as_str()
-                .expect("a deferral must name its expected diagnostic");
-            let error = compile(&source)
-                .expect_err("implemented examples must be promoted from deferred to model cases");
+                .expect("an invalid example must name its expected diagnostic");
+            let error = compile(&source).expect_err("this documented invalid use must be rejected");
             assert!(
                 error.message.contains(message),
                 "{example_identifier}: {error}"

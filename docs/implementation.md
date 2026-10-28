@@ -34,6 +34,14 @@ booleans, and `spacing.before` and `spacing.after`. Length helpers are `pt`, `in
 retain their types and physical units. Other attributes and helpers report that
 they are unsupported.
 
+Alignment values must match their defined spelling exactly. A heading rejects a
+level supplied both positionally and by name. Omitted attributes remain absent
+from the model, and an explicit empty body still creates its element.
+
+The pagination booleans and `upper` have initial implementation coverage but
+await their detailed specification chapters. Introductory examples use only the
+defined basic content and length helpers.
+
 Document configuration, bindings, JSON loading, styles, defaults, Lua, layout,
 and Office/PDF/PNG output remain deferred. The model records formatting intent;
 it does not demonstrate rendered behaviour or Office conformance.
@@ -72,6 +80,7 @@ cargo clippy --all-targets -- -D warnings
 The conformance test reads the fenced Mote examples directly from the
 specification and checks their declared outcomes in
 [tests/fixtures/specification.json](../tests/fixtures/specification.json).
-Currently ten examples have expected document models and two explicitly record
-deferred configuration and data features. See the
-[fixture guide](../tests/fixtures/README.md) when adding or promoting examples.
+Every successful example has an expected document model. Intentional invalid
+examples must fail for the documented rule; unsupported implementation is not an
+accepted substitute for a defined example. See the
+[fixture guide](../tests/fixtures/README.md) when adding or changing examples.

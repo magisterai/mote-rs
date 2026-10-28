@@ -33,6 +33,12 @@ own language and behaviour. Read the relevant chapter before consulting external
 format references. The specification is developed progressively; its current
 coverage is listed in the index.
 
+Define each concept before using it in an example, either earlier in the reading
+order or immediately alongside its introduction. Keep introductory examples
+within the documented basics. A note that implementation is deferred does not
+substitute for a language definition. Give successful examples expected models
+and clearly identify intentional invalid examples and the rules they violate.
+
 ## Reference reading
 
 1. Start with [docs/reference/README.md](docs/reference/README.md).

@@ -1,109 +1,411 @@
 {
   "cases": [
-    {"example": "fundamentals/1", "model": "quarterly-report"},
-    {"example": "fundamentals/2", "model": "quarterly-report"},
-    {"example": "fundamentals/3", "model": "paragraph-attributes"},
-    {"example": "fundamentals/4", "model": "helper-in-content"},
+    {
+      "example": "fundamentals/1",
+      "model": "simple-paragraph"
+    },
+    {
+      "example": "fundamentals/2",
+      "model": "heading-one"
+    },
+    {
+      "example": "fundamentals/3",
+      "model": "revenue"
+    },
+    {
+      "example": "fundamentals/4",
+      "model": "quarterly-report"
+    },
     {
       "example": "fundamentals/5",
-      "deferred": "Document configuration has not been implemented.",
-      "diagnostic": "unsupported helper: document"
+      "model": "spacing-in-content"
     },
     {
-      "example": "fundamentals/6",
-      "deferred": "Bindings, JSON loading, and path interpolation have not been implemented.",
-      "diagnostic": "unsupported helper: let"
+      "example": "syntax-and-values/1",
+      "model": "heading-one"
     },
-    {"example": "syntax-and-values/1", "model": "heading-one"},
-    {"example": "syntax-and-values/2", "model": "heading-two"},
-    {"example": "syntax-and-values/3", "model": "paragraph-spacing"},
-    {"example": "syntax-and-values/4", "model": "upper-text"},
-    {"example": "syntax-and-values/5", "model": "revenue"},
-    {"example": "syntax-and-values/6", "model": "escaped-content"}
+    {
+      "example": "syntax-and-values/2",
+      "model": "heading-two"
+    },
+    {
+      "example": "syntax-and-values/3",
+      "model": "paragraph-spacing"
+    },
+    {
+      "example": "syntax-and-values/4",
+      "model": "length-in-content"
+    },
+    {
+      "example": "syntax-and-values/5",
+      "model": "revenue"
+    },
+    {
+      "example": "syntax-and-values/6",
+      "model": "escaped-content"
+    },
+    {
+      "example": "basic-content/1",
+      "model": "two-paragraphs"
+    },
+    {
+      "example": "basic-content/2",
+      "model": "two-paragraphs"
+    },
+    {
+      "example": "basic-content/3",
+      "model": "empty-paragraph"
+    },
+    {
+      "example": "basic-content/4",
+      "model": "heading-two"
+    },
+    {
+      "example": "basic-content/5",
+      "model": "heading-two"
+    },
+    {
+      "example": "basic-content/6",
+      "model": "heading-two"
+    },
+    {
+      "example": "basic-content/7",
+      "model": "heading-without-level"
+    },
+    {
+      "example": "basic-content/8",
+      "model": "strong-within-paragraph"
+    },
+    {
+      "example": "basic-content/9",
+      "model": "length-units-in-content"
+    },
+    {
+      "example": "basic-content/10",
+      "model": "paragraph-spacing"
+    },
+    {
+      "example": "basic-content/11",
+      "model": "paragraph-spacing"
+    },
+    {
+      "example": "basic-content/12",
+      "invalid": "A paragraph requires one content body, even when empty.",
+      "diagnostic": "requires one content body"
+    },
+    {
+      "example": "basic-content/13",
+      "invalid": "A heading level cannot be supplied both positionally and by name.",
+      "diagnostic": "both positionally and by name"
+    },
+    {
+      "example": "basic-content/14",
+      "invalid": "A paragraph body accepts inline content, not heading blocks.",
+      "diagnostic": "inline content cannot contain a block element"
+    },
+    {
+      "example": "basic-content/15",
+      "invalid": "Alignment values are exact and case-sensitive.",
+      "diagnostic": "alignment must be left, center, right, or justify"
+    },
+    {
+      "example": "basic-content/16",
+      "invalid": "Paragraph spacing rejects negative lengths.",
+      "diagnostic": "spacing must be a non-negative length"
+    },
+    {
+      "example": "basic-content/17",
+      "invalid": "A boolean is not a numeric length magnitude.",
+      "diagnostic": "length magnitude must be a finite number"
+    }
   ],
   "models": {
     "quarterly-report": {
       "content": [
         {
-          "kind": "heading", "category": "block", "attributes": {"level": 1.0},
-          "children": [{"kind": "text", "text": "Quarterly report"}]
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1.0
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quarterly report"
+            }
+          ]
         },
         {
-          "kind": "paragraph", "category": "block",
+          "kind": "paragraph",
+          "category": "block",
           "children": [
-            {"kind": "text", "text": "Revenue increased by "},
-            {"kind": "strong", "category": "inline", "children": [{"kind": "text", "text": "12%"}]},
-            {"kind": "text", "text": "."}
+            {
+              "kind": "text",
+              "text": "Revenue increased by "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "12%"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
           ]
         }
       ]
     },
-    "paragraph-attributes": {
-      "content": [{
-        "kind": "paragraph", "category": "block",
-        "attributes": {
-          "alignment": "center", "keep_with_next": true,
-          "spacing": {
-            "before": {"value": 6.0, "unit": "pt", "text": "6pt"},
-            "after": {"value": 12.0, "unit": "pt", "text": "12pt"}
-          }
-        },
-        "children": [{"kind": "text", "text": "Quarterly report"}]
-      }]
-    },
-    "helper-in-content": {
-      "content": [{
-        "kind": "paragraph", "category": "block",
-        "attributes": {"spacing": {"after": {"value": 12.0, "unit": "pt", "text": "12pt"}}},
-        "children": [{"kind": "text", "text": "Status: PAID"}]
-      }]
-    },
     "heading-one": {
-      "content": [{
-        "kind": "heading", "category": "block", "attributes": {"level": 1.0},
-        "children": [{"kind": "text", "text": "Quarterly report"}]
-      }]
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1.0
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quarterly report"
+            }
+          ]
+        }
+      ]
     },
     "heading-two": {
-      "content": [{
-        "kind": "heading", "category": "block", "attributes": {"level": 2.0},
-        "children": [{"kind": "text", "text": "Results"}]
-      }]
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2.0
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Results"
+            }
+          ]
+        }
+      ]
     },
     "paragraph-spacing": {
-      "content": [{
-        "kind": "paragraph", "category": "block",
-        "attributes": {
-          "alignment": "center",
-          "spacing": {
-            "before": {"value": 6.0, "unit": "pt", "text": "6pt"},
-            "after": {"value": 12.0, "unit": "pt", "text": "12pt"}
-          }
-        },
-        "children": [{"kind": "text", "text": "Quarterly report"}]
-      }]
-    },
-    "upper-text": {
-      "content": [{
-        "kind": "paragraph", "category": "block",
-        "children": [{"kind": "text", "text": "Status: PAID"}]
-      }]
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "spacing": {
+              "before": {
+                "value": 6.0,
+                "unit": "pt",
+                "text": "6pt"
+              },
+              "after": {
+                "value": 12.0,
+                "unit": "pt",
+                "text": "12pt"
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quarterly report"
+            }
+          ]
+        }
+      ]
     },
     "revenue": {
-      "content": [{
-        "kind": "paragraph", "category": "block",
-        "children": [
-          {"kind": "text", "text": "Revenue increased by "},
-          {"kind": "strong", "category": "inline", "children": [{"kind": "text", "text": "12%"}]},
-          {"kind": "text", "text": "."}
-        ]
-      }]
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Revenue increased by "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "12%"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
     },
     "escaped-content": {
-      "content": [{
-        "kind": "paragraph", "category": "block",
-        "children": [{"kind": "text", "text": "Write #strong[text] to show the syntax."}]
-      }]
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Write #strong[text] to show the syntax."
+            }
+          ]
+        }
+      ]
+    },
+    "simple-paragraph": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Revenue increased."
+            }
+          ]
+        }
+      ]
+    },
+    "spacing-in-content": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "spacing": {
+              "after": {
+                "value": 12.0,
+                "unit": "pt",
+                "text": "12pt"
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Spacing value: 12pt."
+            }
+          ]
+        }
+      ]
+    },
+    "length-in-content": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Length: 12pt."
+            }
+          ]
+        }
+      ]
+    },
+    "two-paragraphs": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First line second line."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Another paragraph."
+            }
+          ]
+        }
+      ]
+    },
+    "empty-paragraph": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": []
+        }
+      ]
+    },
+    "heading-without-level": {
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Results"
+            }
+          ]
+        }
+      ]
+    },
+    "strong-within-paragraph": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Read "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "this"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " carefully."
+            }
+          ]
+        }
+      ]
+    },
+    "length-units-in-content": {
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Lengths: 12pt, 1in, 2.54cm, 25.4mm, 20twip."
+            }
+          ]
+        }
+      ]
     }
   }
 }
