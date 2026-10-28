@@ -20,6 +20,24 @@ control flow, and Lua are deferred. Unsupported recognized Markdown forms return
 diagnostics; this is not a general Markdown parser. Recursive nesting is limited
 to protect the parser from excessive input depth.
 
+## Evaluation
+
+`mote::compile` parses and evaluates a source string into a document model.
+Markdown headings and strong spans share semantics with `heading` and `strong`
+directives. Bare inline content becomes paragraphs. Explicit `paragraph`,
+`heading`, and `strong` bodies accept inline content and reject nested blocks.
+
+The initial evaluator supports heading levels, paragraph alignment, the
+`keep_with_next`, `keep_together`, `page_break_before`, and `widow_control`
+booleans, and `spacing.before` and `spacing.after`. Length helpers are `pt`, `in`,
+`inch`, `cm`, `mm`, and `twip`. `upper` currently accepts ASCII text only. Values
+retain their types and physical units. Other attributes and helpers report that
+they are unsupported.
+
+Document configuration, bindings, JSON loading, styles, defaults, Lua, layout,
+and Office/PDF/PNG output remain deferred. The model records formatting intent;
+it does not demonstrate rendered behaviour or Office conformance.
+
 ## Development
 
 Use a Rust toolchain supporting edition 2024:
