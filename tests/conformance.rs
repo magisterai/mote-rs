@@ -11,7 +11,7 @@ fn specification_examples_match_their_declared_outcomes() {
     let mut examples = BTreeMap::new();
     for entry in fs::read_dir(root.join("docs/specification")).unwrap() {
         let path = entry.unwrap().path();
-        if path.extension().is_none_or(|ext| ext != "md") {
+        if path.extension().is_none_or(|extension| extension != "md") {
             continue;
         }
         let chapter = path.file_stem().unwrap().to_str().unwrap();
@@ -27,32 +27,36 @@ fn specification_examples_match_their_declared_outcomes() {
     let models = fixture["models"].as_object().unwrap();
     assert!(!cases.is_empty());
     for case in cases {
-        let id = case["example"].as_str().unwrap();
-        let source = examples
-            .remove(id)
-            .unwrap_or_else(|| panic!("duplicate or missing specification example: {id}"));
-        parse(&source).unwrap_or_else(|error| panic!("{id}: {error}"));
+        let example_identifier = case["example"].as_str().unwrap();
+        let source = examples.remove(example_identifier).unwrap_or_else(|| {
+            panic!("duplicate or missing specification example: {example_identifier}")
+        });
+        parse(&source).unwrap_or_else(|error| panic!("{example_identifier}: {error}"));
         if let Some(model_name) = case["model"].as_str() {
             let expected = models
                 .get(model_name)
                 .unwrap_or_else(|| panic!("missing expected model: {model_name}"));
-            let document = compile(&source).unwrap_or_else(|error| panic!("{id}: {error}"));
+            let document =
+                compile(&source).unwrap_or_else(|error| panic!("{example_identifier}: {error}"));
             let actual: Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
-            assert_eq!(&actual, expected, "{id}");
+            assert_eq!(&actual, expected, "{example_identifier}");
         } else {
             let reason = case["deferred"]
                 .as_str()
                 .expect("a case must declare a model or a deferral");
             assert!(
                 !reason.is_empty(),
-                "{id}: a deferral must explain the missing feature"
+                "{example_identifier}: a deferral must explain the missing feature"
             );
             let message = case["diagnostic"]
                 .as_str()
                 .expect("a deferral must name its expected diagnostic");
             let error = compile(&source)
                 .expect_err("implemented examples must be promoted from deferred to model cases");
-            assert!(error.message.contains(message), "{id}: {error}");
+            assert!(
+                error.message.contains(message),
+                "{example_identifier}: {error}"
+            );
         }
     }
     assert!(

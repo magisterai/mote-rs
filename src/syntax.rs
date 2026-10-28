@@ -27,33 +27,33 @@ impl Diagnostic {
     pub fn location(&self, source: &str) -> (usize, usize) {
         let mut line = 1;
         let mut column = 1;
-        let mut previous_cr = false;
-        for (offset, ch) in source.char_indices() {
+        let mut previous_was_carriage_return = false;
+        for (offset, character) in source.char_indices() {
             if offset >= self.span.start {
                 break;
             }
-            match ch {
+            match character {
                 '\r' => {
                     line += 1;
                     column = 1;
                 }
-                '\n' if previous_cr => {}
+                '\n' if previous_was_carriage_return => {}
                 '\n' => {
                     line += 1;
                     column = 1;
                 }
                 _ => column += 1,
             }
-            previous_cr = ch == '\r';
+            previous_was_carriage_return = character == '\r';
         }
         (line, column)
     }
 }
 
 impl fmt::Display for Diagnostic {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(
-            f,
+            formatter,
             "{} (bytes {}..{})",
             self.message, self.span.start, self.span.end
         )
@@ -125,7 +125,7 @@ pub fn parse(source: &str) -> Result<SyntaxTree, Diagnostic> {
         depth: 0,
     };
     Ok(SyntaxTree {
-        nodes: parser.markup(End::Source)?,
+        nodes: parser.parse_markup(End::Source)?,
     })
 }
 
@@ -135,9 +135,9 @@ pub fn parse_expression(source: &str) -> Result<Expression, Diagnostic> {
         position: 0,
         depth: 0,
     };
-    let expression = parser.expression()?;
-    parser.space();
-    if parser.peek().is_some() {
+    let expression = parser.parse_expression()?;
+    parser.skip_whitespace();
+    if parser.peek_character().is_some() {
         return Err(parser.error("unexpected text after expression"));
     }
     Ok(expression)
@@ -151,23 +151,23 @@ enum End {
     Line,
 }
 
-struct Parser<'a> {
-    source: &'a str,
+struct Parser<'source> {
+    source: &'source str,
     position: usize,
     depth: usize,
 }
 
 impl Parser<'_> {
-    fn peek(&self) -> Option<char> {
+    fn peek_character(&self) -> Option<char> {
         self.source[self.position..].chars().next()
     }
-    fn starts(&self, value: &str) -> bool {
+    fn starts_with(&self, value: &str) -> bool {
         self.source[self.position..].starts_with(value)
     }
-    fn bump(&mut self) -> Option<char> {
-        let ch = self.peek()?;
-        self.position += ch.len_utf8();
-        Some(ch)
+    fn advance_character(&mut self) -> Option<char> {
+        let character = self.peek_character()?;
+        self.position += character.len_utf8();
+        Some(character)
     }
     fn span(&self, start: usize) -> Span {
         Span {
@@ -179,56 +179,56 @@ impl Parser<'_> {
         Diagnostic::new(
             Span {
                 start: self.position,
-                end: self.position + self.peek().map_or(0, char::len_utf8),
+                end: self.position + self.peek_character().map_or(0, char::len_utf8),
             },
             message,
         )
     }
-    fn enter(&mut self) -> Result<(), Diagnostic> {
+    fn enter_nested_construct(&mut self) -> Result<(), Diagnostic> {
         if self.depth >= 64 {
             return Err(self.error("nesting limit exceeded"));
         }
         self.depth += 1;
         Ok(())
     }
-    fn space(&mut self) {
-        while matches!(self.peek(), Some(' ' | '\t' | '\r' | '\n')) {
-            self.bump();
+    fn skip_whitespace(&mut self) {
+        while matches!(self.peek_character(), Some(' ' | '\t' | '\r' | '\n')) {
+            self.advance_character();
         }
     }
-    fn horizontal_space(&mut self) {
-        while matches!(self.peek(), Some(' ' | '\t')) {
-            self.bump();
+    fn skip_horizontal_whitespace(&mut self) {
+        while matches!(self.peek_character(), Some(' ' | '\t')) {
+            self.advance_character();
         }
     }
-    fn newline(&mut self) {
-        if self.starts("\r\n") {
+    fn consume_line_ending(&mut self) {
+        if self.starts_with("\r\n") {
             self.position += 2;
         } else {
-            self.bump();
+            self.advance_character();
         }
     }
-    fn line_start(&self) -> bool {
+    fn is_at_line_start(&self) -> bool {
         self.position == 0 || matches!(self.source.as_bytes()[self.position - 1], b'\r' | b'\n')
     }
 
-    fn markup(&mut self, end: End) -> Result<Vec<Node>, Diagnostic> {
-        self.enter()?;
+    fn parse_markup(&mut self, end: End) -> Result<Vec<Node>, Diagnostic> {
+        self.enter_nested_construct()?;
         let mut nodes = Vec::new();
         let content_start = self.position;
         loop {
-            if end == End::Body && self.peek() == Some(']') {
-                self.bump();
+            if end == End::Body && self.peek_character() == Some(']') {
+                self.advance_character();
                 break;
             }
-            if end == End::Strong && self.starts("**") {
+            if end == End::Strong && self.starts_with("**") {
                 self.position += 2;
                 break;
             }
-            if end == End::Line && matches!(self.peek(), None | Some('\r' | '\n' | ']')) {
+            if end == End::Line && matches!(self.peek_character(), None | Some('\r' | '\n' | ']')) {
                 break;
             }
-            let Some(ch) = self.peek() else {
+            let Some(character) = self.peek_character() else {
                 if end == End::Body {
                     return Err(self.error("missing closing ']' for content body"));
                 }
@@ -239,29 +239,29 @@ impl Parser<'_> {
             };
             let start = self.position;
             if matches!(end, End::Source | End::Body)
-                && (self.line_start() || start == content_start)
+                && (self.is_at_line_start() || start == content_start)
             {
-                self.horizontal_space();
-                if let Some(node) = self.heading()? {
+                self.skip_horizontal_whitespace();
+                if let Some(node) = self.parse_heading()? {
                     nodes.push(node);
                     continue;
                 }
                 // These block forms need their own syntax and semantics.
                 if ["- ", "+ ", ">", "```", "~~~", "---"]
                     .iter()
-                    .any(|s| self.starts(s))
+                    .any(|marker| self.starts_with(marker))
                 {
                     return Err(self.error("this Markdown block form is not supported yet"));
                 }
                 self.position = start;
             }
-            match ch {
+            match character {
                 '\r' | '\n' => {
-                    self.newline();
+                    self.consume_line_ending();
                     let after_first = self.position;
-                    self.horizontal_space();
-                    if matches!(self.peek(), Some('\r' | '\n')) {
-                        self.newline();
+                    self.skip_horizontal_whitespace();
+                    if matches!(self.peek_character(), Some('\r' | '\n')) {
+                        self.consume_line_ending();
                         nodes.push(Node {
                             kind: NodeKind::ParagraphBreak,
                             span: self.span(start),
@@ -289,21 +289,21 @@ impl Parser<'_> {
                     }
                 }
                 '#' => {
-                    self.bump();
-                    let name = self.path()?;
-                    if self.peek() == Some('-') {
+                    self.advance_character();
+                    let name = self.parse_path()?;
+                    if self.peek_character() == Some('-') {
                         return Err(self.error("names use underscores, not hyphens"));
                     }
-                    let has_arguments = self.peek() == Some('(');
+                    let has_arguments = self.peek_character() == Some('(');
                     let arguments = if has_arguments {
-                        self.arguments(')', false)?
+                        self.parse_arguments(')', false)?
                     } else {
                         Vec::new()
                     };
                     let mut bodies = Vec::new();
-                    while self.peek() == Some('[') {
-                        self.bump();
-                        bodies.push(self.markup(End::Body)?);
+                    while self.peek_character() == Some('[') {
+                        self.advance_character();
+                        bodies.push(self.parse_markup(End::Body)?);
                     }
                     let kind = if has_arguments || !bodies.is_empty() {
                         NodeKind::Call(Call {
@@ -319,9 +319,9 @@ impl Parser<'_> {
                         span: self.span(start),
                     });
                 }
-                '*' if self.starts("**") => {
+                '*' if self.starts_with("**") => {
                     self.position += 2;
-                    let body = self.markup(End::Strong)?;
+                    let body = self.parse_markup(End::Strong)?;
                     nodes.push(Node {
                         kind: NodeKind::Strong(body),
                         span: self.span(start),
@@ -331,20 +331,20 @@ impl Parser<'_> {
                     "this inline Markdown form is not supported yet; escape literal punctuation",
                 )),
                 '\\' => {
-                    self.bump();
-                    match self.peek() {
+                    self.advance_character();
+                    match self.peek_character() {
                         Some('[' | '(') => {
                             return Err(self.error("mathematical notation is not supported yet"));
                         }
                         Some('\r' | '\n') => {
-                            self.newline();
+                            self.consume_line_ending();
                             nodes.push(Node {
                                 kind: NodeKind::LineBreak { hard: true },
                                 span: self.span(start),
                             });
                         }
                         Some(value) => {
-                            self.bump();
+                            self.advance_character();
                             push_text(&mut nodes, value, self.span(start));
                         }
                         None => push_text(&mut nodes, '\\', self.span(start)),
@@ -354,8 +354,8 @@ impl Parser<'_> {
                     return Err(self.error("missing closing '**' before content body ends"));
                 }
                 _ => {
-                    self.bump();
-                    push_text(&mut nodes, ch, self.span(start));
+                    self.advance_character();
+                    push_text(&mut nodes, character, self.span(start));
                 }
             }
         }
@@ -363,57 +363,57 @@ impl Parser<'_> {
         Ok(nodes)
     }
 
-    fn heading(&mut self) -> Result<Option<Node>, Diagnostic> {
+    fn parse_heading(&mut self) -> Result<Option<Node>, Diagnostic> {
         let start = self.position;
-        while self.peek() == Some('#') {
-            self.bump();
+        while self.peek_character() == Some('#') {
+            self.advance_character();
         }
         let level = self.position - start;
-        if level == 0 || !matches!(self.peek(), Some(' ' | '\t')) {
+        if level == 0 || !matches!(self.peek_character(), Some(' ' | '\t')) {
             self.position = start;
             return Ok(None);
         }
-        self.horizontal_space();
-        let body = self.markup(End::Line)?;
+        self.skip_horizontal_whitespace();
+        let body = self.parse_markup(End::Line)?;
         Ok(Some(Node {
             kind: NodeKind::Heading { level, body },
             span: self.span(start),
         }))
     }
 
-    fn identifier(&mut self) -> Result<String, Diagnostic> {
+    fn parse_identifier(&mut self) -> Result<String, Diagnostic> {
         let start = self.position;
-        if !self.peek().is_some_and(identifier_start) {
+        if !self.peek_character().is_some_and(is_identifier_start) {
             return Err(self.error("expected an identifier beginning with a letter or underscore"));
         }
-        self.bump();
+        self.advance_character();
         while self
-            .peek()
-            .is_some_and(|c| identifier_start(c) || c.is_ascii_digit())
+            .peek_character()
+            .is_some_and(|character| is_identifier_start(character) || character.is_ascii_digit())
         {
-            self.bump();
+            self.advance_character();
         }
         Ok(self.source[start..self.position].to_owned())
     }
 
-    fn path(&mut self) -> Result<String, Diagnostic> {
-        let mut name = self.identifier()?;
-        while self.peek() == Some('.') {
-            self.bump();
+    fn parse_path(&mut self) -> Result<String, Diagnostic> {
+        let mut name = self.parse_identifier()?;
+        while self.peek_character() == Some('.') {
+            self.advance_character();
             name.push('.');
-            name.push_str(&self.identifier()?);
+            name.push_str(&self.parse_identifier()?);
         }
         Ok(name)
     }
 
     // The opening delimiter is at the current position.
-    fn arguments(&mut self, close: char, object: bool) -> Result<Vec<Argument>, Diagnostic> {
-        self.bump();
-        self.space();
+    fn parse_arguments(&mut self, close: char, object: bool) -> Result<Vec<Argument>, Diagnostic> {
+        self.advance_character();
+        self.skip_whitespace();
         let mut arguments = Vec::new();
         loop {
-            if self.peek() == Some(close) {
-                self.bump();
+            if self.peek_character() == Some(close) {
+                self.advance_character();
                 if object && arguments.is_empty() {
                     return Err(self.error("empty collections are not supported yet"));
                 }
@@ -421,11 +421,11 @@ impl Parser<'_> {
             }
             let start = self.position;
             let mut name = None;
-            if self.peek().is_some_and(identifier_start) {
-                let candidate = self.identifier()?;
-                self.space();
-                if self.peek() == Some('=') && !self.starts("==") {
-                    self.bump();
+            if self.peek_character().is_some_and(is_identifier_start) {
+                let candidate = self.parse_identifier()?;
+                self.skip_whitespace();
+                if self.peek_character() == Some('=') && !self.starts_with("==") {
+                    self.advance_character();
                     name = Some(candidate);
                 } else {
                     self.position = start;
@@ -434,45 +434,51 @@ impl Parser<'_> {
             if object && name.is_none() {
                 return Err(self.error("expected a named property; arrays are not supported yet"));
             }
-            let value = self.expression()?;
+            let value = self.parse_expression()?;
             arguments.push(Argument {
                 name,
                 value,
                 span: self.span(start),
             });
-            self.space();
-            match self.peek() {
-                Some(c) if c == close => continue,
+            self.skip_whitespace();
+            match self.peek_character() {
+                Some(character) if character == close => continue,
                 Some(',') => {
-                    self.bump();
-                    self.space();
+                    self.advance_character();
+                    self.skip_whitespace();
                 }
                 _ => return Err(self.error(format!("expected ',' or '{close}'"))),
             }
         }
     }
 
-    fn expression(&mut self) -> Result<Expression, Diagnostic> {
-        self.enter()?;
-        self.space();
+    fn parse_expression(&mut self) -> Result<Expression, Diagnostic> {
+        self.enter_nested_construct()?;
+        self.skip_whitespace();
         let start = self.position;
-        let kind = match self.peek() {
-            Some('\'' | '"') => ExpressionKind::String(self.string()?),
-            Some('{') => ExpressionKind::Object(self.arguments('}', true)?),
-            Some(c) if c.is_ascii_digit() || c == '-' => {
-                if c == '-' {
-                    self.bump();
+        let kind = match self.peek_character() {
+            Some('\'' | '"') => ExpressionKind::String(self.parse_string()?),
+            Some('{') => ExpressionKind::Object(self.parse_arguments('}', true)?),
+            Some(character) if character.is_ascii_digit() || character == '-' => {
+                if character == '-' {
+                    self.advance_character();
                 }
                 let digits_start = self.position;
-                while self.peek().is_some_and(|c| c.is_ascii_digit()) {
-                    self.bump();
+                while self
+                    .peek_character()
+                    .is_some_and(|character| character.is_ascii_digit())
+                {
+                    self.advance_character();
                 }
                 let mut digits = self.position - digits_start;
-                if self.peek() == Some('.') {
-                    self.bump();
+                if self.peek_character() == Some('.') {
+                    self.advance_character();
                     let fraction_start = self.position;
-                    while self.peek().is_some_and(|c| c.is_ascii_digit()) {
-                        self.bump();
+                    while self
+                        .peek_character()
+                        .is_some_and(|character| character.is_ascii_digit())
+                    {
+                        self.advance_character();
                     }
                     digits += self.position - fraction_start;
                 }
@@ -487,16 +493,16 @@ impl Parser<'_> {
                 }
                 ExpressionKind::Number(value)
             }
-            Some(c) if identifier_start(c) => {
-                let name = self.path()?;
-                self.space();
+            Some(character) if is_identifier_start(character) => {
+                let name = self.parse_path()?;
+                self.skip_whitespace();
                 match name.as_str() {
                     "true" => ExpressionKind::Boolean(true),
                     "false" => ExpressionKind::Boolean(false),
                     "nil" => ExpressionKind::Nil,
-                    _ if self.peek() == Some('(') => ExpressionKind::Call {
+                    _ if self.peek_character() == Some('(') => ExpressionKind::Call {
                         name,
-                        arguments: self.arguments(')', false)?,
+                        arguments: self.parse_arguments(')', false)?,
                     },
                     _ => ExpressionKind::Path(name),
                 }
@@ -510,41 +516,43 @@ impl Parser<'_> {
         })
     }
 
-    fn string(&mut self) -> Result<String, Diagnostic> {
-        let quote = self.bump().expect("string starts with a quote");
+    fn parse_string(&mut self) -> Result<String, Diagnostic> {
+        let quote = self
+            .advance_character()
+            .expect("string starts with a quote");
         let mut value = String::new();
         loop {
-            match self.bump() {
-                Some(c) if c == quote => return Ok(value),
-                Some('\\') => match self.bump() {
+            match self.advance_character() {
+                Some(character) if character == quote => return Ok(value),
+                Some('\\') => match self.advance_character() {
                     Some('n') => value.push('\n'),
                     Some('r') => value.push('\r'),
                     Some('t') => value.push('\t'),
-                    Some(c) => value.push(c),
+                    Some(character) => value.push(character),
                     None => return Err(self.error("unterminated string escape")),
                 },
-                Some(c) => value.push(c),
+                Some(character) => value.push(character),
                 None => return Err(self.error("unterminated string")),
             }
         }
     }
 }
 
-fn identifier_start(ch: char) -> bool {
-    ch.is_ascii_alphabetic() || ch == '_'
+fn is_identifier_start(character: char) -> bool {
+    character.is_ascii_alphabetic() || character == '_'
 }
 
-fn push_text(nodes: &mut Vec<Node>, ch: char, span: Span) {
+fn push_text(nodes: &mut Vec<Node>, character: char, span: Span) {
     if let Some(Node {
         kind: NodeKind::Text(text),
         span: previous,
     }) = nodes.last_mut()
     {
-        text.push(ch);
+        text.push(character);
         previous.end = span.end;
     } else {
         nodes.push(Node {
-            kind: NodeKind::Text(ch.to_string()),
+            kind: NodeKind::Text(character.to_string()),
             span,
         });
     }

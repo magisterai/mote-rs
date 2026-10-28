@@ -24,7 +24,7 @@ pub enum Unit {
 }
 
 impl Unit {
-    pub fn as_str(self) -> &'static str {
+    pub fn as_text(self) -> &'static str {
         match self {
             Self::Point => "pt",
             Self::Inch => "in",
@@ -72,7 +72,7 @@ pub enum ElementKind {
 }
 
 impl ElementKind {
-    pub fn as_str(self) -> &'static str {
+    pub fn as_text(self) -> &'static str {
         match self {
             Self::Paragraph => "paragraph",
             Self::Heading => "heading",

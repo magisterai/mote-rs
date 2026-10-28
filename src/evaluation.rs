@@ -107,8 +107,8 @@ fn evaluate_call(call: &Call, span: Span) -> Result<Content, Diagnostic> {
                     format!("unsupported directive: {}", call.name),
                 ));
             }
-            return Ok(Content::Text(value_text(
-                &helper(&call.name, &call.arguments, span)?,
+            return Ok(Content::Text(value_as_text(
+                &evaluate_helper(&call.name, &call.arguments, span)?,
                 span,
             )?));
         }
@@ -210,19 +210,21 @@ fn normalize_attribute(
         }
         _ => Err(Diagnostic::new(
             span,
-            format!("unsupported {} attribute: {name}", kind.as_str()),
+            format!("unsupported {} attribute: {name}", kind.as_text()),
         )),
     }
 }
 
 fn normalize_level(value: Value, span: Span) -> Result<Value, Diagnostic> {
     let number = match value {
-        Value::Number(n) => Some(n),
-        Value::String(s) => s.parse::<u32>().ok().map(f64::from),
+        Value::Number(number) => Some(number),
+        Value::String(text) => text.parse::<u32>().ok().map(f64::from),
         _ => None,
     };
     match number {
-        Some(n) if n.is_finite() && n >= 1.0 && n.fract() == 0.0 => Ok(Value::Number(n)),
+        Some(number) if number.is_finite() && number >= 1.0 && number.fract() == 0.0 => {
+            Ok(Value::Number(number))
+        }
         _ => Err(Diagnostic::new(
             span,
             "heading level must be a positive integer",
@@ -230,33 +232,36 @@ fn normalize_level(value: Value, span: Span) -> Result<Value, Diagnostic> {
     }
 }
 
-fn number(value: &Value) -> Option<f64> {
-    let n = match value {
-        Value::Number(n) => *n,
-        Value::String(s) => s.parse::<f64>().ok()?,
+fn numeric_value(value: &Value) -> Option<f64> {
+    let number = match value {
+        Value::Number(number) => *number,
+        Value::String(text) => text.parse::<f64>().ok()?,
         _ => return None,
     };
-    n.is_finite().then_some(n)
+    number.is_finite().then_some(number)
 }
 
 fn normalize_length(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    if let Value::Length { value: n, .. } = &value {
-        if *n >= 0.0 && n.is_finite() {
+    if let Value::Length {
+        value: magnitude, ..
+    } = &value
+    {
+        if *magnitude >= 0.0 && magnitude.is_finite() {
             return Ok(value);
         }
-    } else if let Some(n) = number(&value) {
-        if n >= 0.0 {
+    } else if let Some(magnitude) = numeric_value(&value) {
+        if magnitude >= 0.0 {
             return Ok(value);
         }
     } else if let Value::String(text) = &value {
         for name in ["twip", "pt", "in", "cm", "mm"] {
             let magnitude = text
                 .strip_suffix(name)
-                .and_then(|s| s.trim().parse::<f64>().ok())
-                .filter(|n| *n >= 0.0 && n.is_finite());
-            if let Some(n) = magnitude {
+                .and_then(|text| text.trim().parse::<f64>().ok())
+                .filter(|number| *number >= 0.0 && number.is_finite());
+            if let Some(magnitude) = magnitude {
                 return Ok(Value::Length {
-                    value: n,
+                    value: magnitude,
                     unit: Unit::from_name(name).unwrap(),
                 });
             }
@@ -270,9 +275,9 @@ fn normalize_length(value: Value, span: Span) -> Result<Value, Diagnostic> {
 
 fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
     Ok(match &expression.kind {
-        ExpressionKind::String(s) => Value::String(s.clone()),
-        ExpressionKind::Number(n) => Value::Number(*n),
-        ExpressionKind::Boolean(b) => Value::Boolean(*b),
+        ExpressionKind::String(text) => Value::String(text.clone()),
+        ExpressionKind::Number(number) => Value::Number(*number),
+        ExpressionKind::Boolean(boolean) => Value::Boolean(*boolean),
         ExpressionKind::Nil => Value::Nil,
         ExpressionKind::Object(fields) => {
             let mut object = Properties::new();
@@ -284,7 +289,9 @@ fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
             }
             Value::Object(object)
         }
-        ExpressionKind::Call { name, arguments } => helper(name, arguments, expression.span)?,
+        ExpressionKind::Call { name, arguments } => {
+            evaluate_helper(name, arguments, expression.span)?
+        }
         ExpressionKind::Path(name) => {
             return Err(Diagnostic::new(
                 expression.span,
@@ -294,7 +301,7 @@ fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
     })
 }
 
-fn helper(name: &str, arguments: &[Argument], span: Span) -> Result<Value, Diagnostic> {
+fn evaluate_helper(name: &str, arguments: &[Argument], span: Span) -> Result<Value, Diagnostic> {
     let unit = Unit::from_name(name);
     if unit.is_none() && name != "upper" {
         return Err(Diagnostic::new(span, format!("unsupported helper: {name}")));
@@ -307,15 +314,18 @@ fn helper(name: &str, arguments: &[Argument], span: Span) -> Result<Value, Diagn
     }
     let value = evaluate_expression(&arguments[0].value)?;
     if let Some(unit) = unit {
-        let Some(n) = number(&value) else {
+        let Some(magnitude) = numeric_value(&value) else {
             return Err(Diagnostic::new(
                 arguments[0].value.span,
                 "length magnitude must be a finite number",
             ));
         };
-        return Ok(Value::Length { value: n, unit });
+        return Ok(Value::Length {
+            value: magnitude,
+            unit,
+        });
     }
-    let text = value_text(&value, arguments[0].value.span)?;
+    let text = value_as_text(&value, arguments[0].value.span)?;
     if !text.is_ascii() {
         return Err(Diagnostic::new(
             span,
@@ -325,13 +335,13 @@ fn helper(name: &str, arguments: &[Argument], span: Span) -> Result<Value, Diagn
     Ok(Value::String(text.to_ascii_uppercase()))
 }
 
-fn value_text(value: &Value, span: Span) -> Result<String, Diagnostic> {
+fn value_as_text(value: &Value, span: Span) -> Result<String, Diagnostic> {
     Ok(match value {
         Value::String(text) => text.clone(),
-        Value::Number(n) => n.to_string(),
-        Value::Boolean(b) => b.to_string(),
+        Value::Number(number) => number.to_string(),
+        Value::Boolean(boolean) => boolean.to_string(),
         Value::Nil => String::new(),
-        Value::Length { value, unit } => format!("{value}{}", unit.as_str()),
+        Value::Length { value, unit } => format!("{value}{}", unit.as_text()),
         Value::Object(_) => {
             return Err(Diagnostic::new(
                 span,
