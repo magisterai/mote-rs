@@ -1,0 +1,102 @@
+# Sequential reading index
+
+Source: [Document management — Portable document format — Part 1: PDF 1.7](https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf) · ISO 32000-1:2008, Adobe publication.
+
+[Document index](README.md) · [Topic guide](../../../README.md) · [Publisher](https://pdfa.org/resource/iso-32000-1/).
+
+[Index](pages.md)
+
+- [pages-0001-0003-0001](chunks/pages-0001-0003-0001.md) — Document management — Portable document format — Part 1: PDF 1.7; Contents Page
+- [pages-0004-0006-0002](chunks/pages-0004-0006-0002.md) — Foreword
+- [pages-0007-0010-0003](chunks/pages-0007-0010-0003.md) — Introduction; 1 Scope
+- [pages-0011-0015-0004](chunks/pages-0011-0015-0004.md) — 4 Terms and definitions
+- [pages-0016-0019-0005](chunks/pages-0016-0019-0005.md) — 5 Notation; 6 Version Designations
+- [pages-0020-0023-0006](chunks/pages-0020-0023-0006.md) — 7.2.2 Character Set; 7.2.3 Comments
+- [pages-0024-0026-0007](chunks/pages-0024-0026-0007.md) — 7.3.4.3 Hexadecimal Strings; 7.3.5 Name Objects
+- [pages-0027-0029-0008](chunks/pages-0027-0029-0008.md) — 7.3.8 Stream Objects; 7.3.8.1 General
+- [pages-0030-0032-0009](chunks/pages-0030-0032-0009.md) — 7.4 Filters; 7.4.1 General
+- [pages-0033-0035-0010](chunks/pages-0033-0035-0010.md) — 7.4.3 ASCII85Decode Filter; 7.4.4 LZWDecode and FlateDecode Filters
+- [pages-0036-0038-0011](chunks/pages-0036-0038-0011.md) — 7.4.4.4 LZW and Flate Predictor Functions; 7.4.5 RunLengthDecode Filter
+- [pages-0039-0041-0012](chunks/pages-0039-0041-0012.md) — 7.4.7 JBIG2Decode Filter
+- [pages-0042-0044-0013](chunks/pages-0042-0044-0013.md) — 7.4.8 DCTDecode Filter; 7.4.9 JPXDecode Filter
+- [pages-0045-0048-0014](chunks/pages-0045-0048-0014.md) — 7.4.10 Crypt Filter; 7.5 File Structure
+- [pages-0049-0051-0015](chunks/pages-0049-0051-0015.md) — 7.5.5 File Trailer
+- [pages-0052-0055-0016](chunks/pages-0052-0055-0016.md) — 7.5.6 Incremental Updates; 7.5.7 Object Streams
+- [pages-0056-0058-0017](chunks/pages-0056-0058-0017.md) — 7.5.8 Cross-Reference Streams; 7.5.8.1 General
+- [pages-0059-0061-0018](chunks/pages-0059-0061-0018.md) — 7.5.8.4 Compatibility with Applications That Do Not Support Compressed Reference Streams
+- [pages-0062-0064-0019](chunks/pages-0062-0064-0019.md) — 7.6 Encryption; 7.6.1 General
+- [pages-0065-0067-0020](chunks/pages-0065-0067-0020.md) — 7.6.2 General Encryption Algorithm; 7.6.3 Standard Security Handler
+- [pages-0068-0070-0021](chunks/pages-0068-0070-0021.md) — 7.6.3.2 Standard Encryption Dictionary; 7.6.3.3 Encryption Key Algorithm
+- [pages-0071-0073-0022](chunks/pages-0071-0073-0022.md) — 7.6.4 Public-Key Security Handlers; 7.6.4.1 General
+- [pages-0074-0076-0023](chunks/pages-0074-0076-0023.md) — 7.6.4.3 Public-Key Encryption Algorithms; 7.6.5 Crypt Filters
+- [pages-0077-0080-0024](chunks/pages-0077-0080-0024.md) — 7.7 Document Structure; 7.7.1 General
+- [pages-0081-0082-0025](chunks/pages-0081-0082-0025.md)
+- [pages-0083-0085-0026](chunks/pages-0083-0085-0026.md) — 7.7.3 Page Tree; 7.7.3.1 General
+- [pages-0086-0088-0027](chunks/pages-0086-0088-0027.md) — 7.7.3.4 Inheritance of Page Attributes; 7.7.4 Name Dictionary
+- [pages-0089-0091-0028](chunks/pages-0089-0091-0028.md) — 7.8 Content Streams and Resources; 7.8.1 General
+- [pages-0092-0095-0029](chunks/pages-0092-0095-0029.md) — 7.9 Common Data Structures; 7.9.1 General
+- [pages-0096-0098-0030](chunks/pages-0096-0098-0030.md) — 7.9.5 Rectangles; 7.9.6 Name Trees
+- [pages-0099-0101-0031](chunks/pages-0099-0101-0031.md) — 7.9.7 Number Trees; 7.10 Functions
+- [pages-0102-0104-0032](chunks/pages-0102-0104-0032.md) — 7.10.3 Type 2 (Exponential Interpolation) Functions; 7.10.4 Type 3 (Stitching) Functions
+- [pages-0105-0107-0033](chunks/pages-0105-0107-0033.md) — 7.10.5 Type 4 (PostScript Calculator) Functions; 7.10.5.1 General
+- [pages-0108-0110-0034](chunks/pages-0108-0110-0034.md) — 7.11.2 File Specification Strings; 7.11.2.1 General
+- [pages-0111-0113-0035](chunks/pages-0111-0113-0035.md) — 7.11.4 Embedded File Streams; 7.11.4.1 General
+- [pages-0114-0117-0036](chunks/pages-0114-0117-0036.md) — 7.11.5 URL Specifications; 7.11.6 Collection Items
+- [pages-0118-0121-0037](chunks/pages-0118-0121-0037.md) — 8 Graphics; 8.1 General
+- [pages-0122-0124-0038](chunks/pages-0122-0124-0038.md) — 8.3 Coordinate Systems; 8.3.1 General
+- [pages-0125-0128-0039](chunks/pages-0125-0128-0039.md) — 8.3.2.5 Relationships among Coordinate Spaces; 8.3.3 Common Transformations
+- [pages-0129-0130-0040](chunks/pages-0129-0130-0040.md) — 8.4 Graphics State; 8.4.1 General
+- [pages-0131-0133-0041](chunks/pages-0131-0133-0041.md) — 8.4.2 Graphics State Stack; 8.4.3 Details of Graphics State Parameters
+- [pages-0134-0136-0042](chunks/pages-0134-0136-0042.md) — 8.4.3.5 Miter Limit; 8.4.3.6 Line Dash Pattern
+- [pages-0137-0139-0043](chunks/pages-0137-0139-0043.md) — 8.5 Path Construction and Painting; 8.5.1 General
+- [pages-0140-0142-0044](chunks/pages-0140-0142-0044.md) — 8.5.2 Path Construction Operators; 8.5.2.1 General
+- [pages-0143-0145-0045](chunks/pages-0143-0145-0045.md) — 8.5.3.2 Stroking; 8.5.3.3 Filling
+- [pages-0146-0148-0046](chunks/pages-0146-0148-0046.md) — 8.6 Colour Spaces; 8.6.1 General
+- [pages-0149-0151-0047](chunks/pages-0149-0151-0047.md) — 8.6.4 Device Colour Spaces; 8.6.4.1 General
+- [pages-0152-0154-0048](chunks/pages-0152-0154-0048.md) — 8.6.5 CIE-Based Colour Spaces; 8.6.5.1 General
+- [pages-0155-0157-0049](chunks/pages-0155-0157-0049.md) — 8.6.5.4 Lab Colour Spaces; 8.6.5.5 ICCBased Colour Spaces
+- [pages-0158-0160-0050](chunks/pages-0158-0160-0050.md) — 8.6.5.6 Default Colour Spaces
+- [pages-0161-0163-0051](chunks/pages-0161-0163-0051.md) — 8.6.5.7 Implicit Conversion of CIE-Based Colour Spaces; 8.6.5.8 Rendering Intents
+- [pages-0164-0166-0052](chunks/pages-0164-0166-0052.md) — 8.6.6.2 Pattern Colour Spaces; 8.6.6.3 Indexed Colour Spaces
+- [pages-0167-0169-0053](chunks/pages-0167-0169-0053.md) — 8.6.6.5 DeviceN Colour Spaces
+- [pages-0170-0171-0054](chunks/pages-0170-0171-0054.md)
+- [pages-0172-0174-0055](chunks/pages-0172-0174-0055.md) — 8.6.6.6 Multitone Examples
+- [pages-0175-0177-0056](chunks/pages-0175-0177-0056.md) — 8.6.7 Overprint Control
+- [pages-0178-0180-0057](chunks/pages-0178-0180-0057.md) — 8.6.8 Colour Operators
+- [pages-0181-0183-0058](chunks/pages-0181-0183-0058.md) — 8.7 Patterns; 8.7.1 General
+- [pages-0184-0186-0059](chunks/pages-0184-0186-0059.md) — 8.7.3.2 Coloured Tiling Patterns; 8.7.3.3 Uncoloured Tiling Patterns
+- [pages-0187-0189-0060](chunks/pages-0187-0189-0060.md) — 8.7.4 Shading Patterns; 8.7.4.1 General
+- [pages-0190-0191-0061](chunks/pages-0190-0191-0061.md) — 8.7.4.3 Shading Dictionaries
+- [pages-0192-0193-0062](chunks/pages-0192-0193-0062.md) — 8.7.4.4 Colour Space: Special Considerations; 8.7.4.4.1 General
+- [pages-0194-0195-0063](chunks/pages-0194-0195-0063.md) — 8.7.4.5.4 Type 3 (Radial) Shadings
+- [pages-0196-0198-0064](chunks/pages-0196-0198-0064.md) — 8.7.4.5.5 Type 4 Shadings (Free-Form Gouraud-Shaded Triangle Meshes)
+- [pages-0199-0202-0065](chunks/pages-0199-0202-0065.md) — 8.7.4.5.6 Type 5 Shadings (Lattice-Form Gouraud-Shaded Triangle Meshes); 8.7.4.5.7 Type 6 Shadings (Coons Patch Meshes)
+- [pages-0203-0205-0066](chunks/pages-0203-0205-0066.md)
+- [pages-0206-0209-0067](chunks/pages-0206-0209-0067.md) — 8.7.4.5.8 Type 7 Shadings (Tensor-Product Patch Meshes); 8.8 External Objects
+- [pages-0210-0212-0068](chunks/pages-0210-0212-0068.md) — 8.8.2 PostScript XObjects; 8.9 Images
+- [pages-0213-0215-0069](chunks/pages-0213-0215-0069.md) — 8.9.5 Image Dictionaries; 8.9.5.1 General
+- [pages-0216-0218-0070](chunks/pages-0216-0218-0070.md) — 8.9.5.2 Decode Arrays
+- [pages-0219-0221-0071](chunks/pages-0219-0221-0071.md) — 8.9.5.3 Image Interpolation; 8.9.5.4 Alternate Images
+- [pages-0222-0224-0072](chunks/pages-0222-0224-0072.md) — 8.9.6.3 Explicit Masking; 8.9.6.4 Colour Key Masking
+- [pages-0225-0226-0073](chunks/pages-0225-0226-0073.md) — 8.10 Form XObjects; 8.10.1 General
+- [pages-0227-0229-0074](chunks/pages-0227-0229-0074.md) — 8.10.3 Group XObjects; 8.10.4 Reference XObjects
+- [pages-0230-0232-0075](chunks/pages-0230-0232-0075.md) — 8.11 Optional Content; 8.11.1 General
+- [pages-0233-0235-0076](chunks/pages-0233-0235-0076.md) — 8.11.2.3 Intent; 8.11.3 Making Graphical Content Optional
+- [pages-0236-0238-0077](chunks/pages-0236-0238-0077.md) — 8.11.3.3 Optional Content in XObjects and Annotations; 8.11.4 Configuring Optional Content
+- [pages-0239-0241-0078](chunks/pages-0239-0241-0078.md) — 8.11.4.4 Usage and Usage Application Dictionaries
+- [pages-0242-0245-0079](chunks/pages-0242-0245-0079.md) — 8.11.4.5 Determining the State of Optional Content Groups; 9 Text
+- [pages-0246-0249-0080](chunks/pages-0246-0249-0080.md) — 9.2.2 Basics of Showing Text; 9.2.3 Achieving Special Graphical Effects
+- [pages-0250-0253-0081](chunks/pages-0250-0253-0081.md) — 9.3 Text State Parameters and Operators; 9.3.1 General
+- [pages-0254-0257-0082](chunks/pages-0254-0257-0082.md) — 9.3.6 Text Rendering Mode; 9.3.7 Text Rise
+- [pages-0258-0260-0083](chunks/pages-0258-0260-0083.md) — 9.4.3 Text-Showing Operators; 9.4.4 Text Space Details
+- [pages-0261-0263-0084](chunks/pages-0261-0263-0084.md) — 9.5 Introduction to Font Data Structures; 9.6 Simple Fonts
+- [pages-0264-0266-0085](chunks/pages-0264-0266-0085.md) — 9.6.2.2 Standard Type 1 Fonts (Standard 14 Fonts); 9.6.2.3 Multiple Master Fonts
+- [pages-0267-0269-0086](chunks/pages-0267-0269-0086.md)
+- [pages-0270-0272-0087](chunks/pages-0270-0272-0087.md) — 9.6.6 Character Encoding; 9.6.6.1 General
+- [pages-0273-0275-0088](chunks/pages-0273-0275-0088.md) — 9.6.6.3 Encodings for Type 3 Fonts; 9.6.6.4 Encodings for TrueType Fonts
+- [pages-0276-0278-0089](chunks/pages-0276-0278-0089.md) — 9.7.3 CIDSystemInfo Dictionaries; 9.7.4 CIDFonts
+- [pages-0279-0282-0090](chunks/pages-0279-0282-0090.md) — 9.7.4.3 Glyph Metrics in CIDFonts; 9.7.5 CMaps
+- [pages-0283-0285-0091](chunks/pages-0283-0285-0091.md) — 9.7.5.3 Embedded CMap Files; 9.7.5.4 CMap Example and Operator Summary
+- [pages-0286-0288-0092](chunks/pages-0286-0288-0092.md) — 9.7.6 Type 0 Font Dictionaries; 9.7.6.1 General
+- [pages-0289-0291-0093](chunks/pages-0289-0291-0093.md) — 9.8 Font Descriptors; 9.8.1 General
+- [pages-0292-0295-0094](chunks/pages-0292-0295-0094.md) — 9.8.3 Font Descriptors for CIDFonts; 9.8.3.1 General

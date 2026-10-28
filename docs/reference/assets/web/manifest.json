@@ -1,0 +1,1649 @@
+{
+  "format_version": 1,
+  "assets": [
+    {
+      "url": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/type-hierarchy.gif",
+      "resolved_url": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/type-hierarchy.gif",
+      "path": "assets/web/84f80629a336-type-hierarchy.gif",
+      "content_type": "image/gif",
+      "bytes": 33041,
+      "sha256": "2a3d683369a2dec0a789c18aaa518ba86d06704434fefdaac113d6b7dcad2de7",
+      "uses": [
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "Diagram of built-in type hierarchy",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/components.gif",
+      "resolved_url": "https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/components.gif",
+      "path": "assets/web/631ed3efdda2-components.gif",
+      "content_type": "image/gif",
+      "bytes": 89283,
+      "sha256": "15358f6b9de65ff684798389a1a65f8153e431cc4afd0a386243cd030c04e3a1",
+      "uses": [
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "Diagram of schema components",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/scaling-sample-values.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/scaling-sample-values.svg",
+      "path": "assets/web/f2820056c776-scaling-sample-values.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 2460,
+      "sha256": "9ca64752477322cc4aecc1a05029fe8f3c26448d920d4931860646f722a98ed9",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure45"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/reference-to-png-transformation.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/reference-to-png-transformation.svg",
+      "path": "assets/web/dab051df7009-reference-to-png-transformation.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 2222,
+      "sha256": "b0fb8c95236984733bab0c24868e9c4e09f4aeb4699d5558b7bc93232d29d587",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure43"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/image-relationships.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/image-relationships.svg",
+      "path": "assets/web/32027a064299-image-relationships.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 2529,
+      "sha256": "657d2225d546167a19328c3704b9d22860570496003e531d49e27d9c0161d586",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure41"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/indexed-colour-image.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/indexed-colour-image.svg",
+      "path": "assets/web/bfbef012eada-indexed-colour-image.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 5998,
+      "sha256": "14d9a21408b94fe042b776f3359ef38eba91219addf4b2c44a87a7fa30d7b29a",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure44"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/sample-pixel-channel-relationship.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/sample-pixel-channel-relationship.svg",
+      "path": "assets/web/7462f9303288-sample-pixel-channel-relationship.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 4674,
+      "sha256": "00f661b24cf2a4e6b94e9f6c6c98da0f10356920188d6e8382428e8cdff8ab95",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure42"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/possible-pixel-types.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/possible-pixel-types.svg",
+      "path": "assets/web/6c54df2d600e-possible-pixel-types.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 5944,
+      "sha256": "b28a1b2b391489e3eca3a583a2a95710da78be0296a5ae874e84cabea0f8fa64",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure46"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/encoding-png-image.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/encoding-png-image.svg",
+      "path": "assets/web/510b20ffa4af-encoding-png-image.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 23476,
+      "sha256": "ea46e21098c75eee91696cdeed1cd146afaa7b944c3b6eaeebaf80b51d05b232",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure47"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/compression.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/compression.svg",
+      "path": "assets/web/8cea233fbc52-compression.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 9055,
+      "sha256": "c86c006ca0a14f7372d640cf1525430a6aaf9beca6a4229d7b96f6f5dd199213",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure410"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/chunk-parts.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/chunk-parts.svg",
+      "path": "assets/web/db0aecd3da89-chunk-parts.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 1448,
+      "sha256": "42e13914c1a3bdda58a6e70b1ed238c8416b35ed9aaaf846a91749768d56d702",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-without-plte.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-without-plte.svg",
+      "path": "assets/web/3d57caebe4a1-lattice-diagram-without-plte.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 5701,
+      "sha256": "8e48610b9fbf7a2a7407674933fd6844084ae7efce0f0644d19d75fef9c604ee",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure53"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/pass-extraction.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/pass-extraction.svg",
+      "path": "assets/web/f19530c0af2b-pass-extraction.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 32276,
+      "sha256": "187ad8d44faf7952c56092bbc60b18d0a82bd7d1f5db9389263e7e30deb15927",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure48"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-first-with-plte.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-first-with-plte.svg",
+      "path": "assets/web/8cbb37131e63-lattice-diagram-apng-static-first-with-plte.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 6254,
+      "sha256": "dacd0b94d6168109fca970ac208d9d2f068c529f7b34f0924975f5bc205470e6",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure52a"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-with-plte.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-with-plte.svg",
+      "path": "assets/web/4e0ed61a000f-lattice-diagram-with-plte.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 6235,
+      "sha256": "ddbd9d477abdce3147387c4359165cb9fa22b6c6ecb2c3af2007059e0a5b398a",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure52"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-notfirst-with-plte.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-notfirst-with-plte.svg",
+      "path": "assets/web/e9e1fd09e596-lattice-diagram-apng-static-notfirst-with-plte.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 6137,
+      "sha256": "4c98a90c82659095a8d35f72696ff6371723e259f51cf645ea1faa0b8f72e515",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure52b"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-first-without-plte.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-first-without-plte.svg",
+      "path": "assets/web/f0ace1a05c96-lattice-diagram-apng-static-first-without-plte.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 5577,
+      "sha256": "21295ac5d1739b3acff6113704079d8cccee273c38cc0db36667614b130a1d36",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure53a"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-notfirst-without-plte.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/lattice-diagram-apng-static-notfirst-without-plte.svg",
+      "path": "assets/web/1db69026b8a2-lattice-diagram-apng-static-notfirst-without-plte.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 5604,
+      "sha256": "a8663c8b8732059c1c4ae3db831340b1195c551895fe6bb906183e909f7983c3",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure53b"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/filter-bytes.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/filter-bytes.svg",
+      "path": "assets/web/f96afffbcdf3-filter-bytes.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 1005,
+      "sha256": "4037aa15abd01c07fdd16d2cc0bf907a1efd661d8c745e0816dadb7dd3ba51c5",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure72"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/integer-representation-in-png.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/integer-representation-in-png.svg",
+      "path": "assets/web/469429ee5b20-integer-representation-in-png.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 5782,
+      "sha256": "b8c0787a5d206b2c1abfd14f38a8da49560b20d3e75cbc45a4fa0799688e7622",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure71"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/serializing-and-filtering-scanline.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/serializing-and-filtering-scanline.svg",
+      "path": "assets/web/84588994520c-serializing-and-filtering-scanline.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 5720,
+      "sha256": "9b6dc6030e7cef39b1f4468491f63e1ddee5d806b86814d6fe0f784cf55c9bcd",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "figure49"
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/paethpredictor-function.svg",
+      "resolved_url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/paethpredictor-function.svg",
+      "path": "assets/web/2e10fdd5030d-paethpredictor-function.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 2666,
+      "sha256": "299a274d1f401c3908ca4cd8c1be440a4eec08e84dce351415e742fd41fdf2b6",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "object",
+          "alt": "",
+          "id": "9-figure91"
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr11/images/tr11.h2.jpg",
+      "resolved_url": "https://www.unicode.org/reports/tr11/images/tr11.h2.jpg",
+      "path": "assets/web/6c5d9ddec852-tr11.h2.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 8319,
+      "sha256": "141b4f20a207ed557aa0f7dfce3147ac29073891f34ef645858f58cfd737bd89",
+      "uses": [
+        {
+          "document": "text/unicode/uax-11.html",
+          "tag": "img",
+          "alt": "Examples",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig3.jpg",
+      "resolved_url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig3.jpg",
+      "path": "assets/web/89e100402c53-UAX15-NormFig3.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 16511,
+      "sha256": "f8fa6947d9a1bd90c98e0abcb0e2058b71a70df39c54bcb12f0b823c41b4c465",
+      "uses": [
+        {
+          "document": "text/unicode/uax-15.html",
+          "tag": "img",
+          "alt": "ohm etc. example",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig4.jpg",
+      "resolved_url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig4.jpg",
+      "path": "assets/web/2eebb48af31d-UAX15-NormFig4.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 16054,
+      "sha256": "749f4fad3a5ec034398fa9a205242e9ea29bfa0e12510d4c05a5d5b765c2e2cb",
+      "uses": [
+        {
+          "document": "text/unicode/uax-15.html",
+          "tag": "img",
+          "alt": "composition examples",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr11/images/tr11.h1.jpg",
+      "resolved_url": "https://www.unicode.org/reports/tr11/images/tr11.h1.jpg",
+      "path": "assets/web/3acde5bd1b9c-tr11.h1.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 25837,
+      "sha256": "e0bef425b1ed8bd952e13d2b4c02639843fdff671aca09732f18eb0b4bef2d31",
+      "uses": [
+        {
+          "document": "text/unicode/uax-11.html",
+          "tag": "img",
+          "alt": "diagram (informative)",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig5.jpg",
+      "resolved_url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig5.jpg",
+      "path": "assets/web/ffcd396e348b-UAX15-NormFig5.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 31827,
+      "sha256": "b7714e43d36a4f4873ee35876d226ba32c4cf2bc4e4b7e64612872df25b39bbe",
+      "uses": [
+        {
+          "document": "text/unicode/uax-15.html",
+          "tag": "img",
+          "alt": "multiple marks examples",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr29/images/random_access.png",
+      "resolved_url": "https://www.unicode.org/reports/tr29/images/random_access.png",
+      "path": "assets/web/6a151cab5c18-random_access.png",
+      "content_type": "image/png",
+      "bytes": 4241,
+      "sha256": "40b41cfe3a385aa0f0e32be901e38757fbeea1fbdce555dc9de541705dc156ee",
+      "uses": [
+        {
+          "document": "text/unicode/uax-29.html",
+          "tag": "img",
+          "alt": "random access diagram",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig6.jpg",
+      "resolved_url": "https://www.unicode.org/reports/tr15/images/UAX15-NormFig6.jpg",
+      "path": "assets/web/4ad25c67a526-UAX15-NormFig6.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 41252,
+      "sha256": "c8e80df041ad918f86deeb032718d3a69f1a739aed50b21481709859f06a0df4",
+      "uses": [
+        {
+          "document": "text/unicode/uax-15.html",
+          "tag": "img",
+          "alt": "fi ligature, etc.",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gdef_fig7b.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gdef_fig7b.gif",
+      "path": "assets/web/82b21d2dbc9a-gdef_fig7b.gif",
+      "content_type": "image/gif",
+      "bytes": 517,
+      "sha256": "f35afb6e92fb08f8d718ee55520aab1b9cb48c0b4e7939582f2b70601716a6e1",
+      "uses": [
+        {
+          "document": "text/opentype/gdef.html",
+          "tag": "img",
+          "alt": "Base, ligature and mark glyphs, and glyph components of a ligature",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.unicode.org/reports/tr15/images/UAX15-figure7.jpg",
+      "resolved_url": "https://www.unicode.org/reports/tr15/images/UAX15-figure7.jpg",
+      "path": "assets/web/06f526f2b2de-UAX15-figure7.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 82116,
+      "sha256": "fed5e6341696c5d3ab7b4487e6589ba64fd9b95da1ff591ebd952fd07f2a414b",
+      "uses": [
+        {
+          "document": "text/unicode/uax-15.html",
+          "tag": "img",
+          "alt": "diagram",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gdef_fig7a.png",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gdef_fig7a.png",
+      "path": "assets/web/8b146bc2f9b9-gdef_fig7a.png",
+      "content_type": "image/png",
+      "bytes": 81915,
+      "sha256": "d49d40bf6810a7c32e959c784a4a450ea5895614115d641c2ffd96b486ed8edd",
+      "uses": [
+        {
+          "document": "text/opentype/gdef.html",
+          "tag": "img",
+          "alt": "Block diagram of GDEF subtables",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4a.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4a.gif",
+      "path": "assets/web/d0b85420ccc4-gpos_fig4a.gif",
+      "content_type": "image/gif",
+      "bytes": 1357,
+      "sha256": "e0d4278c6d13306037eda7d3182162168eafaa990fb39399f8e5d3be4c47e841",
+      "uses": [
+        {
+          "document": "text/opentype/gpos.html",
+          "tag": "img",
+          "alt": "Vietnamese text with diacritic marks on vowels",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4b.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4b.gif",
+      "path": "assets/web/3401ab4bfa00-gpos_fig4b.gif",
+      "content_type": "image/gif",
+      "bytes": 2096,
+      "sha256": "09f8be5131ee8d8cf45cc7fee17ad18a18e811f3927c3e912b2d2c46c121a3f7",
+      "uses": [
+        {
+          "document": "text/opentype/gpos.html",
+          "tag": "img",
+          "alt": "Correct display of an Urdu word, and display with incorrect glyph positions",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4f.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4f.gif",
+      "path": "assets/web/93d89857cf61-gpos_fig4f.gif",
+      "content_type": "image/gif",
+      "bytes": 968,
+      "sha256": "6a8b21fef6f441e3b91392d99ab9d890b85419a44a2fa898b6317e681c16b950",
+      "uses": [
+        {
+          "document": "text/opentype/gpos.html",
+          "tag": "img",
+          "alt": "The word 'W\u00f6rter' with the accent lowered to avoid the overhang of capital W",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4e.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4e.gif",
+      "path": "assets/web/b146b24fafa8-gpos_fig4e.gif",
+      "content_type": "image/gif",
+      "bytes": 1167,
+      "sha256": "0f31c13c4485ad6c323de30aefe86bf1c28c040fb2d5dcad40469a7b51c1b319",
+      "uses": [
+        {
+          "document": "text/opentype/gpos.html",
+          "tag": "img",
+          "alt": "Urdu word with connections between glyphs at different heights",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4c.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4c.gif",
+      "path": "assets/web/edecedaa317f-gpos_fig4c.gif",
+      "content_type": "image/gif",
+      "bytes": 5280,
+      "sha256": "af06992df2d267753070258359bde7a060c8bfc369917dcb680ccb1e5e199256",
+      "uses": [
+        {
+          "document": "text/opentype/gpos.html",
+          "tag": "img",
+          "alt": "Default glyph metrics used for basic glyph positioning",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gdef_fig7c.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gdef_fig7c.gif",
+      "path": "assets/web/b5791f8611f7-gdef_fig7c.gif",
+      "content_type": "image/gif",
+      "bytes": 341,
+      "sha256": "35cf21bfe78211a10f597ef4f181fd8e691d2d564aa617a14cee12bdb80b04f8",
+      "uses": [
+        {
+          "document": "text/opentype/gdef.html",
+          "tag": "img",
+          "alt": "Arabic ligature glyph showing caret positions between component letters",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3d.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3d.gif",
+      "path": "assets/web/34ec772f7641-gsub_fig3d.gif",
+      "content_type": "image/gif",
+      "bytes": 319,
+      "sha256": "c433c86c71117bc87fd7816ba7f57e80d6e71624a72f5578fd6ba54107e4713e",
+      "uses": [
+        {
+          "document": "text/opentype/gsub.html",
+          "tag": "img",
+          "alt": "An f-i ligature glyph decomposed to f and i glyphs",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_attach.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_attach.gif",
+      "path": "assets/web/830bea50a091-gpos_attach.gif",
+      "content_type": "image/gif",
+      "bytes": 8994,
+      "sha256": "f6a403dd1468ad0d68f0bd4b0af211a4582c01385862b0b5f668e8340529751b",
+      "uses": [
+        {
+          "document": "text/opentype/gpos.html",
+          "tag": "img",
+          "alt": "Glyph outline with multiple attachment points",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3c.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3c.gif",
+      "path": "assets/web/839d06890d52-gsub_fig3c.gif",
+      "content_type": "image/gif",
+      "bytes": 691,
+      "sha256": "e47d9d01f2bdade4026da760a22d3b6c9a176718beaf877999cd912a2df49a1d",
+      "uses": [
+        {
+          "document": "text/opentype/gsub.html",
+          "tag": "img",
+          "alt": "Kanji ideograph with parentheses in horizontal and vertical layout",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4g.png",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gpos_fig4g.png",
+      "path": "assets/web/91e50a65c3fb-gpos_fig4g.png",
+      "content_type": "image/png",
+      "bytes": 89573,
+      "sha256": "42464f3c974e403651f3f0a69d44bd5e198c9a6f6ef5fa205208bd92f9571cdd",
+      "uses": [
+        {
+          "document": "text/opentype/gpos.html",
+          "tag": "img",
+          "alt": "Block diagram of GPOS subtables",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3b.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3b.gif",
+      "path": "assets/web/17f396e55a29-gsub_fig3b.gif",
+      "content_type": "image/gif",
+      "bytes": 399,
+      "sha256": "bc5693f27d7730da59dc72664effff4f281ab632bab96aa14d27dd97552dfcf7",
+      "uses": [
+        {
+          "document": "text/opentype/gsub.html",
+          "tag": "img",
+          "alt": "Glyphs for f and i and an f-i ligature glyph",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3a.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3a.gif",
+      "path": "assets/web/3bb69fe7f103-gsub_fig3a.gif",
+      "content_type": "image/gif",
+      "bytes": 507,
+      "sha256": "98d463009e0a4fcbc727b976928b436f7584f98f0a7c6a78b52745a2cdd84334",
+      "uses": [
+        {
+          "document": "text/opentype/gsub.html",
+          "tag": "img",
+          "alt": "Glyphs for different positional forms of hah",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3e.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3e.gif",
+      "path": "assets/web/dd1731ca83ce-gsub_fig3e.gif",
+      "content_type": "image/gif",
+      "bytes": 561,
+      "sha256": "0112c66e944a24ed1f0bb11dfdd64652c31d1c52ac329085dd7315b49342ccee",
+      "uses": [
+        {
+          "document": "text/opentype/gsub.html",
+          "tag": "img",
+          "alt": "Alternative ampersand glyphs",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2d.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2d.gif",
+      "path": "assets/web/e408650540fa-otlch2_fig2d.gif",
+      "content_type": "image/gif",
+      "bytes": 5868,
+      "sha256": "4bc8a22e377ec7d00434cdeaca4b49aadf3d6c0132ed2af22e02682ec1d0b03f",
+      "uses": [
+        {
+          "document": "text/opentype/chapter2.html",
+          "tag": "img",
+          "alt": "block diagram showing script, language system and feature table organization",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image001.jpg",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image001.jpg",
+      "path": "assets/web/2c96f50a145d-image001.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 18696,
+      "sha256": "444ebb46d30403d717ca7da480e18b43a239172539b7a30598151c756a150932",
+      "uses": [
+        {
+          "document": "text/opentype/math.html",
+          "tag": "img",
+          "alt": "A complex math formula and the hierarchy of boxes in its layout",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3g.png",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3g.png",
+      "path": "assets/web/55c55492ea0c-gsub_fig3g.png",
+      "content_type": "image/png",
+      "bytes": 85178,
+      "sha256": "c833eccb403c054b064d57e6a8d3aba6e4c3a5d1b80d0087b3bb95e86a87760d",
+      "uses": [
+        {
+          "document": "text/opentype/gsub.html",
+          "tag": "img",
+          "alt": "Block diagram of GSUB subtables",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2c.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2c.gif",
+      "path": "assets/web/f7dbadcbcf76-otlch2_fig2c.gif",
+      "content_type": "image/gif",
+      "bytes": 1064,
+      "sha256": "77b73e86f880c5c6d853fae6d12f0e56225880cbee679dc82b3d38f10af19fd6",
+      "uses": [
+        {
+          "document": "text/opentype/chapter2.html",
+          "tag": "img",
+          "alt": "Ligature formation and mark positioning",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2a.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2a.gif",
+      "path": "assets/web/3f99022d56ce-otlch2_fig2a.gif",
+      "content_type": "image/gif",
+      "bytes": 450,
+      "sha256": "8b444ff2a1dda21c0a5baa157612afacb1c617b99396b45a4264fdb8b62103a6",
+      "uses": [
+        {
+          "document": "text/opentype/chapter2.html",
+          "tag": "img",
+          "alt": "Latin, Kanji and Arabic glyphs",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2b.png",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/otlch2_fig2b.png",
+      "path": "assets/web/57f0faf566ac-otlch2_fig2b.png",
+      "content_type": "image/png",
+      "bytes": 10409,
+      "sha256": "843546637a37a98aec262f2755d98a33f7a3efa454471fdd08338e6e229e893d",
+      "uses": [
+        {
+          "document": "text/opentype/chapter2.html",
+          "tag": "img",
+          "alt": "The string 'dil' with the small caps feature applied, using English and Turkish language systems: with the Turkish language system, the small cap for 'i' is dotted.",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image002.png",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image002.png",
+      "path": "assets/web/0719d35b8dca-image002.png",
+      "content_type": "image/png",
+      "bytes": 2706,
+      "sha256": "9b96e53bd2884a3c8c5b280816d8bfb69c6591c4a0177269e4dfe363b86b52e7",
+      "uses": [
+        {
+          "document": "text/opentype/math.html",
+          "tag": "img",
+          "alt": "Formula with a poorly positioned superscript beside tall parentheses",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3f.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/gsub_fig3f.gif",
+      "path": "assets/web/d0b661140e73-gsub_fig3f.gif",
+      "content_type": "image/gif",
+      "bytes": 600,
+      "sha256": "efc8b9ca940b6d48ce9821dfa3d1dff2a046b0e0c2c642558ee0bb571bbbf736",
+      "uses": [
+        {
+          "document": "text/opentype/gsub.html",
+          "tag": "img",
+          "alt": "Sequence of three Arabic glyphs and the associated ligature glyph",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image003.png",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image003.png",
+      "path": "assets/web/2436086363bc-image003.png",
+      "content_type": "image/png",
+      "bytes": 2739,
+      "sha256": "d7601c3e0c521b3eeceeed469cdb419c58854709dc4dc682ca054832b88d32fe",
+      "uses": [
+        {
+          "document": "text/opentype/math.html",
+          "tag": "img",
+          "alt": "Formula with a good superscript position beside tall parentheses",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/img00287.gif",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/img00287.gif",
+      "path": "assets/web/4fa380029337-img00287.gif",
+      "content_type": "image/gif",
+      "bytes": 1434,
+      "sha256": "09491f0b2071bb9fb21c13dc76da396666ca336b0cd1420bcf6fbce475e5977f",
+      "uses": [
+        {
+          "document": "text/opentype/vmtx.html",
+          "tag": "img",
+          "alt": "Lowercase b glyph with ascent, descent, top side bearing, and advance height metrics",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image006.png",
+      "resolved_url": "https://learn.microsoft.com/en-us/typography/opentype/spec/images/image006.png",
+      "path": "assets/web/75a74c310aa6-image006.png",
+      "content_type": "image/png",
+      "bytes": 22813,
+      "sha256": "79a4cea3d2161fddd142a6c3380ad35ca71239d817062a40bde3c9a78a1c4fec",
+      "uses": [
+        {
+          "document": "text/opentype/math.html",
+          "tag": "img",
+          "alt": "omega with superscript f, with metric values for positioning the superscript",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/2025/REC-png-3-20250624/figures/fonts/OS_Cond_Med.woff2",
+      "path": "assets/web/fonts/OS_Cond_Med.woff2",
+      "content_type": "font/woff2",
+      "bytes": 10888,
+      "sha256": "806b35b717929fe32da42e340c283345e6e2ba2c8b46dcaea3181a321401197d",
+      "uses": [
+        {
+          "kind": "font dependency",
+          "documents": [
+            "PNG third edition SVG figures"
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "omitted_decorative_assets": [
+    {
+      "url": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/previous.jpg",
+      "resolved_url": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/previous.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 454,
+      "sha256": "21d81bfef6cc24c7e4433f2104db9aa6f27a3ea5cdd59a1455249a1402879f16",
+      "uses": [
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/4fd09560384a-previous.jpg",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/next.jpg",
+      "resolved_url": "https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/next.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 452,
+      "sha256": "61d2a2606462b764e51ab20a56f199bc48efbb6fbb04364206854d94b3059d18",
+      "uses": [
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/865b0a4b0652-next.jpg",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/next.jpg",
+      "resolved_url": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/next.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 452,
+      "sha256": "61d2a2606462b764e51ab20a56f199bc48efbb6fbb04364206854d94b3059d18",
+      "uses": [
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "next sub-section",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/453059997a5f-next.jpg",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/previous.jpg",
+      "resolved_url": "https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/previous.jpg",
+      "content_type": "image/jpeg",
+      "bytes": 454,
+      "sha256": "21d81bfef6cc24c7e4433f2104db9aa6f27a3ea5cdd59a1455249a1402879f16",
+      "uses": [
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "previous sub-section",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/d8f8b0bd52dd-previous.jpg",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://www.w3.org/StyleSheets/TR/2021/logos/W3C",
+      "resolved_url": "https://www.w3.org/StyleSheets/TR/2021/logos/W3C",
+      "content_type": "image/svg+xml",
+      "bytes": 43412,
+      "sha256": "a96241190c29d5014a2ffcb26c0a75060e20dc85b921776f813d3d5a3adcf64e",
+      "uses": [
+        {
+          "document": "images/png-third-edition.html",
+          "tag": "img",
+          "alt": "W3C",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/e0d3f2e0c463-W3C.svg",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://www.w3.org/Icons/w3c_home",
+      "resolved_url": "https://www.w3.org/assets/logos/w3c-2025-transitional/w3c-72x48.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 50203,
+      "sha256": "acf7cffbb3b097ea1da12865d5b7b9c1d0d24dd565981296aeaa64ff3074602c",
+      "uses": [
+        {
+          "document": "xml/xml-1.0.html",
+          "tag": "img",
+          "alt": "W3C",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-namespaces-1.0.html",
+          "tag": "img",
+          "alt": "W3C",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-structures.html",
+          "tag": "img",
+          "alt": "W3C",
+          "id": ""
+        },
+        {
+          "document": "xml/xml-schema-1.0-datatypes.html",
+          "tag": "img",
+          "alt": "W3C",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/3cb7c4bd4ca4-w3c_home.svg",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://www.unicode.org/webscripts/logo60s2.gif",
+      "resolved_url": "https://www.unicode.org/webscripts/logo60s2.gif",
+      "content_type": "image/gif",
+      "bytes": 336,
+      "sha256": "1b89cf9ed7469b6b27e985557208b65e9385991ca07e41a6f4a1ba2ebf4a87d5",
+      "uses": [
+        {
+          "document": "text/unicode/uax-09.html",
+          "tag": "img",
+          "alt": "[Unicode]",
+          "id": ""
+        },
+        {
+          "document": "text/unicode/uax-11.html",
+          "tag": "img",
+          "alt": "[Unicode]",
+          "id": ""
+        },
+        {
+          "document": "text/unicode/uax-14.html",
+          "tag": "img",
+          "alt": "[Unicode]",
+          "id": ""
+        },
+        {
+          "document": "text/unicode/uax-15.html",
+          "tag": "img",
+          "alt": "[Unicode]",
+          "id": ""
+        },
+        {
+          "document": "text/unicode/uax-29.html",
+          "tag": "img",
+          "alt": "[Unicode]",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/1ff15073b745-logo60s2.gif",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://i.creativecommons.org/l/by-sa/4.0/80x15.png",
+      "resolved_url": "https://licensebuttons.net/l/by-sa/4.0/80x15.png",
+      "content_type": "image/png",
+      "bytes": 434,
+      "sha256": "4f63cfda6d32f33a6e3d9b3b855826327d5f844fa83aae18df79f97d7afddf20",
+      "uses": [
+        {
+          "document": "authoring/commonmark-0.31.2.html",
+          "tag": "img",
+          "alt": "Creative\n   Commons BY-SA",
+          "id": ""
+        },
+        {
+          "document": "authoring/gfm-0.29.html",
+          "tag": "img",
+          "alt": "Creative Commons BY-SA",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/6b323c445d4c-80x15.png",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    },
+    {
+      "url": "https://www.lua.org/images/logo.gif",
+      "resolved_url": "https://www.lua.org/images/logo.gif",
+      "content_type": "image/gif",
+      "bytes": 9893,
+      "sha256": "de4ca280a5561940ace4b1a72dc5bc1d96ac154e59c7ae32d98ddcde010baeaa",
+      "uses": [
+        {
+          "document": "authoring/lua-5.1.html",
+          "tag": "img",
+          "alt": "",
+          "id": ""
+        }
+      ],
+      "former_path": "assets/web/c93100f007e2-logo.gif",
+      "reason": "Website logo, navigation arrow, or licence badge. Meaning and linked notices retained as text; heading arrows omitted."
+    }
+  ],
+  "policy": "Technical illustrations and their font dependency retained locally. Website logos, navigation arrows, and licence badges omitted; notices remain as linked text."
+}

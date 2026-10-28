@@ -1,0 +1,84 @@
+# Sequential reading index
+
+Source: [MS-OI29500: Office implementation information for ISO/IEC 29500](https://officeprotocoldocs-f5hpbjgea6b8gneq.b02.azurefd.net/files/MS-OI29500/%5bMS-OI29500%5d.pdf) · 25.0, 2026-08-18.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/).
+
+[Index](pages.md)
+
+- [pages-0001-0004-0001](chunks/pages-0001-0004-0001.md)
+- [pages-0005-0006-0002](chunks/pages-0005-0006-0002.md)
+- [pages-0007-0008-0003](chunks/pages-0007-0008-0003.md)
+- [pages-0009-0010-0004](chunks/pages-0009-0010-0004.md)
+- [pages-0011-0012-0005](chunks/pages-0011-0012-0005.md)
+- [pages-0013-0014-0006](chunks/pages-0013-0014-0006.md)
+- [pages-0015-0016-0007](chunks/pages-0015-0016-0007.md)
+- [pages-0017-0018-0008](chunks/pages-0017-0018-0008.md)
+- [pages-0019-0020-0009](chunks/pages-0019-0020-0009.md)
+- [pages-0021-0022-0010](chunks/pages-0021-0022-0010.md)
+- [pages-0023-0024-0011](chunks/pages-0023-0024-0011.md)
+- [pages-0025-0026-0012](chunks/pages-0025-0026-0012.md)
+- [pages-0027-0028-0013](chunks/pages-0027-0028-0013.md)
+- [pages-0029-0030-0014](chunks/pages-0029-0030-0014.md)
+- [pages-0031-0032-0015](chunks/pages-0031-0032-0015.md)
+- [pages-0033-0034-0016](chunks/pages-0033-0034-0016.md)
+- [pages-0035-0036-0017](chunks/pages-0035-0036-0017.md)
+- [pages-0037-0038-0018](chunks/pages-0037-0038-0018.md)
+- [pages-0039-0040-0019](chunks/pages-0039-0040-0019.md)
+- [pages-0041-0042-0020](chunks/pages-0041-0042-0020.md)
+- [pages-0043-0045-0021](chunks/pages-0043-0045-0021.md) — 1 Introduction; 1.1 Glossary
+- [pages-0046-0050-0022](chunks/pages-0046-0050-0022.md) — 1.2.2 Informative References; 1.3 Microsoft Implementations
+- [pages-0051-0054-0023](chunks/pages-0051-0054-0023.md) — 2.1.8 Part 1 Section 12.3.6, Custom XML Mappings Part; 2.1.9 Part 1 Section 12.3.7, Dialogsheet Part
+- [pages-0055-0058-0024](chunks/pages-0055-0058-0024.md) — 2.1.17 Part 1 Section 13.3.5, Notes Slide Part; 2.1.18 Part 1 Section 13.3.6, Presentation Part
+- [pages-0059-0062-0025](chunks/pages-0059-0062-0025.md) — 2.1.24 Part 1 Section 14.2.2, Chart Drawing Part; 2.1.25 Part 1 Section 14.2.3, Diagram Colors Part
+- [pages-0063-0067-0026](chunks/pages-0063-0067-0026.md) — 2.1.43 Part 1 Section 17.3.1.11, framePr (Text Frame Properties); 2.1.44 Part 1 Section 17.3.1.12, ind (Paragraph Indentation)
+- [pages-0068-0071-0027](chunks/pages-0068-0071-0027.md) — 2.1.72 Part 1 Section 17.3.2.6, color (Run Content Color); 2.1.73 Part 1 Section 17.3.2.7, cs (Use Complex Script Formatting on Run)
+- [pages-0072-0074-0028](chunks/pages-0072-0074-0028.md) — 2.1.86 Part 1 Section 17.3.2.22, oMath (Office Open XML Math); 2.1.87 Part 1 Section 17.3.2.25, r (Text Run)
+- [pages-0075-0078-0029](chunks/pages-0075-0078-0029.md) — 2.1.89 Part 1 Section 17.3.2.27, rPr (Previous Run Properties); 2.1.90 Part 1 Section 17.3.2.28, rPr (Run Properties)
+- [pages-0079-0083-0030](chunks/pages-0079-0083-0030.md) — 2.1.105 Part 1 Section 17.3.3.12, hpsRaise (Distance Between Phonetic Guide Text and Phonetic Guide Base Text); 2.1.106 Part 1 Section 17.3.3.13, lastRenderedPageBreak (Position of Last Calculated Page Break)
+- [pages-0084-0087-0031](chunks/pages-0084-0087-0031.md) — 2.1.139 Part 1 Section 17.4.26, jc (Table Alignment Exception); 2.1.140 Part 1 Section 17.4.27, jc (Table Row Alignment)
+- [pages-0088-0092-0032](chunks/pages-0088-0092-0032.md) — 2.1.161 Part 1 Section 17.4.56, tblOverlap (Floating Table Allows Other Tables to Overlap); 2.1.162 Part 1 Section 17.4.57, tblpPr (Floating Table Positioning)
+- [pages-0093-0096-0033](chunks/pages-0093-0096-0033.md) — 2.1.172 Part 1 Section 17.4.72, textDirection (Table Cell Text Flow Direction); 2.1.173 Part 1 Section 17.4.73, tl2br (Table Cell Top Left to Bottom Right Diagonal Border)
+- [pages-0097-0101-0034](chunks/pages-0097-0101-0034.md) — 2.1.192 Part 1 Section 17.5.1.9, smartTag (Inline-Level Smart Tag); 2.1.193 Part 1 Section 17.5.2.6, dataBinding (XML Mapping)
+- [pages-0102-0106-0035](chunks/pages-0102-0106-0035.md) — 2.1.215 Part 1 Section 17.6.8, lnNumType (Line Numbering Settings); 2.1.216 Part 1 Section 17.6.9, paperSrc (Paper Source Information)
+- [pages-0107-0113-0036](chunks/pages-0107-0113-0036.md)
+- [pages-0114-0118-0037](chunks/pages-0114-0118-0037.md) — 2.1.238 Part 1 Section 17.7.4.10, next (Style For Next Paragraph); 2.1.239 Part 1 Section 17.7.4.11, personal (E-Mail Message Text Style)
+- [pages-0119-0122-0038](chunks/pages-0119-0122-0038.md) — 2.1.254 Part 1 Section 17.7.6.8, tcPr (Table Style Conditional Formatting Table Cell Properties); 2.1.255 Part 1 Section 17.7.6.9, tcPr (Style Table Cell Properties)
+- [pages-0123-0127-0039](chunks/pages-0123-0127-0039.md) — 2.1.275 Part 1 Section 17.9.1, abstractNum (Abstract Numbering Definition); 2.1.276 Part 1 Section 17.9.2, abstractNumId (Abstract Numbering Definition Reference)
+- [pages-0128-0132-0040](chunks/pages-0128-0132-0040.md) — 2.1.303 Part 1 Section 17.11.9, footnote (Special Footnote List); 2.1.304 Part 1 Section 17.11.10, footnote (Footnote Content)
+- [pages-0133-0136-0041](chunks/pages-0133-0136-0041.md) — 2.1.322 Part 1 Section 17.13.5.6, customXmlInsRangeEnd (Custom XML Markup Insertion End); 2.1.323 Part 1 Section 17.13.5.7, customXmlInsRangeStart (Custom XML Markup Insertion Start)
+- [pages-0137-0141-0042](chunks/pages-0137-0141-0042.md) — 2.1.338 Part 1 Section 17.13.5.22, moveFrom (Move Source Run Content); 2.1.339 Part 1 Section 17.13.5.23, moveFromRangeEnd (Move Source Location Container - End)
+- [pages-0142-0147-0043](chunks/pages-0142-0147-0043.md) — 2.1.364 Part 1 Section 17.14.7, column (Index of Column Containing Unique Values for Record); 2.1.365 Part 1 Section 17.14.9, dataSource (Data Source File Path)
+- [pages-0148-0152-0044](chunks/pages-0148-0152-0044.md) — 2.1.386 Part 1 Section 17.15.1.7, autoCaption (Single Automatic Captioning Setting); 2.1.387 Part 1 Section 17.15.1.8, autoCaptions (Automatic Captioning Settings)
+- [pages-0153-0157-0045](chunks/pages-0153-0157-0045.md) — 2.1.403 Part 1 Section 17.15.1.31, docVar (Single Document Variable); 2.1.404 Part 1 Section 17.15.1.42, doNotUseMarginsForDrawingGridOrigin (Do Not Use Margins for Drawing Grid Origin)
+- [pages-0158-0161-0046](chunks/pages-0158-0161-0046.md) — 2.1.425 Part 1 Section 17.15.1.92, view (Document View Setting); 2.1.426 Part 1 Section 17.15.1.93, writeProtection (Write Protection)
+- [pages-0162-0166-0047](chunks/pages-0162-0166-0047.md) — 2.1.439 Part 1 Section 17.15.2.21, left (Left Border for HTML div); 2.1.440 Part 1 Section 17.15.2.23, longDesc (Frame Long Description)
+- [pages-0167-0169-0048](chunks/pages-0167-0169-0048.md)
+- [pages-0170-0171-0049](chunks/pages-0170-0171-0049.md)
+- [pages-0172-0174-0050](chunks/pages-0172-0174-0050.md)
+- [pages-0175-0177-0051](chunks/pages-0175-0177-0051.md)
+- [pages-0178-0179-0052](chunks/pages-0178-0179-0052.md)
+- [pages-0180-0181-0053](chunks/pages-0180-0181-0053.md)
+- [pages-0182-0185-0054](chunks/pages-0182-0185-0054.md) — 2.1.461 Part 1 Section 17.16.5.2, ADVANCE; 2.1.462 Part 1 Section 17.16.5.4, AUTHOR
+- [pages-0186-0189-0055](chunks/pages-0186-0189-0055.md)
+- [pages-0190-0193-0056](chunks/pages-0190-0193-0056.md)
+- [pages-0194-0197-0057](chunks/pages-0194-0197-0057.md)
+- [pages-0198-0201-0058](chunks/pages-0198-0201-0058.md)
+- [pages-0202-0205-0059](chunks/pages-0202-0205-0059.md)
+- [pages-0206-0209-0060](chunks/pages-0206-0209-0060.md)
+- [pages-0210-0214-0061](chunks/pages-0210-0214-0061.md) — 2.1.469 Part 1 Section 17.16.5.13, DATE; 2.1.470 Part 1 Section 17.16.5.14, DOCPROPERTY
+- [pages-0215-0219-0062](chunks/pages-0215-0219-0062.md) — 2.1.477 Part 1 Section 17.16.5.25, HYPERLINK; 2.1.478 Part 1 Section 17.16.5.26, IF
+- [pages-0220-0224-0063](chunks/pages-0220-0224-0063.md) — 2.1.496 Part 1 Section 17.16.5.52, REVNUM; 2.1.497 Part 1 Section 17.16.5.53, SAVEDATE
+- [pages-0225-0229-0064](chunks/pages-0225-0229-0064.md) — 2.1.517 Part 1 Section 17.16.12, default (Default Checkbox Form Field State); 2.1.518 Part 1 Section 17.16.17, ffData (Form Field Properties)
+- [pages-0230-0233-0065](chunks/pages-0230-0233-0065.md) — 2.1.543 Part 1 Section 17.18.41, ST_Hint (Font Type Hint); 2.1.544 Part 1 Section 17.18.42, ST_HpsMeasure (Measurement in Half-Points)
+- [pages-0234-0237-0066](chunks/pages-0234-0237-0066.md) — 2.1.553 Part 1 Section 17.18.78, ST_Shd (Shading Patterns); 2.1.554 Part 1 Section 17.18.80, ST_SignedHpsMeasure (Signed Measurement in Half-Points)
+- [pages-0238-0242-0067](chunks/pages-0238-0242-0067.md) — 2.1.567 Part 1 Section 18.2.4, customWorkbookViews (Custom Workbook Views); 2.1.568 Part 1 Section 18.2.5, definedName (Defined Name)
+- [pages-0243-0246-0068](chunks/pages-0243-0246-0068.md) — 2.1.576 Part 1 Section 18.2.15, functionGroups (Function Groups); 2.1.577 Part 1 Section 18.2.16, oleSize (Embedded Object Size)
+- [pages-0247-0250-0069](chunks/pages-0247-0250-0069.md) — 2.1.587 Part 1 Section 18.2.30, workbookView (Workbook View); 2.1.588 Part 1 Section 18.3.1.1, anchor (Object Cell Anchor)
+- [pages-0251-0255-0070](chunks/pages-0251-0255-0070.md) — 2.1.590 Part 1 Section 18.3.1.4, c (Cell); 2.1.591 Part 1 Section 18.3.1.5, cellSmartTag (Cell Smart Tag)
+- [pages-0256-0260-0071](chunks/pages-0256-0260-0071.md) — 2.1.610 Part 1 Section 18.3.1.27, customSheetViews (Custom Sheet Views); 2.1.611 Part 1 Section 18.3.1.28, dataBar (Data Bar)
+- [pages-0261-0265-0072](chunks/pages-0261-0265-0072.md) — 2.1.621 Part 1 Section 18.3.1.41, firstFooter (First Page Footer); 2.1.622 Part 1 Section 18.3.1.42, firstHeader (First Page Header)
+- [pages-0266-0273-0073](chunks/pages-0266-0273-0073.md) — 2.1.638 Part 1 Section 18.3.1.63, pageSetup (Page Setup Settings); 2.1.639 Part 1 Section 18.3.1.64, pageSetup (Chart Sheet Page Setup)
+- [pages-0274-0277-0074](chunks/pages-0274-0277-0074.md) — 2.1.640 Part 1 Section 18.3.1.66, pane (View Pane); 2.1.641 Part 1 Section 18.3.1.68, pivotArea (Pivot Area)
+- [pages-0278-0281-0075](chunks/pages-0278-0281-0075.md) — 2.1.644 Part 1 Section 18.3.1.73, row (Row); 2.1.645 Part 1 Section 18.3.1.74, rowBreaks (Horizontal Page Breaks (Row))
+- [pages-0282-0285-0076](chunks/pages-0282-0285-0076.md) — 2.1.654 Part 1 Section 18.3.1.85, sheetProtection (Sheet Protection Options); 2.1.655 Part 1 Section 18.3.1.87, sheetView (Worksheet View)

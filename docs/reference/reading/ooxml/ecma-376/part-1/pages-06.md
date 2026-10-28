@@ -1,0 +1,100 @@
+# Sequential reading index
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Index](pages.md)
+
+- [pages-2060-2065-0391](chunks/pages-2060-2065-0391.md) — 18.17.2.3.1 A1-Style Cell References; 18.17.2.3.2 R1C1-Style Cell Reference
+- [pages-2066-2070-0392](chunks/pages-2066-2070-0392.md) — 18.17.2.5 Names; 18.17.2.6 Types and Values
+- [pages-2071-2075-0393](chunks/pages-2071-2075-0393.md) — 18.17.4 Dates and Times; 18.17.4.1 Date Conversion for Serial Date-Times
+- [pages-2076-2081-0394](chunks/pages-2076-2081-0394.md) — 18.17.5.3 Lexical Representation; 18.17.5.4 Interpretation
+- [pages-2082-2085-0395](chunks/pages-2082-2085-0395.md) — 18.17.7.1 ABS; 18.17.7.2 ACCRINT
+- [pages-2086-2090-0396](chunks/pages-2086-2090-0396.md) — 18.17.7.3 ACCRINTM; 18.17.7.4 ACOS
+- [pages-2091-2095-0397](chunks/pages-2091-2095-0397.md) — 18.17.7.5 ACOSH; 18.17.7.6 ADDRESS
+- [pages-2096-2101-0398](chunks/pages-2096-2101-0398.md) — 18.17.7.9 AND; 18.17.7.10 AREAS
+- [pages-2102-2106-0399](chunks/pages-2102-2106-0399.md) — 18.17.7.16 ATANH; 18.17.7.17 AVEDEV
+- [pages-2107-2114-0400](chunks/pages-2107-2114-0400.md) — 18.17.7.22 BAHTTEXT; 18.17.7.23 BESSELI
+- [pages-2115-2119-0401](chunks/pages-2115-2119-0401.md) — 18.17.7.31 BIN2OCT; 18.17.7.32 BINOMDIST
+- [pages-2120-2123-0402](chunks/pages-2120-2123-0402.md)
+- [pages-2124-2130-0403](chunks/pages-2124-2130-0403.md) — 18.17.7.35 CHAR; 18.17.7.36 CHIDIST
+- [pages-2131-2138-0404](chunks/pages-2131-2138-0404.md) — 18.17.7.43 COLUMNS; 18.17.7.44 COMBIN
+- [pages-2139-2144-0405](chunks/pages-2139-2144-0405.md) — 18.17.7.49 CORREL; 18.17.7.50 COS
+- [pages-2145-2148-0406](chunks/pages-2145-2148-0406.md) — 18.17.7.57 COUPDAYBS; 18.17.7.58 COUPDAYS
+- [pages-2149-2152-0407](chunks/pages-2149-2152-0407.md) — 18.17.7.59 COUPDAYSNC
+- [pages-2153-2156-0408](chunks/pages-2153-2156-0408.md) — 18.17.7.60 COUPNCD; 18.17.7.61 COUPNUM
+- [pages-2157-2161-0409](chunks/pages-2157-2161-0409.md) — 18.17.7.62 COUPPCD; 18.17.7.63 COVAR
+- [pages-2162-2167-0410](chunks/pages-2162-2167-0410.md) — 18.17.7.64 CRITBINOM; 18.17.7.65 CUBEKPIMEMBER
+- [pages-2168-2172-0411](chunks/pages-2168-2172-0411.md) — 18.17.7.70 CUBESETCOUNT; 18.17.7.71 CUBEVALUE
+- [pages-2173-2176-0412](chunks/pages-2173-2176-0412.md) — 18.17.7.74 DATE; 18.17.7.75 DATEDIF
+- [pages-2177-2181-0413](chunks/pages-2177-2181-0413.md) — 18.17.7.77 DAVERAGE; 18.17.7.78 DAY
+- [pages-2182-2188-0414](chunks/pages-2182-2188-0414.md) — 18.17.7.81 DCOUNT; 18.17.7.82 DCOUNTA
+- [pages-2189-2194-0415](chunks/pages-2189-2194-0415.md) — 18.17.7.89 DEVSQ; 18.17.7.90 DGET
+- [pages-2195-2200-0416](chunks/pages-2195-2200-0416.md) — 18.17.7.94 DOLLAR; 18.17.7.95 DOLLARDE
+- [pages-2201-2206-0417](chunks/pages-2201-2206-0417.md) — 18.17.7.102 DVAR; 18.17.7.103 DVARP
+- [pages-2207-2214-0418](chunks/pages-2207-2214-0418.md) — 18.17.7.108 ERF; 18.17.7.109 ERFC
+- [pages-2215-2222-0419](chunks/pages-2215-2222-0419.md) — 18.17.7.118 FDIST; 18.17.7.119 FIND
+- [pages-2223-2229-0420](chunks/pages-2223-2229-0420.md) — 18.17.7.128 FTEST; 18.17.7.129 FV
+- [pages-2230-2234-0421](chunks/pages-2230-2234-0421.md) — 18.17.7.137 GETPIVOTDATA; 18.17.7.138 GROWTH
+- [pages-2235-2239-0422](chunks/pages-2235-2239-0422.md) — 18.17.7.141 HEX2DEC; 18.17.7.142 HEX2OCT
+- [pages-2240-2247-0423](chunks/pages-2240-2247-0423.md) — 18.17.7.146 HYPGEOMDIST; 18.17.7.147 IF
+- [pages-2248-2255-0424](chunks/pages-2248-2255-0424.md) — 18.17.7.156 IMLN; 18.17.7.157 IMLOG10
+- [pages-2256-2261-0425](chunks/pages-2256-2261-0425.md) — 18.17.7.166 INDEX; 18.17.7.167 INDIRECT
+- [pages-2262-2266-0426](chunks/pages-2262-2266-0426.md) — 18.17.7.171 INTRATE; 18.17.7.172 IPMT
+- [pages-2267-2274-0427](chunks/pages-2267-2274-0427.md) — 18.17.7.174 ISBLANK; 18.17.7.175 ISERR
+- [pages-2275-2281-0428](chunks/pages-2275-2281-0428.md) — 18.17.7.188 KURT; 18.17.7.189 LARGE
+- [pages-2282-2288-0429](chunks/pages-2282-2288-0429.md) — 18.17.7.196 LN; 18.17.7.197 LOG
+- [pages-2289-2293-0430](chunks/pages-2289-2293-0430.md) — 18.17.7.203 LOWER; 18.17.7.204 MATCH
+- [pages-2294-2298-0431](chunks/pages-2294-2298-0431.md) — 18.17.7.209 MEDIAN; 18.17.7.210 MID
+- [pages-2299-2305-0432](chunks/pages-2299-2305-0432.md) — 18.17.7.213 MINA; 18.17.7.214 MINUTE
+- [pages-2306-2312-0433](chunks/pages-2306-2312-0433.md) — 18.17.7.222 MULTINOMIAL; 18.17.7.223 N
+- [pages-2313-2319-0434](chunks/pages-2313-2319-0434.md) — 18.17.7.230 NORMINV; 18.17.7.231 NORMSDIST
+- [pages-2320-2324-0435](chunks/pages-2320-2324-0435.md) — 18.17.7.239 OCT2HEX; 18.17.7.240 ODD
+- [pages-2325-2328-0436](chunks/pages-2325-2328-0436.md) — 18.17.7.242 ODDFYIELD
+- [pages-2329-2332-0437](chunks/pages-2329-2332-0437.md) — 18.17.7.243 ODDLPRICE; 18.17.7.244 ODDLYIELD
+- [pages-2333-2337-0438](chunks/pages-2333-2337-0438.md) — 18.17.7.245 OFFSET; 18.17.7.246 OR
+- [pages-2338-2344-0439](chunks/pages-2338-2344-0439.md) — 18.17.7.248 PERCENTILE; 18.17.7.249 PERCENTRANK
+- [pages-2345-2348-0440](chunks/pages-2345-2348-0440.md) — 18.17.7.257 PRICE; 18.17.7.258 PRICEDISC
+- [pages-2349-2353-0441](chunks/pages-2349-2353-0441.md) — 18.17.7.259 PRICEMAT; 18.17.7.260 PROB
+- [pages-2354-2360-0442](chunks/pages-2354-2360-0442.md) — 18.17.7.261 PRODUCT; 18.17.7.262 PROPER
+- [pages-2361-2365-0443](chunks/pages-2361-2365-0443.md) — 18.17.7.270 RATE; 18.17.7.271 RECEIVED
+- [pages-2366-2371-0444](chunks/pages-2366-2371-0444.md) — 18.17.7.274 REPT; 18.17.7.275 RIGHT
+- [pages-2372-2377-0445](chunks/pages-2372-2377-0445.md) — 18.17.7.281 ROW; 18.17.7.282 ROWS
+- [pages-2378-2385-0446](chunks/pages-2378-2385-0446.md) — 18.17.7.288 SERIESSUM; 18.17.7.289 SIGN
+- [pages-2386-2392-0447](chunks/pages-2386-2392-0447.md) — 18.17.7.299 STDEV; 18.17.7.300 STDEVA
+- [pages-2393-2398-0448](chunks/pages-2393-2398-0448.md) — 18.17.7.306 SUM; 18.17.7.307 SUMIF
+- [pages-2399-2406-0449](chunks/pages-2399-2406-0449.md) — 18.17.7.313 SUMXMY2; 18.17.7.314 SYD
+- [pages-2407-2413-0450](chunks/pages-2407-2413-0450.md) — 18.17.7.324 TIMEVALUE; 18.17.7.325 TINV
+- [pages-2414-2420-0451](chunks/pages-2414-2420-0451.md) — 18.17.7.334 TYPE; 18.17.7.335 UPPER
+- [pages-2421-2425-0452](chunks/pages-2421-2425-0452.md) — 18.17.7.343 VLOOKUP; 18.17.7.344 WEEKDAY
+- [pages-2426-2431-0453](chunks/pages-2426-2431-0453.md) — 18.17.7.346 WEIBULL; 18.17.7.347 WORKDAY
+- [pages-2432-2436-0454](chunks/pages-2432-2436-0454.md) — 18.17.7.351 YEAR; 18.17.7.352 YEARFRAC
+- [pages-2437-2441-0455](chunks/pages-2437-2441-0455.md) — 18.17.7.354 YIELDDISC
+- [pages-2442-2448-0456](chunks/pages-2442-2448-0456.md) — 18.17.7.355 YIELDMAT; 18.17.7.356 ZTEST
+- [pages-2449-2452-0457](chunks/pages-2449-2452-0457.md) — 18.18.4 ST_CalcMode (Calculation Mode); 18.18.5 ST_CellComments (Cell Comments)
+- [pages-2453-2456-0458](chunks/pages-2453-2456-0458.md) — 18.18.13 ST_CfvoType (Conditional Format Value Object Type); 18.18.14 ST_Comments (Comment Display Types)
+- [pages-2457-2460-0459](chunks/pages-2457-2460-0459.md) — 18.18.19 ST_DataValidationImeMode (Data Validation IME Mode); 18.18.20 ST_DataValidationOperator (Data Validation Operator)
+- [pages-2461-2464-0460](chunks/pages-2461-2464-0460.md) — 18.18.26 ST_DynamicFilterType (Dynamic Filter); 18.18.27 ST_ExternalConnectionType (Text Field Datatype)
+- [pages-2465-2469-0461](chunks/pages-2465-2469-0461.md) — 18.18.33 ST_FontScheme (Font scheme Styles); 18.18.34 ST_FormatAction (PivotTable Format Types)
+- [pages-2470-2475-0462](chunks/pages-2470-2475-0462.md) — 18.18.41 ST_HtmlFmt (HTML Formatting Handling); 18.18.42 ST_IconSetType (Icon Set Type)
+- [pages-2476-2480-0463](chunks/pages-2476-2480-0463.md) — 18.18.45 ST_MdxKPIProperty (MDX KPI Property); 18.18.46 ST_MdxSetOrder (MDX Set Order)
+- [pages-2481-2487-0464](chunks/pages-2481-2487-0464.md) — 18.18.56 ST_PhoneticAlignment (Phonetic Alignment Types); 18.18.57 ST_PhoneticType (Phonetic Type)
+- [pages-2488-2491-0465](chunks/pages-2488-2491-0465.md) — 18.18.60 ST_PrintError (Print Errors); 18.18.61 ST_Qualifier (Qualifier)
+- [pages-2492-2495-0466](chunks/pages-2492-2495-0466.md) — 18.18.66 ST_rwColActionType (Row Column Action Type); 18.18.67 ST_Scope (Conditional Formatting Scope)
+- [pages-2496-2503-0467](chunks/pages-2496-2503-0467.md) — 18.18.75 ST_SourceType (PivotCache Type); 18.18.76 ST_Sqref (Reference Sequence)
+- [pages-2504-2511-0468](chunks/pages-2504-2511-0468.md)
+- [pages-2512-2517-0469](chunks/pages-2512-2517-0469.md) — 18.18.78 ST_TableType (Table Type); 18.18.79 ST_TargetScreenSize (Target Screen Size Types)
+- [pages-2518-2522-0470](chunks/pages-2518-2522-0470.md) — 18.18.84 ST_Type (Top N Evaluation Type); 18.18.85 ST_UnderlineValues (Underline Types)
+- [pages-2523-2527-0471](chunks/pages-2523-2527-0471.md) — 18.18.89 ST_Visibility (Visibility Types); 18.18.90 ST_VolDepType (Volatile Dependency Types)
+- [pages-2528-2528-0472](chunks/pages-2528-2528-0472.md)
+- [pages-2529-2529-0473](chunks/pages-2529-2529-0473.md)
+- [pages-2530-2530-0474](chunks/pages-2530-2530-0474.md)
+- [pages-2531-2531-0475](chunks/pages-2531-2531-0475.md)
+- [pages-2532-2534-0476](chunks/pages-2532-2534-0476.md) — 19.2 Presentation; 19.2.1 Presentation Properties
+- [pages-2535-2540-0477](chunks/pages-2535-2540-0477.md) — 19.2.1.3 browse (Browse Slide Show Mode); 19.2.1.4 clrMru (Color MRU)
+- [pages-2541-2545-0478](chunks/pages-2541-2545-0478.md) — 19.2.1.14 handoutMasterId (Handout Master ID); 19.2.1.15 handoutMasterIdLst (List of Handout Master IDs)
+- [pages-2546-2549-0479](chunks/pages-2546-2549-0479.md) — 19.2.1.20 notesMasterId (Notes Master ID); 19.2.1.21 notesMasterIdLst (List of Notes Master IDs)
+- [pages-2550-2554-0480](chunks/pages-2550-2554-0480.md) — 19.2.1.23 penClr (Pen Color for Slide Show); 19.2.1.24 photoAlbum (Photo Album Information)
+- [pages-2555-2560-0481](chunks/pages-2555-2560-0481.md) — 19.2.1.29 regular (Regular Embedded Font); 19.2.1.30 showPr (Presentation-wide Show Properties)
+- [pages-2561-2566-0482](chunks/pages-2561-2566-0482.md) — 19.2.1.40 smartTags (Smart Tags); 19.2.2 View Properties

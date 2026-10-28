@@ -1,0 +1,101 @@
+# Sequential reading index
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Index](pages.md)
+
+- [pages-1202-1206-0217](chunks/pages-1202-1206-0217.md) — 17.16.5 Field definitions; 17.16.5.1 ADDRESSBLOCK
+- [pages-1207-1212-0218](chunks/pages-1207-1212-0218.md) — 17.16.5.2 ADVANCE; 17.16.5.3 ASK
+- [pages-1213-1218-0219](chunks/pages-1213-1218-0219.md) — 17.16.5.8 CITATION; 17.16.5.9 COMMENTS
+- [pages-1219-1224-0220](chunks/pages-1219-1224-0220.md) — 17.16.5.14 DOCPROPERTY; 17.16.5.15 DOCVARIABLE
+- [pages-1225-1229-0221](chunks/pages-1225-1229-0221.md) — 17.16.5.23 GOTOBUTTON; 17.16.5.24 GREETINGLINE
+- [pages-1230-1234-0222](chunks/pages-1230-1234-0222.md) — 17.16.5.29 INDEX; 17.16.5.30 KEYWORDS
+- [pages-1235-1239-0223](chunks/pages-1235-1239-0223.md) — 17.16.5.34 MACROBUTTON; 17.16.5.35 MERGEFIELD
+- [pages-1240-1246-0224](chunks/pages-1240-1246-0224.md) — 17.16.5.36 MERGEREC; 17.16.5.37 MERGESEQ
+- [pages-1247-1253-0225](chunks/pages-1247-1253-0225.md) — 17.16.5.49 QUOTE; 17.16.5.50 RD
+- [pages-1254-1260-0226](chunks/pages-1254-1260-0226.md) — 17.16.5.59 STYLEREF; 17.16.5.60 SUBJECT
+- [pages-1261-1265-0227](chunks/pages-1261-1265-0227.md) — 17.16.5.68 TOC; 17.16.5.69 USERADDRESS
+- [pages-1266-1271-0228](chunks/pages-1266-1271-0228.md) — 17.16.6 calcOnExit (Recalculate Fields When Current Field Is Modified); 17.16.7 checkBox (Checkbox Form Field Properties)
+- [pages-1272-1277-0229](chunks/pages-1272-1277-0229.md) — 17.16.12 default (Default Checkbox Form Field State); 17.16.13 delInstrText (Deleted Field Code)
+- [pages-1278-1283-0230](chunks/pages-1278-1283-0230.md) — 17.16.19 fldSimple (Simple Field); 17.16.20 format (Text Box Form Field Formatting)
+- [pages-1284-1288-0231](chunks/pages-1284-1288-0231.md) — 17.16.21 helpText (Associated Help Text); 17.16.22 hyperlink (Hyperlink)
+- [pages-1289-1294-0232](chunks/pages-1289-1294-0232.md) — 17.16.23 instrText (Field Code); 17.16.24 label (Form Field Label)
+- [pages-1295-1300-0233](chunks/pages-1295-1300-0233.md) — 17.16.28 result (Drop-Down List Selection); 17.16.29 size (Checkbox Form Field Size)
+- [pages-1301-1307-0234](chunks/pages-1301-1307-0234.md) — 17.16.33 textInput (Text Box Form Field Properties); 17.16.34 type (Text Box Form Field Type)
+- [pages-1308-1314-0235](chunks/pages-1308-1314-0235.md) — 17.17.2.1 altChunk (Anchor for Imported External Content); 17.17.2.2 altChunkPr (External Content Import Properties)
+- [pages-1315-1322-0236](chunks/pages-1315-1322-0236.md)
+- [pages-1323-1330-0237](chunks/pages-1323-1330-0237.md)
+- [pages-1331-1338-0238](chunks/pages-1331-1338-0238.md)
+- [pages-1339-1346-0239](chunks/pages-1339-1346-0239.md)
+- [pages-1347-1354-0240](chunks/pages-1347-1354-0240.md)
+- [pages-1355-1362-0241](chunks/pages-1355-1362-0241.md)
+- [pages-1363-1367-0242](chunks/pages-1363-1367-0242.md) — 17.18.3 ST_BrClear (Line Break Text Wrapping Restart Location); 17.18.4 ST_BrType (Break Types)
+- [pages-1368-1372-0243](chunks/pages-1368-1372-0243.md) — 17.18.5 ST_CaptionPos (Automatic Caption Positioning Values); 17.18.6 ST_ChapterSep (Chapter Separator Types)
+- [pages-1373-1377-0244](chunks/pages-1373-1377-0244.md) — 17.18.10 ST_DecimalNumber (Decimal Number Value); 17.18.11 ST_DecimalNumberOrPercent (Percentage Measurement)
+- [pages-1378-1380-0245](chunks/pages-1378-1380-0245.md) — 17.18.16 ST_DocPartGallery (Entry Gallery Types)
+- [pages-1381-1384-0246](chunks/pages-1381-1384-0246.md) — 17.18.17 ST_DocPartType (Entry Types); 17.18.18 ST_DocProtect (Document Protection Types)
+- [pages-1385-1389-0247](chunks/pages-1385-1389-0247.md) — 17.18.21 ST_EdGrp (Range Permision Editing Group); 17.18.22 ST_EdnPos (Endnote Positioning Location)
+- [pages-1390-1396-0248](chunks/pages-1390-1396-0248.md) — 17.18.26 ST_FFName (Form Field Name Value); 17.18.27 ST_FFStatusTextVal (Status Text Value)
+- [pages-1397-1400-0249](chunks/pages-1397-1400-0249.md) — 17.18.33 ST_FtnEdn (Footnote or Endnote Type); 17.18.34 ST_FtnPos (Footnote Positioning Location)
+- [pages-1401-1404-0250](chunks/pages-1401-1404-0250.md) — 17.18.37 ST_HeightRule (Height Rule); 17.18.38 ST_HexColor (Color Value)
+- [pages-1405-1408-0251](chunks/pages-1405-1408-0251.md) — 17.18.41 ST_Hint (Font Type Hint); 17.18.42 ST_HpsMeasure (Measurement in Half-Points)
+- [pages-1409-1412-0252](chunks/pages-1409-1412-0252.md) — 17.18.45 ST_JcTable (Table Alignment Type); 17.18.46 ST_LevelSuffix (Content Between Numbering Symbol and Paragraph Text)
+- [pages-1413-1416-0253](chunks/pages-1413-1416-0253.md) — 17.18.48 ST_LineSpacingRule (Line Spacing Rule); 17.18.49 ST_Lock (Locking Types)
+- [pages-1417-1421-0254](chunks/pages-1417-1421-0254.md) — 17.18.53 ST_MailMergeDest (Merged Document Destination Types); 17.18.54 ST_MailMergeDocType (Source Document Types)
+- [pages-1422-1426-0255](chunks/pages-1422-1426-0255.md) — 17.18.58 ST_MultiLevelType (Numbering Definition Type); 17.18.59 ST_NumberFormat (Numbering Format)
+- [pages-1427-1430-0256](chunks/pages-1427-1430-0256.md)
+- [pages-1431-1433-0257](chunks/pages-1431-1433-0257.md)
+- [pages-1434-1436-0258](chunks/pages-1434-1436-0258.md)
+- [pages-1437-1440-0259](chunks/pages-1437-1440-0259.md)
+- [pages-1441-1444-0260](chunks/pages-1441-1444-0260.md)
+- [pages-1445-1447-0261](chunks/pages-1445-1447-0261.md)
+- [pages-1448-1450-0262](chunks/pages-1448-1450-0262.md)
+- [pages-1451-1453-0263](chunks/pages-1451-1453-0263.md)
+- [pages-1454-1457-0264](chunks/pages-1454-1457-0264.md)
+- [pages-1458-1460-0265](chunks/pages-1458-1460-0265.md)
+- [pages-1461-1463-0266](chunks/pages-1461-1463-0266.md)
+- [pages-1464-1467-0267](chunks/pages-1464-1467-0267.md)
+- [pages-1468-1472-0268](chunks/pages-1468-1472-0268.md) — 17.18.60 ST_ObjectDrawAspect (Embedded Object Representations); 17.18.61 ST_ObjectUpdateMode (Embedded Object Update Modes)
+- [pages-1473-1477-0269](chunks/pages-1473-1477-0269.md) — 17.18.69 ST_Proof (Proofing State Values); 17.18.70 ST_ProofErr (Proofing Error Type)
+- [pages-1478-1482-0270](chunks/pages-1478-1482-0270.md) — 17.18.75 ST_RubyAlign (Phonetic Guide Text Alignment); 17.18.76 ST_SdtDateMappingType (Date Storage Format Types)
+- [pages-1483-1490-0271](chunks/pages-1483-1490-0271.md) — 17.18.78 ST_Shd (Shading Patterns)
+- [pages-1491-1498-0272](chunks/pages-1491-1498-0272.md) — 17.18.79 ST_ShortHexNumber (Four Digit Hexadecimal Value)
+- [pages-1499-1502-0273](chunks/pages-1499-1502-0273.md) — 17.18.80 ST_SignedHpsMeasure (Signed Measurement in Half-Points); 17.18.81 ST_SignedTwipsMeasure (Signed Measurement in Twentieths of a Point)
+- [pages-1503-1506-0274](chunks/pages-1503-1506-0274.md) — 17.18.85 ST_TabTlc (Custom Tab Stop Leader Character); 17.18.86 ST_TargetScreenSz (Target Screen Sizes for Generated Web Pages)
+- [pages-1507-1512-0275](chunks/pages-1507-1512-0275.md) — 17.18.88 ST_TblOverlap (Table Overlap Setting); 17.18.89 ST_TblStyleOverrideType (Conditional Table Style Formatting Types)
+- [pages-1513-1516-0276](chunks/pages-1513-1516-0276.md) — 17.18.91 ST_TextAlignment (Vertical Text Alignment Types); 17.18.92 ST_TextboxTightWrap (Lines To Tight Wrap Within Text Box)
+- [pages-1517-1520-0277](chunks/pages-1517-1520-0277.md) — 17.18.94 ST_TextEffect (Animated Text Effects); 17.18.95 ST_TextScale (Text Expansion/Compression Percentage)
+- [pages-1521-1526-0278](chunks/pages-1521-1526-0278.md) — 17.18.98 ST_UcharHexNumber (Two Digit Hexadecimal Value); 17.18.99 ST_Underline (Underline Patterns)
+- [pages-1527-1530-0279](chunks/pages-1527-1530-0279.md) — 17.18.102 ST_View (Document View Values); 17.18.103 ST_WmlColorSchemeIndex (Theme Color Reference)
+- [pages-1531-1533-0280](chunks/pages-1531-1533-0280.md) — 17.18.105 ST_Zoom (Magnification Preset Values); 17.18.106 ST_TextScalePercent (Text Expansion/Compression Percentage)
+- [pages-1534-1534-0281](chunks/pages-1534-1534-0281.md)
+- [pages-1535-1535-0282](chunks/pages-1535-1535-0282.md)
+- [pages-1536-1536-0283](chunks/pages-1536-1536-0283.md)
+- [pages-1537-1537-0284](chunks/pages-1537-1537-0284.md)
+- [pages-1538-1538-0285](chunks/pages-1538-1538-0285.md)
+- [pages-1539-1539-0286](chunks/pages-1539-1539-0286.md)
+- [pages-1540-1540-0287](chunks/pages-1540-1540-0287.md)
+- [pages-1541-1541-0288](chunks/pages-1541-1541-0288.md)
+- [pages-1542-1542-0289](chunks/pages-1542-1542-0289.md)
+- [pages-1543-1543-0290](chunks/pages-1543-1543-0290.md)
+- [pages-1544-1544-0291](chunks/pages-1544-1544-0291.md)
+- [pages-1545-1545-0292](chunks/pages-1545-1545-0292.md)
+- [pages-1546-1546-0293](chunks/pages-1546-1546-0293.md)
+- [pages-1547-1547-0294](chunks/pages-1547-1547-0294.md)
+- [pages-1548-1548-0295](chunks/pages-1548-1548-0295.md)
+- [pages-1549-1549-0296](chunks/pages-1549-1549-0296.md)
+- [pages-1550-1550-0297](chunks/pages-1550-1550-0297.md)
+- [pages-1551-1552-0298](chunks/pages-1551-1552-0298.md) — 18.2 Workbook
+- [pages-1553-1556-0299](chunks/pages-1553-1556-0299.md) — 18.2.1 bookViews (Workbook Views); 18.2.2 calcPr (Calculation Properties)
+- [pages-1557-1561-0300](chunks/pages-1557-1561-0300.md) — 18.2.3 customWorkbookView (Custom Workbook View)
+- [pages-1562-1566-0301](chunks/pages-1562-1566-0301.md) — 18.2.4 customWorkbookViews (Custom Workbook Views); 18.2.5 definedName (Defined Name)
+- [pages-1567-1571-0302](chunks/pages-1567-1571-0302.md) — 18.2.6 definedNames (Defined Names); 18.2.7 ext (Extension)
+- [pages-1572-1575-0303](chunks/pages-1572-1575-0303.md) — 18.2.12 fileSharing (File Sharing); 18.2.13 fileVersion (File Version)
+- [pages-1576-1581-0304](chunks/pages-1576-1581-0304.md) — 18.2.14 functionGroup (Function Group); 18.2.15 functionGroups (Function Groups)
+- [pages-1582-1586-0305](chunks/pages-1582-1586-0305.md) — 18.2.25 webPublishObject (Web Publishing Object); 18.2.26 webPublishObjects (Web Publish Objects)
+- [pages-1587-1591-0306](chunks/pages-1587-1591-0306.md) — 18.2.29 workbookProtection (Workbook Protection)
+- [pages-1592-1595-0307](chunks/pages-1592-1595-0307.md)
+- [pages-1596-1600-0308](chunks/pages-1596-1600-0308.md) — 18.2.30 workbookView (Workbook View); 18.3 Worksheets
+- [pages-1601-1606-0309](chunks/pages-1601-1606-0309.md) — 18.3.1.2 autoFilter (AutoFilter Settings); 18.3.1.3 brk (Break)

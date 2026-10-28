@@ -1,0 +1,110 @@
+# Sequential reading index
+
+Source: [MS-ODRAWXML: Office Drawing extensions to Office Open XML](https://officeprotocoldocs-f5hpbjgea6b8gneq.b02.azurefd.net/files/MS-ODRAWXML/%5bMS-ODRAWXML%5d.pdf) · 35.0, 2026-10-06.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-odrawxml/).
+
+- [pages-0001-0004-0001](chunks/pages-0001-0004-0001.md)
+- [pages-0005-0005-0002](chunks/pages-0005-0005-0002.md)
+- [pages-0006-0006-0003](chunks/pages-0006-0006-0003.md)
+- [pages-0007-0007-0004](chunks/pages-0007-0007-0004.md)
+- [pages-0008-0008-0005](chunks/pages-0008-0008-0005.md)
+- [pages-0009-0009-0006](chunks/pages-0009-0009-0006.md)
+- [pages-0010-0010-0007](chunks/pages-0010-0010-0007.md)
+- [pages-0011-0011-0008](chunks/pages-0011-0011-0008.md)
+- [pages-0012-0012-0009](chunks/pages-0012-0012-0009.md)
+- [pages-0013-0013-0010](chunks/pages-0013-0013-0010.md)
+- [pages-0014-0014-0011](chunks/pages-0014-0014-0011.md)
+- [pages-0015-0015-0012](chunks/pages-0015-0015-0012.md)
+- [pages-0016-0016-0013](chunks/pages-0016-0016-0013.md)
+- [pages-0017-0018-0014](chunks/pages-0017-0018-0014.md)
+- [pages-0019-0022-0015](chunks/pages-0019-0022-0015.md) — 1 Introduction; 1.1 Glossary
+- [pages-0023-0025-0016](chunks/pages-0023-0025-0016.md) — 1.3.2 Content Parts and Ink; 1.3.3 Pictures
+- [pages-0026-0029-0017](chunks/pages-0026-0029-0017.md) — 1.3.4 Diagrams; 1.3.5 Math
+- [pages-0030-0031-0018](chunks/pages-0030-0031-0018.md) — 2.1.4 Ink Content Part
+- [pages-0032-0034-0019](chunks/pages-0032-0034-0019.md)
+- [pages-0035-0037-0020](chunks/pages-0035-0037-0020.md) — 2.1.5 ChartEx; 2.2 Extensions
+- [pages-0038-0041-0021](chunks/pages-0038-0041-0021.md) — 2.2.1.1 Filtering
+- [pages-0042-0045-0022](chunks/pages-0042-0045-0022.md) — 2.2.1.2 Datalabels; 2.2.1.3 Datalabel
+- [pages-0046-0049-0023](chunks/pages-0046-0049-0023.md) — 2.2.6 SpreadsheetML Drawing; 2.2.6.1 Camera Tool
+- [pages-0050-0054-0024](chunks/pages-0050-0054-0024.md) — 2.2.7.2 Background Fill; 2.2.7.3 DrawingML Shapes in WordprocessingML
+- [pages-0055-0059-0025](chunks/pages-0055-0059-0025.md) — 2.2.10 Tables; 2.3 http://schemas.microsoft.com/office/drawing/2010/main
+- [pages-0060-0064-0026](chunks/pages-0060-0064-0026.md) — 2.3.3 Complex Types; 2.3.3.1 CT_CameraTool
+- [pages-0065-0069-0027](chunks/pages-0065-0069-0027.md) — 2.3.3.8 CT_Photo; 2.3.3.9 CT_PictureEffectBackgroundRemoval
+- [pages-0070-0074-0028](chunks/pages-0070-0074-0028.md) — 2.3.3.16 CT_PictureEffectColorTemperature; 2.3.3.17 CT_PictureEffectCrisscrossEtching
+- [pages-0075-0080-0029](chunks/pages-0075-0080-0029.md) — 2.3.3.21 CT_PictureEffectGlass; 2.3.3.22 CT_PictureEffectGlowDiffused
+- [pages-0081-0086-0030](chunks/pages-0081-0086-0030.md) — 2.3.3.30 CT_PictureEffectPastelsSmooth; 2.3.3.31 CT_PictureEffectPencilGrayscale
+- [pages-0087-0092-0031](chunks/pages-0087-0092-0031.md) — 2.3.3.39 CT_PictureLayer; 2.3.3.40 CT_ShadowObscured
+- [pages-0093-0097-0032](chunks/pages-0093-0097-0032.md) — 2.4.4 Simple Types; 2.5 http://schemas.microsoft.com/office/drawing/2010/chartDrawing
+- [pages-0098-0102-0033](chunks/pages-0098-0102-0033.md) — 2.6.1.10 filteredPieSeries; 2.6.1.11 filteredRadarSeries
+- [pages-0103-0107-0034](chunks/pages-0103-0107-0034.md) — 2.6.2 Attributes; 2.6.3 Complex Types
+- [pages-0108-0112-0035](chunks/pages-0108-0112-0035.md) — 2.6.3.10 CT_FilteredPieSer; 2.6.3.11 CT_FilteredRadarSer
+- [pages-0113-0117-0036](chunks/pages-0113-0117-0036.md) — 2.6.4 Simple Types; 2.7 http://schemas.microsoft.com/office/drawing/2007/8/2/chart
+- [pages-0118-0121-0037](chunks/pages-0118-0121-0037.md) — 2.8 http://schemas.microsoft.com/office/drawing/2012/chartStyle; 2.8.1 Elements
+- [pages-0122-0125-0038](chunks/pages-0122-0125-0038.md) — 2.8.3.3 CT_ColorStyleVariation; 2.8.3.4 CT_FontReference
+- [pages-0126-0129-0039](chunks/pages-0126-0129-0039.md) — 2.8.3.7 CT_StyleEntry; 2.8.3.8 CT_StyleReference
+- [pages-0130-0134-0040](chunks/pages-0130-0134-0040.md) — 2.8.4 Simple Types; 2.8.4.1 ST_ColorStyleMethod
+- [pages-0135-0140-0041](chunks/pages-0135-0140-0041.md) — 2.8.4.11 ST_StyleReferenceModifierEnum; 2.8.4.12 ST_StyleReferenceModifierList
+- [pages-0141-0144-0042](chunks/pages-0141-0144-0042.md) — 2.10.3.6 CT_ShapeNonVisual; 2.10.4 Simple Types
+- [pages-0145-0148-0043](chunks/pages-0145-0148-0043.md) — 2.11.3.3 CT_Property; 2.11.4 Simple Types
+- [pages-0149-0153-0044](chunks/pages-0149-0153-0044.md) — 2.11.4.5 ST_KnownSemanticType; 2.11.4.6 ST_Point
+- [pages-0154-0158-0045](chunks/pages-0154-0158-0045.md) — 2.12.3.4 CT_SignatureLine; 2.12.4 Simple Types
+- [pages-0159-0163-0046](chunks/pages-0159-0163-0046.md) — 2.13.4 Simple Types; 2.14 http://schemas.microsoft.com/office/drawing/2010/picture
+- [pages-0164-0168-0047](chunks/pages-0164-0168-0047.md) — 2.16.3.2 CT_WordprocessingGroup; 2.16.4 Simple Types
+- [pages-0169-0174-0048](chunks/pages-0169-0174-0048.md) — 2.18.3 Complex Types; 2.18.3.1 CT_SizeRelH
+- [pages-0175-0180-0049](chunks/pages-0175-0180-0049.md) — 2.20.3.3 CT_ContentPartNonVisual; 2.20.4 Simple Types
+- [pages-0181-0187-0050](chunks/pages-0181-0187-0050.md) — 2.21.4.3 ST_ActionTypeUser; 2.21.4.4 ST_DataName
+- [pages-0188-0193-0051](chunks/pages-0188-0193-0051.md) — 2.22.3.2 CT_CategoryFilterException; 2.22.3.3 CT_CategoryFilterExceptions
+- [pages-0194-0198-0052](chunks/pages-0194-0198-0052.md) — 2.24.3 Complex Types; 2.24.3.1 CT_Address
+- [pages-0199-0203-0053](chunks/pages-0199-0203-0053.md) — 2.24.3.9 CT_Binding; 2.24.3.10 CT_Bindings
+- [pages-0204-0208-0054](chunks/pages-0204-0208-0054.md) — 2.24.3.17 CT_Clear; 2.24.3.18 CT_Copyrights
+- [pages-0209-0213-0055](chunks/pages-0209-0213-0055.md) — 2.24.3.25 CT_DataLabelVisibilities; 2.24.3.26 CT_DataPoint
+- [pages-0214-0218-0056](chunks/pages-0214-0218-0056.md) — 2.24.3.34 CT_Formula; 2.24.3.35 CT_GeoCache
+- [pages-0219-0223-0057](chunks/pages-0219-0223-0057.md) — 2.24.3.44 CT_GeoDataEntityQueryResults; 2.24.3.45 CT_GeoDataPointQuery
+- [pages-0224-0228-0058](chunks/pages-0224-0228-0058.md) — 2.24.3.53 CT_GeoLocationQuery; 2.24.3.54 CT_GeoLocationQueryResult
+- [pages-0229-0233-0059](chunks/pages-0229-0233-0059.md) — 2.24.3.62 CT_GeoPolygons; 2.24.3.63 CT_Gridlines
+- [pages-0234-0238-0060](chunks/pages-0234-0238-0060.md) — 2.24.3.71 CT_Offset; 2.24.3.72 CT_PageMargins
+- [pages-0239-0243-0061](chunks/pages-0239-0243-0061.md) — 2.24.3.80 CT_RegionLabelLayout; 2.24.3.81 CT_RelId
+- [pages-0244-0248-0062](chunks/pages-0244-0248-0062.md) — 2.24.3.88 CT_StringValue; 2.24.3.89 CT_SubtotalIndex
+- [pages-0249-0253-0063](chunks/pages-0249-0253-0063.md) — 2.24.3.98 CT_ValueColorPositions; 2.24.3.99 CT_ValueColors
+- [pages-0254-0259-0064](chunks/pages-0254-0259-0064.md) — 2.24.4.9 ST_ExtensionDropMode; 2.24.4.10 ST_FormulaDirection
+- [pages-0260-0265-0065](chunks/pages-0260-0265-0065.md) — 2.24.4.18 ST_PosAlign; 2.24.4.19 ST_QuartileMethod
+- [pages-0266-0272-0066](chunks/pages-0266-0272-0066.md) — 2.25.1.5 rowId; 2.25.2 Attributes
+- [pages-0273-0277-0067](chunks/pages-0273-0277-0067.md) — 2.29.1.2 deMkLst; 2.29.1.3 graphicFrameMkLst
+- [pages-0278-0282-0068](chunks/pages-0278-0282-0068.md) — 2.29.3.6 CT_GraphicFrameMonikerList; 2.29.3.7 CT_GroupShapeChanges
+- [pages-0283-0287-0069](chunks/pages-0283-0287-0069.md) — 2.29.3.17 CT_ShapeMoniker; 2.29.3.18 CT_ShapeMonikerList
+- [pages-0288-0293-0070](chunks/pages-0288-0293-0070.md) — 2.29.4.2 ST_ConnectorChangesBits; 2.29.4.3 ST_GroupShapeChangeBit
+- [pages-0294-0299-0071](chunks/pages-0294-0299-0071.md) — 2.29.4.12 ST_GraphicFrameChangesBits; 2.30 http://schemas.microsoft.com/office/drawing/2016/ink
+- [pages-0300-0303-0072](chunks/pages-0300-0303-0072.md) — 2.31.3.4 CT_Model3DCamera; 2.31.3.5 CT_Model3DRaster
+- [pages-0304-0308-0073](chunks/pages-0304-0308-0073.md) — 2.31.3.9 CT_PerspectiveProjection; 2.31.3.10 CT_PointLight
+- [pages-0309-0315-0074](chunks/pages-0309-0315-0074.md) — 2.31.4 Simple Types; 2.31.4.1 ST_AngularRadius
+- [pages-0316-0320-0075](chunks/pages-0316-0320-0075.md) — 2.36.4 Simple Types; 2.36.4.1 ST_EmbeddedAnimationID
+- [pages-0321-0326-0076](chunks/pages-0321-0326-0076.md) — 2.38.3.2 CT_LineSketchStyleProperties; 2.38.3.3 CT_LineSketchTypeProperties
+- [pages-0327-0332-0077](chunks/pages-0327-0332-0077.md) — 2.42.2 Attributes; 2.42.3 Complex Types
+- [pages-0333-0336-0078](chunks/pages-0333-0336-0078.md) — 3.3 Pictures; 3.4 Diagrams
+- [pages-0337-0342-0079](chunks/pages-0337-0342-0079.md) — 3.6 SpreadsheetML Drawing; 3.6.1 Camera Tool
+- [pages-0343-0345-0080](chunks/pages-0343-0345-0080.md) — 5.1 http://schemas.microsoft.com/office/drawing/2010/main Schema
+- [pages-0346-0348-0081](chunks/pages-0346-0348-0081.md)
+- [pages-0349-0351-0082](chunks/pages-0349-0351-0082.md) — 5.2 http://schemas.microsoft.com/office/word/2010/wordprocessingShape Schema; 5.3 http://schemas.microsoft.com/office/word/2010/wordml Schema
+- [pages-0352-0354-0083](chunks/pages-0352-0354-0083.md) — 5.6 http://schemas.microsoft.com/office/drawing/2008/diagram Schema; 5.7 http://schemas.microsoft.com/ink/2010/main Schema
+- [pages-0355-0357-0084](chunks/pages-0355-0357-0084.md) — 5.9 http://schemas.microsoft.com/office/excel/2010/spreadsheetDrawing Schema; 5.10 http://schemas.microsoft.com/office/drawing/2007/8/2/chart Schema
+- [pages-0358-0360-0085](chunks/pages-0358-0360-0085.md) — 5.12 http://schemas.microsoft.com/office/drawing/2010/picture Schema; 5.13 http://schemas.microsoft.com/office/drawing/2012/chart Schema
+- [pages-0361-0363-0086](chunks/pages-0361-0363-0086.md) — 5.15 http://schemas.microsoft.com/office/drawing/2012/chartStyle Schema; 5.16 http://schemas.microsoft.com/office/drawing/2010/diagram Schema
+- [pages-0364-0366-0087](chunks/pages-0364-0366-0087.md) — 5.17 http://schemas.microsoft.com/office/thememl/2012/main Schema; 5.18 http://schemas.microsoft.com/office/word/2012/wordprocessingDrawing Schema
+- [pages-0367-0369-0088](chunks/pages-0367-0369-0088.md) — 5.21 http://schemas.microsoft.com/office/drawing/2014/chart/ac Schema; 5.22 http://schemas.microsoft.com/office/drawing/2014/chartex Schema
+- [pages-0370-0372-0089](chunks/pages-0370-0372-0089.md)
+- [pages-0373-0375-0090](chunks/pages-0373-0375-0090.md)
+- [pages-0376-0378-0091](chunks/pages-0376-0378-0091.md)
+- [pages-0379-0381-0092](chunks/pages-0379-0381-0092.md)
+- [pages-0382-0384-0093](chunks/pages-0382-0384-0093.md) — 5.23 http://schemas.microsoft.com/office/drawing/2014/main Schema; 5.24 http://schemas.microsoft.com/office/drawing/2016/SVG/main Schema
+- [pages-0385-0388-0094](chunks/pages-0385-0388-0094.md) — 5.28 http://schemas.microsoft.com/office/drawing/2016/ink Schema; 5.29 http://schemas.microsoft.com/office/drawing/2017/model3d Schema
+- [pages-0389-0391-0095](chunks/pages-0389-0391-0095.md) — 5.30 http://schemas.microsoft.com/office/drawing/2016/12/diagram Schema; 5.31 http://schemas.microsoft.com/office/drawing/2017/03/chart Schema
+- [pages-0392-0395-0096](chunks/pages-0392-0395-0096.md) — 5.35 http://schemas.microsoft.com/office/drawing/2018/animation Schema; 5.36 http://schemas.microsoft.com/office/drawing/2018/sketchyshapes Schema
+- [pages-0396-0399-0097](chunks/pages-0396-0399-0097.md) — 6 Appendix B: Product Behavior
+- [pages-0400-0404-0098](chunks/pages-0400-0404-0098.md)
+- [pages-0405-0408-0099](chunks/pages-0405-0408-0099.md)
+- [pages-0409-0412-0100](chunks/pages-0409-0412-0100.md)
+- [pages-0413-0417-0101](chunks/pages-0413-0417-0101.md)
+- [pages-0418-0419-0102](chunks/pages-0418-0419-0102.md) — 7 Change Tracking; 8 Index
+- [pages-0420-0421-0103](chunks/pages-0420-0421-0103.md)
+- [pages-0422-0423-0104](chunks/pages-0422-0423-0104.md)

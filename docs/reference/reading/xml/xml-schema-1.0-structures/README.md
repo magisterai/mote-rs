@@ -1,0 +1,199 @@
+# XML Schema Part 1: Structures
+
+Source: [XML Schema Part 1: Structures](https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/) · 2nd edition, 2004-10-28.
+
+[Topic guide](../../../README.md) · [Publisher](https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/).
+
+67 reading chunks. Headings, examples, tables, mathematical markup, figures, and source anchors are retained. Publisher logos and navigation images are replaced by text; subsection arrows are omitted from headings.
+
+- [XML Schema Part 1: Structures Second Edition](chunks/001-xml-schema-part-1-structures-second-edition.md)
+  - W3C Recommendation 28 October 2004
+  - Abstract
+  - Status of this Document
+  - Table of Contents
+- [Appendices](chunks/002-appendices.md)
+  - 1 Introduction
+  - 1.1 Purpose
+  - 1.2 Dependencies on Other Specifications
+- [1.3 Documentation Conventions and Terminology](chunks/003-1-3-documentation-conventions-and-terminology.md)
+  - 2 Conceptual Framework
+- [2.1 Overview of XML Schema](chunks/004-2-1-overview-of-xml-schema.md)
+  - 2.2 XML Schema Abstract Data Model
+  - 2.2.1 Type Definition Components
+  - 2.2.1.1 Type Definition Hierarchy
+  - 2.2.1.2 Simple Type Definition
+- [2.2.1.3 Complex Type Definition](chunks/005-2-2-1-3-complex-type-definition.md)
+  - 2.2.2 Declaration Components
+  - 2.2.2.1 Element Declaration
+  - 2.2.2.2 Element Substitution Group
+  - 2.2.2.3 Attribute Declaration
+  - 2.2.2.4 Notation Declaration
+  - 2.2.3 Model Group Components
+  - 2.2.3.1 Model Group
+  - 2.2.3.2 Particle
+  - 2.2.3.3 Attribute Use
+  - 2.2.3.4 Wildcard
+  - 2.2.4 Identity-constraint Definition Components
+  - 2.2.5 Group Definition Components
+  - 2.2.5.1 Model Group Definition
+  - 2.2.5.2 Attribute Group Definition
+  - 2.2.6 Annotation Components
+- [2.3 Constraints and Validation Rules](chunks/006-2-3-constraints-and-validation-rules.md)
+  - 2.4 Conformance
+- [2.5 Names and Symbol Spaces](chunks/007-2-5-names-and-symbol-spaces.md)
+  - 2.6 Schema-Related Markup in Documents Being Validated
+  - 2.6.1 xsi:type
+  - 2.6.2 xsi:nil
+  - 2.6.3 xsi:schemaLocation, xsi:noNamespaceSchemaLocation
+  - 2.7 Representation of Schemas on the World Wide Web
+- [3 Schema Component Details](chunks/008-3-schema-component-details.md)
+  - 3.1 Introduction
+  - 3.1.1 Components and Properties
+  - 3.1.2 XML Representations of Components
+  - 3.1.3 The Mapping between XML Representations and Components
+  - 3.1.4 White Space Normalization during Validation
+- [3.2 Attribute Declarations](chunks/009-3-2-attribute-declarations.md)
+  - 3.2.1 The Attribute Declaration Schema Component
+  - 3.2.2 XML Representation of Attribute Declaration Schema Components
+- [3.2.3 Constraints on XML Representations of Attribute Declarations](chunks/010-3-2-3-constraints-on-xml-representations-of-attribute-declarations.md)
+- [3.2.4 Attribute Declaration Validation Rules](chunks/011-3-2-4-attribute-declaration-validation-rules.md)
+  - 3.2.5 Attribute Declaration Information Set Contributions
+- [3.2.6 Constraints on Attribute Declaration Schema Components](chunks/012-3-2-6-constraints-on-attribute-declaration-schema-components.md)
+  - 3.2.7 Built-in Attribute Declarations
+- [3.3 Element Declarations](chunks/013-3-3-element-declarations.md)
+  - 3.3.1 The Element Declaration Schema Component
+  - 3.3.2 XML Representation of Element Declaration Schema Components
+- [Continuation 14](chunks/014-continuation-14.md)
+- [Continuation 15](chunks/015-continuation-15.md)
+- [3.3.3 Constraints on XML Representations of Element Declarations](chunks/016-3-3-3-constraints-on-xml-representations-of-element-declarations.md)
+  - 3.3.4 Element Declaration Validation Rules
+- [3.3.5 Element Declaration Information Set Contributions](chunks/017-3-3-5-element-declaration-information-set-contributions.md)
+- [3.3.6 Constraints on Element Declaration Schema Components](chunks/018-3-3-6-constraints-on-element-declaration-schema-components.md)
+- [Continuation 19](chunks/019-continuation-19.md)
+- [3.4 Complex Type Definitions](chunks/020-3-4-complex-type-definitions.md)
+  - 3.4.1 The Complex Type Definition Schema Component
+- [3.4.2 XML Representation of Complex Type Definitions](chunks/021-3-4-2-xml-representation-of-complex-type-definitions.md)
+- [Continuation 22](chunks/022-continuation-22.md)
+- [Continuation 23](chunks/023-continuation-23.md)
+- [Continuation 24](chunks/024-continuation-24.md)
+- [Continuation 25](chunks/025-continuation-25.md)
+- [3.4.3 Constraints on XML Representations of Complex Type Definitions](chunks/026-3-4-3-constraints-on-xml-representations-of-complex-type-definitions.md)
+  - 3.4.4 Complex Type Definition Validation Rules
+- [3.4.5 Complex Type Definition Information Set Contributions](chunks/027-3-4-5-complex-type-definition-information-set-contributions.md)
+  - 3.4.6 Constraints on Complex Type Definition Schema Components
+- [Continuation 28](chunks/028-continuation-28.md)
+- [3.4.7 Built-in Complex Type Definition](chunks/029-3-4-7-built-in-complex-type-definition.md)
+- [3.5 AttributeUses](chunks/030-3-5-attributeuses.md)
+  - 3.5.1 The Attribute Use Schema Component
+  - 3.5.2 XML Representation of Attribute Use Components
+  - 3.5.3 Constraints on XML Representations of Attribute Uses
+  - 3.5.4 Attribute Use Validation Rules
+  - 3.5.5 Attribute Use Information Set Contributions
+  - 3.5.6 Constraints on Attribute Use Schema Components
+  - 3.6 Attribute Group Definitions
+  - 3.6.1 The Attribute Group Definition Schema Component
+  - 3.6.2 XML Representation of Attribute Group Definition Schema Components
+- [3.6.3 Constraints on XML Representations of Attribute Group Definitions](chunks/031-3-6-3-constraints-on-xml-representations-of-attribute-group-definitions.md)
+  - 3.6.4 Attribute Group Definition Validation Rules
+  - 3.6.5 Attribute Group Definition Information Set Contributions
+  - 3.6.6 Constraints on Attribute Group Definition Schema Components
+- [3.7 Model Group Definitions](chunks/032-3-7-model-group-definitions.md)
+  - 3.7.1 The Model Group Definition Schema Component
+  - 3.7.2 XML Representation of Model Group Definition Schema Components
+  - 3.7.3 Constraints on XML Representations of Model Group Definitions
+  - 3.7.4 Model Group Definition Validation Rules
+  - 3.7.5 Model Group Definition Information Set Contributions
+- [3.7.6 Constraints on Model Group Definition Schema Components](chunks/033-3-7-6-constraints-on-model-group-definition-schema-components.md)
+  - 3.8 Model Groups
+  - 3.8.1 The Model Group Schema Component
+  - 3.8.2 XML Representation of Model Group Schema Components
+  - 3.8.3 Constraints on XML Representations of Model Groups
+  - 3.8.4 Model Group Validation Rules
+- [3.8.5 Model Group Information Set Contributions](chunks/034-3-8-5-model-group-information-set-contributions.md)
+  - 3.8.6 Constraints on Model Group Schema Components
+- [3.9 Particles](chunks/035-3-9-particles.md)
+  - 3.9.1 The Particle Schema Component
+  - 3.9.2 XML Representation of Particle Components
+  - 3.9.3 Constraints on XML Representations of Particles
+  - 3.9.4 Particle Validation Rules
+- [3.9.5 Particle Information Set Contributions](chunks/036-3-9-5-particle-information-set-contributions.md)
+  - 3.9.6 Constraints on Particle Schema Components
+- [Continuation 37](chunks/037-continuation-37.md)
+- [3.10 Wildcards](chunks/038-3-10-wildcards.md)
+  - 3.10.1 The Wildcard Schema Component
+  - 3.10.2 XML Representation of Wildcard Schema Components
+  - 3.10.3 Constraints on XML Representations of Wildcards
+- [3.10.4 Wildcard Validation Rules](chunks/039-3-10-4-wildcard-validation-rules.md)
+  - 3.10.5 Wildcard Information Set Contributions
+  - 3.10.6 Constraints on Wildcard Schema Components
+- [3.11 Identity-constraint Definitions](chunks/040-3-11-identity-constraint-definitions.md)
+  - 3.11.1 The Identity-constraint Definition Schema Component
+  - 3.11.2 XML Representation of Identity-constraint Definition Schema Components
+- [3.11.3 Constraints on XML Representations of Identity-constraint Definitions](chunks/041-3-11-3-constraints-on-xml-representations-of-identity-constraint-definitions.md)
+  - 3.11.4 Identity-constraint Definition Validation Rules
+- [3.11.5 Identity-constraint Definition Information Set Contributions](chunks/042-3-11-5-identity-constraint-definition-information-set-contributions.md)
+  - 3.11.6 Constraints on Identity-constraint Definition Schema Components
+- [3.12 Notation Declarations](chunks/043-3-12-notation-declarations.md)
+  - 3.12.1 The Notation Declaration Schema Component
+  - 3.12.2 XML Representation of Notation Declaration Schema Components
+  - 3.12.3 Constraints on XML Representations of Notation Declarations
+  - 3.12.4 Notation Declaration Validation Rules
+  - 3.12.5 Notation Declaration Information Set Contributions
+  - 3.12.6 Constraints on Notation Declaration Schema Components
+- [3.13 Annotations](chunks/044-3-13-annotations.md)
+  - 3.13.1 The Annotation Schema Component
+  - 3.13.2 XML Representation of Annotation Schema Components
+  - 3.13.3 Constraints on XML Representations of Annotations
+  - 3.13.4 Annotation Validation Rules
+  - 3.13.5 Annotation Information Set Contributions
+  - 3.13.6 Constraints on Annotation Schema Components
+- [3.14 Simple Type Definitions](chunks/045-3-14-simple-type-definitions.md)
+  - 3.14.1 (non-normative) The Simple Type Definition Schema Component
+  - 3.14.2 (non-normative) XML Representation of Simple Type Definition Schema Components
+- [Continuation 46](chunks/046-continuation-46.md)
+- [3.14.3 Constraints on XML Representations of Simple Type Definitions](chunks/047-3-14-3-constraints-on-xml-representations-of-simple-type-definitions.md)
+  - 3.14.4 Simple Type Definition Validation Rules
+  - 3.14.5 Simple Type Definition Information Set Contributions
+  - 3.14.6 Constraints on Simple Type Definition Schema Components
+- [3.14.7 Built-in Simple Type Definition](chunks/048-3-14-7-built-in-simple-type-definition.md)
+- [3.15 Schemas as a Whole](chunks/049-3-15-schemas-as-a-whole.md)
+  - 3.15.1 The Schema Itself
+  - 3.15.2 XML Representations of Schemas
+- [3.15.2.1 References to Schema Components](chunks/050-3-15-2-1-references-to-schema-components.md)
+  - 3.15.2.2 References to Schema Components from Elsewhere
+  - 3.15.3 Constraints on XML Representations of Schemas
+  - 3.15.4 Validation Rules for Schemas as a Whole
+- [3.15.5 Schema Information Set Contributions](chunks/051-3-15-5-schema-information-set-contributions.md)
+  - 3.15.6 Constraints on Schemas as a Whole
+- [4 Schemas and Namespaces: Access and Composition](chunks/052-4-schemas-and-namespaces-access-and-composition.md)
+  - 4.1 Layer 1: Summary of the Schema-validity Assessment Core
+  - 4.2 Layer 2: Schema Documents, Namespaces and Composition
+  - 4.2.1 Assembling a schema for a single target namespace from multiple schema definition documents
+- [4.2.2 Including modified component definitions](chunks/053-4-2-2-including-modified-component-definitions.md)
+- [4.2.3 References to schema components across namespaces](chunks/054-4-2-3-references-to-schema-components-across-namespaces.md)
+- [Continuation 55](chunks/055-continuation-55.md)
+- [4.3 Layer 3: Schema Document Access and Web-interoperability](chunks/056-4-3-layer-3-schema-document-access-and-web-interoperability.md)
+  - 4.3.1 Standards for representation of schemas and retrieval of schema documents on the Web
+  - 4.3.2 How schema definitions are located on the Web
+- [5 Schemas and Schema-validity Assessment](chunks/057-5-schemas-and-schema-validity-assessment.md)
+  - 5.1 Errors in Schema Construction and Structure
+  - 5.2 Assessing Schema-Validity
+- [5.3 Missing Sub-components](chunks/058-5-3-missing-sub-components.md)
+  - 5.4 Responsibilities of Schema-aware Processors
+  - A Schema for Schemas (normative)
+- [Continuation 59](chunks/059-continuation-59.md)
+- [B References (normative)](chunks/060-b-references-normative.md)
+  - C Outcome Tabulations (normative)
+  - C.1 Validation Rules
+  - C.2 Contributions to the post-schema-validation infoset
+- [C.3 Schema Representation Constraints](chunks/061-c-3-schema-representation-constraints.md)
+- [C.4 Schema Component Constraints](chunks/062-c-4-schema-component-constraints.md)
+- [D Required Information Set Items and Properties (normative)](chunks/063-d-required-information-set-items-and-properties-normative.md)
+  - E Schema Components Diagram (non-normative)
+  - F Glossary (non-normative)
+- [Continuation 64](chunks/064-continuation-64.md)
+- [G DTD for Schemas (non-normative)](chunks/065-g-dtd-for-schemas-non-normative.md)
+- [Continuation 66](chunks/066-continuation-66.md)
+- [H Analysis of the Unique Particle Attribution Constraint (non-normative)](chunks/067-h-analysis-of-the-unique-particle-attribution-constraint-non-normative.md)
+  - I References (non-normative)
+  - J Acknowledgements (non-normative)

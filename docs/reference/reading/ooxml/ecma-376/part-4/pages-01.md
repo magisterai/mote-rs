@@ -1,0 +1,82 @@
+# Sequential reading index
+
+Source: [ECMA-376 Part 4: Transitional Migration Features](https://ecma-international.org/wp-content/uploads/ECMA-376-4_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Index](pages.md)
+
+- [pages-0001-0004-0001](chunks/pages-0001-0004-0001.md) — Contents
+- [pages-0005-0005-0002](chunks/pages-0005-0005-0002.md)
+- [pages-0006-0006-0003](chunks/pages-0006-0006-0003.md)
+- [pages-0007-0008-0004](chunks/pages-0007-0008-0004.md)
+- [pages-0009-0010-0005](chunks/pages-0009-0010-0005.md)
+- [pages-0011-0011-0006](chunks/pages-0011-0011-0006.md)
+- [pages-0012-0017-0007](chunks/pages-0012-0017-0007.md) — Foreword; Introduction
+- [pages-0018-0023-0008](chunks/pages-0018-0023-0008.md) — 2. Conformance; 2.1 Document Conformance
+- [pages-0024-0031-0009](chunks/pages-0024-0031-0009.md) — 4. Terms and Definitions; 5. Notational Conventions
+- [pages-0032-0039-0010](chunks/pages-0032-0039-0010.md) — 9.2.7 Footnotes Part (Part 1, §11.3.7); 9.2.8 Glossary Document Part (Part 1, §11.3.8)
+- [pages-0040-0046-0011](chunks/pages-0040-0046-0011.md) — 11.2.13 View Properties Part (Part 1, §13.3.13); 11.3 HTML Publish Location (Part 1, §13.4)
+- [pages-0047-0048-0012](chunks/pages-0047-0048-0012.md)
+- [pages-0049-0051-0013](chunks/pages-0049-0051-0013.md) — 14.3 Paragraphs and Rich Formatting; 14.3.1 Paragraphs
+- [pages-0052-0056-0014](chunks/pages-0052-0056-0014.md) — 14.3.2.2 pict (VML Object); 14.4 Tables
+- [pages-0057-0061-0015](chunks/pages-0057-0061-0015.md) — 14.4.11 Additional attribute for tblLook element (Part 1, §17.4.54); 14.4.12 Additional attribute for tblLook element (Part 1, §17.4.55)
+- [pages-0062-0066-0016](chunks/pages-0062-0066-0016.md) — 14.6 Numbering; 14.6.1 pict (Picture Numbering Symbol Properties)
+- [pages-0067-0073-0017](chunks/pages-0067-0073-0017.md) — 14.7.1.2 numberingChange (Previous Paragraph Numbering Properties)
+- [pages-0074-0081-0018](chunks/pages-0074-0081-0018.md) — 14.8 Settings; 14.8.1 Legacy Password Hash Algorithm
+- [pages-0082-0086-0019](chunks/pages-0082-0086-0019.md) — 14.8.2 Document Settings; 14.8.2.1 hdrShapeDefaults (Default Properties for VML Objects in Header and Footer)
+- [pages-0087-0090-0020](chunks/pages-0087-0090-0020.md) — 14.8.2.4 Additional attribute for stylePaneFormatFilter element (Part 1, §17.15.1.85); 14.8.2.5 Additional attributes for writeProtection element (Part 1, §17.15.1.93)
+- [pages-0091-0094-0021](chunks/pages-0091-0094-0021.md)
+- [pages-0095-0101-0022](chunks/pages-0095-0101-0022.md) — 14.8.3 Compatibility Settings; 14.8.3.1 alignTablesRowByRow (Align Table Rows Independently)
+- [pages-0102-0109-0023](chunks/pages-0102-0109-0023.md) — 14.8.3.4 autoSpaceLikeWord95 (Incorrectly Adjust Text Spacing for Specific Unicode Ranges); 14.8.3.5 cachedColBalance (Use Cached Paragraph Information for Column Balancing)
+- [pages-0110-0117-0024](chunks/pages-0110-0117-0024.md) — 14.8.3.11 doNotSnapToGridInCell (Do Not Snap to Document Grid in Table Cells with Objects); 14.8.3.12 doNotSuppressIndentation (Do Not Ignore Floating Objects When Calculating Paragraph Indentation)
+- [pages-0118-0125-0025](chunks/pages-0118-0125-0025.md) — 14.8.3.16 doNotUseIndentAsNumberingTabStop (Ignore Hanging Indent When Creating Tab Stop After Numbering); 14.8.3.17 doNotVertAlignCellWithSp (Don't Vertically Align Cells Containing Floating Objects)
+- [pages-0126-0133-0026](chunks/pages-0126-0133-0026.md) — 14.8.3.21 forgetLastTabAlignment (Ignore Width of Last Tab Stop When Aligning Paragraph If It Is Not Left Aligned); 14.8.3.22 growAutofit (Allow Tables to AutoFit Into Page Margins)
+- [pages-0134-0141-0027](chunks/pages-0134-0141-0027.md) — 14.8.3.26 mwSmallCaps (Use Specific Small Caps Algorithm); 14.8.3.27 noColumnBalance (Do Not Balance Text Columns within a Section)
+- [pages-0142-0149-0028](chunks/pages-0142-0149-0028.md) — 14.8.3.32 printBodyTextBeforeHeader (Print Body Text before Header/Footer Contents); 14.8.3.33 printColBlack (Print Colors as Black And White without Dithering)
+- [pages-0150-0157-0029](chunks/pages-0150-0157-0029.md) — 14.8.3.38 splitPgBreakAndParaMark (Always Move Paragraph Mark to Page after a Page Break); 14.8.3.39 subFontBySize (Require Exact Size During Font Substitution)
+- [pages-0158-0165-0030](chunks/pages-0158-0165-0030.md) — 14.8.3.43 suppressTopSpacing (Ignore Minimum and Exact Line Height for First Line on Page); 14.8.3.44 suppressTopSpacingWP (Use Static Text Leading)
+- [pages-0166-0172-0031](chunks/pages-0166-0172-0031.md) — 14.8.3.49 useAnsiKerningPairs (Use ANSI Kerning Pairs from Fonts); 14.8.3.50 useFELayout (Do Not Bypass East Asian/Complex Script Layout Code)
+- [pages-0173-0179-0032](chunks/pages-0173-0179-0032.md) — 14.8.3.56 wpJustification (Fit To Expanded Width When Performing Full Justification); 14.8.3.57 wpSpaceWidth (Use Specific Space Width)
+- [pages-0180-0184-0033](chunks/pages-0180-0184-0033.md) — 14.10.2 Legacy language references
+- [pages-0185-0191-0034](chunks/pages-0185-0191-0034.md) — 14.10.3 Use of DOS File Paths; 14.10.4 Field definitions
+- [pages-0192-0196-0035](chunks/pages-0192-0196-0035.md) — 14.10.4.5 BIDIOUTLINE; 14.10.4.6 EQ
+- [pages-0197-0200-0036](chunks/pages-0197-0200-0036.md) — 14.10.6 fldData (Custom Field Data); 14.10.7 hyperlink (Hyperlink) (Part 1, §17.16.22)
+- [pages-0201-0206-0037](chunks/pages-0201-0206-0037.md) — 14.11.9 ST_Cnf (Conditional Formatting Bitmask); 14.11.10 ST_UnqualifiedPercentage (Percentage Value Without Percent Sign)
+- [pages-0207-0210-0038](chunks/pages-0207-0210-0038.md) — 14.12.6 Changed attribute for objectLink element (Part 1, §17.3.3.21); 14.12.7 Changed attribute for bottom element (Part 1, §17.6.2)
+- [pages-0211-0214-0039](chunks/pages-0211-0214-0039.md) — 14.12.12 Changed attribute for embedBold element (Part 1, §17.8.3.3); 14.12.13 Changed attribute for embedBoldItalic element (Part 1, §17.8.3.4)
+- [pages-0215-0218-0040](chunks/pages-0215-0218-0040.md) — 14.12.17 Changed attribute for headerReference element (Part 1, §17.10.5); 14.12.18 Changed attribute for dataSource element (Part 1, §17.14.9)
+- [pages-0219-0222-0041](chunks/pages-0219-0222-0041.md) — 14.12.23 Changed attribute for saveThroughXslt element (Part 1, §17.15.1.76); 14.12.24 Changed attribute for longDesc element (Part 1, §17.15.2.23)
+- [pages-0223-0225-0042](chunks/pages-0223-0225-0042.md) — 15. SpreadsheetML Reference Material; 15.1 General
+- [pages-0226-0230-0043](chunks/pages-0226-0230-0043.md)
+- [pages-0231-0235-0044](chunks/pages-0231-0235-0044.md) — 15.3.4 Modified content for Date Conversion for Serial Date-Times (Part 1, §18.17.4.1); 15.4 Worksheets
+- [pages-0236-0240-0045](chunks/pages-0236-0240-0045.md) — 15.5.2 right (Trailing Edge Border); 15.6 Pivot Tables
+- [pages-0241-0245-0046](chunks/pages-0241-0245-0046.md) — 15.10.11 Changed attribute for objectPr element (Part 1, §18.3.1.56); 15.10.12 Changed attribute for oleObject element (Part 1, §18.3.1.59)
+- [pages-0246-0249-0047](chunks/pages-0246-0249-0047.md) — 16.3 Presentation; 16.3.1 Presentation Properties
+- [pages-0250-0253-0048](chunks/pages-0250-0253-0048.md)
+- [pages-0254-0258-0049](chunks/pages-0254-0258-0049.md) — 16.4 Slides; 16.4.1 Embedded Objects
+- [pages-0259-0263-0050](chunks/pages-0259-0263-0050.md) — 16.6.7 Changed attribute for regular element (Part 1, §19.2.1.29); 16.6.8 Changed attribute for sld element (Part 1, §19.2.1.31)
+- [pages-0264-0268-0051](chunks/pages-0264-0268-0051.md) — 16.6.18 Changed attribute for cNvPicPr element (Part 1, §19.3.1.11); 16.6.19 Changed attribute for cNvPr element (Part 1, §19.3.1.12)
+- [pages-0269-0274-0052](chunks/pages-0269-0274-0052.md) — 16.6.28 Changed attribute for control element (Part 1, §19.3.2.1); 16.6.29 Changed attribute for oleObj element (Part 1, §19.3.2.4)
+- [pages-0275-0278-0053](chunks/pages-0275-0278-0053.md) — 17.2.2.11 ST_TextSpacingPercent (Text Spacing Percent); 17.2.2.12 ST_PercentageDecimal (Percentage as Decimal Number)
+- [pages-0279-0283-0054](chunks/pages-0279-0283-0054.md) — 17.4.4 Changed attribute for quickTimeFile element (Part 1, §20.1.3.4); 17.4.5 Changed attribute for videoFile element (Part 1, §20.1.3.6)
+- [pages-0284-0288-0055](chunks/pages-0284-0288-0055.md) — 17.4.13 Changed attribute for extent element (Part 1, §20.4.2.7); 17.4.14 Changed attribute for lineTo element (Part 1, §20.4.2.9)
+- [pages-0289-0293-0056](chunks/pages-0289-0293-0056.md) — 17.4.20 Changed attribute for cNvSpPr element (Part 1, §20.5.2.9); 17.4.21 Changed attribute for contentPart element (Part 1, §20.5.2.12)
+- [pages-0294-0297-0057](chunks/pages-0294-0297-0057.md) — 18. DrawingML - Components Reference Material; 18.1 DrawingML - Charts
+- [pages-0298-0302-0058](chunks/pages-0298-0302-0058.md) — 18.1.3.14 ST_OverlapByte (Overlap Byte); 18.1.3.15 Additional member types for union in ST_BubbleScale (Part 1, §21.2.3.5)
+- [pages-0303-0307-0059](chunks/pages-0303-0307-0059.md) — 18.2.10 Changed attribute for cNvPr element (Part 1, §21.3.2.7); 18.2.11 Changed attribute for cNvSpPr element (Part 1, §21.3.2.8)
+- [pages-0308-0312-0060](chunks/pages-0308-0312-0060.md) — 18.2.17 Changed attribute for shape element (Part 1, §21.4.2.27); 18.2.18 Changed attribute for spPr element (Part 1, §21.4.3.7)
+- [pages-0313-0316-0061](chunks/pages-0313-0316-0061.md) — 19.1.1 Table of Contents; 19.1.2 Elements
+- [pages-0317-0322-0062](chunks/pages-0317-0322-0062.md)
+- [pages-0323-0328-0063](chunks/pages-0323-0328-0063.md)
+- [pages-0329-0332-0064](chunks/pages-0329-0332-0064.md)
+- [pages-0333-0336-0065](chunks/pages-0333-0336-0065.md)
+- [pages-0337-0341-0066](chunks/pages-0337-0341-0066.md) — 19.1.2.2 background (Document Background)
+- [pages-0342-0347-0067](chunks/pages-0342-0347-0067.md) — 19.1.2.3 curve (Bezier Curve)
+- [pages-0348-0353-0068](chunks/pages-0348-0353-0068.md)
+- [pages-0354-0359-0069](chunks/pages-0354-0359-0069.md)
+- [pages-0360-0363-0070](chunks/pages-0360-0363-0070.md)
+- [pages-0364-0367-0071](chunks/pages-0364-0367-0071.md)
+- [pages-0368-0372-0072](chunks/pages-0368-0372-0072.md) — 19.1.2.4 f (Single Formula)
+- [pages-0373-0377-0073](chunks/pages-0373-0377-0073.md) — 19.1.2.5 fill (Shape Fill Properties)
+- [pages-0378-0383-0074](chunks/pages-0378-0383-0074.md)

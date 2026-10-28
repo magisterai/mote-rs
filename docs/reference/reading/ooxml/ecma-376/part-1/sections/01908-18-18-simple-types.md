@@ -1,0 +1,102 @@
+# 18.18 Simple Types
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Start reading](../chunks/pages-2442-2448-0456.md#source-page-2445-part-1) (PDF page 2445).
+
+- [18.18.1 ST_Axis (PivotTable Axis)](../chunks/pages-2442-2448-0456.md#source-page-2445-part-1) — PDF page 2445
+- [18.18.2 ST_BorderId (Border Id)](../chunks/pages-2442-2448-0456.md#source-page-2446-part-1) — PDF page 2446
+- [18.18.3 ST_BorderStyle (Border Line Styles)](../chunks/pages-2442-2448-0456.md#source-page-2446-part-1) — PDF page 2446
+- [18.18.4 ST_CalcMode (Calculation Mode)](../chunks/pages-2449-2452-0457.md#source-page-2449-part-1) — PDF page 2449
+- [18.18.5 ST_CellComments (Cell Comments)](../chunks/pages-2449-2452-0457.md#source-page-2449-part-1) — PDF page 2449
+- [18.18.6 ST_CellFormulaType (Formula Type)](../chunks/pages-2449-2452-0457.md#source-page-2450-part-1) — PDF page 2450
+- [18.18.7 ST_CellRef (Cell Reference)](../chunks/pages-2449-2452-0457.md#source-page-2450-part-1) — PDF page 2450
+- [18.18.8 ST_CellSpan (Cell Span Type)](../chunks/pages-2449-2452-0457.md#source-page-2450-part-1) — PDF page 2450
+- [18.18.9 ST_CellSpans (Cell Spans)](../chunks/pages-2449-2452-0457.md#source-page-2451-part-1) — PDF page 2451
+- [18.18.10 ST_CellStyleXfId (Cell Style Format Id)](../chunks/pages-2449-2452-0457.md#source-page-2451-part-1) — PDF page 2451
+- [18.18.11 ST_CellType (Cell Type)](../chunks/pages-2449-2452-0457.md#source-page-2451-part-1) — PDF page 2451
+- [18.18.12 ST_CfType (Conditional Format Type)](../chunks/pages-2449-2452-0457.md#source-page-2451-part-1) — PDF page 2451
+- [18.18.13 ST_CfvoType (Conditional Format Value Object Type)](../chunks/pages-2453-2456-0458.md#source-page-2453-part-1) — PDF page 2453
+- [18.18.14 ST_Comments (Comment Display Types)](../chunks/pages-2453-2456-0458.md#source-page-2454-part-1) — PDF page 2454
+- [18.18.15 ST_ConditionalFormattingOperator (Conditional Format Operators)](../chunks/pages-2453-2456-0458.md#source-page-2454-part-1) — PDF page 2454
+- [18.18.16 ST_CredMethod (Credentials Method)](../chunks/pages-2453-2456-0458.md#source-page-2455-part-1) — PDF page 2455
+- [18.18.17 ST_DataConsolidateFunction (Data Consolidation Functions)](../chunks/pages-2453-2456-0458.md#source-page-2455-part-1) — PDF page 2455
+- [18.18.18 ST_DataValidationErrorStyle (Data Validation Error Styles)](../chunks/pages-2453-2456-0458.md#source-page-2456-part-1) — PDF page 2456
+- [18.18.19 ST_DataValidationImeMode (Data Validation IME Mode)](../chunks/pages-2457-2460-0459.md#source-page-2457-part-1) — PDF page 2457
+- [18.18.20 ST_DataValidationOperator (Data Validation Operator)](../chunks/pages-2457-2460-0459.md#source-page-2458-part-1) — PDF page 2458
+- [18.18.21 ST_DataValidationType (Data Validation Type)](../chunks/pages-2457-2460-0459.md#source-page-2458-part-1) — PDF page 2458
+- [18.18.22 ST_DateTimeGrouping (Date Time Grouping)](../chunks/pages-2457-2460-0459.md#source-page-2459-part-1) — PDF page 2459
+- [18.18.23 ST_DdeValueType (DDE Value Types)](../chunks/pages-2457-2460-0459.md#source-page-2460-part-1) — PDF page 2460
+- [18.18.24 ST_DvAspect (Data View Aspect Type)](../chunks/pages-2457-2460-0459.md#source-page-2460-part-1) — PDF page 2460
+- [18.18.25 ST_DxfId (Format Id)](../chunks/pages-2457-2460-0459.md#source-page-2460-part-1) — PDF page 2460
+- [18.18.26 ST_DynamicFilterType (Dynamic Filter)](../chunks/pages-2461-2464-0460.md#source-page-2461-part-1) — PDF page 2461
+- [18.18.27 ST_ExternalConnectionType (Text Field Datatype)](../chunks/pages-2461-2464-0460.md#source-page-2462-part-1) — PDF page 2462
+- [18.18.28 ST_FieldSortType (Field Sort Type)](../chunks/pages-2461-2464-0460.md#source-page-2463-part-1) — PDF page 2463
+- [18.18.29 ST_FileType (File Type)](../chunks/pages-2461-2464-0460.md#source-page-2463-part-1) — PDF page 2463
+- [18.18.30 ST_FillId (Fill Id)](../chunks/pages-2461-2464-0460.md#source-page-2464-part-1) — PDF page 2464
+- [18.18.31 ST_FilterOperator (Filter Operator)](../chunks/pages-2461-2464-0460.md#source-page-2464-part-1) — PDF page 2464
+- [18.18.32 ST_FontId (Font Id)](../chunks/pages-2461-2464-0460.md#source-page-2464-part-1) — PDF page 2464
+- [18.18.33 ST_FontScheme (Font scheme Styles)](../chunks/pages-2465-2469-0461.md#source-page-2465-part-1) — PDF page 2465
+- [18.18.34 ST_FormatAction (PivotTable Format Types)](../chunks/pages-2465-2469-0461.md#source-page-2465-part-1) — PDF page 2465
+- [18.18.35 ST_Formula (Formula)](../chunks/pages-2465-2469-0461.md#source-page-2465-part-1) — PDF page 2465
+- [18.18.36 ST_FormulaExpression (Formula Expression Type)](../chunks/pages-2465-2469-0461.md#source-page-2466-part-1) — PDF page 2466
+- [18.18.37 ST_GradientType (Gradient Type)](../chunks/pages-2465-2469-0461.md#source-page-2466-part-1) — PDF page 2466
+- [18.18.38 ST_GroupBy (Values Group By)](../chunks/pages-2465-2469-0461.md#source-page-2466-part-1) — PDF page 2466
+- [18.18.39 ST_GrowShrinkType (Grow Shrink Type)](../chunks/pages-2465-2469-0461.md#source-page-2467-part-1) — PDF page 2467
+- [18.18.40 ST_HorizontalAlignment (Horizontal Alignment Type)](../chunks/pages-2465-2469-0461.md#source-page-2467-part-1) — PDF page 2467
+- [18.18.41 ST_HtmlFmt (HTML Formatting Handling)](../chunks/pages-2470-2475-0462.md#source-page-2471-part-1) — PDF page 2471
+- [18.18.42 ST_IconSetType (Icon Set Type)](../chunks/pages-2470-2475-0462.md#source-page-2472-part-1) — PDF page 2472
+- [18.18.43 ST_ItemType (PivotItem Type)](../chunks/pages-2470-2475-0462.md#source-page-2474-part-1) — PDF page 2474
+- [18.18.44 ST_MdxFunctionType (MDX Function Type)](../chunks/pages-2470-2475-0462.md#source-page-2475-part-1) — PDF page 2475
+- [18.18.45 ST_MdxKPIProperty (MDX KPI Property)](../chunks/pages-2476-2480-0463.md#source-page-2476-part-1) — PDF page 2476
+- [18.18.46 ST_MdxSetOrder (MDX Set Order)](../chunks/pages-2476-2480-0463.md#source-page-2476-part-1) — PDF page 2476
+- [18.18.47 ST_NumFmtId (Number Format Id)](../chunks/pages-2476-2480-0463.md#source-page-2477-part-1) — PDF page 2477
+- [18.18.48 ST_Objects (Object Display Types)](../chunks/pages-2476-2480-0463.md#source-page-2477-part-1) — PDF page 2477
+- [18.18.49 ST_OleUpdate (OLE Update Types)](../chunks/pages-2476-2480-0463.md#source-page-2477-part-1) — PDF page 2477
+- [18.18.50 ST_Orientation (Orientation)](../chunks/pages-2476-2480-0463.md#source-page-2478-part-1) — PDF page 2478
+- [18.18.51 ST_PageOrder (Page Order)](../chunks/pages-2476-2480-0463.md#source-page-2478-part-1) — PDF page 2478
+- [18.18.52 ST_Pane (Pane Types)](../chunks/pages-2476-2480-0463.md#source-page-2478-part-1) — PDF page 2478
+- [18.18.53 ST_PaneState (Pane State)](../chunks/pages-2476-2480-0463.md#source-page-2479-part-1) — PDF page 2479
+- [18.18.54 ST_ParameterType (Parameter Type)](../chunks/pages-2476-2480-0463.md#source-page-2480-part-1) — PDF page 2480
+- [18.18.55 ST_PatternType (Pattern Type)](../chunks/pages-2476-2480-0463.md#source-page-2480-part-1) — PDF page 2480
+- [18.18.56 ST_PhoneticAlignment (Phonetic Alignment Types)](../chunks/pages-2481-2487-0464.md#source-page-2485-part-1) — PDF page 2485
+- [18.18.57 ST_PhoneticType (Phonetic Type)](../chunks/pages-2481-2487-0464.md#source-page-2486-part-1) — PDF page 2486
+- [18.18.58 ST_PivotAreaType (Rule Type)](../chunks/pages-2481-2487-0464.md#source-page-2486-part-1) — PDF page 2486
+- [18.18.59 ST_PivotFilterType (Pivot Filter Types)](../chunks/pages-2481-2487-0464.md#source-page-2487-part-1) — PDF page 2487
+- [18.18.60 ST_PrintError (Print Errors)](../chunks/pages-2488-2491-0465.md#source-page-2489-part-1) — PDF page 2489
+- [18.18.61 ST_Qualifier (Qualifier)](../chunks/pages-2488-2491-0465.md#source-page-2490-part-1) — PDF page 2490
+- [18.18.62 ST_Ref (Cell References)](../chunks/pages-2488-2491-0465.md#source-page-2490-part-1) — PDF page 2490
+- [18.18.63 ST_RefA (Single Cell Reference)](../chunks/pages-2488-2491-0465.md#source-page-2490-part-1) — PDF page 2490
+- [18.18.64 ST_RefMode (Reference Mode)](../chunks/pages-2488-2491-0465.md#source-page-2491-part-1) — PDF page 2491
+- [18.18.65 ST_RevisionAction (Revision Action Types)](../chunks/pages-2488-2491-0465.md#source-page-2491-part-1) — PDF page 2491
+- [18.18.66 ST_rwColActionType (Row Column Action Type)](../chunks/pages-2492-2495-0466.md#source-page-2492-part-1) — PDF page 2492
+- [18.18.67 ST_Scope (Conditional Formatting Scope)](../chunks/pages-2492-2495-0466.md#source-page-2492-part-1) — PDF page 2492
+- [18.18.68 ST_SheetState (Sheet Visibility Types)](../chunks/pages-2492-2495-0466.md#source-page-2492-part-1) — PDF page 2492
+- [18.18.69 ST_SheetViewType (Sheet View Type)](../chunks/pages-2492-2495-0466.md#source-page-2493-part-1) — PDF page 2493
+- [18.18.70 ST_ShowDataAs (Show Data As)](../chunks/pages-2492-2495-0466.md#source-page-2493-part-1) — PDF page 2493
+- [18.18.71 ST_SmartTagShow (Smart Tag Display Types)](../chunks/pages-2492-2495-0466.md#source-page-2494-part-1) — PDF page 2494
+- [18.18.72 ST_SortBy (Sort By)](../chunks/pages-2492-2495-0466.md#source-page-2495-part-1) — PDF page 2495
+- [18.18.73 ST_SortMethod (Sort Method)](../chunks/pages-2492-2495-0466.md#source-page-2495-part-1) — PDF page 2495
+- [18.18.74 ST_SortType (Set Sort Order)](../chunks/pages-2492-2495-0466.md#source-page-2495-part-1) — PDF page 2495
+- [18.18.75 ST_SourceType (PivotCache Type)](../chunks/pages-2496-2503-0467.md#source-page-2496-part-1) — PDF page 2496
+- [18.18.76 ST_Sqref (Reference Sequence)](../chunks/pages-2496-2503-0467.md#source-page-2497-part-1) — PDF page 2497
+- [18.18.77 ST_TableStyleType (Table Style Type)](../chunks/pages-2496-2503-0467.md#source-page-2497-part-1) — PDF page 2497
+- [18.18.78 ST_TableType (Table Type)](../chunks/pages-2512-2517-0469.md#source-page-2515-part-1) — PDF page 2515
+- [18.18.79 ST_TargetScreenSize (Target Screen Size Types)](../chunks/pages-2512-2517-0469.md#source-page-2515-part-1) — PDF page 2515
+- [18.18.80 ST_TextHAlign (Comment Text Horizontal Alignment)](../chunks/pages-2512-2517-0469.md#source-page-2516-part-1) — PDF page 2516
+- [18.18.81 ST_TextVAlign (Comment Text Vertical Alignment)](../chunks/pages-2512-2517-0469.md#source-page-2516-part-1) — PDF page 2516
+- [18.18.82 ST_TimePeriod (Time Period Types)](../chunks/pages-2512-2517-0469.md#source-page-2517-part-1) — PDF page 2517
+- [18.18.83 ST_TotalsRowFunction (Totals Row Function Types)](../chunks/pages-2512-2517-0469.md#source-page-2517-part-1) — PDF page 2517
+- [18.18.84 ST_Type (Top N Evaluation Type)](../chunks/pages-2518-2522-0470.md#source-page-2518-part-1) — PDF page 2518
+- [18.18.85 ST_UnderlineValues (Underline Types)](../chunks/pages-2518-2522-0470.md#source-page-2518-part-1) — PDF page 2518
+- [18.18.86 ST_UnsignedIntHex (Hex Unsigned Integer)](../chunks/pages-2518-2522-0470.md#source-page-2519-part-1) — PDF page 2519
+- [18.18.87 ST_UpdateLinks (Update Links Behavior Types)](../chunks/pages-2518-2522-0470.md#source-page-2519-part-1) — PDF page 2519
+- [18.18.88 ST_VerticalAlignment (Vertical Alignment Types)](../chunks/pages-2518-2522-0470.md#source-page-2520-part-1) — PDF page 2520
+- [18.18.89 ST_Visibility (Visibility Types)](../chunks/pages-2523-2527-0471.md#source-page-2523-part-1) — PDF page 2523
+- [18.18.90 ST_VolDepType (Volatile Dependency Types)](../chunks/pages-2523-2527-0471.md#source-page-2523-part-1) — PDF page 2523
+- [18.18.91 ST_VolValueType (Volatile Dependency Value Types)](../chunks/pages-2523-2527-0471.md#source-page-2524-part-1) — PDF page 2524
+- [18.18.92 ST_WebSourceType (Web Source Type)](../chunks/pages-2523-2527-0471.md#source-page-2524-part-1) — PDF page 2524
+- [18.18.93 ST_XmlDataType (XML Data Types)](../chunks/pages-2523-2527-0471.md#source-page-2525-part-1) — PDF page 2525
+- [18.18.94 ST_FontFamily (Font Family)](../chunks/pages-2523-2527-0471.md#source-page-2525-part-1) — PDF page 2525

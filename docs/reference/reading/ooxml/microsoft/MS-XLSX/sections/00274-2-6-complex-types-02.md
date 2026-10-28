@@ -1,0 +1,105 @@
+# 2.6 Complex Types
+
+Source: [MS-XLSX: Excel extensions to Office Open XML SpreadsheetML](https://officeprotocoldocs-f5hpbjgea6b8gneq.b02.azurefd.net/files/MS-XLSX/%5bMS-XLSX%5d.pdf) · 30.0, 2026-10-16.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-xlsx/).
+
+[Start reading](../chunks/pages-0147-0151-0047.md#source-page-148-part-1) (PDF page 148).
+
+[Index](00274-2-6-complex-types.md)
+
+- [2.6.99 CT_TimelineCacheRef](../chunks/pages-0235-0239-0067.md#source-page-237-part-1) — PDF page 237
+- [2.6.100 CT_TimelineRefs](../chunks/pages-0235-0239-0067.md#source-page-237-part-1) — PDF page 237
+- [2.6.101 CT_TimelineRef](../chunks/pages-0235-0239-0067.md#source-page-238-part-1) — PDF page 238
+- [2.6.102 CT_CacheHierarchy](../chunks/pages-0235-0239-0067.md#source-page-238-part-1) — PDF page 238
+- [2.6.103 CT_SlicerCacheHideNoData](../chunks/pages-0235-0239-0067.md#source-page-239-part-1) — PDF page 239
+- [2.6.104 CT_SlicerCacheOlapLevelName](../chunks/pages-0235-0239-0067.md#source-page-239-part-1) — PDF page 239
+- [2.6.105 CT_TimelineStyles](../chunks/pages-0240-0244-0068.md#source-page-240-part-1) — PDF page 240
+- [2.6.106 CT_TimelineStyleElements](../chunks/pages-0240-0244-0068.md#source-page-240-part-1) — PDF page 240
+- [2.6.107 CT_TimelineStyle](../chunks/pages-0240-0244-0068.md#source-page-241-part-1) — PDF page 241
+- [2.6.108 CT_TimelineStyleElement](../chunks/pages-0240-0244-0068.md#source-page-241-part-1) — PDF page 241
+- [2.6.109 CT_TimelinePivotCacheDefinition](../chunks/pages-0240-0244-0068.md#source-page-242-part-1) — PDF page 242
+- [2.6.110 CT_Timelines](../chunks/pages-0240-0244-0068.md#source-page-242-part-1) — PDF page 242
+- [2.6.111 CT_Timeline](../chunks/pages-0240-0244-0068.md#source-page-243-part-1) — PDF page 243
+- [2.6.112 CT_TimelineCacheDefinition](../chunks/pages-0245-0249-0069.md#source-page-245-part-1) — PDF page 245
+- [2.6.113 CT_TimelineCachePivotTables](../chunks/pages-0245-0249-0069.md#source-page-247-part-1) — PDF page 247
+- [2.6.114 CT_TimelineCachePivotTable](../chunks/pages-0245-0249-0069.md#source-page-247-part-1) — PDF page 247
+- [2.6.115 CT_TimelineRange](../chunks/pages-0245-0249-0069.md#source-page-248-part-1) — PDF page 248
+- [2.6.116 CT_TimelineState](../chunks/pages-0245-0249-0069.md#source-page-248-part-1) — PDF page 248
+- [2.6.117 CT_WorkbookPr](../chunks/pages-0245-0249-0069.md#source-page-249-part-1) — PDF page 249
+- [2.6.118 CT_TimelinePivotFilter](../chunks/pages-0250-0254-0070.md#source-page-250-part-1) — PDF page 250
+- [2.6.119 CT_ModelTextPr](../chunks/pages-0250-0254-0070.md#source-page-251-part-1) — PDF page 251
+- [2.6.120 CT_RangePr](../chunks/pages-0250-0254-0070.md#source-page-251-part-1) — PDF page 251
+- [2.6.121 CT_DbTable](../chunks/pages-0250-0254-0070.md#source-page-252-part-1) — PDF page 252
+- [2.6.122 CT_DbTables](../chunks/pages-0250-0254-0070.md#source-page-252-part-1) — PDF page 252
+- [2.6.123 CT_DbCommand](../chunks/pages-0250-0254-0070.md#source-page-253-part-1) — PDF page 253
+- [2.6.124 CT_OledbPr](../chunks/pages-0250-0254-0070.md#source-page-253-part-1) — PDF page 253
+- [2.6.125 CT_DataFeedPr](../chunks/pages-0250-0254-0070.md#source-page-254-part-1) — PDF page 254
+- [2.6.126 CT_CachedUniqueNames](../chunks/pages-0250-0254-0070.md#source-page-254-part-1) — PDF page 254
+- [2.6.127 CT_CachedUniqueName](../chunks/pages-0255-0259-0071.md#source-page-255-part-1) — PDF page 255
+- [2.6.128 CT_ModelTable](../chunks/pages-0255-0259-0071.md#source-page-255-part-1) — PDF page 255
+- [2.6.129 CT_ModelTables](../chunks/pages-0255-0259-0071.md#source-page-256-part-1) — PDF page 256
+- [2.6.130 CT_ModelRelationship](../chunks/pages-0255-0259-0071.md#source-page-256-part-1) — PDF page 256
+- [2.6.131 CT_ModelRelationships](../chunks/pages-0255-0259-0071.md#source-page-257-part-1) — PDF page 257
+- [2.6.132 CT_DataModel](../chunks/pages-0255-0259-0071.md#source-page-257-part-1) — PDF page 257
+- [2.6.133 CT_PivotTableData](../chunks/pages-0255-0259-0071.md#source-page-258-part-1) — PDF page 258
+- [2.6.134 CT_PivotRow](../chunks/pages-0255-0259-0071.md#source-page-259-part-1) — PDF page 259
+- [2.6.135 CT_PivotValueCell](../chunks/pages-0255-0259-0071.md#source-page-259-part-1) — PDF page 259
+- [2.6.136 CT_PivotValueCellExtra](../chunks/pages-0260-0264-0072.md#source-page-260-part-1) — PDF page 260
+- [2.6.137 CT_PivotTableServerFormats](../chunks/pages-0260-0264-0072.md#source-page-261-part-1) — PDF page 261
+- [2.6.138 CT_PivotCacheIdVersion](../chunks/pages-0260-0264-0072.md#source-page-262-part-1) — PDF page 262
+- [2.6.139 CT_Timeline](../chunks/pages-0260-0264-0072.md#source-page-262-part-1) — PDF page 262
+- [2.6.140 CT_AbsolutePath](../chunks/pages-0260-0264-0072.md#source-page-263-part-1) — PDF page 263
+- [2.6.141 CT_DataField](../chunks/pages-0260-0264-0072.md#source-page-263-part-1) — PDF page 263
+- [2.6.142 CT_Survey](../chunks/pages-0260-0264-0072.md#source-page-263-part-1) — PDF page 263
+- [2.6.143 CT_SurveyQuestions](../chunks/pages-0260-0264-0072.md#source-page-264-part-1) — PDF page 264
+- [2.6.144 CT_SurveyQuestion](../chunks/pages-0265-0269-0073.md#source-page-265-part-1) — PDF page 265
+- [2.6.145 CT_SurveyElementPr](../chunks/pages-0265-0269-0073.md#source-page-266-part-1) — PDF page 266
+- [2.6.146 CT_Ref](../chunks/pages-0265-0269-0073.md#source-page-267-part-1) — PDF page 267
+- [2.6.147 CT_Sqref](../chunks/pages-0265-0269-0073.md#source-page-268-part-1) — PDF page 268
+- [2.6.148 CT_ApplicationNonVisualDrawingProps](../chunks/pages-0265-0269-0073.md#source-page-269-part-1) — PDF page 269
+- [2.6.149 CT_CacheSourceExt](../chunks/pages-0265-0269-0073.md#source-page-269-part-1) — PDF page 269
+- [2.6.150 CT_ContentPart](../chunks/pages-0270-0274-0074.md#source-page-270-part-1) — PDF page 270
+- [2.6.151 CT_ContentPartNonVisual](../chunks/pages-0270-0274-0074.md#source-page-270-part-1) — PDF page 270
+- [2.6.152 CT_CalculatedTimeColumn](../chunks/pages-0270-0274-0074.md#source-page-271-part-1) — PDF page 271
+- [2.6.153 CT_ModelTimeGrouping](../chunks/pages-0270-0274-0074.md#source-page-272-part-1) — PDF page 272
+- [2.6.154 CT_ModelTimeGroupings](../chunks/pages-0270-0274-0074.md#source-page-272-part-1) — PDF page 272
+- [2.6.155 CT_RevisionPtr](../chunks/pages-0270-0274-0074.md#source-page-273-part-1) — PDF page 273
+- [2.6.156 CT_PivotTableDefinition16](../chunks/pages-0270-0274-0074.md#source-page-273-part-1) — PDF page 273
+- [2.6.157 CT_Array](../chunks/pages-0270-0274-0074.md#source-page-274-part-1) — PDF page 274
+- [2.6.158 CT_ArrayData](../chunks/pages-0275-0279-0075.md#source-page-275-part-1) — PDF page 275
+- [2.6.159 CT_ArrayValue](../chunks/pages-0275-0279-0075.md#source-page-275-part-1) — PDF page 275
+- [2.6.160 CT_CustomRichFilter](../chunks/pages-0275-0279-0075.md#source-page-276-part-1) — PDF page 276
+- [2.6.161 CT_CustomRichFilters](../chunks/pages-0275-0279-0075.md#source-page-276-part-1) — PDF page 276
+- [2.6.162 CT_DynamicRichFilter](../chunks/pages-0275-0279-0075.md#source-page-277-part-1) — PDF page 277
+- [2.6.163 CT_Key](../chunks/pages-0275-0279-0075.md#source-page-278-part-1) — PDF page 278
+- [2.6.164 CT_RichDateGroupItem](../chunks/pages-0275-0279-0075.md#source-page-279-part-1) — PDF page 279
+- [2.6.165 CT_RichFilter](../chunks/pages-0275-0279-0075.md#source-page-279-part-1) — PDF page 279
+- [2.6.166 CT_RichFilters](../chunks/pages-0280-0284-0076.md#source-page-280-part-1) — PDF page 280
+- [2.6.167 CT_RichFormatProperties](../chunks/pages-0280-0284-0076.md#source-page-281-part-1) — PDF page 281
+- [2.6.168 CT_RichFormatProperty](../chunks/pages-0280-0284-0076.md#source-page-281-part-1) — PDF page 281
+- [2.6.169 CT_RichSortCondition](../chunks/pages-0280-0284-0076.md#source-page-281-part-1) — PDF page 281
+- [2.6.170 CT_RichStyle](../chunks/pages-0280-0284-0076.md#source-page-283-part-1) — PDF page 283
+- [2.6.171 CT_RichStylePropertyValue](../chunks/pages-0280-0284-0076.md#source-page-283-part-1) — PDF page 283
+- [2.6.172 CT_RichStyles](../chunks/pages-0280-0284-0076.md#source-page-284-part-1) — PDF page 284
+- [2.6.173 CT_RichStylesheet](../chunks/pages-0280-0284-0076.md#source-page-284-part-1) — PDF page 284
+- [2.6.174 CT_RichTop10](../chunks/pages-0285-0289-0077.md#source-page-285-part-1) — PDF page 285
+- [2.6.175 CT_RichValue](../chunks/pages-0285-0289-0077.md#source-page-286-part-1) — PDF page 286
+- [2.6.176 CT_RichValueBlock](../chunks/pages-0285-0289-0077.md#source-page-286-part-1) — PDF page 286
+- [2.6.177 CT_RichValueData](../chunks/pages-0285-0289-0077.md#source-page-287-part-1) — PDF page 287
+- [2.6.178 CT_RichValueFallback](../chunks/pages-0285-0289-0077.md#source-page-287-part-1) — PDF page 287
+- [2.6.179 CT_RichValueGlobalType](../chunks/pages-0285-0289-0077.md#source-page-288-part-1) — PDF page 288
+- [2.6.180 CT_RichValueStructure](../chunks/pages-0285-0289-0077.md#source-page-288-part-1) — PDF page 288
+- [2.6.181 CT_RichValueStructures](../chunks/pages-0285-0289-0077.md#source-page-289-part-1) — PDF page 289
+- [2.6.182 CT_RichValueType](../chunks/pages-0285-0289-0077.md#source-page-289-part-1) — PDF page 289
+- [2.6.183 CT_RichValueTypeKeyFlags](../chunks/pages-0290-0294-0078.md#source-page-290-part-1) — PDF page 290
+- [2.6.184 CT_RichValueTypeReservedKey](../chunks/pages-0290-0294-0078.md#source-page-290-part-1) — PDF page 290
+- [2.6.185 CT_RichValueTypeReservedKeyFlag](../chunks/pages-0290-0294-0078.md#source-page-291-part-1) — PDF page 291
+- [2.6.186 CT_RichValueTypes](../chunks/pages-0290-0294-0078.md#source-page-291-part-1) — PDF page 291
+- [2.6.187 CT_RichValueTypesInfo](../chunks/pages-0290-0294-0078.md#source-page-292-part-1) — PDF page 292
+- [2.6.188 CT_SupportingPropertyBag](../chunks/pages-0290-0294-0078.md#source-page-292-part-1) — PDF page 292
+- [2.6.189 CT_SupportingPropertyBagArray](../chunks/pages-0290-0294-0078.md#source-page-293-part-1) — PDF page 293
+- [2.6.190 CT_SupportingPropertyBagArrayData](../chunks/pages-0290-0294-0078.md#source-page-294-part-1) — PDF page 294
+- [2.6.191 CT_SupportingPropertyBagArrayValue](../chunks/pages-0290-0294-0078.md#source-page-294-part-1) — PDF page 294
+- [2.6.192 CT_SupportingPropertyBagData](../chunks/pages-0295-0299-0079.md#source-page-295-part-1) — PDF page 295
+- [2.6.193 CT_SupportingPropertyBagKey](../chunks/pages-0295-0299-0079.md#source-page-295-part-1) — PDF page 295

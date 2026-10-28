@@ -1,0 +1,80 @@
+# 17.16.5 Field definitions
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Start reading](../chunks/pages-1202-1206-0217.md#source-page-1204-part-1) (PDF page 1204).
+
+- [17.16.5.1 ADDRESSBLOCK](../chunks/pages-1202-1206-0217.md#source-page-1206-part-1) — PDF page 1206
+- [17.16.5.2 ADVANCE](../chunks/pages-1207-1212-0218.md#source-page-1208-part-1) — PDF page 1208
+- [17.16.5.3 ASK](../chunks/pages-1207-1212-0218.md#source-page-1209-part-1) — PDF page 1209
+- [17.16.5.4 AUTHOR](../chunks/pages-1207-1212-0218.md#source-page-1210-part-1) — PDF page 1210
+- [17.16.5.5 AUTOTEXT](../chunks/pages-1207-1212-0218.md#source-page-1211-part-1) — PDF page 1211
+- [17.16.5.6 AUTOTEXTLIST](../chunks/pages-1207-1212-0218.md#source-page-1211-part-1) — PDF page 1211
+- [17.16.5.7 BIBLIOGRAPHY](../chunks/pages-1207-1212-0218.md#source-page-1212-part-1) — PDF page 1212
+- [17.16.5.8 CITATION](../chunks/pages-1213-1218-0219.md#source-page-1213-part-1) — PDF page 1213
+- [17.16.5.9 COMMENTS](../chunks/pages-1213-1218-0219.md#source-page-1214-part-1) — PDF page 1214
+- [17.16.5.10 COMPARE](../chunks/pages-1213-1218-0219.md#source-page-1215-part-1) — PDF page 1215
+- [17.16.5.11 CREATEDATE](../chunks/pages-1213-1218-0219.md#source-page-1216-part-1) — PDF page 1216
+- [17.16.5.12 DATABASE](../chunks/pages-1213-1218-0219.md#source-page-1216-part-1) — PDF page 1216
+- [17.16.5.13 DATE](../chunks/pages-1213-1218-0219.md#source-page-1218-part-1) — PDF page 1218
+- [17.16.5.14 DOCPROPERTY](../chunks/pages-1219-1224-0220.md#source-page-1219-part-1) — PDF page 1219
+- [17.16.5.15 DOCVARIABLE](../chunks/pages-1219-1224-0220.md#source-page-1221-part-1) — PDF page 1221
+- [17.16.5.16 EDITTIME](../chunks/pages-1219-1224-0220.md#source-page-1221-part-1) — PDF page 1221
+- [17.16.5.17 FILENAME](../chunks/pages-1219-1224-0220.md#source-page-1222-part-1) — PDF page 1222
+- [17.16.5.18 FILESIZE](../chunks/pages-1219-1224-0220.md#source-page-1222-part-1) — PDF page 1222
+- [17.16.5.19 FILLIN](../chunks/pages-1219-1224-0220.md#source-page-1223-part-1) — PDF page 1223
+- [17.16.5.20 FORMCHECKBOX](../chunks/pages-1219-1224-0220.md#source-page-1224-part-1) — PDF page 1224
+- [17.16.5.21 FORMDROPDOWN](../chunks/pages-1219-1224-0220.md#source-page-1224-part-1) — PDF page 1224
+- [17.16.5.22 FORMTEXT](../chunks/pages-1219-1224-0220.md#source-page-1224-part-1) — PDF page 1224
+- [17.16.5.23 GOTOBUTTON](../chunks/pages-1225-1229-0221.md#source-page-1225-part-1) — PDF page 1225
+- [17.16.5.24 GREETINGLINE](../chunks/pages-1225-1229-0221.md#source-page-1226-part-1) — PDF page 1226
+- [17.16.5.25 HYPERLINK](../chunks/pages-1225-1229-0221.md#source-page-1226-part-1) — PDF page 1226
+- [17.16.5.26 IF](../chunks/pages-1225-1229-0221.md#source-page-1227-part-1) — PDF page 1227
+- [17.16.5.27 INCLUDEPICTURE](../chunks/pages-1225-1229-0221.md#source-page-1228-part-1) — PDF page 1228
+- [17.16.5.28 INCLUDETEXT](../chunks/pages-1225-1229-0221.md#source-page-1228-part-1) — PDF page 1228
+- [17.16.5.29 INDEX](../chunks/pages-1230-1234-0222.md#source-page-1230-part-1) — PDF page 1230
+- [17.16.5.30 KEYWORDS](../chunks/pages-1230-1234-0222.md#source-page-1232-part-1) — PDF page 1232
+- [17.16.5.31 LASTSAVEDBY](../chunks/pages-1230-1234-0222.md#source-page-1232-part-1) — PDF page 1232
+- [17.16.5.32 LINK](../chunks/pages-1230-1234-0222.md#source-page-1233-part-1) — PDF page 1233
+- [17.16.5.33 LISTNUM](../chunks/pages-1230-1234-0222.md#source-page-1234-part-1) — PDF page 1234
+- [17.16.5.34 MACROBUTTON](../chunks/pages-1235-1239-0223.md#source-page-1238-part-1) — PDF page 1238
+- [17.16.5.35 MERGEFIELD](../chunks/pages-1235-1239-0223.md#source-page-1239-part-1) — PDF page 1239
+- [17.16.5.36 MERGEREC](../chunks/pages-1240-1246-0224.md#source-page-1240-part-1) — PDF page 1240
+- [17.16.5.37 MERGESEQ](../chunks/pages-1240-1246-0224.md#source-page-1240-part-1) — PDF page 1240
+- [17.16.5.38 NEXT](../chunks/pages-1240-1246-0224.md#source-page-1241-part-1) — PDF page 1241
+- [17.16.5.39 NEXTIF](../chunks/pages-1240-1246-0224.md#source-page-1241-part-1) — PDF page 1241
+- [17.16.5.40 NOTEREF](../chunks/pages-1240-1246-0224.md#source-page-1242-part-1) — PDF page 1242
+- [17.16.5.41 NUMCHARS](../chunks/pages-1240-1246-0224.md#source-page-1242-part-1) — PDF page 1242
+- [17.16.5.42 NUMPAGES](../chunks/pages-1240-1246-0224.md#source-page-1243-part-1) — PDF page 1243
+- [17.16.5.43 NUMWORDS](../chunks/pages-1240-1246-0224.md#source-page-1243-part-1) — PDF page 1243
+- [17.16.5.44 PAGE](../chunks/pages-1240-1246-0224.md#source-page-1244-part-1) — PDF page 1244
+- [17.16.5.45 PAGEREF](../chunks/pages-1240-1246-0224.md#source-page-1244-part-1) — PDF page 1244
+- [17.16.5.46 PRINT](../chunks/pages-1240-1246-0224.md#source-page-1245-part-1) — PDF page 1245
+- [17.16.5.47 PRINTDATE](../chunks/pages-1240-1246-0224.md#source-page-1246-part-1) — PDF page 1246
+- [17.16.5.48 PRIVATE](../chunks/pages-1240-1246-0224.md#source-page-1246-part-1) — PDF page 1246
+- [17.16.5.49 QUOTE](../chunks/pages-1247-1253-0225.md#source-page-1247-part-1) — PDF page 1247
+- [17.16.5.50 RD](../chunks/pages-1247-1253-0225.md#source-page-1247-part-1) — PDF page 1247
+- [17.16.5.51 REF](../chunks/pages-1247-1253-0225.md#source-page-1248-part-1) — PDF page 1248
+- [17.16.5.52 REVNUM](../chunks/pages-1247-1253-0225.md#source-page-1249-part-1) — PDF page 1249
+- [17.16.5.53 SAVEDATE](../chunks/pages-1247-1253-0225.md#source-page-1249-part-1) — PDF page 1249
+- [17.16.5.54 SECTION](../chunks/pages-1247-1253-0225.md#source-page-1250-part-1) — PDF page 1250
+- [17.16.5.55 SECTIONPAGES](../chunks/pages-1247-1253-0225.md#source-page-1251-part-1) — PDF page 1251
+- [17.16.5.56 SEQ](../chunks/pages-1247-1253-0225.md#source-page-1251-part-1) — PDF page 1251
+- [17.16.5.57 SET](../chunks/pages-1247-1253-0225.md#source-page-1253-part-1) — PDF page 1253
+- [17.16.5.58 SKIPIF](../chunks/pages-1247-1253-0225.md#source-page-1253-part-1) — PDF page 1253
+- [17.16.5.59 STYLEREF](../chunks/pages-1254-1260-0226.md#source-page-1254-part-1) — PDF page 1254
+- [17.16.5.60 SUBJECT](../chunks/pages-1254-1260-0226.md#source-page-1255-part-1) — PDF page 1255
+- [17.16.5.61 SYMBOL](../chunks/pages-1254-1260-0226.md#source-page-1256-part-1) — PDF page 1256
+- [17.16.5.62 TA](../chunks/pages-1254-1260-0226.md#source-page-1257-part-1) — PDF page 1257
+- [17.16.5.63 TC](../chunks/pages-1254-1260-0226.md#source-page-1258-part-1) — PDF page 1258
+- [17.16.5.64 TEMPLATE](../chunks/pages-1254-1260-0226.md#source-page-1259-part-1) — PDF page 1259
+- [17.16.5.65 TIME](../chunks/pages-1254-1260-0226.md#source-page-1259-part-1) — PDF page 1259
+- [17.16.5.66 TITLE](../chunks/pages-1254-1260-0226.md#source-page-1260-part-1) — PDF page 1260
+- [17.16.5.67 TOA](../chunks/pages-1254-1260-0226.md#source-page-1260-part-1) — PDF page 1260
+- [17.16.5.68 TOC](../chunks/pages-1261-1265-0227.md#source-page-1261-part-1) — PDF page 1261
+- [17.16.5.69 USERADDRESS](../chunks/pages-1261-1265-0227.md#source-page-1263-part-1) — PDF page 1263
+- [17.16.5.70 USERINITIALS](../chunks/pages-1261-1265-0227.md#source-page-1264-part-1) — PDF page 1264
+- [17.16.5.71 USERNAME](../chunks/pages-1261-1265-0227.md#source-page-1265-part-1) — PDF page 1265
+- [17.16.5.72 XE](../chunks/pages-1261-1265-0227.md#source-page-1265-part-1) — PDF page 1265

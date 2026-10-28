@@ -1,0 +1,105 @@
+# 19.5 Animation
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Start reading](../chunks/pages-2607-2612-0490.md#source-page-2612-part-1) (PDF page 2612).
+
+- [19.5.1 anim (Animate)](../chunks/pages-2613-2620-0491.md#source-page-2613-part-1) — PDF page 2613
+- [19.5.2 animClr (Animate Color Behavior)](../chunks/pages-2613-2620-0491.md#source-page-2614-part-1) — PDF page 2614
+- [19.5.3 animEffect (Animate Effect)](../chunks/pages-2613-2620-0491.md#source-page-2615-part-1) — PDF page 2615
+- [19.5.4 animMotion (Animate Motion)](../chunks/pages-2621-2626-0492.md#source-page-2621-part-1) — PDF page 2621
+- [19.5.5 animRot (Animate Rotation)](../chunks/pages-2621-2626-0492.md#source-page-2622-part-1) — PDF page 2622
+- [19.5.6 animScale (Animate Scale)](../chunks/pages-2621-2626-0492.md#source-page-2623-part-1) — PDF page 2623
+- [19.5.7 attrName (Attribute Name)](../chunks/pages-2621-2626-0492.md#source-page-2624-part-1) — PDF page 2624
+- [19.5.8 attrNameLst (Attribute Name List)](../chunks/pages-2621-2626-0492.md#source-page-2625-part-1) — PDF page 2625
+- [19.5.9 audio (Audio)](../chunks/pages-2621-2626-0492.md#source-page-2626-part-1) — PDF page 2626
+- [19.5.10 bg (Background)](../chunks/pages-2627-2633-0493.md#source-page-2627-part-1) — PDF page 2627
+- [19.5.11 bldAsOne (Build As One)](../chunks/pages-2627-2633-0493.md#source-page-2627-part-1) — PDF page 2627
+- [19.5.12 bldDgm (Build Diagram)](../chunks/pages-2627-2633-0493.md#source-page-2627-part-1) — PDF page 2627
+- [19.5.13 bldGraphic (Build Graphics)](../chunks/pages-2627-2633-0493.md#source-page-2628-part-1) — PDF page 2628
+- [19.5.14 bldLst (Build List)](../chunks/pages-2627-2633-0493.md#source-page-2629-part-1) — PDF page 2629
+- [19.5.15 bldOleChart (Build Embedded Chart)](../chunks/pages-2627-2633-0493.md#source-page-2630-part-1) — PDF page 2630
+- [19.5.16 bldP (Build Paragraph)](../chunks/pages-2627-2633-0493.md#source-page-2631-part-1) — PDF page 2631
+- [19.5.17 bldSub (Build Sub Elements)](../chunks/pages-2627-2633-0493.md#source-page-2633-part-1) — PDF page 2633
+- [19.5.18 blinds (Blinds Slide Transition)](../chunks/pages-2627-2633-0493.md#source-page-2633-part-1) — PDF page 2633
+- [19.5.19 boolVal (Boolean Variant)](../chunks/pages-2634-2640-0494.md#source-page-2634-part-1) — PDF page 2634
+- [19.5.20 by (By)](../chunks/pages-2634-2640-0494.md#source-page-2635-part-1) — PDF page 2635
+- [19.5.21 by (By)](../chunks/pages-2634-2640-0494.md#source-page-2635-part-1) — PDF page 2635
+- [19.5.22 cBhvr (Common Behavior)](../chunks/pages-2634-2640-0494.md#source-page-2636-part-1) — PDF page 2636
+- [19.5.23 charRg (Character Range)](../chunks/pages-2634-2640-0494.md#source-page-2638-part-1) — PDF page 2638
+- [19.5.24 checker (Checker Slide Transition)](../chunks/pages-2634-2640-0494.md#source-page-2638-part-1) — PDF page 2638
+- [19.5.25 childTnLst (Children Time Node List)](../chunks/pages-2634-2640-0494.md#source-page-2640-part-1) — PDF page 2640
+- [19.5.26 circle (Circle Slide Transition)](../chunks/pages-2634-2640-0494.md#source-page-2640-part-1) — PDF page 2640
+- [19.5.27 clrVal (Color Value)](../chunks/pages-2634-2640-0494.md#source-page-2640-part-1) — PDF page 2640
+- [19.5.28 cmd (Command)](../chunks/pages-2641-2647-0495.md#source-page-2641-part-1) — PDF page 2641
+- [19.5.29 cMediaNode (Common Media Node Properties)](../chunks/pages-2641-2647-0495.md#source-page-2643-part-1) — PDF page 2643
+- [19.5.30 comb (Comb Slide Transition)](../chunks/pages-2641-2647-0495.md#source-page-2644-part-1) — PDF page 2644
+- [19.5.31 cond (Condition)](../chunks/pages-2641-2647-0495.md#source-page-2645-part-1) — PDF page 2645
+- [19.5.32 cover (Cover Slide Transition)](../chunks/pages-2641-2647-0495.md#source-page-2646-part-1) — PDF page 2646
+- [19.5.33 cTn (Common Time Node Properties)](../chunks/pages-2648-2653-0496.md#source-page-2648-part-1) — PDF page 2648
+- [19.5.34 cut (Cut Slide Transition)](../chunks/pages-2648-2653-0496.md#source-page-2650-part-1) — PDF page 2650
+- [19.5.35 diamond (Diamond Slide Transition)](../chunks/pages-2648-2653-0496.md#source-page-2651-part-1) — PDF page 2651
+- [19.5.36 dissolve (Dissolve Slide Transition)](../chunks/pages-2648-2653-0496.md#source-page-2652-part-1) — PDF page 2652
+- [19.5.37 endCondLst (End Conditions List)](../chunks/pages-2648-2653-0496.md#source-page-2652-part-1) — PDF page 2652
+- [19.5.38 endSnd (Stop Sound Action)](../chunks/pages-2648-2653-0496.md#source-page-2653-part-1) — PDF page 2653
+- [19.5.39 endSync (EndSync)](../chunks/pages-2648-2653-0496.md#source-page-2653-part-1) — PDF page 2653
+- [19.5.40 excl (Exclusive)](../chunks/pages-2654-2661-0497.md#source-page-2654-part-1) — PDF page 2654
+- [19.5.41 fade (Fade Slide Transition)](../chunks/pages-2654-2661-0497.md#source-page-2654-part-1) — PDF page 2654
+- [19.5.42 fltVal (Float Value)](../chunks/pages-2654-2661-0497.md#source-page-2656-part-1) — PDF page 2656
+- [19.5.43 from (From)](../chunks/pages-2654-2661-0497.md#source-page-2656-part-1) — PDF page 2656
+- [19.5.44 from (From)](../chunks/pages-2654-2661-0497.md#source-page-2656-part-1) — PDF page 2656
+- [19.5.45 graphicEl (Graphic Element)](../chunks/pages-2654-2661-0497.md#source-page-2657-part-1) — PDF page 2657
+- [19.5.46 hsl (HSL)](../chunks/pages-2654-2661-0497.md#source-page-2658-part-1) — PDF page 2658
+- [19.5.47 inkTgt (Ink Target)](../chunks/pages-2654-2661-0497.md#source-page-2659-part-1) — PDF page 2659
+- [19.5.48 intVal (Integer)](../chunks/pages-2654-2661-0497.md#source-page-2659-part-1) — PDF page 2659
+- [19.5.49 iterate (Iterate)](../chunks/pages-2654-2661-0497.md#source-page-2660-part-1) — PDF page 2660
+- [19.5.50 newsflash (Newsflash Slide Transition)](../chunks/pages-2654-2661-0497.md#source-page-2661-part-1) — PDF page 2661
+- [19.5.51 nextCondLst (Next Conditions List)](../chunks/pages-2654-2661-0497.md#source-page-2661-part-1) — PDF page 2661
+- [19.5.52 oleChartEl (Embedded Chart Element)](../chunks/pages-2662-2669-0498.md#source-page-2662-part-1) — PDF page 2662
+- [19.5.53 par (Parallel Time Node)](../chunks/pages-2662-2669-0498.md#source-page-2662-part-1) — PDF page 2662
+- [19.5.54 plus (Plus Slide Transition)](../chunks/pages-2662-2669-0498.md#source-page-2663-part-1) — PDF page 2663
+- [19.5.55 prevCondLst (Previous Conditions List)](../chunks/pages-2662-2669-0498.md#source-page-2664-part-1) — PDF page 2664
+- [19.5.56 pRg (Paragraph Text Range)](../chunks/pages-2662-2669-0498.md#source-page-2664-part-1) — PDF page 2664
+- [19.5.57 progress (Progress)](../chunks/pages-2662-2669-0498.md#source-page-2665-part-1) — PDF page 2665
+- [19.5.58 pull (Pull Slide Transition)](../chunks/pages-2662-2669-0498.md#source-page-2666-part-1) — PDF page 2666
+- [19.5.59 push (Push Slide Transition)](../chunks/pages-2662-2669-0498.md#source-page-2668-part-1) — PDF page 2668
+- [19.5.60 random (Random Slide Transition)](../chunks/pages-2662-2669-0498.md#source-page-2669-part-1) — PDF page 2669
+- [19.5.61 randomBar (Random Bar Slide Transition)](../chunks/pages-2662-2669-0498.md#source-page-2669-part-1) — PDF page 2669
+- [19.5.62 rCtr (Rotation Center)](../chunks/pages-2670-2676-0499.md#source-page-2670-part-1) — PDF page 2670
+- [19.5.63 rgb (RGB)](../chunks/pages-2670-2676-0499.md#source-page-2671-part-1) — PDF page 2671
+- [19.5.64 rtn (Runtime Node Trigger Choice)](../chunks/pages-2670-2676-0499.md#source-page-2672-part-1) — PDF page 2672
+- [19.5.65 seq (Sequence Time Node)](../chunks/pages-2670-2676-0499.md#source-page-2673-part-1) — PDF page 2673
+- [19.5.66 set (Set Time Node Behavior)](../chunks/pages-2670-2676-0499.md#source-page-2674-part-1) — PDF page 2674
+- [19.5.67 sldTgt (Slide Target)](../chunks/pages-2670-2676-0499.md#source-page-2675-part-1) — PDF page 2675
+- [19.5.68 snd (Sound)](../chunks/pages-2670-2676-0499.md#source-page-2676-part-1) — PDF page 2676
+- [19.5.69 sndAc (Sound Action)](../chunks/pages-2670-2676-0499.md#source-page-2676-part-1) — PDF page 2676
+- [19.5.70 sndTgt (Sound Target)](../chunks/pages-2677-2684-0500.md#source-page-2677-part-1) — PDF page 2677
+- [19.5.71 split (Split Slide Transition)](../chunks/pages-2677-2684-0500.md#source-page-2678-part-1) — PDF page 2678
+- [19.5.72 spTgt (Shape Target)](../chunks/pages-2677-2684-0500.md#source-page-2679-part-1) — PDF page 2679
+- [19.5.73 stCondLst (Start Conditions List)](../chunks/pages-2677-2684-0500.md#source-page-2680-part-1) — PDF page 2680
+- [19.5.74 strips (Strips Slide Transition)](../chunks/pages-2677-2684-0500.md#source-page-2680-part-1) — PDF page 2680
+- [19.5.75 strVal (String Value)](../chunks/pages-2677-2684-0500.md#source-page-2682-part-1) — PDF page 2682
+- [19.5.76 stSnd (Start Sound Action)](../chunks/pages-2677-2684-0500.md#source-page-2682-part-1) — PDF page 2682
+- [19.5.77 subSp (Subshape)](../chunks/pages-2677-2684-0500.md#source-page-2682-part-1) — PDF page 2682
+- [19.5.78 subTnLst (Sub-TimeNodes List)](../chunks/pages-2677-2684-0500.md#source-page-2683-part-1) — PDF page 2683
+- [19.5.79 tav (Time Animate Value)](../chunks/pages-2677-2684-0500.md#source-page-2684-part-1) — PDF page 2684
+- [19.5.80 tavLst (Time Animated Value List)](../chunks/pages-2685-2689-0501.md#source-page-2688-part-1) — PDF page 2688
+- [19.5.81 tgtEl (Target Element)](../chunks/pages-2685-2689-0501.md#source-page-2689-part-1) — PDF page 2689
+- [19.5.82 tmAbs (Time Absolute)](../chunks/pages-2685-2689-0501.md#source-page-2689-part-1) — PDF page 2689
+- [19.5.83 tmPct (Time Percentage)](../chunks/pages-2690-2697-0502.md#source-page-2690-part-1) — PDF page 2690
+- [19.5.84 tmpl (Template Effects)](../chunks/pages-2690-2697-0502.md#source-page-2691-part-1) — PDF page 2691
+- [19.5.85 tmplLst (Template effects)](../chunks/pages-2690-2697-0502.md#source-page-2691-part-1) — PDF page 2691
+- [19.5.86 tn (Time Node)](../chunks/pages-2690-2697-0502.md#source-page-2692-part-1) — PDF page 2692
+- [19.5.87 tnLst (Time Node List)](../chunks/pages-2690-2697-0502.md#source-page-2693-part-1) — PDF page 2693
+- [19.5.88 to (To)](../chunks/pages-2690-2697-0502.md#source-page-2693-part-1) — PDF page 2693
+- [19.5.89 to (To)](../chunks/pages-2690-2697-0502.md#source-page-2694-part-1) — PDF page 2694
+- [19.5.90 to (To)](../chunks/pages-2690-2697-0502.md#source-page-2694-part-1) — PDF page 2694
+- [19.5.91 txEl (Text Element)](../chunks/pages-2690-2697-0502.md#source-page-2695-part-1) — PDF page 2695
+- [19.5.92 val (Value)](../chunks/pages-2690-2697-0502.md#source-page-2695-part-1) — PDF page 2695
+- [19.5.93 video (Video)](../chunks/pages-2690-2697-0502.md#source-page-2696-part-1) — PDF page 2696
+- [19.5.94 wedge (Wedge Slide Transition)](../chunks/pages-2690-2697-0502.md#source-page-2697-part-1) — PDF page 2697
+- [19.5.95 wheel (Wheel Slide Transition)](../chunks/pages-2690-2697-0502.md#source-page-2697-part-1) — PDF page 2697
+- [19.5.96 wipe (Wipe Slide Transition)](../chunks/pages-2698-2704-0503.md#source-page-2699-part-1) — PDF page 2699
+- [19.5.97 zoom (Zoom Slide Transition)](../chunks/pages-2698-2704-0503.md#source-page-2700-part-1) — PDF page 2700

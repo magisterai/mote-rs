@@ -1,0 +1,114 @@
+# Sequential reading index
+
+Source: [ECMA-376 Part 4: Transitional Migration Features](https://ecma-international.org/wp-content/uploads/ECMA-376-4_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Index](pages.md)
+
+- [pages-1012-1014-0200](chunks/pages-1012-1014-0200.md)
+- [pages-1015-1018-0201](chunks/pages-1015-1018-0201.md)
+- [pages-1019-1022-0202](chunks/pages-1019-1022-0202.md)
+- [pages-1023-1026-0203](chunks/pages-1023-1026-0203.md)
+- [pages-1027-1030-0204](chunks/pages-1027-1030-0204.md)
+- [pages-1031-1034-0205](chunks/pages-1031-1034-0205.md)
+- [pages-1035-1037-0206](chunks/pages-1035-1037-0206.md)
+- [pages-1038-1041-0207](chunks/pages-1038-1041-0207.md) — A.4 PresentationML
+- [pages-1042-1045-0208](chunks/pages-1042-1045-0208.md)
+- [pages-1046-1049-0209](chunks/pages-1046-1049-0209.md)
+- [pages-1050-1053-0210](chunks/pages-1050-1053-0210.md)
+- [pages-1054-1057-0211](chunks/pages-1054-1057-0211.md)
+- [pages-1058-1061-0212](chunks/pages-1058-1061-0212.md)
+- [pages-1062-1065-0213](chunks/pages-1062-1065-0213.md)
+- [pages-1066-1069-0214](chunks/pages-1066-1069-0214.md)
+- [pages-1070-1073-0215](chunks/pages-1070-1073-0215.md) — A.5 DrawingML - Framework; A.5.1 DrawingML - Main
+- [pages-1074-1077-0216](chunks/pages-1074-1077-0216.md)
+- [pages-1078-1082-0217](chunks/pages-1078-1082-0217.md)
+- [pages-1083-1086-0218](chunks/pages-1083-1086-0218.md)
+- [pages-1087-1090-0219](chunks/pages-1087-1090-0219.md)
+- [pages-1091-1094-0220](chunks/pages-1091-1094-0220.md)
+- [pages-1095-1098-0221](chunks/pages-1095-1098-0221.md)
+- [pages-1099-1102-0222](chunks/pages-1099-1102-0222.md)
+- [pages-1103-1106-0223](chunks/pages-1103-1106-0223.md)
+- [pages-1107-1110-0224](chunks/pages-1107-1110-0224.md)
+- [pages-1111-1114-0225](chunks/pages-1111-1114-0225.md)
+- [pages-1115-1118-0226](chunks/pages-1115-1118-0226.md)
+- [pages-1119-1122-0227](chunks/pages-1119-1122-0227.md)
+- [pages-1123-1126-0228](chunks/pages-1123-1126-0228.md)
+- [pages-1127-1130-0229](chunks/pages-1127-1130-0229.md) — A.5.2 DrawingML - Picture; A.5.3 DrawingML - Locked Canvas
+- [pages-1131-1134-0230](chunks/pages-1131-1134-0230.md) — A.5.4 DrawingML - WordprocessingML Drawing
+- [pages-1135-1138-0231](chunks/pages-1135-1138-0231.md) — A.5.5 DrawingML - SpreadsheetML Drawing
+- [pages-1139-1142-0232](chunks/pages-1139-1142-0232.md) — A.6 DrawingML - Components; A.6.1 DrawingML - Charts
+- [pages-1143-1146-0233](chunks/pages-1143-1146-0233.md)
+- [pages-1147-1150-0234](chunks/pages-1147-1150-0234.md)
+- [pages-1151-1153-0235](chunks/pages-1151-1153-0235.md)
+- [pages-1154-1157-0236](chunks/pages-1154-1157-0236.md)
+- [pages-1158-1161-0237](chunks/pages-1158-1161-0237.md)
+- [pages-1162-1164-0238](chunks/pages-1162-1164-0238.md)
+- [pages-1165-1167-0239](chunks/pages-1165-1167-0239.md)
+- [pages-1168-1171-0240](chunks/pages-1168-1171-0240.md) — A.6.2 DrawingML - Chart Drawings; A.6.3 DrawingML - Diagrams
+- [pages-1172-1175-0241](chunks/pages-1172-1175-0241.md)
+- [pages-1176-1179-0242](chunks/pages-1176-1179-0242.md)
+- [pages-1180-1183-0243](chunks/pages-1180-1183-0243.md)
+- [pages-1184-1188-0244](chunks/pages-1184-1188-0244.md)
+- [pages-1189-1193-0245](chunks/pages-1189-1193-0245.md) — A.7 VML; A.7.1 VML
+- [pages-1194-1197-0246](chunks/pages-1194-1197-0246.md)
+- [pages-1198-1201-0247](chunks/pages-1198-1201-0247.md)
+- [pages-1202-1205-0248](chunks/pages-1202-1205-0248.md) — A.7.2 VML - Office Drawing
+- [pages-1206-1208-0249](chunks/pages-1206-1208-0249.md)
+- [pages-1209-1212-0250](chunks/pages-1209-1212-0250.md)
+- [pages-1213-1216-0251](chunks/pages-1213-1216-0251.md) — A.7.3 VML - WordprocessingML Drawing; A.7.4 VML - SpreadsheetML Drawing
+- [pages-1217-1221-0252](chunks/pages-1217-1221-0252.md) — A.7.5 VML - PresentationML Drawing; A.8 Shared MLs
+- [pages-1222-1226-0253](chunks/pages-1222-1226-0253.md)
+- [pages-1227-1230-0254](chunks/pages-1227-1230-0254.md) — A.8.2 Extended Properties; A.8.3 Custom Properties
+- [pages-1231-1235-0255](chunks/pages-1231-1235-0255.md) — A.8.4 Variant Types; A.8.5 Custom XML Data Properties
+- [pages-1236-1239-0256](chunks/pages-1236-1239-0256.md) — A.8.7 Additional Characteristics; A.8.8 Office Document Relationships
+- [pages-1240-1244-0257](chunks/pages-1240-1244-0257.md) — A.9 Custom XML Schema References; Annex B. (informative) Schemas – RELAX NG
+- [pages-1245-1251-0258](chunks/pages-1245-1251-0258.md)
+- [pages-1252-1257-0259](chunks/pages-1252-1257-0259.md)
+- [pages-1258-1263-0260](chunks/pages-1258-1263-0260.md)
+- [pages-1264-1269-0261](chunks/pages-1264-1269-0261.md)
+- [pages-1270-1274-0262](chunks/pages-1270-1274-0262.md)
+- [pages-1275-1279-0263](chunks/pages-1275-1279-0263.md)
+- [pages-1280-1284-0264](chunks/pages-1280-1284-0264.md)
+- [pages-1285-1291-0265](chunks/pages-1285-1291-0265.md) — B.2.1 Part Schemas; B.2.1.1 Comments Part
+- [pages-1292-1298-0266](chunks/pages-1292-1298-0266.md) — B.2.1.9 Mail Merge Recipient Data Part; B.2.1.10 Main Document Part
+- [pages-1299-1305-0267](chunks/pages-1299-1305-0267.md)
+- [pages-1306-1312-0268](chunks/pages-1306-1312-0268.md)
+- [pages-1313-1319-0269](chunks/pages-1313-1319-0269.md)
+- [pages-1320-1326-0270](chunks/pages-1320-1326-0270.md)
+- [pages-1327-1333-0271](chunks/pages-1327-1333-0271.md)
+- [pages-1334-1339-0272](chunks/pages-1334-1339-0272.md)
+- [pages-1340-1347-0273](chunks/pages-1340-1347-0273.md)
+- [pages-1348-1354-0274](chunks/pages-1348-1354-0274.md)
+- [pages-1355-1361-0275](chunks/pages-1355-1361-0275.md)
+- [pages-1362-1368-0276](chunks/pages-1362-1368-0276.md)
+- [pages-1369-1374-0277](chunks/pages-1369-1374-0277.md)
+- [pages-1375-1380-0278](chunks/pages-1375-1380-0278.md)
+- [pages-1381-1387-0279](chunks/pages-1381-1387-0279.md) — B.3.1 Part Schemas; B.3.1.1 Calculation Chain Part
+- [pages-1388-1393-0280](chunks/pages-1388-1393-0280.md) — B.3.1.18 Single Cell Table Definitions Part; B.3.1.19 Styles Part
+- [pages-1394-1399-0281](chunks/pages-1394-1399-0281.md)
+- [pages-1400-1406-0282](chunks/pages-1400-1406-0282.md)
+- [pages-1407-1412-0283](chunks/pages-1407-1412-0283.md) — B.4.1 Part Schemas; B.4.1.1 Comment Authors Part
+- [pages-1413-1419-0284](chunks/pages-1413-1419-0284.md) — B.4.1.2 Comments Part; B.4.1.3 Handout Master Part
+- [pages-1420-1427-0285](chunks/pages-1420-1427-0285.md)
+- [pages-1428-1434-0286](chunks/pages-1428-1434-0286.md)
+- [pages-1435-1441-0287](chunks/pages-1435-1441-0287.md)
+- [pages-1442-1448-0288](chunks/pages-1442-1448-0288.md)
+- [pages-1449-1454-0289](chunks/pages-1449-1454-0289.md)
+- [pages-1455-1460-0290](chunks/pages-1455-1460-0290.md) — B.5.1.1 Part Schemas; B.5.1.1.1 Table Styles Part
+- [pages-1461-1466-0291](chunks/pages-1461-1466-0291.md) — B.5.1.1.2 Theme Part; B.5.1.1.3 Theme Override Part
+- [pages-1467-1472-0292](chunks/pages-1467-1472-0292.md) — B.6 DrawingML - Components; B.6.1 DrawingML - Chart
+- [pages-1473-1478-0293](chunks/pages-1473-1478-0293.md)
+- [pages-1479-1483-0294](chunks/pages-1479-1483-0294.md)
+- [pages-1484-1489-0295](chunks/pages-1484-1489-0295.md) — B.6.1.1 Part Schemas; B.6.1.1.1 Chart Part
+- [pages-1490-1495-0296](chunks/pages-1490-1495-0296.md)
+- [pages-1496-1503-0297](chunks/pages-1496-1503-0297.md) — B.6.3.1 Part Schemas; B.6.3.1.1 Diagram Colors Part
+- [pages-1504-1510-0298](chunks/pages-1504-1510-0298.md) — B.6.3.1.3 Diagram Layout Definitions Part; B.6.3.1.4 Diagram Style Part
+- [pages-1511-1516-0299](chunks/pages-1511-1516-0299.md) — B.7.2 VML - Office Drawing
+- [pages-1517-1522-0300](chunks/pages-1517-1522-0300.md) — B.7.3 VML - Wordprocessing Drawing; B.7.4 VML - Spreadsheet Drawing
+- [pages-1523-1529-0301](chunks/pages-1523-1529-0301.md) — B.7.5 VML - Presentation Drawing; B.7.6 Part Schemas
+- [pages-1530-1536-0302](chunks/pages-1530-1536-0302.md) — B.8.2 Extended Properties; B.8.2.1 Part Schemas
+- [pages-1537-1543-0303](chunks/pages-1537-1543-0303.md) — B.8.6 Bibliography; B.8.6.1 Part Schemas
+- [pages-1544-1549-0304](chunks/pages-1544-1549-0304.md) — Annex C. (informative) Namespace Prefix Mapping in Examples; Annex D. (informative) Differences Between ECMA-376:2016 and ECMA-376:2006
+- [pages-1550-1553-0305](chunks/pages-1550-1553-0305.md) — D.5.2 DrawingML – Chart; D.5.3 DrawingML – Diagrams

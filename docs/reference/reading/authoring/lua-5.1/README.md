@@ -1,0 +1,359 @@
+# Lua 5.1 Reference Manual
+
+Source: [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/manual.html) · 5.1.
+
+[Topic guide](../../../README.md) · [Publisher](https://www.lua.org/manual/5.1/manual.html).
+
+29 reading chunks. Headings, examples, tables, mathematical markup, figures, and source anchors are retained. Publisher logos and navigation images are replaced by text; subsection arrows are omitted from headings.
+
+- [Lua Lua 5.1 Reference Manual](chunks/001-lua-lua-5-1-reference-manual.md)
+  - 1 – Introduction
+  - 2 – The Language
+  - 2.1 – Lexical Conventions
+  - 2.2 – Values and Types
+- [2.2.1 – Coercion](chunks/002-2-2-1-coercion.md)
+  - 2.3 – Variables
+  - 2.4 – Statements
+  - 2.4.1 – Chunks
+  - 2.4.2 – Blocks
+  - 2.4.3 – Assignment
+- [2.4.4 – Control Structures](chunks/003-2-4-4-control-structures.md)
+  - 2.4.5 – For Statement
+  - 2.4.6 – Function Calls as Statements
+  - 2.4.7 – Local Declarations
+  - 2.5 – Expressions
+- [2.5.1 – Arithmetic Operators](chunks/004-2-5-1-arithmetic-operators.md)
+  - 2.5.2 – Relational Operators
+  - 2.5.3 – Logical Operators
+  - 2.5.4 – Concatenation
+  - 2.5.5 – The Length Operator
+  - 2.5.6 – Precedence
+  - 2.5.7 – Table Constructors
+  - 2.5.8 – Function Calls
+- [2.5.9 – Function Definitions](chunks/005-2-5-9-function-definitions.md)
+  - 2.6 – Visibility Rules
+  - 2.7 – Error Handling
+  - 2.8 – Metatables
+- [2.9 – Environments](chunks/006-2-9-environments.md)
+  - 2.10 – Garbage Collection
+  - 2.10.1 – Garbage-Collection Metamethods
+- [2.10.2 – Weak Tables](chunks/007-2-10-2-weak-tables.md)
+  - 2.11 – Coroutines
+  - 3 – The Application Program Interface
+  - 3.1 – The Stack
+- [3.2 – Stack Size](chunks/008-3-2-stack-size.md)
+  - 3.3 – Pseudo-Indices
+  - 3.4 – C Closures
+  - 3.5 – Registry
+  - 3.6 – Error Handling in C
+  - 3.7 – Functions and Types
+  - `lua_Alloc`
+- [`lua_atpanic`](chunks/009-lua-atpanic.md)
+  - `lua_call`
+  - `lua_CFunction`
+  - `lua_checkstack`
+  - `lua_close`
+  - `lua_concat`
+  - `lua_cpcall`
+  - `lua_createtable`
+  - `lua_dump`
+- [`lua_equal`](chunks/010-lua-equal.md)
+  - `lua_error`
+  - `lua_gc`
+  - `lua_getallocf`
+  - `lua_getfenv`
+  - `lua_getfield`
+  - `lua_getglobal`
+  - `lua_getmetatable`
+  - `lua_gettable`
+  - `lua_gettop`
+  - `lua_insert`
+  - `lua_Integer`
+  - `lua_isboolean`
+  - `lua_iscfunction`
+  - `lua_isfunction`
+  - `lua_islightuserdata`
+  - `lua_isnil`
+  - `lua_isnone`
+  - `lua_isnoneornil`
+  - `lua_isnumber`
+  - `lua_isstring`
+- [`lua_istable`](chunks/011-lua-istable.md)
+  - `lua_isthread`
+  - `lua_isuserdata`
+  - `lua_lessthan`
+  - `lua_load`
+  - `lua_newstate`
+  - `lua_newtable`
+  - `lua_newthread`
+  - `lua_newuserdata`
+  - `lua_next`
+  - `lua_Number`
+  - `lua_objlen`
+  - `lua_pcall`
+- [`lua_pop`](chunks/012-lua-pop.md)
+  - `lua_pushboolean`
+  - `lua_pushcclosure`
+  - `lua_pushcfunction`
+  - `lua_pushfstring`
+  - `lua_pushinteger`
+  - `lua_pushlightuserdata`
+  - `lua_pushliteral`
+  - `lua_pushlstring`
+  - `lua_pushnil`
+  - `lua_pushnumber`
+  - `lua_pushstring`
+  - `lua_pushthread`
+  - `lua_pushvalue`
+  - `lua_pushvfstring`
+  - `lua_rawequal`
+  - `lua_rawget`
+  - `lua_rawgeti`
+  - `lua_rawset`
+- [`lua_rawseti`](chunks/013-lua-rawseti.md)
+  - `lua_Reader`
+  - `lua_register`
+  - `lua_remove`
+  - `lua_replace`
+  - `lua_resume`
+  - `lua_setallocf`
+  - `lua_setfenv`
+  - `lua_setfield`
+  - `lua_setglobal`
+  - `lua_setmetatable`
+  - `lua_settable`
+  - `lua_settop`
+  - `lua_State`
+  - `lua_status`
+  - `lua_toboolean`
+- [`lua_tocfunction`](chunks/014-lua-tocfunction.md)
+  - `lua_tointeger`
+  - `lua_tolstring`
+  - `lua_tonumber`
+  - `lua_topointer`
+  - `lua_tostring`
+  - `lua_tothread`
+  - `lua_touserdata`
+  - `lua_type`
+  - `lua_typename`
+  - `lua_Writer`
+  - `lua_xmove`
+  - `lua_yield`
+  - 3.8 – The Debug Interface
+- [`lua_Debug`](chunks/015-lua-debug.md)
+  - `lua_gethook`
+  - `lua_gethookcount`
+  - `lua_gethookmask`
+  - `lua_getinfo`
+  - `lua_getlocal`
+  - `lua_getstack`
+  - `lua_getupvalue`
+- [`lua_Hook`](chunks/016-lua-hook.md)
+  - `lua_sethook`
+  - `lua_setlocal`
+  - `lua_setupvalue`
+  - 4 – The Auxiliary Library
+  - 4.1 – Functions and Types
+  - `luaL_addchar`
+  - `luaL_addlstring`
+  - `luaL_addsize`
+  - `luaL_addstring`
+  - `luaL_addvalue`
+  - `luaL_argcheck`
+- [`luaL_argerror`](chunks/017-lual-argerror.md)
+  - `luaL_Buffer`
+  - `luaL_buffinit`
+  - `luaL_callmeta`
+  - `luaL_checkany`
+  - `luaL_checkint`
+  - `luaL_checkinteger`
+  - `luaL_checklong`
+  - `luaL_checklstring`
+  - `luaL_checknumber`
+  - `luaL_checkoption`
+  - `luaL_checkstack`
+  - `luaL_checkstring`
+  - `luaL_checktype`
+  - `luaL_checkudata`
+  - `luaL_dofile`
+  - `luaL_dostring`
+- [`luaL_error`](chunks/018-lual-error.md)
+  - `luaL_getmetafield`
+  - `luaL_getmetatable`
+  - `luaL_gsub`
+  - `luaL_loadbuffer`
+  - `luaL_loadfile`
+  - `luaL_loadstring`
+  - `luaL_newmetatable`
+  - `luaL_newstate`
+  - `luaL_openlibs`
+  - `luaL_optint`
+  - `luaL_optinteger`
+  - `luaL_optlong`
+  - `luaL_optlstring`
+  - `luaL_optnumber`
+  - `luaL_optstring`
+  - `luaL_prepbuffer`
+- [`luaL_pushresult`](chunks/019-lual-pushresult.md)
+  - `luaL_ref`
+  - `luaL_Reg`
+  - `luaL_register`
+  - `luaL_typename`
+  - `luaL_typerror`
+  - `luaL_unref`
+  - `luaL_where`
+  - 5 – Standard Libraries
+  - 5.1 – Basic Functions
+  - `assert (v \[, message\])`
+- [`collectgarbage (\[opt \[, arg\]\])`](chunks/020-collectgarbage-opt-arg.md)
+  - `dofile (\[filename\])`
+  - `error (message \[, level\])`
+  - `_G`
+  - `getfenv (\[f\])`
+  - `getmetatable (object)`
+  - `ipairs (t)`
+  - `load (func \[, chunkname\])`
+  - `loadfile (\[filename\])`
+  - `loadstring (string \[, chunkname\])`
+  - `next (table \[, index\])`
+  - `pairs (t)`
+  - `pcall (f, arg1, ···)`
+  - `print (···)`
+- [`rawequal (v1, v2)`](chunks/021-rawequal-v1-v2.md)
+  - `rawget (table, index)`
+  - `rawset (table, index, value)`
+  - `select (index, ···)`
+  - `setfenv (f, table)`
+  - `setmetatable (table, metatable)`
+  - `tonumber (e \[, base\])`
+  - `tostring (e)`
+  - `type (v)`
+  - `unpack (list \[, i \[, j\]\])`
+  - `_VERSION`
+  - `xpcall (f, err)`
+  - 5.2 – Coroutine Manipulation
+  - `coroutine.create (f)`
+  - `coroutine.resume (co \[, val1, ···\])`
+  - `coroutine.running ()`
+  - `coroutine.status (co)`
+  - `coroutine.wrap (f)`
+  - `coroutine.yield (···)`
+  - 5.3 – Modules
+- [`module (name \[, ···\])`](chunks/022-module-name.md)
+  - `require (modname)`
+  - `package.cpath`
+  - `package.loaded`
+  - `package.loaders`
+  - `package.loadlib (libname, funcname)`
+- [`package.path`](chunks/023-package-path.md)
+  - `package.preload`
+  - `package.seeall (module)`
+  - 5.4 – String Manipulation
+  - `string.byte (s \[, i \[, j\]\])`
+  - `string.char (···)`
+  - `string.dump (function)`
+  - `string.find (s, pattern \[, init \[, plain\]\])`
+  - `string.format (formatstring, ···)`
+  - `string.gmatch (s, pattern)`
+  - `string.gsub (s, pattern, repl \[, n\])`
+- [`string.len (s)`](chunks/024-string-len-s.md)
+  - `string.lower (s)`
+  - `string.match (s, pattern \[, init\])`
+  - `string.rep (s, n)`
+  - `string.reverse (s)`
+  - `string.sub (s, i \[, j\])`
+  - `string.upper (s)`
+  - 5.4.1 – Patterns
+  - Character Class:
+  - Pattern Item:
+  - Pattern:
+  - Captures:
+  - 5.5 – Table Manipulation
+  - `table.concat (table \[, sep \[, i \[, j\]\]\])`
+- [`table.insert (table, \[pos,\] value)`](chunks/025-table-insert-table-pos-value.md)
+  - `table.maxn (table)`
+  - `table.remove (table \[, pos\])`
+  - `table.sort (table \[, comp\])`
+  - 5.6 – Mathematical Functions
+  - `math.abs (x)`
+  - `math.acos (x)`
+  - `math.asin (x)`
+  - `math.atan (x)`
+  - `math.atan2 (y, x)`
+  - `math.ceil (x)`
+  - `math.cos (x)`
+  - `math.cosh (x)`
+  - `math.deg (x)`
+  - `math.exp (x)`
+  - `math.floor (x)`
+  - `math.fmod (x, y)`
+  - `math.frexp (x)`
+  - `math.huge`
+  - `math.ldexp (m, e)`
+  - `math.log (x)`
+  - `math.log10 (x)`
+  - `math.max (x, ···)`
+  - `math.min (x, ···)`
+  - `math.modf (x)`
+  - `math.pi`
+  - `math.pow (x, y)`
+  - `math.rad (x)`
+  - `math.random (\[m \[, n\]\])`
+  - `math.randomseed (x)`
+  - `math.sin (x)`
+  - `math.sinh (x)`
+  - `math.sqrt (x)`
+  - `math.tan (x)`
+  - `math.tanh (x)`
+  - 5.7 – Input and Output Facilities
+  - `io.close (\[file\])`
+- [`io.flush ()`](chunks/026-io-flush.md)
+  - `io.input (\[file\])`
+  - `io.lines (\[filename\])`
+  - `io.open (filename \[, mode\])`
+  - `io.output (\[file\])`
+  - `io.popen (prog \[, mode\])`
+  - `io.read (···)`
+  - `io.tmpfile ()`
+  - `io.type (obj)`
+  - `io.write (···)`
+  - `file:close ()`
+  - `file:flush ()`
+  - `file:lines ()`
+  - `file:read (···)`
+  - `file:seek (\[whence\] \[, offset\])`
+  - `file:setvbuf (mode \[, size\])`
+  - `file:write (···)`
+  - 5.8 – Operating System Facilities
+  - `os.clock ()`
+- [`os.date (\[format \[, time\]\])`](chunks/027-os-date-format-time.md)
+  - `os.difftime (t2, t1)`
+  - `os.execute (\[command\])`
+  - `os.exit (\[code\])`
+  - `os.getenv (varname)`
+  - `os.remove (filename)`
+  - `os.rename (oldname, newname)`
+  - `os.setlocale (locale \[, category\])`
+  - `os.time (\[table\])`
+  - `os.tmpname ()`
+  - 5.9 – The Debug Library
+  - `debug.debug ()`
+  - `debug.getfenv (o)`
+  - `debug.gethook (\[thread\])`
+  - `debug.getinfo (\[thread,\] function \[, what\])`
+- [`debug.getlocal (\[thread,\] level, local)`](chunks/028-debug-getlocal-thread-level-local.md)
+  - `debug.getmetatable (object)`
+  - `debug.getregistry ()`
+  - `debug.getupvalue (func, up)`
+  - `debug.setfenv (object, table)`
+  - `debug.sethook (\[thread,\] hook, mask \[, count\])`
+  - `debug.setlocal (\[thread,\] level, local, value)`
+  - `debug.setmetatable (object, table)`
+  - `debug.setupvalue (func, up, value)`
+  - `debug.traceback (\[thread,\] \[message \[, level\]\])`
+  - 6 – Lua Stand-alone
+- [7 – Incompatibilities with the Previous Version](chunks/029-7-incompatibilities-with-the-previous-version.md)
+  - 7.1 – Changes in the Language
+  - 7.2 – Changes in the Libraries
+  - 7.3 – Changes in the API
+  - 8 – The Complete Syntax of Lua

@@ -1,0 +1,105 @@
+# 18.10.1 Pivot Tables
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Start reading](../chunks/pages-1830-1835-0350.md#source-page-1830-part-1) (PDF page 1830).
+
+- [18.10.1.1 autoSortScope (AutoSort Scope)](../chunks/pages-1830-1835-0350.md#source-page-1830-part-1) — PDF page 1830
+- [18.10.1.2 b (Boolean)](../chunks/pages-1830-1835-0350.md#source-page-1830-part-1) — PDF page 1830
+- [18.10.1.3 cacheField (PivotCache Field)](../chunks/pages-1830-1835-0350.md#source-page-1831-part-1) — PDF page 1831
+- [18.10.1.4 cacheFields (PivotCache Fields)](../chunks/pages-1830-1835-0350.md#source-page-1834-part-1) — PDF page 1834
+- [18.10.1.5 cacheHierarchies (PivotCache Hierarchies)](../chunks/pages-1830-1835-0350.md#source-page-1835-part-1) — PDF page 1835
+- [18.10.1.6 cacheHierarchy (PivotCache Hierarchy)](../chunks/pages-1830-1835-0350.md#source-page-1835-part-1) — PDF page 1835
+- [18.10.1.7 cacheSource (PivotCache Source Description)](../chunks/pages-1836-1840-0351.md#source-page-1840-part-1) — PDF page 1840
+- [18.10.1.8 calculatedItem (Calculated Item)](../chunks/pages-1841-1846-0352.md#source-page-1841-part-1) — PDF page 1841
+- [18.10.1.9 calculatedItems (Calculated Items)](../chunks/pages-1841-1846-0352.md#source-page-1842-part-1) — PDF page 1842
+- [18.10.1.10 calculatedMember (Calculated Member)](../chunks/pages-1841-1846-0352.md#source-page-1842-part-1) — PDF page 1842
+- [18.10.1.11 calculatedMembers (Calculated Members)](../chunks/pages-1841-1846-0352.md#source-page-1843-part-1) — PDF page 1843
+- [18.10.1.12 chartFormat (PivotChart Format)](../chunks/pages-1841-1846-0352.md#source-page-1844-part-1) — PDF page 1844
+- [18.10.1.13 chartFormats (PivotChart Formats)](../chunks/pages-1841-1846-0352.md#source-page-1845-part-1) — PDF page 1845
+- [18.10.1.14 colFields (Column Fields)](../chunks/pages-1847-1852-0353.md#source-page-1847-part-1) — PDF page 1847
+- [18.10.1.15 colHierarchiesUsage (Column OLAP Hierarchy References)](../chunks/pages-1847-1852-0353.md#source-page-1847-part-1) — PDF page 1847
+- [18.10.1.16 colHierarchyUsage (Column OLAP Hierarchies)](../chunks/pages-1847-1852-0353.md#source-page-1848-part-1) — PDF page 1848
+- [18.10.1.17 colItems (Column Items)](../chunks/pages-1847-1852-0353.md#source-page-1848-part-1) — PDF page 1848
+- [18.10.1.18 conditionalFormat (Conditional Formatting)](../chunks/pages-1847-1852-0353.md#source-page-1850-part-1) — PDF page 1850
+- [18.10.1.19 conditionalFormats (Conditional Formats)](../chunks/pages-1847-1852-0353.md#source-page-1850-part-1) — PDF page 1850
+- [18.10.1.20 consolidation (Consolidation Source)](../chunks/pages-1847-1852-0353.md#source-page-1851-part-1) — PDF page 1851
+- [18.10.1.21 d (Date Time)](../chunks/pages-1847-1852-0353.md#source-page-1852-part-1) — PDF page 1852
+- [18.10.1.22 dataField (Data Field Item)](../chunks/pages-1847-1852-0353.md#source-page-1852-part-1) — PDF page 1852
+- [18.10.1.23 dataFields (Data Fields)](../chunks/pages-1853-1858-0354.md#source-page-1854-part-1) — PDF page 1854
+- [18.10.1.24 dimension (OLAP Dimension)](../chunks/pages-1853-1858-0354.md#source-page-1855-part-1) — PDF page 1855
+- [18.10.1.25 dimensions (OLAP Dimensions)](../chunks/pages-1853-1858-0354.md#source-page-1855-part-1) — PDF page 1855
+- [18.10.1.26 discretePr (Discrete Grouping Properties)](../chunks/pages-1853-1858-0354.md#source-page-1856-part-1) — PDF page 1856
+- [18.10.1.27 e (Error Value)](../chunks/pages-1853-1858-0354.md#source-page-1858-part-1) — PDF page 1858
+- [18.10.1.28 entries (Entries)](../chunks/pages-1859-1864-0355.md#source-page-1860-part-1) — PDF page 1860
+- [18.10.1.29 field (Field)](../chunks/pages-1859-1864-0355.md#source-page-1861-part-1) — PDF page 1861
+- [18.10.1.30 fieldGroup (Field Group Properties)](../chunks/pages-1859-1864-0355.md#source-page-1861-part-1) — PDF page 1861
+- [18.10.1.31 fieldsUsage (Fields Usage)](../chunks/pages-1859-1864-0355.md#source-page-1863-part-1) — PDF page 1863
+- [18.10.1.32 fieldUsage (PivotCache Field Id)](../chunks/pages-1859-1864-0355.md#source-page-1863-part-1) — PDF page 1863
+- [18.10.1.33 filter (PivotTable Advanced Filter)](../chunks/pages-1859-1864-0355.md#source-page-1864-part-1) — PDF page 1864
+- [18.10.1.34 filters (Filters)](../chunks/pages-1865-1870-0356.md#source-page-1865-part-1) — PDF page 1865
+- [18.10.1.35 format (PivotTable Format)](../chunks/pages-1865-1870-0356.md#source-page-1866-part-1) — PDF page 1866
+- [18.10.1.36 formats (PivotTable Formats)](../chunks/pages-1865-1870-0356.md#source-page-1867-part-1) — PDF page 1867
+- [18.10.1.37 group (OLAP Group)](../chunks/pages-1865-1870-0356.md#source-page-1867-part-1) — PDF page 1867
+- [18.10.1.38 groupItems (OLAP Group Items)](../chunks/pages-1865-1870-0356.md#source-page-1868-part-1) — PDF page 1868
+- [18.10.1.39 groupLevel (OLAP Grouping Levels)](../chunks/pages-1865-1870-0356.md#source-page-1869-part-1) — PDF page 1869
+- [18.10.1.40 groupLevels (OLAP Grouping Levels)](../chunks/pages-1871-1876-0357.md#source-page-1871-part-1) — PDF page 1871
+- [18.10.1.41 groupMember (OLAP Group Member)](../chunks/pages-1871-1876-0357.md#source-page-1872-part-1) — PDF page 1872
+- [18.10.1.42 groupMembers (OLAP Group Members)](../chunks/pages-1871-1876-0357.md#source-page-1872-part-1) — PDF page 1872
+- [18.10.1.43 groups (OLAP Level Groups)](../chunks/pages-1871-1876-0357.md#source-page-1873-part-1) — PDF page 1873
+- [18.10.1.44 i (Row Items)](../chunks/pages-1871-1876-0357.md#source-page-1873-part-1) — PDF page 1873
+- [18.10.1.45 item (PivotTable Field Item)](../chunks/pages-1871-1876-0357.md#source-page-1874-part-1) — PDF page 1874
+- [18.10.1.46 items (Field Items)](../chunks/pages-1877-1882-0358.md#source-page-1877-part-1) — PDF page 1877
+- [18.10.1.47 kpi (OLAP KPI)](../chunks/pages-1877-1882-0358.md#source-page-1878-part-1) — PDF page 1878
+- [18.10.1.48 kpis (OLAP KPIs)](../chunks/pages-1877-1882-0358.md#source-page-1879-part-1) — PDF page 1879
+- [18.10.1.49 location (PivotTable Location)](../chunks/pages-1877-1882-0358.md#source-page-1880-part-1) — PDF page 1880
+- [18.10.1.50 m (No Value)](../chunks/pages-1877-1882-0358.md#source-page-1881-part-1) — PDF page 1881
+- [18.10.1.51 map (OLAP Measure Group)](../chunks/pages-1883-1888-0359.md#source-page-1883-part-1) — PDF page 1883
+- [18.10.1.52 maps (OLAP Measure Group)](../chunks/pages-1883-1888-0359.md#source-page-1884-part-1) — PDF page 1884
+- [18.10.1.53 measureGroup (OLAP Measure Group)](../chunks/pages-1883-1888-0359.md#source-page-1884-part-1) — PDF page 1884
+- [18.10.1.54 measureGroups (OLAP Measure Groups)](../chunks/pages-1883-1888-0359.md#source-page-1885-part-1) — PDF page 1885
+- [18.10.1.55 member (Member)](../chunks/pages-1883-1888-0359.md#source-page-1886-part-1) — PDF page 1886
+- [18.10.1.56 members (Members)](../chunks/pages-1883-1888-0359.md#source-page-1886-part-1) — PDF page 1886
+- [18.10.1.57 mp (OLAP Member Property)](../chunks/pages-1883-1888-0359.md#source-page-1886-part-1) — PDF page 1886
+- [18.10.1.58 mpMap (Member Properties Map)](../chunks/pages-1883-1888-0359.md#source-page-1888-part-1) — PDF page 1888
+- [18.10.1.59 mps (OLAP Member Properties)](../chunks/pages-1889-1894-0360.md#source-page-1889-part-1) — PDF page 1889
+- [18.10.1.60 n (Numeric)](../chunks/pages-1889-1894-0360.md#source-page-1889-part-1) — PDF page 1889
+- [18.10.1.61 page (Page Items)](../chunks/pages-1889-1894-0360.md#source-page-1891-part-1) — PDF page 1891
+- [18.10.1.62 pageField (Page Field)](../chunks/pages-1889-1894-0360.md#source-page-1892-part-1) — PDF page 1892
+- [18.10.1.63 pageFields (Page Field Items)](../chunks/pages-1889-1894-0360.md#source-page-1893-part-1) — PDF page 1893
+- [18.10.1.64 pageItem (Page Item)](../chunks/pages-1889-1894-0360.md#source-page-1893-part-1) — PDF page 1893
+- [18.10.1.65 pages (Page Item Values)](../chunks/pages-1889-1894-0360.md#source-page-1893-part-1) — PDF page 1893
+- [18.10.1.66 pivotAreas (Pivot Areas)](../chunks/pages-1889-1894-0360.md#source-page-1894-part-1) — PDF page 1894
+- [18.10.1.67 pivotCacheDefinition (PivotCache Definition)](../chunks/pages-1889-1894-0360.md#source-page-1894-part-1) — PDF page 1894
+- [18.10.1.68 pivotCacheRecords (PivotCache Records)](../chunks/pages-1895-1900-0361.md#source-page-1898-part-1) — PDF page 1898
+- [18.10.1.69 pivotField (PivotTable Field)](../chunks/pages-1895-1900-0361.md#source-page-1899-part-1) — PDF page 1899
+- [18.10.1.70 pivotFields (PivotTable Fields)](../chunks/pages-1906-1910-0363.md#source-page-1910-part-1) — PDF page 1910
+- [18.10.1.71 pivotHierarchies (PivotTable OLAP Hierarchies)](../chunks/pages-1911-1916-0364.md#source-page-1911-part-1) — PDF page 1911
+- [18.10.1.72 pivotHierarchy (OLAP Hierarchy)](../chunks/pages-1911-1916-0364.md#source-page-1912-part-1) — PDF page 1912
+- [18.10.1.73 pivotTableDefinition (PivotTable Definition)](../chunks/pages-1911-1916-0364.md#source-page-1914-part-1) — PDF page 1914
+- [18.10.1.74 pivotTableStyleInfo (PivotTable Style)](../chunks/pages-1942-1946-0369.md#source-page-1944-part-1) — PDF page 1944
+- [18.10.1.75 query (Query)](../chunks/pages-1942-1946-0369.md#source-page-1946-part-1) — PDF page 1946
+- [18.10.1.76 queryCache (OLAP Query Cache)](../chunks/pages-1942-1946-0369.md#source-page-1946-part-1) — PDF page 1946
+- [18.10.1.77 r (PivotCache Record)](../chunks/pages-1942-1946-0369.md#source-page-1946-part-1) — PDF page 1946
+- [18.10.1.78 rangePr (Range Grouping Properties)](../chunks/pages-1947-1953-0370.md#source-page-1947-part-1) — PDF page 1947
+- [18.10.1.79 rangeSet (Range Set)](../chunks/pages-1947-1953-0370.md#source-page-1948-part-1) — PDF page 1948
+- [18.10.1.80 rangeSets (Range Sets)](../chunks/pages-1947-1953-0370.md#source-page-1951-part-1) — PDF page 1951
+- [18.10.1.81 rowFields (Row Fields)](../chunks/pages-1947-1953-0370.md#source-page-1952-part-1) — PDF page 1952
+- [18.10.1.82 rowHierarchiesUsage (Row OLAP Hierarchy References)](../chunks/pages-1947-1953-0370.md#source-page-1953-part-1) — PDF page 1953
+- [18.10.1.83 rowHierarchyUsage (Row OLAP Hierarchies)](../chunks/pages-1947-1953-0370.md#source-page-1953-part-1) — PDF page 1953
+- [18.10.1.84 rowItems (Row Items)](../chunks/pages-1947-1953-0370.md#source-page-1953-part-1) — PDF page 1953
+- [18.10.1.85 s (Character Value)](../chunks/pages-1954-1958-0371.md#source-page-1955-part-1) — PDF page 1955
+- [18.10.1.86 serverFormat (Server Format)](../chunks/pages-1954-1958-0371.md#source-page-1957-part-1) — PDF page 1957
+- [18.10.1.87 serverFormats (Server Formats)](../chunks/pages-1954-1958-0371.md#source-page-1957-part-1) — PDF page 1957
+- [18.10.1.88 set (OLAP Set)](../chunks/pages-1954-1958-0371.md#source-page-1957-part-1) — PDF page 1957
+- [18.10.1.89 sets (Sets)](../chunks/pages-1954-1958-0371.md#source-page-1958-part-1) — PDF page 1958
+- [18.10.1.90 sharedItems (Shared Items)](../chunks/pages-1959-1964-0372.md#source-page-1959-part-1) — PDF page 1959
+- [18.10.1.91 sortByTuple (Sort By Tuple)](../chunks/pages-1959-1964-0372.md#source-page-1962-part-1) — PDF page 1962
+- [18.10.1.92 tpl (Tuple)](../chunks/pages-1959-1964-0372.md#source-page-1963-part-1) — PDF page 1963
+- [18.10.1.93 tpls (Tuples)](../chunks/pages-1959-1964-0372.md#source-page-1963-part-1) — PDF page 1963
+- [18.10.1.94 tupleCache (Tuple Cache)](../chunks/pages-1959-1964-0372.md#source-page-1963-part-1) — PDF page 1963
+- [18.10.1.95 worksheetSource (Worksheet PivotCache Source)](../chunks/pages-1959-1964-0372.md#source-page-1963-part-1) — PDF page 1963
+- [18.10.1.96 x (Member Property Index)](../chunks/pages-1959-1964-0372.md#source-page-1964-part-1) — PDF page 1964
+- [18.10.1.97 x (Shared Items Index)](../chunks/pages-1959-1964-0372.md#source-page-1964-part-1) — PDF page 1964

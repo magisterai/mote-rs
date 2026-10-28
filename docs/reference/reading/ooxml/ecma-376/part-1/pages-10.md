@@ -1,0 +1,129 @@
+# Sequential reading index
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Index](pages.md)
+
+- [pages-3961-3964-0744](chunks/pages-3961-3964-0744.md)
+- [pages-3965-3968-0745](chunks/pages-3965-3968-0745.md)
+- [pages-3969-3972-0746](chunks/pages-3969-3972-0746.md) — A.3 PresentationML
+- [pages-3973-3976-0747](chunks/pages-3973-3976-0747.md)
+- [pages-3977-3980-0748](chunks/pages-3977-3980-0748.md)
+- [pages-3981-3984-0749](chunks/pages-3981-3984-0749.md)
+- [pages-3985-3988-0750](chunks/pages-3985-3988-0750.md)
+- [pages-3989-3992-0751](chunks/pages-3989-3992-0751.md)
+- [pages-3993-3996-0752](chunks/pages-3993-3996-0752.md)
+- [pages-3997-4000-0753](chunks/pages-3997-4000-0753.md) — A.4 DrawingML - Framework; A.4.1 DrawingML – Main
+- [pages-4001-4004-0754](chunks/pages-4001-4004-0754.md)
+- [pages-4005-4008-0755](chunks/pages-4005-4008-0755.md)
+- [pages-4009-4012-0756](chunks/pages-4009-4012-0756.md)
+- [pages-4013-4016-0757](chunks/pages-4013-4016-0757.md)
+- [pages-4017-4020-0758](chunks/pages-4017-4020-0758.md)
+- [pages-4021-4024-0759](chunks/pages-4021-4024-0759.md)
+- [pages-4025-4028-0760](chunks/pages-4025-4028-0760.md)
+- [pages-4029-4032-0761](chunks/pages-4029-4032-0761.md)
+- [pages-4033-4036-0762](chunks/pages-4033-4036-0762.md)
+- [pages-4037-4040-0763](chunks/pages-4037-4040-0763.md)
+- [pages-4041-4044-0764](chunks/pages-4041-4044-0764.md)
+- [pages-4045-4047-0765](chunks/pages-4045-4047-0765.md)
+- [pages-4048-4051-0766](chunks/pages-4048-4051-0766.md)
+- [pages-4052-4055-0767](chunks/pages-4052-4055-0767.md)
+- [pages-4056-4059-0768](chunks/pages-4056-4059-0768.md) — A.4.2 DrawingML – Picture; A.4.3 DrawingML - Locked Canvas
+- [pages-4060-4063-0769](chunks/pages-4060-4063-0769.md)
+- [pages-4064-4067-0770](chunks/pages-4064-4067-0770.md) — A.4.5 DrawingML - SpreadsheetML Drawing
+- [pages-4068-4071-0771](chunks/pages-4068-4071-0771.md) — A.5 DrawingML - Components; A.5.1 DrawingML – Charts
+- [pages-4072-4075-0772](chunks/pages-4072-4075-0772.md)
+- [pages-4076-4079-0773](chunks/pages-4076-4079-0773.md)
+- [pages-4080-4082-0774](chunks/pages-4080-4082-0774.md)
+- [pages-4083-4086-0775](chunks/pages-4083-4086-0775.md)
+- [pages-4087-4090-0776](chunks/pages-4087-4090-0776.md)
+- [pages-4091-4093-0777](chunks/pages-4091-4093-0777.md)
+- [pages-4094-4097-0778](chunks/pages-4094-4097-0778.md) — A.5.2 DrawingML - Chart Drawings
+- [pages-4098-4101-0779](chunks/pages-4098-4101-0779.md) — A.5.3 DrawingML – Diagrams
+- [pages-4102-4105-0780](chunks/pages-4102-4105-0780.md)
+- [pages-4106-4109-0781](chunks/pages-4106-4109-0781.md)
+- [pages-4110-4114-0782](chunks/pages-4110-4114-0782.md)
+- [pages-4115-4119-0783](chunks/pages-4115-4119-0783.md) — A.6 Shared MLs; A.6.1 Math
+- [pages-4120-4124-0784](chunks/pages-4120-4124-0784.md)
+- [pages-4125-4129-0785](chunks/pages-4125-4129-0785.md)
+- [pages-4130-4133-0786](chunks/pages-4130-4133-0786.md) — A.6.2 Extended Properties; A.6.3 Custom Properties
+- [pages-4134-4138-0787](chunks/pages-4134-4138-0787.md) — A.6.5 Custom XML Data Properties; A.6.6 Bibliography
+- [pages-4139-4143-0788](chunks/pages-4139-4143-0788.md) — A.6.7 Additional Characteristics; A.6.8 Office Document Relationships
+- [pages-4144-4150-0789](chunks/pages-4144-4150-0789.md) — Annex B. (informative) Schemas – RELAX NG; B.1 WordprocessingML
+- [pages-4151-4157-0790](chunks/pages-4151-4157-0790.md)
+- [pages-4158-4163-0791](chunks/pages-4158-4163-0791.md)
+- [pages-4164-4169-0792](chunks/pages-4164-4169-0792.md)
+- [pages-4170-4175-0793](chunks/pages-4170-4175-0793.md)
+- [pages-4176-4180-0794](chunks/pages-4176-4180-0794.md)
+- [pages-4181-4186-0795](chunks/pages-4181-4186-0795.md)
+- [pages-4187-4193-0796](chunks/pages-4187-4193-0796.md) — B.1.1 Part Schemas; B.1.1.1 Comments Part
+- [pages-4194-4200-0797](chunks/pages-4194-4200-0797.md)
+- [pages-4201-4207-0798](chunks/pages-4201-4207-0798.md)
+- [pages-4208-4214-0799](chunks/pages-4208-4214-0799.md)
+- [pages-4215-4221-0800](chunks/pages-4215-4221-0800.md)
+- [pages-4222-4228-0801](chunks/pages-4222-4228-0801.md)
+- [pages-4229-4234-0802](chunks/pages-4229-4234-0802.md)
+- [pages-4235-4240-0803](chunks/pages-4235-4240-0803.md)
+- [pages-4241-4247-0804](chunks/pages-4241-4247-0804.md)
+- [pages-4248-4254-0805](chunks/pages-4248-4254-0805.md)
+- [pages-4255-4261-0806](chunks/pages-4255-4261-0806.md)
+- [pages-4262-4267-0807](chunks/pages-4262-4267-0807.md)
+- [pages-4268-4273-0808](chunks/pages-4268-4273-0808.md)
+- [pages-4274-4280-0809](chunks/pages-4274-4280-0809.md) — B.2.1 Part Schemas; B.2.1.1 Calculation Chain Part
+- [pages-4281-4287-0810](chunks/pages-4281-4287-0810.md) — B.2.1.4 Connections Part; B.2.1.5 Custom XML Mappings Part
+- [pages-4288-4292-0811](chunks/pages-4288-4292-0811.md)
+- [pages-4293-4299-0812](chunks/pages-4293-4299-0812.md)
+- [pages-4300-4306-0813](chunks/pages-4300-4306-0813.md)
+- [pages-4307-4313-0814](chunks/pages-4307-4313-0814.md) — B.3.1 Part Schemas; B.3.1.1 Comment Authors Part
+- [pages-4314-4321-0815](chunks/pages-4314-4321-0815.md)
+- [pages-4322-4328-0816](chunks/pages-4322-4328-0816.md)
+- [pages-4329-4335-0817](chunks/pages-4329-4335-0817.md)
+- [pages-4336-4342-0818](chunks/pages-4336-4342-0818.md)
+- [pages-4343-4348-0819](chunks/pages-4343-4348-0819.md)
+- [pages-4349-4354-0820](chunks/pages-4349-4354-0820.md)
+- [pages-4355-4360-0821](chunks/pages-4355-4360-0821.md) — B.4.1.1 Part Schemas; B.4.1.1.1 Table Styles Part
+- [pages-4361-4366-0822](chunks/pages-4361-4366-0822.md) — B.4.5 DrawingML - Spreadsheet Drawing; B.5 DrawingML - Components
+- [pages-4367-4372-0823](chunks/pages-4367-4372-0823.md)
+- [pages-4373-4378-0824](chunks/pages-4373-4378-0824.md)
+- [pages-4379-4384-0825](chunks/pages-4379-4384-0825.md) — B.5.1.1 Part Schemas; B.5.1.1.1 Chart Part
+- [pages-4385-4390-0826](chunks/pages-4385-4390-0826.md)
+- [pages-4391-4398-0827](chunks/pages-4391-4398-0827.md) — B.5.3.1 Part Schemas; B.5.3.1.1 Diagram Colors Part
+- [pages-4399-4404-0828](chunks/pages-4399-4404-0828.md) — B.5.3.1.2 Diagram Data Part; B.5.3.1.3 Diagram Layout Definitions Part
+- [pages-4405-4411-0829](chunks/pages-4405-4411-0829.md) — B.6.2 Extended Properties; B.6.2.1 Part Schemas
+- [pages-4412-4418-0830](chunks/pages-4412-4418-0830.md) — B.6.6.1 Part Schemas; B.6.6.1.1 Bibliography Part
+- [pages-4419-4426-0831](chunks/pages-4419-4426-0831.md) — Annex C. (informative) Additional Syntax Constraints; Annex D. (informative) Namespace Prefix Mapping in Examples
+- [pages-4427-4434-0832](chunks/pages-4427-4434-0832.md)
+- [pages-4435-4442-0833](chunks/pages-4435-4442-0833.md)
+- [pages-4443-4450-0834](chunks/pages-4443-4450-0834.md)
+- [pages-4451-4458-0835](chunks/pages-4451-4458-0835.md)
+- [pages-4459-4466-0836](chunks/pages-4459-4466-0836.md)
+- [pages-4467-4474-0837](chunks/pages-4467-4474-0837.md)
+- [pages-4475-4482-0838](chunks/pages-4475-4482-0838.md) — G.2 Built-in Cell Styles
+- [pages-4483-4490-0839](chunks/pages-4483-4490-0839.md) — G.3 Built-in PivotTable AutoFormats
+- [pages-4491-4498-0840](chunks/pages-4491-4498-0840.md)
+- [pages-4499-4506-0841](chunks/pages-4499-4506-0841.md) — Annex H. (informative) Example Predefined DrawingML Shape and Text Geometries; Annex I. (informative) Bidirectional Support
+- [pages-4507-4512-0842](chunks/pages-4507-4512-0842.md) — I.4 SpreadsheetML; I.5 PresentationML
+- [pages-4513-4516-0843](chunks/pages-4513-4516-0843.md) — Annex J. (informative) Accessibility Best Practices; J.1 The Value of Creating an Accessible Office Open XML Implementation
+- [pages-4517-4520-0844](chunks/pages-4517-4520-0844.md) — J.3 Best Practices for Developers; J.3.1 Development Principles for Developing Highly Accessible Implementation
+- [pages-4521-4528-0845](chunks/pages-4521-4528-0845.md) — J.4.2 Understanding the Function of a Document; J.4.3 Understanding the Length of a Document
+- [pages-4529-4536-0846](chunks/pages-4529-4536-0846.md) — J.4.7 Hierarchical Labels in Content Controls; J.5 Best Practices for Customers of Office Open XML Implementations
+- [pages-4537-4544-0847](chunks/pages-4537-4544-0847.md) — J.5.4 Specifying Language to Enable Accessibility Tools; J.5.5 Using Styles when Possible
+- [pages-4545-4549-0848](chunks/pages-4545-4549-0848.md) — Annex K. (informative) Root Element Locations; K.1 Grouped by Part Name
+- [pages-4550-4556-0849](chunks/pages-4550-4556-0849.md) — Annex L. (informative) Primer; L.1 Introduction to WordprocessingML
+- [pages-4557-4564-0850](chunks/pages-4557-4564-0850.md) — L.1.4.3 Run Content; L.1.4.3.1 Text
+- [pages-4565-4570-0851](chunks/pages-4565-4570-0851.md) — L.1.5.5 Table Layout; L.1.5.6 Fixed Width Tables
+- [pages-4571-4576-0852](chunks/pages-4571-4576-0852.md) — L.1.6.2 Custom XML Markup; L.1.6.3 Structured Document Tags
+- [pages-4577-4582-0853](chunks/pages-4577-4582-0853.md) — L.1.6.3.2 Structured Document Tag Content; L.1.6.3.3 XML Mapping
+- [pages-4583-4589-0854](chunks/pages-4583-4589-0854.md) — L.1.8.5 Linked Styles; L.1.8.6 Numbering Styles
+- [pages-4590-4595-0855](chunks/pages-4590-4595-0855.md) — L.1.8.10 Style Application; L.1.8.11 Latent Styles
+- [pages-4596-4602-0856](chunks/pages-4596-4602-0856.md) — L.1.9.7 Theme Fonts; L.1.10 Numbering
+- [pages-4603-4610-0857](chunks/pages-4603-4610-0857.md) — L.1.10.6 The Complete Story; L.1.10.7 Numbering Styles
+- [pages-4611-4618-0858](chunks/pages-4611-4618-0858.md) — L.1.11.4 Multiple Sections; L.1.11.5 Empty Header or Footer
+- [pages-4619-4626-0859](chunks/pages-4619-4626-0859.md) — L.1.12.5 Footnote and Endnote Reference; L.1.13 Glossary Document
+- [pages-4627-4632-0860](chunks/pages-4627-4632-0860.md) — L.1.14.5 Comments; L.1.14.6 Comments Part
+- [pages-4633-4638-0861](chunks/pages-4633-4638-0861.md) — L.1.15.2 Connecting Documents to an External Data Source; L.1.15.3 Populating Merged Documents with External Data
+- [pages-4639-4646-0862](chunks/pages-4639-4646-0862.md) — L.1.17.2 Hyperlinks; L.1.18 Miscellaneous Topics
+- [pages-4647-4654-0863](chunks/pages-4647-4654-0863.md) — L.2.1.4 fileVersion; L.2.1.5 workbookView
+- [pages-4655-4662-0864](chunks/pages-4655-4662-0864.md) — L.2.2.6 Sheet Properties; L.2.2.7 sheetData Cell Table

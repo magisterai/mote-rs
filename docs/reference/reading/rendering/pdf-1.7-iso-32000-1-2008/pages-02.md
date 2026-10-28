@@ -1,0 +1,103 @@
+# Sequential reading index
+
+Source: [Document management — Portable document format — Part 1: PDF 1.7](https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf) · ISO 32000-1:2008, Adobe publication.
+
+[Document index](README.md) · [Topic guide](../../../README.md) · [Publisher](https://pdfa.org/resource/iso-32000-1/).
+
+[Index](pages.md)
+
+- [pages-0296-0298-0095](chunks/pages-0296-0298-0095.md) — 9.9 Embedded Font Programs
+- [pages-0299-0301-0096](chunks/pages-0299-0301-0096.md) — 9.10 Extraction of Text Content; 9.10.1 General
+- [pages-0302-0305-0097](chunks/pages-0302-0305-0097.md) — 10 Rendering; 10.1 General
+- [pages-0306-0308-0098](chunks/pages-0306-0308-0098.md) — 10.3.2 Conversion between DeviceGray and DeviceRGB; 10.3.3 Conversion between DeviceGray and DeviceCMYK
+- [pages-0309-0311-0099](chunks/pages-0309-0311-0099.md) — 10.5 Halftones; 10.5.1 General
+- [pages-0312-0315-0100](chunks/pages-0312-0315-0100.md) — 10.5.4 Threshold Arrays
+- [pages-0316-0318-0101](chunks/pages-0316-0318-0101.md) — 10.5.5 Halftone Dictionaries; 10.5.5.1 General
+- [pages-0319-0321-0102](chunks/pages-0319-0321-0102.md) — 10.5.5.4 Type 10 Halftones; 10.5.5.5 Type 16 Halftones
+- [pages-0322-0324-0103](chunks/pages-0322-0324-0103.md) — 10.5.5.6 Type 5 Halftones; 10.6 Scan Conversion Details
+- [pages-0325-0328-0104](chunks/pages-0325-0328-0104.md) — 10.6.3 Smoothness Tolerance; 10.6.4 Scan Conversion Rules
+- [pages-0329-0331-0105](chunks/pages-0329-0331-0105.md) — 11.3 Basic Compositing Computations; 11.3.1 General
+- [pages-0332-0335-0106](chunks/pages-0332-0335-0106.md) — 11.3.5 Blend Mode
+- [pages-0336-0339-0107](chunks/pages-0336-0339-0107.md) — 11.3.6 Interpretation of Alpha; 11.3.7 Shape and Opacity Computations
+- [pages-0340-0343-0108](chunks/pages-0340-0343-0108.md) — 11.4 Transparency Groups; 11.4.1 General
+- [pages-0344-0346-0109](chunks/pages-0344-0346-0109.md) — 11.4.5 Isolated Groups; 11.4.6 Knockout Groups
+- [pages-0347-0350-0110](chunks/pages-0347-0350-0110.md) — 11.4.7 Page Group; 11.4.8 Summary of Group Compositing Computations
+- [pages-0351-0354-0111](chunks/pages-0351-0354-0111.md) — 11.5.3 Deriving a Soft Mask from Group Luminosity; 11.6 Specifying Transparency in PDF
+- [pages-0355-0357-0112](chunks/pages-0355-0357-0112.md) — 11.6.5.3 Soft-Mask Images; 11.6.6 Transparency Group XObjects
+- [pages-0358-0359-0113](chunks/pages-0358-0359-0113.md)
+- [pages-0360-0362-0114](chunks/pages-0360-0362-0114.md) — 11.6.7 Patterns and Transparency; 11.7 Colour Space and Rendering Issues
+- [pages-0363-0364-0115](chunks/pages-0363-0364-0115.md) — 11.7.4 Overprinting and Transparency; 11.7.4.1 General
+- [pages-0365-0367-0116](chunks/pages-0365-0367-0116.md) — 11.7.4.4 Special Path-Painting Considerations; 11.7.4.5 Summary of Overprinting Behaviour
+- [pages-0368-0370-0117](chunks/pages-0368-0370-0117.md) — 11.7.5 Rendering Parameters and Transparency; 11.7.5.1 General
+- [pages-0371-0373-0118](chunks/pages-0371-0373-0118.md) — 12.3 Document-Level Navigation; 12.3.1 General
+- [pages-0374-0375-0119](chunks/pages-0374-0375-0119.md) — 12.3.2.2 Explicit Destinations; 12.3.2.3 Named Destinations
+- [pages-0376-0378-0120](chunks/pages-0376-0378-0120.md) — 12.3.4 Thumbnail Images; 12.3.5 Collections
+- [pages-0379-0380-0121](chunks/pages-0379-0380-0121.md)
+- [pages-0381-0383-0122](chunks/pages-0381-0383-0122.md) — 12.4 Page-Level Navigation; 12.4.1 General
+- [pages-0384-0387-0123](chunks/pages-0384-0387-0123.md) — 12.4.4 Presentations; 12.4.4.1 General
+- [pages-0388-0390-0124](chunks/pages-0388-0390-0124.md) — 12.4.4.2 Sub-page Navigation; 12.5 Annotations
+- [pages-0391-0393-0125](chunks/pages-0391-0393-0125.md) — 12.5.3 Annotation Flags
+- [pages-0394-0396-0126](chunks/pages-0394-0396-0126.md) — 12.5.4 Border Styles; 12.5.5 Appearance Streams
+- [pages-0397-0399-0127](chunks/pages-0397-0399-0127.md) — 12.5.6 Annotation Types; 12.5.6.1 General
+- [pages-0400-0402-0128](chunks/pages-0400-0402-0128.md) — 12.5.6.3 Annotation States; 12.5.6.4 Text Annotations
+- [pages-0403-0405-0129](chunks/pages-0403-0405-0129.md) — 12.5.6.6 Free Text Annotations; 12.5.6.7 Line Annotations
+- [pages-0406-0409-0130](chunks/pages-0406-0409-0130.md) — 12.5.6.8 Square and Circle Annotations
+- [pages-0410-0412-0131](chunks/pages-0410-0412-0131.md) — 12.5.6.9 Polygon and Polyline Annotations; 12.5.6.10 Text Markup Annotations
+- [pages-0413-0415-0132](chunks/pages-0413-0415-0132.md) — 12.5.6.13 Ink Annotations; 12.5.6.14 Pop-up Annotations
+- [pages-0416-0418-0133](chunks/pages-0416-0418-0133.md) — 12.5.6.19 Widget Annotations; 12.5.6.20 Printer’s Mark Annotations
+- [pages-0419-0421-0134](chunks/pages-0419-0421-0134.md) — 12.5.6.23 Redaction Annotations
+- [pages-0422-0424-0135](chunks/pages-0422-0424-0135.md) — 12.6 Actions; 12.6.1 General
+- [pages-0425-0427-0136](chunks/pages-0425-0427-0136.md) — 12.6.4 Action Types; 12.6.4.1 General
+- [pages-0428-0430-0137](chunks/pages-0428-0430-0137.md) — 12.6.4.5 Launch Actions
+- [pages-0431-0433-0138](chunks/pages-0431-0433-0138.md) — 12.6.4.6 Thread Actions; 12.6.4.7 URI Actions
+- [pages-0434-0436-0139](chunks/pages-0434-0436-0139.md) — 12.6.4.10 Hide Actions; 12.6.4.11 Named Actions
+- [pages-0437-0439-0140](chunks/pages-0437-0439-0140.md) — 12.6.4.14 Transition Actions; 12.6.4.15 Go-To-3D-View Actions
+- [pages-0440-0442-0141](chunks/pages-0440-0442-0141.md) — 12.7.3 Field Dictionaries; 12.7.3.1 General
+- [pages-0443-0445-0142](chunks/pages-0443-0445-0142.md) — 12.7.3.4 Rich Text Strings
+- [pages-0446-0448-0143](chunks/pages-0446-0448-0143.md) — 12.7.4 Field Types; 12.7.4.1 General
+- [pages-0449-0451-0144](chunks/pages-0449-0451-0144.md) — 12.7.4.2.4 Radio Buttons; 12.7.4.3 Text Fields
+- [pages-0452-0454-0145](chunks/pages-0452-0454-0145.md) — 12.7.4.4 Choice Fields; 12.7.4.5 Signature Fields
+- [pages-0455-0457-0146](chunks/pages-0455-0457-0146.md)
+- [pages-0458-0460-0147](chunks/pages-0458-0460-0147.md) — 12.7.5 Form Actions; 12.7.5.1 General
+- [pages-0461-0463-0148](chunks/pages-0461-0463-0148.md) — 12.7.5.3 Reset-Form Action
+- [pages-0464-0467-0149](chunks/pages-0464-0467-0149.md) — 12.7.5.4 Import-Data Action; 12.7.6 Named Pages
+- [pages-0468-0469-0150](chunks/pages-0468-0469-0150.md) — 12.7.7.3.2 FDF Fields
+- [pages-0470-0472-0151](chunks/pages-0470-0472-0151.md) — 12.7.7.3.3 FDF Pages; 12.7.7.3.4 FDF Annotation Dictionaries
+- [pages-0473-0475-0152](chunks/pages-0473-0475-0152.md) — 12.8 Digital Signatures; 12.8.1 General
+- [pages-0476-0477-0153](chunks/pages-0476-0477-0153.md)
+- [pages-0478-0480-0154](chunks/pages-0478-0480-0154.md) — 12.8.2 Transform Methods; 12.8.2.1 General
+- [pages-0481-0483-0155](chunks/pages-0481-0483-0155.md) — 12.8.2.4 FieldMDP; 12.8.3 Signature Interoperability
+- [pages-0484-0486-0156](chunks/pages-0484-0486-0156.md) — 12.8.4 Permissions; 12.8.5 Legal Content Attestations
+- [pages-0487-0489-0157](chunks/pages-0487-0489-0157.md) — 12.9 Measurement Properties
+- [pages-0490-0492-0158](chunks/pages-0490-0492-0158.md) — 12.10 Document Requirements; 12.10.1 General
+- [pages-0493-0496-0159](chunks/pages-0493-0496-0159.md) — 12.10.2 Requirement Handlers; 13 Multimedia Features
+- [pages-0497-0499-0160](chunks/pages-0497-0499-0160.md) — 13.2.3.2 Media Renditions; 13.2.3.3 Selector Renditions
+- [pages-0500-0502-0161](chunks/pages-0500-0502-0161.md) — 13.2.4 Media Clip Objects; 13.2.4.1 General
+- [pages-0503-0505-0162](chunks/pages-0503-0505-0162.md) — 13.2.5 Media Play Parameters
+- [pages-0506-0508-0163](chunks/pages-0506-0508-0163.md) — 13.2.6 Media Screen Parameters; 13.2.6.1 General
+- [pages-0509-0511-0164](chunks/pages-0509-0511-0164.md) — 13.2.6.2 Media Offset Dictionary; 13.2.6.3 Timespan Dictionary
+- [pages-0512-0515-0165](chunks/pages-0512-0515-0165.md) — 13.2.7.4 Software Identifier Dictionary; 13.2.7.4.1 General
+- [pages-0516-0518-0166](chunks/pages-0516-0518-0166.md) — 13.5 Alternate Presentations
+- [pages-0519-0521-0167](chunks/pages-0519-0521-0167.md) — 13.6 3D Artwork; 13.6.1 General
+- [pages-0522-0524-0168](chunks/pages-0522-0524-0168.md) — 13.6.3 3D Streams; 13.6.3.1 General
+- [pages-0525-0527-0169](chunks/pages-0525-0527-0169.md) — 13.6.3.2 3D Animation Style Dictionaries; 13.6.3.3 3D Reference Dictionaries
+- [pages-0528-0529-0170](chunks/pages-0528-0529-0170.md) — 13.6.4 3D Views; 13.6.4.1 General
+- [pages-0530-0532-0171](chunks/pages-0530-0532-0171.md) — 13.6.4.2 Projection Dictionaries
+- [pages-0533-0536-0172](chunks/pages-0533-0536-0172.md) — 13.6.4.3 3D Background Dictionaries; 13.6.4.4 3D Render Mode Dictionaries
+- [pages-0537-0539-0173](chunks/pages-0537-0539-0173.md) — 13.6.4.5 3D Lighting Scheme Dictionaries; 13.6.4.6 3D Cross Section Dictionaries
+- [pages-0540-0545-0174](chunks/pages-0540-0545-0174.md) — 13.6.4.7 3D Node Dictionaries
+- [pages-0546-0550-0175](chunks/pages-0546-0550-0175.md) — 13.6.5 Coordinate Systems for 3D; 13.6.6 3D Markup
+- [pages-0551-0556-0176](chunks/pages-0551-0556-0176.md) — 14 Document Interchange; 14.1 General
+- [pages-0557-0559-0177](chunks/pages-0557-0559-0177.md) — 14.3.3 Document Information Dictionary; 14.4 File Identifiers
+- [pages-0560-0562-0178](chunks/pages-0560-0562-0178.md) — 14.6 Marked Content; 14.6.1 General
+- [pages-0563-0565-0179](chunks/pages-0563-0565-0179.md) — 14.7 Logical Structure; 14.7.1 General
+- [pages-0566-0568-0180](chunks/pages-0566-0568-0180.md) — 14.7.3 Structure Types; 14.7.4 Structure Content
+- [pages-0569-0571-0181](chunks/pages-0569-0571-0181.md)
+- [pages-0572-0574-0182](chunks/pages-0572-0574-0182.md) — 14.7.4.3 PDF Objects as Content Items; 14.7.4.4 Finding Structure Elements from Content Items
+- [pages-0575-0577-0183](chunks/pages-0575-0577-0183.md) — 14.7.5 Structure Attributes; 14.7.5.1 General
+- [pages-0578-0580-0184](chunks/pages-0578-0580-0184.md) — 14.7.6 Example of Logical Structure
+- [pages-0581-0583-0185](chunks/pages-0581-0583-0185.md) — 14.8 Tagged PDF; 14.8.1 General
+- [pages-0584-0586-0186](chunks/pages-0584-0586-0186.md) — 14.8.2.2.3 Incidental Artifacts; 14.8.2.3 Page Content Order
+- [pages-0587-0589-0187](chunks/pages-0587-0589-0187.md) — 14.8.2.4 Extraction of Character Properties; 14.8.2.4.1 General
+- [pages-0590-0592-0188](chunks/pages-0590-0592-0188.md) — 14.8.4 Standard Structure Types; 14.8.4.1 General
+- [pages-0593-0595-0189](chunks/pages-0593-0595-0189.md) — 14.8.4.3.2 Paragraphlike Elements; 14.8.4.3.3 List Elements

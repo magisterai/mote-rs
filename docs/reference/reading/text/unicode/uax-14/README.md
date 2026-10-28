@@ -1,0 +1,112 @@
+# UAX #14: Unicode Line Breaking Algorithm
+
+Source: [UAX #14: Unicode Line Breaking Algorithm](https://www.unicode.org/reports/tr14/tr14-55.html) · Unicode 17.0.0, revision 55.
+
+[Topic guide](../../../../README.md) · [Publisher](https://www.unicode.org/versions/Unicode17.0.0/).
+
+22 reading chunks. Headings, examples, tables, mathematical markup, figures, and source anchors are retained. Publisher logos and navigation images are replaced by text; subsection arrows are omitted from headings.
+
+- [Unicode® Standard Annex #14](chunks/001-unicode-standard-annex-14.md)
+  - Unicode Line Breaking Algorithm
+  - Summary
+  - Status
+  - Contents
+  - 1 Overview and Scope
+- [2 Definitions](chunks/002-2-definitions.md)
+- [Continuation 3](chunks/003-continuation-3.md)
+- [3 Introduction](chunks/004-3-introduction.md)
+  - 3.1 Determining Line Break Opportunities
+  - 4 Conformance
+- [4.1 Conformance Requirements](chunks/005-4-1-conformance-requirements.md)
+  - 5 Line Breaking Properties
+  - Data File
+  - Future Updates
+- [5.1 Description of Line Breaking Properties](chunks/006-5-1-description-of-line-breaking-properties.md)
+  - ** AI**: Ambiguous (Alphabetic or Ideograph)
+  - ** AK**: Aksara
+- [** AL**: Ordinary Alphabetic and Symbol Characters](chunks/007-al-ordinary-alphabetic-and-symbol-characters.md)
+  - ** AP**: Aksara Pre-Base
+  - ** AS**: Aksara Start
+  - ** BA**: Break After
+  - ***Breaking Spaces***
+  - Tabs
+  - Conditional Hyphens
+  - Visible Word Dividers
+  - Historic Word Separators
+  - Dandas
+  - Tibetan
+  - Other Terminating Punctuation
+  - Letters Attached to Orthographic Syllables
+- [** BB**: Break Before](chunks/008-bb-break-before.md)
+  - Dictionary Use
+  - Tibetan and Phags-Pa Head Letters
+  - Mongolian
+  - ** B2**: Break Opportunity Before and After
+  - ** BK**: Mandatory Break (Non-tailorable)
+  - Newline Function (NLF)
+- [** CB**: Contingent Break Opportunity](chunks/009-cb-contingent-break-opportunity.md)
+  - ** CJ**: Conditional Japanese Starter
+  - ** CL**: Close Punctuation
+  - ** CM**: Combining Mark (Non-tailorable)
+  - Combining Characters
+  - Control and Formatting Characters
+- [** CP**: Closing Parenthesis](chunks/010-cp-closing-parenthesis.md)
+  - ** CR**: Carriage Return (Non-tailorable)
+  - ** EB**: Emoji Base
+  - ** EM**: Emoji Modifier
+  - ** EX**: Exclamation/Interrogation
+  - ** GL**: Non-breaking (“Glue”) (Non-tailorable)
+- [** H2**: Hangul LV Syllable](chunks/011-h2-hangul-lv-syllable.md)
+  - ** H3**: Hangul LVT Syllable
+  - ** HH**: Unambiguous Hyphen
+  - ** HY**: Hyphen
+  - ** ID**: Ideographic
+  - Korean
+  - Symbols
+- [** HL**: Hebrew Letter](chunks/012-hl-hebrew-letter.md)
+  - ** IN**: Inseparable Characters
+  - Leaders
+  - ** IS**: Infix Numeric Separator
+  - JL: Hangul L Jamo
+  - JT: Hangul T Jamo
+  - ** JV**: Hangul V Jamo
+  - ** LF**: Line Feed (Non-tailorable)
+  - NL: Next Line (Non-tailorable)
+- [** NS**: Nonstarters](chunks/013-ns-nonstarters.md)
+  - ** NU:** Numeric
+  - ** OP**: Open Punctuation
+  - ** PO:** Postfix Numeric
+  - ** PR**: Prefix Numeric
+- [** QU:** Quotation](chunks/014-qu-quotation.md)
+  - ** RI**: Regional Indicator
+  - ** SA**: Complex-Context Dependent (South East Asian)
+  - ** SG:** Surrogate (Non-tailorable)
+  - ** SP**: Space (Non-tailorable)
+- [** SY**: Symbols Allowing Break After](chunks/015-sy-symbols-allowing-break-after.md)
+  - ** VF**: Virama Final
+  - ** VI**: Virama
+  - WJ: Word Joiner (Non-tailorable)
+  - ** XX**: Unknown
+- [** ZW**: Zero Width Space (Non-tailorable)](chunks/016-zw-zero-width-space-non-tailorable.md)
+  - ** ZWJ**: Zero Width Joiner (Non-tailorable)
+  - 5.2 Dictionary Usage
+  - 5.3 Use of Hyphen
+  - 5.4 Use of Soft Hyphen
+- [5.5 Use of Double Hyphen](chunks/017-5-5-use-of-double-hyphen.md)
+  - 5.6 Tibetan Line Breaking
+  - 5.7 Word Separator Characters
+  - 6 Line Breaking Algorithm
+- [6.1 Non-tailorable Line Breaking Rules](chunks/018-6-1-non-tailorable-line-breaking-rules.md)
+- [6.2 Tailorable Line Breaking Rules](chunks/019-6-2-tailorable-line-breaking-rules.md)
+- [7 Deleted](chunks/020-7-deleted.md)
+  - 8 Customization
+  - 8.1 Types of Tailoring
+  - 8.2 Examples of Customization
+- [9 Implementation Notes](chunks/021-9-implementation-notes.md)
+  - 9.1 Combining Marks in Regular Expression-Based Implementations
+  - 9.2 Legacy Support for Space Character as Base for Combining Marks
+  - 10 Testing
+- [11 History](chunks/022-11-history.md)
+  - References
+  - Acknowledgments
+  - Modifications

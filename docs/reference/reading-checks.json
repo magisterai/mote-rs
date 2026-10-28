@@ -1,0 +1,33 @@
+{
+  "format_version": 2,
+  "checked_on": "2026-10-27",
+  "checks": {
+    "original_files_verified": 313,
+    "reading_files_verified": 4010,
+    "text_slices_verified": 11093,
+    "pdf_pages_verified": 10893,
+    "html_code_examples_verified": 3239,
+    "documents": 58,
+    "reading_chunks": 2743,
+    "html_documents": 34,
+    "pdf_documents": 15,
+    "text_documents": 9,
+    "reading_bytes": 39609627,
+    "largest_markdown_bytes": 47379,
+    "median_markdown_bytes": 12991,
+    "markdown_files_over_32_kib": 2,
+    "asset_hashes_verified": 10950,
+    "pdf_page_images_verified": 10893,
+    "html_illustration_occurrences_verified": 56,
+    "svg_dependency_links_verified": 20,
+    "local_targets_verified": 55247,
+    "html_article_text_nodes_verified": 73623,
+    "native_files_retained_and_verified": 240,
+    "original_document_files_removed": 73,
+    "pdf_page_image_pixel_roundtrips_verified": 10893,
+    "html_source_anchors_verified": 6719,
+    "decorative_assets_omitted": 9
+  },
+  "scope": "Coverage and integrity of all 58 collected publications, rechecked after decoration and navigation cleanup. Text-node checks normalize markup, punctuation, entities, and whitespace; exact code and PDF/TXT checks are separate. All prior HTML source anchors remain present. Every PDF page image was decoded and compared with rendered pixels during creation; asset hashes were rechecked after cleanup. Visual inspection was representative. Removed source containers were checked using temporary input backups outside the repository.",
+  "errors": []
+}

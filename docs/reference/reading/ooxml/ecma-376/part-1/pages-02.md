@@ -1,0 +1,77 @@
+# Sequential reading index
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Index](pages.md)
+
+- [pages-0448-0453-0087](chunks/pages-0448-0453-0087.md) — 17.4.54 tblLook (Table Style Conditional Formatting Settings Exception); 17.4.55 tblLook (Table Style Conditional Formatting Settings)
+- [pages-0454-0458-0088](chunks/pages-0454-0458-0088.md) — 17.4.58 tblPr (Previous Table Properties)
+- [pages-0459-0465-0089](chunks/pages-0459-0465-0089.md) — 17.4.59 tblPr (Table Properties); 17.4.60 tblPrEx (Table-Level Property Exceptions)
+- [pages-0466-0472-0090](chunks/pages-0466-0472-0090.md) — 17.4.64 tblW (Preferred Table Width Exception); 17.4.65 tc (Table Cell)
+- [pages-0473-0479-0091](chunks/pages-0473-0479-0091.md) — 17.4.69 tcPr (Table Cell Properties); 17.4.70 tcPr (Previous Table Cell Properties)
+- [pages-0480-0485-0092](chunks/pages-0480-0485-0092.md) — 17.4.76 top (Table Top Border); 17.4.77 top (Table Cell Top Margin Exception)
+- [pages-0486-0492-0093](chunks/pages-0486-0492-0093.md) — 17.4.81 trPr (Table Row Properties); 17.4.82 trPr (Previous Table Row Properties)
+- [pages-0493-0498-0094](chunks/pages-0493-0498-0094.md) — 17.4.87 Table Measurement (CT_TblWidth); 17.5 Custom Markup
+- [pages-0499-0504-0095](chunks/pages-0499-0504-0095.md) — 17.5.1.3 customXml (Inline-Level Custom XML Element); 17.5.1.4 customXml (Cell-Level Custom XML Element)
+- [pages-0505-0510-0096](chunks/pages-0505-0510-0096.md) — 17.5.1.7 customXmlPr (Custom XML Element Properties); 17.5.1.8 placeholder (Custom XML Element Placeholder Text)
+- [pages-0511-0515-0097](chunks/pages-0511-0515-0097.md) — 17.5.2.1 alias (Friendly Name); 17.5.2.2 bibliography (Bibliography Structured Document Tag)
+- [pages-0516-0520-0098](chunks/pages-0516-0520-0098.md) — 17.5.2.7 date (Date Structured Document Tag); 17.5.2.8 dateFormat (Date Display Mask)
+- [pages-0521-0526-0099](chunks/pages-0521-0526-0099.md) — 17.5.2.9 docPart (Document Part Reference); 17.5.2.10 docPartCategory (Document Part Category Filter)
+- [pages-0527-0532-0100](chunks/pages-0527-0532-0100.md) — 17.5.2.16 equation (Equation Structured Document Tag); 17.5.2.17 group (Group Structured Document Tag)
+- [pages-0533-0537-0101](chunks/pages-0533-0537-0101.md) — 17.5.2.22 listItem (Drop-Down List Item); 17.5.2.23 lock (Locking Setting)
+- [pages-0538-0545-0102](chunks/pages-0538-0545-0102.md) — 17.5.2.24 picture (Picture Structured Document Tag); 17.5.2.25 placeholder (Structured Document Tag Placeholder Text)
+- [pages-0546-0552-0103](chunks/pages-0546-0552-0103.md) — 17.5.2.34 sdtContent (Block-Level Structured Document Tag Content); 17.5.2.35 sdtContent (Row-Level Structured Document Tag Content)
+- [pages-0553-0558-0104](chunks/pages-0553-0558-0104.md) — 17.5.2.42 tag (Programmatic Tag); 17.5.2.43 temporary (Remove Structured Document Tag When Contents Are Edited)
+- [pages-0559-0562-0105](chunks/pages-0559-0562-0105.md)
+- [pages-0563-0567-0106](chunks/pages-0563-0567-0106.md) — 17.6.3 col (Single Column Definition)
+- [pages-0568-0574-0107](chunks/pages-0568-0574-0107.md) — 17.6.4 cols (Column Definitions); 17.6.5 docGrid (Document Grid)
+- [pages-0575-0579-0108](chunks/pages-0575-0579-0108.md) — 17.6.6 formProt (Only Allow Editing of Form Fields); 17.6.7 left (Left Border)
+- [pages-0580-0584-0109](chunks/pages-0580-0584-0109.md) — 17.6.8 lnNumType (Line Numbering Settings)
+- [pages-0585-0589-0110](chunks/pages-0585-0589-0110.md) — 17.6.9 paperSrc (Paper Source Information); 17.6.10 pgBorders (Page Borders)
+- [pages-0590-0593-0111](chunks/pages-0590-0593-0111.md) — 17.6.12 pgNumType (Page Numbering Settings)
+- [pages-0594-0598-0112](chunks/pages-0594-0598-0112.md) — 17.6.13 pgSz (Page Size); 17.6.14 printerSettings (Reference to Printer Settings Data)
+- [pages-0599-0602-0113](chunks/pages-0599-0602-0113.md)
+- [pages-0603-0607-0114](chunks/pages-0603-0607-0114.md) — 17.6.16 rtlGutter (Gutter on Right Side of Page); 17.6.17 sectPr (Document Final Section Properties)
+- [pages-0608-0613-0115](chunks/pages-0608-0613-0115.md) — 17.6.18 sectPr (Section Properties); 17.6.19 sectPr (Previous Section Properties)
+- [pages-0614-0617-0116](chunks/pages-0614-0617-0116.md)
+- [pages-0618-0622-0117](chunks/pages-0618-0622-0117.md) — 17.6.22 type (Section Type); 17.6.23 vAlign (Vertical Text Alignment on Page)
+- [pages-0623-0627-0118](chunks/pages-0623-0627-0118.md) — 17.7 Styles; 17.7.1 Style Inheritance
+- [pages-0628-0634-0119](chunks/pages-0628-0634-0119.md) — 17.7.4.1 aliases (Alternate Style Names); 17.7.4.2 autoRedefine (Automatically Merge User Formatting Into Style Definition)
+- [pages-0635-0638-0120](chunks/pages-0635-0638-0120.md) — 17.7.4.6 link (Linked Style Reference)
+- [pages-0639-0643-0121](chunks/pages-0639-0643-0121.md) — 17.7.4.7 locked (Style Cannot Be Applied); 17.7.4.8 lsdException (Latent Style Exception)
+- [pages-0644-0648-0122](chunks/pages-0644-0648-0122.md) — 17.7.4.10 next (Style For Next Paragraph); 17.7.4.11 personal (E-Mail Message Text Style)
+- [pages-0649-0653-0123](chunks/pages-0649-0653-0123.md) — 17.7.4.16 semiHidden (Hide Style From Main User Interface); 17.7.4.17 style (Style Definition)
+- [pages-0654-0658-0124](chunks/pages-0654-0658-0124.md) — 17.7.4.18 styles (Style Definitions); 17.7.4.19 uiPriority (Optional User Interface Sorting Order)
+- [pages-0659-0665-0125](chunks/pages-0659-0665-0125.md) — 17.7.5.3 pPrDefault (Default Paragraph Properties); 17.7.5.4 rPr (Run Properties)
+- [pages-0666-0672-0126](chunks/pages-0666-0672-0126.md) — 17.7.6.3 tblPr (Table Style Conditional Formatting Table Properties); 17.7.6.4 tblPr (Style Table Properties)
+- [pages-0673-0679-0127](chunks/pages-0673-0679-0127.md) — 17.7.6.11 trPr (Style Table Row Properties); 17.7.7 Numbering Styles
+- [pages-0680-0684-0128](chunks/pages-0680-0684-0128.md) — 17.8.1 Font Embedding; 17.8.2 Font Substitution
+- [pages-0685-0688-0129](chunks/pages-0685-0688-0129.md) — 17.8.3.4 embedBoldItalic (Bold Italic Font Style Embedding); 17.8.3.5 embedItalic (Italic Font Style Embedding)
+- [pages-0689-0693-0130](chunks/pages-0689-0693-0130.md) — 17.8.3.6 embedRegular (Regular Font Style Embedding); 17.8.3.7 embedSystemFonts (Embed Common System Fonts)
+- [pages-0694-0699-0131](chunks/pages-0694-0699-0131.md) — 17.8.3.11 fonts (Font Table Root Element); 17.8.3.12 notTrueType (Not a TrueType outline Font)
+- [pages-0700-0706-0132](chunks/pages-0700-0706-0132.md) — 17.9 Numbering; 17.9.1 abstractNum (Abstract Numbering Definition)
+- [pages-0707-0712-0133](chunks/pages-0707-0712-0133.md) — 17.9.4 isLgl (Display All Levels Using Arabic Numerals); 17.9.5 lvl (Numbering Level Override Definition)
+- [pages-0713-0718-0134](chunks/pages-0713-0718-0134.md) — 17.9.7 lvlJc (Justification); 17.9.8 lvlOverride (Numbering Level Definition Override)
+- [pages-0719-0724-0135](chunks/pages-0719-0724-0135.md) — 17.9.11 lvlText (Numbering Level Text); 17.9.12 multiLevelType (Abstract Numbering Definition Type)
+- [pages-0725-0730-0136](chunks/pages-0725-0730-0136.md) — 17.9.15 num (Numbering Definition Instance); 17.9.16 numbering (Numbering Definitions)
+- [pages-0731-0736-0137](chunks/pages-0731-0736-0137.md) — 17.9.20 numPicBullet (Picture Numbering Symbol Definition); 17.9.21 numStyleLink (Numbering Style Reference)
+- [pages-0737-0742-0138](chunks/pages-0737-0742-0138.md) — 17.9.25 start (Starting Value); 17.9.26 startOverride (Numbering Level Starting Value Override)
+- [pages-0743-0748-0139](chunks/pages-0743-0748-0139.md) — 17.9.29 tmpl (Numbering Template Code); 17.10 Headers and Footers
+- [pages-0749-0756-0140](chunks/pages-0749-0756-0140.md) — 17.10.4 hdr (Header); 17.10.5 headerReference (Header Reference)
+- [pages-0757-0764-0141](chunks/pages-0757-0764-0141.md) — 17.11.1 continuationSeparator (Continuation Separator Mark); 17.11.2 endnote (Endnote Content)
+- [pages-0765-0771-0142](chunks/pages-0765-0771-0142.md) — 17.11.7 endnoteReference (Endnote Reference); 17.11.8 endnotes (Document Endnotes)
+- [pages-0772-0778-0143](chunks/pages-0772-0778-0143.md) — 17.11.11 footnotePr (Section-Wide Footnote Properties); 17.11.12 footnotePr (Document-Wide Footnote Properties)
+- [pages-0779-0786-0144](chunks/pages-0779-0786-0144.md) — 17.11.16 noEndnote (Suppress Endnotes In Document); 17.11.17 numFmt (Endnote Numbering Format)
+- [pages-0787-0794-0145](chunks/pages-0787-0794-0145.md) — 17.11.22 pos (Endnote Placement); 17.11.23 separator (Footnote/Endnote Separator Mark)
+- [pages-0795-0801-0146](chunks/pages-0795-0801-0146.md) — 17.12.5 docPart (Glossary Document Entry); 17.12.6 docPartBody (Contents of Glossary Document Entry)
+- [pages-0802-0807-0147](chunks/pages-0802-0807-0147.md) — 17.12.13 name (Entry Name); 17.12.14 style (Associated Paragraph Style Name)
+- [pages-0808-0814-0148](chunks/pages-0808-0814-0148.md) — 17.13.2 "Cross Structure" Annotations; 17.13.3 Property Annotations
+- [pages-0815-0819-0149](chunks/pages-0815-0819-0149.md) — 17.13.4.3 commentRangeEnd (Comment Anchor Range End); 17.13.4.4 commentRangeStart (Comment Anchor Range Start)
+- [pages-0820-0826-0150](chunks/pages-0820-0826-0150.md) — 17.13.4.6 comments (Comments Collection); 17.13.5 Revisions
+- [pages-0827-0832-0151](chunks/pages-0827-0832-0151.md) — 17.13.5.3 cellMerge (Vertically Merged/Split Table Cells); 17.13.5.4 customXmlDelRangeEnd (Custom XML Markup Deletion End)
+- [pages-0833-0838-0152](chunks/pages-0833-0838-0152.md) — 17.13.5.5 customXmlDelRangeStart (Custom XML Markup Deletion Start); 17.13.5.6 customXmlInsRangeEnd (Custom XML Markup Insertion End)
+- [pages-0839-0844-0153](chunks/pages-0839-0844-0153.md) — 17.13.5.8 customXmlMoveFromRangeEnd (Custom XML Markup Move Source End); 17.13.5.9 customXmlMoveFromRangeStart (Custom XML Markup Move Source Start)
+- [pages-0845-0850-0154](chunks/pages-0845-0850-0154.md) — 17.13.5.10 customXmlMoveToRangeEnd (Custom XML Markup Move Destination Location End); 17.13.5.11 customXmlMoveToRangeStart (Custom XML Markup Move Destination Location Start)
+- [pages-0851-0856-0155](chunks/pages-0851-0856-0155.md) — 17.13.5.12 del (Deleted Table Row); 17.13.5.13 del (Deleted Math Control Character)

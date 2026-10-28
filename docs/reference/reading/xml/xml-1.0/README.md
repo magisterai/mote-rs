@@ -1,0 +1,117 @@
+# Extensible Markup Language (XML) 1.0
+
+Source: [Extensible Markup Language (XML) 1.0](https://www.w3.org/TR/2008/REC-xml-20081126/) · 5th edition, 2008-11-26.
+
+[Topic guide](../../../README.md) · [Publisher](https://www.w3.org/TR/2008/REC-xml-20081126/).
+
+19 reading chunks. Headings, examples, tables, mathematical markup, figures, and source anchors are retained. Publisher logos and navigation images are replaced by text; subsection arrows are omitted from headings.
+
+- [Extensible Markup Language (XML) 1.0 (Fifth Edition)](chunks/001-extensible-markup-language-xml-1-0-fifth-edition.md)
+  - W3C Recommendation 26 November 2008
+  - Abstract
+  - Status of this Document
+  - Table of Contents
+- [Appendices](chunks/002-appendices.md)
+  - 1 Introduction
+  - 1.1 Origin and Goals
+  - 1.2 Terminology
+- [2 Documents](chunks/003-2-documents.md)
+  - 2.1 Well-Formed XML Documents
+  - Document
+  - 2.2 Characters
+  - Character Range
+  - 2.3 Common Syntactic Constructs
+  - White Space
+  - Names and Tokens
+  - Literals
+- [2.4 Character Data and Markup](chunks/004-2-4-character-data-and-markup.md)
+  - Character Data
+  - 2.5 Comments
+  - Comments
+  - 2.6 Processing Instructions
+  - Processing Instructions
+  - 2.7 CDATA Sections
+  - CDATA Sections
+- [2.8 Prolog and Document Type Declaration](chunks/005-2-8-prolog-and-document-type-declaration.md)
+  - Prolog
+  - Document Type Definition
+  - External Subset
+- [2.9 Standalone Document Declaration](chunks/006-2-9-standalone-document-declaration.md)
+  - Standalone Document Declaration
+  - 2.10 White Space Handling
+  - 2.11 End-of-Line Handling
+- [2.12 Language Identification](chunks/007-2-12-language-identification.md)
+  - 3 Logical Structures
+  - Element
+- [3.1 Start-Tags, End-Tags, and Empty-Element Tags](chunks/008-3-1-start-tags-end-tags-and-empty-element-tags.md)
+  - Start-tag
+  - End-tag
+  - Content of Elements
+  - Tags for Empty Elements
+  - 3.2 Element Type Declarations
+  - Element Type Declaration
+  - 3.2.1 Element Content
+  - Element-content Models
+  - 3.2.2 Mixed Content
+  - Mixed-content Declaration
+- [3.3 Attribute-List Declarations](chunks/009-3-3-attribute-list-declarations.md)
+  - Attribute-list Declaration
+  - 3.3.1 Attribute Types
+  - Attribute Types
+  - Enumerated Attribute Types
+  - 3.3.2 Attribute Defaults
+  - Attribute Defaults
+  - 3.3.3 Attribute-Value Normalization
+- [3.4 Conditional Sections](chunks/010-3-4-conditional-sections.md)
+  - Conditional Section
+  - 4 Physical Structures
+- [4.1 Character and Entity References](chunks/011-4-1-character-and-entity-references.md)
+  - Character Reference
+  - Entity Reference
+  - 4.2 Entity Declarations
+  - Entity Declaration
+  - 4.2.1 Internal Entities
+  - 4.2.2 External Entities
+  - External Entity Declaration
+- [4.3 Parsed Entities](chunks/012-4-3-parsed-entities.md)
+  - 4.3.1 The Text Declaration
+  - Text Declaration
+  - 4.3.2 Well-Formed Parsed Entities
+  - Well-Formed External Parsed Entity
+  - 4.3.3 Character Encoding in Entities
+  - Encoding Declaration
+- [4.4 XML Processor Treatment of Entities and References](chunks/013-4-4-xml-processor-treatment-of-entities-and-references.md)
+  - 4.4.1 Not Recognized
+  - 4.4.2 Included
+  - 4.4.3 Included If Validating
+  - 4.4.4 Forbidden
+  - 4.4.5 Included in Literal
+  - 4.4.6 Notify
+  - 4.4.7 Bypassed
+  - 4.4.8 Included as PE
+  - 4.4.9 Error
+- [4.5 Construction of Entity Replacement Text](chunks/014-4-5-construction-of-entity-replacement-text.md)
+  - 4.6 Predefined Entities
+  - 4.7 Notation Declarations
+  - Notation Declarations
+  - 4.8 Document Entity
+  - 5 Conformance
+  - 5.1 Validating and Non-Validating Processors
+- [5.2 Using XML Processors](chunks/015-5-2-using-xml-processors.md)
+  - 6 Notation
+  - A References
+  - A.1 Normative References
+- [A.2 Other References](chunks/016-a-2-other-references.md)
+  - B Character Classes
+  - Characters
+- [C XML and SGML (Non-Normative)](chunks/017-c-xml-and-sgml-non-normative.md)
+  - D Expansion of Entity and Character References (Non-Normative)
+  - E Deterministic Content Models (Non-Normative)
+  - F Autodetection of Character Encodings (Non-Normative)
+- [F.1 Detection Without External Encoding Information](chunks/018-f-1-detection-without-external-encoding-information.md)
+  - is used to denote any byte value except that two consecutive
+  - F.2 Priorities in the Presence of External Encoding Information
+  - G W3C XML Working Group (Non-Normative)
+  - H W3C XML Core Working Group (Non-Normative)
+- [I Production Notes (Non-Normative)](chunks/019-i-production-notes-non-normative.md)
+  - J Suggestions for XML Names (Non-Normative)

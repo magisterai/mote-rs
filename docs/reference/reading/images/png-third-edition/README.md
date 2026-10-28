@@ -1,0 +1,197 @@
+# Portable Network Graphics (PNG) Specification
+
+Source: [Portable Network Graphics (PNG) Specification](https://www.w3.org/TR/2025/REC-png-3-20250624/) · 3rd edition, W3C Recommendation 2025-06-24.
+
+[Topic guide](../../../README.md) · [Publisher](https://www.w3.org/TR/2025/REC-png-3-20250624/).
+
+45 reading chunks. Headings, examples, tables, mathematical markup, figures, and source anchors are retained. Publisher logos and navigation images are replaced by text; subsection arrows are omitted from headings.
+
+- [Portable Network Graphics (PNG) Specification (Third Edition)](chunks/001-portable-network-graphics-png-specification-third-edition.md)
+  - Abstract
+  - Status of This Document
+  - 1. Introduction
+- [2. Scope](chunks/002-2-scope.md)
+  - 3. Terms, definitions, and abbreviated terms
+- [4. Concepts](chunks/003-4-concepts.md)
+  - 4.1 Static and Animated images
+  - 4.2 Images
+- [4.3 Color spaces](chunks/004-4-3-color-spaces.md)
+  - 4.4 Reference image to PNG image transformation
+  - Introduction
+  - 4.4.1 Alpha separation
+  - 4.4.2 Indexing
+  - 4.4.3 RGB merging
+  - 4.4.4 Alpha compaction
+  - 4.4.5 Sample depth scaling
+- [4.5 PNG image](chunks/005-4-5-png-image.md)
+  - 4.6 Encoding the PNG image
+  - Introduction
+  - 4.6.1 Pass extraction
+  - 4.6.2 Scanline serialization
+  - 4.6.3 Filtering
+  - 4.6.4 Compression
+  - 4.6.5 Chunking
+- [4.7 Additional information](chunks/006-4-7-additional-information.md)
+  - 4.8 PNG datastream
+  - 4.8.1 Chunks
+  - 4.8.2 Chunk types
+- [4.9 APNG: frame-based animation](chunks/007-4-9-apng-frame-based-animation.md)
+  - Introduction
+  - 4.9.1 Structure
+  - 4.9.2 Sequence numbers
+  - 4.9.3 Output buffer
+  - 4.9.4 Canvas
+- [4.10 Error handling](chunks/008-4-10-error-handling.md)
+  - 4.11 Extensions
+  - 5. Datastream structure
+  - 5.1 PNG datastream
+  - 5.2 PNG signature
+  - 5.3 Chunk layout
+  - 5.4 Chunk naming conventions
+- [5.5 CRC algorithm](chunks/009-5-5-crc-algorithm.md)
+  - 5.6 Chunk ordering
+- [5.7 Defining chunks](chunks/010-5-7-defining-chunks.md)
+  - 5.7.1 General
+  - 5.7.2 Defining public chunks
+  - 5.7.3 Defining private chunks
+  - 5.8 Private field values
+  - 6. Reference image to PNG image transformation
+  - 6.1 Color types and values
+- [6.2 Alpha representation](chunks/011-6-2-alpha-representation.md)
+  - 7. Encoding the PNG image as a PNG datastream
+  - 7.1 Integers and byte order
+  - 7.2 Scanlines
+- [7.3 Filtering](chunks/012-7-3-filtering.md)
+  - 8. Interlacing and pass extraction
+  - Introduction
+  - 8.1 Interlace methods
+  - 9. Filtering
+  - 9.1 Filter methods and filter types
+  - 9.2 Filter types for filter method 0
+- [9.3 Filter type 3: Average](chunks/013-9-3-filter-type-3-average.md)
+  - 9.4 Filter type 4: Paeth
+  - 10. Compression
+  - 10.1 Compression method 0
+  - 10.2 Compression of the sequence of filtered scanlines
+- [10.3 Other uses of compression](chunks/014-10-3-other-uses-of-compression.md)
+  - 11. Chunk specifications
+  - 11.1 General
+  - 11.2 Critical chunks
+  - Introduction
+  - 11.2.1 IHDR Image header
+  - 11.2.2 PLTE Palette
+  - 11.2.3 IDAT Image data
+  - 11.2.4 IEND Image trailer
+- [11.3 Ancillary chunks](chunks/015-11-3-ancillary-chunks.md)
+  - Introduction
+  - 11.3.1 Transparency information
+  - 11.3.1.1 tRNS Transparency
+  - 11.3.2 Color space information
+  - 11.3.2.1 cHRM Primary chromaticities and white point
+  - 11.3.2.2 gAMA Image gamma
+  - 11.3.2.3 iCCP Embedded ICC profile
+  - 11.3.2.4 sBIT Significant bits
+- [11.3.2.5 sRGB Standard RGB color space](chunks/016-11-3-2-5-srgb-standard-rgb-color-space.md)
+  - 11.3.2.6 cICP Coding-independent code points for video signal type identification
+- [11.3.2.7 mDCV Mastering Display Color Volume](chunks/017-11-3-2-7-mdcv-mastering-display-color-volume.md)
+- [11.3.2.8 cLLI Content Light Level Information](chunks/018-11-3-2-8-clli-content-light-level-information.md)
+  - 11.3.3 Textual information
+  - Introduction
+  - 11.3.3.1 Keywords and text strings
+  - 11.3.3.2 tEXt Textual data
+  - 11.3.3.3 zTXt Compressed textual data
+- [11.3.3.4 iTXt International textual data](chunks/019-11-3-3-4-itxt-international-textual-data.md)
+  - 11.3.4 Miscellaneous information
+  - 11.3.4.1 bKGD Background color
+  - 11.3.4.2 hIST Image histogram
+  - 11.3.4.3 pHYs Physical pixel dimensions
+  - 11.3.4.4 sPLT Suggested palette
+- [11.3.4.5 eXIf Exchangeable Image File (Exif) Profile](chunks/020-11-3-4-5-exif-exchangeable-image-file-exif-profile.md)
+  - 11.3.4.5.1 eXIf General Recommendations
+  - 11.3.4.5.2 eXIf Recommendations for Decoders
+  - 11.3.4.5.3 eXIf Recommendations for Encoders
+  - 11.3.5 Time stamp information
+  - 11.3.5.1 tIME Image last-modification time
+  - 11.3.6 Animation information
+  - 11.3.6.1 acTL Animation Control Chunk
+  - 11.3.6.2 fcTL Frame Control Chunk
+  - 11.3.6.3 fdAT Frame Data Chunk
+- [12. PNG Encoders](chunks/021-12-png-encoders.md)
+  - Introduction
+  - 12.1 Encoder gamma handling
+- [12.2 Encoder color handling](chunks/022-12-2-encoder-color-handling.md)
+- [12.3 Alpha channel creation](chunks/023-12-3-alpha-channel-creation.md)
+  - 12.4 Sample depth scaling
+  - 12.5 Suggested palettes
+- [12.6 Interlacing](chunks/024-12-6-interlacing.md)
+  - 12.7 Filter selection
+  - 12.8 Compression
+  - 12.9 Text chunk processing
+  - 12.10 Chunking
+  - 12.10.1 Use of private chunks
+  - 12.10.2 Use of non-reserved field values
+  - 12.10.3 Ancillary chunks
+  - 13. PNG decoders and viewers
+  - Introduction
+- [13.1 Error handling](chunks/025-13-1-error-handling.md)
+- [13.2 Error checking](chunks/026-13-2-error-checking.md)
+  - 13.3 Security considerations
+  - 13.4 Privacy considerations
+  - 13.5 Chunking
+- [13.6 Pixel dimensions](chunks/027-13-6-pixel-dimensions.md)
+  - 13.7 Text chunk processing
+  - 13.8 Decompression
+  - 13.9 Filtering
+- [13.10 Interlacing and progressive display](chunks/028-13-10-interlacing-and-progressive-display.md)
+  - 13.11 Truecolor image handling
+  - 13.12 Sample depth rescaling
+- [13.13 Decoder gamma handling](chunks/029-13-13-decoder-gamma-handling.md)
+- [13.14 Decoder color handling](chunks/030-13-14-decoder-color-handling.md)
+  - 13.15 Background color
+- [13.16 Alpha channel processing](chunks/031-13-16-alpha-channel-processing.md)
+- [13.17 Histogram and suggested palette usage](chunks/032-13-17-histogram-and-suggested-palette-usage.md)
+  - 14. Editors
+  - 14.1 Additional chunk types
+  - 14.2 Behavior of PNG editors
+- [14.3 Ordering of chunks](chunks/033-14-3-ordering-of-chunks.md)
+  - 14.3.1 Ordering of critical chunks
+  - 14.3.2 Ordering of ancillary chunks
+  - 15. Conformance
+  - 15.1 Conformance
+  - 15.2 Introduction
+  - 15.2.1 Objectives
+  - 15.2.2 Scope
+  - 15.3 Conformance conditions
+  - 15.3.1 Conformance of PNG datastreams
+  - 15.3.2 Conformance of PNG encoders
+  - 15.3.3 Conformance of PNG decoders
+  - 15.3.4 Conformance of PNG editors
+- [A. Internet Media Types](chunks/034-a-internet-media-types.md)
+  - A.1 image/png
+  - A.2 image/apng
+  - B. Guidelines for private chunk types
+- [C. Gamma and chromaticity](chunks/035-c-gamma-and-chromaticity.md)
+  - D. Sample CRC implementation
+- [E. Online resources](chunks/036-e-online-resources.md)
+  - Introduction
+  - E.1 ICC profile specifications
+  - E.2 PNG web site
+  - E.3 Sample implementation and test images
+  - F. Changes
+  - F.1 Changes since the Proposed Recommendation of 15 May 2025
+  - F.2 Changes since the Candidate Recommendation Snapshot of 13 March 2025
+  - F.3 Changes since the Candidate Recommendation Draft of 21 January 2025 (Third Edition)
+  - F.4 Changes since the Candidate Recommendation Draft of 18 July 2024 (Third Edition)
+  - F.5 Changes since the Candidate Recommendation Snapshot of 21 September 2023 (Third Edition)
+  - F.6 Changes since the Working Draft of 20 July 2023 (Third Edition)
+- [F.7 Changes since the First Public Working Draft of 25 October 2022 (Third Edition)](chunks/037-f-7-changes-since-the-first-public-working-draft-of-25-october-2022-third-edition.md)
+  - F.8 Changes since the W3C Recommendation of 10 November 2003 (PNG Second Edition)
+- [F.9 Changes between First and Second Editions](chunks/038-f-9-changes-between-first-and-second-editions.md)
+- [Continuation 39](chunks/039-continuation-39.md)
+- [Continuation 40](chunks/040-continuation-40.md)
+- [Continuation 41](chunks/041-continuation-41.md)
+- [Continuation 42](chunks/042-continuation-42.md)
+- [Continuation 43](chunks/043-continuation-43.md)
+- [G. References](chunks/044-g-references.md)
+  - G.1 Normative references
+- [G.2 Informative references](chunks/045-g-2-informative-references.md)

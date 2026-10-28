@@ -1,0 +1,313 @@
+# XML Schema Part 2: Datatypes
+
+Source: [XML Schema Part 2: Datatypes](https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/) · 2nd edition, 2004-10-28.
+
+[Topic guide](../../../README.md) · [Publisher](https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/).
+
+45 reading chunks. Headings, examples, tables, mathematical markup, figures, and source anchors are retained. Publisher logos and navigation images are replaced by text; subsection arrows are omitted from headings.
+
+- [XML Schema Part 2: Datatypes Second Edition](chunks/001-xml-schema-part-2-datatypes-second-edition.md)
+  - W3C Recommendation 28 October 2004
+  - Abstract
+  - Status of this Document
+  - Table of Contents
+- [Appendices](chunks/002-appendices.md)
+  - 1 Introduction
+  - 1.1 Purpose
+  - 1.2 Requirements
+  - 1.3 Scope
+- [1.4 Terminology](chunks/003-1-4-terminology.md)
+  - 1.5 Constraints and Contributions
+  - 2 Type System
+  - 2.1 Datatype
+  - 2.2 Value space
+- [2.3 Lexical space](chunks/004-2-3-lexical-space.md)
+  - 2.3.1 Canonical Lexical Representation
+  - 2.4 Facets
+  - 2.4.1 Fundamental facets
+  - 2.4.2 Constraining or Non-fundamental facets
+  - 2.5 Datatype dichotomies
+  - 2.5.1 Atomic vs. list vs. union datatypes
+  - 2.5.1.1 Atomic datatypes
+  - 2.5.1.2 List datatypes
+- [2.5.1.3 Union datatypes](chunks/005-2-5-1-3-union-datatypes.md)
+  - 2.5.2 Primitive vs. derived datatypes
+  - 2.5.2.1 Derived by restriction
+  - 2.5.2.2 Derived by list
+- [2.5.2.3 Derived by union](chunks/006-2-5-2-3-derived-by-union.md)
+  - 2.5.3 Built-in vs. user-derived datatypes
+  - 3 Built-in datatypes
+  - 3.1 Namespace considerations
+  - 3.2 Primitive datatypes
+  - 3.2.1 string
+  - 3.2.1.1 Constraining facets
+  - 3.2.1.2 Derived datatypes
+  - 3.2.2 boolean
+  - 3.2.2.1 Lexical representation
+  - 3.2.2.2 Canonical representation
+  - 3.2.2.3 Constraining facets
+  - 3.2.3 decimal
+- [3.2.3.1 Lexical representation](chunks/007-3-2-3-1-lexical-representation.md)
+  - 3.2.3.2 Canonical representation
+  - 3.2.3.3 Constraining facets
+  - 3.2.3.4 Derived datatypes
+  - 3.2.4 float
+  - 3.2.4.1 Lexical representation
+  - 3.2.4.2 Canonical representation
+  - 3.2.4.3 Constraining facets
+  - 3.2.5 double
+- [3.2.5.1 Lexical representation](chunks/008-3-2-5-1-lexical-representation.md)
+  - 3.2.5.2 Canonical representation
+  - 3.2.5.3 Constraining facets
+  - 3.2.6 duration
+  - 3.2.6.1 Lexical representation
+  - 3.2.6.2 Order relation on duration
+- [3.2.6.3 Facet Comparison for durations](chunks/009-3-2-6-3-facet-comparison-for-durations.md)
+  - 3.2.6.4 Totally ordered durations
+  - 3.2.6.5 Constraining facets
+  - 3.2.7 dateTime
+  - 3.2.7.1 Lexical representation
+  - 3.2.7.2 Canonical representation
+  - 3.2.7.3 Timezones
+  - 3.2.7.4 Order relation on dateTime
+- [3.2.7.5 Totally ordered dateTimes](chunks/010-3-2-7-5-totally-ordered-datetimes.md)
+  - 3.2.7.6 Constraining facets
+  - 3.2.8 time
+  - 3.2.8.1 Lexical representation
+  - 3.2.8.2 Canonical representation
+  - 3.2.8.3 Constraining facets
+  - 3.2.9 date
+  - 3.2.9.1 Lexical representation
+  - 3.2.9.2 Canonical representation
+  - 3.2.10 gYearMonth
+- [3.2.10.1 Lexical representation](chunks/011-3-2-10-1-lexical-representation.md)
+  - 3.2.10.2 Constraining facets
+  - 3.2.11 gYear
+  - 3.2.11.1 Lexical representation
+  - 3.2.11.2 Constraining facets
+  - 3.2.12 gMonthDay
+  - 3.2.12.1 Lexical representation
+  - 3.2.12.2 Constraining facets
+  - 3.2.13 gDay
+  - 3.2.13.1 Lexical representation
+  - 3.2.13.2 Constraining facets
+  - 3.2.14 gMonth
+  - 3.2.14.1 Lexical representation
+  - 3.2.14.2 Constraining facets
+- [3.2.15 hexBinary](chunks/012-3-2-15-hexbinary.md)
+  - 3.2.15.1 Lexical Representation
+  - 3.2.15.2 Canonical Representation
+  - 3.2.15.3 Constraining facets
+  - 3.2.16 base64Binary
+  - 3.2.16.1 Constraining facets
+  - 3.2.17 anyURI
+  - 3.2.17.1 Lexical representation
+  - 3.2.17.2 Constraining facets
+  - 3.2.18 QName
+  - 3.2.18.1 Constraining facets
+- [3.2.19 NOTATION](chunks/013-3-2-19-notation.md)
+  - 3.2.19.1 Constraining facets
+  - 3.3 Derived datatypes
+  - 3.3.1 normalizedString
+  - 3.3.1.1 Constraining facets
+  - 3.3.1.2 Derived datatypes
+  - 3.3.2 token
+  - 3.3.2.1 Constraining facets
+  - 3.3.2.2 Derived datatypes
+  - 3.3.3 language
+  - 3.3.3.1 Constraining facets
+  - 3.3.4 NMTOKEN
+- [3.3.4.1 Constraining facets](chunks/014-3-3-4-1-constraining-facets.md)
+  - 3.3.4.2 Derived datatypes
+  - 3.3.5 NMTOKENS
+  - 3.3.5.1 Constraining facets
+  - 3.3.6 Name
+  - 3.3.6.1 Constraining facets
+  - 3.3.6.2 Derived datatypes
+  - 3.3.7 NCName
+  - 3.3.7.1 Constraining facets
+  - 3.3.7.2 Derived datatypes
+  - 3.3.8 ID
+  - 3.3.8.1 Constraining facets
+  - 3.3.9 IDREF
+  - 3.3.9.1 Constraining facets
+  - 3.3.9.2 Derived datatypes
+  - 3.3.10 IDREFS
+- [3.3.10.1 Constraining facets](chunks/015-3-3-10-1-constraining-facets.md)
+  - 3.3.11 ENTITY
+  - 3.3.11.1 Constraining facets
+  - 3.3.11.2 Derived datatypes
+  - 3.3.12 ENTITIES
+  - 3.3.12.1 Constraining facets
+  - 3.3.13 integer
+  - 3.3.13.1 Lexical representation
+  - 3.3.13.2 Canonical representation
+  - 3.3.13.3 Constraining facets
+  - 3.3.13.4 Derived datatypes
+  - 3.3.14 nonPositiveInteger
+  - 3.3.14.1 Lexical representation
+  - 3.3.14.2 Canonical representation
+  - 3.3.14.3 Constraining facets
+  - 3.3.14.4 Derived datatypes
+  - 3.3.15 negativeInteger
+  - 3.3.15.1 Lexical representation
+  - 3.3.15.2 Canonical representation
+  - 3.3.15.3 Constraining facets
+- [3.3.16 long](chunks/016-3-3-16-long.md)
+  - 3.3.16.1 Lexical representation
+  - 3.3.16.2 Canonical representation
+  - 3.3.16.3 Constraining facets
+  - 3.3.16.4 Derived datatypes
+  - 3.3.17 int
+  - 3.3.17.1 Lexical representation
+  - 3.3.17.2 Canonical representation
+  - 3.3.17.3 Constraining facets
+  - 3.3.17.4 Derived datatypes
+  - 3.3.18 short
+  - 3.3.18.1 Lexical representation
+  - 3.3.18.2 Canonical representation
+  - 3.3.18.3 Constraining facets
+  - 3.3.18.4 Derived datatypes
+  - 3.3.19 byte
+  - 3.3.19.1 Lexical representation
+  - 3.3.19.2 Canonical representation
+  - 3.3.19.3 Constraining facets
+  - 3.3.20 nonNegativeInteger
+  - 3.3.20.1 Lexical representation
+  - 3.3.20.2 Canonical representation
+  - 3.3.20.3 Constraining facets
+  - 3.3.20.4 Derived datatypes
+- [3.3.21 unsignedLong](chunks/017-3-3-21-unsignedlong.md)
+  - 3.3.21.1 Lexical representation
+  - 3.3.21.2 Canonical representation
+  - 3.3.21.3 Constraining facets
+  - 3.3.21.4 Derived datatypes
+  - 3.3.22 unsignedInt
+  - 3.3.22.1 Lexical representation
+  - 3.3.22.2 Canonical representation
+  - 3.3.22.3 Constraining facets
+  - 3.3.22.4 Derived datatypes
+  - 3.3.23 unsignedShort
+  - 3.3.23.1 Lexical representation
+  - 3.3.23.2 Canonical representation
+  - 3.3.23.3 Constraining facets
+  - 3.3.23.4 Derived datatypes
+  - 3.3.24 unsignedByte
+  - 3.3.24.1 Lexical representation
+  - 3.3.24.2 Canonical representation
+  - 3.3.24.3 Constraining facets
+  - 3.3.25 positiveInteger
+  - 3.3.25.1 Lexical representation
+  - 3.3.25.2 Canonical representation
+  - 3.3.25.3 Constraining facets
+- [4 Datatype components](chunks/018-4-datatype-components.md)
+  - 4.1 Simple Type Definition
+  - 4.1.1 The Simple Type Definition Schema Component
+  - 4.1.2 XML Representation of Simple Type Definition Schema Components
+- [4.1.2.1 Derivation by restriction](chunks/019-4-1-2-1-derivation-by-restriction.md)
+  - 4.1.2.2 Derivation by list
+- [4.1.2.3 Derivation by union](chunks/020-4-1-2-3-derivation-by-union.md)
+  - 4.1.3 Constraints on XML Representation of Simple Type Definition
+  - 4.1.4 Simple Type Definition Validation Rules
+  - 4.1.5 Constraints on Simple Type Definition Schema Components
+- [Continuation 21](chunks/021-continuation-21.md)
+- [4.1.6 Simple Type Definition for anySimpleType](chunks/022-4-1-6-simple-type-definition-for-anysimpletype.md)
+  - 4.2 Fundamental Facets
+  - 4.2.1 equal
+  - 4.2.2 ordered
+  - 4.2.2.1 The ordered Schema Component
+- [4.2.3 bounded](chunks/023-4-2-3-bounded.md)
+  - 4.2.3.1 The bounded Schema Component
+  - 4.2.4 cardinality
+  - 4.2.4.1 The cardinality Schema Component
+- [4.2.5 numeric](chunks/024-4-2-5-numeric.md)
+  - 4.2.5.1 The numeric Schema Component
+  - 4.3 Constraining Facets
+  - 4.3.1 length
+  - 4.3.1.1 The length Schema Component
+  - 4.3.1.2 XML Representation of length Schema Components
+  - 4.3.1.3 length Validation Rules
+- [4.3.1.4 Constraints on length Schema Components](chunks/025-4-3-1-4-constraints-on-length-schema-components.md)
+  - 4.3.2 minLength
+  - 4.3.2.1 The minLength Schema Component
+  - 4.3.2.2 XML Representation of minLength Schema Component
+  - 4.3.2.3 minLength Validation Rules
+  - 4.3.2.4 Constraints on minLength Schema Components
+- [4.3.3 maxLength](chunks/026-4-3-3-maxlength.md)
+  - 4.3.3.1 The maxLength Schema Component
+  - 4.3.3.2 XML Representation of maxLength Schema Components
+  - 4.3.3.3 maxLength Validation Rules
+  - 4.3.3.4 Constraints on maxLength Schema Components
+  - 4.3.4 pattern
+  - 4.3.4.1 The pattern Schema Component
+  - 4.3.4.2 XML Representation of pattern Schema Components
+- [4.3.4.3 Constraints on XML Representation of pattern](chunks/027-4-3-4-3-constraints-on-xml-representation-of-pattern.md)
+  - 4.3.4.4 pattern Validation Rules
+  - 4.3.5 enumeration
+  - 4.3.5.1 The enumeration Schema Component
+  - 4.3.5.2 XML Representation of enumeration Schema Components
+  - 4.3.5.3 Constraints on XML Representation of enumeration
+  - 4.3.5.4 enumeration Validation Rules
+  - 4.3.5.5 Constraints on enumeration Schema Components
+  - 4.3.6 whiteSpace
+- [4.3.6.1 The whiteSpace Schema Component](chunks/028-4-3-6-1-the-whitespace-schema-component.md)
+  - 4.3.6.2 XML Representation of whiteSpace Schema Components
+  - 4.3.6.3 whiteSpace Validation Rules
+  - 4.3.6.4 Constraints on whiteSpace Schema Components
+  - 4.3.7 maxInclusive
+  - 4.3.7.1 The maxInclusive Schema Component
+  - 4.3.7.2 XML Representation of maxInclusive Schema Components
+- [4.3.7.3 maxInclusive Validation Rules](chunks/029-4-3-7-3-maxinclusive-validation-rules.md)
+  - 4.3.7.4 Constraints on maxInclusive Schema Components
+  - 4.3.8 maxExclusive
+  - 4.3.8.1 The maxExclusive Schema Component
+  - 4.3.8.2 XML Representation of maxExclusive Schema Components
+  - 4.3.8.3 maxExclusive Validation Rules
+  - 4.3.8.4 Constraints on maxExclusive Schema Components
+- [4.3.9 minExclusive](chunks/030-4-3-9-minexclusive.md)
+  - 4.3.9.1 The minExclusive Schema Component
+  - 4.3.9.2 XML Representation of minExclusive Schema Components
+  - 4.3.9.3 minExclusive Validation Rules
+  - 4.3.9.4 Constraints on minExclusive Schema Components
+- [4.3.10 minInclusive](chunks/031-4-3-10-mininclusive.md)
+  - 4.3.10.1 The minInclusive Schema Component
+  - 4.3.10.2 XML Representation of minInclusive Schema Components
+  - 4.3.10.3 minInclusive Validation Rules
+  - 4.3.10.4 Constraints on minInclusive Schema Components
+  - 4.3.11 totalDigits
+  - 4.3.11.1 The totalDigits Schema Component
+  - 4.3.11.2 XML Representation of totalDigits Schema Components
+- [4.3.11.3 totalDigits Validation Rules](chunks/032-4-3-11-3-totaldigits-validation-rules.md)
+  - 4.3.11.4 Constraints on totalDigits Schema Components
+  - 4.3.12 fractionDigits
+  - 4.3.12.1 The fractionDigits Schema Component
+  - 4.3.12.2 XML Representation of fractionDigits Schema Components
+  - 4.3.12.3 fractionDigits Validation Rules
+  - 4.3.12.4 Constraints on fractionDigits Schema Components
+- [5 Conformance](chunks/033-5-conformance.md)
+  - A Schema for Datatype Definitions (normative)
+- [Continuation 34](chunks/034-continuation-34.md)
+- [B DTD for Datatype Definitions (non-normative)](chunks/035-b-dtd-for-datatype-definitions-non-normative.md)
+  - C Datatypes and Facets
+  - C.1 Fundamental Facets
+- [Continuation 36](chunks/036-continuation-36.md)
+- [D ISO 8601 Date and Time Formats](chunks/037-d-iso-8601-date-and-time-formats.md)
+  - D.1 ISO 8601 Conventions
+- [D.2 Truncated and Reduced Formats](chunks/038-d-2-truncated-and-reduced-formats.md)
+  - D.3 Deviations from ISO 8601 Formats
+  - D.3.1 Sign Allowed
+  - D.3.2 No Year Zero
+  - D.3.3 More Than 9999 Years
+  - D.3.4 Time zone permitted
+  - E Adding durations to dateTimes
+- [E.1 Algorithm](chunks/039-e-1-algorithm.md)
+  - E.2 Commutativity and Associativity
+  - F Regular Expressions
+- [F.1 Character Classes](chunks/040-f-1-character-classes.md)
+- [F.1.1 Character Class Escapes](chunks/041-f-1-1-character-class-escapes.md)
+- [Continuation 42](chunks/042-continuation-42.md)
+- [G Glossary (non-normative)](chunks/043-g-glossary-non-normative.md)
+- [H References](chunks/044-h-references.md)
+  - H.1 Normative
+  - H.2 Non-normative
+- [I Acknowledgements (non-normative)](chunks/045-i-acknowledgements-non-normative.md)

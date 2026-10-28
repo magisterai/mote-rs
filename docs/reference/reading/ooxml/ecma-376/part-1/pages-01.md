@@ -1,0 +1,94 @@
+# Sequential reading index
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Index](pages.md)
+
+- [pages-0001-0004-0001](chunks/pages-0001-0004-0001.md) — Table of Contents
+- [pages-0005-0006-0002](chunks/pages-0005-0006-0002.md)
+- [pages-0007-0013-0003](chunks/pages-0007-0013-0003.md) — Foreword; Introduction
+- [pages-0014-0018-0004](chunks/pages-0014-0018-0004.md) — 2.3.1 Base Application Description; 2.3.2 Full Application Description
+- [pages-0019-0026-0005](chunks/pages-0019-0026-0005.md) — 4. Terms and Definitions; 5. Notational Conventions
+- [pages-0027-0030-0006](chunks/pages-0027-0030-0006.md) — 8.5 SpreadsheetML; 8.6 PresentationML
+- [pages-0031-0038-0007](chunks/pages-0031-0038-0007.md) — 9. Packages; 9.1 Office Open XML's Use of OPC
+- [pages-0039-0044-0008](chunks/pages-0039-0044-0008.md) — 11.3 Part Summary; 11.3.1 Alternative Format Import Part
+- [pages-0045-0052-0009](chunks/pages-0045-0052-0009.md) — 11.3.3 Document Settings Part; 11.3.4 Endnotes Part
+- [pages-0053-0060-0010](chunks/pages-0053-0060-0010.md) — 11.3.7 Footnotes Part; 11.3.8 Glossary Document Part
+- [pages-0061-0068-0011](chunks/pages-0061-0068-0011.md) — 11.3.11 Numbering Definitions Part; 11.3.12 Style Definitions Part
+- [pages-0069-0076-0012](chunks/pages-0069-0076-0012.md) — 11.6 Master Documents and Subdocuments; 11.7 Mail Merge Data Source
+- [pages-0077-0083-0013](chunks/pages-0077-0083-0013.md) — 12.3 Part Summary; 12.3.1 Calculation Chain Part
+- [pages-0084-0090-0014](chunks/pages-0084-0090-0014.md) — 12.3.6 Custom XML Mappings Part; 12.3.7 Dialogsheet Part
+- [pages-0091-0097-0015](chunks/pages-0091-0097-0015.md) — 12.3.10 Metadata Part; 12.3.11 Pivot Table Part
+- [pages-0098-0104-0016](chunks/pages-0098-0104-0016.md) — 12.3.15 Shared String Table Part; 12.3.16 Shared Workbook Revision Headers Part
+- [pages-0105-0112-0017](chunks/pages-0105-0112-0017.md) — 12.3.21 Table Definition Part; 12.3.22 Volatile Dependencies Part
+- [pages-0113-0118-0018](chunks/pages-0113-0118-0018.md) — 13. PresentationML; 13.1 Glossary of PresentationML-Specific Terms
+- [pages-0119-0126-0019](chunks/pages-0119-0126-0019.md) — 13.3.3 Handout Master Part; 13.3.4 Notes Master Part
+- [pages-0127-0134-0020](chunks/pages-0127-0134-0020.md) — 13.3.9 Slide Layout Part; 13.3.10 Slide Master Part
+- [pages-0135-0140-0021](chunks/pages-0135-0140-0021.md) — 13.5 Slide Synchronization Server Location; 14. DrawingML
+- [pages-0141-0147-0022](chunks/pages-0141-0147-0022.md) — 14.2.4 Diagram Data Part; 14.2.5 Diagram Layout Definition Part
+- [pages-0148-0153-0023](chunks/pages-0148-0153-0023.md) — 14.2.9 Table Styles Part; 15. Shared
+- [pages-0154-0159-0024](chunks/pages-0154-0159-0024.md) — 15.2.4 Content Part; 15.2.5 Custom XML Data Storage Part
+- [pages-0160-0165-0025](chunks/pages-0160-0165-0025.md) — 15.2.11 Embedded Package Part; 15.2.12 File Properties
+- [pages-0166-0172-0026](chunks/pages-0166-0172-0026.md) — 15.2.13 Font Part; 15.2.14 Image Part
+- [pages-0173-0177-0027](chunks/pages-0173-0177-0027.md) — 16. Part Overview; 16.1 WordprocessingML Summary
+- [pages-0178-0178-0028](chunks/pages-0178-0178-0028.md)
+- [pages-0179-0179-0029](chunks/pages-0179-0179-0029.md)
+- [pages-0180-0180-0030](chunks/pages-0180-0180-0030.md)
+- [pages-0181-0181-0031](chunks/pages-0181-0181-0031.md)
+- [pages-0182-0182-0032](chunks/pages-0182-0182-0032.md)
+- [pages-0183-0183-0033](chunks/pages-0183-0183-0033.md)
+- [pages-0184-0185-0034](chunks/pages-0184-0185-0034.md)
+- [pages-0186-0187-0035](chunks/pages-0186-0187-0035.md)
+- [pages-0188-0189-0036](chunks/pages-0188-0189-0036.md)
+- [pages-0190-0191-0037](chunks/pages-0190-0191-0037.md)
+- [pages-0192-0192-0038](chunks/pages-0192-0192-0038.md)
+- [pages-0193-0193-0039](chunks/pages-0193-0193-0039.md)
+- [pages-0194-0195-0040](chunks/pages-0194-0195-0040.md)
+- [pages-0196-0199-0041](chunks/pages-0196-0199-0041.md) — 17.2 Main Document Story; 17.2.1 background (Document Background)
+- [pages-0200-0204-0042](chunks/pages-0200-0204-0042.md) — 17.2.2 body (Document Body); 17.2.3 document (Document)
+- [pages-0205-0210-0043](chunks/pages-0205-0210-0043.md) — 17.3.1.1 adjustRightInd (Automatically Adjust Right Indent When Using Document Grid); 17.3.1.2 autoSpaceDE (Automatically Adjust Spacing of Latin and East Asian Text)
+- [pages-0211-0215-0044](chunks/pages-0211-0215-0044.md) — 17.3.1.8 cnfStyle (Paragraph Conditional Formatting)
+- [pages-0216-0220-0045](chunks/pages-0216-0220-0045.md) — 17.3.1.9 contextualSpacing (Ignore Spacing Above and Below When Using Identical Styles); 17.3.1.10 divId (Associated HTML div ID)
+- [pages-0221-0224-0046](chunks/pages-0221-0224-0046.md)
+- [pages-0225-0228-0047](chunks/pages-0225-0228-0047.md)
+- [pages-0229-0232-0048](chunks/pages-0229-0232-0048.md) — 17.3.1.12 ind (Paragraph Indentation)
+- [pages-0233-0237-0049](chunks/pages-0233-0237-0049.md) — 17.3.1.13 jc (Paragraph Alignment); 17.3.1.14 keepLines (Keep All Lines On One Page)
+- [pages-0238-0242-0050](chunks/pages-0238-0242-0050.md) — 17.3.1.16 kinsoku (Use East Asian Typography Rules for First and Last Character per Line); 17.3.1.17 left (Left Paragraph Border)
+- [pages-0243-0248-0051](chunks/pages-0243-0248-0051.md) — 17.3.1.19 numPr (Numbering Definition Instance Reference); 17.3.1.20 outlineLvl (Associated Outline Level)
+- [pages-0249-0254-0052](chunks/pages-0249-0254-0052.md) — 17.3.1.24 pBdr (Paragraph Borders); 17.3.1.25 pPr (Previous Paragraph Properties)
+- [pages-0255-0259-0053](chunks/pages-0255-0259-0053.md) — 17.3.1.31 shd (Paragraph Shading); 17.3.1.32 snapToGrid (Use Document Grid Settings for Inter-Line Paragraph Spacing)
+- [pages-0260-0264-0054](chunks/pages-0260-0264-0054.md) — 17.3.1.34 suppressAutoHyphens (Suppress Hyphenation for Paragraph); 17.3.1.35 suppressLineNumbers (Suppress Line Numbers for Paragraph)
+- [pages-0265-0270-0055](chunks/pages-0265-0270-0055.md) — 17.3.1.38 tabs (Set of Custom Tab Stops); 17.3.1.39 textAlignment (Vertical Character Alignment on Line)
+- [pages-0271-0276-0056](chunks/pages-0271-0276-0056.md) — 17.3.1.43 topLinePunct (Compress Punctuation at Start of a Line); 17.3.1.44 widowControl (Allow First/Last Line to Display on a Separate Page)
+- [pages-0277-0281-0057](chunks/pages-0277-0281-0057.md) — 17.3.2.6 color (Run Content Color); 17.3.2.7 cs (Use Complex Script Formatting on Run)
+- [pages-0282-0286-0058](chunks/pages-0282-0286-0058.md) — 17.3.2.9 dstrike (Double Strikethrough); 17.3.2.10 eastAsianLayout (East Asian Typography Settings)
+- [pages-0287-0291-0059](chunks/pages-0287-0291-0059.md) — 17.3.2.11 effect (Animated Text Effect); 17.3.2.12 em (Emphasis Mark)
+- [pages-0292-0296-0060](chunks/pages-0292-0296-0060.md) — 17.3.2.16 i (Italics); 17.3.2.17 iCs (Complex Script Italics)
+- [pages-0297-0302-0061](chunks/pages-0297-0302-0061.md) — 17.3.2.21 noProof (Do Not Check Spelling or Grammar); 17.3.2.22 oMath (Office Open XML Math)
+- [pages-0303-0308-0062](chunks/pages-0303-0308-0062.md)
+- [pages-0309-0312-0063](chunks/pages-0309-0312-0063.md)
+- [pages-0313-0317-0064](chunks/pages-0313-0317-0064.md) — 17.3.2.27 rPr (Previous Run Properties); 17.3.2.28 rPr (Run Properties)
+- [pages-0318-0322-0065](chunks/pages-0318-0322-0065.md) — 17.3.2.31 shadow (Shadow); 17.3.2.32 shd (Run Shading)
+- [pages-0323-0327-0066](chunks/pages-0323-0327-0066.md) — 17.3.2.37 strike (Single Strikethrough); 17.3.2.38 sz (Non-Complex Script Font Size)
+- [pages-0328-0332-0067](chunks/pages-0328-0332-0067.md) — 17.3.2.41 vanish (Hidden Text); 17.3.2.42 vertAlign (Subscript/Superscript Text)
+- [pages-0333-0338-0068](chunks/pages-0333-0338-0068.md) — 17.3.3.1 br (Break); 17.3.3.2 contentPart (Content Part)
+- [pages-0339-0344-0069](chunks/pages-0339-0344-0069.md) — 17.3.3.4 cr (Carriage Return); 17.3.3.5 dayLong (Date Block - Long Day Format)
+- [pages-0345-0350-0070](chunks/pages-0345-0350-0070.md) — 17.3.3.13 lastRenderedPageBreak (Position of Last Calculated Page Break); 17.3.3.14 lid (Language ID for Phonetic Guide)
+- [pages-0351-0355-0071](chunks/pages-0351-0355-0071.md) — 17.3.3.20 objectEmbed (Embedded Object Properties); 17.3.3.21 objectLink (Linked Object Properties)
+- [pages-0356-0362-0072](chunks/pages-0356-0362-0072.md) — 17.3.3.22 pgNum (Page Number Block); 17.3.3.23 ptab (Absolute Position Tab Character)
+- [pages-0363-0367-0073](chunks/pages-0363-0367-0073.md) — 17.3.3.30 sym (Symbol Character); 17.3.3.31 t (Text)
+- [pages-0368-0372-0074](chunks/pages-0368-0372-0074.md) — 17.3.4 Border Properties (CT_Border)
+- [pages-0373-0377-0075](chunks/pages-0373-0377-0075.md) — 17.3.5 Shading Properties (CT_Shd)
+- [pages-0378-0383-0076](chunks/pages-0378-0383-0076.md) — 17.4 Tables; 17.4.1 bidiVisual (Visually Right to Left Table)
+- [pages-0384-0390-0077](chunks/pages-0384-0390-0077.md) — 17.4.2 bottom (Table Cell Bottom Margin Exception); 17.4.3 bottom (Table Cell Bottom Border)
+- [pages-0391-0395-0078](chunks/pages-0391-0395-0078.md) — 17.4.8 cnfStyle (Table Cell Conditional Formatting)
+- [pages-0396-0400-0079](chunks/pages-0396-0400-0079.md) — 17.4.9 divId (Associated HTML div ID)
+- [pages-0401-0406-0080](chunks/pages-0401-0406-0080.md) — 17.4.10 end (Table Cell Trailing Margin Exception); 17.4.11 end (Table Cell Trailing Margin Default)
+- [pages-0407-0414-0081](chunks/pages-0407-0414-0081.md) — 17.4.16 gridCol (Grid Column Definition); 17.4.17 gridSpan (Grid Columns Spanned by Current Table Cell)
+- [pages-0415-0420-0082](chunks/pages-0415-0420-0082.md) — 17.4.20 hidden (Hidden Table Row Marker); 17.4.21 hideMark (Ignore End Of Cell Marker In Row Height Calculation)
+- [pages-0421-0427-0083](chunks/pages-0421-0427-0083.md) — 17.4.27 jc (Table Row Alignment); 17.4.28 jc (Table Alignment)
+- [pages-0428-0434-0084](chunks/pages-0428-0434-0084.md) — 17.4.34 start (Table Cell Leading Margin Default); 17.4.35 start (Table Cell Leading Margin Exception)
+- [pages-0435-0440-0085](chunks/pages-0435-0440-0085.md) — 17.4.41 tblCellMar (Table Cell Margin Exceptions); 17.4.42 tblCellMar (Table Cell Margin Defaults)
+- [pages-0441-0447-0086](chunks/pages-0441-0447-0086.md) — 17.4.47 tblGrid (Previous Table Grid); 17.4.48 tblGrid (Table Grid)

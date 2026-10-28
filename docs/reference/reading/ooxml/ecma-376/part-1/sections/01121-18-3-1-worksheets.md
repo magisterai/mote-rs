@@ -1,0 +1,107 @@
+# 18.3.1 Worksheets
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Start reading](../chunks/pages-1596-1600-0308.md#source-page-1600-part-1) (PDF page 1600).
+
+- [18.3.1.1 anchor (Object Cell Anchor)](../chunks/pages-1596-1600-0308.md#source-page-1600-part-1) — PDF page 1600
+- [18.3.1.2 autoFilter (AutoFilter Settings)](../chunks/pages-1601-1606-0309.md#source-page-1601-part-1) — PDF page 1601
+- [18.3.1.3 brk (Break)](../chunks/pages-1601-1606-0309.md#source-page-1602-part-1) — PDF page 1602
+- [18.3.1.4 c (Cell)](../chunks/pages-1601-1606-0309.md#source-page-1603-part-1) — PDF page 1603
+- [18.3.1.5 cellSmartTag (Cell Smart Tag)](../chunks/pages-1601-1606-0309.md#source-page-1604-part-1) — PDF page 1604
+- [18.3.1.6 cellSmartTagPr (Smart Tag Properties)](../chunks/pages-1601-1606-0309.md#source-page-1605-part-1) — PDF page 1605
+- [18.3.1.7 cellSmartTags (Cell Smart Tags)](../chunks/pages-1601-1606-0309.md#source-page-1605-part-1) — PDF page 1605
+- [18.3.1.8 cellWatch (Cell Watch Item)](../chunks/pages-1601-1606-0309.md#source-page-1606-part-1) — PDF page 1606
+- [18.3.1.9 cellWatches (Cell Watch Items)](../chunks/pages-1601-1606-0309.md#source-page-1606-part-1) — PDF page 1606
+- [18.3.1.10 cfRule (Conditional Formatting Rule)](../chunks/pages-1607-1611-0310.md#source-page-1607-part-1) — PDF page 1607
+- [18.3.1.11 cfvo (Conditional Format Value Object)](../chunks/pages-1607-1611-0310.md#source-page-1609-part-1) — PDF page 1609
+- [18.3.1.12 chartsheet (Chart Sheet)](../chunks/pages-1607-1611-0310.md#source-page-1610-part-1) — PDF page 1610
+- [18.3.1.13 col (Column Width & Formatting)](../chunks/pages-1607-1611-0310.md#source-page-1610-part-1) — PDF page 1610
+- [18.3.1.14 colBreaks (Vertical Page Breaks)](../chunks/pages-1612-1617-0311.md#source-page-1612-part-1) — PDF page 1612
+- [18.3.1.15 color (Data Bar Color)](../chunks/pages-1612-1617-0311.md#source-page-1613-part-1) — PDF page 1613
+- [18.3.1.16 colorScale (Color Scale)](../chunks/pages-1612-1617-0311.md#source-page-1614-part-1) — PDF page 1614
+- [18.3.1.17 cols (Column Information)](../chunks/pages-1612-1617-0311.md#source-page-1615-part-1) — PDF page 1615
+- [18.3.1.18 conditionalFormatting (Conditional Formatting)](../chunks/pages-1612-1617-0311.md#source-page-1615-part-1) — PDF page 1615
+- [18.3.1.19 control (Embedded Control)](../chunks/pages-1612-1617-0311.md#source-page-1616-part-1) — PDF page 1616
+- [18.3.1.20 controlPr (Embedded Control Properties)](../chunks/pages-1612-1617-0311.md#source-page-1616-part-1) — PDF page 1616
+- [18.3.1.21 controls (Embedded Controls)](../chunks/pages-1618-1623-0312.md#source-page-1621-part-1) — PDF page 1621
+- [18.3.1.22 customPr (Custom Property)](../chunks/pages-1618-1623-0312.md#source-page-1621-part-1) — PDF page 1621
+- [18.3.1.23 customProperties (Custom Properties)](../chunks/pages-1618-1623-0312.md#source-page-1622-part-1) — PDF page 1622
+- [18.3.1.24 customSheetView (Custom Chart Sheet View)](../chunks/pages-1618-1623-0312.md#source-page-1622-part-1) — PDF page 1622
+- [18.3.1.25 customSheetView (Custom Sheet View)](../chunks/pages-1618-1623-0312.md#source-page-1623-part-1) — PDF page 1623
+- [18.3.1.26 customSheetViews (Custom Chart Sheet Views)](../chunks/pages-1624-1629-0313.md#source-page-1625-part-1) — PDF page 1625
+- [18.3.1.27 customSheetViews (Custom Sheet Views)](../chunks/pages-1624-1629-0313.md#source-page-1626-part-1) — PDF page 1626
+- [18.3.1.28 dataBar (Data Bar)](../chunks/pages-1624-1629-0313.md#source-page-1626-part-1) — PDF page 1626
+- [18.3.1.29 dataConsolidate (Data Consolidate)](../chunks/pages-1624-1629-0313.md#source-page-1627-part-1) — PDF page 1627
+- [18.3.1.30 dataRef (Data Consolidation Reference)](../chunks/pages-1624-1629-0313.md#source-page-1628-part-1) — PDF page 1628
+- [18.3.1.31 dataRefs (Data Consolidation References)](../chunks/pages-1624-1629-0313.md#source-page-1628-part-1) — PDF page 1628
+- [18.3.1.32 dataValidation (Data Validation)](../chunks/pages-1624-1629-0313.md#source-page-1629-part-1) — PDF page 1629
+- [18.3.1.33 dataValidations (Data Validations)](../chunks/pages-1630-1634-0314.md#source-page-1630-part-1) — PDF page 1630
+- [18.3.1.34 dialogsheet (Dialog Sheet)](../chunks/pages-1630-1634-0314.md#source-page-1632-part-1) — PDF page 1632
+- [18.3.1.35 dimension (Worksheet Dimensions)](../chunks/pages-1630-1634-0314.md#source-page-1632-part-1) — PDF page 1632
+- [18.3.1.36 drawing (Drawing)](../chunks/pages-1630-1634-0314.md#source-page-1632-part-1) — PDF page 1632
+- [18.3.1.37 drawingHF (Drawing Reference in Header Footer)](../chunks/pages-1630-1634-0314.md#source-page-1633-part-1) — PDF page 1633
+- [18.3.1.38 evenFooter (Even Page Footer)](../chunks/pages-1635-1639-0315.md#source-page-1639-part-1) — PDF page 1639
+- [18.3.1.39 evenHeader (Even Page Header)](../chunks/pages-1635-1639-0315.md#source-page-1639-part-1) — PDF page 1639
+- [18.3.1.40 f (Formula)](../chunks/pages-1640-1644-0316.md#source-page-1640-part-1) — PDF page 1640
+- [18.3.1.41 firstFooter (First Page Footer)](../chunks/pages-1640-1644-0316.md#source-page-1643-part-1) — PDF page 1643
+- [18.3.1.42 firstHeader (First Page Header)](../chunks/pages-1640-1644-0316.md#source-page-1644-part-1) — PDF page 1644
+- [18.3.1.43 formula (Formula)](../chunks/pages-1645-1649-0317.md#source-page-1645-part-1) — PDF page 1645
+- [18.3.1.44 formula1 (Formula 1)](../chunks/pages-1645-1649-0317.md#source-page-1645-part-1) — PDF page 1645
+- [18.3.1.45 formula2 (Formula 2)](../chunks/pages-1645-1649-0317.md#source-page-1646-part-1) — PDF page 1646
+- [18.3.1.46 headerFooter (Header Footer Settings)](../chunks/pages-1645-1649-0317.md#source-page-1646-part-1) — PDF page 1646
+- [18.3.1.47 hyperlink (Hyperlink)](../chunks/pages-1650-1654-0318.md#source-page-1651-part-1) — PDF page 1651
+- [18.3.1.48 hyperlinks (Hyperlinks)](../chunks/pages-1650-1654-0318.md#source-page-1652-part-1) — PDF page 1652
+- [18.3.1.49 iconSet (Icon Set)](../chunks/pages-1650-1654-0318.md#source-page-1652-part-1) — PDF page 1652
+- [18.3.1.50 ignoredError (Ignored Error)](../chunks/pages-1650-1654-0318.md#source-page-1653-part-1) — PDF page 1653
+- [18.3.1.51 ignoredErrors (Ignored Errors)](../chunks/pages-1655-1661-0319.md#source-page-1655-part-1) — PDF page 1655
+- [18.3.1.52 inputCells (Input Cells)](../chunks/pages-1655-1661-0319.md#source-page-1655-part-1) — PDF page 1655
+- [18.3.1.53 is (Rich Text Inline)](../chunks/pages-1655-1661-0319.md#source-page-1656-part-1) — PDF page 1656
+- [18.3.1.54 mergeCell (Merged Cell)](../chunks/pages-1655-1661-0319.md#source-page-1656-part-1) — PDF page 1656
+- [18.3.1.55 mergeCells (Merge Cells)](../chunks/pages-1655-1661-0319.md#source-page-1656-part-1) — PDF page 1656
+- [18.3.1.56 objectPr (Embedded Object Properties)](../chunks/pages-1655-1661-0319.md#source-page-1657-part-1) — PDF page 1657
+- [18.3.1.57 oddFooter (Odd Page Footer)](../chunks/pages-1655-1661-0319.md#source-page-1660-part-1) — PDF page 1660
+- [18.3.1.58 oddHeader (Odd Header)](../chunks/pages-1655-1661-0319.md#source-page-1661-part-1) — PDF page 1661
+- [18.3.1.59 oleObject (Embedded Object)](../chunks/pages-1662-1667-0320.md#source-page-1662-part-1) — PDF page 1662
+- [18.3.1.60 oleObjects (Embedded Objects)](../chunks/pages-1662-1667-0320.md#source-page-1663-part-1) — PDF page 1663
+- [18.3.1.61 outlinePr (Outline Properties)](../chunks/pages-1662-1667-0320.md#source-page-1663-part-1) — PDF page 1663
+- [18.3.1.62 pageMargins (Page Margins)](../chunks/pages-1662-1667-0320.md#source-page-1665-part-1) — PDF page 1665
+- [18.3.1.63 pageSetup (Page Setup Settings)](../chunks/pages-1662-1667-0320.md#source-page-1665-part-1) — PDF page 1665
+- [18.3.1.64 pageSetup (Chart Sheet Page Setup)](../chunks/pages-1668-1672-0321.md#source-page-1671-part-1) — PDF page 1671
+- [18.3.1.65 pageSetUpPr (Page Setup Properties)](../chunks/pages-1673-1678-0322.md#source-page-1674-part-1) — PDF page 1674
+- [18.3.1.66 pane (View Pane)](../chunks/pages-1673-1678-0322.md#source-page-1675-part-1) — PDF page 1675
+- [18.3.1.67 picture (Background Image)](../chunks/pages-1673-1678-0322.md#source-page-1676-part-1) — PDF page 1676
+- [18.3.1.68 pivotArea (Pivot Area)](../chunks/pages-1673-1678-0322.md#source-page-1676-part-1) — PDF page 1676
+- [18.3.1.69 pivotSelection (PivotTable Selection)](../chunks/pages-1673-1678-0322.md#source-page-1677-part-1) — PDF page 1677
+- [18.3.1.70 printOptions (Print Options)](../chunks/pages-1679-1682-0323.md#source-page-1681-part-1) — PDF page 1681
+- [18.3.1.71 protectedRange (Protected Range)](../chunks/pages-1679-1682-0323.md#source-page-1681-part-1) — PDF page 1681
+- [18.3.1.72 protectedRanges (Protected Ranges)](../chunks/pages-1683-1688-0324.md#source-page-1685-part-1) — PDF page 1685
+- [18.3.1.73 row (Row)](../chunks/pages-1683-1688-0324.md#source-page-1685-part-1) — PDF page 1685
+- [18.3.1.74 rowBreaks (Horizontal Page Breaks (Row))](../chunks/pages-1689-1694-0325.md#source-page-1691-part-1) — PDF page 1691
+- [18.3.1.75 scenario (Scenario)](../chunks/pages-1689-1694-0325.md#source-page-1691-part-1) — PDF page 1691
+- [18.3.1.76 scenarios (Scenarios)](../chunks/pages-1689-1694-0325.md#source-page-1692-part-1) — PDF page 1692
+- [18.3.1.77 securityDescriptor (Security Descriptor)](../chunks/pages-1689-1694-0325.md#source-page-1693-part-1) — PDF page 1693
+- [18.3.1.78 selection (Selection)](../chunks/pages-1689-1694-0325.md#source-page-1694-part-1) — PDF page 1694
+- [18.3.1.79 sheetCalcPr (Sheet Calculation Properties)](../chunks/pages-1689-1694-0325.md#source-page-1694-part-1) — PDF page 1694
+- [18.3.1.80 sheetData (Sheet Data)](../chunks/pages-1695-1698-0326.md#source-page-1695-part-1) — PDF page 1695
+- [18.3.1.81 sheetFormatPr (Sheet Format Properties)](../chunks/pages-1695-1698-0326.md#source-page-1695-part-1) — PDF page 1695
+- [18.3.1.82 sheetPr (Sheet Properties)](../chunks/pages-1695-1698-0326.md#source-page-1696-part-1) — PDF page 1696
+- [18.3.1.83 sheetPr (Chart Sheet Properties)](../chunks/pages-1695-1698-0326.md#source-page-1698-part-1) — PDF page 1698
+- [18.3.1.84 sheetProtection (Chart Sheet Protection)](../chunks/pages-1695-1698-0326.md#source-page-1698-part-1) — PDF page 1698
+- [18.3.1.85 sheetProtection (Sheet Protection Options)](../chunks/pages-1699-1702-0327.md#source-page-1701-part-1) — PDF page 1701
+- [18.3.1.86 sheetView (Chart Sheet View)](../chunks/pages-1707-1711-0329.md#source-page-1707-part-1) — PDF page 1707
+- [18.3.1.87 sheetView (Worksheet View)](../chunks/pages-1707-1711-0329.md#source-page-1708-part-1) — PDF page 1708
+- [18.3.1.88 sheetViews (Sheet Views)](../chunks/pages-1712-1717-0330.md#source-page-1712-part-1) — PDF page 1712
+- [18.3.1.89 sheetViews (Chart Sheet Views)](../chunks/pages-1712-1717-0330.md#source-page-1712-part-1) — PDF page 1712
+- [18.3.1.90 smartTags (Smart Tags)](../chunks/pages-1712-1717-0330.md#source-page-1712-part-1) — PDF page 1712
+- [18.3.1.91 sortCondition (Sort Condition)](../chunks/pages-1712-1717-0330.md#source-page-1713-part-1) — PDF page 1713
+- [18.3.1.92 sortState (Sort State)](../chunks/pages-1712-1717-0330.md#source-page-1714-part-1) — PDF page 1714
+- [18.3.1.93 tabColor (Sheet Tab Color)](../chunks/pages-1712-1717-0330.md#source-page-1715-part-1) — PDF page 1715
+- [18.3.1.94 tablePart (Table Part)](../chunks/pages-1712-1717-0330.md#source-page-1716-part-1) — PDF page 1716
+- [18.3.1.95 tableParts (Table Parts)](../chunks/pages-1712-1717-0330.md#source-page-1717-part-1) — PDF page 1717
+- [18.3.1.96 v (Cell Value)](../chunks/pages-1712-1717-0330.md#source-page-1717-part-1) — PDF page 1717
+- [18.3.1.97 webPublishItem (Web Publishing Item)](../chunks/pages-1718-1723-0331.md#source-page-1718-part-1) — PDF page 1718
+- [18.3.1.98 webPublishItems (Web Publishing Items)](../chunks/pages-1718-1723-0331.md#source-page-1719-part-1) — PDF page 1719
+- [18.3.1.99 worksheet (Worksheet)](../chunks/pages-1718-1723-0331.md#source-page-1720-part-1) — PDF page 1720

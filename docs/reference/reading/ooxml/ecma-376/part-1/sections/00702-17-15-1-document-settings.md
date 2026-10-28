@@ -1,0 +1,102 @@
+# 17.15.1 Document Settings
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Start reading](../chunks/pages-0979-0982-0179.md#source-page-980-part-1) (PDF page 980).
+
+- [17.15.1.1 activeWritingStyle (Grammar Checking Settings)](../chunks/pages-0979-0982-0179.md#source-page-980-part-1) — PDF page 980
+- [17.15.1.2 alignBordersAndEdges (Align Paragraph and Table Borders with Page Border)](../chunks/pages-0979-0982-0179.md#source-page-982-part-1) — PDF page 982
+- [17.15.1.3 alwaysMergeEmptyNamespace (Do Not Mark Custom XML Elements With No Namespace As Invalid)](../chunks/pages-0983-0988-0180.md#source-page-983-part-1) — PDF page 983
+- [17.15.1.4 alwaysShowPlaceholderText (Use Custom XML Element Names as Default Placeholder Text)](../chunks/pages-0983-0988-0180.md#source-page-984-part-1) — PDF page 984
+- [17.15.1.5 attachedSchema (Attached Custom XML Schema)](../chunks/pages-0983-0988-0180.md#source-page-985-part-1) — PDF page 985
+- [17.15.1.6 attachedTemplate (Attached Document Template)](../chunks/pages-0983-0988-0180.md#source-page-986-part-1) — PDF page 986
+- [17.15.1.7 autoCaption (Single Automatic Captioning Setting)](../chunks/pages-0983-0988-0180.md#source-page-987-part-1) — PDF page 987
+- [17.15.1.8 autoCaptions (Automatic Captioning Settings)](../chunks/pages-0989-0994-0181.md#source-page-989-part-1) — PDF page 989
+- [17.15.1.9 autoFormatOverride (Allow Automatic Formatting to Override Formatting Protection Settings)](../chunks/pages-0989-0994-0181.md#source-page-990-part-1) — PDF page 990
+- [17.15.1.10 autoHyphenation (Automatically Hyphenate Document Contents When Displayed)](../chunks/pages-0989-0994-0181.md#source-page-990-part-1) — PDF page 990
+- [17.15.1.11 bookFoldPrinting (Book Fold Printing)](../chunks/pages-0989-0994-0181.md#source-page-991-part-1) — PDF page 991
+- [17.15.1.12 bookFoldPrintingSheets (Number of Pages Per Booklet)](../chunks/pages-0989-0994-0181.md#source-page-993-part-1) — PDF page 993
+- [17.15.1.13 bookFoldRevPrinting (Reverse Book Fold Printing)](../chunks/pages-0995-1000-0182.md#source-page-995-part-1) — PDF page 995
+- [17.15.1.14 bordersDoNotSurroundFooter (Page Border Excludes Footer)](../chunks/pages-0995-1000-0182.md#source-page-997-part-1) — PDF page 997
+- [17.15.1.15 bordersDoNotSurroundHeader (Page Border Excludes Header)](../chunks/pages-0995-1000-0182.md#source-page-997-part-1) — PDF page 997
+- [17.15.1.16 caption (Single Caption Type Definition)](../chunks/pages-0995-1000-0182.md#source-page-998-part-1) — PDF page 998
+- [17.15.1.17 captions (Caption Settings)](../chunks/pages-1001-1007-0183.md#source-page-1007-part-1) — PDF page 1007
+- [17.15.1.18 characterSpacingControl (Character-Level Whitespace Compression)](../chunks/pages-1008-1012-0184.md#source-page-1010-part-1) — PDF page 1010
+- [17.15.1.19 clickAndTypeStyle (Paragraph Style Applied to Automatically Generated Paragraphs)](../chunks/pages-1008-1012-0184.md#source-page-1010-part-1) — PDF page 1010
+- [17.15.1.20 clrSchemeMapping (Theme Color Mappings)](../chunks/pages-1008-1012-0184.md#source-page-1012-part-1) — PDF page 1012
+- [17.15.1.21 compat (Compatibility Settings)](../chunks/pages-1013-1017-0185.md#source-page-1017-part-1) — PDF page 1017
+- [17.15.1.22 consecutiveHyphenLimit (Maximum Number of Consecutively Hyphenated Lines)](../chunks/pages-1013-1017-0185.md#source-page-1017-part-1) — PDF page 1017
+- [17.15.1.23 decimalSymbol (Radix Point for Field Code Evaluation)](../chunks/pages-1018-1024-0186.md#source-page-1018-part-1) — PDF page 1018
+- [17.15.1.24 defaultTableStyle (Default Table Style for Newly Inserted Tables)](../chunks/pages-1018-1024-0186.md#source-page-1020-part-1) — PDF page 1020
+- [17.15.1.25 defaultTabStop (Distance Between Automatic Tab Stops)](../chunks/pages-1018-1024-0186.md#source-page-1021-part-1) — PDF page 1021
+- [17.15.1.26 displayBackgroundShape (Display Background Objects When Displaying Document)](../chunks/pages-1018-1024-0186.md#source-page-1022-part-1) — PDF page 1022
+- [17.15.1.27 displayHorizontalDrawingGridEvery (Distance between Horizontal Gridlines)](../chunks/pages-1018-1024-0186.md#source-page-1023-part-1) — PDF page 1023
+- [17.15.1.28 displayVerticalDrawingGridEvery (Distance between Vertical Gridlines)](../chunks/pages-1025-1029-0187.md#source-page-1025-part-1) — PDF page 1025
+- [17.15.1.29 documentProtection (Document Editing Restrictions)](../chunks/pages-1025-1029-0187.md#source-page-1026-part-1) — PDF page 1026
+- [17.15.1.30 documentType (Document Classification)](../chunks/pages-1030-1035-0188.md#source-page-1031-part-1) — PDF page 1031
+- [17.15.1.31 docVar (Single Document Variable)](../chunks/pages-1030-1035-0188.md#source-page-1032-part-1) — PDF page 1032
+- [17.15.1.32 docVars (Document Variables)](../chunks/pages-1030-1035-0188.md#source-page-1033-part-1) — PDF page 1033
+- [17.15.1.33 doNotAutoCompressPictures (Do Not Automatically Compress Images)](../chunks/pages-1030-1035-0188.md#source-page-1033-part-1) — PDF page 1033
+- [17.15.1.34 doNotDemarcateInvalidXml (Do Not Show Visual Indicator For Invalid Custom XML Markup)](../chunks/pages-1030-1035-0188.md#source-page-1034-part-1) — PDF page 1034
+- [17.15.1.35 doNotDisplayPageBoundaries (Do Not Display Visual Boundary For Header/Footer or Between Pages)](../chunks/pages-1030-1035-0188.md#source-page-1034-part-1) — PDF page 1034
+- [17.15.1.36 doNotEmbedSmartTags (Remove Smart Tags When Saving)](../chunks/pages-1036-1041-0189.md#source-page-1036-part-1) — PDF page 1036
+- [17.15.1.37 doNotHyphenateCaps (Do Not Hyphenate Words in ALL CAPITAL LETTERS)](../chunks/pages-1036-1041-0189.md#source-page-1036-part-1) — PDF page 1036
+- [17.15.1.38 doNotIncludeSubdocsInStats (Do Not Include Content in Text Boxes, Footnotes, and Endnotes in Document Statistics)](../chunks/pages-1036-1041-0189.md#source-page-1037-part-1) — PDF page 1037
+- [17.15.1.39 doNotShadeFormData (Do Not Show Visual Indicator For Form Fields)](../chunks/pages-1036-1041-0189.md#source-page-1038-part-1) — PDF page 1038
+- [17.15.1.40 doNotTrackFormatting (Do Not Track Formatting Revisions When Tracking Revisions)](../chunks/pages-1036-1041-0189.md#source-page-1038-part-1) — PDF page 1038
+- [17.15.1.41 doNotTrackMoves (Do Not Use Move Syntax When Tracking Revisions)](../chunks/pages-1036-1041-0189.md#source-page-1040-part-1) — PDF page 1040
+- [17.15.1.42 doNotUseMarginsForDrawingGridOrigin (Do Not Use Margins for Drawing Grid Origin)](../chunks/pages-1036-1041-0189.md#source-page-1041-part-1) — PDF page 1041
+- [17.15.1.43 doNotValidateAgainstSchema (Do Not Validate Custom XML Markup Against Schemas)](../chunks/pages-1036-1041-0189.md#source-page-1041-part-1) — PDF page 1041
+- [17.15.1.44 drawingGridHorizontalOrigin (Drawing Grid Horizontal Origin Point)](../chunks/pages-1036-1041-0189.md#source-page-1041-part-1) — PDF page 1041
+- [17.15.1.45 drawingGridHorizontalSpacing (Drawing Grid Horizontal Grid Unit Size)](../chunks/pages-1042-1047-0190.md#source-page-1043-part-1) — PDF page 1043
+- [17.15.1.46 drawingGridVerticalOrigin (Drawing Grid Vertical Origin Point)](../chunks/pages-1042-1047-0190.md#source-page-1044-part-1) — PDF page 1044
+- [17.15.1.47 drawingGridVerticalSpacing (Drawing Grid Vertical Grid Unit Size)](../chunks/pages-1042-1047-0190.md#source-page-1045-part-1) — PDF page 1045
+- [17.15.1.48 forceUpgrade (Upgrade Document on Open)](../chunks/pages-1042-1047-0190.md#source-page-1047-part-1) — PDF page 1047
+- [17.15.1.49 formsDesign (Structured Document Tag Placeholder Text Should be Resaved)](../chunks/pages-1042-1047-0190.md#source-page-1047-part-1) — PDF page 1047
+- [17.15.1.50 gutterAtTop (Position Gutter At Top of Page)](../chunks/pages-1048-1053-0191.md#source-page-1048-part-1) — PDF page 1048
+- [17.15.1.51 hideGrammaticalErrors (Do Not Display Visual Indication of Grammatical Errors)](../chunks/pages-1048-1053-0191.md#source-page-1049-part-1) — PDF page 1049
+- [17.15.1.52 hideSpellingErrors (Do Not Display Visual Indication of Spelling Errors)](../chunks/pages-1048-1053-0191.md#source-page-1049-part-1) — PDF page 1049
+- [17.15.1.53 hyphenationZone (Hyphenation Zone)](../chunks/pages-1048-1053-0191.md#source-page-1049-part-1) — PDF page 1049
+- [17.15.1.54 ignoreMixedContent (Ignore Mixed Content When Validating Custom XML Markup)](../chunks/pages-1048-1053-0191.md#source-page-1051-part-1) — PDF page 1051
+- [17.15.1.55 linkStyles (Automatically Update Styles From Document Template)](../chunks/pages-1048-1053-0191.md#source-page-1052-part-1) — PDF page 1052
+- [17.15.1.56 listSeparator (List Separator for Field Code Evaluation)](../chunks/pages-1048-1053-0191.md#source-page-1053-part-1) — PDF page 1053
+- [17.15.1.57 mirrorMargins (Mirror Page Margins)](../chunks/pages-1054-1059-0192.md#source-page-1054-part-1) — PDF page 1054
+- [17.15.1.58 noLineBreaksAfter (Custom Set of Characters Which Cannot End a Line)](../chunks/pages-1054-1059-0192.md#source-page-1055-part-1) — PDF page 1055
+- [17.15.1.59 noLineBreaksBefore (Custom Set Of Characters Which Cannot Begin A Line)](../chunks/pages-1054-1059-0192.md#source-page-1056-part-1) — PDF page 1056
+- [17.15.1.60 noPunctuationKerning (Never Kern Punctuation Characters)](../chunks/pages-1054-1059-0192.md#source-page-1058-part-1) — PDF page 1058
+- [17.15.1.61 printFormsData (Only Print Form Field Content)](../chunks/pages-1054-1059-0192.md#source-page-1058-part-1) — PDF page 1058
+- [17.15.1.62 printFractionalCharacterWidth (Print Fractional Character Widths)](../chunks/pages-1060-1064-0193.md#source-page-1060-part-1) — PDF page 1060
+- [17.15.1.63 printPostScriptOverText (Print PostScript Codes With Document Text)](../chunks/pages-1060-1064-0193.md#source-page-1060-part-1) — PDF page 1060
+- [17.15.1.64 printTwoOnOne (Print Two Pages Per Sheet)](../chunks/pages-1060-1064-0193.md#source-page-1060-part-1) — PDF page 1060
+- [17.15.1.65 proofState (Spelling and Grammatical Checking State)](../chunks/pages-1060-1064-0193.md#source-page-1062-part-1) — PDF page 1062
+- [17.15.1.66 readModeInkLockDown (Freeze Document Layout)](../chunks/pages-1060-1064-0193.md#source-page-1064-part-1) — PDF page 1064
+- [17.15.1.67 removeDateAndTime (Remove Date and Time from Annotations)](../chunks/pages-1065-1069-0194.md#source-page-1066-part-1) — PDF page 1066
+- [17.15.1.68 removePersonalInformation (Remove Personal Information from Document Properties)](../chunks/pages-1065-1069-0194.md#source-page-1067-part-1) — PDF page 1067
+- [17.15.1.69 revisionView (Visibility of Annotation Types)](../chunks/pages-1065-1069-0194.md#source-page-1067-part-1) — PDF page 1067
+- [17.15.1.70 rsid (Single Session Revision Save ID)](../chunks/pages-1065-1069-0194.md#source-page-1069-part-1) — PDF page 1069
+- [17.15.1.71 rsidRoot (Original Document Revision Save ID)](../chunks/pages-1070-1074-0195.md#source-page-1070-part-1) — PDF page 1070
+- [17.15.1.72 rsids (Listing of All Revision Save ID Values)](../chunks/pages-1070-1074-0195.md#source-page-1071-part-1) — PDF page 1071
+- [17.15.1.73 saveFormsData (Only Save Form Field Content)](../chunks/pages-1070-1074-0195.md#source-page-1072-part-1) — PDF page 1072
+- [17.15.1.74 saveInvalidXml (Allow Saving Document As XML File When Custom XML Markup Is Invalid)](../chunks/pages-1070-1074-0195.md#source-page-1073-part-1) — PDF page 1073
+- [17.15.1.75 savePreviewPicture (Generate Thumbnail For Document On Save)](../chunks/pages-1070-1074-0195.md#source-page-1073-part-1) — PDF page 1073
+- [17.15.1.76 saveThroughXslt (Custom XSL Transform To Use When Saving As XML File)](../chunks/pages-1070-1074-0195.md#source-page-1074-part-1) — PDF page 1074
+- [17.15.1.77 saveXmlDataOnly (Only Save Custom XML Markup)](../chunks/pages-1075-1079-0196.md#source-page-1075-part-1) — PDF page 1075
+- [17.15.1.78 settings (Document Settings)](../chunks/pages-1075-1079-0196.md#source-page-1076-part-1) — PDF page 1076
+- [17.15.1.79 showEnvelope (Show E-Mail Message Header)](../chunks/pages-1075-1079-0196.md#source-page-1077-part-1) — PDF page 1077
+- [17.15.1.80 showXMLTags (Show Visual Indicators for Custom XML Markup Start/End Locations)](../chunks/pages-1075-1079-0196.md#source-page-1077-part-1) — PDF page 1077
+- [17.15.1.81 smartTagType (Supplementary Smart Tag Information)](../chunks/pages-1075-1079-0196.md#source-page-1077-part-1) — PDF page 1077
+- [17.15.1.82 strictFirstAndLastChars (Use Strict Kinsoku Rules for Japanese Text)](../chunks/pages-1075-1079-0196.md#source-page-1079-part-1) — PDF page 1079
+- [17.15.1.83 styleLockQFSet (Prevent Replacement of Styles Part)](../chunks/pages-1075-1079-0196.md#source-page-1079-part-1) — PDF page 1079
+- [17.15.1.84 styleLockTheme (Prevent Modification of Themes Part)](../chunks/pages-1080-1084-0197.md#source-page-1080-part-1) — PDF page 1080
+- [17.15.1.85 stylePaneFormatFilter (Suggested Filtering for List of Document Styles)](../chunks/pages-1080-1084-0197.md#source-page-1080-part-1) — PDF page 1080
+- [17.15.1.86 stylePaneSortMethod (Suggested Sorting for List of Document Styles)](../chunks/pages-1080-1084-0197.md#source-page-1082-part-1) — PDF page 1082
+- [17.15.1.87 summaryLength (Percentage of Document to Use When Generating Summary)](../chunks/pages-1080-1084-0197.md#source-page-1083-part-1) — PDF page 1083
+- [17.15.1.88 themeFontLang (Theme Font Languages)](../chunks/pages-1080-1084-0197.md#source-page-1084-part-1) — PDF page 1084
+- [17.15.1.89 trackRevisions (Track Revisions to Document)](../chunks/pages-1085-1089-0198.md#source-page-1086-part-1) — PDF page 1086
+- [17.15.1.90 updateFields (Automatically Recalculate Fields on Open)](../chunks/pages-1085-1089-0198.md#source-page-1088-part-1) — PDF page 1088
+- [17.15.1.91 useXSLTWhenSaving (Save Document as XML File through Custom XSL Transform)](../chunks/pages-1085-1089-0198.md#source-page-1089-part-1) — PDF page 1089
+- [17.15.1.92 view (Document View Setting)](../chunks/pages-1085-1089-0198.md#source-page-1089-part-1) — PDF page 1089
+- [17.15.1.93 writeProtection (Write Protection)](../chunks/pages-1090-1093-0199.md#source-page-1090-part-1) — PDF page 1090
+- [17.15.1.94 zoom (Magnification Setting)](../chunks/pages-1094-1099-0200.md#source-page-1094-part-1) — PDF page 1094

@@ -1,0 +1,82 @@
+# Sequential reading index
+
+Source: [MS-OE376: Office implementation information for ECMA-376](https://officeprotocoldocs-f5hpbjgea6b8gneq.b02.azurefd.net/files/MS-OE376/%5bMS-OE376%5d.pdf) · 4.1, 2022-08-16.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/).
+
+[Index](pages.md)
+
+- [pages-0557-0559-0133](chunks/pages-0557-0559-0133.md)
+- [pages-0560-0567-0134](chunks/pages-0560-0567-0134.md)
+- [pages-0568-0575-0135](chunks/pages-0568-0575-0135.md)
+- [pages-0576-0583-0136](chunks/pages-0576-0583-0136.md)
+- [pages-0584-0591-0137](chunks/pages-0584-0591-0137.md)
+- [pages-0592-0599-0138](chunks/pages-0592-0599-0138.md)
+- [pages-0600-0607-0139](chunks/pages-0600-0607-0139.md)
+- [pages-0608-0615-0140](chunks/pages-0608-0615-0140.md)
+- [pages-0616-0623-0141](chunks/pages-0616-0623-0141.md)
+- [pages-0624-0631-0142](chunks/pages-0624-0631-0142.md) — 2.1.1344 Part 4 Section 5.1.6.11, tbl (Table); 2.1.1345 Part 4 Section 5.1.6.12, tblGrid (Table Grid)
+- [pages-0632-0636-0143](chunks/pages-0632-0636-0143.md) — 2.1.1346 Part 4 Section 5.1.6.14, tc (Table Cell); 2.1.1347 Part 4 Section 5.1.6.16, tr (Table Row)
+- [pages-0637-0641-0144](chunks/pages-0637-0641-0144.md) — 2.1.1367 Part 4 Section 5.1.10.4, alphaInv (Alpha Inverse Effect); 2.1.1368 Part 4 Section 5.1.10.5, alphaMod (Alpha Modulate Effect)
+- [pages-0642-0646-0145](chunks/pages-0642-0646-0145.md) — 2.1.1398 Part 4 Section 5.1.12.32, ST_LineEndLength (Line End Length); 2.1.1399 Part 4 Section 5.1.12.35, ST_LineWidth (Line Width)
+- [pages-0647-0651-0146](chunks/pages-0647-0651-0146.md) — 2.1.1424 Part 4 Section 5.6.2.9, cNvSpPr (Connection Non-Visual Shape Properties); 2.1.1425 Part 4 Section 5.6.2.10, col (Column))
+- [pages-0652-0656-0147](chunks/pages-0652-0656-0147.md) — 2.1.1451 Part 4 Section 5.7.2.12, backward (Backward); 2.1.1452 Part 4 Section 5.7.2.14, bandFmts (Band Formats)
+- [pages-0657-0660-0148](chunks/pages-0657-0660-0148.md) — 2.1.1470 Part 4 Section 5.7.2.41, depthPercent (Depth Percent); 2.1.1471 Part 4 Section 5.7.2.42, dispBlanksAs (Display Blanks As)
+- [pages-0661-0664-0149](chunks/pages-0661-0664-0149.md) — 2.1.1482 Part 4 Section 5.7.2.59, evenFooter (Even Footer); 2.1.1483 Part 4 Section 5.7.2.60, evenHeader (Even Header)
+- [pages-0665-0669-0150](chunks/pages-0665-0669-0150.md) — 2.1.1502 Part 4 Section 5.7.2.84, idx (Index); 2.1.1503 Part 4 Section 5.7.2.85, intercept (Intercept)
+- [pages-0670-0675-0151](chunks/pages-0670-0675-0151.md) — 2.1.1532 Part 4 Section 5.7.2.127, ofPieChart (Pie of Pie or Bar of Pie Charts); 2.1.1533 Part 4 Section 5.7.2.128, ofPieType (Pie of Pie or Bar of Pie Type)
+- [pages-0676-0680-0152](chunks/pages-0676-0680-0152.md) — 2.1.1542 Part 4 Section 5.7.2.137, perspective (Perspective); 2.1.1543 Part 4 Section 5.7.2.139, pictureOptions (Picture Options)
+- [pages-0681-0685-0153](chunks/pages-0681-0685-0153.md) — 2.1.1569 Part 4 Section 5.7.2.168, ser (Bubble Chart Series); 2.1.1570 Part 4 Section 5.7.2.169, ser (Line Chart Series)
+- [pages-0686-0690-0154](chunks/pages-0686-0690-0154.md) — 2.1.1588 Part 4 Section 5.7.2.187, showOutline (Show Outline Border); 2.1.1589 Part 4 Section 5.7.2.188, showPercent (Show Percent)
+- [pages-0691-0694-0155](chunks/pages-0691-0694-0155.md) — 2.1.1611 Part 4 Section 5.7.2.217, txPr (Text Properties); 2.1.1612 Part 4 Section 5.7.2.220, userInterface (User Interface)
+- [pages-0695-0698-0156](chunks/pages-0695-0698-0156.md) — 2.1.1628 Part 4 Section 5.7.3.6, ST_BuiltInUnit (Built-In Unit); 2.1.1629 Part 4 Section 5.7.3.8, ST_Crosses (Crosses)
+- [pages-0699-0702-0157](chunks/pages-0699-0702-0157.md) — 2.1.1647 Part 4 Section 5.7.3.51, ST_TrendlineType (Trendline Type); 2.1.1648 Part 4 Section 5.7.3.52, ST_Xstring (String With Encoded Characters)
+- [pages-0703-0707-0158](chunks/pages-0703-0707-0158.md) — 2.1.1664 Part 4 Section 5.9.2.7, clrData (Color Transform Sample Data); 2.1.1665 Part 4 Section 5.9.2.13, extLst (Extension List)
+- [pages-0708-0711-0159](chunks/pages-0708-0711-0159.md)
+- [pages-0712-0715-0160](chunks/pages-0712-0715-0160.md) — 2.1.1689 Part 4 Section 5.9.7.55, ST_SecondaryChildAlignment (Secondary Child Alignment); 2.1.1690 Part 4 Section 5.9.7.56, ST_SecondaryLinearDirection (Secondary Linear Direction)
+- [pages-0716-0719-0161](chunks/pages-0716-0719-0161.md)
+- [pages-0720-0723-0162](chunks/pages-0720-0723-0162.md) — 2.1.1693 Part 4 Section 6.1.2.2, background (Document Background); 2.1.1694 Part 4 Section 6.1.2.3, curve (Bezier Curve)
+- [pages-0724-0727-0163](chunks/pages-0724-0727-0163.md) — 2.1.1697 Part 4 Section 6.1.2.6, formulas (Set of Formulas); 2.1.1698 Part 4 Section 6.1.2.7, group (Shape Group)
+- [pages-0728-0731-0164](chunks/pages-0728-0731-0164.md) — 2.1.1703 Part 4 Section 6.1.2.12, line (Line); 2.1.1704 Part 4 Section 6.1.2.13, oval (Oval)
+- [pages-0732-0736-0165](chunks/pages-0732-0736-0165.md) — 2.1.1708 Part 4 Section 6.1.2.17, roundrect (Rounded Rectangle); 2.1.1709 Part 4 Section 6.1.2.18, shadow (Shadow Effect)
+- [pages-0737-0741-0166](chunks/pages-0737-0741-0166.md) — 2.1.1714 Part 4 Section 6.1.2.23, textpath (Text Layout Path); 2.1.1715 Part 4 Section 6.1.3.1, ST_ColorType (Color Type)
+- [pages-0742-0745-0167](chunks/pages-0742-0745-0167.md) — 2.1.1717 Part 4 Section 6.1.3.4, ST_FillMethod (Gradient Fill Computation Type); 2.1.1718 Part 4 Section 6.1.3.5, ST_FillType (Shape Fill Type)
+- [pages-0746-0749-0168](chunks/pages-0746-0749-0168.md) — 2.1.1722 Part 4 Section 6.2.2.3, clippath (Shape Clipping Path); 2.1.1723 Part 4 Section 6.2.2.4, colormenu (UI Default Colors)
+- [pages-0750-0753-0169](chunks/pages-0750-0753-0169.md) — 2.1.1729 Part 4 Section 6.2.2.11, FieldCodes (WordprocessingML Field Switches); 2.1.1730 Part 4 Section 6.2.2.12, fill (Shape Fill Extended Properties)
+- [pages-0754-0758-0170](chunks/pages-0754-0758-0170.md) — 2.1.1740 Part 4 Section 6.2.2.23, rel (Diagram Relationship); 2.1.1741 Part 4 Section 6.2.2.25, right (Text Box Right Stroke)
+- [pages-0759-0763-0171](chunks/pages-0759-0763-0171.md) — 2.1.1750 Part 4 Section 6.2.3.11, ST_FillType (Shape Fill Type); 2.1.1751 Part 4 Section 6.3.2.2, borderbottom (Bottom Border)
+- [pages-0764-0768-0172](chunks/pages-0764-0768-0172.md) — 2.1.1779 Part 4 Section 6.4.2.33, Inc (Scroll Bar Increment); 2.1.1780 Part 4 Section 6.4.2.35, LCT (Callback Type)
+- [pages-0769-0774-0173](chunks/pages-0769-0774-0173.md) — 2.1.1810 Part 4 Section 7.1.2.19, cGpRule (Matrix Column Gap Rule); 2.1.1811 Part 4 Section 7.1.2.20, chr (Accent Character)
+- [pages-0775-0779-0174](chunks/pages-0775-0779-0174.md) — 2.1.1839 Part 4 Section 7.1.2.60, m (Matrix Function); 2.1.1840 Part 4 Section 7.1.2.61, mathFont (Math Font)
+- [pages-0780-0784-0175](chunks/pages-0780-0784-0175.md) — 2.1.1858 Part 4 Section 7.1.2.88, rad (Radical Function); 2.1.1859 Part 4 Section 7.1.2.90, rMargin (Right Margin)
+- [pages-0785-0789-0176](chunks/pages-0785-0789-0176.md) — 2.1.1886 Part 4 Section 7.2.2.8, HeadingPairs (Heading Pairs); 2.1.1887 Part 4 Section 7.2.2.10, HLinks (Hyperlink List)
+- [pages-0790-0794-0177](chunks/pages-0790-0794-0177.md) — 2.1.1893 Part 4 Section 7.4.2.5, cf (Clipboard Data); 2.1.1894 Part 4 Section 7.4.2.6, clsid (Class ID)
+- [pages-0795-0800-0178](chunks/pages-0795-0800-0178.md) — 2.1.1908 Part 4 Section 7.6.2.50, Person (Person); 2.1.1909 Part 4 Section 7.6.2.59, Source (Source)
+- [pages-0801-0805-0179](chunks/pages-0801-0805-0179.md) — 3 Appendix A: Additional Information; 3.1 Word
+- [pages-0806-0811-0180](chunks/pages-0806-0811-0180.md) — 3.1.2.1.1.3 acdEntry (Allocated Command Manifest Entry); 3.1.2.1.1.4 acdManifest (Allocated Command Manifest)
+- [pages-0812-0816-0181](chunks/pages-0812-0816-0181.md) — 3.1.2.1.1.9 keymaps (Key Map Customizations); 3.1.2.1.1.10 keymapsBad (Key Map Customizations for Mismatched Keyboards)
+- [pages-0817-0823-0182](chunks/pages-0817-0823-0182.md) — 3.1.2.1.1.14 toolbars (Legacy Toolbar Customizations); 3.1.2.1.1.15 wch (Character Insertion Keyboard Customization Action)
+- [pages-0824-0830-0183](chunks/pages-0824-0830-0183.md)
+- [pages-0831-0837-0184](chunks/pages-0831-0837-0184.md)
+- [pages-0838-0844-0185](chunks/pages-0838-0844-0185.md)
+- [pages-0845-0851-0186](chunks/pages-0845-0851-0186.md)
+- [pages-0852-0858-0187](chunks/pages-0852-0858-0187.md)
+- [pages-0859-0865-0188](chunks/pages-0859-0865-0188.md)
+- [pages-0866-0872-0189](chunks/pages-0866-0872-0189.md)
+- [pages-0873-0880-0190](chunks/pages-0873-0880-0190.md) — 3.1.2.1.3 Statements
+- [pages-0881-0888-0191](chunks/pages-0881-0888-0191.md)
+- [pages-0889-0896-0192](chunks/pages-0889-0896-0192.md) — 3.1.2.2 Mail Merge; 3.1.2.2.1 Elements
+- [pages-0897-0901-0193](chunks/pages-0897-0901-0193.md) — 3.1.2.2.1.3 recipients (Inclusion/Exclusion Data for Data Source); 3.1.2.3 Simple Types
+- [pages-0902-0904-0194](chunks/pages-0902-0904-0194.md) — 3.1.3 Additional WordprocessingML Schema; 3.1.3.1 Additional Elements
+- [pages-0905-0907-0195](chunks/pages-0905-0907-0195.md) — 3.1.3.1.2 fldSimple (Ruby Simple Field)
+- [pages-0908-0910-0196](chunks/pages-0908-0910-0196.md) — 3.1.3.1.3 hyperlink (Ruby Hyperlink)
+- [pages-0911-0913-0197](chunks/pages-0911-0913-0197.md)
+- [pages-0914-0917-0198](chunks/pages-0914-0917-0198.md) — 3.1.3.1.4 moveFrom (Move Source Math Control Character)
+- [pages-0918-0921-0199](chunks/pages-0918-0921-0199.md) — 3.1.3.1.5 moveTo (Move Destination Math Control Character); 3.1.3.1.6 sdt (Ruby Inline-Level Structured Document Tag)
+- [pages-0922-0924-0200](chunks/pages-0922-0924-0200.md) — 3.1.3.1.7 sdtContent (Ruby Inline-Level Structured Document Tag Content)
+- [pages-0925-0929-0201](chunks/pages-0925-0929-0201.md) — 3.1.3.2 Additional Fields; 3.1.3.2.1 DDE
+- [pages-0930-0935-0202](chunks/pages-0930-0935-0202.md) — 3.1.3.3 Simple Types; 3.1.3.3.1 ST_CustomXmlURI (URI for Custom XML)
+- [pages-0936-0940-0203](chunks/pages-0936-0940-0203.md) — 3.1.4.1 DrawingML Persistence Parts; 3.1.4.1.1 Graphic Frame Doc
+- [pages-0941-0946-0204](chunks/pages-0941-0946-0204.md) — 3.2 Excel; 3.2.1 Additional Parts
+- [pages-0947-0951-0205](chunks/pages-0947-0951-0205.md) — 3.2.2.1.4 rowSortMap (Row Sort Map); 3.2.2.1.5 worksheetSortMap (Worksheet Sort Map)
+- [pages-0952-0956-0206](chunks/pages-0952-0956-0206.md) — 3.2.3.1.4 Name Formulas; 3.2.3.1.5 External Name Formulas

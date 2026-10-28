@@ -1,0 +1,119 @@
+# Sequential reading index
+
+Source: [MS-XLSX: Excel extensions to Office Open XML SpreadsheetML](https://officeprotocoldocs-f5hpbjgea6b8gneq.b02.azurefd.net/files/MS-XLSX/%5bMS-XLSX%5d.pdf) · 30.0, 2026-10-16.
+
+[Document index](README.md) · [Topic guide](../../../../README.md) · [Publisher](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-xlsx/).
+
+- [pages-0001-0004-0001](chunks/pages-0001-0004-0001.md)
+- [pages-0005-0005-0002](chunks/pages-0005-0005-0002.md)
+- [pages-0006-0006-0003](chunks/pages-0006-0006-0003.md)
+- [pages-0007-0007-0004](chunks/pages-0007-0007-0004.md)
+- [pages-0008-0008-0005](chunks/pages-0008-0008-0005.md)
+- [pages-0009-0009-0006](chunks/pages-0009-0009-0006.md)
+- [pages-0010-0010-0007](chunks/pages-0010-0010-0007.md)
+- [pages-0011-0011-0008](chunks/pages-0011-0011-0008.md)
+- [pages-0012-0012-0009](chunks/pages-0012-0012-0009.md)
+- [pages-0013-0013-0010](chunks/pages-0013-0013-0010.md)
+- [pages-0014-0015-0011](chunks/pages-0014-0015-0011.md)
+- [pages-0016-0019-0012](chunks/pages-0016-0019-0012.md) — 1 Introduction; 1.1 Glossary
+- [pages-0020-0022-0013](chunks/pages-0020-0022-0013.md)
+- [pages-0023-0027-0014](chunks/pages-0023-0027-0014.md) — 1.2 References; 1.2.1 Normative References
+- [pages-0028-0032-0015](chunks/pages-0028-0032-0015.md) — 2 Structures; 2.1 Part Enumerations
+- [pages-0033-0037-0016](chunks/pages-0033-0037-0016.md) — 2.1.11 Rich Value Structure; 2.1.12 Rich Value Array
+- [pages-0038-0040-0017](chunks/pages-0038-0040-0017.md) — 2.2 Extensions; 2.2.1 SpreadsheetML Extensibility Elements
+- [pages-0041-0042-0018](chunks/pages-0041-0042-0018.md)
+- [pages-0043-0044-0019](chunks/pages-0043-0044-0019.md)
+- [pages-0045-0046-0020](chunks/pages-0045-0046-0020.md)
+- [pages-0047-0049-0021](chunks/pages-0047-0049-0021.md)
+- [pages-0050-0052-0022](chunks/pages-0050-0052-0022.md)
+- [pages-0053-0054-0023](chunks/pages-0053-0054-0023.md)
+- [pages-0055-0056-0024](chunks/pages-0055-0056-0024.md)
+- [pages-0057-0058-0025](chunks/pages-0057-0058-0025.md)
+- [pages-0059-0061-0026](chunks/pages-0059-0061-0026.md)
+- [pages-0062-0065-0027](chunks/pages-0062-0065-0027.md) — 2.2.2.1 Cell Formulas; 2.2.2.2 Conditional Formatting Formulas
+- [pages-0066-0073-0028](chunks/pages-0066-0073-0028.md) — 2.2.2.7 Pivot Item Formulas; 2.2.3 Functions
+- [pages-0074-0077-0029](chunks/pages-0074-0077-0029.md) — 2.2.4.5 Pivot Table; 2.2.4.6 Pivot Table Cache Definition
+- [pages-0078-0080-0030](chunks/pages-0078-0080-0030.md) — 2.2.4.10 Table Definition; 2.2.4.11 Workbook
+- [pages-0081-0083-0031](chunks/pages-0081-0083-0031.md) — 2.3 Conceptual Overview; 2.3.1 PivotTable What-if Analysis
+- [pages-0084-0086-0032](chunks/pages-0084-0086-0032.md) — 2.3.2.1.3 Slicer Cache Relationship to Table; 2.3.2.1.4 Slicer Cache Relationship to PivotTable View
+- [pages-0087-0090-0033](chunks/pages-0087-0090-0033.md) — 2.3.2.3 Slicers and Cube Functions; 2.3.2.4 Slicer Styles
+- [pages-0091-0094-0034](chunks/pages-0091-0094-0034.md) — 2.3.6.1.1 Array Type; 2.3.6.1.2 Entity Type
+- [pages-0095-0097-0035](chunks/pages-0095-0097-0035.md) — 2.3.6.1.6 ImageUrl Type; 2.3.6.1.7 Linked Entity Types
+- [pages-0098-0100-0036](chunks/pages-0098-0100-0036.md) — 2.3.6.1.8 Local Image Type; 2.3.6.1.9 SourceAttribution Type
+- [pages-0101-0103-0037](chunks/pages-0101-0103-0037.md) — 2.3.6.1.12 ExternalCodeServiceObject Type; 2.3.6.1.13 Primitive with Metadata Type
+- [pages-0104-0106-0038](chunks/pages-0104-0106-0038.md) — 2.3.6.4 Rich Styles and Properties; 2.3.7 Threaded Comments
+- [pages-0107-0109-0039](chunks/pages-0107-0109-0039.md) — 2.3.8.1 Table Filters and Worksheet Filters; 2.3.8.2 Reconciliation
+- [pages-0110-0114-0040](chunks/pages-0110-0114-0040.md) — 2.3.10.1 Python environment; 2.3.10.2 Python Function
+- [pages-0115-0119-0041](chunks/pages-0115-0119-0041.md) — 2.4.16 cacheHierarchy; 2.4.17 dataField
+- [pages-0120-0124-0042](chunks/pages-0120-0124-0042.md) — 2.4.33 sourceConnection; 2.4.34 formControlPr
+- [pages-0125-0129-0043](chunks/pages-0125-0129-0043.md) — 2.4.50 timelineRefs; 2.4.51 timelineCachePivotCaches
+- [pages-0130-0135-0044](chunks/pages-0130-0135-0044.md) — 2.4.67 absPath; 2.4.68 dataField
+- [pages-0136-0141-0045](chunks/pages-0136-0141-0045.md) — 2.4.89 externalLinksPr; 2.4.90 webImagesSrd
+- [pages-0142-0146-0046](chunks/pages-0142-0146-0046.md) — 2.4.110 externalCodeServiceImageAsInput; 2.4.111 pivotAreaReferenceSubtotals
+- [pages-0147-0151-0047](chunks/pages-0147-0151-0047.md) — 2.5.9 uid; 2.5.10 uid
+- [pages-0152-0156-0048](chunks/pages-0152-0156-0048.md) — 2.6.6 CT_SparklineGroups; 2.6.7 CT_SparklineGroup
+- [pages-0157-0161-0049](chunks/pages-0157-0161-0049.md) — 2.6.8 CT_Sparklines; 2.6.9 CT_Sparkline
+- [pages-0162-0166-0050](chunks/pages-0162-0166-0050.md) — 2.6.16 CT_TupleSet; 2.6.17 CT_TupleSetHeaders
+- [pages-0167-0169-0051](chunks/pages-0167-0169-0051.md)
+- [pages-0170-0173-0052](chunks/pages-0170-0173-0052.md) — 2.6.25 CT_DataField; 2.6.26 CT_Cfvo
+- [pages-0174-0176-0053](chunks/pages-0174-0176-0053.md) — 2.6.28 CT_IconSet
+- [pages-0177-0180-0054](chunks/pages-0177-0180-0054.md) — 2.6.29 CT_ColorScale; 2.6.30 CT_DataBar
+- [pages-0181-0184-0055](chunks/pages-0181-0184-0055.md) — 2.6.32 CT_PivotTableDefinition; 2.6.33 CT_PivotCacheDefinition
+- [pages-0185-0188-0056](chunks/pages-0185-0188-0056.md) — 2.6.34 CT_Connection; 2.6.35 CT_Table
+- [pages-0189-0193-0057](chunks/pages-0189-0193-0057.md) — 2.6.41 CT_PivotUserEdit; 2.6.42 CT_PivotEditValue
+- [pages-0194-0198-0058](chunks/pages-0194-0198-0058.md) — 2.6.48 CT_CacheField; 2.6.49 CT_ConditionalFormats
+- [pages-0199-0202-0059](chunks/pages-0199-0202-0059.md) — 2.6.55 CT_ProtectedRanges; 2.6.56 CT_ProtectedRange
+- [pages-0203-0206-0060](chunks/pages-0203-0206-0060.md) — 2.6.57 CT_IconFilter; 2.6.58 CT_Filter
+- [pages-0207-0210-0061](chunks/pages-0207-0210-0061.md) — 2.6.63 CT_ListItem; 2.6.64 CT_ListItems
+- [pages-0211-0215-0062](chunks/pages-0211-0215-0062.md) — 2.6.66 CT_DatastoreItem; 2.6.67 CT_Slicers
+- [pages-0216-0219-0063](chunks/pages-0216-0219-0063.md) — 2.6.71 CT_SlicerCacheData; 2.6.72 CT_SlicerCachePivotTables
+- [pages-0220-0224-0064](chunks/pages-0220-0224-0064.md) — 2.6.77 CT_OlapSlicerCacheRanges; 2.6.78 CT_OlapSlicerCacheLevelData
+- [pages-0225-0229-0065](chunks/pages-0225-0229-0065.md) — 2.6.84 CT_TabularSlicerCacheItems; 2.6.85 CT_TabularSlicerCacheItem
+- [pages-0230-0234-0066](chunks/pages-0230-0234-0066.md) — 2.6.92 CT_CalculatedMemberExt; 2.6.93 CT_CalculatedMember
+- [pages-0235-0239-0067](chunks/pages-0235-0239-0067.md) — 2.6.96 CT_PivotTableUISettings; 2.6.97 CT_TableSlicerCache
+- [pages-0240-0244-0068](chunks/pages-0240-0244-0068.md) — 2.6.105 CT_TimelineStyles; 2.6.106 CT_TimelineStyleElements
+- [pages-0245-0249-0069](chunks/pages-0245-0249-0069.md) — 2.6.112 CT_TimelineCacheDefinition; 2.6.113 CT_TimelineCachePivotTables
+- [pages-0250-0254-0070](chunks/pages-0250-0254-0070.md) — 2.6.118 CT_TimelinePivotFilter; 2.6.119 CT_ModelTextPr
+- [pages-0255-0259-0071](chunks/pages-0255-0259-0071.md) — 2.6.127 CT_CachedUniqueName; 2.6.128 CT_ModelTable
+- [pages-0260-0264-0072](chunks/pages-0260-0264-0072.md) — 2.6.136 CT_PivotValueCellExtra; 2.6.137 CT_PivotTableServerFormats
+- [pages-0265-0269-0073](chunks/pages-0265-0269-0073.md) — 2.6.144 CT_SurveyQuestion; 2.6.145 CT_SurveyElementPr
+- [pages-0270-0274-0074](chunks/pages-0270-0274-0074.md) — 2.6.150 CT_ContentPart; 2.6.151 CT_ContentPartNonVisual
+- [pages-0275-0279-0075](chunks/pages-0275-0279-0075.md) — 2.6.158 CT_ArrayData; 2.6.159 CT_ArrayValue
+- [pages-0280-0284-0076](chunks/pages-0280-0284-0076.md) — 2.6.166 CT_RichFilters; 2.6.167 CT_RichFormatProperties
+- [pages-0285-0289-0077](chunks/pages-0285-0289-0077.md) — 2.6.174 CT_RichTop10; 2.6.175 CT_RichValue
+- [pages-0290-0294-0078](chunks/pages-0290-0294-0078.md) — 2.6.183 CT_RichValueTypeKeyFlags; 2.6.184 CT_RichValueTypeReservedKey
+- [pages-0295-0299-0079](chunks/pages-0295-0299-0079.md) — 2.6.192 CT_SupportingPropertyBagData; 2.6.193 CT_SupportingPropertyBagKey
+- [pages-0300-0304-0080](chunks/pages-0300-0304-0080.md) — 2.6.202 CT_Mention; 2.6.203 CT_Person
+- [pages-0305-0309-0081](chunks/pages-0305-0309-0081.md) — 2.6.210 CT_NamedSheetView; 2.6.211 CT_NamedSheetViews
+- [pages-0310-0314-0082](chunks/pages-0310-0314-0082.md) — 2.6.217 CT_WebImageSupportingRichData; 2.6.218 CT_WebImageSupportingRichDataRelationship
+- [pages-0315-0319-0083](chunks/pages-0315-0319-0083.md) — 2.6.226 CT_PivotVersionInfo; 2.6.227 CT_AlternateUrl
+- [pages-0320-0325-0084](chunks/pages-0320-0325-0084.md) — 2.6.235 CT_IntFeatureProperty; 2.6.236 CT_RelFeatureProperty
+- [pages-0326-0330-0085](chunks/pages-0326-0330-0085.md) — 2.6.247 CT_ExternalCodeService; 2.6.248 CT_ExternalCodeServiceExt
+- [pages-0331-0335-0086](chunks/pages-0331-0335-0086.md) — 2.6.258 CT_PivotCacheRichInfo; 2.6.259 CT_Version
+- [pages-0336-0341-0087](chunks/pages-0336-0341-0087.md) — 2.6.269 CT_PivotItemSubtotal; 2.6.270 CT_PivotSubtotalType
+- [pages-0342-0347-0088](chunks/pages-0342-0347-0088.md) — 2.7.10 ST_IconSetType; 2.7.11 ST_PivotEditValueType
+- [pages-0348-0353-0089](chunks/pages-0348-0353-0089.md) — 2.7.16 ST_DropStyle; 2.7.17 ST_SelType
+- [pages-0354-0359-0090](chunks/pages-0354-0359-0090.md) — 2.7.26 ST_SXVCellType; 2.7.27 ST_QuestionType
+- [pages-0360-0365-0091](chunks/pages-0360-0365-0091.md) — 2.7.35 ST_RichValueValueType; 2.7.36 ST_SupportingPropertyBagArrayValueType
+- [pages-0366-0370-0092](chunks/pages-0366-0370-0092.md) — 3.1.2 Slicer Part; 4 Security Considerations
+- [pages-0371-0373-0093](chunks/pages-0371-0373-0093.md) — 5.1 http://schemas.microsoft.com/office/excel/2006/main Schema; 5.2 http://schemas.microsoft.com/office/drawing/2010/slicer Schema
+- [pages-0374-0376-0094](chunks/pages-0374-0376-0094.md)
+- [pages-0377-0379-0095](chunks/pages-0377-0379-0095.md) — 5.4 http://schemas.microsoft.com/office/spreadsheetml/2009/9/main Schema
+- [pages-0380-0382-0096](chunks/pages-0380-0382-0096.md)
+- [pages-0383-0385-0097](chunks/pages-0383-0385-0097.md)
+- [pages-0386-0388-0098](chunks/pages-0386-0388-0098.md)
+- [pages-0389-0391-0099](chunks/pages-0389-0391-0099.md)
+- [pages-0392-0394-0100](chunks/pages-0392-0394-0100.md) — 5.5 http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac Schema; 5.6 http://schemas.microsoft.com/office/spreadsheetml/2011/1/ac Schema
+- [pages-0395-0397-0101](chunks/pages-0395-0397-0101.md) — 5.9 http://schemas.microsoft.com/office/spreadsheetml/2010/11/ac Schema; 5.10 http://schemas.microsoft.com/office/spreadsheetml/2014/11/main Schema
+- [pages-0398-0401-0102](chunks/pages-0398-0401-0102.md) — 5.18 http://schemas.microsoft.com/office/spreadsheetml/2016/revision5 Schema; 5.19 http://schemas.microsoft.com/office/spreadsheetml/2016/pivotdefaultlayout Schema
+- [pages-0402-0405-0103](chunks/pages-0402-0405-0103.md) — 5.21 http://schemas.microsoft.com/office/spreadsheetml/2017/richdata Schema; 5.22 http://schemas.microsoft.com/office/spreadsheetml/2018/calcfeatures Schema
+- [pages-0406-0408-0104](chunks/pages-0406-0408-0104.md) — 5.25 http://schemas.microsoft.com/office/spreadsheetml/2017/dynamicarray Schema; 5.26 http://schemas.microsoft.com/office/spreadsheetml/2019/namedsheetviews Schema
+- [pages-0409-0412-0105](chunks/pages-0409-0412-0105.md) — 5.31 http://schemas.microsoft.com/office/spreadsheetml/2020/richvaluerefresh Schema; 5.32 http://schemas.microsoft.com/office/spreadsheetml/2022/pivotVersionInfo Schema
+- [pages-0413-0416-0106](chunks/pages-0413-0416-0106.md) — 5.38 http://schemas.microsoft.com/office/spreadsheetml/2023/externalCodeService Schema; 5.39 http://schemas.microsoft.com/office/spreadsheetml/2023/python Schema
+- [pages-0417-0421-0107](chunks/pages-0417-0421-0107.md) — 5.46 http://schemas.microsoft.com/office/spreadsheetml/2026/pivotDataSourceClean Schema; 6 Appendix B: Product Behavior
+- [pages-0422-0426-0108](chunks/pages-0422-0426-0108.md)
+- [pages-0427-0429-0109](chunks/pages-0427-0429-0109.md) — 7 Change Tracking; 8 Index
+- [pages-0430-0431-0110](chunks/pages-0430-0431-0110.md)
+- [pages-0432-0433-0111](chunks/pages-0432-0433-0111.md)
+- [pages-0434-0435-0112](chunks/pages-0434-0435-0112.md)
+- [pages-0436-0437-0113](chunks/pages-0436-0437-0113.md)

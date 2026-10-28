@@ -1,0 +1,95 @@
+# 20.1.10 Simple Types
+
+Source: [ECMA-376 Part 1: Fundamentals and Markup Language Reference](https://ecma-international.org/wp-content/uploads/ECMA-376-1_5th_edition_december_2016.zip) · 5th edition, december 2016.
+
+[Document index](../README.md) · [Topic guide](../../../../../README.md) · [Publisher](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+
+[Start reading](../chunks/pages-2919-2923-0543.md#source-page-2923-part-1) (PDF page 2923).
+
+- [20.1.10.1 ST_AdjAngle (Adjustable Angle Methods)](../chunks/pages-2919-2923-0543.md#source-page-2923-part-1) — PDF page 2923
+- [20.1.10.2 ST_AdjCoordinate (Adjustable Coordinate Methods)](../chunks/pages-2924-2931-0544.md#source-page-2924-part-1) — PDF page 2924
+- [20.1.10.3 ST_Angle (Angle)](../chunks/pages-2924-2931-0544.md#source-page-2924-part-1) — PDF page 2924
+- [20.1.10.4 ST_AnimationBuildType (Animation Build Type)](../chunks/pages-2924-2931-0544.md#source-page-2924-part-1) — PDF page 2924
+- [20.1.10.5 ST_AnimationChartBuildType (Chart Animation Build Type)](../chunks/pages-2924-2931-0544.md#source-page-2924-part-1) — PDF page 2924
+- [20.1.10.6 ST_AnimationChartOnlyBuildType (Chart only Animation Types)](../chunks/pages-2924-2931-0544.md#source-page-2925-part-1) — PDF page 2925
+- [20.1.10.7 ST_AnimationDgmBuildType (Diagram Animation Build Type)](../chunks/pages-2924-2931-0544.md#source-page-2925-part-1) — PDF page 2925
+- [20.1.10.8 ST_AnimationDgmOnlyBuildType (Diagram only Animation Types)](../chunks/pages-2924-2931-0544.md#source-page-2925-part-1) — PDF page 2925
+- [20.1.10.9 ST_BevelPresetType (Bevel Presets)](../chunks/pages-2924-2931-0544.md#source-page-2926-part-1) — PDF page 2926
+- [20.1.10.10 ST_BlackWhiteMode (Black and White Mode)](../chunks/pages-2924-2931-0544.md#source-page-2930-part-1) — PDF page 2930
+- [20.1.10.11 ST_BlendMode (Blend Mode)](../chunks/pages-2924-2931-0544.md#source-page-2931-part-1) — PDF page 2931
+- [20.1.10.12 ST_BlipCompression (Blip Compression Type)](../chunks/pages-2924-2931-0544.md#source-page-2931-part-1) — PDF page 2931
+- [20.1.10.13 ST_ChartBuildStep (Chart Animation Build Step)](../chunks/pages-2924-2931-0544.md#source-page-2931-part-1) — PDF page 2931
+- [20.1.10.14 ST_ColorSchemeIndex (Theme Color Reference)](../chunks/pages-2932-2936-0545.md#source-page-2932-part-1) — PDF page 2932
+- [20.1.10.15 ST_CompoundLine (Compound Line Type)](../chunks/pages-2932-2936-0545.md#source-page-2933-part-1) — PDF page 2933
+- [20.1.10.16 ST_Coordinate (Coordinate)](../chunks/pages-2932-2936-0545.md#source-page-2933-part-1) — PDF page 2933
+- [20.1.10.17 ST_Coordinate32 (Coordinate Point)](../chunks/pages-2932-2936-0545.md#source-page-2933-part-1) — PDF page 2933
+- [20.1.10.18 ST_Coordinate32Unqualified (Coordinate Point)](../chunks/pages-2932-2936-0545.md#source-page-2934-part-1) — PDF page 2934
+- [20.1.10.19 ST_CoordinateUnqualified (Coordinate)](../chunks/pages-2932-2936-0545.md#source-page-2934-part-1) — PDF page 2934
+- [20.1.10.20 ST_DgmBuildStep (Diagram Animation Build Steps)](../chunks/pages-2932-2936-0545.md#source-page-2934-part-1) — PDF page 2934
+- [20.1.10.21 ST_DrawingElementId (Drawing Element ID)](../chunks/pages-2932-2936-0545.md#source-page-2934-part-1) — PDF page 2934
+- [20.1.10.22 ST_EffectContainerType (Effect Container Type)](../chunks/pages-2932-2936-0545.md#source-page-2935-part-1) — PDF page 2935
+- [20.1.10.23 ST_FixedAngle (Fixed Angle)](../chunks/pages-2932-2936-0545.md#source-page-2935-part-1) — PDF page 2935
+- [20.1.10.24 ST_FixedPercentage (Fixed Percentage)](../chunks/pages-2932-2936-0545.md#source-page-2936-part-1) — PDF page 2936
+- [20.1.10.25 ST_FontCollectionIndex (Font Collection Index)](../chunks/pages-2932-2936-0545.md#source-page-2936-part-1) — PDF page 2936
+- [20.1.10.26 ST_FOVAngle (Field of View Angle)](../chunks/pages-2932-2936-0545.md#source-page-2936-part-1) — PDF page 2936
+- [20.1.10.27 ST_GeomGuideFormula (Geometry Guide Formula Properties)](../chunks/pages-2932-2936-0545.md#source-page-2936-part-1) — PDF page 2936
+- [20.1.10.28 ST_GeomGuideName (Geometry Guide Name Properties)](../chunks/pages-2937-2944-0546.md#source-page-2937-part-1) — PDF page 2937
+- [20.1.10.29 ST_LightRigDirection (Light Rig Direction)](../chunks/pages-2937-2944-0546.md#source-page-2937-part-1) — PDF page 2937
+- [20.1.10.30 ST_LightRigType (Light Rig Type)](../chunks/pages-2937-2944-0546.md#source-page-2941-part-1) — PDF page 2941
+- [20.1.10.31 ST_LineCap (End Line Cap)](../chunks/pages-2945-2952-0547.md#source-page-2950-part-1) — PDF page 2950
+- [20.1.10.32 ST_LineEndLength (Line End Length)](../chunks/pages-2945-2952-0547.md#source-page-2950-part-1) — PDF page 2950
+- [20.1.10.33 ST_LineEndType (Line End Type)](../chunks/pages-2945-2952-0547.md#source-page-2951-part-1) — PDF page 2951
+- [20.1.10.34 ST_LineEndWidth (Line End Width)](../chunks/pages-2945-2952-0547.md#source-page-2951-part-1) — PDF page 2951
+- [20.1.10.35 ST_LineWidth (Line Width)](../chunks/pages-2945-2952-0547.md#source-page-2952-part-1) — PDF page 2952
+- [20.1.10.36 ST_OnOffStyleType (On/Off Style Type)](../chunks/pages-2945-2952-0547.md#source-page-2952-part-1) — PDF page 2952
+- [20.1.10.37 ST_PathFillMode (Path Fill Mode)](../chunks/pages-2953-2960-0548.md#source-page-2953-part-1) — PDF page 2953
+- [20.1.10.38 ST_PathShadeType (Path Shade Type)](../chunks/pages-2953-2960-0548.md#source-page-2953-part-1) — PDF page 2953
+- [20.1.10.39 ST_PenAlignment (Alignment Type)](../chunks/pages-2953-2960-0548.md#source-page-2953-part-1) — PDF page 2953
+- [20.1.10.40 ST_Percentage (Percentage)](../chunks/pages-2953-2960-0548.md#source-page-2954-part-1) — PDF page 2954
+- [20.1.10.41 ST_PitchFamily (Pitch Family)](../chunks/pages-2953-2960-0548.md#source-page-2954-part-1) — PDF page 2954
+- [20.1.10.42 ST_PositiveCoordinate (Positive Coordinate)](../chunks/pages-2953-2960-0548.md#source-page-2955-part-1) — PDF page 2955
+- [20.1.10.43 ST_PositiveCoordinate32 (Positive Coordinate Point)](../chunks/pages-2953-2960-0548.md#source-page-2955-part-1) — PDF page 2955
+- [20.1.10.44 ST_PositiveFixedAngle (Positive Fixed Angle)](../chunks/pages-2953-2960-0548.md#source-page-2956-part-1) — PDF page 2956
+- [20.1.10.45 ST_PositiveFixedPercentage (Positive Fixed Percentage)](../chunks/pages-2953-2960-0548.md#source-page-2956-part-1) — PDF page 2956
+- [20.1.10.46 ST_PositivePercentage (Positive Percentage Value with Sign)](../chunks/pages-2953-2960-0548.md#source-page-2956-part-1) — PDF page 2956
+- [20.1.10.47 ST_PresetCameraType (Preset Camera Type)](../chunks/pages-2953-2960-0548.md#source-page-2956-part-1) — PDF page 2956
+- [20.1.10.48 ST_PresetColorVal (Preset Color Value)](../chunks/pages-2977-2980-0551.md#source-page-2978-part-1) — PDF page 2978
+- [20.1.10.49 ST_PresetLineDashVal (Preset Line Dash Value)](../chunks/pages-2981-2984-0552.md#source-page-2984-part-1) — PDF page 2984
+- [20.1.10.50 ST_PresetMaterialType (Preset Material Type)](../chunks/pages-2981-2984-0552.md#source-page-2984-part-1) — PDF page 2984
+- [20.1.10.51 ST_PresetPatternVal (Preset Pattern Value)](../chunks/pages-2993-3000-0554.md#source-page-2993-part-1) — PDF page 2993
+- [20.1.10.52 ST_PresetShadowVal (Preset Shadow Type)](../chunks/pages-2993-3000-0554.md#source-page-2996-part-1) — PDF page 2996
+- [20.1.10.53 ST_RectAlignment (Rectangle Alignments)](../chunks/pages-2993-3000-0554.md#source-page-2999-part-1) — PDF page 2999
+- [20.1.10.54 ST_SchemeColorVal (Scheme Color)](../chunks/pages-2993-3000-0554.md#source-page-3000-part-1) — PDF page 3000
+- [20.1.10.55 ST_ShapeID (Shape ID)](../chunks/pages-2993-3000-0554.md#source-page-3000-part-1) — PDF page 3000
+- [20.1.10.56 ST_ShapeType (Preset Shape Types)](../chunks/pages-3001-3005-0555.md#source-page-3001-part-1) — PDF page 3001
+- [20.1.10.57 ST_StyleMatrixColumnIndex (Style Matrix Column Index)](../chunks/pages-3067-3070-0567.md#source-page-3069-part-1) — PDF page 3069
+- [20.1.10.58 ST_SystemColorVal (System Color Value)](../chunks/pages-3067-3070-0567.md#source-page-3070-part-1) — PDF page 3070
+- [20.1.10.59 ST_TextAlignType (Text Alignment Types)](../chunks/pages-3071-3074-0568.md#source-page-3071-part-1) — PDF page 3071
+- [20.1.10.60 ST_TextAnchoringType (Text Anchoring Types)](../chunks/pages-3071-3074-0568.md#source-page-3072-part-1) — PDF page 3072
+- [20.1.10.61 ST_TextAutonumberScheme (Text Auto-number Schemes)](../chunks/pages-3071-3074-0568.md#source-page-3073-part-1) — PDF page 3073
+- [20.1.10.62 ST_TextBulletSizePercent (Bullet Size Percentage)](../chunks/pages-3075-3079-0569.md#source-page-3075-part-1) — PDF page 3075
+- [20.1.10.63 ST_TextBulletStartAtNum (Start Bullet At Number)](../chunks/pages-3075-3079-0569.md#source-page-3075-part-1) — PDF page 3075
+- [20.1.10.64 ST_TextCapsType (Text Cap Types)](../chunks/pages-3075-3079-0569.md#source-page-3076-part-1) — PDF page 3076
+- [20.1.10.65 ST_TextColumnCount (Text Column Count)](../chunks/pages-3075-3079-0569.md#source-page-3076-part-1) — PDF page 3076
+- [20.1.10.66 ST_TextFontAlignType (Font Alignment Types)](../chunks/pages-3075-3079-0569.md#source-page-3076-part-1) — PDF page 3076
+- [20.1.10.67 ST_TextFontScalePercentOrPercentString (Text Font Scale Percentage)](../chunks/pages-3075-3079-0569.md#source-page-3077-part-1) — PDF page 3077
+- [20.1.10.68 ST_TextFontSize (Text Font Size)](../chunks/pages-3075-3079-0569.md#source-page-3077-part-1) — PDF page 3077
+- [20.1.10.69 ST_TextHorzOverflowType (Text Horizontal Overflow Types)](../chunks/pages-3075-3079-0569.md#source-page-3077-part-1) — PDF page 3077
+- [20.1.10.70 ST_TextIndent (Text Indentation)](../chunks/pages-3075-3079-0569.md#source-page-3078-part-1) — PDF page 3078
+- [20.1.10.71 ST_TextIndentLevelType (Text Indent Level Type)](../chunks/pages-3075-3079-0569.md#source-page-3078-part-1) — PDF page 3078
+- [20.1.10.72 ST_TextMargin (Text Margin)](../chunks/pages-3075-3079-0569.md#source-page-3078-part-1) — PDF page 3078
+- [20.1.10.73 ST_TextNonNegativePoint (Text Non-Negative Point)](../chunks/pages-3075-3079-0569.md#source-page-3079-part-1) — PDF page 3079
+- [20.1.10.74 ST_TextPoint (Text Point)](../chunks/pages-3075-3079-0569.md#source-page-3079-part-1) — PDF page 3079
+- [20.1.10.75 ST_TextPointUnqualified (Text Point)](../chunks/pages-3075-3079-0569.md#source-page-3079-part-1) — PDF page 3079
+- [20.1.10.76 ST_TextShapeType (Preset Text Shape Types)](../chunks/pages-3080-3084-0570.md#source-page-3080-part-1) — PDF page 3080
+- [20.1.10.77 ST_TextSpacingPercentOrPercentString (Text Spacing Percent)](../chunks/pages-3093-3096-0573.md#source-page-3094-part-1) — PDF page 3094
+- [20.1.10.78 ST_TextSpacingPoint (Text Spacing Point)](../chunks/pages-3093-3096-0573.md#source-page-3094-part-1) — PDF page 3094
+- [20.1.10.79 ST_TextStrikeType (Text Strike Type)](../chunks/pages-3093-3096-0573.md#source-page-3094-part-1) — PDF page 3094
+- [20.1.10.80 ST_TextTabAlignType (Text Tab Alignment Types)](../chunks/pages-3093-3096-0573.md#source-page-3094-part-1) — PDF page 3094
+- [20.1.10.81 ST_TextTypeface (Text Typeface)](../chunks/pages-3093-3096-0573.md#source-page-3095-part-1) — PDF page 3095
+- [20.1.10.82 ST_TextUnderlineType (Text Underline Types)](../chunks/pages-3093-3096-0573.md#source-page-3095-part-1) — PDF page 3095
+- [20.1.10.83 ST_TextVerticalType (Vertical Text Types)](../chunks/pages-3093-3096-0573.md#source-page-3096-part-1) — PDF page 3096
+- [20.1.10.84 ST_TextVertOverflowType (Text Vertical Overflow)](../chunks/pages-3097-3103-0574.md#source-page-3097-part-1) — PDF page 3097
+- [20.1.10.85 ST_TextWrappingType (Text Wrapping Types)](../chunks/pages-3097-3103-0574.md#source-page-3097-part-1) — PDF page 3097
+- [20.1.10.86 ST_TileFlipMode (Tile Flip Mode)](../chunks/pages-3097-3103-0574.md#source-page-3098-part-1) — PDF page 3098
+- [20.1.10.87 ST_TextBulletSize (Bullet Size Percentage)](../chunks/pages-3097-3103-0574.md#source-page-3099-part-1) — PDF page 3099
