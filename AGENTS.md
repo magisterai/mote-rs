@@ -2,6 +2,13 @@
 
 Read [README.md](README.md) for the project goal.
 
+## Specification
+
+Start with [docs/specification/README.md](docs/specification/README.md) for Mote's
+own language and behaviour. Read the relevant chapter before consulting external
+format references. The specification is developed progressively; its current
+coverage is listed in the index.
+
 ## Reference reading
 
 1. Start with [docs/reference/README.md](docs/reference/README.md).
