@@ -167,6 +167,15 @@ fn validate_named_argument(
                 }
                 _ => None,
             },
+            Span => match name {
+                "style" | "font" => Some(ArgumentType::String),
+                "size" => Some(ArgumentType::Length),
+                "color" | "highlight" => Some(ArgumentType::Color),
+                "bold" | "italic" | "underline" | "small_caps" | "strike" | "double_strike" => {
+                    Some(ArgumentType::Boolean)
+                }
+                _ => None,
+            },
             Code => match name {
                 "style" | "language" => Some(ArgumentType::String),
                 "preserve_space" => Some(ArgumentType::Boolean),
@@ -228,6 +237,14 @@ pub(super) fn normalize_attribute(
             "alignment" => normalize_enum(value, span, name, ALIGNMENTS),
             "level" if kind == Heading => normalize_integer(value, span, "heading level", 1),
             "numbering" if kind == Heading => normalize_numbering(value, span),
+            _ => Ok(value),
+        },
+        Span => match name {
+            "color" | "highlight" => normalize_color(value, span, name),
+            "size" => normalize_length(value, span, name),
+            "bold" | "italic" | "underline" | "small_caps" | "strike" | "double_strike" => {
+                normalize_boolean(value, span, name)
+            }
             _ => Ok(value),
         },
         List | OrderedList | ListItem => match name {

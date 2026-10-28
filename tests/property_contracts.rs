@@ -10,6 +10,7 @@ fn extra_properties_survive_every_content_directive() {
     for directive in [
         "paragraph",
         "heading",
+        "span",
         "strong",
         "emphasis",
         "code",
@@ -34,7 +35,7 @@ fn extra_properties_survive_every_content_directive() {
         };
         if matches!(
             directive,
-            "strong" | "emphasis" | "code" | "line_break" | "item"
+            "span" | "strong" | "emphasis" | "code" | "line_break" | "item"
         ) {
             element = match &element.children[0] {
                 Content::Element(element) => element,
@@ -50,17 +51,26 @@ fn extra_properties_survive_every_content_directive() {
 fn signature_types_precede_overrides_but_only_selected_merged_fields_normalize() {
     for source in [
         "#paragraph(alignment=1,properties={alignment=\"right\"})[Text]",
+        "#span(font=1,properties={font=\"Aptos\"})[Text]",
         "#code(language=false,properties={language=\"text\"})[Text]",
         "#paragraph(border=false,properties={border={all=\"none\"}})[Text]",
     ] {
         assert!(compile(source).is_err(), "{source}");
     }
+    let output = inspection(
+        "#span(font=1,font=\"body\",color=\"wrong\",properties={font=42,color=\"#ABC\",properties={ignored=true}})[Text]",
+    );
+    assert_eq!(
+        output["content"][0]["children"][0]["attributes"],
+        json!({"font":42.0,"color":"#aabbcc"})
+    );
     let output =
         inspection("#paragraph(properties=false,properties={border=false,tabs=42,style=7})[Text]");
     assert_eq!(
         output["content"][0]["attributes"],
         json!({"border":false,"tabs":42.0,"style":7.0})
     );
+    assert!(compile("#span(font=missing(),font=\"body\")[Text]").is_err());
 }
 
 #[test]

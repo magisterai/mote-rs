@@ -37,6 +37,7 @@ notes; define their concepts before using them in examples.
 | `ordered_list` | [Ordered list](ordered-list.md) | Item container, nesting, numbering/layout attributes. |
 | `item` | [Item](item.md) | Block body, markers, layout and task metadata. |
 | `blockquote` | [Block quote](blockquote.md) | Block body, quote lines, scoped formatting attributes. |
+| `span` | [Span](span.md) | General inline formatting and normalized attributes. |
 
 ## Scope and output boundaries
 

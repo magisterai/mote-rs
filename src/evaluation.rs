@@ -267,6 +267,7 @@ fn evaluate_call(
     let kind = match call.name.as_str() {
         "paragraph" => ElementKind::Paragraph,
         "heading" => ElementKind::Heading,
+        "span" => ElementKind::Span,
         "strong" => ElementKind::Strong,
         "emphasis" => ElementKind::Emphasis,
         "list" => ElementKind::List,

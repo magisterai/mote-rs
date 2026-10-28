@@ -96,6 +96,7 @@ pub struct Element {
 pub enum ElementKind {
     Paragraph,
     Heading,
+    Span,
     Strong,
     Emphasis,
     Code,
@@ -111,6 +112,7 @@ impl ElementKind {
         match self {
             Self::Paragraph => "paragraph",
             Self::Heading => "heading",
+            Self::Span => "span",
             Self::Strong => "strong",
             Self::Emphasis => "emphasis",
             Self::Code => "code",
@@ -125,7 +127,7 @@ impl ElementKind {
     pub fn is_block(self) -> bool {
         !matches!(
             self,
-            Self::Strong | Self::Emphasis | Self::Code | Self::LineBreak
+            Self::Span | Self::Strong | Self::Emphasis | Self::Code | Self::LineBreak
         )
     }
 }

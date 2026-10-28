@@ -335,3 +335,5 @@ The outer style argument on a paragraph requires a string:
 ```mote
 #paragraph(style = 1)[Text]
 ```
+
+Continue with [Spans](spans.md) for general inline formatting.

@@ -28,8 +28,8 @@ checks. The names below describe formatting conventions, not extra validation.
 
 These direct attributes target native and presentation text formatting. DOCX
 italic content uses inherited run formatting; direct attributes on `emphasis`
-are not part of its mapping in this scope. Composition through styled spans belongs
-to the future span directive.
+are not part of its mapping in this scope. Composition through styled spans is
+defined in [Spans](../specification/spans.md).
 
 Style and font references are recorded without resolving their declarations.
 

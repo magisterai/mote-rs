@@ -328,6 +328,33 @@
       "example": "formatting-attributes/13",
       "invalid": "The outer paragraph style argument must be a string.",
       "diagnostic": "string"
+    },
+    {
+      "example": "spans/1",
+      "model": "formatted-span"
+    },
+    {
+      "example": "spans/2",
+      "model": "empty-span"
+    },
+    {
+      "example": "spans/3",
+      "model": "nested-span-overrides"
+    },
+    {
+      "example": "spans/4",
+      "invalid": "A span requires an inline body.",
+      "diagnostic": "span requires one content body"
+    },
+    {
+      "example": "spans/5",
+      "invalid": "A span cannot contain a paragraph block.",
+      "diagnostic": "inline content cannot contain a block element"
+    },
+    {
+      "example": "spans/6",
+      "invalid": "The span underline attribute is a boolean, not an underline-style name.",
+      "diagnostic": "underline must be a boolean"
     }
   ],
   "models": {
@@ -3996,6 +4023,226 @@
                 {
                   "kind": "text",
                   "text": "Quoted"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "formatted-span": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Amount: "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "bold": true,
+                    "color": "#336699",
+                    "size": {
+                      "text": "12pt",
+                      "unit": "pt",
+                      "value": 12.0
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "42"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Amount: "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true,
+                "color": "#336699",
+                "size": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12.0
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "42"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    "empty-span": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline"
+            }
+          ]
+        }
+      ]
+    },
+    "nested-span-overrides": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "bold": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First "
+                    },
+                    {
+                      "kind": "span",
+                      "category": "inline",
+                      "attributes": {
+                        "bold": false,
+                        "italic": true
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "second"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " third"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "bold": false,
+                    "italic": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "second"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " third"
                 }
               ]
             }

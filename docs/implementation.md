@@ -34,7 +34,7 @@ to protect the parser from excessive input depth.
 `mote::compile` parses and evaluates a source string into a document model.
 Markdown headings, strong spans, and emphasis share semantics with their
 directives. Bare inline content becomes paragraphs. Explicit `paragraph`,
-`heading`, `strong`, and `emphasis` bodies accept inline content and reject nested
+`heading`, `span`, `strong`, and `emphasis` bodies accept inline content and reject nested
 blocks. Code supports literal scalar arguments and evaluated inline bodies;
 backtick spans retain literal text. Explicit `line_break` calls retain an inline
 element, while Markdown hard breaks are line feeds in text.
@@ -51,7 +51,8 @@ content uses an explicit item body or a nested list container.
 Each Markdown quote line creates a separate quote block.
 
 The evaluator implements the attribute contracts in
-[Formatting attributes](specification/formatting-attributes.md): paragraph/heading geometry and pagination requests, borders,
+[Formatting attributes](specification/formatting-attributes.md) and
+[Spans](specification/spans.md): paragraph/heading geometry and pagination requests, borders,
 tab stops, heading numbering, inline font/style references, list layout and
 numbering metadata, item checkbox metadata, and quote formatting. Extra attributes
 and nested fields are retained without implying formatting support. Declared

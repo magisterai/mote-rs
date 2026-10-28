@@ -29,8 +29,8 @@ checks. The names below describe formatting conventions, not extra validation.
 
 The attributes above target native and presentation text formatting. Direct
 attributes on `strong` are not part of the DOCX mapping in this scope; DOCX bold
-content uses inherited run formatting. Composition through styled spans belongs
-to the future span directive.
+content uses inherited run formatting. Composition through styled spans is
+defined in [Spans](../specification/spans.md).
 
 The strong element retains bold intent independently of its formatting values.
 Style and font references are recorded without resolving their declarations.
