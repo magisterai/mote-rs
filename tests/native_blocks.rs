@@ -39,6 +39,10 @@ fn unpaintable_marker_geometry_and_excessive_counters_fail_explicitly() {
     ] {
         let document = mote::compile(source).unwrap();
         assert!(
+            render::plan(&document, &resolver, None).is_err(),
+            "{source}"
+        );
+        assert!(
             render::emit_pdf(&document, &resolver, None).is_err(),
             "{source}"
         );
