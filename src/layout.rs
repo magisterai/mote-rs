@@ -1,6 +1,7 @@
 //! Native text geometry shared by output painters.
 
 mod blocks;
+mod columns;
 mod decorations;
 mod document;
 mod lists;
@@ -24,7 +25,7 @@ pub use inline::resolve_inline;
 pub use styles::{LayoutStyleResolver, ParagraphStyle};
 mod painting;
 mod paragraphs;
-pub use painting::{ListMarker, ListMarkerKind, PageOperation, Rule};
+pub use painting::{ListMarker, ListMarkerKind, PageOperation, Rule, RuleRole};
 mod placement;
 mod wrapping;
 

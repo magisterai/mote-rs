@@ -29,3 +29,7 @@ block line breaks, column prefixes, consecutive/trailing breaks, heading spacing
 metadata and invalid calls. Nested breaks remain model-only and fail DOCX output.
 Explicit breaks are not pagination estimates.
 Native layout and real Word visual review remain unreviewed.
+
+Native PDF/PNG applies page, column, and block line breaks to the shared flow
+cursor. A column break advances to the next column, then to the next page when
+no column remains. See the [column captures](../../tests/fixtures/native-columns/README.md).

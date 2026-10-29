@@ -25,7 +25,7 @@ fn decode(bytes: &[u8]) -> (png::OutputInfo, Vec<u8>) {
 }
 #[test]
 fn core_and_declared_fonts_generate_deterministic_pdf_and_png_pages() {
-    for name in ["core", "truetype", "cff", "blocks"] {
+    for name in ["core", "truetype", "cff", "blocks", "columns"] {
         let plan = fixture(name);
         let first = render::paint_pdf(&plan).unwrap();
         assert_eq!(first, render::paint_pdf(&plan).unwrap());
@@ -36,10 +36,10 @@ fn core_and_declared_fonts_generate_deterministic_pdf_and_png_pages() {
             .output;
         assert_eq!(
             pages.len(),
-            if matches!(name, "core" | "blocks") {
-                2
-            } else {
-                1
+            match name {
+                "columns" => 3,
+                "core" | "blocks" => 2,
+                _ => 1,
             }
         );
         let repeated = render::paint_png(&plan, &PngOptions::default())
@@ -48,12 +48,20 @@ fn core_and_declared_fonts_generate_deterministic_pdf_and_png_pages() {
         for (page, repeated) in pages.iter().zip(repeated) {
             assert_eq!(page.bytes, repeated.bytes);
             let (info, pixels) = decode(&page.bytes);
-            assert_eq!(info.width, if name == "blocks" { 420 } else { 360 });
+            assert_eq!(
+                info.width,
+                if matches!(name, "blocks" | "columns") {
+                    420
+                } else {
+                    360
+                }
+            );
             assert_eq!(
                 info.height,
                 match name {
                     "core" => 300,
                     "blocks" => 510,
+                    "columns" => 340,
                     _ => 240,
                 }
             );

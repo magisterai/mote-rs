@@ -28,6 +28,10 @@
     "blocks.mote": {
       "sha256": "71338fc7ac1b4865aa5a8961a36163298300d1555479706ff2b9c3d6e21f7e0e",
       "bytes": 1616
+    },
+    "columns.mote": {
+      "sha256": "dcdff556ebf7c4bef05dc0f0fb41bc6b188dfa4fdc0d3138cac80fe644505b66",
+      "bytes": 1148
     }
   }
 }

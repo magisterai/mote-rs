@@ -1,7 +1,14 @@
 use super::{HighlightRectangle, TextLine};
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RuleRole {
+    Generic,
+    ColumnSeparator,
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct Rule {
+    pub role: RuleRole,
     pub start: [f64; 2],
     pub end: [f64; 2],
     pub width: f64,

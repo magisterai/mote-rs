@@ -8,25 +8,27 @@ use std::{fs, path::Path};
 
 #[test]
 fn block_flow_and_ordered_paint_operations_match_independent_captures() {
-    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/native-blocks");
-    let requests: Value =
-        serde_json::from_slice(&fs::read(root.join("requests.json")).unwrap()).unwrap();
-    let expected: Value =
-        serde_json::from_slice(&fs::read(root.join("expected.json")).unwrap()).unwrap();
-    let actual = document_capture::capture_sources(&requests).unwrap();
-    let mut differences = Vec::new();
-    json_compare::compare(&expected, &actual, "root", &mut differences);
-    assert!(
-        differences.is_empty(),
-        "{} differences:\n{}",
-        differences.len(),
-        differences
-            .iter()
-            .take(20)
-            .cloned()
-            .collect::<Vec<_>>()
-            .join("\n")
-    );
+    for name in ["native-blocks", "native-columns"] {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("tests/fixtures/{name}"));
+        let requests: Value =
+            serde_json::from_slice(&fs::read(root.join("requests.json")).unwrap()).unwrap();
+        let expected: Value =
+            serde_json::from_slice(&fs::read(root.join("expected.json")).unwrap()).unwrap();
+        let actual = document_capture::capture_sources(&requests).unwrap();
+        let mut differences = Vec::new();
+        json_compare::compare(&expected, &actual, "root", &mut differences);
+        assert!(
+            differences.is_empty(),
+            "{} differences:\n{}",
+            differences.len(),
+            differences
+                .iter()
+                .take(20)
+                .cloned()
+                .collect::<Vec<_>>()
+                .join("\n")
+        );
+    }
 }
 #[test]
 fn unpaintable_marker_geometry_and_excessive_counters_fail_explicitly() {

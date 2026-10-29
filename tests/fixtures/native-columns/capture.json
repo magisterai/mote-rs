@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "case_count": 19,
+  "numeric_tolerance": 1e-09,
+  "capture": "Independent text geometry and ordered page painting operations for equal-width column flow.",
+  "files": {
+    "requests.json": {
+      "sha256": "cd8786a62cf9b27dc1ee376784379d197e4caaa544d6d79363d6a5cc8e8a1083",
+      "bytes": 5264
+    },
+    "expected.json": {
+      "sha256": "935f281c0a756a2b9a77b03566b8b2cb84fd0c2c1e5bb878c8be19b0da4b1341",
+      "bytes": 250580
+    }
+  }
+}

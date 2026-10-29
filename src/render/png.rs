@@ -165,34 +165,42 @@ impl OutlineBuilder for Outline {
     }
 }
 
-fn crisp_horizontal(
+fn crisp_axis_aligned(
     pixels: &mut Pixmap,
-    start: f64,
-    end: f64,
-    vertical: f64,
+    start: [f64; 2],
+    end: [f64; 2],
     width: f64,
     color: [u8; 3],
 ) {
-    let left = start.min(end);
-    let right = start.max(end);
-    let steps = (right - left).ceil();
+    let horizontal = start[1] == end[1];
+    let along = usize::from(!horizontal);
+    let across = 1 - along;
+    let first = start[along].min(end[along]);
+    let last = start[along].max(end[along]);
+    let steps = (last - first).ceil();
     if steps <= 0.0 {
         return;
     }
-    let step_width = (right - left) / steps;
+    let step_width = (last - first) / steps;
     let radius = (width / 2.0).max(0.5);
-    let first_row = (vertical - radius).floor().max(0.0) as u32;
-    let last_row = (vertical + radius).ceil().min(f64::from(pixels.height())) as u32;
-    let first_column = (left - radius).floor().max(0.0) as u32;
-    let last_column = (right + radius).ceil().min(f64::from(pixels.width())) as u32;
+    let dimensions = [f64::from(pixels.width()), f64::from(pixels.height())];
+    let first_along = (first - radius).floor().max(0.0) as u32;
+    let last_along = (last + radius).ceil().min(dimensions[along]) as u32;
+    let first_across = (start[across] - radius).floor().max(0.0) as u32;
+    let last_across = (start[across] + radius).ceil().min(dimensions[across]) as u32;
     let pixel_width = pixels.width() as usize;
-    for row in first_row..last_row {
-        let distance_y = f64::from(row) + 0.5 - vertical;
-        for column in first_column..last_column {
-            let center = f64::from(column) + 0.5;
-            let closest = ((center - left) / step_width).round().clamp(0.0, steps);
-            let distance_x = center - (left + closest * step_width);
-            if distance_x * distance_x + distance_y * distance_y <= radius * radius {
+    for cross_position in first_across..last_across {
+        let cross_distance = f64::from(cross_position) + 0.5 - start[across];
+        for position in first_along..last_along {
+            let center = f64::from(position) + 0.5;
+            let closest = ((center - first) / step_width).round().clamp(0.0, steps);
+            let distance = center - (first + closest * step_width);
+            if distance * distance + cross_distance * cross_distance <= radius * radius {
+                let (column, row) = if horizontal {
+                    (position, cross_position)
+                } else {
+                    (cross_position, position)
+                };
                 let offset = (row as usize * pixel_width + column as usize) * 4;
                 pixels.data_mut()[offset..offset + 4]
                     .copy_from_slice(&[color[0], color[1], color[2], 255]);
@@ -258,11 +266,10 @@ fn paint_line(
         }
     }
     for decoration in &line.decorations {
-        crisp_horizontal(
+        crisp_axis_aligned(
             pixels,
-            decoration.start * scale,
-            decoration.end * scale,
-            decoration.y * scale,
+            [decoration.start * scale, decoration.y * scale],
+            [decoration.end * scale, decoration.y * scale],
             decoration.width * scale,
             color(&decoration.color)?,
         );
@@ -290,12 +297,24 @@ fn fill_rectangle(
     Ok(())
 }
 fn paint_rule(pixels: &mut Pixmap, rule: &Rule, scale: f64) -> Result<(), RenderError> {
-    if rule.start[1] == rule.end[1] {
-        crisp_horizontal(
+    if rule.role == crate::layout::RuleRole::ColumnSeparator {
+        return fill_rectangle(
             pixels,
-            rule.start[0] * scale,
-            rule.end[0] * scale,
-            rule.start[1] * scale,
+            &HighlightRectangle {
+                x: rule.start[0],
+                top: rule.start[1].min(rule.end[1]),
+                width: rule.width,
+                height: (rule.end[1] - rule.start[1]).abs(),
+                color: rule.color.clone(),
+            },
+            scale,
+        );
+    }
+    if rule.start[1] == rule.end[1] || rule.start[0] == rule.end[0] {
+        crisp_axis_aligned(
+            pixels,
+            rule.start.map(|value| value * scale),
+            rule.end.map(|value| value * scale),
             rule.width * scale,
             color(&rule.color)?,
         );
@@ -366,6 +385,7 @@ fn paint_marker(
             paint_rule(
                 pixels,
                 &Rule {
+                    role: crate::layout::RuleRole::Generic,
                     start: [horizontal + size * start[0], vertical + size * start[1]],
                     end: [horizontal + size * end[0], vertical + size * end[1]],
                     width: marker.font_size * 0.8 / 12.0,

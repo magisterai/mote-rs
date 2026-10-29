@@ -1,8 +1,11 @@
-use super::blocks::{Block, prepare_blocks};
 use super::{
     FlowArea, FlowCursor, FlowOptions, FlowStep, HighlightRectangle, LayoutError,
     LayoutStyleResolver, LineBreak, LineFrame, ListMarkerKind, PageGeometry, PageOperation, Rule,
     TextLine, minimum_start_height, plan_paragraph_flow,
+};
+use super::{
+    blocks::{Block, prepare_blocks},
+    columns::ColumnSeparators,
 };
 use crate::{
     measurement::TextMeasurer,
@@ -51,11 +54,6 @@ pub fn plan_document_text(
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<DocumentTextPlan, LayoutError> {
     let geometry = PageGeometry::from_document(document)?;
-    if geometry.column_count != 1 {
-        return Err(LayoutError::Unsupported(
-            "document planning does not yet balance multiple columns".into(),
-        ));
-    }
     let styles = LayoutStyleResolver::new(document);
     let blocks = prepare_blocks(document, geometry.column_width(), &styles, measurer)?;
     if blocks.is_empty() {
@@ -71,6 +69,7 @@ pub fn plan_document_text(
         y: geometry.margin_top,
         ..Default::default()
     };
+    let mut columns = ColumnSeparators::default();
     let mut pending_spacing: f64 = 0.0;
     let mut pending_fill: Option<(usize, usize, HighlightRectangle, f64)> = None;
     for (index, block) in blocks.iter().enumerate() {
@@ -89,15 +88,27 @@ pub fn plan_document_text(
                         ));
                     }
                     if pending_spacing > 0.0 {
-                        ensure_space(&mut cursor, &mut pages, geometry, pending_spacing);
+                        ensure_space(
+                            &mut cursor,
+                            &mut pages,
+                            &mut columns,
+                            geometry,
+                            pending_spacing,
+                        );
                         cursor.y += pending_spacing;
                     }
-                    ensure_space(&mut cursor, &mut pages, geometry, style.line_height);
+                    ensure_space(
+                        &mut cursor,
+                        &mut pages,
+                        &mut columns,
+                        geometry,
+                        style.line_height,
+                    );
                     let frame = frame_for(&style, geometry.column_width());
                     pages[cursor.page_number - 1].push_line(PlacedTextLine {
                         top: cursor.y,
                         line: TextLine {
-                            x: geometry.margin_left + frame.x,
+                            x: geometry.column_left(cursor.column_index) + frame.x,
                             baseline: cursor.y + style.line_height * 0.8,
                             height: style.line_height,
                             width: frame.width,
@@ -109,8 +120,11 @@ pub fn plan_document_text(
                     });
                     cursor.y += style.line_height;
                     cursor.body_started = true;
+                    columns.note(&cursor, geometry);
+                } else if kind == "column" || kind == "next_column" {
+                    next_area(&mut cursor, &mut pages, &mut columns, geometry);
                 } else {
-                    new_page(&mut cursor, &mut pages, geometry);
+                    new_page(&mut cursor, &mut pages, &mut columns, geometry);
                 }
                 pending_spacing = 0.0;
             }
@@ -120,9 +134,11 @@ pub fn plan_document_text(
                     pending_fill = None;
                 }
                 if paragraph.style.page_break_before
-                    && (cursor.body_started || cursor.y > geometry.margin_top)
+                    && (cursor.body_started
+                        || cursor.column_index > 0
+                        || cursor.y > geometry.margin_top)
                 {
-                    new_page(&mut cursor, &mut pages, geometry);
+                    new_page(&mut cursor, &mut pages, &mut columns, geometry);
                     pending_spacing = 0.0;
                     pending_fill = None;
                 }
@@ -158,6 +174,15 @@ pub fn plan_document_text(
                 )?;
                 for step in flow.steps {
                     if let FlowStep::Line(placement) = step {
+                        columns.note(
+                            &FlowCursor {
+                                page_number: placement.page_number,
+                                column_index: placement.column_index,
+                                y: placement.top + placement.height,
+                                ..Default::default()
+                            },
+                            geometry,
+                        );
                         while pages.len() < placement.page_number {
                             pages.push(TextPage::default());
                         }
@@ -213,6 +238,7 @@ pub fn plan_document_text(
                             if let Some(color) = &paragraph.border_color {
                                 let bottom = placement.top + placement.height;
                                 page.operations.push(PageOperation::Rule(Rule {
+                                    role: crate::layout::RuleRole::Generic,
                                     start: [placement.frame.x, bottom],
                                     end: [placement.frame.x + placement.frame.width, bottom],
                                     width: 0.35,
@@ -260,6 +286,7 @@ pub fn plan_document_text(
             }
         }
     }
+    columns.append(&mut pages, geometry);
     Ok(DocumentTextPlan { geometry, pages })
 }
 fn frame_for(style: &super::ParagraphStyle, width: f64) -> LineFrame {
@@ -270,7 +297,13 @@ fn frame_for(style: &super::ParagraphStyle, width: f64) -> LineFrame {
         width: available - style.first_line,
     }
 }
-fn new_page(cursor: &mut FlowCursor, pages: &mut Vec<TextPage>, geometry: PageGeometry) {
+fn new_page(
+    cursor: &mut FlowCursor,
+    pages: &mut Vec<TextPage>,
+    columns: &mut ColumnSeparators,
+    geometry: PageGeometry,
+) {
+    columns.note(cursor, geometry);
     pages.push(TextPage::default());
     *cursor = FlowCursor {
         page_number: pages.len(),
@@ -282,11 +315,26 @@ fn new_page(cursor: &mut FlowCursor, pages: &mut Vec<TextPage>, geometry: PageGe
 fn ensure_space(
     cursor: &mut FlowCursor,
     pages: &mut Vec<TextPage>,
+    columns: &mut ColumnSeparators,
     geometry: PageGeometry,
     height: f64,
 ) {
     if cursor.y + height > geometry.content_bottom() {
-        new_page(cursor, pages, geometry);
+        next_area(cursor, pages, columns, geometry);
+    }
+}
+fn next_area(
+    cursor: &mut FlowCursor,
+    pages: &mut Vec<TextPage>,
+    columns: &mut ColumnSeparators,
+    geometry: PageGeometry,
+) {
+    columns.note(cursor, geometry);
+    if cursor.column_index + 1 < geometry.column_count {
+        cursor.column_index += 1;
+        cursor.y = cursor.current_top;
+    } else {
+        new_page(cursor, pages, columns, geometry);
     }
 }
 fn keep_height(blocks: &[Block], maximum: f64) -> f64 {

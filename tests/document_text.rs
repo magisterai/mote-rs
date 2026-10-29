@@ -2,7 +2,6 @@
 mod document_capture;
 #[path = "support/json_compare.rs"]
 mod json_compare;
-use mote::{layout::plan_document_text, measurement::TextMeasurer, source::FileAssetResolver};
 use serde_json::Value;
 use std::{fs, path::Path};
 #[test]
@@ -26,18 +25,4 @@ fn complete_sources_match_captured_page_text_geometry() {
             .collect::<Vec<_>>()
             .join("\n")
     );
-}
-
-#[test]
-fn document_text_scope_rejects_unplanned_structure() {
-    let assets = FileAssetResolver::from_current_directory().unwrap();
-    {
-        let source = "#document(columns={count=2})\nText";
-        let document = mote::compile(source).unwrap();
-        let mut measurer = TextMeasurer::new(&document, &assets, None);
-        assert!(
-            plan_document_text(&document, &mut measurer).is_err(),
-            "{source}"
-        );
-    }
 }

@@ -57,3 +57,9 @@ Word visual review remain unreviewed.
 [Specification](../specification/document-configuration.md),
 [evaluator](../../src/evaluation/configuration.rs), and
 [writer](../../src/docx/configuration.rs) define and implement the checked scope.
+
+Native PDF/PNG implements equal-width column flow, gap, and separator geometry.
+Rules appear only between used columns and extend to their deepest content.
+Explicit column breaks advance through the configured columns; page breaks start
+new physical pages. The final implicit section is not balanced. Unequal widths
+remain unsupported. See the [column captures](../../tests/fixtures/native-columns/README.md).

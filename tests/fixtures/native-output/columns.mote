@@ -1,0 +1,12 @@
+#document(page={width=pt(420),height=pt(340)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)},columns={count=3,gap=pt(15),separator=true},default_size=pt(11))
+#heading(level=2)[Column flow]
+#paragraph(fill="#e5f2ff")[Text wraps naturally within its column. The page uses three columns and paints a rule only between columns that participate in the flow.]
+#list[#item[First item with enough text to wrap.]#item[Second item.]#item[Third item with a nested list.#ordered_list[#item[One]#item[Two]]]]
+#paragraph[More text follows the list, with consistent line spacing and paragraph spacing. It continues naturally into the next column.]
+#paragraph[This longer paragraph exercises the final column and automatic pagination. It repeats a few simple words so that every line can be compared with an independent plan. This longer paragraph exercises the final column and automatic pagination.]
+#break(type="column")
+#paragraph[#strong[After an explicit column break.] A hard line break follows.#line_break()Here is the new line.]
+#break(type="line")
+#paragraph[After a blank line.]
+#break()
+#paragraph[New page; only its first column is used.]
