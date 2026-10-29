@@ -18,14 +18,18 @@
 
 - [x] Resolve an exact font alias to its declared script-specific typefaces and
   line-height metadata; retain an undeclared name as a direct typeface reference.
-- [ ] `family`, `pitch`, and `files`: effective font metadata and variant
-  selection. These fields are currently retained as metadata only.
+- [ ] `family`, `pitch`: effective font-table metadata. Retained as metadata only.
+- [x] `files`: explicit `regular`, `bold`, `italic`, `bold_italic` asset references;
+  select the exact requested variant, resolve relative to the source, cache its
+  bytes and report substitutions without synthesizing a different face.
 
 DOCX emits declared script mappings in runs and styles, and physical typeface
 names in its font table. Missing mappings remain inherited. `word_line_height`
 has no DOCX size effect. [Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
-cover aliases and literal names. Font-file lookup, embedding, glyph coverage,
-substitution diagnostics, and native font measurement remain unsupported.
+cover aliases and literal names. Native measurement resolves declared files,
+retains their bytes, reports substitutions and missing glyphs, and measures
+static TrueType/CFF variants. DOCX ignores `files`. Installed-font discovery,
+embedding, script shaping and painted output remain unsupported.
 Real Word font/layout review remains unreviewed.
 
 ## Specification inventory
@@ -48,3 +52,7 @@ signature checks, normalization, and declaration boundaries.
 [language tests](../../tests/declarations.rs), [resolver](../../src/formatting.rs),
 [resolution tests](../../tests/formatting.rs), and
 [specification examples](../../tests/conformance.rs) cover the checked items.
+
+[Font-resolution tests](../../tests/font_resolution.rs),
+[measurement tests](../../tests/measurement.rs), and
+[asset-cache tests](../../tests/asset_cache.rs) cover declared files and native metrics.

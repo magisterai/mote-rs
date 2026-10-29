@@ -64,10 +64,11 @@ and decoding failures retain the resolved name. The CLI uses this loader for
 files and reports resolved names on parser/evaluator errors and warnings.
 Standard input remains labelled `<stdin>`.
 
-This implements the source-loading boundary only. Imports, data-loading helpers,
-image/font consumers, per-compilation caching, and consistency checks for repeated
-logical names remain deferred. Resolvers must supply stable bytes for a logical
-name during a compilation. Tests in [source.rs](../tests/source.rs) and
+`CachingAssetResolver` snapshots each source/reference request, including failures,
+and rejects conflicting bytes for one logical name. The font measurer owns a
+wrapper for its lifetime and retains selected font bytes for future painters.
+Imports, data-loading helpers and image consumers remain deferred. Tests in
+[asset_cache.rs](../tests/asset_cache.rs), [source.rs](../tests/source.rs) and
 [cli.rs](../tests/cli.rs) cover custom sources, relative names, failure propagation,
 encoding, and CLI diagnostics.
 
@@ -282,7 +283,7 @@ script-specific typefaces. `word_line_height` remains metadata for later layout.
 
 Unknown nested properties, missing style references, cycles and unsupported
 output values fail explicitly. Declared style sizes must round to a positive
-half-point value. Table styles, font files and embedding
+half-point value. Table styles and font embedding
 remain deferred. These are output limits; their language/model support is
 unchanged. Authored exact line heights are preserved without estimating clipping.
 
@@ -375,6 +376,12 @@ that choice rather than extending the current pair policy into a shaping engine.
 invalid sizes, missing glyphs and malformed fonts. The
 [candidate measurement example](../examples/measure_fonts.rs) emits result JSON
 for the offline comparison command without reading the expected measurements.
-Font-file resolution from declarations, shaping, paragraph layout, pagination,
-PDF and PNG generation remain unimplemented. Numeric agreement remains separate
+`TextMeasurer` connects declared variant files to the source asset resolver and
+caches exact bytes, missing variants, invalid files and fallback decisions.
+Fallback families and substitution reasons remain visible in each result.
+It checks embedding eligibility before selecting native font data; it neither
+discovers installed fonts nor embeds them. DOCX accepts `files` while continuing
+to reference physical typeface names.
+Shaping, paragraph layout, pagination, PDF and PNG generation remain unimplemented.
+Numeric agreement remains separate
 from visual review in Word.

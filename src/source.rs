@@ -5,9 +5,11 @@ use std::{
     fmt, io,
 };
 
+mod cache;
 mod filesystem;
 mod names;
 
+pub use cache::CachingAssetResolver;
 pub use filesystem::FileAssetResolver;
 
 /// An authored reference and the logical source containing it.
@@ -26,6 +28,8 @@ pub struct AssetRequest<'source> {
 /// name asks [`resolve_asset`] to derive one from the request. Resolvers should
 /// return the same bytes for a name throughout one compilation; these functions
 /// do not cache requests or enforce consistency across separate calls yet.
+/// Wrap a resolver in [`CachingAssetResolver`] when a compilation needs snapshots
+/// and consistency checks across multiple resource requests.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ResolvedAsset {
     pub name: OsString,

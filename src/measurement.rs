@@ -6,13 +6,15 @@
 mod core;
 mod kerning;
 mod opentype;
+mod resolution;
 
 pub use core::CoreFont;
 pub use opentype::OpenTypeFont;
+pub use resolution::{FontSelection, FontSource, MeasuredText, MeasurementStyle, TextMeasurer};
 
 use std::{collections::BTreeSet, fmt};
 
-#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord)]
 pub enum FontVariant {
     #[default]
     Regular,

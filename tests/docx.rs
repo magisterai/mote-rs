@@ -50,7 +50,7 @@ fn unsupported_content_and_attributes_fail_explicitly() {
     for source in [
         "#paragraph(custom=true)[Text]",
         "#span(custom=true)[Text]",
-        "#font(name=\"Body\", files={regular=\"font.ttf\"})",
+        "#font(name=\"Body\", pitch=\"fixed\")",
     ] {
         let error = mote::docx::emit(&mote::compile(source).unwrap()).unwrap_err();
         assert!(
@@ -125,7 +125,7 @@ fn unresolved_styles_cycles_and_unsupported_declarations_fail_explicitly() {
         "#style(name=\"A\",based_on=\"Missing\")",
         "#style(name=\"A\",next=\"Missing\")",
         "#style(name=\"Table\",type=\"table\")",
-        "#font(name=\"Body\",files={regular=\"font.ttf\"})",
+        "#font(name=\"Body\",pitch=\"fixed\")",
     ] {
         assert!(
             mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
@@ -301,5 +301,22 @@ fn empty_border_and_tab_fields_preserve_alias_and_default_selection() {
                 node.tag_name().name()
             );
         }
+    }
+}
+
+#[test]
+fn declared_font_files_do_not_change_the_editable_word_package() {
+    let baseline = support::package(
+        r#"#font(name="Body",latin="Source Sans 3")#paragraph[#span(font="Body")[AV To Wa]]"#,
+    );
+    let with_files = support::package(
+        r#"#font(name="Body",latin="Source Sans 3",files={regular="unavailable.ttf"})#paragraph[#span(font="Body")[AV To Wa]]"#,
+    );
+    assert_eq!(
+        baseline.keys().collect::<Vec<_>>(),
+        with_files.keys().collect::<Vec<_>>()
+    );
+    for (name, expected) in baseline {
+        support::compare_xml(&with_files[&name], &expected, &name);
     }
 }

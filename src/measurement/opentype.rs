@@ -19,6 +19,11 @@ impl<'font> OpenTypeFont<'font> {
             ));
         }
         let face = Face::parse(bytes, 0).map_err(|_| MeasurementError::InvalidFont)?;
+        if face.tables().glyf.is_none() && face.tables().cff.is_none() {
+            return Err(MeasurementError::UnsupportedFont(
+                "font has no supported outline table",
+            ));
+        }
         for tag in [b"fvar", b"CFF2"] {
             if face.raw_face().table(Tag::from_bytes(tag)).is_some() {
                 return Err(MeasurementError::UnsupportedFont(

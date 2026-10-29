@@ -26,6 +26,7 @@ and printed to standard error by the CLI; they do not enter JSON output.
 | `east_asian` | Typeface for East Asian text. |
 | `complex_script` | Typeface for complex-script text. |
 | `word_line_height` | Positive finite number describing Word line-height calibration metadata. |
+| `files` | Optional object mapping `regular`, `bold`, `italic`, and `bold_italic` to font asset references for native measurement. |
 
 Typeface values are nonempty strings. All four fields are optional and omitted
 fields stay absent. `word_line_height` requires a number, not a numeric string;
@@ -43,8 +44,24 @@ retained as a direct Latin typeface name. Declared aliases use exact matching an
 do not recursively resolve typeface strings as further aliases. Missing script
 fields in an alias remain unspecified; they are not silently filled from `latin`.
 
-Font-file selection, embedding, font-table metadata, script/glyph selection, and
-substitution diagnostics belong to later font and output work.
+For native measurement, `files` selects the exact requested bold/italic variant.
+For example, `files = { regular = "fonts/body.ttf" }` supplies only the regular
+face. References resolve relative to the source through the selected asset
+resolver, which may provide filesystem, memory or virtual assets. Variant values
+are interpreted as text. Missing or empty variants do not synthesize a face or
+fall through to `latin`; they select Helvetica metrics with an explicit
+substitution reason. A non-object `files` value remains metadata and does not
+select file loading. Without a files object, a declared `latin` mapping supplies
+the physical family name.
+
+Native measurement accepts static TrueType and OpenType/CFF files with a `?`
+replacement glyph and embedding permissions suitable for editable native output.
+Unavailable, invalid or restricted files use an explicitly reported fallback.
+Requests are snapshotted for the measurer's lifetime, including failures; two
+assets with one logical name must have identical bytes. The selected bytes are
+retained for painting without a second file lookup. Installed-font discovery,
+font embedding and script shaping remain deferred. DOCX continues to reference
+the declared typeface names and ignores `files`; it does not embed these assets.
 
 ## 2. Style declarations
 

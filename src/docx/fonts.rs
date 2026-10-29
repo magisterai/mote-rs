@@ -65,7 +65,13 @@ pub(super) fn write_table(document: &Document) -> Result<String, Error> {
     for declaration in document.fonts.values() {
         check_attributes(
             &declaration.properties,
-            &["latin", "east_asian", "complex_script", "word_line_height"],
+            &[
+                "latin",
+                "east_asian",
+                "complex_script",
+                "word_line_height",
+                "files",
+            ],
             "font declaration",
         )?;
         let font = StyleResolver::new(document).resolve_font(&declaration.name);
