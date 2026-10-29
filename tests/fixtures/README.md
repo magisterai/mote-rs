@@ -59,3 +59,5 @@ not establish layout, font substitution, wrapping or pagination conformance.
 
 - [Ordered lists](docx/ordered-lists/README.md): formats, starts and nesting.
 - [List continuation](docx/list-continuation/README.md): restarts and sequence identity.
+
+- [Heading numbering](docx/heading-numbering/README.md): hierarchy and sequence controls.

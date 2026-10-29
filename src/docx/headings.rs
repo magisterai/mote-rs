@@ -25,9 +25,7 @@ pub(super) fn attributes(element: &Element, at_flow_start: bool) -> Result<Prope
     {
         return Err(Error::Unsupported("custom heading markers".into()));
     }
-    if attributes.contains_key("numbering") {
-        return Err(Error::Unsupported("heading numbering".into()));
-    }
+    attributes.remove("numbering");
     if !attributes.contains_key("style") {
         attributes.insert("style".into(), Value::String(format!("Heading{level}")));
     }

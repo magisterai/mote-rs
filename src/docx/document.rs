@@ -13,9 +13,16 @@ pub(super) fn write_document(
                 "top-level text outside a paragraph".into(),
             ));
         };
+        let mut numbering_reference = None;
         let attributes = match element.kind {
             ElementKind::Paragraph => element.attributes.clone(),
-            ElementKind::Heading => headings::attributes(element, index == 0)?,
+            ElementKind::Heading => {
+                let level = headings::level(element)? - 1;
+                numbering_reference = numbering
+                    .for_heading(element, level)?
+                    .map(|identifier| (identifier, level));
+                headings::attributes(element, index == 0)?
+            }
             ElementKind::List | ElementKind::OrderedList => {
                 body.push_str(&lists::write(element, 0, styles, numbering)?);
                 continue;
@@ -27,7 +34,12 @@ pub(super) fn write_document(
                 )));
             }
         };
-        body.push_str(&paragraphs::write(&attributes, &element.children, styles)?);
+        body.push_str(&paragraphs::write(
+            &attributes,
+            &element.children,
+            styles,
+            numbering_reference,
+        )?);
     }
     body.push_str("<w:sectPr><w:pgSz w:w=\"12240\" w:h=\"15840\"/><w:pgMar w:top=\"1440\" w:right=\"1440\" w:bottom=\"1440\" w:left=\"1440\" w:header=\"720\" w:footer=\"720\" w:gutter=\"0\"/></w:sectPr>");
     Ok(format!(

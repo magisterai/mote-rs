@@ -63,7 +63,11 @@ pagination requests. Built-in styles cover levels one through six; levels seven
 through nine need a declared style, and larger levels map to nine. Omitted style
 selects the level fallback; an explicit empty style suppresses its paragraph
 reference. At document start, implicit before-spacing becomes zero while authored
-before-spacing remains. Numbering remains deferred. Real Word review is unreviewed.
+before-spacing remains. Numbering supports hierarchy, formats, separators, sequence
+IDs, starts and restarts. Label/prefix remain metadata. Disabled numbering allocates
+no instance; restart at one creates an instance without a start override.
+The [numbering capture](../../tests/fixtures/docx/heading-numbering/README.md)
+verifies these mappings. Real Word review is unreviewed.
 See the [heading captures](../../tests/fixtures/docx/headings/README.md) and
 [style capture](../../tests/fixtures/docx/heading-styles/README.md).
 

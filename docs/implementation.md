@@ -258,7 +258,10 @@ Headings use built-in styles for levels one through six, with declared overrides
 and direct paragraph properties. Higher levels need a declared style; levels
 above nine map to nine. At the start of the document only implicit before-spacing
 is suppressed. Explicit empty style references differ from omitted references.
-Heading numbering remains deferred.
+Heading numbering emits hierarchical Word labels, formats, separators, sequence
+identity and restart/continuation. Disabled numbering emits no definition.
+Label/prefix metadata does not create text. Heading restart at one creates a new
+instance without a start override; list restart at one emits that override.
 
 Bullet and ordered lists emit reusable nine-level numbering definitions. Geometry and
 sequence identity determine reuse. List/item indentation, tight spacing, explicit

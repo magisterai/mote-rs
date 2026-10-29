@@ -220,11 +220,11 @@ fn heading_flow_start_preserves_explicit_spacing_only() {
 }
 
 #[test]
-fn unsupported_heading_styles_and_numbering_fail_explicitly() {
+fn unsupported_heading_styles_and_properties_fail_explicitly() {
     for source in [
         "#heading(level=7)[Missing default]",
         "#heading(style=\"Missing\")[Missing style]",
-        "#heading(numbering={enabled=true})[Numbered]",
+        "#heading(numbering={enabled=true,custom=3})[Numbered]",
         "#heading(marker=\"custom\")[Marker]",
         "#heading(level=1, custom=true)[Unknown]",
     ] {

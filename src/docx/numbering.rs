@@ -1,4 +1,4 @@
-use super::{Error, list_layout::ListLayout, values, xml};
+use super::{Error, check_attributes, list_layout::ListLayout, values, xml};
 use crate::model::{Content, Element, ElementKind, Value};
 use std::collections::BTreeMap;
 
@@ -40,7 +40,19 @@ impl NumberFormat {
 #[derive(PartialEq, Eq)]
 struct NumberingDefinition {
     format: NumberFormat,
-    layout: ListLayout,
+    kind: DefinitionKind,
+}
+
+#[derive(PartialEq, Eq)]
+enum DefinitionKind {
+    List(ListLayout),
+    Heading { separator: String },
+}
+
+enum SequenceMode {
+    Continue,
+    Restart,
+    RestartWithStartOverride,
 }
 
 struct NumberingInstance {
@@ -76,7 +88,10 @@ impl Numbering {
         } else {
             NumberFormat::Bullet
         };
-        let definition = self.definition_identifier(NumberingDefinition { format, layout });
+        let definition = self.definition_identifier(NumberingDefinition {
+            format,
+            kind: DefinitionKind::List(layout),
+        });
         let identity = list
             .attributes
             .get("id")
@@ -94,7 +109,82 @@ impl Numbering {
         } else {
             identity
         };
-        Ok(self.instance_identifier(definition, identity, level, start, ordered && restart))
+        let mode = if ordered && restart {
+            SequenceMode::RestartWithStartOverride
+        } else {
+            SequenceMode::Continue
+        };
+        Ok(self.instance_identifier(definition, identity, level, start, mode))
+    }
+
+    pub fn for_heading(&mut self, heading: &Element, level: u8) -> Result<Option<usize>, Error> {
+        let Some(numbering) = heading.attributes.get("numbering") else {
+            return Ok(None);
+        };
+        let numbering = values::object(numbering)?;
+        check_attributes(
+            numbering,
+            &[
+                "enabled",
+                "id",
+                "format",
+                "separator",
+                "start",
+                "restart",
+                "label",
+                "prefix",
+            ],
+            "heading numbering",
+        )?;
+        if !numbering
+            .get("enabled")
+            .map(values::boolean)
+            .transpose()?
+            .unwrap_or(true)
+        {
+            return Ok(None);
+        }
+        let format = NumberFormat::from_name(
+            &numbering
+                .get("format")
+                .map(Value::to_text)
+                .unwrap_or_default(),
+        )?;
+        if format == NumberFormat::Bullet {
+            return Err(Error::Unsupported("bullet heading numbering".into()));
+        }
+        let separator = numbering
+            .get("separator")
+            .map(Value::to_text)
+            .filter(|text| !text.is_empty())
+            .unwrap_or_else(|| ".".into());
+        let definition = self.definition_identifier(NumberingDefinition {
+            format,
+            kind: DefinitionKind::Heading { separator },
+        });
+        let identity = numbering
+            .get("id")
+            .map(Value::to_text)
+            .filter(|text| !text.is_empty())
+            .unwrap_or_else(|| "headings".into());
+        let start = numbering
+            .get("start")
+            .map(|value| positive_integer(value, "heading numbering start"))
+            .transpose()?
+            .unwrap_or(1);
+        let restart = numbering
+            .get("restart")
+            .map(values::boolean)
+            .transpose()?
+            .unwrap_or(false);
+        let mode = if restart {
+            SequenceMode::Restart
+        } else {
+            SequenceMode::Continue
+        };
+        Ok(Some(self.instance_identifier(
+            definition, identity, level, start, mode,
+        )))
     }
 
     fn definition_identifier(&mut self, definition: NumberingDefinition) -> usize {
@@ -117,17 +207,19 @@ impl Numbering {
         identity: String,
         level: u8,
         start: i64,
-        restart: bool,
+        mode: SequenceMode,
     ) -> usize {
         let key = (definition, identity);
-        if !restart && let Some(identifier) = self.continued.get(&key) {
+        if matches!(mode, SequenceMode::Continue)
+            && let Some(identifier) = self.continued.get(&key)
+        {
             return *identifier;
         }
         self.instances.push(NumberingInstance {
             definition,
             level,
             start,
-            restart,
+            restart: matches!(mode, SequenceMode::RestartWithStartOverride),
         });
         let identifier = self.instances.len();
         self.continued.insert(key, identifier);
@@ -142,15 +234,31 @@ impl Numbering {
                 index + 1
             ));
             for level in 0..9 {
-                let layout = definition.layout;
-                let left = layout.left_at_level(level)?;
                 let format = definition.format.word_name();
-                let label = if definition.format == NumberFormat::Bullet {
-                    "•".into()
-                } else {
-                    format!("%{}.", level + 1)
+                let (label, properties) = match &definition.kind {
+                    DefinitionKind::List(layout) => {
+                        let left = layout.left_at_level(level)?;
+                        let label = if definition.format == NumberFormat::Bullet {
+                            "•".into()
+                        } else {
+                            format!("%{}.", level + 1)
+                        };
+                        let properties = format!(
+                            "<w:spacing w:after=\"{}\"/><w:ind w:left=\"{left}\" w:hanging=\"{}\"/>",
+                            layout.spacing_after, layout.hanging
+                        );
+                        (label, properties)
+                    }
+                    DefinitionKind::Heading { separator } => {
+                        let parts: Vec<_> =
+                            (1..=level + 1).map(|index| format!("%{index}")).collect();
+                        (
+                            format!("{}{separator}", parts.join(separator)),
+                            "<w:ind w:left=\"0\" w:hanging=\"0\"/>".into(),
+                        )
+                    }
                 };
-                content.push_str(&format!("<w:lvl w:ilvl=\"{level}\"><w:start w:val=\"1\"/><w:numFmt w:val=\"{format}\"/><w:lvlText w:val=\"{label}\"/><w:lvlJc w:val=\"left\"/><w:pPr><w:spacing w:after=\"{}\"/><w:ind w:left=\"{left}\" w:hanging=\"{}\"/></w:pPr></w:lvl>", layout.spacing_after, layout.hanging));
+                content.push_str(&format!("<w:lvl w:ilvl=\"{level}\"><w:start w:val=\"1\"/><w:numFmt w:val=\"{format}\"/><w:lvlText w:val=\"{}\"/><w:lvlJc w:val=\"left\"/><w:pPr>{properties}</w:pPr></w:lvl>", xml::escape(&label)?));
             }
             content.push_str("</w:abstractNum>");
         }

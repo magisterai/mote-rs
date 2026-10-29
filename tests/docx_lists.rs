@@ -169,3 +169,64 @@ fn ordered_lists_reject_unrepresentable_starts_without_mutating_the_model() {
     assert!(mote::docx::emit(&document).is_err());
     assert_eq!(document, original);
 }
+
+#[test]
+fn heading_numbering_matches_reference() {
+    support::compare_fixture("heading-numbering");
+}
+
+#[test]
+fn heading_numbering_keeps_sequences_separate_and_disabled_headings_unnumbered() {
+    let parts = support::compare_fixture("heading-numbering");
+    let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+    let identifiers: Vec<_> = document
+        .descendants()
+        .filter(|node| node.has_tag_name((WORD_NAMESPACE, "numId")))
+        .map(|node| node.attribute((WORD_NAMESPACE, "val")).unwrap())
+        .collect();
+    assert_eq!(
+        identifiers,
+        ["1", "1", "1", "2", "2", "3", "4", "5", "6", "7", "8", "2"]
+    );
+    let disabled = document
+        .descendants()
+        .find(|node| {
+            node.has_tag_name((WORD_NAMESPACE, "p"))
+                && node
+                    .descendants()
+                    .any(|child| child.text() == Some("Unnumbered heading"))
+        })
+        .unwrap();
+    assert!(
+        !disabled
+            .descendants()
+            .any(|node| node.has_tag_name((WORD_NAMESPACE, "numPr")))
+    );
+    let numbering = roxmltree::Document::parse(&parts["word/numbering.xml"]).unwrap();
+    let starts: Vec<_> = numbering
+        .descendants()
+        .filter(|node| node.has_tag_name((WORD_NAMESPACE, "startOverride")))
+        .map(|node| node.attribute((WORD_NAMESPACE, "val")).unwrap())
+        .collect();
+    assert_eq!(starts, ["3", "7", "2"]);
+    assert!(
+        numbering
+            .descendants()
+            .any(|node| node.has_tag_name((WORD_NAMESPACE, "lvlText"))
+                && node.attribute((WORD_NAMESPACE, "val")) == Some("%1 & %2 & %3 & "))
+    );
+}
+
+#[test]
+fn a_disabled_heading_does_not_allocate_numbering() {
+    let parts = support::package("#heading(numbering={enabled=false,start=9,restart=true})[Title]");
+    let numbering = roxmltree::Document::parse(&parts["word/numbering.xml"]).unwrap();
+    assert_eq!(
+        numbering
+            .root_element()
+            .children()
+            .filter(|node| node.is_element())
+            .count(),
+        0
+    );
+}

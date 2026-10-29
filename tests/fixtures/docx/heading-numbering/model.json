@@ -1,0 +1,490 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "numbering": {
+              "enabled": true,
+              "start": 3
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Chapter three"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2,
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Section"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "numbering": {
+              "enabled": true,
+              "start": 99
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Continued chapter"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "numbering": {
+              "enabled": true,
+              "restart": true,
+              "start": 7
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Restarted chapter"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2,
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Continued section"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "numbering": {
+              "enabled": false
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Unnumbered heading"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 3,
+            "numbering": {
+              "format": "upper_alpha",
+              "id": "appendix",
+              "separator": " \u0026 ",
+              "start": 2
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Appendix"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2,
+            "numbering": {
+              "format": "lower_roman",
+              "id": "roman",
+              "separator": "-"
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Roman"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2,
+            "numbering": {
+              "format": "lower_roman",
+              "id": "roman",
+              "restart": true,
+              "separator": "-",
+              "start": 1
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Restart at one"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "numbering": {
+              "format": "upper_roman",
+              "id": "extra",
+              "label": "ignored",
+              "prefix": "ignored"
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Upper Roman"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "numbering": {
+              "format": "lower_alpha",
+              "id": "extra",
+              "separator": ""
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Lower alphabetic"
+            }
+          ]
+        },
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "attributes": {
+            "id": "headings"
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Independent list sequence"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Heading after list"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "numbering": {
+          "enabled": true,
+          "start": 3
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Chapter three"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2,
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Section"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "numbering": {
+          "enabled": true,
+          "start": 99
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Continued chapter"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "numbering": {
+          "enabled": true,
+          "restart": true,
+          "start": 7
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Restarted chapter"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2,
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Continued section"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "numbering": {
+          "enabled": false
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Unnumbered heading"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 3,
+        "numbering": {
+          "format": "upper_alpha",
+          "id": "appendix",
+          "separator": " \u0026 ",
+          "start": 2
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Appendix"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2,
+        "numbering": {
+          "format": "lower_roman",
+          "id": "roman",
+          "separator": "-"
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Roman"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2,
+        "numbering": {
+          "format": "lower_roman",
+          "id": "roman",
+          "restart": true,
+          "separator": "-",
+          "start": 1
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Restart at one"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "numbering": {
+          "format": "upper_roman",
+          "id": "extra",
+          "label": "ignored",
+          "prefix": "ignored"
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Upper Roman"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "numbering": {
+          "format": "lower_alpha",
+          "id": "extra",
+          "separator": ""
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Lower alphabetic"
+        }
+      ]
+    },
+    {
+      "kind": "ordered_list",
+      "category": "block",
+      "attributes": {
+        "id": "headings"
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Independent list sequence"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Heading after list"
+        }
+      ]
+    }
+  ]
+}
