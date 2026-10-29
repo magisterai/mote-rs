@@ -14,6 +14,8 @@ The document envelope includes implicit section content and empty property group
 
 A case may also declare `assets`, mapping authored resource names to JSON values.
 Those resources are supplied by an in-memory resolver during that example.
+A `lua: true` case explicitly enables Lua parsing and evaluation; other examples
+retain the default static evaluator.
 
 The conformance test reads the source directly from the chapters. Adding or
 removing an example requires updating its outcome here. Successful examples must

@@ -15,6 +15,7 @@ mod expressions;
 mod images;
 mod notes;
 mod references;
+mod scripting;
 mod sections;
 mod tables;
 use sections::EvaluationState;
@@ -29,8 +30,28 @@ struct EvaluationContext<'source> {
     preserve_space: bool,
 }
 
+/// Inputs and opt-in scripting settings for one compilation.
+#[derive(Clone, Copy)]
+pub struct EvaluationOptions<'resolver> {
+    pub asset_resolver: Option<&'resolver dyn crate::source::AssetResolver>,
+    pub source_name: Option<&'resolver std::ffi::OsStr>,
+    pub enable_lua: bool,
+    /// Shared wall-clock budget starting at first Lua use. None disables it.
+    pub lua_timeout: Option<std::time::Duration>,
+}
+impl Default for EvaluationOptions<'_> {
+    fn default() -> Self {
+        Self {
+            asset_resolver: None,
+            source_name: None,
+            enable_lua: false,
+            lua_timeout: Some(std::time::Duration::from_secs(10)),
+        }
+    }
+}
+
 pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
-    evaluate_with_state(tree, EvaluationState::default())
+    evaluate_with_options(tree, EvaluationOptions::default())
 }
 
 /// Evaluate with source-relative resources, snapshotted for this evaluation.
@@ -39,10 +60,30 @@ pub fn evaluate_with_assets(
     resolver: &dyn crate::source::AssetResolver,
     source_name: Option<&std::ffi::OsStr>,
 ) -> Result<Document, Diagnostic> {
-    let assets = crate::source::CachingAssetResolver::new(resolver);
+    evaluate_with_options(
+        tree,
+        EvaluationOptions {
+            asset_resolver: Some(resolver),
+            source_name,
+            ..Default::default()
+        },
+    )
+}
+
+pub fn evaluate_with_options(
+    tree: &SyntaxTree,
+    options: EvaluationOptions<'_>,
+) -> Result<Document, Diagnostic> {
+    let assets = options
+        .asset_resolver
+        .map(crate::source::CachingAssetResolver::new);
     let mut state = EvaluationState::default();
-    state.assets = Some(&assets);
-    state.source_name = source_name;
+    state.assets = assets
+        .as_ref()
+        .map(|resolver| resolver as &dyn crate::source::AssetResolver);
+    state.source_name = options.source_name;
+    state.enable_lua = options.enable_lua;
+    state.lua_timeout = options.lua_timeout;
     evaluate_with_state(tree, state)
 }
 
@@ -296,7 +337,11 @@ fn evaluate_nodes(
             }
             NodeKind::Call(call) => evaluate_call(call, node.span, context, document)?,
             NodeKind::Reference(name) => {
-                let value = document.bindings.resolve(name, node.span)?;
+                let value = if document.enable_lua {
+                    scripting::evaluate(name, node.span, document)?
+                } else {
+                    document.bindings.resolve(name, node.span)?
+                };
                 if value == Value::Nil {
                     skip_declaration_trivia = true;
                     continue;

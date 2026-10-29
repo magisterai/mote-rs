@@ -58,6 +58,7 @@ impl Parser<'_> {
                 position: cell.start,
                 depth: self.depth,
                 closing_delimiter: None,
+                allow_lua: self.allow_lua,
             };
             result.push(MarkdownTableCell {
                 alignment: alignments.get(index).cloned().unwrap_or_default(),

@@ -1,0 +1,7 @@
+#let(name="outer", value=1)
+#paragraph[#let(name="inner", local_value=value+1)#name #local_value]
+#paragraph[#name #if(local_value == nil)[Local left scope]]
+#let(long=[=[comma, close ) ] } and end]=], literal="escaped \" quote", object={value="x,y"})
+#paragraph[#long #literal #object.value]
+#let(value=(function() local total=0; for index=1,3 do total=total+index end; return total end)())
+#paragraph[#value]

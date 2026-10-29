@@ -527,6 +527,11 @@
     {
       "example": "control-flow/3",
       "model": "control-flow-3"
+    },
+    {
+      "example": "lua-expressions/1",
+      "model": "lua-expressions-1",
+      "lua": true
     }
   ],
   "models": {
@@ -7405,6 +7410,74 @@
             {
               "kind": "text",
               "text": "done."
+            }
+          ]
+        }
+      ]
+    },
+    "lua-expressions-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Total: "
+                },
+                {
+                  "kind": "text",
+                  "text": "20"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Review required."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Total: "
+            },
+            {
+              "kind": "text",
+              "text": "20"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Review required."
             }
           ]
         }

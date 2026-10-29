@@ -1,0 +1,104 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "RETAINED"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "{amount: 10, name: First}, {amount: 20, name: Second}"
+            },
+            {
+              "kind": "text",
+              "text": ".0.name"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "STILL AVAILABLE"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "RETAINED"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "{amount: 10, name: First}, {amount: 20, name: Second}"
+        },
+        {
+          "kind": "text",
+          "text": ".0.name"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "2"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "STILL AVAILABLE"
+        }
+      ]
+    }
+  ]
+}

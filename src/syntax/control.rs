@@ -56,7 +56,11 @@ impl Parser<'_> {
                 return Err(self.error("for requires 'in' before its iterable"));
             }
             self.position += 2;
-            let iterable = self.parse_expression()?;
+            let iterable = if self.allow_lua {
+                self.parse_script_expression(true)?
+            } else {
+                self.parse_expression()?
+            };
             self.skip_whitespace();
             if self.peek_character() != Some('{')
                 || !self.source[..self.position].ends_with(char::is_whitespace)

@@ -58,13 +58,16 @@ Status: initial draft.
 21. [Conditions and iteration](control-flow.md): truthiness, selected branches,
     collection order, local scopes and generated content.
 
+22. [Lua expressions](lua-expressions.md): opt-in expression evaluation, typed
+    conversions, indexing, available helpers and the shared execution budget.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
 the rule they violate. Implementation deferrals do not replace definitions.
 
 Later chapters will introduce additional data helpers, formatting,
-scripting, and layout. Their syntax is not used in the
+functions, and layout. Their syntax is not used in the
 introductory examples.
 
 The [directive checklists](../checklists/README.md) record planned attributes and

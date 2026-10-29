@@ -1,0 +1,7 @@
+#let(items={{name="Alpha",amount=12},{name="Beta",amount=8}}, total=items[1].amount+items[2].amount, first=items[1].name, dotted=items.0.name)
+#heading[#first]
+#paragraph[Total: #total; #dotted.]
+#paragraph[#if(total > 10 and items[2].name ~= "Alpha")[Larger] else [Smaller]]
+#for item in items {#paragraph[#item.name: #item.amount]}
+#let(value=tostring(type(tonumber("12"))), joined="part" .. " " .. "two")
+#paragraph[#value #joined]

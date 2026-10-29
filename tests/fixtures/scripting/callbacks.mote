@@ -1,0 +1,6 @@
+#let(saved=(function() saved_upper=upper; saved_json=json; return 1 end)())
+#let(value=saved_upper("retained"), data=saved_json("data.json"))
+#paragraph[#value #data.items.0.name]
+#paragraph[#let(inner=2)#inner]
+#let(value=saved_upper("still available"))
+#paragraph[#value]

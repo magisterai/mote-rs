@@ -1,0 +1,188 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "{1: first, 3: third}"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "{1: one, name: named}"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "true, false"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#123456",
+                "size": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Typed values"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "3"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "12pt"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "#123456"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "{1: first, 3: third}"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "{1: one, name: named}"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "true, false"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "color": "#123456",
+            "size": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Typed values"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "3"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "12pt"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "#123456"
+        }
+      ]
+    }
+  ]
+}

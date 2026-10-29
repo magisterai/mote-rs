@@ -1,0 +1,150 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true,
+                "color": "#123456",
+                "size": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Total "
+                },
+                {
+                  "kind": "text",
+                  "text": "30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "text",
+              "text": "10"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "text",
+              "text": "20"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": true,
+            "color": "#123456",
+            "size": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Total "
+            },
+            {
+              "kind": "text",
+              "text": "30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "First"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "text",
+          "text": "10"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Second"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "text",
+          "text": "20"
+        }
+      ]
+    }
+  ]
+}

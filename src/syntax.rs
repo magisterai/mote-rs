@@ -8,6 +8,7 @@ mod expressions;
 mod links;
 mod markup;
 mod notes;
+mod scripting;
 mod tables;
 
 use markup::MarkupBoundary;
@@ -113,14 +114,25 @@ pub enum ExpressionKind {
         arguments: Vec<Argument>,
     },
     Path(String),
+    Script(String),
 }
 
 pub fn parse(source: &str) -> Result<SyntaxTree, Diagnostic> {
+    parse_source(source, false)
+}
+
+/// Parse argument expressions as Lua source. This does not execute them.
+pub fn parse_with_lua(source: &str) -> Result<SyntaxTree, Diagnostic> {
+    parse_source(source, true)
+}
+
+fn parse_source(source: &str, allow_lua: bool) -> Result<SyntaxTree, Diagnostic> {
     let mut parser = Parser {
         source,
         position: 0,
         depth: 0,
         closing_delimiter: None,
+        allow_lua,
     };
     Ok(SyntaxTree {
         source: source.to_owned(),
@@ -134,6 +146,7 @@ pub fn parse_expression(source: &str) -> Result<Expression, Diagnostic> {
         position: 0,
         depth: 0,
         closing_delimiter: None,
+        allow_lua: false,
     };
     let expression = parser.parse_expression()?;
     parser.skip_whitespace();
@@ -148,6 +161,7 @@ struct Parser<'source> {
     position: usize,
     depth: usize,
     closing_delimiter: Option<char>,
+    allow_lua: bool,
 }
 
 impl Parser<'_> {

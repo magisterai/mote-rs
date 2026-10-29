@@ -124,7 +124,7 @@ Calls and paths are parsed without checking whether they are defined. Syntax
 success alone does not mean that a document can be evaluated or rendered.
 
 The parser is deliberately incomplete: task lists, fenced code blocks, additional
-Markdown forms and Lua are deferred. Unsupported
+Markdown forms remain deferred. Lua-enabled argument parsing retains expression source. Unsupported
 recognized Markdown forms return diagnostics; this is not a general Markdown
 parser. Recursive nesting is limited
 to protect the parser from excessive input depth.
@@ -204,7 +204,16 @@ Arrays preserve order and object iteration sorts keys. Seven frozen cases compar
 models, complete DOCX packages, native geometry and PNGs. Ten native PDF pages
 match the captured raster at 144 DPI; this is not Office visual review. The
 [control-flow chapter](specification/control-flow.md) records the generated-section
-content duplication limit. Lua and PowerPoint output remain deferred.
+content duplication limit.
+
+Opt-in Lua expressions use bundled Lua 5.1 through `mlua`, with default features
+disabled and only `lua51`/`vendored` enabled. Explicit conversions retain Mote's
+value types; no generic serialization layer is added. The runtime opens the base
+library with the documented restricted globals, shares one deadline, and routes
+JSON through the selected resolver. The normal and build dependency graph was
+reviewed; asynchronous runtimes, macros and alternate VM features are disabled.
+Function definitions, document constructors from scripts, and PowerPoint output
+remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)

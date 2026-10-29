@@ -36,3 +36,17 @@ pub fn compile_with_assets(
 ) -> Result<model::Document, diagnostics::Diagnostic> {
     evaluation::evaluate_with_assets(&syntax::parse(source)?, resolver, source_name)
 }
+
+/// Compile with explicit resource and scripting settings. Lua remains disabled
+/// unless requested; source locations refer to the supplied string.
+pub fn compile_with_options(
+    source: &str,
+    options: evaluation::EvaluationOptions<'_>,
+) -> Result<model::Document, diagnostics::Diagnostic> {
+    let tree = if options.enable_lua {
+        syntax::parse_with_lua(source)?
+    } else {
+        syntax::parse(source)?
+    };
+    evaluation::evaluate_with_options(&tree, options)
+}

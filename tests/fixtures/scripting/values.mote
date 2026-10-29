@@ -1,0 +1,5 @@
+#let(empty={}, hole={[1]="first",[3]="third"}, mixed={"one",name="named"}, booleans={true,false}, length=pt(12), shade=color("#123456"))
+#paragraph[#empty #hole #mixed #booleans]
+#paragraph[#span(size=length,color=shade)[Typed values]]
+#let(negative=-1, fractional=2.5, value=(negative+fractional)*2)
+#paragraph[#value #length #shade]

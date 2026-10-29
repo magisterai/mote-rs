@@ -75,6 +75,9 @@ fn evaluate_static_expression(
             evaluate_helper_arguments(name, arguments, expression.span, state, true)?
         }
         ExpressionKind::Path(name) => state.bindings.resolve(name, expression.span)?,
+        ExpressionKind::Script(source) => {
+            super::scripting::evaluate(source, expression.span, state)?
+        }
     })
 }
 
@@ -112,16 +115,26 @@ fn evaluate_helper_arguments(
     } else {
         evaluate_expression(&argument.value, state)?
     };
+    evaluate_helper_value(name, value, argument.value.span, state)
+}
+
+pub(super) fn evaluate_helper_value(
+    name: &str,
+    value: Value,
+    span: Span,
+    state: &super::EvaluationState<'_>,
+) -> Result<Value, Diagnostic> {
+    let unit = Unit::from_name(name);
     if name == "json" {
-        return super::data::load_json(value, argument.value.span, state);
+        return super::data::load_json(value, span, state);
     }
     if name == "color" {
-        return normalize_color(value, argument.value.span, "color");
+        return normalize_color(value, span, "color");
     }
     if let Some(unit) = unit {
         let Some(magnitude) = numeric_value(&value) else {
             return Err(Diagnostic::new(
-                argument.value.span,
+                span,
                 "length magnitude must be a finite number",
             ));
         };
@@ -130,7 +143,7 @@ fn evaluate_helper_arguments(
             unit,
         });
     }
-    let text = value_as_text(&value, argument.value.span)?;
+    let text = value_as_text(&value, span)?;
     if !text.is_ascii() {
         return Err(Diagnostic::new(
             span,

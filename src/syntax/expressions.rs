@@ -101,6 +101,9 @@ impl Parser<'_> {
     }
 
     pub(super) fn parse_expression(&mut self) -> Result<Expression, Diagnostic> {
+        if self.allow_lua {
+            return self.parse_script_expression(false);
+        }
         self.enter_nested_construct()?;
         self.skip_whitespace();
         let start = self.position;

@@ -9,7 +9,7 @@ use mote::source::{
     AssetRequest, CachingAssetResolver, FileAssetResolver, SourceFile, load_source,
 };
 
-const HELP: &str = "Usage: mote [--format json|docx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX requires an output path. PDF and PNG also require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\nUnsupported native structure produces an error. PowerPoint output is not implemented.\n";
+const HELP: &str = "Usage: mote [--format json|docx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX requires an output path. PDF and PNG also require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PowerPoint output is not implemented.\n";
 
 fn main() -> ExitCode {
     match run_command() {
@@ -28,6 +28,8 @@ fn run_command() -> Result<(), String> {
     let mut format = String::from("json");
     let mut output_path: Option<OsString> = None;
     let mut dots_per_inch = None;
+    let mut enable_lua = false;
+    let mut lua_timeout = Some(std::time::Duration::from_secs(10));
     while let Some(argument) = arguments.next() {
         match argument.to_str().filter(|_| !literal_arguments) {
             Some("--help" | "-h") => return write_stdout(HELP),
@@ -38,6 +40,14 @@ fn run_command() -> Result<(), String> {
                     .and_then(|value| value.into_string().ok())
                     .filter(|value| matches!(value.as_str(), "json" | "docx" | "pdf" | "png"))
                     .ok_or("--format requires 'json', 'docx', 'pdf' or 'png'")?;
+            }
+            Some("--lua" | "-lua") => enable_lua = true,
+            Some("--lua-timeout" | "-lua-timeout") => {
+                let duration = arguments
+                    .next()
+                    .and_then(|value| value.into_string().ok())
+                    .ok_or("--lua-timeout requires a duration")?;
+                lua_timeout = parse_lua_timeout(&duration)?;
             }
             Some("--dpi" | "-dpi") => {
                 dots_per_inch = Some(
@@ -107,11 +117,19 @@ fn run_command() -> Result<(), String> {
     };
     let name = source.name.to_string_lossy();
     let source_name = (source.name != "<stdin>").then_some(source.name.as_os_str());
-    let document =
-        mote::compile_with_assets(&source.text, &resolver, source_name).map_err(|error| {
-            let (line, column) = error.location(&source.text);
-            format!("{name}:{line}:{column}: {}", error.message)
-        })?;
+    let document = mote::compile_with_options(
+        &source.text,
+        mote::evaluation::EvaluationOptions {
+            asset_resolver: Some(&resolver),
+            source_name,
+            enable_lua,
+            lua_timeout,
+        },
+    )
+    .map_err(|error| {
+        let (line, column) = error.location(&source.text);
+        format!("{name}:{line}:{column}: {}", error.message)
+    })?;
     for warning in &document.warnings {
         let (line, column) = warning.location(&source.text);
         writeln!(
@@ -224,4 +242,35 @@ fn write_stdout_bytes(bytes: &[u8]) -> Result<(), String> {
         Err(error) if error.kind() == io::ErrorKind::BrokenPipe => Ok(()),
         Err(error) => Err(format!("standard output: {error}")),
     }
+}
+
+fn parse_lua_timeout(value: &str) -> Result<Option<std::time::Duration>, String> {
+    let (number, factor) = if let Some(number) = value.strip_suffix("ms") {
+        (number, 0.001)
+    } else if let Some(number) = value.strip_suffix('s') {
+        (number, 1.0)
+    } else if let Some(number) = value.strip_suffix('m') {
+        (number, 60.0)
+    } else if let Some(number) = value.strip_suffix('h') {
+        (number, 3600.0)
+    } else if value == "0" {
+        (value, 1.0)
+    } else {
+        return Err("--lua-timeout requires a duration in ms, s, m or h".into());
+    };
+    let seconds = number
+        .parse::<f64>()
+        .ok()
+        .filter(|value| value.is_finite())
+        .map(|value| value * factor)
+        .ok_or("invalid --lua-timeout duration")?;
+    if seconds < 0.0 {
+        return Ok(None);
+    }
+    if seconds == 0.0 {
+        return Ok(Some(std::time::Duration::from_secs(10)));
+    }
+    std::time::Duration::try_from_secs_f64(seconds)
+        .map(Some)
+        .map_err(|_| "invalid --lua-timeout duration".into())
 }

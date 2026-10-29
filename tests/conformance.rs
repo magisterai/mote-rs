@@ -40,12 +40,37 @@ fn specification_examples_match_their_declared_outcomes() {
             case.get("diagnostic").is_some(),
             "{example_identifier}: declare exactly one model or intentional diagnostic"
         );
-        parse(&source).unwrap_or_else(|error| panic!("{example_identifier}: {error}"));
+        (if case["lua"].as_bool() == Some(true) {
+            mote::syntax::parse_with_lua(&source)
+        } else {
+            parse(&source)
+        })
+        .unwrap_or_else(|error| panic!("{example_identifier}: {error}"));
         if let Some(model_name) = case["model"].as_str() {
             let expected = models
                 .get(model_name)
                 .unwrap_or_else(|| panic!("missing expected model: {model_name}"));
-            let compiled = if let Some(assets) = case.get("assets") {
+            let compiled = if case["lua"].as_bool() == Some(true) {
+                let resolver = |request: mote::source::AssetRequest<'_>| {
+                    let name = request.reference.to_str().unwrap();
+                    let value = case
+                        .get("assets")
+                        .and_then(|assets| assets.get(name))
+                        .ok_or_else(|| std::io::Error::new(std::io::ErrorKind::NotFound, name))?;
+                    Ok(mote::source::ResolvedAsset {
+                        name: request.reference.to_owned(),
+                        bytes: serde_json::to_vec(value).unwrap(),
+                    })
+                };
+                mote::compile_with_options(
+                    &source,
+                    mote::evaluation::EvaluationOptions {
+                        enable_lua: true,
+                        asset_resolver: Some(&resolver),
+                        ..Default::default()
+                    },
+                )
+            } else if let Some(assets) = case.get("assets") {
                 let resolver = |request: mote::source::AssetRequest<'_>| {
                     let name = request.reference.to_str().unwrap();
                     let value = assets

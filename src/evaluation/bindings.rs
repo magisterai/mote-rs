@@ -17,6 +17,25 @@ impl Default for Bindings {
     }
 }
 impl Bindings {
+    pub fn visible_values(&self) -> Properties {
+        let mut values = Properties::new();
+        for scope in &self.scopes {
+            values.extend(scope.clone());
+        }
+        values
+    }
+    pub fn resolve_bound_path(&self, path: &str) -> Option<Value> {
+        if path.is_empty()
+            || !path.chars().all(|character| {
+                character.is_ascii_alphanumeric() || matches!(character, '_' | '.')
+            })
+        {
+            return None;
+        }
+        let root = path.split('.').next()?;
+        self.scopes.iter().rev().find_map(|scope| scope.get(root))?;
+        self.resolve(path, Span { start: 0, end: 0 }).ok()
+    }
     pub fn enter(&mut self) {
         self.scopes.push(Properties::new());
     }
