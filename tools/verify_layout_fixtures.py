@@ -9,6 +9,7 @@ from pathlib import Path
 COLLECTIONS = (
     "lines", "layout-styles", "paragraph-text", "paragraph-flow",
     "page-geometry", "document-text", "text-decorations",
+    "native-blocks", "native-columns",
 )
 
 
