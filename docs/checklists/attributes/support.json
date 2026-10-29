@@ -1214,110 +1214,98 @@
   },
   "w:CT_TblPrBase/tblW": {
     "status": "partial",
-    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "note": "Physical table width is emitted; percentage width is not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TblPrBase/tblInd": {
     "status": "partial",
-    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "note": "Physical indentation is emitted; other width types are not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TblPrBase/tblCellSpacing": {
     "status": "partial",
-    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "note": "Physical cell spacing is emitted; other width types are not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TblPrBase/tblLayout": {
-    "status": "partial",
-    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "status": "supported",
+    "note": "Table layout accepts auto/autofit/fixed; fixed emits a fixed DOCX grid.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TblPrBase/tblCellMar": {
     "status": "partial",
-    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "note": "Physical cell margins and shorthands are emitted; logical edges are not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TblPrBase/jc": {
     "status": "partial",
-    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "note": "Four Mote alignment values map to left/center/right placement; justify maps to left.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TblPrBase/tblLook": {
     "status": "partial",
-    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "note": "Declared conditional regions select table look flags; independent look-bit authorship is not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TcPr/noWrap": {
-    "status": "partial",
-    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "status": "supported",
+    "note": "Cell no_wrap emits an editable DOCX flag.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TcPr/tcMar": {
     "status": "partial",
-    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "note": "Physical cell margins and shorthands are emitted; logical edges are not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TcPr/textDirection": {
     "status": "partial",
-    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "note": "Cell ltr, rtl, tb_rl and bt_lr are accepted; editable vertical directions and paragraph bidi are emitted. Other standard directions are not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TcPr/vAlign": {
-    "status": "partial",
-    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "status": "supported",
+    "note": "Cell top/center/bottom alignment is normalized and emitted.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_TcPr/shd": {
     "status": "partial",
-    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "note": "Cell fill emits a solid hex background; patterns and themes are not exposed.",
     "evidence": [
-      "docs/specification/styles-and-fonts.md",
-      "tests/declarations.rs",
-      "tests/formatting.rs"
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   },
   "w:CT_Lvl/start": {
@@ -2061,6 +2049,246 @@
     "evidence": [
       "docs/specification/images.md",
       "tests/images.rs"
+    ]
+  },
+  "w:CT_TblPr/tblStyle": {
+    "status": "supported",
+    "note": "Named table styles and conditional regions are emitted in editable DOCX.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblStyle": {
+    "status": "supported",
+    "note": "Named table styles and conditional regions are emitted in editable DOCX.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/tblLayout": {
+    "status": "supported",
+    "note": "Table layout accepts auto/autofit/fixed; fixed emits a fixed DOCX grid.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/tblW": {
+    "status": "partial",
+    "note": "Physical table width is emitted; percentage width is not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/jc": {
+    "status": "partial",
+    "note": "Four Mote alignment values map to left/center/right placement; justify maps to left.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/tblInd": {
+    "status": "partial",
+    "note": "Physical indentation is emitted; other width types are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/tblCellSpacing": {
+    "status": "partial",
+    "note": "Physical cell spacing is emitted; other width types are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/tblBorders": {
+    "status": "partial",
+    "note": "Physical outside/inside edges, widths and colors are emitted; themed border controls are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblBorders": {
+    "status": "partial",
+    "note": "Physical outside/inside edges, widths and colors are emitted; themed border controls are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/tblCellMar": {
+    "status": "partial",
+    "note": "Physical cell margins and shorthands are emitted; logical edges are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TblPr/tblLook": {
+    "status": "partial",
+    "note": "Declared conditional regions select table look flags; independent look-bit authorship is not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TrPr/tblHeader": {
+    "status": "supported",
+    "note": "Row repeat_header emits the repeating-header flag.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TrPrBase/tblHeader": {
+    "status": "supported",
+    "note": "Row repeat_header emits the repeating-header flag.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TrPr/cantSplit": {
+    "status": "supported",
+    "note": "Row cant_split emits the row-splitting flag.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TrPrBase/cantSplit": {
+    "status": "supported",
+    "note": "Row cant_split emits the row-splitting flag.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TrPr/trHeight": {
+    "status": "supported",
+    "note": "Row height and auto/at_least/exact rules are emitted.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TrPrBase/trHeight": {
+    "status": "supported",
+    "note": "Row height and auto/at_least/exact rules are emitted.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPr/gridSpan": {
+    "status": "supported",
+    "note": "Positive colspan creates a logical span and editable DOCX gridSpan.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/gridSpan": {
+    "status": "supported",
+    "note": "Positive colspan creates a logical span and editable DOCX gridSpan.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPr/vMerge": {
+    "status": "supported",
+    "note": "Positive rowspan creates a logical vertical span with restart/continuation DOCX cells.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/vMerge": {
+    "status": "supported",
+    "note": "Positive rowspan creates a logical vertical span with restart/continuation DOCX cells.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/noWrap": {
+    "status": "supported",
+    "note": "Cell no_wrap emits an editable DOCX flag.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/vAlign": {
+    "status": "supported",
+    "note": "Cell top/center/bottom alignment is normalized and emitted.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPr/tcW": {
+    "status": "partial",
+    "note": "Physical cell width is emitted; percentage widths are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/tcW": {
+    "status": "partial",
+    "note": "Physical cell width is emitted; percentage widths are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPr/tcBorders": {
+    "status": "partial",
+    "note": "Physical edge styles, widths and colors are emitted; themed controls and diagonal edges are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/tcBorders": {
+    "status": "partial",
+    "note": "Physical edge styles, widths and colors are emitted; themed controls and diagonal edges are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/shd": {
+    "status": "partial",
+    "note": "Cell fill emits a solid hex background; patterns and themes are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/tcMar": {
+    "status": "partial",
+    "note": "Physical cell margins and shorthands are emitted; logical edges are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
+    ]
+  },
+  "w:CT_TcPrInner/textDirection": {
+    "status": "partial",
+    "note": "Cell ltr, rtl, tb_rl and bt_lr are accepted; editable vertical directions and paragraph bidi are emitted. Other standard directions are not exposed.",
+    "evidence": [
+      "docs/specification/tables.md",
+      "tests/tables.rs"
     ]
   }
 }

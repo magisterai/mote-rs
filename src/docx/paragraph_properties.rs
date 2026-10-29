@@ -28,6 +28,7 @@ pub(super) fn write_declaration(properties: &Properties) -> Result<String, Error
 
 fn write_properties(properties: &Properties, declaration: bool) -> Result<String, Error> {
     let mut supported = ATTRIBUTES.to_vec();
+    supported.push("text_direction");
     if declaration {
         supported.extend_from_slice(&["background", "first_line_indent", "hanging_indent"]);
     }
@@ -52,6 +53,12 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
     }
     if let Some(stops) = properties.get("tabs") {
         result.push_str(&tabs(stops)?);
+    }
+    if properties
+        .get("text_direction")
+        .is_some_and(|value| value.to_text() == "rtl")
+    {
+        result.push_str("<w:bidi/>");
     }
     result.push_str(&spacing(properties)?);
     let mut indentation = properties

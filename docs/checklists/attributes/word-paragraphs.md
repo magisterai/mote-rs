@@ -45,7 +45,6 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [w:CT_LineNumber](#w-ct_linenumber)
 - [w:CT_PageNumber](#w-ct_pagenumber)
 - [w:CT_Columns](#w-ct_columns)
-- [w:CT_VerticalJc](#w-ct_verticaljc)
 - [w:CT_DocGrid](#w-ct_docgrid)
 - [w:CT_Rel](#w-ct_rel)
 - [w:CT_SectPrChange](#w-ct_sectprchange)
@@ -316,7 +315,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [ ] `pgNumType` — [w:CT_PageNumber](word-paragraphs.md#w-ct_pagenumber); Strict, Transitional; minOccurs=0. Page Numbering Settings; [§17.6.12](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0590-0593-0111.md#source-page-593-part-1).
 - [ ] `cols` — [w:CT_Columns](word-paragraphs.md#w-ct_columns); Strict, Transitional; minOccurs=0. Column Definitions; [§17.6.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0568-0574-0107.md#source-page-568-part-1). Single implicit section: equal-width columns with count, gap and separator. Individual widths and explicit sections remain unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 - [ ] `formProt` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0. Only Allow Editing of Form Fields; [§17.6.6](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0575-0579-0108.md#source-page-575-part-1).
-- [ ] `vAlign` — [w:CT_VerticalJc](word-paragraphs.md#w-ct_verticaljc); Strict, Transitional; minOccurs=0.
+- [ ] `vAlign` — [w:CT_VerticalJc](tables.md#w-ct_verticaljc); Strict, Transitional; minOccurs=0.
 - [ ] `noEndnote` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0.
 - [ ] `titlePg` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0.
 - [ ] `textDirection` — [w:CT_TextDirection](word-paragraphs.md#w-ct_textdirection); Strict, Transitional; minOccurs=0.
@@ -482,14 +481,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [x] `@space` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=optional; default=720. Document columns.gap: validated model and equal-width DOCX columns when count is present. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 - [x] `@num` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=optional; default=1. Document columns.count: validated model and equal-width DOCX columns when count is present. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 - [x] `@sep` — [s:ST_OnOff](values-shared.md#s-st_onoff); Strict, Transitional; use=optional. Document columns.separator: validated model and equal-width DOCX columns when count is present. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
-
-<a id="w-ct_verticaljc"></a>
-
-## w:CT_VerticalJc
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
-
-- [ ] `@val` — [w:ST_VerticalJc](values-word.md#w-st_verticaljc); Strict, Transitional; use=required.
 
 <a id="w-ct_docgrid"></a>
 
@@ -677,7 +668,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [ ] `pgNumType` — [w:CT_PageNumber](word-paragraphs.md#w-ct_pagenumber); Strict, Transitional; minOccurs=0. Page Numbering Settings; [§17.6.12](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0590-0593-0111.md#source-page-593-part-1).
 - [ ] `cols` — [w:CT_Columns](word-paragraphs.md#w-ct_columns); Strict, Transitional; minOccurs=0. Column Definitions; [§17.6.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0568-0574-0107.md#source-page-568-part-1).
 - [ ] `formProt` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0. Only Allow Editing of Form Fields; [§17.6.6](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0575-0579-0108.md#source-page-575-part-1).
-- [ ] `vAlign` — [w:CT_VerticalJc](word-paragraphs.md#w-ct_verticaljc); Strict, Transitional; minOccurs=0.
+- [ ] `vAlign` — [w:CT_VerticalJc](tables.md#w-ct_verticaljc); Strict, Transitional; minOccurs=0.
 - [ ] `noEndnote` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0.
 - [ ] `titlePg` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0.
 - [ ] `textDirection` — [w:CT_TextDirection](word-paragraphs.md#w-ct_textdirection); Strict, Transitional; minOccurs=0.

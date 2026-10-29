@@ -150,14 +150,18 @@ fn normalize_run_property(name: &str, value: Value, span: Span) -> Result<Value,
 }
 
 #[derive(Clone, Copy, PartialEq)]
-enum TableGroup {
+pub(super) enum TableGroup {
     Table,
     Region,
     Cell,
     Banding,
 }
 
-fn normalize_table_group(value: Value, span: Span, group: TableGroup) -> Result<Value, Diagnostic> {
+pub(super) fn normalize_table_group(
+    value: Value,
+    span: Span,
+    group: TableGroup,
+) -> Result<Value, Diagnostic> {
     let fields = require_object(value, span, "table style group")?;
     if group == TableGroup::Table && fields.contains_key("cell_padding") {
         return Err(Diagnostic::new(

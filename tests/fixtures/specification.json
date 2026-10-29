@@ -458,6 +458,14 @@
       "example": "flow-breaks/5",
       "diagnostic": "break accepts no positional arguments or content body",
       "invalid": "Breaks do not accept bodies."
+    },
+    {
+      "example": "tables/1",
+      "model": "tables_1"
+    },
+    {
+      "example": "tables/2",
+      "model": "tables_2"
     }
   ],
   "models": {
@@ -5529,6 +5537,386 @@
               "text": "After."
             }
           ]
+        }
+      ]
+    },
+    "tables_1": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "repeat_header": true
+              },
+              "category": "table_part",
+              "children": [
+                {
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Name"
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Amount"
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "category": "table_part",
+              "children": [
+                {
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Subscriptions"
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "120"
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "repeat_header": true
+                  },
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Name"
+                            }
+                          ],
+                          "kind": "paragraph"
+                        }
+                      ],
+                      "kind": "cell"
+                    },
+                    {
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Amount"
+                            }
+                          ],
+                          "kind": "paragraph"
+                        }
+                      ],
+                      "kind": "cell"
+                    }
+                  ],
+                  "kind": "row"
+                },
+                {
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Subscriptions"
+                            }
+                          ],
+                          "kind": "paragraph"
+                        }
+                      ],
+                      "kind": "cell"
+                    },
+                    {
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "120"
+                            }
+                          ],
+                          "kind": "paragraph"
+                        }
+                      ],
+                      "kind": "cell"
+                    }
+                  ],
+                  "kind": "row"
+                }
+              ],
+              "kind": "table"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "tables_2": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "repeat_header": true
+              },
+              "category": "table_part",
+              "children": [
+                {
+                  "attributes": {
+                    "alignment": "left"
+                  },
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Name"
+                        }
+                      ],
+                      "kind": "strong"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Amount"
+                        }
+                      ],
+                      "kind": "strong"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "category": "table_part",
+              "children": [
+                {
+                  "attributes": {
+                    "alignment": "left"
+                  },
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Subscriptions"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "120"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "repeat_header": true
+                  },
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "attributes": {
+                        "alignment": "left"
+                      },
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Name"
+                            }
+                          ],
+                          "kind": "strong"
+                        }
+                      ],
+                      "kind": "cell"
+                    },
+                    {
+                      "attributes": {
+                        "alignment": "right"
+                      },
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Amount"
+                            }
+                          ],
+                          "kind": "strong"
+                        }
+                      ],
+                      "kind": "cell"
+                    }
+                  ],
+                  "kind": "row"
+                },
+                {
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "attributes": {
+                        "alignment": "left"
+                      },
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Subscriptions"
+                        }
+                      ],
+                      "kind": "cell"
+                    },
+                    {
+                      "attributes": {
+                        "alignment": "right"
+                      },
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "120"
+                        }
+                      ],
+                      "kind": "cell"
+                    }
+                  ],
+                  "kind": "row"
+                }
+              ],
+              "kind": "table"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
         }
       ]
     }

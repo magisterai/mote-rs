@@ -43,6 +43,7 @@ behaviour is deliberately defined and implemented.
 | Inventory | Used by | Specification starting point |
 | --- | --- | --- |
 | [Word paragraphs](word-paragraphs.md) | Paragraphs, headings, quotes, and list-item paragraphs; includes nested section-boundary properties. | [17.3.1 Paragraphs](../../reference/reading/ooxml/ecma-376/part-1/sections/00163-17-3-1-paragraphs.md) |
+| [Tables](tables.md) | Tables, rows, cells, grids, borders and conditional formatting. | WordprocessingML and DrawingML table properties. |
 | [Images](images.md) | Raster pictures, transforms, effects, borders and placement. | DrawingML picture and Word drawing properties. |
 | [Hyperlinks](links.md) | Inline external destinations and interaction metadata. | WordprocessingML and DrawingML hyperlink records. |
 | [Word runs](word-runs.md) | Spans, strong/emphasis/code, paragraph marks, and line breaks. | [17.3.2 Runs](../../reference/reading/ooxml/ecma-376/part-1/sections/00209-17-3-2-run.md) |

@@ -1,0 +1,20 @@
+{
+  "source": "../../content.mote",
+  "source_sha256": "34fd798dd8fce238ebc6d02d51e9178a0cfe85814b70a441028bdaeb3418d9d8",
+  "captured_docx_sha256": "2a8f726d73f0e26f9641c8f2a9ad34016e0a43eaf16480406e35131df0b87f3d",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.png",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T11:41:39.520803+00:00"
+}

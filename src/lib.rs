@@ -17,3 +17,7 @@ pub mod syntax;
 pub fn compile(source: &str) -> Result<model::Document, diagnostics::Diagnostic> {
     evaluation::evaluate(&syntax::parse(source)?)
 }
+
+mod tables;
+
+mod properties;

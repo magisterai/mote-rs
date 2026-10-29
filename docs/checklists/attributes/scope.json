@@ -415,6 +415,57 @@
           "type": "wp:CT_Anchor"
         }
       ]
+    },
+    {
+      "file": "tables.md",
+      "title": "Table, row and cell properties",
+      "description": "Word and DrawingML table geometry, row flow, cell content and borders, including unsupported standard fields.",
+      "roots": [
+        {
+          "type": "w:CT_TblPr"
+        },
+        {
+          "type": "w:CT_TrPr"
+        },
+        {
+          "type": "w:CT_TcPr"
+        },
+        {
+          "type": "w:CT_TblPrEx"
+        },
+        {
+          "type": "w:CT_TblGrid"
+        },
+        {
+          "type": "a:CT_TableProperties"
+        },
+        {
+          "type": "a:CT_TableCellProperties"
+        },
+        {
+          "type": "a:CT_TableGrid"
+        },
+        {
+          "type": "w:CT_Tbl",
+          "attributes_only": true
+        },
+        {
+          "type": "w:CT_Row",
+          "attributes_only": true
+        },
+        {
+          "type": "w:CT_Tc",
+          "attributes_only": true
+        },
+        {
+          "type": "a:CT_TableRow",
+          "attributes_only": true
+        },
+        {
+          "type": "a:CT_TableCell",
+          "attributes_only": true
+        }
+      ]
     }
   ],
   "supplemental_notes": {

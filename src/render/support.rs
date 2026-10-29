@@ -153,6 +153,7 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     allowed.extend(["id", "start", "restart"]);
                 }
             }
+            ElementKind::Table | ElementKind::Row | ElementKind::Cell => {}
             ElementKind::Image => allowed.extend([
                 "src",
                 "alt",

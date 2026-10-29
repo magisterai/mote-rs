@@ -4,6 +4,7 @@ use super::{Error, package, xml};
 #[derive(Default)]
 pub(super) struct Resources {
     relationships: Vec<Relationship>,
+    pub active_text: super::run_properties::RunFormatting,
     pub images: crate::media::ImageCatalog,
     pub media: Vec<(String, crate::media::ImageAsset)>,
 }

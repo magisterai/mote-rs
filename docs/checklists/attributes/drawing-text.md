@@ -34,10 +34,7 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [p:CT_Extension](#p-ct_extension)
 - [a:CT_GeomGuideList](#a-ct_geomguidelist)
 - [a:CT_Camera](#a-ct_camera)
-- [a:CT_LightRig](#a-ct_lightrig)
 - [a:CT_Backdrop](#a-ct_backdrop)
-- [a:CT_Bevel](#a-ct_bevel)
-- [a:CT_Color](#a-ct_color)
 - [a:CT_TextSpacing](#a-ct_textspacing)
 - [a:CT_TextBulletColorFollowText](#a-ct_textbulletcolorfollowtext)
 - [a:CT_TextBulletSizeFollowText](#a-ct_textbulletsizefollowtext)
@@ -54,7 +51,6 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [a:CT_TextUnderlineFillGroupWrapper](#a-ct_textunderlinefillgroupwrapper)
 - [a:CT_Boolean](#a-ct_boolean)
 - [a:CT_GeomGuide](#a-ct_geomguide)
-- [a:CT_SphereCoords](#a-ct_spherecoords)
 - [a:CT_Point3D](#a-ct_point3d)
 - [a:CT_Vector3D](#a-ct_vector3d)
 - [a:CT_TextSpacingPercent](#a-ct_textspacingpercent)
@@ -195,7 +191,7 @@ Empty marker type; no attributes or child properties.
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
 - [ ] `camera` — [a:CT_Camera](drawing-text.md#a-ct_camera); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `lightRig` — [a:CT_LightRig](drawing-text.md#a-ct_lightrig); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `lightRig` — [a:CT_LightRig](tables.md#a-ct_lightrig); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `backdrop` — [a:CT_Backdrop](drawing-text.md#a-ct_backdrop); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
 
@@ -205,10 +201,10 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `bevelT` — [a:CT_Bevel](drawing-text.md#a-ct_bevel); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `bevelB` — [a:CT_Bevel](drawing-text.md#a-ct_bevel); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `extrusionClr` — [a:CT_Color](drawing-text.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `contourClr` — [a:CT_Color](drawing-text.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `bevelT` — [a:CT_Bevel](tables.md#a-ct_bevel); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `bevelB` — [a:CT_Bevel](tables.md#a-ct_bevel); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `extrusionClr` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `contourClr` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@z` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=optional; default=0.
 - [ ] `@extrusionH` — [a:ST_PositiveCoordinate](values-drawing.md#a-st_positivecoordinate); Strict, Transitional; use=optional; default=0.
@@ -233,7 +229,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `spcBef` — [a:CT_TextSpacing](drawing-text.md#a-ct_textspacing); Strict, Transitional; minOccurs=0; maxOccurs=1. Space Before; [§21.1.2.2.10](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3235-3241-0600.md#source-page-3236-part-1). Partial: Physical `spacing.before` exists; percentage before-spacing is missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
 - [ ] `spcAft` — [a:CT_TextSpacing](drawing-text.md#a-ct_textspacing); Strict, Transitional; minOccurs=0; maxOccurs=1. Space After; [§21.1.2.2.9](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3235-3241-0600.md#source-page-3236-part-1). Partial: Physical `spacing.after` exists; percentage after-spacing is missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
 - [ ] `buClrTx` — [a:CT_TextBulletColorFollowText](drawing-text.md#a-ct_textbulletcolorfollowtext); Strict, Transitional; minOccurs=1; maxOccurs=1. Follow Text; [§21.1.2.4.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3273-3279-0607.md#source-page-3273-part-1).
-- [ ] `buClr` — [a:CT_Color](drawing-text.md#a-ct_color); Strict, Transitional; minOccurs=1; maxOccurs=1. Color Specified; [§21.1.2.4.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3265-3272-0606.md#source-page-3272-part-1).
+- [ ] `buClr` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=1; maxOccurs=1. Color Specified; [§21.1.2.4.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3265-3272-0606.md#source-page-3272-part-1).
 - [ ] `buSzTx` — [a:CT_TextBulletSizeFollowText](drawing-text.md#a-ct_textbulletsizefollowtext); Strict, Transitional. Bullet Size Follows Text; [§21.1.2.4.11](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3273-3279-0607.md#source-page-3279-part-1).
 - [ ] `buSzPct` — [a:CT_TextBulletSizePercent](drawing-text.md#a-ct_textbulletsizepercent); Strict, Transitional. Bullet Size Percentage; [§21.1.2.4.9](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3273-3279-0607.md#source-page-3277-part-1).
 - [ ] `buSzPts` — [a:CT_TextBulletSizePoint](drawing-text.md#a-ct_textbulletsizepoint); Strict, Transitional. Bullet Size Points; [§21.1.2.4.10](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3273-3279-0607.md#source-page-3278-part-1).
@@ -293,18 +289,18 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `ln` — [a:CT_LineProperties](images.md#a-ct_lineproperties); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `noFill` — [a:CT_NoFillProperties](images.md#a-ct_nofillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `solidFill` — [a:CT_SolidColorFillProperties](images.md#a-ct_solidcolorfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1. Partial: Hexadecimal `color` exists; theme/system/preset colors and color transforms are missing. Evidence: [spans.md](../../../docs/specification/spans.md), [spans.rs](../../../tests/spans.rs), [formatting.rs](../../../tests/formatting.rs).
-- [ ] `gradFill` — [a:CT_GradientFillProperties](images.md#a-ct_gradientfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `ln` — [a:CT_LineProperties](tables.md#a-ct_lineproperties); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `noFill` — [a:CT_NoFillProperties](tables.md#a-ct_nofillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `solidFill` — [a:CT_SolidColorFillProperties](tables.md#a-ct_solidcolorfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1. Partial: Hexadecimal `color` exists; theme/system/preset colors and color transforms are missing. Evidence: [spans.md](../../../docs/specification/spans.md), [spans.rs](../../../tests/spans.rs), [formatting.rs](../../../tests/formatting.rs).
+- [ ] `gradFill` — [a:CT_GradientFillProperties](tables.md#a-ct_gradientfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `blipFill` — [a:CT_BlipFillProperties](images.md#a-ct_blipfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `pattFill` — [a:CT_PatternFillProperties](images.md#a-ct_patternfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `grpFill` — [a:CT_GroupFillProperties](images.md#a-ct_groupfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `effectLst` — [a:CT_EffectList](images.md#a-ct_effectlist); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `effectDag` — [a:CT_EffectContainer](images.md#a-ct_effectcontainer); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `highlight` — [a:CT_Color](drawing-text.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1. Highlight Color; [§21.1.2.3.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3251-part-1). Partial: Hexadecimal `highlight` exists; other color models and transformations are missing. Evidence: [spans.md](../../../docs/specification/spans.md), [spans.rs](../../../tests/spans.rs), [formatting.rs](../../../tests/formatting.rs).
+- [ ] `pattFill` — [a:CT_PatternFillProperties](tables.md#a-ct_patternfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `grpFill` — [a:CT_GroupFillProperties](tables.md#a-ct_groupfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `effectLst` — [a:CT_EffectList](tables.md#a-ct_effectlist); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `effectDag` — [a:CT_EffectContainer](tables.md#a-ct_effectcontainer); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `highlight` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1. Highlight Color; [§21.1.2.3.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3251-part-1). Partial: Hexadecimal `highlight` exists; other color models and transformations are missing. Evidence: [spans.md](../../../docs/specification/spans.md), [spans.rs](../../../tests/spans.rs), [formatting.rs](../../../tests/formatting.rs).
 - [ ] `uLnTx` — [a:CT_TextUnderlineLineFollowText](drawing-text.md#a-ct_textunderlinelinefollowtext); Strict, Transitional. Underline Follows Text; [§21.1.2.3.15](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3265-3272-0606.md#source-page-3267-part-1).
-- [ ] `uLn` — [a:CT_LineProperties](images.md#a-ct_lineproperties); Strict, Transitional; minOccurs=0; maxOccurs=1. Underline Stroke; [§21.1.2.3.14](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3265-3272-0606.md#source-page-3266-part-1).
+- [ ] `uLn` — [a:CT_LineProperties](tables.md#a-ct_lineproperties); Strict, Transitional; minOccurs=0; maxOccurs=1. Underline Stroke; [§21.1.2.3.14](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3265-3272-0606.md#source-page-3266-part-1).
 - [ ] `uFillTx` — [a:CT_TextUnderlineFillFollowText](drawing-text.md#a-ct_textunderlinefillfollowtext); Strict, Transitional. Underline Fill Properties Follow Text; [§21.1.2.3.13](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3265-3272-0606.md#source-page-3265-part-1).
 - [ ] `uFill` — [a:CT_TextUnderlineFillGroupWrapper](drawing-text.md#a-ct_textunderlinefillgroupwrapper); Strict, Transitional. Underline Fill; [§21.1.2.3.12](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3265-3272-0606.md#source-page-3265-part-1).
 - [ ] `latin` — [a:CT_TextFont](fonts.md#a-ct_textfont); Strict, Transitional; minOccurs=0; maxOccurs=1. Latin Font; [§21.1.2.3.7](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3255-3259-0604.md#source-page-3255-part-1). Partial: Font aliases resolve Latin typefaces; theme selection and font classification fields are missing. Evidence: [spans.md](../../../docs/specification/spans.md), [spans.rs](../../../tests/spans.rs), [formatting.rs](../../../tests/formatting.rs).
@@ -358,20 +354,10 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `rot` — [a:CT_SphereCoords](drawing-text.md#a-ct_spherecoords); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `rot` — [a:CT_SphereCoords](tables.md#a-ct_spherecoords); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@prst` — [a:ST_PresetCameraType](values-drawing.md#a-st_presetcameratype); Strict, Transitional; use=required.
 - [ ] `@fov` — [a:ST_FOVAngle](values-drawing.md#a-st_fovangle); Strict, Transitional; use=optional.
 - [ ] `@zoom` — [a:ST_PositivePercentage](values-drawing.md#a-st_positivepercentage); Strict, Transitional; use=optional; default=100%.
-
-<a id="a-ct_lightrig"></a>
-
-## a:CT_LightRig
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `rot` — [a:CT_SphereCoords](drawing-text.md#a-ct_spherecoords); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `@rig` — [a:ST_LightRigType](values-drawing.md#a-st_lightrigtype); Strict, Transitional; use=required.
-- [ ] `@dir` — [a:ST_LightRigDirection](values-drawing.md#a-st_lightrigdirection); Strict, Transitional; use=required.
 
 <a id="a-ct_backdrop"></a>
 
@@ -383,29 +369,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `norm` — [a:CT_Vector3D](drawing-text.md#a-ct_vector3d); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `up` — [a:CT_Vector3D](drawing-text.md#a-ct_vector3d); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
-
-<a id="a-ct_bevel"></a>
-
-## a:CT_Bevel
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `@w` — [a:ST_PositiveCoordinate](values-drawing.md#a-st_positivecoordinate); Strict, Transitional; use=optional; default=76200.
-- [ ] `@h` — [a:ST_PositiveCoordinate](values-drawing.md#a-st_positivecoordinate); Strict, Transitional; use=optional; default=76200.
-- [ ] `@prst` — [a:ST_BevelPresetType](values-drawing.md#a-st_bevelpresettype); Strict, Transitional; use=optional; default=circle.
-
-<a id="a-ct_color"></a>
-
-## a:CT_Color
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `scrgbClr` — [a:CT_ScRgbColor](images.md#a-ct_scrgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `srgbClr` — [a:CT_SRgbColor](images.md#a-ct_srgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `hslClr` — [a:CT_HslColor](images.md#a-ct_hslcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `sysClr` — [a:CT_SystemColor](images.md#a-ct_systemcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `schemeClr` — [a:CT_SchemeColor](images.md#a-ct_schemecolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `prstClr` — [a:CT_PresetColor](images.md#a-ct_presetcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
 
 <a id="a-ct_textspacing"></a>
 
@@ -519,12 +482,12 @@ Empty marker type; no attributes or child properties.
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `noFill` — [a:CT_NoFillProperties](images.md#a-ct_nofillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `solidFill` — [a:CT_SolidColorFillProperties](images.md#a-ct_solidcolorfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `gradFill` — [a:CT_GradientFillProperties](images.md#a-ct_gradientfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `noFill` — [a:CT_NoFillProperties](tables.md#a-ct_nofillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `solidFill` — [a:CT_SolidColorFillProperties](tables.md#a-ct_solidcolorfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `gradFill` — [a:CT_GradientFillProperties](tables.md#a-ct_gradientfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `blipFill` — [a:CT_BlipFillProperties](images.md#a-ct_blipfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `pattFill` — [a:CT_PatternFillProperties](images.md#a-ct_patternfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `grpFill` — [a:CT_GroupFillProperties](images.md#a-ct_groupfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `pattFill` — [a:CT_PatternFillProperties](tables.md#a-ct_patternfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `grpFill` — [a:CT_GroupFillProperties](tables.md#a-ct_groupfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 
 <a id="a-ct_boolean"></a>
 
@@ -542,16 +505,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 - [ ] `@name` — [a:ST_GeomGuideName](values-drawing.md#a-st_geomguidename); Strict, Transitional; use=required.
 - [ ] `@fmla` — [a:ST_GeomGuideFormula](values-drawing.md#a-st_geomguideformula); Strict, Transitional; use=required.
-
-<a id="a-ct_spherecoords"></a>
-
-## a:CT_SphereCoords
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `@lat` — [a:ST_PositiveFixedAngle](values-drawing.md#a-st_positivefixedangle); Strict, Transitional; use=required.
-- [ ] `@lon` — [a:ST_PositiveFixedAngle](values-drawing.md#a-st_positivefixedangle); Strict, Transitional; use=required.
-- [ ] `@rev` — [a:ST_PositiveFixedAngle](values-drawing.md#a-st_positivefixedangle); Strict, Transitional; use=required.
 
 <a id="a-ct_point3d"></a>
 

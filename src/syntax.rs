@@ -6,6 +6,7 @@ pub use crate::diagnostics::{Diagnostic, Span};
 mod expressions;
 mod links;
 mod markup;
+mod tables;
 
 use markup::MarkupBoundary;
 
@@ -45,8 +46,20 @@ pub enum NodeKind {
         title: String,
         label: Vec<Node>,
     },
+    Table(Vec<MarkdownTableRow>),
     Call(Call),
     Reference(String),
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct MarkdownTableRow {
+    pub header: bool,
+    pub cells: Vec<MarkdownTableCell>,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct MarkdownTableCell {
+    pub alignment: String,
+    pub body: Vec<Node>,
 }
 
 #[derive(Debug, Clone, PartialEq)]

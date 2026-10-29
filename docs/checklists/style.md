@@ -9,7 +9,7 @@
 - [x] Accept `table` as a declaration type and normalize its property object:
   width, indent, cell spacing, alignment, layout, cell margins, text direction,
   wrapping, paragraph/text groups, edge regions, and row/column banding. This
-  records declarations only; table application and output remain pending.
+  records declarations only; table declarations and editable DOCX output are implemented.
 - [x] Warn on numeric name conversion; retain whitespace-only style identities
   and apply the final self-inheritance check to empty identities as well.
 - [x] Named arguments only, no body, required `name`; produce no content node.
@@ -43,7 +43,8 @@
 ## Support limits
 
 - [ ] `table`: apply table styles and conditional regions to table content.
-  Declaration storage is implemented; application requires the table model.
+  Editable DOCX styles, inheritance and cell text defaults are implemented and
+  captured in [table tests](../../tests/tables.rs); native application is pending.
 
 DOCX emits paragraph and character declarations, inheritance and next/link
 references, the Normal default, heading/quote/Code fallbacks, and direct/named precedence.

@@ -193,6 +193,29 @@ fn validate_named_argument(
                 "fill" => Some(ArgumentType::Color),
                 _ => None,
             },
+            Table => match name {
+                "style" | "layout" | "alignment" => Some(ArgumentType::String),
+                "width" | "indent" | "cell_spacing" => Some(ArgumentType::Length),
+                "cell" | "borders" => Some(ArgumentType::Object),
+                _ => None,
+            },
+            Row => match name {
+                "repeat_header" | "cant_split" => Some(ArgumentType::Boolean),
+                "height" => Some(ArgumentType::Length),
+                "height_rule" => Some(ArgumentType::String),
+                _ => None,
+            },
+            Cell => match name {
+                "style" | "alignment" | "vertical_alignment" | "text_direction" => {
+                    Some(ArgumentType::String)
+                }
+                "width" => Some(ArgumentType::Length),
+                "colspan" | "rowspan" => Some(ArgumentType::NumberOrString),
+                "fill" => Some(ArgumentType::Color),
+                "margin" | "borders" => Some(ArgumentType::Object),
+                "no_wrap" => Some(ArgumentType::Boolean),
+                _ => None,
+            },
             Image => match name {
                 "src" | "name" | "alt" | "description" | "style" | "title" | "link"
                 | "alignment" => Some(ArgumentType::String),
@@ -249,6 +272,7 @@ pub(super) fn normalize_attribute(
             _ => Ok(value),
         },
         Image => super::images::normalize(name, value, span),
+        Table | Row | Cell => super::tables::normalize(kind, name, value, span),
         Span => match name {
             "color" | "highlight" => normalize_color(value, span, name),
             "size" => normalize_length(value, span, name),

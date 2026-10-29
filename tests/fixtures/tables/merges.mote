@@ -1,0 +1,8 @@
+#document(page={width=pt(320),height=pt(400)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#table(width=pt(260))[
+#row[#cell(colspan=2,rowspan=2,fill="#eef7ee",vertical_alignment="center")[Merged across columns and rows.] #cell[Top]]
+#row[#cell[Middle]]
+#row[#cell[One] #cell[Two] #cell[Three]]
+#row[#cell(rowspan=2)[Tall] #cell(colspan=2)[Wide]]
+#row[#cell[Last]]
+]

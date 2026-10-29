@@ -162,7 +162,7 @@ impl<'document> Styles<'document> {
 
     fn write_declaration(&self, declaration: &StyleDeclaration) -> Result<String, Error> {
         if declaration.kind == StyleKind::Table {
-            return Err(Error::Unsupported("table styles".into()));
+            return super::tables::write_style(declaration, self);
         }
         let mut accepted = paragraph_properties::ATTRIBUTES.to_vec();
         accepted.extend_from_slice(run_properties::ATTRIBUTES);

@@ -6,6 +6,7 @@ use super::{Call, Diagnostic, Node, NodeKind, Parser, Span};
 #[derive(Clone, Copy, PartialEq)]
 pub(super) enum MarkupBoundary {
     Source,
+    TableCell,
     Body,
     Delimited(&'static str),
     Line,
@@ -77,6 +78,10 @@ impl Parser<'_> {
             {
                 continuation_start = false;
                 self.skip_horizontal_whitespace();
+                if let Some(node) = self.parse_markdown_table()? {
+                    nodes.push(node);
+                    continue;
+                }
                 if let Some(node) = self.parse_heading()? {
                     nodes.push(node);
                     continue;
@@ -90,9 +95,13 @@ impl Parser<'_> {
                     continue;
                 }
                 // These block forms need their own syntax and semantics.
-                if ["```", "~~~", "---"]
-                    .iter()
-                    .any(|marker| self.starts_with(marker))
+                if ["```", "~~~"].iter().any(|marker| self.starts_with(marker))
+                    || (self.starts_with("---")
+                        && !self.source[self.position..]
+                            .split(['\r', '\n'])
+                            .next()
+                            .unwrap_or_default()
+                            .contains('|'))
                 {
                     return Err(self.error("this Markdown block form is not supported yet"));
                 }

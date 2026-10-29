@@ -1,0 +1,19 @@
+{
+  "source": "../../markdown.mote",
+  "source_sha256": "a7deaaf8aeb121245bf5ab4fccd0d0318d221d65301ca63552bf339c9261030a",
+  "captured_docx_sha256": "1a2df07a1cf86afe68058ca178ef18000886eb3f6faccf33be03e9b47edc851e",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T11:41:39.519360+00:00"
+}

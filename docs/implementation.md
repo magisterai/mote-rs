@@ -523,3 +523,12 @@ preserve compressed source data and their grayscale, RGB or CMYK color space.
 
 [Image captures](../tests/fixtures/images/README.md) cover model/package equality,
 image geometry, transforms, links, fallbacks and separate native raster output.
+
+## Editable tables
+
+The table, row and cell model supports Markdown pipe tables and explicit
+structure. A shared logical grid records row/column spans; DOCX modules separately
+handle property emission, width hints, nested content and conditional styles.
+Physical borders and cell defaults retain their authored precedence. Native
+measurement and pagination are developed separately against the same fixtures.
+See [table captures](../tests/fixtures/tables/README.md).

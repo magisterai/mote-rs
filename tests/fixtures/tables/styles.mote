@@ -1,0 +1,9 @@
+#document(page={width=pt(340),height=pt(420)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#style(name="Table Base",type="table",table={layout="fixed",width=pt(240),alignment="center",cell={margin={all=pt(5)},fill="#f7f7f7",borders={all={width=pt(0.5),color="#223344"}},alignment="left"},text={font="Arial",size=pt(10),color="#334455"},paragraph={spacing={line=1.2}},first_row={fill="#ccddff",text={bold=true}},last_row={text={italic=true}},first_column={fill="#eeffee"},last_column={vertical_alignment="bottom"},banding={rows=true,columns=true,odd={fill="#eeeeee"},even={fill="#ffffff"},odd_column={text={color="#ff0000"}},even_column={text={color="#0000ff"}}}})
+#style(name="Table Derived",type="table",based_on="Table Base",table={cell={margin={left=pt(7)}},first_row={text={color="#112233"}},banding={odd={text={italic=true}}}})
+#table(style="Table Derived")[
+#row[#cell[Name] #cell[Value]]
+#row[#cell[Alpha] #cell[One]]
+#row[#cell[Beta] #cell[Two]]
+#row[#cell[Total] #cell[Three]]
+]

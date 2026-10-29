@@ -1,0 +1,10 @@
+#document(page={width=pt(320),height=pt(400)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+Before table.
+
+#table[
+#row(repeat_header=true)[#cell[Item] #cell[Value]]
+#row[#cell[Alpha] #cell[12]]
+#row[#cell[Beta] #cell[24]]
+]
+
+After table.

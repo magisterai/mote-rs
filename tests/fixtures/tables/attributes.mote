@@ -1,0 +1,6 @@
+#document(page={width=pt(320),height=pt(400)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#table(width=pt(240), layout="fixed", alignment="center", indent=pt(8), cell_spacing=pt(2), cell={margin={all=pt(3),horizontal=pt(5)},vertical_alignment="middle"}, borders={all={style="single",width=pt(1),color="#336699"},inside_h={style="dashed",size=4,color="#998877"}})[
+#row(repeat_header=true,height=pt(24),height_rule="at_least",cant_split=true)[#cell(width=pt(90),fill="#eeeeff",alignment="center")[Left] #cell(no_wrap=true,vertical_alignment="bottom")[Right]]
+#row(height=pt(50),height_rule="exact")[#cell(text_direction="tb_rl",margin={top=pt(1),bottom=pt(2),left=pt(4),right=pt(6)},borders={right={style="double",width=pt(2),color="#aa0000"}})[Vertical] #cell(text_direction="bt_lr",alignment="right")[Upwards]]
+#row(height=pt(25),height_rule="auto")[#cell(text_direction="ltr")[Normal] #cell(text_direction="rtl")[Direction]]
+]

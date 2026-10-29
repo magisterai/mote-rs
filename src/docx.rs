@@ -18,6 +18,7 @@ mod resources;
 mod run_properties;
 mod runs;
 mod styles;
+mod tables;
 mod values;
 mod whitespace;
 mod xml;

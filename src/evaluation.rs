@@ -9,6 +9,7 @@ mod configuration;
 mod declarations;
 mod expressions;
 mod images;
+mod tables;
 mod values;
 
 use attributes::evaluate_attributes;
@@ -53,6 +54,7 @@ enum ContentMode {
     Inline,
     MarkdownItem,
     ListBody,
+    Structural,
 }
 
 fn evaluate_nodes(
@@ -111,6 +113,7 @@ fn evaluate_nodes(
             }
         }
         let content = match &node.kind {
+            NodeKind::Table(rows) => tables::evaluate_markdown(rows, context, document)?,
             NodeKind::Text(text) => Content::Text(text.clone()),
             NodeKind::LineBreak { hard } => Content::Text(
                 if *hard || context.preserve_space {
@@ -201,7 +204,8 @@ fn evaluate_nodes(
                 ));
             }
         };
-        if matches!(&content, Content::Element(element) if element.kind.is_block()) {
+        if matches!(&content, Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())
+        {
             if mode == ContentMode::Inline {
                 return Err(Diagnostic::new(
                     node.span,
@@ -313,6 +317,9 @@ fn evaluate_call(
     context: EvaluationContext<'_>,
     document: &mut Document,
 ) -> Result<Content, Diagnostic> {
+    if matches!(call.name.as_str(), "table" | "row" | "cell") {
+        return tables::evaluate(call, span, context, document);
+    }
     if call.name == "image" {
         return images::evaluate(call, span);
     }

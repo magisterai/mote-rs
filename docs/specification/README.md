@@ -52,3 +52,5 @@ here before demonstrating it.
 
 The [reference library](../reference/README.md) contains the external file-format
 and language standards used alongside this specification.
+
+- [Tables](tables.md): row/cell structure, sizing, merges, borders and Markdown tables.

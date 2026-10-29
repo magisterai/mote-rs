@@ -1,0 +1,12 @@
+#document(page={width=pt(360),height=pt(500)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#table(width=pt(300))[
+#row[#cell[
+#paragraph[First paragraph.]
+#paragraph(spacing={before=pt(4),after=pt(3)})[Second #span(bold=true)[bold] paragraph.]
+#list[#item[First] #item[Second]]
+] #cell[
+#image("../images/assets/pattern.png",width=pt(48))
+#paragraph[[Details](https://example.com)]
+]]
+#row[#cell(colspan=2)[#table(width=pt(160))[#row[#cell[Nested] #cell[Table]]]]]
+]

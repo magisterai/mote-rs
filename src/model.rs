@@ -149,6 +149,9 @@ pub enum ElementKind {
     Span,
     Link,
     Image,
+    Table,
+    Row,
+    Cell,
     Strong,
     Emphasis,
     Code,
@@ -169,6 +172,9 @@ impl ElementKind {
             Self::Span => "span",
             Self::Link => "link",
             Self::Image => "image",
+            Self::Table => "table",
+            Self::Row => "row",
+            Self::Cell => "cell",
             Self::Strong => "strong",
             Self::Emphasis => "emphasis",
             Self::Code => "code",
@@ -182,10 +188,16 @@ impl ElementKind {
         }
     }
 
+    pub fn is_table_part(self) -> bool {
+        matches!(self, Self::Row | Self::Cell)
+    }
+
     pub fn is_block(self) -> bool {
         !matches!(
             self,
-            Self::Link
+            Self::Row
+                | Self::Cell
+                | Self::Link
                 | Self::Span
                 | Self::Strong
                 | Self::Emphasis

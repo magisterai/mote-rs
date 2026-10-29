@@ -124,7 +124,6 @@ fn unresolved_styles_cycles_and_unsupported_declarations_fail_explicitly() {
         "#style(name=\"A\",based_on=\"B\")#style(name=\"B\",based_on=\"A\")",
         "#style(name=\"A\",based_on=\"Missing\")",
         "#style(name=\"A\",next=\"Missing\")",
-        "#style(name=\"Table\",type=\"table\")",
         "#font(name=\"Body\",pitch=\"fixed\")",
     ] {
         assert!(

@@ -9,9 +9,10 @@ pub(super) fn write_inlines(
     resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
     validate_controls(children)?;
+    let formatting = resources.active_text.clone();
     write_formatted(
         &whitespace::trim_line_edges(children),
-        &RunFormatting::default(),
+        &formatting,
         styles,
         resources,
     )

@@ -27,6 +27,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_FixedAngle](#a-st_fixedangle)
 - [a:ST_FixedPercentage](#a-st_fixedpercentage)
 - [a:ST_FixedPercentageDecimal](#a-st_fixedpercentagedecimal)
+- [a:ST_FontCollectionIndex](#a-st_fontcollectionindex)
 - [a:ST_GeomGuideFormula](#a-st_geomguideformula)
 - [a:ST_GeomGuideName](#a-st_geomguidename)
 - [a:ST_LightRigDirection](#a-st_lightrigdirection)
@@ -36,6 +37,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_LineEndType](#a-st_lineendtype)
 - [a:ST_LineEndWidth](#a-st_lineendwidth)
 - [a:ST_LineWidth](#a-st_linewidth)
+- [a:ST_OnOffStyleType](#a-st_onoffstyletype)
 - [a:ST_PathFillMode](#a-st_pathfillmode)
 - [a:ST_PathShadeType](#a-st_pathshadetype)
 - [a:ST_PenAlignment](#a-st_penalignment)
@@ -58,6 +60,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_RectAlignment](#a-st_rectalignment)
 - [a:ST_SchemeColorVal](#a-st_schemecolorval)
 - [a:ST_ShapeType](#a-st_shapetype)
+- [a:ST_StyleMatrixColumnIndex](#a-st_stylematrixcolumnindex)
 - [a:ST_SystemColorVal](#a-st_systemcolorval)
 - [a:ST_TextAlignType](#a-st_textaligntype)
 - [a:ST_TextAnchoringType](#a-st_textanchoringtype)
@@ -293,6 +296,17 @@ See also [prose-defined extensions](prose-extensions.md).
 - minInclusive: value: `-100000`
 - maxInclusive: value: `100000`
 
+<a id="a-st_fontcollectionindex"></a>
+
+## a:ST_FontCollectionIndex
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `major`
+- enumeration: value: `minor`
+- enumeration: value: `none`
+
 <a id="a-st_geomguideformula"></a>
 
 ## a:ST_GeomGuideFormula
@@ -416,6 +430,17 @@ See also [prose-defined extensions](prose-extensions.md).
 - restriction: base: [a:ST_Coordinate32Unqualified](values-drawing.md#a-st_coordinate32unqualified)
 - minInclusive: value: `0`
 - maxInclusive: value: `20116800`
+
+<a id="a-st_onoffstyletype"></a>
+
+## a:ST_OnOffStyleType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `on`
+- enumeration: value: `off`
+- enumeration: value: `def`
 
 <a id="a-st_pathfillmode"></a>
 
@@ -1206,6 +1231,14 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `chartX`
 - enumeration: value: `chartStar`
 - enumeration: value: `chartPlus`
+
+<a id="a-st_stylematrixcolumnindex"></a>
+
+## a:ST_StyleMatrixColumnIndex
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:unsignedInt`
 
 <a id="a-st_systemcolorval"></a>
 

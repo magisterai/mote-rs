@@ -16,10 +16,23 @@ pub(super) fn write_document(
     styles: &Styles<'_>,
     state: &mut DocumentState,
 ) -> Result<String, Error> {
+    let mut body = write_blocks(&document.content, styles, state)?;
+    body.push_str(&configuration::section_properties(document)?);
+    Ok(format!(
+        r#"{}<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps"><w:body>{body}</w:body></w:document>"#,
+        xml::HEADER
+    ))
+}
+
+pub(super) fn write_blocks(
+    content: &[Content],
+    styles: &Styles<'_>,
+    state: &mut DocumentState,
+) -> Result<String, Error> {
     let mut body = String::new();
     let mut at_flow_start = true;
     let mut pending_column_break = false;
-    for content in &document.content {
+    for content in content {
         let Content::Element(element) = content else {
             return Err(Error::Unsupported(
                 "top-level text outside a paragraph".into(),
@@ -57,6 +70,11 @@ pub(super) fn write_document(
         }
         let mut numbering_reference = None;
         let attributes = match element.kind {
+            ElementKind::Table => {
+                body.push_str(&super::tables::write(element, styles, state)?);
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Image => {
                 body.push_str(&super::images::write(
                     element,
@@ -110,11 +128,7 @@ pub(super) fn write_document(
     if pending_column_break {
         body.push_str(break_paragraph("column")?);
     }
-    body.push_str(&configuration::section_properties(document)?);
-    Ok(format!(
-        r#"{}<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps"><w:body>{body}</w:body></w:document>"#,
-        xml::HEADER
-    ))
+    Ok(body)
 }
 
 fn break_paragraph(kind: &str) -> Result<&'static str, Error> {

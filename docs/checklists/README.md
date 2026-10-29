@@ -45,6 +45,9 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `table` | [Table](table.md) | Row structure, sizing, defaults, borders and styles. |
+| `row` | [Row](row.md) | Cell structure, height, repeating headers and splitting. |
+| `cell` | [Cell](cell.md) | Content, spans, margins, alignment and borders. |
 | `paragraph` | [Paragraph](paragraph.md) | Body and full scoped paragraph attributes. |
 | `heading` | [Heading](heading.md) | Body, level, geometry, and numbering attributes. |
 | `strong` | [Strong](strong.md) | Bold intent, inline forms, font/style overrides. |

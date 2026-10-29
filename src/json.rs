@@ -94,7 +94,7 @@ fn content_as_json(content: &Content) -> Result<JsonValue, serde_json::Error> {
                 .collect::<Result<Vec<_>, _>>()?;
             let mut object = json!({
                 "kind": element.kind.as_text(),
-                "category": if element.kind.is_block() { "block" } else { "inline" },
+                "category": if element.kind.is_table_part() { "table_part" } else if element.kind.is_block() { "block" } else { "inline" },
             });
             if !children.is_empty() {
                 object["children"] = JsonValue::Array(children);
