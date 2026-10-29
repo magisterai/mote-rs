@@ -33,6 +33,10 @@ own language and behaviour. Read the relevant chapter before consulting external
 format references. The specification is developed progressively; its current
 coverage is listed in the index.
 
+Keep the specification focused on Mote language, syntax, and semantics. Record
+output-format mechanics and captured output observations alongside implementation
+tests and fixtures rather than adding output specifications here.
+
 Define each concept before using it in an example, either earlier in the reading
 order or immediately alongside its introduction. Keep introductory examples
 within the documented basics. A note that implementation is deferred does not
@@ -45,9 +49,17 @@ Read [docs/checklists/README.md](docs/checklists/README.md) before extending a
 directive. Create and index a directive's checklist before its specification or
 implementation; update an existing checklist before adding attributes. Inventory
 its arguments, body rules, attributes and nested fields, value rules, dependencies,
-and output limits first. Stay within the recorded scope; external OOXML references
-do not authorize additional features. Retaining an unknown property is not
-evidence that its formatting behaviour is supported.
+and output limits first. Inventory every relevant property and value from the
+retained OOXML and related specifications, including unsupported ones. Use the
+[shared attribute inventories](docs/checklists/attributes/README.md) to avoid
+omitting inherited or nested fields. Do not invent Mote attribute names for
+unmapped specification properties.
+
+Inventory scope is broader than implementation scope. Implement only features
+present in the established Mote compatibility baseline; confirm that boundary
+before implementing an unchecked property. A standards entry alone does not
+authorize additional language or output features. Retaining an unknown property
+is not evidence that its formatting behaviour is supported.
 
 Check an item only when the stated behaviour is specified, implemented, and
 covered by meaningful tests. Describe partial implementation beside an unchecked
@@ -55,6 +67,12 @@ item. Link the relevant specification and tests, and update the checklist with
 each change. Keep output and visual conformance status separate from language and
 model completion. Checklist entries are planning notes, not permission to use
 undefined features in introductory examples.
+
+Checklists are support inventories for directives and their attributes, not
+implementation task plans. Check supported behaviour and leave unsupported
+behaviour unchecked, with any partial support explained beside the item. Keep
+output-specific limits as support notes; do not create separate emitter or
+output-format checklists or add general generation/review tasks as checkboxes.
 
 ## Reference reading
 

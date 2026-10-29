@@ -43,12 +43,23 @@ controls and a native checkmark drawing are distinct output behaviours. A custom
 bullet marker has presentation-specific scope; arbitrary ordered marker templates
 and marker font/alignment controls are not goals here.
 
-## Output
+## Output limits
 
-- [ ] Define marker appearance, task-state precedence, item overrides, continuation
-  paragraphs, and unsupported control metadata for each applicable output.
-- [ ] Verify Office lists/controls and independent native PDF/PNG, including
-  nesting and multiline items.
+Rendered markers, task controls, item overrides, continuation paragraphs,
+and nested or multiline item layout remain unsupported.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word numbering and marker properties](attributes/numbering.md).
+- [Word paragraph properties](attributes/word-paragraphs.md).
+- [DrawingML paragraphs and bullets](attributes/drawing-text.md#a-ct_textparagraphproperties).
+- [Task controls](attributes/controls.md).
+- [Extended checkbox properties](attributes/word-extensions.md#w14-ct_sdtcheckbox).
 
 ## Evidence
 

@@ -56,12 +56,22 @@ an unrestricted nested `text` object is not a direct heading-formatting target.
 The evaluator retains `keep_together` on headings; its output scope still needs
 verification, independently of the completed attribute contract.
 
-## Output
+## Output limits
 
-- [ ] Define heading styles, outline mapping, output level limits, and numbering
-  behaviour for each applicable output.
-- [ ] Verify editable Office output and independent native PDF/PNG, including
-  heading pagination and numbered sequences.
+Rendered heading styles, outline levels, numbering, and pagination remain
+unsupported. The checked attributes record language/model behaviour.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word paragraph properties](attributes/word-paragraphs.md).
+- [Numbering](attributes/numbering.md).
+- [DrawingML paragraph properties](attributes/drawing-text.md#a-ct_textparagraphproperties).
+- [Word extensions](attributes/word-extensions.md).
 
 ## Evidence
 

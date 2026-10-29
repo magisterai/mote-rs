@@ -49,12 +49,21 @@ is not a general paragraph attribute in this checklist. Presentation container
 `text` and `list` defaults belong to their future container checklists; they are
 not additional direct paragraph controls here.
 
-## Output
+## Output limits
 
-- [ ] Document attribute mappings and unsupported-property diagnostics for each
-  applicable output and layout mode.
-- [ ] Verify DOCX in Word and presentation output in PowerPoint where applicable;
-  verify native PDF and PNG independently, including spacing and pagination.
+Output mappings and rendering of paragraph attributes remain unsupported.
+Spacing and pagination have language/model coverage only.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word paragraph properties](attributes/word-paragraphs.md).
+- [DrawingML paragraph properties](attributes/drawing-text.md#a-ct_textparagraphproperties).
+- [Word paragraph extensions](attributes/word-extensions.md).
 
 ## Evidence
 

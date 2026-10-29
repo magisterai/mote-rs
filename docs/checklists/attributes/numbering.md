@@ -1,0 +1,412 @@
+# Word numbering and list properties
+
+[Inventory guide](README.md)
+
+Used by lists, ordered lists, list items, and heading numbering. Includes abstract definitions, concrete instances, level overrides, marker text and formatting, and picture-bullet references.
+
+Checkmarks concern the stated Mote language/model behaviour only. Partial
+mappings stay unchecked. Unannotated fields have no supported Mote mapping;
+shared schema carriers do not independently define authoring attributes.
+
+Nested types and complete value definitions are linked below. XML element
+names and `@attributes` identify specification properties, not new Mote syntax.
+
+## Types
+
+- [w:CT_Numbering](#w-ct_numbering)
+- [w:CT_NumPicBullet](#w-ct_numpicbullet)
+- [w:CT_AbstractNum](#w-ct_abstractnum)
+- [w:CT_Num](#w-ct_num)
+- [w:CT_Picture](#w-ct_picture)
+- [w:CT_Drawing](#w-ct_drawing)
+- [w:CT_LongHexNumber](#w-ct_longhexnumber)
+- [w:CT_MultiLevelType](#w-ct_multileveltype)
+- [w:CT_Lvl](#w-ct_lvl)
+- [w:CT_NumLvl](#w-ct_numlvl)
+- [w:CT_Control](#w-ct_control)
+- [wp:CT_Anchor](#wp-ct_anchor)
+- [wp:CT_Inline](#wp-ct_inline)
+- [w:CT_LevelSuffix](#w-ct_levelsuffix)
+- [w:CT_LevelText](#w-ct_leveltext)
+- [w:CT_LvlLegacy](#w-ct_lvllegacy)
+- [a:CT_Point2D](#a-ct_point2d)
+- [wp:CT_PosH](#wp-ct_posh)
+- [wp:CT_PosV](#wp-ct_posv)
+- [a:CT_PositiveSize2D](#a-ct_positivesize2d)
+- [wp:CT_EffectExtent](#wp-ct_effectextent)
+- [wp:CT_WrapNone](#wp-ct_wrapnone)
+- [wp:CT_WrapSquare](#wp-ct_wrapsquare)
+- [wp:CT_WrapTight](#wp-ct_wraptight)
+- [wp:CT_WrapThrough](#wp-ct_wrapthrough)
+- [wp:CT_WrapTopBottom](#wp-ct_wraptopbottom)
+- [a:CT_NonVisualDrawingProps](#a-ct_nonvisualdrawingprops)
+- [a:CT_NonVisualGraphicFrameProperties](#a-ct_nonvisualgraphicframeproperties)
+- [a:CT_GraphicalObject](#a-ct_graphicalobject)
+- [wp:CT_WrapPath](#wp-ct_wrappath)
+- [a:CT_GraphicalObjectFrameLocking](#a-ct_graphicalobjectframelocking)
+- [a:CT_GraphicalObjectData](#a-ct_graphicalobjectdata)
+
+<a id="w-ct_numbering"></a>
+
+## w:CT_Numbering
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `numPicBullet` — [w:CT_NumPicBullet](numbering.md#w-ct_numpicbullet); Strict, Transitional; minOccurs=0; maxOccurs=unbounded. Picture Numbering Symbol Definition; [§17.9.20](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0731-0736-0137.md#source-page-731-part-1).
+- [ ] `abstractNum` — [w:CT_AbstractNum](numbering.md#w-ct_abstractnum); Strict, Transitional; minOccurs=0; maxOccurs=unbounded. Abstract Numbering Definition; [§17.9.1](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0700-0706-0132.md#source-page-703-part-1).
+- [ ] `num` — [w:CT_Num](numbering.md#w-ct_num); Strict, Transitional; minOccurs=0; maxOccurs=unbounded. Numbering Definition Instance; [§17.9.15](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0725-0730-0136.md#source-page-725-part-1).
+- [ ] `numIdMacAtCleanup` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=0. Last Reviewed Abstract Numbering Definition; [§17.9.19](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0725-0730-0136.md#source-page-730-part-1).
+
+<a id="w-ct_numpicbullet"></a>
+
+## w:CT_NumPicBullet
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `pict` — [w:CT_Picture](numbering.md#w-ct_picture); Transitional.
+- [ ] `drawing` — [w:CT_Drawing](numbering.md#w-ct_drawing); Strict, Transitional. DrawingML Object; [§17.3.3.9](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0339-0344-0069.md#source-page-342-part-1).
+- [ ] `@numPicBulletId` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=required.
+
+<a id="w-ct_abstractnum"></a>
+
+## w:CT_AbstractNum
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `nsid` — [w:CT_LongHexNumber](numbering.md#w-ct_longhexnumber); Strict, Transitional; minOccurs=0. Abstract Numbering Definition Identifier; [§17.9.14](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0719-0724-0135.md#source-page-724-part-1).
+- [ ] `multiLevelType` — [w:CT_MultiLevelType](numbering.md#w-ct_multileveltype); Strict, Transitional; minOccurs=0. Abstract Numbering Definition Type; [§17.9.12](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0719-0724-0135.md#source-page-722-part-1).
+- [ ] `tmpl` — [w:CT_LongHexNumber](numbering.md#w-ct_longhexnumber); Strict, Transitional; minOccurs=0. Numbering Template Code; [§17.9.29](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0743-0748-0139.md#source-page-743-part-1).
+- [ ] `name` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0.
+- [ ] `styleLink` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0. Numbering Style Definition; [§17.9.27](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0737-0742-0138.md#source-page-740-part-1).
+- [ ] `numStyleLink` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0. Numbering Style Reference; [§17.9.21](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0731-0736-0137.md#source-page-733-part-1).
+- [ ] `lvl` — [w:CT_Lvl](numbering.md#w-ct_lvl); Strict, Transitional; minOccurs=0; maxOccurs=9.
+- [ ] `@abstractNumId` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=required.
+
+<a id="w-ct_num"></a>
+
+## w:CT_Num
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `abstractNumId` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=1. Abstract Numbering Definition Reference; [§17.9.2](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0700-0706-0132.md#source-page-704-part-1).
+- [ ] `lvlOverride` — [w:CT_NumLvl](numbering.md#w-ct_numlvl); Strict, Transitional; minOccurs=0; maxOccurs=9. Numbering Level Definition Override; [§17.9.8](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0713-0718-0134.md#source-page-715-part-1).
+- [ ] `@numId` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=required. Partial: `id` stores sequence identity; concrete Word instance identifiers are not allocated. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+
+<a id="w-ct_picture"></a>
+
+## w:CT_Picture
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd).
+
+- [ ] `*` — extension wildcard; Transitional; processContents=lax; namespace=urn:schemas-microsoft-com:vml; minOccurs=0; maxOccurs=unbounded.
+- [ ] `*` — extension wildcard; Transitional; processContents=lax; namespace=urn:schemas-microsoft-com:office:office; minOccurs=0; maxOccurs=unbounded.
+- [ ] `movie` — [w:CT_Rel](word-paragraphs.md#w-ct_rel); Transitional; minOccurs=0. Embedded Video; [§17.3.3.17](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0345-0350-0070.md#source-page-348-part-1).
+- [ ] `control` — [w:CT_Control](numbering.md#w-ct_control); Transitional; minOccurs=0. Embedded Control; [§17.3.3.3](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0333-0338-0068.md#source-page-337-part-1).
+
+<a id="w-ct_drawing"></a>
+
+## w:CT_Drawing
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `wp:anchor` — [wp:CT_Anchor](numbering.md#wp-ct_anchor); Strict, Transitional; minOccurs=0.
+- [ ] `wp:inline` — [wp:CT_Inline](numbering.md#wp-ct_inline); Strict, Transitional; minOccurs=0.
+
+<a id="w-ct_longhexnumber"></a>
+
+## w:CT_LongHexNumber
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `@val` — [w:ST_LongHexNumber](values-word.md#w-st_longhexnumber); Strict, Transitional; use=required.
+
+<a id="w-ct_multileveltype"></a>
+
+## w:CT_MultiLevelType
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `@val` — [w:ST_MultiLevelType](values-word.md#w-st_multileveltype); Strict, Transitional; use=required.
+
+<a id="w-ct_lvl"></a>
+
+## w:CT_Lvl
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `start` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=0. Partial: `start` accepts positive integers; zero and Word-specific numbering application are missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `numFmt` — [w:CT_NumFmt](word-paragraphs.md#w-ct_numfmt); Strict, Transitional; minOccurs=0. Numbering Format; [§17.9.17](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0725-0730-0136.md#source-page-728-part-1). Partial: `format` covers decimal, lower/upper alpha, lower/upper Roman, and bullet; other numbering systems are missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `lvlRestart` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=0. Restart Numbering Level Symbol; [§17.9.10](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0713-0718-0134.md#source-page-718-part-1). Partial: `restart` is a boolean intent; a numeric restart-after-level policy is not exposed. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `pStyle` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0.
+- [ ] `isLgl` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0. Display All Levels Using Arabic Numerals; [§17.9.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0707-0712-0133.md#source-page-707-part-1).
+- [ ] `suff` — [w:CT_LevelSuffix](numbering.md#w-ct_levelsuffix); Strict, Transitional; minOccurs=0. Content Between Numbering Symbol and Paragraph Text; [§17.9.28](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0737-0742-0138.md#source-page-742-part-1).
+- [ ] `lvlText` — [w:CT_LevelText](numbering.md#w-ct_leveltext); Strict, Transitional; minOccurs=0. Numbering Level Text; [§17.9.11](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0719-0724-0135.md#source-page-721-part-1). Partial: Heading separator/label/prefix metadata and presentation bullet text exist; arbitrary hierarchical number templates are missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `lvlPicBulletId` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=0. Picture Numbering Symbol Definition Reference; [§17.9.9](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0713-0718-0134.md#source-page-717-part-1).
+- [ ] `legacy` — [w:CT_LvlLegacy](numbering.md#w-ct_lvllegacy); Transitional; minOccurs=0.
+- [ ] `lvlJc` — [w:CT_Jc](word-paragraphs.md#w-ct_jc); Strict, Transitional; minOccurs=0. Justification; [§17.9.7](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0713-0718-0134.md#source-page-714-part-1).
+- [ ] `pPr` — [w:CT_PPrGeneral](styles.md#w-ct_pprgeneral); Strict, Transitional; minOccurs=0. Partial: Scoped list/item indentation and spacing exist; full numbering-level paragraph properties are missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `rPr` — [w:CT_RPr](word-runs.md#w-ct_rpr); Strict, Transitional; minOccurs=0. Partial: Inherited text formatting exists; independently authored marker run formatting is missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `@ilvl` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=required. Partial: Mote stores positive nesting levels; Word zero-based levels and their limits are not resolved. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `@tplc` — [w:ST_LongHexNumber](values-word.md#w-st_longhexnumber); Strict, Transitional; use=optional.
+- [ ] `@tentative` — [s:ST_OnOff](values-shared.md#s-st_onoff); Strict, Transitional; use=optional.
+
+<a id="w-ct_numlvl"></a>
+
+## w:CT_NumLvl
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `startOverride` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=0. Numbering Level Starting Value Override; [§17.9.26](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0737-0742-0138.md#source-page-738-part-1).
+- [ ] `lvl` — [w:CT_Lvl](numbering.md#w-ct_lvl); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `@ilvl` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=required.
+
+<a id="w-ct_control"></a>
+
+## w:CT_Control
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `@name` — [s:ST_String](values-shared.md#s-st_string); Strict, Transitional; use=optional.
+- [ ] `@shapeid` — [s:ST_String](values-shared.md#s-st_string); Strict, Transitional; use=optional.
+- [ ] `@r:id` — [r:ST_RelationshipId](values-shared.md#r-st_relationshipid); Strict, Transitional; use=optional.
+
+<a id="wp-ct_anchor"></a>
+
+## wp:CT_Anchor
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `simplePos` — [a:CT_Point2D](numbering.md#a-ct_point2d); Strict, Transitional.
+- [ ] `positionH` — [wp:CT_PosH](numbering.md#wp-ct_posh); Strict, Transitional.
+- [ ] `positionV` — [wp:CT_PosV](numbering.md#wp-ct_posv); Strict, Transitional.
+- [ ] `extent` — [a:CT_PositiveSize2D](numbering.md#a-ct_positivesize2d); Strict, Transitional.
+- [ ] `effectExtent` — [wp:CT_EffectExtent](numbering.md#wp-ct_effectextent); Strict, Transitional; minOccurs=0.
+- [ ] `wrapNone` — [wp:CT_WrapNone](numbering.md#wp-ct_wrapnone); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `wrapSquare` — [wp:CT_WrapSquare](numbering.md#wp-ct_wrapsquare); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `wrapTight` — [wp:CT_WrapTight](numbering.md#wp-ct_wraptight); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `wrapThrough` — [wp:CT_WrapThrough](numbering.md#wp-ct_wrapthrough); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `wrapTopAndBottom` — [wp:CT_WrapTopBottom](numbering.md#wp-ct_wraptopbottom); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `docPr` — [a:CT_NonVisualDrawingProps](numbering.md#a-ct_nonvisualdrawingprops); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `cNvGraphicFramePr` — [a:CT_NonVisualGraphicFrameProperties](numbering.md#a-ct_nonvisualgraphicframeproperties); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `a:graphic` — [a:CT_GraphicalObject](numbering.md#a-ct_graphicalobject); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `@distT` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distB` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distL` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distR` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@simplePos` — `xsd:boolean`; Strict, Transitional.
+- [ ] `@relativeHeight` — `xsd:unsignedInt`; Strict, Transitional; use=required.
+- [ ] `@behindDoc` — `xsd:boolean`; Strict, Transitional; use=required.
+- [ ] `@locked` — `xsd:boolean`; Strict, Transitional; use=required.
+- [ ] `@layoutInCell` — `xsd:boolean`; Strict, Transitional; use=required.
+- [ ] `@hidden` — `xsd:boolean`; Strict, Transitional; use=optional.
+- [ ] `@allowOverlap` — `xsd:boolean`; Strict, Transitional; use=required.
+
+<a id="wp-ct_inline"></a>
+
+## wp:CT_Inline
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `extent` — [a:CT_PositiveSize2D](numbering.md#a-ct_positivesize2d); Strict, Transitional.
+- [ ] `effectExtent` — [wp:CT_EffectExtent](numbering.md#wp-ct_effectextent); Strict, Transitional; minOccurs=0.
+- [ ] `docPr` — [a:CT_NonVisualDrawingProps](numbering.md#a-ct_nonvisualdrawingprops); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `cNvGraphicFramePr` — [a:CT_NonVisualGraphicFrameProperties](numbering.md#a-ct_nonvisualgraphicframeproperties); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `a:graphic` — [a:CT_GraphicalObject](numbering.md#a-ct_graphicalobject); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `@distT` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distB` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distL` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distR` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+
+<a id="w-ct_levelsuffix"></a>
+
+## w:CT_LevelSuffix
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `@val` — [w:ST_LevelSuffix](values-word.md#w-st_levelsuffix); Strict, Transitional; use=required.
+
+<a id="w-ct_leveltext"></a>
+
+## w:CT_LevelText
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
+
+- [ ] `@val` — [s:ST_String](values-shared.md#s-st_string); Strict, Transitional; use=optional. Partial: Source markers and heading label/prefix metadata do not implement arbitrary Word numbering templates. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `@null` — [s:ST_OnOff](values-shared.md#s-st_onoff); Strict, Transitional; use=optional.
+
+<a id="w-ct_lvllegacy"></a>
+
+## w:CT_LvlLegacy
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd).
+
+- [ ] `@legacy` — [s:ST_OnOff](values-shared.md#s-st_onoff); Transitional; use=optional.
+- [ ] `@legacySpace` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Transitional; use=optional.
+- [ ] `@legacyIndent` — [w:ST_SignedTwipsMeasure](values-word.md#w-st_signedtwipsmeasure); Transitional; use=optional.
+
+<a id="a-ct_point2d"></a>
+
+## a:CT_Point2D
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
+
+- [ ] `@x` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=required.
+- [ ] `@y` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=required.
+
+<a id="wp-ct_posh"></a>
+
+## wp:CT_PosH
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `align` — [wp:ST_AlignH](values-drawing.md#wp-st_alignh); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `posOffset` — [wp:ST_PositionOffset](values-drawing.md#wp-st_positionoffset); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `@relativeFrom` — [wp:ST_RelFromH](values-drawing.md#wp-st_relfromh); Strict, Transitional; use=required.
+
+<a id="wp-ct_posv"></a>
+
+## wp:CT_PosV
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `align` — [wp:ST_AlignV](values-drawing.md#wp-st_alignv); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `posOffset` — [wp:ST_PositionOffset](values-drawing.md#wp-st_positionoffset); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `@relativeFrom` — [wp:ST_RelFromV](values-drawing.md#wp-st_relfromv); Strict, Transitional; use=required.
+
+<a id="a-ct_positivesize2d"></a>
+
+## a:CT_PositiveSize2D
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
+
+- [ ] `@cx` — [a:ST_PositiveCoordinate](values-drawing.md#a-st_positivecoordinate); Strict, Transitional; use=required.
+- [ ] `@cy` — [a:ST_PositiveCoordinate](values-drawing.md#a-st_positivecoordinate); Strict, Transitional; use=required.
+
+<a id="wp-ct_effectextent"></a>
+
+## wp:CT_EffectExtent
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `@l` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=required.
+- [ ] `@t` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=required.
+- [ ] `@r` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=required.
+- [ ] `@b` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=required.
+
+<a id="wp-ct_wrapnone"></a>
+
+## wp:CT_WrapNone
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+Empty marker type; no attributes or child properties.
+
+<a id="wp-ct_wrapsquare"></a>
+
+## wp:CT_WrapSquare
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `effectExtent` — [wp:CT_EffectExtent](numbering.md#wp-ct_effectextent); Strict, Transitional; minOccurs=0.
+- [ ] `@wrapText` — [wp:ST_WrapText](values-drawing.md#wp-st_wraptext); Strict, Transitional; use=required.
+- [ ] `@distT` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distB` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distL` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distR` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+
+<a id="wp-ct_wraptight"></a>
+
+## wp:CT_WrapTight
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `wrapPolygon` — [wp:CT_WrapPath](numbering.md#wp-ct_wrappath); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `@wrapText` — [wp:ST_WrapText](values-drawing.md#wp-st_wraptext); Strict, Transitional; use=required.
+- [ ] `@distL` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distR` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+
+<a id="wp-ct_wrapthrough"></a>
+
+## wp:CT_WrapThrough
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `wrapPolygon` — [wp:CT_WrapPath](numbering.md#wp-ct_wrappath); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `@wrapText` — [wp:ST_WrapText](values-drawing.md#wp-st_wraptext); Strict, Transitional; use=required.
+- [ ] `@distL` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distR` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+
+<a id="wp-ct_wraptopbottom"></a>
+
+## wp:CT_WrapTopBottom
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `effectExtent` — [wp:CT_EffectExtent](numbering.md#wp-ct_effectextent); Strict, Transitional; minOccurs=0.
+- [ ] `@distT` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+- [ ] `@distB` — [wp:ST_WrapDistance](values-drawing.md#wp-st_wrapdistance); Strict, Transitional; use=optional.
+
+<a id="a-ct_nonvisualdrawingprops"></a>
+
+## a:CT_NonVisualDrawingProps
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
+
+- [ ] `hlinkClick` — [a:CT_Hyperlink](drawing-text.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1. Click Hyperlink; [§21.1.2.3.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3251-part-1).
+- [ ] `hlinkHover` — [a:CT_Hyperlink](drawing-text.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `@id` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required.
+- [ ] `@name` — `xsd:string`; Strict, Transitional; use=required.
+- [ ] `@descr` — `xsd:string`; Strict, Transitional; use=optional; default=.
+- [ ] `@hidden` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+- [ ] `@title` — `xsd:string`; Strict, Transitional; use=optional; default=.
+
+<a id="a-ct_nonvisualgraphicframeproperties"></a>
+
+## a:CT_NonVisualGraphicFrameProperties
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
+
+- [ ] `graphicFrameLocks` — [a:CT_GraphicalObjectFrameLocking](numbering.md#a-ct_graphicalobjectframelocking); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
+
+<a id="a-ct_graphicalobject"></a>
+
+## a:CT_GraphicalObject
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
+
+- [ ] `graphicData` — [a:CT_GraphicalObjectData](numbering.md#a-ct_graphicalobjectdata); Strict, Transitional.
+
+<a id="wp-ct_wrappath"></a>
+
+## wp:CT_WrapPath
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd).
+
+- [ ] `start` — [a:CT_Point2D](numbering.md#a-ct_point2d); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `lineTo` — [a:CT_Point2D](numbering.md#a-ct_point2d); Strict, Transitional; minOccurs=2; maxOccurs=unbounded.
+- [ ] `@edited` — `xsd:boolean`; Strict, Transitional; use=optional.
+
+<a id="a-ct_graphicalobjectframelocking"></a>
+
+## a:CT_GraphicalObjectFrameLocking
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
+
+- [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `@noGrp` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+- [ ] `@noDrilldown` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+- [ ] `@noSelect` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+- [ ] `@noChangeAspect` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+- [ ] `@noMove` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+- [ ] `@noResize` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+
+<a id="a-ct_graphicalobjectdata"></a>
+
+## a:CT_GraphicalObjectData
+
+Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
+
+- [ ] `*` — extension wildcard; Strict, Transitional; minOccurs=0; maxOccurs=unbounded; processContents=strict.
+- [ ] `@uri` — `xsd:token`; Strict, Transitional; use=required.

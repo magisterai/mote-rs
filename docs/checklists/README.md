@@ -2,9 +2,19 @@
 
 [Documentation](../README.md) · [Specification](../specification/README.md)
 
-These checklists record the planned scope and current completion of each
-directive. They cover content directives and document-wide declarations. Add a
-page for each future directive before its specification or implementation.
+These checklists record support for each directive and its attributes, including
+content directives and document-wide declarations. Add a page for each future
+directive before its specification or implementation. Check supported behaviour
+and leave unsupported behaviour unchecked, explaining partial support beside the
+item. Output-specific limits belong with the relevant attributes; generation and
+review procedures belong with implementation tests and fixtures.
+
+The [specification attribute inventories](attributes/README.md) cover the full
+relevant property families, nested fields, and allowed values from the retained
+OOXML and related specifications. Each directive links to its applicable families.
+Unsupported standard properties remain visible and unchecked; partial mappings
+name the supported Mote subset. These inventories extend beyond the current
+implementation scope.
 
 ## Reading status
 
@@ -14,8 +24,9 @@ page for each future directive before its specification or implementation.
   exists but still needs specification or tests.
 - A check applies only to the stated behaviour. Recording a length or marker does
   not establish its layout, appearance, or output support.
-- Output tasks remain unchecked until their own mappings and verification exist.
-  No current directive has Rust Office, PDF, or PNG output.
+- No current directive has Rust Office, PDF, or PNG output. Output support and
+  visual review status remain separate from the language/model support recorded
+  here.
 
 Content attribute contracts are specified in
 [Formatting attributes](../specification/formatting-attributes.md) and
@@ -45,14 +56,17 @@ their concepts before using them in examples.
 
 ## Scope and output boundaries
 
-The attribute inventory is a bounded implementation goal. It includes common
-document controls and explicitly identified native or presentation controls.
+Inventory all applicable specification properties, including character spacing,
+kerning, additional numbering formats, marker controls, and unsupported values.
+The inventory records capabilities and gaps; it does not set implementation goals.
 An attribute's presence does not imply that every output supports it. Metadata
 has its own stated purpose and must not be advertised as a rendering feature.
 
-Do not add arbitrary OOXML properties, character spacing, kerning, new numbering
-formats, or new marker-layout controls to this scope. A property accepted into a
-generic object without an implemented effect is not a formatting target.
+Implementation remains limited to the established Mote compatibility baseline.
+Confirm that a capability belongs to that approved feature set before implementing
+it. An unchecked standard property is not permission to extend the language.
+A property accepted into a generic object without an implemented effect is not
+supported formatting.
 
 Dependencies such as styles, fonts, colors, arrays, and presentation text objects
 must receive definitions before examples use them. The checklist for a dependent
@@ -85,23 +99,24 @@ directive can exist before those definitions; its tasks remain unchecked.
 - [x] Explicit style resolution, inheritance, and direct-attribute precedence.
   Keep authored references separate from resolved properties; report missing
   styles and cycles. See the [style checklist](style.md).
-- [ ] Implicit output styles and document/list/container defaults.
 
 The current attribute implementation work covers evaluation, validation, and
 model storage. Declaration and explicit resolution tasks now have their own
 checklists; their completion does not establish layout or output conformance.
+Implicit output styles and document/list/container defaults remain unsupported.
 
 ## Checklist-first workflow
 
 1. Create a page named for the directive and add it to the index above. Use
-   sections for content and arguments, attributes, dependencies or limits, output,
-   and evidence.
-2. List each attribute, its nested fields, supported value forms, and any
-   output-specific or metadata-only limits. Do not infer support from a permissive
-   parser or a retained property alone.
-3. Select a small, coherent set of unchecked tasks. Define its concepts and
-   invalid uses before adding examples, then implement and test those rules.
-4. Check only completed tasks and link the specification, implementation, and
+   sections for content and arguments, attributes, support limits, and evidence.
+2. Inventory every relevant standard property, nested field, and value domain;
+   link shared families and map existing Mote attributes. Leave missing or partial
+   support unchecked, with output-specific or metadata-only limits stated.
+3. Select a small, coherent set of attributes or behaviours within the approved
+   implementation scope. Define
+   the concepts and invalid uses before adding examples, then implement and test
+   those rules.
+4. Check only supported behaviour and link the specification, implementation, and
    tests. Keep partial work unchecked with an explanation. Update the
    [implementation overview](../implementation.md) when coverage changes.
 5. Verify output separately for each supported format and layout mode. Use real

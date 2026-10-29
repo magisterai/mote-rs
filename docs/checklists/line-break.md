@@ -21,12 +21,20 @@ style resolution and output remain separate.
 Named attributes are retained metadata and do not create page or column breaks.
 Those belong to a separate future directive and checklist.
 
-## Output
+## Output limits
 
-- [ ] Map the explicit element and Markdown hard break to equivalent visible line
-  breaks in each applicable output.
-- [ ] Verify Office and independent native PDF/PNG line placement within the
-  existing paragraph.
+The explicit element and Markdown hard break are represented in the model.
+Visible line breaks and their placement in generated output remain unsupported.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word break attributes](attributes/word-runs.md#w-ct_br).
+- [DrawingML break properties](attributes/drawing-text.md#a-ct_textlinebreak).
 
 ## Evidence
 

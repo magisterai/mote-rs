@@ -1,0 +1,408 @@
+{
+  "schemas": [
+    {
+      "prefix": "w",
+      "namespace": "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd"
+    },
+    {
+      "prefix": "a",
+      "namespace": "http://schemas.openxmlformats.org/drawingml/2006/main",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd"
+    },
+    {
+      "prefix": "p",
+      "namespace": "http://schemas.openxmlformats.org/presentationml/2006/main",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd"
+    },
+    {
+      "prefix": "s",
+      "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/sharedTypes",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd"
+    },
+    {
+      "prefix": "r",
+      "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/shared-relationshipReference.xsd"
+    },
+    {
+      "prefix": "w",
+      "namespace": "http://purl.oclc.org/ooxml/wordprocessingml/main",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd"
+    },
+    {
+      "prefix": "a",
+      "namespace": "http://purl.oclc.org/ooxml/drawingml/main",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd"
+    },
+    {
+      "prefix": "p",
+      "namespace": "http://purl.oclc.org/ooxml/presentationml/main",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd"
+    },
+    {
+      "prefix": "s",
+      "namespace": "http://purl.oclc.org/ooxml/officeDocument/sharedTypes",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/shared-commonSimpleTypes.xsd"
+    },
+    {
+      "prefix": "r",
+      "namespace": "http://purl.oclc.org/ooxml/officeDocument/relationships",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/shared-relationshipReference.xsd"
+    },
+    {
+      "prefix": "w14",
+      "namespace": "http://schemas.microsoft.com/office/word/2010/wordml",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX",
+      "supplemental_elements": {
+        "cntxtAlts": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0035-0039-0012.md",
+        "glow": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0040-0044-0013.md",
+        "ligatures": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0040-0044-0013.md",
+        "numForm": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0040-0044-0013.md",
+        "numSpacing": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md",
+        "props3d": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md",
+        "reflection": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md",
+        "scene3d": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md",
+        "shadow": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md",
+        "stylisticSets": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md",
+        "textFill": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md",
+        "textOutline": "docs/reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-0045-0049-0014.md"
+      }
+    },
+    {
+      "prefix": "w15",
+      "namespace": "http://schemas.microsoft.com/office/word/2012/wordml",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
+    },
+    {
+      "prefix": "w16se",
+      "namespace": "http://schemas.microsoft.com/office/word/2015/wordml/symex",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
+    },
+    {
+      "prefix": "w16sdtdh",
+      "namespace": "http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
+    },
+    {
+      "prefix": "w16sdtfl",
+      "namespace": "http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
+    },
+    {
+      "prefix": "ahyp",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2018/hyperlinkcolor",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "wp",
+      "namespace": "http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/dml-wordprocessingDrawing.xsd"
+    },
+    {
+      "prefix": "wp",
+      "namespace": "http://purl.oclc.org/ooxml/drawingml/wordprocessingDrawing",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd"
+    }
+  ],
+  "families": [
+    {
+      "file": "word-paragraphs.md",
+      "title": "Word paragraph properties",
+      "description": "Used by paragraphs, headings, quotes, and paragraphs inside list items. Section-boundary properties are included because they are children of paragraph properties.",
+      "roots": [
+        {
+          "type": "w:CT_PPr"
+        },
+        {
+          "type": "w:CT_P",
+          "attributes_only": true
+        }
+      ]
+    },
+    {
+      "file": "word-runs.md",
+      "title": "Word inline text properties",
+      "description": "Used by spans, strong/emphasis/code content, paragraph marks, and explicit line breaks. Inherited properties and revision metadata are included.",
+      "roots": [
+        {
+          "type": "w:CT_RPr"
+        },
+        {
+          "type": "w:CT_ParaRPr"
+        },
+        {
+          "type": "w:CT_R",
+          "attributes_only": true
+        },
+        {
+          "type": "w:CT_Text"
+        },
+        {
+          "type": "w:CT_Br"
+        }
+      ]
+    },
+    {
+      "file": "numbering.md",
+      "title": "Word numbering and list properties",
+      "description": "Used by lists, ordered lists, list items, and heading numbering. Includes abstract definitions, concrete instances, level overrides, marker text and formatting, and picture-bullet references.",
+      "roots": [
+        {
+          "type": "w:CT_Numbering"
+        }
+      ]
+    },
+    {
+      "file": "fonts.md",
+      "title": "Font declaration and selection properties",
+      "description": "Used by font declarations and text font references. Includes script mappings, theme collections, font metadata, embedding variants, and document-level embedding switches.",
+      "roots": [
+        {
+          "type": "w:CT_FontsList"
+        },
+        {
+          "type": "w:CT_Fonts"
+        },
+        {
+          "type": "a:CT_FontScheme"
+        },
+        {
+          "type": "a:CT_TextFont"
+        },
+        {
+          "type": "p:CT_EmbeddedFontList"
+        },
+        {
+          "type": "w:CT_Settings",
+          "fields": [
+            "embedTrueTypeFonts",
+            "embedSystemFonts",
+            "saveSubsetFonts"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "styles.md",
+      "title": "Word style properties",
+      "description": "Used by style declarations: paragraph, character, numbering, table, and conditional-region properties. Includes table/row/cell property records even though applying table styles remains unsupported.",
+      "roots": [
+        {
+          "type": "w:CT_Styles"
+        }
+      ]
+    },
+    {
+      "file": "controls.md",
+      "title": "Item control properties",
+      "description": "Used by task-item checkbox metadata. Includes legacy form fields and structured-document-tag properties, alternative control kinds, and their nested fields.",
+      "roots": [
+        {
+          "type": "w:CT_SdtPr"
+        },
+        {
+          "type": "w:CT_SdtEndPr"
+        },
+        {
+          "type": "w:CT_FFData"
+        }
+      ]
+    },
+    {
+      "file": "drawing-text.md",
+      "title": "DrawingML and PresentationML text properties",
+      "description": "Used by presentation text, paragraph/run formatting, bullet controls, and text defaults. Includes text-body context, all nested fill/effect/geometry properties, and slide-master text styles; these context properties are not automatically direct Mote attributes.",
+      "roots": [
+        {
+          "type": "a:CT_TextBody"
+        },
+        {
+          "type": "p:CT_SlideMasterTextStyles"
+        }
+      ]
+    },
+    {
+      "file": "word-extensions.md",
+      "title": "Word text and control extensions",
+      "description": "MS-DOCX extensions for run appearance and typography, paragraph metadata, numbering, section boundaries, symbols, and content controls. The attachment points are described in the inventory guide.",
+      "roots": [
+        {
+          "type": "w14:glow",
+          "kind": "element"
+        },
+        {
+          "type": "w14:shadow",
+          "kind": "element"
+        },
+        {
+          "type": "w14:reflection",
+          "kind": "element"
+        },
+        {
+          "type": "w14:textOutline",
+          "kind": "element"
+        },
+        {
+          "type": "w14:textFill",
+          "kind": "element"
+        },
+        {
+          "type": "w14:scene3d",
+          "kind": "element"
+        },
+        {
+          "type": "w14:props3d",
+          "kind": "element"
+        },
+        {
+          "type": "w14:ligatures",
+          "kind": "element"
+        },
+        {
+          "type": "w14:numForm",
+          "kind": "element"
+        },
+        {
+          "type": "w14:numSpacing",
+          "kind": "element"
+        },
+        {
+          "type": "w14:stylisticSets",
+          "kind": "element"
+        },
+        {
+          "type": "w14:cntxtAlts",
+          "kind": "element"
+        },
+        {
+          "type": "w14:checkbox",
+          "kind": "element"
+        },
+        {
+          "type": "w14:entityPicker",
+          "kind": "element"
+        },
+        {
+          "type": "w15:collapsed",
+          "kind": "element"
+        },
+        {
+          "type": "w15:footnoteColumns",
+          "kind": "element"
+        },
+        {
+          "type": "w15:appearance",
+          "kind": "element"
+        },
+        {
+          "type": "w15:color",
+          "kind": "element"
+        },
+        {
+          "type": "w15:dataBinding",
+          "kind": "element"
+        },
+        {
+          "type": "w15:repeatingSection",
+          "kind": "element"
+        },
+        {
+          "type": "w15:repeatingSectionItem",
+          "kind": "element"
+        },
+        {
+          "type": "w15:webExtensionCreated",
+          "kind": "element"
+        },
+        {
+          "type": "w15:webExtensionLinked",
+          "kind": "element"
+        },
+        {
+          "type": "w16se:symEx",
+          "kind": "element"
+        },
+        {
+          "type": "w14:noSpellErr",
+          "kind": "attribute"
+        },
+        {
+          "type": "w15:restartNumberingAfterBreak",
+          "kind": "attribute"
+        },
+        {
+          "type": "w16sdtdh:storeItemChecksum",
+          "kind": "attribute"
+        },
+        {
+          "type": "w16sdtfl:formattingAllowed",
+          "kind": "attribute"
+        },
+        {
+          "type": "w14:AG_Parids",
+          "kind": "attributeGroup"
+        }
+      ]
+    },
+    {
+      "file": "drawing-extensions.md",
+      "title": "Drawing text extensions",
+      "description": "MS-ODRAWXML hyperlink-color selection extends DrawingML text hyperlinks.",
+      "roots": [
+        {
+          "type": "ahyp:hlinkClr",
+          "kind": "element"
+        }
+      ]
+    }
+  ],
+  "supplemental_notes": {
+    "w:CT_NumFmt": "See also the [custom-format semantics and additional sequence strings](prose-extensions.md#numbering) defined in specification prose.",
+    "s:ST_CalendarType": "MS-DOCX adds the [umalqura calendar value](prose-extensions.md#calendar) outside this schema enumeration."
+  },
+  "legacy_value_aliases": {
+    "w:ST_OnOff": "s:ST_OnOff",
+    "w:ST_String": "s:ST_String",
+    "w:ST_HexColorRGB": "s:ST_HexColorRGB",
+    "w:ST_UnsignedDecimalNumber": "s:ST_UnsignedDecimalNumber"
+  },
+  "clause_indexes": {
+    "w": [
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00163-17-3-1-paragraphs.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00209-17-3-2-run.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00254-17-3-3-run-content.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00436-17-6-sections.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00464-17-7-4-general-style-properties.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00485-17-7-5-document-defaults.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00491-17-7-6-table-styles.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00512-17-8-3-elements.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00529-17-9-numbering.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/00291-17-4-tables.md"
+    ],
+    "a": [
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/02770-21-1-2-1-body-formatting.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/02775-21-1-2-2-paragraph-formatting.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/02790-21-1-2-3-run-formatting.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/02806-21-1-2-4-bullets-and-numbering.md"
+    ]
+  }
+}

@@ -25,7 +25,20 @@
 
 - [x] Resolve enclosing text formatting, named style, and direct attributes in
   order, without modifying the authored model.
-- [ ] Verify editable Office output and independent native PDF/PNG.
+
+Rendering the resolved span formatting in Office or native PDF/PNG output remains
+unsupported.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word run properties](attributes/word-runs.md).
+- [DrawingML run properties](attributes/drawing-text.md#a-ct_textcharacterproperties).
+- [Word typography and effects](attributes/word-extensions.md).
 
 ## Evidence
 

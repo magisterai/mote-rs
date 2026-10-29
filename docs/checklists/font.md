@@ -18,12 +18,21 @@
 
 - [x] Resolve an exact font alias to its declared script-specific typefaces and
   line-height metadata; retain an undeclared name as a direct typeface reference.
-- [ ] `family`, `pitch`, and `files`: inventory their output mappings and font
-  variant selection. These fields are currently retained as metadata only.
-- [ ] Font-file selection, font-table metadata, embedding, installation lookup,
-  glyph coverage, and substitution diagnostics. These require the font/output
-  subsystem and are outside this declaration increment.
-- [ ] Verify actual font selection in editable Office and native PDF/PNG output.
+- [ ] `family`, `pitch`, and `files`: effective font metadata and variant
+  selection. These fields are currently retained as metadata only.
+
+Font-file lookup, embedding, glyph coverage, substitution diagnostics, and
+rendered font selection remain unsupported.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word and DrawingML font properties](attributes/fonts.md).
+- [Word font selection properties](attributes/fonts.md#w-ct_fonts).
 
 ## Evidence
 

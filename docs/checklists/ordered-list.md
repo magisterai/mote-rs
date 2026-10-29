@@ -45,12 +45,22 @@ additional numbering formats are outside this scope. Presentation container
 text/list defaults belong to their future container checklists.
 Continuation support must be stated separately for each output and layout mode.
 
-## Output
+## Output limits
 
-- [ ] Specify effective starting numbers, numbering instances, levels, restart,
-  continuation, and formatting for each applicable output.
-- [ ] Verify editable Office lists and independent native PDF/PNG, including
-  nested numbering, list/item layout overrides, and unsupported-property warnings.
+Rendered starting numbers, levels, restart, continuation, and list/item layout
+overrides remain unsupported. Numbering attributes currently record intent.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word numbering and marker properties](attributes/numbering.md).
+- [Word paragraph properties](attributes/word-paragraphs.md).
+- [DrawingML paragraphs and bullets](attributes/drawing-text.md#a-ct_textparagraphproperties).
+- [Numbering extensions](attributes/word-extensions.md#w15-restartnumberingafterbreak).
 
 ## Evidence
 

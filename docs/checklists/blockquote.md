@@ -42,12 +42,21 @@ behaviour must not be inferred from paged-document support.
 Nested `text` and `paragraph` defaults belong to future presentation container
 checklists; they are not extra direct quote-formatting controls in this scope.
 
-## Output
+## Output limits
 
-- [ ] Define how formatting applies to quote children for each supported output,
-  including unsupported-property diagnostics.
-- [ ] Verify Office output and independent native PDF/PNG with multiple paragraphs,
-  lists, nesting, and quote formatting.
+Applying quote formatting to rendered child paragraphs, lists, and nested
+quotes remains unsupported.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word paragraph properties](attributes/word-paragraphs.md).
+- [Word run properties](attributes/word-runs.md).
+- [DrawingML text properties](attributes/drawing-text.md).
 
 ## Evidence
 

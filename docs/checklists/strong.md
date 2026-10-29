@@ -35,11 +35,21 @@ defined in [Spans](../specification/spans.md).
 The strong element retains bold intent independently of its formatting values.
 Style and font references are recorded without resolving their declarations.
 
-## Output
+## Output limits
 
-- [ ] Define effective bold formatting, nested overrides, and output-specific
-  handling of the attributes above.
-- [ ] Verify editable Office text and independently painted native PDF/PNG text.
+Effective bold formatting and nested overrides have no generated Office or
+native PDF/PNG output yet.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word run properties](attributes/word-runs.md).
+- [DrawingML run properties](attributes/drawing-text.md#a-ct_textcharacterproperties).
+- [Word typography and effects](attributes/word-extensions.md).
 
 ## Evidence
 

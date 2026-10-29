@@ -1,0 +1,1699 @@
+{
+  "w:CT_PPr/pStyle": {
+    "status": "supported",
+    "note": "Model support: `style` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/keepNext": {
+    "status": "supported",
+    "note": "Model support: `keep_with_next` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/keepLines": {
+    "status": "supported",
+    "note": "Model support: `keep_together` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/pageBreakBefore": {
+    "status": "supported",
+    "note": "Model support: `page_break_before` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/widowControl": {
+    "status": "supported",
+    "note": "Model support: `widow_control` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/outlineLvl": {
+    "status": "supported",
+    "note": "Model support: `outline_level` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/spacing": {
+    "status": "partial",
+    "note": "Partial: `spacing` and flat aliases cover physical before/after spacing and three line rules; line-count and automatic before/after controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/ind": {
+    "status": "partial",
+    "note": "Partial: `indent` covers non-negative physical left/right/first-line/hanging values; signed, character-count, and logical start/end controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/jc": {
+    "status": "partial",
+    "note": "Partial: `alignment` supports left, center, right, and justify; other Word alignment values have no defined Mote mapping.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/pBdr": {
+    "status": "partial",
+    "note": "Partial: `border` retains side objects as metadata; complete border values and style semantics are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/shd": {
+    "status": "partial",
+    "note": "Partial: `fill` covers hexadecimal background color; patterns, automatic colors, and theme-based shading are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/tabs": {
+    "status": "partial",
+    "note": "Partial: `tabs` retains position/alignment/leader metadata; complete stop semantics and schema value validation are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPr/numPr": {
+    "status": "partial",
+    "note": "Partial: List and heading numbering intent exists; Word numbering identifiers, overrides, and revision metadata are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/pStyle": {
+    "status": "supported",
+    "note": "Model support: `style` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/keepNext": {
+    "status": "supported",
+    "note": "Model support: `keep_with_next` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/keepLines": {
+    "status": "supported",
+    "note": "Model support: `keep_together` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/pageBreakBefore": {
+    "status": "supported",
+    "note": "Model support: `page_break_before` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/widowControl": {
+    "status": "supported",
+    "note": "Model support: `widow_control` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/outlineLvl": {
+    "status": "supported",
+    "note": "Model support: `outline_level` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/spacing": {
+    "status": "partial",
+    "note": "Partial: `spacing` and flat aliases cover physical before/after spacing and three line rules; line-count and automatic before/after controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/ind": {
+    "status": "partial",
+    "note": "Partial: `indent` covers non-negative physical left/right/first-line/hanging values; signed, character-count, and logical start/end controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/jc": {
+    "status": "partial",
+    "note": "Partial: `alignment` supports left, center, right, and justify; other Word alignment values have no defined Mote mapping.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/pBdr": {
+    "status": "partial",
+    "note": "Partial: `border` retains side objects as metadata; complete border values and style semantics are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/shd": {
+    "status": "partial",
+    "note": "Partial: `fill` covers hexadecimal background color; patterns, automatic colors, and theme-based shading are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/tabs": {
+    "status": "partial",
+    "note": "Partial: `tabs` retains position/alignment/leader metadata; complete stop semantics and schema value validation are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrBase/numPr": {
+    "status": "partial",
+    "note": "Partial: List and heading numbering intent exists; Word numbering identifiers, overrides, and revision metadata are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/pStyle": {
+    "status": "supported",
+    "note": "Model support: `style` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/keepNext": {
+    "status": "supported",
+    "note": "Model support: `keep_with_next` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/keepLines": {
+    "status": "supported",
+    "note": "Model support: `keep_together` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/pageBreakBefore": {
+    "status": "supported",
+    "note": "Model support: `page_break_before` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/widowControl": {
+    "status": "supported",
+    "note": "Model support: `widow_control` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/outlineLvl": {
+    "status": "supported",
+    "note": "Model support: `outline_level` on paragraphs/headings and applicable style declarations; formatting remains authored intent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/spacing": {
+    "status": "partial",
+    "note": "Partial: `spacing` and flat aliases cover physical before/after spacing and three line rules; line-count and automatic before/after controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/ind": {
+    "status": "partial",
+    "note": "Partial: `indent` covers non-negative physical left/right/first-line/hanging values; signed, character-count, and logical start/end controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/jc": {
+    "status": "partial",
+    "note": "Partial: `alignment` supports left, center, right, and justify; other Word alignment values have no defined Mote mapping.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/pBdr": {
+    "status": "partial",
+    "note": "Partial: `border` retains side objects as metadata; complete border values and style semantics are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/shd": {
+    "status": "partial",
+    "note": "Partial: `fill` covers hexadecimal background color; patterns, automatic colors, and theme-based shading are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/tabs": {
+    "status": "partial",
+    "note": "Partial: `tabs` retains position/alignment/leader metadata; complete stop semantics and schema value validation are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_PPrGeneral/numPr": {
+    "status": "partial",
+    "note": "Partial: List and heading numbering intent exists; Word numbering identifiers, overrides, and revision metadata are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Spacing/@before": {
+    "status": "supported",
+    "note": "Model support: `spacing.before` and its flat alias store a non-negative physical length.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Spacing/@after": {
+    "status": "supported",
+    "note": "Model support: `spacing.after` and its flat alias store a non-negative physical length.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Spacing/@line": {
+    "status": "partial",
+    "note": "Partial: `spacing.line` represents multiple, exact, and at-least rules with normalized values; signed raw Word values and output unit conversion are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Spacing/@lineRule": {
+    "status": "partial",
+    "note": "Partial: `spacing.line` represents multiple, exact, and at-least rules with normalized values; signed raw Word values and output unit conversion are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Ind/@left": {
+    "status": "partial",
+    "note": "Partial: `indent.left` accepts non-negative lengths; negative Word indentation is outside the current value contract.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Ind/@right": {
+    "status": "partial",
+    "note": "Partial: `indent.right` accepts non-negative lengths; negative Word indentation is outside the current value contract.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Ind/@firstLine": {
+    "status": "supported",
+    "note": "Model support: `indent.first_line` stores a non-negative physical length.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Ind/@hanging": {
+    "status": "supported",
+    "note": "Model support: `indent.hanging` stores a non-negative physical length.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Jc/@val": {
+    "status": "partial",
+    "note": "Partial: `alignment` covers left/center/right/justify, not the complete enumeration.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Shd/@fill": {
+    "status": "partial",
+    "note": "Partial: `fill` accepts hexadecimal colors; automatic and theme shading are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Border/@val": {
+    "status": "partial",
+    "note": "Partial: Border side properties are retained; schema-specific interpretation and complete value validation are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Border/@sz": {
+    "status": "partial",
+    "note": "Partial: Border side properties are retained; schema-specific interpretation and complete value validation are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Border/@space": {
+    "status": "partial",
+    "note": "Partial: Border side properties are retained; schema-specific interpretation and complete value validation are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Border/@color": {
+    "status": "partial",
+    "note": "Partial: Border side properties are retained; schema-specific interpretation and complete value validation are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_TabStop/@val": {
+    "status": "partial",
+    "note": "Partial: `tabs` retains alignment/leader/position fields; permissive retention does not implement all tab-stop values.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_TabStop/@leader": {
+    "status": "partial",
+    "note": "Partial: `tabs` retains alignment/leader/position fields; permissive retention does not implement all tab-stop values.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_TabStop/@pos": {
+    "status": "partial",
+    "note": "Partial: `tabs` retains alignment/leader/position fields; permissive retention does not implement all tab-stop values.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_RPr/rStyle": {
+    "status": "supported",
+    "note": "Model support: `style` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/b": {
+    "status": "supported",
+    "note": "Model support: `bold` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/i": {
+    "status": "supported",
+    "note": "Model support: `italic` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/smallCaps": {
+    "status": "supported",
+    "note": "Model support: `small_caps` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/strike": {
+    "status": "supported",
+    "note": "Model support: `strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/dstrike": {
+    "status": "supported",
+    "note": "Model support: `double_strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/sz": {
+    "status": "supported",
+    "note": "Model support: `size` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/bCs": {
+    "status": "partial",
+    "note": "Partial: `bold` is shared text intent; an independent complex-script bold switch is missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/iCs": {
+    "status": "partial",
+    "note": "Partial: `italic` is shared text intent; an independent complex-script italic switch is missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/szCs": {
+    "status": "partial",
+    "note": "Partial: `size` is shared text intent; an independent complex-script size is missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/rFonts": {
+    "status": "partial",
+    "note": "Partial: Font names/aliases and script mappings exist; theme font references and selection hints are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/color": {
+    "status": "partial",
+    "note": "Partial: Hexadecimal `color` exists; automatic color, theme selection, and tint/shade are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/highlight": {
+    "status": "partial",
+    "note": "Partial: Mote stores hexadecimal `highlight`; Word palette selection and mapping are not implemented.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/u": {
+    "status": "partial",
+    "note": "Partial: `underline` is boolean; patterned/double/word-only underline and separate colors are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPr/shd": {
+    "status": "partial",
+    "note": "Partial: Run-style fill/background metadata exists; full Word shading patterns and theme semantics are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/rStyle": {
+    "status": "partial",
+    "note": "Partial: `style` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/b": {
+    "status": "partial",
+    "note": "Partial: `bold` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/i": {
+    "status": "partial",
+    "note": "Partial: `italic` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/smallCaps": {
+    "status": "partial",
+    "note": "Partial: `small_caps` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/strike": {
+    "status": "partial",
+    "note": "Partial: `strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/dstrike": {
+    "status": "partial",
+    "note": "Partial: `double_strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/sz": {
+    "status": "partial",
+    "note": "Partial: `size` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/bCs": {
+    "status": "partial",
+    "note": "Partial: `bold` is shared text intent; an independent complex-script bold switch is missing. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/iCs": {
+    "status": "partial",
+    "note": "Partial: `italic` is shared text intent; an independent complex-script italic switch is missing. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/szCs": {
+    "status": "partial",
+    "note": "Partial: `size` is shared text intent; an independent complex-script size is missing. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/rFonts": {
+    "status": "partial",
+    "note": "Partial: Font names/aliases and script mappings exist; theme font references and selection hints are missing. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/color": {
+    "status": "partial",
+    "note": "Partial: Hexadecimal `color` exists; automatic color, theme selection, and tint/shade are missing. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/highlight": {
+    "status": "partial",
+    "note": "Partial: Mote stores hexadecimal `highlight`; Word palette selection and mapping are not implemented. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/u": {
+    "status": "partial",
+    "note": "Partial: `underline` is boolean; patterned/double/word-only underline and separate colors are missing. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_RPrOriginal/shd": {
+    "status": "partial",
+    "note": "Partial: Run-style fill/background metadata exists; full Word shading patterns and theme semantics are missing. Historical run formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/rStyle": {
+    "status": "partial",
+    "note": "Partial: `style` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/b": {
+    "status": "partial",
+    "note": "Partial: `bold` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/i": {
+    "status": "partial",
+    "note": "Partial: `italic` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/smallCaps": {
+    "status": "partial",
+    "note": "Partial: `small_caps` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/strike": {
+    "status": "partial",
+    "note": "Partial: `strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/dstrike": {
+    "status": "partial",
+    "note": "Partial: `double_strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/sz": {
+    "status": "partial",
+    "note": "Partial: `size` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/bCs": {
+    "status": "partial",
+    "note": "Partial: `bold` is shared text intent; an independent complex-script bold switch is missing. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/iCs": {
+    "status": "partial",
+    "note": "Partial: `italic` is shared text intent; an independent complex-script italic switch is missing. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/szCs": {
+    "status": "partial",
+    "note": "Partial: `size` is shared text intent; an independent complex-script size is missing. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/rFonts": {
+    "status": "partial",
+    "note": "Partial: Font names/aliases and script mappings exist; theme font references and selection hints are missing. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/color": {
+    "status": "partial",
+    "note": "Partial: Hexadecimal `color` exists; automatic color, theme selection, and tint/shade are missing. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/highlight": {
+    "status": "partial",
+    "note": "Partial: Mote stores hexadecimal `highlight`; Word palette selection and mapping are not implemented. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/u": {
+    "status": "partial",
+    "note": "Partial: `underline` is boolean; patterned/double/word-only underline and separate colors are missing. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPr/shd": {
+    "status": "partial",
+    "note": "Partial: Run-style fill/background metadata exists; full Word shading patterns and theme semantics are missing. Paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/rStyle": {
+    "status": "partial",
+    "note": "Partial: `style` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/b": {
+    "status": "partial",
+    "note": "Partial: `bold` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/i": {
+    "status": "partial",
+    "note": "Partial: `italic` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/smallCaps": {
+    "status": "partial",
+    "note": "Partial: `small_caps` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/strike": {
+    "status": "partial",
+    "note": "Partial: `strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/dstrike": {
+    "status": "partial",
+    "note": "Partial: `double_strike` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/sz": {
+    "status": "partial",
+    "note": "Partial: `size` is represented on spans and run-style declarations; `strong`/`emphasis` also carry their intrinsic bold/italic intent. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/bCs": {
+    "status": "partial",
+    "note": "Partial: `bold` is shared text intent; an independent complex-script bold switch is missing. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/iCs": {
+    "status": "partial",
+    "note": "Partial: `italic` is shared text intent; an independent complex-script italic switch is missing. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/szCs": {
+    "status": "partial",
+    "note": "Partial: `size` is shared text intent; an independent complex-script size is missing. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/rFonts": {
+    "status": "partial",
+    "note": "Partial: Font names/aliases and script mappings exist; theme font references and selection hints are missing. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/color": {
+    "status": "partial",
+    "note": "Partial: Hexadecimal `color` exists; automatic color, theme selection, and tint/shade are missing. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/highlight": {
+    "status": "partial",
+    "note": "Partial: Mote stores hexadecimal `highlight`; Word palette selection and mapping are not implemented. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/u": {
+    "status": "partial",
+    "note": "Partial: `underline` is boolean; patterned/double/word-only underline and separate colors are missing. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_ParaRPrOriginal/shd": {
+    "status": "partial",
+    "note": "Partial: Run-style fill/background metadata exists; full Word shading patterns and theme semantics are missing. Historical paragraph-mark formatting is not represented separately.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Color/@val": {
+    "status": "partial",
+    "note": "Partial: Hexadecimal colors are normalized; the automatic-color alternative is missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Underline/@val": {
+    "status": "partial",
+    "note": "Partial: `underline` represents on/off only; the complete style enumeration is not supported.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Highlight/@val": {
+    "status": "partial",
+    "note": "Partial: `highlight` stores hexadecimal color, not the Word named-color palette.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Text/@xml:space": {
+    "status": "partial",
+    "note": "Partial: `code(preserve_space=true)` preserves authored whitespace; there is no general XML-space attribute.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Br/@type": {
+    "status": "partial",
+    "note": "Partial: `line_break` represents an inline text break only; page and column break choices are not available through this directive.",
+    "evidence": [
+      "docs/specification/inline-text.md",
+      "tests/content.rs"
+    ]
+  },
+  "w:CT_Fonts/@ascii": {
+    "status": "partial",
+    "note": "Partial: `font.latin` supplies a shared Latin typeface; separate ASCII and high-ANSI choices are not exposed.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Fonts/@hAnsi": {
+    "status": "partial",
+    "note": "Partial: `font.latin` supplies a shared Latin typeface; separate ASCII and high-ANSI choices are not exposed.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Fonts/@eastAsia": {
+    "status": "supported",
+    "note": "Model support: `font.east_asian` records and resolves a script-specific typeface.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Fonts/@cs": {
+    "status": "supported",
+    "note": "Model support: `font.complex_script` records and resolves a script-specific typeface.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Font/@name": {
+    "status": "partial",
+    "note": "Partial: Font declarations distinguish a Mote alias from script typeface names; no separate Word font-table entry API exists.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Font/family": {
+    "status": "partial",
+    "note": "Partial: `font.family` is retained metadata only; font-table interpretation is missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Font/pitch": {
+    "status": "partial",
+    "note": "Partial: `font.pitch` is retained metadata only; font-table interpretation is missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextFont/@typeface": {
+    "status": "partial",
+    "note": "Partial: Direct typeface names and font aliases resolve; theme-token interpretation is missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/basedOn": {
+    "status": "supported",
+    "note": "Model support: `style.based_on` is recorded; only `based_on` participates in explicit inheritance resolution.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/next": {
+    "status": "supported",
+    "note": "Model support: `style.next` is recorded; only `based_on` participates in explicit inheritance resolution.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/link": {
+    "status": "supported",
+    "note": "Model support: `style.link` is recorded; only `based_on` participates in explicit inheritance resolution.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/name": {
+    "status": "partial",
+    "note": "Partial: Mote uses a declaration name as identity; a separately authored display name is missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/@styleId": {
+    "status": "partial",
+    "note": "Partial: Mote declaration identity exists; independent serialized style identifiers are not implemented.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/@type": {
+    "status": "partial",
+    "note": "Partial: Paragraph, character, and table declarations are supported; numbering-style declarations are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/pPr": {
+    "status": "partial",
+    "note": "Partial: `style.paragraph` supports the documented subset; additional paragraph fields are inventoried separately.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/rPr": {
+    "status": "partial",
+    "note": "Partial: `style.run` supports the documented subset; additional run fields are inventoried separately.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/tblPr": {
+    "status": "partial",
+    "note": "Partial: `style.table` normalizes a subset of declaration metadata; table application remains unsupported.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/tcPr": {
+    "status": "partial",
+    "note": "Partial: Nested table-cell declaration metadata exists; cell-style application remains unsupported.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Style/tblStylePr": {
+    "status": "partial",
+    "note": "Partial: Edge and banding region metadata exists; applying conditional table regions remains unsupported.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblW": {
+    "status": "partial",
+    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblInd": {
+    "status": "partial",
+    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblCellSpacing": {
+    "status": "partial",
+    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblLayout": {
+    "status": "partial",
+    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblCellMar": {
+    "status": "partial",
+    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TblPrBase/jc": {
+    "status": "partial",
+    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TblPrBase/tblLook": {
+    "status": "partial",
+    "note": "Partial: `style.table` has related normalized declaration fields; complete OOXML value coverage and table-style application are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TcPr/noWrap": {
+    "status": "partial",
+    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TcPr/tcMar": {
+    "status": "partial",
+    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TcPr/textDirection": {
+    "status": "partial",
+    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TcPr/vAlign": {
+    "status": "partial",
+    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_TcPr/shd": {
+    "status": "partial",
+    "note": "Partial: Related table-cell style values are normalized and retained; full value coverage and application to cells are missing.",
+    "evidence": [
+      "docs/specification/styles-and-fonts.md",
+      "tests/declarations.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "w:CT_Lvl/start": {
+    "status": "partial",
+    "note": "Partial: `start` accepts positive integers; zero and Word-specific numbering application are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Lvl/numFmt": {
+    "status": "partial",
+    "note": "Partial: `format` covers decimal, lower/upper alpha, lower/upper Roman, and bullet; other numbering systems are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Lvl/lvlRestart": {
+    "status": "partial",
+    "note": "Partial: `restart` is a boolean intent; a numeric restart-after-level policy is not exposed.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Lvl/lvlText": {
+    "status": "partial",
+    "note": "Partial: Heading separator/label/prefix metadata and presentation bullet text exist; arbitrary hierarchical number templates are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Lvl/@ilvl": {
+    "status": "partial",
+    "note": "Partial: Mote stores positive nesting levels; Word zero-based levels and their limits are not resolved.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Lvl/pPr": {
+    "status": "partial",
+    "note": "Partial: Scoped list/item indentation and spacing exist; full numbering-level paragraph properties are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Lvl/rPr": {
+    "status": "partial",
+    "note": "Partial: Inherited text formatting exists; independently authored marker run formatting is missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_NumFmt/@val": {
+    "status": "partial",
+    "note": "Partial: List and heading formats cover a small documented subset; the full enumeration is retained in the linked value definition.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_Num/@numId": {
+    "status": "partial",
+    "note": "Partial: `id` stores sequence identity; concrete Word instance identifiers are not allocated.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_NumPr/ilvl": {
+    "status": "partial",
+    "note": "Partial: Positive Mote list levels are retained; zero-based Word numbering references are not resolved.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_NumPr/numId": {
+    "status": "partial",
+    "note": "Partial: Sequence identity is retained; Word numbering-instance references are not allocated.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_LevelText/@val": {
+    "status": "partial",
+    "note": "Partial: Source markers and heading label/prefix metadata do not implement arbitrary Word numbering templates.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_SdtPr/alias": {
+    "status": "partial",
+    "note": "Partial: `checkbox.title` is retained task-control metadata; structured-document-tag generation is absent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_SdtPr/tag": {
+    "status": "partial",
+    "note": "Partial: `checkbox.name` is retained task-control metadata; structured-document-tag generation is absent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_FFData/name": {
+    "status": "partial",
+    "note": "Partial: `checkbox.name` is retained task metadata; legacy form-field name encoding is absent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_FFCheckBox/checked": {
+    "status": "supported",
+    "note": "Model support: `item.checked` and the documented nested checkbox-state precedence are normalized and tested; this records state only.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w14:CT_SdtCheckbox/checked": {
+    "status": "supported",
+    "note": "Model support: `item.checked` and the documented nested checkbox-state precedence are normalized and tested; this records state only.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w14:checkbox/checkbox": {
+    "status": "partial",
+    "note": "Partial: `checkbox.kind=content_control` selects task-control intent; custom checked/unchecked symbols are not exposed.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "w:CT_FFData/checkBox": {
+    "status": "partial",
+    "note": "Partial: `checkbox.kind=legacy_form_field` selects task-control intent; auto size, fixed size, and default-state controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/@b": {
+    "status": "supported",
+    "note": "Model support: `span.bold` and run-style declarations retain an explicit boolean.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/@i": {
+    "status": "supported",
+    "note": "Model support: `span.italic` and run-style declarations retain an explicit boolean.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/@sz": {
+    "status": "partial",
+    "note": "Partial: `size` records physical text size; DrawingML unit conversion and allowed bounds are not enforced.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/@u": {
+    "status": "partial",
+    "note": "Partial: `underline` is boolean; other DrawingML underline styles are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/@strike": {
+    "status": "partial",
+    "note": "Partial: `strike` and `double_strike` exist as separate booleans; exclusive DrawingML strike selection is not resolved.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/@cap": {
+    "status": "partial",
+    "note": "Partial: `small_caps` exists; all-capital text selection is missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/solidFill": {
+    "status": "partial",
+    "note": "Partial: Hexadecimal `color` exists; theme/system/preset colors and color transforms are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/highlight": {
+    "status": "partial",
+    "note": "Partial: Hexadecimal `highlight` exists; other color models and transformations are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/latin": {
+    "status": "partial",
+    "note": "Partial: Font aliases resolve Latin typefaces; theme selection and font classification fields are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/ea": {
+    "status": "partial",
+    "note": "Partial: Font aliases resolve East Asian typefaces; theme selection and font classification fields are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextCharacterProperties/cs": {
+    "status": "partial",
+    "note": "Partial: Font aliases resolve complex-script typefaces; theme selection and font classification fields are missing.",
+    "evidence": [
+      "docs/specification/spans.md",
+      "tests/spans.rs",
+      "tests/formatting.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/@algn": {
+    "status": "partial",
+    "note": "Partial: `alignment` supports left/center/right/justify; remaining DrawingML alignment values are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/@marL": {
+    "status": "partial",
+    "note": "Partial: `indent.left` exists; presentation paragraph geometry is not resolved.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/@marR": {
+    "status": "partial",
+    "note": "Partial: `indent.right` exists on paragraphs; presentation paragraph geometry is not resolved.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/@indent": {
+    "status": "partial",
+    "note": "Partial: First-line/hanging indentation intent exists; signed DrawingML indentation is not resolved.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/@lvl": {
+    "status": "partial",
+    "note": "Partial: Positive list/item levels exist; DrawingML zero-based levels and bounds are not resolved.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/lnSpc": {
+    "status": "partial",
+    "note": "Partial: `spacing.line` represents physical and multiple rules; DrawingML conversion and limits are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/spcBef": {
+    "status": "partial",
+    "note": "Partial: Physical `spacing.before` exists; percentage before-spacing is missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/spcAft": {
+    "status": "partial",
+    "note": "Partial: Physical `spacing.after` exists; percentage after-spacing is missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/tabLst": {
+    "status": "partial",
+    "note": "Partial: Paragraph tab objects are retained; full DrawingML tab semantics are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/buChar": {
+    "status": "partial",
+    "note": "Partial: Presentation `list.marker` records string metadata; bullet font/size/color controls are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/buAutoNum": {
+    "status": "partial",
+    "note": "Partial: Scoped numbering formats and positive starts exist; additional autonumber schemes are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextParagraphProperties/defRPr": {
+    "status": "partial",
+    "note": "Partial: Run-style resolution exists; independently authored presentation default-run property containers are not defined.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextAutonumberBullet/@type": {
+    "status": "partial",
+    "note": "Partial: Only the documented decimal/alpha/Roman list formats have Mote counterparts; other schemes are unsupported.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextAutonumberBullet/@startAt": {
+    "status": "partial",
+    "note": "Partial: Positive `start` values are normalized; DrawingML-specific upper bounds and numbering application are missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextCharBullet/@char": {
+    "status": "partial",
+    "note": "Partial: `list.marker` is retained as presentation marker text; marker rendering is absent.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextSpacing/spcPct": {
+    "status": "partial",
+    "note": "Partial: Line-spacing multiples exist; percentage before/after paragraph spacing is missing.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  },
+  "a:CT_TextSpacing/spcPts": {
+    "status": "partial",
+    "note": "Partial: Physical paragraph spacing exists; DrawingML encoding and exact range constraints are not implemented.",
+    "evidence": [
+      "docs/specification/formatting-attributes.md",
+      "tests/attributes.rs"
+    ]
+  }
+}

@@ -46,12 +46,21 @@ Ordered formats on unordered lists and unrestricted marker styling are not
 formatting goals here. Presentation container text/list defaults belong to their
 future container checklists, rather than unrestricted direct list objects.
 
-## Output
+## Output limits
 
-- [ ] Define list-level defaults, item overrides, marker placement, and supported
-  output-specific controls.
-- [ ] Verify editable Office lists and independent native PDF/PNG, including
-  nesting, continuation paragraphs, spacing, and truthful unsupported controls.
+Rendered list defaults, item overrides, marker placement, nesting, and
+continuation paragraphs remain unsupported.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word numbering and marker properties](attributes/numbering.md).
+- [Word paragraph properties](attributes/word-paragraphs.md).
+- [DrawingML paragraphs and bullets](attributes/drawing-text.md#a-ct_textparagraphproperties).
 
 ## Evidence
 

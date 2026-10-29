@@ -40,13 +40,26 @@
   modifying authored attributes or leaking changes into siblings.
 - [x] Resolve font aliases from the resulting run font reference.
 
-## Later scope and output
+## Support limits
 
-- [ ] Apply table styles and conditional table regions to table content; define
-  the table model first. Declaration storage alone does not complete this task.
-- [ ] Output defaults, implicit style selection, measured fonts, and layout.
-- [ ] Verify style mappings, inheritance, and direct overrides in Office and
-  independent native PDF/PNG output.
+- [ ] `table`: apply table styles and conditional regions to table content.
+  Declaration storage is implemented; application requires the table model.
+
+Output defaults, implicit style selection, measured fonts, and rendered style
+application remain unsupported.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Style and conditional table properties](attributes/styles.md).
+- [Word paragraph properties](attributes/word-paragraphs.md).
+- [Word run properties](attributes/word-runs.md).
+- [Font properties](attributes/fonts.md).
+- [DrawingML text defaults](attributes/drawing-text.md).
 
 ## Evidence
 

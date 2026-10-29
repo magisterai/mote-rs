@@ -41,11 +41,21 @@ Fenced and block code belong to a future block-content checklist. They are not
 completed by the inline backtick implementation. Preserve-space behaviour needs
 separate presentation verification and truthful warnings for degraded output.
 
-## Output
+## Output limits
 
-- [ ] Define per-output style, whitespace, and unsupported-metadata handling.
-- [ ] Verify Office text and independent native PDF/PNG, including spaces, tabs,
-  blank lines, mixed inline formatting, and line endings.
+Rendered code styles and whitespace remain unsupported, including tabs, blank
+lines, and mixed inline formatting. Checked items cover language/model behaviour.
+
+## Specification inventory
+
+The full relevant property inventory includes supported, partial, and unsupported
+standard capabilities. XML names identify specification properties, not new Mote
+arguments. Direct-attribute limits above still apply; shared types do not grant
+extra attributes to this directive. See the [inventory guide](attributes/README.md).
+
+- [Word run and whitespace properties](attributes/word-runs.md).
+- [DrawingML run properties](attributes/drawing-text.md#a-ct_textcharacterproperties).
+- [Word typography and effects](attributes/word-extensions.md).
 
 ## Evidence
 
