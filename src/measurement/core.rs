@@ -66,7 +66,7 @@ impl CoreFont {
     }
 }
 
-fn win_ansi(character: char) -> Option<u8> {
+pub(crate) fn win_ansi(character: char) -> Option<u8> {
     match character {
         ' '..='~' | '\u{a0}'..='\u{ff}' => Some(character as u8),
         '€' => Some(0x80),

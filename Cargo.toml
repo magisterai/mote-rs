@@ -14,6 +14,11 @@ unicode-script = "0.5.8"
 unicode-general-category = "1.1.0"
 unicode-linebreak = "0.1.5"
 unicode-segmentation = "1.13.3"
+pdf-writer = "0.15.0"
+subsetter = { version = "0.2.6", default-features = false }
+tiny-skia = { version = "0.12.0", default-features = false, features = ["std", "simd"] }
+png = "0.18"
+flate2 = { version = "1.1.9", default-features = false, features = ["zlib-rs"] }
 
 [dev-dependencies]
 roxmltree = "0.21"

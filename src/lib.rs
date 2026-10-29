@@ -8,6 +8,7 @@ pub mod json;
 pub mod layout;
 pub mod measurement;
 pub mod model;
+pub mod render;
 pub mod source;
 pub mod syntax;
 

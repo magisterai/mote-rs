@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "native_png_dpi": 72,
+  "pixel_channel_tolerance": 48,
+  "foreground_mean_tolerance": 8.0,
+  "visual_review": "native only; no Office review",
+  "files": {
+    "cff.mote": {
+      "sha256": "7ecce44068e80042f9b92b48690747d23486a22bbd13dc94424cfa71f8b62015",
+      "bytes": 514
+    },
+    "core.mote": {
+      "sha256": "397532d993fac49076bb8780f7bbc3895298858c58efdd41ba495173b9ddda7d",
+      "bytes": 799
+    },
+    "expected/cff-1.png": {
+      "sha256": "043dbaf1f6ddee994911fe041bc5e18ea228bd96340f790485cde63af5be6d9a",
+      "bytes": 14663
+    },
+    "expected/truetype-1.png": {
+      "sha256": "41931c32dcdc36882a8bd0073e78992869dea7c11177c5b24458e735cb9aa597",
+      "bytes": 14921
+    },
+    "truetype.mote": {
+      "sha256": "7dcf75f6f592fd291ef68b00bdae46b8fea5678bf9d005889fb562d4b119aec6",
+      "bytes": 514
+    }
+  }
+}

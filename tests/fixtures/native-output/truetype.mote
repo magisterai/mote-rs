@@ -1,0 +1,6 @@
+#font(name="body",files={regular="../measurements/fonts/SourceSans3-Regular.ttf"})
+#document(page={width=pt(360),height=pt(240)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)},default_font="body",default_size=pt(12))
+#paragraph[AV To Wa café € — Unicode text.]
+#paragraph(size=pt(24))[AV To Wa at twenty-four points.]
+#paragraph[Preserved spaces: #span(preserve_space=true)[a  b  c].]
+#paragraph[#span(highlight="#aaddff",underline=true)[Accents: Éçàñü] and #span(strike=true)[struck text].]

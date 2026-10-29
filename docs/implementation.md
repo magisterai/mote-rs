@@ -432,3 +432,24 @@ No painter remeasurement is needed for these operations.
 Shaping, complete document painting, column balancing, PDF and PNG generation remain unimplemented.
 Numeric agreement remains separate
 from visual review in Word.
+
+### Native text painters
+
+The `render` module consumes positioned document text without recomputing wrapping
+or pagination. `emit_pdf` writes searchable PDF with standard core fonts or subsets
+of declared static TrueType/CFF faces; Unicode mappings and actual text preserve
+text extraction. `emit_png` rasterizes outlines directly and encodes one image per
+page, with a 72-DPI default and an explicit per-page pixel limit. Both paint shared
+highlight and decoration geometry and report font substitutions and missing glyphs.
+
+PDF serialization uses `pdf-writer` and `subsetter` with variable-font features
+disabled. PNG uses `tiny-skia` and `png`; compression reuses `flate2`. No native
+runtime or document-conversion subprocess is required. Raster core fonts select
+platform outlines where available, then licensed bundled fallbacks. Declared fonts
+are the portable choice for image comparisons.
+
+See [native output captures](../tests/fixtures/native-output/README.md) for validation
+and raster tolerances. Initial painter support follows the single-column document
+text planner: paragraphs, headings, inline formatting and explicit breaks. Other
+block structures and paragraph painting remain separate layout work. These native
+checks do not establish Microsoft Word or PowerPoint visual conformance.

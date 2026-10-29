@@ -4,6 +4,8 @@
 //! text, choose fonts from the operating system, or decide where lines break.
 
 mod core;
+pub(crate) use core::win_ansi;
+pub(crate) mod glyphs;
 mod kerning;
 mod opentype;
 mod resolution;

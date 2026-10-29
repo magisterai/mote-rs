@@ -1,0 +1,9 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)},default_size=pt(12))
+#heading(level=1)[Native rendering]
+#paragraph[Plain text, #strong[bold], #emphasis[italic], and #span(bold=true,italic=true)[both].]
+#paragraph[#span(highlight="#ffeb99",underline=true)[Highlighted and underlined] with #span(strike=true)[strike] and #span(double_strike=true)[double].]
+#paragraph(alignment="justify")[A paragraph with enough words to wrap naturally and demonstrate that the shared layout controls every line and its justified spacing.]
+#paragraph[#code[  code  with spaces] and #span(small_caps=true)[Small capitals].]
+#break(type="page")
+#paragraph(font="Times")[Times: café € — “quotes” AV To Wa.]
+#paragraph(font="Courier")[Courier: abc 123.]
