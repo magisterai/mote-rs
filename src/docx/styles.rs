@@ -102,14 +102,10 @@ impl<'document> Styles<'document> {
                 }
             }
         }
-        let mut properties = Properties::new();
-        for issue in &resolved.issues {
-            if let ResolutionIssue::MissingStyle(name) = issue {
-                properties.extend(builtin_styles::run_properties(name));
-            }
+        if !self.declared(name) && builtin_styles::canonical_name(name) == Some("Code") {
+            return Ok(builtin_styles::run_properties("Code"));
         }
-        properties.extend(resolved.run);
-        Ok(properties)
+        Ok(resolved.run)
     }
 
     pub fn write(&self) -> Result<String, Error> {
@@ -130,7 +126,7 @@ impl<'document> Styles<'document> {
         }
         if self.builtin_needed.contains("BlockQuote") && !self.declared("BlockQuote") {
             let formatting = RunFormatting {
-                properties: self.resolved_run("BlockQuote")?,
+                properties: builtin_styles::run_properties("BlockQuote"),
                 ..RunFormatting::default()
             };
             content.push_str(&format!("<w:style w:type=\"paragraph\" w:styleId=\"BlockQuote\"><w:name w:val=\"Block Quote\"/><w:basedOn w:val=\"{}\"/><w:pPr><w:spacing w:before=\"120\" w:after=\"120\" w:line=\"276\" w:lineRule=\"auto\"/><w:ind w:left=\"720\"/></w:pPr><w:rPr>{}</w:rPr></w:style>", self.identifier("Normal")?, formatting.write_declaration(self)?));

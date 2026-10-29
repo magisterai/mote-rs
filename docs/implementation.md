@@ -243,8 +243,10 @@ color have no DOCX mapping and fail explicitly.
 Paragraph and character styles preserve declarations, inheritance, next/link
 references, exact/normalized lookup and unique Word identifiers. A declared
 Normal style supplies implicit paragraph formatting; Code has a fallback unless
-declared. Named character styles clear only the inherited direct fields they
-supply, preserving other enclosing formatting. Font aliases map the three script
+declared. Named character styles clear only the inherited direct fields their declaration
+chain supplies, preserving other enclosing formatting. Implicit built-in parent
+formatting does not count as a declared property. A direct Code reference retains
+its documented fallback font and size. Font aliases map the three script
 groups without inventing missing mappings. The font table names physical
 script-specific typefaces. `word_line_height` remains metadata for later layout.
 

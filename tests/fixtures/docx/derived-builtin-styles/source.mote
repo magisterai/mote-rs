@@ -1,0 +1,19 @@
+#heading[Heading fallback]
+#blockquote[Quote fallback]
+#code[Code fallback]
+
+#style(name="Derived Code",type="character",based_on="Code",color="#123")
+#style(name="Derived Heading",type="character",based_on="Heading1",color="#345")
+#style(name="Derived Quote",type="character",based_on="BlockQuote",color="#567")
+
+#span(font="Arial",size=pt(20),bold=false,italic=false)[#span(style="Derived Code")[Derived code]]
+
+#span(font="Arial",size=pt(20),bold=false,italic=false)[#span(style="Derived Heading")[Derived heading]]
+
+#span(font="Arial",size=pt(20),bold=false,italic=false)[#span(style="Derived Quote")[Derived quote]]
+
+#span(font="Arial",size=pt(20),bold=false,italic=false)[#span(style="Code")[Direct code]]
+
+#span(font="Arial",size=pt(20),bold=false,italic=false)[#span(style="Heading1")[Direct heading]]
+
+#span(font="Arial",size=pt(20),bold=false,italic=false)[#span(style="BlockQuote")[Direct quote]]

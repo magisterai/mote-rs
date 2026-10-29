@@ -233,3 +233,8 @@ fn unsupported_heading_styles_and_properties_fail_explicitly() {
         );
     }
 }
+
+#[test]
+fn derived_builtin_styles_preserve_inherited_direct_formatting() {
+    support::compare_fixture("derived-builtin-styles");
+}

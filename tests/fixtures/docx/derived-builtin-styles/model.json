@@ -1,0 +1,556 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Derived Code",
+      "type": "character",
+      "based_on": "Code",
+      "properties": {
+        "based_on": "Code",
+        "color": "#112233",
+        "type": "character"
+      }
+    },
+    {
+      "name": "Derived Heading",
+      "type": "character",
+      "based_on": "Heading1",
+      "properties": {
+        "based_on": "Heading1",
+        "color": "#334455",
+        "type": "character"
+      }
+    },
+    {
+      "name": "Derived Quote",
+      "type": "character",
+      "based_on": "BlockQuote",
+      "properties": {
+        "based_on": "BlockQuote",
+        "color": "#556677",
+        "type": "character"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Heading fallback"
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quote fallback"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Code fallback"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": false,
+                "font": "Arial",
+                "italic": false,
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Derived Code"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Derived code"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": false,
+                "font": "Arial",
+                "italic": false,
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Derived Heading"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Derived heading"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": false,
+                "font": "Arial",
+                "italic": false,
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Derived Quote"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Derived quote"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": false,
+                "font": "Arial",
+                "italic": false,
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Code"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Direct code"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": false,
+                "font": "Arial",
+                "italic": false,
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Heading1"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Direct heading"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": false,
+                "font": "Arial",
+                "italic": false,
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "BlockQuote"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Direct quote"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Heading fallback"
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quote fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "code",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Code fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": false,
+            "font": "Arial",
+            "italic": false,
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Derived Code"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Derived code"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": false,
+            "font": "Arial",
+            "italic": false,
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Derived Heading"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Derived heading"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": false,
+            "font": "Arial",
+            "italic": false,
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Derived Quote"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Derived quote"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": false,
+            "font": "Arial",
+            "italic": false,
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Code"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Direct code"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": false,
+            "font": "Arial",
+            "italic": false,
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Heading1"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Direct heading"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": false,
+            "font": "Arial",
+            "italic": false,
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "BlockQuote"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Direct quote"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
