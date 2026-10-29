@@ -1,0 +1,25 @@
+{
+  "source": "../../transforms.mote",
+  "source_sha256": "34d1a44df99a3d34c48f6f826d7d8dc95d089cbf2d8b0172e5f1b4824f4d033a",
+  "captured_docx_sha256": "5eb3f4c43443138682576a6dcf185f8f0a37309dca8950c05602b7abc78b0d4d",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.png",
+    "word/media/image2.png",
+    "word/media/image3.png",
+    "word/media/image4.png",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "pages": 1,
+  "native_png_dpi": 72,
+  "captured_at_utc": "2026-10-29T11:31:20.399238+00:00",
+  "word_review_status": "unreviewed"
+}

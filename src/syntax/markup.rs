@@ -102,6 +102,12 @@ impl Parser<'_> {
                     self.position = start;
                 }
             }
+            if self.starts_with("![")
+                && let Some(node) = self.parse_markdown_image()
+            {
+                nodes.push(node);
+                continue;
+            }
             if character == '['
                 && let Some(node) = self.parse_markdown_link()
             {

@@ -101,6 +101,7 @@ fn split_item_children(children: &[Content]) -> Result<(Vec<Content>, Vec<&Eleme
                 inline.append(&mut pending_whitespace);
                 if let Content::Element(element) = child
                     && element.kind.is_block()
+                    && element.kind != ElementKind::Image
                 {
                     if element.kind != ElementKind::Paragraph {
                         return Err(Error::Unsupported(format!(

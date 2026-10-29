@@ -7,7 +7,7 @@ pub use pdf::paint_pdf;
 pub use png::{PngOptions, RasterPage, paint_png};
 
 use crate::{
-    layout::{DocumentTextPlan, LayoutError, plan_document_text},
+    layout::{DocumentTextPlan, LayoutError, plan_document_with_images},
     measurement::{FontResolver, MeasurementError, SystemFontResolver, TextMeasurer},
     model::Document,
     source::AssetResolver,
@@ -74,8 +74,11 @@ pub fn plan_with_fonts(
     if let Some(fonts) = fonts {
         measurer = measurer.with_font_resolver(fonts);
     }
-    let output = plan_document_text(document, &mut measurer)?;
+    let mut images = crate::media::ImageCatalog::load(document, resolver, source_name);
+    images.prepare_all(&document.content);
+    let output = plan_document_with_images(document, &mut measurer, &images)?;
     let mut warnings = support::warnings(document);
+    warnings.extend(images.warnings);
     for fragment in output
         .pages
         .iter()
@@ -161,6 +164,40 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
         let mut seen = vec![false; page.lines.len()];
         for operation in &page.operations {
             match operation {
+                crate::layout::PageOperation::OutlineRectangle {
+                    bounds,
+                    width,
+                    color: color_value,
+                } => {
+                    if !bounds.iter().chain([width]).all(|value| value.is_finite())
+                        || bounds[2] <= 0.0
+                        || bounds[3] <= 0.0
+                        || *width <= 0.0
+                    {
+                        return Err(RenderError::Invalid("invalid rectangle outline".into()));
+                    }
+                    color(color_value)?;
+                }
+                crate::layout::PageOperation::Image(image) => {
+                    if !image
+                        .bounds
+                        .iter()
+                        .chain(&image.clip)
+                        .all(|value| value.is_finite())
+                        || image.bounds[2] <= 0.0
+                        || image.bounds[3] <= 0.0
+                        || image.clip[2] <= 0.0
+                        || image.clip[3] <= 0.0
+                        || image.image.raster.width == 0
+                        || image.image.raster.height == 0
+                        || image.image.raster.pixels.len() as u64
+                            != u64::from(image.image.raster.width)
+                                * u64::from(image.image.raster.height)
+                                * 4
+                    {
+                        return Err(RenderError::Invalid("invalid positioned image".into()));
+                    }
+                }
                 crate::layout::PageOperation::Text(index) => {
                     let Some(visited) = seen.get_mut(*index) else {
                         return Err(RenderError::Invalid(

@@ -1,7 +1,7 @@
 # Implementation
 
 The Rust crate implements the initial language core, a progressive DOCX writer, and
-native PDF/PNG output for the documented text and list features. The
+native PDF/PNG output for the documented text, list, link and image features. The
 [specification](specification/README.md) describes the language; this page records
 what this crate currently implements.
 
@@ -23,6 +23,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [model](../src/model.rs) | Evaluated content, values, geometry, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
 | [measurement](../src/measurement.rs) | Core and static OpenType font metrics, with separate kerning and font-table modules. |
+| [media](../src/media.rs) | Cached raster assets, bounded PNG/JPEG/GIF decoding and shared image transforms. |
 | [layout](../src/layout.rs) | Shared native line and block geometry, paragraph flow, numbering, columns, and ordered painting operations. |
 | [render](../src/render.rs) | Independent PDF and PNG painters, font embedding, rasterization and native support diagnostics. |
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
@@ -70,7 +71,8 @@ Standard input remains labelled `<stdin>`.
 `CachingAssetResolver` snapshots each source/reference request, including failures,
 and rejects conflicting bytes for one logical name. The font measurer owns a
 wrapper for its lifetime and retains selected font bytes for future painters.
-Imports, data-loading helpers and image consumers remain deferred. Tests in
+Images also cache resolved assets and transformed rasters for the duration of planning.
+Imports and data-loading helpers remain deferred. Tests in
 [asset_cache.rs](../tests/asset_cache.rs), [source.rs](../tests/source.rs) and
 [cli.rs](../tests/cli.rs) cover custom sources, relative names, failure propagation,
 encoding, and CLI diagnostics.
@@ -508,3 +510,16 @@ references remain unsupported until bookmarks and references are defined.
 complete DOCX packages, validate argument/body rules, and check wrapped PDF link
 areas. Native PDF pixels and extracted destinations are checked independently;
 real Word rendering remains unreviewed.
+
+## Images
+
+`docx::emit_with_assets` accepts an asset resolver and referring source name,
+returning package bytes and warnings. `docx::emit` uses the current directory.
+Native planning freezes decoded/transformed pixels before either painter runs.
+PNG decoding reuses the existing library; JPEG and first-frame GIF decoding use
+narrow dependencies without unrelated format support. Input and transformed
+images have a 64-million-pixel allocation limit. Untransformed JPEG PDF resources
+preserve compressed source data and their grayscale, RGB or CMYK color space.
+
+[Image captures](../tests/fixtures/images/README.md) cover model/package equality,
+image geometry, transforms, links, fallbacks and separate native raster output.

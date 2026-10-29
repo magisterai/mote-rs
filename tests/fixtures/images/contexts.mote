@@ -1,0 +1,5 @@
+#document(page = { width = pt(300), height = pt(320) }, margin = { top = pt(24), right = pt(24), bottom = pt(24), left = pt(24) })
+#blockquote[Before #image("assets/pattern.png", width=pt(30), alt="Diagram") after.]
+#list[
+#item[First #image("assets/pattern.png", width=pt(24), alt="[Small]") last.]
+]

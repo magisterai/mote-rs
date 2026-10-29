@@ -1,0 +1,441 @@
+{
+  "document": {
+    "columns": {
+      "count": 2,
+      "gap": {
+        "text": "12pt",
+        "unit": "pt",
+        "value": 12
+      },
+      "separator": true
+    },
+    "margin": {
+      "bottom": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      }
+    },
+    "page": {
+      "height": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "30pt",
+      "unit": "pt",
+      "value": 30
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "30pt",
+      "unit": "pt",
+      "value": 30
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      }
+    }
+  },
+  "columns": {
+    "count": 2,
+    "gap": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    },
+    "separator": true,
+    "properties": {
+      "count": 2,
+      "gap": {
+        "text": "12pt",
+        "unit": "pt",
+        "value": 12
+      },
+      "separator": true
+    }
+  },
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "260pt",
+            "unit": "pt",
+            "value": 260
+          },
+          "width": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "30pt",
+          "unit": "pt",
+          "value": 30
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "30pt",
+          "unit": "pt",
+          "value": 30
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          }
+        }
+      },
+      "columns": {
+        "count": 2,
+        "gap": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "separator": true,
+        "properties": {
+          "count": 2,
+          "gap": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          },
+          "separator": true
+        }
+      },
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Images in flow"
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "height": {
+              "text": "85pt",
+              "unit": "pt",
+              "value": 85
+            },
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "120pt",
+              "unit": "pt",
+              "value": 120
+            }
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text after the first image."
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "height": {
+              "text": "85pt",
+              "unit": "pt",
+              "value": 85
+            },
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "100pt",
+              "unit": "pt",
+              "value": 100
+            }
+          }
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "height": {
+              "text": "70pt",
+              "unit": "pt",
+              "value": 70
+            },
+            "spacing": {
+              "after": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              },
+              "before": {
+                "text": "8pt",
+                "unit": "pt",
+                "value": 8
+              }
+            },
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "110pt",
+              "unit": "pt",
+              "value": 110
+            }
+          }
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "alignment": "right",
+            "height": {
+              "text": "95pt",
+              "unit": "pt",
+              "value": 95
+            },
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "90pt",
+              "unit": "pt",
+              "value": 90
+            }
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text after the final image."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Images in flow"
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "height": {
+          "text": "85pt",
+          "unit": "pt",
+          "value": 85
+        },
+        "src": "assets/pattern.png",
+        "width": {
+          "text": "120pt",
+          "unit": "pt",
+          "value": 120
+        }
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Text after the first image."
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "alignment": "center",
+        "height": {
+          "text": "85pt",
+          "unit": "pt",
+          "value": 85
+        },
+        "src": "assets/pattern.png",
+        "width": {
+          "text": "100pt",
+          "unit": "pt",
+          "value": 100
+        }
+      }
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "height": {
+          "text": "70pt",
+          "unit": "pt",
+          "value": 70
+        },
+        "spacing": {
+          "after": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          },
+          "before": {
+            "text": "8pt",
+            "unit": "pt",
+            "value": 8
+          }
+        },
+        "src": "assets/pattern.png",
+        "width": {
+          "text": "110pt",
+          "unit": "pt",
+          "value": 110
+        }
+      }
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "alignment": "right",
+        "height": {
+          "text": "95pt",
+          "unit": "pt",
+          "value": 95
+        },
+        "src": "assets/pattern.png",
+        "width": {
+          "text": "90pt",
+          "unit": "pt",
+          "value": 90
+        }
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Text after the final image."
+        }
+      ]
+    }
+  ]
+}

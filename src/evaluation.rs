@@ -8,6 +8,7 @@ mod attributes;
 mod configuration;
 mod declarations;
 mod expressions;
+mod images;
 mod values;
 
 use attributes::evaluate_attributes;
@@ -162,6 +163,36 @@ fn evaluate_nodes(
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Block, context, document)?,
             }),
+            NodeKind::Image {
+                source,
+                title,
+                label,
+            } => {
+                let children = evaluate_nodes(label, ContentMode::Inline, context, document)?;
+                fn content_text(content: &[Content]) -> String {
+                    content
+                        .iter()
+                        .map(|node| match node {
+                            Content::Text(text) => text.clone(),
+                            Content::Element(element) => content_text(&element.children),
+                        })
+                        .collect()
+                }
+                let mut attributes =
+                    Properties::from([("src".into(), Value::String(source.clone()))]);
+                let alternative = content_text(&children);
+                if !alternative.is_empty() {
+                    attributes.insert("alt".into(), Value::String(alternative));
+                }
+                if !title.is_empty() {
+                    attributes.insert("title".into(), Value::String(title.clone()));
+                }
+                Content::Element(Element {
+                    kind: ElementKind::Image,
+                    attributes,
+                    children: Vec::new(),
+                })
+            }
             NodeKind::Call(call) => evaluate_call(call, node.span, context, document)?,
             NodeKind::Reference(name) => {
                 return Err(Diagnostic::new(
@@ -282,6 +313,9 @@ fn evaluate_call(
     context: EvaluationContext<'_>,
     document: &mut Document,
 ) -> Result<Content, Diagnostic> {
+    if call.name == "image" {
+        return images::evaluate(call, span);
+    }
     if call.name == "code" {
         return evaluate_code(call, span, context, document);
     }

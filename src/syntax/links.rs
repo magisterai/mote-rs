@@ -3,6 +3,39 @@ use super::markup::MarkupBoundary;
 use super::{Argument, Call, Expression, ExpressionKind, Node, NodeKind, Parser, Span};
 
 impl Parser<'_> {
+    pub(super) fn parse_markdown_image(&mut self) -> Option<Node> {
+        let start = self.position;
+        self.position += 1;
+        let result = self.parse_markdown_link();
+        let Some(Node {
+            kind: NodeKind::Call(call),
+            ..
+        }) = result
+        else {
+            self.position = start;
+            return None;
+        };
+        let text = |index: usize| match &call.arguments[index].value.kind {
+            ExpressionKind::String(value) => value.clone(),
+            _ => unreachable!(),
+        };
+        Some(Node {
+            kind: NodeKind::Image {
+                source: if call.name == "ref" {
+                    format!("#{}", text(0))
+                } else {
+                    text(0)
+                },
+                title: if call.arguments.len() > 1 {
+                    text(1)
+                } else {
+                    String::new()
+                },
+                label: call.bodies.into_iter().next().unwrap(),
+            },
+            span: self.span(start),
+        })
+    }
     pub(super) fn parse_markdown_link(&mut self) -> Option<Node> {
         let start = self.position;
         let depth = self.depth;

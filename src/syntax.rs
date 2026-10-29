@@ -24,14 +24,27 @@ pub struct Node {
 #[derive(Debug, Clone, PartialEq)]
 pub enum NodeKind {
     Text(String),
-    LineBreak { hard: bool },
+    LineBreak {
+        hard: bool,
+    },
     ParagraphBreak,
-    Heading { level: usize, body: Vec<Node> },
+    Heading {
+        level: usize,
+        body: Vec<Node>,
+    },
     Strong(Vec<Node>),
     Emphasis(Vec<Node>),
     Code(String),
-    ListItem { marker: String, body: Vec<Node> },
+    ListItem {
+        marker: String,
+        body: Vec<Node>,
+    },
     Blockquote(Vec<Node>),
+    Image {
+        source: String,
+        title: String,
+        label: Vec<Node>,
+    },
     Call(Call),
     Reference(String),
 }

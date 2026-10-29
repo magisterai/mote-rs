@@ -57,6 +57,15 @@ pub(super) fn write_document(
         }
         let mut numbering_reference = None;
         let attributes = match element.kind {
+            ElementKind::Image => {
+                body.push_str(&super::images::write(
+                    element,
+                    styles,
+                    &mut state.resources,
+                )?);
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Paragraph => element.attributes.clone(),
             ElementKind::Heading => {
                 let level = headings::level(element)? - 1;

@@ -13,6 +13,7 @@ use crate::{
 pub(super) enum Block {
     Paragraph(Box<PreparedParagraph>),
     Break(String),
+    Image(Box<super::images::ImageBlock>),
 }
 pub(super) struct PreparedParagraph {
     pub text: ParagraphText,
@@ -45,6 +46,7 @@ pub(super) fn prepare_blocks(
     width: f64,
     styles: &LayoutStyleResolver<'_>,
     measurer: &mut TextMeasurer<'_>,
+    images: &crate::media::ImageCatalog,
 ) -> Result<Vec<Block>, LayoutError> {
     let mut builder = BlockBuilder {
         width,
@@ -67,6 +69,13 @@ pub(super) fn prepare_blocks(
             }
             ElementKind::List | ElementKind::OrderedList => {
                 builder.list(element, 0, true)?;
+                builder.flow_start = false;
+            }
+            ElementKind::Image => {
+                match super::images::ImageBlock::prepare(element, images, width) {
+                    Ok(image) => builder.blocks.push(Block::Image(Box::new(image))),
+                    Err(error) => builder.paragraph(&super::images::fallback(element, &error))?,
+                }
                 builder.flow_start = false;
             }
             ElementKind::Break => {

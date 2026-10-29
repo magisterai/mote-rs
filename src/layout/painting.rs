@@ -19,6 +19,12 @@ pub struct Rule {
 #[derive(Debug, Clone, PartialEq)]
 pub enum PageOperation {
     Text(usize),
+    Image(Box<super::PositionedImage>),
+    OutlineRectangle {
+        bounds: [f64; 4],
+        width: f64,
+        color: String,
+    },
     Rectangle(HighlightRectangle),
     Rule(Rule),
     ListMarker(Box<ListMarker>),

@@ -1,0 +1,23 @@
+{
+  "source": "../../color-spaces.mote",
+  "source_sha256": "6da7561a2e8b2e489a0bd0d22e175a9199de8feba7ac00d672107a21fa9c217c",
+  "captured_docx_sha256": "2f8776108ca10d7bbd44f13999860904830c50149de2268c69322b9a458ed8ef",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.jpeg",
+    "word/media/image2.jpeg",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "pages": 1,
+  "native_png_dpi": 72,
+  "captured_at_utc": "2026-10-29T11:31:18.758384+00:00",
+  "word_review_status": "unreviewed"
+}

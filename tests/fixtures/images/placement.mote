@@ -1,0 +1,10 @@
+#document(page = { width = pt(300), height = pt(320) }, margin = { top = pt(24), right = pt(24), bottom = pt(24), left = pt(24) }, columns = { count = 2, gap = pt(12), separator = true })
+![Markdown **image**](assets/pattern.png "Title")
+
+#image("assets/pattern.png", placement = { width = pt(80), height = pt(60), horizontal = { alignment = "right", relative_to = "column" } })
+
+#image("assets/pattern.png", placement = { width = pt(90), align = "center", type = "floating", wrap = "square", x = pt(20), y = pt(30) })
+
+#image("assets/missing.png", alt = "Unavailable image")
+
+After missing image.

@@ -1,0 +1,2 @@
+#image("assets/subframe.gif")
+#image("assets/subframe.gif", flip_horizontal=true)

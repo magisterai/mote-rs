@@ -193,6 +193,17 @@ fn validate_named_argument(
                 "fill" => Some(ArgumentType::Color),
                 _ => None,
             },
+            Image => match name {
+                "src" | "name" | "alt" | "description" | "style" | "title" | "link"
+                | "alignment" => Some(ArgumentType::String),
+                "width" | "height" => Some(ArgumentType::Length),
+                "rotation" => Some(ArgumentType::NumberOrString),
+                "flip_horizontal" | "flip_vertical" => Some(ArgumentType::Boolean),
+                "placement" | "spacing" | "crop" | "border" | "effects" => {
+                    Some(ArgumentType::Object)
+                }
+                _ => None,
+            },
             Link => match name {
                 "url" | "title" | "tooltip" | "target" => Some(ArgumentType::String),
                 _ => None,
@@ -237,6 +248,7 @@ pub(super) fn normalize_attribute(
             "numbering" if kind == Heading => normalize_numbering(value, span),
             _ => Ok(value),
         },
+        Image => super::images::normalize(name, value, span),
         Span => match name {
             "color" | "highlight" => normalize_color(value, span, name),
             "size" => normalize_length(value, span, name),

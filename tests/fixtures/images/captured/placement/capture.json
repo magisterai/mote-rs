@@ -1,0 +1,24 @@
+{
+  "source": "../../placement.mote",
+  "source_sha256": "c418b621e4c71deb0ad5630b6e8666841999ff1ab2876525c6f727223c447a93",
+  "captured_docx_sha256": "851d61ec8db13a5f06b0465d12c8e431cce91f97debd60b1227810b7368da166",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.png",
+    "word/media/image2.png",
+    "word/media/image3.png",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "pages": 1,
+  "native_png_dpi": 72,
+  "captured_at_utc": "2026-10-29T11:31:19.757415+00:00",
+  "word_review_status": "unreviewed"
+}

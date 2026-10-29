@@ -1,0 +1,25 @@
+{
+  "source": "../../geometry.mote",
+  "source_sha256": "ac166a72ae16389d668b52811f7e319bec9a3f3cc46aa916d918d07ab25b1601",
+  "captured_docx_sha256": "bc8d468a06e623d16f7ce0079f938ebb226dd8b7c346b1384cadd29b08d170fc",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.png",
+    "word/media/image2.jpeg",
+    "word/media/image3.gif",
+    "word/media/image4.png",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "pages": 1,
+  "native_png_dpi": 72,
+  "captured_at_utc": "2026-10-29T11:31:19.558906+00:00",
+  "word_review_status": "unreviewed"
+}

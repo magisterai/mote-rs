@@ -121,6 +121,18 @@
       "namespace": "http://purl.oclc.org/ooxml/drawingml/wordprocessingDrawing",
       "edition": "Strict",
       "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/dml-wordprocessingDrawing.xsd"
+    },
+    {
+      "prefix": "pic",
+      "namespace": "http://schemas.openxmlformats.org/drawingml/2006/picture",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/dml-picture.xsd"
+    },
+    {
+      "prefix": "pic",
+      "namespace": "http://purl.oclc.org/ooxml/drawingml/picture",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/dml-picture.xsd"
     }
   ],
   "families": [
@@ -385,6 +397,22 @@
         },
         {
           "type": "a:CT_Hyperlink"
+        }
+      ]
+    },
+    {
+      "file": "images.md",
+      "title": "Picture and image placement properties",
+      "description": "Image containers, nonvisual metadata, source fill, transforms, effects, borders and Word inline/anchor placement. Unsupported properties and values remain inventoried.",
+      "roots": [
+        {
+          "type": "pic:CT_Picture"
+        },
+        {
+          "type": "wp:CT_Inline"
+        },
+        {
+          "type": "wp:CT_Anchor"
         }
       ]
     }

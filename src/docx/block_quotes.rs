@@ -42,6 +42,7 @@ fn flatten_content(children: &[Content]) -> Result<Vec<Content>, Error> {
     for child in children {
         if let Content::Element(element) = child
             && element.kind.is_block()
+            && element.kind != ElementKind::Image
         {
             // Outside table cells, a quote is one paragraph. Its nested block
             // structure supplies text, without independent layout or numbering.

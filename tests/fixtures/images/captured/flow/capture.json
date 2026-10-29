@@ -1,0 +1,25 @@
+{
+  "source": "../../flow.mote",
+  "source_sha256": "c0e47e04e99d74b16f1c3981c89d1b17ad62898991487ccfd07cb632ca957cbd",
+  "captured_docx_sha256": "43af0b8395564eb868bc23aaa3a6527e3d330b8010d6c4134252a6b43d9da674",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.png",
+    "word/media/image2.png",
+    "word/media/image3.png",
+    "word/media/image4.png",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "pages": 2,
+  "native_png_dpi": 72,
+  "captured_at_utc": "2026-10-29T11:31:19.241347+00:00",
+  "word_review_status": "unreviewed"
+}

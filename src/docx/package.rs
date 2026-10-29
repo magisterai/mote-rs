@@ -8,6 +8,7 @@ pub(super) fn write(
     font_table: &str,
     numbering: &str,
     relationships: &str,
+    media: &[(String, crate::media::ImageAsset)],
 ) -> Result<Vec<u8>, Error> {
     let now = time::OffsetDateTime::now_utc();
     let timestamp = format!(
@@ -31,8 +32,23 @@ pub(super) fn write(
     );
     let mut archive = ZipWriter::new(Cursor::new(Vec::new()));
     let options = SimpleFileOptions::default().compression_method(zip::CompressionMethod::Deflated);
+    let mut content_types = CONTENT_TYPES.to_owned();
+    let mut types = std::collections::BTreeMap::new();
+    for (_, asset) in media {
+        types.insert(asset.extension.trim_start_matches('.'), asset.content_type);
+    }
+    let entries = types
+        .iter()
+        .map(|(extension, content_type)| {
+            format!("<Default Extension=\"{extension}\" ContentType=\"{content_type}\"/>")
+        })
+        .collect::<String>();
+    content_types = content_types.replace(
+        "  <Override PartName=\"/word/document.xml\"",
+        &format!("{entries}  <Override PartName=\"/word/document.xml\""),
+    );
     for (name, contents) in [
-        ("[Content_Types].xml", CONTENT_TYPES),
+        ("[Content_Types].xml", content_types.as_str()),
         ("_rels/.rels", ROOT_RELATIONSHIPS),
         ("docProps/app.xml", APP_PROPERTIES),
         ("docProps/core.xml", &core_properties),
@@ -45,6 +61,10 @@ pub(super) fn write(
     ] {
         archive.start_file(name, options)?;
         archive.write_all(contents.as_bytes())?;
+    }
+    for (name, asset) in media {
+        archive.start_file(format!("word/{name}"), options)?;
+        archive.write_all(&asset.original)?;
     }
     Ok(archive.finish()?.into_inner())
 }

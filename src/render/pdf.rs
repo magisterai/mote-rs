@@ -1,4 +1,5 @@
 mod fonts;
+mod images;
 use super::{RenderError, color, validate_plan};
 use crate::{
     layout::{
@@ -27,9 +28,35 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
         let content_id = objects.allocate();
         page_ids.push(page_id);
         let mut content = Content::new();
+        let mut page_images = Vec::new();
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 match operation {
+                    PageOperation::OutlineRectangle {
+                        bounds,
+                        width,
+                        color: color_value,
+                    } => {
+                        let [red, green, blue] = color(color_value)?.map(|channel| {
+                            ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32
+                        });
+                        content
+                            .set_stroke_rgb(red, green, blue)
+                            .set_line_width(rounded(*width))
+                            .rect(
+                                rounded(bounds[0]),
+                                rounded(plan.geometry.height - bounds[1]),
+                                rounded(bounds[2]),
+                                -rounded(bounds[3]),
+                            )
+                            .stroke();
+                    }
+                    PageOperation::Image(image) => {
+                        let reference = images::write(image, &mut document, &mut objects)?;
+                        let name = format!("Image{}", page_images.len() + 1);
+                        images::paint(image, &mut content, &name, plan.geometry.height);
+                        page_images.push((name, reference));
+                    }
                     PageOperation::Text(index) => paint_line(
                         &mut content,
                         &page.lines[*index].line,
@@ -55,6 +82,23 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
             .filter(Filter::FlateDecode);
         let mut annotations = Vec::new();
         if let Some(page) = plan.pages.get(page_index) {
+            for operation in &page.operations {
+                if let PageOperation::Image(image) = operation
+                    && let Some(target) = &image.link
+                {
+                    let reference = objects.allocate();
+                    annotations.push(reference);
+                    let mut annotation = document.annotation(reference);
+                    annotation
+                        .subtype(pdf_writer::types::AnnotationType::Link)
+                        .rect(images::annotation_bounds(image, plan.geometry.height))
+                        .border(0.0, 0.0, 0.0, None);
+                    annotation
+                        .action()
+                        .action_type(pdf_writer::types::ActionType::Uri)
+                        .uri(Str(target.as_bytes()));
+                }
+            }
             for placed in &page.lines {
                 for fragment in &placed.line.fragments {
                     if let Some(target) = &fragment.link {
@@ -94,6 +138,12 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
             ))
             .contents(content_id);
         let mut resources = page.resources();
+        if !page_images.is_empty() {
+            let mut images = resources.x_objects();
+            for (name, reference) in page_images {
+                images.pair(Name(name.as_bytes()), reference);
+            }
+        }
         let mut page_fonts = resources.fonts();
         for font in &fonts.entries {
             page_fonts.pair(Name(font.resource.as_bytes()), font.reference);

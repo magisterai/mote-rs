@@ -1,0 +1,36 @@
+[
+  {
+    "page": 1,
+    "bounds": [
+      72.0,
+      72.0,
+      7.5,
+      6.0
+    ],
+    "clip": [
+      72.0,
+      72.0,
+      7.5,
+      6.0
+    ],
+    "pixels": "image-1.png",
+    "pixel_tolerance": 1
+  },
+  {
+    "page": 1,
+    "bounds": [
+      72.0,
+      87.0,
+      1.5,
+      2.25
+    ],
+    "clip": [
+      72.0,
+      87.0,
+      1.5,
+      2.25
+    ],
+    "pixels": "image-2.png",
+    "pixel_tolerance": 1
+  }
+]

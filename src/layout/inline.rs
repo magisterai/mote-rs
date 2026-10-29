@@ -40,6 +40,25 @@ fn collect(
                 runs.push(run);
             }
             Content::Element(element) => {
+                if element.kind == ElementKind::Image {
+                    let label = ["alt", "src"]
+                        .iter()
+                        .find_map(|name| {
+                            element
+                                .attributes
+                                .get(*name)
+                                .map(crate::model::Value::to_text)
+                                .filter(|value| !value.is_empty())
+                        })
+                        .unwrap_or_else(|| "image".into());
+                    let placeholder = if label.starts_with('[') && label.ends_with(']') {
+                        label
+                    } else {
+                        format!("[{label}]")
+                    };
+                    runs.push(TextRun::new(placeholder, inherited.clone()));
+                    continue;
+                }
                 if element.kind == ElementKind::Link {
                     let mut style = inherited.clone();
                     style.color = "0563C1".into();

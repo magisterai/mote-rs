@@ -13,6 +13,7 @@ pub(super) const NAMES: &[&str] = &[
     "BlockQuote",
     "Code",
     "Hyperlink",
+    "Caption",
 ];
 
 pub(super) fn normalize_name(name: &str) -> String {
@@ -52,6 +53,9 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
         let Content::Element(element) = child else {
             continue;
         };
+        if element.kind == ElementKind::Image {
+            names.insert("Caption".into());
+        }
         if element.kind == ElementKind::Link {
             names.insert("Hyperlink".into());
         }

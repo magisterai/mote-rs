@@ -52,9 +52,25 @@ pub fn plan_document_text(
     document: &Document,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<DocumentTextPlan, LayoutError> {
+    fn has_images(content: &[crate::model::Content]) -> bool {
+        content.iter().any(|node|matches!(node,crate::model::Content::Element(element) if element.kind==ElementKind::Image || has_images(&element.children)))
+    }
+    if has_images(&document.content) {
+        return Err(LayoutError::Unsupported(
+            "image layout requires asset-aware render planning".into(),
+        ));
+    }
+    plan_document_with_images(document, measurer, &crate::media::ImageCatalog::default())
+}
+
+pub(crate) fn plan_document_with_images(
+    document: &Document,
+    measurer: &mut TextMeasurer<'_>,
+    images: &crate::media::ImageCatalog,
+) -> Result<DocumentTextPlan, LayoutError> {
     let geometry = PageGeometry::from_document(document)?;
     let styles = LayoutStyleResolver::new(document);
-    let blocks = prepare_blocks(document, geometry.column_width(), &styles, measurer)?;
+    let blocks = prepare_blocks(document, geometry.column_width(), &styles, measurer, images)?;
     if blocks.is_empty() {
         return Ok(DocumentTextPlan {
             geometry,
@@ -126,6 +142,39 @@ pub fn plan_document_text(
                     new_page(&mut cursor, &mut pages, &mut columns, geometry);
                 }
                 pending_spacing = 0.0;
+            }
+            Block::Image(image) => {
+                painting.clear_fill();
+                let leading = pending_spacing.max(image.before);
+                if leading > 0.0 {
+                    let previous = (cursor.page_number, cursor.column_index);
+                    ensure_space(
+                        &mut cursor,
+                        &mut pages,
+                        &mut columns,
+                        geometry,
+                        leading + image.height(),
+                    );
+                    if previous == (cursor.page_number, cursor.column_index) {
+                        cursor.y += leading;
+                    }
+                }
+                ensure_space(
+                    &mut cursor,
+                    &mut pages,
+                    &mut columns,
+                    geometry,
+                    image.height(),
+                );
+                pages[cursor.page_number - 1].operations.extend(image.place(
+                    geometry.column_left(cursor.column_index),
+                    geometry.column_width(),
+                    cursor.y,
+                )?);
+                cursor.y += image.height();
+                cursor.body_started = true;
+                columns.note(&cursor, geometry);
+                pending_spacing = image.after.max(0.0);
             }
             Block::Paragraph(prepared) => {
                 let paragraph = &prepared.text;

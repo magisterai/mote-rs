@@ -10,7 +10,10 @@ pub use decorations::{DecorationKind, HighlightRectangle, TextDecoration};
 mod flow;
 pub use document::{DocumentTextPlan, PlacedTextLine, TextPage, plan_document_text};
 mod geometry;
+mod images;
 mod inline;
+pub(crate) use document::plan_document_with_images;
+pub use images::PositionedImage;
 mod lines;
 mod widows;
 pub use flow::{

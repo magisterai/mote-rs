@@ -9,8 +9,11 @@ See also [prose-defined extensions](prose-extensions.md).
 
 ## Types
 
+- [a:ST_AdjAngle](#a-st_adjangle)
+- [a:ST_AdjCoordinate](#a-st_adjcoordinate)
 - [a:ST_Angle](#a-st_angle)
 - [a:ST_BevelPresetType](#a-st_bevelpresettype)
+- [a:ST_BlackWhiteMode](#a-st_blackwhitemode)
 - [a:ST_BlendMode](#a-st_blendmode)
 - [a:ST_BlipCompression](#a-st_blipcompression)
 - [a:ST_CompoundLine](#a-st_compoundline)
@@ -33,6 +36,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_LineEndType](#a-st_lineendtype)
 - [a:ST_LineEndWidth](#a-st_lineendwidth)
 - [a:ST_LineWidth](#a-st_linewidth)
+- [a:ST_PathFillMode](#a-st_pathfillmode)
 - [a:ST_PathShadeType](#a-st_pathshadetype)
 - [a:ST_PenAlignment](#a-st_penalignment)
 - [a:ST_Percentage](#a-st_percentage)
@@ -53,6 +57,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_PresetShadowVal](#a-st_presetshadowval)
 - [a:ST_RectAlignment](#a-st_rectalignment)
 - [a:ST_SchemeColorVal](#a-st_schemecolorval)
+- [a:ST_ShapeType](#a-st_shapetype)
 - [a:ST_SystemColorVal](#a-st_systemcolorval)
 - [a:ST_TextAlignType](#a-st_textaligntype)
 - [a:ST_TextAnchoringType](#a-st_textanchoringtype)
@@ -92,6 +97,22 @@ See also [prose-defined extensions](prose-extensions.md).
 - [wp:ST_WrapDistance](#wp-st_wrapdistance)
 - [wp:ST_WrapText](#wp-st_wraptext)
 
+<a id="a-st_adjangle"></a>
+
+## a:ST_AdjAngle
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- union: memberTypes: [a:ST_Angle](values-drawing.md#a-st_angle), [a:ST_GeomGuideName](values-drawing.md#a-st_geomguidename)
+
+<a id="a-st_adjcoordinate"></a>
+
+## a:ST_AdjCoordinate
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- union: memberTypes: [a:ST_Coordinate](values-drawing.md#a-st_coordinate), [a:ST_GeomGuideName](values-drawing.md#a-st_geomguidename)
+
 <a id="a-st_angle"></a>
 
 ## a:ST_Angle
@@ -119,6 +140,25 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `riblet`
 - enumeration: value: `hardEdge`
 - enumeration: value: `artDeco`
+
+<a id="a-st_blackwhitemode"></a>
+
+## a:ST_BlackWhiteMode
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `clr`
+- enumeration: value: `auto`
+- enumeration: value: `gray`
+- enumeration: value: `ltGray`
+- enumeration: value: `invGray`
+- enumeration: value: `grayWhite`
+- enumeration: value: `blackGray`
+- enumeration: value: `blackWhite`
+- enumeration: value: `black`
+- enumeration: value: `white`
+- enumeration: value: `hidden`
 
 <a id="a-st_blendmode"></a>
 
@@ -376,6 +416,20 @@ See also [prose-defined extensions](prose-extensions.md).
 - restriction: base: [a:ST_Coordinate32Unqualified](values-drawing.md#a-st_coordinate32unqualified)
 - minInclusive: value: `0`
 - maxInclusive: value: `20116800`
+
+<a id="a-st_pathfillmode"></a>
+
+## a:ST_PathFillMode
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `none`
+- enumeration: value: `norm`
+- enumeration: value: `lighten`
+- enumeration: value: `lightenLess`
+- enumeration: value: `darken`
+- enumeration: value: `darkenLess`
 
 <a id="a-st_pathshadetype"></a>
 
@@ -957,6 +1011,201 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `lt1`
 - enumeration: value: `dk2`
 - enumeration: value: `lt2`
+
+<a id="a-st_shapetype"></a>
+
+## a:ST_ShapeType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `line`
+- enumeration: value: `lineInv`
+- enumeration: value: `triangle`
+- enumeration: value: `rtTriangle`
+- enumeration: value: `rect`
+- enumeration: value: `diamond`
+- enumeration: value: `parallelogram`
+- enumeration: value: `trapezoid`
+- enumeration: value: `nonIsoscelesTrapezoid`
+- enumeration: value: `pentagon`
+- enumeration: value: `hexagon`
+- enumeration: value: `heptagon`
+- enumeration: value: `octagon`
+- enumeration: value: `decagon`
+- enumeration: value: `dodecagon`
+- enumeration: value: `star4`
+- enumeration: value: `star5`
+- enumeration: value: `star6`
+- enumeration: value: `star7`
+- enumeration: value: `star8`
+- enumeration: value: `star10`
+- enumeration: value: `star12`
+- enumeration: value: `star16`
+- enumeration: value: `star24`
+- enumeration: value: `star32`
+- enumeration: value: `roundRect`
+- enumeration: value: `round1Rect`
+- enumeration: value: `round2SameRect`
+- enumeration: value: `round2DiagRect`
+- enumeration: value: `snipRoundRect`
+- enumeration: value: `snip1Rect`
+- enumeration: value: `snip2SameRect`
+- enumeration: value: `snip2DiagRect`
+- enumeration: value: `plaque`
+- enumeration: value: `ellipse`
+- enumeration: value: `teardrop`
+- enumeration: value: `homePlate`
+- enumeration: value: `chevron`
+- enumeration: value: `pieWedge`
+- enumeration: value: `pie`
+- enumeration: value: `blockArc`
+- enumeration: value: `donut`
+- enumeration: value: `noSmoking`
+- enumeration: value: `rightArrow`
+- enumeration: value: `leftArrow`
+- enumeration: value: `upArrow`
+- enumeration: value: `downArrow`
+- enumeration: value: `stripedRightArrow`
+- enumeration: value: `notchedRightArrow`
+- enumeration: value: `bentUpArrow`
+- enumeration: value: `leftRightArrow`
+- enumeration: value: `upDownArrow`
+- enumeration: value: `leftUpArrow`
+- enumeration: value: `leftRightUpArrow`
+- enumeration: value: `quadArrow`
+- enumeration: value: `leftArrowCallout`
+- enumeration: value: `rightArrowCallout`
+- enumeration: value: `upArrowCallout`
+- enumeration: value: `downArrowCallout`
+- enumeration: value: `leftRightArrowCallout`
+- enumeration: value: `upDownArrowCallout`
+- enumeration: value: `quadArrowCallout`
+- enumeration: value: `bentArrow`
+- enumeration: value: `uturnArrow`
+- enumeration: value: `circularArrow`
+- enumeration: value: `leftCircularArrow`
+- enumeration: value: `leftRightCircularArrow`
+- enumeration: value: `curvedRightArrow`
+- enumeration: value: `curvedLeftArrow`
+- enumeration: value: `curvedUpArrow`
+- enumeration: value: `curvedDownArrow`
+- enumeration: value: `swooshArrow`
+- enumeration: value: `cube`
+- enumeration: value: `can`
+- enumeration: value: `lightningBolt`
+- enumeration: value: `heart`
+- enumeration: value: `sun`
+- enumeration: value: `moon`
+- enumeration: value: `smileyFace`
+- enumeration: value: `irregularSeal1`
+- enumeration: value: `irregularSeal2`
+- enumeration: value: `foldedCorner`
+- enumeration: value: `bevel`
+- enumeration: value: `frame`
+- enumeration: value: `halfFrame`
+- enumeration: value: `corner`
+- enumeration: value: `diagStripe`
+- enumeration: value: `chord`
+- enumeration: value: `arc`
+- enumeration: value: `leftBracket`
+- enumeration: value: `rightBracket`
+- enumeration: value: `leftBrace`
+- enumeration: value: `rightBrace`
+- enumeration: value: `bracketPair`
+- enumeration: value: `bracePair`
+- enumeration: value: `straightConnector1`
+- enumeration: value: `bentConnector2`
+- enumeration: value: `bentConnector3`
+- enumeration: value: `bentConnector4`
+- enumeration: value: `bentConnector5`
+- enumeration: value: `curvedConnector2`
+- enumeration: value: `curvedConnector3`
+- enumeration: value: `curvedConnector4`
+- enumeration: value: `curvedConnector5`
+- enumeration: value: `callout1`
+- enumeration: value: `callout2`
+- enumeration: value: `callout3`
+- enumeration: value: `accentCallout1`
+- enumeration: value: `accentCallout2`
+- enumeration: value: `accentCallout3`
+- enumeration: value: `borderCallout1`
+- enumeration: value: `borderCallout2`
+- enumeration: value: `borderCallout3`
+- enumeration: value: `accentBorderCallout1`
+- enumeration: value: `accentBorderCallout2`
+- enumeration: value: `accentBorderCallout3`
+- enumeration: value: `wedgeRectCallout`
+- enumeration: value: `wedgeRoundRectCallout`
+- enumeration: value: `wedgeEllipseCallout`
+- enumeration: value: `cloudCallout`
+- enumeration: value: `cloud`
+- enumeration: value: `ribbon`
+- enumeration: value: `ribbon2`
+- enumeration: value: `ellipseRibbon`
+- enumeration: value: `ellipseRibbon2`
+- enumeration: value: `leftRightRibbon`
+- enumeration: value: `verticalScroll`
+- enumeration: value: `horizontalScroll`
+- enumeration: value: `wave`
+- enumeration: value: `doubleWave`
+- enumeration: value: `plus`
+- enumeration: value: `flowChartProcess`
+- enumeration: value: `flowChartDecision`
+- enumeration: value: `flowChartInputOutput`
+- enumeration: value: `flowChartPredefinedProcess`
+- enumeration: value: `flowChartInternalStorage`
+- enumeration: value: `flowChartDocument`
+- enumeration: value: `flowChartMultidocument`
+- enumeration: value: `flowChartTerminator`
+- enumeration: value: `flowChartPreparation`
+- enumeration: value: `flowChartManualInput`
+- enumeration: value: `flowChartManualOperation`
+- enumeration: value: `flowChartConnector`
+- enumeration: value: `flowChartPunchedCard`
+- enumeration: value: `flowChartPunchedTape`
+- enumeration: value: `flowChartSummingJunction`
+- enumeration: value: `flowChartOr`
+- enumeration: value: `flowChartCollate`
+- enumeration: value: `flowChartSort`
+- enumeration: value: `flowChartExtract`
+- enumeration: value: `flowChartMerge`
+- enumeration: value: `flowChartOfflineStorage`
+- enumeration: value: `flowChartOnlineStorage`
+- enumeration: value: `flowChartMagneticTape`
+- enumeration: value: `flowChartMagneticDisk`
+- enumeration: value: `flowChartMagneticDrum`
+- enumeration: value: `flowChartDisplay`
+- enumeration: value: `flowChartDelay`
+- enumeration: value: `flowChartAlternateProcess`
+- enumeration: value: `flowChartOffpageConnector`
+- enumeration: value: `actionButtonBlank`
+- enumeration: value: `actionButtonHome`
+- enumeration: value: `actionButtonHelp`
+- enumeration: value: `actionButtonInformation`
+- enumeration: value: `actionButtonForwardNext`
+- enumeration: value: `actionButtonBackPrevious`
+- enumeration: value: `actionButtonEnd`
+- enumeration: value: `actionButtonBeginning`
+- enumeration: value: `actionButtonReturn`
+- enumeration: value: `actionButtonDocument`
+- enumeration: value: `actionButtonSound`
+- enumeration: value: `actionButtonMovie`
+- enumeration: value: `gear6`
+- enumeration: value: `gear9`
+- enumeration: value: `funnel`
+- enumeration: value: `mathPlus`
+- enumeration: value: `mathMinus`
+- enumeration: value: `mathMultiply`
+- enumeration: value: `mathDivide`
+- enumeration: value: `mathEqual`
+- enumeration: value: `mathNotEqual`
+- enumeration: value: `cornerTabs`
+- enumeration: value: `squareTabs`
+- enumeration: value: `plaqueTabs`
+- enumeration: value: `chartX`
+- enumeration: value: `chartStar`
+- enumeration: value: `chartPlus`
 
 <a id="a-st_systemcolorval"></a>
 

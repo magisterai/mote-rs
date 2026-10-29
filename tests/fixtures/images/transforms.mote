@@ -1,0 +1,10 @@
+#document(page = { width = pt(300), height = pt(480) }, margin = { top = pt(24), right = pt(24), bottom = pt(24), left = pt(24) })
+#image("assets/pattern.png", width = pt(144), crop = { left = "10%", right = 15, top = 20, bottom = "5%" }, flip_horizontal = true)
+
+#image("assets/pattern.png", width = pt(120), effects = { brightness = 12, contrast = "-10%", grayscale = true, transparency = 25 }, flip_vertical = "true")
+
+#image("assets/pattern.png", width = pt(144), rotation = "30deg", border = { width = pt(0.75), color = "#334455", style = "dashed", opacity = "50%" })
+
+#image("assets/pattern.png", width = pt(96), height = pt(48), rotation = 90)
+
+After transforms.

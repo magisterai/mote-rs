@@ -1,0 +1,3 @@
+#document(page = { width = pt(300), height = pt(320) }, margin = { top = pt(24), right = pt(24), bottom = pt(24), left = pt(24) })
+#image("assets/gray.jpeg", width=pt(144))
+#image("assets/cmyk.jpeg", width=pt(144))

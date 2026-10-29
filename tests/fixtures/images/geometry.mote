@@ -1,0 +1,12 @@
+#document(page = { width = pt(300), height = pt(480) }, margin = { top = pt(24), right = pt(24), bottom = pt(24), left = pt(24) })
+Before images.
+
+#image("assets/pattern.png", name = "Natural", alt = "Natural image", link = "https://example.com/image")
+
+#image("assets/pattern.jpeg", width = pt(120), alignment = "center", title = "JPEG", spacing = { before = pt(3), after = pt(5) })
+
+#image("assets/pattern.gif", height = pt(48), alignment = "right")
+
+#image("assets/pattern.png", width = pt(500), height = pt(100))
+
+After images.

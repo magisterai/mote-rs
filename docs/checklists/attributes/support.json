@@ -1926,5 +1926,141 @@
       "tests/links.rs",
       "tests/docx_packages.rs"
     ]
+  },
+  "a:CT_Transform2D/@rot": {
+    "status": "supported",
+    "note": "Image `rotation` is normalized, emitted in DrawingML and painted in native output.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_Transform2D/@flipH": {
+    "status": "supported",
+    "note": "Image `flip_horizontal` is normalized, emitted in DrawingML and painted in native output.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_Transform2D/@flipV": {
+    "status": "supported",
+    "note": "Image `flip_vertical` is normalized, emitted in DrawingML and painted in native output.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_RelativeRect/@l": {
+    "status": "partial",
+    "note": "Image `crop.left` maps percentage values; native crop clamps to 0..100 and fills the authored frame. Other rectangle uses are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_RelativeRect/@t": {
+    "status": "partial",
+    "note": "Image `crop.top` maps percentage values; native crop clamps to 0..100 and fills the authored frame. Other rectangle uses are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_RelativeRect/@r": {
+    "status": "partial",
+    "note": "Image `crop.right` maps percentage values; native crop clamps to 0..100 and fills the authored frame. Other rectangle uses are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_RelativeRect/@b": {
+    "status": "partial",
+    "note": "Image `crop.bottom` maps percentage values; native crop clamps to 0..100 and fills the authored frame. Other rectangle uses are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_LuminanceEffect/@bright": {
+    "status": "supported",
+    "note": "Image effects map brightness to thousandths of a percent in DrawingML and native painting.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_LuminanceEffect/@contrast": {
+    "status": "supported",
+    "note": "Image effects map contrast to thousandths of a percent in DrawingML and native painting.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_AlphaModulateFixedEffect/@amt": {
+    "status": "partial",
+    "note": "Image effects.transparency maps inverse opacity; native transparency clamps to 0..100. Other alpha-modulation use cases are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_NonVisualDrawingProps/@name": {
+    "status": "supported",
+    "note": "Image name uses explicit name, title, then generated media filename in DOCX.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_NonVisualDrawingProps/@descr": {
+    "status": "supported",
+    "note": "Image description uses description, alt, title, then src in DOCX.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_NonVisualDrawingProps/hlinkClick": {
+    "status": "partial",
+    "note": "Image link emits an external hyperlink in DOCX and PDF; additional click-action controls are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_Blip/@r:embed": {
+    "status": "supported",
+    "note": "Image src resolves through the asset resolver and embeds original PNG, JPEG or GIF media in DOCX; generated relationship identifiers are not authorable.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_Blip/grayscl": {
+    "status": "supported",
+    "note": "Image effects.grayscale emits the DrawingML effect and paints grayscale in native output.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_PresetLineDashProperties/@val": {
+    "status": "partial",
+    "note": "Image border.style supports solid, dashed and dotted DOCX strokes; native borders remain solid. Other dash values are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
+  },
+  "a:CT_LineProperties/@w": {
+    "status": "partial",
+    "note": "Image border.width emits physical DrawingML width and native border geometry. Other line-width users are not exposed.",
+    "evidence": [
+      "docs/specification/images.md",
+      "tests/images.rs"
+    ]
   }
 }

@@ -4,6 +4,8 @@ use super::{Error, package, xml};
 #[derive(Default)]
 pub(super) struct Resources {
     relationships: Vec<Relationship>,
+    pub images: crate::media::ImageCatalog,
+    pub media: Vec<(String, crate::media::ImageAsset)>,
 }
 struct Relationship {
     kind: &'static str,
@@ -11,6 +13,21 @@ struct Relationship {
     external: bool,
 }
 impl Resources {
+    pub fn image(&mut self, asset: crate::media::ImageAsset) -> (String, String, usize) {
+        let identifier = self.media.len() + 1;
+        let name = format!("media/image{identifier}{}", asset.extension);
+        self.media.push((name.clone(), asset));
+        self.relationships.push(Relationship {
+            kind: "image",
+            target: name.clone(),
+            external: false,
+        });
+        (
+            format!("rId{}", self.relationships.len() + 4),
+            name,
+            identifier,
+        )
+    }
     pub fn hyperlink(&mut self, target: &str) -> String {
         self.relationships.push(Relationship {
             kind: "hyperlink",

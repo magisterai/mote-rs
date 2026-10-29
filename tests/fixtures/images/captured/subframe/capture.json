@@ -1,0 +1,23 @@
+{
+  "source": "../../subframe.mote",
+  "source_sha256": "10cce54fd2c0d687ea850ce5240edb476cc9627bc2c84c51ee84793749d42ae8",
+  "captured_docx_sha256": "8192b10d570c9f5563a9955dee90081f393635c563884036066838da91d16e43",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.gif",
+    "word/media/image2.gif",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "pages": 1,
+  "native_png_dpi": 72,
+  "captured_at_utc": "2026-10-29T11:31:19.960551+00:00",
+  "word_review_status": "unreviewed"
+}

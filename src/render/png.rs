@@ -1,3 +1,4 @@
+mod images;
 use super::{RenderError, Rendered, color, fonts::RasterFonts, validate_plan};
 use crate::{
     layout::{
@@ -65,6 +66,33 @@ pub fn paint_png(
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 match operation {
+                    PageOperation::OutlineRectangle {
+                        bounds,
+                        width,
+                        color,
+                    } => {
+                        let [left, top, horizontal, vertical] = *bounds;
+                        let line = width.max(1.0 / scale);
+                        for (left, top, width, height) in [
+                            (left, top, horizontal, line),
+                            (left, top + vertical - line, horizontal, line),
+                            (left, top, line, vertical),
+                            (left + horizontal - line, top, line, vertical),
+                        ] {
+                            fill_rectangle(
+                                &mut pixels,
+                                &crate::layout::HighlightRectangle {
+                                    x: left,
+                                    top,
+                                    width,
+                                    height,
+                                    color: color.clone(),
+                                },
+                                scale,
+                            )?;
+                        }
+                    }
+                    PageOperation::Image(image) => images::paint(&mut pixels, image, scale),
                     PageOperation::Text(index) => paint_line(
                         &mut pixels,
                         &page.lines[*index].line,

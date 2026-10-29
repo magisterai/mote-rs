@@ -54,6 +54,19 @@ fn write_formatted(
                     "<w:r><w:br/></w:r>"
                 });
             }
+            Content::Element(element) if element.kind == ElementKind::Image => {
+                if let Some(image) = super::images::write_run(element, resources)? {
+                    result.push_str(&image);
+                } else {
+                    let label = super::values::first_text(&element.attributes, &["alt", "src"])
+                        .unwrap_or_default();
+                    result.push_str(&write_text(
+                        &format!("[Image: {label}]"),
+                        formatting,
+                        styles,
+                    )?);
+                }
+            }
             Content::Element(element) if element.kind == ElementKind::Link => {
                 check_attributes(
                     &element.attributes,

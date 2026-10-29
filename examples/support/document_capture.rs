@@ -95,6 +95,8 @@ fn paint_operations(page: &mote::layout::TextPage) -> Value {
     let mut operations = Vec::new();
     for operation in &page.operations {
         match operation {
+            PageOperation::OutlineRectangle {bounds,width,color} => operations.push(json!({"kind":"outline","bounds":bounds,"width":width,"color":color})),
+            PageOperation::Image(image) => operations.push(json!({"kind":"image","bounds":image.bounds,"clip":image.clip})),
             PageOperation::Text(index) => {
                 let line=&page.lines[*index];
                 for rectangle in &line.line.highlights { operations.push(rectangle_value(rectangle)); }

@@ -153,12 +153,40 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     allowed.extend(["id", "start", "restart"]);
                 }
             }
+            ElementKind::Image => allowed.extend([
+                "src",
+                "alt",
+                "name",
+                "title",
+                "description",
+                "width",
+                "height",
+                "alignment",
+                "spacing",
+                "crop",
+                "rotation",
+                "flip_horizontal",
+                "flip_vertical",
+                "effects",
+                "border",
+                "link",
+                "placement",
+            ]),
             ElementKind::Link => allowed.push("url"),
             ElementKind::Break => allowed.push("type"),
             ElementKind::Tab | ElementKind::LineBreak => {}
         }
         unknown(attributes, &allowed, &path, warnings);
-        nested(attributes, &path, list, item, warnings);
+        if element.kind == ElementKind::Image {
+            image_properties(attributes, &path, warnings);
+            if path.contains(".children") {
+                warnings.insert(format!(
+                    "{path} uses a visible image placeholder inside flattened text"
+                ));
+            }
+        } else {
+            nested(attributes, &path, list, item, warnings);
+        }
         if element.kind == ElementKind::Heading
             && let Some(Value::Object(numbering)) = attributes.get("numbering")
         {
@@ -337,4 +365,53 @@ fn source_marker(marker: &str) -> bool {
         || marker.strip_suffix('.').is_some_and(|digits| {
             !digits.is_empty() && digits.bytes().all(|byte| byte.is_ascii_digit())
         })
+}
+
+fn image_properties(attributes: &Properties, path: &str, warnings: &mut BTreeSet<String>) {
+    for (group, allowed) in [
+        ("spacing", &["before", "after"][..]),
+        ("crop", &["left", "top", "right", "bottom"][..]),
+        (
+            "effects",
+            &["brightness", "contrast", "grayscale", "transparency"][..],
+        ),
+        ("border", &["width", "color", "style"][..]),
+        ("placement", &["width", "height", "align", "horizontal"][..]),
+    ] {
+        if let Some(Value::Object(fields)) = attributes.get(group) {
+            unknown(fields, allowed, &format!("{path}.{group}"), warnings);
+        }
+    }
+    if let Some(Value::Object(border)) = attributes.get("border")
+        && let Some(style) = border.get("style")
+        && matches!(style.to_text().as_str(), "dashed" | "dotted")
+    {
+        warnings.insert(format!("{path}.border.style uses a solid native stroke"));
+    }
+    if let Some(Value::Object(placement)) = attributes.get("placement")
+        && let Some(Value::Object(horizontal)) = placement.get("horizontal")
+    {
+        unknown(
+            horizontal,
+            &["relative_to", "alignment"],
+            &format!("{path}.placement.horizontal"),
+            warnings,
+        );
+        if horizontal
+            .get("relative_to")
+            .is_some_and(|value| !matches!(value.to_text().as_str(), "" | "column"))
+        {
+            warnings.insert(format!(
+                "{path}.placement.horizontal.relative_to uses column-relative native flow"
+            ));
+        }
+        if horizontal
+            .get("alignment")
+            .is_some_and(|value| !matches!(value.to_text().as_str(), "left" | "center" | "right"))
+        {
+            warnings.insert(format!(
+                "{path}.placement.horizontal.alignment uses left native flow"
+            ));
+        }
+    }
 }

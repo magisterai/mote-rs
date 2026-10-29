@@ -1,0 +1,8 @@
+#document(page = { width = pt(300), height = pt(260) }, margin = { top = pt(30), right = pt(24), bottom = pt(30), left = pt(24) }, columns = { count = 2, gap = pt(12), separator = true })
+#heading(level = 2)[Images in flow]
+#image("assets/pattern.png", width = pt(120), height = pt(85))
+Text after the first image.
+#image("assets/pattern.png", width = pt(100), height = pt(85), alignment = "center")
+#image("assets/pattern.png", width = pt(110), height = pt(70), spacing = { before = pt(8), after = pt(12) })
+#image("assets/pattern.png", width = pt(90), height = pt(95), alignment = "right")
+Text after the final image.

@@ -119,10 +119,10 @@ fn run_command() -> Result<(), String> {
         )
         .map_err(|error| format!("standard error: {error}"))?;
     }
+    let resolver =
+        FileAssetResolver::from_current_directory().map_err(|error| error.to_string())?;
+    let source_name = (source.name != "<stdin>").then_some(source.name.as_os_str());
     let bytes = if matches!(format.as_str(), "pdf" | "png") {
-        let resolver =
-            FileAssetResolver::from_current_directory().map_err(|error| error.to_string())?;
-        let source_name = (source.name != "<stdin>").then_some(source.name.as_os_str());
         if format == "png" {
             let rendered = mote::render::emit_png(
                 &document,
@@ -142,7 +142,10 @@ fn run_command() -> Result<(), String> {
         print_warnings(&name, &rendered.warnings)?;
         rendered.output
     } else if format == "docx" {
-        mote::docx::emit(&document).map_err(|error| format!("{name}: {error}"))?
+        let generated = mote::docx::emit_with_assets(&document, &resolver, source_name)
+            .map_err(|error| format!("{name}: {error}"))?;
+        print_warnings(&name, &generated.warnings)?;
+        generated.bytes
     } else {
         let mut json =
             mote::json::to_json(&document).map_err(|error| format!("JSON output: {error}"))?;

@@ -1,0 +1,53 @@
+[
+  {
+    "page": 1,
+    "bounds": [
+      24.0,
+      36.0,
+      72.0,
+      48.0
+    ],
+    "clip": [
+      24.0,
+      36.0,
+      72.0,
+      48.0
+    ],
+    "pixels": "image-1.png",
+    "pixel_tolerance": 1
+  },
+  {
+    "page": 1,
+    "bounds": [
+      64.0,
+      93.0,
+      80.0,
+      60.0
+    ],
+    "clip": [
+      64.0,
+      93.0,
+      80.0,
+      60.0
+    ],
+    "pixels": "image-2.png",
+    "pixel_tolerance": 1
+  },
+  {
+    "page": 1,
+    "bounds": [
+      39.0,
+      162.0,
+      90.0,
+      60.0
+    ],
+    "clip": [
+      39.0,
+      162.0,
+      90.0,
+      60.0
+    ],
+    "pixels": "image-3.png",
+    "pixel_tolerance": 1
+  }
+]

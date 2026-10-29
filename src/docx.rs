@@ -7,6 +7,7 @@ mod controls;
 mod document;
 mod fonts;
 mod headings;
+mod images;
 mod list_layout;
 mod lists;
 mod numbering;
@@ -67,18 +68,39 @@ impl From<zip::result::ZipError> for Error {
 /// Generate a complete package in memory. Unsupported content fails before a
 /// caller needs to create or replace an output file. The authored model is unchanged.
 pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
+    let resolver = crate::source::FileAssetResolver::new(".")?;
+    Ok(emit_with_assets(document, &resolver, None)?.bytes)
+}
+
+pub struct GeneratedPackage {
+    pub bytes: Vec<u8>,
+    pub warnings: Vec<String>,
+}
+
+/// Resolve media once and retain diagnostics separately from the generated package.
+pub fn emit_with_assets(
+    document: &Document,
+    resolver: &dyn crate::source::AssetResolver,
+    source_name: Option<&std::ffi::OsStr>,
+) -> Result<GeneratedPackage, Error> {
     let styles = styles::Styles::new(document)?;
     let font_table = fonts::write_table(document)?;
     let styles_xml = styles.write()?;
     let mut state = document::DocumentState::default();
+    state.resources.images = crate::media::ImageCatalog::load(document, resolver, source_name);
     let body = document::write_document(document, &styles, &mut state)?;
-    package::write(
+    let bytes = package::write(
         &body,
         &styles_xml,
         &font_table,
         &state.numbering.write()?,
         &state.resources.relationships()?,
-    )
+        &state.resources.media,
+    )?;
+    Ok(GeneratedPackage {
+        bytes,
+        warnings: state.resources.images.warnings,
+    })
 }
 
 fn check_attributes(
