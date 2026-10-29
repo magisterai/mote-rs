@@ -189,7 +189,16 @@ segments. Markdown formatting shares its surrounding scope. Six frozen binding
 cases compare complete models and DOCX packages; see
 [the captures](../tests/fixtures/bindings/README.md).
 
-JSON loading, Lua and PowerPoint output remain deferred.
+`compile_with_assets` evaluates source with a selected `AssetResolver` and an
+optional logical source name. The `json` helper uses that resolver and snapshots
+requests for the compilation. Plain `compile` remains independent of external
+resources and reports an explicit resolver requirement for JSON. The CLI selects
+a filesystem resolver and shares its snapshot through source loading, evaluation,
+and output generation. [JSON tests](../tests/json_data.rs) cover custom resolver
+errors, logical identities, repeated requests, source-relative files, stdin,
+and complete model/package captures. No dependency is added for data loading.
+
+Lua and PowerPoint output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)

@@ -45,6 +45,7 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `json` | [JSON data](json.md) | Typed JSON values, source-relative resolution and compilation snapshots. |
 | `let` | [Bindings](let.md) | Typed values, lexical scopes, content insertion and property paths. |
 | `footnote` | [Footnotes](footnote.md) | Inline references, block bodies, identifiers, and Markdown definitions. |
 | `endnote` | [Endnotes](endnote.md) | Inline references, block bodies, and identifiers. |

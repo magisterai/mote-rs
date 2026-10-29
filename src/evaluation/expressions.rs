@@ -13,7 +13,7 @@ pub(super) struct EvaluatedArgument<'expression> {
 
 pub(super) fn evaluate_named_arguments<'expression>(
     arguments: &'expression [Argument],
-    state: &super::EvaluationState,
+    state: &super::EvaluationState<'_>,
 ) -> Result<BTreeMap<String, EvaluatedArgument<'expression>>, Diagnostic> {
     let mut evaluated = BTreeMap::new();
     for argument in arguments {
@@ -32,7 +32,7 @@ pub(super) fn evaluate_named_arguments<'expression>(
 
 pub(super) fn evaluate_expression(
     expression: &Expression,
-    state: &super::EvaluationState,
+    state: &super::EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     match &expression.kind {
         ExpressionKind::Boolean(value) => state
@@ -45,7 +45,7 @@ pub(super) fn evaluate_expression(
 
 fn evaluate_static_expression(
     expression: &Expression,
-    state: &super::EvaluationState,
+    state: &super::EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     Ok(match &expression.kind {
         ExpressionKind::String(text) => Value::String(text.clone()),
@@ -82,7 +82,7 @@ pub(super) fn evaluate_helper(
     name: &str,
     arguments: &[Argument],
     span: Span,
-    state: &super::EvaluationState,
+    state: &super::EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     evaluate_helper_arguments(name, arguments, span, state, false)
 }
@@ -91,11 +91,11 @@ fn evaluate_helper_arguments(
     name: &str,
     arguments: &[Argument],
     span: Span,
-    state: &super::EvaluationState,
+    state: &super::EvaluationState<'_>,
     static_arguments: bool,
 ) -> Result<Value, Diagnostic> {
     let unit = Unit::from_name(name);
-    if unit.is_none() && !matches!(name, "upper" | "color") {
+    if unit.is_none() && !matches!(name, "upper" | "color" | "json") {
         return Err(Diagnostic::new(span, format!("unsupported helper: {name}")));
     }
     let argument = match arguments {
@@ -112,6 +112,9 @@ fn evaluate_helper_arguments(
     } else {
         evaluate_expression(&argument.value, state)?
     };
+    if name == "json" {
+        return super::data::load_json(value, argument.value.span, state);
+    }
     if name == "color" {
         return normalize_color(value, argument.value.span, "color");
     }

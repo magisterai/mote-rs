@@ -15,7 +15,9 @@ struct StoryCapture {
     footer: Option<HeaderFooter>,
 }
 #[derive(Default)]
-pub(super) struct EvaluationState {
+pub(super) struct EvaluationState<'resolver> {
+    pub assets: Option<&'resolver dyn crate::source::AssetResolver>,
+    pub source_name: Option<&'resolver std::ffi::OsStr>,
     document: Document,
     pub bindings: super::bindings::Bindings,
     pub markdown_notes: std::collections::BTreeMap<String, super::notes::Definition>,
@@ -28,18 +30,18 @@ pub(super) struct EvaluationState {
     new_implicit_section: bool,
     declared_sections: bool,
 }
-impl Deref for EvaluationState {
+impl Deref for EvaluationState<'_> {
     type Target = Document;
     fn deref(&self) -> &Document {
         &self.document
     }
 }
-impl DerefMut for EvaluationState {
+impl DerefMut for EvaluationState<'_> {
     fn deref_mut(&mut self) -> &mut Document {
         &mut self.document
     }
 }
-impl EvaluationState {
+impl EvaluationState<'_> {
     pub fn append_content(&mut self, content: &[Content]) {
         if content.is_empty() {
             return;
@@ -126,7 +128,7 @@ pub(super) fn evaluate_story(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    state: &mut EvaluationState,
+    state: &mut EvaluationState<'_>,
 ) -> Result<(), Diagnostic> {
     check_body(call, span)?;
     let arguments = evaluate_named_arguments(&call.arguments, state)?;
@@ -175,7 +177,7 @@ pub(super) fn evaluate_section(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    state: &mut EvaluationState,
+    state: &mut EvaluationState<'_>,
 ) -> Result<Vec<Content>, Diagnostic> {
     check_body(call, span)?;
     state.declared_sections = true;

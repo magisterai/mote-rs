@@ -94,8 +94,9 @@ impl std::error::Error for SourceError {
 }
 
 /// Loads one source through the selected resolver and validates its UTF-8 text.
-/// Pass the returned text to [`crate::compile`]; the name remains available for
-/// diagnostics and subsequent source-relative requests.
+/// Pass the returned text and name to [`crate::compile_with_assets`] when source
+/// expressions load resources. The name also remains available for diagnostics
+/// and source-relative output assets.
 pub fn load_source(
     resolver: &dyn AssetResolver,
     request: AssetRequest<'_>,

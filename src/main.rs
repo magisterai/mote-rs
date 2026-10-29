@@ -5,7 +5,9 @@ use std::{
     process::ExitCode,
 };
 
-use mote::source::{AssetRequest, FileAssetResolver, SourceFile, load_source};
+use mote::source::{
+    AssetRequest, CachingAssetResolver, FileAssetResolver, SourceFile, load_source,
+};
 
 const HELP: &str = "Usage: mote [--format json|docx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX requires an output path. PDF and PNG also require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\nUnsupported native structure produces an error. PowerPoint output is not implemented.\n";
 
@@ -81,19 +83,17 @@ fn run_command() -> Result<(), String> {
     {
         return Err("source and output paths must be different".into());
     }
+    let files = FileAssetResolver::from_current_directory().map_err(|error| error.to_string())?;
+    let resolver = CachingAssetResolver::new(&files);
     let source = match input {
-        Some(path) if path != "-" => {
-            let resolver = FileAssetResolver::from_current_directory()
-                .map_err(|error| format!("{}: {error}", path.to_string_lossy()))?;
-            load_source(
-                &resolver,
-                AssetRequest {
-                    reference: &path,
-                    source_name: None,
-                },
-            )
-            .map_err(|error| error.to_string())?
-        }
+        Some(path) if path != "-" => load_source(
+            &resolver,
+            AssetRequest {
+                reference: &path,
+                source_name: None,
+            },
+        )
+        .map_err(|error| error.to_string())?,
         _ => {
             let mut source = String::new();
             io::stdin()
@@ -106,10 +106,12 @@ fn run_command() -> Result<(), String> {
         }
     };
     let name = source.name.to_string_lossy();
-    let document = mote::compile(&source.text).map_err(|error| {
-        let (line, column) = error.location(&source.text);
-        format!("{name}:{line}:{column}: {}", error.message)
-    })?;
+    let source_name = (source.name != "<stdin>").then_some(source.name.as_os_str());
+    let document =
+        mote::compile_with_assets(&source.text, &resolver, source_name).map_err(|error| {
+            let (line, column) = error.location(&source.text);
+            format!("{name}:{line}:{column}: {}", error.message)
+        })?;
     for warning in &document.warnings {
         let (line, column) = warning.location(&source.text);
         writeln!(
@@ -119,9 +121,6 @@ fn run_command() -> Result<(), String> {
         )
         .map_err(|error| format!("standard error: {error}"))?;
     }
-    let resolver =
-        FileAssetResolver::from_current_directory().map_err(|error| error.to_string())?;
-    let source_name = (source.name != "<stdin>").then_some(source.name.as_os_str());
     let bytes = if matches!(format.as_str(), "pdf" | "png") {
         if format == "png" {
             let rendered = mote::render::emit_png(

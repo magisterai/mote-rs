@@ -12,7 +12,7 @@ pub(super) fn evaluate(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    state: &mut EvaluationState,
+    state: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     let kind = match call.name.as_str() {
         "bookmark" => ElementKind::Bookmark,

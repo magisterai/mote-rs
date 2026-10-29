@@ -21,7 +21,7 @@ const NUMBER_FORMATS: &[&str] = &[
 pub(super) fn evaluate_attributes(
     kind: ElementKind,
     arguments: &[Argument],
-    state: &super::EvaluationState,
+    state: &super::EvaluationState<'_>,
 ) -> Result<Properties, Diagnostic> {
     let mut named_arguments = evaluate_named_arguments(arguments, state)?;
     // Repeated names use their final value. Outer types are checked before overrides.

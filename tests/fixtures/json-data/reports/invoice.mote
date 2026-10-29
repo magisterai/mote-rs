@@ -1,0 +1,6 @@
+#let(invoice=json("../data/invoice.json"), first=invoice.items.0.name)
+#heading[#invoice.client.name]
+#paragraph[#span(properties=invoice.format)[Total: #invoice.total]]
+#paragraph[#first #invoice.paid #invoice.note]
+#let(second=json("../data/invoice.json"))
+#paragraph[#second.client.name]

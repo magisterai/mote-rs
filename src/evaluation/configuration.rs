@@ -8,7 +8,7 @@ use crate::syntax::Call;
 pub(super) fn evaluate(
     call: &Call,
     span: Span,
-    document: &mut super::EvaluationState,
+    document: &mut super::EvaluationState<'_>,
 ) -> Result<(), Diagnostic> {
     if !call.bodies.is_empty()
         || call

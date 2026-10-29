@@ -498,6 +498,23 @@
     {
       "example": "bindings/3",
       "model": "bindings-3"
+    },
+    {
+      "example": "json-data/1",
+      "model": "json-data-1",
+      "assets": {
+        "invoice.json": {
+          "client": {
+            "name": "Acme"
+          },
+          "total": 1234.5,
+          "items": [
+            {
+              "name": "Support"
+            }
+          ]
+        }
+      }
     }
   ],
   "models": {
@@ -7016,6 +7033,82 @@
             {
               "kind": "text",
               "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    "json-data-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Acme"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Support"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "1234.5"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Acme"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Support"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "text",
+              "text": "1234.5"
             }
           ]
         }

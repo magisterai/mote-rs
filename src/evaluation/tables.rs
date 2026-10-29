@@ -15,7 +15,7 @@ pub(super) fn evaluate(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    document: &mut EvaluationState,
+    document: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     let kind = match call.name.as_str() {
         "table" => ElementKind::Table,
@@ -119,7 +119,7 @@ pub(super) fn normalize(
 pub(super) fn evaluate_markdown(
     rows: &[crate::syntax::MarkdownTableRow],
     context: EvaluationContext<'_>,
-    document: &mut EvaluationState,
+    document: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     let mut children = Vec::new();
     for row in rows {

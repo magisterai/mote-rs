@@ -12,6 +12,9 @@ Models retain text fragment boundaries and source markers; Markdown and directiv
 forms can have the same visible meaning with different inspection metadata.
 The document envelope includes implicit section content and empty property groups.
 
+A case may also declare `assets`, mapping authored resource names to JSON values.
+Those resources are supplied by an in-memory resolver during that example.
+
 The conformance test reads the source directly from the chapters. Adding or
 removing an example requires updating its outcome here. Successful examples must
 evaluate to their declared models. Deliberate invalid examples must parse and

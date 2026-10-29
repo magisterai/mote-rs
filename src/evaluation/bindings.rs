@@ -55,7 +55,7 @@ impl Bindings {
 pub(super) fn evaluate(
     call: &Call,
     span: Span,
-    state: &mut EvaluationState,
+    state: &mut EvaluationState<'_>,
 ) -> Result<(), Diagnostic> {
     if !call.bodies.is_empty() {
         return Err(Diagnostic::new(span, "let does not accept a body"));

@@ -10,7 +10,7 @@ pub(super) fn evaluate(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    state: &mut EvaluationState,
+    state: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     if call.bodies.len() != 1
         || call
@@ -86,7 +86,7 @@ pub(super) fn markdown_reference(
     name: &str,
     span: Span,
     context: EvaluationContext<'_>,
-    state: &mut EvaluationState,
+    state: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     use crate::model::{Properties, Value};
     let children = if let Some(definition) = state.markdown_notes.get(name).cloned() {

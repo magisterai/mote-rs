@@ -1,0 +1,154 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Acme Europe"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true,
+                "color": "#123456",
+                "size": 12
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Total: "
+                },
+                {
+                  "kind": "text",
+                  "text": "1234.5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Support"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "false"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Acme Europe"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Acme Europe"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": true,
+            "color": "#123456",
+            "size": 12
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Total: "
+            },
+            {
+              "kind": "text",
+              "text": "1234.5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Support"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "false"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Acme Europe"
+        }
+      ]
+    }
+  ]
+}

@@ -8,6 +8,7 @@ mod attributes;
 mod bindings;
 mod captions;
 mod configuration;
+mod data;
 mod declarations;
 mod expressions;
 mod images;
@@ -28,7 +29,26 @@ struct EvaluationContext<'source> {
 }
 
 pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
-    let mut document = EvaluationState::default();
+    evaluate_with_state(tree, EvaluationState::default())
+}
+
+/// Evaluate with source-relative resources, snapshotted for this evaluation.
+pub fn evaluate_with_assets(
+    tree: &SyntaxTree,
+    resolver: &dyn crate::source::AssetResolver,
+    source_name: Option<&std::ffi::OsStr>,
+) -> Result<Document, Diagnostic> {
+    let assets = crate::source::CachingAssetResolver::new(resolver);
+    let mut state = EvaluationState::default();
+    state.assets = Some(&assets);
+    state.source_name = source_name;
+    evaluate_with_state(tree, state)
+}
+
+fn evaluate_with_state(
+    tree: &SyntaxTree,
+    mut document: EvaluationState<'_>,
+) -> Result<Document, Diagnostic> {
     notes::collect_definitions(&tree.nodes, &mut document);
     document.content = evaluate_nodes(
         &tree.nodes,
@@ -76,7 +96,7 @@ fn evaluate_nodes(
     nodes: &[Node],
     mode: ContentMode,
     context: EvaluationContext<'_>,
-    document: &mut EvaluationState,
+    document: &mut EvaluationState<'_>,
 ) -> Result<Vec<Content>, Diagnostic> {
     let mut result = Vec::new();
     let mut paragraph = Vec::new();
@@ -250,6 +270,17 @@ fn evaluate_nodes(
                     children: Vec::new(),
                 })
             }
+            NodeKind::Call(call) if call.name == "json" => {
+                if !call.bodies.is_empty() {
+                    return Err(Diagnostic::new(node.span, "json does not accept a body"));
+                }
+                let value = evaluate_helper(&call.name, &call.arguments, node.span, document)?;
+                if value == Value::Nil {
+                    skip_declaration_trivia = true;
+                    continue;
+                }
+                Content::Text(value.to_text())
+            }
             NodeKind::Call(call) => evaluate_call(call, node.span, context, document)?,
             NodeKind::Reference(name) => {
                 let value = document.bindings.resolve(name, node.span)?;
@@ -374,7 +405,7 @@ fn evaluate_call(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    document: &mut EvaluationState,
+    document: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     if matches!(call.name.as_str(), "table" | "row" | "cell") {
         return tables::evaluate(call, span, context, document);
@@ -531,7 +562,7 @@ fn evaluate_code(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    document: &mut EvaluationState,
+    document: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     if call.bodies.len() > 1 {
         return Err(Diagnostic::new(
@@ -602,7 +633,7 @@ fn evaluate_body(
     nodes: &[Node],
     mode: ContentMode,
     context: EvaluationContext<'_>,
-    state: &mut EvaluationState,
+    state: &mut EvaluationState<'_>,
 ) -> Result<Vec<Content>, Diagnostic> {
     state.bindings.enter();
     let result = evaluate_nodes(nodes, mode, context, state);

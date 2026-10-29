@@ -53,12 +53,14 @@ Status: initial draft.
 19. [Bindings and property access](bindings.md): typed values, lexical scopes,
     content references and object/array paths.
 
+20. [JSON data](json-data.md): typed resources, source-relative paths and snapshots.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
 the rule they violate. Implementation deferrals do not replace definitions.
 
-Later chapters will introduce data loading, additional formatting,
+Later chapters will introduce additional data helpers, formatting,
 scripting, and layout. Their syntax is not used in the
 introductory examples.
 

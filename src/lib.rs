@@ -25,3 +25,14 @@ mod properties;
 mod captions;
 mod numbering;
 mod references;
+
+/// Parse and evaluate with a selected resolver and optional logical source name.
+/// Resource requests are cached for this compilation. Custom failures never
+/// fall back to the filesystem; use `FileAssetResolver` for local files.
+pub fn compile_with_assets(
+    source: &str,
+    resolver: &dyn source::AssetResolver,
+    source_name: Option<&std::ffi::OsStr>,
+) -> Result<model::Document, diagnostics::Diagnostic> {
+    evaluation::evaluate_with_assets(&syntax::parse(source)?, resolver, source_name)
+}

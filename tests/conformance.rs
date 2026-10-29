@@ -45,8 +45,22 @@ fn specification_examples_match_their_declared_outcomes() {
             let expected = models
                 .get(model_name)
                 .unwrap_or_else(|| panic!("missing expected model: {model_name}"));
-            let document =
-                compile(&source).unwrap_or_else(|error| panic!("{example_identifier}: {error}"));
+            let compiled = if let Some(assets) = case.get("assets") {
+                let resolver = |request: mote::source::AssetRequest<'_>| {
+                    let name = request.reference.to_str().unwrap();
+                    let value = assets
+                        .get(name)
+                        .ok_or_else(|| std::io::Error::new(std::io::ErrorKind::NotFound, name))?;
+                    Ok(mote::source::ResolvedAsset {
+                        name: request.reference.to_owned(),
+                        bytes: serde_json::to_vec(value).unwrap(),
+                    })
+                };
+                mote::compile_with_assets(&source, &resolver, None)
+            } else {
+                compile(&source)
+            };
+            let document = compiled.unwrap_or_else(|error| panic!("{example_identifier}: {error}"));
             let actual: Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
             assert_eq!(&actual, expected, "{example_identifier}");
         } else {

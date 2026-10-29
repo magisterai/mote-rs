@@ -12,7 +12,7 @@ use crate::{
 pub(super) fn evaluate(
     call: &Call,
     span: Span,
-    state: &super::EvaluationState,
+    state: &super::EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     if !call.bodies.is_empty() {
         return Err(Diagnostic::new(span, "image accepts no body"));

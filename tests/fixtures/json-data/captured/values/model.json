@@ -1,0 +1,126 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "hello, true, false, , 0, -1, 1.25, 9007199254740992, {}, , {nested: 1, 2}, 1.2345678901234567"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "9007199254740992"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "{}"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "1.2345678901234567"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "hello, true, false, , 0, -1, 1.25, 9007199254740992, {}, , {nested: 1, 2}, 1.2345678901234567"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "hello, true, false, , 0, -1, 1.25, 9007199254740992, {}, , {nested: 1, 2}, 1.2345678901234567"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "9007199254740992"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "{}"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "1.2345678901234567"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "hello, true, false, , 0, -1, 1.25, 9007199254740992, {}, , {nested: 1, 2}, 1.2345678901234567"
+        }
+      ]
+    }
+  ]
+}
