@@ -1,0 +1,7 @@
+#paragraph[plain #strong[bold #emphasis[both] bold] plain #emphasis[italic] plain]
+#paragraph[#span(font = "Arial", size = "10.25pt", color = "#369", highlight = "#eef", bold = true, italic = true, underline = true, small_caps = true, strike = true, double_strike = true)[outer #span(bold = false, italic = false, underline = false, small_caps = false, strike = false, double_strike = false, size = pt(9))[inner] outer] plain]
+#paragraph[#span(size = pt(10.24))[below] #span(size = pt(10.25))[quarter] #span(size = inch(0.1423))[inch rounding] #span(size = pt(10.2456))[point rounding] #span(size = 0)[zero] #span(font = "mono")[mono]]
+#paragraph[#span(font = "Arial", size = pt(16), color = "#123", bold = true)[before #code[code #emphasis[italic]] after]]
+#paragraph[#code(preserve_space = true)[  preserved	text
+ next  ] tail]
+#paragraph[before #span(bold = true)[  #line_break()  next  ] after]

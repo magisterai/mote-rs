@@ -43,8 +43,11 @@ separate presentation verification and truthful warnings for degraded output.
 
 ## Output limits
 
-Rendered code styles and whitespace remain unsupported, including tabs, blank
-lines, and mixed inline formatting. Checked items cover language/model behaviour.
+DOCX supports the default Code character style, inherited formatting, nested
+inlines, preserved whitespace, and four-space expansion of preserved tabs.
+Custom style references remain deferred. Direct font/size/color attributes have
+no DOCX mapping and produce an error. [Structural evidence](../../tests/fixtures/docx/inline-formatting/README.md)
+is captured; real Word review is unreviewed and native output remains unsupported.
 
 ## Specification inventory
 

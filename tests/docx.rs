@@ -51,7 +51,7 @@ fn unsupported_content_and_attributes_fail_explicitly() {
         "#heading[Title]",
         "#list[#item[Item]]",
         "#paragraph(custom=true)[Text]",
-        "#span[Text]",
+        "#span(custom=true)[Text]",
         "#font(name=\"Body\", latin=\"Arial\")",
     ] {
         let error = mote::docx::emit(&mote::compile(source).unwrap()).unwrap_err();
@@ -87,6 +87,25 @@ fn unimplemented_nested_properties_and_invalid_output_ranges_are_explicit() {
         "#paragraph(indent={start=pt(4)})[Text]",
         "#paragraph(outline_level=10)[Text]",
         "#paragraph(spacing_after=pt(1000000000000))[Text]",
+    ] {
+        assert!(
+            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
+            "{source}"
+        );
+    }
+}
+
+#[test]
+fn inline_formatting_matches_reference() {
+    support::compare_fixture("inline-formatting");
+}
+
+#[test]
+fn direct_attributes_without_a_word_mapping_fail_explicitly() {
+    for source in [
+        "#strong(size=pt(12))[Text]",
+        "#emphasis(font=\"Arial\")[Text]",
+        "#code(color=\"#123\")[Text]",
     ] {
         assert!(
             mote::docx::emit(&mote::compile(source).unwrap()).is_err(),

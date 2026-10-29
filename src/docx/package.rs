@@ -2,7 +2,7 @@ use super::Error;
 use std::io::{Cursor, Write};
 use zip::{ZipWriter, write::SimpleFileOptions};
 
-pub(super) fn write(document: &str) -> Result<Vec<u8>, Error> {
+pub(super) fn write(document: &str, styles: &str) -> Result<Vec<u8>, Error> {
     let now = time::OffsetDateTime::now_utc();
     let timestamp = format!(
         "{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z",
@@ -32,7 +32,7 @@ pub(super) fn write(document: &str) -> Result<Vec<u8>, Error> {
         ("docProps/core.xml", &core_properties),
         ("word/document.xml", document),
         ("word/_rels/document.xml.rels", DOCUMENT_RELATIONSHIPS),
-        ("word/styles.xml", DEFAULT_STYLES),
+        ("word/styles.xml", styles),
         ("word/settings.xml", SETTINGS),
         ("word/fontTable.xml", FONT_TABLE),
         ("word/numbering.xml", NUMBERING),

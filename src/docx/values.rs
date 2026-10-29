@@ -125,3 +125,15 @@ pub(super) fn color(value: &Value) -> Result<String, Error> {
     }
     .to_uppercase())
 }
+
+pub(super) fn half_points(value: &Value) -> Result<i64, Error> {
+    match value {
+        Value::Length {
+            value,
+            unit: Unit::Point,
+        } => rounded(value * 2.0),
+        Value::Length { .. } => rounded(twips(value)? as f64 / 10.0),
+        Value::String(text) if text.contains("pt") => rounded(twips(value)? as f64 / 10.0),
+        _ => rounded(number(value)? * 2.0),
+    }
+}

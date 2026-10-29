@@ -3,7 +3,9 @@
 mod package;
 mod paragraph_properties;
 mod paragraphs;
+mod run_properties;
 mod runs;
+mod styles;
 mod values;
 mod whitespace;
 mod xml;
@@ -58,7 +60,7 @@ pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
         return Err(Error::Unsupported("font and style declarations".into()));
     }
     let body = paragraphs::write_document(document)?;
-    package::write(&body)
+    package::write(&body, &styles::write(document))
 }
 
 fn check_attributes(

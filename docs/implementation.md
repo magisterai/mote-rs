@@ -234,7 +234,11 @@ the CLI opens its output file. JSON remains the default output format.
 
 The package uses ZIP with only DEFLATE enabled, XML generated from the model,
 and UTC creation/modification metadata. Direct paragraph formatting includes alignment, spacing, indentation, pagination
-flags, outline levels 0–9, shading, borders, and tab stops. Unknown nested
+flags, outline levels 0–9, shading, borders, and tab stops. Inline output includes
+strong/emphasis intent, span formatting and a default Code style. Nested formatting
+is local to each child. Code preserves requested whitespace and expands preserved
+tabs to four spaces. Direct strong/emphasis attributes and direct code font, size
+and color have no DOCX mapping and fail explicitly. Unknown nested
 properties and out-of-range output values fail explicitly. Authored exact line
 heights are preserved without estimating clipping.
 

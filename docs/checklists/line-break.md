@@ -23,8 +23,10 @@ Those belong to a separate future directive and checklist.
 
 ## Output limits
 
-The explicit element and Markdown hard break are represented in the model.
-Visible line breaks and their placement in generated output remain unsupported.
+Explicit and Markdown hard breaks emit `w:br` in DOCX. Consecutive breaks and
+placement among formatted runs have [structural coverage](../../tests/fixtures/docx/text-fidelity/README.md).
+Named line-break attributes remain unsupported in output. Real Word review is
+unreviewed; native PDF/PNG output remains unsupported.
 
 ## Specification inventory
 
