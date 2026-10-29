@@ -1,0 +1,6 @@
+#paragraph(alignment = "left", spacing_before = pt(9), spacing_after = pt(8), line_spacing = pt(18), spacing = { before = pt(0), after = pt(6), line = { rule = "multiple", value = 1.15 } }, indent = { left = inch(0.5), right = cm(0.5), first_line = mm(2), hanging = twip(20) }, keep_with_next = true, keep_together = false, page_break_before = false, widow_control = true, outline_level = 2)[Paragraph geometry.]
+#paragraph(alignment = "center", spacing = { spacing_before = "3pt", spacing_after = "4pt", line_spacing = { rule = "exact", value = "14pt" } }, keep_with_next = false, keep_together = true, page_break_before = true, widow_control = false)[Exact line spacing.]
+#paragraph(alignment = "right", spacing = { line = { rule = "at_least", value = pt(10) } }, indent = { left = 0, right = "0", first_line = pt(0) })[Minimum line spacing.]
+#paragraph(alignment = "justify", spacing_before = 2, spacing_after = "3", line_spacing = 240)[Unitless paragraph lengths.]
+#paragraph(border = { all = { style = "double", size = 8, space = 2, color = "#123" }, bottom = { val = "single", width = pt(1.25) }, right = "none" }, fill = "#eef", tabs = { { position = inch(1), alignment = "right", leader = "dot" }, { pos = pt(36), align = "center" } })[Borders and tabs.]
+#paragraph(border = { top = "single" }, tabs = { right = pt(72) })[Shorthand.]

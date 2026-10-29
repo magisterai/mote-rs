@@ -51,8 +51,11 @@ not additional direct paragraph controls here.
 
 ## Output limits
 
-Output mappings and rendering of paragraph attributes remain unsupported.
-Spacing and pagination have language/model coverage only.
+DOCX maps alignment, spacing and its aliases, indentation, pagination flags,
+outline levels 0–9, shading, borders and tab stops. Named styles are deferred.
+[Captured structural comparisons](../../tests/fixtures/docx/paragraph-formatting/README.md)
+cover these mappings; page layout and real Word review remain unreviewed.
+Native PDF/PNG output remains unsupported.
 
 ## Specification inventory
 

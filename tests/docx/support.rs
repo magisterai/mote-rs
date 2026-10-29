@@ -65,7 +65,12 @@ fn canonical_element(node: roxmltree::Node<'_, '_>) -> XmlElement {
         children: node
             .children()
             .filter_map(|child| {
-                if child.is_element() {
+                if child.has_tag_name((
+                    "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
+                    "lastRenderedPageBreak",
+                )) {
+                    None
+                } else if child.is_element() {
                     Some(XmlContent::Element(canonical_element(child)))
                 } else if child.is_text() {
                     let text = child.text().unwrap();
@@ -89,10 +94,10 @@ fn canonical_element(node: roxmltree::Node<'_, '_>) -> XmlElement {
 pub fn compare_xml(actual: &str, expected: &str, name: &str) {
     let actual = roxmltree::Document::parse(actual).unwrap();
     let expected = roxmltree::Document::parse(expected).unwrap();
-    assert_eq!(
-        canonical_element(actual.root_element()),
-        canonical_element(expected.root_element()),
-        "{name}"
+    compare_elements(
+        &canonical_element(actual.root_element()),
+        &canonical_element(expected.root_element()),
+        name,
     );
 }
 
@@ -101,11 +106,13 @@ pub fn compare_fixture(name: &str) -> BTreeMap<String, String> {
         .join("tests/fixtures/docx")
         .join(name);
     let source = fs::read_to_string(fixture.join("source.mote")).unwrap();
-    let model: serde_json::Value =
+    let mut model: serde_json::Value =
         serde_json::from_str(&mote::json::to_json(&mote::compile(&source).unwrap()).unwrap())
             .unwrap();
-    let expected_model: serde_json::Value =
+    let mut expected_model: serde_json::Value =
         serde_json::from_str(&fs::read_to_string(fixture.join("model.json")).unwrap()).unwrap();
+    normalize_numbers(&mut model);
+    normalize_numbers(&mut expected_model);
     assert_eq!(model, expected_model, "{name}: evaluated model");
     let actual = package(&source);
     let capture: serde_json::Value =
@@ -119,7 +126,64 @@ pub fn compare_fixture(name: &str) -> BTreeMap<String, String> {
     assert_eq!(actual.len(), names.len());
     for name in names {
         let expected = fs::read_to_string(fixture.join("package").join(name)).unwrap();
+        let count_advisory = |text: &str| {
+            roxmltree::Document::parse(text)
+                .unwrap()
+                .descendants()
+                .filter(|node| {
+                    node.has_tag_name((
+                        "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
+                        "lastRenderedPageBreak",
+                    ))
+                })
+                .count()
+        };
+        let expected_omissions = capture["omitted_advisory_page_breaks"][name]
+            .as_u64()
+            .unwrap_or(0) as usize;
+        assert_eq!(
+            count_advisory(&expected),
+            expected_omissions,
+            "{name}: advisory marker inventory"
+        );
+        assert_eq!(
+            count_advisory(&actual[name]),
+            0,
+            "{name}: output has no pagination estimate"
+        );
         compare_xml(&actual[name], &expected, name);
     }
     actual
+}
+
+fn normalize_numbers(value: &mut serde_json::Value) {
+    match value {
+        serde_json::Value::Number(number) => {
+            *number = serde_json::Number::from_f64(number.as_f64().unwrap()).unwrap()
+        }
+        serde_json::Value::Array(values) => values.iter_mut().for_each(normalize_numbers),
+        serde_json::Value::Object(properties) => {
+            properties.values_mut().for_each(normalize_numbers)
+        }
+        _ => {}
+    }
+}
+
+fn compare_elements(actual: &XmlElement, expected: &XmlElement, path: &str) {
+    assert_eq!(actual.name, expected.name, "{path}: element name");
+    assert_eq!(actual.attributes, expected.attributes, "{path}: attributes");
+    assert_eq!(
+        actual.children.len(),
+        expected.children.len(),
+        "{path}: child count"
+    );
+    for (index, (actual, expected)) in actual.children.iter().zip(&expected.children).enumerate() {
+        let path = format!("{path}/{index}");
+        match (actual, expected) {
+            (XmlContent::Element(actual), XmlContent::Element(expected)) => {
+                compare_elements(actual, expected, &path)
+            }
+            _ => assert_eq!(actual, expected, "{path}: content"),
+        }
+    }
 }

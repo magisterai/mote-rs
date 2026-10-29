@@ -233,12 +233,19 @@ Unsupported content, attributes, and declarations return explicit errors before
 the CLI opens its output file. JSON remains the default output format.
 
 The package uses ZIP with only DEFLATE enabled, XML generated from the model,
-and UTC creation/modification metadata. Font measurement is not required for
+and UTC creation/modification metadata. Direct paragraph formatting includes alignment, spacing, indentation, pagination
+flags, outline levels 0–9, shading, borders, and tab stops. Unknown nested
+properties and out-of-range output values fail explicitly. Authored exact line
+heights are preserved without estimating clipping.
+
+Font measurement is not required for
 DOCX emission; Word performs layout and pagination. No measurement, shaping,
 image, or general document framework is included in the dependency graph.
 
 [DOCX tests](../tests/docx.rs) compare all package parts with the
 [plain-paragraph reference](../tests/fixtures/docx/plain-paragraph/README.md),
 resolving XML names by namespace and ignoring only generation timestamps and
-formatting whitespace outside text elements. Real Word rendering remains
+formatting whitespace outside text elements. Captured advisory pagination markers
+are inventoried separately and omitted; actual break settings remain compared.
+Real Word rendering remains
 **unreviewed**. Package agreement does not establish layout conformance.

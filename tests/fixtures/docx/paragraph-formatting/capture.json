@@ -1,0 +1,27 @@
+{
+  "source": "source.mote",
+  "model": "model.json",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "source_sha256": "d6d62b5cb0042c64c1ff9fdc05552feda29f0192e9d31120d074f02661b1847b",
+  "captured_docx_sha256": "bfc6a145182c4eb9e7e111f4df28924886a23a671dc0b946f6660a4fcb8bef93",
+  "captured_at_utc": "2026-10-29T03:25:31.904843+00:00",
+  "word_review_status": "unreviewed",
+  "normalization": "XML pretty-printing only; namespaces, attributes, element order, and text values retained.",
+  "omitted_advisory_page_breaks": {
+    "word/document.xml": 1
+  },
+  "capture_warnings": [
+    "The unitless line_spacing=240 paragraph requests 12pt exact spacing with an 11pt run requiring an estimated 13pt line box; text may clip."
+  ]
+}

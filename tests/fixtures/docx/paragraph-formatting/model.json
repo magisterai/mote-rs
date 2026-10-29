@@ -1,0 +1,474 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "left",
+            "indent": {
+              "first_line": {
+                "text": "2mm",
+                "unit": "mm",
+                "value": 2
+              },
+              "hanging": {
+                "text": "20twip",
+                "unit": "twip",
+                "value": 20
+              },
+              "left": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              },
+              "right": {
+                "text": "0.5cm",
+                "unit": "cm",
+                "value": 0.5
+              }
+            },
+            "keep_together": false,
+            "keep_with_next": true,
+            "line_spacing": {
+              "text": "18pt",
+              "unit": "pt",
+              "value": 18
+            },
+            "outline_level": 2,
+            "page_break_before": false,
+            "spacing": {
+              "after": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6
+              },
+              "before": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "line": {
+                "rule": "multiple",
+                "value": 1.15
+              }
+            },
+            "spacing_after": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8
+            },
+            "spacing_before": {
+              "text": "9pt",
+              "unit": "pt",
+              "value": 9
+            },
+            "widow_control": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Paragraph geometry."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "keep_together": true,
+            "keep_with_next": false,
+            "page_break_before": true,
+            "spacing": {
+              "line_spacing": {
+                "rule": "exact",
+                "value": {
+                  "text": "14pt",
+                  "unit": "pt",
+                  "value": 14
+                }
+              },
+              "spacing_after": {
+                "text": "4pt",
+                "unit": "pt",
+                "value": 4
+              },
+              "spacing_before": {
+                "text": "3pt",
+                "unit": "pt",
+                "value": 3
+              }
+            },
+            "widow_control": false
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Exact line spacing."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "right",
+            "indent": {
+              "first_line": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "left": 0,
+              "right": "0"
+            },
+            "spacing": {
+              "line": {
+                "rule": "at_least",
+                "value": {
+                  "text": "10pt",
+                  "unit": "pt",
+                  "value": 10
+                }
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Minimum line spacing."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "justify",
+            "line_spacing": 240,
+            "spacing_after": "3",
+            "spacing_before": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Unitless paragraph lengths."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "all": {
+                "color": "#123",
+                "size": 8,
+                "space": 2,
+                "style": "double"
+              },
+              "bottom": {
+                "val": "single",
+                "width": {
+                  "text": "1.25pt",
+                  "unit": "pt",
+                  "value": 1.25
+                }
+              },
+              "right": "none"
+            },
+            "fill": "#eeeeff",
+            "tabs": [
+              {
+                "alignment": "right",
+                "leader": "dot",
+                "position": {
+                  "text": "1in",
+                  "unit": "in",
+                  "value": 1
+                }
+              },
+              {
+                "align": "center",
+                "pos": {
+                  "text": "36pt",
+                  "unit": "pt",
+                  "value": 36
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Borders and tabs."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "top": "single"
+            },
+            "tabs": {
+              "right": {
+                "text": "72pt",
+                "unit": "pt",
+                "value": 72
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Shorthand."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "left",
+        "indent": {
+          "first_line": {
+            "text": "2mm",
+            "unit": "mm",
+            "value": 2
+          },
+          "hanging": {
+            "text": "20twip",
+            "unit": "twip",
+            "value": 20
+          },
+          "left": {
+            "text": "0.5in",
+            "unit": "in",
+            "value": 0.5
+          },
+          "right": {
+            "text": "0.5cm",
+            "unit": "cm",
+            "value": 0.5
+          }
+        },
+        "keep_together": false,
+        "keep_with_next": true,
+        "line_spacing": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "outline_level": 2,
+        "page_break_before": false,
+        "spacing": {
+          "after": {
+            "text": "6pt",
+            "unit": "pt",
+            "value": 6
+          },
+          "before": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          },
+          "line": {
+            "rule": "multiple",
+            "value": 1.15
+          }
+        },
+        "spacing_after": {
+          "text": "8pt",
+          "unit": "pt",
+          "value": 8
+        },
+        "spacing_before": {
+          "text": "9pt",
+          "unit": "pt",
+          "value": 9
+        },
+        "widow_control": true
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Paragraph geometry."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "center",
+        "keep_together": true,
+        "keep_with_next": false,
+        "page_break_before": true,
+        "spacing": {
+          "line_spacing": {
+            "rule": "exact",
+            "value": {
+              "text": "14pt",
+              "unit": "pt",
+              "value": 14
+            }
+          },
+          "spacing_after": {
+            "text": "4pt",
+            "unit": "pt",
+            "value": 4
+          },
+          "spacing_before": {
+            "text": "3pt",
+            "unit": "pt",
+            "value": 3
+          }
+        },
+        "widow_control": false
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Exact line spacing."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "right",
+        "indent": {
+          "first_line": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          },
+          "left": 0,
+          "right": "0"
+        },
+        "spacing": {
+          "line": {
+            "rule": "at_least",
+            "value": {
+              "text": "10pt",
+              "unit": "pt",
+              "value": 10
+            }
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Minimum line spacing."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "justify",
+        "line_spacing": 240,
+        "spacing_after": "3",
+        "spacing_before": 2
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Unitless paragraph lengths."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "all": {
+            "color": "#123",
+            "size": 8,
+            "space": 2,
+            "style": "double"
+          },
+          "bottom": {
+            "val": "single",
+            "width": {
+              "text": "1.25pt",
+              "unit": "pt",
+              "value": 1.25
+            }
+          },
+          "right": "none"
+        },
+        "fill": "#eeeeff",
+        "tabs": [
+          {
+            "alignment": "right",
+            "leader": "dot",
+            "position": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1
+            }
+          },
+          {
+            "align": "center",
+            "pos": {
+              "text": "36pt",
+              "unit": "pt",
+              "value": 36
+            }
+          }
+        ]
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Borders and tabs."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "top": "single"
+        },
+        "tabs": {
+          "right": {
+            "text": "72pt",
+            "unit": "pt",
+            "value": 72
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Shorthand."
+        }
+      ]
+    }
+  ]
+}

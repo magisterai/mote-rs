@@ -1,4 +1,4 @@
-use super::{Error, check_attributes, runs, whitespace, xml};
+use super::{Error, paragraph_properties, runs, whitespace, xml};
 use crate::model::{Content, Document, ElementKind};
 
 pub(super) fn write_document(document: &Document) -> Result<String, Error> {
@@ -15,8 +15,11 @@ pub(super) fn write_document(document: &Document) -> Result<String, Error> {
                 element.kind.as_text()
             )));
         }
-        check_attributes(&element.attributes, &[], "paragraph")?;
         body.push_str("<w:p>");
+        let properties = paragraph_properties::write(&element.attributes)?;
+        if !properties.is_empty() {
+            body.push_str(&format!("<w:pPr>{properties}</w:pPr>"));
+        }
         body.push_str(&runs::write_inlines(&whitespace::trim_line_edges(
             &element.children,
         ))?);

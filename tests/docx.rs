@@ -75,3 +75,22 @@ fn illegal_xml_characters_fail_without_mutating_the_model() {
     assert!(error.to_string().contains("U+0001"));
     assert_eq!(document, original);
 }
+
+#[test]
+fn paragraph_formatting_matches_reference() {
+    support::compare_fixture("paragraph-formatting");
+}
+
+#[test]
+fn unimplemented_nested_properties_and_invalid_output_ranges_are_explicit() {
+    for source in [
+        "#paragraph(indent={start=pt(4)})[Text]",
+        "#paragraph(outline_level=10)[Text]",
+        "#paragraph(spacing_after=pt(1000000000000))[Text]",
+    ] {
+        assert!(
+            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
+            "{source}"
+        );
+    }
+}

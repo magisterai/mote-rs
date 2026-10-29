@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps">
+  <w:body>
+    <w:p>
+      <w:pPr>
+        <w:keepNext/>
+        <w:keepLines w:val="0"/>
+        <w:pageBreakBefore w:val="0"/>
+        <w:widowControl/>
+        <w:spacing w:before="0" w:after="120" w:line="276" w:lineRule="auto"/>
+        <w:ind w:left="720" w:right="283" w:firstLine="113" w:hanging="20"/>
+        <w:jc w:val="left"/>
+        <w:outlineLvl w:val="2"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Paragraph geometry.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:keepNext w:val="0"/>
+        <w:keepLines/>
+        <w:pageBreakBefore/>
+        <w:widowControl w:val="0"/>
+        <w:spacing w:before="60" w:after="80" w:line="280" w:lineRule="exact"/>
+        <w:jc w:val="center"/>
+      </w:pPr>
+      <w:r>
+        <w:lastRenderedPageBreak/>
+        <w:t xml:space="preserve">Exact line spacing.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:line="200" w:lineRule="atLeast"/>
+        <w:ind w:left="0" w:right="0" w:firstLine="0"/>
+        <w:jc w:val="right"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Minimum line spacing.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:before="2" w:after="3" w:line="240" w:lineRule="exact"/>
+        <w:jc w:val="both"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Unitless paragraph lengths.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pBdr>
+          <w:top w:val="double" w:sz="8" w:space="2" w:color="112233"/>
+          <w:left w:val="double" w:sz="8" w:space="2" w:color="112233"/>
+          <w:bottom w:val="single" w:sz="10" w:space="0" w:color="BFBFBF"/>
+          <w:right w:val="nil"/>
+        </w:pBdr>
+        <w:shd w:val="clear" w:color="auto" w:fill="EEEEFF"/>
+        <w:tabs>
+          <w:tab w:val="right" w:pos="1440" w:leader="dot"/>
+          <w:tab w:val="center" w:pos="720"/>
+        </w:tabs>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Borders and tabs.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pBdr>
+          <w:top w:val="single" w:sz="4" w:space="0" w:color="BFBFBF"/>
+        </w:pBdr>
+        <w:tabs>
+          <w:tab w:val="right" w:pos="1440"/>
+        </w:tabs>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Shorthand.</w:t>
+      </w:r>
+    </w:p>
+    <w:sectPr>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+    </w:sectPr>
+  </w:body>
+</w:document>
