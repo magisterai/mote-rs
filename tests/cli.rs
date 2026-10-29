@@ -184,7 +184,7 @@ fn docx_writes_a_package_and_failures_preserve_existing_output() {
     assert_eq!(archive.len(), 10);
     let invalid = run(
         &["--format", "docx", "-o", path_text],
-        b"#list[#item[Unsupported]]",
+        b"#paragraph(custom=true)[Unsupported]",
     );
     assert!(!invalid.status.success());
     assert_eq!(fs::read(&path).unwrap(), bytes);

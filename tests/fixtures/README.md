@@ -53,3 +53,6 @@ not establish layout, font substitution, wrapping or pagination conformance.
 
 - [Headings](docx/headings/README.md): levels, direct properties and fallback styles.
 - [Heading styles](docx/heading-styles/README.md): declarations and opening spacing.
+
+- [Bullet lists](docx/bullet-lists/README.md): nesting and item geometry.
+- [Bullet instances](docx/bullet-instances/README.md): shared definitions and identities.

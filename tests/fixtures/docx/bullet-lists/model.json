@@ -1,0 +1,644 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " item"
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "with continuation."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Nested item"
+                        },
+                        {
+                          "kind": "text",
+                          "text": " "
+                        },
+                        {
+                          "kind": "list",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "list_item",
+                              "category": "block",
+                              "attributes": {
+                                "marker": "-"
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Deep item"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second item"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Outside paragraph."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "indent": {
+              "hanging": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              },
+              "left": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "level": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              }
+            },
+            "spacing": {
+              "after": {
+                "text": "3pt",
+                "unit": "pt",
+                "value": 3
+              }
+            },
+            "tight": true
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First paragraph."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second paragraph."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "level": 3,
+                "tight": true
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Item level and tight spacing"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "indent": {
+                  "hanging": {
+                    "text": "9pt",
+                    "unit": "pt",
+                    "value": 9
+                  },
+                  "left": {
+                    "text": "53pt",
+                    "unit": "pt",
+                    "value": 53
+                  },
+                  "level": {
+                    "text": "7pt",
+                    "unit": "pt",
+                    "value": 7
+                  }
+                },
+                "spacing": {
+                  "after": {
+                    "text": "5pt",
+                    "unit": "pt",
+                    "value": 5
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Item geometry"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Before nested"
+                    }
+                  ]
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Nested explicit"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "After nested"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block"
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "level": 9
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Deepest numbered level"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "marker": "-"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "First "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "bold"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " item"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "with continuation."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Nested item"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "list",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "list_item",
+                          "category": "block",
+                          "attributes": {
+                            "marker": "-"
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Deep item"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "marker": "-"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second item"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Outside paragraph."
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "indent": {
+          "hanging": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          },
+          "left": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          },
+          "level": {
+            "text": "15pt",
+            "unit": "pt",
+            "value": 15
+          }
+        },
+        "spacing": {
+          "after": {
+            "text": "3pt",
+            "unit": "pt",
+            "value": 3
+          }
+        },
+        "tight": true
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second paragraph."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "level": 3,
+            "tight": true
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Item level and tight spacing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "indent": {
+              "hanging": {
+                "text": "9pt",
+                "unit": "pt",
+                "value": 9
+              },
+              "left": {
+                "text": "53pt",
+                "unit": "pt",
+                "value": 53
+              },
+              "level": {
+                "text": "7pt",
+                "unit": "pt",
+                "value": 7
+              }
+            },
+            "spacing": {
+              "after": {
+                "text": "5pt",
+                "unit": "pt",
+                "value": 5
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Item geometry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before nested"
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Nested explicit"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After nested"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block"
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "level": 9
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Deepest numbered level"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block"
+    }
+  ]
+}

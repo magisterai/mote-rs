@@ -48,8 +48,14 @@ future container checklists, rather than unrestricted direct list objects.
 
 ## Output limits
 
-Rendered list defaults, item overrides, marker placement, nesting, and
-continuation paragraphs remain unsupported.
+DOCX emits bullet definitions, list/item indentation and after-spacing, levels
+one through nine, nested lists and empty items. Equivalent definitions share
+numbering instances by identity or unnamed base level. Numeric controls do not
+turn an unordered container into numbering. Marker/style overrides and spacing
+before/line are outside the DOCX scope. Item paragraphs flatten into one paragraph;
+independently formatted continuation paragraphs remain unsupported. See the
+[bullet captures](../../tests/fixtures/docx/bullet-lists/README.md). Word review
+remains unreviewed.
 
 ## Specification inventory
 

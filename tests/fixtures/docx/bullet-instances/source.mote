@@ -1,0 +1,15 @@
+#list(id="shared", level=2)[#item[Shared level two]#item(level=4)[Item level four]]
+
+A separator.
+
+#list(id="shared", level=3)[#item[Same instance at level three]]
+
+#list(id="shared", indent={left=inch(0.625)}, tight=true)[#item(tight=false)[Changed definition]#item(spacing={after=pt(2.25)})[Fractional spacing]]
+
+#list(id="shared", indent={left=inch(0.625)}, spacing={after=pt(0)})[#item[Equivalent definition]]
+
+#list(format="decimal", start=3, restart=true)[#item(marker="9.")[Still a bullet]]
+
+#list(format="upper_roman", restart=false)[#item[Same bullet instance]]
+
+#list[#item(indent={level=pt(0), hanging=pt(0)}, level=4)[Zero level increment and hanging]]

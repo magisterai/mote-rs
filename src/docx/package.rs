@@ -2,7 +2,12 @@ use super::Error;
 use std::io::{Cursor, Write};
 use zip::{ZipWriter, write::SimpleFileOptions};
 
-pub(super) fn write(document: &str, styles: &str, font_table: &str) -> Result<Vec<u8>, Error> {
+pub(super) fn write(
+    document: &str,
+    styles: &str,
+    font_table: &str,
+    numbering: &str,
+) -> Result<Vec<u8>, Error> {
     let now = time::OffsetDateTime::now_utc();
     let timestamp = format!(
         "{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z",
@@ -35,7 +40,7 @@ pub(super) fn write(document: &str, styles: &str, font_table: &str) -> Result<Ve
         ("word/styles.xml", styles),
         ("word/settings.xml", SETTINGS),
         ("word/fontTable.xml", font_table),
-        ("word/numbering.xml", NUMBERING),
+        ("word/numbering.xml", numbering),
     ] {
         archive.start_file(name, options)?;
         archive.write_all(contents.as_bytes())?;
@@ -87,5 +92,3 @@ pub(super) const APP_PROPERTIES: &str = r#"<?xml version="1.0" encoding="UTF-8" 
   <HyperlinksChanged>false</HyperlinksChanged>
   <AppVersion>16.0000</AppVersion>
 </Properties>"#;
-pub(super) const NUMBERING: &str = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:numbering xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"/>"#;

@@ -1,8 +1,12 @@
 //! Editable Word document generation. Layout and pagination are performed by Word.
 
 mod builtin_styles;
+mod document;
 mod fonts;
 mod headings;
+mod list_layout;
+mod lists;
+mod numbering;
 mod package;
 mod paragraph_properties;
 mod paragraphs;
@@ -62,8 +66,9 @@ pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
     let styles = styles::Styles::new(document)?;
     let font_table = fonts::write_table(document)?;
     let styles_xml = styles.write()?;
-    let body = paragraphs::write_document(document, &styles)?;
-    package::write(&body, &styles_xml, &font_table)
+    let mut numbering = numbering::Numbering::default();
+    let body = document::write_document(document, &styles, &mut numbering)?;
+    package::write(&body, &styles_xml, &font_table, &numbering.write()?)
 }
 
 fn check_attributes(

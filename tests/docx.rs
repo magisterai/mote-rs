@@ -48,7 +48,7 @@ fn paragraphs_generate_content_independently_of_the_reference() {
 #[test]
 fn unsupported_content_and_attributes_fail_explicitly() {
     for source in [
-        "#list[#item[Item]]",
+        "#ordered_list[#item[Item]]",
         "#paragraph(custom=true)[Text]",
         "#span(custom=true)[Text]",
         "#font(name=\"Body\", files={regular=\"font.ttf\"})",

@@ -45,8 +45,13 @@ and marker font/alignment controls are not goals here.
 
 ## Output limits
 
-Rendered markers, task controls, item overrides, continuation paragraphs,
-and nested or multiline item layout remain unsupported.
+DOCX bullet items support levels, geometry overrides, inline formatting and nested
+lists. Item left indentation is absolute; list indentation supplies the level base.
+Paragraph children flatten into runs in one item paragraph, with nested lists
+emitted afterward. Formatting on those child paragraphs and task controls remain
+unsupported. See [list output tests](../../tests/docx_lists.rs) and the
+[bullet capture](../../tests/fixtures/docx/bullet-lists/README.md). Word rendering
+remains unreviewed.
 
 ## Specification inventory
 

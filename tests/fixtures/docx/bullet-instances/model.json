@@ -1,0 +1,568 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "id": "shared",
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Shared level two"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "level": 4
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Item level four"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A separator."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "id": "shared",
+            "level": 3
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Same instance at level three"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "id": "shared",
+            "indent": {
+              "left": {
+                "text": "0.625in",
+                "unit": "in",
+                "value": 0.625
+              }
+            },
+            "tight": true
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "tight": false
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Changed definition"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "spacing": {
+                  "after": {
+                    "text": "2.25pt",
+                    "unit": "pt",
+                    "value": 2.25
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Fractional spacing"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "id": "shared",
+            "indent": {
+              "left": {
+                "text": "0.625in",
+                "unit": "in",
+                "value": 0.625
+              }
+            },
+            "spacing": {
+              "after": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Equivalent definition"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "format": "decimal",
+            "restart": true,
+            "start": 3
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "9."
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Still a bullet"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "format": "upper_roman",
+            "restart": false
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Same bullet instance"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "indent": {
+                  "hanging": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "level": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  }
+                },
+                "level": 4
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Zero level increment and hanging"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "id": "shared",
+        "level": 2
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Shared level two"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "level": 4
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Item level four"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A separator."
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "id": "shared",
+        "level": 3
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Same instance at level three"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "id": "shared",
+        "indent": {
+          "left": {
+            "text": "0.625in",
+            "unit": "in",
+            "value": 0.625
+          }
+        },
+        "tight": true
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "tight": false
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Changed definition"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "spacing": {
+              "after": {
+                "text": "2.25pt",
+                "unit": "pt",
+                "value": 2.25
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Fractional spacing"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "id": "shared",
+        "indent": {
+          "left": {
+            "text": "0.625in",
+            "unit": "in",
+            "value": 0.625
+          }
+        },
+        "spacing": {
+          "after": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Equivalent definition"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "format": "decimal",
+        "restart": true,
+        "start": 3
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "marker": "9."
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Still a bullet"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "format": "upper_roman",
+        "restart": false
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Same bullet instance"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "indent": {
+              "hanging": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "level": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              }
+            },
+            "level": 4
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Zero level increment and hanging"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+- First **bold** item
+  with continuation.
+  - Nested item
+    - Deep item
+- Second item
+
+Outside paragraph.
+
+#list(tight=true, indent={left=pt(30), hanging=pt(12), level=pt(15)}, spacing={after=pt(3)})[
+  #item[First paragraph.
+
+Second paragraph.]
+  #item(tight=true, level=3)[Item level and tight spacing]
+  #item(indent={left=pt(53), level=pt(7), hanging=pt(9)}, spacing={after=pt(5)})[Item geometry]
+  #item[#paragraph[Before nested]#list[#item[Nested explicit]]#paragraph[After nested]]
+  #item[]
+]
+
+#list(level=9)[#item[Deepest numbered level]]
+
+#list[]

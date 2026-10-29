@@ -16,7 +16,7 @@ Mote is inspired by Typst's approach to programmable typesetting.
   Word and PowerPoint.
 
 The language core supports basic content, lists, inline formatting, named styles,
-and font declarations, with JSON inspection of the document model. DOCX output supports paragraphs, headings, inline formatting, named styles and font mappings.
+and font declarations, with JSON inspection of the document model. DOCX output supports paragraphs, headings, bulleted lists, inline formatting, named styles and font mappings.
 Native layout, broader Office output,
 PDF/PNG output, Lua scripting, and JSON data loading remain planned.
 

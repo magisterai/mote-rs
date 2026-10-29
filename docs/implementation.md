@@ -21,7 +21,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, and value-normalization modules. |
 | [model](../src/model.rs) | Evaluated content, values, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
-| [docx](../src/docx.rs) | Editable Word output, with separate content, properties, styles, fonts, XML and package modules. |
+| [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
 
@@ -250,7 +250,7 @@ script-specific typefaces. `word_line_height` remains metadata for later layout.
 
 Unknown nested properties, missing style references, cycles and unsupported
 output values fail explicitly. Declared style sizes must round to a positive
-half-point value. Table styles, lists, quotes, font files and embedding
+half-point value. Table styles, ordered lists, quotes, font files and embedding
 remain deferred. These are output limits; their language/model support is
 unchanged. Authored exact line heights are preserved without estimating clipping.
 
@@ -259,6 +259,13 @@ and direct paragraph properties. Higher levels need a declared style; levels
 above nine map to nine. At the start of the document only implicit before-spacing
 is suppressed. Explicit empty style references differ from omitted references.
 Heading numbering remains deferred.
+
+Bulleted lists emit reusable nine-level numbering definitions. Geometry and
+sequence identity determine reuse. List/item indentation, tight spacing, explicit
+after-spacing, nested lists and empty items are supported. Item left indentation
+is absolute. Item paragraphs flatten into one paragraph and nested lists follow
+its text; independent paragraph formatting and task controls remain deferred.
+No new dependency is needed for list output.
 
 Font measurement is not required for DOCX emission; Word performs layout and
 pagination. Production dependencies add ZIP/DEFLATE and UTC metadata support;
