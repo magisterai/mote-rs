@@ -198,6 +198,13 @@ impl Parser<'_> {
                         push_text(&mut nodes, character, self.span(start));
                     }
                 }
+                '<' => {
+                    self.advance_character();
+                    nodes.push(Node {
+                        kind: NodeKind::Text("<".into()),
+                        span: self.span(start),
+                    });
+                }
                 '\\' => {
                     self.advance_character();
                     match self.peek_character() {
@@ -366,6 +373,7 @@ fn push_text(nodes: &mut Vec<Node>, character: char, span: Span) {
         kind: NodeKind::Text(text),
         span: previous,
     }) = nodes.last_mut()
+        && text != "<"
         && previous.end == span.start
         && previous.end - previous.start == text.len()
     {

@@ -101,6 +101,12 @@ pub fn compare_fixture(name: &str) -> BTreeMap<String, String> {
         .join("tests/fixtures/docx")
         .join(name);
     let source = fs::read_to_string(fixture.join("source.mote")).unwrap();
+    let model: serde_json::Value =
+        serde_json::from_str(&mote::json::to_json(&mote::compile(&source).unwrap()).unwrap())
+            .unwrap();
+    let expected_model: serde_json::Value =
+        serde_json::from_str(&fs::read_to_string(fixture.join("model.json")).unwrap()).unwrap();
+    assert_eq!(model, expected_model, "{name}: evaluated model");
     let actual = package(&source);
     let capture: serde_json::Value =
         serde_json::from_str(&fs::read_to_string(fixture.join("capture.json")).unwrap()).unwrap();

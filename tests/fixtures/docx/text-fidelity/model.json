@@ -1,0 +1,236 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Résumé \u0026 "
+            },
+            {
+              "kind": "text",
+              "text": "\u003c"
+            },
+            {
+              "kind": "text",
+              "text": "angles\u003e \"quotes\" 日本語 😀."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block"
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "line_break",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "First"
+            },
+            {
+              "kind": "line_break",
+              "category": "inline"
+            },
+            {
+              "kind": "line_break",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "Last"
+            },
+            {
+              "kind": "line_break",
+              "category": "inline"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before  "
+            },
+            {
+              "kind": "line_break",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "  after."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "one\ttwo\tthree"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "  paragraph edges  "
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "first"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            },
+            {
+              "kind": "text",
+              "text": "second"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Résumé \u0026 "
+        },
+        {
+          "kind": "text",
+          "text": "\u003c"
+        },
+        {
+          "kind": "text",
+          "text": "angles\u003e \"quotes\" 日本語 😀."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block"
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "line_break",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "First"
+        },
+        {
+          "kind": "line_break",
+          "category": "inline"
+        },
+        {
+          "kind": "line_break",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "Last"
+        },
+        {
+          "kind": "line_break",
+          "category": "inline"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before  "
+        },
+        {
+          "kind": "line_break",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "  after."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "one\ttwo\tthree"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "  paragraph edges  "
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "first"
+        },
+        {
+          "kind": "text",
+          "text": "\n"
+        },
+        {
+          "kind": "text",
+          "text": "second"
+        }
+      ]
+    }
+  ]
+}

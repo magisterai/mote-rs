@@ -226,7 +226,9 @@ accepted substitute for a defined example. See the
 
 `docx::emit(&document)` returns a complete Word package without modifying the
 model. `mote --format docx -o report.docx input.mote` writes it to a file. The
-initial writer supports plain paragraphs with the captured document defaults.
+writer supports paragraphs with the captured document defaults, Unicode text,
+XML escaping, tabs, empty paragraphs, and hard line breaks. Ordinary whitespace
+at paragraph and explicit line edges is trimmed; interior whitespace is retained.
 Unsupported content, attributes, and declarations return explicit errors before
 the CLI opens its output file. JSON remains the default output format.
 

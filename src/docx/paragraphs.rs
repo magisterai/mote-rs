@@ -1,4 +1,4 @@
-use super::{Error, check_attributes, xml};
+use super::{Error, check_attributes, runs, whitespace, xml};
 use crate::model::{Content, Document, ElementKind};
 
 pub(super) fn write_document(document: &Document) -> Result<String, Error> {
@@ -17,20 +17,9 @@ pub(super) fn write_document(document: &Document) -> Result<String, Error> {
         }
         check_attributes(&element.attributes, &[], "paragraph")?;
         body.push_str("<w:p>");
-        for child in &element.children {
-            let Content::Text(text) = child else {
-                return Err(Error::Unsupported("inline directives".into()));
-            };
-            if text.contains(['\n', '\t', '\r']) {
-                return Err(Error::Unsupported("text containing breaks or tabs".into()));
-            }
-            if !text.is_empty() {
-                body.push_str(&format!(
-                    "<w:r><w:t xml:space=\"preserve\">{}</w:t></w:r>",
-                    xml::escape(text)?
-                ));
-            }
-        }
+        body.push_str(&runs::write_inlines(&whitespace::trim_line_edges(
+            &element.children,
+        ))?);
         body.push_str("</w:p>");
     }
     body.push_str("<w:sectPr><w:pgSz w:w=\"12240\" w:h=\"15840\"/><w:pgMar w:top=\"1440\" w:right=\"1440\" w:bottom=\"1440\" w:left=\"1440\" w:header=\"720\" w:footer=\"720\" w:gutter=\"0\"/></w:sectPr>");

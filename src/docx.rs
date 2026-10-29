@@ -2,6 +2,8 @@
 
 mod package;
 mod paragraphs;
+mod runs;
+mod whitespace;
 mod xml;
 
 use crate::model::{Document, Properties};

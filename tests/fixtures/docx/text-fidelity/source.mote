@@ -1,0 +1,8 @@
+#paragraph[Résumé & <angles> "quotes" 日本語 😀.]
+#paragraph[]
+#paragraph[#line_break()First#line_break()#line_break()Last#line_break()]
+#paragraph[Before  #line_break()  after.]
+#paragraph[one	two	three]
+#paragraph[  paragraph edges  ]
+#paragraph[first  
+second]

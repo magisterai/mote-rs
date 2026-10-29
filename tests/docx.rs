@@ -42,7 +42,7 @@ fn paragraphs_generate_content_independently_of_the_reference() {
         })
         .map(|node| node.text().unwrap())
         .collect();
-    assert_eq!(text, ["First paragraph.", "Second & <third>."]);
+    assert_eq!(text, ["First paragraph.", "Second & ", "<", "third>."]);
 }
 
 #[test]
@@ -60,4 +60,18 @@ fn unsupported_content_and_attributes_fail_explicitly() {
             "{source}: {error}"
         );
     }
+}
+
+#[test]
+fn text_breaks_and_tabs_match_reference() {
+    support::compare_fixture("text-fidelity");
+}
+
+#[test]
+fn illegal_xml_characters_fail_without_mutating_the_model() {
+    let document = mote::compile("text\u{1}more").unwrap();
+    let original = document.clone();
+    let error = mote::docx::emit(&document).unwrap_err();
+    assert!(error.to_string().contains("U+0001"));
+    assert_eq!(document, original);
 }
