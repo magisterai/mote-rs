@@ -18,7 +18,7 @@ Mote is inspired by Typst's approach to programmable typesetting.
 The current implementation produces JSON, editable DOCX, and native PDF/PNG for
 the documented language subset. It supports text and lists, links and images,
 tables, styles and fonts, sections and columns, headers and footers, page fields,
-bookmarks, cross-references, figures, and captions. Native output uses shared
+bookmarks, cross-references, figures, captions, footnotes, and endnotes. Native output uses shared
 layout checked against captured geometry and rendered output. Broader Office
 content, PowerPoint output, Lua scripting, and JSON data loading remain planned.
 

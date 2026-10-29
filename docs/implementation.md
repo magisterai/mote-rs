@@ -608,3 +608,25 @@ and 12 pages. Tests compare complete models/packages, native geometry and native
 PNGs. PDF rasters matched at 144 DPI with zero changed pixels, and link rectangles,
 destination heights and target pages were independently compared. All captured
 native PDF pages were visually inspected. Microsoft Word review remains unreviewed.
+
+
+## Notes
+
+Footnotes and endnotes retain block bodies behind inline references. Markdown note
+definitions are collected before evaluation, evaluated lazily, cached, and checked
+for recursive use. DOCX writes independent note stories, automatic superscript
+reference markers, separator definitions, and per-story relationships. Nested notes
+and annotations in running stories retain visible text with warnings.
+
+Native note selection and measurement live in `layout::notes`, with separate flow
+and painting modules. Stable single-paragraph notes in one single-column section
+participate in body pagination. Footnote reservations reduce the available space
+for following text, images, and tables. Endnotes enter document flow and use distinct
+continuation separators. Note selection is recreated for each pagination pass;
+authored models remain unchanged. Unsupported contexts use visible, warned fallbacks.
+Oversized notes remain a warned limit. Endnote continuation may overlap footer text
+unless an explicit footer height is reserved.
+
+[Note captures](../tests/fixtures/notes/README.md) cover eleven cases and 19 pages,
+with full model/package comparisons, geometry, PNGs, and a recorded PDF raster
+exception for negative off-page coordinates. Word review remains unreviewed.
