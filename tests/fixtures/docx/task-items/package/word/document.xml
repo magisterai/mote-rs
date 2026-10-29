@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps">
+  <w:body>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="100"/>
+        <w:ind w:left="840" w:hanging="280"/>
+      </w:pPr>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1000"/>
+          <w:alias w:val="Done &lt;today&gt;"/>
+          <w:tag w:val="done &amp; archived"/>
+          <w14:checkbox>
+            <w14:checked w14:val="1"/>
+            <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+            <w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+          </w14:checkbox>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="MS Gothic" w:hAnsi="MS Gothic"/>
+            </w:rPr>
+            <w:t xml:space="preserve">☒</w:t>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">Finished </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+          <w:bCs/>
+        </w:rPr>
+        <w:t xml:space="preserve">work</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="20"/>
+        <w:ind w:left="1600" w:hanging="320"/>
+      </w:pPr>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1001"/>
+          <w14:checkbox>
+            <w14:checked w14:val="0"/>
+            <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+            <w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+          </w14:checkbox>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="MS Gothic" w:hAnsi="MS Gothic"/>
+            </w:rPr>
+            <w:t xml:space="preserve">☐</w:t>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">Pending</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Ordinary bullet</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="100"/>
+        <w:ind w:left="840" w:hanging="280"/>
+      </w:pPr>
+      <w:r>
+        <w:fldChar w:fldCharType="begin">
+          <w:ffData>
+            <w:name w:val="accepted"/>
+            <w:enabled/>
+            <w:calcOnExit w:val="0"/>
+            <w:checkBox>
+              <w:sizeAuto/>
+              <w:default w:val="1"/>
+              <w:checked w:val="1"/>
+            </w:checkBox>
+          </w:ffData>
+        </w:fldChar>
+      </w:r>
+      <w:r>
+        <w:instrText xml:space="preserve"> FORMCHECKBOX </w:instrText>
+      </w:r>
+      <w:r>
+        <w:fldChar w:fldCharType="end"/>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">Legacy checked</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="100"/>
+        <w:ind w:left="840" w:hanging="280"/>
+      </w:pPr>
+      <w:r>
+        <w:fldChar w:fldCharType="begin">
+          <w:ffData>
+            <w:name w:val="Check1003"/>
+            <w:enabled/>
+            <w:calcOnExit w:val="0"/>
+            <w:checkBox>
+              <w:sizeAuto/>
+              <w:default w:val="0"/>
+              <w:checked w:val="0"/>
+            </w:checkBox>
+          </w:ffData>
+        </w:fldChar>
+      </w:r>
+      <w:r>
+        <w:instrText xml:space="preserve"> FORMCHECKBOX </w:instrText>
+      </w:r>
+      <w:r>
+        <w:fldChar w:fldCharType="end"/>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">Legacy unchecked</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="100"/>
+        <w:ind w:left="840" w:hanging="280"/>
+      </w:pPr>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1004"/>
+          <w14:checkbox>
+            <w14:checked w14:val="0"/>
+            <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+            <w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+          </w14:checkbox>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="MS Gothic" w:hAnsi="MS Gothic"/>
+            </w:rPr>
+            <w:t xml:space="preserve">☐</w:t>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="40"/>
+        <w:ind w:left="1080" w:hanging="360"/>
+      </w:pPr>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1005"/>
+          <w14:checkbox>
+            <w14:checked w14:val="1"/>
+            <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+            <w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+          </w14:checkbox>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="MS Gothic" w:hAnsi="MS Gothic"/>
+            </w:rPr>
+            <w:t xml:space="preserve">☒</w:t>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">Nested task</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="1"/>
+          <w:numId w:val="2"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Nested bullet</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="40"/>
+        <w:ind w:left="720" w:hanging="360"/>
+      </w:pPr>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1006"/>
+          <w14:checkbox>
+            <w14:checked w14:val="1"/>
+            <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+            <w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+          </w14:checkbox>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="MS Gothic" w:hAnsi="MS Gothic"/>
+            </w:rPr>
+            <w:t xml:space="preserve">☒</w:t>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">Task before numbering</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">First numbered</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="40"/>
+        <w:ind w:left="720" w:hanging="360"/>
+      </w:pPr>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1007"/>
+          <w14:checkbox>
+            <w14:checked w14:val="0"/>
+            <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+            <w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+          </w14:checkbox>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="MS Gothic" w:hAnsi="MS Gothic"/>
+            </w:rPr>
+            <w:t xml:space="preserve">☐</w:t>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">Task between numbers</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Second numbered</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:spacing w:after="40"/>
+        <w:ind w:left="720" w:hanging="360"/>
+      </w:pPr>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1008"/>
+          <w14:checkbox>
+            <w14:checked w14:val="0"/>
+            <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+            <w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+          </w14:checkbox>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="MS Gothic" w:hAnsi="MS Gothic"/>
+            </w:rPr>
+            <w:t xml:space="preserve">☐</w:t>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+    </w:p>
+    <w:sectPr>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+    </w:sectPr>
+  </w:body>
+</w:document>

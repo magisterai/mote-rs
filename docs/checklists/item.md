@@ -48,8 +48,14 @@ and marker font/alignment controls are not goals here.
 DOCX bullet and ordered items support levels, geometry overrides, inline formatting and nested
 lists. Item left indentation is absolute; list indentation supplies the level base.
 Paragraph children flatten into runs in one item paragraph, with nested lists
-emitted afterward. Formatting on those child paragraphs and task controls remain
-unsupported. See [list output tests](../../tests/docx_lists.rs) and the
+emitted afterward. Formatting on those child paragraphs remains unsupported.
+Task items emit Word 2010 checkbox content controls by default or legacy form
+fields. Item `checked` overrides nested state; nested metadata alone does not
+create a task. Tasks use direct list geometry without consuming numbering.
+Modern controls support name/title; legacy fields support names, with generated
+names when absent. Legacy titles are unsupported. See the
+[task capture](../../tests/fixtures/docx/task-items/README.md),
+[control tests](../../tests/docx_controls.rs), [list output tests](../../tests/docx_lists.rs) and the
 [bullet capture](../../tests/fixtures/docx/bullet-lists/README.md). Word rendering
 remains unreviewed.
 

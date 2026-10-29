@@ -2,6 +2,7 @@
 
 mod block_quotes;
 mod builtin_styles;
+mod controls;
 mod document;
 mod fonts;
 mod headings;
@@ -67,9 +68,9 @@ pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
     let styles = styles::Styles::new(document)?;
     let font_table = fonts::write_table(document)?;
     let styles_xml = styles.write()?;
-    let mut numbering = numbering::Numbering::default();
-    let body = document::write_document(document, &styles, &mut numbering)?;
-    package::write(&body, &styles_xml, &font_table, &numbering.write()?)
+    let mut state = document::DocumentState::default();
+    let body = document::write_document(document, &styles, &mut state)?;
+    package::write(&body, &styles_xml, &font_table, &state.numbering.write()?)
 }
 
 fn check_attributes(

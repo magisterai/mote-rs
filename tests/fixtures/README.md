@@ -64,3 +64,5 @@ not establish layout, font substitution, wrapping or pagination conformance.
 
 - [Block quotes](docx/block-quotes/README.md): nested content and direct formatting.
 - [Quote styles](docx/quote-styles/README.md): declared replacements and scope.
+
+- [Task items](docx/task-items/README.md): editable checkbox controls and numbered-list interaction.

@@ -267,11 +267,18 @@ Bullet and ordered lists emit reusable nine-level numbering definitions. Geometr
 sequence identity determine reuse. List/item indentation, tight spacing, explicit
 after-spacing, nested lists and empty items are supported. Item left indentation
 is absolute. Item paragraphs flatten into one paragraph and nested lists follow
-its text; independent paragraph formatting and task controls remain deferred.
+its text; independent paragraph formatting remains deferred.
 Ordered lists preserve all five numeric formats, explicit starts and starts from
 source markers. Named instances continue by default; unnamed instances restart
 by default. Explicit restart replaces subsequent continuation, while a later start
 on a continued sequence is ignored. No new dependency is needed for list output.
+
+Task items use editable Word 2010 checkbox controls or legacy form fields.
+Authored item checked state wins over nested state; metadata alone leaves ordinary
+list numbering. Tasks do not consume numbered-list positions. Their geometry is
+written directly, and control identifiers remain unique across nested lists and
+both control kinds. Markdown task syntax and a standalone checkbox directive are
+still deferred; this increment uses the existing item attributes.
 
 Block quotes emit one paragraph with the fallback BlockQuote style or a declared
 style, plus direct borders, shading and geometry. Nested blocks supply inline text

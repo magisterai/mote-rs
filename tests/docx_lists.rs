@@ -99,7 +99,7 @@ fn list_limits_and_unsupported_properties_are_explicit() {
         "#list(indent={left=pt(4), custom=pt(3)})[#item[Unknown]]",
         "#list(spacing={before=pt(4)})[#item[Unsupported]]",
         "#list(style=\"Normal\")[#item[Unsupported]]",
-        "#list[#item(checked=false)[Deferred task]]",
+        "#list[#item(checkbox={custom=true})[Unsupported task property]]",
         "#list[#item[#paragraph(alignment=\"right\")[Deferred paragraph formatting]]]",
         "#list[#item[#heading[Deferred child block]]]",
     ] {

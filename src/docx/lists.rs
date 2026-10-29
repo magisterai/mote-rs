@@ -1,10 +1,10 @@
 use super::{
-    Error, check_attributes,
+    Error, check_attributes, controls,
+    document::DocumentState,
     list_layout::{self, ListLayout},
-    numbering::{self, Numbering},
-    runs,
+    numbering, runs,
     styles::Styles,
-    whitespace,
+    values, whitespace,
 };
 use crate::model::{Content, Element, ElementKind};
 
@@ -12,7 +12,7 @@ pub(super) fn write(
     list: &Element,
     inherited_level: u8,
     styles: &Styles<'_>,
-    numbering: &mut Numbering,
+    state: &mut DocumentState,
 ) -> Result<String, Error> {
     check_attributes(
         &list.attributes,
@@ -33,24 +33,36 @@ pub(super) fn write(
         };
         check_attributes(
             &item.attributes,
-            &["marker", "level", "tight", "indent", "spacing"],
+            &[
+                "marker", "level", "tight", "indent", "spacing", "checked", "checkbox",
+            ],
             "list item",
         )?;
         let item_level = list_layout::nesting_level(&item.attributes, level)?;
-        let identifier = match numbering_identifier {
-            Some(identifier) => identifier,
-            None => {
-                let identifier = numbering.for_list(list, layout, level)?;
-                numbering_identifier = Some(identifier);
-                identifier
-            }
-        };
+        let checked = item
+            .attributes
+            .get("checked")
+            .map(values::boolean)
+            .transpose()?;
+        let checkbox = controls::checkbox_properties(&item.attributes)?;
+        check_attributes(&checkbox, &["checked", "kind", "name", "title"], "checkbox")?;
         let (inline, nested) = split_item_children(&item.children)?;
         output.push_str("<w:p><w:pPr>");
-        output.push_str(&numbering::paragraph_reference(identifier, item_level));
-        if ["indent", "spacing", "tight"]
-            .iter()
-            .any(|name| item.attributes.contains_key(*name))
+        if checked.is_none() {
+            let identifier = match numbering_identifier {
+                Some(identifier) => identifier,
+                None => {
+                    let identifier = state.numbering.for_list(list, layout, level)?;
+                    numbering_identifier = Some(identifier);
+                    identifier
+                }
+            };
+            output.push_str(&numbering::paragraph_reference(identifier, item_level));
+        }
+        if checked.is_some()
+            || ["indent", "spacing", "tight"]
+                .iter()
+                .any(|name| item.attributes.contains_key(*name))
         {
             output.push_str(
                 &layout
@@ -59,13 +71,17 @@ pub(super) fn write(
             );
         }
         output.push_str("</w:pPr>");
+        if let Some(checked) = checked {
+            output.push_str(&state.controls.write_checkbox(&checkbox, checked, styles)?);
+            output.push_str("<w:r><w:t xml:space=\"preserve\"> </w:t></w:r>");
+        }
         output.push_str(&runs::write_inlines(
             &whitespace::trim_line_edges(&inline),
             styles,
         )?);
         output.push_str("</w:p>");
         for nested_list in nested {
-            output.push_str(&write(nested_list, item_level + 1, styles, numbering)?);
+            output.push_str(&write(nested_list, item_level + 1, styles, state)?);
         }
     }
     Ok(output)

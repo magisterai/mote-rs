@@ -1,0 +1,650 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "indent": {
+              "hanging": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "left": {
+                "text": "42pt",
+                "unit": "pt",
+                "value": 42
+              },
+              "level": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "spacing": {
+              "after": {
+                "text": "5pt",
+                "unit": "pt",
+                "value": 5
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checkbox": {
+                  "checked": false,
+                  "name": "done \u0026 archived",
+                  "title": "Done \u003ctoday\u003e"
+                },
+                "checked": true
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Finished "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "work"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": false,
+                "indent": {
+                  "hanging": {
+                    "text": "16pt",
+                    "unit": "pt",
+                    "value": 16
+                  },
+                  "left": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  }
+                },
+                "level": 2,
+                "spacing": {
+                  "after": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Pending"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checkbox": {
+                  "checked": true,
+                  "name": "metadata"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Ordinary bullet"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checkbox": {
+                  "kind": "legacy_form_field",
+                  "name": "accepted"
+                },
+                "checked": true
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Legacy checked"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checkbox": {
+                  "kind": "legacy_form_field"
+                },
+                "checked": false
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Legacy unchecked"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": false
+              },
+              "children": [
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "checked": true
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Nested task"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Nested bullet"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "attributes": {
+            "id": "steps",
+            "start": 5
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": true
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Task before numbering"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First numbered"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": false
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Task between numbers"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second numbered"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "indent": {
+          "hanging": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "left": {
+            "text": "42pt",
+            "unit": "pt",
+            "value": 42
+          },
+          "level": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          }
+        },
+        "spacing": {
+          "after": {
+            "text": "5pt",
+            "unit": "pt",
+            "value": 5
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checkbox": {
+              "checked": false,
+              "name": "done \u0026 archived",
+              "title": "Done \u003ctoday\u003e"
+            },
+            "checked": true
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Finished "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "work"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checked": false,
+            "indent": {
+              "hanging": {
+                "text": "16pt",
+                "unit": "pt",
+                "value": 16
+              },
+              "left": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              }
+            },
+            "level": 2,
+            "spacing": {
+              "after": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Pending"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checkbox": {
+              "checked": true,
+              "name": "metadata"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Ordinary bullet"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checkbox": {
+              "kind": "legacy_form_field",
+              "name": "accepted"
+            },
+            "checked": true
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Legacy checked"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checkbox": {
+              "kind": "legacy_form_field"
+            },
+            "checked": false
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Legacy unchecked"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checked": false
+          },
+          "children": [
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "checked": true
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Nested task"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Nested bullet"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ordered_list",
+      "category": "block",
+      "attributes": {
+        "id": "steps",
+        "start": 5
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checked": true
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Task before numbering"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First numbered"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checked": false
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Task between numbers"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second numbered"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checked": false
+          }
+        }
+      ]
+    }
+  ]
+}

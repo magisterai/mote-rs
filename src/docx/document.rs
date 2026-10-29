@@ -1,12 +1,19 @@
 use super::{
-    Error, block_quotes, headings, lists, numbering::Numbering, paragraphs, styles::Styles, xml,
+    Error, block_quotes, controls::Controls, headings, lists, numbering::Numbering, paragraphs,
+    styles::Styles, xml,
 };
 use crate::model::{Content, Document, ElementKind};
+
+#[derive(Default)]
+pub(super) struct DocumentState {
+    pub numbering: Numbering,
+    pub controls: Controls,
+}
 
 pub(super) fn write_document(
     document: &Document,
     styles: &Styles<'_>,
-    numbering: &mut Numbering,
+    state: &mut DocumentState,
 ) -> Result<String, Error> {
     let mut body = String::new();
     for (index, content) in document.content.iter().enumerate() {
@@ -20,7 +27,8 @@ pub(super) fn write_document(
             ElementKind::Paragraph => element.attributes.clone(),
             ElementKind::Heading => {
                 let level = headings::level(element)? - 1;
-                numbering_reference = numbering
+                numbering_reference = state
+                    .numbering
                     .for_heading(element, level)?
                     .map(|identifier| (identifier, level));
                 headings::attributes(element, index == 0)?
@@ -30,7 +38,7 @@ pub(super) fn write_document(
                 continue;
             }
             ElementKind::List | ElementKind::OrderedList => {
-                body.push_str(&lists::write(element, 0, styles, numbering)?);
+                body.push_str(&lists::write(element, 0, styles, state)?);
                 continue;
             }
             _ => {

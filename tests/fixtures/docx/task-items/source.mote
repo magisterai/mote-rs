@@ -1,0 +1,11 @@
+#list(indent={left=pt(42),hanging=pt(14),level=pt(20)},spacing={after=pt(5)})[
+  #item(checked=true,checkbox={name="done & archived",title="Done <today>",checked=false})[Finished #strong[work]]
+  #item(checked=false,level=2,indent={left=pt(80),hanging=pt(16)},spacing={after=pt(1)})[Pending]
+  #item(checkbox={checked=true,name="metadata"})[Ordinary bullet]
+  #item(checked=true,checkbox={kind="legacy_form_field",name="accepted"})[Legacy checked]
+  #item(checked=false,checkbox={kind="legacy_form_field"})[Legacy unchecked]
+  #item(checked=false)[#list[#item(checked=true)[Nested task]#item[Nested bullet]]]
+]
+
+#ordered_list(start=5,id="steps")[#item(checked=true)[Task before numbering]#item[First numbered]#item(checked=false)[Task between numbers]#item[Second numbered]]
+#list[#item(checked=false)[]]
