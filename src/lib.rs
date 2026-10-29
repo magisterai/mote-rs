@@ -5,6 +5,7 @@ pub mod docx;
 pub mod evaluation;
 pub mod formatting;
 pub mod json;
+pub mod layout;
 pub mod measurement;
 pub mod model;
 pub mod source;

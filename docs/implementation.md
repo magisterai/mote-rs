@@ -22,6 +22,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [model](../src/model.rs) | Evaluated content, values, geometry, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
 | [measurement](../src/measurement.rs) | Core and static OpenType font metrics, with separate kerning and font-table modules. |
+| [layout](../src/layout.rs) | Native line geometry, with separate wrapping, fragment placement and line-metric modules. |
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
@@ -382,6 +383,15 @@ Fallback families and substitution reasons remain visible in each result.
 It checks embedding eligibility before selecting native font data; it neither
 discovers installed fonts nor embeds them. DOCX accepts `files` while continuing
 to reference physical typeface names.
-Shaping, paragraph layout, pagination, PDF and PNG generation remain unimplemented.
+The line planner wraps styled runs at Unicode break opportunities and uses
+extended grapheme clusters for emergency breaks. It handles preserved whitespace,
+small caps, hard breaks, code, tabs, four alignments, mixed font sizes and three
+line-spacing rules. Its [342 line captures](../tests/fixtures/lines/README.md)
+compare every break and fragment position, including boundaries across runs.
+Four focused Unicode table libraries supply line breaks, grapheme boundaries,
+script properties and letter categories; each adds no runtime dependencies.
+Their Unicode data versions differ, so coverage remains explicitly fixture-scoped.
+
+Shaping, document paragraph placement, pagination, PDF and PNG generation remain unimplemented.
 Numeric agreement remains separate
 from visual review in Word.

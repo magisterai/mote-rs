@@ -10,6 +10,10 @@ iri-string = "0.7"
 zip = { version = "9.1", default-features = false, features = ["deflate-flate2-zlib-rs"] }
 time = { version = "0.3", default-features = false, features = ["std"] }
 ttf-parser = { version = "0.25.1", default-features = false, features = ["std", "opentype-layout"] }
+unicode-script = "0.5.8"
+unicode-general-category = "1.1.0"
+unicode-linebreak = "0.1.5"
+unicode-segmentation = "1.13.3"
 
 [dev-dependencies]
 roxmltree = "0.21"

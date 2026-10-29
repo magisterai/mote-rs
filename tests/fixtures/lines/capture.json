@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_count": 342,
+  "units": "points",
+  "absolute_tolerance": 1e-09,
+  "word_review": "unreviewed",
+  "files": {
+    "requests.json": {
+      "sha256": "eed652507ee368a0c7b4d9dc548c81fd9e1acd0666f65b7ae755547f4bd0a054",
+      "bytes": 164378
+    },
+    "expected.json": {
+      "sha256": "7c304bc5222b678e76d530d117ee39857e826b1b29eab5927f3d1b2adbeb060c",
+      "bytes": 912801
+    }
+  }
+}
