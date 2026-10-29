@@ -1,0 +1,697 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Aptos",
+      "east_asian": "Yu Gothic",
+      "complex_script": "Arial",
+      "properties": {
+        "complex_script": "Arial",
+        "east_asian": "Yu Gothic",
+        "latin": "Aptos",
+        "word_line_height": 1.25
+      }
+    },
+    {
+      "name": "codefont",
+      "latin": "Courier New",
+      "properties": {
+        "latin": "Courier New"
+      }
+    },
+    {
+      "name": "mono",
+      "latin": "Menlo",
+      "properties": {
+        "latin": "Menlo"
+      }
+    },
+    {
+      "name": "scripted",
+      "east_asian": "Yu Gothic",
+      "complex_script": "Arial",
+      "properties": {
+        "complex_script": "Arial",
+        "east_asian": "Yu Gothic"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "Accent",
+      "type": "character",
+      "link": "Body-Text",
+      "run": {
+        "bold": false,
+        "color": "#336699",
+        "double_strike": false,
+        "font": "body",
+        "highlight": "#eeeeff",
+        "italic": false,
+        "size": {
+          "text": "10pt",
+          "unit": "pt",
+          "value": 10
+        },
+        "small_caps": false,
+        "underline": false
+      },
+      "properties": {
+        "link": "Body-Text",
+        "run": {
+          "bold": false,
+          "color": "#336699",
+          "double_strike": false,
+          "font": "body",
+          "highlight": "#eeeeff",
+          "italic": false,
+          "size": {
+            "text": "10pt",
+            "unit": "pt",
+            "value": 10
+          },
+          "small_caps": false,
+          "underline": false
+        },
+        "type": "character"
+      }
+    },
+    {
+      "name": "Base",
+      "type": "paragraph",
+      "based_on": "Normal",
+      "next": "Normal",
+      "paragraph": {
+        "indent": {
+          "left": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        },
+        "keep_with_next": true,
+        "spacing": {
+          "after": {
+            "text": "6pt",
+            "unit": "pt",
+            "value": 6
+          },
+          "before": {
+            "text": "2pt",
+            "unit": "pt",
+            "value": 2
+          }
+        }
+      },
+      "run": {
+        "color": "#112233",
+        "size": {
+          "text": "13pt",
+          "unit": "pt",
+          "value": 13
+        }
+      },
+      "properties": {
+        "based_on": "Normal",
+        "next": "Normal",
+        "paragraph": {
+          "indent": {
+            "left": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            }
+          },
+          "keep_with_next": true,
+          "spacing": {
+            "after": {
+              "text": "6pt",
+              "unit": "pt",
+              "value": 6
+            },
+            "before": {
+              "text": "2pt",
+              "unit": "pt",
+              "value": 2
+            }
+          }
+        },
+        "run": {
+          "color": "#112233",
+          "size": {
+            "text": "13pt",
+            "unit": "pt",
+            "value": 13
+          }
+        }
+      }
+    },
+    {
+      "name": "Body-Text",
+      "type": "paragraph",
+      "based_on": "Base",
+      "next": "Normal",
+      "link": "Accent",
+      "paragraph": {
+        "alignment": "justify",
+        "keep_with_next": false,
+        "spacing_after": {
+          "text": "0pt",
+          "unit": "pt",
+          "value": 0
+        }
+      },
+      "run": {
+        "bold": false,
+        "size": {
+          "text": "11pt",
+          "unit": "pt",
+          "value": 11
+        }
+      },
+      "properties": {
+        "based_on": "Base",
+        "link": "Accent",
+        "next": "Normal",
+        "paragraph": {
+          "alignment": "justify",
+          "keep_with_next": false,
+          "spacing_after": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          }
+        },
+        "run": {
+          "bold": false,
+          "size": {
+            "text": "11pt",
+            "unit": "pt",
+            "value": 11
+          }
+        },
+        "size": {
+          "text": "9pt",
+          "unit": "pt",
+          "value": 9
+        }
+      }
+    },
+    {
+      "name": "Body_Text",
+      "type": "paragraph",
+      "based_on": "Normal",
+      "properties": {
+        "based_on": "Normal",
+        "italic": true
+      }
+    },
+    {
+      "name": "Normal",
+      "type": "paragraph",
+      "font": "body",
+      "properties": {
+        "font": "body",
+        "size": {
+          "text": "11pt",
+          "unit": "pt",
+          "value": 11
+        }
+      }
+    },
+    {
+      "name": "Snippet",
+      "type": "character",
+      "font": "codefont",
+      "properties": {
+        "font": "codefont",
+        "size": {
+          "text": "9pt",
+          "unit": "pt",
+          "value": 9
+        },
+        "type": "character"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Implicit default font and size."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "spacing_after": {
+              "text": "0pt",
+              "unit": "pt",
+              "value": 0
+            },
+            "style": "body text"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true,
+                "color": "#ff0000",
+                "font": "Arial",
+                "highlight": "#ffff00",
+                "italic": true,
+                "size": {
+                  "text": "16pt",
+                  "unit": "pt",
+                  "value": 16
+                },
+                "small_caps": true,
+                "strike": true,
+                "underline": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "outer "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "size": {
+                      "text": "12pt",
+                      "unit": "pt",
+                      "value": 12
+                    },
+                    "style": "Accent"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "styled "
+                    },
+                    {
+                      "kind": "span",
+                      "category": "inline",
+                      "attributes": {
+                        "bold": true
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "direct"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " styled"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " outer"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " after."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "style": "Body_Text"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Exact style lookup."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "scripted"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Script-only alias"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "mono"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Declared mono alias"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "Arial"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Literal font"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true,
+                "font": "Arial",
+                "size": {
+                  "text": "16pt",
+                  "unit": "pt",
+                  "value": 16
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "before "
+                },
+                {
+                  "kind": "code",
+                  "category": "inline",
+                  "attributes": {
+                    "preserve_space": true,
+                    "style": "Snippet"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "code\ttext"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " after"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Default code style"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Implicit default font and size."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "spacing_after": {
+          "text": "0pt",
+          "unit": "pt",
+          "value": 0
+        },
+        "style": "body text"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": true,
+            "color": "#ff0000",
+            "font": "Arial",
+            "highlight": "#ffff00",
+            "italic": true,
+            "size": {
+              "text": "16pt",
+              "unit": "pt",
+              "value": 16
+            },
+            "small_caps": true,
+            "strike": true,
+            "underline": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "outer "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12
+                },
+                "style": "Accent"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "styled "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "bold": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "direct"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " styled"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " outer"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " after."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "style": "Body_Text"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Exact style lookup."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "scripted"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Script-only alias"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "mono"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Declared mono alias"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "Arial"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Literal font"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "bold": true,
+            "font": "Arial",
+            "size": {
+              "text": "16pt",
+              "unit": "pt",
+              "value": 16
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "before "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": true,
+                "style": "Snippet"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "code\ttext"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " after"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "code",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Default code style"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

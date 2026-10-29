@@ -1,0 +1,16 @@
+#paragraph[Implicit default font and size.]
+#paragraph(style = "body text", spacing_after = pt(0))[Before #span(font = "Arial", size = pt(16), bold = true, italic = true, color = "#f00", highlight = "#ff0", underline = true, small_caps = true, strike = true)[outer #span(style = "Accent", size = pt(12))[styled #span(bold = true)[direct] styled] outer] after.]
+#paragraph(style = "Body_Text")[Exact style lookup.]
+#paragraph[#span(font = "scripted")[Script-only alias] #span(font = "mono")[Declared mono alias] #span(font = "Arial")[Literal font]]
+#paragraph[#span(font = "Arial", size = pt(16), bold = true)[before #code(style = "Snippet", preserve_space = true)[code	text] after]]
+#paragraph[#code[Default code style]]
+#style(name = "Normal", font = "body", size = pt(11))
+#style(name = "Base", based_on = "Normal", next = "Normal", run = {size = pt(13), color = "#123"}, paragraph = {spacing = {before = pt(2), after = pt(6)}, indent = {left = pt(12)}, keep_with_next = true})
+#style(name = "Body-Text", based_on = "Base", next = "Normal", link = "Accent", size = pt(9), run = {size = pt(11), bold = false}, paragraph = {spacing_after = pt(0), alignment = "justify", keep_with_next = false})
+#style(name = "Body_Text", based_on = "Normal", italic = true)
+#style(name = "Accent", type = "character", link = "Body-Text", run = {font = "body", size = pt(10), bold = false, italic = false, color = "#369", highlight = "#eef", underline = false, small_caps = false, double_strike = false})
+#style(name = "Snippet", type = "character", font = "codefont", size = pt(9))
+#font(name = "body", latin = "Aptos", east_asian = "Yu Gothic", complex_script = "Arial", word_line_height = 1.25)
+#font(name = "scripted", east_asian = "Yu Gothic", complex_script = "Arial")
+#font(name = "codefont", latin = "Courier New")
+#font(name = "mono", latin = "Menlo")

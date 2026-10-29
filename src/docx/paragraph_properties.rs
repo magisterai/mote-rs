@@ -19,25 +19,63 @@ pub(super) const ATTRIBUTES: &[&str] = &[
 ];
 
 pub(super) fn write(properties: &Properties) -> Result<String, Error> {
-    check_attributes(properties, ATTRIBUTES, "paragraph")?;
-    let mut result = pagination(properties)?;
+    write_properties(properties, false)
+}
+
+pub(super) fn write_declaration(properties: &Properties) -> Result<String, Error> {
+    write_properties(properties, true)
+}
+
+fn write_properties(properties: &Properties, declaration: bool) -> Result<String, Error> {
+    let mut supported = ATTRIBUTES.to_vec();
+    if declaration {
+        supported.extend_from_slice(&["background", "first_line_indent", "hanging_indent"]);
+    }
+    check_attributes(properties, &supported, "paragraph")?;
+    let mut result = if declaration {
+        String::new()
+    } else {
+        pagination(properties)?
+    };
+    if declaration {
+        for name in ["fill", "background"] {
+            if let Some(fill) = properties.get(name) {
+                result.push_str(&shading(fill)?);
+            }
+        }
+    }
     if let Some(border) = properties.get("border") {
         result.push_str(&borders(border)?);
     }
-    if let Some(fill) = properties.get("fill") {
-        result.push_str(&format!(
-            "<w:shd w:val=\"clear\" w:color=\"auto\" w:fill=\"{}\"/>",
-            values::color(fill)?
-        ));
+    if !declaration && let Some(fill) = properties.get("fill") {
+        result.push_str(&shading(fill)?);
     }
     if let Some(stops) = properties.get("tabs") {
         result.push_str(&tabs(stops)?);
     }
     result.push_str(&spacing(properties)?);
-    if let Some(indentation) = properties.get("indent") {
-        let indentation = values::object(indentation)?;
+    let mut indentation = properties
+        .get("indent")
+        .map(values::object)
+        .transpose()?
+        .cloned()
+        .unwrap_or_default();
+    for (name, target) in [
+        ("first_line_indent", "first_line"),
+        ("hanging_indent", "hanging"),
+    ] {
+        if let Some(value) = properties.get(name) {
+            if indentation.contains_key(target) {
+                return Err(Error::InvalidValue(format!(
+                    "duplicate Word indentation property {target}"
+                )));
+            }
+            indentation.insert(target.into(), value.clone());
+        }
+    }
+    if properties.contains_key("indent") || !indentation.is_empty() {
         check_attributes(
-            indentation,
+            &indentation,
             &["left", "right", "first_line", "hanging"],
             "indent",
         )?;
@@ -66,6 +104,9 @@ pub(super) fn write(properties: &Properties) -> Result<String, Error> {
             }
         };
         result.push_str(&format!("<w:jc w:val=\"{word_alignment}\"/>"));
+    }
+    if declaration {
+        result.push_str(&pagination(properties)?);
     }
     if let Some(level) = properties.get("outline_level") {
         let level = values::number(level)?;
@@ -294,4 +335,11 @@ fn tabs(value: &Value) -> Result<String, Error> {
     } else {
         format!("<w:tabs>{result}</w:tabs>")
     })
+}
+
+fn shading(color: &Value) -> Result<String, Error> {
+    Ok(format!(
+        "<w:shd w:val=\"clear\" w:color=\"auto\" w:fill=\"{}\"/>",
+        values::color(color)?
+    ))
 }

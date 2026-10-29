@@ -24,7 +24,8 @@ implementation scope.
   exists but still needs specification or tests.
 - A check applies only to the stated behaviour. Recording a length or marker does
   not establish its layout, appearance, or output support.
-- No current directive has Rust Office, PDF, or PNG output. Output support and
+- DOCX supports paragraphs, inline formatting, styles and font mappings as
+  described in the individual output notes. Native PDF/PNG remains deferred. Output support and
   visual review status remain separate from the language/model support recorded
   here.
 
@@ -103,7 +104,8 @@ directive can exist before those definitions; its tasks remain unchecked.
 The current attribute implementation work covers evaluation, validation, and
 model storage. Declaration and explicit resolution tasks now have their own
 checklists; their completion does not establish layout or output conformance.
-Implicit output styles and document/list/container defaults remain unsupported.
+DOCX has Normal and Code output defaults. Other implicit styles and
+document/list/container defaults remain deferred.
 
 ## Checklist-first workflow
 

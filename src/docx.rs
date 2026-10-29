@@ -1,5 +1,6 @@
 //! Editable Word document generation. Layout and pagination are performed by Word.
 
+mod fonts;
 mod package;
 mod paragraph_properties;
 mod paragraphs;
@@ -56,11 +57,11 @@ impl From<zip::result::ZipError> for Error {
 /// Generate a complete package in memory. Unsupported content fails before a
 /// caller needs to create or replace an output file. The authored model is unchanged.
 pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
-    if !document.fonts.is_empty() || !document.styles.is_empty() {
-        return Err(Error::Unsupported("font and style declarations".into()));
-    }
-    let body = paragraphs::write_document(document)?;
-    package::write(&body, &styles::write(document))
+    let styles = styles::Styles::new(document)?;
+    let font_table = fonts::write_table(document)?;
+    let styles_xml = styles.write()?;
+    let body = paragraphs::write_document(document, &styles)?;
+    package::write(&body, &styles_xml, &font_table)
 }
 
 fn check_attributes(

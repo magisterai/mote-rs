@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:docDefaults>
+    <w:rPrDefault>
+      <w:rPr>
+        <w:rFonts w:ascii="Helvetica" w:hAnsi="Helvetica"/>
+        <w:sz w:val="22"/>
+        <w:szCs w:val="22"/>
+      </w:rPr>
+    </w:rPrDefault>
+    <w:pPrDefault>
+      <w:pPr>
+        <w:spacing w:after="160" w:line="276" w:lineRule="auto"/>
+      </w:pPr>
+    </w:pPrDefault>
+  </w:docDefaults>
+  <w:style w:type="character" w:styleId="Code">
+    <w:name w:val="Code"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Menlo" w:hAnsi="Menlo"/>
+      <w:sz w:val="20"/>
+      <w:szCs w:val="20"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="Accent">
+    <w:name w:val="Accent"/>
+    <w:link w:val="BodyText"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Aptos" w:hAnsi="Aptos" w:eastAsia="Yu Gothic" w:cs="Arial"/>
+      <w:b w:val="0"/>
+      <w:bCs w:val="0"/>
+      <w:i w:val="0"/>
+      <w:iCs w:val="0"/>
+      <w:smallCaps w:val="0"/>
+      <w:dstrike w:val="0"/>
+      <w:color w:val="336699"/>
+      <w:shd w:val="clear" w:color="auto" w:fill="EEEEFF"/>
+      <w:sz w:val="20"/>
+      <w:szCs w:val="20"/>
+      <w:u w:val="none"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="Base">
+    <w:name w:val="Base"/>
+    <w:basedOn w:val="Normal"/>
+    <w:next w:val="Normal"/>
+    <w:qFormat/>
+    <w:pPr>
+      <w:spacing w:before="40" w:after="120"/>
+      <w:ind w:left="240"/>
+      <w:keepNext/>
+    </w:pPr>
+    <w:rPr>
+      <w:color w:val="112233"/>
+      <w:sz w:val="26"/>
+      <w:szCs w:val="26"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="BodyText">
+    <w:name w:val="Body-Text"/>
+    <w:basedOn w:val="Base"/>
+    <w:next w:val="Normal"/>
+    <w:link w:val="Accent"/>
+    <w:qFormat/>
+    <w:pPr>
+      <w:spacing w:after="0"/>
+      <w:jc w:val="both"/>
+      <w:keepNext w:val="0"/>
+    </w:pPr>
+    <w:rPr>
+      <w:b w:val="0"/>
+      <w:bCs w:val="0"/>
+      <w:sz w:val="22"/>
+      <w:szCs w:val="22"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="BodyText2">
+    <w:name w:val="Body_Text"/>
+    <w:basedOn w:val="Normal"/>
+    <w:qFormat/>
+    <w:rPr>
+      <w:i/>
+      <w:iCs/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:default="1" w:styleId="Normal">
+    <w:name w:val="Normal"/>
+    <w:qFormat/>
+    <w:rPr>
+      <w:rFonts w:ascii="Aptos" w:hAnsi="Aptos" w:eastAsia="Yu Gothic" w:cs="Arial"/>
+      <w:sz w:val="22"/>
+      <w:szCs w:val="22"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="Snippet">
+    <w:name w:val="Snippet"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New"/>
+      <w:sz w:val="18"/>
+      <w:szCs w:val="18"/>
+    </w:rPr>
+  </w:style>
+</w:styles>

@@ -91,16 +91,10 @@ pub(super) fn twips(value: &Value) -> Result<i64, Error> {
 pub(super) fn boolean(value: &Value) -> Result<bool, Error> {
     match value {
         Value::Boolean(boolean) => Ok(*boolean),
-        Value::String(text) if ["true", "True", "TRUE", "t", "T", "1"].contains(&text.as_str()) => {
-            Ok(true)
-        }
-        Value::String(text)
-            if ["false", "False", "FALSE", "f", "F", "0"].contains(&text.as_str()) =>
-        {
-            Ok(false)
-        }
+        Value::String(text) => Ok(text.trim() == "true"),
+        Value::Number(_) | Value::Nil => Ok(false),
         _ => Err(Error::InvalidValue(
-            "expected a boolean formatting value".into(),
+            "expected a scalar boolean formatting value".into(),
         )),
     }
 }

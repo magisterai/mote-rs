@@ -1,7 +1,7 @@
-use super::{Error, paragraph_properties, runs, whitespace, xml};
+use super::{Error, paragraph_properties, runs, styles::Styles, whitespace, xml};
 use crate::model::{Content, Document, ElementKind};
 
-pub(super) fn write_document(document: &Document) -> Result<String, Error> {
+pub(super) fn write_document(document: &Document, styles: &Styles<'_>) -> Result<String, Error> {
     let mut body = String::new();
     for content in &document.content {
         let Content::Element(element) = content else {
@@ -16,13 +16,26 @@ pub(super) fn write_document(document: &Document) -> Result<String, Error> {
             )));
         }
         body.push_str("<w:p>");
-        let properties = paragraph_properties::write(&element.attributes)?;
+        let mut attributes = element.attributes.clone();
+        let mut properties = String::new();
+        if let Some(name) = attributes
+            .remove("style")
+            .map(|value| value.to_text())
+            .filter(|name| !name.is_empty())
+        {
+            properties.push_str(&format!(
+                "<w:pStyle w:val=\"{}\"/>",
+                xml::escape(styles.identifier(&name)?)?
+            ));
+        }
+        properties.push_str(&paragraph_properties::write(&attributes)?);
         if !properties.is_empty() {
             body.push_str(&format!("<w:pPr>{properties}</w:pPr>"));
         }
-        body.push_str(&runs::write_inlines(&whitespace::trim_line_edges(
-            &element.children,
-        ))?);
+        body.push_str(&runs::write_inlines(
+            &whitespace::trim_line_edges(&element.children),
+            styles,
+        )?);
         body.push_str("</w:p>");
     }
     body.push_str("<w:sectPr><w:pgSz w:w=\"12240\" w:h=\"15840\"/><w:pgMar w:top=\"1440\" w:right=\"1440\" w:bottom=\"1440\" w:left=\"1440\" w:header=\"720\" w:footer=\"720\" w:gutter=\"0\"/></w:sectPr>");

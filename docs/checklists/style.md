@@ -45,8 +45,14 @@
 - [ ] `table`: apply table styles and conditional regions to table content.
   Declaration storage is implemented; application requires the table model.
 
-Output defaults, implicit style selection, measured fonts, and rendered style
-application remain unsupported.
+DOCX emits paragraph and character declarations, inheritance and next/link
+references, the Normal default and Code fallback, and direct/named precedence.
+[Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
+cover font mappings and stable unique identifiers. Table styles, other implicit
+block styles, font measurement, and native output remain unsupported. Missing
+references and cycles fail explicitly during DOCX emission; language-level
+resolution still returns the documented partial result. Real Word review is
+unreviewed.
 
 ## Specification inventory
 

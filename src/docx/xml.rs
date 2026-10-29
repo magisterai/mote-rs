@@ -27,3 +27,9 @@ pub(super) fn escape(text: &str) -> Result<String, Error> {
     }
     Ok(result)
 }
+
+pub(super) fn word_part(name: &str, content: &str) -> String {
+    format!(
+        "{HEADER}<w:{name} xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">{content}</w:{name}>"
+    )
+}

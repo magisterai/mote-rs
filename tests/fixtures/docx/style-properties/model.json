@@ -1,0 +1,428 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "??",
+      "type": "character",
+      "properties": {
+        "italic": true,
+        "type": "character"
+      }
+    },
+    {
+      "name": "Accent",
+      "type": "character",
+      "run": {
+        "color": "#334455",
+        "fill": "#aabbcc",
+        "size": {
+          "text": "10.25pt",
+          "unit": "pt",
+          "value": 10.25
+        }
+      },
+      "properties": {
+        "run": {
+          "color": "#334455",
+          "fill": "#aabbcc",
+          "size": {
+            "text": "10.25pt",
+            "unit": "pt",
+            "value": 10.25
+          }
+        },
+        "type": "character"
+      }
+    },
+    {
+      "name": "Body",
+      "type": "paragraph",
+      "font": "Arial",
+      "paragraph": {
+        "alignment": "center",
+        "border": {
+          "bottom": {
+            "color": "#123",
+            "width": {
+              "text": "1pt",
+              "unit": "pt",
+              "value": 1
+            }
+          }
+        },
+        "fill": "#ddeeff",
+        "indent": {
+          "left": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          },
+          "right": {
+            "text": "6pt",
+            "unit": "pt",
+            "value": 6
+          }
+        },
+        "keep_together": true,
+        "keep_with_next": false,
+        "outline_level": 1,
+        "page_break_before": false,
+        "spacing": {
+          "after": {
+            "text": "3pt",
+            "unit": "pt",
+            "value": 3
+          },
+          "before": {
+            "text": "2pt",
+            "unit": "pt",
+            "value": 2
+          },
+          "line": {
+            "rule": "multiple",
+            "value": 1.1
+          }
+        },
+        "tabs": {
+          "right": {
+            "text": "72pt",
+            "unit": "pt",
+            "value": 72
+          }
+        },
+        "widow_control": true
+      },
+      "run": {
+        "background": "#eeeeff",
+        "bold": true,
+        "color": "#112233",
+        "double_strike": true,
+        "italic": false,
+        "size": {
+          "text": "11pt",
+          "unit": "pt",
+          "value": 11
+        },
+        "small_caps": true,
+        "strike": false,
+        "underline": true
+      },
+      "properties": {
+        "first_line_indent": {
+          "text": "3pt",
+          "unit": "pt",
+          "value": 3
+        },
+        "font": "Arial",
+        "paragraph": {
+          "alignment": "center",
+          "border": {
+            "bottom": {
+              "color": "#123",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            }
+          },
+          "fill": "#ddeeff",
+          "indent": {
+            "left": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            },
+            "right": {
+              "text": "6pt",
+              "unit": "pt",
+              "value": 6
+            }
+          },
+          "keep_together": true,
+          "keep_with_next": false,
+          "outline_level": 1,
+          "page_break_before": false,
+          "spacing": {
+            "after": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "before": {
+              "text": "2pt",
+              "unit": "pt",
+              "value": 2
+            },
+            "line": {
+              "rule": "multiple",
+              "value": 1.1
+            }
+          },
+          "tabs": {
+            "right": {
+              "text": "72pt",
+              "unit": "pt",
+              "value": 72
+            }
+          },
+          "widow_control": true
+        },
+        "run": {
+          "background": "#eeeeff",
+          "bold": true,
+          "color": "#112233",
+          "double_strike": true,
+          "italic": false,
+          "size": {
+            "text": "11pt",
+            "unit": "pt",
+            "value": 11
+          },
+          "small_caps": true,
+          "strike": false,
+          "underline": true
+        },
+        "size": {
+          "text": "8pt",
+          "unit": "pt",
+          "value": 8
+        }
+      }
+    },
+    {
+      "name": "Raw Strike",
+      "type": "character",
+      "properties": {
+        "double_strike": "true",
+        "strike": "TRUE",
+        "type": "character"
+      }
+    },
+    {
+      "name": "标题",
+      "type": "character",
+      "properties": {
+        "bold": true,
+        "type": "character"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "style": "Body"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Plain "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Accent"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "accent"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Raw Strike"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "strike"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "标题"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "title"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "??"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "question"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "code",
+              "category": "inline",
+              "attributes": {
+                "style": ""
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Default code"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "style": "Body"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Plain "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "style": "Accent"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "accent"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "style": "Raw Strike"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "strike"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "style": "标题"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "title"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "style": "??"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "question"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "code",
+          "category": "inline",
+          "attributes": {
+            "style": ""
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Default code"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

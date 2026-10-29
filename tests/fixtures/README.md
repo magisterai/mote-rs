@@ -30,11 +30,23 @@ conformance evidence.
 
 ## Output references
 
-The [plain-paragraph DOCX fixture](docx/plain-paragraph/README.md) records source,
-model, and extracted package data. Its comparison notes live beside the fixture.
-The [JSON tests](../json.rs) check its source directly against the expected model,
-independently of the language-specification examples.
+The DOCX fixtures retain source, evaluated models, complete package parts,
+fingerprints and comparison notes:
 
-Reference package data does not prove that Rust generates that output or that
-Microsoft Word has rendered it. Record structural comparison and application
-review evidence beside the relevant output fixtures.
+- [Plain paragraph](docx/plain-paragraph/README.md): package structure and defaults.
+- [Text fidelity](docx/text-fidelity/README.md): Unicode, whitespace, tabs and breaks.
+- [Paragraph formatting](docx/paragraph-formatting/README.md): geometry and pagination requests.
+- [Inline formatting](docx/inline-formatting/README.md): spans, decorations and code.
+- [Styles and fonts](docx/styles-and-fonts/README.md): inheritance, references and script mappings.
+- [Declared properties](docx/style-properties/README.md): property ordering and style identities.
+
+[DOCX tests](../docx.rs) generate packages and compare each fixture's evaluated
+model and all XML parts. Numeric JSON values compare by value rather than decimal
+spelling. XML comparisons retain text, units, attribute values and element order;
+only generation timestamps and formatting whitespace outside text are ignored.
+Any captured advisory pagination markers are inventoried explicitly and omitted
+from comparison because the writer does not compute page layout. Authored break
+settings remain part of the comparison.
+
+All captures remain **unreviewed in Microsoft Word**. Structural agreement does
+not establish layout, font substitution, wrapping or pagination conformance.

@@ -2,7 +2,7 @@ use super::Error;
 use std::io::{Cursor, Write};
 use zip::{ZipWriter, write::SimpleFileOptions};
 
-pub(super) fn write(document: &str, styles: &str) -> Result<Vec<u8>, Error> {
+pub(super) fn write(document: &str, styles: &str, font_table: &str) -> Result<Vec<u8>, Error> {
     let now = time::OffsetDateTime::now_utc();
     let timestamp = format!(
         "{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z",
@@ -34,7 +34,7 @@ pub(super) fn write(document: &str, styles: &str) -> Result<Vec<u8>, Error> {
         ("word/_rels/document.xml.rels", DOCUMENT_RELATIONSHIPS),
         ("word/styles.xml", styles),
         ("word/settings.xml", SETTINGS),
-        ("word/fontTable.xml", FONT_TABLE),
+        ("word/fontTable.xml", font_table),
         ("word/numbering.xml", NUMBERING),
     ] {
         archive.start_file(name, options)?;
@@ -87,33 +87,5 @@ pub(super) const APP_PROPERTIES: &str = r#"<?xml version="1.0" encoding="UTF-8" 
   <HyperlinksChanged>false</HyperlinksChanged>
   <AppVersion>16.0000</AppVersion>
 </Properties>"#;
-pub(super) const DEFAULT_STYLES: &str = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
-  <w:docDefaults>
-    <w:rPrDefault>
-      <w:rPr>
-        <w:rFonts w:ascii="Helvetica" w:hAnsi="Helvetica"/>
-        <w:sz w:val="22"/>
-        <w:szCs w:val="22"/>
-      </w:rPr>
-    </w:rPrDefault>
-    <w:pPrDefault>
-      <w:pPr>
-        <w:spacing w:after="160" w:line="276" w:lineRule="auto"/>
-      </w:pPr>
-    </w:pPrDefault>
-  </w:docDefaults>
-  <w:style w:type="paragraph" w:default="1" w:styleId="Normal">
-    <w:name w:val="Normal"/>
-    <w:qFormat/>
-  </w:style>
-</w:styles>"#;
-pub(super) const FONT_TABLE: &str = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:fonts xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
-  <w:font w:name="Aptos"/>
-  <w:font w:name="Aptos Display"/>
-  <w:font w:name="Courier New"/>
-  <w:font w:name="Helvetica"/>
-</w:fonts>"#;
 pub(super) const NUMBERING: &str = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:numbering xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"/>"#;

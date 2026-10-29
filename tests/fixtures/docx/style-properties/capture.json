@@ -1,0 +1,25 @@
+{
+  "source": "source.mote",
+  "model": "model.json",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "source_sha256": "b8c60ffd7ad73a853783165017b2482a6c677c4e74c4a0e11b957c4d20989a64",
+  "captured_docx_sha256": "c5378f14a903aa349b6ae7b339605c06faaf9ffc26b28348332fa22a24472899",
+  "captured_at_utc": "2026-10-29T03:33:01.336172+00:00",
+  "word_review_status": "unreviewed",
+  "normalization": "XML pretty-printing only; namespaces, attributes, element order, and text values retained.",
+  "capture_warnings": [
+    "Unsupported property: style[\"Raw Strike\"].double_strike; the captured XML nevertheless contains w:dstrike.",
+    "Unsupported property: style[\"Raw Strike\"].strike; the captured XML nevertheless contains w:strike."
+  ]
+}

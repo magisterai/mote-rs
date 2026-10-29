@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps">
+  <w:body>
+    <w:p>
+      <w:r>
+        <w:t xml:space="preserve">Implicit default font and size.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="BodyText"/>
+        <w:spacing w:after="0"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Before </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:ascii="Arial" w:hAnsi="Arial"/>
+          <w:b/>
+          <w:bCs/>
+          <w:i/>
+          <w:iCs/>
+          <w:smallCaps/>
+          <w:strike/>
+          <w:color w:val="FF0000"/>
+          <w:sz w:val="32"/>
+          <w:szCs w:val="32"/>
+          <w:u w:val="single"/>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFF00"/>
+        </w:rPr>
+        <w:t xml:space="preserve">outer </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="Accent"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+        </w:rPr>
+        <w:t xml:space="preserve">styled </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="Accent"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+        </w:rPr>
+        <w:t xml:space="preserve">direct</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="Accent"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> styled</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:ascii="Arial" w:hAnsi="Arial"/>
+          <w:b/>
+          <w:bCs/>
+          <w:i/>
+          <w:iCs/>
+          <w:smallCaps/>
+          <w:strike/>
+          <w:color w:val="FF0000"/>
+          <w:sz w:val="32"/>
+          <w:szCs w:val="32"/>
+          <w:u w:val="single"/>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFF00"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> outer</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> after.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="BodyText2"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Exact style lookup.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Yu Gothic" w:cs="Arial"/>
+        </w:rPr>
+        <w:t xml:space="preserve">Script-only alias</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:ascii="Menlo" w:hAnsi="Menlo"/>
+        </w:rPr>
+        <w:t xml:space="preserve">Declared mono alias</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:ascii="Arial" w:hAnsi="Arial"/>
+        </w:rPr>
+        <w:t xml:space="preserve">Literal font</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:ascii="Arial" w:hAnsi="Arial"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="32"/>
+          <w:szCs w:val="32"/>
+        </w:rPr>
+        <w:t xml:space="preserve">before </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="Snippet"/>
+          <w:b/>
+          <w:bCs/>
+        </w:rPr>
+        <w:t xml:space="preserve">code</w:t>
+        <w:t xml:space="preserve">    </w:t>
+        <w:t xml:space="preserve">text</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:ascii="Arial" w:hAnsi="Arial"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="32"/>
+          <w:szCs w:val="32"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> after</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="Code"/>
+        </w:rPr>
+        <w:t xml:space="preserve">Default code style</w:t>
+      </w:r>
+    </w:p>
+    <w:sectPr>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+    </w:sectPr>
+  </w:body>
+</w:document>

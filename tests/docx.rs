@@ -52,7 +52,7 @@ fn unsupported_content_and_attributes_fail_explicitly() {
         "#list[#item[Item]]",
         "#paragraph(custom=true)[Text]",
         "#span(custom=true)[Text]",
-        "#font(name=\"Body\", latin=\"Arial\")",
+        "#font(name=\"Body\", files={regular=\"font.ttf\"})",
     ] {
         let error = mote::docx::emit(&mote::compile(source).unwrap()).unwrap_err();
         assert!(
@@ -112,4 +112,69 @@ fn direct_attributes_without_a_word_mapping_fail_explicitly() {
             "{source}"
         );
     }
+}
+
+#[test]
+fn named_styles_and_font_mappings_match_reference() {
+    support::compare_fixture("styles-and-fonts");
+}
+
+#[test]
+fn unresolved_styles_cycles_and_unsupported_declarations_fail_explicitly() {
+    for source in [
+        "#paragraph(style=\"Missing\")[Text]",
+        "#style(name=\"A\",based_on=\"B\")#style(name=\"B\",based_on=\"A\")",
+        "#style(name=\"A\",based_on=\"Missing\")",
+        "#style(name=\"A\",next=\"Missing\")",
+        "#style(name=\"Table\",type=\"table\")",
+        "#font(name=\"Body\",files={regular=\"font.ttf\"})",
+    ] {
+        assert!(
+            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
+            "{source}"
+        );
+    }
+}
+
+#[test]
+fn declared_property_order_and_style_identity_match_reference() {
+    support::compare_fixture("style-properties");
+}
+
+#[test]
+fn builtin_style_dependencies_are_emitted_and_references_are_resolved() {
+    let parts = support::package(
+        r##"#style(name="Snippet",type="character",based_on="Code",color="#123")
+#span(style="Snippet")[Text]"##,
+    );
+    let styles = roxmltree::Document::parse(&parts["word/styles.xml"]).unwrap();
+    let namespace = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+    let identifiers: std::collections::BTreeSet<_> = styles
+        .descendants()
+        .filter(|node| node.has_tag_name((namespace, "style")))
+        .map(|node| node.attribute((namespace, "styleId")).unwrap())
+        .collect();
+    assert!(identifiers.contains("Code"));
+    for node in styles.descendants().filter(|node| {
+        ["basedOn", "next", "link"]
+            .iter()
+            .any(|name| node.has_tag_name((namespace, *name)))
+    }) {
+        assert!(identifiers.contains(node.attribute((namespace, "val")).unwrap()));
+    }
+}
+
+#[test]
+fn empty_named_font_does_not_erase_an_inherited_direct_typeface() {
+    let parts = support::package(
+        r#"#style(name="Empty Font",type="character",font="")
+#span(font="Arial")[#span(style="Empty Font")[Text]]"#,
+    );
+    let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+    let namespace = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+    let fonts = document
+        .descendants()
+        .find(|node| node.has_tag_name((namespace, "rFonts")))
+        .unwrap();
+    assert_eq!(fonts.attribute((namespace, "ascii")), Some("Arial"));
 }

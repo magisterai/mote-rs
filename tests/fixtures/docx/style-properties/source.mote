@@ -1,0 +1,7 @@
+#style(name = "Body", font = "Arial", size = pt(8), run = {size = pt(11), bold = true, italic = false, small_caps = true, strike = false, double_strike = true, color = "#123", background = "#eef", underline = true}, paragraph = {fill = "#def", border = {bottom = {width = pt(1), color = "#123"}}, tabs = {right = pt(72)}, spacing = {before = pt(2), after = pt(3), line = {rule = "multiple", value = 1.1}}, indent = {left = pt(12), right = pt(6)}, alignment = "center", keep_with_next = false, keep_together = true, page_break_before = false, widow_control = true, outline_level = 1}, first_line_indent = pt(3))
+#style(name = "Accent", type = "character", run = {fill = "#abc", color = "#345", size = pt(10.25)})
+#style(name = "Raw Strike", type = "character", strike = "TRUE", double_strike = "true")
+#style(name = "标题", type = "character", bold = true)
+#style(name = "??", type = "character", italic = true)
+#paragraph(style = "Body")[Plain #span(style = "Accent")[accent] #span(style = "Raw Strike")[strike] #span(style = "标题")[title] #span(style = "??")[question].]
+#paragraph[#code(style = "")[Default code]]

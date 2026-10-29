@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:docDefaults>
+    <w:rPrDefault>
+      <w:rPr>
+        <w:rFonts w:ascii="Helvetica" w:hAnsi="Helvetica"/>
+        <w:sz w:val="22"/>
+        <w:szCs w:val="22"/>
+      </w:rPr>
+    </w:rPrDefault>
+    <w:pPrDefault>
+      <w:pPr>
+        <w:spacing w:after="160" w:line="276" w:lineRule="auto"/>
+      </w:pPr>
+    </w:pPrDefault>
+  </w:docDefaults>
+  <w:style w:type="paragraph" w:default="1" w:styleId="Normal">
+    <w:name w:val="Normal"/>
+    <w:qFormat/>
+  </w:style>
+  <w:style w:type="character" w:styleId="Code">
+    <w:name w:val="Code"/>
+    <w:rPr>
+      <w:rFonts w:ascii="Courier New" w:hAnsi="Courier New"/>
+      <w:sz w:val="20"/>
+      <w:szCs w:val="20"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="Style">
+    <w:name w:val="??"/>
+    <w:rPr>
+      <w:i/>
+      <w:iCs/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="Accent">
+    <w:name w:val="Accent"/>
+    <w:rPr>
+      <w:color w:val="334455"/>
+      <w:shd w:val="clear" w:color="auto" w:fill="AABBCC"/>
+      <w:sz w:val="21"/>
+      <w:szCs w:val="21"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="Body">
+    <w:name w:val="Body"/>
+    <w:qFormat/>
+    <w:pPr>
+      <w:shd w:val="clear" w:color="auto" w:fill="DDEEFF"/>
+      <w:pBdr>
+        <w:bottom w:val="single" w:sz="8" w:space="0" w:color="112233"/>
+      </w:pBdr>
+      <w:tabs>
+        <w:tab w:val="right" w:pos="1440"/>
+      </w:tabs>
+      <w:spacing w:before="40" w:after="60" w:line="264" w:lineRule="auto"/>
+      <w:ind w:left="240" w:right="120" w:firstLine="60"/>
+      <w:jc w:val="center"/>
+      <w:keepNext w:val="0"/>
+      <w:keepLines/>
+      <w:pageBreakBefore w:val="0"/>
+      <w:widowControl/>
+      <w:outlineLvl w:val="1"/>
+    </w:pPr>
+    <w:rPr>
+      <w:rFonts w:ascii="Arial" w:hAnsi="Arial"/>
+      <w:b/>
+      <w:bCs/>
+      <w:i w:val="0"/>
+      <w:iCs w:val="0"/>
+      <w:smallCaps/>
+      <w:strike w:val="0"/>
+      <w:dstrike/>
+      <w:color w:val="112233"/>
+      <w:shd w:val="clear" w:color="auto" w:fill="EEEEFF"/>
+      <w:sz w:val="22"/>
+      <w:szCs w:val="22"/>
+      <w:u w:val="single"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="RawStrike">
+    <w:name w:val="Raw Strike"/>
+    <w:rPr>
+      <w:strike w:val="0"/>
+      <w:dstrike/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="Style2">
+    <w:name w:val="标题"/>
+    <w:rPr>
+      <w:b/>
+      <w:bCs/>
+    </w:rPr>
+  </w:style>
+</w:styles>

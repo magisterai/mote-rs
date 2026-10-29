@@ -27,8 +27,8 @@
   order, without modifying the authored model.
 
 DOCX supports direct span fonts, sizes, colors, highlights, decorations and
-explicit boolean overrides, including nested spans. Named styles and font aliases
-remain deferred. [Structural evidence](../../tests/fixtures/docx/inline-formatting/README.md)
+explicit boolean overrides, including nested spans, named character styles and
+script-specific font aliases. [Structural evidence](../../tests/fixtures/docx/inline-formatting/README.md)
 is captured; real Word review is unreviewed and native PDF/PNG remains unsupported.
 
 ## Specification inventory

@@ -21,8 +21,12 @@
 - [ ] `family`, `pitch`, and `files`: effective font metadata and variant
   selection. These fields are currently retained as metadata only.
 
-Font-file lookup, embedding, glyph coverage, substitution diagnostics, and
-rendered font selection remain unsupported.
+DOCX emits declared script mappings in runs and styles, and physical typeface
+names in its font table. Missing mappings remain inherited. `word_line_height`
+has no DOCX size effect. [Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
+cover aliases and literal names. Font-file lookup, embedding, glyph coverage,
+substitution diagnostics, and native font measurement remain unsupported.
+Real Word font/layout review remains unreviewed.
 
 ## Specification inventory
 

@@ -21,7 +21,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, and value-normalization modules. |
 | [model](../src/model.rs) | Evaluated content, values, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
-| [docx](../src/docx.rs) | Editable Word output, with separate content, XML, and package modules. |
+| [docx](../src/docx.rs) | Editable Word output, with separate content, properties, styles, fonts, XML and package modules. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
 
@@ -233,23 +233,37 @@ Unsupported content, attributes, and declarations return explicit errors before
 the CLI opens its output file. JSON remains the default output format.
 
 The package uses ZIP with only DEFLATE enabled, XML generated from the model,
-and UTC creation/modification metadata. Direct paragraph formatting includes alignment, spacing, indentation, pagination
-flags, outline levels 0–9, shading, borders, and tab stops. Inline output includes
-strong/emphasis intent, span formatting and a default Code style. Nested formatting
-is local to each child. Code preserves requested whitespace and expands preserved
-tabs to four spaces. Direct strong/emphasis attributes and direct code font, size
-and color have no DOCX mapping and fail explicitly. Unknown nested
-properties and out-of-range output values fail explicitly. Authored exact line
-heights are preserved without estimating clipping.
+and UTC creation/modification metadata. Paragraph formatting includes alignment,
+spacing, indentation, pagination flags, outline levels 0–9, shading, borders and
+tab stops. Inline output includes strong/emphasis intent, span formatting, and
+code. Nested formatting remains local to each child. Preserved code tabs expand
+to four spaces. Direct strong/emphasis attributes and direct code font, size and
+color have no DOCX mapping and fail explicitly.
 
-Font measurement is not required for
-DOCX emission; Word performs layout and pagination. No measurement, shaping,
-image, or general document framework is included in the dependency graph.
+Paragraph and character styles preserve declarations, inheritance, next/link
+references, exact/normalized lookup and unique Word identifiers. A declared
+Normal style supplies implicit paragraph formatting; Code has a fallback unless
+declared. Named character styles clear only the inherited direct fields they
+supply, preserving other enclosing formatting. Font aliases map the three script
+groups without inventing missing mappings. The font table names physical
+script-specific typefaces. `word_line_height` remains metadata for later layout.
 
-[DOCX tests](../tests/docx.rs) compare all package parts with the
-[plain-paragraph reference](../tests/fixtures/docx/plain-paragraph/README.md),
-resolving XML names by namespace and ignoring only generation timestamps and
-formatting whitespace outside text elements. Captured advisory pagination markers
-are inventoried separately and omitted; actual break settings remain compared.
-Real Word rendering remains
-**unreviewed**. Package agreement does not establish layout conformance.
+Unknown nested properties, missing style references, cycles and unsupported
+output values fail explicitly. Declared style sizes must round to a positive
+half-point value. Table styles, headings, lists, quotes, font files and embedding
+remain deferred. These are output limits; their language/model support is
+unchanged. Authored exact line heights are preserved without estimating clipping.
+
+Font measurement is not required for DOCX emission; Word performs layout and
+pagination. Production dependencies add ZIP/DEFLATE and UTC metadata support;
+XML parsing for comparisons is a test-only dependency. Measurement and shaping
+libraries remain deferred. The resolved production graph has no duplicate crate
+versions.
+
+[DOCX tests](../tests/docx.rs) compare evaluated models and every captured package
+part across [six focused fixtures](../tests/fixtures/README.md). JSON numbers are
+compared numerically; XML names use namespace URIs. Generation timestamps and
+formatting whitespace outside text elements are ignored. Captured advisory
+pagination markers are counted separately and omitted; actual break settings
+remain compared. Real Word rendering remains **unreviewed**. Structural agreement
+does not establish layout conformance.
