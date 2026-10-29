@@ -16,6 +16,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | Module | Responsibility |
 | --- | --- |
 | [diagnostics](../src/diagnostics.rs) | Shared source ranges and diagnostic locations. |
+| [source](../src/source.rs) | Asset resolver interface and UTF-8 source loading, with filesystem lookup and logical-name handling in separate modules. |
 | [syntax](../src/syntax.rs) | Syntax tree and parser entry points, with separate markup and expression parsers. |
 | [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, and value-normalization modules. |
 | [model](../src/model.rs) | Evaluated content, values, and declaration registries. |
@@ -27,6 +28,46 @@ Parsing does not depend on evaluation. The model shares diagnostic types without
 depending on the parser; formatting and JSON inspection operate on the model.
 Named-argument evaluation retains each value with its source expression so type
 checks and conversion diagnostics keep the correct location.
+
+## Source loading
+
+`source::load_source` loads a single named input through an `AssetResolver` and
+returns a `SourceFile` containing its logical name and validated UTF-8 text.
+Callers pass that text to `mote::compile`; `compile(source)` remains independent
+of filesystem access. Loading does not add output defaults or source metadata
+to the document model.
+
+An `AssetRequest` contains the authored reference and an optional referring source
+name. A `ResolvedAsset` owns its bytes and its stable logical name. Custom
+resolvers can supply memory-backed or generated inputs and implement the trait
+directly or use a closure. Their returned names are preserved exactly, and their
+errors are returned without filesystem fallback. If the returned name is empty,
+`resolve_asset` derives a source-relative logical path or hierarchical URI without
+accessing the filesystem. URI resolution preserves encoded path segments, queries,
+and fragments; it removes only literal `.` and `..` segments. The `iri-string`
+dependency validates URI components and escapes Unicode names; it does not fetch
+resources. A relative reference from an opaque URI requires a resolver-supplied name.
+
+`FileAssetResolver` captures an absolute working directory when constructed.
+Root relative references use that directory. Nested references use the directory
+of their referring source, with a relative source name anchored to the captured
+working directory. Absolute references retain their own location. Names are
+normalized lexically, including `.` and `..`; symlinks are not canonicalized.
+The filesystem resolver rejects URI references and relative references whose
+source name is a URI. Such references require a custom resolver.
+
+References and names use native OS strings to avoid losing filesystem filename
+bytes; source contents must be UTF-8. Loading failures retain the requested name,
+and decoding failures retain the resolved name. The CLI uses this loader for
+files and reports resolved names on parser/evaluator errors and warnings.
+Standard input remains labelled `<stdin>`.
+
+This implements the source-loading boundary only. Imports, data-loading helpers,
+image/font consumers, per-compilation caching, and consistency checks for repeated
+logical names remain deferred. Resolvers must supply stable bytes for a logical
+name during a compilation. Tests in [source.rs](../tests/source.rs) and
+[cli.rs](../tests/cli.rs) cover custom sources, relative names, failure propagation,
+encoding, and CLI diagnostics.
 
 ## Parser
 

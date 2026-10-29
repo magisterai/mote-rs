@@ -1,10 +1,11 @@
 use std::{
     env,
     ffi::OsString,
-    fs,
     io::{self, Read, Write},
     process::ExitCode,
 };
+
+use mote::source::{AssetRequest, FileAssetResolver, SourceFile, load_source};
 
 const HELP: &str = "Usage: mote [--format json] [SOURCE|-]\n\nEvaluate the supported Mote language subset and print its document model as JSON.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nOnly JSON inspection is available; layout and Office output are not implemented.\n";
 
@@ -45,28 +46,39 @@ fn run_command() -> Result<(), String> {
             }
         }
     }
-    let (name, source) = match input {
+    let source = match input {
         Some(path) if path != "-" => {
-            let name = path.to_string_lossy().into_owned();
-            let source = fs::read_to_string(&path).map_err(|error| format!("{name}: {error}"))?;
-            (name, source)
+            let resolver = FileAssetResolver::from_current_directory()
+                .map_err(|error| format!("{}: {error}", path.to_string_lossy()))?;
+            load_source(
+                &resolver,
+                AssetRequest {
+                    reference: &path,
+                    source_name: None,
+                },
+            )
+            .map_err(|error| error.to_string())?
         }
         _ => {
             let mut source = String::new();
             io::stdin()
                 .read_to_string(&mut source)
                 .map_err(|error| format!("<stdin>: {error}"))?;
-            ("<stdin>".into(), source)
+            SourceFile {
+                name: "<stdin>".into(),
+                text: source,
+            }
         }
     };
-    let document = mote::compile(&source).map_err(|error| {
-        let (line, column) = error.location(&source);
+    let name = source.name.to_string_lossy();
+    let document = mote::compile(&source.text).map_err(|error| {
+        let (line, column) = error.location(&source.text);
         format!("{name}:{line}:{column}: {}", error.message)
     })?;
     let mut json =
         mote::json::to_json(&document).map_err(|error| format!("JSON output: {error}"))?;
     for warning in &document.warnings {
-        let (line, column) = warning.location(&source);
+        let (line, column) = warning.location(&source.text);
         writeln!(
             io::stderr().lock(),
             "{name}:{line}:{column}: warning: {}",

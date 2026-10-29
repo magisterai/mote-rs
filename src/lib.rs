@@ -5,6 +5,7 @@ pub mod evaluation;
 pub mod formatting;
 pub mod json;
 pub mod model;
+pub mod source;
 pub mod syntax;
 
 /// Parse and evaluate source without selecting an output format or laying out pages.

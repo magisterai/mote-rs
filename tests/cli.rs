@@ -1,9 +1,19 @@
 use std::{
     fs,
     io::Write,
+    path::PathBuf,
     process::{Command, Output, Stdio},
     sync::atomic::{AtomicUsize, Ordering},
 };
+
+fn temporary_input_path() -> PathBuf {
+    static NEXT_INPUT_IDENTIFIER: AtomicUsize = AtomicUsize::new(0);
+    std::env::temp_dir().join(format!(
+        "mote-cli-{}-{}.mote",
+        std::process::id(),
+        NEXT_INPUT_IDENTIFIER.fetch_add(1, Ordering::Relaxed)
+    ))
+}
 
 fn run(arguments: &[&str], input: &[u8]) -> Output {
     let mut child = Command::new(env!("CARGO_BIN_EXE_mote"))
@@ -38,12 +48,7 @@ fn invalid_source_has_a_location_and_no_partial_json() {
 
 #[test]
 fn reads_source_files_and_reports_missing_paths() {
-    static NEXT_INPUT_IDENTIFIER: AtomicUsize = AtomicUsize::new(0);
-    let path = std::env::temp_dir().join(format!(
-        "mote-cli-{}-{}.mote",
-        std::process::id(),
-        NEXT_INPUT_IDENTIFIER.fetch_add(1, Ordering::Relaxed)
-    ));
+    let path = temporary_input_path();
     fs::write(&path, "Hello **world**.").unwrap();
     let output = Command::new(env!("CARGO_BIN_EXE_mote"))
         .arg(&path)
@@ -58,6 +63,63 @@ fn reads_source_files_and_reports_missing_paths() {
     assert!(!missing.status.success());
     assert!(missing.stdout.is_empty());
     assert!(String::from_utf8_lossy(&missing.stderr).contains(&*path.to_string_lossy()));
+}
+
+#[test]
+fn relative_source_files_use_resolved_names_in_errors_and_warnings() {
+    let path = temporary_input_path();
+    let working_directory = fs::canonicalize(path.parent().unwrap()).unwrap();
+    let resolved_name = working_directory.join(path.file_name().unwrap());
+    let run_file = || {
+        Command::new(env!("CARGO_BIN_EXE_mote"))
+            .current_dir(&working_directory)
+            .arg(path.file_name().unwrap())
+            .output()
+            .unwrap()
+    };
+
+    fs::write(&path, "é\n#font(name=7)").unwrap();
+    let warning = run_file();
+    assert!(warning.status.success());
+    assert!(
+        String::from_utf8(warning.stderr)
+            .unwrap()
+            .starts_with(&format!("{}:2:1: warning:", resolved_name.display()))
+    );
+    assert!(serde_json::from_slice::<serde_json::Value>(&warning.stdout).is_ok());
+
+    fs::write(&path, "é\n#heading(level=0)[Title]").unwrap();
+    let invalid = run_file();
+    assert!(!invalid.status.success());
+    assert!(invalid.stdout.is_empty());
+    assert!(
+        String::from_utf8(invalid.stderr)
+            .unwrap()
+            .starts_with(&format!("{}:2:16:", resolved_name.display()))
+    );
+
+    fs::write(&path, [0xff]).unwrap();
+    let invalid = run_file();
+    fs::remove_file(&path).unwrap();
+    assert!(!invalid.status.success());
+    assert!(invalid.stdout.is_empty());
+    assert!(
+        String::from_utf8(invalid.stderr)
+            .unwrap()
+            .starts_with(&format!("{}:", resolved_name.display()))
+    );
+}
+
+#[test]
+fn external_source_references_require_a_custom_resolver() {
+    let output = run(&["asset://bundle/main.mote"], b"");
+    assert!(!output.status.success());
+    assert!(output.stdout.is_empty());
+    assert!(
+        String::from_utf8(output.stderr).unwrap().contains(
+            "asset://bundle/main.mote: external asset references require a custom resolver"
+        )
+    );
 }
 
 #[test]

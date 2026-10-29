@@ -6,3 +6,4 @@ publish = false
 
 [dependencies]
 serde_json = "1.0"
+iri-string = "0.7"
