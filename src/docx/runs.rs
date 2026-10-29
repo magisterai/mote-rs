@@ -3,12 +3,17 @@ use super::{
 };
 use crate::model::{Content, ElementKind};
 
-pub(super) fn write_inlines(children: &[Content], styles: &Styles<'_>) -> Result<String, Error> {
+pub(super) fn write_inlines(
+    children: &[Content],
+    styles: &Styles<'_>,
+    resources: &mut super::resources::Resources,
+) -> Result<String, Error> {
     validate_controls(children)?;
     write_formatted(
         &whitespace::trim_line_edges(children),
         &RunFormatting::default(),
         styles,
+        resources,
     )
 }
 
@@ -34,6 +39,7 @@ fn write_formatted(
     children: &[Content],
     formatting: &RunFormatting,
     styles: &Styles<'_>,
+    resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
     let mut result = String::new();
     for child in children {
@@ -48,9 +54,48 @@ fn write_formatted(
                     "<w:r><w:br/></w:r>"
                 });
             }
+            Content::Element(element) if element.kind == ElementKind::Link => {
+                check_attributes(
+                    &element.attributes,
+                    &["url", "title", "tooltip", "target"],
+                    "link",
+                )?;
+                let url = element
+                    .attributes
+                    .get("url")
+                    .map(crate::model::Value::to_text)
+                    .unwrap_or_default();
+                if url.is_empty() {
+                    result.push_str(&write_formatted(
+                        &element.children,
+                        formatting,
+                        styles,
+                        resources,
+                    )?);
+                } else {
+                    let relationship = resources.hyperlink(&url);
+                    let mut linked = formatting.clone();
+                    linked.apply_character_style("Hyperlink", styles)?;
+                    result.push_str(&format!(
+                        "<w:hyperlink r:id=\"{relationship}\" w:history=\"1\">"
+                    ));
+                    result.push_str(&write_formatted(
+                        &element.children,
+                        &linked,
+                        styles,
+                        resources,
+                    )?);
+                    result.push_str("</w:hyperlink>");
+                }
+            }
             Content::Element(element) => {
                 let formatting = formatting.for_element(element, styles)?;
-                result.push_str(&write_formatted(&element.children, &formatting, styles)?);
+                result.push_str(&write_formatted(
+                    &element.children,
+                    &formatting,
+                    styles,
+                    resources,
+                )?);
             }
         }
     }

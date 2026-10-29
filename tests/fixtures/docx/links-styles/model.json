@@ -1,0 +1,223 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Hyperlink",
+      "type": "character",
+      "properties": {
+        "color": "#993399",
+        "type": "character",
+        "underline": false
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#337799",
+                "italic": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Inherited "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com/inherited"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "link"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " style."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/heading"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Linked heading"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "link",
+                      "category": "inline",
+                      "attributes": {
+                        "url": "https://example.com/list"
+                      },
+                      "children": [
+                        {
+                          "kind": "strong",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Bold link"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "color": "#337799",
+            "italic": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Inherited "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/inherited"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "link"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " style."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com/heading"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Linked heading"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ordered_list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com/list"
+                  },
+                  "children": [
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Bold link"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

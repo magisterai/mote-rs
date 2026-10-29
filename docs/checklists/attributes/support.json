@@ -1917,5 +1917,14 @@
       "docs/specification/document-configuration.md",
       "tests/docx_defaults.rs"
     ]
+  },
+  "w:CT_Hyperlink/@r:id": {
+    "status": "supported",
+    "note": "External `link.url` is emitted through a package relationship; relationship identifiers are generated, not authored.",
+    "evidence": [
+      "docs/specification/links.md",
+      "tests/links.rs",
+      "tests/docx_packages.rs"
+    ]
   }
 }

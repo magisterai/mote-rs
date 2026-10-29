@@ -55,6 +55,7 @@ pub fn measure_cases(root: &Path, requests: &Value) -> Result<Value, Box<dyn Err
             .unwrap()
             .iter()
             .map(|run| TextRun {
+                link: None,
                 text: run["text"].as_str().unwrap().into(),
                 preserve_space: boolean(run, "preserve_space"),
                 synthetic_tab: false,

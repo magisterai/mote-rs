@@ -1,0 +1,6 @@
+#style(name = "Hyperlink", type = "character", color = "#993399", underline = false)
+#span(color = "#337799", italic = true)[Inherited [link](https://example.com/inherited) style.]
+
+#heading(level = 2)[[Linked heading](https://example.com/heading)]
+
+#ordered_list[#item[#link("https://example.com/list")[#strong[Bold link]]]]

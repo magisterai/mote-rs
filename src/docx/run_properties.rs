@@ -88,7 +88,11 @@ impl RunFormatting {
         Ok(result)
     }
 
-    fn apply_character_style(&mut self, name: &str, styles: &Styles<'_>) -> Result<(), Error> {
+    pub(super) fn apply_character_style(
+        &mut self,
+        name: &str,
+        styles: &Styles<'_>,
+    ) -> Result<(), Error> {
         let supplied = styles.resolved_run(name)?;
         self.character_style = Some(styles.identifier(name)?.into());
         // Character styles replace only the inherited direct properties they supply.

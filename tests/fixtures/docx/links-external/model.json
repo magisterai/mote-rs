@@ -1,0 +1,616 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      },
+      "left": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      },
+      "right": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      },
+      "top": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      }
+    },
+    "page": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "25pt",
+      "unit": "pt",
+      "value": 25
+    },
+    "right": {
+      "text": "25pt",
+      "unit": "pt",
+      "value": 25
+    },
+    "bottom": {
+      "text": "25pt",
+      "unit": "pt",
+      "value": 25
+    },
+    "left": {
+      "text": "25pt",
+      "unit": "pt",
+      "value": 25
+    },
+    "properties": {
+      "bottom": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      },
+      "left": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      },
+      "right": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      },
+      "top": {
+        "text": "25pt",
+        "unit": "pt",
+        "value": 25
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "260pt",
+            "unit": "pt",
+            "value": 260
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "25pt",
+          "unit": "pt",
+          "value": 25
+        },
+        "right": {
+          "text": "25pt",
+          "unit": "pt",
+          "value": 25
+        },
+        "bottom": {
+          "text": "25pt",
+          "unit": "pt",
+          "value": 25
+        },
+        "left": {
+          "text": "25pt",
+          "unit": "pt",
+          "value": 25
+        },
+        "properties": {
+          "bottom": {
+            "text": "25pt",
+            "unit": "pt",
+            "value": 25
+          },
+          "left": {
+            "text": "25pt",
+            "unit": "pt",
+            "value": 25
+          },
+          "right": {
+            "text": "25pt",
+            "unit": "pt",
+            "value": 25
+          },
+          "top": {
+            "text": "25pt",
+            "unit": "pt",
+            "value": 25
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "title": "Title",
+                "url": "https://example.com/a?x=1\u0026y=2"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "linked phrase with enough text to wrap across more than one line"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " follows."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "target": "_blank",
+                "title": "Title",
+                "tooltip": "Tip",
+                "url": "https://example.com/direct"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "bold": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "color": "#bb2200",
+                    "underline": false
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "red"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "mailto:reader@example.com"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "reader@example.com"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/angle"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "https://example.com/angle"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Bare "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/bare"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "https://example.com/bare"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", then text."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "An "
+                    },
+                    {
+                      "kind": "link",
+                      "category": "inline",
+                      "attributes": {
+                        "url": "https://example.com/item"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "item"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com/quote"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "quoted link"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A "
+        },
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "title": "Title",
+            "url": "https://example.com/a?x=1\u0026y=2"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "linked phrase with enough text to wrap across more than one line"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " follows."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "target": "_blank",
+            "title": "Title",
+            "tooltip": "Tip",
+            "url": "https://example.com/direct"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "bold"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#bb2200",
+                "underline": false
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "red"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "mailto:reader@example.com"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "reader@example.com"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com/angle"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "https://example.com/angle"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Bare "
+        },
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com/bare"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "https://example.com/bare"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ", then text."
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "An "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com/item"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "item"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/quote"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "quoted link"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

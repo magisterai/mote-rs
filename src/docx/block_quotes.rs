@@ -5,6 +5,7 @@ pub(super) fn write(
     quote: &Element,
     styles: &Styles<'_>,
     leading_column_break: bool,
+    resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
     check_attributes(
         &quote.attributes,
@@ -26,7 +27,14 @@ pub(super) fn write(
         .entry("style".into())
         .or_insert_with(|| Value::String("BlockQuote".into()));
     let children = flatten_content(&quote.children)?;
-    paragraphs::write(&attributes, &children, styles, None, leading_column_break)
+    paragraphs::write(
+        &attributes,
+        &children,
+        styles,
+        None,
+        leading_column_break,
+        resources,
+    )
 }
 
 fn flatten_content(children: &[Content]) -> Result<Vec<Content>, Error> {

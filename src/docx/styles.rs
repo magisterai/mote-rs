@@ -102,8 +102,13 @@ impl<'document> Styles<'document> {
                 }
             }
         }
-        if !self.declared(name) && builtin_styles::canonical_name(name) == Some("Code") {
-            return Ok(builtin_styles::run_properties("Code"));
+        if !self.declared(name)
+            && matches!(
+                builtin_styles::canonical_name(name),
+                Some("Code" | "Hyperlink")
+            )
+        {
+            return Ok(builtin_styles::run_properties(name));
         }
         Ok(resolved.run)
     }
@@ -121,6 +126,9 @@ impl<'document> Styles<'document> {
                     self.identifier("Normal")?,
                 ));
             }
+        }
+        if self.builtin_needed.contains("Hyperlink") && !self.declared("Hyperlink") {
+            content.push_str("<w:style w:type=\"character\" w:styleId=\"Hyperlink\"><w:name w:val=\"Hyperlink\"/><w:uiPriority w:val=\"99\"/><w:unhideWhenUsed/><w:rPr><w:color w:val=\"0563C1\"/><w:u w:val=\"single\"/></w:rPr></w:style>");
         }
         if self.builtin_needed.contains("BlockQuote") && !self.declared("BlockQuote") {
             let formatting = RunFormatting {

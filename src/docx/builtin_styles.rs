@@ -12,6 +12,7 @@ pub(super) const NAMES: &[&str] = &[
     "Heading6",
     "BlockQuote",
     "Code",
+    "Hyperlink",
 ];
 
 pub(super) fn normalize_name(name: &str) -> String {
@@ -51,6 +52,9 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
         let Content::Element(element) = child else {
             continue;
         };
+        if element.kind == ElementKind::Link {
+            names.insert("Hyperlink".into());
+        }
         let style = element
             .attributes
             .get("style")
@@ -94,6 +98,10 @@ pub(super) fn run_properties(name: &str) -> Properties {
                     unit: Unit::Point,
                 },
             );
+        }
+        Some("Hyperlink") => {
+            properties.insert("color".into(), Value::String("0563C1".into()));
+            properties.insert("underline".into(), Value::Boolean(true));
         }
         Some("Code") => {
             properties.insert("font".into(), Value::String("mono".into()));

@@ -147,6 +147,7 @@ pub enum ElementKind {
     Paragraph,
     Heading,
     Span,
+    Link,
     Strong,
     Emphasis,
     Code,
@@ -165,6 +166,7 @@ impl ElementKind {
             Self::Paragraph => "paragraph",
             Self::Heading => "heading",
             Self::Span => "span",
+            Self::Link => "link",
             Self::Strong => "strong",
             Self::Emphasis => "emphasis",
             Self::Code => "code",
@@ -181,7 +183,13 @@ impl ElementKind {
     pub fn is_block(self) -> bool {
         !matches!(
             self,
-            Self::Span | Self::Strong | Self::Emphasis | Self::Code | Self::LineBreak | Self::Tab
+            Self::Link
+                | Self::Span
+                | Self::Strong
+                | Self::Emphasis
+                | Self::Code
+                | Self::LineBreak
+                | Self::Tab
         )
     }
 }

@@ -13,6 +13,7 @@ pub fn resolve_inline(
     let mut merged: Vec<TextRun> = Vec::new();
     for run in runs {
         if let Some(previous) = merged.last_mut()
+            && previous.link == run.link
             && previous.style == run.style
             && previous.preserve_space == run.preserve_space
             && previous.synthetic_tab == run.synthetic_tab
@@ -39,6 +40,24 @@ fn collect(
                 runs.push(run);
             }
             Content::Element(element) => {
+                if element.kind == ElementKind::Link {
+                    let mut style = inherited.clone();
+                    style.color = "0563C1".into();
+                    style.underline = true;
+                    let start = runs.len();
+                    collect(&element.children, &style, styles, preserve_space, runs);
+                    let url = element
+                        .attributes
+                        .get("url")
+                        .map(crate::model::Value::to_text)
+                        .unwrap_or_default();
+                    if !url.is_empty() {
+                        for run in &mut runs[start..] {
+                            run.link = Some(url.clone());
+                        }
+                    }
+                    continue;
+                }
                 if matches!(element.kind, ElementKind::Tab | ElementKind::LineBreak) {
                     let mut run = TextRun::new(
                         if element.kind == ElementKind::Tab {

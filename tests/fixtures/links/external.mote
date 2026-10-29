@@ -1,0 +1,13 @@
+#document(page = { width = pt(260), height = pt(300) }, margin = { top = pt(25), bottom = pt(25), left = pt(25), right = pt(25) })
+
+A [linked phrase with enough text to wrap across more than one line](https://example.com/a?x=1&y=2 "Title") follows.
+
+#link("https://example.com/direct", title = "Title", tooltip = "Tip", target = "_blank")[Before #span(bold = true)[bold] and #span(color = "#BB2200", underline = false)[red].]
+
+<reader@example.com> and <https://example.com/angle>.
+
+Bare https://example.com/bare, then text.
+
+#list[#item[An [item](https://example.com/item).]]
+
+> A [quoted link](https://example.com/quote).

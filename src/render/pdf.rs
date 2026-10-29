@@ -53,7 +53,38 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
         document
             .stream(content_id, &content_bytes)
             .filter(Filter::FlateDecode);
+        let mut annotations = Vec::new();
+        if let Some(page) = plan.pages.get(page_index) {
+            for placed in &page.lines {
+                for fragment in &placed.line.fragments {
+                    if let Some(target) = &fragment.link {
+                        if fragment.advance <= 0.0 {
+                            continue;
+                        }
+                        let reference = objects.allocate();
+                        annotations.push(reference);
+                        let mut annotation = document.annotation(reference);
+                        annotation
+                            .subtype(pdf_writer::types::AnnotationType::Link)
+                            .rect(Rect::new(
+                                rounded(fragment.x),
+                                rounded(plan.geometry.height - placed.top - placed.line.height),
+                                rounded(fragment.x + fragment.advance),
+                                rounded(plan.geometry.height - placed.top),
+                            ))
+                            .border(0.0, 0.0, 0.0, None);
+                        annotation
+                            .action()
+                            .action_type(pdf_writer::types::ActionType::Uri)
+                            .uri(Str(target.as_bytes()));
+                    }
+                }
+            }
+        }
         let mut page = document.page(page_id);
+        if !annotations.is_empty() {
+            page.annotations(annotations);
+        }
         page.parent(page_tree)
             .media_box(Rect::new(
                 0.0,

@@ -8,6 +8,7 @@ use crate::model::{Content, Document, ElementKind, Value};
 pub(super) struct DocumentState {
     pub numbering: Numbering,
     pub controls: Controls,
+    pub resources: super::resources::Resources,
 }
 
 pub(super) fn write_document(
@@ -66,7 +67,12 @@ pub(super) fn write_document(
                 headings::attributes(element, at_flow_start || leading_column_break)?
             }
             ElementKind::Blockquote => {
-                body.push_str(&block_quotes::write(element, styles, leading_column_break)?);
+                body.push_str(&block_quotes::write(
+                    element,
+                    styles,
+                    leading_column_break,
+                    &mut state.resources,
+                )?);
                 at_flow_start = false;
                 continue;
             }
@@ -88,6 +94,7 @@ pub(super) fn write_document(
             styles,
             numbering_reference,
             leading_column_break,
+            &mut state.resources,
         )?);
         at_flow_start = false;
     }

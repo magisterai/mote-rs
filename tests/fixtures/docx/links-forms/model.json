@@ -1,0 +1,296 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/positional"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Positional wins."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "title": "title",
+                "url": "https://example.com/a(b)c"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Parentheses"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "title": "title",
+                "url": "https://example.com/a"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Angle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/empty"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/outer"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outer "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com/inner"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "inner"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Literal [not a link"
+            },
+            {
+              "kind": "text",
+              "text": "]"
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "https://example.com/code"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com/positional"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Positional wins."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "title": "title",
+            "url": "https://example.com/a(b)c"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Parentheses"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "title": "title",
+            "url": "https://example.com/a"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Angle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com/empty"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com/outer"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Outer "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/inner"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "inner"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Literal [not a link"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "code",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "https://example.com/code"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

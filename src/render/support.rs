@@ -153,6 +153,7 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     allowed.extend(["id", "start", "restart"]);
                 }
             }
+            ElementKind::Link => allowed.push("url"),
             ElementKind::Break => allowed.push("type"),
             ElementKind::Tab | ElementKind::LineBreak => {}
         }

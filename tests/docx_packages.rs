@@ -34,7 +34,16 @@ fn every_captured_package_has_resolved_styles_numbering_and_package_relationship
                         identifiers.insert(identifier),
                         "{name}: duplicate relationship {identifier}"
                     );
-                    assert_ne!(relationship.attribute("TargetMode"), Some("External"));
+                    if relationship.attribute("TargetMode") == Some("External") {
+                        assert_eq!(
+                            relationship.attribute("Type"),
+                            Some(
+                                "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink"
+                            )
+                        );
+                        assert!(!relationship.attribute("Target").unwrap().is_empty());
+                        continue;
+                    }
                     let target = format!("{prefix}{}", relationship.attribute("Target").unwrap());
                     assert!(
                         parts.contains_key(&target),
@@ -119,6 +128,23 @@ fn every_captured_package_has_resolved_styles_numbering_and_package_relationship
             );
         }
         let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+        let relationships =
+            roxmltree::Document::parse(&parts["word/_rels/document.xml.rels"]).unwrap();
+        let identifiers: BTreeSet<_> = relationships
+            .descendants()
+            .filter_map(|node| node.attribute("Id"))
+            .collect();
+        for node in document.descendants() {
+            if let Some(identifier) = node.attribute((
+                "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+                "id",
+            )) {
+                assert!(
+                    identifiers.contains(identifier),
+                    "{name}: unresolved relationship {identifier}"
+                );
+            }
+        }
         for reference in document.descendants().filter(|node| {
             ["pStyle", "rStyle", "numId"]
                 .iter()

@@ -352,8 +352,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `hlinkClick` — [a:CT_Hyperlink](drawing-text.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1. Click Hyperlink; [§21.1.2.3.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3251-part-1).
-- [ ] `hlinkHover` — [a:CT_Hyperlink](drawing-text.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `hlinkClick` — [a:CT_Hyperlink](links.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1. Click Hyperlink; [§21.1.2.3.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3251-part-1).
+- [ ] `hlinkHover` — [a:CT_Hyperlink](links.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@id` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required.
 - [ ] `@name` — `xsd:string`; Strict, Transitional; use=required.

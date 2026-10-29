@@ -1,0 +1,9 @@
+#link("https://example.com/positional", properties = { url = "https://example.com/property" })[Positional wins.]
+
+[Parentheses](https://example.com/a(b)c 'title') [Angle](<https://example.com/a> (title))
+
+#link("https://example.com/empty")[]
+
+#link("https://example.com/outer")[Outer #link("https://example.com/inner")[inner] text]
+
+Literal [not a link] and `https://example.com/code`.

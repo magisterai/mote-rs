@@ -4,6 +4,7 @@
 pub use crate::diagnostics::{Diagnostic, Span};
 
 mod expressions;
+mod links;
 mod markup;
 
 use markup::MarkupBoundary;

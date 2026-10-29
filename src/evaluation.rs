@@ -321,6 +321,7 @@ fn evaluate_call(
         "paragraph" => ElementKind::Paragraph,
         "heading" => ElementKind::Heading,
         "span" => ElementKind::Span,
+        "link" => ElementKind::Link,
         "strong" => ElementKind::Strong,
         "emphasis" => ElementKind::Emphasis,
         "list" => ElementKind::List,
@@ -346,22 +347,27 @@ fn evaluate_call(
             format!("{} requires one content body", call.name),
         ));
     }
-    if kind == ElementKind::Heading
+    if matches!(kind, ElementKind::Heading | ElementKind::Link)
         && call
             .arguments
             .iter()
             .any(|argument| argument.name.is_none())
-        && call
-            .arguments
-            .iter()
-            .any(|argument| argument.name.as_deref() == Some("level"))
+        && call.arguments.iter().any(|argument| {
+            argument.name.as_deref()
+                == Some(if kind == ElementKind::Heading {
+                    "level"
+                } else {
+                    "url"
+                })
+        })
     {
         return Err(Diagnostic::new(
             span,
-            "heading level cannot be supplied both positionally and by name",
+            "primary argument cannot be supplied both positionally and by name",
         ));
     }
-    let permitted_positional_arguments = usize::from(kind == ElementKind::Heading);
+    let permitted_positional_arguments =
+        usize::from(matches!(kind, ElementKind::Heading | ElementKind::Link));
     if let Some(argument) = call
         .arguments
         .iter()
@@ -374,6 +380,13 @@ fn evaluate_call(
         ));
     }
     let attributes = evaluate_attributes(kind, &call.arguments)?;
+    if kind == ElementKind::Link
+        && attributes
+            .get("url")
+            .is_none_or(|value| value.to_text().is_empty())
+    {
+        return Err(Diagnostic::new(span, "link requires a URL"));
+    }
     let body_mode = match kind {
         ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
         ElementKind::ListItem | ElementKind::Blockquote => ContentMode::Block,

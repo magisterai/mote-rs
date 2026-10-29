@@ -7,6 +7,7 @@ pub(super) fn write(
     styles: &str,
     font_table: &str,
     numbering: &str,
+    relationships: &str,
 ) -> Result<Vec<u8>, Error> {
     let now = time::OffsetDateTime::now_utc();
     let timestamp = format!(
@@ -36,7 +37,7 @@ pub(super) fn write(
         ("docProps/app.xml", APP_PROPERTIES),
         ("docProps/core.xml", &core_properties),
         ("word/document.xml", document),
-        ("word/_rels/document.xml.rels", DOCUMENT_RELATIONSHIPS),
+        ("word/_rels/document.xml.rels", relationships),
         ("word/styles.xml", styles),
         ("word/settings.xml", SETTINGS),
         ("word/fontTable.xml", font_table),

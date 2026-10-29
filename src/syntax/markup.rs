@@ -102,6 +102,18 @@ impl Parser<'_> {
                     self.position = start;
                 }
             }
+            if character == '['
+                && let Some(node) = self.parse_markdown_link()
+            {
+                nodes.push(node);
+                continue;
+            }
+            if matches!(character, '<' | 'h')
+                && let Some(node) = self.parse_autolink()
+            {
+                nodes.push(node);
+                continue;
+            }
             match character {
                 '\r' | '\n' => {
                     self.consume_line_ending();
@@ -232,6 +244,13 @@ impl Parser<'_> {
                     return Err(
                         self.error("missing closing inline delimiter before content body ends")
                     );
+                }
+                ']' => {
+                    self.advance_character();
+                    nodes.push(Node {
+                        kind: NodeKind::Text("]".into()),
+                        span: self.span(start),
+                    });
                 }
                 _ => {
                     self.advance_character();
@@ -374,6 +393,7 @@ fn push_text(nodes: &mut Vec<Node>, character: char, span: Span) {
         span: previous,
     }) = nodes.last_mut()
         && text != "<"
+        && text != "]"
         && previous.end == span.start
         && previous.end - previous.start == text.len()
     {

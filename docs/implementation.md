@@ -494,3 +494,17 @@ immutable font bytes and rejects conflicting bytes under one logical name, so
 measurement and painters cannot accidentally use different faces. The
 [installed-font tests](../tests/installed_fonts.rs) exercise this through both PDF
 and PNG without requiring proprietary fonts on the test machine.
+
+## External links
+
+Inline `link` content and Markdown links share evaluation and retain their external
+URL, title, tooltip and target metadata. DOCX uses content-order relationships and
+the Hyperlink character style; PDF annotations use each positioned fragment's
+advance and full line height. PNG paints the same text and decorations. Metadata
+without an output effect remains documented separately. Fragment-only Markdown
+references remain unsupported until bookmarks and references are defined.
+
+[Link tests](../tests/links.rs) compare three independently captured models and
+complete DOCX packages, validate argument/body rules, and check wrapped PDF link
+areas. Native PDF pixels and extracted destinations are checked independently;
+real Word rendering remains unreviewed.

@@ -7,6 +7,7 @@ pub(super) fn write(
     styles: &Styles<'_>,
     numbering_reference: Option<(usize, u8)>,
     leading_column_break: bool,
+    resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
     let mut attributes = attributes.clone();
     let mut properties = String::new();
@@ -31,7 +32,7 @@ pub(super) fn write(
     if leading_column_break {
         paragraph.push_str("<w:r><w:br w:type=\"column\"/></w:r>");
     }
-    paragraph.push_str(&runs::write_inlines(children, styles)?);
+    paragraph.push_str(&runs::write_inlines(children, styles, resources)?);
     paragraph.push_str("</w:p>");
     Ok(paragraph)
 }

@@ -13,6 +13,7 @@ mod numbering;
 mod package;
 mod paragraph_properties;
 mod paragraphs;
+mod resources;
 mod run_properties;
 mod runs;
 mod styles;
@@ -71,7 +72,13 @@ pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
     let styles_xml = styles.write()?;
     let mut state = document::DocumentState::default();
     let body = document::write_document(document, &styles, &mut state)?;
-    package::write(&body, &styles_xml, &font_table, &state.numbering.write()?)
+    package::write(
+        &body,
+        &styles_xml,
+        &font_table,
+        &state.numbering.write()?,
+        &state.resources.relationships()?,
+    )
 }
 
 fn check_attributes(

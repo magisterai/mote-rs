@@ -75,6 +75,7 @@ pub struct TextRun {
     pub synthetic_tab: bool,
     /// Invisible spacing used by generated numbering separators.
     pub fixed_advance: Option<f64>,
+    pub link: Option<String>,
 }
 
 impl TextRun {
@@ -85,6 +86,7 @@ impl TextRun {
             preserve_space: false,
             synthetic_tab: false,
             fixed_advance: None,
+            link: None,
         }
     }
     fn with_text(&self, text: &str) -> Self {
@@ -185,6 +187,7 @@ pub struct TextFragment {
     pub style: TextStyle,
     pub font: FontSelection,
     pub missing_codepoints: Vec<char>,
+    pub link: Option<String>,
 }
 
 #[derive(Debug, Clone, PartialEq)]

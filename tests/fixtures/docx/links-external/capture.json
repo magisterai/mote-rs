@@ -1,0 +1,21 @@
+{
+  "source": "source.mote",
+  "model": "model.json",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "source_sha256": "9b27b1f5dc5002843ee50e63b17adf648fe07a5fe44258c8ae624d5b6caf15cd",
+  "captured_docx_sha256": "a4173da65449f48803e395406da64e4aef8de335ff78783ab42859aa88e927a1",
+  "captured_at_utc": "2026-10-29T11:09:29.696764+00:00",
+  "word_review_status": "unreviewed",
+  "normalization": "Original captured package parts, unchanged."
+}

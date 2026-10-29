@@ -373,6 +373,20 @@
           "kind": "element"
         }
       ]
+    },
+    {
+      "file": "links.md",
+      "title": "Hyperlink properties",
+      "description": "External link destinations, interaction metadata and related DrawingML properties. Internal anchors are inventoried but not yet a language feature.",
+      "roots": [
+        {
+          "type": "w:CT_Hyperlink",
+          "attributes_only": true
+        },
+        {
+          "type": "a:CT_Hyperlink"
+        }
+      ]
     }
   ],
   "supplemental_notes": {

@@ -61,7 +61,6 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [a:CT_TextUnderlineLineFollowText](#a-ct_textunderlinelinefollowtext)
 - [a:CT_TextUnderlineFillFollowText](#a-ct_textunderlinefillfollowtext)
 - [a:CT_TextUnderlineFillGroupWrapper](#a-ct_textunderlinefillgroupwrapper)
-- [a:CT_Hyperlink](#a-ct_hyperlink)
 - [a:CT_Boolean](#a-ct_boolean)
 - [a:CT_GeomGuide](#a-ct_geomguide)
 - [a:CT_SphereCoords](#a-ct_spherecoords)
@@ -118,7 +117,6 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [a:CT_RelativeOffsetEffect](#a-ct_relativeoffseteffect)
 - [a:CT_TintEffect](#a-ct_tinteffect)
 - [a:CT_TransformEffect](#a-ct_transformeffect)
-- [a:CT_EmbeddedWAVAudioFile](#a-ct_embeddedwavaudiofile)
 - [a:CT_PositiveFixedPercentage](#a-ct_positivefixedpercentage)
 - [a:CT_ComplementTransform](#a-ct_complementtransform)
 - [a:CT_InverseTransform](#a-ct_inversetransform)
@@ -383,8 +381,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `ea` — [a:CT_TextFont](fonts.md#a-ct_textfont); Strict, Transitional; minOccurs=0; maxOccurs=1. East Asian Font; [§21.1.2.3.3](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3246-3249-0602.md#source-page-3249-part-1). Partial: Font aliases resolve East Asian typefaces; theme selection and font classification fields are missing. Evidence: [spans.md](../../../docs/specification/spans.md), [spans.rs](../../../tests/spans.rs), [formatting.rs](../../../tests/formatting.rs).
 - [ ] `cs` — [a:CT_TextFont](fonts.md#a-ct_textfont); Strict, Transitional; minOccurs=0; maxOccurs=1. Complex Script Font; [§21.1.2.3.1](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3242-3245-0601.md#source-page-3242-part-1). Partial: Font aliases resolve complex-script typefaces; theme selection and font classification fields are missing. Evidence: [spans.md](../../../docs/specification/spans.md), [spans.rs](../../../tests/spans.rs), [formatting.rs](../../../tests/formatting.rs).
 - [ ] `sym` — [a:CT_TextFont](fonts.md#a-ct_textfont); Strict, Transitional; minOccurs=0; maxOccurs=1. Symbol Font; [§21.1.2.3.10](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3260-3264-0605.md#source-page-3262-part-1).
-- [ ] `hlinkClick` — [a:CT_Hyperlink](drawing-text.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1. Click Hyperlink; [§21.1.2.3.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3251-part-1).
-- [ ] `hlinkMouseOver` — [a:CT_Hyperlink](drawing-text.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1. Mouse-Over Hyperlink; [§21.1.2.3.6](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3253-part-1).
+- [ ] `hlinkClick` — [a:CT_Hyperlink](links.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1. Click Hyperlink; [§21.1.2.3.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3251-part-1).
+- [ ] `hlinkMouseOver` — [a:CT_Hyperlink](links.md#a-ct_hyperlink); Strict, Transitional; minOccurs=0; maxOccurs=1. Mouse-Over Hyperlink; [§21.1.2.3.6](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3250-3254-0603.md#source-page-3253-part-1).
 - [ ] `rtl` — [a:CT_Boolean](drawing-text.md#a-ct_boolean); Strict, Transitional; minOccurs=0. Right to Left Run; [§21.1.2.2.8](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-3229-3234-0599.md#source-page-3233-part-1).
 - [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@kumimoji` — `xsd:boolean`; Strict, Transitional; use=optional.
@@ -739,23 +737,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `blipFill` — [a:CT_BlipFillProperties](drawing-text.md#a-ct_blipfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `pattFill` — [a:CT_PatternFillProperties](drawing-text.md#a-ct_patternfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `grpFill` — [a:CT_GroupFillProperties](drawing-text.md#a-ct_groupfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-
-<a id="a-ct_hyperlink"></a>
-
-## a:CT_Hyperlink
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `snd` — [a:CT_EmbeddedWAVAudioFile](drawing-text.md#a-ct_embeddedwavaudiofile); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `@r:id` — [r:ST_RelationshipId](values-shared.md#r-st_relationshipid); Strict, Transitional; use=optional.
-- [ ] `@invalidUrl` — `xsd:string`; Strict, Transitional; use=optional; default=.
-- [ ] `@action` — `xsd:string`; Strict, Transitional; use=optional; default=.
-- [ ] `@tgtFrame` — `xsd:string`; Strict, Transitional; use=optional; default=.
-- [ ] `@tooltip` — `xsd:string`; Strict, Transitional; use=optional; default=.
-- [ ] `@history` — `xsd:boolean`; Strict, Transitional; use=optional; default=true.
-- [ ] `@highlightClick` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
-- [ ] `@endSnd` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
 
 <a id="a-ct_boolean"></a>
 
@@ -1506,15 +1487,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `@ky` — [a:ST_FixedAngle](values-drawing.md#a-st_fixedangle); Strict, Transitional; use=optional; default=0.
 - [ ] `@tx` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=optional; default=0.
 - [ ] `@ty` — [a:ST_Coordinate](values-drawing.md#a-st_coordinate); Strict, Transitional; use=optional; default=0.
-
-<a id="a-ct_embeddedwavaudiofile"></a>
-
-## a:CT_EmbeddedWAVAudioFile
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `@r:embed` — [r:ST_RelationshipId](values-shared.md#r-st_relationshipid); Strict, Transitional; use=required.
-- [ ] `@name` — `xsd:string`; Strict, Transitional; use=optional; default=.
 
 <a id="a-ct_positivefixedpercentage"></a>
 

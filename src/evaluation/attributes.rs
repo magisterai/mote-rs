@@ -66,6 +66,18 @@ pub(super) fn evaluate_attributes(
         }
         attributes.insert("level".into(), (value, argument.value.span));
     }
+    if kind == ElementKind::Link
+        && let Some(argument) = arguments.iter().find(|argument| argument.name.is_none())
+    {
+        let value = evaluate_expression(&argument.value)?;
+        if !matches!(value, Value::String(_)) {
+            return Err(Diagnostic::new(
+                argument.value.span,
+                "link URL must be a string",
+            ));
+        }
+        attributes.insert("url".into(), (value, argument.value.span));
+    }
     attributes
         .into_iter()
         .map(|(name, (value, span))| {
@@ -179,6 +191,10 @@ fn validate_named_argument(
                 "style" => Some(ArgumentType::String),
                 "border" => Some(ArgumentType::Object),
                 "fill" => Some(ArgumentType::Color),
+                _ => None,
+            },
+            Link => match name {
+                "url" | "title" | "tooltip" | "target" => Some(ArgumentType::String),
                 _ => None,
             },
             Strong | Emphasis | LineBreak | Tab => None,
