@@ -48,8 +48,9 @@
 DOCX emits paragraph and character declarations, inheritance and next/link
 references, the Normal default, heading/quote/Code fallbacks, and direct/named precedence.
 [Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
-cover font mappings and stable unique identifiers. Table styles, font measurement,
-and native output remain unsupported. Missing
+cover font mappings and stable unique identifiers. Table-style application
+remains unsupported. Native PDF/PNG resolves supported paragraph/run properties;
+retained properties without an output effect produce warnings. Missing
 references and cycles fail explicitly during DOCX emission; language-level
 resolution still returns the documented partial result. Real Word review is
 unreviewed.

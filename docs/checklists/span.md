@@ -29,7 +29,8 @@
 DOCX supports direct span fonts, sizes, colors, highlights, decorations and
 explicit boolean overrides, including nested spans, named character styles and
 script-specific font aliases. [Structural evidence](../../tests/fixtures/docx/inline-formatting/README.md)
-is captured; real Word review is unreviewed and native PDF/PNG remains unsupported.
+is captured; real Word review is unreviewed and native PDF/PNG uses the shared text plan. See the
+[native output fixtures](../../tests/fixtures/native-output/README.md).
 
 ## Specification inventory
 

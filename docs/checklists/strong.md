@@ -40,7 +40,8 @@ Style and font references are recorded without resolving their declarations.
 DOCX supports bold intent and nested inline overrides, with Latin and
 complex-script properties. Direct attributes on strong remain outside the DOCX
 mapping and produce an error. [Structural evidence](../../tests/fixtures/docx/inline-formatting/README.md)
-is captured; real Word review is unreviewed and native output remains unsupported.
+is captured; real Word review is unreviewed and native PDF/PNG uses the shared text plan. See the
+[native output fixtures](../../tests/fixtures/native-output/README.md).
 
 ## Specification inventory
 

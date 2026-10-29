@@ -16,7 +16,9 @@ Core-font outlines are platform-dependent; use declared fonts for portable raste
 comparisons.
 
 PDF validation uses `qpdf --check`, `pdftotext` and `pdftoppm -r 144 -png` on generated
-files. The initial four rasterized PDF pages matched their captured counterparts
-pixel for pixel. This is native-output evidence; Word and PowerPoint remain
-unreviewed. List and block quote layout, heading numbering, columns, paragraph
-fills/borders and custom tabs are outside the initial painter integration.
+files. The focused PDF pages matched their captured counterparts pixel for pixel.
+`blocks.mote` adds lists, task markers, heading numbering, quote text and paragraph
+fills/borders; `columns.mote` adds natural column flow, separators, and explicit
+breaks. Core-font outlines remain platform dependent, so their PNG review is local.
+These are native-output checks; Word and PowerPoint remain unreviewed. Custom tab
+stops and broader document structures are outside the current painter scope.

@@ -25,7 +25,9 @@ implementation scope.
 - A check applies only to the stated behaviour. Recording a length or marker does
   not establish its layout, appearance, or output support.
 - DOCX supports paragraphs, inline formatting, styles and font mappings as
-  described in the individual output notes. Native PDF/PNG remains deferred. Output support and
+  described in the individual output notes. Native PDF/PNG covers the current text
+  and list features, including columns; retained properties without a painting
+  effect produce diagnostics. Output support and
   visual review status remain separate from the language/model support recorded
   here.
 
@@ -33,8 +35,8 @@ Content attribute contracts are specified in
 [Formatting attributes](../specification/formatting-attributes.md) and
 [Spans](../specification/spans.md). [Styles and fonts](../specification/styles-and-fonts.md)
 defines declarations and explicit formatting resolution. Each checklist links its
-implementation and tests. Table-style application and complete native rendering remain
-open. Native measurement and text geometry are covered in the
+implementation and tests. Table-style application and broader native document
+content remain open. Native measurement and text geometry are covered in the
 [implementation overview](../implementation.md); those numeric captures do not
 establish painted output support. Future pending descriptions are planning notes; define
 their concepts before using them in examples.

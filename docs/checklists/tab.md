@@ -26,3 +26,8 @@ metadata, paragraph stops, edge trimming and preserved code. Ordinary edge tabs
 are trimmed in DOCX; the model retains them. Output validation runs before edge
 trimming so unsupported metadata is still reported. Native layout and real Word
 visual review remain unreviewed.
+
+Native PDF/PNG expands an authored tab to four ordinary spaces. Custom tab stops
+and leaders are retained but do not control native placement; support diagnostics
+report those limits. Generated heading-number separators separately advance to
+half-inch stops. See the [block captures](../../tests/fixtures/native-blocks/README.md).

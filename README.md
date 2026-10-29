@@ -15,12 +15,12 @@ Mote is inspired by Typst's approach to programmable typesetting.
 - Render PDF and PNG directly, with layout fidelity checked against Microsoft
   Word and PowerPoint.
 
-The language core supports basic content, lists, inline formatting, named styles,
-and font declarations, with JSON inspection of the document model. DOCX output supports paragraphs, headings, bullet and ordered lists, block quotes, inline formatting, named styles and font mappings.
-Native layout work includes font measurement, styled text, paragraph pagination,
-and inline decoration geometry, checked against captured output. Complete native
-rendering, broader Office output, PDF/PNG output, Lua scripting, and JSON data
-loading remain planned.
+The current implementation produces JSON, editable DOCX, and native PDF/PNG for
+the documented language subset. It supports paragraphs, headings,
+quotes, nested lists, inline formatting, named styles, font declarations, page
+breaks, and equal-width columns. Native output uses shared layout and is checked
+against captured geometry and rendered output. Broader Office content, PowerPoint
+output, Lua scripting, and JSON data loading remain planned.
 
 Directives use `#name(arguments)[content]` for structure and formatting:
 

@@ -1,6 +1,7 @@
 # Implementation
 
-The Rust crate implements an initial language core and a progressive DOCX writer. The
+The Rust crate implements the initial language core, a progressive DOCX writer, and
+native PDF/PNG output for the documented text and list features. The
 [specification](specification/README.md) describes the language; this page records
 what this crate currently implements.
 
@@ -22,7 +23,8 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [model](../src/model.rs) | Evaluated content, values, geometry, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
 | [measurement](../src/measurement.rs) | Core and static OpenType font metrics, with separate kerning and font-table modules. |
-| [layout](../src/layout.rs) | Native line geometry, with separate wrapping, fragment placement and line-metric modules. |
+| [layout](../src/layout.rs) | Shared native line and block geometry, paragraph flow, numbering, columns, and ordered painting operations. |
+| [render](../src/render.rs) | Independent PDF and PNG painters, font embedding, rasterization and native support diagnostics. |
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
@@ -84,7 +86,8 @@ single section. Columns support count, gap and separator; an omitted count emits
 no column property. Unequal-width columns are retained in JSON but rejected by
 DOCX until individual column geometry is implemented.
 Unitless geometry is measured in twips; conversion rounds to the nearest integer.
-Unsupported configuration fields fail explicitly at emission. Explicit sections and header/footer content remain deferred.
+DOCX rejects unsupported configuration fields; native output reports retained
+fields without a rendering effect. Explicit sections and header/footer content remain deferred.
 Document font, size and language defaults map to Word default run properties;
 explicit styles and direct attributes keep their existing precedence. Script-only
 default font aliases receive the physical Latin fallback. Default sizes use the
@@ -174,8 +177,7 @@ table property objects. Table declaration normalization is available; applying
 table styles and resolving conditional regions await the table model. Numeric
 font/style names produce source-located warnings in `Document.warnings`.
 
-Explicit sections, bindings, JSON loading, Lua, native layout,
-PowerPoint/PDF/PNG output remain deferred.
+Explicit sections, bindings, JSON loading, Lua and PowerPoint output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)
@@ -398,9 +400,9 @@ styles, inheritance and direct attributes to native run and paragraph properties
 Inline resolution merges adjacent equal runs before measuring so a style boundary
 that changes no formatting does not disrupt kerning. The
 [91 style captures](../tests/fixtures/layout-styles/README.md) cover the source-to-style
-mapping. Pagination requests remain data at this stage; borders, tab stops and
-paragraph decoration are not painted. Native unitless font sizes currently resolve
-as twips, while DOCX uses points; explicit point lengths avoid this recorded
+mapping. Paragraph-level planning retains pagination requests; the document planner
+resolves them and adds paragraph decoration. Authored custom tab stops remain
+unsupported. Native unitless font sizes currently resolve as twips, while DOCX uses points; explicit point lengths avoid this recorded
 output discrepancy. It remains a compatibility observation awaiting review.
 
 `plan_paragraph_text` joins source style resolution, inline merging, indentation
@@ -417,12 +419,21 @@ leading spacing, keep-together and widow/orphan decisions verified against
 explicit transitions and placements and rejects invalid or non-progressing areas.
 It does not independently resolve text or paint output.
 
-`plan_document_text` assembles single-column paragraphs, headings and explicit
-breaks, collapses adjacent spacing and applies keep-with-next lookahead. Its
-[document text captures](../tests/fixtures/document-text/README.md) compare 47
-successful complete-source page plans and four expected invalid-height rejections.
-It rejects lists, block quotes, heading numbering and balanced multiple columns.
-This text projection does not paint paragraph borders/fills or custom tab stops.
+`plan_document_text` assembles paragraphs, numbered headings, quotes, nested
+bullet/ordered/task lists, and explicit breaks. It collapses adjacent spacing,
+applies keep-with-next lookahead, and flows through equal-width columns. Ordered
+painting operations retain fill bridges, paragraph rules, marker slots, text,
+and column separators. Block preparation, numbering state, pagination and
+paragraph painting live in separate modules.
+
+The [document text captures](../tests/fixtures/document-text/README.md) cover 47
+successful source plans and four expected invalid-height rejections.
+[38 block captures](../tests/fixtures/native-blocks/README.md) and
+[19 column captures](../tests/fixtures/native-columns/README.md) additionally verify
+complete ordered paint plans. Top-level list items reserve a following line of
+space when it fits; task items do not consume ordered numbers. Numbered headings
+advance to default half-inch tab stops. Quotes and list-item child paragraphs
+flatten to inline text, while nested lists retain their markers.
 
 Text lines also carry highlight rectangles and underline/strike strokes.
 [90 decoration captures](../tests/fixtures/text-decorations/README.md) verify their
@@ -430,9 +441,9 @@ position, extent, color, thickness, merging and operation order. A shared transl
 moves fragments and decorations together into paragraph and page coordinates.
 No painter remeasurement is needed for these operations.
 
-Shaping, complete document painting, column balancing, PDF and PNG generation remain unimplemented.
-Numeric agreement remains separate
-from visual review in Word.
+Script shaping, continuous sections and section-boundary column balancing remain
+outside the current language and native output scope. Numeric agreement remains
+separate from visual review in Word.
 
 ### Native text painters
 
@@ -450,14 +461,17 @@ platform outlines where available, then licensed bundled fallbacks. Declared fon
 are the portable choice for image comparisons.
 
 See [native output captures](../tests/fixtures/native-output/README.md) for validation
-and raster tolerances. Initial painter support follows the single-column document
-text planner: paragraphs, headings, inline formatting and explicit breaks. Other
-block structures and paragraph painting remain separate layout work. These native
-checks do not establish Microsoft Word or PowerPoint visual conformance.
+and raster tolerances. Both painters cover the current shared document plan,
+including lists, quotes, numbered headings, fills, borders and columns. Native
+border painting uses `all.color` or `bottom.color` for a 0.35-point bottom rule per
+line; other border controls and custom tab stops produce support warnings.
+Native property warnings distinguish retained metadata from rendered behavior.
+These checks do not establish Microsoft Word or PowerPoint visual conformance.
 
 The command line accepts `--format pdf -o report.pdf` and
 `--format png -o report.png --dpi 144` (the single-dash forms are also accepted).
-PNG writes `report-1.png`, `report-2.png`, and so on; an output directory uses
+PNG canvas dimensions round up to cover fractional page sizes. PNG writes
+`report-1.png`, `report-2.png`, and so on; an output directory uses
 `page` as the prefix. `--dpi` is valid only for PNG. Font paths resolve relative
 to the source file. Generation errors leave existing output untouched, and source
 paths cannot be used as output destinations, including generated PNG page names.
@@ -465,7 +479,7 @@ paths cannot be used as output destinations, including generated PNG page names.
 ### Installed-face discovery
 
 `FontResolver` supplies exact named font variants independently of source asset
-lookup. `SystemFontResolver` implements the narrow local catalogue for Aptos,
+lookup. `SystemFontResolver` implements the narrow macOS catalogue for Aptos,
 Aptos Display, Arial and Courier New, checking Word resources before PowerPoint
 resources and system copies. Aptos Display uses the sorted Office cloud font
 cache. Font family and variant metadata must match; restricted embedding,
