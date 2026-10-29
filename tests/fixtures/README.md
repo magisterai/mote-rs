@@ -93,5 +93,6 @@ covering core font metrics and bundled TrueType/CFF fonts. It preserves fraction
 sizes, variants, pair kerning, whitespace and missing-glyph behavior. Requests,
 expected results, licensed font files and fingerprints are self-contained.
 The offline comparison tool validates integrity and can compare independent
-candidate measurements. The collection prepares for native layout; it does not
-implement font measurement or establish rendered-output conformance.
+candidate measurements. [Measurement tests](../measurement.rs) now match every
+case through the native measurer. This prepares for native layout and does not
+establish rendered-output conformance.

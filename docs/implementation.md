@@ -21,6 +21,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, configuration, and value-normalization modules. |
 | [model](../src/model.rs) | Evaluated content, values, geometry, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
+| [measurement](../src/measurement.rs) | Core and static OpenType font metrics, with separate kerning and font-table modules. |
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
@@ -318,8 +319,9 @@ unsupported and fails explicitly. Following paragraphs retain their own formatti
 
 Font measurement is not required for DOCX emission; Word performs layout and
 pagination. Production dependencies add ZIP/DEFLATE and UTC metadata support;
-XML parsing for comparisons is a test-only dependency. Measurement and shaping
-libraries remain deferred. The resolved production graph has no duplicate crate
+XML parsing for comparisons is a test-only dependency. Font-table parsing uses
+`ttf-parser` with only `std` and `opentype-layout`; it adds no transitive crates.
+Shaping remains deferred. The resolved production graph has no duplicate crate
 versions.
 
 [DOCX tests](../tests/docx.rs) compare evaluated models and every captured package
@@ -353,7 +355,26 @@ checks fixture integrity offline and compares independently generated result JSO
 without modifying the expectations. Its metric tolerance is too small to hide a
 different 1/64-point rounding policy.
 
-This is a comparison foundation. Native font measurement, shaping, paragraph
-layout, pagination, PDF and PNG generation remain unimplemented. No measurement
-dependency or new language support is introduced by these fixtures. Agreement
-with numeric measurements will be a separate check from visual review in Word.
+The measurement module implements core Helvetica, Times and Courier variants,
+plus borrowed static TrueType and OpenType/CFF faces. It prepares missing glyphs,
+measures layout and painting advances separately, and retains natural font extents.
+Its explicit 26.6 rounding and pair-positioning policy match all 960 captured
+cases. Supported pair positioning uses the default Latin/default script's `kern`
+features, first matching pair adjustment, or the first legacy horizontal format-0
+subtable. This is character measurement, not script shaping.
+
+The parser has a maintenance tradeoff: [ttf-parser](https://github.com/harfbuzz/ttf-parser)
+prioritizes correctness fixes and directs new projects toward Fontations. It is
+used here behind a small internal boundary for the measured static-font subset,
+with no parser types exposed in the public interface. Both parser experiments
+matched the captured raw advances and extents; the selected feature set keeps
+the dependency graph compact. Broader shaping/variable-font work should reassess
+that choice rather than extending the current pair policy into a shaping engine.
+
+[Measurement tests](../tests/measurement.rs) exercise the complete capture and
+invalid sizes, missing glyphs and malformed fonts. The
+[candidate measurement example](../examples/measure_fonts.rs) emits result JSON
+for the offline comparison command without reading the expected measurements.
+Font-file resolution from declarations, shaping, paragraph layout, pagination,
+PDF and PNG generation remain unimplemented. Numeric agreement remains separate
+from visual review in Word.

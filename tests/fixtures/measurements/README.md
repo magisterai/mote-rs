@@ -2,8 +2,8 @@
 
 This frozen collection defines reproducible measurements for the first native
 text-layout work. It includes the font bytes, requests, expected results and
-fingerprints needed for offline comparisons. It does not introduce language
-syntax or implement font measurement in the Rust crate.
+fingerprints needed for offline comparisons. The [native measurement tests](../../measurement.rs)
+check every case through the Rust measurer. The collection introduces no language syntax.
 
 ## Coverage
 
@@ -83,12 +83,14 @@ Verify fixture integrity without a renderer or installed fonts:
 python3 tools/compare_measurements.py --fixture tests/fixtures/measurements
 ```
 
-Compare independently produced measurements:
+Produce and compare candidate measurements:
 
 ```sh
+cargo run --example measure_fonts -- \
+  tests/fixtures/measurements target/measurements-candidate.json
 python3 tools/compare_measurements.py \
   --fixture tests/fixtures/measurements \
-  --actual target/measurements/candidate.json \
+  --actual target/measurements-candidate.json \
   --output target/measurements/review-001
 ```
 
@@ -99,6 +101,8 @@ coverage and fingerprints passed; it says nothing about a candidate measurer.
 noise, not a different rounding policy. All other fields compare exactly.
 Differences and invalid inputs return nonzero and appear in `report.json` when
 an output directory is supplied. Inputs are checked again after comparison.
+The candidate example reads requests, fonts and the capture's request identity;
+run fixture verification first. It never reads expected measurements.
 
 The command never regenerates expectations or downloads fonts. Review intentional
 baseline changes with their measurements and fingerprints together. These captures
