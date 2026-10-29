@@ -6,6 +6,18 @@ use mote::{
 use serde_json::json;
 
 #[test]
+fn plain_paragraph_reference_preserves_authored_model_without_output_defaults() {
+    let source = include_str!("fixtures/docx/plain-paragraph/source.mote");
+    let expected: serde_json::Value =
+        serde_json::from_str(include_str!("fixtures/docx/plain-paragraph/model.json")).unwrap();
+    let document = compile(source).unwrap();
+    let actual: serde_json::Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
+
+    assert!(document.warnings.is_empty());
+    assert_eq!(actual, expected);
+}
+
+#[test]
 fn json_retains_structure_types_units_and_escaped_text() {
     let document = compile("#paragraph(keep_with_next=true, spacing={after=pt(12)})[Résumé: \"paid\" #strong[yes]\\\\]").unwrap();
     let output = to_json(&document).unwrap();

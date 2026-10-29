@@ -1,4 +1,6 @@
-# Language conformance examples
+# Conformance fixtures
+
+## Language examples
 
 `specification.json` declares an outcome for each fenced `mote` example in
 `docs/specification/`. Example identifiers use the chapter filename and the
@@ -25,3 +27,14 @@ properly.
 
 These are language and model checks. They provide no rendered-layout or Office
 conformance evidence.
+
+## Output references
+
+The [plain-paragraph DOCX fixture](docx/plain-paragraph/README.md) records source,
+model, and extracted package data. Its comparison notes live beside the fixture.
+The [JSON tests](../json.rs) check its source directly against the expected model,
+independently of the language-specification examples.
+
+Reference package data does not prove that Rust generates that output or that
+Microsoft Word has rendered it. Record structural comparison and application
+review evidence beside the relevant output fixtures.

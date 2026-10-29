@@ -107,6 +107,11 @@ Document configuration, bindings, JSON loading, defaults, Lua, layout, and
 Office/PDF/PNG output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
+The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)
+contains source, expected JSON, and a captured DOCX package with comparison notes.
+Its source/model agreement is tested. DOCX generation and package comparison are
+not implemented; this fixture remains unreviewed in Microsoft Word.
+
 ## Formatting resolution
 
 `formatting::StyleResolver` provides explicit named-style, paragraph, inline, and
