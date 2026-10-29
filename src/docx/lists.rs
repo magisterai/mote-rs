@@ -6,7 +6,7 @@ use super::{
     styles::Styles,
     whitespace,
 };
-use crate::model::{Content, Element, ElementKind, Value};
+use crate::model::{Content, Element, ElementKind};
 
 pub(super) fn write(
     list: &Element,
@@ -14,9 +14,6 @@ pub(super) fn write(
     styles: &Styles<'_>,
     numbering: &mut Numbering,
 ) -> Result<String, Error> {
-    if list.kind != ElementKind::List {
-        return Err(Error::Unsupported("ordered lists".into()));
-    }
     check_attributes(
         &list.attributes,
         &[
@@ -26,11 +23,6 @@ pub(super) fn write(
     )?;
     let level = list_layout::nesting_level(&list.attributes, inherited_level)?;
     let layout = ListLayout::from_list(&list.attributes)?;
-    let identity = list
-        .attributes
-        .get("id")
-        .map(Value::to_text)
-        .unwrap_or_default();
     let mut numbering_identifier = None;
     let mut output = String::new();
     for child in &list.children {
@@ -45,8 +37,14 @@ pub(super) fn write(
             "list item",
         )?;
         let item_level = list_layout::nesting_level(&item.attributes, level)?;
-        let identifier = *numbering_identifier
-            .get_or_insert_with(|| numbering.for_bullets(layout, &identity, level));
+        let identifier = match numbering_identifier {
+            Some(identifier) => identifier,
+            None => {
+                let identifier = numbering.for_list(list, layout, level)?;
+                numbering_identifier = Some(identifier);
+                identifier
+            }
+        };
         let (inline, nested) = split_item_children(&item.children)?;
         output.push_str("<w:p><w:pPr>");
         output.push_str(&numbering::paragraph_reference(identifier, item_level));

@@ -250,7 +250,7 @@ script-specific typefaces. `word_line_height` remains metadata for later layout.
 
 Unknown nested properties, missing style references, cycles and unsupported
 output values fail explicitly. Declared style sizes must round to a positive
-half-point value. Table styles, ordered lists, quotes, font files and embedding
+half-point value. Table styles, quotes, font files and embedding
 remain deferred. These are output limits; their language/model support is
 unchanged. Authored exact line heights are preserved without estimating clipping.
 
@@ -260,12 +260,15 @@ above nine map to nine. At the start of the document only implicit before-spacin
 is suppressed. Explicit empty style references differ from omitted references.
 Heading numbering remains deferred.
 
-Bulleted lists emit reusable nine-level numbering definitions. Geometry and
+Bullet and ordered lists emit reusable nine-level numbering definitions. Geometry and
 sequence identity determine reuse. List/item indentation, tight spacing, explicit
 after-spacing, nested lists and empty items are supported. Item left indentation
 is absolute. Item paragraphs flatten into one paragraph and nested lists follow
 its text; independent paragraph formatting and task controls remain deferred.
-No new dependency is needed for list output.
+Ordered lists preserve all five numeric formats, explicit starts and starts from
+source markers. Named instances continue by default; unnamed instances restart
+by default. Explicit restart replaces subsequent continuation, while a later start
+on a continued sequence is ignored. No new dependency is needed for list output.
 
 Font measurement is not required for DOCX emission; Word performs layout and
 pagination. Production dependencies add ZIP/DEFLATE and UTC metadata support;

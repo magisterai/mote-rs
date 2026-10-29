@@ -47,8 +47,15 @@ Continuation support must be stated separately for each output and layout mode.
 
 ## Output limits
 
-Rendered starting numbers, levels, restart, continuation, and list/item layout
-overrides remain unsupported. Numbering attributes currently record intent.
+DOCX emits numeric and bullet formats, starts, levels one through nine, restart,
+continuation and list/item geometry. Named sequences continue by default; unnamed
+sequences restart unless restart=false. Continued sequences ignore later starts;
+a restart replaces the instance used for later continuation. Format and geometry
+distinguish definitions. Source markers supply an omitted starting value from the
+first item only. The [ordered-list captures](../../tests/fixtures/docx/ordered-lists/README.md)
+and [continuation capture](../../tests/fixtures/docx/list-continuation/README.md)
+verify all package parts. Word review remains unreviewed. Other item-content
+limits match [bullet lists](list.md#output-limits).
 
 ## Specification inventory
 

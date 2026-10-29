@@ -1,0 +1,17 @@
+3. Third
+4. Fourth
+  - Nested bullet
+  2. Nested ordered
+  3. Next nested
+
+A separator.
+
+#ordered_list(start=7,format="upper_roman",level=2,indent={left=pt(40),level=pt(16),hanging=pt(12)},spacing={after=pt(3)})[#item[Roman]#item(level=4,tight=true)[Deeper Roman]]
+#ordered_list(format="lower_alpha")[#item[Lower alpha]]
+#ordered_list(format="upper_alpha")[#item[Upper alpha]]
+#ordered_list(format="lower_roman")[#item[Lower Roman]]
+#ordered_list(format="bullet")[#item[Ordered container requesting bullets]]
+#ordered_list(start=2)[#item(marker="8.")[Start wins over marker]]
+#ordered_list[#item(marker="12.")[Marker start]]
+#ordered_list[#item(marker="12x")[Non-source marker defaults]]
+#ordered_list[]

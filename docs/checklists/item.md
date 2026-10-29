@@ -45,7 +45,7 @@ and marker font/alignment controls are not goals here.
 
 ## Output limits
 
-DOCX bullet items support levels, geometry overrides, inline formatting and nested
+DOCX bullet and ordered items support levels, geometry overrides, inline formatting and nested
 lists. Item left indentation is absolute; list indentation supplies the level base.
 Paragraph children flatten into runs in one item paragraph, with nested lists
 emitted afterward. Formatting on those child paragraphs and task controls remain

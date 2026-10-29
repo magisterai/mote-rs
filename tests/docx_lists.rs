@@ -109,3 +109,63 @@ fn list_limits_and_unsupported_properties_are_explicit() {
         assert_eq!(document, original);
     }
 }
+
+#[test]
+fn ordered_lists_and_sequence_continuation_match_reference() {
+    support::compare_fixture("ordered-lists");
+    support::compare_fixture("list-continuation");
+}
+
+#[test]
+fn restarts_replace_the_continuation_instance_and_preserve_starts() {
+    let parts = support::compare_fixture("list-continuation");
+    let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+    let identifiers: Vec<_> = document
+        .descendants()
+        .filter(|node| node.has_tag_name((WORD_NAMESPACE, "numId")))
+        .map(|node| node.attribute((WORD_NAMESPACE, "val")).unwrap())
+        .collect();
+    assert_eq!(
+        identifiers,
+        ["1", "1", "2", "2", "3", "4", "4", "5", "5", "6", "7", "2"]
+    );
+    let numbering = roxmltree::Document::parse(&parts["word/numbering.xml"]).unwrap();
+    let starts: Vec<_> = numbering
+        .descendants()
+        .filter(|node| node.has_tag_name((WORD_NAMESPACE, "startOverride")))
+        .map(|node| node.attribute((WORD_NAMESPACE, "val")).unwrap())
+        .collect();
+    assert_eq!(starts, ["3", "7", "1"]);
+}
+
+#[test]
+fn source_list_markers_set_only_the_initial_counter() {
+    for (marker, expected) in [
+        ("9.", "9"),
+        (" 003. ", "3"),
+        ("4. [x]", "4"),
+        ("0.", "1"),
+        ("17x", "1"),
+        ("999999999999999999999999.", "1"),
+    ] {
+        let source = format!(
+            "#ordered_list[#item(marker=\"{marker}\")[First]#item(marker=\"99.\")[Second]]"
+        );
+        let parts = support::package(&source);
+        let numbering = roxmltree::Document::parse(&parts["word/numbering.xml"]).unwrap();
+        let starts: Vec<_> = numbering
+            .descendants()
+            .filter(|node| node.has_tag_name((WORD_NAMESPACE, "startOverride")))
+            .map(|node| node.attribute((WORD_NAMESPACE, "val")).unwrap())
+            .collect();
+        assert_eq!(starts, [expected], "{marker}");
+    }
+}
+
+#[test]
+fn ordered_lists_reject_unrepresentable_starts_without_mutating_the_model() {
+    let document = mote::compile("#ordered_list(start=2147483648)[#item[Text]]").unwrap();
+    let original = document.clone();
+    assert!(mote::docx::emit(&document).is_err());
+    assert_eq!(document, original);
+}

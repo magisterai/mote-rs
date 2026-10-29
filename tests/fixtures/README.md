@@ -56,3 +56,6 @@ not establish layout, font substitution, wrapping or pagination conformance.
 
 - [Bullet lists](docx/bullet-lists/README.md): nesting and item geometry.
 - [Bullet instances](docx/bullet-instances/README.md): shared definitions and identities.
+
+- [Ordered lists](docx/ordered-lists/README.md): formats, starts and nesting.
+- [List continuation](docx/list-continuation/README.md): restarts and sequence identity.

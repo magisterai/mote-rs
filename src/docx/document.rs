@@ -16,7 +16,7 @@ pub(super) fn write_document(
         let attributes = match element.kind {
             ElementKind::Paragraph => element.attributes.clone(),
             ElementKind::Heading => headings::attributes(element, index == 0)?,
-            ElementKind::List => {
+            ElementKind::List | ElementKind::OrderedList => {
                 body.push_str(&lists::write(element, 0, styles, numbering)?);
                 continue;
             }
