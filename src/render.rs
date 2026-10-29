@@ -2,6 +2,7 @@
 mod fonts;
 mod pdf;
 mod png;
+mod support;
 pub use pdf::paint_pdf;
 pub use png::{PngOptions, RasterPage, paint_png};
 
@@ -11,7 +12,7 @@ use crate::{
     model::Document,
     source::AssetResolver,
 };
-use std::{collections::BTreeSet, ffi::OsStr, fmt};
+use std::{ffi::OsStr, fmt};
 
 #[derive(Debug)]
 pub enum RenderError {
@@ -60,7 +61,7 @@ pub fn plan(
 ) -> Result<Rendered<DocumentTextPlan>, RenderError> {
     let mut measurer = TextMeasurer::new(document, resolver, source_name);
     let output = plan_document_text(document, &mut measurer)?;
-    let mut warnings = BTreeSet::new();
+    let mut warnings = support::warnings(document);
     for fragment in output
         .pages
         .iter()
@@ -68,7 +69,11 @@ pub fn plan(
         .flat_map(|line| &line.fragments)
     {
         if let Some(reason) = &fragment.font.substitution {
-            warnings.insert(reason.clone());
+            warnings.insert(format!(
+                "font {:?} {} was substituted: {reason}",
+                fragment.style.measurement.font,
+                fragment.font.variant.as_text()
+            ));
         }
         for character in &fragment.missing_codepoints {
             warnings.insert(format!(
