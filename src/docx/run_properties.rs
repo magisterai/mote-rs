@@ -41,7 +41,10 @@ impl RunFormatting {
                     element
                         .attributes
                         .iter()
-                        .filter(|(name, _)| name.as_str() != "style")
+                        .filter(|(name, value)| {
+                            name.as_str() != "style"
+                                && !(name.as_str() == "font" && value.to_text().is_empty())
+                        })
                         .map(|(name, value)| (name.clone(), value.clone())),
                 );
             }

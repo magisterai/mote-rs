@@ -52,3 +52,7 @@ signature checks, normalization, and declaration boundaries.
 [language tests](../../tests/spans.rs), [resolver](../../src/formatting.rs),
 [resolution tests](../../tests/formatting.rs), and
 [specification examples](../../tests/conformance.rs) cover the checked items.
+
+An empty direct font supplies no DOCX typeface override and preserves the enclosing
+font mapping. [The captured regression](../../tests/fixtures/docx/empty-inline-font/README.md)
+checks this through a nested character style and across following siblings.

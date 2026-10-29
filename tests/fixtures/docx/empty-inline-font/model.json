@@ -1,0 +1,225 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Aptos",
+      "east_asian": "Yu Gothic",
+      "properties": {
+        "east_asian": "Yu Gothic",
+        "latin": "Aptos"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "Accent",
+      "type": "character",
+      "properties": {
+        "italic": true,
+        "type": "character"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "body"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outer "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "font": ""
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "empty font inherits"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " tail."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "Courier New"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outer "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "font": "",
+                    "style": "Accent"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "style and empty font"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " tail."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": ""
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Empty with no enclosing font."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "body"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Outer "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": ""
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "empty font inherits"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " tail."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "Courier New"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Outer "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "",
+                "style": "Accent"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "style and empty font"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " tail."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": ""
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Empty with no enclosing font."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

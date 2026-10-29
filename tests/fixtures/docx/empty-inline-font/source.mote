@@ -1,0 +1,6 @@
+#font(name = "body", latin = "Aptos", east_asian = "Yu Gothic")
+#style(name = "Accent", type = "character", italic = true)
+
+#paragraph[#span(font = "body")[Outer #span(font = "")[empty font inherits] tail.]]
+#paragraph[#span(font = "Courier New")[Outer #span(style = "Accent", font = "")[style and empty font] tail.]]
+#paragraph[#span(font = "")[Empty with no enclosing font.]]

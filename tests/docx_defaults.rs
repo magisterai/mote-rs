@@ -94,3 +94,24 @@ fn invalid_default_values_fail_at_output_without_rewriting_authored_arguments() 
         assert_eq!(before, document);
     }
 }
+
+#[test]
+fn empty_inline_font_keeps_enclosing_direct_font_mappings() {
+    support::compare_fixture("empty-inline-font");
+    let package = support::package(
+        r#"#paragraph[#span(font = "Aptos")[Outer #span(font = "")[Inner] tail.]]"#,
+    );
+    let document = roxmltree::Document::parse(&package["word/document.xml"]).unwrap();
+    let runs: Vec<_> = document
+        .descendants()
+        .filter(|node| node.has_tag_name((WORD_NAMESPACE, "r")))
+        .collect();
+    assert_eq!(runs.len(), 3);
+    for run in runs {
+        let fonts = run
+            .descendants()
+            .find(|node| node.has_tag_name((WORD_NAMESPACE, "rFonts")))
+            .unwrap();
+        assert_eq!(fonts.attribute((WORD_NAMESPACE, "ascii")), Some("Aptos"));
+    }
+}

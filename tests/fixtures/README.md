@@ -70,6 +70,8 @@ fingerprints and comparison notes:
 - [Column breaks](docx/column-breaks/README.md): paragraph prefixes and heading spacing.
 - [Consecutive breaks](docx/consecutive-breaks/README.md): repeated, terminal and mixed breaks.
 
+- [Empty inline font](docx/empty-inline-font/README.md): inherited typefaces survive empty overrides.
+
 [DOCX package tests](../docx_packages.rs) generate packages and compare each fixture's evaluated
 model and all XML parts. They also verify that style, numbering and package
 relationships resolve to existing targets. Numeric JSON values compare by value rather than decimal
