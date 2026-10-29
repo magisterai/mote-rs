@@ -103,3 +103,17 @@ fn declarations_validate_before_resolving_forward_references() {
             .is_ok()
     );
 }
+
+#[test]
+fn replaced_running_stories_do_not_register_discarded_names() {
+    let source = "#header[#label(\"same\")Discarded #ref(\"unused\")]\n#header[#label(\"same\")Current]\n#paragraph[See #ref(\"same\").]";
+    assert!(mote::compile(source).is_ok());
+    let source = "#header[#label(\"discarded\")Unused]\n#header[Current]\n#paragraph[See #ref(\"discarded\").]";
+    let diagnostic = mote::compile(source).unwrap_err();
+    assert!(diagnostic.message.contains("not labeled"));
+    let source = "#header[#label(\"earlier\")Earlier]\nFirst body.\n#header[Current]\n#paragraph[See #ref(\"earlier\").]";
+    assert!(
+        mote::compile(source).is_ok(),
+        "a story used by an earlier section remains registered"
+    );
+}

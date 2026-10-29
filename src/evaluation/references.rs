@@ -81,12 +81,11 @@ pub(super) fn evaluate(
     }
     if kind == ElementKind::Label {
         let name = attributes[primary].to_text();
-        if state.labels.insert(name.clone(), span).is_some() {
-            return Err(Diagnostic::new(
-                span,
-                format!("label {name:?} is declared more than once"),
-            ));
-        }
+        state.labels.push(NamedLocation {
+            name,
+            span,
+            story_declaration: state.story_declaration,
+        });
     } else if kind == ElementKind::Reference {
         let target = match &attributes[primary] {
             Value::Object(fields) => fields
@@ -96,7 +95,11 @@ pub(super) fn evaluate(
                 .unwrap_or_default(),
             value => value.to_text(),
         };
-        state.references.push((target, span));
+        state.references.push(NamedLocation {
+            name: target,
+            span,
+            story_declaration: state.story_declaration,
+        });
     }
     let children = call
         .bodies
@@ -109,4 +112,44 @@ pub(super) fn evaluate(
         attributes,
         children,
     }))
+}
+
+/// Declaration provenance distinguishes inherited stories from discarded overrides.
+pub(super) struct NamedLocation {
+    pub name: String,
+    pub span: Span,
+    pub story_declaration: Option<usize>,
+}
+pub(super) fn validate(state: &EvaluationState) -> Result<(), Diagnostic> {
+    let active_stories: std::collections::BTreeSet<_> = state
+        .sections
+        .iter()
+        .flat_map(|section| [section.header.declaration_id, section.footer.declaration_id])
+        .collect();
+    let active = |location: &&NamedLocation| {
+        location
+            .story_declaration
+            .is_none_or(|identifier| active_stories.contains(&identifier))
+    };
+    let mut labels = std::collections::BTreeSet::new();
+    for declaration in state.labels.iter().filter(active) {
+        if !labels.insert(&declaration.name) {
+            return Err(Diagnostic::new(
+                declaration.span,
+                format!("label {:?} is declared more than once", declaration.name),
+            ));
+        }
+    }
+    for reference in state.references.iter().filter(active) {
+        if !labels.contains(&reference.name) {
+            return Err(Diagnostic::new(
+                reference.span,
+                format!(
+                    "ref target {} is not labeled in this document",
+                    reference.name
+                ),
+            ));
+        }
+    }
+    Ok(())
 }

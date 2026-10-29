@@ -18,8 +18,9 @@ struct StoryCapture {
 #[derive(Default)]
 pub(super) struct EvaluationState {
     document: Document,
-    pub labels: std::collections::BTreeMap<String, Span>,
-    pub references: Vec<(String, Span)>,
+    pub labels: Vec<super::references::NamedLocation>,
+    pub references: Vec<super::references::NamedLocation>,
+    pub story_declaration: Option<usize>,
     default_header: HeaderFooter,
     default_footer: HeaderFooter,
     captures: Vec<StoryCapture>,
@@ -155,7 +156,10 @@ pub(super) fn evaluate_story(
             properties.insert(name.into(), normalize_length(value, span, name)?);
         }
     }
-    let content = evaluate_nodes(&call.bodies[0], ContentMode::Block, context, state)?;
+    let previous_story = state.story_declaration.replace(span.start + 1);
+    let content = evaluate_nodes(&call.bodies[0], ContentMode::Block, context, state);
+    state.story_declaration = previous_story;
+    let content = content?;
     state.set_story(
         call.name == "header",
         HeaderFooter {

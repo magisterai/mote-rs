@@ -49,14 +49,7 @@ pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
             ));
         }
     }
-    for (target, span) in &document.references {
-        if !document.labels.contains_key(target) {
-            return Err(Diagnostic::new(
-                *span,
-                format!("ref target {target} is not labeled in this document"),
-            ));
-        }
-    }
+    references::validate(&document)?;
     Ok(document.finish())
 }
 
