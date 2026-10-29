@@ -13,12 +13,14 @@ See also [prose-defined extensions](prose-extensions.md).
 - [w:ST_Border](#w-st_border)
 - [w:ST_BrClear](#w-st_brclear)
 - [w:ST_BrType](#w-st_brtype)
+- [w:ST_CaptionPos](#w-st_captionpos)
 - [w:ST_ChapterSep](#w-st_chaptersep)
 - [w:ST_Cnf](#w-st_cnf)
 - [w:ST_CombineBrackets](#w-st_combinebrackets)
 - [w:ST_DateTime](#w-st_datetime)
 - [w:ST_DecimalNumber](#w-st_decimalnumber)
 - [w:ST_DecimalNumberOrPercent](#w-st_decimalnumberorpercent)
+- [w:ST_DisplacedByCustomXml](#w-st_displacedbycustomxml)
 - [w:ST_DocGrid](#w-st_docgrid)
 - [w:ST_DropCap](#w-st_dropcap)
 - [w:ST_EdnPos](#w-st_ednpos)
@@ -28,6 +30,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [w:ST_FFName](#w-st_ffname)
 - [w:ST_FFStatusTextVal](#w-st_ffstatustextval)
 - [w:ST_FFTextType](#w-st_fftexttype)
+- [w:ST_FldCharType](#w-st_fldchartype)
 - [w:ST_FontFamily](#w-st_fontfamily)
 - [w:ST_FtnPos](#w-st_ftnpos)
 - [w:ST_HAnchor](#w-st_hanchor)
@@ -325,6 +328,18 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `column`
 - enumeration: value: `textWrapping`
 
+<a id="w-st_captionpos"></a>
+
+## w:ST_CaptionPos
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `above`
+- enumeration: value: `below`
+- enumeration: value: `left`
+- enumeration: value: `right`
+
 <a id="w-st_chaptersep"></a>
 
 ## w:ST_ChapterSep
@@ -388,6 +403,16 @@ See also [prose-defined extensions](prose-extensions.md).
 [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
 
 - union: memberTypes: [s:ST_Percentage](values-shared.md#s-st_percentage)
+
+<a id="w-st_displacedbycustomxml"></a>
+
+## w:ST_DisplacedByCustomXml
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `next`
+- enumeration: value: `prev`
 
 <a id="w-st_docgrid"></a>
 
@@ -483,6 +508,17 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `currentTime`
 - enumeration: value: `currentDate`
 - enumeration: value: `calculated`
+
+<a id="w-st_fldchartype"></a>
+
+## w:ST_FldCharType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `begin`
+- enumeration: value: `separate`
+- enumeration: value: `end`
 
 <a id="w-st_fontfamily"></a>
 

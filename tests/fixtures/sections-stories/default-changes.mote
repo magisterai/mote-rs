@@ -1,0 +1,10 @@
+#document(page={width=pt(360),height=pt(300)})
+#header[First header]
+First body.
+
+#header(properties={height=pt(30),distance=pt(14)},distance=pt(18))[Second header]
+#footer[Second footer]
+Second body.
+
+#header[]
+Third body without a header.

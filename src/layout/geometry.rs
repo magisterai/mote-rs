@@ -70,6 +70,35 @@ impl PageGeometry {
         geometry.validate()?;
         Ok(geometry)
     }
+    pub fn from_section(section: &crate::model::Section) -> Result<Self, LayoutError> {
+        let mut document = Document {
+            page: section.page.clone(),
+            margin: section.margin.clone(),
+            columns: section.columns.clone(),
+            ..Default::default()
+        };
+        for (side, kind, story) in [
+            ("top", "header", &section.header),
+            ("bottom", "footer", &section.footer),
+        ] {
+            if !document.margin.contains_key(kind)
+                && let Some(distance) = story.properties.get("distance")
+            {
+                document.margin.insert(kind.into(), distance.clone());
+            }
+            let reserved =
+                distance(&document.margin, kind, 36.0) + distance(&story.properties, "height", 0.0);
+            let margin = distance(&document.margin, side, 72.0).max(reserved);
+            document.margin.insert(
+                side.into(),
+                crate::model::Value::Length {
+                    value: margin,
+                    unit: crate::model::Unit::Point,
+                },
+            );
+        }
+        Self::from_document(&document)
+    }
     pub fn content_width(&self) -> f64 {
         self.width - self.margin_left - self.margin_right
     }

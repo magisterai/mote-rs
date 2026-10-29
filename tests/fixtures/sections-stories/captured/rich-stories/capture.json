@@ -1,0 +1,23 @@
+{
+  "source": "../../rich-stories.mote",
+  "source_sha256": "06b54e753da985464a88d68fe7dfaf613fdfd3e270d86173d070f82c9af31f66",
+  "captured_docx_sha256": "e6a75d18215872307a1d4da204915b1563d332f9040234f5726084c987a4b6de",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/_rels/header1.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/header1.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:06:24.077249+00:00",
+  "ignored_advisory_markers": {}
+}

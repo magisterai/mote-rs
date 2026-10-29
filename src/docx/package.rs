@@ -9,6 +9,7 @@ pub(super) fn write(
     numbering: &str,
     relationships: &str,
     media: &[(String, crate::media::ImageAsset)],
+    stories: &[super::sections::StoryPart],
 ) -> Result<Vec<u8>, Error> {
     let now = time::OffsetDateTime::now_utc();
     let timestamp = format!(
@@ -47,6 +48,13 @@ pub(super) fn write(
         "  <Override PartName=\"/word/document.xml\"",
         &format!("{entries}  <Override PartName=\"/word/document.xml\""),
     );
+    for story in stories
+        .iter()
+        .filter(|story| story.kind == "header")
+        .chain(stories.iter().filter(|story| story.kind == "footer"))
+    {
+        content_types = content_types.replace("</Types>", &format!(r#"<Override PartName="/word/{}" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.{}+xml"/></Types>"#, story.name, story.kind));
+    }
     for (name, contents) in [
         ("[Content_Types].xml", content_types.as_str()),
         ("_rels/.rels", ROOT_RELATIONSHIPS),
@@ -61,6 +69,14 @@ pub(super) fn write(
     ] {
         archive.start_file(name, options)?;
         archive.write_all(contents.as_bytes())?;
+    }
+    for story in stories {
+        archive.start_file(format!("word/{}", story.name), options)?;
+        archive.write_all(story.content.as_bytes())?;
+        if let Some(relationships) = &story.relationships {
+            archive.start_file(format!("word/_rels/{}.rels", story.name), options)?;
+            archive.write_all(relationships.as_bytes())?;
+        }
     }
     for (name, asset) in media {
         archive.start_file(format!("word/{name}"), options)?;

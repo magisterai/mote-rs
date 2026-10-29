@@ -1,0 +1,28 @@
+{
+  "source_sha256": "f6a66d903c8716e8e127655e2448ef637fdcc164b6f69b5d80f17d2ccf71a824",
+  "units": "points",
+  "geometry_tolerance": 1e-08,
+  "native_png_dpi": 72,
+  "png_maximum_channel_difference": 56,
+  "png_mean_foreground_difference": 11.0,
+  "office_review_status": "unreviewed",
+  "native_reference_status": "captured",
+  "pages": 12,
+  "pdf_comparison_dpi": 144,
+  "pdf_changed_pixels": 0,
+  "files": {
+    "geometry.json": "9218c8d26ddb87b1836dae51d373f06790671521494bd401d71c672f7f5b187c",
+    "reference-9.png": "60c4ce1e92887d5bfc6c11ba7aa592630227865ee41343d8bef6d0d870e2759b",
+    "reference-8.png": "8415c6d9e9b802784c35f6615b8b7c6665458f8661630fc64595debe8ee965bb",
+    "reference-12.png": "904426bb90db619feaf83ee3705bb3f4c690e24f3fb4ea67fff995b1b1d98945",
+    "reference-5.png": "1ec585038ec95602e3b247928b71ca27b77f2fe407f751d8568037ee253a5806",
+    "reference-4.png": "574decd79ae669b33ca335dd32b5395c34ef0dceae40f486b494bd56b25fdebe",
+    "reference-11.png": "e44e2be49e8e0d296cb1935207cd9c3556c26836ffe79f18cdcf58be9d8887a5",
+    "reference-6.png": "8a6b74c9de014e5628c1c45165a4742e717eef8fb9b774d451e1fb443baf44c6",
+    "reference-7.png": "ac468b89e86cbb092e063057f37bbeefc9f1ae2567402415fabcd8b73c828e60",
+    "reference-10.png": "8bdba5d93413a75f083591ecf632e97c4e14208fe48703fa32a45301ee84978f",
+    "reference-3.png": "16563e3426d7eba1862f626f4cc2c25e01cfe36008f1c0ea84b51065ff46c7b3",
+    "reference-2.png": "519322da4ec76d85496640c8452cecef58e99a769908a2584534aee6ad54449a",
+    "reference-1.png": "11182eacd32539e420850a4a95585e6c17e053135af8e5688951662aee49d4fe"
+  }
+}

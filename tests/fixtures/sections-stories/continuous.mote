@@ -1,0 +1,11 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(48),bottom=pt(48),left=pt(24),right=pt(24)})
+#header[Shared header]
+#footer[Page #page_number() of #page_number(kind="total")]
+Before the columns.
+
+#section(columns={count=2,gap=pt(18),separator=true},properties={start="continuous"})[
+First column text.
+#break(type="column")
+Second column text.
+]
+After the columns.

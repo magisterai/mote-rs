@@ -7,7 +7,7 @@ use super::{
 };
 use crate::{
     measurement::TextMeasurer,
-    model::{Content, Document, Element, ElementKind, Properties, Value},
+    model::{Content, Element, ElementKind, Properties, Value},
 };
 
 pub(super) enum Block {
@@ -42,23 +42,6 @@ impl PreparedParagraph {
     }
 }
 
-pub(super) fn prepare_blocks(
-    document: &Document,
-    width: f64,
-    styles: &LayoutStyleResolver<'_>,
-    measurer: &mut TextMeasurer<'_>,
-    images: &crate::media::ImageCatalog,
-) -> Result<Vec<Block>, LayoutError> {
-    prepare_content(
-        &document.content,
-        width,
-        styles,
-        measurer,
-        images,
-        &mut BlockNumbers::default(),
-        false,
-    )
-}
 #[derive(Default, Clone)]
 pub(super) struct BlockNumbers {
     pub headings: HeadingNumbers,

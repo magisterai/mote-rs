@@ -36,6 +36,11 @@ Status: initial draft.
 
 13. [Images](images.md): block media, dimensions, transforms, and asset resolution.
 
+14. [Tables](tables.md): row/cell structure, sizing, merges, borders and Markdown tables.
+
+15. [Sections, headers and footers](sections-and-stories.md): section geometry,
+    running stories and page-number fields.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
@@ -52,5 +57,3 @@ here before demonstrating it.
 
 The [reference library](../reference/README.md) contains the external file-format
 and language standards used alongside this specification.
-
-- [Tables](tables.md): row/cell structure, sizing, merges, borders and Markdown tables.

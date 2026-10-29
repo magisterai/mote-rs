@@ -1,0 +1,11 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(60),bottom=pt(60),left=pt(24),right=pt(24)})
+#header[Default header]
+#footer[Page #page_number()]
+Before the section.
+
+#section(page_numbering={restart=true,start=5,format="upper_roman"},properties={start="next_page",vertical_alignment="center"})[
+#header[Local header]
+#footer[]
+Inside the explicit section.
+]
+After the section.

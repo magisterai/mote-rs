@@ -13,6 +13,7 @@ pub(in crate::layout) fn place(
     columns: &mut ColumnSeparators,
     geometry: PageGeometry,
     pending: f64,
+    boundary: Option<super::super::sections::FlowBoundary>,
 ) -> Result<Vec<String>, LayoutError> {
     let mut warnings = Vec::new();
     if table.rows.is_empty() {
@@ -25,6 +26,7 @@ pub(in crate::layout) fn place(
         pages,
         columns,
         geometry,
+        boundary,
         leading + table.rows[0].height,
     );
     if previous == (cursor.page_number, cursor.column_index) {
@@ -44,10 +46,18 @@ pub(in crate::layout) fn place(
     while start < table.rows.len() {
         let end = pagination::block_end(table, start);
         let height: f64 = table.rows[start..end].iter().map(|row| row.height).sum();
-        let mut available = vec![(geometry.content_bottom() - cursor.y).max(0.0)];
+        let mut available = vec![
+            (super::super::sections::content_bottom(geometry, boundary, cursor.page_number)
+                - cursor.y)
+                .max(0.0),
+        ];
         for _ in cursor.column_index + 1..geometry.column_count {
-            available
-                .push((geometry.content_bottom() - cursor.current_top - header_height).max(0.0));
+            available.push(
+                (super::super::sections::content_bottom(geometry, boundary, cursor.page_number)
+                    - cursor.current_top
+                    - header_height)
+                    .max(0.0),
+            );
         }
         available.push((geometry.content_bottom() - geometry.margin_top - header_height).max(0.0));
         if let Some(slices) = pagination::plan(table, start, end, header_count, &available) {
@@ -60,7 +70,11 @@ pub(in crate::layout) fn place(
                 }
                 if advanced
                     && header_height + slice.height
-                        <= geometry.content_bottom() - cursor.current_top
+                        <= super::super::sections::content_bottom(
+                            geometry,
+                            boundary,
+                            cursor.page_number,
+                        ) - cursor.current_top
                 {
                     for row in 0..header_count {
                         place_row(
@@ -143,11 +157,15 @@ pub(in crate::layout) fn place(
                         height
                     };
                     let before = (cursor.page_number, cursor.column_index);
-                    ensure_space(cursor, pages, columns, geometry, required);
+                    ensure_space(cursor, pages, columns, geometry, boundary, required);
                     if before != (cursor.page_number, cursor.column_index)
                         && row >= header_count
                         && header_height + required
-                            <= geometry.content_bottom() - cursor.current_top
+                            <= super::super::sections::content_bottom(
+                                geometry,
+                                boundary,
+                                cursor.page_number,
+                            ) - cursor.current_top
                     {
                         for header in 0..header_count {
                             place_row(
@@ -193,7 +211,7 @@ pub(in crate::layout) fn place(
     }
     collector.append(pages);
     let before = (cursor.page_number, cursor.column_index);
-    ensure_space(cursor, pages, columns, geometry, 1.0);
+    ensure_space(cursor, pages, columns, geometry, boundary, 1.0);
     if before == (cursor.page_number, cursor.column_index) {
         cursor.y += 1.0;
     }

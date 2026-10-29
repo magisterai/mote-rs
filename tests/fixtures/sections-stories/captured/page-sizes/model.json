@@ -1,0 +1,582 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    },
+    "page": {
+      "height": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "48pt",
+      "unit": "pt",
+      "value": 48
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "48pt",
+      "unit": "pt",
+      "value": 48
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          },
+          "width": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Mixed page dimensions"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Portrait start."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "explicit": true,
+      "properties": {
+        "page": {
+          "orientation": "landscape"
+        },
+        "page_numbering": {
+          "restart": true
+        },
+        "properties": {
+          "start": "continuous"
+        }
+      },
+      "section_properties": {
+        "start": "continuous",
+        "properties": {
+          "start": "continuous"
+        }
+      },
+      "page_numbering": {
+        "restart": true,
+        "properties": {
+          "restart": true
+        }
+      },
+      "page": {
+        "properties": {
+          "height": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          },
+          "orientation": "landscape",
+          "width": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Mixed page dimensions"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Landscape page forces a new physical sheet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_properties": {
+        "start": "continuous"
+      },
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          },
+          "width": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Mixed page dimensions"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Portrait resumes on a new physical sheet."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Portrait start."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Landscape page forces a new physical sheet."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Portrait resumes on a new physical sheet."
+        }
+      ]
+    }
+  ]
+}

@@ -1805,20 +1805,26 @@
   },
   "w:CT_SectPr/pgSz": {
     "status": "partial",
-    "note": "Named paper sizes, explicit dimensions and orientation are supported; printer paper codes are unsupported. Only the implicit document section is implemented.",
+    "note": "Named paper sizes, explicit dimensions and orientation are supported; printer paper codes are unsupported. Implicit and explicit sections are supported.",
     "evidence": [
       "docs/specification/document-configuration.md",
       "tests/configuration.rs",
-      "tests/docx_configuration.rs"
+      "tests/docx_configuration.rs",
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
     ]
   },
   "w:CT_SectPr/pgMar": {
     "status": "partial",
-    "note": "All seven margin fields are supported for non-negative lengths; negative top/bottom margins are unsupported. Only the implicit document section is implemented.",
+    "note": "All seven margin fields are supported for non-negative lengths; negative top/bottom margins are unsupported. Implicit and explicit sections are supported.",
     "evidence": [
       "docs/specification/document-configuration.md",
       "tests/configuration.rs",
-      "tests/docx_configuration.rs"
+      "tests/docx_configuration.rs",
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
     ]
   },
   "w:CT_Columns/@num": {
@@ -1859,11 +1865,14 @@
   },
   "w:CT_SectPr/cols": {
     "status": "partial",
-    "note": "Single implicit section: equal-width columns with count, gap and separator. Individual widths and explicit sections remain unsupported.",
+    "note": "Implicit and explicit sections: equal-width columns with count, gap and separator. Individual column widths remain unsupported.",
     "evidence": [
       "docs/specification/document-configuration.md",
       "tests/configuration.rs",
-      "tests/docx_configuration.rs"
+      "tests/docx_configuration.rs",
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
     ]
   },
   "w:CT_Styles/docDefaults": {
@@ -2289,6 +2298,87 @@
     "evidence": [
       "docs/specification/tables.md",
       "tests/tables.rs"
+    ]
+  },
+  "w:CT_SectPr/headerReference": {
+    "status": "partial",
+    "note": "Default story declaration, inheritance and explicit empty resets; separate first/even variants have no authoring mapping.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_SectPr/footerReference": {
+    "status": "partial",
+    "note": "Default story declaration, inheritance and explicit empty resets; separate first/even variants have no authoring mapping.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_HdrFtrRef/@type": {
+    "status": "partial",
+    "note": "Default story only. First and even types have no Mote authoring mapping.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_SectPr/type": {
+    "status": "supported",
+    "note": "properties.start supports every section-start value; native parity and next-column behavior remain limited.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_SectType/@val": {
+    "status": "supported",
+    "note": "properties.start: continuous, next_page, next_column, even_page, odd_page.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_SectPr/vAlign": {
+    "status": "supported",
+    "note": "properties.vertical_alignment: top, center, bottom, justified; both normalizes to justified. Native vertical placement remains top-aligned with a warning.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_SectPr/pgNumType": {
+    "status": "partial",
+    "note": "page_numbering restart/start/format; chapter numbering properties are not mapped.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_PageNumber/@start": {
+    "status": "supported",
+    "note": "page_numbering.start accepts a positive integer; restart without a start selects 1.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
+    ]
+  },
+  "w:CT_PageNumber/@fmt": {
+    "status": "partial",
+    "note": "page_numbering.format retains a format string. DOCX maps decimal, alphabetic and Roman forms; native page fields are decimal.",
+    "evidence": [
+      "docs/specification/sections-and-stories.md",
+      "tests/sections.rs",
+      "tests/section_rendering.rs"
     ]
   }
 }

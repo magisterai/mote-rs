@@ -1,0 +1,27 @@
+{
+  "source": "../../default-changes.mote",
+  "source_sha256": "192ebdc4bf120ae0cb0d47a69658cf362142aef81483961152386d936dbd53ed",
+  "captured_docx_sha256": "1942d861719d5fa5bbeec65f21e3b0abd4cf738c2afb8d900534e4ee6da3a080",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/footer2.xml",
+    "word/header1.xml",
+    "word/header2.xml",
+    "word/header3.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:06:24.058699+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 2
+  }
+}

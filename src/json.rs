@@ -34,7 +34,15 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
     if !document.defaults.is_empty() {
         output["defaults"] = properties_as_json(&document.defaults)?;
     }
-    if !document.content.is_empty() {
+    if !document.sections.is_empty() {
+        output["sections"] = JsonValue::Array(
+            document
+                .sections
+                .iter()
+                .map(section_as_json)
+                .collect::<Result<_, _>>()?,
+        );
+    } else if !document.content.is_empty() {
         output["sections"] = json!([{
             "section_properties":{}, "page_numbering":{}, "page":output["page"],
             "margin":output["margin"], "columns":output["columns"], "header_properties":{},
@@ -170,4 +178,79 @@ fn value_as_json(value: &Value) -> Result<JsonValue, serde_json::Error> {
             "text": format!("{value}{}", unit.as_text()),
         }),
     })
+}
+
+fn section_as_json(section: &crate::model::Section) -> Result<JsonValue, serde_json::Error> {
+    let mut output = json!({
+        "section_properties": {}, "page_numbering": {}, "page": {}, "margin": {}, "columns": {},
+        "header_properties": {}, "footer_properties": {},
+        "content": section.content.iter().map(content_as_json).collect::<Result<Vec<_>, _>>()?,
+    });
+    if section.explicit {
+        output["explicit"] = json!(true);
+    }
+    if !section.properties.is_empty() {
+        output["properties"] = properties_as_json(&section.properties)?;
+    }
+    for (name, properties, fields) in [
+        (
+            "section_properties",
+            &section.section_properties,
+            &["vertical_alignment"][..],
+        ),
+        (
+            "page_numbering",
+            &section.page_numbering,
+            &["restart", "start", "format"][..],
+        ),
+        ("page", &section.page, &[][..]),
+        (
+            "margin",
+            &section.margin,
+            &[
+                "top", "right", "bottom", "left", "header", "footer", "gutter",
+            ][..],
+        ),
+        (
+            "columns",
+            &section.columns.properties,
+            &["gap", "equal_width"][..],
+        ),
+        (
+            "header_properties",
+            &section.header.properties,
+            &["height", "distance"][..],
+        ),
+        (
+            "footer_properties",
+            &section.footer.properties,
+            &["height", "distance"][..],
+        ),
+    ] {
+        copy_nonempty_properties(&mut output[name], properties)?;
+        for field in fields {
+            copy_nonempty_field(&mut output[name], properties, field)?;
+        }
+    }
+    if !section.start.is_empty() {
+        output["section_properties"]["start"] = json!(section.start);
+    }
+    if let Some(count) = section.columns.count {
+        output["columns"]["count"] = json!(count);
+    }
+    if section.columns.properties.get("separator") == Some(&Value::Boolean(true)) {
+        output["columns"]["separator"] = json!(true);
+    }
+    for (name, story) in [("header", &section.header), ("footer", &section.footer)] {
+        if !story.content.is_empty() {
+            output[name] = JsonValue::Array(
+                story
+                    .content
+                    .iter()
+                    .map(content_as_json)
+                    .collect::<Result<_, _>>()?,
+            );
+        }
+    }
+    Ok(output)
 }

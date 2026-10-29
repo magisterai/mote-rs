@@ -1,0 +1,390 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 38.511,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "Portrait ",
+              "x": 24
+            },
+            {
+              "advance": 59.917,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "introduction.",
+              "x": 62.511
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 67,
+          "width": 98.428,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.116,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Wide ",
+              "x": 24
+            },
+            {
+              "advance": 31.79,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "report ",
+              "x": 52.116
+            },
+            {
+              "advance": 34.243,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "header",
+              "x": 83.906
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 94.149,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "1",
+              "x": 52.742999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 270.77446,
+          "width": 34.858999999999995,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 56.87,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "Landscape ",
+              "x": 36
+            },
+            {
+              "advance": 27.522,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 92.87
+            },
+            {
+              "advance": 6.116,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "7",
+              "x": 120.392
+            },
+            {
+              "advance": 3.058,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": " ",
+              "x": 126.508
+            },
+            {
+              "advance": 12.232,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "of ",
+              "x": 129.566
+            },
+            {
+              "advance": 9.174,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "4.",
+              "x": 141.798
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 67,
+          "width": 114.97200000000001,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.116,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Wide ",
+              "x": 36
+            },
+            {
+              "advance": 31.79,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "report ",
+              "x": 64.116
+            },
+            {
+              "advance": 34.243,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "header",
+              "x": 95.906
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 94.149,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 36
+            },
+            {
+              "advance": 6.116,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "7",
+              "x": 64.743
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 270.77446,
+          "width": 34.858999999999995,
+          "x": 36
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 56.87,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "Landscape ",
+              "x": 36
+            },
+            {
+              "advance": 62.37,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "continuation ",
+              "x": 92.87
+            },
+            {
+              "advance": 15.29,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "on ",
+              "x": 155.24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "8",
+              "x": 170.53
+            },
+            {
+              "advance": 3.058,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": ".",
+              "x": 176.64600000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 67,
+          "width": 143.704,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.116,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Wide ",
+              "x": 36
+            },
+            {
+              "advance": 31.79,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "report ",
+              "x": 64.116
+            },
+            {
+              "advance": 34.243,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "header",
+              "x": 95.906
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 94.149,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 36
+            },
+            {
+              "advance": 6.116,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "8",
+              "x": 64.743
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 270.77446,
+          "width": 34.858999999999995,
+          "x": 36
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 38.511,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "Portrait ",
+              "x": 24
+            },
+            {
+              "advance": 55.022,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "conclusion ",
+              "x": 62.511
+            },
+            {
+              "advance": 15.29,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "on ",
+              "x": 117.533
+            },
+            {
+              "advance": 6.116,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": "9",
+              "x": 132.823
+            },
+            {
+              "advance": 3.058,
+              "baseline": 77.91277,
+              "size": 11,
+              "text": ".",
+              "x": 138.93900000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 67,
+          "width": 117.99700000000001,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.116,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Wide ",
+              "x": 24
+            },
+            {
+              "advance": 31.79,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "report ",
+              "x": 52.116
+            },
+            {
+              "advance": 34.243,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "header",
+              "x": 83.906
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 94.149,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 281.68723,
+              "size": 11,
+              "text": "9",
+              "x": 52.742999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 270.77446,
+          "width": 34.858999999999995,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

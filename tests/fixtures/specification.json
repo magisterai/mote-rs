@@ -466,6 +466,10 @@
     {
       "example": "tables/2",
       "model": "tables_2"
+    },
+    {
+      "example": "sections-and-stories/1",
+      "model": "sections-and-stories"
     }
   ],
   "models": {
@@ -5917,6 +5921,121 @@
           "page": {},
           "page_numbering": {},
           "section_properties": {}
+        }
+      ]
+    },
+    "sections-and-stories": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quarterly report"
+                }
+              ]
+            }
+          ],
+          "header_properties": {
+            "height": {
+              "text": "24pt",
+              "unit": "pt",
+              "value": 24.0
+            },
+            "distance": {
+              "text": "18pt",
+              "unit": "pt",
+              "value": 18.0
+            },
+            "properties": {
+              "distance": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18.0
+              },
+              "height": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24.0
+              }
+            }
+          },
+          "footer": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Page "
+                },
+                {
+                  "kind": "page_number",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": " of "
+                },
+                {
+                  "kind": "page_number",
+                  "category": "inline",
+                  "attributes": {
+                    "kind": "total"
+                  }
+                }
+              ]
+            }
+          ],
+          "footer_properties": {
+            "distance": {
+              "text": "18pt",
+              "unit": "pt",
+              "value": 18.0
+            },
+            "properties": {
+              "distance": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18.0
+              }
+            }
+          },
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "The report begins here."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "The report begins here."
+            }
+          ]
         }
       ]
     }

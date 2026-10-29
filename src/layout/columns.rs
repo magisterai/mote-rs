@@ -4,8 +4,14 @@ use std::collections::BTreeMap;
 #[derive(Default)]
 pub(super) struct ColumnSeparators {
     extents: BTreeMap<usize, (usize, f64)>,
+    first_page: usize,
+    first_top: f64,
 }
 impl ColumnSeparators {
+    pub fn begin(&mut self, cursor: &FlowCursor) {
+        self.first_page = cursor.page_number;
+        self.first_top = cursor.current_top;
+    }
     pub fn note(&mut self, cursor: &FlowCursor, geometry: PageGeometry) {
         if !geometry.column_separator || geometry.column_count < 2 {
             return;
@@ -19,7 +25,12 @@ impl ColumnSeparators {
     }
     pub fn append(self, pages: &mut [TextPage], geometry: PageGeometry) {
         for (page_number, (used, bottom)) in self.extents {
-            if bottom <= geometry.margin_top {
+            let top = if page_number == self.first_page {
+                self.first_top
+            } else {
+                geometry.margin_top
+            };
+            if bottom <= top {
                 continue;
             }
             for column in 1..used.min(geometry.column_count) {
@@ -28,7 +39,7 @@ impl ColumnSeparators {
                     .operations
                     .push(PageOperation::Rule(Rule {
                         role: super::RuleRole::ColumnSeparator,
-                        start: [horizontal, geometry.margin_top],
+                        start: [horizontal, top],
                         end: [horizontal, bottom],
                         width: 1.0,
                         color: "000000".into(),

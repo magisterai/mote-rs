@@ -1,0 +1,12 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(76),bottom=pt(76),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[
+#paragraph(alignment="center",spacing={before=pt(2),after=pt(4)})[#strong[Quarterly] #link(url="https://example.com")[report]]
+#paragraph(alignment="right",spacing={before=pt(6),after=pt(2)})[Second line#line_break()Third line]
+]
+#footer(distance=pt(12))[
+#paragraph(alignment="center")[Page #page_number() of #page_number(kind="total")]
+#paragraph(alignment="right")[Confidential]
+]
+#paragraph[Body with a #page_number() current field.]
+#break()
+#paragraph[Body on page #page_number() with #page_number(kind="total") total pages.]

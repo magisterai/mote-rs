@@ -1,0 +1,7 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(72),bottom=pt(60),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[
+#paragraph[#link(url="https://example.com/header")[Header link]]
+#image(src="../images/assets/pattern.png",width=pt(30),height=pt(18),alt="Header logo")
+]
+#footer(distance=pt(12))[#link(url="https://example.com/footer")[Footer link]]
+#paragraph[#link(url="https://example.com/body")[Body link]]

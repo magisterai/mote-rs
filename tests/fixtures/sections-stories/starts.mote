@@ -1,0 +1,6 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(48),bottom=pt(48),left=pt(24),right=pt(24)})
+#footer(distance=pt(12))[Page #page_number() of #page_number(kind="total")]
+#section(properties={start="next_page",vertical_alignment="top"})[Next page.]
+#section(properties={start="odd_page",vertical_alignment="center"})[Odd page.]
+#section(properties={start="even_page",vertical_alignment="bottom"})[Even page.]
+#section(properties={start="next_column",vertical_alignment="both"})[Next column.]

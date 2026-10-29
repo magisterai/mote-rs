@@ -1,0 +1,14 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(48),bottom=pt(48),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[Balanced report]
+#footer(distance=pt(12))[Page #page_number() of #page_number(kind="total")]
+#paragraph[Full-width introduction.]
+#section(properties={start="continuous"},columns={count=2,gap=pt(18),separator=true})[
+#paragraph[Item 1: natural column text wraps across the available line width.]
+#paragraph[Item 2: natural column text wraps across the available line width.]
+#paragraph[Item 3: natural column text wraps across the available line width.]
+#paragraph[Item 4: natural column text wraps across the available line width.]
+#paragraph[Item 5: natural column text wraps across the available line width.]
+#paragraph[Item 6: natural column text wraps across the available line width.]
+#paragraph[Item 7: natural column text wraps across the available line width.]
+]
+#paragraph[Full-width conclusion after the columns.]

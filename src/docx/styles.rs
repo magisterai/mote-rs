@@ -130,6 +130,11 @@ impl<'document> Styles<'document> {
         if self.builtin_needed.contains("Hyperlink") && !self.declared("Hyperlink") {
             content.push_str("<w:style w:type=\"character\" w:styleId=\"Hyperlink\"><w:name w:val=\"Hyperlink\"/><w:uiPriority w:val=\"99\"/><w:unhideWhenUsed/><w:rPr><w:color w:val=\"0563C1\"/><w:u w:val=\"single\"/></w:rPr></w:style>");
         }
+        for name in ["Header", "Footer"] {
+            if self.builtin_needed.contains(name) && !self.declared(name) {
+                content.push_str(&format!(r#"<w:style w:type="paragraph" w:styleId="{name}"><w:name w:val="{name}"/><w:basedOn w:val="{}"/><w:pPr><w:spacing w:after="0" w:line="276" w:lineRule="auto"/></w:pPr><w:rPr><w:color w:val="6B7280"/></w:rPr></w:style>"#, self.identifier("Normal")?));
+            }
+        }
         if self.builtin_needed.contains("Caption") && !self.declared("Caption") {
             content.push_str(&format!("<w:style w:type=\"paragraph\" w:styleId=\"Caption\"><w:name w:val=\"Caption\"/><w:basedOn w:val=\"{}\"/><w:pPr><w:spacing w:after=\"160\" w:line=\"276\" w:lineRule=\"auto\"/></w:pPr><w:rPr><w:i/><w:iCs/><w:color w:val=\"666666\"/></w:rPr></w:style>", self.identifier("Normal")?));
         }

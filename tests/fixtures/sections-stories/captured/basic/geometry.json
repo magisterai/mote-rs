@@ -1,0 +1,239 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 22.011,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "The ",
+              "x": 24
+            },
+            {
+              "advance": 31.79,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "report ",
+              "x": 46.010999999999996
+            },
+            {
+              "advance": 35.464,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "begins ",
+              "x": 77.801
+            },
+            {
+              "advance": 25.069,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "here.",
+              "x": 113.265
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 48,
+          "width": 114.334,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 48.29,
+              "baseline": 28.912770000000002,
+              "size": 11,
+              "text": "Quarterly ",
+              "x": 24
+            },
+            {
+              "advance": 28.732,
+              "baseline": 28.912770000000002,
+              "size": 11,
+              "text": "report",
+              "x": 72.28999999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 18,
+          "width": 77.02199999999999,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "1",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": " ",
+              "x": 58.858999999999995
+            },
+            {
+              "advance": 12.232,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 61.916999999999994
+            },
+            {
+              "advance": 6.116,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "2",
+              "x": 74.149
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 266.77446,
+          "width": 56.26499999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 22.011,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "The ",
+              "x": 24
+            },
+            {
+              "advance": 38.522,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "second ",
+              "x": 46.010999999999996
+            },
+            {
+              "advance": 27.522,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 84.533
+            },
+            {
+              "advance": 36.069,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "retains ",
+              "x": 112.055
+            },
+            {
+              "advance": 24.464,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "both ",
+              "x": 148.12400000000002
+            },
+            {
+              "advance": 39.743,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "running ",
+              "x": 172.58800000000002
+            },
+            {
+              "advance": 35.453,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "stories.",
+              "x": 212.33100000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 48,
+          "width": 223.78400000000002,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 48.29,
+              "baseline": 28.912770000000002,
+              "size": 11,
+              "text": "Quarterly ",
+              "x": 24
+            },
+            {
+              "advance": 28.732,
+              "baseline": 28.912770000000002,
+              "size": 11,
+              "text": "report",
+              "x": 72.28999999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 18,
+          "width": 77.02199999999999,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "2",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": " ",
+              "x": 58.858999999999995
+            },
+            {
+              "advance": 12.232,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 61.916999999999994
+            },
+            {
+              "advance": 6.116,
+              "baseline": 277.68723,
+              "size": 11,
+              "text": "2",
+              "x": 74.149
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 266.77446,
+          "width": 56.26499999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

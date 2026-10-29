@@ -1,0 +1,254 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "72pt",
+        "unit": "pt",
+        "value": 72
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "72pt",
+        "unit": "pt",
+        "value": 72
+      }
+    },
+    "page": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "72pt",
+      "unit": "pt",
+      "value": 72
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "72pt",
+      "unit": "pt",
+      "value": 72
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "72pt",
+        "unit": "pt",
+        "value": 72
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "72pt",
+        "unit": "pt",
+        "value": 72
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "72pt",
+          "unit": "pt",
+          "value": 72
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "72pt",
+          "unit": "pt",
+          "value": 72
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "72pt",
+            "unit": "pt",
+            "value": 72
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "72pt",
+            "unit": "pt",
+            "value": 72
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block"
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After empty paragraph"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First"
+            },
+            {
+              "kind": "line_break",
+              "category": "inline"
+            },
+            {
+              "kind": "line_break",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "Third"
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body content."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body content."
+        }
+      ]
+    }
+  ]
+}

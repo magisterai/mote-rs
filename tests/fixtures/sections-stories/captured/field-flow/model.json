@@ -1,0 +1,940 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "42pt",
+        "unit": "pt",
+        "value": 42
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "42pt",
+        "unit": "pt",
+        "value": 42
+      }
+    },
+    "page": {
+      "height": {
+        "text": "170pt",
+        "unit": "pt",
+        "value": 170
+      },
+      "width": {
+        "text": "220pt",
+        "unit": "pt",
+        "value": 220
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "170pt",
+        "unit": "pt",
+        "value": 170
+      },
+      "width": {
+        "text": "220pt",
+        "unit": "pt",
+        "value": 220
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "42pt",
+      "unit": "pt",
+      "value": 42
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "42pt",
+      "unit": "pt",
+      "value": 42
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "42pt",
+        "unit": "pt",
+        "value": 42
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "42pt",
+        "unit": "pt",
+        "value": 42
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "explicit": true,
+      "properties": {
+        "page_numbering": {
+          "start": 8
+        }
+      },
+      "section_properties": {},
+      "page_numbering": {
+        "start": 8,
+        "properties": {
+          "start": 8
+        }
+      },
+      "page": {
+        "properties": {
+          "height": {
+            "text": "170pt",
+            "unit": "pt",
+            "value": 170
+          },
+          "width": {
+            "text": "220pt",
+            "unit": "pt",
+            "value": 220
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "42pt",
+          "unit": "pt",
+          "value": 42
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "42pt",
+          "unit": "pt",
+          "value": 42
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "42pt",
+            "unit": "pt",
+            "value": 42
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "42pt",
+            "unit": "pt",
+            "value": 42
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body fields"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "This is page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": ", in a document with "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " physical pages. Text wraps naturally around both fields."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "This is page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": ", in a document with "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " physical pages. Text wraps naturally around both fields."
+        }
+      ]
+    }
+  ]
+}

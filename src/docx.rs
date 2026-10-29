@@ -17,6 +17,7 @@ mod paragraphs;
 mod resources;
 mod run_properties;
 mod runs;
+mod sections;
 mod styles;
 mod tables;
 mod values;
@@ -97,6 +98,7 @@ pub fn emit_with_assets(
         &state.numbering.write()?,
         &state.resources.relationships()?,
         &state.resources.media,
+        &state.resources.stories,
     )?;
     state
         .resources

@@ -2,10 +2,7 @@ use super::{
     FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError, LayoutStyleResolver, LineBreak,
     LineFrame, PageGeometry, PageOperation, TextLine, minimum_start_height, plan_paragraph_flow,
 };
-use super::{
-    blocks::{Block, prepare_blocks},
-    columns::ColumnSeparators,
-};
+use super::{blocks::Block, columns::ColumnSeparators};
 use crate::{
     measurement::TextMeasurer,
     model::{Document, Element, ElementKind, Properties},
@@ -19,6 +16,10 @@ pub struct PlacedTextLine {
 }
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct TextPage {
+    /// Section geometry of the physical page; absent on manually assembled plans.
+    pub geometry: Option<PageGeometry>,
+    pub section_index: usize,
+    pub page_number: usize,
     pub lines: Vec<PlacedTextLine>,
     pub operations: Vec<PageOperation>,
 }
@@ -70,26 +71,28 @@ pub(crate) fn plan_document_with_images(
     measurer: &mut TextMeasurer<'_>,
     images: &crate::media::ImageCatalog,
 ) -> Result<DocumentTextPlan, LayoutError> {
-    let geometry = PageGeometry::from_document(document)?;
-    let styles = LayoutStyleResolver::new(document);
-    let blocks = prepare_blocks(document, geometry.column_width(), &styles, measurer, images)?;
-    if blocks.is_empty() {
-        return Ok(DocumentTextPlan {
-            geometry,
-            pages: Vec::new(),
-            warnings: Vec::new(),
-        });
-    }
-    let mut pages = vec![TextPage::default()];
-    let mut warnings = Vec::new();
-    let mut cursor = FlowCursor {
-        page_number: 1,
-        current_top: geometry.margin_top,
-        y: geometry.margin_top,
-        ..Default::default()
-    };
-    let mut columns = ColumnSeparators::default();
-    let mut pending_spacing: f64 = 0.0;
+    super::sections::plan(document, measurer, images)
+}
+
+pub(super) struct PlacementContext<'scope, 'document> {
+    pub styles: &'scope LayoutStyleResolver<'document>,
+    pub geometry: PageGeometry,
+    pub boundary: Option<super::sections::FlowBoundary>,
+}
+pub(super) fn place_blocks(
+    blocks: &[Block],
+    context: PlacementContext<'_, '_>,
+    pages: &mut Vec<TextPage>,
+    cursor: &mut FlowCursor,
+    columns: &mut ColumnSeparators,
+    pending_spacing: &mut f64,
+    warnings: &mut Vec<String>,
+) -> Result<(), LayoutError> {
+    let PlacementContext {
+        styles,
+        geometry,
+        boundary,
+    } = context;
     let mut painting = super::painting::ParagraphPainting::default();
     for (index, block) in blocks.iter().enumerate() {
         match block {
@@ -106,21 +109,16 @@ pub(crate) fn plan_document_with_images(
                             "hard-break line height must be positive and finite",
                         ));
                     }
-                    if pending_spacing > 0.0 {
-                        ensure_space(
-                            &mut cursor,
-                            &mut pages,
-                            &mut columns,
-                            geometry,
-                            pending_spacing,
-                        );
-                        cursor.y += pending_spacing;
+                    if *pending_spacing > 0.0 {
+                        ensure_space(cursor, pages, columns, geometry, boundary, *pending_spacing);
+                        cursor.y += *pending_spacing;
                     }
                     ensure_space(
-                        &mut cursor,
-                        &mut pages,
-                        &mut columns,
+                        cursor,
+                        pages,
+                        columns,
                         geometry,
+                        boundary,
                         style.line_height,
                     );
                     let frame = frame_for(&style, geometry.column_width());
@@ -139,37 +137,32 @@ pub(crate) fn plan_document_with_images(
                     });
                     cursor.y += style.line_height;
                     cursor.body_started = true;
-                    columns.note(&cursor, geometry);
+                    columns.note(cursor, geometry);
                 } else if kind == "column" || kind == "next_column" {
-                    next_area(&mut cursor, &mut pages, &mut columns, geometry);
+                    next_area(cursor, pages, columns, geometry);
                 } else {
-                    new_page(&mut cursor, &mut pages, &mut columns, geometry);
+                    new_page(cursor, pages, columns, geometry);
                 }
-                pending_spacing = 0.0;
+                *pending_spacing = 0.0;
             }
             Block::Image(image) => {
                 painting.clear_fill();
-                let leading = pending_spacing.max(image.before);
+                let leading = (*pending_spacing).max(image.before);
                 if leading > 0.0 {
                     let previous = (cursor.page_number, cursor.column_index);
                     ensure_space(
-                        &mut cursor,
-                        &mut pages,
-                        &mut columns,
+                        cursor,
+                        pages,
+                        columns,
                         geometry,
+                        boundary,
                         leading + image.height(),
                     );
                     if previous == (cursor.page_number, cursor.column_index) {
                         cursor.y += leading;
                     }
                 }
-                ensure_space(
-                    &mut cursor,
-                    &mut pages,
-                    &mut columns,
-                    geometry,
-                    image.height(),
-                );
+                ensure_space(cursor, pages, columns, geometry, boundary, image.height());
                 pages[cursor.page_number - 1].operations.extend(image.place(
                     geometry.column_left(cursor.column_index),
                     geometry.column_width(),
@@ -177,20 +170,21 @@ pub(crate) fn plan_document_with_images(
                 )?);
                 cursor.y += image.height();
                 cursor.body_started = true;
-                columns.note(&cursor, geometry);
-                pending_spacing = image.after.max(0.0);
+                columns.note(cursor, geometry);
+                *pending_spacing = image.after.max(0.0);
             }
             Block::Table(table) => {
                 painting.clear_fill();
                 warnings.extend(super::tables::flow::place(
                     table,
-                    &mut cursor,
-                    &mut pages,
-                    &mut columns,
+                    cursor,
+                    pages,
+                    columns,
                     geometry,
-                    pending_spacing,
+                    *pending_spacing,
+                    boundary,
                 )?);
-                pending_spacing = 0.0;
+                *pending_spacing = 0.0;
             }
             Block::Paragraph(prepared) => {
                 let paragraph = &prepared.text;
@@ -202,11 +196,11 @@ pub(crate) fn plan_document_with_images(
                         || cursor.column_index > 0
                         || cursor.y > geometry.margin_top)
                 {
-                    new_page(&mut cursor, &mut pages, &mut columns, geometry);
-                    pending_spacing = 0.0;
+                    new_page(cursor, pages, columns, geometry);
+                    *pending_spacing = 0.0;
                     painting.clear_fill();
                 }
-                let leading = pending_spacing.max(paragraph.style.spacing_before);
+                let leading = (*pending_spacing).max(paragraph.style.spacing_before);
                 let minimum = keep_height(
                     &blocks[index..],
                     geometry.content_bottom() - geometry.margin_top,
@@ -223,7 +217,7 @@ pub(crate) fn plan_document_with_images(
                     })
                     .collect();
                 let flow = plan_paragraph_flow(
-                    cursor,
+                    *cursor,
                     &heights,
                     &frames,
                     &FlowOptions {
@@ -234,7 +228,16 @@ pub(crate) fn plan_document_with_images(
                         widow_control: paragraph.style.widow_control,
                         ..Default::default()
                     },
-                    |_| FlowArea::from(geometry),
+                    |page_number| {
+                        let mut area = FlowArea::from(geometry);
+                        area.content_bottom =
+                            super::sections::content_bottom(geometry, boundary, page_number);
+                        if page_number == cursor.page_number {
+                            area.content_top = cursor.current_top;
+                            area.page_start = cursor.current_top;
+                        }
+                        area
+                    },
                 )?;
                 for step in flow.steps {
                     if let FlowStep::Line(placement) = step {
@@ -257,20 +260,15 @@ pub(crate) fn plan_document_with_images(
                         );
                     }
                 }
-                cursor = flow.final_cursor;
-                pending_spacing = paragraph.style.spacing_after.max(0.0);
+                *cursor = flow.final_cursor;
+                *pending_spacing = paragraph.style.spacing_after.max(0.0);
                 if prepared.clear_fill_after {
                     painting.clear_fill();
                 }
             }
         }
     }
-    columns.append(&mut pages, geometry);
-    Ok(DocumentTextPlan {
-        geometry,
-        pages,
-        warnings,
-    })
+    Ok(())
 }
 fn frame_for(style: &super::ParagraphStyle, width: f64) -> LineFrame {
     let available = (width - style.indent_left - style.indent_right).max(width.min(12.0));
@@ -300,9 +298,10 @@ pub(super) fn ensure_space(
     pages: &mut Vec<TextPage>,
     columns: &mut ColumnSeparators,
     geometry: PageGeometry,
+    boundary: Option<super::sections::FlowBoundary>,
     height: f64,
 ) {
-    if cursor.y + height > geometry.content_bottom() {
+    if cursor.y + height > super::sections::content_bottom(geometry, boundary, cursor.page_number) {
         next_area(cursor, pages, columns, geometry);
     }
 }

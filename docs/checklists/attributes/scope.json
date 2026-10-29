@@ -466,6 +466,46 @@
           "attributes_only": true
         }
       ]
+    },
+    {
+      "file": "sections-and-stories.md",
+      "title": "Section and header/footer properties",
+      "description": "Complete section property, header/footer reference and page numbering families. Story content inherits the paragraph, run, table and image inventories. First and odd/even variants remain visible even where no authoring mapping exists.",
+      "roots": [
+        {
+          "type": "w:CT_SectPr"
+        },
+        {
+          "type": "w:CT_HdrFtrRef"
+        },
+        {
+          "type": "w:CT_HdrFtr",
+          "attributes_only": true
+        }
+      ]
+    },
+    {
+      "file": "anchors-and-fields.md",
+      "title": "Bookmarks, fields and captions",
+      "description": "Bookmark range identifiers, names and column metadata; field instructions, locking and dirty state; caption sequence settings. Inline/block content properties are inventoried in their respective families.",
+      "roots": [
+        {
+          "type": "w:CT_Bookmark"
+        },
+        {
+          "type": "w:CT_MarkupRange"
+        },
+        {
+          "type": "w:CT_SimpleField",
+          "attributes_only": true
+        },
+        {
+          "type": "w:CT_FldChar"
+        },
+        {
+          "type": "w:CT_Captions"
+        }
+      ]
     }
   ],
   "supplemental_notes": {

@@ -1,9 +1,17 @@
-//! Single-section page geometry. This does not perform pagination.
+//! Editable page geometry. This does not perform pagination.
 
 use super::{Error, check_attributes, fonts, values, xml};
 use crate::model::{ColumnConfiguration, Document, Properties, Value};
 
 pub(super) fn section_properties(document: &Document) -> Result<String, Error> {
+    section_geometry(document, "", "", "")
+}
+pub(super) fn section_geometry(
+    document: &Document,
+    prefix: &str,
+    numbering: &str,
+    suffix: &str,
+) -> Result<String, Error> {
     check_attributes(
         &document.properties,
         &[
@@ -64,7 +72,7 @@ pub(super) fn section_properties(document: &Document) -> Result<String, Error> {
         ""
     };
     let mut output = format!(
-        "<w:sectPr><w:pgSz w:w=\"{width}\" w:h=\"{height}\"{orientation_attribute}/><w:pgMar"
+        "<w:sectPr>{prefix}<w:pgSz w:w=\"{width}\" w:h=\"{height}\"{orientation_attribute}/><w:pgMar"
     );
     for (name, fallback) in [
         ("top", 1440),
@@ -81,7 +89,9 @@ pub(super) fn section_properties(document: &Document) -> Result<String, Error> {
         ));
     }
     output.push_str("/>");
+    output.push_str(numbering);
     output.push_str(&column_properties(&document.columns)?);
+    output.push_str(suffix);
     output.push_str("</w:sectPr>");
     Ok(output)
 }

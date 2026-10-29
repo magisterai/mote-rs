@@ -1,5 +1,5 @@
 use super::{
-    ContentMode, EvaluationContext,
+    ContentMode, EvaluationContext, EvaluationState,
     attributes::evaluate_attributes,
     declarations::{TableGroup, normalize_table_group},
     evaluate_nodes,
@@ -7,7 +7,7 @@ use super::{
 };
 use crate::{
     diagnostics::{Diagnostic, Span},
-    model::{Content, Document, Element, ElementKind, Properties, Value},
+    model::{Content, Element, ElementKind, Properties, Value},
     syntax::Call,
 };
 
@@ -15,7 +15,7 @@ pub(super) fn evaluate(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    document: &mut Document,
+    document: &mut EvaluationState,
 ) -> Result<Content, Diagnostic> {
     let kind = match call.name.as_str() {
         "table" => ElementKind::Table,
@@ -119,7 +119,7 @@ pub(super) fn normalize(
 pub(super) fn evaluate_markdown(
     rows: &[crate::syntax::MarkdownTableRow],
     context: EvaluationContext<'_>,
-    document: &mut Document,
+    document: &mut EvaluationState,
 ) -> Result<Content, Diagnostic> {
     let mut children = Vec::new();
     for row in rows {

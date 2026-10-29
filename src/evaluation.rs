@@ -9,7 +9,9 @@ mod configuration;
 mod declarations;
 mod expressions;
 mod images;
+mod sections;
 mod tables;
+use sections::EvaluationState;
 mod values;
 
 use attributes::evaluate_attributes;
@@ -22,10 +24,10 @@ struct EvaluationContext<'source> {
 }
 
 pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
-    let mut document = Document::default();
+    let mut document = EvaluationState::default();
     document.content = evaluate_nodes(
         &tree.nodes,
-        ContentMode::Block,
+        ContentMode::Document,
         EvaluationContext {
             source: &tree.source,
             preserve_space: false,
@@ -45,11 +47,12 @@ pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
             ));
         }
     }
-    Ok(document)
+    Ok(document.finish())
 }
 
 #[derive(Clone, Copy, PartialEq)]
 enum ContentMode {
+    Document,
     Block,
     Inline,
     MarkdownItem,
@@ -57,18 +60,48 @@ enum ContentMode {
     Structural,
 }
 
+impl ContentMode {
+    fn is_block(self) -> bool {
+        matches!(self, Self::Document | Self::Block)
+    }
+}
+
 fn evaluate_nodes(
     nodes: &[Node],
     mode: ContentMode,
     context: EvaluationContext<'_>,
-    document: &mut Document,
+    document: &mut EvaluationState,
 ) -> Result<Vec<Content>, Diagnostic> {
     let mut result = Vec::new();
     let mut paragraph = Vec::new();
     let mut skip_declaration_trivia = false;
+    let mut captured = 0;
     for node in nodes {
+        if mode == ContentMode::Document {
+            document.append_content(&result[captured..]);
+            captured = result.len();
+        }
+        if let NodeKind::Call(call) = &node.kind
+            && matches!(call.name.as_str(), "header" | "footer" | "section")
+        {
+            if mode.is_block() {
+                flush_paragraph(&mut paragraph, &mut result);
+            }
+            if mode == ContentMode::Document {
+                document.append_content(&result[captured..]);
+            }
+            if call.name == "section" {
+                let content = sections::evaluate_section(call, node.span, context, document)?;
+                result.extend(content);
+            } else {
+                sections::evaluate_story(call, node.span, context, document)?;
+            }
+            captured = result.len();
+            skip_declaration_trivia = true;
+            continue;
+        }
         if skip_declaration_trivia
-            && mode == ContentMode::Block
+            && mode.is_block()
             && (matches!(
                 node.kind,
                 NodeKind::LineBreak { .. } | NodeKind::ParagraphBreak
@@ -92,7 +125,7 @@ fn evaluate_nodes(
             skip_declaration_trivia = true;
             continue;
         }
-        if mode == ContentMode::Block && matches!(node.kind, NodeKind::ParagraphBreak) {
+        if mode.is_block() && matches!(node.kind, NodeKind::ParagraphBreak) {
             flush_paragraph(&mut paragraph, &mut result);
             continue;
         }
@@ -103,7 +136,7 @@ fn evaluate_nodes(
                 .get(node.span.start..node.span.end)
                 .is_some_and(|source| source.starts_with('\\'))
         {
-            let preceding = if mode == ContentMode::Block {
+            let preceding = if mode.is_block() {
                 &mut paragraph
             } else {
                 &mut result
@@ -216,17 +249,20 @@ fn evaluate_nodes(
             result.push(content);
             continue;
         }
-        let destination = if mode == ContentMode::Block {
+        let destination = if mode.is_block() {
             &mut paragraph
         } else {
             &mut result
         };
         destination.push(content);
     }
-    if mode == ContentMode::Block {
+    if mode.is_block() {
         flush_paragraph(&mut paragraph, &mut result);
     }
-    if mode == ContentMode::Block {
+    if mode == ContentMode::Document {
+        document.append_content(&result[captured..]);
+    }
+    if mode.is_block() {
         Ok(group_adjacent_list_items(result))
     } else {
         Ok(result)
@@ -315,7 +351,7 @@ fn evaluate_call(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    document: &mut Document,
+    document: &mut EvaluationState,
 ) -> Result<Content, Diagnostic> {
     if matches!(call.name.as_str(), "table" | "row" | "cell") {
         return tables::evaluate(call, span, context, document);
@@ -326,9 +362,13 @@ fn evaluate_call(
     if call.name == "code" {
         return evaluate_code(call, span, context, document);
     }
-    if matches!(call.name.as_str(), "line_break" | "tab" | "break") {
+    if matches!(
+        call.name.as_str(),
+        "line_break" | "tab" | "break" | "page_number"
+    ) {
         let kind = match call.name.as_str() {
             "tab" => ElementKind::Tab,
+            "page_number" => ElementKind::PageNumber,
             "break" => ElementKind::Break,
             _ => ElementKind::LineBreak,
         };
@@ -459,7 +499,7 @@ fn evaluate_code(
     call: &Call,
     span: Span,
     context: EvaluationContext<'_>,
-    document: &mut Document,
+    document: &mut EvaluationState,
 ) -> Result<Content, Diagnostic> {
     if call.bodies.len() > 1 {
         return Err(Diagnostic::new(

@@ -1,0 +1,28 @@
+{
+  "source": "../../page-sizes.mote",
+  "source_sha256": "2a60fe4e2cd6fa583f14afa933e62dd9d5f15586b0d958e79efa45f25869c02f",
+  "captured_docx_sha256": "c113c379ad4db92b7d4578dcefb4a2272e085996158255c8ed5c0f8622914b24",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/footer2.xml",
+    "word/footer3.xml",
+    "word/header1.xml",
+    "word/header2.xml",
+    "word/header3.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:06:24.074867+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 2
+  }
+}

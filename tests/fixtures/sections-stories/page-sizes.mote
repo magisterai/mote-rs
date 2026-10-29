@@ -1,0 +1,8 @@
+#document(page={width=pt(300),height=pt(360)},margin={top=pt(48),bottom=pt(48),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[Mixed page dimensions]
+#footer(distance=pt(12))[Page #page_number() of #page_number(kind="total")]
+#paragraph[Portrait start.]
+#section(page={orientation="landscape"},properties={start="continuous"},page_numbering={restart=true})[
+#paragraph[Landscape page forces a new physical sheet.]
+]
+#paragraph[Portrait resumes on a new physical sheet.]

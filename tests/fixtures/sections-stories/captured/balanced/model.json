@@ -1,0 +1,716 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    },
+    "page": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "48pt",
+      "unit": "pt",
+      "value": 48
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "48pt",
+      "unit": "pt",
+      "value": 48
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Balanced report"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Full-width introduction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "explicit": true,
+      "properties": {
+        "columns": {
+          "count": 2,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "separator": true
+        },
+        "properties": {
+          "start": "continuous"
+        }
+      },
+      "section_properties": {
+        "start": "continuous",
+        "properties": {
+          "start": "continuous"
+        }
+      },
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {
+        "count": 2,
+        "gap": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "separator": true,
+        "properties": {
+          "count": 2,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "separator": true
+        }
+      },
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Balanced report"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Item 1: natural column text wraps across the available line width."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Item 2: natural column text wraps across the available line width."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Item 3: natural column text wraps across the available line width."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Item 4: natural column text wraps across the available line width."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Item 5: natural column text wraps across the available line width."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Item 6: natural column text wraps across the available line width."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Item 7: natural column text wraps across the available line width."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_properties": {
+        "start": "continuous"
+      },
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Balanced report"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Full-width conclusion after the columns."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Full-width introduction."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Item 1: natural column text wraps across the available line width."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Item 2: natural column text wraps across the available line width."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Item 3: natural column text wraps across the available line width."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Item 4: natural column text wraps across the available line width."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Item 5: natural column text wraps across the available line width."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Item 6: natural column text wraps across the available line width."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Item 7: natural column text wraps across the available line width."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Full-width conclusion after the columns."
+        }
+      ]
+    }
+  ]
+}

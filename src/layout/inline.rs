@@ -13,6 +13,8 @@ pub fn resolve_inline(
     let mut merged: Vec<TextRun> = Vec::new();
     for run in runs {
         if let Some(previous) = merged.last_mut()
+            && previous.current_page_field.is_none()
+            && run.current_page_field.is_none()
             && previous.link == run.link
             && previous.style == run.style
             && previous.preserve_space == run.preserve_space
@@ -40,6 +42,25 @@ fn collect(
                 runs.push(run);
             }
             Content::Element(element) => {
+                if element.kind == ElementKind::PageNumber {
+                    let text = element
+                        .attributes
+                        .get(super::fields::RESOLVED_TEXT)
+                        .map(crate::model::Value::to_text)
+                        .unwrap_or_else(|| "1".into());
+                    let mut run = TextRun::new(text, inherited.clone());
+                    if crate::properties::text(&element.attributes, "kind") != "total" {
+                        run.current_page_field = Some(super::CurrentPageField {
+                            identifier: crate::properties::number(
+                                &element.attributes,
+                                super::fields::IDENTIFIER,
+                            )
+                            .map(|number| number as usize),
+                        });
+                    }
+                    runs.push(run);
+                    continue;
+                }
                 if element.kind == ElementKind::Image {
                     let label = ["alt", "src"]
                         .iter()

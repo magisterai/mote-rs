@@ -119,7 +119,75 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
         }
     }
     content(&document.content, "content", false, false, &mut warnings);
+    for (index, section) in document.sections.iter().enumerate() {
+        let path = format!("section[{index}]");
+        unknown(
+            &section.section_properties,
+            &["start"],
+            &format!("{path}.properties"),
+            &mut warnings,
+        );
+        unknown(
+            &section.page_numbering,
+            &["restart", "start"],
+            &format!("{path}.page_numbering"),
+            &mut warnings,
+        );
+        if matches!(
+            section.start.as_str(),
+            "even_page" | "odd_page" | "next_column"
+        ) {
+            warnings.insert(format!("{path}.properties.start={} begins a new native page; parity and next-column section starts are unsupported", section.start));
+        }
+        unknown(
+            &section.page,
+            &["size", "width", "height", "orientation"],
+            &format!("{path}.page"),
+            &mut warnings,
+        );
+        unknown(
+            &section.margin,
+            &["top", "bottom", "left", "right", "header", "footer"],
+            &format!("{path}.margin"),
+            &mut warnings,
+        );
+        unknown(
+            &section.columns.properties,
+            &["count", "gap", "separator", "equal_width"],
+            &format!("{path}.columns"),
+            &mut warnings,
+        );
+        if section
+            .columns
+            .properties
+            .get("equal_width")
+            .is_some_and(|value| value.to_text() == "false")
+        {
+            warnings.insert(format!("{path}.columns.equal_width=false uses equal-width native columns; individual column widths are unsupported"));
+        }
+        for (kind, story) in [("header", &section.header), ("footer", &section.footer)] {
+            let path = format!("{path}.{kind}");
+            unknown(
+                &story.properties,
+                &["height", "distance"],
+                &path,
+                &mut warnings,
+            );
+            content(&story.content, &path, false, true, &mut warnings);
+            story_fallbacks(&story.content, &path, &mut warnings);
+        }
+    }
     warnings
+}
+fn story_fallbacks(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
+    for node in nodes {
+        if let Content::Element(element) = node {
+            if element.kind == ElementKind::Table {
+                warnings.insert(format!("{path} table structure is flattened into visible text; cell geometry is not preserved"));
+            }
+            story_fallbacks(&element.children, path, warnings);
+        }
+    }
 }
 fn content(
     nodes: &[Content],
@@ -200,6 +268,7 @@ fn content(
             ]),
             ElementKind::Link => allowed.push("url"),
             ElementKind::Break => allowed.push("type"),
+            ElementKind::PageNumber => allowed.push("kind"),
             ElementKind::Tab | ElementKind::LineBreak => {}
         }
         unknown(attributes, &allowed, &path, warnings);

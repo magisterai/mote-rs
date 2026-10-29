@@ -45,6 +45,15 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `section` | [Sections](section.md) | Pending definition and implementation. |
+| `header` | [Headers](header.md) | Pending definition and implementation. |
+| `footer` | [Footers](footer.md) | Pending definition and implementation. |
+| `page_number` | [Page numbers](page-number.md) | Pending definition and implementation. |
+| `bookmark` | [Bookmarks](bookmark.md) | Pending definition and implementation. |
+| `label` | [Labels](label.md) | Pending definition and implementation. |
+| `ref` | [Cross-references](ref.md) | Pending definition and implementation. |
+| `caption` | [Captions](caption.md) | Pending definition and implementation. |
+| `figure` | [Figures](figure.md) | Pending definition and implementation. |
 | `table` | [Table](table.md) | Row structure, sizing, defaults, borders and styles. |
 | `row` | [Row](row.md) | Cell structure, height, repeating headers and splitting. |
 | `cell` | [Cell](cell.md) | Content, spans, margins, alignment and borders. |

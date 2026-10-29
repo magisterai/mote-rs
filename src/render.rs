@@ -146,17 +146,20 @@ fn color(value: &str) -> Result<[u8; 3], RenderError> {
 }
 
 fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
-    let geometry = plan.geometry;
-    if !geometry.width.is_finite()
-        || !geometry.height.is_finite()
-        || geometry.width <= 0.0
-        || geometry.height <= 0.0
-        || geometry.width > 14400.0
-        || geometry.height > 14400.0
+    for geometry in
+        std::iter::once(plan.geometry).chain(plan.pages.iter().filter_map(|page| page.geometry))
     {
-        return Err(RenderError::Invalid(
-            "painted page dimensions must be positive and at most 14,400 points".into(),
-        ));
+        if !geometry.width.is_finite()
+            || !geometry.height.is_finite()
+            || geometry.width <= 0.0
+            || geometry.height <= 0.0
+            || geometry.width > 14400.0
+            || geometry.height > 14400.0
+        {
+            return Err(RenderError::Invalid(
+                "painted page dimensions must be positive and at most 14,400 points".into(),
+            ));
+        }
     }
     if plan.pages.len() > i32::MAX as usize {
         return Err(RenderError::Invalid("too many pages".into()));

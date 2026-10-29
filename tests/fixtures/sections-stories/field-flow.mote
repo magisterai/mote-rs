@@ -1,0 +1,17 @@
+#document(page={width=pt(220),height=pt(170)},margin={top=pt(42),bottom=pt(42),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[Body fields]
+#footer(distance=pt(12))[Page #page_number() of #page_number(kind="total")]
+#section(page_numbering={start=8})[
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+#paragraph[This is page #page_number(), in a document with #page_number(kind="total") physical pages. Text wraps naturally around both fields.]
+]

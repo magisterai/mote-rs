@@ -1,0 +1,347 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    },
+    "page": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "48pt",
+      "unit": "pt",
+      "value": 48
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "48pt",
+      "unit": "pt",
+      "value": 48
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "explicit": true,
+      "properties": {
+        "page_numbering": {
+          "format": "upper_roman",
+          "restart": true,
+          "start": 3
+        }
+      },
+      "section_properties": {},
+      "page_numbering": {
+        "restart": true,
+        "start": 3,
+        "format": "upper_roman",
+        "properties": {
+          "format": "upper_roman",
+          "restart": true,
+          "start": 3
+        }
+      },
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "format": "upper_roman"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " of "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "format": "lower_alpha",
+                "kind": "total"
+              }
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Number "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "format": "upper_roman"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " with total "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "format": "lower_alpha",
+                "kind": "total"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "page"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Next number "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "attributes": {
+                "format": "upper_roman"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Number "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "format": "upper_roman"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " with total "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "format": "lower_alpha",
+            "kind": "total"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "page"
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Next number "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "attributes": {
+            "format": "upper_roman"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

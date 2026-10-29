@@ -1,0 +1,28 @@
+{
+  "source": "../../local-stories.mote",
+  "source_sha256": "d9f425429548605652e90a160e2b214699cf992e3289eb33a466a20419bbfc2c",
+  "captured_docx_sha256": "1f74e8ee58de480cbee5fea457f13a577c45f15c19d0fc603e4c52ecd3f5e108",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/footer2.xml",
+    "word/footer3.xml",
+    "word/header1.xml",
+    "word/header2.xml",
+    "word/header3.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:06:24.070460+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 2
+  }
+}

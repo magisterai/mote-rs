@@ -137,6 +137,10 @@ fn validate_named_argument(
         Some(ArgumentType::Object)
     } else {
         match kind {
+            PageNumber => match name {
+                "kind" | "format" => Some(ArgumentType::String),
+                _ => None,
+            },
             Paragraph => match name {
                 "style" | "alignment" => Some(ArgumentType::String),
                 "spacing_before" | "spacing_after" | "line_spacing" => Some(ArgumentType::Length),
@@ -255,6 +259,7 @@ pub(super) fn normalize_attribute(
 ) -> Result<Value, Diagnostic> {
     use ElementKind::*;
     match kind {
+        PageNumber if name == "kind" => normalize_enum(value, span, name, &["current", "total"]),
         Paragraph | Heading => match name {
             "spacing_before" | "spacing_after" | "line_spacing" => {
                 normalize_length(value, span, name)

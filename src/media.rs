@@ -40,6 +40,10 @@ impl ImageCatalog {
         let resolver = CachingAssetResolver::new(resolver);
         let mut catalog = Self::default();
         catalog.collect(&document.content, &resolver, source_name);
+        for section in &document.sections {
+            catalog.collect(&section.header.content, &resolver, source_name);
+            catalog.collect(&section.footer.content, &resolver, source_name);
+        }
         catalog
     }
     fn collect(

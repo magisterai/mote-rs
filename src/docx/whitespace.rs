@@ -42,6 +42,7 @@ fn trim_direction(children: &mut Vec<Content>, leading: bool, mut at_edge: bool)
                 }
                 *text = lines.join("\n");
             }
+            Content::Element(element) if element.kind == ElementKind::PageNumber => at_edge = false,
             Content::Element(element) if element.kind == ElementKind::LineBreak => at_edge = true,
             Content::Element(element) if element.kind == ElementKind::Tab => {
                 if at_edge {

@@ -14,6 +14,8 @@ pub(super) const NAMES: &[&str] = &[
     "Code",
     "Hyperlink",
     "Caption",
+    "Header",
+    "Footer",
 ];
 
 pub(super) fn normalize_name(name: &str) -> String {
@@ -34,6 +36,14 @@ pub(super) fn canonical_name(name: &str) -> Option<&'static str> {
 pub(super) fn needed(document: &Document) -> Result<BTreeSet<String>, Error> {
     let mut names = BTreeSet::from(["Normal".into()]);
     collect(&document.content, &mut names)?;
+    for section in &document.sections {
+        for (style, story) in [("Header", &section.header), ("Footer", &section.footer)] {
+            if !story.content.is_empty() {
+                names.insert(style.into());
+            }
+            collect(&story.content, &mut names)?;
+        }
+    }
     for declaration in document.styles.values() {
         for relationship in ["based_on", "next", "link"] {
             if let Some(name) = declaration

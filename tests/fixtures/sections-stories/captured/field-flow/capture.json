@@ -1,0 +1,24 @@
+{
+  "source": "../../field-flow.mote",
+  "source_sha256": "f6a66d903c8716e8e127655e2448ef637fdcc164b6f69b5d80f17d2ccf71a824",
+  "captured_docx_sha256": "ba4485abac9a0337a1407a9e1a3a370a7ba31af15de6beaac8198d3de3569110",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/header1.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:06:24.062780+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 11
+  }
+}

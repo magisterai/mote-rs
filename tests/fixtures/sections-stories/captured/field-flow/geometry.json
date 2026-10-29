@@ -1,0 +1,2656 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "8",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 92.475
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 98.591
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 110.207
+            },
+            {
+              "advance": 51.359,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document ",
+              "x": 119.381
+            },
+            {
+              "advance": 19.558,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "with",
+              "x": 170.74
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 166.298,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 24
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 39.29
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 82.08
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 118.16
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 142.613
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 147.95,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "8",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 58.858999999999995
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 61.916999999999994
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 74.149
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 62.38099999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "9",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 92.475
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 98.591
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 110.207
+            },
+            {
+              "advance": 51.359,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document ",
+              "x": 119.381
+            },
+            {
+              "advance": 19.558,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "with",
+              "x": 170.74
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 166.298,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 24
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 39.29
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 82.08
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 118.16
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 142.613
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 147.95,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "9",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 58.858999999999995
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 61.916999999999994
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 74.149
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 62.38099999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "10",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "10",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "11",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "11",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "12",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "13",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "13",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "14",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "14",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "15",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "15",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "16",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "16",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "17",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "17",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "18",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "18",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 23.837,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "This ",
+              "x": 24
+            },
+            {
+              "advance": 11,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "is ",
+              "x": 47.837
+            },
+            {
+              "advance": 27.522,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "page ",
+              "x": 58.837
+            },
+            {
+              "advance": 12.232,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "19",
+              "x": 86.35900000000001
+            },
+            {
+              "advance": 6.116,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 98.59100000000001
+            },
+            {
+              "advance": 11.616,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "in ",
+              "x": 104.70700000000001
+            },
+            {
+              "advance": 9.174,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "a ",
+              "x": 116.32300000000001
+            },
+            {
+              "advance": 48.301,
+              "baseline": 52.91277,
+              "size": 11,
+              "text": "document",
+              "x": 125.49700000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 42,
+          "width": 149.798,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 22.616,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "with ",
+              "x": 24
+            },
+            {
+              "advance": 15.29,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "12 ",
+              "x": 46.616
+            },
+            {
+              "advance": 42.79,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "physical ",
+              "x": 61.906
+            },
+            {
+              "advance": 36.08,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "pages. ",
+              "x": 104.696
+            },
+            {
+              "advance": 24.453,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "Text ",
+              "x": 140.776
+            },
+            {
+              "advance": 29.337,
+              "baseline": 68.13830999999999,
+              "size": 11,
+              "text": "wraps",
+              "x": 165.22899999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 57.225539999999995,
+          "width": 170.56599999999997,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.627,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "naturally ",
+              "x": 24
+            },
+            {
+              "advance": 37.301,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "around ",
+              "x": 68.62700000000001
+            },
+            {
+              "advance": 24.464,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "both ",
+              "x": 105.928
+            },
+            {
+              "advance": 28.732,
+              "baseline": 83.36384999999999,
+              "size": 11,
+              "text": "fields.",
+              "x": 130.392
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72.45107999999999,
+          "width": 135.124,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Body ",
+              "x": 24
+            },
+            {
+              "advance": 25.674,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "fields",
+              "x": 52.126999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 53.801,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "19",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": " ",
+              "x": 64.975
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "of ",
+              "x": 68.03299999999999
+            },
+            {
+              "advance": 12.232,
+              "baseline": 153.68723,
+              "size": 11,
+              "text": "12",
+              "x": 80.26499999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 142.77446,
+          "width": 68.49699999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(60),bottom=pt(60),left=pt(24),right=pt(24),header=pt(12),footer=pt(14)})
+#header(height=pt(55),distance=pt(8))[Wide report header]
+#footer(height=pt(16),distance=pt(9))[Page #page_number()]
+#paragraph[Portrait introduction.]
+#section(page={orientation="landscape"},margin={left=pt(36)},properties={start="next_page",vertical_alignment="bottom"},page_numbering={start=7,format="lower_roman"})[
+#paragraph[Landscape page #page_number() of #page_number(kind="total").]
+#break()
+#paragraph[Landscape continuation on #page_number().]
+]
+#paragraph[Portrait conclusion on #page_number().]

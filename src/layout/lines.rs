@@ -126,6 +126,7 @@ pub fn plan_text(
             let measurement = measured.measurement;
             fragments.push(TextFragment {
                 link: placed.run.link,
+                current_page_field: placed.run.current_page_field,
                 text: measurement.prepared_text,
                 x: placed.x,
                 baseline,

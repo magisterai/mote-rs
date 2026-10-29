@@ -44,7 +44,7 @@ pub(super) fn evaluate(call: &Call, span: Span, document: &mut Document) -> Resu
     Ok(())
 }
 
-fn reject_flat_property(name: &str, span: Span) -> Result<(), Diagnostic> {
+pub(super) fn reject_flat_property(name: &str, span: Span) -> Result<(), Diagnostic> {
     let replacement = if name == "orientation" {
         Some(("page", "orientation"))
     } else {
@@ -73,7 +73,7 @@ fn reject_flat_property(name: &str, span: Span) -> Result<(), Diagnostic> {
     Ok(())
 }
 
-fn apply_columns(
+pub(super) fn apply_columns(
     columns: &mut ColumnConfiguration,
     value: Value,
     span: Span,
@@ -115,7 +115,11 @@ fn column_count(value: &Value, span: Span) -> Result<i64, Diagnostic> {
     })
 }
 
-fn normalize_geometry(group: &str, value: Value, span: Span) -> Result<Properties, Diagnostic> {
+pub(super) fn normalize_geometry(
+    group: &str,
+    value: Value,
+    span: Span,
+) -> Result<Properties, Diagnostic> {
     require_object(value, span, group)?
         .into_iter()
         .map(|(name, value)| {

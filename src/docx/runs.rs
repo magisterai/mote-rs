@@ -55,6 +55,30 @@ fn write_formatted(
                     "<w:r><w:br/></w:r>"
                 });
             }
+            Content::Element(element) if element.kind == ElementKind::PageNumber => {
+                let instruction = if crate::properties::text(&element.attributes, "kind") == "total"
+                {
+                    "NUMPAGES"
+                } else {
+                    "PAGE"
+                };
+                let number_format = crate::properties::text(&element.attributes, "format");
+                let format_switch = if number_format.is_empty() {
+                    String::new()
+                } else {
+                    format!(
+                        r" \* {}",
+                        super::sections::field_number_format(&number_format)
+                    )
+                };
+                let properties = formatting.write(styles)?;
+                let properties = if properties.is_empty() {
+                    properties
+                } else {
+                    format!("<w:rPr>{properties}</w:rPr>")
+                };
+                result.push_str(&format!(r#"<w:fldSimple w:instr=" {instruction}{format_switch} \* MERGEFORMAT "><w:r>{properties}<w:t>1</w:t></w:r></w:fldSimple>"#));
+            }
             Content::Element(element) if element.kind == ElementKind::Image => {
                 if let Some(image) = super::images::write_run(element, resources)? {
                     result.push_str(&image);

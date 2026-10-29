@@ -1,0 +1,7 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(72),bottom=pt(72),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[
+#paragraph[]
+#paragraph[After empty paragraph]
+]
+#footer(distance=pt(12))[First#line_break()#line_break()Third]
+#paragraph[Body content.]

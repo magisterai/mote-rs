@@ -1,0 +1,226 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 35.464,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "Before ",
+              "x": 24
+            },
+            {
+              "advance": 18.348,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "the ",
+              "x": 59.464
+            },
+            {
+              "advance": 37.906,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "section.",
+              "x": 77.812
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 60,
+          "width": 91.71799999999999,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 37.906,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "Default ",
+              "x": 24
+            },
+            {
+              "advance": 34.243,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "header",
+              "x": 61.906
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 72.149,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 259.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 259.68723,
+              "size": 11,
+              "text": "1",
+              "x": 52.742999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 248.77446,
+          "width": 34.858999999999995,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 32.406,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "Inside ",
+              "x": 24
+            },
+            {
+              "advance": 18.348,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "the ",
+              "x": 56.406
+            },
+            {
+              "advance": 36.674,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "explicit ",
+              "x": 74.75399999999999
+            },
+            {
+              "advance": 37.906,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "section.",
+              "x": 111.428
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 60,
+          "width": 125.334,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 29.348,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "Local ",
+              "x": 24
+            },
+            {
+              "advance": 34.243,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "header",
+              "x": 53.348
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 63.591,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 26.29,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "After ",
+              "x": 24
+            },
+            {
+              "advance": 18.348,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "the ",
+              "x": 50.29
+            },
+            {
+              "advance": 37.906,
+              "baseline": 70.91277,
+              "size": 11,
+              "text": "section.",
+              "x": 68.638
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 60,
+          "width": 82.544,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 37.906,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "Default ",
+              "x": 24
+            },
+            {
+              "advance": 34.243,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "header",
+              "x": 61.906
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 72.149,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 259.68723,
+              "size": 11,
+              "text": "Page ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 259.68723,
+              "size": 11,
+              "text": "6",
+              "x": 52.742999999999995
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 248.77446,
+          "width": 34.858999999999995,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "source": "../../field-formats.mote",
+  "source_sha256": "35c92a57fe38bdbaba2ded76292573589574fb1ca7b2461671c83a652642c80b",
+  "captured_docx_sha256": "cb1f768217ed21eade7bb749c2ae9f921d14fe5b14ad77f6fb3692a03d5153c3",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:06:24.066035+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 1
+  }
+}

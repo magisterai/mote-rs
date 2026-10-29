@@ -46,22 +46,27 @@ pub fn paint_png(
         ));
     }
     let scale = f64::from(options.dots_per_inch) / 72.0;
-    let width = (plan.geometry.width * scale).ceil();
-    let height = (plan.geometry.height * scale).ceil();
-    if width < 1.0
-        || height < 1.0
-        || width > f64::from(i32::MAX)
-        || height > f64::from(i32::MAX)
-        || width * height > options.maximum_page_pixels as f64
-    {
-        return Err(RenderError::Invalid(
-            "PNG page dimensions exceed the pixel allocation limit".into(),
-        ));
-    }
     let mut fonts = RasterFonts::default();
     let mut warnings = BTreeSet::new();
     let mut pages = Vec::new();
     for page_index in 0..plan.pages.len().max(1) {
+        let geometry = plan
+            .pages
+            .get(page_index)
+            .and_then(|page| page.geometry)
+            .unwrap_or(plan.geometry);
+        let width = (geometry.width * scale).ceil();
+        let height = (geometry.height * scale).ceil();
+        if width < 1.0
+            || height < 1.0
+            || width > f64::from(i32::MAX)
+            || height > f64::from(i32::MAX)
+            || width * height > options.maximum_page_pixels as f64
+        {
+            return Err(RenderError::Invalid(
+                "PNG page dimensions exceed the pixel allocation limit".into(),
+            ));
+        }
         let mut pixels = Pixmap::new(width as u32, height as u32)
             .ok_or_else(|| RenderError::Invalid("cannot allocate PNG page".into()))?;
         pixels.fill(tiny_skia::Color::WHITE);

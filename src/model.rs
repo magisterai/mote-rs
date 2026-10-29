@@ -85,10 +85,33 @@ pub struct Document {
     /// Retained default_* and language arguments; output support is separate.
     pub defaults: Properties,
     pub content: Vec<Content>,
+    /// Resolved section snapshots; empty means one implicit document section.
+    pub sections: Vec<Section>,
     pub fonts: BTreeMap<String, FontDeclaration>,
     pub styles: BTreeMap<String, StyleDeclaration>,
     /// Non-fatal evaluation diagnostics, kept separate from JSON inspection.
     pub warnings: Vec<crate::diagnostics::Diagnostic>,
+}
+
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct Section {
+    pub explicit: bool,
+    pub properties: Properties,
+    pub section_properties: Properties,
+    /// May be synthesized when returning from a continuous explicit section.
+    pub start: String,
+    pub page_numbering: Properties,
+    pub page: Properties,
+    pub margin: Properties,
+    pub columns: ColumnConfiguration,
+    pub header: HeaderFooter,
+    pub footer: HeaderFooter,
+    pub content: Vec<Content>,
+}
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct HeaderFooter {
+    pub properties: Properties,
+    pub content: Vec<Content>,
 }
 
 #[derive(Debug, Clone, Default, PartialEq)]
@@ -155,6 +178,7 @@ pub enum ElementKind {
     Strong,
     Emphasis,
     Code,
+    PageNumber,
     LineBreak,
     Tab,
     Break,
@@ -178,6 +202,7 @@ impl ElementKind {
             Self::Strong => "strong",
             Self::Emphasis => "emphasis",
             Self::Code => "code",
+            Self::PageNumber => "page_number",
             Self::LineBreak => "line_break",
             Self::Tab => "tab",
             Self::Break => "break",
@@ -202,6 +227,7 @@ impl ElementKind {
                 | Self::Strong
                 | Self::Emphasis
                 | Self::Code
+                | Self::PageNumber
                 | Self::LineBreak
                 | Self::Tab
         )

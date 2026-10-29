@@ -1,5 +1,5 @@
 use super::{
-    Error, block_quotes, check_attributes, configuration, controls::Controls, headings, lists,
+    Error, block_quotes, check_attributes, controls::Controls, headings, lists,
     numbering::Numbering, paragraphs, styles::Styles, xml,
 };
 use crate::model::{Content, Document, ElementKind, Value};
@@ -17,11 +17,11 @@ pub(super) fn write_document(
     styles: &Styles<'_>,
     state: &mut DocumentState,
 ) -> Result<String, Error> {
-    let mut body = write_blocks(&document.content, styles, state)?;
-    body.push_str(&configuration::section_properties(document)?);
+    let body = super::sections::write(document, styles, state)?;
     Ok(format!(
-        r#"{}<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps"><w:body>{body}</w:body></w:document>"#,
-        xml::HEADER
+        r#"{}<w:document{attributes}><w:body>{body}</w:body></w:document>"#,
+        xml::HEADER,
+        attributes = xml::ROOT_ATTRIBUTES
     ))
 }
 

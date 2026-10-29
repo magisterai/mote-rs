@@ -1,0 +1,22 @@
+{
+  "source": "../../empty-story-lines.mote",
+  "source_sha256": "d14b286d176f29a9677b4b0a88422e6f2a0cd8b9191f057d7739a93026c7e53a",
+  "captured_docx_sha256": "930990542a77a31e4978e027dd0c98357a6fccc2b4585d181bfdb964cf7c3da3",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/header1.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:06:24.060946+00:00",
+  "ignored_advisory_markers": {}
+}

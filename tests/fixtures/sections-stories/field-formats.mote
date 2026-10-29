@@ -1,0 +1,7 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(48),bottom=pt(48),left=pt(24),right=pt(24)})
+#footer(distance=pt(12))[#page_number(format="upper_roman") of #page_number(kind="total",format="lower_alpha")]
+#section(page_numbering={restart=true,start=3,format="upper_roman"})[
+#paragraph[Number #page_number(format="upper_roman") with total #page_number(kind="total",format="lower_alpha").]
+#break()
+#paragraph[Next number #page_number(format="upper_roman").]
+]

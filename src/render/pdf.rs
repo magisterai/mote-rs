@@ -24,6 +24,11 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
     let mut page_ids = Vec::new();
     // An empty source still produces a useful, valid one-page PDF.
     for page_index in 0..plan.pages.len().max(1) {
+        let geometry = plan
+            .pages
+            .get(page_index)
+            .and_then(|page| page.geometry)
+            .unwrap_or(plan.geometry);
         let page_id = objects.allocate();
         let content_id = objects.allocate();
         page_ids.push(page_id);
@@ -37,7 +42,7 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                             .save_state()
                             .rect(
                                 rounded(bounds[0]),
-                                rounded(plan.geometry.height - bounds[1]),
+                                rounded(geometry.height - bounds[1]),
                                 rounded(bounds[2]),
                                 -rounded(bounds[3]),
                             )
@@ -60,7 +65,7 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                             } else {
                                 pdf_writer::types::LineCapStyle::ButtCap
                             });
-                        paint_rule(&mut content, rule, plan.geometry.height)?;
+                        paint_rule(&mut content, rule, geometry.height)?;
                         content.restore_state();
                     }
                     PageOperation::OutlineRectangle {
@@ -76,7 +81,7 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                             .set_line_width(rounded(*width))
                             .rect(
                                 rounded(bounds[0]),
-                                rounded(plan.geometry.height - bounds[1]),
+                                rounded(geometry.height - bounds[1]),
                                 rounded(bounds[2]),
                                 -rounded(bounds[3]),
                             )
@@ -85,24 +90,22 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                     PageOperation::Image(image) => {
                         let reference = images::write(image, &mut document, &mut objects)?;
                         let name = format!("Image{}", page_images.len() + 1);
-                        images::paint(image, &mut content, &name, plan.geometry.height);
+                        images::paint(image, &mut content, &name, geometry.height);
                         page_images.push((name, reference));
                     }
                     PageOperation::Text(index) => paint_line(
                         &mut content,
                         &page.lines[*index].line,
-                        plan.geometry.height,
+                        geometry.height,
                         &fonts,
                         "",
                     )?,
                     PageOperation::Rectangle(rectangle) => {
-                        paint_rectangle(&mut content, rectangle, plan.geometry.height)?
+                        paint_rectangle(&mut content, rectangle, geometry.height)?
                     }
-                    PageOperation::Rule(rule) => {
-                        paint_rule(&mut content, rule, plan.geometry.height)?
-                    }
+                    PageOperation::Rule(rule) => paint_rule(&mut content, rule, geometry.height)?,
                     PageOperation::ListMarker(marker) => {
-                        paint_marker(&mut content, marker, plan.geometry.height, &fonts)?
+                        paint_marker(&mut content, marker, geometry.height, &fonts)?
                     }
                 }
             }
@@ -122,7 +125,7 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                     let mut annotation = document.annotation(reference);
                     annotation
                         .subtype(pdf_writer::types::AnnotationType::Link)
-                        .rect(images::annotation_bounds(image, plan.geometry.height))
+                        .rect(images::annotation_bounds(image, geometry.height))
                         .border(0.0, 0.0, 0.0, None);
                     annotation
                         .action()
@@ -143,9 +146,9 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                             .subtype(pdf_writer::types::AnnotationType::Link)
                             .rect(Rect::new(
                                 rounded(fragment.x),
-                                rounded(plan.geometry.height - placed.top - placed.line.height),
+                                rounded(geometry.height - placed.top - placed.line.height),
                                 rounded(fragment.x + fragment.advance),
-                                rounded(plan.geometry.height - placed.top),
+                                rounded(geometry.height - placed.top),
                             ))
                             .border(0.0, 0.0, 0.0, None);
                         annotation
@@ -164,8 +167,8 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
             .media_box(Rect::new(
                 0.0,
                 0.0,
-                plan.geometry.width as f32,
-                plan.geometry.height as f32,
+                geometry.width as f32,
+                geometry.height as f32,
             ))
             .contents(content_id);
         let mut resources = page.resources();

@@ -1,0 +1,6 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(48),bottom=pt(48),left=pt(24),right=pt(24)})
+#header(height=pt(24),distance=pt(18))[Quarterly report]
+#footer(distance=pt(18))[Page #page_number() of #page_number(kind="total")]
+#paragraph[The report begins here.]
+#break()
+#paragraph[The second page retains both running stories.]

@@ -1,0 +1,4 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(42),bottom=pt(40),left=pt(24),right=pt(24)})
+#header(distance=pt(24))[Header first line#line_break()Omitted header second line]
+#footer(distance=pt(24))[Footer first line#line_break()Omitted footer second line]
+#paragraph[Body remains within its margins.]

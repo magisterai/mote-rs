@@ -4,8 +4,11 @@ mod blocks;
 mod columns;
 mod decorations;
 mod document;
+mod fields;
 mod lists;
 mod numbering;
+mod sections;
+mod stories;
 mod tables;
 pub use decorations::{DecorationKind, HighlightRectangle, TextDecoration};
 mod flow;
@@ -72,6 +75,11 @@ impl Default for TextStyle {
 }
 
 #[derive(Debug, Clone, PartialEq)]
+pub struct CurrentPageField {
+    pub identifier: Option<usize>,
+}
+
+#[derive(Debug, Clone, PartialEq)]
 pub struct TextRun {
     pub text: String,
     pub style: TextStyle,
@@ -80,6 +88,7 @@ pub struct TextRun {
     /// Invisible spacing used by generated numbering separators.
     pub fixed_advance: Option<f64>,
     pub link: Option<String>,
+    pub current_page_field: Option<CurrentPageField>,
 }
 
 impl TextRun {
@@ -91,6 +100,7 @@ impl TextRun {
             synthetic_tab: false,
             fixed_advance: None,
             link: None,
+            current_page_field: None,
         }
     }
     fn with_text(&self, text: &str) -> Self {
@@ -192,6 +202,7 @@ pub struct TextFragment {
     pub font: FontSelection,
     pub missing_codepoints: Vec<char>,
     pub link: Option<String>,
+    pub current_page_field: Option<CurrentPageField>,
 }
 
 #[derive(Debug, Clone, PartialEq)]
