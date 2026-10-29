@@ -195,3 +195,37 @@ fn declared_font_rasters_match_frozen_coverage_with_explicit_edge_tolerance() {
         );
     }
 }
+
+#[test]
+fn fractional_paper_sizes_cover_the_complete_canvas_at_each_resolution() {
+    let resolver = FileAssetResolver::from_current_directory().unwrap();
+    for (paper, orientation, resolution, expected) in [
+        ("a4", "portrait", 72, (596, 842)),
+        ("a4", "landscape", 72, (842, 596)),
+        ("a5", "portrait", 72, (420, 596)),
+        ("a5", "landscape", 72, (596, 420)),
+        ("a4", "portrait", 96, (794, 1123)),
+        ("a5", "portrait", 96, (560, 794)),
+    ] {
+        let document = mote::compile(&format!(
+            "#document(page={{size=\"{paper}\",orientation=\"{orientation}\"}})\nText"
+        ))
+        .unwrap();
+        let output = render::emit_png(
+            &document,
+            &resolver,
+            None,
+            &PngOptions {
+                dots_per_inch: resolution,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let page = &output.output[0];
+        assert_eq!(
+            (page.width, page.height),
+            expected,
+            "{paper} {orientation} at {resolution} DPI"
+        );
+    }
+}

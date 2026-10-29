@@ -43,8 +43,8 @@ pub fn paint_png(
         ));
     }
     let scale = f64::from(options.dots_per_inch) / 72.0;
-    let width = (plan.geometry.width * scale).round();
-    let height = (plan.geometry.height * scale).round();
+    let width = (plan.geometry.width * scale).ceil();
+    let height = (plan.geometry.height * scale).ceil();
     if width < 1.0
         || height < 1.0
         || width > f64::from(i32::MAX)
