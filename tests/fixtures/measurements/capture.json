@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "requests": "requests.json",
+  "requests_sha256": "b4f28ba4937aef46576345c67b56b3e57d30e3122b136be1cc4eeaa51ee6f1aa",
+  "expected": "expected.json",
+  "expected_sha256": "31025600113dfb14b318900d2403c53043ac7e2b2558b000368ab337f5b617cf",
+  "case_count": 960,
+  "coordinate_unit": "point",
+  "absolute_tolerance_points": 1e-09,
+  "captured_at_utc": "2026-10-29T05:21:49.084136+00:00",
+  "word_review_status": "unreviewed",
+  "license": "fonts/LICENSE.md",
+  "license_sha256": "937d1985d2d6d003b6efdfa47e098b96c69d55395175f154d7f56410c942f978"
+}

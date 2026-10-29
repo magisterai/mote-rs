@@ -85,3 +85,13 @@ settings remain part of the comparison.
 
 All captures remain **unreviewed in Microsoft Word**. Structural agreement does
 not establish layout, font substitution, wrapping or pagination conformance.
+
+## Font measurements
+
+The [measurement collection](measurements/README.md) contains 960 frozen cases
+covering core font metrics and bundled TrueType/CFF fonts. It preserves fractional
+sizes, variants, pair kerning, whitespace and missing-glyph behavior. Requests,
+expected results, licensed font files and fingerprints are self-contained.
+The offline comparison tool validates integrity and can compare independent
+candidate measurements. The collection prepares for native layout; it does not
+implement font measurement or establish rendered-output conformance.

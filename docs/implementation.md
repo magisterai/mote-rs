@@ -342,3 +342,18 @@ JSON and DOCX comparisons against an explicitly selected reference executable.
 It retains source snapshots, both outputs and diagnostics, with input fingerprints
 and a machine-readable report. It reports known differences and unsupported cases
 separately from matches, and never claims a Word visual review.
+
+## Native layout foundation
+
+The [font measurement fixtures](../tests/fixtures/measurements/README.md) retain
+960 frozen cases with bundled, licensed font files. They record text preparation,
+layout and painting advances, font extents, variants and rounding behavior.
+The [measurement comparison tool](../tools/README.md#font-measurement-comparison)
+checks fixture integrity offline and compares independently generated result JSON
+without modifying the expectations. Its metric tolerance is too small to hide a
+different 1/64-point rounding policy.
+
+This is a comparison foundation. Native font measurement, shaping, paragraph
+layout, pagination, PDF and PNG generation remain unimplemented. No measurement
+dependency or new language support is introduced by these fixtures. Agreement
+with numeric measurements will be a separate check from visual review in Word.

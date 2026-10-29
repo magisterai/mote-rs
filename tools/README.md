@@ -55,3 +55,31 @@ Run the comparison tool's regression checks with:
 ```sh
 python3 -m unittest discover -s tools -p 'test_compare_outputs.py'
 ```
+
+## Font measurement comparison
+
+`compare_measurements.py` validates the self-contained
+[measurement fixtures](../tests/fixtures/measurements/README.md) and compares
+candidate measurements against the frozen expectations. It uses only Python's
+standard library and does not run a renderer or locate installed fonts.
+
+```sh
+python3 tools/compare_measurements.py --fixture tests/fixtures/measurements
+python3 tools/compare_measurements.py \
+  --fixture tests/fixtures/measurements \
+  --actual target/measurements/candidate.json \
+  --output target/measurements/review-001
+```
+
+The first command checks integrity only. The second requires independently
+produced result JSON in the fixture's documented format and writes a comparison
+report to a new directory. Font, request, expectation and license fingerprints
+must match. Cases and categorical fields compare exactly; metric tolerance is
+fixed at one billionth of a point. Missing cases, mismatches and invalid inputs
+return nonzero. The command never updates the baseline or claims Word review.
+
+Run all comparison tool regression checks with:
+
+```sh
+python3 -m unittest discover -s tools -p 'test_compare_*.py'
+```
