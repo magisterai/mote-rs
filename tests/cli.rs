@@ -147,7 +147,7 @@ fn help_describes_the_current_output_boundary() {
     assert!(
         String::from_utf8(output.stdout)
             .unwrap()
-            .contains("Only JSON inspection")
+            .contains("DOCX requires an output path")
     );
 }
 
@@ -166,4 +166,28 @@ fn conversion_warnings_are_located_on_stderr_and_leave_json_clean() {
     assert_eq!(document["fonts"][0]["name"], "7");
     assert_eq!(document["styles"][0]["name"], "8");
     assert!(document.get("warnings").is_none());
+}
+
+#[test]
+fn docx_writes_a_package_and_failures_preserve_existing_output() {
+    let path = temporary_input_path().with_extension("docx");
+    let path_text = path.to_str().unwrap();
+    let output = run(&["--format", "docx", "-o", path_text], b"Hello.");
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert!(output.stdout.is_empty());
+    let bytes = fs::read(&path).unwrap();
+    let archive = zip::ZipArchive::new(std::io::Cursor::new(&bytes)).unwrap();
+    assert_eq!(archive.len(), 10);
+    let invalid = run(
+        &["--format", "docx", "-o", path_text],
+        b"#list[#item[Unsupported]]",
+    );
+    assert!(!invalid.status.success());
+    assert_eq!(fs::read(&path).unwrap(), bytes);
+    fs::remove_file(path).unwrap();
+    assert!(!run(&["--format", "docx"], b"Hello.").status.success());
 }

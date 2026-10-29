@@ -1,6 +1,6 @@
 # Implementation
 
-The Rust crate is at an initial language-core stage. The
+The Rust crate implements an initial language core and a progressive DOCX writer. The
 [specification](specification/README.md) describes the language; this page records
 what this crate currently implements.
 
@@ -21,6 +21,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, and value-normalization modules. |
 | [model](../src/model.rs) | Evaluated content, values, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
+| [docx](../src/docx.rs) | Editable Word output, with separate content, XML, and package modules. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
 
@@ -220,3 +221,22 @@ Every successful example has an expected document model. Intentional invalid
 examples must fail for the documented rule; unsupported implementation is not an
 accepted substitute for a defined example. See the
 [fixture guide](../tests/fixtures/README.md) when adding or changing examples.
+
+## DOCX output
+
+`docx::emit(&document)` returns a complete Word package without modifying the
+model. `mote --format docx -o report.docx input.mote` writes it to a file. The
+initial writer supports plain paragraphs with the captured document defaults.
+Unsupported content, attributes, and declarations return explicit errors before
+the CLI opens its output file. JSON remains the default output format.
+
+The package uses ZIP with only DEFLATE enabled, XML generated from the model,
+and UTC creation/modification metadata. Font measurement is not required for
+DOCX emission; Word performs layout and pagination. No measurement, shaping,
+image, or general document framework is included in the dependency graph.
+
+[DOCX tests](../tests/docx.rs) compare all package parts with the
+[plain-paragraph reference](../tests/fixtures/docx/plain-paragraph/README.md),
+resolving XML names by namespace and ignoring only generation timestamps and
+formatting whitespace outside text elements. Real Word rendering remains
+**unreviewed**. Package agreement does not establish layout conformance.

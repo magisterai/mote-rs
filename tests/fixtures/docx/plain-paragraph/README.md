@@ -55,8 +55,9 @@ does not identify a Word review. The complete values remain readable in the XML.
 
 The [JSON test](../../../json.rs) evaluates `source.mote` and compares the complete
 result with `model.json`, including the absence of output defaults and evaluation
-warnings. XML files are reference data; the Rust test suite does not generate
-DOCX yet.
+warnings. The [DOCX tests](../../../docx.rs) generate a package and compare every captured
+part structurally, apart from generation timestamps and XML formatting whitespace.
+Real Word review remains unreviewed.
 
 For package comparisons, resolve XML names by namespace URI and local name, and
 relationships by type, resolved target, and target mode. Preserve text, units,
