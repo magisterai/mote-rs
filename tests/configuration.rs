@@ -77,7 +77,7 @@ fn column_fields_merge_and_preserve_authored_count_and_explicit_false() {
     .unwrap();
     assert_eq!(document.columns.count, Some(3));
     let output: serde_json::Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
-    assert_eq!(output["columns"]["count"], 3.0);
+    assert_eq!(output["columns"]["count"], 3);
     assert_eq!(output["columns"]["properties"]["count"], "3");
     assert_eq!(output["columns"]["gap"]["text"], "12pt");
     assert_eq!(output["columns"]["equal_width"], false);
@@ -111,5 +111,25 @@ fn invalid_columns_are_rejected_before_model_construction() {
     ] {
         let source = format!("#document(columns = {properties})");
         assert!(compile(&source).is_err(), "{source}");
+    }
+}
+
+#[test]
+fn integer_column_strings_remain_exact_before_output_range_validation() {
+    for count in [9_007_199_254_740_993_i64, i64::MAX] {
+        let document = compile(&format!("#document(columns = {{ count = \"{count}\" }})")).unwrap();
+        assert_eq!(document.columns.count, Some(count));
+        let output: serde_json::Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
+        assert_eq!(output["columns"]["count"].as_i64(), Some(count));
+        assert_eq!(output["columns"]["properties"]["count"], count.to_string());
+        assert!(mote::docx::emit(&document).is_err());
+    }
+    for count in [
+        "\"9223372036854775808\"",
+        "9223372036854775808",
+        "\"-1\"",
+        "\"0\"",
+    ] {
+        assert!(compile(&format!("#document(columns = {{ count = {count} }})")).is_err());
     }
 }

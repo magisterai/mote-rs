@@ -15,7 +15,7 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
     copy_nonempty_properties(&mut output["margin"], &document.margin)?;
     copy_nonempty_properties(&mut output["columns"], &document.columns.properties)?;
     if let Some(count) = document.columns.count {
-        output["columns"]["count"] = json!(count as f64);
+        output["columns"]["count"] = json!(count);
     }
     for name in ["gap", "equal_width"] {
         copy_nonempty_field(&mut output["columns"], &document.columns.properties, name)?;

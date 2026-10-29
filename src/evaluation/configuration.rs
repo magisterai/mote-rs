@@ -82,11 +82,7 @@ fn apply_columns(
         let property = format!("columns.{name}");
         let normalized = match name.as_str() {
             "count" => {
-                let Value::Number(number) = normalize_integer(value.clone(), span, &property, 1)?
-                else {
-                    unreachable!()
-                };
-                columns.count = Some(number as i64);
+                columns.count = Some(column_count(&value, span)?);
                 value
             }
             "gap" => normalize_length(value, span, &property)?,
@@ -96,6 +92,27 @@ fn apply_columns(
         columns.properties.insert(name, normalized);
     }
     Ok(())
+}
+
+fn column_count(value: &Value, span: Span) -> Result<i64, Diagnostic> {
+    let count = match value {
+        Value::String(text) => text.parse::<i64>().ok(),
+        Value::Number(number)
+            if number.is_finite()
+                && number.fract() == 0.0
+                && *number >= 1.0
+                && *number < i64::MAX as f64 =>
+        {
+            Some(*number as i64)
+        }
+        _ => None,
+    };
+    count.filter(|count| *count > 0).ok_or_else(|| {
+        Diagnostic::new(
+            span,
+            "columns.count must be a positive integer within the signed 64-bit range",
+        )
+    })
 }
 
 fn normalize_geometry(group: &str, value: Value, span: Span) -> Result<Properties, Diagnostic> {

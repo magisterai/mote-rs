@@ -5027,7 +5027,7 @@
       "page": {},
       "margin": {},
       "columns": {
-        "count": 2.0,
+        "count": 2,
         "gap": {
           "text": "18pt",
           "unit": "pt",
@@ -5053,7 +5053,7 @@
           "page": {},
           "margin": {},
           "columns": {
-            "count": 2.0,
+            "count": 2,
             "gap": {
               "text": "18pt",
               "unit": "pt",
@@ -5358,7 +5358,7 @@
       "page": {},
       "margin": {},
       "columns": {
-        "count": 2.0,
+        "count": 2,
         "gap": {
           "text": "18pt",
           "unit": "pt",
@@ -5380,7 +5380,7 @@
           "page": {},
           "margin": {},
           "columns": {
-            "count": 2.0,
+            "count": 2,
             "gap": {
               "text": "18pt",
               "unit": "pt",

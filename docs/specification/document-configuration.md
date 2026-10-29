@@ -94,7 +94,8 @@ claim of visual conformance.
 ## Equal-width columns
 
 `columns` is a document property object. `count` is a positive integer or an
-integer string. `gap` is a non-negative length between columns, using twips when
+integer string within the signed 64-bit range. Integer strings retain their exact
+count without passing through floating-point conversion. `gap` is a non-negative length between columns, using twips when
 unitless. `separator` is a boolean requesting a vertical line between columns.
 `equal_width` is a boolean requesting equal or unequal column widths. Booleans
 use the normalization rules in Formatting attributes.
