@@ -52,9 +52,6 @@ pub(super) fn write_blocks(
         previous_table = element.kind == ElementKind::Table;
         if element.kind == ElementKind::Break {
             check_attributes(&element.attributes, &["type"], "break")?;
-            if !element.children.is_empty() {
-                return Err(Error::InvalidValue("break cannot contain children".into()));
-            }
             let kind = element
                 .attributes
                 .get("type")

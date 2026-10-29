@@ -23,12 +23,7 @@ fn validate_controls(children: &[Content]) -> Result<(), Error> {
         if let Content::Element(element) = child {
             if matches!(element.kind, ElementKind::LineBreak | ElementKind::Tab) {
                 check_attributes(&element.attributes, &[], element.kind.as_text())?;
-                if !element.children.is_empty() {
-                    return Err(Error::InvalidValue(format!(
-                        "{} cannot contain children",
-                        element.kind.as_text()
-                    )));
-                }
+                continue;
             }
             validate_controls(&element.children)?;
         }
@@ -60,12 +55,14 @@ pub(super) fn write_formatted(
             {
                 let (opening, identifier) = super::references::start(element, resources)?;
                 result.push_str(&opening);
-                result.push_str(&write_formatted(
-                    &element.children,
-                    formatting,
-                    styles,
-                    resources,
-                )?);
+                if element.kind == ElementKind::Bookmark {
+                    result.push_str(&write_formatted(
+                        &element.children,
+                        formatting,
+                        styles,
+                        resources,
+                    )?);
+                }
                 result.push_str(&super::references::end(identifier));
             }
             Content::Element(element)

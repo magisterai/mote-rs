@@ -341,3 +341,38 @@ fn headings_warn_about_direct_run_metadata_without_rejecting_the_package() {
         "heading metadata",
     );
 }
+
+#[test]
+fn leaf_controls_ignore_model_children_and_labels_remain_zero_width() {
+    use mote::model::{Content, ElementKind};
+    let source =
+        "#paragraph[Before#tab()#line_break()#label('anchor')After]#break()#paragraph[Next]";
+    let mut document = mote::compile(source).unwrap();
+    fn add_children(content: &mut [Content]) {
+        for node in content {
+            if let Content::Element(element) = node {
+                if matches!(
+                    element.kind,
+                    ElementKind::Tab
+                        | ElementKind::LineBreak
+                        | ElementKind::Label
+                        | ElementKind::Break
+                ) {
+                    element.children.push(Content::Text("{}".into()));
+                } else {
+                    add_children(&mut element.children);
+                }
+            }
+        }
+    }
+    add_children(&mut document.content);
+    let original = document.clone();
+    let actual = support::unpack(mote::docx::emit(&document).unwrap());
+    assert_eq!(document, original);
+    let expected = support::package(source);
+    support::compare_xml(
+        &actual["word/document.xml"],
+        &expected["word/document.xml"],
+        "leaf controls",
+    );
+}
