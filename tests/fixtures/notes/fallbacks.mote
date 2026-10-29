@@ -1,0 +1,6 @@
+#document(default_font="Helvetica", default_size=pt(10), page={width=pt(360), height=pt(400)}, margin={top=pt(36),bottom=pt(36),left=pt(36),right=pt(36),header=pt(18),footer=pt(18)})
+#style(name="Normal", type="paragraph", paragraph={spacing={before=pt(0),after=pt(3),line={rule="exact",value=pt(13)}}})
+#section(columns={count=2})[#paragraph[Column reference#footnote[Column fallback].]]
+#section[#paragraph[Section reference#endnote[Section fallback].]
+#table[#row[#cell[Cell#footnote[Cell fallback]]]]
+#figure[#paragraph[Figure#footnote[Figure fallback]]]]

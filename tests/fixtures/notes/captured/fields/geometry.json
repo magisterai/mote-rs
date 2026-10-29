@@ -1,0 +1,168 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 65.02,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "DynamicPage ",
+              "x": 36
+            },
+            {
+              "advance": 5.56,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "1",
+              "x": 101.02
+            },
+            {
+              "advance": 2.78,
+              "baseline": 45.5,
+              "size": 10,
+              "text": " ",
+              "x": 106.58
+            },
+            {
+              "advance": 19.46,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "and ",
+              "x": 109.36
+            },
+            {
+              "advance": 30.57,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "anchor",
+              "x": 128.82
+            },
+            {
+              "advance": 4.17,
+              "baseline": 41.89,
+              "size": 7.5,
+              "text": "1",
+              "x": 159.39
+            },
+            {
+              "advance": 2.78,
+              "baseline": 45.5,
+              "size": 10,
+              "text": ".",
+              "x": 163.56
+            }
+          ],
+          "height": 13,
+          "top": 36,
+          "width": 130.33999999999997,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 54.47,
+              "baseline": 61.5,
+              "size": 10,
+              "text": "Referenced ",
+              "x": 36
+            },
+            {
+              "advance": 24.46,
+              "baseline": 61.5,
+              "size": 10,
+              "text": "body.",
+              "x": 90.47
+            }
+          ],
+          "height": 13,
+          "top": 52,
+          "width": 78.93,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 66.7,
+              "baseline": 77.5,
+              "size": 10,
+              "text": "ReferenceSee ",
+              "x": 36
+            },
+            {
+              "advance": 54.47,
+              "baseline": 77.5,
+              "size": 10,
+              "text": "Referenced ",
+              "x": 102.7
+            },
+            {
+              "advance": 24.46,
+              "baseline": 77.5,
+              "size": 10,
+              "text": "body.",
+              "x": 157.17000000000002
+            },
+            {
+              "advance": 2.78,
+              "baseline": 77.5,
+              "size": 10,
+              "text": ".",
+              "x": 181.63
+            }
+          ],
+          "height": 13,
+          "top": 68,
+          "width": 148.41,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 8.34,
+              "baseline": 359.3,
+              "size": 10,
+              "text": "1 ",
+              "x": 36
+            },
+            {
+              "advance": 23.9,
+              "baseline": 359.3,
+              "size": 10,
+              "text": "Note ",
+              "x": 44.34
+            },
+            {
+              "advance": 16.12,
+              "baseline": 359.3,
+              "size": 10,
+              "text": "text",
+              "x": 68.24
+            }
+          ],
+          "height": 13,
+          "top": 349.8,
+          "width": 48.36,
+          "x": 36
+        }
+      ],
+      "rules": [
+        {
+          "color": "111827",
+          "dash": [],
+          "end": [
+            180,
+            334.96000000000004
+          ],
+          "start": [
+            36,
+            334.96000000000004
+          ],
+          "width": 0.5
+        }
+      ]
+    }
+  ]
+}

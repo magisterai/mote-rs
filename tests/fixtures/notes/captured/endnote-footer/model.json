@@ -1,0 +1,426 @@
+{
+  "document": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "10pt",
+      "unit": "pt",
+      "value": 10
+    },
+    "margin": {
+      "bottom": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "footer": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "header": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "left": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "right": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "top": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      }
+    },
+    "page": {
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "defaults": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "10pt",
+      "unit": "pt",
+      "value": 10
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "right": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "bottom": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "left": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "header": {
+      "text": "18pt",
+      "unit": "pt",
+      "value": 18
+    },
+    "footer": {
+      "text": "18pt",
+      "unit": "pt",
+      "value": 18
+    },
+    "properties": {
+      "bottom": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "footer": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "header": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "left": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "right": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "top": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      }
+    }
+  },
+  "columns": {},
+  "styles": [
+    {
+      "name": "Normal",
+      "type": "paragraph",
+      "paragraph": {
+        "spacing": {
+          "after": {
+            "text": "3pt",
+            "unit": "pt",
+            "value": 3
+          },
+          "before": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          },
+          "line": {
+            "rule": "exact",
+            "value": {
+              "text": "13pt",
+              "unit": "pt",
+              "value": 13
+            }
+          }
+        }
+      },
+      "properties": {
+        "paragraph": {
+          "spacing": {
+            "after": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "before": {
+              "text": "0pt",
+              "unit": "pt",
+              "value": 0
+            },
+            "line": {
+              "rule": "exact",
+              "value": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              }
+            }
+          }
+        },
+        "type": "paragraph"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "400pt",
+            "unit": "pt",
+            "value": 400
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "right": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "bottom": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "left": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "header": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "footer": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "properties": {
+          "bottom": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "footer": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "header": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "left": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "right": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "top": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Repeated header"
+            }
+          ]
+        }
+      ],
+      "header_properties": {},
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline"
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "height": {
+          "text": "40pt",
+          "unit": "pt",
+          "value": 40
+        },
+        "properties": {
+          "height": {
+            "text": "40pt",
+            "unit": "pt",
+            "value": 40
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Sources"
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and additional records"
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Sources"
+        },
+        {
+          "kind": "endnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note. Evidence from the archive is recorded in this extended source note."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and additional records"
+        },
+        {
+          "kind": "endnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally. More source material follows naturally."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

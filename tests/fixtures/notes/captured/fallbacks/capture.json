@@ -1,0 +1,21 @@
+{
+  "source": "../../fallbacks.mote",
+  "source_sha256": "ad4f0f3fff53649cf7036a70538fa7138c2b9b2e8cba714ce07d2cebcd1bc8f9",
+  "captured_docx_sha256": "7da9851036f7065c99e956f83af5721ff3d53d04cdae9ef4558f35d3153735f6",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/endnotes.xml",
+    "word/fontTable.xml",
+    "word/footnotes.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T23:20:31.477205+00:00"
+}

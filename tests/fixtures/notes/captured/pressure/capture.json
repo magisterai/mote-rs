@@ -1,0 +1,20 @@
+{
+  "source": "../../pressure.mote",
+  "source_sha256": "e415fe254203e6c91ecb2b4f50a5214730dfc6b75d7c154d7114c3fe1aa03dcb",
+  "captured_docx_sha256": "7af6f6952ebe919595c05376fb86b0365fdfed796fe4ad7b4cfc9e80eba2724b",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footnotes.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T23:20:31.486487+00:00"
+}

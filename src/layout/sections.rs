@@ -226,12 +226,14 @@ fn plan_pass(
 ) -> Result<PassResult, LayoutError> {
     let mut styles = LayoutStyleResolver::new(document);
     styles.reference_pages = inputs.reference_pages.clone();
+    let mut sections = sections.to_vec();
+    let mut notes = super::notes::NoteLayout::prepare(&mut sections, &styles, measurer)?;
     let mut reference_pages = BTreeMap::new();
     let mut numbers = BlockNumbers::default();
     let mut pages: Vec<TextPage> = Vec::new();
     let mut cursor = FlowCursor::default();
     let mut pending_spacing = 0.0;
-    let mut warnings = Vec::new();
+    let mut warnings = notes.warnings.clone();
     let mut previous_geometry = PageGeometry::from_document(document)?;
     let mut numbering_offset: i64 = 0;
     let mut next_field = 0;
@@ -304,6 +306,7 @@ fn plan_pass(
                 styles: &styles,
                 geometry,
                 boundary,
+                notes: &mut notes,
             },
             &mut pages,
             &mut cursor,
@@ -311,6 +314,17 @@ fn plan_pass(
             &mut pending_spacing,
             &mut warnings,
         )?;
+        if section_index + 1 == sections.len() {
+            notes.place_endnotes(
+                &mut pages,
+                &mut cursor,
+                &mut columns,
+                geometry,
+                pending_spacing,
+                &mut warnings,
+            )?;
+            notes.paint_footnotes(&mut pages, geometry);
+        }
         let end = cursor;
         let trailing = pending_spacing;
         let mut balance_end = end;

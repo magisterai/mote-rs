@@ -42,6 +42,7 @@ pub(super) fn slice(runs: &[TextRun], start: usize, end: usize) -> Vec<TextRun> 
             let mut piece = run.with_text(&run.text[start - position..end - position]);
             if start > position {
                 piece.anchors.clear();
+                piece.footnote_number = None;
             }
             output.push(piece);
         }

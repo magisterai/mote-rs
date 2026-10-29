@@ -23,6 +23,8 @@ pub struct TextPage {
     pub lines: Vec<PlacedTextLine>,
     pub anchors: std::collections::BTreeMap<String, [f64; 2]>,
     pub operations: Vec<PageOperation>,
+    /// Body-flow boundary after reserving space for notes on this page.
+    pub note_body_bottom: Option<f64>,
 }
 impl TextPage {
     pub(super) fn place_anchors(&mut self, names: &[String], position: [f64; 2]) {
@@ -87,6 +89,7 @@ pub(super) struct PlacementContext<'scope, 'document> {
     pub styles: &'scope LayoutStyleResolver<'document>,
     pub geometry: PageGeometry,
     pub boundary: Option<super::sections::FlowBoundary>,
+    pub notes: &'scope mut super::notes::NoteLayout,
 }
 pub(super) fn place_blocks(
     blocks: &[Block],
@@ -101,6 +104,7 @@ pub(super) fn place_blocks(
         styles,
         geometry,
         boundary,
+        notes,
     } = context;
     let mut painting = super::painting::ParagraphPainting::default();
     for (index, block) in blocks.iter().enumerate() {
@@ -226,6 +230,32 @@ pub(super) fn place_blocks(
                     geometry.content_bottom() - geometry.margin_top,
                 )
                 .max(prepared.minimum_start());
+                if paragraph
+                    .lines
+                    .iter()
+                    .flat_map(|line| &line.fragments)
+                    .any(|fragment| fragment.footnote_number.is_some())
+                {
+                    notes.place_paragraph(
+                        prepared,
+                        leading,
+                        minimum,
+                        super::notes::NoteFlowContext {
+                            pages,
+                            cursor,
+                            columns,
+                            geometry,
+                            boundary,
+                            warnings,
+                        },
+                        &mut painting,
+                    )?;
+                    *pending_spacing = paragraph.style.spacing_after.max(0.0);
+                    if prepared.clear_fill_after {
+                        painting.clear_fill();
+                    }
+                    continue;
+                }
                 let heights: Vec<_> = paragraph.lines.iter().map(|line| line.height).collect();
                 let frames: Vec<_> = (0..heights.len())
                     .map(|index| {
@@ -251,7 +281,7 @@ pub(super) fn place_blocks(
                     |page_number| {
                         let mut area = FlowArea::from(geometry);
                         area.content_bottom =
-                            super::sections::content_bottom(geometry, boundary, page_number);
+                            page_content_bottom(pages, geometry, boundary, page_number);
                         if page_number == cursor.page_number {
                             area.content_top = cursor.current_top;
                             area.page_start = cursor.current_top;
@@ -321,7 +351,7 @@ pub(super) fn ensure_space(
     boundary: Option<super::sections::FlowBoundary>,
     height: f64,
 ) {
-    if cursor.y + height > super::sections::content_bottom(geometry, boundary, cursor.page_number) {
+    if cursor.y + height > page_content_bottom(pages, geometry, boundary, cursor.page_number) {
         next_area(cursor, pages, columns, geometry);
     }
 }
@@ -379,4 +409,18 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
     } else {
         required
     }
+}
+
+pub(super) fn page_content_bottom(
+    pages: &[TextPage],
+    geometry: PageGeometry,
+    boundary: Option<super::sections::FlowBoundary>,
+    page_number: usize,
+) -> f64 {
+    super::sections::content_bottom(geometry, boundary, page_number).min(
+        pages
+            .get(page_number.wrapping_sub(1))
+            .and_then(|page| page.note_body_bottom)
+            .unwrap_or(f64::INFINITY),
+    )
 }

@@ -48,14 +48,22 @@ pub(in crate::layout) fn place(
         let end = pagination::block_end(table, start);
         let height: f64 = table.rows[start..end].iter().map(|row| row.height).sum();
         let mut available = vec![
-            (super::super::sections::content_bottom(geometry, boundary, cursor.page_number)
-                - cursor.y)
+            (super::super::document::page_content_bottom(
+                pages,
+                geometry,
+                boundary,
+                cursor.page_number,
+            ) - cursor.y)
                 .max(0.0),
         ];
         for _ in cursor.column_index + 1..geometry.column_count {
             available.push(
-                (super::super::sections::content_bottom(geometry, boundary, cursor.page_number)
-                    - cursor.current_top
+                (super::super::document::page_content_bottom(
+                    pages,
+                    geometry,
+                    boundary,
+                    cursor.page_number,
+                ) - cursor.current_top
                     - header_height)
                     .max(0.0),
             );
@@ -71,7 +79,8 @@ pub(in crate::layout) fn place(
                 }
                 if advanced
                     && header_height + slice.height
-                        <= super::super::sections::content_bottom(
+                        <= super::super::document::page_content_bottom(
+                            pages,
                             geometry,
                             boundary,
                             cursor.page_number,
@@ -166,7 +175,8 @@ pub(in crate::layout) fn place(
                     if before != (cursor.page_number, cursor.column_index)
                         && row >= header_count
                         && header_height + required
-                            <= super::super::sections::content_bottom(
+                            <= super::super::document::page_content_bottom(
+                                pages,
                                 geometry,
                                 boundary,
                                 cursor.page_number,

@@ -96,6 +96,9 @@ pub fn plan_text(
             height = height.max(natural_height);
         }
         for run in &wrapped.runs {
+            if run.style.superscript {
+                continue;
+            }
             ordinary_size = ordinary_size.max(run.style.measurement.size_points);
             if !matches!(options.spacing, LineSpacing::Exact(_)) {
                 height = height.max(
@@ -124,11 +127,18 @@ pub fn plan_text(
                 options.layout_kerning,
             )?;
             let measurement = measured.measurement;
+            let baseline = if placed.run.style.superscript {
+                baseline + 0.3 * (placed.run.style.measurement.size_points - ordinary_size)
+                    - base_height * 0.22
+            } else {
+                baseline
+            };
             fragments.push(TextFragment {
                 link: placed.run.link,
                 internal_target: placed.run.internal_target,
                 anchors: placed.run.anchors,
                 current_page_field: placed.run.current_page_field,
+                footnote_number: placed.run.footnote_number,
                 text: measurement.prepared_text,
                 x: placed.x,
                 baseline,

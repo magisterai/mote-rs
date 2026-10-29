@@ -1,0 +1,179 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 37.23,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "Column ",
+              "x": 36
+            },
+            {
+              "advance": 76.69,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "referenceColumn",
+              "x": 73.22999999999999
+            }
+          ],
+          "height": 13,
+          "top": 36,
+          "width": 113.91999999999999,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 36.68,
+              "baseline": 58.5,
+              "size": 10,
+              "text": "fallback.",
+              "x": 36
+            }
+          ],
+          "height": 13,
+          "top": 49,
+          "width": 36.68,
+          "x": 36
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 36.13,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "Section ",
+              "x": 36
+            },
+            {
+              "advance": 78.37,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "referenceSection ",
+              "x": 72.13
+            },
+            {
+              "advance": 36.68,
+              "baseline": 45.5,
+              "size": 10,
+              "text": "fallback.",
+              "x": 150.5
+            }
+          ],
+          "height": 13,
+          "top": 36,
+          "width": 151.18,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 37.22,
+              "baseline": 65.5,
+              "size": 10,
+              "text": "CellCell ",
+              "x": 42
+            },
+            {
+              "advance": 33.9,
+              "baseline": 65.5,
+              "size": 10,
+              "text": "fallback",
+              "x": 79.22
+            }
+          ],
+          "height": 13,
+          "top": 56,
+          "width": 71.12,
+          "x": 42
+        },
+        {
+          "fragments": [
+            {
+              "advance": 59.46,
+              "baseline": 84,
+              "size": 10,
+              "text": "FigureFigure ",
+              "x": 36
+            },
+            {
+              "advance": 33.9,
+              "baseline": 84,
+              "size": 10,
+              "text": "fallback",
+              "x": 95.46000000000001
+            }
+          ],
+          "height": 13,
+          "top": 74.5,
+          "width": 93.36,
+          "x": 36
+        }
+      ],
+      "rules": [
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            120,
+            52
+          ],
+          "start": [
+            36,
+            52
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            120,
+            73.5
+          ],
+          "start": [
+            36,
+            73.5
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            36,
+            73.5
+          ],
+          "start": [
+            36,
+            52
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            120,
+            73.5
+          ],
+          "start": [
+            120,
+            52
+          ],
+          "width": 0.5
+        }
+      ]
+    }
+  ]
+}

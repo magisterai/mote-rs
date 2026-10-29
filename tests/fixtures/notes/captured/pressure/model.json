@@ -1,0 +1,1005 @@
+{
+  "document": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "10pt",
+      "unit": "pt",
+      "value": 10
+    },
+    "margin": {
+      "bottom": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "footer": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "header": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "left": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "right": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "top": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      }
+    },
+    "page": {
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "defaults": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "10pt",
+      "unit": "pt",
+      "value": 10
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "right": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "bottom": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "left": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "header": {
+      "text": "18pt",
+      "unit": "pt",
+      "value": 18
+    },
+    "footer": {
+      "text": "18pt",
+      "unit": "pt",
+      "value": 18
+    },
+    "properties": {
+      "bottom": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "footer": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "header": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "left": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "right": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "top": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      }
+    }
+  },
+  "columns": {},
+  "styles": [
+    {
+      "name": "Normal",
+      "type": "paragraph",
+      "paragraph": {
+        "spacing": {
+          "after": {
+            "text": "3pt",
+            "unit": "pt",
+            "value": 3
+          },
+          "before": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          },
+          "line": {
+            "rule": "exact",
+            "value": {
+              "text": "13pt",
+              "unit": "pt",
+              "value": 13
+            }
+          }
+        }
+      },
+      "properties": {
+        "paragraph": {
+          "spacing": {
+            "after": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "before": {
+              "text": "0pt",
+              "unit": "pt",
+              "value": 0
+            },
+            "line": {
+              "rule": "exact",
+              "value": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              }
+            }
+          }
+        },
+        "type": "paragraph"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "400pt",
+            "unit": "pt",
+            "value": 400
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "right": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "bottom": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "left": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "header": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "footer": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "properties": {
+          "bottom": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "footer": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "header": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "left": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "right": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "top": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 1: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Short control"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Small control note."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " in the main story."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 3: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 4: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 5: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 6: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 7: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 8: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 9: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 10: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 11: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 12: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 13: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 14: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 15: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 16: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 17: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 18: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Long reference"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " with following text."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 20: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 21: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 22: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 23: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 24: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 25: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 26: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 27: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 28: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 29: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 30: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 31: ordinary report content."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body line 32: ordinary report content."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 1: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Short control"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Small control note."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " in the main story."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 3: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 4: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 5: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 6: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 7: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 8: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 9: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 10: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 11: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 12: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 13: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 14: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 15: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 16: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 17: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 18: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Long reference"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary. The note reserves its own page area and should move the reference when necessary."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " with following text."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 20: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 21: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 22: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 23: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 24: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 25: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 26: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 27: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 28: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 29: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 30: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 31: ordinary report content."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body line 32: ordinary report content."
+        }
+      ]
+    }
+  ]
+}

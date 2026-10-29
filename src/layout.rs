@@ -7,6 +7,7 @@ mod decorations;
 mod document;
 mod fields;
 mod lists;
+mod notes;
 mod numbering;
 pub(crate) mod references;
 mod sections;
@@ -53,6 +54,7 @@ pub struct TextStyle {
     pub strike: bool,
     pub double_strike: bool,
     pub small_caps: bool,
+    pub superscript: bool,
     pub code: bool,
 }
 
@@ -71,6 +73,7 @@ impl Default for TextStyle {
             strike: false,
             double_strike: false,
             small_caps: false,
+            superscript: false,
             code: false,
         }
     }
@@ -93,6 +96,7 @@ pub struct TextRun {
     pub internal_target: Option<String>,
     pub anchors: Vec<String>,
     pub current_page_field: Option<CurrentPageField>,
+    pub footnote_number: Option<usize>,
 }
 
 impl TextRun {
@@ -107,6 +111,7 @@ impl TextRun {
             internal_target: None,
             anchors: Vec::new(),
             current_page_field: None,
+            footnote_number: None,
         }
     }
     fn with_text(&self, text: &str) -> Self {
@@ -211,6 +216,7 @@ pub struct TextFragment {
     pub internal_target: Option<String>,
     pub anchors: Vec<String>,
     pub current_page_field: Option<CurrentPageField>,
+    pub footnote_number: Option<usize>,
 }
 
 #[derive(Debug, Clone, PartialEq)]

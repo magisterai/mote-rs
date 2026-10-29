@@ -355,6 +355,20 @@ fn paint_rule(
     scale: f64,
     clip: Option<&tiny_skia::Mask>,
 ) -> Result<(), RenderError> {
+    if rule.role == crate::layout::RuleRole::NoteSeparator {
+        return fill_rectangle(
+            pixels,
+            &HighlightRectangle {
+                x: rule.start[0].min(rule.end[0]),
+                top: rule.start[1],
+                width: (rule.end[0] - rule.start[0]).abs(),
+                height: rule.width.max(1.0 / scale),
+                color: rule.color.clone(),
+            },
+            scale,
+            clip,
+        );
+    }
     if rule.role == crate::layout::RuleRole::ColumnSeparator {
         return fill_rectangle(
             pixels,

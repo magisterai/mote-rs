@@ -1,0 +1,261 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 10.395,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "A ",
+              "x": 72
+            },
+            {
+              "advance": 39.732,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "forward ",
+              "x": 82.395
+            },
+            {
+              "advance": 21.406,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "note",
+              "x": 122.127
+            },
+            {
+              "advance": 4.587,
+              "baseline": 78.7381512,
+              "size": 8.25,
+              "text": "1",
+              "x": 143.533
+            },
+            {
+              "advance": 6.116,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 148.12
+            },
+            {
+              "advance": 43.417,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "repeated",
+              "x": 154.236
+            },
+            {
+              "advance": 4.587,
+              "baseline": 78.7381512,
+              "size": 8.25,
+              "text": "2",
+              "x": 197.653
+            },
+            {
+              "advance": 6.116,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": ", ",
+              "x": 202.23999999999998
+            },
+            {
+              "advance": 21.406,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "and ",
+              "x": 208.356
+            },
+            {
+              "advance": 37.279,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "missing",
+              "x": 229.762
+            },
+            {
+              "advance": 4.587,
+              "baseline": 78.7381512,
+              "size": 8.25,
+              "text": "3",
+              "x": 267.041
+            },
+            {
+              "advance": 3.058,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": ".",
+              "x": 271.628
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72,
+          "width": 202.68599999999998,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 26.29,
+              "baseline": 106.13830999999999,
+              "size": 11,
+              "text": "After ",
+              "x": 72
+            },
+            {
+              "advance": 18.348,
+              "baseline": 106.13830999999999,
+              "size": 11,
+              "text": "the ",
+              "x": 98.28999999999999
+            },
+            {
+              "advance": 52.58,
+              "baseline": 106.13830999999999,
+              "size": 11,
+              "text": "definitions.",
+              "x": 116.638
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 95.22554,
+          "width": 97.21799999999999,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 9.174,
+              "baseline": 665.21061,
+              "size": 11,
+              "text": "1 ",
+              "x": 72
+            },
+            {
+              "advance": 10.395,
+              "baseline": 665.21061,
+              "size": 11,
+              "text": "A ",
+              "x": 81.174
+            },
+            {
+              "advance": 23.221,
+              "baseline": 665.21061,
+              "size": 11,
+              "text": "bold",
+              "x": 91.569
+            },
+            {
+              "advance": 3.058,
+              "baseline": 665.21061,
+              "size": 11,
+              "text": " ",
+              "x": 114.78999999999999
+            },
+            {
+              "advance": 24.464,
+              "baseline": 665.21061,
+              "size": 11,
+              "text": "note.",
+              "x": 117.848
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 654.29784,
+          "width": 70.312,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 9.174,
+              "baseline": 682.23615,
+              "size": 11,
+              "text": "2 ",
+              "x": 72
+            },
+            {
+              "advance": 10.395,
+              "baseline": 682.23615,
+              "size": 11,
+              "text": "A ",
+              "x": 81.174
+            },
+            {
+              "advance": 23.221,
+              "baseline": 682.23615,
+              "size": 11,
+              "text": "bold",
+              "x": 91.569
+            },
+            {
+              "advance": 3.058,
+              "baseline": 682.23615,
+              "size": 11,
+              "text": " ",
+              "x": 114.78999999999999
+            },
+            {
+              "advance": 24.464,
+              "baseline": 682.23615,
+              "size": 11,
+              "text": "note.",
+              "x": 117.848
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 671.3233799999999,
+          "width": 70.312,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 6.116,
+              "baseline": 699.2616899999999,
+              "size": 11,
+              "text": "3",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 688.3489199999999,
+          "width": 6.116,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 37.279,
+              "baseline": 714.48723,
+              "size": 11,
+              "text": "missing",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 703.5744599999999,
+          "width": 37.279,
+          "x": 72
+        }
+      ],
+      "rules": [
+        {
+          "color": "111827",
+          "dash": [],
+          "end": [
+            216,
+            639.4578399999999
+          ],
+          "start": [
+            72,
+            639.4578399999999
+          ],
+          "width": 0.5
+        }
+      ]
+    }
+  ]
+}

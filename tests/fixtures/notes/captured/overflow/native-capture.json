@@ -1,0 +1,18 @@
+{
+  "source_sha256": "d64ad9a866dc4c21437a3da2763f4ffd21503794110d56d3edb526a87dc6fa9e",
+  "units": "points",
+  "geometry_tolerance": 1e-08,
+  "native_png_dpi": 72,
+  "png_maximum_channel_difference": 56,
+  "png_mean_foreground_difference": 11.0,
+  "office_review_status": "unreviewed",
+  "native_reference_status": "captured",
+  "pages": 1,
+  "pdf_comparison_dpi": 144,
+  "pdf_changed_pixels": 111896,
+  "files": {
+    "geometry.json": "0de53c8213481c1741aba0fb95722dfa0d0c25a7b1665419fda7cbbc90c0ee76",
+    "reference-1.png": "972ffd74c2cd2cc487a7dea49576fe6b9896cbcbfd0f18177c12c276d8854b56"
+  },
+  "pdf_comparison_note": "Oversized-note geometry matches. Signed off-page text coordinates are painted directly; the PDF raster capture interprets negative text coordinates relative to the page bottom. PNG retains signed geometry."
+}

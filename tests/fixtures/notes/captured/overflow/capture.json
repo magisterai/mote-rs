@@ -1,0 +1,20 @@
+{
+  "source": "../../overflow.mote",
+  "source_sha256": "d64ad9a866dc4c21437a3da2763f4ffd21503794110d56d3edb526a87dc6fa9e",
+  "captured_docx_sha256": "835b77a4f92bf9f53596b3e27647cfbf3f4f28de289cb27522d3328aeb38dc3e",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footnotes.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T23:20:31.484323+00:00"
+}

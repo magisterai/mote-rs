@@ -4,6 +4,7 @@ use super::{HighlightRectangle, TextLine};
 pub enum RuleRole {
     Generic,
     ColumnSeparator,
+    NoteSeparator,
     TableBorder,
 }
 

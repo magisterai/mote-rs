@@ -299,9 +299,6 @@ fn content(
             }
             ElementKind::Footnote | ElementKind::Endnote => {
                 allowed.push("id");
-                warnings.insert(format!(
-                    "{path} native output currently flattens note content inline"
-                ));
             }
             ElementKind::PageNumber => allowed.push("kind"),
             ElementKind::Tab | ElementKind::LineBreak => {}

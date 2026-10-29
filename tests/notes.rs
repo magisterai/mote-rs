@@ -23,7 +23,19 @@ fn normalize_numbers(value: &mut serde_json::Value) {
 #[test]
 fn notes_preserve_models_and_complete_editable_packages() {
     let resolver = FileAssetResolver::new(fixtures()).unwrap();
-    for case in ["basic", "markdown", "rich", "stories"] {
+    for case in [
+        "basic",
+        "markdown",
+        "rich",
+        "stories",
+        "pressure",
+        "multiple",
+        "endnote-flow",
+        "endnote-footer",
+        "fallbacks",
+        "fields",
+        "overflow",
+    ] {
         let source = fs::read_to_string(fixtures().join(format!("{case}.mote"))).unwrap();
         let document = mote::compile(&source).unwrap();
         let original = document.clone();
@@ -98,4 +110,33 @@ fn note_placement_fallbacks_are_reported() {
     let package = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
     assert_eq!(package.warnings.len(), 1);
     assert!(package.warnings[0].contains("flattened footnote"));
+}
+
+#[test]
+fn note_capture_hashes_bind_sources_and_native_artifacts() {
+    use sha2::{Digest, Sha256};
+    let digest = |bytes: &[u8]| format!("{:x}", Sha256::digest(bytes));
+    for entry in fs::read_dir(fixtures().join("captured")).unwrap() {
+        let folder = entry.unwrap().path();
+        let name = folder.file_name().unwrap().to_str().unwrap();
+        let source = fs::read(fixtures().join(format!("{name}.mote"))).unwrap();
+        for manifest_name in ["capture.json", "native-capture.json"] {
+            let manifest: serde_json::Value =
+                serde_json::from_slice(&fs::read(folder.join(manifest_name)).unwrap()).unwrap();
+            assert_eq!(
+                digest(&source),
+                manifest["source_sha256"],
+                "{name}/{manifest_name}"
+            );
+            if let Some(files) = manifest["files"].as_object() {
+                for (path, expected) in files {
+                    assert_eq!(
+                        digest(&fs::read(folder.join(path)).unwrap()),
+                        expected.as_str().unwrap(),
+                        "{name}/{path}"
+                    );
+                }
+            }
+        }
+    }
 }

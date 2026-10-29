@@ -15,6 +15,8 @@ pub fn resolve_inline(
         if let Some(previous) = merged.last_mut()
             && previous.current_page_field.is_none()
             && run.current_page_field.is_none()
+            && previous.footnote_number.is_none()
+            && run.footnote_number.is_none()
             && run.anchors.is_empty()
             && previous.internal_target == run.internal_target
             && previous.link == run.link
@@ -44,6 +46,25 @@ fn collect(
                 runs.push(run);
             }
             Content::Element(element) => {
+                if matches!(element.kind, ElementKind::Footnote | ElementKind::Endnote)
+                    && let Some(number) =
+                        crate::properties::number(&element.attributes, super::notes::NUMBER)
+                {
+                    let number = number as usize;
+                    let text = if element.kind == ElementKind::Footnote {
+                        number.to_string()
+                    } else {
+                        crate::numbering::format_counter(number as u64, "lower_roman")
+                            .unwrap_or_else(|_| number.to_string())
+                    };
+                    let mut style = inherited.clone();
+                    style.superscript = true;
+                    style.measurement.size_points *= 0.75;
+                    let mut run = TextRun::new(text, style);
+                    run.footnote_number = (element.kind == ElementKind::Footnote).then_some(number);
+                    runs.push(run);
+                    continue;
+                }
                 if element.kind == ElementKind::Label {
                     continue;
                 }
