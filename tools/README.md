@@ -93,7 +93,7 @@ case coverage, without running a renderer:
 python3 tools/verify_layout_fixtures.py
 ```
 
-This checks 1,540 cases across lines, styles, paragraph text, page geometry,
+This checks 1,542 cases across lines, styles, paragraph text, page geometry,
 paragraph flow, document text and inline decoration. It rejects changed bytes,
 duplicate JSON fields/case identities, non-finite numbers and missing cases.
 `fixture_verified` confirms capture integrity, not candidate output agreement.

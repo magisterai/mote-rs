@@ -127,6 +127,11 @@ pub fn plan_document_text(
                         attributes: Properties::new(),
                         children: Vec::new(),
                     });
+                    if !style.line_height.is_finite() || style.line_height <= 0.0 {
+                        return Err(LayoutError::InvalidGeometry(
+                            "hard-break line height must be positive and finite",
+                        ));
+                    }
                     if pending_spacing > 0.0 {
                         ensure_space(&mut cursor, &mut pages, geometry, pending_spacing);
                         cursor.y += pending_spacing;

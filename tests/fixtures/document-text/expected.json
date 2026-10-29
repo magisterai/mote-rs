@@ -29571,6 +29571,14 @@
     {
       "id": "document-048",
       "invalid_line_height": true
+    },
+    {
+      "id": "zero-default-break",
+      "invalid_line_height": true
+    },
+    {
+      "id": "zero-style-break",
+      "invalid_line_height": true
     }
   ],
   "schema_version": 1

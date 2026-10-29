@@ -196,6 +196,14 @@
     {
       "id": "document-048",
       "source": "#document(default_size=0)\n#paragraph[]\n#paragraph[After]"
+    },
+    {
+      "id": "zero-default-break",
+      "source": "#document(default_size=0)\n#break(type=\"line\")"
+    },
+    {
+      "id": "zero-style-break",
+      "source": "#style(name=\"Normal\",spacing={line={rule=\"exact\",value=pt(0)}})\n#break(type=\"line\")"
     }
   ]
 }

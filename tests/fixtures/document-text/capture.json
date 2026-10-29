@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "case_count": 49,
+  "case_count": 51,
   "successful_plans": 47,
-  "rejected_plans": 2,
+  "rejected_plans": 4,
   "units": "points",
   "absolute_tolerance": 1e-09,
   "word_review": "unreviewed",
   "files": {
     "requests.json": {
-      "sha256": "b5896f045150370c68aa3ee6336b27f01a6d7464cd717ef975731514e67f745f",
-      "bytes": 20436
+      "sha256": "eef34e50b9e839557d756d8ed6004d0ef46c25f299043eb9dcec3f72af3568db",
+      "bytes": 20704
     },
     "expected.json": {
-      "sha256": "a7930f4b35a973103ad6a82bdebc4693624de8b3131c2807696518a76af68ba1",
-      "bytes": 942253
+      "sha256": "af224a9c520f05c6712e5d99eb3573cbec37f8e392453c5f769eb91559ffbdda",
+      "bytes": 942413
     }
   }
 }
