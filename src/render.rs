@@ -8,7 +8,7 @@ pub use png::{PngOptions, RasterPage, paint_png};
 
 use crate::{
     layout::{DocumentTextPlan, LayoutError, plan_document_text},
-    measurement::{MeasurementError, TextMeasurer},
+    measurement::{FontResolver, MeasurementError, SystemFontResolver, TextMeasurer},
     model::Document,
     source::AssetResolver,
 };
@@ -59,7 +59,21 @@ pub fn plan(
     resolver: &dyn AssetResolver,
     source_name: Option<&OsStr>,
 ) -> Result<Rendered<DocumentTextPlan>, RenderError> {
+    let fonts = SystemFontResolver::new();
+    plan_with_fonts(document, resolver, source_name, Some(&fonts))
+}
+
+/// Passing no font resolver makes layout independent of installed font discovery.
+pub fn plan_with_fonts(
+    document: &Document,
+    resolver: &dyn AssetResolver,
+    source_name: Option<&OsStr>,
+    fonts: Option<&dyn FontResolver>,
+) -> Result<Rendered<DocumentTextPlan>, RenderError> {
     let mut measurer = TextMeasurer::new(document, resolver, source_name);
+    if let Some(fonts) = fonts {
+        measurer = measurer.with_font_resolver(fonts);
+    }
     let output = plan_document_text(document, &mut measurer)?;
     let mut warnings = support::warnings(document);
     for fragment in output

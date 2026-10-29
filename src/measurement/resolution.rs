@@ -1,9 +1,10 @@
-use super::{CoreFont, FontVariant, MeasurementError, OpenTypeFont, TextMeasurement};
+use super::{CoreFont, FontResolver, FontVariant, MeasurementError, OpenTypeFont, TextMeasurement};
 use crate::{
     model::{Document, Value},
-    source::{AssetRequest, AssetResolver, CachingAssetResolver},
+    source::{AssetRequest, AssetResolver, CachingAssetResolver, ResolvedAsset},
 };
 use std::{
+    cell::RefCell,
     collections::BTreeMap,
     ffi::{OsStr, OsString},
     sync::Arc,
@@ -30,6 +31,7 @@ impl Default for MeasurementStyle {
 pub enum FontSource {
     Core,
     Declared,
+    Installed,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -55,6 +57,8 @@ pub struct TextMeasurer<'source> {
     document: &'source Document,
     source_name: Option<&'source OsStr>,
     resolver: CachingAssetResolver<'source>,
+    font_resolver: Option<&'source dyn FontResolver>,
+    font_data: RefCell<BTreeMap<OsString, Arc<[u8]>>>,
     selections: BTreeMap<(String, FontVariant), FontSelection>,
 }
 
@@ -69,7 +73,16 @@ impl<'source> TextMeasurer<'source> {
             source_name,
             resolver: CachingAssetResolver::new(resolver),
             selections: BTreeMap::new(),
+            font_resolver: None,
+            font_data: RefCell::new(BTreeMap::new()),
         }
+    }
+
+    /// Enable exact installed-face discovery for this measurement session.
+    pub fn with_font_resolver(mut self, resolver: &'source dyn FontResolver) -> Self {
+        self.font_resolver = Some(resolver);
+        self.selections.clear();
+        self
     }
 
     pub fn resolve(&mut self, name: &str, variant: FontVariant) -> FontSelection {
@@ -116,13 +129,62 @@ impl<'source> TextMeasurer<'source> {
                 return self.resolve_file(name, variant, &reference);
             }
             if let Some(Value::String(latin)) = declaration.properties.get("latin") {
-                return named_selection(name, latin, variant);
+                return self.resolve_named(name, latin, variant);
             }
         }
         if name.is_empty() {
             return core_selection(name, variant, CoreFont::Helvetica, None);
         }
-        named_selection(name, name, variant)
+        self.resolve_named(name, name, variant)
+    }
+
+    fn resolve_named(&self, name: &str, family: &str, variant: FontVariant) -> FontSelection {
+        let mut fallback = named_selection(name, family, variant);
+        if let Some(resolver) = self.font_resolver {
+            let result = resolver
+                .resolve_font(family, variant)
+                .and_then(|asset| asset.map(|asset| self.snapshot_font(asset)).transpose());
+            match result {
+                Ok(Some((asset_name, bytes))) => {
+                    return FontSelection {
+                        requested_name: name.into(),
+                        family: family.into(),
+                        variant,
+                        source: FontSource::Installed,
+                        asset_name: Some(asset_name),
+                        bytes: Some(bytes),
+                        substitution: None,
+                        core: CoreFont::Helvetica,
+                    };
+                }
+                Err(reason) => fallback.substitution = Some(reason),
+                Ok(None) => {}
+            }
+        }
+        fallback
+    }
+
+    fn snapshot_font(&self, asset: ResolvedAsset) -> Result<(OsString, Arc<[u8]>), String> {
+        if asset.name.is_empty() {
+            return Err("font resolver supplied an empty logical name".into());
+        }
+        validate_embedding(&asset.bytes)?;
+        OpenTypeFont::parse(&asset.bytes).map_err(|error| error.to_string())?;
+        let mut data = self.font_data.borrow_mut();
+        let bytes = if let Some(previous) = data.get(&asset.name) {
+            if previous.as_ref() != asset.bytes {
+                return Err(format!(
+                    "font resolver supplied conflicting bytes for {:?}",
+                    asset.name
+                ));
+            }
+            previous.clone()
+        } else {
+            let bytes: Arc<[u8]> = asset.bytes.into();
+            data.insert(asset.name.clone(), bytes.clone());
+            bytes
+        };
+        Ok((asset.name, bytes))
     }
 
     fn resolve_file(&self, name: &str, variant: FontVariant, reference: &str) -> FontSelection {
@@ -132,19 +194,15 @@ impl<'source> TextMeasurer<'source> {
         });
         let result = loaded
             .map_err(|_| "resolved font data could not be read".to_owned())
-            .and_then(|asset| {
-                validate_embedding(&asset.bytes)?;
-                OpenTypeFont::parse(&asset.bytes).map_err(|error| error.to_string())?;
-                Ok(asset)
-            });
+            .and_then(|asset| self.snapshot_font(asset));
         match result {
-            Ok(asset) => FontSelection {
+            Ok((asset_name, bytes)) => FontSelection {
                 requested_name: name.into(),
                 family: name.into(),
                 variant,
                 source: FontSource::Declared,
-                asset_name: Some(asset.name),
-                bytes: Some(asset.bytes.into()),
+                asset_name: Some(asset_name),
+                bytes: Some(bytes),
                 substitution: None,
                 core: CoreFont::Helvetica,
             },
@@ -231,7 +289,7 @@ fn named_selection(name: &str, family: &str, variant: FontVariant) -> FontSelect
     }
 }
 
-fn validate_embedding(bytes: &[u8]) -> Result<(), String> {
+pub(super) fn validate_embedding(bytes: &[u8]) -> Result<(), String> {
     let header = bytes.get(..12).ok_or("invalid sfnt table directory")?;
     let table_count = usize::from(u16::from_be_bytes([header[4], header[5]]));
     if table_count == 0 || table_count > (bytes.len() - 12) / 16 {

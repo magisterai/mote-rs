@@ -380,8 +380,9 @@ for the offline comparison command without reading the expected measurements.
 `TextMeasurer` connects declared variant files to the source asset resolver and
 caches exact bytes, missing variants, invalid files and fallback decisions.
 Fallback families and substitution reasons remain visible in each result.
-It checks embedding eligibility before selecting native font data; it neither
-discovers installed fonts nor embeds them. DOCX accepts `files` while continuing
+It checks embedding eligibility before selecting native font data. Optional
+installed-face resolution supplies exact bytes through the same validation path;
+font embedding belongs to the PDF painter. DOCX accepts `files` while continuing
 to reference physical typeface names.
 The line planner wraps styled runs at Unicode break opportunities and uses
 extended grapheme clusters for emergency breaks. It handles preserved whitespace,
@@ -460,3 +461,22 @@ PNG writes `report-1.png`, `report-2.png`, and so on; an output directory uses
 `page` as the prefix. `--dpi` is valid only for PNG. Font paths resolve relative
 to the source file. Generation errors leave existing output untouched, and source
 paths cannot be used as output destinations, including generated PNG page names.
+
+### Installed-face discovery
+
+`FontResolver` supplies exact named font variants independently of source asset
+lookup. `SystemFontResolver` implements the narrow local catalogue for Aptos,
+Aptos Display, Arial and Courier New, checking Word resources before PowerPoint
+resources and system copies. Aptos Display uses the sorted Office cloud font
+cache. Font family and variant metadata must match; restricted embedding,
+collections and unsupported outlines are rejected before use. Proprietary fonts
+are read from the host and are not distributed with the crate.
+
+`TextMeasurer::new` remains independent of installed fonts. Its optional resolver
+is enabled with `with_font_resolver`. `render::plan` enables system discovery;
+`render::plan_with_fonts` accepts a custom resolver or `None` for portable fixture
+measurement. Explicit font declarations take precedence. Each session retains
+immutable font bytes and rejects conflicting bytes under one logical name, so
+measurement and painters cannot accidentally use different faces. The
+[installed-font tests](../tests/installed_fonts.rs) exercise this through both PDF
+and PNG without requiring proprietary fonts on the test machine.

@@ -1,10 +1,12 @@
 //! Font metrics shared by native layout and painting, expressed in points.
 //!
 //! This module measures character advances and pair kerning. It does not shape
-//! text, choose fonts from the operating system, or decide where lines break.
+//! text or decide where lines break. Installed-face lookup is an optional resolver.
 
 mod core;
+mod installed;
 pub(crate) use core::win_ansi;
+pub use installed::{FontResolver, SystemFontResolver};
 pub(crate) mod glyphs;
 mod kerning;
 mod opentype;

@@ -56,3 +56,14 @@ signature checks, normalization, and declaration boundaries.
 [Font-resolution tests](../../tests/font_resolution.rs),
 [measurement tests](../../tests/measurement.rs), and
 [asset-cache tests](../../tests/asset_cache.rs) cover declared files and native metrics.
+
+## Native installed fonts
+
+Native output can discover exact Aptos, Aptos Display, Arial and Courier New
+faces from the supported local Office/system locations. Word's bundled fonts take
+precedence over PowerPoint and system copies. Family and variant names, static
+outline validity and embedding permissions are checked before selection; a missing
+bold or italic face is never synthesized. Declared `files` remain authoritative.
+`TextMeasurer` keeps discovery opt-in; `render::plan` enables it and
+`render::plan_with_fonts` accepts an explicit resolver or no discovery.
+See [installed-font tests](../../tests/installed_fonts.rs).
