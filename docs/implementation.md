@@ -300,3 +300,10 @@ formatting whitespace outside text elements are ignored. Captured advisory
 pagination markers are counted separately and omitted; actual break settings
 remain compared. Real Word rendering remains **unreviewed**. Structural agreement
 does not establish layout conformance.
+
+Package integrity tests also resolve every style relationship, numbering instance,
+and internal package target across all captured cases. The writer emits referenced
+built-in style declarations even when they are used only as dependencies, and
+normalized style names resolve to the actual declared identifier. This prevents
+dangling references; reference captures with omitted declarations are not treated
+as structurally identical output.

@@ -40,8 +40,21 @@ fingerprints and comparison notes:
 - [Styles and fonts](docx/styles-and-fonts/README.md): inheritance, references and script mappings.
 - [Declared properties](docx/style-properties/README.md): property ordering and style identities.
 
-[DOCX tests](../docx.rs) generate packages and compare each fixture's evaluated
-model and all XML parts. Numeric JSON values compare by value rather than decimal
+- [Headings](docx/headings/README.md): levels, direct properties and fallback styles.
+- [Heading styles](docx/heading-styles/README.md): declarations and opening spacing.
+- [Bullet lists](docx/bullet-lists/README.md): nesting and item geometry.
+- [Bullet instances](docx/bullet-instances/README.md): shared definitions and identities.
+- [Ordered lists](docx/ordered-lists/README.md): formats, starts and nesting.
+- [List continuation](docx/list-continuation/README.md): restarts and sequence identity.
+- [Heading numbering](docx/heading-numbering/README.md): hierarchy and sequence controls.
+- [Block quotes](docx/block-quotes/README.md): nested content and direct formatting.
+- [Quote styles](docx/quote-styles/README.md): declared replacements and scope.
+- [Task items](docx/task-items/README.md): editable checkbox controls and numbered-list interaction.
+- [Derived built-in styles](docx/derived-builtin-styles/README.md): inherited direct-formatting precedence.
+
+[DOCX package tests](../docx_packages.rs) generate packages and compare each fixture's evaluated
+model and all XML parts. They also verify that style, numbering and package
+relationships resolve to existing targets. Numeric JSON values compare by value rather than decimal
 spelling. XML comparisons retain text, units, attribute values and element order;
 only generation timestamps and formatting whitespace outside text are ignored.
 Any captured advisory pagination markers are inventoried explicitly and omitted
@@ -50,21 +63,3 @@ settings remain part of the comparison.
 
 All captures remain **unreviewed in Microsoft Word**. Structural agreement does
 not establish layout, font substitution, wrapping or pagination conformance.
-
-- [Headings](docx/headings/README.md): levels, direct properties and fallback styles.
-- [Heading styles](docx/heading-styles/README.md): declarations and opening spacing.
-
-- [Bullet lists](docx/bullet-lists/README.md): nesting and item geometry.
-- [Bullet instances](docx/bullet-instances/README.md): shared definitions and identities.
-
-- [Ordered lists](docx/ordered-lists/README.md): formats, starts and nesting.
-- [List continuation](docx/list-continuation/README.md): restarts and sequence identity.
-
-- [Heading numbering](docx/heading-numbering/README.md): hierarchy and sequence controls.
-
-- [Block quotes](docx/block-quotes/README.md): nested content and direct formatting.
-- [Quote styles](docx/quote-styles/README.md): declared replacements and scope.
-
-- [Task items](docx/task-items/README.md): editable checkbox controls and numbered-list interaction.
-
-- [Derived built-in styles](docx/derived-builtin-styles/README.md): inherited direct-formatting precedence.
