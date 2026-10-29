@@ -26,6 +26,14 @@ The initial source-language parser, evaluator, document model, and JSON inspecti
 belong together in the current crate. Reconsider boundaries as substantial
 capabilities develop rather than pre-creating a collection of small crates.
 
+## Dependencies
+
+Keep the dependency graph focused. Inspect transitive dependencies and enabled
+features before adding a library; reuse shared components and compatible versions
+where possible. Add libraries when the implemented capability needs them. Compare
+output units, rounding, property mappings and defaults against captured fixtures
+before treating a library's default behaviour as compatible.
+
 ## Specification
 
 Start with [docs/specification/README.md](docs/specification/README.md) for Mote's
