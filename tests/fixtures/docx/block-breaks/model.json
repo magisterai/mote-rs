@@ -1,0 +1,128 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before a page break."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "page"
+          }
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "After page break"
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "line"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After a block line break."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "page"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before a page break."
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "page"
+      }
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "After page break"
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "line"
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After a block line break."
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "page"
+      }
+    }
+  ]
+}

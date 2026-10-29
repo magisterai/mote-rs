@@ -162,7 +162,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `@type` — [w:ST_BrType](values-word.md#w-st_brtype); Strict, Transitional; use=optional. Partial: `line_break` represents an inline text break only; page and column break choices are not available through this directive. Evidence: [inline-text.md](../../../docs/specification/inline-text.md), [content.rs](../../../tests/content.rs).
+- [x] `@type` — [w:ST_BrType](values-word.md#w-st_brtype); Strict, Transitional; use=optional. Inline line_break and top-level block break page/column/line types map to Word break kinds. Section-related types and nested block-break output remain deferred. Evidence: [inline-text.md](../../../docs/specification/inline-text.md), [flow-breaks.md](../../../docs/specification/flow-breaks.md), [breaks.rs](../../../tests/breaks.rs).
 - [ ] `@clear` — [w:ST_BrClear](values-word.md#w-st_brclear); Strict, Transitional; use=optional.
 
 <a id="w-ct_color"></a>

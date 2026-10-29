@@ -436,6 +436,28 @@
     {
       "example": "inline-text/16",
       "model": "inline-tab"
+    },
+    {
+      "example": "flow-breaks/1",
+      "model": "flow-breaks-1"
+    },
+    {
+      "example": "flow-breaks/2",
+      "model": "flow-breaks-2"
+    },
+    {
+      "example": "flow-breaks/3",
+      "model": "flow-breaks-3"
+    },
+    {
+      "example": "flow-breaks/4",
+      "diagnostic": "inline content cannot contain a block element",
+      "invalid": "Breaks are block content."
+    },
+    {
+      "example": "flow-breaks/5",
+      "diagnostic": "break accepts no positional arguments or content body",
+      "invalid": "Breaks do not accept bodies."
     }
   ],
   "models": {
@@ -5243,6 +5265,268 @@
             {
               "kind": "text",
               "text": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    "flow-breaks-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before the page break."
+                }
+              ]
+            },
+            {
+              "kind": "break",
+              "category": "block",
+              "attributes": {
+                "type": "page"
+              }
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After the page break."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before the page break."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "page"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the page break."
+            }
+          ]
+        }
+      ]
+    },
+    "flow-breaks-2": {
+      "document": {
+        "columns": {
+          "count": 2.0,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18.0
+          }
+        }
+      },
+      "page": {},
+      "margin": {},
+      "columns": {
+        "count": 2.0,
+        "gap": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18.0
+        },
+        "properties": {
+          "count": 2.0,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18.0
+          }
+        }
+      },
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {
+            "count": 2.0,
+            "gap": {
+              "text": "18pt",
+              "unit": "pt",
+              "value": 18.0
+            },
+            "properties": {
+              "count": 2.0,
+              "gap": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18.0
+              }
+            }
+          },
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First column."
+                }
+              ]
+            },
+            {
+              "kind": "break",
+              "category": "block",
+              "attributes": {
+                "type": "column"
+              }
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Next column."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First column."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Next column."
+            }
+          ]
+        }
+      ]
+    },
+    "flow-breaks-3": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before."
+                }
+              ]
+            },
+            {
+              "kind": "break",
+              "category": "block",
+              "attributes": {
+                "type": "line"
+              }
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "line"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After."
             }
           ]
         }

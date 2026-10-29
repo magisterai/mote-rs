@@ -1,0 +1,256 @@
+{
+  "document": {
+    "columns": {
+      "count": 2,
+      "gap": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {
+    "count": 2,
+    "gap": {
+      "text": "18pt",
+      "unit": "pt",
+      "value": 18
+    },
+    "properties": {
+      "count": 2,
+      "gap": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      }
+    }
+  },
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {
+        "count": 2,
+        "gap": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "properties": {
+          "count": 2,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          }
+        }
+      },
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Starts a column"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First text."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2,
+            "spacing_before": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Explicit heading spacing survives"
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Next paragraph receives the break."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quote receives the break."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Starts a column"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "First text."
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2,
+        "spacing_before": {
+          "text": "8pt",
+          "unit": "pt",
+          "value": 8
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Explicit heading spacing survives"
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "center"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Next paragraph receives the break."
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quote receives the break."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

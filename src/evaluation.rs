@@ -285,11 +285,11 @@ fn evaluate_call(
     if call.name == "code" {
         return evaluate_code(call, span, context, document);
     }
-    if matches!(call.name.as_str(), "line_break" | "tab") {
-        let kind = if call.name == "tab" {
-            ElementKind::Tab
-        } else {
-            ElementKind::LineBreak
+    if matches!(call.name.as_str(), "line_break" | "tab" | "break") {
+        let kind = match call.name.as_str() {
+            "tab" => ElementKind::Tab,
+            "break" => ElementKind::Break,
+            _ => ElementKind::LineBreak,
         };
         if call
             .arguments
@@ -305,9 +305,15 @@ fn evaluate_call(
                 ),
             ));
         }
+        let mut attributes = evaluate_attributes(kind, &call.arguments)?;
+        if kind == ElementKind::Break {
+            attributes
+                .entry("type".into())
+                .or_insert_with(|| Value::String("page".into()));
+        }
         return Ok(Content::Element(Element {
             kind,
-            attributes: evaluate_attributes(kind, &call.arguments)?,
+            attributes,
             children: Vec::new(),
         }));
     }

@@ -1,0 +1,10 @@
+#document(columns = { count = 2, gap = pt(18) })
+#break(type = "column")
+#heading(1)[Starts a column]
+#paragraph[First text.]
+#break(type = "column")
+#heading(2, spacing_before = pt(8))[Explicit heading spacing survives]
+#break(type = "column")
+#paragraph(alignment = "center")[Next paragraph receives the break.]
+#break(type = "column")
+#blockquote[Quote receives the break.]

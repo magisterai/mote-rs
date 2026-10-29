@@ -89,6 +89,13 @@ existing half-point conversion; invalid or zero results fail explicitly.
 [Configuration tests](../tests/configuration.rs) and
 [output captures](../tests/docx_configuration.rs) cover this boundary.
 
+Top-level `break` elements support page, column and block line breaks. A pending
+column break prefixes the next paragraph, heading or quote where possible;
+consecutive/trailing breaks and breaks before lists remain separate paragraphs.
+Heading implicit before-spacing is suppressed at column starts, preserving
+explicit values. Nested breaks and section-related types remain deferred.
+[Break tests](../tests/breaks.rs) compare models and frozen package parts.
+
 ## Parser
 
 `mote::syntax::parse` returns a syntax tree with UTF-8 byte ranges or a diagnostic.

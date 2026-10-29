@@ -1,0 +1,209 @@
+{
+  "document": {
+    "columns": {
+      "count": 2
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {
+    "count": 2,
+    "properties": {
+      "count": 2
+    }
+  },
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {
+        "count": 2,
+        "properties": {
+          "count": 2
+        }
+      },
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After two column breaks."
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "List needs a separate break paragraph."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "page"
+          }
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "After column and page breaks"
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "column"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After two column breaks."
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "List needs a separate break paragraph."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "page"
+      }
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "After column and page breaks"
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "column"
+      }
+    }
+  ]
+}

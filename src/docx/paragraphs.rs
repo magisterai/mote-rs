@@ -6,6 +6,7 @@ pub(super) fn write(
     children: &[Content],
     styles: &Styles<'_>,
     numbering_reference: Option<(usize, u8)>,
+    leading_column_break: bool,
 ) -> Result<String, Error> {
     let mut attributes = attributes.clone();
     let mut properties = String::new();
@@ -26,6 +27,9 @@ pub(super) fn write(
     let mut paragraph = String::from("<w:p>");
     if !properties.is_empty() {
         paragraph.push_str(&format!("<w:pPr>{properties}</w:pPr>"));
+    }
+    if leading_column_break {
+        paragraph.push_str("<w:r><w:br w:type=\"column\"/></w:r>");
     }
     paragraph.push_str(&runs::write_inlines(children, styles)?);
     paragraph.push_str("</w:p>");

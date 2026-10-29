@@ -66,6 +66,10 @@ fingerprints and comparison notes:
 
 - [Inline tabs](docx/inline-tabs/README.md): stop alignment, edge trimming and preserved code.
 
+- [Block breaks](docx/block-breaks/README.md): page and block line breaks.
+- [Column breaks](docx/column-breaks/README.md): paragraph prefixes and heading spacing.
+- [Consecutive breaks](docx/consecutive-breaks/README.md): repeated, terminal and mixed breaks.
+
 [DOCX package tests](../docx_packages.rs) generate packages and compare each fixture's evaluated
 model and all XML parts. They also verify that style, numbering and package
 relationships resolve to existing targets. Numeric JSON values compare by value rather than decimal

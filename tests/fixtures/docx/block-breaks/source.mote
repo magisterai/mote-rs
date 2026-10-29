@@ -1,0 +1,6 @@
+#paragraph[Before a page break.]
+#break()
+#heading(1)[After page break]
+#break(type = "line")
+#paragraph[After a block line break.]
+#break(type = "page")

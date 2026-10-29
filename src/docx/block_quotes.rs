@@ -1,7 +1,11 @@
 use super::{Error, check_attributes, paragraphs, styles::Styles};
 use crate::model::{Content, Element, ElementKind, Value};
 
-pub(super) fn write(quote: &Element, styles: &Styles<'_>) -> Result<String, Error> {
+pub(super) fn write(
+    quote: &Element,
+    styles: &Styles<'_>,
+    leading_column_break: bool,
+) -> Result<String, Error> {
     check_attributes(
         &quote.attributes,
         &[
@@ -22,7 +26,7 @@ pub(super) fn write(quote: &Element, styles: &Styles<'_>) -> Result<String, Erro
         .entry("style".into())
         .or_insert_with(|| Value::String("BlockQuote".into()));
     let children = flatten_content(&quote.children)?;
-    paragraphs::write(&attributes, &children, styles, None)
+    paragraphs::write(&attributes, &children, styles, None, leading_column_break)
 }
 
 fn flatten_content(children: &[Content]) -> Result<Vec<Content>, Error> {

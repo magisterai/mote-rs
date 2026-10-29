@@ -30,6 +30,8 @@ Status: initial draft.
 10. [Document configuration](document-configuration.md): document-wide page geometry,
     margins, equal-width columns, text defaults, repeated declarations, and model inspection.
 
+11. [Flow breaks](flow-breaks.md): explicit page, column and block line breaks.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

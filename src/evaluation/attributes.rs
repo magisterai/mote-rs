@@ -182,6 +182,8 @@ fn validate_named_argument(
                 _ => None,
             },
             Strong | Emphasis | LineBreak | Tab => None,
+            Break if name == "type" => Some(ArgumentType::String),
+            Break => None,
         }
     };
     if let Some(constraint) = constraint
@@ -254,6 +256,9 @@ pub(super) fn normalize_attribute(
         },
         Blockquote if name == "fill" => normalize_color(value, span, name),
         Code if name == "preserve_space" => normalize_boolean(value, span, name),
+        Break if name == "type" => {
+            normalize_enum(value, span, "break type", &["page", "column", "line"])
+        }
         _ => Ok(value),
     }
 }

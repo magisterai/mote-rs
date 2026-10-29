@@ -1031,11 +1031,12 @@
     ]
   },
   "w:CT_Br/@type": {
-    "status": "partial",
-    "note": "Partial: `line_break` represents an inline text break only; page and column break choices are not available through this directive.",
+    "status": "supported",
+    "note": "Inline line_break and top-level block break page/column/line types map to Word break kinds. Section-related types and nested block-break output remain deferred.",
     "evidence": [
       "docs/specification/inline-text.md",
-      "tests/content.rs"
+      "docs/specification/flow-breaks.md",
+      "tests/breaks.rs"
     ]
   },
   "w:CT_Fonts/@ascii": {

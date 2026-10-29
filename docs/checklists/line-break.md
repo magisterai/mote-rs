@@ -19,7 +19,7 @@ Checked items cover evaluation, validation, and model storage as defined in
 style resolution and output remain separate.
 
 Named attributes are retained metadata and do not create page or column breaks.
-Those belong to a separate future directive and checklist.
+Those belong to the separate [break directive](break.md).
 
 ## Output limits
 

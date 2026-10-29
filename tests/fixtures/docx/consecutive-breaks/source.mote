@@ -1,0 +1,10 @@
+#document(columns = { count = 2 })
+#break(type = "column")
+#break(type = "column")
+#paragraph[After two column breaks.]
+#break(type = "column")
+#list[#item[List needs a separate break paragraph.]]
+#break(type = "column")
+#break(type = "page")
+#heading(1)[After column and page breaks]
+#break(type = "column")
