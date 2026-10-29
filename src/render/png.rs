@@ -359,7 +359,7 @@ fn paint_marker(
     let horizontal = left + ((width - size) / 2.0).max(0.0);
     let vertical = top - 6.0 + (height - size) / 2.0 + marker.font_size * 0.25 / 12.0;
     let stroke = (marker.font_size * 0.8 / 12.0).max(1.0 / scale);
-    for [x, y, width, height] in [
+    for [left, top, width, height] in [
         [horizontal, vertical, size, stroke],
         [horizontal, vertical + size - stroke, size, stroke],
         [horizontal, vertical, stroke, size],
@@ -368,8 +368,8 @@ fn paint_marker(
         fill_rectangle(
             pixels,
             &HighlightRectangle {
-                x,
-                top: y,
+                x: left,
+                top,
                 width,
                 height,
                 color: "111827".into(),

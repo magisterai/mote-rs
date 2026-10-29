@@ -1,7 +1,6 @@
 use super::{
-    FlowArea, FlowCursor, FlowOptions, FlowStep, HighlightRectangle, LayoutError,
-    LayoutStyleResolver, LineBreak, LineFrame, ListMarkerKind, PageGeometry, PageOperation, Rule,
-    TextLine, minimum_start_height, plan_paragraph_flow,
+    FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError, LayoutStyleResolver, LineBreak,
+    LineFrame, PageGeometry, PageOperation, TextLine, minimum_start_height, plan_paragraph_flow,
 };
 use super::{
     blocks::{Block, prepare_blocks},
@@ -24,7 +23,7 @@ pub struct TextPage {
     pub operations: Vec<PageOperation>,
 }
 impl TextPage {
-    fn push_line(&mut self, line: PlacedTextLine) {
+    pub(super) fn push_line(&mut self, line: PlacedTextLine) {
         self.operations.push(PageOperation::Text(self.lines.len()));
         self.lines.push(line);
     }
@@ -71,11 +70,11 @@ pub fn plan_document_text(
     };
     let mut columns = ColumnSeparators::default();
     let mut pending_spacing: f64 = 0.0;
-    let mut pending_fill: Option<(usize, usize, HighlightRectangle, f64)> = None;
+    let mut painting = super::painting::ParagraphPainting::default();
     for (index, block) in blocks.iter().enumerate() {
         match block {
             Block::Break(kind) => {
-                pending_fill = None;
+                painting.clear_fill();
                 if kind == "line" {
                     let style = styles.paragraph(&Element {
                         kind: ElementKind::Paragraph,
@@ -131,7 +130,7 @@ pub fn plan_document_text(
             Block::Paragraph(prepared) => {
                 let paragraph = &prepared.text;
                 if prepared.clear_fill_before {
-                    pending_fill = None;
+                    painting.clear_fill();
                 }
                 if paragraph.style.page_break_before
                     && (cursor.body_started
@@ -140,7 +139,7 @@ pub fn plan_document_text(
                 {
                     new_page(&mut cursor, &mut pages, &mut columns, geometry);
                     pending_spacing = 0.0;
-                    pending_fill = None;
+                    painting.clear_fill();
                 }
                 let leading = pending_spacing.max(paragraph.style.spacing_before);
                 let minimum = keep_height(
@@ -186,102 +185,17 @@ pub fn plan_document_text(
                         while pages.len() < placement.page_number {
                             pages.push(TextPage::default());
                         }
-                        let mut line = paragraph.lines[placement.line_index].clone();
-                        let relative_frame = if placement.line_index == 0 {
-                            paragraph.first_frame
-                        } else {
-                            paragraph.continuation_frame
-                        };
-                        let horizontal = placement.frame.x - relative_frame.x;
-                        line.translate(horizontal, placement.top);
-                        let page = &mut pages[placement.page_number - 1];
-                        if !paragraph.is_empty {
-                            if let Some(color) = &paragraph.style.fill {
-                                if let Some((
-                                    previous_page,
-                                    previous_column,
-                                    previous,
-                                    spacing_after,
-                                )) = pending_fill.take()
-                                    && previous_page == placement.page_number
-                                    && previous_column == placement.column_index
-                                {
-                                    let gap = placement.top - previous.top - previous.height;
-                                    if gap > 0.001 && spacing_after > 0.0 {
-                                        page.operations.push(PageOperation::Rectangle(
-                                            HighlightRectangle {
-                                                top: previous.top + previous.height,
-                                                height: gap.min(spacing_after),
-                                                ..previous
-                                            },
-                                        ));
-                                    }
-                                }
-                                let rectangle = HighlightRectangle {
-                                    x: placement.frame.x,
-                                    top: placement.top,
-                                    width: placement.frame.width,
-                                    height: placement.height,
-                                    color: color.clone(),
-                                };
-                                page.operations
-                                    .push(PageOperation::Rectangle(rectangle.clone()));
-                                pending_fill = Some((
-                                    placement.page_number,
-                                    placement.column_index,
-                                    rectangle,
-                                    paragraph.style.spacing_after,
-                                ));
-                            } else {
-                                pending_fill = None;
-                            }
-                            if let Some(color) = &paragraph.border_color {
-                                let bottom = placement.top + placement.height;
-                                page.operations.push(PageOperation::Rule(Rule {
-                                    role: crate::layout::RuleRole::Generic,
-                                    start: [placement.frame.x, bottom],
-                                    end: [placement.frame.x + placement.frame.width, bottom],
-                                    width: 0.35,
-                                    color: color.clone(),
-                                }));
-                            }
-                        } else {
-                            pending_fill = None;
-                        }
-                        if placement.line_index == 0
-                            && let Some(prepared_marker) = &prepared.marker
-                        {
-                            let mut marker = prepared_marker.marker.clone();
-                            let slot_left = placement.frame.x - prepared_marker.hanging;
-                            marker.slot = [
-                                slot_left,
-                                placement.top,
-                                prepared_marker.hanging.max(0.0),
-                                placement.height,
-                            ];
-                            marker.baseline = line.baseline;
-                            if let Some(text) = &mut marker.text {
-                                let horizontal = if marker.kind == ListMarkerKind::Bullet {
-                                    slot_left + text.width.min(marker.slot[2]) / 2.0
-                                        - text.width / 2.0
-                                } else {
-                                    slot_left
-                                };
-                                text.translate(horizontal - text.x, line.baseline - text.baseline);
-                            }
-                            page.operations
-                                .push(PageOperation::ListMarker(Box::new(marker)));
-                        }
-                        page.push_line(PlacedTextLine {
-                            top: placement.top,
-                            line,
-                        });
+                        painting.place_line(
+                            &mut pages[placement.page_number - 1],
+                            prepared,
+                            placement,
+                        );
                     }
                 }
                 cursor = flow.final_cursor;
                 pending_spacing = paragraph.style.spacing_after.max(0.0);
                 if prepared.clear_fill_after {
-                    pending_fill = None;
+                    painting.clear_fill();
                 }
             }
         }
