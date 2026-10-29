@@ -1,0 +1,5 @@
+#paragraph(tabs = { { position = inch(1), alignment = "left" }, { position = inch(3), alignment = "right", leader = "dot" } })[Left#tab()Middle#tab()Right]
+#paragraph[#tab()  Leading and trailing  #tab()]
+#paragraph[#strong[Bold#tab()text]#tab()#emphasis[Italic#tab()text]]
+#paragraph[#code(preserve_space = true)[Code#tab()tab]]
+#paragraph[#tab()#tab()]

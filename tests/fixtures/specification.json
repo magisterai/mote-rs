@@ -432,6 +432,10 @@
     {
       "example": "document-configuration/8",
       "model": "document-defaults"
+    },
+    {
+      "example": "inline-text/16",
+      "model": "inline-tab"
     }
   ],
   "models": {
@@ -5183,6 +5187,62 @@
             {
               "kind": "text",
               "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    "inline-tab": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Left"
+                },
+                {
+                  "kind": "tab",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": "Right"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Left"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "Right"
             }
           ]
         }

@@ -285,7 +285,12 @@ fn evaluate_call(
     if call.name == "code" {
         return evaluate_code(call, span, context, document);
     }
-    if call.name == "line_break" {
+    if matches!(call.name.as_str(), "line_break" | "tab") {
+        let kind = if call.name == "tab" {
+            ElementKind::Tab
+        } else {
+            ElementKind::LineBreak
+        };
         if call
             .arguments
             .iter()
@@ -294,12 +299,15 @@ fn evaluate_call(
         {
             return Err(Diagnostic::new(
                 span,
-                "line_break accepts no positional arguments or content body",
+                format!(
+                    "{} accepts no positional arguments or content body",
+                    call.name
+                ),
             ));
         }
         return Ok(Content::Element(Element {
-            kind: ElementKind::LineBreak,
-            attributes: evaluate_attributes(ElementKind::LineBreak, &call.arguments)?,
+            kind,
+            attributes: evaluate_attributes(kind, &call.arguments)?,
             children: Vec::new(),
         }));
     }

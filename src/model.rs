@@ -151,6 +151,7 @@ pub enum ElementKind {
     Emphasis,
     Code,
     LineBreak,
+    Tab,
     List,
     OrderedList,
     ListItem,
@@ -167,6 +168,7 @@ impl ElementKind {
             Self::Emphasis => "emphasis",
             Self::Code => "code",
             Self::LineBreak => "line_break",
+            Self::Tab => "tab",
             Self::List => "list",
             Self::OrderedList => "ordered_list",
             Self::ListItem => "list_item",
@@ -177,7 +179,7 @@ impl ElementKind {
     pub fn is_block(self) -> bool {
         !matches!(
             self,
-            Self::Span | Self::Strong | Self::Emphasis | Self::Code | Self::LineBreak
+            Self::Span | Self::Strong | Self::Emphasis | Self::Code | Self::LineBreak | Self::Tab
         )
     }
 }

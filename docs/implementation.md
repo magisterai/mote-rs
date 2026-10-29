@@ -117,8 +117,8 @@ Markdown headings, strong spans, and emphasis share semantics with their
 directives. Bare inline content becomes paragraphs. Explicit `paragraph`,
 `heading`, `span`, `strong`, and `emphasis` bodies accept inline content and reject nested
 blocks. Code supports literal scalar arguments and evaluated inline bodies;
-backtick spans retain literal text. Explicit `line_break` calls retain an inline
-element, while Markdown hard breaks are line feeds in text.
+backtick spans retain literal text. Explicit `line_break` and `tab` calls retain inline
+elements, while Markdown hard breaks are line feeds in text.
 
 Lists support explicit `list`, `ordered_list`, and `item` calls, a positive
 `start` attribute on list containers, and string item markers. Explicit item
@@ -247,7 +247,10 @@ accepted substitute for a defined example. See the
 model. `mote --format docx -o report.docx input.mote` writes it to a file. The
 writer supports paragraphs and headings with captured defaults, Unicode text,
 XML escaping, tabs, empty paragraphs, and hard line breaks. Ordinary whitespace
-at paragraph and explicit line edges is trimmed; interior whitespace is retained.
+at paragraph and explicit line edges is trimmed, including ordinary tab elements;
+interior whitespace is retained. Explicit tabs use Word tab elements and paragraph
+tab stops; preserved-code tabs survive edge trimming. Inline control metadata is
+validated before trimming so discarded whitespace cannot hide unsupported fields.
 Unsupported content, attributes, and declarations return explicit errors before
 the CLI opens its output file. JSON remains the default output format.
 

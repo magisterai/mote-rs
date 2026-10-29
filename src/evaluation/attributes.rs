@@ -181,7 +181,7 @@ fn validate_named_argument(
                 "fill" => Some(ArgumentType::Color),
                 _ => None,
             },
-            Strong | Emphasis | LineBreak => None,
+            Strong | Emphasis | LineBreak | Tab => None,
         }
     };
     if let Some(constraint) = constraint

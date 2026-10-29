@@ -46,6 +46,7 @@ their concepts before using them in examples.
 | `strong` | [Strong](strong.md) | Bold intent, inline forms, font/style overrides. |
 | `emphasis` | [Emphasis](emphasis.md) | Italic intent, inline forms, font/style overrides. |
 | `code` | [Code](code.md) | Inline forms, formatting, metadata, preserved whitespace. |
+| `tab` | [Tab](tab.md) | Inline tabs and paragraph tab-stop interaction. |
 | `line_break` | [Line break](line-break.md) | Explicit inline breaks and Markdown hard breaks. |
 | `list` | [List](list.md) | Item container, nesting, scoped list attributes. |
 | `ordered_list` | [Ordered list](ordered-list.md) | Item container, nesting, numbering/layout attributes. |

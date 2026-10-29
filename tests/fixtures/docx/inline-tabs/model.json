@@ -1,0 +1,324 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "tabs": [
+              {
+                "alignment": "left",
+                "position": {
+                  "text": "1in",
+                  "unit": "in",
+                  "value": 1
+                }
+              },
+              {
+                "alignment": "right",
+                "leader": "dot",
+                "position": {
+                  "text": "3in",
+                  "unit": "in",
+                  "value": 3
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Left"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "Middle"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "Right"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "  Leading and trailing  "
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Bold"
+                },
+                {
+                  "kind": "tab",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": "text"
+                }
+              ]
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Italic"
+                },
+                {
+                  "kind": "tab",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": "text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "code",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Code"
+                },
+                {
+                  "kind": "tab",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": "tab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "tabs": [
+          {
+            "alignment": "left",
+            "position": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1
+            }
+          },
+          {
+            "alignment": "right",
+            "leader": "dot",
+            "position": {
+              "text": "3in",
+              "unit": "in",
+              "value": 3
+            }
+          }
+        ]
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Left"
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "Middle"
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "Right"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "  Leading and trailing  "
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "strong",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Bold"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "text"
+            }
+          ]
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "emphasis",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Italic"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "code",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Code"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "tab"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        }
+      ]
+    }
+  ]
+}

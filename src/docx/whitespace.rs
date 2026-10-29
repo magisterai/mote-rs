@@ -43,6 +43,11 @@ fn trim_direction(children: &mut Vec<Content>, leading: bool, mut at_edge: bool)
                 *text = lines.join("\n");
             }
             Content::Element(element) if element.kind == ElementKind::LineBreak => at_edge = true,
+            Content::Element(element) if element.kind == ElementKind::Tab => {
+                if at_edge {
+                    children[index] = Content::Text(String::new());
+                }
+            }
             Content::Element(element) => {
                 if element.attributes.get("preserve_space") == Some(&Value::Boolean(true)) {
                     if let Some(boundary) = preserved_boundary(&element.children, leading) {
@@ -76,6 +81,7 @@ fn preserved_boundary(children: &[Content], from_end: bool) -> Option<bool> {
             Content::Element(element) if element.kind == ElementKind::LineBreak => {
                 return Some(true);
             }
+            Content::Element(element) if element.kind == ElementKind::Tab => return Some(false),
             Content::Element(element) => {
                 if let Some(boundary) = preserved_boundary(&element.children, from_end) {
                     return Some(boundary);

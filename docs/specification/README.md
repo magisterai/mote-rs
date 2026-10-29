@@ -15,7 +15,7 @@ Status: initial draft.
 3. [Basic content](basic-content.md): paragraphs, headings, strong text, body
    rules, omitted attributes, length helpers, alignment, spacing, and invalid uses.
 4. [Inline text](inline-text.md): emphasis, literal and evaluated code content,
-   nesting, whitespace, and explicit line breaks.
+   nesting, whitespace, explicit line breaks, and tabs.
 5. [Lists](lists.md): list and item bodies, ordered lists, markers, continuation,
    nesting, and Markdown forms.
 6. [Block quotes](block-quotes.md): quoted block content, Markdown quote lines,

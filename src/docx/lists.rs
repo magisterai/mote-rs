@@ -4,7 +4,7 @@ use super::{
     list_layout::{self, ListLayout},
     numbering, runs,
     styles::Styles,
-    values, whitespace,
+    values,
 };
 use crate::model::{Content, Element, ElementKind};
 
@@ -75,10 +75,7 @@ pub(super) fn write(
             output.push_str(&state.controls.write_checkbox(&checkbox, checked, styles)?);
             output.push_str("<w:r><w:t xml:space=\"preserve\"> </w:t></w:r>");
         }
-        output.push_str(&runs::write_inlines(
-            &whitespace::trim_line_edges(&inline),
-            styles,
-        )?);
+        output.push_str(&runs::write_inlines(&inline, styles)?);
         output.push_str("</w:p>");
         for nested_list in nested {
             output.push_str(&write(nested_list, item_level + 1, styles, state)?);

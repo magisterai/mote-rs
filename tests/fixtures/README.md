@@ -64,6 +64,8 @@ fingerprints and comparison notes:
 - [Default overrides](docx/default-overrides/README.md): repeated declarations and Normal overrides.
 - [Default script fonts](docx/default-script-fonts/README.md): script-only aliases and Latin fallback.
 
+- [Inline tabs](docx/inline-tabs/README.md): stop alignment, edge trimming and preserved code.
+
 [DOCX package tests](../docx_packages.rs) generate packages and compare each fixture's evaluated
 model and all XML parts. They also verify that style, numbering and package
 relationships resolve to existing targets. Numeric JSON values compare by value rather than decimal

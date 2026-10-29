@@ -1,8 +1,33 @@
-use super::{Error, check_attributes, run_properties::RunFormatting, styles::Styles, xml};
+use super::{
+    Error, check_attributes, run_properties::RunFormatting, styles::Styles, whitespace, xml,
+};
 use crate::model::{Content, ElementKind};
 
 pub(super) fn write_inlines(children: &[Content], styles: &Styles<'_>) -> Result<String, Error> {
-    write_formatted(children, &RunFormatting::default(), styles)
+    validate_controls(children)?;
+    write_formatted(
+        &whitespace::trim_line_edges(children),
+        &RunFormatting::default(),
+        styles,
+    )
+}
+
+fn validate_controls(children: &[Content]) -> Result<(), Error> {
+    for child in children {
+        if let Content::Element(element) = child {
+            if matches!(element.kind, ElementKind::LineBreak | ElementKind::Tab) {
+                check_attributes(&element.attributes, &[], element.kind.as_text())?;
+                if !element.children.is_empty() {
+                    return Err(Error::InvalidValue(format!(
+                        "{} cannot contain children",
+                        element.kind.as_text()
+                    )));
+                }
+            }
+            validate_controls(&element.children)?;
+        }
+    }
+    Ok(())
 }
 
 fn write_formatted(
@@ -14,14 +39,14 @@ fn write_formatted(
     for child in children {
         match child {
             Content::Text(text) => result.push_str(&write_text(text, formatting, styles)?),
-            Content::Element(element) if element.kind == ElementKind::LineBreak => {
-                check_attributes(&element.attributes, &[], "line_break")?;
-                if !element.children.is_empty() {
-                    return Err(Error::InvalidValue(
-                        "line_break cannot contain children".into(),
-                    ));
-                }
-                result.push_str("<w:r><w:br/></w:r>");
+            Content::Element(element)
+                if matches!(element.kind, ElementKind::LineBreak | ElementKind::Tab) =>
+            {
+                result.push_str(if element.kind == ElementKind::Tab {
+                    "<w:r><w:tab/></w:r>"
+                } else {
+                    "<w:r><w:br/></w:r>"
+                });
             }
             Content::Element(element) => {
                 let formatting = formatting.for_element(element, styles)?;

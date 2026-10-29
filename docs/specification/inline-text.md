@@ -168,3 +168,21 @@ A line-break directive cannot take a body:
 ```
 
 Continue with [Lists](lists.md), which introduces blocks that contain items.
+
+## Explicit tabs
+
+`tab` inserts an inline tab element without a content body or positional
+arguments. It remains inside the paragraph and adds no spaces to the evaluated
+model. Paragraph tab-stop definitions, introduced in Formatting attributes,
+control its position and alignment. The tab itself has no stop-position argument.
+Named attributes and the shared `properties` object are retained as metadata;
+DOCX rejects those attributes because they have no output mapping.
+
+```mote
+#paragraph[Left#tab()Right]
+```
+
+DOCX trims ordinary tabs at paragraph and line edges, just like ordinary spaces.
+Interior tabs remain Word tab elements. Explicit tabs inside preserved code remain
+tabs, while literal tab characters in that code expand to spaces. These output
+rules do not remove tab elements from the evaluated model.

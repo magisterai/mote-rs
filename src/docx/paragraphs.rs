@@ -1,4 +1,4 @@
-use super::{Error, numbering, paragraph_properties, runs, styles::Styles, whitespace, xml};
+use super::{Error, numbering, paragraph_properties, runs, styles::Styles, xml};
 use crate::model::{Content, Properties};
 
 pub(super) fn write(
@@ -27,10 +27,7 @@ pub(super) fn write(
     if !properties.is_empty() {
         paragraph.push_str(&format!("<w:pPr>{properties}</w:pPr>"));
     }
-    paragraph.push_str(&runs::write_inlines(
-        &whitespace::trim_line_edges(children),
-        styles,
-    )?);
+    paragraph.push_str(&runs::write_inlines(children, styles)?);
     paragraph.push_str("</w:p>");
     Ok(paragraph)
 }
