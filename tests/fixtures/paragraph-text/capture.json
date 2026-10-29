@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "case_count": 273,
+  "widths_points": [
+    12,
+    72,
+    300
+  ],
+  "absolute_tolerance": 1e-09,
+  "word_review": "unreviewed",
+  "files": {
+    "../layout-styles/requests.json": {
+      "sha256": "8a7438d14825053bab921b96207f560961a710dfc33cdfdae4703404e2761f3c",
+      "bytes": 16276
+    },
+    "expected.json": {
+      "sha256": "86035aa8bd12542615938ecb16aeac5dd7cdc8d008ff22f69d4b493eb9aee47b",
+      "bytes": 1217394
+    }
+  }
+}

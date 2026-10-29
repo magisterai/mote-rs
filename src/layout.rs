@@ -6,11 +6,13 @@ mod style_values;
 mod styles;
 pub use inline::resolve_inline;
 pub use styles::{LayoutStyleResolver, ParagraphStyle};
+mod paragraphs;
 mod placement;
 mod wrapping;
 
 use crate::measurement::{FontSelection, FontVariant, MeasurementError, MeasurementStyle};
 pub use lines::plan_text;
+pub use paragraphs::{LineFrame, ParagraphText, plan_paragraph_text};
 use std::fmt;
 
 #[derive(Debug, Clone, PartialEq)]
@@ -119,6 +121,7 @@ pub struct LineOptions {
     pub first_indent: f64,
     pub alignment: Alignment,
     pub base_style: TextStyle,
+    pub base_line_height: Option<f64>,
     pub spacing: LineSpacing,
     pub fallback_multiplier: f64,
     pub layout_kerning: bool,
@@ -132,6 +135,7 @@ impl Default for LineOptions {
             first_indent: 0.0,
             alignment: Alignment::Left,
             base_style: TextStyle::default(),
+            base_line_height: None,
             spacing: LineSpacing::default(),
             fallback_multiplier: 1.15,
             layout_kerning: false,

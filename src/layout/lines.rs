@@ -39,7 +39,24 @@ pub fn plan_text(
             ));
         }
     }
-    let runs = small_caps(runs);
+    if options
+        .base_line_height
+        .is_some_and(|height| !height.is_finite())
+    {
+        return Err(LayoutError::InvalidGeometry(
+            "base line height must be finite",
+        ));
+    }
+    let mut base_style = options.base_style.clone();
+    if base_style.measurement.size_points <= 0.0 {
+        base_style.measurement.size_points = 11.0;
+    }
+    let mut runs = small_caps(runs);
+    for run in &mut runs {
+        if run.style.measurement.size_points <= 0.0 {
+            run.style.measurement.size_points = 11.0;
+        }
+    }
     let wrapped = wrapping::wrap(&runs, options, measurer)?;
     let mut lines = Vec::new();
     for (index, wrapped) in wrapped.into_iter().enumerate() {
@@ -58,10 +75,17 @@ pub fn plan_text(
             measurer,
             options.layout_kerning,
         )?;
-        let mut ordinary_size = options.base_style.measurement.size_points;
-        let mut height = options
+        let mut ordinary_size = base_style.measurement.size_points;
+        let natural_height = options
             .spacing
-            .height(&options.base_style, options.fallback_multiplier);
+            .height(&base_style, options.fallback_multiplier);
+        let mut height = options
+            .base_line_height
+            .filter(|height| *height > 0.0)
+            .unwrap_or(natural_height);
+        if !matches!(options.spacing, LineSpacing::Exact(_)) {
+            height = height.max(natural_height);
+        }
         for run in &wrapped.runs {
             ordinary_size = ordinary_size.max(run.style.measurement.size_points);
             if !matches!(options.spacing, LineSpacing::Exact(_)) {
@@ -73,7 +97,7 @@ pub fn plan_text(
             }
         }
         if height <= 0.0 {
-            height = options.base_style.measurement.size_points * 1.18 * 1.15 * 1.02;
+            height = base_style.measurement.size_points * 1.18 * 1.15 * 1.02;
         }
         let baseline = 0.5 * height + 0.3 * ordinary_size;
         if !height.is_finite() || !baseline.is_finite() {

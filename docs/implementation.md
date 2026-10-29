@@ -402,6 +402,12 @@ paragraph decoration are not painted. Native unitless font sizes currently resol
 as twips, while DOCX uses points; explicit point lengths avoid this recorded
 output discrepancy. It remains a compatibility observation awaiting review.
 
+`plan_paragraph_text` joins source style resolution, inline merging, indentation
+frames and line measurement. Its [273 source-to-line captures](../tests/fixtures/paragraph-text/README.md)
+check the complete path at three widths, including hanging indents, minimum frame
+width and zero-size fallback. Lines remain relative to their paragraph; this API
+does not claim numbering, tab-stop or border placement.
+
 Shaping, document paragraph placement, pagination, PDF and PNG generation remain unimplemented.
 Numeric agreement remains separate
 from visual review in Word.
