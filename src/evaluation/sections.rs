@@ -1,7 +1,6 @@
 //! Section capture and story declarations, independent of output formatting.
 use super::{
-    ContentMode, EvaluationContext, evaluate_nodes, expressions::evaluate_named_arguments,
-    values::*,
+    ContentMode, EvaluationContext, evaluate_body, expressions::evaluate_named_arguments, values::*,
 };
 use crate::{
     diagnostics::{Diagnostic, Span},
@@ -18,6 +17,7 @@ struct StoryCapture {
 #[derive(Default)]
 pub(super) struct EvaluationState {
     document: Document,
+    pub bindings: super::bindings::Bindings,
     pub markdown_notes: std::collections::BTreeMap<String, super::notes::Definition>,
     pub labels: Vec<super::references::NamedLocation>,
     pub references: Vec<super::references::NamedLocation>,
@@ -129,7 +129,7 @@ pub(super) fn evaluate_story(
     state: &mut EvaluationState,
 ) -> Result<(), Diagnostic> {
     check_body(call, span)?;
-    let arguments = evaluate_named_arguments(&call.arguments)?;
+    let arguments = evaluate_named_arguments(&call.arguments, state)?;
     for (name, argument) in &arguments {
         if !matches!(name.as_str(), "properties" | "height" | "distance") {
             return Err(Diagnostic::new(
@@ -158,7 +158,7 @@ pub(super) fn evaluate_story(
         }
     }
     let previous_story = state.story_declaration.replace(span.start + 1);
-    let content = evaluate_nodes(&call.bodies[0], ContentMode::Block, context, state);
+    let content = evaluate_body(&call.bodies[0], ContentMode::Block, context, state);
     state.story_declaration = previous_story;
     let content = content?;
     state.set_story(
@@ -179,7 +179,7 @@ pub(super) fn evaluate_section(
 ) -> Result<Vec<Content>, Diagnostic> {
     check_body(call, span)?;
     state.declared_sections = true;
-    let arguments = evaluate_named_arguments(&call.arguments)?;
+    let arguments = evaluate_named_arguments(&call.arguments, state)?;
     let properties: Properties = arguments
         .iter()
         .map(|(name, argument)| (name.clone(), argument.value.clone()))
@@ -288,7 +288,7 @@ pub(super) fn evaluate_section(
         }
     }
     state.captures.push(StoryCapture::default());
-    let content = evaluate_nodes(&call.bodies[0], ContentMode::Block, context, state)?;
+    let content = evaluate_body(&call.bodies[0], ContentMode::Block, context, state)?;
     let capture = state.captures.pop().unwrap();
     section.header = capture
         .header

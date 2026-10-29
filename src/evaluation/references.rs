@@ -1,7 +1,7 @@
 //! Anchor declarations and references retain authoring intent until output resolution.
 use super::{
     ContentMode, EvaluationContext, EvaluationState, attributes::evaluate_attributes,
-    evaluate_nodes, expressions::evaluate_expression,
+    evaluate_body, expressions::evaluate_expression,
 };
 use crate::{
     diagnostics::{Diagnostic, Span},
@@ -48,9 +48,9 @@ pub(super) fn evaluate(
             format!("{} does not accept this content body", call.name),
         ));
     }
-    let mut attributes = evaluate_attributes(kind, &call.arguments)?;
+    let mut attributes = evaluate_attributes(kind, &call.arguments, state)?;
     if let Some(argument) = positional.first() {
-        let value = evaluate_expression(&argument.value)?;
+        let value = evaluate_expression(&argument.value, state)?;
         if !matches!(value, Value::String(_)) {
             return Err(Diagnostic::new(
                 argument.span,
@@ -104,7 +104,7 @@ pub(super) fn evaluate(
     let children = call
         .bodies
         .first()
-        .map(|body| evaluate_nodes(body, ContentMode::Inline, context, state))
+        .map(|body| evaluate_body(body, ContentMode::Inline, context, state))
         .transpose()?
         .unwrap_or_default();
     Ok(Content::Element(Element {

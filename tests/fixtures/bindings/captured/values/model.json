@@ -1,0 +1,156 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quarterly report"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#123456",
+                "size": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Acme"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "text",
+              "text": "20"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "true, false, "
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "{client: {name: Acme}, values: 10, 20, 30}"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Quarterly report"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "color": "#123456",
+            "size": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Acme"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "text",
+          "text": "20"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "true, false, "
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "{client: {name: Acme}, values: 10, 20, 30}"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        }
+      ]
+    }
+  ]
+}

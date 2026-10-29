@@ -1,0 +1,7 @@
+#let(value="outer", value=upper(value), later=value)
+#paragraph[#let(value="inner")#value #strong[#let(value="deep")#value] #value]
+#paragraph[#value #later]
+#section[#let(value="section")#paragraph[#value]]
+#paragraph[#value]
+#header[#let(value="header")#value]
+#paragraph[#value]

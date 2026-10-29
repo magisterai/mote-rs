@@ -2,7 +2,7 @@ use super::{
     ContentMode, EvaluationContext, EvaluationState,
     attributes::evaluate_attributes,
     declarations::{TableGroup, normalize_table_group},
-    evaluate_nodes,
+    evaluate_body, evaluate_nodes,
     values::*,
 };
 use crate::{
@@ -33,13 +33,13 @@ pub(super) fn evaluate(
             format!("{} requires one body and named arguments", call.name),
         ));
     }
-    let attributes = evaluate_attributes(kind, &call.arguments)?;
+    let attributes = evaluate_attributes(kind, &call.arguments, document)?;
     let mode = if kind == ElementKind::Cell {
         ContentMode::Block
     } else {
         ContentMode::Structural
     };
-    let mut children = evaluate_nodes(&call.bodies[0], mode, context, document)?;
+    let mut children = evaluate_body(&call.bodies[0], mode, context, document)?;
     if kind != ElementKind::Cell {
         children.retain(|child| !matches!(child, Content::Text(text) if text.trim().is_empty()));
         let required = if kind == ElementKind::Table {

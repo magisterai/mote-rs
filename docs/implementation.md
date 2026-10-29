@@ -183,7 +183,13 @@ table property objects. Table styles apply inherited cell and text defaults,
 with conditional-region output limits described below. Numeric
 font/style names produce source-located warnings in `Document.warnings`.
 
-Bindings, JSON loading, Lua and PowerPoint output remain deferred.
+Bindings preserve typed values and lexical child scopes for explicit directive
+bodies. Static expressions support dotted object paths and zero-based array
+segments. Markdown formatting shares its surrounding scope. Six frozen binding
+cases compare complete models and DOCX packages; see
+[the captures](../tests/fixtures/bindings/README.md).
+
+JSON loading, Lua and PowerPoint output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)

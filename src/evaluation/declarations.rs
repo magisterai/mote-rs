@@ -2,15 +2,13 @@
 
 use super::{attributes, expressions::evaluate_named_arguments, values::*};
 use crate::diagnostics::{Diagnostic, Span};
-use crate::model::{
-    Document, ElementKind, FontDeclaration, Properties, StyleDeclaration, StyleKind, Value,
-};
+use crate::model::{ElementKind, FontDeclaration, Properties, StyleDeclaration, StyleKind, Value};
 use crate::syntax::Call;
 
 pub(super) fn evaluate_declaration(
     call: &Call,
     span: Span,
-    document: &mut Document,
+    document: &mut super::EvaluationState,
 ) -> Result<(), Diagnostic> {
     if !call.bodies.is_empty()
         || call
@@ -23,7 +21,7 @@ pub(super) fn evaluate_declaration(
             format!("{} accepts named arguments and no content body", call.name),
         ));
     }
-    let mut fields = evaluate_named_arguments(&call.arguments)?;
+    let mut fields = evaluate_named_arguments(&call.arguments, document)?;
     let name = fields
         .remove("name")
         .ok_or_else(|| Diagnostic::new(span, format!("{} requires name", call.name)))?;

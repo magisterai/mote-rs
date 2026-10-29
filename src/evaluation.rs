@@ -5,6 +5,7 @@ use crate::model::{Content, Document, Element, ElementKind, Properties, Value};
 use crate::syntax::{Call, Node, NodeKind, SyntaxTree};
 
 mod attributes;
+mod bindings;
 mod captions;
 mod configuration;
 mod declarations;
@@ -134,6 +135,13 @@ fn evaluate_nodes(
             skip_declaration_trivia = true;
             continue;
         }
+        if let NodeKind::Call(call) = &node.kind
+            && call.name == "let"
+        {
+            bindings::evaluate(call, node.span, document)?;
+            skip_declaration_trivia = true;
+            continue;
+        }
         if mode.is_block() && matches!(node.kind, NodeKind::ParagraphBreak) {
             flush_paragraph(&mut paragraph, &mut result);
             continue;
@@ -244,10 +252,12 @@ fn evaluate_nodes(
             }
             NodeKind::Call(call) => evaluate_call(call, node.span, context, document)?,
             NodeKind::Reference(name) => {
-                return Err(Diagnostic::new(
-                    node.span,
-                    format!("binding references are not supported yet: {name}"),
-                ));
+                let value = document.bindings.resolve(name, node.span)?;
+                if value == Value::Nil {
+                    skip_declaration_trivia = true;
+                    continue;
+                }
+                Content::Text(value.to_text())
             }
         };
         if matches!(&content, Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())
@@ -379,7 +389,7 @@ fn evaluate_call(
         return notes::evaluate(call, span, context, document);
     }
     if call.name == "image" {
-        return images::evaluate(call, span);
+        return images::evaluate(call, span, document);
     }
     if call.name == "code" {
         return evaluate_code(call, span, context, document);
@@ -408,7 +418,7 @@ fn evaluate_call(
                 ),
             ));
         }
-        let mut attributes = evaluate_attributes(kind, &call.arguments)?;
+        let mut attributes = evaluate_attributes(kind, &call.arguments, document)?;
         if kind == ElementKind::Break {
             attributes
                 .entry("type".into())
@@ -439,7 +449,7 @@ fn evaluate_call(
                 ));
             }
             return Ok(Content::Text(value_as_text(
-                &evaluate_helper(&call.name, &call.arguments, span)?,
+                &evaluate_helper(&call.name, &call.arguments, span, document)?,
                 span,
             )?));
         }
@@ -482,7 +492,7 @@ fn evaluate_call(
             "unexpected positional argument",
         ));
     }
-    let attributes = evaluate_attributes(kind, &call.arguments)?;
+    let attributes = evaluate_attributes(kind, &call.arguments, document)?;
     if kind == ElementKind::Link
         && attributes
             .get("url")
@@ -495,7 +505,7 @@ fn evaluate_call(
         ElementKind::ListItem | ElementKind::Blockquote => ContentMode::Block,
         _ => ContentMode::Inline,
     };
-    let mut children = evaluate_nodes(&call.bodies[0], body_mode, context, document)?;
+    let mut children = evaluate_body(&call.bodies[0], body_mode, context, document)?;
     if body_mode == ContentMode::ListBody {
         children.retain(|child| !matches!(child, Content::Text(text) if text.trim().is_empty()));
         if children.iter().any(|child| !matches!(child, Content::Element(element) if element.kind == ElementKind::ListItem)) {
@@ -540,7 +550,7 @@ fn evaluate_code(
             "code accepts at most one positional argument",
         ));
     }
-    let attributes = evaluate_attributes(ElementKind::Code, &call.arguments)?;
+    let attributes = evaluate_attributes(ElementKind::Code, &call.arguments, document)?;
     let preserve_space =
         context.preserve_space || attributes.get("preserve_space") == Some(&Value::Boolean(true));
     let context = EvaluationContext {
@@ -548,12 +558,12 @@ fn evaluate_code(
         ..context
     };
     let mut children = if let Some(body) = call.bodies.first() {
-        evaluate_nodes(body, ContentMode::Inline, context, document)?
+        evaluate_body(body, ContentMode::Inline, context, document)?
     } else {
         Vec::new()
     };
     if let Some(argument) = positional.first() {
-        let value = evaluate_expression(&argument.value)?;
+        let value = evaluate_expression(&argument.value, document)?;
         if !matches!(
             value,
             Value::String(_) | Value::Number(_) | Value::Boolean(_)
@@ -586,4 +596,16 @@ fn normalize_preserved_content(content: &mut [Content]) {
             Content::Element(element) => normalize_preserved_content(&mut element.children),
         }
     }
+}
+
+fn evaluate_body(
+    nodes: &[Node],
+    mode: ContentMode,
+    context: EvaluationContext<'_>,
+    state: &mut EvaluationState,
+) -> Result<Vec<Content>, Diagnostic> {
+    state.bindings.enter();
+    let result = evaluate_nodes(nodes, mode, context, state);
+    state.bindings.leave();
+    result
 }

@@ -9,7 +9,11 @@ use crate::{
     syntax::Call,
 };
 
-pub(super) fn evaluate(call: &Call, span: Span) -> Result<Content, Diagnostic> {
+pub(super) fn evaluate(
+    call: &Call,
+    span: Span,
+    state: &super::EvaluationState,
+) -> Result<Content, Diagnostic> {
     if !call.bodies.is_empty() {
         return Err(Diagnostic::new(span, "image accepts no body"));
     }
@@ -27,12 +31,12 @@ pub(super) fn evaluate(call: &Call, span: Span) -> Result<Content, Diagnostic> {
     {
         return Err(Diagnostic::new(span, "image source must be supplied once"));
     }
-    let mut attributes = evaluate_attributes(ElementKind::Image, &call.arguments)?;
+    let mut attributes = evaluate_attributes(ElementKind::Image, &call.arguments, state)?;
     if let Some(argument) = positional.first() {
         attributes.insert(
             "src".into(),
             require_string(
-                evaluate_expression(&argument.value)?,
+                evaluate_expression(&argument.value, state)?,
                 argument.span,
                 "image source",
             )?,

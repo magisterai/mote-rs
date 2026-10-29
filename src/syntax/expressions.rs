@@ -35,7 +35,12 @@ impl Parser<'_> {
 
     pub(super) fn parse_path(&mut self) -> Result<String, Diagnostic> {
         let mut name = self.parse_identifier()?;
-        while self.peek_character() == Some('.') {
+        while self.peek_character() == Some('.')
+            && self.source[self.position + 1..]
+                .chars()
+                .next()
+                .is_some_and(is_identifier_start)
+        {
             self.advance_character();
             name.push('.');
             name.push_str(&self.parse_identifier()?);
@@ -144,7 +149,21 @@ impl Parser<'_> {
                 ExpressionKind::Number(value)
             }
             Some(character) if is_identifier_start(character) => {
-                let name = self.parse_path()?;
+                let mut name = self.parse_identifier()?;
+                while self.peek_character() == Some('.') {
+                    self.advance_character();
+                    let start = self.position;
+                    while self.peek_character().is_some_and(|character| {
+                        is_identifier_start(character) || character.is_ascii_digit()
+                    }) {
+                        self.advance_character();
+                    }
+                    if start == self.position {
+                        break;
+                    }
+                    name.push('.');
+                    name.push_str(&self.source[start..self.position]);
+                }
                 self.skip_whitespace();
                 match name.as_str() {
                     "true" => ExpressionKind::Boolean(true),

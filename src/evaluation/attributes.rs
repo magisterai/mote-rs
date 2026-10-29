@@ -21,8 +21,9 @@ const NUMBER_FORMATS: &[&str] = &[
 pub(super) fn evaluate_attributes(
     kind: ElementKind,
     arguments: &[Argument],
+    state: &super::EvaluationState,
 ) -> Result<Properties, Diagnostic> {
-    let mut named_arguments = evaluate_named_arguments(arguments)?;
+    let mut named_arguments = evaluate_named_arguments(arguments, state)?;
     // Repeated names use their final value. Outer types are checked before overrides.
     for (name, argument) in &named_arguments {
         validate_named_argument(kind, name, &argument.value, argument.source_expression.span)?;
@@ -57,7 +58,7 @@ pub(super) fn evaluate_attributes(
     if kind == ElementKind::Heading
         && let Some(argument) = arguments.iter().find(|argument| argument.name.is_none())
     {
-        let value = evaluate_expression(&argument.value)?;
+        let value = evaluate_expression(&argument.value, state)?;
         if !matches!(value, Value::Number(_)) {
             return Err(Diagnostic::new(
                 argument.value.span,
@@ -69,7 +70,7 @@ pub(super) fn evaluate_attributes(
     if kind == ElementKind::Link
         && let Some(argument) = arguments.iter().find(|argument| argument.name.is_none())
     {
-        let value = evaluate_expression(&argument.value)?;
+        let value = evaluate_expression(&argument.value, state)?;
         if !matches!(value, Value::String(_)) {
             return Err(Diagnostic::new(
                 argument.value.span,

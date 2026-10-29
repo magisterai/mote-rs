@@ -45,6 +45,7 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `let` | [Bindings](let.md) | Typed values, lexical scopes, content insertion and property paths. |
 | `footnote` | [Footnotes](footnote.md) | Inline references, block bodies, identifiers, and Markdown definitions. |
 | `endnote` | [Endnotes](endnote.md) | Inline references, block bodies, and identifiers. |
 | `section` | [Sections](section.md) | Geometry, boundaries, page numbering, and local running stories. |

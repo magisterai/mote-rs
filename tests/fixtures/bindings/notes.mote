@@ -1,0 +1,6 @@
+#let(name="initial")
+[^note]: #name #let(name="local")#name
+#let(name="first")
+#paragraph[One[^note].]
+#let(name="second")
+#paragraph[Two[^note]. #name.]

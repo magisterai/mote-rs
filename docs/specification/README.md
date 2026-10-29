@@ -50,12 +50,15 @@ Status: initial draft.
 18. [Footnotes and endnotes](notes.md): inline note references, block note bodies,
     identifiers and Markdown definitions.
 
+19. [Bindings and property access](bindings.md): typed values, lexical scopes,
+    content references and object/array paths.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
 the rule they violate. Implementation deferrals do not replace definitions.
 
-Later chapters will introduce bindings, data loading, additional formatting,
+Later chapters will introduce data loading, additional formatting,
 scripting, and layout. Their syntax is not used in the
 introductory examples.
 

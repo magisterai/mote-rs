@@ -1,5 +1,5 @@
 //! Inline note references retain block content in a separate story.
-use super::{ContentMode, EvaluationContext, EvaluationState, evaluate_nodes};
+use super::{ContentMode, EvaluationContext, EvaluationState, evaluate_body};
 use crate::{
     diagnostics::{Diagnostic, Span},
     model::{Content, Element, ElementKind},
@@ -31,8 +31,8 @@ pub(super) fn evaluate(
     } else {
         ElementKind::Endnote
     };
-    let attributes = super::attributes::evaluate_attributes(kind, &call.arguments)?;
-    let children = evaluate_nodes(&call.bodies[0], ContentMode::Block, context, state)?;
+    let attributes = super::attributes::evaluate_attributes(kind, &call.arguments, state)?;
+    let children = evaluate_body(&call.bodies[0], ContentMode::Block, context, state)?;
     Ok(Content::Element(Element {
         kind,
         attributes,
@@ -100,7 +100,7 @@ pub(super) fn markdown_reference(
             content
         } else {
             state.markdown_notes.get_mut(name).unwrap().evaluating = true;
-            let result = evaluate_nodes(&definition.body, ContentMode::Block, context, state);
+            let result = evaluate_body(&definition.body, ContentMode::Block, context, state);
             let definition = state.markdown_notes.get_mut(name).unwrap();
             definition.evaluating = false;
             let content = result?;

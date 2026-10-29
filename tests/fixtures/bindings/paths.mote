@@ -1,0 +1,9 @@
+#let(rows={{name="first"},{name="second"}}, first=rows.0.name, empty=nil)
+#paragraph[#first. #true #false #nil]
+#paragraph[#rows.0]
+#empty
+#paragraph[After empty.]
+#let(upper="name", true="shadow", false="shadow", nil="shadow")
+#paragraph[#upper #upper("hello") #true #false #nil]
+#let(direct=true, nested={true}, helper=upper(true))
+#paragraph[#direct #nested #helper #upper(true)]

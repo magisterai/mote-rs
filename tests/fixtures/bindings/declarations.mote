@@ -1,0 +1,6 @@
+#let(body="Helvetica", size=pt(11), page={width=pt(300),height=pt(400)}, heading="Title", url="https://example.com")
+#document(default_font=body,default_size=size,page=page)
+#style(name=heading,type="paragraph",run={bold=true,size=pt(16)})
+#paragraph(style=heading)[Report]
+#table(width=pt(200))[#let(value="table")#row[#cell[#value]]]
+#paragraph[#link(url)[Link] and #footnote[#let(value="note")#value].]

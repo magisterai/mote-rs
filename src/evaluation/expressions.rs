@@ -11,16 +11,17 @@ pub(super) struct EvaluatedArgument<'expression> {
     pub source_expression: &'expression Expression,
 }
 
-pub(super) fn evaluate_named_arguments(
-    arguments: &[Argument],
-) -> Result<BTreeMap<String, EvaluatedArgument<'_>>, Diagnostic> {
+pub(super) fn evaluate_named_arguments<'expression>(
+    arguments: &'expression [Argument],
+    state: &super::EvaluationState,
+) -> Result<BTreeMap<String, EvaluatedArgument<'expression>>, Diagnostic> {
     let mut evaluated = BTreeMap::new();
     for argument in arguments {
         if let Some(name) = &argument.name {
             evaluated.insert(
                 name.clone(),
                 EvaluatedArgument {
-                    value: evaluate_expression(&argument.value)?,
+                    value: evaluate_expression(&argument.value, state)?,
                     source_expression: &argument.value,
                 },
             );
@@ -29,7 +30,23 @@ pub(super) fn evaluate_named_arguments(
     Ok(evaluated)
 }
 
-pub(super) fn evaluate_expression(expression: &Expression) -> Result<Value, Diagnostic> {
+pub(super) fn evaluate_expression(
+    expression: &Expression,
+    state: &super::EvaluationState,
+) -> Result<Value, Diagnostic> {
+    match &expression.kind {
+        ExpressionKind::Boolean(value) => state
+            .bindings
+            .resolve(if *value { "true" } else { "false" }, expression.span),
+        ExpressionKind::Nil => state.bindings.resolve("nil", expression.span),
+        _ => evaluate_static_expression(expression, state),
+    }
+}
+
+fn evaluate_static_expression(
+    expression: &Expression,
+    state: &super::EvaluationState,
+) -> Result<Value, Diagnostic> {
     Ok(match &expression.kind {
         ExpressionKind::String(text) => Value::String(text.clone()),
         ExpressionKind::Number(number) => Value::Number(*number),
@@ -38,7 +55,7 @@ pub(super) fn evaluate_expression(expression: &Expression) -> Result<Value, Diag
         ExpressionKind::Array(entries) => Value::Array(
             entries
                 .iter()
-                .map(evaluate_expression)
+                .map(|entry| evaluate_static_expression(entry, state))
                 .collect::<Result<_, _>>()?,
         ),
         ExpressionKind::Object(fields) => {
@@ -47,19 +64,17 @@ pub(super) fn evaluate_expression(expression: &Expression) -> Result<Value, Diag
                 let Some(name) = &field.name else {
                     return Err(Diagnostic::new(field.span, "object fields must be named"));
                 };
-                object.insert(name.clone(), evaluate_expression(&field.value)?);
+                object.insert(
+                    name.clone(),
+                    evaluate_static_expression(&field.value, state)?,
+                );
             }
             Value::Object(object)
         }
         ExpressionKind::Call { name, arguments } => {
-            evaluate_helper(name, arguments, expression.span)?
+            evaluate_helper_arguments(name, arguments, expression.span, state, true)?
         }
-        ExpressionKind::Path(name) => {
-            return Err(Diagnostic::new(
-                expression.span,
-                format!("binding references are not supported yet: {name}"),
-            ));
-        }
+        ExpressionKind::Path(name) => state.bindings.resolve(name, expression.span)?,
     })
 }
 
@@ -67,6 +82,17 @@ pub(super) fn evaluate_helper(
     name: &str,
     arguments: &[Argument],
     span: Span,
+    state: &super::EvaluationState,
+) -> Result<Value, Diagnostic> {
+    evaluate_helper_arguments(name, arguments, span, state, false)
+}
+
+fn evaluate_helper_arguments(
+    name: &str,
+    arguments: &[Argument],
+    span: Span,
+    state: &super::EvaluationState,
+    static_arguments: bool,
 ) -> Result<Value, Diagnostic> {
     let unit = Unit::from_name(name);
     if unit.is_none() && !matches!(name, "upper" | "color") {
@@ -81,7 +107,11 @@ pub(super) fn evaluate_helper(
             ));
         }
     };
-    let value = evaluate_expression(&argument.value)?;
+    let value = if static_arguments {
+        evaluate_static_expression(&argument.value, state)?
+    } else {
+        evaluate_expression(&argument.value, state)?
+    };
     if name == "color" {
         return normalize_color(value, argument.value.span, "color");
     }

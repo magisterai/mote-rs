@@ -1,0 +1,22 @@
+#let(name="root")
+**#let(name="bold")#name** #name
+
+*#let(name="emphasis")#name* #name
+
+# Heading #let(name="heading")#name
+
+#name.
+
+> #let(name="quote")#name
+
+#name.
+
+- #let(name="item")#name
+
+#name.
+
+| Header |
+| --- |
+| #let(name="cell")#name |
+
+#name.

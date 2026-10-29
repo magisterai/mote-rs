@@ -1,0 +1,5 @@
+#let(title="Quarterly report", size=pt(12), shade=color("#123456"), data={client={name="Acme"}, values={10,20,30}}, amount=data.values.1)
+#heading[#title]
+#paragraph[#span(size=size,color=shade)[#data.client.name]: #amount.]
+#let(flags={true,false,nil}, empty=nil)
+#paragraph[#flags #data #empty]

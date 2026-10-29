@@ -1,6 +1,5 @@
 use super::{
-    ContentMode, EvaluationContext, EvaluationState, attributes::evaluate_attributes,
-    evaluate_nodes,
+    ContentMode, EvaluationContext, EvaluationState, attributes::evaluate_attributes, evaluate_body,
 };
 use crate::{
     diagnostics::{Diagnostic, Span},
@@ -29,8 +28,8 @@ pub(super) fn evaluate(
     } else {
         ElementKind::Caption
     };
-    let attributes = evaluate_attributes(kind, &call.arguments)?;
-    let children = evaluate_nodes(
+    let attributes = evaluate_attributes(kind, &call.arguments, state)?;
+    let children = evaluate_body(
         &call.bodies[0],
         if kind == ElementKind::Figure {
             ContentMode::Block
