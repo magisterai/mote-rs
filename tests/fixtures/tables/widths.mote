@@ -1,0 +1,13 @@
+#document(page={width=pt(280),height=pt(420)},margin={top=pt(20),right=pt(20),bottom=pt(20),left=pt(20)})
+#table[
+#row[#cell[A] #cell[Longer ordinary words determine the preferred width.]]
+#row[#cell[UnbrokenIdentifier0123456789] #cell[Small words fill the remaining space.]]
+]
+#table(width=pt(180),alignment="right")[
+#row[#cell(width=pt(140))[Wide] #cell(width=pt(100))[Narrow after fitting]]
+#row[#cell(colspan=2,alignment="center")[Spanning both columns]]
+]
+#table(cell={margin={all=pt(2)}})[
+#row[#cell[#span(size=pt(18))[Large] small] #cell[**Bold words** and `code`]]
+#row[#cell[One two three four five six seven eight.] #cell[More content to wrap.]]
+]

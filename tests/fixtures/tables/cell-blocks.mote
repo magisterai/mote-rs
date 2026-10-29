@@ -1,0 +1,24 @@
+#document(page={width=pt(400),height=pt(600)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#table(width=pt(352))[
+#row[#cell[
+> A quoted first paragraph.
+>
+> A second quoted paragraph.
+
+#list[
+#item[
+First item paragraph.
+
+Second item paragraph.
+]
+#item[Another item.]
+]
+] #cell[
+#heading(level=2)[Cell heading]
+#paragraph(spacing={before=pt(4),after=pt(7)},fill="#fff0dd")[Explicit paragraph shading.]
+#paragraph[Following paragraph.]
+#ordered_list(id="sequence")[#item[One] #item[Two]]
+]]
+#row[#cell(colspan=2)[#ordered_list(id="sequence",restart=false)[#item[Three]]]]
+]
+#ordered_list(id="sequence",restart=false)[#item[Four]]

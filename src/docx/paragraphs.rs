@@ -10,6 +10,22 @@ pub(super) fn write(
     resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
     let mut attributes = attributes.clone();
+    for field in [
+        "font",
+        "size",
+        "color",
+        "bold",
+        "italic",
+        "underline",
+        "strike",
+        "double_strike",
+        "small_caps",
+        "highlight",
+    ] {
+        if attributes.remove(field).is_some() {
+            resources.warnings.push(format!("paragraph.{field} is retained but has no editable paragraph effect; use an inline span or a named style"));
+        }
+    }
     let mut properties = String::new();
     if let Some(name) = attributes
         .remove("style")

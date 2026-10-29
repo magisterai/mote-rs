@@ -1,0 +1,13 @@
+#document(page={width=pt(400),height=pt(480)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#style(name="Objects",type="table",table={cell={margin={all=pt(5)}},paragraph={alignment="right",indent={left=pt(10),right=pt(8)}}})
+#table(style="Objects",width=pt(352))[
+#row[#cell(alignment="left")[
+#image(src="../images/assets/pattern.png",width=pt(48))
+#paragraph[Cell text uses its direct alignment.]
+] #cell[
+#image(src="../images/assets/pattern.png",width=pt(48),alignment="center")
+]]
+#row[#cell(colspan=2)[
+#table(width=pt(220),alignment="center")[#row[#cell[Nested] #cell[Table]]]
+]]
+]

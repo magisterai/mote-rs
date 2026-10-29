@@ -1,0 +1,657 @@
+{
+  "document": {
+    "columns": {
+      "count": 2,
+      "gap": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "separator": true
+    },
+    "margin": {
+      "bottom": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "left": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "right": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "top": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      }
+    },
+    "page": {
+      "height": {
+        "text": "240pt",
+        "unit": "pt",
+        "value": 240
+      },
+      "width": {
+        "text": "420pt",
+        "unit": "pt",
+        "value": 420
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "240pt",
+        "unit": "pt",
+        "value": 240
+      },
+      "width": {
+        "text": "420pt",
+        "unit": "pt",
+        "value": 420
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "right": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "bottom": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "left": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "properties": {
+      "bottom": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "left": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "right": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "top": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      }
+    }
+  },
+  "columns": {
+    "count": 2,
+    "gap": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "separator": true,
+    "properties": {
+      "count": 2,
+      "gap": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "separator": true
+    }
+  },
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "width": {
+            "text": "420pt",
+            "unit": "pt",
+            "value": 420
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "right": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "bottom": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "left": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "properties": {
+          "bottom": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "left": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "right": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "top": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          }
+        }
+      },
+      "columns": {
+        "count": 2,
+        "gap": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "separator": true,
+        "properties": {
+          "count": 2,
+          "gap": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "separator": true
+        }
+      },
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A table in two-column document flow."
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "category": "block",
+          "attributes": {
+            "width": {
+              "text": "180pt",
+              "unit": "pt",
+              "value": 180
+            }
+          },
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "First entry."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "B"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Second entry has more content, filling the available width and several complete lines."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "C"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Third entry continues into another column."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "D"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Fourth entry demonstrates the remaining page area and ordinary row splitting."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "E"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Fifth and final entry."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Following text."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A table in two-column document flow."
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "category": "block",
+      "attributes": {
+        "width": {
+          "text": "180pt",
+          "unit": "pt",
+          "value": 180
+        }
+      },
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First entry."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second entry has more content, filling the available width and several complete lines."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "C"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Third entry continues into another column."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "D"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Fourth entry demonstrates the remaining page area and ordinary row splitting."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "E"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Fifth and final entry."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Following text."
+        }
+      ]
+    }
+  ]
+}

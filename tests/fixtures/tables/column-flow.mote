@@ -1,0 +1,12 @@
+#document(page={width=pt(420),height=pt(240)},margin={top=pt(20),right=pt(20),bottom=pt(20),left=pt(20)},columns={count=2,gap=pt(20),separator=true})
+A table in two-column document flow.
+
+#table(width=pt(180))[
+#row[#cell[A] #cell[First entry.]]
+#row[#cell[B] #cell[Second entry has more content, filling the available width and several complete lines.]]
+#row[#cell[C] #cell[Third entry continues into another column.]]
+#row[#cell[D] #cell[Fourth entry demonstrates the remaining page area and ordinary row splitting.]]
+#row[#cell[E] #cell[Fifth and final entry.]]
+]
+
+Following text.

@@ -50,6 +50,17 @@ class ComparisonTests(unittest.TestCase):
         second[1].text = 'Changed'
         self.assertNotEqual(compare_outputs.canonical_xml(first), compare_outputs.canonical_xml(second))
 
+    def test_only_text_split_by_an_advisory_marker_is_joined(self):
+        namespace = compare_outputs.WORD_NAMESPACE
+        def canonical(body):
+            return compare_outputs.canonical_xml(ElementTree.fromstring(f'<w:r xmlns:w="{namespace}">{body}</w:r>'))
+        whole = canonical('<w:t xml:space="preserve">one two</w:t>')
+        split = canonical('<w:t xml:space="preserve">one </w:t><w:lastRenderedPageBreak/><w:t xml:space="preserve">two</w:t>')
+        self.assertEqual(whole, split)
+        for separator in ['', '<w:br/>', '<w:tab/>']:
+            self.assertNotEqual(whole, canonical('<w:t xml:space="preserve">one </w:t>' + separator + '<w:t xml:space="preserve">two</w:t>'))
+        self.assertNotEqual(whole, canonical('<w:t>one </w:t><w:lastRenderedPageBreak/><w:t xml:space="preserve">two</w:t>'))
+
     def test_packages_count_advisory_breaks_and_compare_binary_parts(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'test.docx'

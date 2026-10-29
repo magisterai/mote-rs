@@ -33,6 +33,14 @@ fn tables_preserve_models_and_complete_editable_packages() {
         "markdown",
         "content",
         "styles",
+        "borders",
+        "cell-blocks",
+        "columns",
+        "column-flow",
+        "objects",
+        "pagination",
+        "rowspan-flow",
+        "widths",
     ] {
         let source = fs::read_to_string(fixtures().join(format!("{case}.mote"))).unwrap();
         let document = mote::compile(&source).unwrap();
@@ -47,7 +55,11 @@ fn tables_preserve_models_and_complete_editable_packages() {
         assert_eq!(actual, expected, "{case}: model");
         let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
         assert!(
-            generated.warnings.is_empty(),
+            if case == "pagination" {
+                generated.warnings.len() == 1 && generated.warnings[0].contains("paragraph.size")
+            } else {
+                generated.warnings.is_empty()
+            },
             "{case}: {:?}",
             generated.warnings
         );

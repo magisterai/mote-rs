@@ -1,0 +1,17 @@
+#document(page={width=pt(400),height=pt(600)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#table(width=pt(320),borders={outside={width=pt(2.25),color="#334455"},inside={width=pt(0.75),color="#8899aa"}})[
+#row[#cell[Outside and inside] #cell[Different widths]]
+#row[#cell(borders={right={width=pt(1),color="#cc3333"}})[Narrow edge] #cell(borders={left={width=pt(3),color="#3366cc"}})[Wider edge wins]]
+#row[#cell(borders={right={style="none"}})[Explicit none] #cell(borders={left={width=pt(1.5),color="#225522"}})[Visible cell edge wins]]
+]
+#table(width=pt(320),borders={all="none"})[
+#row[#cell(fill="#eef4ff")[Borderless] #cell[Control]]
+]
+#table(width=pt(320),borders={all={width=pt(0.5),color="#778899"}})[
+#row[#cell(rowspan=2,borders={right={width=pt(2),color="#884422"}})[Merged rows] #cell[Top]]
+#row[#cell(borders={left={width=pt(3),color="#224488"}})[Bottom conflict]]
+#row[#cell(colspan=2,borders={top={width=pt(1.25),color="#222222"}})[Full-width final cell]]
+]
+#table(width=pt(320),borders={all={style="dotted",width=pt(1),color="#774499"}})[
+#row[#cell[Dotted borders] #cell(borders={left={style="dashed",width=pt(1),color="#447799"}})[Dashed border]]
+]

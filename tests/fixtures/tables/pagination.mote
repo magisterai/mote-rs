@@ -1,0 +1,19 @@
+#document(page={width=pt(320),height=pt(230)},margin={top=pt(20),right=pt(20),bottom=pt(20),left=pt(20)})
+A table continuing through natural page flow.
+
+#table(width=pt(280),cell={margin={all=pt(4)}})[
+#row(repeat_header=true)[#cell(fill="#ddeeff")[Item] #cell(fill="#ddeeff")[Description]]
+#row[#cell[First] #cell[One short row.]]
+#row[#cell(vertical_alignment="center")[Middle label] #cell[
+#paragraph[Alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi omicron pi rho sigma tau upsilon phi chi psi omega.]
+#paragraph[This second paragraph follows the first. It should continue at a complete text line when the remaining page space is too small.]
+]]
+#row(cant_split=true)[#cell[Kept together] #cell[An indivisible row has several words so that wrapping is visible. It should move as one row when required.]]
+#row[#cell(vertical_alignment="bottom")[Bottom label] #cell[
+#paragraph(size=pt(15),widow_control=false)[Larger words occupy more space, and this paragraph uses different line heights from the other column.]
+#paragraph[The final paragraph returns to the normal size.]
+]]
+#row[#cell[Last] #cell[Final row.]]
+]
+
+Text following the table.

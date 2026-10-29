@@ -46,6 +46,11 @@ pub(super) fn write(
             .transpose()?;
         let checkbox = controls::checkbox_properties(&item.attributes)?;
         check_attributes(&checkbox, &["checked", "kind", "name", "title"], "checkbox")?;
+        if state.table_cell_depth > 0 && item.children.iter().any(|child|matches!(child,Content::Element(element) if element.kind==ElementKind::Paragraph)) {
+            let identifier=if checked.is_none() {Some(match numbering_identifier {Some(identifier)=>identifier,None=>{let identifier=state.numbering.for_list(list,layout,level)?;numbering_identifier=Some(identifier);identifier}})}else{None};
+            write_structured_item(&mut output,item,item_level,layout,StructuredMarker{identifier,checked,checkbox:&checkbox},styles,state)?;
+            continue;
+        }
         let (inline, nested) = split_item_children(&item.children)?;
         output.push_str("<w:p><w:pPr>");
         if checked.is_none() {
@@ -118,4 +123,109 @@ fn split_item_children(children: &[Content]) -> Result<(Vec<Content>, Vec<&Eleme
         }
     }
     Ok((inline, nested))
+}
+
+struct StructuredMarker<'properties> {
+    identifier: Option<usize>,
+    checked: Option<bool>,
+    checkbox: &'properties crate::model::Properties,
+}
+fn write_structured_item(
+    output: &mut String,
+    item: &Element,
+    level: u8,
+    layout: ListLayout,
+    marker: StructuredMarker<'_>,
+    styles: &Styles<'_>,
+    state: &mut DocumentState,
+) -> Result<(), Error> {
+    use crate::model::{Properties, Unit, Value};
+    let StructuredMarker {
+        identifier,
+        checked,
+        checkbox,
+    } = marker;
+    let layout = layout.for_item(&item.attributes, level)?;
+    let mut first = true;
+    let mut pending = Vec::new();
+    let mut write_units = |pending: &mut Vec<Content>,
+                           output: &mut String,
+                           state: &mut DocumentState|
+     -> Result<(), Error> {
+        if pending
+            .iter()
+            .all(|node| matches!(node,Content::Text(text) if text.trim().is_empty()))
+        {
+            pending.clear();
+            return Ok(());
+        }
+        for (mut attributes, children) in crate::tables::paragraph_units(pending) {
+            let override_layout = checked.is_some()
+                || !first
+                || ["indent", "spacing", "tight"]
+                    .iter()
+                    .any(|name| item.attributes.contains_key(*name));
+            if override_layout {
+                let mut indent = Properties::from([(
+                    "left".into(),
+                    Value::Length {
+                        value: layout.left as f64 / 20.0,
+                        unit: Unit::Point,
+                    },
+                )]);
+                if first {
+                    indent.insert(
+                        "hanging".into(),
+                        Value::Length {
+                            value: layout.hanging as f64 / 20.0,
+                            unit: Unit::Point,
+                        },
+                    );
+                }
+                attributes
+                    .entry("indent".into())
+                    .or_insert(Value::Object(indent));
+                attributes
+                    .entry("spacing_after".into())
+                    .or_insert(Value::Length {
+                        value: layout.spacing_after as f64 / 20.0,
+                        unit: Unit::Point,
+                    });
+            }
+            let numbering = if first {
+                identifier.map(|identifier| (identifier, level))
+            } else {
+                None
+            };
+            let mut paragraph = super::paragraphs::write(
+                &attributes,
+                &children,
+                styles,
+                numbering,
+                false,
+                &mut state.resources,
+            )?;
+            if first && let Some(checked) = checked {
+                let checkbox = state.controls.write_checkbox(checkbox, checked, styles)?
+                    + "<w:r><w:t xml:space=\"preserve\"> </w:t></w:r>";
+                let index = paragraph.find("</w:pPr>").map_or(5, |index| index + 8);
+                paragraph.insert_str(index, &checkbox);
+            }
+            output.push_str(&paragraph);
+            first = false;
+        }
+        pending.clear();
+        Ok(())
+    };
+    for child in &item.children {
+        if let Content::Element(nested) = child
+            && matches!(nested.kind, ElementKind::List | ElementKind::OrderedList)
+        {
+            write_units(&mut pending, output, state)?;
+            output.push_str(&write(nested, level + 1, styles, state)?);
+        } else {
+            pending.push(child.clone());
+        }
+    }
+    write_units(&mut pending, output, state)
 }

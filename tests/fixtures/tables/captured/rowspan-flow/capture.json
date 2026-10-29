@@ -1,0 +1,19 @@
+{
+  "source": "../../rowspan-flow.mote",
+  "source_sha256": "6a942a449f3a15a0627203ae0ca93ac47393ce8283e15c2685f51a5ebbbc81c4",
+  "captured_docx_sha256": "34bfb4253844bf88ec7424e049cddda5db796a4ab425fe231c76e94c04b8f38a",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:04:42.468522+00:00"
+}

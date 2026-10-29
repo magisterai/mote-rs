@@ -1,0 +1,19 @@
+{
+  "source": "../../column-flow.mote",
+  "source_sha256": "598584947e88e666a169c4219264758ea694adc9a7624680df628a43316e8ea5",
+  "captured_docx_sha256": "2cf8f6d00e055c3a03efe85ede2424c14603bca3ae93cd3ff874d8bda00eed54",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:04:42.462816+00:00"
+}

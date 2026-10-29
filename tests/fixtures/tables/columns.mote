@@ -1,0 +1,13 @@
+#document(page={width=pt(420),height=pt(240)},margin={top=pt(20),right=pt(20),bottom=pt(20),left=pt(20)},columns={count=2,gap=pt(20),separator=true})
+Columns before the table.
+
+#table(width=pt(180))[
+#row(repeat_header=true)[#cell[Code] #cell[Text]]
+#row[#cell[A] #cell[First short entry in the first column.]]
+#row[#cell[B] #cell[Second entry with enough text to occupy several lines and test normal cell wrapping.]]
+#row[#cell[C] #cell[Third entry continues through the next available column.]]
+#row[#cell[D] #cell[Fourth entry crosses a page when both columns fill.]]
+#row[#cell[E] #cell[Fifth entry closes this table.]]
+]
+
+After the table.

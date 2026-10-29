@@ -65,9 +65,21 @@ def canonical_xml(element, preserve_space=False):
     elif not preserve_space and not text.strip() and element.tag != '{' + WORD_NAMESPACE + '}t':
         text = ''
     children = []
+    advisory_pending = False
+    word_text = '{' + WORD_NAMESPACE + '}t'
     for child in element:
-        if child.tag != ADVISORY_BREAK:
-            children.append(canonical_xml(child, preserve_space))
+        if child.tag == ADVISORY_BREAK:
+            advisory_pending = True
+        else:
+            canonical = canonical_xml(child, preserve_space)
+            if (advisory_pending and element.tag == '{' + WORD_NAMESPACE + '}r'
+                    and children and children[-1][0] == word_text and canonical[0] == word_text
+                    and children[-1][1] == canonical[1] and not children[-1][3] and not canonical[3]):
+                previous = children.pop()
+                children.append((word_text, canonical[1], previous[2] + canonical[2], ()))
+            else:
+                children.append(canonical)
+            advisory_pending = False
         tail = child.tail or ''
         if tail.strip() or (preserve_space and tail):
             children.append(('#tail', tail))
@@ -184,7 +196,7 @@ def main(arguments=None):
                           'XML names compare by namespace URI, with attribute order ignored.',
                           'Generation created/modified timestamps are ignored.',
                           'Formatting whitespace is ignored outside text and xml:space="preserve".',
-                          'Advisory lastRenderedPageBreak elements are counted and ignored.',
+                          'Advisory lastRenderedPageBreak elements are counted and ignored; text split by those markers is joined within the same run.',
                           'All other element order, values, text, and package parts are compared.'],
         'word_review_status': 'unreviewed',
         'input_integrity_errors': integrity_errors,

@@ -62,33 +62,50 @@ fn canonical_element(node: roxmltree::Node<'_, '_>) -> XmlElement {
                 )
             })
             .collect(),
-        children: node
-            .children()
-            .filter_map(|child| {
-                if child.has_tag_name((
-                    "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
-                    "lastRenderedPageBreak",
-                )) {
-                    None
-                } else if child.is_element() {
-                    Some(XmlContent::Element(canonical_element(child)))
-                } else if child.is_text() {
-                    let text = child.text().unwrap();
-                    if text.trim().is_empty() && name.name() != "t" {
-                        None
-                    } else {
-                        Some(XmlContent::Text(if timestamp {
-                            "<generation time>".into()
-                        } else {
-                            text.into()
-                        }))
-                    }
-                } else {
-                    None
-                }
-            })
-            .collect(),
+        children: canonical_children(node, timestamp),
     }
+}
+
+fn canonical_children(node: roxmltree::Node<'_, '_>, timestamp: bool) -> Vec<XmlContent> {
+    const WORD: &str = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+    let mut output: Vec<XmlContent> = Vec::new();
+    let mut advisory = false;
+    for child in node.children() {
+        if child.has_tag_name((WORD, "lastRenderedPageBreak")) {
+            advisory = true;
+            continue;
+        }
+        if child.is_element() {
+            let current = canonical_element(child);
+            if advisory
+                && node.has_tag_name((WORD, "r"))
+                && child.has_tag_name((WORD, "t"))
+                && let Some(XmlContent::Element(previous)) = output.last_mut()
+                && previous.name == current.name
+                && previous.attributes == current.attributes
+                && let ([XmlContent::Text(previous_text)], [XmlContent::Text(current_text)]) = (
+                    previous.children.as_mut_slice(),
+                    current.children.as_slice(),
+                )
+            {
+                previous_text.push_str(current_text);
+                advisory = false;
+                continue;
+            }
+            output.push(XmlContent::Element(current));
+            advisory = false;
+        } else if child.is_text() {
+            let text = child.text().unwrap();
+            if !text.trim().is_empty() || node.tag_name().name() == "t" {
+                output.push(XmlContent::Text(if timestamp {
+                    "<generation time>".into()
+                } else {
+                    text.into()
+                }));
+            }
+        }
+    }
+    output
 }
 
 pub fn compare_xml(actual: &str, expected: &str, name: &str) {

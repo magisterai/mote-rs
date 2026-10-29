@@ -1,0 +1,800 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "left": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "right": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "top": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      }
+    },
+    "page": {
+      "height": {
+        "text": "230pt",
+        "unit": "pt",
+        "value": 230
+      },
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "230pt",
+        "unit": "pt",
+        "value": 230
+      },
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "right": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "bottom": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "left": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "properties": {
+      "bottom": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "left": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "right": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      },
+      "top": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "230pt",
+            "unit": "pt",
+            "value": 230
+          },
+          "width": {
+            "text": "320pt",
+            "unit": "pt",
+            "value": 320
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "right": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "bottom": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "left": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "properties": {
+          "bottom": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "left": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "right": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "top": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A table continuing through natural page flow."
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "category": "block",
+          "attributes": {
+            "cell": {
+              "margin": {
+                "all": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                }
+              }
+            },
+            "width": {
+              "text": "280pt",
+              "unit": "pt",
+              "value": 280
+            }
+          },
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "attributes": {
+                "repeat_header": true
+              },
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "attributes": {
+                    "fill": "#ddeeff"
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Item"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "attributes": {
+                    "fill": "#ddeeff"
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Description"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "First"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "One short row."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "attributes": {
+                    "vertical_alignment": "center"
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Middle label"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi omicron pi rho sigma tau upsilon phi chi psi omega."
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "This second paragraph follows the first. It should continue at a complete text line when the remaining page space is too small."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "attributes": {
+                "cant_split": true
+              },
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Kept together"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "An indivisible row has several words so that wrapping is visible. It should move as one row when required."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "attributes": {
+                    "vertical_alignment": "bottom"
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Bottom label"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "attributes": {
+                        "size": {
+                          "text": "15pt",
+                          "unit": "pt",
+                          "value": 15
+                        },
+                        "widow_control": false
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Larger words occupy more space, and this paragraph uses different line heights from the other column."
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "The final paragraph returns to the normal size."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Last"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Final row."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text following the table."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A table continuing through natural page flow."
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "category": "block",
+      "attributes": {
+        "cell": {
+          "margin": {
+            "all": {
+              "text": "4pt",
+              "unit": "pt",
+              "value": 4
+            }
+          }
+        },
+        "width": {
+          "text": "280pt",
+          "unit": "pt",
+          "value": 280
+        }
+      },
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "attributes": {
+            "repeat_header": true
+          },
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "attributes": {
+                "fill": "#ddeeff"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Item"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "attributes": {
+                "fill": "#ddeeff"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Description"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "One short row."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "attributes": {
+                "vertical_alignment": "center"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Middle label"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi omicron pi rho sigma tau upsilon phi chi psi omega."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "This second paragraph follows the first. It should continue at a complete text line when the remaining page space is too small."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "attributes": {
+            "cant_split": true
+          },
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Kept together"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "An indivisible row has several words so that wrapping is visible. It should move as one row when required."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "attributes": {
+                "vertical_alignment": "bottom"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Bottom label"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "size": {
+                      "text": "15pt",
+                      "unit": "pt",
+                      "value": 15
+                    },
+                    "widow_control": false
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Larger words occupy more space, and this paragraph uses different line heights from the other column."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "The final paragraph returns to the normal size."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Last"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Final row."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Text following the table."
+        }
+      ]
+    }
+  ]
+}

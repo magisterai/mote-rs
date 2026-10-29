@@ -1,0 +1,19 @@
+{
+  "source": "../../widths.mote",
+  "source_sha256": "09efd50ccbf5cf3dc73bcc1dfb9998521fd0c4af7e227f3ea1159827e19bc065",
+  "captured_docx_sha256": "7010109947ad3953c16dcc1df6d8908c826e9fca760806c9f017de9c5bb5eda6",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:04:42.469738+00:00"
+}

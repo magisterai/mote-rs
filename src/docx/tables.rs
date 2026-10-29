@@ -160,7 +160,9 @@ pub(super) fn write(
                 );
                 let formatting = self::styles::text_formatting(text, styles)?;
                 let previous = std::mem::replace(&mut state.resources.active_text, formatting);
+                state.table_cell_depth += 1;
                 let result = write_cell_content(&cell.element.children, &attributes, styles, state);
+                state.table_cell_depth -= 1;
                 state.resources.active_text = previous;
                 output.push_str(&result?);
             } else {

@@ -1,0 +1,19 @@
+{
+  "source": "../../cell-blocks.mote",
+  "source_sha256": "ea58d58a2c23eb8d784956f901b2503c4d04039df92b1617b4da49be90fa1aba",
+  "captured_docx_sha256": "d1eac4819df9266f131226c8ad93394fad4ceae0be3ae4ef39adfad6216c9f21",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:04:42.461349+00:00"
+}

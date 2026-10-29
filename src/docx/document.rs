@@ -8,6 +8,7 @@ use crate::model::{Content, Document, ElementKind, Value};
 pub(super) struct DocumentState {
     pub numbering: Numbering,
     pub controls: Controls,
+    pub table_cell_depth: usize,
     pub resources: super::resources::Resources,
 }
 
@@ -30,7 +31,8 @@ pub(super) fn write_blocks(
     state: &mut DocumentState,
 ) -> Result<String, Error> {
     let mut body = String::new();
-    let mut at_flow_start = true;
+    let mut at_flow_start = state.table_cell_depth == 0;
+    let mut previous_table = false;
     let mut pending_column_break = false;
     for content in content {
         let Content::Element(element) = content else {
@@ -38,6 +40,10 @@ pub(super) fn write_blocks(
                 "top-level text outside a paragraph".into(),
             ));
         };
+        if previous_table && element.kind == ElementKind::Table {
+            body.push_str("<w:p/>");
+        }
+        previous_table = element.kind == ElementKind::Table;
         if element.kind == ElementKind::Break {
             check_attributes(&element.attributes, &["type"], "break")?;
             if !element.children.is_empty() {

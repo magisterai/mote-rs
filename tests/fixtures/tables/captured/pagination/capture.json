@@ -1,0 +1,19 @@
+{
+  "source": "../../pagination.mote",
+  "source_sha256": "f333a9a86968dbda30def782c30d03221e60094e3c78b8c9f48ae6043e4f00e3",
+  "captured_docx_sha256": "2801056d163546525d4535e246eae5f5b2f705ea3e00d85ee6336526eabfe215",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:04:42.467199+00:00"
+}

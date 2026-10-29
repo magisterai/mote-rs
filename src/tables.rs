@@ -161,3 +161,35 @@ pub(crate) fn plain_text(content: &[Content]) -> String {
         })
         .collect()
 }
+
+/// Keep directly authored paragraph boundaries when a cell wrapper supplies its style.
+pub(crate) fn paragraph_units(children: &[Content]) -> Vec<(Properties, Vec<Content>)> {
+    fn flush(output: &mut Vec<(Properties, Vec<Content>)>, pending: &mut Vec<Content>) {
+        while matches!(pending.first(),Some(Content::Text(text)) if text.trim().is_empty()) {
+            pending.remove(0);
+        }
+        while matches!(pending.last(),Some(Content::Text(text)) if text.trim().is_empty()) {
+            pending.pop();
+        }
+        if !pending.is_empty() {
+            output.push((Properties::new(), std::mem::take(pending)));
+        }
+    }
+    let mut output = Vec::new();
+    let mut pending = Vec::new();
+    for child in children {
+        if let Content::Element(element) = child
+            && element.kind == ElementKind::Paragraph
+        {
+            flush(&mut output, &mut pending);
+            output.push((element.attributes.clone(), element.children.clone()));
+        } else {
+            pending.push(child.clone());
+        }
+    }
+    flush(&mut output, &mut pending);
+    if output.is_empty() {
+        output.push((Properties::new(), Vec::new()));
+    }
+    output
+}

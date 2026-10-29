@@ -98,9 +98,15 @@ pub fn emit_with_assets(
         &state.resources.relationships()?,
         &state.resources.media,
     )?;
+    state
+        .resources
+        .warnings
+        .extend(state.resources.images.warnings);
+    state.resources.warnings.sort();
+    state.resources.warnings.dedup();
     Ok(GeneratedPackage {
         bytes,
-        warnings: state.resources.images.warnings,
+        warnings: state.resources.warnings,
     })
 }
 
