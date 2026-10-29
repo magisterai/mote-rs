@@ -408,6 +408,14 @@ check the complete path at three widths, including hanging indents, minimum fram
 width and zero-size fallback. Lines remain relative to their paragraph; this API
 does not claim numbering, tab-stop or border placement.
 
-Shaping, document paragraph placement, pagination, PDF and PNG generation remain unimplemented.
+`PageGeometry` resolves physical pages and equal-width columns against
+[23 geometry captures](../tests/fixtures/page-geometry/README.md).
+`plan_paragraph_flow` places measured lines through supplied page areas, with
+leading spacing, keep-together and widow/orphan decisions verified against
+[672 flow captures](../tests/fixtures/paragraph-flow/README.md). The planner returns
+explicit transitions and placements and rejects invalid or non-progressing areas.
+It does not independently resolve text or paint output.
+
+Shaping, whole-document assembly, column balancing, PDF and PNG generation remain unimplemented.
 Numeric agreement remains separate
 from visual review in Word.

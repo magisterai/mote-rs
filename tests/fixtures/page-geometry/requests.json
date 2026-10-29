@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "page-000",
+      "source": "#document(page = {size = \"letter\", orientation = \"portrait\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-001",
+      "source": "#document(page = {size = \"letter\", orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-002",
+      "source": "#document(page = {size = \"legal\", orientation = \"portrait\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-003",
+      "source": "#document(page = {size = \"legal\", orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-004",
+      "source": "#document(page = {size = \"tabloid\", orientation = \"portrait\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-005",
+      "source": "#document(page = {size = \"tabloid\", orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-006",
+      "source": "#document(page = {size = \"a3\", orientation = \"portrait\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-007",
+      "source": "#document(page = {size = \"a3\", orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-008",
+      "source": "#document(page = {size = \"a4\", orientation = \"portrait\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-009",
+      "source": "#document(page = {size = \"a4\", orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-010",
+      "source": "#document(page = {size = \"a5\", orientation = \"portrait\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-011",
+      "source": "#document(page = {size = \"a5\", orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-012",
+      "source": "#document(page = {size = \"unknown\", orientation = \"portrait\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-013",
+      "source": "#document(page = {size = \"unknown\", orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-014",
+      "source": "#document(page = {width = pt(600), height = pt(400), orientation = \"landscape\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-015",
+      "source": "#document(page = {width = 12000, height = \"16000\"})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-016",
+      "source": "#document(margin = {all = pt(24)})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-017",
+      "source": "#document(margin = {top = pt(10), bottom = pt(12), header = pt(5), footer = pt(6)})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-018",
+      "source": "#document(margin = {top = pt(10), bottom = pt(12)})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-019",
+      "source": "#document(margin = {left = pt(18), right = pt(32), gutter = pt(12)})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-020",
+      "source": "#document(columns = {count = 2})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-021",
+      "source": "#document(columns = {count = 3, gap = pt(10), separator = true})\n#paragraph[Geometry]"
+    },
+    {
+      "id": "page-022",
+      "source": "#document(columns = {count = 2, gap = pt(500)})\n#paragraph[Geometry]"
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+{
+  "cases": [
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 468,
+      "content_bottom": 720,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-000",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 612
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 648,
+      "content_bottom": 540,
+      "content_width": 648,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 612,
+      "id": "page-001",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 792
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 468,
+      "content_bottom": 936,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 1008,
+      "id": "page-002",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 612
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 864,
+      "content_bottom": 540,
+      "content_width": 864,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 612,
+      "id": "page-003",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 1008
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 648,
+      "content_bottom": 1152,
+      "content_width": 648,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 1224,
+      "id": "page-004",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 792
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 1080,
+      "content_bottom": 720,
+      "content_width": 1080,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-005",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 1224
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 697.9,
+      "content_bottom": 1118.55,
+      "content_width": 697.9,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 1190.55,
+      "id": "page-006",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 841.9
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 1046.55,
+      "content_bottom": 769.9,
+      "content_width": 1046.55,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 841.9,
+      "id": "page-007",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 1190.55
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 451.29999999999995,
+      "content_bottom": 769.9,
+      "content_width": 451.29999999999995,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 841.9,
+      "id": "page-008",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 595.3
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 697.9,
+      "content_bottom": 523.3,
+      "content_width": 697.9,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 595.3,
+      "id": "page-009",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 841.9
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 275.55,
+      "content_bottom": 523.3,
+      "content_width": 275.55,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 595.3,
+      "id": "page-010",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 419.55
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 451.29999999999995,
+      "content_bottom": 347.55,
+      "content_width": 451.29999999999995,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 419.55,
+      "id": "page-011",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 595.3
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 468,
+      "content_bottom": 720,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-012",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 612
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 648,
+      "content_bottom": 540,
+      "content_width": 648,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 612,
+      "id": "page-013",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 792
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 456,
+      "content_bottom": 328,
+      "content_width": 456,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 400,
+      "id": "page-014",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 600
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 456,
+      "content_bottom": 728,
+      "content_width": 456,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 800,
+      "id": "page-015",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 600
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 468,
+      "content_bottom": 720,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-016",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 612
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 468,
+      "content_bottom": 780,
+      "content_width": 468,
+      "footer_space": 6,
+      "header_space": 5,
+      "height": 792,
+      "id": "page-017",
+      "margin_bottom": 12,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 10,
+      "width": 612
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        72
+      ],
+      "column_separator": false,
+      "column_width": 468,
+      "content_bottom": 756,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-018",
+      "margin_bottom": 36,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 36,
+      "width": 612
+    },
+    {
+      "column_count": 1,
+      "column_gap": 18,
+      "column_left": [
+        18
+      ],
+      "column_separator": false,
+      "column_width": 562,
+      "content_bottom": 720,
+      "content_width": 562,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-019",
+      "margin_bottom": 72,
+      "margin_left": 18,
+      "margin_right": 32,
+      "margin_top": 72,
+      "width": 612
+    },
+    {
+      "column_count": 2,
+      "column_gap": 18,
+      "column_left": [
+        72,
+        315
+      ],
+      "column_separator": false,
+      "column_width": 225,
+      "content_bottom": 720,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-020",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 612
+    },
+    {
+      "column_count": 3,
+      "column_gap": 10,
+      "column_left": [
+        72,
+        231.33333333333334,
+        390.6666666666667
+      ],
+      "column_separator": true,
+      "column_width": 149.33333333333334,
+      "content_bottom": 720,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-021",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 612
+    },
+    {
+      "column_count": 2,
+      "column_gap": 500,
+      "column_left": [
+        72,
+        1040
+      ],
+      "column_separator": false,
+      "column_width": 468,
+      "content_bottom": 720,
+      "content_width": 468,
+      "footer_space": 36,
+      "header_space": 36,
+      "height": 792,
+      "id": "page-022",
+      "margin_bottom": 72,
+      "margin_left": 72,
+      "margin_right": 72,
+      "margin_top": 72,
+      "width": 612
+    }
+  ],
+  "schema_version": 1
+}

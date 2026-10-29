@@ -1,7 +1,16 @@
 //! Native text geometry shared by output painters.
 
+mod flow;
+mod geometry;
 mod inline;
 mod lines;
+mod widows;
+pub use flow::{
+    FlowAdvance, FlowArea, FlowCursor, FlowOptions, FlowStep, LinePlacement, ParagraphFlow,
+    plan_paragraph_flow,
+};
+pub use geometry::PageGeometry;
+pub use widows::minimum_start_height;
 mod style_values;
 mod styles;
 pub use inline::resolve_inline;
