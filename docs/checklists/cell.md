@@ -1,6 +1,6 @@
 # Cell
 
-[Language](../specification/tables.md) · [Tests](../../tests/tables.rs)
+[Language](../specification/tables.md) · [Model/DOCX tests](../../tests/tables.rs) · [Native tests](../../tests/table_rendering.rs)
 
 [Directive index](README.md) · [Standard properties](attributes/tables.md)
 
@@ -20,5 +20,11 @@ shading patterns, revision metadata and unsupported text-flow controls. Listing
 those fields does not make them part of the Mote attribute vocabulary.
 
 Language/model and editable DOCX support are verified by captured packages.
-Native table layout is the next implementation step; Microsoft Word visual
-review remains unreviewed.
+
+Native PDF/PNG supports column/row spans, width, margins, fill, horizontal and
+vertical alignment, shared borders, and structured text, links, images, lists and
+nested tables. Cell content is clipped to its physical fragment. Paragraph bands
+and paragraph borders inside cells are omitted; inline highlights remain visible.
+`text_direction` and `no_wrap` affect editable DOCX only and produce native support warnings.
+
+Microsoft Word visual review remains unreviewed.

@@ -1,0 +1,258 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 35.464,
+              "baseline": 53.91277,
+              "size": 11,
+              "text": "Before ",
+              "x": 66
+            },
+            {
+              "advance": 18.348,
+              "baseline": 53.91277,
+              "size": 11,
+              "text": "the ",
+              "x": 101.464
+            },
+            {
+              "advance": 36.08,
+              "baseline": 53.91277,
+              "size": 11,
+              "text": "nested ",
+              "x": 119.812
+            },
+            {
+              "advance": 16.5,
+              "baseline": 53.91277,
+              "size": 11,
+              "text": "list.",
+              "x": 155.892
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 43,
+          "width": 106.392,
+          "x": 66
+        },
+        {
+          "fragments": [
+            {
+              "advance": 24.442,
+              "baseline": 71.13830999999999,
+              "size": 11,
+              "text": "First ",
+              "x": 84
+            },
+            {
+              "advance": 36.08,
+              "baseline": 71.13830999999999,
+              "size": 11,
+              "text": "nested ",
+              "x": 108.44200000000001
+            },
+            {
+              "advance": 23.837,
+              "baseline": 71.13830999999999,
+              "size": 11,
+              "text": "item.",
+              "x": 144.522
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 60.225539999999995,
+          "width": 84.359,
+          "x": 84
+        },
+        {
+          "fragments": [
+            {
+              "advance": 40.359,
+              "baseline": 88.36384999999999,
+              "size": 11,
+              "text": "Second ",
+              "x": 84
+            },
+            {
+              "advance": 36.08,
+              "baseline": 88.36384999999999,
+              "size": 11,
+              "text": "nested ",
+              "x": 124.35900000000001
+            },
+            {
+              "advance": 23.837,
+              "baseline": 88.36384999999999,
+              "size": 11,
+              "text": "item.",
+              "x": 160.43900000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 77.45107999999999,
+          "width": 100.276,
+          "x": 84
+        },
+        {
+          "fragments": [
+            {
+              "advance": 26.29,
+              "baseline": 105.58939,
+              "size": 11,
+              "text": "After ",
+              "x": 66
+            },
+            {
+              "advance": 18.348,
+              "baseline": 105.58939,
+              "size": 11,
+              "text": "the ",
+              "x": 92.28999999999999
+            },
+            {
+              "advance": 36.08,
+              "baseline": 105.58939,
+              "size": 11,
+              "text": "nested ",
+              "x": 110.638
+            },
+            {
+              "advance": 16.5,
+              "baseline": 105.58939,
+              "size": 11,
+              "text": "list.",
+              "x": 146.71800000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 94.67662,
+          "width": 97.21799999999999,
+          "x": 66
+        },
+        {
+          "fragments": [
+            {
+              "advance": 25.674,
+              "baseline": 122.81492999999999,
+              "size": 11,
+              "text": "Next ",
+              "x": 66
+            },
+            {
+              "advance": 28.127,
+              "baseline": 122.81492999999999,
+              "size": 11,
+              "text": "outer ",
+              "x": 91.674
+            },
+            {
+              "advance": 23.837,
+              "baseline": 122.81492999999999,
+              "size": 11,
+              "text": "item.",
+              "x": 119.801
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 111.90216,
+          "width": 77.638,
+          "x": 66
+        },
+        {
+          "fragments": [
+            {
+              "advance": 53.196,
+              "baseline": 145.54047,
+              "size": 11,
+              "text": "Continued ",
+              "x": 60
+            },
+            {
+              "advance": 38.522,
+              "baseline": 145.54047,
+              "size": 11,
+              "text": "outside ",
+              "x": 113.196
+            },
+            {
+              "advance": 18.348,
+              "baseline": 145.54047,
+              "size": 11,
+              "text": "the ",
+              "x": 151.718
+            },
+            {
+              "advance": 26.906,
+              "baseline": 145.54047,
+              "size": 11,
+              "text": "table.",
+              "x": 170.06599999999997
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 134.6277,
+          "width": 136.97199999999998,
+          "x": 60
+        }
+      ],
+      "rules": [
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            396,
+            39
+          ],
+          "start": [
+            24,
+            39
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            396,
+            133.628
+          ],
+          "start": [
+            24,
+            133.628
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            24,
+            133.6277
+          ],
+          "start": [
+            24,
+            39
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            396,
+            133.6277
+          ],
+          "start": [
+            396,
+            39
+          ],
+          "width": 0.5
+        }
+      ]
+    }
+  ]
+}

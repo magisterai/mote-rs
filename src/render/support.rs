@@ -1,4 +1,4 @@
-use crate::model::{Content, Document, ElementKind, Properties, Value};
+use crate::model::{Content, Document, ElementKind, Properties, StyleKind, Value};
 use std::collections::BTreeSet;
 
 const RUN: &[&str] = &[
@@ -86,6 +86,11 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
     }
     for (name, style) in &document.styles {
         let path = format!("style[{name:?}]");
+        if style.kind == StyleKind::Table {
+            let properties = crate::tables::styles::declared(style);
+            table_style(&properties, &path, &mut warnings);
+            continue;
+        }
         let allowed: Vec<_> = RUN
             .iter()
             .chain(PARAGRAPH)
@@ -113,10 +118,16 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
             }
         }
     }
-    content(&document.content, "content", &mut warnings);
+    content(&document.content, "content", false, false, &mut warnings);
     warnings
 }
-fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
+fn content(
+    nodes: &[Content],
+    path: &str,
+    in_cell: bool,
+    flattened: bool,
+    warnings: &mut BTreeSet<String>,
+) {
     for (index, node) in nodes.iter().enumerate() {
         let Content::Element(element) = node else {
             continue;
@@ -153,7 +164,21 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     allowed.extend(["id", "start", "restart"]);
                 }
             }
-            ElementKind::Table | ElementKind::Row | ElementKind::Cell => {}
+            ElementKind::Table => {
+                allowed.extend(["style", "width", "alignment", "cell", "borders"])
+            }
+            ElementKind::Row => allowed.extend(["repeat_header", "cant_split"]),
+            ElementKind::Cell => allowed.extend([
+                "style",
+                "width",
+                "colspan",
+                "rowspan",
+                "fill",
+                "vertical_alignment",
+                "alignment",
+                "margin",
+                "borders",
+            ]),
             ElementKind::Image => allowed.extend([
                 "src",
                 "alt",
@@ -180,11 +205,13 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
         unknown(attributes, &allowed, &path, warnings);
         if element.kind == ElementKind::Image {
             image_properties(attributes, &path, warnings);
-            if path.contains(".children") {
+            if flattened {
                 warnings.insert(format!(
                     "{path} uses a visible image placeholder inside flattened text"
                 ));
             }
+        } else if matches!(element.kind, ElementKind::Table | ElementKind::Cell) {
+            table_fields(attributes, &path, warnings);
         } else {
             nested(attributes, &path, list, item, warnings);
         }
@@ -239,7 +266,7 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                 warnings.insert(format!("{path} is rendered as a marker-only blank line"));
             }
         }
-        if element.kind == ElementKind::Blockquote {
+        if element.kind == ElementKind::Blockquote && !in_cell {
             for child in &element.children {
                 if let Content::Element(child) = child
                     && (matches!(
@@ -253,7 +280,21 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                 }
             }
         }
-        content(&element.children, &path, warnings);
+        if in_cell && matches!(element.kind, ElementKind::Paragraph | ElementKind::Heading) {
+            for property in ["border", "fill"] {
+                if attributes.contains_key(property) {
+                    warnings.insert(format!("{path}.{property} does not paint a native paragraph band inside a cell; inline highlighting remains visible"));
+                }
+            }
+        }
+        let cell_context = in_cell || element.kind == ElementKind::Cell;
+        let flattened = flattened
+            || (!cell_context
+                && matches!(
+                    element.kind,
+                    ElementKind::Blockquote | ElementKind::ListItem
+                ));
+        content(&element.children, &path, cell_context, flattened, warnings);
     }
 }
 fn nested(
@@ -413,6 +454,128 @@ fn image_properties(attributes: &Properties, path: &str, warnings: &mut BTreeSet
             warnings.insert(format!(
                 "{path}.placement.horizontal.alignment uses left native flow"
             ));
+        }
+    }
+}
+
+fn table_fields(properties: &Properties, path: &str, warnings: &mut BTreeSet<String>) {
+    if let Some(Value::Object(cell)) = properties.get("cell") {
+        unknown(
+            cell,
+            &[
+                "style",
+                "width",
+                "fill",
+                "vertical_alignment",
+                "alignment",
+                "margin",
+                "borders",
+            ],
+            &format!("{path}.cell"),
+            warnings,
+        );
+        table_fields(cell, &format!("{path}.cell"), warnings);
+    }
+    if let Some(Value::Object(margin)) = properties.get("margin") {
+        unknown(
+            margin,
+            &[
+                "all",
+                "horizontal",
+                "vertical",
+                "top",
+                "right",
+                "bottom",
+                "left",
+            ],
+            &format!("{path}.margin"),
+            warnings,
+        );
+    }
+    if let Some(Value::Object(borders)) = properties.get("borders") {
+        unknown(
+            borders,
+            &[
+                "all", "outside", "inside", "top", "right", "bottom", "left", "insideH", "insideV",
+                "inside_h", "inside_v",
+            ],
+            &format!("{path}.borders"),
+            warnings,
+        );
+        for (side, value) in borders {
+            let style = if let Value::Object(border) = value {
+                unknown(
+                    border,
+                    &["style", "val", "width", "size", "color"],
+                    &format!("{path}.borders.{side}"),
+                    warnings,
+                );
+                border
+                    .get("style")
+                    .or_else(|| border.get("val"))
+                    .map(Value::to_text)
+                    .unwrap_or_default()
+            } else {
+                value.to_text()
+            };
+            if !matches!(
+                style.as_str(),
+                "" | "single" | "none" | "nil" | "dotted" | "dashed"
+            ) {
+                warnings.insert(format!("{path}.borders.{side} uses a single native stroke for {style:?}; border conflict priority is retained"));
+            }
+        }
+    }
+}
+fn table_style(properties: &Properties, path: &str, warnings: &mut BTreeSet<String>) {
+    unknown(
+        properties,
+        &[
+            "name",
+            "type",
+            "based_on",
+            "next",
+            "link",
+            "style",
+            "width",
+            "fill",
+            "vertical_alignment",
+            "alignment",
+            "margin",
+            "borders",
+            "cell",
+            "paragraph",
+            "text",
+            "banding",
+            "first_row",
+            "last_row",
+        ],
+        path,
+        warnings,
+    );
+    table_fields(properties, path, warnings);
+    for field in ["first_row", "last_row"] {
+        if let Some(Value::Object(region)) = properties.get(field) {
+            table_style(region, &format!("{path}.{field}"), warnings);
+        }
+    }
+    if let Some(Value::Object(banding)) = properties.get("banding") {
+        unknown(
+            banding,
+            &["rows", "odd", "even"],
+            &format!("{path}.banding"),
+            warnings,
+        );
+        for field in ["odd", "even"] {
+            if let Some(Value::Object(region)) = banding.get(field) {
+                table_style(region, &format!("{path}.banding.{field}"), warnings);
+            }
+        }
+    }
+    for (field, allowed) in [("paragraph", PARAGRAPH), ("text", RUN)] {
+        if let Some(Value::Object(fields)) = properties.get(field) {
+            unknown(fields, allowed, &format!("{path}.{field}"), warnings);
+            nested(fields, &format!("{path}.{field}"), false, false, warnings);
         }
     }
 }

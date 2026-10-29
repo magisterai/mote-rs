@@ -1,0 +1,25 @@
+{
+  "source_sha256": "83f9cbb88d57667000fba762fede5155e983683903889f51fe5fdad703e813ee",
+  "units": "points",
+  "geometry_tolerance": 1e-08,
+  "native_png_dpi": 72,
+  "png_maximum_channel_difference": 56,
+  "png_mean_foreground_difference": 11.0,
+  "office_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:16:42.653919+00:00",
+  "native_reference_status": "captured",
+  "pages": 3,
+  "pdf_comparison_dpi": 144,
+  "pdf_changed_pixels": 0,
+  "files": {
+    "geometry.json": "c2faae3320e1bd536237de513e7194db17e34c3d10f9d6fb2112b40aeeb3ead4",
+    "reference-1.png": "af00ba04d8f94075eb8be5f95fe2cecadbc9e8361c977f07b035b4bad476bdc2",
+    "reference-2.png": "718f183eaccce55d00ea037cfb1391a0ec5aa1c626d936014793f5fda3f02961",
+    "reference-3.png": "ccff849c02dc692e5cc513fc9f05c7f1225a35ef855621be16ddb805f2126714"
+  },
+  "geometry_font_discovery": "disabled",
+  "raster_font_discovery": "installed",
+  "raster_core_outline_family": "macOS Helvetica",
+  "raster_named_font_families": [],
+  "png_tolerance_note": "The final page contains only a short line of core-font text; edge pixels dominate the foreground mean."
+}

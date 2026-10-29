@@ -45,6 +45,8 @@ impl TextPage {
 pub struct DocumentTextPlan {
     pub geometry: PageGeometry,
     pub pages: Vec<TextPage>,
+    /// Observable layout fallbacks shared by every painter.
+    pub warnings: Vec<String>,
 }
 
 /// Resolve block content and assemble ordered native painting operations.
@@ -75,9 +77,11 @@ pub(crate) fn plan_document_with_images(
         return Ok(DocumentTextPlan {
             geometry,
             pages: Vec::new(),
+            warnings: Vec::new(),
         });
     }
     let mut pages = vec![TextPage::default()];
+    let mut warnings = Vec::new();
     let mut cursor = FlowCursor {
         page_number: 1,
         current_top: geometry.margin_top,
@@ -176,6 +180,18 @@ pub(crate) fn plan_document_with_images(
                 columns.note(&cursor, geometry);
                 pending_spacing = image.after.max(0.0);
             }
+            Block::Table(table) => {
+                painting.clear_fill();
+                warnings.extend(super::tables::flow::place(
+                    table,
+                    &mut cursor,
+                    &mut pages,
+                    &mut columns,
+                    geometry,
+                    pending_spacing,
+                )?);
+                pending_spacing = 0.0;
+            }
             Block::Paragraph(prepared) => {
                 let paragraph = &prepared.text;
                 if prepared.clear_fill_before {
@@ -250,7 +266,11 @@ pub(crate) fn plan_document_with_images(
         }
     }
     columns.append(&mut pages, geometry);
-    Ok(DocumentTextPlan { geometry, pages })
+    Ok(DocumentTextPlan {
+        geometry,
+        pages,
+        warnings,
+    })
 }
 fn frame_for(style: &super::ParagraphStyle, width: f64) -> LineFrame {
     let available = (width - style.indent_left - style.indent_right).max(width.min(12.0));
@@ -275,7 +295,7 @@ fn new_page(
         ..Default::default()
     };
 }
-fn ensure_space(
+pub(super) fn ensure_space(
     cursor: &mut FlowCursor,
     pages: &mut Vec<TextPage>,
     columns: &mut ColumnSeparators,
@@ -286,7 +306,7 @@ fn ensure_space(
         next_area(cursor, pages, columns, geometry);
     }
 }
-fn next_area(
+pub(super) fn next_area(
     cursor: &mut FlowCursor,
     pages: &mut Vec<TextPage>,
     columns: &mut ColumnSeparators,

@@ -1,0 +1,11 @@
+#document(page={width=pt(300),height=pt(160)},margin={top=pt(20),right=pt(20),bottom=pt(20),left=pt(20)})
+#table(width=pt(260))[
+  #row[
+    #cell(rowspan=2,fill="#eef4ee")[
+      #image(src="../images/assets/pattern.png",width=pt(100),height=pt(170))
+    ]
+    #cell[First row beside an unsplittable tall object.]
+  ]
+  #row[#cell[Second row remains present when the merged group cannot fit.]]
+]
+After the table.

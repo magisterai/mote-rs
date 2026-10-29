@@ -1,6 +1,6 @@
 # Table
 
-[Language](../specification/tables.md) · [Tests](../../tests/tables.rs)
+[Language](../specification/tables.md) · [Model/DOCX tests](../../tests/tables.rs) · [Native tests](../../tests/table_rendering.rs)
 
 [Directive index](README.md) · [Standard properties](attributes/tables.md)
 
@@ -19,5 +19,12 @@ Only the documented Mote mappings are in implementation scope. Output support
 and Office visual review must be recorded separately.
 
 Language/model and editable DOCX support are verified by captured packages.
-Native table layout is the next implementation step; Microsoft Word visual
-review remains unreviewed.
+
+Native PDF/PNG supports width selection, alignment, cell defaults, row-based
+conditional styling, nested tables, shared physical borders and page/column flow.
+`indent`, `cell_spacing` and `layout` affect editable DOCX only; native output warns
+that these properties have no effect. First/last-column regions and column banding
+also remain editable-output capabilities. See the [capture notes](../../tests/fixtures/tables/README.md)
+for comparison coverage and font requirements.
+
+Microsoft Word visual review remains unreviewed.

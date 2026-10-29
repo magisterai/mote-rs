@@ -79,6 +79,7 @@ pub fn plan_with_fonts(
     let output = plan_document_with_images(document, &mut measurer, &images)?;
     let mut warnings = support::warnings(document);
     warnings.extend(images.warnings);
+    warnings.extend(output.warnings.iter().cloned());
     for fragment in output
         .pages
         .iter()
@@ -162,8 +163,37 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
     }
     for page in &plan.pages {
         let mut seen = vec![false; page.lines.len()];
+        let mut clip_depth = 0usize;
         for operation in &page.operations {
             match operation {
+                crate::layout::PageOperation::PushClip(bounds) => {
+                    if !bounds.iter().all(|value| value.is_finite())
+                        || bounds[2] <= 0.0
+                        || bounds[3] <= 0.0
+                    {
+                        return Err(RenderError::Invalid("invalid page clip".into()));
+                    }
+                    clip_depth += 1;
+                }
+                crate::layout::PageOperation::PopClip => {
+                    clip_depth = clip_depth
+                        .checked_sub(1)
+                        .ok_or_else(|| RenderError::Invalid("unbalanced page clip".into()))?;
+                }
+                crate::layout::PageOperation::Stroke { rule, dash, .. } => {
+                    if !rule
+                        .start
+                        .iter()
+                        .chain(&rule.end)
+                        .chain([&rule.width])
+                        .all(|value| value.is_finite())
+                        || rule.width <= 0.0
+                        || dash.iter().any(|value| !value.is_finite() || *value <= 0.0)
+                    {
+                        return Err(RenderError::Invalid("invalid patterned rule".into()));
+                    }
+                    color(&rule.color)?;
+                }
                 crate::layout::PageOperation::OutlineRectangle {
                     bounds,
                     width,
@@ -252,6 +282,9 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
                     }
                 }
             }
+        }
+        if clip_depth != 0 {
+            return Err(RenderError::Invalid("unbalanced page clip".into()));
         }
         if seen.iter().any(|visited| !visited) {
             return Err(RenderError::Invalid("page omits a text line".into()));

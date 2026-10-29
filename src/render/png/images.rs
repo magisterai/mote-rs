@@ -1,7 +1,12 @@
 use crate::{layout::PositionedImage, media::sampling};
 use tiny_skia::Pixmap;
 
-pub(super) fn paint(pixels: &mut Pixmap, image: &PositionedImage, scale: f64) {
+pub(super) fn paint(
+    pixels: &mut Pixmap,
+    image: &PositionedImage,
+    scale: f64,
+    clip: Option<&tiny_skia::Mask>,
+) {
     let raster = &image.image.raster;
     let left = (image.bounds[0] * scale).round() as i64;
     let top = (image.bounds[1] * scale).round() as i64;
@@ -41,6 +46,9 @@ pub(super) fn paint(pixels: &mut Pixmap, image: &PositionedImage, scale: f64) {
         for (column, contributions) in (start_column..end_column).zip(&horizontal) {
             let sampled = sampling::sample(raster, contributions, &vertical);
             let offset = (row as usize * width + column as usize) * 4;
+            if clip.is_some_and(|mask| mask.data()[offset / 4] == 0) {
+                continue;
+            }
             let pixel = &mut pixels.data_mut()[offset..offset + 4];
             for channel in 0..3 {
                 pixel[channel] = ((u32::from(sampled[channel])

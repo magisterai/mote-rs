@@ -1,0 +1,22 @@
+{
+  "source_sha256": "0a5ae90e12ce0699602ede47f223d3222ad9f89fcb62cc118861f41b4b24a379",
+  "units": "points",
+  "geometry_tolerance": 1e-08,
+  "native_png_dpi": 72,
+  "png_maximum_channel_difference": 56,
+  "png_mean_foreground_difference": 9.0,
+  "office_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:16:42.652855+00:00",
+  "native_reference_status": "captured",
+  "pages": 1,
+  "pdf_comparison_dpi": 144,
+  "pdf_changed_pixels": 0,
+  "files": {
+    "geometry.json": "984b6071d5466739a6db43a3be3ca88d0f74a6d469d261810c86df8af7667531",
+    "reference-1.png": "c4c5e0f1a555aa2939dc710405880d0aafc653639be41318ff3e493a7cdfb7bc"
+  },
+  "geometry_font_discovery": "disabled",
+  "raster_font_discovery": "installed",
+  "raster_core_outline_family": "macOS Helvetica",
+  "raster_named_font_families": []
+}

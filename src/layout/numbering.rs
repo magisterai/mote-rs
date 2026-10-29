@@ -2,11 +2,11 @@ use super::{LayoutError, style_values as values};
 use crate::model::{Element, Properties, Value};
 use std::collections::BTreeMap;
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub(super) struct HeadingNumbers {
     instances: BTreeMap<(String, String, String), HeadingInstance>,
 }
-#[derive(Default)]
+#[derive(Default, Clone)]
 struct HeadingInstance {
     current: BTreeMap<usize, u64>,
     starts: BTreeMap<usize, u64>,

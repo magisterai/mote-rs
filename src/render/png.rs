@@ -1,4 +1,6 @@
+mod clipping;
 mod images;
+mod strokes;
 use super::{RenderError, Rendered, color, fonts::RasterFonts, validate_plan};
 use crate::{
     layout::{
@@ -63,9 +65,18 @@ pub fn paint_png(
         let mut pixels = Pixmap::new(width as u32, height as u32)
             .ok_or_else(|| RenderError::Invalid("cannot allocate PNG page".into()))?;
         pixels.fill(tiny_skia::Color::WHITE);
+        let mut clips = clipping::Clips::new(width as u32, height as u32)?;
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
+                let clip = clips.mask();
                 match operation {
+                    PageOperation::PushClip(bounds) => clips.push(*bounds, scale),
+                    PageOperation::PopClip => clips.pop(),
+                    PageOperation::Stroke {
+                        rule,
+                        dash,
+                        round_cap,
+                    } => strokes::paint(&mut pixels, rule, dash, *round_cap, scale, clip)?,
                     PageOperation::OutlineRectangle {
                         bounds,
                         width,
@@ -89,23 +100,25 @@ pub fn paint_png(
                                     color: color.clone(),
                                 },
                                 scale,
+                                clip,
                             )?;
                         }
                     }
-                    PageOperation::Image(image) => images::paint(&mut pixels, image, scale),
+                    PageOperation::Image(image) => images::paint(&mut pixels, image, scale, clip),
                     PageOperation::Text(index) => paint_line(
                         &mut pixels,
                         &page.lines[*index].line,
                         scale,
                         &mut fonts,
                         &mut warnings,
+                        clip,
                     )?,
                     PageOperation::Rectangle(rectangle) => {
-                        fill_rectangle(&mut pixels, rectangle, scale)?
+                        fill_rectangle(&mut pixels, rectangle, scale, clip)?
                     }
-                    PageOperation::Rule(rule) => paint_rule(&mut pixels, rule, scale)?,
+                    PageOperation::Rule(rule) => paint_rule(&mut pixels, rule, scale, clip)?,
                     PageOperation::ListMarker(marker) => {
-                        paint_marker(&mut pixels, marker, scale, &mut fonts, &mut warnings)?
+                        paint_marker(&mut pixels, marker, scale, &mut fonts, &mut warnings, clip)?
                     }
                 }
             }
@@ -199,6 +212,7 @@ fn crisp_axis_aligned(
     end: [f64; 2],
     width: f64,
     color: [u8; 3],
+    clip: Option<&tiny_skia::Mask>,
 ) {
     let horizontal = start[1] == end[1];
     let along = usize::from(!horizontal);
@@ -230,6 +244,9 @@ fn crisp_axis_aligned(
                     (cross_position, position)
                 };
                 let offset = (row as usize * pixel_width + column as usize) * 4;
+                if clip.is_some_and(|mask| mask.data()[offset / 4] == 0) {
+                    continue;
+                }
                 pixels.data_mut()[offset..offset + 4]
                     .copy_from_slice(&[color[0], color[1], color[2], 255]);
             }
@@ -243,6 +260,7 @@ fn paint_line(
     scale: f64,
     fonts: &mut RasterFonts,
     warnings: &mut BTreeSet<String>,
+    clip: Option<&tiny_skia::Mask>,
 ) -> Result<(), RenderError> {
     for rectangle in &line.highlights {
         let left = (rectangle.x * scale).round() as f32;
@@ -254,7 +272,7 @@ fn paint_line(
                 bounds,
                 &paint(&rectangle.color, false)?,
                 Transform::identity(),
-                None,
+                clip,
             );
         }
     }
@@ -288,7 +306,7 @@ fn paint_line(
                     &brush,
                     FillRule::Winding,
                     Transform::identity(),
-                    None,
+                    clip,
                 );
             }
         }
@@ -300,6 +318,7 @@ fn paint_line(
             [decoration.end * scale, decoration.y * scale],
             decoration.width * scale,
             color(&decoration.color)?,
+            clip,
         );
     }
     Ok(())
@@ -309,6 +328,7 @@ fn fill_rectangle(
     pixels: &mut Pixmap,
     rectangle: &HighlightRectangle,
     scale: f64,
+    clip: Option<&tiny_skia::Mask>,
 ) -> Result<(), RenderError> {
     let left = (rectangle.x * scale).round() as f32;
     let top = (rectangle.top * scale).round() as f32;
@@ -319,12 +339,17 @@ fn fill_rectangle(
             bounds,
             &paint(&rectangle.color, false)?,
             Transform::identity(),
-            None,
+            clip,
         );
     }
     Ok(())
 }
-fn paint_rule(pixels: &mut Pixmap, rule: &Rule, scale: f64) -> Result<(), RenderError> {
+fn paint_rule(
+    pixels: &mut Pixmap,
+    rule: &Rule,
+    scale: f64,
+    clip: Option<&tiny_skia::Mask>,
+) -> Result<(), RenderError> {
     if rule.role == crate::layout::RuleRole::ColumnSeparator {
         return fill_rectangle(
             pixels,
@@ -336,6 +361,7 @@ fn paint_rule(pixels: &mut Pixmap, rule: &Rule, scale: f64) -> Result<(), Render
                 color: rule.color.clone(),
             },
             scale,
+            clip,
         );
     }
     if rule.start[1] == rule.end[1] || rule.start[0] == rule.end[0] {
@@ -345,6 +371,7 @@ fn paint_rule(pixels: &mut Pixmap, rule: &Rule, scale: f64) -> Result<(), Render
             rule.end.map(|value| value * scale),
             rule.width * scale,
             color(&rule.color)?,
+            clip,
         );
     } else {
         let mut path = PathBuilder::new();
@@ -363,7 +390,7 @@ fn paint_rule(pixels: &mut Pixmap, rule: &Rule, scale: f64) -> Result<(), Render
                     ..Default::default()
                 },
                 Transform::identity(),
-                None,
+                clip,
             );
         }
     }
@@ -375,10 +402,11 @@ fn paint_marker(
     scale: f64,
     fonts: &mut RasterFonts,
     warnings: &mut BTreeSet<String>,
+    clip: Option<&tiny_skia::Mask>,
 ) -> Result<(), RenderError> {
     if marker.kind != ListMarkerKind::Task {
         if let Some(line) = &marker.text {
-            paint_line(pixels, line, scale, fonts, warnings)?;
+            paint_line(pixels, line, scale, fonts, warnings, clip)?;
         }
         return Ok(());
     }
@@ -403,6 +431,7 @@ fn paint_marker(
                 color: "111827".into(),
             },
             scale,
+            clip,
         )?;
     }
     if marker.checked {
@@ -420,6 +449,7 @@ fn paint_marker(
                     color: "111827".into(),
                 },
                 scale,
+                clip,
             )?;
         }
     }

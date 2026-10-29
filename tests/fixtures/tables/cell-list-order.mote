@@ -1,0 +1,14 @@
+#document(page={width=pt(420),height=pt(360)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#table(width=pt(372))[
+  #row[#cell[
+    #ordered_list(id="sequence",start=3)[
+      #item[
+        #paragraph[Before the nested list.]
+        #list[#item[First nested item.] #item[Second nested item.]]
+        #paragraph[After the nested list.]
+      ]
+      #item[Next outer item.]
+    ]
+  ]]
+]
+#ordered_list(id="sequence",restart=false)[#item[Continued outside the table.]]

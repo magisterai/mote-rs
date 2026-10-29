@@ -72,6 +72,19 @@ struct ListKey {
 pub(super) struct ListNumbers {
     instances: BTreeMap<ListKey, CounterInstance>,
 }
+impl Clone for ListNumbers {
+    fn clone(&self) -> Self {
+        Self {
+            instances: self
+                .instances
+                .iter()
+                .map(|(key, counter)| {
+                    (key.clone(), Rc::new(RefCell::new(counter.borrow().clone())))
+                })
+                .collect(),
+        }
+    }
+}
 pub(super) struct ListCursor {
     key: ListKey,
     level: usize,

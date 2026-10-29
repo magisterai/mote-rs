@@ -6,6 +6,7 @@ mod decorations;
 mod document;
 mod lists;
 mod numbering;
+mod tables;
 pub use decorations::{DecorationKind, HighlightRectangle, TextDecoration};
 mod flow;
 pub use document::{DocumentTextPlan, PlacedTextLine, TextPage, plan_document_text};

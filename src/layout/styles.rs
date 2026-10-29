@@ -47,7 +47,7 @@ impl Default for ParagraphStyle {
 }
 
 pub struct LayoutStyleResolver<'document> {
-    document: &'document Document,
+    pub(super) document: &'document Document,
     declarations: StyleResolver<'document>,
 }
 impl<'document> LayoutStyleResolver<'document> {

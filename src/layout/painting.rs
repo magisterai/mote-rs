@@ -4,6 +4,7 @@ use super::{HighlightRectangle, TextLine};
 pub enum RuleRole {
     Generic,
     ColumnSeparator,
+    TableBorder,
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -19,6 +20,13 @@ pub struct Rule {
 #[derive(Debug, Clone, PartialEq)]
 pub enum PageOperation {
     Text(usize),
+    PushClip([f64; 4]),
+    PopClip,
+    Stroke {
+        rule: Rule,
+        dash: Vec<f64>,
+        round_cap: bool,
+    },
     Image(Box<super::PositionedImage>),
     OutlineRectangle {
         bounds: [f64; 4],

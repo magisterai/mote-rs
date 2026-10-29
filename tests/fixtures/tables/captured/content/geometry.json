@@ -1,0 +1,294 @@
+{
+  "pages": [
+    {
+      "images": [
+        [
+          180,
+          43,
+          48,
+          32
+        ]
+      ],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 24.442,
+              "baseline": 53.91277,
+              "size": 11,
+              "text": "First ",
+              "x": 30
+            },
+            {
+              "advance": 53.196,
+              "baseline": 53.91277,
+              "size": 11,
+              "text": "paragraph.",
+              "x": 54.442
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 43,
+          "width": 77.638,
+          "x": 30
+        },
+        {
+          "fragments": [
+            {
+              "advance": 40.359,
+              "baseline": 73.13830999999999,
+              "size": 11,
+              "text": "Second ",
+              "x": 30
+            },
+            {
+              "advance": 23.221,
+              "baseline": 73.13830999999999,
+              "size": 11,
+              "text": "bold",
+              "x": 70.35900000000001
+            },
+            {
+              "advance": 3.058,
+              "baseline": 73.13830999999999,
+              "size": 11,
+              "text": " ",
+              "x": 93.58
+            },
+            {
+              "advance": 53.196,
+              "baseline": 73.13830999999999,
+              "size": 11,
+              "text": "paragraph.",
+              "x": 96.638
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 62.225539999999995,
+          "width": 119.834,
+          "x": 30
+        },
+        {
+          "fragments": [
+            {
+              "advance": 21.384,
+              "baseline": 91.36384999999999,
+              "size": 11,
+              "text": "First",
+              "x": 66
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 80.45107999999999,
+          "width": 21.384,
+          "x": 66
+        },
+        {
+          "fragments": [
+            {
+              "advance": 37.301,
+              "baseline": 108.58939,
+              "size": 11,
+              "text": "Second",
+              "x": 66
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 97.67662,
+          "width": 37.301,
+          "x": 66
+        },
+        {
+          "fragments": [
+            {
+              "advance": 33.616,
+              "baseline": 94.91277,
+              "size": 11,
+              "text": "Details",
+              "x": 180
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 84,
+          "width": 33.616,
+          "x": 180
+        },
+        {
+          "fragments": [
+            {
+              "advance": 34.848,
+              "baseline": 138.31493,
+              "size": 11,
+              "text": "Nested",
+              "x": 36
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 127.40216,
+          "width": 34.848,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 27.511,
+              "baseline": 138.31493,
+              "size": 11,
+              "text": "Table",
+              "x": 116
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 127.40216,
+          "width": 27.511,
+          "x": 116
+        }
+      ],
+      "rules": [
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            190,
+            123.402
+          ],
+          "start": [
+            30,
+            123.402
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            190,
+            147.128
+          ],
+          "start": [
+            30,
+            147.128
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            30,
+            147.1277
+          ],
+          "start": [
+            30,
+            123.40216
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "D9D9D9",
+          "dash": [],
+          "end": [
+            110,
+            147.1277
+          ],
+          "start": [
+            110,
+            123.40216
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            190,
+            147.1277
+          ],
+          "start": [
+            190,
+            123.40216
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            324,
+            39
+          ],
+          "start": [
+            24,
+            39
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "D9D9D9",
+          "dash": [],
+          "end": [
+            324,
+            119.402
+          ],
+          "start": [
+            24,
+            119.402
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            324,
+            151.628
+          ],
+          "start": [
+            24,
+            151.628
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            24,
+            151.6277
+          ],
+          "start": [
+            24,
+            39
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "D9D9D9",
+          "dash": [],
+          "end": [
+            174,
+            119.40216
+          ],
+          "start": [
+            174,
+            39
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            324,
+            151.6277
+          ],
+          "start": [
+            324,
+            39
+          ],
+          "width": 0.5
+        }
+      ]
+    }
+  ]
+}

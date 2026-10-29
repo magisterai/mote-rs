@@ -1,0 +1,20 @@
+{
+  "source": "../../cell-list-order.mote",
+  "source_sha256": "dd11bec90c9be763f7ea6759edcb69e3ad06bdd72af869a47fc46b40e1bd51ca",
+  "captured_docx_sha256": "a8fab1fff3bbeb21d241e2abd486dbb5272fb8d3556794c69f49327946db47f3",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:16:42.613288+00:00",
+  "ignored_advisory_markers": {}
+}

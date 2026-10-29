@@ -32,6 +32,37 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 match operation {
+                    PageOperation::PushClip(bounds) => {
+                        content
+                            .save_state()
+                            .rect(
+                                rounded(bounds[0]),
+                                rounded(plan.geometry.height - bounds[1]),
+                                rounded(bounds[2]),
+                                -rounded(bounds[3]),
+                            )
+                            .clip_nonzero()
+                            .end_path();
+                    }
+                    PageOperation::PopClip => {
+                        content.restore_state();
+                    }
+                    PageOperation::Stroke {
+                        rule,
+                        dash,
+                        round_cap,
+                    } => {
+                        content
+                            .save_state()
+                            .set_dash_pattern(dash.iter().map(|value| rounded(*value)), 0.0)
+                            .set_line_cap(if *round_cap {
+                                pdf_writer::types::LineCapStyle::RoundCap
+                            } else {
+                                pdf_writer::types::LineCapStyle::ButtCap
+                            });
+                        paint_rule(&mut content, rule, plan.geometry.height)?;
+                        content.restore_state();
+                    }
                     PageOperation::OutlineRectangle {
                         bounds,
                         width,

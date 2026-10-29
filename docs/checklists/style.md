@@ -9,7 +9,7 @@
 - [x] Accept `table` as a declaration type and normalize its property object:
   width, indent, cell spacing, alignment, layout, cell margins, text direction,
   wrapping, paragraph/text groups, edge regions, and row/column banding. This
-  records declarations only; table declarations and editable DOCX output are implemented.
+  records declaration support; output limits are listed below.
 - [x] Warn on numeric name conversion; retain whitespace-only style identities
   and apply the final self-inheritance check to empty identities as well.
 - [x] Named arguments only, no body, required `name`; produce no content node.
@@ -43,14 +43,18 @@
 ## Support limits
 
 - [ ] `table`: apply table styles and conditional regions to table content.
-  Editable DOCX styles, inheritance and cell text defaults are implemented and
-  captured in [table tests](../../tests/tables.rs); native application is pending.
+  Editable DOCX styles, inheritance and conditional regions are implemented and
+  captured in [table tests](../../tests/tables.rs). Native cell/paragraph/text
+  defaults, first/last-row regions and row banding are covered by
+  [native table tests](../../tests/table_rendering.rs). First/last-column regions,
+  column banding, and the table property limits listed in the
+  [table checklist](table.md) remain unsupported natively.
 
 DOCX emits paragraph and character declarations, inheritance and next/link
 references, the Normal default, heading/quote/Code fallbacks, and direct/named precedence.
 [Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
-cover font mappings and stable unique identifiers. Table-style application
-remains unsupported. Native PDF/PNG resolves supported paragraph/run properties;
+cover font mappings and stable unique identifiers. Native PDF/PNG resolves
+supported paragraph/run properties and the table properties listed above;
 retained properties without an output effect produce warnings. Missing
 references and cycles fail explicitly during DOCX emission; language-level
 resolution still returns the documented partial result. Real Word review is

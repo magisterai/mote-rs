@@ -175,8 +175,8 @@ absent from the model, and an explicit empty body still creates its element.
 nodes. Later declarations replace earlier entries with the same exact name.
 Fonts record script-specific typefaces and line-height metadata. Styles support
 paragraph/character/table types, relationships, flat properties, and paragraph/run/
-table property objects. Table declaration normalization is available; applying
-table styles and resolving conditional regions await the table model. Numeric
+table property objects. Table styles apply inherited cell and text defaults,
+with conditional-region output limits described below. Numeric
 font/style names produce source-located warnings in `Document.warnings`.
 
 Explicit sections, bindings, JSON loading, Lua and PowerPoint output remain deferred.
@@ -288,8 +288,8 @@ script-specific typefaces. `word_line_height` remains metadata for later layout.
 
 Unknown nested properties, missing style references, cycles and unsupported
 output values fail explicitly. Declared style sizes must round to a positive
-half-point value. Table styles and font embedding
-remain deferred. These are output limits; their language/model support is
+half-point value. Table styles are emitted with conditional regions; font
+embedding in DOCX remains deferred. These are output limits; their language/model support is
 unchanged. Authored exact line heights are preserved without estimating clipping.
 
 Headings use built-in styles for levels one through six, with declared overrides
@@ -524,11 +524,29 @@ preserve compressed source data and their grayscale, RGB or CMYK color space.
 [Image captures](../tests/fixtures/images/README.md) cover model/package equality,
 image geometry, transforms, links, fallbacks and separate native raster output.
 
-## Editable tables
+## Tables
 
 The table, row and cell model supports Markdown pipe tables and explicit
 structure. A shared logical grid records row/column spans; DOCX modules separately
 handle property emission, width hints, nested content and conditional styles.
-Physical borders and cell defaults retain their authored precedence. Native
-measurement and pagination are developed separately against the same fixtures.
-See [table captures](../tests/fixtures/tables/README.md).
+Physical borders and cell defaults retain their authored precedence.
+
+Native table modules separately resolve column widths, cell content, shared
+physical edges, safe row fragments and placement. They use the existing text
+measurement and line layout, and return the same ordered page operations to PDF
+and PNG. Repeated headers, row/column spans, nested tables, images, lists and links
+participate in that layout. Speculative width measurement clones numbering state
+so it cannot consume a real list or heading number. Cell clipping applies to both
+painters; the PNG painter reuses one mask through nested clips.
+
+Conditional row styles supply missing cell defaults. First/last-column regions,
+column banding, table indent/cell spacing/layout selection, row height/rules and
+cell text direction/no-wrap are retained for editable DOCX but have no native
+effect and produce warnings. Cell shading covers the physical cell; paragraph
+bands and paragraph borders inside a cell are omitted, while run highlights paint.
+Oversized unsplittable rows warn about clipping; oversized merged groups without
+a safe continuation warn and fall back to individual rows.
+
+See [table captures](../tests/fixtures/tables/README.md) for frozen model/package,
+geometry and native raster evidence, including the blocked repeated-header case.
+Microsoft Word visual review remains unreviewed.

@@ -85,10 +85,9 @@ impl ImageCatalog {
                 continue;
             };
             if element.kind == ElementKind::Image
-                && !self
-                    .prepared
-                    .iter()
-                    .any(|(attributes, _)| attributes == &element.attributes)
+                && !self.prepared.iter().any(|(attributes, _)| {
+                    attributes == &transformation_properties(&element.attributes)
+                })
             {
                 let prepared = self
                     .get(element)
@@ -100,7 +99,8 @@ impl ImageCatalog {
                     self.warnings
                         .push(format!("{error}; emitted placeholder text"));
                 }
-                self.prepared.push((element.attributes.clone(), prepared));
+                self.prepared
+                    .push((transformation_properties(&element.attributes), prepared));
             }
             self.prepare_all(&element.children);
         }
@@ -108,7 +108,7 @@ impl ImageCatalog {
     pub fn prepared(&self, element: &Element) -> Result<Arc<PreparedImage>, String> {
         self.prepared
             .iter()
-            .find(|(attributes, _)| attributes == &element.attributes)
+            .find(|(attributes, _)| attributes == &transformation_properties(&element.attributes))
             .map(|(_, image)| image.clone())
             .unwrap_or_else(|| Err("image assets were not prepared".into()))
     }
@@ -167,4 +167,17 @@ pub(crate) fn image_alignment(attributes: &Properties) -> String {
         }
     }
     String::new()
+}
+
+fn transformation_properties(attributes: &Properties) -> Properties {
+    attributes
+        .iter()
+        .filter(|(name, _)| {
+            matches!(
+                name.as_str(),
+                "src" | "crop" | "rotation" | "flip_horizontal" | "flip_vertical" | "effects"
+            )
+        })
+        .map(|(name, value)| (name.clone(), value.clone()))
+        .collect()
 }

@@ -1,0 +1,23 @@
+{
+  "source": "../../oversized-merge.mote",
+  "source_sha256": "83f9cbb88d57667000fba762fede5155e983683903889f51fe5fdad703e813ee",
+  "captured_docx_sha256": "df8ecabb1dbdd0a26d3edfb114bf4e21fedb12fe00288057927c31258abcdbcc",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.png",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T12:16:42.615313+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 2
+  }
+}

@@ -41,7 +41,9 @@ Comparison rules are deliberately narrow:
   text and preserved whitespace remain significant.
 - Created/modified metadata timestamps and XML formatting whitespace are ignored.
 - Advisory `lastRenderedPageBreak` markers are counted per package part and ignored.
-  Authored `w:br` elements remain compared.
+  Text pieces separated only by such a marker within one run are joined when
+  their text attributes agree. Authored `w:br`, tabs, formatting changes and real
+  text-node boundaries remain compared.
 - Binary parts compare by SHA-256, and duplicate ZIP entries are errors.
 
 Promote a confirmed mismatch into a focused frozen fixture and regression test.

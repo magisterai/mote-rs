@@ -14,6 +14,7 @@ pub(super) enum Block {
     Paragraph(Box<PreparedParagraph>),
     Break(String),
     Image(Box<super::images::ImageBlock>),
+    Table(Box<super::tables::TablePlan>),
 }
 pub(super) struct PreparedParagraph {
     pub text: ParagraphText,
@@ -48,16 +49,40 @@ pub(super) fn prepare_blocks(
     measurer: &mut TextMeasurer<'_>,
     images: &crate::media::ImageCatalog,
 ) -> Result<Vec<Block>, LayoutError> {
+    prepare_content(
+        &document.content,
+        width,
+        styles,
+        measurer,
+        images,
+        &mut BlockNumbers::default(),
+        false,
+    )
+}
+#[derive(Default, Clone)]
+pub(super) struct BlockNumbers {
+    pub headings: HeadingNumbers,
+    pub lists: ListNumbers,
+}
+pub(super) fn prepare_content(
+    content: &[Content],
+    width: f64,
+    styles: &LayoutStyleResolver<'_>,
+    measurer: &mut TextMeasurer<'_>,
+    images: &crate::media::ImageCatalog,
+    numbers: &mut BlockNumbers,
+    in_cell: bool,
+) -> Result<Vec<Block>, LayoutError> {
     let mut builder = BlockBuilder {
         width,
         styles,
         measurer,
         blocks: Vec::new(),
-        headings: HeadingNumbers::default(),
-        lists: ListNumbers::default(),
-        flow_start: true,
+        numbers,
+        in_cell,
+        flow_start: !in_cell,
     };
-    for content in &document.content {
+    for content in content {
         let Content::Element(element) = content else {
             return Err(LayoutError::Unsupported(
                 "document planning requires evaluated block content".into(),
@@ -76,6 +101,19 @@ pub(super) fn prepare_blocks(
                     Ok(image) => builder.blocks.push(Block::Image(Box::new(image))),
                     Err(error) => builder.paragraph(&super::images::fallback(element, &error))?,
                 }
+                builder.flow_start = false;
+            }
+            ElementKind::Table => {
+                builder
+                    .blocks
+                    .push(Block::Table(Box::new(super::tables::prepare(
+                        element,
+                        width,
+                        styles,
+                        builder.measurer,
+                        images,
+                        builder.numbers,
+                    )?)));
                 builder.flow_start = false;
             }
             ElementKind::Break => {
@@ -98,8 +136,8 @@ struct BlockBuilder<'builder, 'document, 'assets> {
     styles: &'builder LayoutStyleResolver<'document>,
     measurer: &'builder mut TextMeasurer<'assets>,
     blocks: Vec<Block>,
-    headings: HeadingNumbers,
-    lists: ListNumbers,
+    numbers: &'builder mut BlockNumbers,
+    in_cell: bool,
     flow_start: bool,
 }
 impl BlockBuilder<'_, '_, '_> {
@@ -122,7 +160,7 @@ impl BlockBuilder<'_, '_, '_> {
         let style = self.styles.paragraph(&element);
         let mut runs = resolve_inline(&element.children, &style.text, self.styles);
         if element.kind == ElementKind::Heading
-            && let Some(marker) = self.headings.next(&element)?
+            && let Some(marker) = self.numbers.headings.next(&element)?
         {
             let marker = TextRun::new(marker, style.text.clone());
             let width = self
@@ -203,110 +241,117 @@ impl BlockBuilder<'_, '_, '_> {
                 })
                 .unwrap_or_default();
             attributes.extend(item.attributes.clone());
-            let mut children = Vec::new();
-            let mut nested_lists = Vec::new();
-            for child in &item.children {
-                match child {
-                    Content::Element(nested)
-                        if matches!(nested.kind, ElementKind::List | ElementKind::OrderedList) =>
-                    {
-                        nested_lists.push(nested)
+            let mut unit_index = 0;
+            for unit in list_item_units(item, &attributes, self.in_cell) {
+                let (unit_attributes, children) = match unit {
+                    ListItemUnit::Paragraph(attributes, children) => (attributes, children),
+                    ListItemUnit::Nested(nested) => {
+                        self.list(nested, item_level.saturating_add(1), false)?;
+                        continue;
                     }
-                    _ => children.push(child.clone()),
+                };
+                let mut attributes = attributes.clone();
+                attributes.extend(unit_attributes);
+                let element = Element {
+                    kind: ElementKind::Paragraph,
+                    attributes,
+                    children,
+                };
+                let mut style = self.styles.paragraph(&element);
+                style.indent_left = item_geometry.left;
+                if !self.in_cell || !explicit_spacing(&element.attributes, "after") {
+                    style.spacing_after = item_geometry.after;
                 }
-            }
-            let element = Element {
-                kind: ElementKind::Paragraph,
-                attributes,
-                children,
-            };
-            let mut style = self.styles.paragraph(&element);
-            style.indent_left = item_geometry.left;
-            style.spacing_after = item_geometry.after;
-            style.widow_control = false;
-            let mut runs = resolve_inline(&element.children, &style.text, self.styles);
-            if runs.iter().all(|run| run.text.is_empty()) {
-                if runs.is_empty() {
-                    runs.push(TextRun::new("", style.text.clone()));
+                if self.in_cell {
+                    style.first_line = 0.0;
+                    if !explicit_before(&element.attributes) {
+                        style.spacing_before = 0.0;
+                    }
+                } else {
+                    style.widow_control = false;
                 }
-                runs[0].text = " ".into();
-                runs[0].preserve_space = true;
-            }
-            let task = item.attributes.contains_key("checked");
-            let kind = if task {
-                ListMarkerKind::Task
-            } else if ordered {
-                ListMarkerKind::Ordered
-            } else {
-                ListMarkerKind::Bullet
-            };
-            let marker_text = if task {
-                String::new()
-            } else if ordered {
-                cursor.next(&mut self.lists, item_level)?
-            } else {
-                "•".into()
-            };
-            let text = if task {
-                None
-            } else {
-                let mut marker_style = style.clone();
-                marker_style.alignment = "left".into();
-                marker_style.indent_left = 0.0;
-                marker_style.indent_right = 0.0;
-                marker_style.first_line = 0.0;
-                let measured = self
-                    .measurer
-                    .measure(&style.text.measurement, &marker_text, true)?
-                    .measurement
-                    .layout_width;
+                let mut runs = resolve_inline(&element.children, &style.text, self.styles);
+                if runs.iter().all(|run| run.text.is_empty()) {
+                    if runs.is_empty() {
+                        runs.push(TextRun::new("", style.text.clone()));
+                    }
+                    runs[0].text = " ".into();
+                    runs[0].preserve_space = true;
+                }
+                let task = item.attributes.contains_key("checked");
+                let kind = if task {
+                    ListMarkerKind::Task
+                } else if ordered {
+                    ListMarkerKind::Ordered
+                } else {
+                    ListMarkerKind::Bullet
+                };
+                let marker_text = if task || unit_index > 0 {
+                    String::new()
+                } else if ordered {
+                    cursor.next(&mut self.numbers.lists, item_level)?
+                } else {
+                    "•".into()
+                };
+                let text = if task {
+                    None
+                } else {
+                    let mut marker_style = style.clone();
+                    marker_style.alignment = "left".into();
+                    marker_style.indent_left = 0.0;
+                    marker_style.indent_right = 0.0;
+                    marker_style.first_line = 0.0;
+                    let measured = self
+                        .measurer
+                        .measure(&style.text.measurement, &marker_text, true)?
+                        .measurement
+                        .layout_width;
+                    let paragraph = plan_resolved_paragraph(
+                        marker_style,
+                        None,
+                        &[TextRun::new(marker_text, style.text.clone())],
+                        item_geometry.hanging.max(measured).max(1.0),
+                        self.measurer,
+                        true,
+                    )?;
+                    paragraph.lines.into_iter().next().map(|mut line| {
+                        line.highlights.clear();
+                        line.decorations.clear();
+                        line
+                    })
+                };
+                let font_size = if style.text.measurement.size_points > 0.0 {
+                    style.text.measurement.size_points
+                } else {
+                    11.0
+                };
                 let paragraph = plan_resolved_paragraph(
-                    marker_style,
-                    None,
-                    &[TextRun::new(marker_text, style.text.clone())],
-                    item_geometry.hanging.max(measured).max(1.0),
+                    style,
+                    self.styles.border_color(&element),
+                    &runs,
+                    self.width,
                     self.measurer,
                     true,
                 )?;
-                paragraph.lines.into_iter().next().map(|mut line| {
-                    line.highlights.clear();
-                    line.decorations.clear();
-                    line
-                })
-            };
-            let font_size = if style.text.measurement.size_points > 0.0 {
-                style.text.measurement.size_points
-            } else {
-                11.0
-            };
-            let paragraph = plan_resolved_paragraph(
-                style,
-                self.styles.border_color(&element),
-                &runs,
-                self.width,
-                self.measurer,
-                true,
-            )?;
-            self.blocks
-                .push(Block::Paragraph(Box::new(PreparedParagraph {
-                    text: paragraph,
-                    marker: Some(PreparedMarker {
-                        level: item_level,
-                        hanging: item_geometry.hanging,
-                        marker: ListMarker {
-                            kind,
-                            checked: values::boolean(&item.attributes, "checked"),
-                            slot: [0.0; 4],
-                            baseline: 0.0,
-                            font_size,
-                            text,
-                        },
-                    }),
-                    clear_fill_before: false,
-                    clear_fill_after: false,
-                })));
-            for nested in nested_lists {
-                self.list(nested, item_level.saturating_add(1), false)?;
+                self.blocks
+                    .push(Block::Paragraph(Box::new(PreparedParagraph {
+                        text: paragraph,
+                        marker: (unit_index == 0).then_some(PreparedMarker {
+                            level: item_level,
+                            hanging: item_geometry.hanging,
+                            marker: ListMarker {
+                                kind,
+                                checked: values::boolean(&item.attributes, "checked"),
+                                slot: [0.0; 4],
+                                baseline: 0.0,
+                                font_size,
+                                text,
+                            },
+                        }),
+                        clear_fill_before: false,
+                        clear_fill_after: false,
+                    })));
+                unit_index += 1;
             }
         }
         if top_level {
@@ -325,4 +370,66 @@ impl BlockBuilder<'_, '_, '_> {
 fn explicit_before(properties: &Properties) -> bool {
     properties.contains_key("spacing_before")
         || matches!(properties.get("spacing"),Some(Value::Object(spacing))if spacing.contains_key("before")||spacing.contains_key("spacing_before"))
+}
+
+fn explicit_spacing(properties: &Properties, name: &str) -> bool {
+    properties.contains_key(&format!("spacing_{name}"))
+        || matches!(properties.get("spacing"),Some(Value::Object(spacing)) if spacing.contains_key(name)||spacing.contains_key(&format!("spacing_{name}")))
+}
+
+/// Preserve block order within cell list items while retaining ordinary document list flow.
+enum ListItemUnit<'source> {
+    Paragraph(Properties, Vec<Content>),
+    Nested(&'source Element),
+}
+fn list_item_units<'source>(
+    item: &'source Element,
+    attributes: &Properties,
+    in_cell: bool,
+) -> Vec<ListItemUnit<'source>> {
+    let mut output = Vec::new();
+    let mut pending = Vec::new();
+    let mut nested_lists = Vec::new();
+    for child in &item.children {
+        if let Content::Element(nested) = child
+            && matches!(nested.kind, ElementKind::List | ElementKind::OrderedList)
+        {
+            if in_cell {
+                if output.is_empty()
+                    || pending
+                        .iter()
+                        .any(|node| !matches!(node, Content::Text(text) if text.trim().is_empty()))
+                {
+                    output.extend(
+                        crate::tables::paragraph_units(&pending).into_iter().map(
+                            |(attributes, content)| ListItemUnit::Paragraph(attributes, content),
+                        ),
+                    );
+                }
+                pending.clear();
+                output.push(ListItemUnit::Nested(nested));
+            } else {
+                nested_lists.push(nested);
+            }
+        } else {
+            pending.push(child.clone());
+        }
+    }
+    if in_cell {
+        if output.is_empty()
+            || pending
+                .iter()
+                .any(|node| !matches!(node, Content::Text(text) if text.trim().is_empty()))
+        {
+            output.extend(
+                crate::tables::paragraph_units(&pending)
+                    .into_iter()
+                    .map(|(attributes, content)| ListItemUnit::Paragraph(attributes, content)),
+            );
+        }
+    } else {
+        output.push(ListItemUnit::Paragraph(attributes.clone(), pending));
+        output.extend(nested_lists.into_iter().map(ListItemUnit::Nested));
+    }
+    output
 }

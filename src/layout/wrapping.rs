@@ -82,7 +82,7 @@ pub(super) fn break_offsets(text: &str) -> BTreeSet<usize> {
         .collect()
 }
 
-fn groups(runs: &[TextRun]) -> Vec<Vec<TextRun>> {
+pub(super) fn groups(runs: &[TextRun]) -> Vec<Vec<TextRun>> {
     let mut normalized = Vec::new();
     let mut pending_carriage_return = false;
     for run in runs {
