@@ -239,7 +239,7 @@ fn validate_embedding(bytes: &[u8]) -> Result<(), String> {
     }
     let directory_end = 12 + table_count * 16;
     let mut permission_table = None;
-    for record in bytes[12..directory_end].chunks_exact(16) {
+    for record in bytes[12..directory_end].as_chunks::<16>().0 {
         if &record[..4] != b"OS/2" {
             continue;
         }
