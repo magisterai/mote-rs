@@ -13,6 +13,16 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
     let mut output = json!({"page":{}, "margin":{}, "columns":{}, "content": content});
     copy_nonempty_properties(&mut output["page"], &document.page)?;
     copy_nonempty_properties(&mut output["margin"], &document.margin)?;
+    copy_nonempty_properties(&mut output["columns"], &document.columns.properties)?;
+    if let Some(count) = document.columns.count {
+        output["columns"]["count"] = json!(count as f64);
+    }
+    for name in ["gap", "equal_width"] {
+        copy_nonempty_field(&mut output["columns"], &document.columns.properties, name)?;
+    }
+    if document.columns.properties.get("separator") == Some(&Value::Boolean(true)) {
+        output["columns"]["separator"] = JsonValue::Bool(true);
+    }
     for name in [
         "top", "right", "bottom", "left", "header", "footer", "gutter",
     ] {
@@ -27,7 +37,7 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
     if !document.content.is_empty() {
         output["sections"] = json!([{
             "section_properties":{}, "page_numbering":{}, "page":output["page"],
-            "margin":output["margin"], "columns":{}, "header_properties":{},
+            "margin":output["margin"], "columns":output["columns"], "header_properties":{},
             "footer_properties":{}, "content":output["content"],
         }]);
     }

@@ -59,10 +59,57 @@ fn invalid_configuration_reports_source_located_diagnostics() {
         "#document(page_width = 10)",
         "#document(margin_top = 10)",
         "#document(column_gap = 10)",
-        "#document(columns = { count = 2 })",
+        "#document(columns = { count = 0 })",
     ] {
         let error = compile(source).expect_err(source);
         assert!(error.span.end > error.span.start, "{source}: {error}");
         assert!(error.span.end <= source.len(), "{source}: {error}");
+    }
+}
+
+#[test]
+fn column_fields_merge_and_preserve_authored_count_and_explicit_false() {
+    let document = compile(
+        r#"#document(columns = { count = "3", gap = "12pt", separator = true, equal_width = true })
+#document(columns = { separator = "false", equal_width = false })
+#paragraph[Text]"#,
+    )
+    .unwrap();
+    assert_eq!(document.columns.count, Some(3));
+    let output: serde_json::Value = serde_json::from_str(&to_json(&document).unwrap()).unwrap();
+    assert_eq!(output["columns"]["count"], 3.0);
+    assert_eq!(output["columns"]["properties"]["count"], "3");
+    assert_eq!(output["columns"]["gap"]["text"], "12pt");
+    assert_eq!(output["columns"]["equal_width"], false);
+    assert_eq!(output["columns"]["properties"]["separator"], false);
+    assert!(output["columns"].get("separator").is_none());
+    assert_eq!(output["sections"][0]["columns"], output["columns"]);
+    assert!(
+        mote::docx::emit(&document)
+            .unwrap_err()
+            .to_string()
+            .contains("unequal-width")
+    );
+}
+
+#[test]
+fn invalid_columns_are_rejected_before_model_construction() {
+    for properties in [
+        "2",
+        "{}",
+        "{ count = 0 }",
+        "{ count = -1 }",
+        "{ count = 1.5 }",
+        "{ count = true }",
+        "{ count = \"2.5\" }",
+        "{ count = \"2.0\" }",
+        "{ gap = -1 }",
+        "{ separator = 1 }",
+        "{ separator = \"yes\" }",
+        "{ equal_width = 0 }",
+        "{ equal_width = \"yes\" }",
+    ] {
+        let source = format!("#document(columns = {properties})");
+        assert!(compile(&source).is_err(), "{source}");
     }
 }

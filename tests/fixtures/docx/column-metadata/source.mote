@@ -1,0 +1,3 @@
+#document(columns = { gap = twip(0), separator = true, equal_width = true })
+
+#paragraph[No count has been declared.]

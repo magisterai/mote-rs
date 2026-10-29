@@ -1,0 +1,4 @@
+#document(columns = { count = 3, gap = pt(12), separator = true, equal_width = false })
+#document(columns = { count = 2, separator = false, equal_width = true })
+
+#paragraph[Two equal columns retain the earlier gap.]

@@ -56,6 +56,10 @@ fingerprints and comparison notes:
 - [Page overrides](docx/page-overrides/README.md): repeated configuration and explicit dimensions.
 - [Custom page](docx/page-custom/README.md): metric sizes, zero margins and fractional twips.
 
+- [Document columns](docx/document-columns/README.md): equal widths, gap and separator.
+- [Column overrides](docx/column-overrides/README.md): repeated fields and explicit false.
+- [Column metadata](docx/column-metadata/README.md): omitted count and retained geometry.
+
 [DOCX package tests](../docx_packages.rs) generate packages and compare each fixture's evaluated
 model and all XML parts. They also verify that style, numbering and package
 relationships resolve to existing targets. Numeric JSON values compare by value rather than decimal

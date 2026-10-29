@@ -1,0 +1,97 @@
+{
+  "document": {
+    "columns": {
+      "count": "2",
+      "equal_width": "true",
+      "gap": "18pt",
+      "separator": "true"
+    },
+    "page": {
+      "size": "a4"
+    }
+  },
+  "page": {
+    "properties": {
+      "size": "a4"
+    }
+  },
+  "margin": {},
+  "columns": {
+    "count": 2,
+    "gap": {
+      "text": "18pt",
+      "unit": "pt",
+      "value": 18
+    },
+    "separator": true,
+    "equal_width": true,
+    "properties": {
+      "count": "2",
+      "equal_width": true,
+      "gap": {
+        "text": "18pt",
+        "unit": "pt",
+        "value": 18
+      },
+      "separator": true
+    }
+  },
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "size": "a4"
+        }
+      },
+      "margin": {},
+      "columns": {
+        "count": 2,
+        "gap": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18
+        },
+        "separator": true,
+        "equal_width": true,
+        "properties": {
+          "count": "2",
+          "equal_width": true,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "separator": true
+        }
+      },
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Two columns with a separator."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Two columns with a separator."
+        }
+      ]
+    }
+  ]
+}

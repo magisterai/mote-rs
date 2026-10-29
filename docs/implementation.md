@@ -72,13 +72,16 @@ encoding, and CLI diagnostics.
 
 ## Document configuration
 
-`document` declarations retain authored arguments and merge normalized page and
-margin fields. They produce no visible node, including when evaluated inside a
+`document` declarations retain authored arguments and merge normalized page,
+margin and column fields. They produce no visible node, including when evaluated inside a
 body. JSON preserves both the last authored argument and the merged geometry,
 which also appears on the implicit section. DOCX maps named paper sizes, custom
-dimensions, orientation and all seven margin distances to a single section.
+dimensions, orientation, all seven margin distances and equal-width columns to a
+single section. Columns support count, gap and separator; an omitted count emits
+no column property. Unequal-width columns are retained in JSON but rejected by
+DOCX until individual column geometry is implemented.
 Unitless geometry is measured in twips; conversion rounds to the nearest integer.
-Unsupported configuration fields fail explicitly at emission. Columns, explicit
+Unsupported configuration fields fail explicitly at emission. Explicit
 sections, effective document defaults and header/footer content remain deferred.
 [Configuration tests](../tests/configuration.rs) and
 [output captures](../tests/docx_configuration.rs) cover this boundary.
@@ -201,7 +204,7 @@ standard error with a source name, line, and column, and return a nonzero exit
 status. It accepts one source file. `--help` describes the available options.
 
 JSON contains a root `content` array, configured `page` and `margin` objects, and
-an empty `columns` object. Nonempty content also appears in one implicit
+a `columns` object. Nonempty content also appears in one implicit
 `sections` entry with the same geometry, plus empty section, numbering, and
 header/footer property objects. Empty content omits `sections`.
 Elements have `kind` and `category`; empty `children` and `attributes` are omitted.

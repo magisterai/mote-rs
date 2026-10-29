@@ -77,3 +77,47 @@ fn unsupported_properties_and_overflow_fail_without_partial_packages() {
         assert!(mote::docx::emit(&document).is_err(), "{source}");
     }
 }
+
+#[test]
+fn columns_match_captured_models_and_packages() {
+    for name in ["document-columns", "column-overrides", "column-metadata"] {
+        support::compare_fixture(name);
+    }
+}
+
+#[test]
+fn explicit_column_count_controls_output_and_omitted_gap_stays_omitted() {
+    for (fields, expected_count, expected_gap) in [
+        ("count = 1", Some("1"), None),
+        ("count = 2, gap = 0", Some("2"), Some("0")),
+        ("count = 2, gap = 0.5", Some("2"), Some("1")),
+        ("gap = 400, separator = true", None, None),
+    ] {
+        let package = support::package(&format!("#document(columns = {{ {fields} }})"));
+        let document = roxmltree::Document::parse(&package["word/document.xml"]).unwrap();
+        let columns = document
+            .descendants()
+            .find(|node| node.has_tag_name((WORD_NAMESPACE, "cols")));
+        assert_eq!(
+            columns.and_then(|node| node.attribute((WORD_NAMESPACE, "num"))),
+            expected_count
+        );
+        assert_eq!(
+            columns.and_then(|node| node.attribute((WORD_NAMESPACE, "space"))),
+            expected_gap
+        );
+    }
+}
+
+#[test]
+fn unsupported_column_layouts_and_overflow_fail_explicitly() {
+    for fields in [
+        "count = 2, equal_width = false",
+        "count = 2, widths = { 1000, 2000 }",
+        "count = 2147483648",
+        "count = 2, gap = inch(9999999999)",
+    ] {
+        let document = mote::compile(&format!("#document(columns = {{ {fields} }})")).unwrap();
+        assert!(mote::docx::emit(&document).is_err(), "{fields}");
+    }
+}

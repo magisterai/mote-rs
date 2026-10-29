@@ -314,7 +314,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [ ] `pgBorders` — [w:CT_PageBorders](word-paragraphs.md#w-ct_pageborders); Strict, Transitional; minOccurs=0. Page Borders; [§17.6.10](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0585-0589-0110.md#source-page-586-part-1).
 - [ ] `lnNumType` — [w:CT_LineNumber](word-paragraphs.md#w-ct_linenumber); Strict, Transitional; minOccurs=0. Line Numbering Settings; [§17.6.8](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0580-0584-0109.md#source-page-583-part-1).
 - [ ] `pgNumType` — [w:CT_PageNumber](word-paragraphs.md#w-ct_pagenumber); Strict, Transitional; minOccurs=0. Page Numbering Settings; [§17.6.12](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0590-0593-0111.md#source-page-593-part-1).
-- [ ] `cols` — [w:CT_Columns](word-paragraphs.md#w-ct_columns); Strict, Transitional; minOccurs=0. Column Definitions; [§17.6.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0568-0574-0107.md#source-page-568-part-1).
+- [ ] `cols` — [w:CT_Columns](word-paragraphs.md#w-ct_columns); Strict, Transitional; minOccurs=0. Column Definitions; [§17.6.4](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0568-0574-0107.md#source-page-568-part-1). Single implicit section: equal-width columns with count, gap and separator. Individual widths and explicit sections remain unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 - [ ] `formProt` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0. Only Allow Editing of Form Fields; [§17.6.6](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0575-0579-0108.md#source-page-575-part-1).
 - [ ] `vAlign` — [w:CT_VerticalJc](word-paragraphs.md#w-ct_verticaljc); Strict, Transitional; minOccurs=0.
 - [ ] `noEndnote` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0.
@@ -478,10 +478,10 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
 - [ ] `col` — [w:CT_Column](word-paragraphs.md#w-ct_column); Strict, Transitional; maxOccurs=45. Single Column Definition; [§17.6.3](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0563-0567-0106.md#source-page-567-part-1).
-- [ ] `@equalWidth` — [s:ST_OnOff](values-shared.md#s-st_onoff); Strict, Transitional; use=optional.
-- [ ] `@space` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=optional; default=720.
-- [ ] `@num` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=optional; default=1.
-- [ ] `@sep` — [s:ST_OnOff](values-shared.md#s-st_onoff); Strict, Transitional; use=optional.
+- [ ] `@equalWidth` — [s:ST_OnOff](values-shared.md#s-st_onoff); Strict, Transitional; use=optional. columns.equal_width retains explicit booleans; DOCX supports equal-width columns and rejects false. Individual widths remain unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@space` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=optional; default=720. Document columns.gap: validated model and equal-width DOCX columns when count is present. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@num` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=optional; default=1. Document columns.count: validated model and equal-width DOCX columns when count is present. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@sep` — [s:ST_OnOff](values-shared.md#s-st_onoff); Strict, Transitional; use=optional. Document columns.separator: validated model and equal-width DOCX columns when count is present. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 
 <a id="w-ct_verticaljc"></a>
 

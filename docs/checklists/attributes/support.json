@@ -1831,5 +1831,50 @@
       "tests/configuration.rs",
       "tests/docx_configuration.rs"
     ]
+  },
+  "w:CT_Columns/@num": {
+    "status": "supported",
+    "note": "Document columns.count: validated model and equal-width DOCX columns when count is present.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_Columns/@space": {
+    "status": "supported",
+    "note": "Document columns.gap: validated model and equal-width DOCX columns when count is present.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_Columns/@sep": {
+    "status": "supported",
+    "note": "Document columns.separator: validated model and equal-width DOCX columns when count is present.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_Columns/@equalWidth": {
+    "status": "partial",
+    "note": "columns.equal_width retains explicit booleans; DOCX supports equal-width columns and rejects false. Individual widths remain unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_SectPr/cols": {
+    "status": "partial",
+    "note": "Single implicit section: equal-width columns with count, gap and separator. Individual widths and explicit sections remain unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
   }
 }

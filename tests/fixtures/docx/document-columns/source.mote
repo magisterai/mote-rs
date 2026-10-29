@@ -1,0 +1,3 @@
+#document(page = { size = "a4" }, columns = { count = "2", gap = "18pt", separator = "true", equal_width = "true" })
+
+#paragraph[Two columns with a separator.]

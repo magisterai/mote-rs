@@ -10,7 +10,11 @@
 - [x] `margin.top`, `right`, `bottom`, `left`, `header`, `footer`, `gutter`: non-negative lengths.
 - [x] Retain authored arguments separately from normalized geometry in JSON.
 - [x] Reject flat page/margin aliases and invalid geometry objects or values.
-- [ ] `columns.count`, `gap`, `separator`, `equal_width`: column configuration.
+- [x] `columns.count`: positive integer, including an integer string.
+- [x] `columns.gap`: non-negative length; `separator`: normalized boolean.
+- [x] `columns.equal_width`: normalized boolean retained in the model; equal-width
+  output only. Unequal widths need individual column geometry and remain unsupported.
+- [x] Repeated column declarations merge fields; omitted count creates no columns.
 - [ ] `default_font`, `default_size`, and `language`: effective document defaults.
   Other `default_*` fields are not automatically supported formatting.
 
@@ -35,7 +39,7 @@ Unmapped entries remain unchecked; they are not invented Mote argument names.
 
 ## Output limits and evidence
 
-DOCX emits a single section with the configured paper and margins. Missing values
+DOCX emits a single section with the configured paper, margins and equal-width columns. Missing values
 use Letter, one-inch body margins, half-inch header/footer distances, and zero
 gutter. Named-size dimensions, explicit overrides, orientation, unit conversion,
 rounding, repeated declarations and overflow failures are covered by

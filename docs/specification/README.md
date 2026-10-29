@@ -28,7 +28,7 @@ Status: initial draft.
    direct precedence, font aliases, and the resolution API.
 
 10. [Document configuration](document-configuration.md): document-wide page geometry,
-    margins, repeated declarations, and model inspection.
+    margins, equal-width columns, repeated declarations, and model inspection.
 
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful

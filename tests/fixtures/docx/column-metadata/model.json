@@ -1,0 +1,85 @@
+{
+  "document": {
+    "columns": {
+      "equal_width": true,
+      "gap": {
+        "text": "0twip",
+        "unit": "twip",
+        "value": 0
+      },
+      "separator": true
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {
+    "gap": {
+      "text": "0twip",
+      "unit": "twip",
+      "value": 0
+    },
+    "separator": true,
+    "equal_width": true,
+    "properties": {
+      "equal_width": true,
+      "gap": {
+        "text": "0twip",
+        "unit": "twip",
+        "value": 0
+      },
+      "separator": true
+    }
+  },
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {
+        "gap": {
+          "text": "0twip",
+          "unit": "twip",
+          "value": 0
+        },
+        "separator": true,
+        "equal_width": true,
+        "properties": {
+          "equal_width": true,
+          "gap": {
+            "text": "0twip",
+            "unit": "twip",
+            "value": 0
+          },
+          "separator": true
+        }
+      },
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "No count has been declared."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "No count has been declared."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "document": {
+    "columns": {
+      "count": 2,
+      "equal_width": true,
+      "separator": false
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {
+    "count": 2,
+    "gap": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    },
+    "equal_width": true,
+    "properties": {
+      "count": 2,
+      "equal_width": true,
+      "gap": {
+        "text": "12pt",
+        "unit": "pt",
+        "value": 12
+      },
+      "separator": false
+    }
+  },
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {
+        "count": 2,
+        "gap": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "equal_width": true,
+        "properties": {
+          "count": 2,
+          "equal_width": true,
+          "gap": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          },
+          "separator": false
+        }
+      },
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Two equal columns retain the earlier gap."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Two equal columns retain the earlier gap."
+        }
+      ]
+    }
+  ]
+}

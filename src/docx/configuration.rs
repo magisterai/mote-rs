@@ -1,10 +1,14 @@
 //! Single-section page geometry. This does not perform pagination.
 
 use super::{Error, check_attributes, values};
-use crate::model::{Document, Properties, Value};
+use crate::model::{ColumnConfiguration, Document, Properties, Value};
 
 pub(super) fn section_properties(document: &Document) -> Result<String, Error> {
-    check_attributes(&document.properties, &["page", "margin"], "document")?;
+    check_attributes(
+        &document.properties,
+        &["page", "margin", "columns"],
+        "document",
+    )?;
     check_attributes(
         &document.page,
         &["size", "width", "height", "orientation"],
@@ -69,7 +73,41 @@ pub(super) fn section_properties(document: &Document) -> Result<String, Error> {
             distance(&document.margin, name, fallback)?
         ));
     }
-    output.push_str("/></w:sectPr>");
+    output.push_str("/>");
+    output.push_str(&column_properties(&document.columns)?);
+    output.push_str("</w:sectPr>");
+    Ok(output)
+}
+
+fn column_properties(columns: &ColumnConfiguration) -> Result<String, Error> {
+    check_attributes(
+        &columns.properties,
+        &["count", "gap", "separator", "equal_width"],
+        "columns",
+    )?;
+    if let Some(equal_width) = columns.properties.get("equal_width")
+        && !values::boolean(equal_width)?
+    {
+        return Err(Error::Unsupported("unequal-width columns".into()));
+    }
+    let Some(count) = columns.count else {
+        return Ok(String::new());
+    };
+    if count < 1 || count > i64::from(i32::MAX) {
+        return Err(Error::InvalidValue(
+            "column count is outside the supported positive integer range".into(),
+        ));
+    }
+    let mut output = format!("<w:cols w:num=\"{count}\"");
+    if let Some(gap) = columns.properties.get("gap") {
+        output.push_str(&format!(" w:space=\"{}\"", values::twips(gap)?));
+    }
+    if let Some(separator) = columns.properties.get("separator")
+        && values::boolean(separator)?
+    {
+        output.push_str(" w:sep=\"1\"");
+    }
+    output.push_str("/>");
     Ok(output)
 }
 

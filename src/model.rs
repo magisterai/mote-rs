@@ -81,6 +81,7 @@ pub struct Document {
     /// Normalized geometry, merged by field across document declarations.
     pub page: Properties,
     pub margin: Properties,
+    pub columns: ColumnConfiguration,
     /// Retained default_* and language arguments; output support is separate.
     pub defaults: Properties,
     pub content: Vec<Content>,
@@ -88,6 +89,13 @@ pub struct Document {
     pub styles: BTreeMap<String, StyleDeclaration>,
     /// Non-fatal evaluation diagnostics, kept separate from JSON inspection.
     pub warnings: Vec<crate::diagnostics::Diagnostic>,
+}
+
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct ColumnConfiguration {
+    /// Parsed count, separate from its authored numeric or string property.
+    pub count: Option<i64>,
+    pub properties: Properties,
 }
 
 #[derive(Debug, Clone, PartialEq)]

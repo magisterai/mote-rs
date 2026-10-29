@@ -424,6 +424,10 @@
       "example": "document-configuration/6",
       "diagnostic": "margin.top must be a non-negative length",
       "invalid": "Margins must not be negative."
+    },
+    {
+      "example": "document-configuration/7",
+      "model": "document-columns"
     }
   ],
   "models": {
@@ -4972,6 +4976,96 @@
             {
               "kind": "text",
               "text": "The later declaration changes the left margin and adds a gutter."
+            }
+          ]
+        }
+      ]
+    },
+    "document-columns": {
+      "document": {
+        "columns": {
+          "count": 2.0,
+          "equal_width": true,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18.0
+          },
+          "separator": true
+        }
+      },
+      "page": {},
+      "margin": {},
+      "columns": {
+        "count": 2.0,
+        "gap": {
+          "text": "18pt",
+          "unit": "pt",
+          "value": 18.0
+        },
+        "separator": true,
+        "equal_width": true,
+        "properties": {
+          "count": 2.0,
+          "equal_width": true,
+          "gap": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18.0
+          },
+          "separator": true
+        }
+      },
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {
+            "count": 2.0,
+            "gap": {
+              "text": "18pt",
+              "unit": "pt",
+              "value": 18.0
+            },
+            "separator": true,
+            "equal_width": true,
+            "properties": {
+              "count": 2.0,
+              "equal_width": true,
+              "gap": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18.0
+              },
+              "separator": true
+            }
+          },
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text flows through two equal-width columns."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text flows through two equal-width columns."
             }
           ]
         }

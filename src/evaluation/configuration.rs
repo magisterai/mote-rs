@@ -2,7 +2,7 @@
 
 use super::{expressions::evaluate_named_arguments, values::*};
 use crate::diagnostics::{Diagnostic, Span};
-use crate::model::{Document, Properties, Value};
+use crate::model::{ColumnConfiguration, Document, Properties, Value};
 use crate::syntax::Call;
 
 pub(super) fn evaluate(call: &Call, span: Span, document: &mut Document) -> Result<(), Diagnostic> {
@@ -30,10 +30,7 @@ pub(super) fn evaluate(call: &Call, span: Span, document: &mut Document) -> Resu
                 }
             }
             "columns" => {
-                return Err(Diagnostic::new(
-                    location,
-                    "document columns are not supported yet",
-                ));
+                apply_columns(&mut document.columns, argument.value.clone(), location)?;
             }
             _ => {}
         }
@@ -54,8 +51,16 @@ fn reject_flat_property(name: &str, span: Span) -> Result<(), Diagnostic> {
         ["page_", "margin_", "column_"]
             .iter()
             .find_map(|prefix| {
-                name.strip_prefix(prefix)
-                    .map(|field| (prefix.trim_end_matches('_'), field))
+                name.strip_prefix(prefix).map(|field| {
+                    (
+                        if *prefix == "column_" {
+                            "columns"
+                        } else {
+                            prefix.trim_end_matches('_')
+                        },
+                        field,
+                    )
+                })
             })
             .filter(|_| name != "page_numbering")
     };
@@ -64,6 +69,31 @@ fn reject_flat_property(name: &str, span: Span) -> Result<(), Diagnostic> {
             span,
             format!("{name} is not supported; use {group} = {{ {field} = ... }}"),
         ));
+    }
+    Ok(())
+}
+
+fn apply_columns(
+    columns: &mut ColumnConfiguration,
+    value: Value,
+    span: Span,
+) -> Result<(), Diagnostic> {
+    for (name, value) in require_object(value, span, "columns")? {
+        let property = format!("columns.{name}");
+        let normalized = match name.as_str() {
+            "count" => {
+                let Value::Number(number) = normalize_integer(value.clone(), span, &property, 1)?
+                else {
+                    unreachable!()
+                };
+                columns.count = Some(number as i64);
+                value
+            }
+            "gap" => normalize_length(value, span, &property)?,
+            "separator" | "equal_width" => normalize_boolean(value, span, &property)?,
+            _ => value,
+        };
+        columns.properties.insert(name, normalized);
     }
     Ok(())
 }
