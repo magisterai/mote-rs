@@ -77,6 +77,8 @@ their concepts before using them in examples.
 | `blockquote` | [Block quote](blockquote.md) | Block body, quote lines, scoped formatting attributes. |
 | `image` | [Image](image.md) | Block media and placement. |
 | `link` | [Link](link.md) | External inline destinations and metadata. |
+| `shape` | [Shape](shape.md) | Positioned shape geometry, appearance and text. |
+| `line` | [Line](line.md) | Positioned line endpoints, strokes and arrow markers. |
 | `span` | [Span](span.md) | General inline formatting and explicit resolution. |
 | `break` | [Break](break.md) | Block page, column and line breaks; section types deferred. |
 | `document` | [Document configuration](document.md) | Document-wide page and margin geometry. |

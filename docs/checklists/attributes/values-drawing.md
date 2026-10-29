@@ -92,6 +92,9 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_TextVerticalType](#a-st_textverticaltype)
 - [a:ST_TextWrappingType](#a-st_textwrappingtype)
 - [a:ST_TileFlipMode](#a-st_tileflipmode)
+- [p:ST_Direction](#p-st_direction)
+- [p:ST_PlaceholderSize](#p-st_placeholdersize)
+- [p:ST_PlaceholderType](#p-st_placeholdertype)
 - [wp:ST_AlignH](#wp-st_alignh)
 - [wp:ST_AlignV](#wp-st_alignv)
 - [wp:ST_PositionOffset](#wp-st_positionoffset)
@@ -1693,6 +1696,51 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `x`
 - enumeration: value: `y`
 - enumeration: value: `xy`
+
+<a id="p-st_direction"></a>
+
+## p:ST_Direction
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `horz`
+- enumeration: value: `vert`
+
+<a id="p-st_placeholdersize"></a>
+
+## p:ST_PlaceholderSize
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `full`
+- enumeration: value: `half`
+- enumeration: value: `quarter`
+
+<a id="p-st_placeholdertype"></a>
+
+## p:ST_PlaceholderType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `title`
+- enumeration: value: `body`
+- enumeration: value: `ctrTitle`
+- enumeration: value: `subTitle`
+- enumeration: value: `dt`
+- enumeration: value: `sldNum`
+- enumeration: value: `ftr`
+- enumeration: value: `hdr`
+- enumeration: value: `obj`
+- enumeration: value: `chart`
+- enumeration: value: `tbl`
+- enumeration: value: `clipArt`
+- enumeration: value: `dgm`
+- enumeration: value: `media`
+- enumeration: value: `sldImg`
+- enumeration: value: `pic`
 
 <a id="wp-st_alignh"></a>
 

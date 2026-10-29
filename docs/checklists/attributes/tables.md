@@ -126,13 +126,11 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [a:CT_InverseGammaTransform](#a-ct_inversegammatransform)
 - [a:CT_GradientStop](#a-ct_gradientstop)
 - [a:CT_FillProperties](#a-ct_fillproperties)
-- [a:CT_StyleMatrixReference](#a-ct_stylematrixreference)
 - [a:CT_EffectProperties](#a-ct_effectproperties)
 - [a:CT_TableStyleTextStyle](#a-ct_tablestyletextstyle)
 - [a:CT_TableStyleCellStyle](#a-ct_tablestylecellstyle)
 - [a:CT_DashStop](#a-ct_dashstop)
 - [a:CT_SphereCoords](#a-ct_spherecoords)
-- [a:CT_FontReference](#a-ct_fontreference)
 - [a:CT_TableCellBorderStyle](#a-ct_tablecellborderstyle)
 - [a:CT_ThemeableLineStyle](#a-ct_themeablelinestyle)
 
@@ -1426,9 +1424,9 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
 - [ ] `fill` — [a:CT_FillProperties](tables.md#a-ct_fillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `fillRef` — [a:CT_StyleMatrixReference](tables.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `fillRef` — [a:CT_StyleMatrixReference](shapes-and-lines.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `effect` — [a:CT_EffectProperties](tables.md#a-ct_effectproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `effectRef` — [a:CT_StyleMatrixReference](tables.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `effectRef` — [a:CT_StyleMatrixReference](shapes-and-lines.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
 
 <a id="a-ct_tablepartstyle"></a>
 
@@ -1624,20 +1622,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `pattFill` — [a:CT_PatternFillProperties](tables.md#a-ct_patternfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `grpFill` — [a:CT_GroupFillProperties](tables.md#a-ct_groupfillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 
-<a id="a-ct_stylematrixreference"></a>
-
-## a:CT_StyleMatrixReference
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `scrgbClr` — [a:CT_ScRgbColor](tables.md#a-ct_scrgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `srgbClr` — [a:CT_SRgbColor](tables.md#a-ct_srgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `hslClr` — [a:CT_HslColor](tables.md#a-ct_hslcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `sysClr` — [a:CT_SystemColor](tables.md#a-ct_systemcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `schemeClr` — [a:CT_SchemeColor](tables.md#a-ct_schemecolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `prstClr` — [a:CT_PresetColor](tables.md#a-ct_presetcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `@idx` — [a:ST_StyleMatrixColumnIndex](values-drawing.md#a-st_stylematrixcolumnindex); Strict, Transitional; use=required.
-
 <a id="a-ct_effectproperties"></a>
 
 ## a:CT_EffectProperties
@@ -1654,7 +1638,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
 - [ ] `font` — [a:CT_FontCollection](fonts.md#a-ct_fontcollection); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `fontRef` — [a:CT_FontReference](tables.md#a-ct_fontreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `fontRef` — [a:CT_FontReference](shapes-and-lines.md#a-ct_fontreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `scrgbClr` — [a:CT_ScRgbColor](tables.md#a-ct_scrgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `srgbClr` — [a:CT_SRgbColor](tables.md#a-ct_srgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `hslClr` — [a:CT_HslColor](tables.md#a-ct_hslcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
@@ -1673,7 +1657,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 - [ ] `tcBdr` — [a:CT_TableCellBorderStyle](tables.md#a-ct_tablecellborderstyle); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `fill` — [a:CT_FillProperties](tables.md#a-ct_fillproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `fillRef` — [a:CT_StyleMatrixReference](tables.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `fillRef` — [a:CT_StyleMatrixReference](shapes-and-lines.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `cell3D` — [a:CT_Cell3D](tables.md#a-ct_cell3d); Strict, Transitional; minOccurs=0; maxOccurs=1.
 
 <a id="a-ct_dashstop"></a>
@@ -1694,20 +1678,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `@lat` — [a:ST_PositiveFixedAngle](values-drawing.md#a-st_positivefixedangle); Strict, Transitional; use=required.
 - [ ] `@lon` — [a:ST_PositiveFixedAngle](values-drawing.md#a-st_positivefixedangle); Strict, Transitional; use=required.
 - [ ] `@rev` — [a:ST_PositiveFixedAngle](values-drawing.md#a-st_positivefixedangle); Strict, Transitional; use=required.
-
-<a id="a-ct_fontreference"></a>
-
-## a:CT_FontReference
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `scrgbClr` — [a:CT_ScRgbColor](tables.md#a-ct_scrgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `srgbClr` — [a:CT_SRgbColor](tables.md#a-ct_srgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `hslClr` — [a:CT_HslColor](tables.md#a-ct_hslcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `sysClr` — [a:CT_SystemColor](tables.md#a-ct_systemcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `schemeClr` — [a:CT_SchemeColor](tables.md#a-ct_schemecolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `prstClr` — [a:CT_PresetColor](tables.md#a-ct_presetcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `@idx` — [a:ST_FontCollectionIndex](values-drawing.md#a-st_fontcollectionindex); Strict, Transitional; use=required.
 
 <a id="a-ct_tablecellborderstyle"></a>
 
@@ -1732,4 +1702,4 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
 - [ ] `ln` — [a:CT_LineProperties](tables.md#a-ct_lineproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `lnRef` — [a:CT_StyleMatrixReference](tables.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `lnRef` — [a:CT_StyleMatrixReference](shapes-and-lines.md#a-ct_stylematrixreference); Strict, Transitional; minOccurs=1; maxOccurs=1.

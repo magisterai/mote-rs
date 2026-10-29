@@ -133,6 +133,12 @@
       "namespace": "http://purl.oclc.org/ooxml/drawingml/picture",
       "edition": "Strict",
       "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/dml-picture.xsd"
+    },
+    {
+      "prefix": "wps",
+      "namespace": "http://schemas.microsoft.com/office/word/2010/wordprocessingShape",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
     }
   ],
   "families": [
@@ -506,11 +512,32 @@
           "type": "w:CT_Captions"
         }
       ]
+    },
+    {
+      "file": "shapes-and-lines.md",
+      "title": "Drawing shapes and connectors",
+      "description": "Complete DrawingML shape and connector property families, nonvisual metadata, geometry, fills, strokes, effects, text bodies and Word shape hosting. Textbox content belongs to the existing Word content inventories; textbox identifiers remain inventoried here. Unsupported preset kinds and property values remain visible without introducing authoring names.",
+      "roots": [
+        {
+          "type": "p:CT_Shape"
+        },
+        {
+          "type": "p:CT_Connector"
+        },
+        {
+          "type": "wps:CT_WordprocessingShape"
+        },
+        {
+          "type": "wps:CT_TextboxInfo",
+          "attributes_only": true
+        }
+      ]
     }
   ],
   "supplemental_notes": {
     "w:CT_NumFmt": "See also the [custom-format semantics and additional sequence strings](prose-extensions.md#numbering) defined in specification prose.",
-    "s:ST_CalendarType": "MS-DOCX adds the [umalqura calendar value](prose-extensions.md#calendar) outside this schema enumeration."
+    "s:ST_CalendarType": "MS-DOCX adds the [umalqura calendar value](prose-extensions.md#calendar) outside this schema enumeration.",
+    "wps:CT_TextboxInfo": "The container hosts WordprocessingML textbox content and extension payloads. Its identifiers are inventoried here; paragraph/run/table content follows their existing inventories. Linked text boxes remain unsupported."
   },
   "legacy_value_aliases": {
     "w:ST_OnOff": "s:ST_OnOff",
