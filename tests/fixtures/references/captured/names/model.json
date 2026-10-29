@@ -1,0 +1,296 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": " a-b ",
+                "number": "IV",
+                "title": "First"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First target."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "a_b",
+                "title": "Second"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second target."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": " a-b "
+              }
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": "a_b"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "number",
+                "target": " a-b "
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "bookmark",
+              "category": "inline",
+              "attributes": {
+                "name": "1 book"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "bookmark",
+              "category": "inline",
+              "attributes": {
+                "name": "1_book"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "bookmark",
+              "category": "inline",
+              "attributes": {
+                "name": " "
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Space name"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": " a-b ",
+            "number": "IV",
+            "title": "First"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "First target."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "a_b",
+            "title": "Second"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Second target."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "target": " a-b "
+          }
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "target": "a_b"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "number",
+            "target": " a-b "
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "bookmark",
+          "category": "inline",
+          "attributes": {
+            "name": "1 book"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "First"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "bookmark",
+          "category": "inline",
+          "attributes": {
+            "name": "1_book"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "bookmark",
+          "category": "inline",
+          "attributes": {
+            "name": " "
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Space name"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

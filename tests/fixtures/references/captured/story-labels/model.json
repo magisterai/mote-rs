@@ -1,0 +1,388 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "40pt",
+        "unit": "pt",
+        "value": 40
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    },
+    "page": {
+      "height": {
+        "text": "240pt",
+        "unit": "pt",
+        "value": 240
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "240pt",
+        "unit": "pt",
+        "value": 240
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "48pt",
+      "unit": "pt",
+      "value": 48
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "40pt",
+      "unit": "pt",
+      "value": 40
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "40pt",
+        "unit": "pt",
+        "value": 40
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "48pt",
+        "unit": "pt",
+        "value": 48
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "width": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "40pt",
+          "unit": "pt",
+          "value": 40
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "40pt",
+            "unit": "pt",
+            "value": 40
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "running",
+                "title": "Running head"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "Header"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "See "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": "running"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " on "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "page",
+                "target": "running"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "explicit": true,
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "width": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "48pt",
+          "unit": "pt",
+          "value": 48
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "40pt",
+          "unit": "pt",
+          "value": 40
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "40pt",
+            "unit": "pt",
+            "value": 40
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "running",
+                "title": "Running head"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "Header"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        },
+        "properties": {
+          "distance": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        }
+      },
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "The same header label is inherited here."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "See "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "target": "running"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " on "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "page",
+            "target": "running"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "The same header label is inherited here."
+        }
+      ]
+    }
+  ]
+}

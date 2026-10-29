@@ -56,6 +56,8 @@ pub fn measure_cases(root: &Path, requests: &Value) -> Result<Value, Box<dyn Err
             .iter()
             .map(|run| TextRun {
                 link: None,
+                internal_target: None,
+                anchors: Vec::new(),
                 current_page_field: None,
                 text: run["text"].as_str().unwrap().into(),
                 preserve_space: boolean(run, "preserve_space"),

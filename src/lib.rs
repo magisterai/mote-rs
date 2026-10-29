@@ -21,3 +21,5 @@ pub fn compile(source: &str) -> Result<model::Document, diagnostics::Diagnostic>
 mod tables;
 
 mod properties;
+
+mod references;

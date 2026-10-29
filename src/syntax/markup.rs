@@ -176,6 +176,7 @@ impl Parser<'_> {
                     }
                     let kind = if has_arguments || !bodies.is_empty() {
                         NodeKind::Call(Call {
+                            from_markdown: false,
                             name,
                             arguments,
                             bodies,

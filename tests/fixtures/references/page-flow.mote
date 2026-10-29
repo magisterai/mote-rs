@@ -1,0 +1,13 @@
+#document(page={width=pt(260),height=pt(180)},margin={top=pt(36),bottom=pt(36),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[Target page #ref("end",kind="page")]
+#footer(distance=pt(12))[#page_number() / #page_number(kind="total")]
+#paragraph[Forward page #ref("end",kind="page").]
+#section(page_numbering={start=8})[
+#label("start")
+#paragraph[Target at the beginning of this section.]
+#break()
+#paragraph[The ending is on page #ref("end",kind="page").]
+#break()
+#label("end")
+#paragraph[Final target; beginning page #ref("start",kind="page").]
+]

@@ -15,6 +15,8 @@ pub fn resolve_inline(
         if let Some(previous) = merged.last_mut()
             && previous.current_page_field.is_none()
             && run.current_page_field.is_none()
+            && run.anchors.is_empty()
+            && previous.internal_target == run.internal_target
             && previous.link == run.link
             && previous.style == run.style
             && previous.preserve_space == run.preserve_space
@@ -42,6 +44,58 @@ fn collect(
                 runs.push(run);
             }
             Content::Element(element) => {
+                if element.kind == ElementKind::Label {
+                    continue;
+                }
+                if element.kind == ElementKind::Bookmark {
+                    let start = runs.len();
+                    collect(&element.children, inherited, styles, preserve_space, runs);
+                    let name = crate::properties::text(&element.attributes, "name")
+                        .trim()
+                        .to_owned();
+                    if !name.is_empty()
+                        && let Some(run) = runs.get_mut(start)
+                    {
+                        run.anchors.push(name);
+                    }
+                    continue;
+                }
+                if element.kind == ElementKind::Reference {
+                    let resolution = styles.anchors.resolve(element);
+                    let mut text = resolution.text;
+                    let page = resolution.display == "page";
+                    if page {
+                        if let Some(number) = styles.reference_pages.get(&resolution.target) {
+                            text = number.to_string();
+                        } else if text.is_empty() || text == resolution.target {
+                            text = "?".into();
+                        }
+                    }
+                    let mut style = inherited.clone();
+                    if resolution.anchor.is_some() {
+                        style.color = "0563C1".into();
+                        style.underline = true;
+                    }
+                    let start = runs.len();
+                    if !page
+                        && !element.children.is_empty()
+                        && crate::properties::text(&element.attributes, "fallback").is_empty()
+                        && text == crate::references::text(&element.children)
+                    {
+                        collect(&element.children, &style, styles, preserve_space, runs);
+                    } else {
+                        if text.is_empty() {
+                            text = "[ref]".into();
+                        }
+                        runs.push(TextRun::new(text, style));
+                    }
+                    if resolution.anchor.is_some() {
+                        for run in &mut runs[start..] {
+                            run.internal_target = Some(resolution.target.clone());
+                        }
+                    }
+                    continue;
+                }
                 if element.kind == ElementKind::PageNumber {
                     let text = element
                         .attributes

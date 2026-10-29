@@ -1,0 +1,5 @@
+#document(page={width=pt(240),height=pt(210)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#paragraph[This paragraph precedes the target. It wraps over several lines to test the location without authored page breaks.]
+#paragraph[Before #bookmark("wrapped")[this bookmark wraps naturally over more than one line and keeps its destination at the first painted fragment] after.]
+#paragraph[#label("inline-leading",title="Leading target")This leading label identifies its paragraph.]
+#paragraph[See [a **bold** internal reference that wraps to the next line](#inline-leading) on page #ref("inline-leading",kind="page").]

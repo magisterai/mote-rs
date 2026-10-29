@@ -470,6 +470,10 @@
     {
       "example": "sections-and-stories/1",
       "model": "sections-and-stories"
+    },
+    {
+      "example": "anchors-and-references/1",
+      "model": "anchors-and-references"
     }
   ],
   "models": {
@@ -6034,6 +6038,200 @@
             {
               "kind": "text",
               "text": "The report begins here."
+            }
+          ]
+        }
+      ]
+    },
+    "anchors-and-references": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Continue to "
+                },
+                {
+                  "kind": "ref",
+                  "category": "inline",
+                  "attributes": {
+                    "target": "details"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " on page "
+                },
+                {
+                  "kind": "ref",
+                  "category": "inline",
+                  "attributes": {
+                    "kind": "page",
+                    "target": "details"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "label",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "details",
+                    "title": "Detailed results"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1.0
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Results"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A "
+                },
+                {
+                  "kind": "bookmark",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "term"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "named term"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " remains ordinary visible text."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Continue to "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": "details"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " on page "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "page",
+                "target": "details"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "details",
+                "title": "Detailed results"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1.0
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Results"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A "
+            },
+            {
+              "kind": "bookmark",
+              "category": "inline",
+              "attributes": {
+                "name": "term"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "named term"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " remains ordinary visible text."
             }
           ]
         }

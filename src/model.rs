@@ -179,6 +179,9 @@ pub enum ElementKind {
     Emphasis,
     Code,
     PageNumber,
+    Bookmark,
+    Label,
+    Reference,
     LineBreak,
     Tab,
     Break,
@@ -202,6 +205,9 @@ impl ElementKind {
             Self::Strong => "strong",
             Self::Emphasis => "emphasis",
             Self::Code => "code",
+            Self::Bookmark => "bookmark",
+            Self::Label => "label",
+            Self::Reference => "ref",
             Self::PageNumber => "page_number",
             Self::LineBreak => "line_break",
             Self::Tab => "tab",
@@ -227,6 +233,9 @@ impl ElementKind {
                 | Self::Strong
                 | Self::Emphasis
                 | Self::Code
+                | Self::Bookmark
+                | Self::Label
+                | Self::Reference
                 | Self::PageNumber
                 | Self::LineBreak
                 | Self::Tab

@@ -9,6 +9,7 @@ mod configuration;
 mod declarations;
 mod expressions;
 mod images;
+mod references;
 mod sections;
 mod tables;
 use sections::EvaluationState;
@@ -44,6 +45,14 @@ pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
             return Err(Diagnostic::new(
                 style.span,
                 format!("style {:?} cannot be based on itself", style.name),
+            ));
+        }
+    }
+    for (target, span) in &document.references {
+        if !document.labels.contains_key(target) {
+            return Err(Diagnostic::new(
+                *span,
+                format!("ref target {target} is not labeled in this document"),
             ));
         }
     }
@@ -355,6 +364,9 @@ fn evaluate_call(
 ) -> Result<Content, Diagnostic> {
     if matches!(call.name.as_str(), "table" | "row" | "cell") {
         return tables::evaluate(call, span, context, document);
+    }
+    if matches!(call.name.as_str(), "bookmark" | "label" | "ref") {
+        return references::evaluate(call, span, context, document);
     }
     if call.name == "image" {
         return images::evaluate(call, span);

@@ -1,0 +1,9 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#paragraph[See #ref("intro") and #ref(target={label="intro"},display="page").]
+#label("intro")
+#heading(level=1)[Introduction]
+#paragraph[An #bookmark("inline")[authored bookmark] and [formatted **reference**](#intro).]
+#paragraph[Title: #ref("intro",kind="title"). Text: #ref("intro",display="text").]
+#label("explicit",title="Explicit title",number=7,kind="table")
+#paragraph[An explicit target.]
+#paragraph[Number: #ref("explicit",kind="number"). Fallback: #ref("intro",fallback="chosen").]

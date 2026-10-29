@@ -1,0 +1,22 @@
+{
+  "source": "../../placement.mote",
+  "source_sha256": "dc31ac651594d0965103a988fb0aa85b081518c847c195d6a1653f03453e2556",
+  "captured_docx_sha256": "cdd4f618ddf5a6d107324b5af54112de0850de1b792889a316708d3fbbecfd56",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:21:01.952833+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 1
+  }
+}

@@ -45,10 +45,13 @@ pub(super) fn write(
     if !properties.is_empty() {
         paragraph.push_str(&format!("<w:pPr>{properties}</w:pPr>"));
     }
+    let (bookmarks, bookmark_identifiers) = super::references::start_pending(resources)?;
+    paragraph.push_str(&bookmarks);
     if leading_column_break {
         paragraph.push_str("<w:r><w:br w:type=\"column\"/></w:r>");
     }
     paragraph.push_str(&runs::write_inlines(children, styles, resources)?);
+    paragraph.push_str(&super::references::end_pending(&bookmark_identifiers));
     paragraph.push_str("</w:p>");
     Ok(paragraph)
 }

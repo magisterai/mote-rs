@@ -13,6 +13,7 @@ pub struct PositionedImage {
     pub link: Option<String>,
 }
 pub(super) struct ImageBlock {
+    pub anchors: Vec<String>,
     pub image: Arc<PreparedImage>,
     pub width: f64,
     pub height: f64,
@@ -80,6 +81,7 @@ impl ImageBlock {
             .map(crate::model::Value::to_text)
             .filter(|value| !value.is_empty());
         Ok(Self {
+            anchors: Vec::new(),
             image,
             width,
             height,

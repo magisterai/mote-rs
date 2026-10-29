@@ -1,0 +1,117 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 35.453,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "Middle ",
+              "x": 24
+            },
+            {
+              "advance": 3.058,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": " ",
+              "x": 59.453
+            },
+            {
+              "advance": 26.29,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "label ",
+              "x": 62.511
+            },
+            {
+              "advance": 24.464,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "then ",
+              "x": 88.801
+            },
+            {
+              "advance": 6.116,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "?",
+              "x": 113.265
+            },
+            {
+              "advance": 3.058,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": ".",
+              "x": 119.381
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 98.439,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 39.116,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "Trailing ",
+              "x": 24
+            },
+            {
+              "advance": 31.185,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "target ",
+              "x": 63.116
+            },
+            {
+              "advance": 44.022,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "unknown",
+              "x": 94.301
+            },
+            {
+              "advance": 3.058,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": " ",
+              "x": 138.323
+            },
+            {
+              "advance": 21.406,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "and ",
+              "x": 141.381
+            },
+            {
+              "advance": 32.395,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "trailing",
+              "x": 162.787
+            },
+            {
+              "advance": 3.058,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": ".",
+              "x": 195.18200000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 59.225539999999995,
+          "width": 174.24,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

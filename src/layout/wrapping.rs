@@ -39,7 +39,11 @@ pub(super) fn slice(runs: &[TextRun], start: usize, end: usize) -> Vec<TextRun> 
         let start = start.max(position);
         let end = end.min(run_end);
         if start < end {
-            output.push(run.with_text(&run.text[start - position..end - position]));
+            let mut piece = run.with_text(&run.text[start - position..end - position]);
+            if start > position {
+                piece.anchors.clear();
+            }
+            output.push(piece);
         }
         position = run_end;
     }

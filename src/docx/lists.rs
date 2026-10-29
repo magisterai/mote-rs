@@ -51,7 +51,9 @@ pub(super) fn write(
             write_structured_item(&mut output,item,item_level,layout,StructuredMarker{identifier,checked,checkbox:&checkbox},styles,state)?;
             continue;
         }
-        let (inline, nested) = split_item_children(&item.children)?;
+        let (mut inline, nested) = split_item_children(&item.children)?;
+        let bookmarks = std::mem::take(&mut state.resources.pending_bookmarks);
+        inline.splice(0..0, bookmarks.into_iter().map(Content::Element));
         output.push_str("<w:p><w:pPr>");
         if checked.is_none() {
             let identifier = match numbering_identifier {

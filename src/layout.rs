@@ -7,6 +7,7 @@ mod document;
 mod fields;
 mod lists;
 mod numbering;
+pub(crate) mod references;
 mod sections;
 mod stories;
 mod tables;
@@ -88,6 +89,8 @@ pub struct TextRun {
     /// Invisible spacing used by generated numbering separators.
     pub fixed_advance: Option<f64>,
     pub link: Option<String>,
+    pub internal_target: Option<String>,
+    pub anchors: Vec<String>,
     pub current_page_field: Option<CurrentPageField>,
 }
 
@@ -100,6 +103,8 @@ impl TextRun {
             synthetic_tab: false,
             fixed_advance: None,
             link: None,
+            internal_target: None,
+            anchors: Vec::new(),
             current_page_field: None,
         }
     }
@@ -202,6 +207,8 @@ pub struct TextFragment {
     pub font: FontSelection,
     pub missing_codepoints: Vec<char>,
     pub link: Option<String>,
+    pub internal_target: Option<String>,
+    pub anchors: Vec<String>,
     pub current_page_field: Option<CurrentPageField>,
 }
 

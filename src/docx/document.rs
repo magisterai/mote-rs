@@ -35,6 +35,10 @@ pub(super) fn write_blocks(
     let mut previous_table = false;
     let mut pending_column_break = false;
     for content in content {
+        if let Some(labels) = crate::references::standalone_labels(content) {
+            state.resources.pending_bookmarks.extend(labels);
+            continue;
+        }
         let Content::Element(element) = content else {
             return Err(Error::Unsupported(
                 "top-level text outside a paragraph".into(),
@@ -55,6 +59,20 @@ pub(super) fn write_blocks(
                 .map(Value::to_text)
                 .unwrap_or_else(|| "page".into());
             let paragraph = break_paragraph(&kind)?;
+            if !state.resources.pending_bookmarks.is_empty() {
+                let (opening, identifiers) =
+                    super::references::start_pending(&mut state.resources)?;
+                body.push_str(
+                    &paragraph
+                        .replacen("<w:p>", &format!("<w:p>{opening}"), 1)
+                        .replace(
+                            "</w:p>",
+                            &format!("{}</w:p>", super::references::end_pending(&identifiers)),
+                        ),
+                );
+                at_flow_start = false;
+                continue;
+            }
             if pending_column_break {
                 body.push_str(break_paragraph("column")?);
             }
@@ -133,6 +151,16 @@ pub(super) fn write_blocks(
     }
     if pending_column_break {
         body.push_str(break_paragraph("column")?);
+    }
+    if !state.resources.pending_bookmarks.is_empty() {
+        body.push_str(&paragraphs::write(
+            &Default::default(),
+            &[],
+            styles,
+            None,
+            false,
+            &mut state.resources,
+        )?);
     }
     Ok(body)
 }

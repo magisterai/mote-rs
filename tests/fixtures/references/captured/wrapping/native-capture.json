@@ -1,0 +1,18 @@
+{
+  "source_sha256": "b65970db9e963c2fc31cec4bd6068baf876e8eb65c3924c378908767926253bc",
+  "units": "points",
+  "geometry_tolerance": 1e-08,
+  "native_png_dpi": 72,
+  "png_maximum_channel_difference": 56,
+  "png_mean_foreground_difference": 11.0,
+  "office_review_status": "unreviewed",
+  "native_reference_status": "captured",
+  "pages": 2,
+  "pdf_comparison_dpi": 144,
+  "pdf_changed_pixels": 0,
+  "files": {
+    "geometry.json": "9c4108562847ad3d54c884be4e498e75e106e23944c21f9f11ba49692e3321c4",
+    "reference-2.png": "4d2b0c8fa8d2fa15c84b86b87548e7dc28052f9848bb9cf1005d960d8972285f",
+    "reference-1.png": "f9e3c1942b75a2542d979e17d7f44fa1f1a1015a43c3492e976851e430fa732e"
+  }
+}

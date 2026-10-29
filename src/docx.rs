@@ -14,6 +14,7 @@ mod numbering;
 mod package;
 mod paragraph_properties;
 mod paragraphs;
+mod references;
 mod resources;
 mod run_properties;
 mod runs;
@@ -89,6 +90,7 @@ pub fn emit_with_assets(
     let font_table = fonts::write_table(document)?;
     let styles_xml = styles.write()?;
     let mut state = document::DocumentState::default();
+    state.resources.anchors = crate::references::Catalog::build(document);
     state.resources.images = crate::media::ImageCatalog::load(document, resolver, source_name);
     let body = document::write_document(document, &styles, &mut state)?;
     let bytes = package::write(

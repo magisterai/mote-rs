@@ -52,11 +52,13 @@ struct SectionFlow {
 struct PassResult {
     plan: DocumentTextPlan,
     fields: BTreeMap<usize, usize>,
+    reference_pages: BTreeMap<String, usize>,
     flows: Vec<SectionFlow>,
 }
 #[derive(Default)]
 struct PassInputs {
     fields: BTreeMap<usize, usize>,
+    reference_pages: BTreeMap<String, usize>,
     total: usize,
     targets: BTreeMap<usize, BalanceTarget>,
 }
@@ -83,7 +85,9 @@ pub(super) fn plan(
     };
     for pass in 0..6 {
         let mut result = balanced_pass(document, &sections, measurer, images, &mut inputs)?;
-        if inputs.fields == result.fields && inputs.total == result.plan.pages.len().max(1)
+        if inputs.fields == result.fields
+            && inputs.reference_pages == result.reference_pages
+            && inputs.total == result.plan.pages.len().max(1)
             || pass == 5
         {
             if pass == 5 {
@@ -92,11 +96,19 @@ pub(super) fn plan(
                     .warnings
                     .push("document page fields did not stabilize after 6 layout passes".into());
             }
-            super::stories::place(&mut result.plan, &sections, document, measurer)?;
+            super::stories::place(
+                &mut result.plan,
+                &sections,
+                document,
+                measurer,
+                &result.reference_pages,
+            )?;
+            super::references::finalize(&mut result.plan);
             return Ok(result.plan);
         }
         inputs.total = result.plan.pages.len().max(1);
         inputs.fields = result.fields;
+        inputs.reference_pages = result.reference_pages;
     }
     unreachable!()
 }
@@ -212,7 +224,9 @@ fn plan_pass(
     images: &crate::media::ImageCatalog,
     inputs: &PassInputs,
 ) -> Result<PassResult, LayoutError> {
-    let styles = LayoutStyleResolver::new(document);
+    let mut styles = LayoutStyleResolver::new(document);
+    styles.reference_pages = inputs.reference_pages.clone();
+    let mut reference_pages = BTreeMap::new();
     let mut numbers = BlockNumbers::default();
     let mut pages: Vec<TextPage> = Vec::new();
     let mut cursor = FlowCursor::default();
@@ -348,6 +362,13 @@ fn plan_pass(
                 page.page_number = (page_index as i64 + 1 + numbering_offset).max(1) as usize;
             }
         }
+        for (page_index, page) in pages.iter().enumerate() {
+            for name in page.anchors.keys() {
+                reference_pages
+                    .entry(name.clone())
+                    .or_insert((page_index as i64 + 1 + numbering_offset).max(1) as usize);
+            }
+        }
         previous_geometry = geometry;
     }
     if document.sections.is_empty() && document.content.is_empty() {
@@ -378,6 +399,7 @@ fn plan_pass(
             warnings,
         },
         fields,
+        reference_pages,
         flows,
     })
 }

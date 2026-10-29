@@ -41,13 +41,16 @@ Status: initial draft.
 15. [Sections, headers and footers](sections-and-stories.md): section geometry,
     running stories and page-number fields.
 
+16. [Anchors and references](anchors-and-references.md): named ranges, invisible labels,
+    internal links, forward references and displayed page references.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
 the rule they violate. Implementation deferrals do not replace definitions.
 
 Later chapters will introduce bindings, data loading, additional formatting,
-sections, scripting, and layout. Their syntax is not used in the
+scripting, and layout. Their syntax is not used in the
 introductory examples.
 
 The [directive checklists](../checklists/README.md) record planned attributes and

@@ -1,0 +1,9 @@
+#document(page={width=pt(300),height=pt(240)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#label("list")
+#list[#item[One]#item[Two]]
+#label("table")
+#table[#row[#cell[Cell target]#cell[Adjacent]]]
+#label("break")
+#break()
+#paragraph[After break.]
+#paragraph[Page #ref("table",kind="page"), list #ref("list",kind="page"), break #ref("break",kind="page").]

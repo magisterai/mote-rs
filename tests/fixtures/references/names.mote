@@ -1,0 +1,6 @@
+#label(" a-b ",title="First",number="IV")
+#paragraph[First target.]
+#label("a_b",title="Second")
+#paragraph[Second target.]
+#paragraph[#ref(" a-b ") #ref("a_b") #ref(" a-b ",kind="number")]
+#paragraph[#bookmark("1 book")[First] #bookmark("1_book")[Second] #bookmark(" ")[Space name]]

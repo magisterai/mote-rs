@@ -1,0 +1,4 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#paragraph[Middle #label("middle",title="Mid label") label then #ref("middle",kind="page").]
+#paragraph[Trailing target #ref("trailing",kind="page",fallback="unknown") and #ref("trailing").]
+#label("trailing")

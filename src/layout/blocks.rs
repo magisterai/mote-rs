@@ -18,6 +18,7 @@ pub(super) enum Block {
 }
 pub(super) struct PreparedParagraph {
     pub text: ParagraphText,
+    pub anchors: Vec<String>,
     pub marker: Option<PreparedMarker>,
     pub clear_fill_before: bool,
     pub clear_fill_after: bool,
@@ -64,8 +65,22 @@ pub(super) fn prepare_content(
         numbers,
         in_cell,
         flow_start: !in_cell,
+        pending_anchors: Vec::new(),
     };
     for content in content {
+        if let Some(labels) = crate::references::standalone_labels(content) {
+            builder.pending_anchors.extend(
+                labels
+                    .iter()
+                    .map(|label| {
+                        crate::properties::text(&label.attributes, "name")
+                            .trim()
+                            .to_owned()
+                    })
+                    .filter(|name| !name.is_empty()),
+            );
+            continue;
+        }
         let Content::Element(element) = content else {
             return Err(LayoutError::Unsupported(
                 "document planning requires evaluated block content".into(),
@@ -76,30 +91,35 @@ pub(super) fn prepare_content(
                 builder.paragraph(element)?
             }
             ElementKind::List | ElementKind::OrderedList => {
+                builder.pending_anchors.clear();
                 builder.list(element, 0, true)?;
                 builder.flow_start = false;
             }
             ElementKind::Image => {
                 match super::images::ImageBlock::prepare(element, images, width) {
-                    Ok(image) => builder.blocks.push(Block::Image(Box::new(image))),
+                    Ok(mut image) => {
+                        image.anchors = std::mem::take(&mut builder.pending_anchors);
+                        builder.blocks.push(Block::Image(Box::new(image)));
+                    }
                     Err(error) => builder.paragraph(&super::images::fallback(element, &error))?,
                 }
                 builder.flow_start = false;
             }
             ElementKind::Table => {
-                builder
-                    .blocks
-                    .push(Block::Table(Box::new(super::tables::prepare(
-                        element,
-                        width,
-                        styles,
-                        builder.measurer,
-                        images,
-                        builder.numbers,
-                    )?)));
+                let mut table = super::tables::prepare(
+                    element,
+                    width,
+                    styles,
+                    builder.measurer,
+                    images,
+                    builder.numbers,
+                )?;
+                table.anchors = std::mem::take(&mut builder.pending_anchors);
+                builder.blocks.push(Block::Table(Box::new(table)));
                 builder.flow_start = false;
             }
             ElementKind::Break => {
+                builder.pending_anchors.clear();
                 let kind = values::text(&element.attributes, "type");
                 builder.flow_start = kind != "line";
                 builder.blocks.push(Block::Break(kind));
@@ -122,6 +142,7 @@ struct BlockBuilder<'builder, 'document, 'assets> {
     numbers: &'builder mut BlockNumbers,
     in_cell: bool,
     flow_start: bool,
+    pending_anchors: Vec<String>,
 }
 impl BlockBuilder<'_, '_, '_> {
     fn paragraph(&mut self, original: &Element) -> Result<(), LayoutError> {
@@ -180,6 +201,11 @@ impl BlockBuilder<'_, '_, '_> {
         }
         self.blocks
             .push(Block::Paragraph(Box::new(PreparedParagraph {
+                anchors: {
+                    let mut anchors = std::mem::take(&mut self.pending_anchors);
+                    anchors.extend(super::references::leading_names(&element.children));
+                    anchors
+                },
                 text: paragraph,
                 marker: None,
                 clear_fill_before: false,
@@ -318,6 +344,11 @@ impl BlockBuilder<'_, '_, '_> {
                 )?;
                 self.blocks
                     .push(Block::Paragraph(Box::new(PreparedParagraph {
+                        anchors: {
+                            let mut anchors = std::mem::take(&mut self.pending_anchors);
+                            anchors.extend(super::references::leading_names(&element.children));
+                            anchors
+                        },
                         text: paragraph,
                         marker: (unit_index == 0).then_some(PreparedMarker {
                             level: item_level,

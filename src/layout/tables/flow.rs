@@ -43,6 +43,7 @@ pub(in crate::layout) fn place(
         .sum();
     let mut collector = borders::Collector::default();
     let mut start = 0;
+    let mut anchored = false;
     while start < table.rows.len() {
         let end = pagination::block_end(table, start);
         let height: f64 = table.rows[start..end].iter().map(|row| row.height).sum();
@@ -99,6 +100,10 @@ pub(in crate::layout) fn place(
                     geometry.column_left(cursor.column_index),
                     geometry.column_width(),
                 );
+                if !anchored {
+                    pages[cursor.page_number - 1].place_anchors(&table.anchors, [left, cursor.y]);
+                    anchored = true;
+                }
                 for span in &slice.spans {
                     let cell = &table.rows[span.row].cells[span.cell];
                     let bounds = cell_bounds(table, cell, left, cursor.y, span.height);
@@ -186,6 +191,19 @@ pub(in crate::layout) fn place(
                             cursor.y += table.rows[header].height;
                         }
                     }
+                }
+                if !anchored {
+                    pages[cursor.page_number - 1].place_anchors(
+                        &table.anchors,
+                        [
+                            table.left(
+                                geometry.column_left(cursor.column_index),
+                                geometry.column_width(),
+                            ),
+                            cursor.y,
+                        ],
+                    );
+                    anchored = true;
                 }
                 place_row(
                     table,

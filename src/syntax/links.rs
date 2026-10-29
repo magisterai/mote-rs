@@ -164,11 +164,15 @@ fn link_node(span: Span, destination: &str, title: &str, body: Vec<Node>) -> Nod
         },
         span,
     )];
+    if internal {
+        arguments.push(string_argument("display", "text", span));
+    }
     if !title.is_empty() {
         arguments.push(string_argument("title", title, span));
     }
     Node {
         kind: NodeKind::Call(Call {
+            from_markdown: true,
             name: if internal { "ref" } else { "link" }.into(),
             arguments,
             bodies: vec![body],

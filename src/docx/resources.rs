@@ -3,6 +3,9 @@ use super::{Error, package, xml};
 /// Relationships accumulated in content order during one package emission.
 pub(super) struct Resources {
     relationships: Vec<Relationship>,
+    pub anchors: crate::references::Catalog,
+    pub next_bookmark: usize,
+    pub pending_bookmarks: Vec<crate::model::Element>,
     relationship_offset: usize,
     pub stories: Vec<super::sections::StoryPart>,
     pub warnings: Vec<String>,
@@ -19,6 +22,9 @@ impl Default for Resources {
     fn default() -> Self {
         Self {
             relationships: Vec::new(),
+            anchors: Default::default(),
+            next_bookmark: 0,
+            pending_bookmarks: Vec::new(),
             relationship_offset: 4,
             stories: Vec::new(),
             warnings: Vec::new(),

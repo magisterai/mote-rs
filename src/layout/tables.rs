@@ -13,6 +13,7 @@ use crate::{
 };
 
 pub(super) struct TablePlan {
+    pub anchors: Vec<String>,
     pub rows: Vec<RowPlan>,
     pub widths: Vec<f64>,
     pub alignment: String,
@@ -63,6 +64,7 @@ pub(super) fn prepare(
     let defaults = cells::defaults(styles.document, table);
     let source_rows = tables::rows(table);
     let mut plan = TablePlan {
+        anchors: Vec::new(),
         rows: Vec::new(),
         widths: Vec::new(),
         alignment: property_values::text(&table.attributes, "alignment"),

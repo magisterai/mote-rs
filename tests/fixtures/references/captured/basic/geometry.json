@@ -1,0 +1,261 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 22.627,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "See ",
+              "x": 24
+            },
+            {
+              "advance": 57.475,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "Introduction",
+              "x": 46.626999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": " ",
+              "x": 104.102
+            },
+            {
+              "advance": 21.406,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "and ",
+              "x": 107.16
+            },
+            {
+              "advance": 6.116,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "1",
+              "x": 128.566
+            },
+            {
+              "advance": 3.058,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": ".",
+              "x": 134.68200000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 113.74000000000001,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 93.328,
+              "baseline": 73.65433999999999,
+              "size": 16,
+              "text": "Introduction",
+              "x": 24
+            }
+          ],
+          "height": 19.2576,
+          "top": 59.225539999999995,
+          "width": 93.328,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 16.511,
+              "baseline": 97.39590999999999,
+              "size": 11,
+              "text": "An ",
+              "x": 24
+            },
+            {
+              "advance": 46.475,
+              "baseline": 97.39590999999999,
+              "size": 11,
+              "text": "authored ",
+              "x": 40.510999999999996
+            },
+            {
+              "advance": 51.348,
+              "baseline": 97.39590999999999,
+              "size": 11,
+              "text": "bookmark ",
+              "x": 86.986
+            },
+            {
+              "advance": 21.406,
+              "baseline": 97.39590999999999,
+              "size": 11,
+              "text": "and ",
+              "x": 138.334
+            },
+            {
+              "advance": 49.522,
+              "baseline": 97.39590999999999,
+              "size": 11,
+              "text": "formatted ",
+              "x": 159.74
+            },
+            {
+              "advance": 49.522,
+              "baseline": 97.39590999999999,
+              "size": 11,
+              "text": "reference",
+              "x": 209.262
+            },
+            {
+              "advance": 3.058,
+              "baseline": 97.39590999999999,
+              "size": 11,
+              "text": ".",
+              "x": 258.784
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 86.48313999999999,
+          "width": 237.84199999999998,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 26.895,
+              "baseline": 120.62144999999998,
+              "size": 11,
+              "text": "Title: ",
+              "x": 24
+            },
+            {
+              "advance": 57.475,
+              "baseline": 120.62144999999998,
+              "size": 11,
+              "text": "Introduction",
+              "x": 50.894999999999996
+            },
+            {
+              "advance": 6.116,
+              "baseline": 120.62144999999998,
+              "size": 11,
+              "text": ". ",
+              "x": 108.37
+            },
+            {
+              "advance": 27.511,
+              "baseline": 120.62144999999998,
+              "size": 11,
+              "text": "Text: ",
+              "x": 114.486
+            },
+            {
+              "advance": 57.475,
+              "baseline": 120.62144999999998,
+              "size": 11,
+              "text": "Introduction",
+              "x": 141.997
+            },
+            {
+              "advance": 3.058,
+              "baseline": 120.62144999999998,
+              "size": 11,
+              "text": ".",
+              "x": 199.472
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 109.70867999999999,
+          "width": 178.53,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 16.511,
+              "baseline": 143.84698999999998,
+              "size": 11,
+              "text": "An ",
+              "x": 24
+            },
+            {
+              "advance": 36.674,
+              "baseline": 143.84698999999998,
+              "size": 11,
+              "text": "explicit ",
+              "x": 40.510999999999996
+            },
+            {
+              "advance": 31.185,
+              "baseline": 143.84698999999998,
+              "size": 11,
+              "text": "target.",
+              "x": 77.185
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 132.93421999999998,
+          "width": 84.37,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 45.232,
+              "baseline": 167.07252999999997,
+              "size": 11,
+              "text": "Number: ",
+              "x": 24
+            },
+            {
+              "advance": 6.116,
+              "baseline": 167.07252999999997,
+              "size": 11,
+              "text": "7",
+              "x": 69.232
+            },
+            {
+              "advance": 6.116,
+              "baseline": 167.07252999999997,
+              "size": 11,
+              "text": ". ",
+              "x": 75.348
+            },
+            {
+              "advance": 47.069,
+              "baseline": 167.07252999999997,
+              "size": 11,
+              "text": "Fallback: ",
+              "x": 81.464
+            },
+            {
+              "advance": 35.464,
+              "baseline": 167.07252999999997,
+              "size": 11,
+              "text": "chosen",
+              "x": 128.53300000000002
+            },
+            {
+              "advance": 3.058,
+              "baseline": 167.07252999999997,
+              "size": 11,
+              "text": ".",
+              "x": 163.997
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 156.15975999999998,
+          "width": 143.055,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

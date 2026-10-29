@@ -1,0 +1,330 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    },
+    "page": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Middle "
+            },
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "middle",
+                "title": "Mid label"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " label then "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "page",
+                "target": "middle"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Trailing target "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "fallback": "unknown",
+                "kind": "page",
+                "target": "trailing"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": "trailing"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "trailing"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Middle "
+        },
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "middle",
+            "title": "Mid label"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " label then "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "page",
+            "target": "middle"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Trailing target "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "fallback": "unknown",
+            "kind": "page",
+            "target": "trailing"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "target": "trailing"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "trailing"
+          }
+        }
+      ]
+    }
+  ]
+}

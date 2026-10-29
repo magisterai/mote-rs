@@ -95,11 +95,13 @@ enum ArgumentType {
     Boolean,
     Object,
     Collection,
+    StringOrObject,
 }
 
 impl ArgumentType {
     fn accepts(self, value: &Value) -> bool {
         match self {
+            Self::StringOrObject => matches!(value, Value::String(_) | Value::Object(_)),
             Self::String => matches!(value, Value::String(_)),
             Self::NumberOrString => matches!(value, Value::Number(_) | Value::String(_)),
             Self::Length => matches!(
@@ -115,6 +117,7 @@ impl ArgumentType {
 
     fn description(self) -> &'static str {
         match self {
+            Self::StringOrObject => "string or object",
             Self::String => "string",
             Self::NumberOrString => "number or string",
             Self::Length => "length",
@@ -137,6 +140,16 @@ fn validate_named_argument(
         Some(ArgumentType::Object)
     } else {
         match kind {
+            Bookmark | Label => match name {
+                "name" | "kind" | "title" => Some(ArgumentType::String),
+                "number" if kind == Label => Some(ArgumentType::NumberOrString),
+                _ => None,
+            },
+            Reference => match name {
+                "target" => Some(ArgumentType::StringOrObject),
+                "kind" | "display" | "fallback" => Some(ArgumentType::String),
+                _ => None,
+            },
             PageNumber => match name {
                 "kind" | "format" => Some(ArgumentType::String),
                 _ => None,
@@ -259,6 +272,15 @@ pub(super) fn normalize_attribute(
 ) -> Result<Value, Diagnostic> {
     use ElementKind::*;
     match kind {
+        Reference if name == "kind" => {
+            normalize_enum(value, span, name, &["title", "number", "page", "text"])
+        }
+        Reference if name == "display" => normalize_enum(
+            value,
+            span,
+            name,
+            &["auto", "title", "number", "page", "text"],
+        ),
         PageNumber if name == "kind" => normalize_enum(value, span, name, &["current", "total"]),
         Paragraph | Heading => match name {
             "spacing_before" | "spacing_after" | "line_spacing" => {

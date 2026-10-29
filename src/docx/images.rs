@@ -37,7 +37,10 @@ pub(super) fn write(
     if !paragraph_properties.is_empty() {
         output.push_str(&format!("<w:pPr>{paragraph_properties}</w:pPr>"));
     }
+    let (bookmarks, identifiers) = super::references::start_pending(resources)?;
+    output.push_str(&bookmarks);
     output.push_str(&write_run(element, resources)?.unwrap_or_default());
+    output.push_str(&super::references::end_pending(&identifiers));
     output.push_str("</w:p>");
     Ok(output)
 }

@@ -21,7 +21,10 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
     let page_tree = objects.allocate();
     document.catalog(catalog).pages(page_tree);
     let fonts = fonts::Fonts::write(plan, &mut document, &mut objects)?;
-    let mut page_ids = Vec::new();
+    let page_ids: Vec<_> = (0..plan.pages.len().max(1))
+        .map(|_| objects.allocate())
+        .collect();
+    let destinations = crate::layout::references::destinations(&plan.pages);
     // An empty source still produces a useful, valid one-page PDF.
     for page_index in 0..plan.pages.len().max(1) {
         let geometry = plan
@@ -29,9 +32,9 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
             .get(page_index)
             .and_then(|page| page.geometry)
             .unwrap_or(plan.geometry);
-        let page_id = objects.allocate();
+        let page_id = page_ids[page_index];
         let content_id = objects.allocate();
-        page_ids.push(page_id);
+
         let mut content = Content::new();
         let mut page_images = Vec::new();
         if let Some(page) = plan.pages.get(page_index) {
@@ -135,7 +138,9 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
             }
             for placed in &page.lines {
                 for fragment in &placed.line.fragments {
-                    if let Some(target) = &fragment.link {
+                    if let Some(target) =
+                        fragment.link.as_ref().or(fragment.internal_target.as_ref())
+                    {
                         if fragment.advance <= 0.0 {
                             continue;
                         }
@@ -151,10 +156,25 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                                 rounded(geometry.height - placed.top),
                             ))
                             .border(0.0, 0.0, 0.0, None);
-                        annotation
-                            .action()
-                            .action_type(pdf_writer::types::ActionType::Uri)
-                            .uri(Str(target.as_bytes()));
+                        if fragment.internal_target.is_some() {
+                            if let Some((destination_page, position)) = destinations.get(target) {
+                                let destination_height = plan.pages[*destination_page]
+                                    .geometry
+                                    .unwrap_or(plan.geometry)
+                                    .height;
+                                annotation
+                                    .action()
+                                    .action_type(pdf_writer::types::ActionType::GoTo)
+                                    .destination()
+                                    .page(page_ids[*destination_page])
+                                    .xyz(0.0, rounded(destination_height - position[1]), None);
+                            }
+                        } else {
+                            annotation
+                                .action()
+                                .action_type(pdf_writer::types::ActionType::Uri)
+                                .uri(Str(target.as_bytes()));
+                        }
                     }
                 }
             }

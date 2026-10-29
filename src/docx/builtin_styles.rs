@@ -66,7 +66,7 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
         if element.kind == ElementKind::Image {
             names.insert("Caption".into());
         }
-        if element.kind == ElementKind::Link {
+        if matches!(element.kind, ElementKind::Link | ElementKind::Reference) {
             names.insert("Hyperlink".into());
         }
         let style = element

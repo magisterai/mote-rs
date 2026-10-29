@@ -36,7 +36,7 @@ fn validate_controls(children: &[Content]) -> Result<(), Error> {
     Ok(())
 }
 
-fn write_formatted(
+pub(super) fn write_formatted(
     children: &[Content],
     formatting: &RunFormatting,
     styles: &Styles<'_>,
@@ -54,6 +54,24 @@ fn write_formatted(
                 } else {
                     "<w:r><w:br/></w:r>"
                 });
+            }
+            Content::Element(element)
+                if matches!(element.kind, ElementKind::Bookmark | ElementKind::Label) =>
+            {
+                let (opening, identifier) = super::references::start(element, resources)?;
+                result.push_str(&opening);
+                result.push_str(&write_formatted(
+                    &element.children,
+                    formatting,
+                    styles,
+                    resources,
+                )?);
+                result.push_str(&super::references::end(identifier));
+            }
+            Content::Element(element) if element.kind == ElementKind::Reference => {
+                result.push_str(&super::references::write(
+                    element, formatting, styles, resources,
+                )?);
             }
             Content::Element(element) if element.kind == ElementKind::PageNumber => {
                 let instruction = if crate::properties::text(&element.attributes, "kind") == "total"
@@ -140,7 +158,7 @@ fn write_formatted(
     Ok(result)
 }
 
-fn write_text(
+pub(super) fn write_text(
     text: &str,
     formatting: &RunFormatting,
     styles: &Styles<'_>,

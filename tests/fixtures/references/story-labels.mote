@@ -1,0 +1,4 @@
+#document(page={width=pt(300),height=pt(240)},margin={top=pt(48),bottom=pt(40),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[#label("running",title="Running head")Header]
+#paragraph[See #ref("running") on #ref("running",kind="page").]
+#section[#paragraph[The same header label is inherited here.]]

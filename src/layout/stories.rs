@@ -20,8 +20,10 @@ pub(super) fn place(
     sections: &[Section],
     document: &Document,
     measurer: &mut TextMeasurer<'_>,
+    reference_pages: &std::collections::BTreeMap<String, usize>,
 ) -> Result<(), LayoutError> {
-    let styles = LayoutStyleResolver::new(document);
+    let mut styles = LayoutStyleResolver::new(document);
+    styles.reference_pages = reference_pages.clone();
     let total = plan.pages.len().max(1);
     for page in &mut plan.pages {
         let geometry = page.geometry.unwrap_or(plan.geometry);
@@ -114,6 +116,9 @@ pub(super) fn place(
                 let height = line.height();
                 line.line
                     .translate(geometry.margin_left, top + line.leading);
+                for fragment in &mut line.line.fragments {
+                    fragment.anchors.clear();
+                }
                 page.push_line(PlacedTextLine {
                     top: top + line.leading,
                     line: line.line,

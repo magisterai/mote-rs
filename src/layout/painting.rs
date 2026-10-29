@@ -70,6 +70,9 @@ impl ParagraphPainting {
         placement: super::LinePlacement,
     ) {
         let paragraph = &prepared.text;
+        if placement.line_index == 0 {
+            page.place_anchors(&prepared.anchors, [placement.frame.x, placement.top]);
+        }
         let mut line = paragraph.lines[placement.line_index].clone();
         let relative_frame = if placement.line_index == 0 {
             paragraph.first_frame

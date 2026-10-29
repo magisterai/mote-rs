@@ -18,6 +18,8 @@ struct StoryCapture {
 #[derive(Default)]
 pub(super) struct EvaluationState {
     document: Document,
+    pub labels: std::collections::BTreeMap<String, Span>,
+    pub references: Vec<(String, Span)>,
     default_header: HeaderFooter,
     default_footer: HeaderFooter,
     captures: Vec<StoryCapture>,

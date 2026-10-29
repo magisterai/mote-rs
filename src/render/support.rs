@@ -268,6 +268,12 @@ fn content(
             ]),
             ElementKind::Link => allowed.push("url"),
             ElementKind::Break => allowed.push("type"),
+            ElementKind::Bookmark | ElementKind::Label => {
+                allowed.extend(["name", "kind", "title", "number"])
+            }
+            ElementKind::Reference => {
+                allowed.extend(["target", "kind", "display", "fallback", "title"])
+            }
             ElementKind::PageNumber => allowed.push("kind"),
             ElementKind::Tab | ElementKind::LineBreak => {}
         }

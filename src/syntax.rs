@@ -64,6 +64,7 @@ pub struct MarkdownTableCell {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Call {
+    pub from_markdown: bool,
     pub name: String,
     pub arguments: Vec<Argument>,
     pub bodies: Vec<Vec<Node>>,

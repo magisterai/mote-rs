@@ -49,12 +49,16 @@ impl Default for ParagraphStyle {
 pub struct LayoutStyleResolver<'document> {
     pub(super) document: &'document Document,
     declarations: StyleResolver<'document>,
+    pub(super) anchors: crate::references::Catalog,
+    pub(super) reference_pages: std::collections::BTreeMap<String, usize>,
 }
 impl<'document> LayoutStyleResolver<'document> {
     pub fn new(document: &'document Document) -> Self {
         Self {
             document,
             declarations: StyleResolver::new(document),
+            anchors: crate::references::Catalog::build(document),
+            reference_pages: Default::default(),
         }
     }
     pub fn default_text(&self) -> TextStyle {

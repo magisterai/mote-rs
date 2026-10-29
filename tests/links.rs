@@ -24,7 +24,6 @@ fn links_validate_arguments_and_body_before_output() {
         "#link(\"a\")[one][two]",
         "#link(\"a\")[#paragraph[block]]",
         "#link(\"a\",tooltip=7)[text]",
-        "[internal](#destination)",
     ] {
         assert!(mote::compile(source).is_err(), "{source}");
     }

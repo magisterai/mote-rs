@@ -21,10 +21,19 @@ pub struct TextPage {
     pub section_index: usize,
     pub page_number: usize,
     pub lines: Vec<PlacedTextLine>,
+    pub anchors: std::collections::BTreeMap<String, [f64; 2]>,
     pub operations: Vec<PageOperation>,
 }
 impl TextPage {
+    pub(super) fn place_anchors(&mut self, names: &[String], position: [f64; 2]) {
+        for name in names {
+            self.anchors.entry(name.clone()).or_insert(position);
+        }
+    }
     pub(super) fn push_line(&mut self, line: PlacedTextLine) {
+        for fragment in &line.line.fragments {
+            self.place_anchors(&fragment.anchors, [fragment.x, line.top]);
+        }
         self.operations.push(PageOperation::Text(self.lines.len()));
         self.lines.push(line);
     }
@@ -163,6 +172,10 @@ pub(super) fn place_blocks(
                     }
                 }
                 ensure_space(cursor, pages, columns, geometry, boundary, image.height());
+                pages[cursor.page_number - 1].place_anchors(
+                    &image.anchors,
+                    [geometry.column_left(cursor.column_index), cursor.y],
+                );
                 pages[cursor.page_number - 1].operations.extend(image.place(
                     geometry.column_left(cursor.column_index),
                     geometry.column_width(),
