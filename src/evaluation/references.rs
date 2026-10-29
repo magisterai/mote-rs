@@ -1,7 +1,6 @@
 //! Anchor declarations and references retain authoring intent until output resolution.
 use super::{
-    ContentMode, EvaluationContext, EvaluationState, attributes::evaluate_attributes,
-    evaluate_body, expressions::evaluate_expression,
+    ContentMode, EvaluationContext, EvaluationState, attributes::evaluate_attributes, evaluate_body,
 };
 use crate::{
     diagnostics::{Diagnostic, Span},
@@ -48,17 +47,7 @@ pub(super) fn evaluate(
             format!("{} does not accept this content body", call.name),
         ));
     }
-    let mut attributes = evaluate_attributes(kind, &call.arguments, state)?;
-    if let Some(argument) = positional.first() {
-        let value = evaluate_expression(&argument.value, state)?;
-        if !matches!(value, Value::String(_)) {
-            return Err(Diagnostic::new(
-                argument.span,
-                "positional name or target must be a string",
-            ));
-        }
-        attributes.insert(primary.into(), value);
-    }
+    let attributes = evaluate_attributes(kind, &call.arguments, state)?;
     if !attributes.contains_key(primary) {
         return Err(Diagnostic::new(
             span,

@@ -22,7 +22,7 @@ pub(super) fn evaluate(
         ));
     }
     for (name, argument) in evaluate_named_arguments(&call.arguments, document)? {
-        let location = argument.source_expression.span;
+        let location = argument.span;
         reject_flat_property(&name, location)?;
         match name.as_str() {
             "page" | "margin" => {

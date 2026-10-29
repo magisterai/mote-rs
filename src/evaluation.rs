@@ -22,7 +22,7 @@ use sections::EvaluationState;
 mod values;
 
 use attributes::evaluate_attributes;
-use expressions::{evaluate_expression, evaluate_helper, value_as_text};
+use expressions::{evaluate_helper, value_as_text};
 
 #[derive(Clone, Copy)]
 struct EvaluationContext<'source> {
@@ -654,7 +654,9 @@ fn evaluate_code(
             "code accepts at most one positional argument",
         ));
     }
-    let attributes = evaluate_attributes(ElementKind::Code, &call.arguments, document)?;
+    let mut arguments = expressions::evaluate_arguments(&call.arguments, document)?;
+    let text_argument = arguments.positional.pop();
+    let attributes = attributes::normalize_arguments(ElementKind::Code, arguments)?;
     let preserve_space =
         context.preserve_space || attributes.get("preserve_space") == Some(&Value::Boolean(true));
     let context = EvaluationContext {
@@ -666,18 +668,18 @@ fn evaluate_code(
     } else {
         Vec::new()
     };
-    if let Some(argument) = positional.first() {
-        let value = evaluate_expression(&argument.value, document)?;
+    if let Some(argument) = text_argument {
+        let value = argument.value;
         if !matches!(
             value,
             Value::String(_) | Value::Number(_) | Value::Boolean(_)
         ) {
             return Err(Diagnostic::new(
-                argument.value.span,
+                argument.span,
                 "code text must be a string, number, or boolean",
             ));
         }
-        children = vec![Content::Text(value_as_text(&value, argument.value.span)?)];
+        children = vec![Content::Text(value_as_text(&value, argument.span)?)];
     }
     if preserve_space {
         normalize_preserved_content(&mut children);

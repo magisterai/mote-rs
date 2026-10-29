@@ -171,3 +171,37 @@ fn scripting_capture_inputs_remain_frozen() {
         }
     }
 }
+
+#[test]
+fn arguments_evaluate_once_in_source_order() {
+    let prefix = "#let(initialized=(function() argument_counter=0; return true end)())";
+    for (call, expected) in [
+        (
+            "#image((function() argument_counter=argument_counter+1; return 'image.png' end)(),alt=(function() argument_counter=argument_counter+1; return tostring(argument_counter) end)())",
+            "#image('image.png',alt='2')",
+        ),
+        (
+            "#link((function() argument_counter=argument_counter+1; return 'https://example.com' end)(),title=(function() argument_counter=argument_counter+1; return tostring(argument_counter) end)())[Link]",
+            "#link('https://example.com',title='2')[Link]",
+        ),
+        (
+            "#heading((function() argument_counter=argument_counter+1; return argument_counter end)(),color=(function() argument_counter=argument_counter+1; return '#123456' end)())[Title]",
+            "#heading(1,color='#123456')[Title]",
+        ),
+        (
+            "#bookmark((function() argument_counter=argument_counter+1; return 'anchor' end)(),properties={label=(function() argument_counter=argument_counter+1; return tostring(argument_counter) end)()})[Anchor]",
+            "#bookmark('anchor',properties={label='2'})[Anchor]",
+        ),
+        (
+            "#code((function() argument_counter=argument_counter+1; return 'text' end)(),color=(function() argument_counter=argument_counter+1; return '#123456' end)())",
+            "#code('text',color='#123456')",
+        ),
+    ] {
+        let source = format!("{prefix}{call}#let(result=argument_counter)#paragraph[#result]");
+        assert_eq!(
+            compile(&source).unwrap(),
+            mote::compile(&format!("{expected}#paragraph[2]")).unwrap(),
+            "{call}"
+        );
+    }
+}

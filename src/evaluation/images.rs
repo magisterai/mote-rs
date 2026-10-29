@@ -1,6 +1,5 @@
 use super::{
     attributes::{ALIGNMENTS, evaluate_attributes, normalize_length_map},
-    expressions::evaluate_expression,
     values::*,
 };
 use crate::{
@@ -12,7 +11,7 @@ use crate::{
 pub(super) fn evaluate(
     call: &Call,
     span: Span,
-    state: &super::EvaluationState<'_>,
+    state: &mut super::EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     if !call.bodies.is_empty() {
         return Err(Diagnostic::new(span, "image accepts no body"));
@@ -31,17 +30,7 @@ pub(super) fn evaluate(
     {
         return Err(Diagnostic::new(span, "image source must be supplied once"));
     }
-    let mut attributes = evaluate_attributes(ElementKind::Image, &call.arguments, state)?;
-    if let Some(argument) = positional.first() {
-        attributes.insert(
-            "src".into(),
-            require_string(
-                evaluate_expression(&argument.value, state)?,
-                argument.span,
-                "image source",
-            )?,
-        );
-    }
+    let attributes = evaluate_attributes(ElementKind::Image, &call.arguments, state)?;
     if attributes
         .get("src")
         .is_none_or(|value| value.to_text().is_empty())

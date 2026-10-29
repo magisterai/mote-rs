@@ -22,7 +22,7 @@ pub(super) struct EvaluationState<'resolver> {
     pub bindings: super::bindings::Bindings,
     pub enable_lua: bool,
     pub lua_timeout: Option<std::time::Duration>,
-    pub lua: std::cell::OnceCell<super::scripting::Runtime>,
+    pub lua: std::cell::OnceCell<std::rc::Rc<super::scripting::Runtime>>,
     pub markdown_notes: std::collections::BTreeMap<String, super::notes::Definition>,
     pub labels: Vec<super::references::NamedLocation>,
     pub references: Vec<super::references::NamedLocation>,
@@ -138,20 +138,14 @@ pub(super) fn evaluate_story(
     for (name, argument) in &arguments {
         if !matches!(name.as_str(), "properties" | "height" | "distance") {
             return Err(Diagnostic::new(
-                argument.source_expression.span,
+                argument.span,
                 format!("unknown {} argument {name:?}", call.name),
             ));
         }
     }
     let mut properties = arguments
         .get("properties")
-        .map(|argument| {
-            require_object(
-                argument.value.clone(),
-                argument.source_expression.span,
-                "properties",
-            )
-        })
+        .map(|argument| require_object(argument.value.clone(), argument.span, "properties"))
         .transpose()?
         .unwrap_or_default();
     for name in ["height", "distance"] {

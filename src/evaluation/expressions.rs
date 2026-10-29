@@ -6,33 +6,66 @@ use crate::model::{Properties, Unit, Value};
 use crate::syntax::{Argument, Expression, ExpressionKind};
 use std::collections::BTreeMap;
 
-pub(super) struct EvaluatedArgument<'expression> {
+#[derive(Clone)]
+pub(super) struct EvaluatedArgument {
     pub value: Value,
-    pub source_expression: &'expression Expression,
+    pub span: Span,
+    pub fields: BTreeMap<String, Span>,
+}
+impl EvaluatedArgument {
+    pub fn new(value: Value, span: Span) -> Self {
+        Self {
+            value,
+            span,
+            fields: BTreeMap::new(),
+        }
+    }
+}
+#[derive(Default)]
+pub(super) struct EvaluatedArguments {
+    pub named: BTreeMap<String, EvaluatedArgument>,
+    pub positional: Vec<EvaluatedArgument>,
 }
 
-pub(super) fn evaluate_named_arguments<'expression>(
-    arguments: &'expression [Argument],
-    state: &super::EvaluationState<'_>,
-) -> Result<BTreeMap<String, EvaluatedArgument<'expression>>, Diagnostic> {
-    let mut evaluated = BTreeMap::new();
+pub(super) fn evaluate_arguments(
+    arguments: &[Argument],
+    state: &mut super::EvaluationState<'_>,
+) -> Result<EvaluatedArguments, Diagnostic> {
+    let mut evaluated = EvaluatedArguments::default();
     for argument in arguments {
+        let mut value = EvaluatedArgument::new(
+            evaluate_expression(&argument.value, state)?,
+            argument.value.span,
+        );
+        if let ExpressionKind::Object(fields) = &argument.value.kind {
+            value.fields = fields
+                .iter()
+                .filter_map(|field| {
+                    field
+                        .name
+                        .as_ref()
+                        .map(|name| (name.clone(), field.value.span))
+                })
+                .collect();
+        }
         if let Some(name) = &argument.name {
-            evaluated.insert(
-                name.clone(),
-                EvaluatedArgument {
-                    value: evaluate_expression(&argument.value, state)?,
-                    source_expression: &argument.value,
-                },
-            );
+            evaluated.named.insert(name.clone(), value);
+        } else {
+            evaluated.positional.push(value);
         }
     }
     Ok(evaluated)
 }
+pub(super) fn evaluate_named_arguments(
+    arguments: &[Argument],
+    state: &mut super::EvaluationState<'_>,
+) -> Result<BTreeMap<String, EvaluatedArgument>, Diagnostic> {
+    Ok(evaluate_arguments(arguments, state)?.named)
+}
 
 pub(super) fn evaluate_expression(
     expression: &Expression,
-    state: &super::EvaluationState<'_>,
+    state: &mut super::EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     match &expression.kind {
         ExpressionKind::Boolean(value) => state
@@ -45,7 +78,7 @@ pub(super) fn evaluate_expression(
 
 fn evaluate_static_expression(
     expression: &Expression,
-    state: &super::EvaluationState<'_>,
+    state: &mut super::EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     Ok(match &expression.kind {
         ExpressionKind::String(text) => Value::String(text.clone()),
@@ -85,7 +118,7 @@ pub(super) fn evaluate_helper(
     name: &str,
     arguments: &[Argument],
     span: Span,
-    state: &super::EvaluationState<'_>,
+    state: &mut super::EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     evaluate_helper_arguments(name, arguments, span, state, false)
 }
@@ -94,7 +127,7 @@ fn evaluate_helper_arguments(
     name: &str,
     arguments: &[Argument],
     span: Span,
-    state: &super::EvaluationState<'_>,
+    state: &mut super::EvaluationState<'_>,
     static_arguments: bool,
 ) -> Result<Value, Diagnostic> {
     let unit = Unit::from_name(name);
@@ -122,7 +155,7 @@ pub(super) fn evaluate_helper_value(
     name: &str,
     value: Value,
     span: Span,
-    state: &super::EvaluationState<'_>,
+    state: &mut super::EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     let unit = Unit::from_name(name);
     if name == "json" {

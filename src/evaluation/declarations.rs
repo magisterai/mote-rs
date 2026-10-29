@@ -25,7 +25,7 @@ pub(super) fn evaluate_declaration(
     let name = fields
         .remove("name")
         .ok_or_else(|| Diagnostic::new(span, format!("{} requires name", call.name)))?;
-    let name_span = name.source_expression.span;
+    let name_span = name.span;
     let numeric_name = matches!(name.value, Value::Number(_));
     let name = normalize_identifier(name.value, name_span, "name")?;
     if numeric_name {
@@ -45,7 +45,7 @@ pub(super) fn evaluate_declaration(
     }
     let mut properties = Properties::new();
     for (field, argument) in fields {
-        let location = argument.source_expression.span;
+        let location = argument.span;
         let value = if call.name == "font" {
             normalize_font_property(&field, argument.value, location)?
         } else {

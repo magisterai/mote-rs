@@ -60,7 +60,7 @@ fn check_deadline(deadline: Option<Instant>) -> mlua::Result<()> {
 pub(super) fn evaluate(
     source: &str,
     span: Span,
-    state: &EvaluationState<'_>,
+    state: &mut EvaluationState<'_>,
 ) -> Result<Value, Diagnostic> {
     if let Some(value) = state.bindings.resolve_bound_path(source) {
         return Ok(value);
@@ -74,13 +74,14 @@ pub(super) fn evaluate(
     if state.lua.get().is_none() {
         let runtime = Runtime::new(state.lua_timeout)
             .map_err(|error| Diagnostic::new(span, error.to_string()))?;
-        let _ = state.lua.set(runtime);
+        let _ = state.lua.set(std::rc::Rc::new(runtime));
     }
-    let runtime = state.lua.get().unwrap();
+    let runtime = state.lua.get().unwrap().clone();
+    let state = RefCell::new(state);
     let result = runtime.lua.scope(|scope| {
         check_deadline(runtime.deadline)?;
         let globals = runtime.lua.globals();
-        let visible = state.bindings.visible_values();
+        let visible = state.borrow().bindings.visible_values();
         for previous in runtime.exposed_values.borrow().iter() {
             if !visible.contains_key(previous) {
                 globals.set(previous.as_str(), mlua::Nil)?;
@@ -90,6 +91,7 @@ pub(super) fn evaluate(
             globals.set(name.as_str(), values::to_lua(&runtime.lua, value)?)?;
         }
         *runtime.exposed_values.borrow_mut() = visible.into_keys().collect();
+        let callback_state = &state;
         globals.set(
             "__mote_helper",
             scope.create_function(
@@ -104,8 +106,13 @@ pub(super) fn evaluate(
                         )));
                     }
                     let argument = values::from_lua(arguments.into_iter().next().unwrap())?;
-                    let value = evaluate_helper_value(&name, argument, span, state)
-                        .map_err(mlua::Error::external)?;
+                    let value = evaluate_helper_value(
+                        &name,
+                        argument,
+                        span,
+                        &mut callback_state.borrow_mut(),
+                    )
+                    .map_err(mlua::Error::external)?;
                     values::to_lua(lua, &value)
                 },
             )?,
@@ -120,6 +127,7 @@ pub(super) fn evaluate(
             globals.set(name, function)?;
         }
         let name = state
+            .borrow()
             .source_name
             .map(|name| name.to_string_lossy().into_owned())
             .unwrap_or_else(|| "expression".into());

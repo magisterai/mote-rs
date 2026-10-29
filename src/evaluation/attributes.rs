@@ -1,12 +1,12 @@
 //! Argument validation, property merging, and directive-specific normalization.
 
 use super::{
-    expressions::{evaluate_expression, evaluate_named_arguments},
+    expressions::{EvaluatedArguments, evaluate_arguments},
     values::*,
 };
 use crate::diagnostics::{Diagnostic, Span};
 use crate::model::{ElementKind, Properties, Value};
-use crate::syntax::{Argument, ExpressionKind};
+use crate::syntax::Argument;
 use std::collections::BTreeMap;
 
 pub(super) const ALIGNMENTS: &[&str] = &["left", "center", "right", "justify"];
@@ -21,63 +21,68 @@ const NUMBER_FORMATS: &[&str] = &[
 pub(super) fn evaluate_attributes(
     kind: ElementKind,
     arguments: &[Argument],
-    state: &super::EvaluationState<'_>,
+    state: &mut super::EvaluationState<'_>,
 ) -> Result<Properties, Diagnostic> {
-    let mut named_arguments = evaluate_named_arguments(arguments, state)?;
-    // Repeated names use their final value. Outer types are checked before overrides.
-    for (name, argument) in &named_arguments {
-        validate_named_argument(kind, name, &argument.value, argument.source_expression.span)?;
+    normalize_arguments(kind, evaluate_arguments(arguments, state)?)
+}
+
+pub(super) fn normalize_arguments(
+    kind: ElementKind,
+    mut arguments: EvaluatedArguments,
+) -> Result<Properties, Diagnostic> {
+    for (name, argument) in &arguments.named {
+        validate_named_argument(kind, name, &argument.value, argument.span)?;
     }
-    let properties_argument = named_arguments.remove("properties");
-    let mut attributes: BTreeMap<_, _> = named_arguments
+    let properties_argument = arguments.named.remove("properties");
+    let mut attributes: BTreeMap<_, _> = arguments
+        .named
         .into_iter()
-        .map(|(name, argument)| (name, (argument.value, argument.source_expression.span)))
+        .map(|(name, argument)| (name, (argument.value, argument.span)))
         .collect();
     if let Some(argument) = properties_argument {
-        let expression = argument.source_expression;
-        let fields = require_object(argument.value, expression.span, "properties")?;
-        let locations: BTreeMap<_, _> = if let ExpressionKind::Object(fields) = &expression.kind {
-            fields
-                .iter()
-                .filter_map(|field| field.name.as_deref().map(|name| (name, field.value.span)))
-                .collect()
-        } else {
-            BTreeMap::new()
-        };
-        for (name, value) in fields {
+        for (name, value) in require_object(argument.value, argument.span, "properties")? {
             if name == "properties" {
                 continue;
             }
-            let location = locations
-                .get(name.as_str())
-                .copied()
-                .unwrap_or(expression.span);
+            let location = argument.fields.get(&name).copied().unwrap_or(argument.span);
             attributes.insert(name, (value, location));
         }
     }
-    if kind == ElementKind::Heading
-        && let Some(argument) = arguments.iter().find(|argument| argument.name.is_none())
-    {
-        let value = evaluate_expression(&argument.value, state)?;
-        if !matches!(value, Value::Number(_)) {
-            return Err(Diagnostic::new(
-                argument.value.span,
+    if let Some(argument) = arguments.positional.into_iter().next() {
+        let (primary, valid, message) = match kind {
+            ElementKind::Heading => (
+                "level",
+                matches!(argument.value, Value::Number(_)),
                 "positional heading level must be a number",
-            ));
-        }
-        attributes.insert("level".into(), (value, argument.value.span));
-    }
-    if kind == ElementKind::Link
-        && let Some(argument) = arguments.iter().find(|argument| argument.name.is_none())
-    {
-        let value = evaluate_expression(&argument.value, state)?;
-        if !matches!(value, Value::String(_)) {
-            return Err(Diagnostic::new(
-                argument.value.span,
+            ),
+            ElementKind::Link => (
+                "url",
+                matches!(argument.value, Value::String(_)),
                 "link URL must be a string",
-            ));
+            ),
+            ElementKind::Image => (
+                "src",
+                matches!(argument.value, Value::String(_)),
+                "image source must be a string",
+            ),
+            ElementKind::Bookmark | ElementKind::Label => (
+                "name",
+                matches!(argument.value, Value::String(_)),
+                "positional name or target must be a string",
+            ),
+            ElementKind::Reference => (
+                "target",
+                matches!(argument.value, Value::String(_)),
+                "positional name or target must be a string",
+            ),
+            _ => ("", true, ""),
+        };
+        if !valid {
+            return Err(Diagnostic::new(argument.span, message));
         }
-        attributes.insert("url".into(), (value, argument.value.span));
+        if !primary.is_empty() {
+            attributes.insert(primary.into(), (argument.value, argument.span));
+        }
     }
     attributes
         .into_iter()
