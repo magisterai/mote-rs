@@ -1,0 +1,9 @@
+#let(rows={{name="Alpha",active=true},{name="Beta",active=false}}, name="outer")
+#for row in rows {
+#paragraph[#row.name: #if(row.active)[Active] else [Inactive]]
+}
+#paragraph[Inline: #for item in {1,2,3} {#strong[#item] }done.]
+#for item in {second="B",first="A"} {#paragraph[#item]}
+#for item in {} {#missing}
+#paragraph[#name]
+#for item in {1,2} {Plain #item}

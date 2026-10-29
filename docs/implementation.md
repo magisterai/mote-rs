@@ -124,7 +124,7 @@ Calls and paths are parsed without checking whether they are defined. Syntax
 success alone does not mean that a document can be evaluated or rendered.
 
 The parser is deliberately incomplete: task lists, fenced code blocks, additional
-Markdown forms, control flow, and Lua are deferred. Unsupported
+Markdown forms and Lua are deferred. Unsupported
 recognized Markdown forms return diagnostics; this is not a general Markdown
 parser. Recursive nesting is limited
 to protect the parser from excessive input depth.
@@ -198,7 +198,13 @@ and output generation. [JSON tests](../tests/json_data.rs) cover custom resolver
 errors, logical identities, repeated requests, source-relative files, stdin,
 and complete model/package captures. No dependency is added for data loading.
 
-Lua and PowerPoint output remain deferred.
+Conditions and iteration select or repeat ordinary content in lexical child
+scopes. Branches preserve surrounding flow; block loops normalize each iteration.
+Arrays preserve order and object iteration sorts keys. Seven frozen cases compare
+models, complete DOCX packages, native geometry and PNGs. Ten native PDF pages
+match the captured raster at 144 DPI; this is not Office visual review. The
+[control-flow chapter](specification/control-flow.md) records the generated-section
+content duplication limit. Lua and PowerPoint output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)

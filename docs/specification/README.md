@@ -55,6 +55,9 @@ Status: initial draft.
 
 20. [JSON data](json-data.md): typed resources, source-relative paths and snapshots.
 
+21. [Conditions and iteration](control-flow.md): truthiness, selected branches,
+    collection order, local scopes and generated content.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

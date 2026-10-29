@@ -60,6 +60,17 @@ pub(super) fn collect_definitions(nodes: &[crate::syntax::Node], state: &mut Eva
                     },
                 );
             }
+            NodeKind::Conditional {
+                consequence,
+                alternative,
+                ..
+            } => {
+                collect_definitions(consequence, state);
+                if let Some(body) = alternative {
+                    collect_definitions(body, state);
+                }
+            }
+            NodeKind::Iteration { body, .. } => collect_definitions(body, state),
             NodeKind::Call(call) => {
                 for body in &call.bodies {
                     collect_definitions(body, state);

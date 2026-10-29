@@ -1,0 +1,368 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 39.743,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "Section ",
+              "x": 72
+            },
+            {
+              "advance": 7.337,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "A",
+              "x": 111.743
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72,
+          "width": 47.08,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "A",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 62.13831,
+              "size": 11,
+              "text": "B",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 51.225539999999995,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 34.848,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "Footer ",
+              "x": 72
+            },
+            {
+              "advance": 6.116,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "1",
+              "x": 106.848
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 740.77446,
+          "width": 40.964,
+          "x": 72
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 39.743,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "Section ",
+              "x": 72
+            },
+            {
+              "advance": 7.337,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "B",
+              "x": 111.743
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72,
+          "width": 47.08,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "A",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 62.13831,
+              "size": 11,
+              "text": "B",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 51.225539999999995,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 34.848,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "Footer ",
+              "x": 72
+            },
+            {
+              "advance": 6.116,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "2",
+              "x": 106.848
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 740.77446,
+          "width": 40.964,
+          "x": 72
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 58.08,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "Conditional ",
+              "x": 72
+            },
+            {
+              "advance": 34.848,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "section",
+              "x": 130.07999999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72,
+          "width": 92.928,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "A",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 62.13831,
+              "size": 11,
+              "text": "B",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 51.225539999999995,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 34.848,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "Footer ",
+              "x": 72
+            },
+            {
+              "advance": 6.116,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "3",
+              "x": 106.848
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 740.77446,
+          "width": 40.964,
+          "x": 72
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 39.743,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "Section ",
+              "x": 72
+            },
+            {
+              "advance": 7.337,
+              "baseline": 82.91277,
+              "size": 11,
+              "text": "A",
+              "x": 111.743
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 72,
+          "width": 47.08,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 39.743,
+              "baseline": 106.13830999999999,
+              "size": 11,
+              "text": "Section ",
+              "x": 72
+            },
+            {
+              "advance": 7.337,
+              "baseline": 106.13830999999999,
+              "size": 11,
+              "text": "B",
+              "x": 111.743
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 95.22554,
+          "width": 47.08,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 58.08,
+              "baseline": 129.36384999999999,
+              "size": 11,
+              "text": "Conditional ",
+              "x": 72
+            },
+            {
+              "advance": 34.848,
+              "baseline": 129.36384999999999,
+              "size": 11,
+              "text": "section",
+              "x": 130.07999999999998
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 118.45107999999999,
+          "width": 92.928,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "A",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 7.942,
+              "baseline": 62.13831,
+              "size": 11,
+              "text": "B",
+              "x": 72
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 51.225539999999995,
+          "width": 7.942,
+          "x": 72
+        },
+        {
+          "fragments": [
+            {
+              "advance": 34.848,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "Footer ",
+              "x": 72
+            },
+            {
+              "advance": 6.116,
+              "baseline": 751.68723,
+              "size": 11,
+              "text": "4",
+              "x": 106.848
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 740.77446,
+          "width": 40.964,
+          "x": 72
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

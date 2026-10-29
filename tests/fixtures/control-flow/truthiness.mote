@@ -1,0 +1,2 @@
+#paragraph[#if(nil)[T] else [F] #if(false)[T] else [F] #if(0)[T] else [F] #if("")[T] else [F] #if({})[T] else [F] #if(pt(0))[T] else [F]]
+#paragraph[#if(true)[T] else [F] #if(-1)[T] else [F] #if("false")[T] else [F] #if({nil})[T] else [F] #if({value=nil})[T] else [F] #if(pt(-1))[T] else [F] #if(color("#000000"))[T] else [F]]

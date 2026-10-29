@@ -18,7 +18,7 @@ impl ArgumentListKind {
 }
 
 impl Parser<'_> {
-    fn parse_identifier(&mut self) -> Result<String, Diagnostic> {
+    pub(super) fn parse_identifier(&mut self) -> Result<String, Diagnostic> {
         let start = self.position;
         if !self.peek_character().is_some_and(is_identifier_start) {
             return Err(self.error("expected an identifier beginning with a letter or underscore"));

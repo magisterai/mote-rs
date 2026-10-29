@@ -1,0 +1,7 @@
+#let(rows={{"A",1},{"B",2}}, values={1,2})
+#table[#for row in rows {#row[#for value in row {#cell[#value]}]}]
+#list[#for value in values {#item[Item #value]}]
+#for outer in values {
+#if(true)[#for inner in values {#paragraph[#outer #inner]}]
+}
+#paragraph[Notes: #for value in values {#footnote[#paragraph[Note #value]]}]

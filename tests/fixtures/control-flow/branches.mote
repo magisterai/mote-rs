@@ -1,0 +1,16 @@
+#let(value="outer", yes=true, no=false)
+Before #if(yes)[selected #strong[bold]] else [#missing] after.
+
+#paragraph[A#if(no)[#missing] else [B]C]
+#if(no)[Absent]
+After absent.
+
+#if(yes)[First
+
+Second #let(value="local")#value]
+#paragraph[#value]
+#if(no)[Wrong]
+else [#paragraph[Alternative]]
+#if(false)[]
+#if(true)[]
+Final.

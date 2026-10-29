@@ -57,6 +57,7 @@ impl Parser<'_> {
                 source: &self.source[..cell.end],
                 position: cell.start,
                 depth: self.depth,
+                closing_delimiter: None,
             };
             result.push(MarkdownTableCell {
                 alignment: alignments.get(index).cloned().unwrap_or_default(),

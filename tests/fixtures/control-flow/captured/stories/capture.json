@@ -1,0 +1,25 @@
+{
+  "source_sha256": "70a9cbc6cc687ce956ccb6b216207bb23c6e15308b54e64a016622b642f2f246",
+  "captured_docx_sha256": "c0a88ff00a85e83aaf7326a5afdb3f75f1c37fd74bbaf1a4e5abb4adda81796a",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/footer2.xml",
+    "word/footer3.xml",
+    "word/footer4.xml",
+    "word/header1.xml",
+    "word/header2.xml",
+    "word/header3.xml",
+    "word/header4.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed"
+}

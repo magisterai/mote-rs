@@ -8,6 +8,7 @@ mod attributes;
 mod bindings;
 mod captions;
 mod configuration;
+mod control;
 mod data;
 mod declarations;
 mod expressions;
@@ -84,6 +85,7 @@ enum ContentMode {
     MarkdownItem,
     ListBody,
     Structural,
+    Flow,
 }
 
 impl ContentMode {
@@ -103,10 +105,6 @@ fn evaluate_nodes(
     let mut skip_declaration_trivia = false;
     let mut captured = 0;
     for node in nodes {
-        if mode == ContentMode::Document {
-            document.append_content(&result[captured..]);
-            captured = result.len();
-        }
         if let NodeKind::Call(call) = &node.kind
             && matches!(call.name.as_str(), "header" | "footer" | "section")
         {
@@ -127,7 +125,7 @@ fn evaluate_nodes(
             continue;
         }
         if skip_declaration_trivia
-            && mode.is_block()
+            && (mode.is_block() || mode == ContentMode::Flow)
             && (matches!(
                 node.kind,
                 NodeKind::LineBreak { .. } | NodeKind::ParagraphBreak
@@ -162,6 +160,19 @@ fn evaluate_nodes(
             skip_declaration_trivia = true;
             continue;
         }
+        if matches!(
+            node.kind,
+            NodeKind::Conditional { .. } | NodeKind::Iteration { .. }
+        ) {
+            if let Some(children) = control::evaluate(node, mode, context, document)? {
+                for child in children {
+                    append_evaluated_content(child, mode, node.span, &mut paragraph, &mut result)?;
+                }
+            } else {
+                skip_declaration_trivia = true;
+            }
+            continue;
+        }
         if mode.is_block() && matches!(node.kind, NodeKind::ParagraphBreak) {
             flush_paragraph(&mut paragraph, &mut result);
             continue;
@@ -183,7 +194,9 @@ fn evaluate_nodes(
             }
         }
         let content = match &node.kind {
-            NodeKind::FootnoteDefinition { .. } => unreachable!(),
+            NodeKind::FootnoteDefinition { .. }
+            | NodeKind::Conditional { .. }
+            | NodeKind::Iteration { .. } => unreachable!(),
             NodeKind::FootnoteReference(name) => {
                 notes::markdown_reference(name, node.span, context, document)?
             }
@@ -291,24 +304,7 @@ fn evaluate_nodes(
                 Content::Text(value.to_text())
             }
         };
-        if matches!(&content, Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())
-        {
-            if mode == ContentMode::Inline {
-                return Err(Diagnostic::new(
-                    node.span,
-                    "inline content cannot contain a block element",
-                ));
-            }
-            flush_paragraph(&mut paragraph, &mut result);
-            result.push(content);
-            continue;
-        }
-        let destination = if mode.is_block() {
-            &mut paragraph
-        } else {
-            &mut result
-        };
-        destination.push(content);
+        append_evaluated_content(content, mode, node.span, &mut paragraph, &mut result)?;
     }
     if mode.is_block() {
         flush_paragraph(&mut paragraph, &mut result);
@@ -321,6 +317,36 @@ fn evaluate_nodes(
     } else {
         Ok(result)
     }
+}
+
+fn append_evaluated_content(
+    content: Content,
+    mode: ContentMode,
+    span: Span,
+    paragraph: &mut Vec<Content>,
+    result: &mut Vec<Content>,
+) -> Result<(), Diagnostic> {
+    if matches!(&content, Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())
+    {
+        if mode == ContentMode::Inline {
+            return Err(Diagnostic::new(
+                span,
+                "inline content cannot contain a block element",
+            ));
+        }
+        flush_paragraph(paragraph, result);
+        result.push(content);
+    } else if mode.is_block() {
+        if matches!(&content, Content::Text(text) if text.trim().is_empty() && text.contains("\n\n"))
+        {
+            flush_paragraph(paragraph, result);
+        } else {
+            paragraph.push(content);
+        }
+    } else {
+        result.push(content);
+    }
+    Ok(())
 }
 
 fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
@@ -380,17 +406,19 @@ fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
 }
 
 fn flush_paragraph(buffer: &mut Vec<Content>, result: &mut Vec<Content>) {
-    if let Some(Content::Text(text)) = buffer.first_mut() {
+    while let Some(Content::Text(text)) = buffer.first_mut() {
         *text = text.trim_start_matches([' ', '\t', '\r', '\n']).to_owned();
-        if text.is_empty() {
-            buffer.remove(0);
+        if !text.is_empty() {
+            break;
         }
+        buffer.remove(0);
     }
-    if let Some(Content::Text(text)) = buffer.last_mut() {
+    while let Some(Content::Text(text)) = buffer.last_mut() {
         text.truncate(text.trim_end_matches([' ', '\t', '\r', '\n']).len());
-        if text.is_empty() {
-            buffer.pop();
+        if !text.is_empty() {
+            break;
         }
+        buffer.pop();
     }
     if !buffer.is_empty() {
         result.push(Content::Element(Element {

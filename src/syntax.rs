@@ -3,6 +3,7 @@
 // Keep parser-facing imports available alongside the shared diagnostics module.
 pub use crate::diagnostics::{Diagnostic, Span};
 
+mod control;
 mod expressions;
 mod links;
 mod markup;
@@ -55,6 +56,16 @@ pub enum NodeKind {
         body: Vec<Node>,
     },
     FootnoteReference(String),
+    Conditional {
+        condition: Expression,
+        consequence: Vec<Node>,
+        alternative: Option<Vec<Node>>,
+    },
+    Iteration {
+        binding: String,
+        iterable: Expression,
+        body: Vec<Node>,
+    },
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -109,6 +120,7 @@ pub fn parse(source: &str) -> Result<SyntaxTree, Diagnostic> {
         source,
         position: 0,
         depth: 0,
+        closing_delimiter: None,
     };
     Ok(SyntaxTree {
         source: source.to_owned(),
@@ -121,6 +133,7 @@ pub fn parse_expression(source: &str) -> Result<Expression, Diagnostic> {
         source,
         position: 0,
         depth: 0,
+        closing_delimiter: None,
     };
     let expression = parser.parse_expression()?;
     parser.skip_whitespace();
@@ -134,6 +147,7 @@ struct Parser<'source> {
     source: &'source str,
     position: usize,
     depth: usize,
+    closing_delimiter: Option<char>,
 }
 
 impl Parser<'_> {

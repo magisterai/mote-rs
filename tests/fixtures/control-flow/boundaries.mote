@@ -1,0 +1,7 @@
+# Heading } literal
+
+#for value in {1,2} {# Heading #value}
+#paragraph[Following.]
+#for value in {1} {#paragraph[Braces {literal} #value]}
+#if(true)[# Heading with } literal]
+#for value in {1,2} {- Item #value}

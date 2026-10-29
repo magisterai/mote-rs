@@ -1,0 +1,5 @@
+#let(values={"A","B"})
+#header[#for value in values {#strong[#value]}]
+#footer[#if(true)[Footer #page_number()]]
+#for value in values {#section[#paragraph[Section #value]]}
+#if(true)[#section[#paragraph[Conditional section]]]

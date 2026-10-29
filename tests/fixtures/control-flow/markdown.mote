@@ -1,0 +1,15 @@
+#for value in {1,2} {
+# Heading #value
+
+- Item #value
+- Other #value
+
+> Quote #value
+}
+#if(true)[
+# Conditional heading
+
+One
+
+Two
+]

@@ -45,6 +45,8 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `if` | [Conditional content](if.md) | Truthiness, selected branches, child scopes and surrounding flow. |
+| `for` | [Iteration](for.md) | Ordered array/object iteration, local bindings and generated content. |
 | `json` | [JSON data](json.md) | Typed JSON values, source-relative resolution and compilation snapshots. |
 | `let` | [Bindings](let.md) | Typed values, lexical scopes, content insertion and property paths. |
 | `footnote` | [Footnotes](footnote.md) | Inline references, block bodies, identifiers, and Markdown definitions. |

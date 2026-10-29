@@ -8,6 +8,7 @@ pub(super) enum MarkupBoundary {
     Source,
     TableCell,
     Body,
+    BracedBody,
     Delimited(&'static str),
     Line,
     ListItem { marker_column: usize },
@@ -19,10 +20,21 @@ impl Parser<'_> {
         boundary: MarkupBoundary,
     ) -> Result<Vec<Node>, Diagnostic> {
         self.enter_nested_construct()?;
+        let previous_delimiter = self.closing_delimiter;
+        self.closing_delimiter = match boundary {
+            MarkupBoundary::Body => Some(']'),
+            MarkupBoundary::BracedBody => Some('}'),
+            MarkupBoundary::Source => None,
+            _ => previous_delimiter,
+        };
         let mut nodes = Vec::new();
         let content_start = self.position;
         let mut continuation_start = false;
         loop {
+            if boundary == MarkupBoundary::BracedBody && self.peek_character() == Some('}') {
+                self.advance_character();
+                break;
+            }
             if boundary == MarkupBoundary::Body && self.peek_character() == Some(']') {
                 self.advance_character();
                 break;
@@ -35,11 +47,15 @@ impl Parser<'_> {
                 _ => {}
             }
             if boundary == MarkupBoundary::Line
-                && matches!(self.peek_character(), None | Some('\r' | '\n' | ']'))
+                && (matches!(self.peek_character(), None | Some('\r' | '\n'))
+                    || self.peek_character() == self.closing_delimiter)
             {
                 break;
             }
             let Some(mut character) = self.peek_character() else {
+                if boundary == MarkupBoundary::BracedBody {
+                    return Err(self.error("missing closing '}' for iteration body"));
+                }
                 if boundary == MarkupBoundary::Body {
                     return Err(self.error("missing closing ']' for content body"));
                 }
@@ -52,7 +68,7 @@ impl Parser<'_> {
             };
             let start = self.position;
             if let MarkupBoundary::ListItem { marker_column } = boundary {
-                if character == ']' {
+                if Some(character) == self.closing_delimiter {
                     break;
                 }
                 if matches!(character, '\r' | '\n') {
@@ -72,8 +88,10 @@ impl Parser<'_> {
                     continue;
                 }
             }
-            if (matches!(boundary, MarkupBoundary::Source | MarkupBoundary::Body)
-                && (self.is_at_line_start() || start == content_start))
+            if (matches!(
+                boundary,
+                MarkupBoundary::Source | MarkupBoundary::Body | MarkupBoundary::BracedBody
+            ) && (self.is_at_line_start() || start == content_start))
                 || continuation_start
             {
                 continuation_start = false;
@@ -172,6 +190,10 @@ impl Parser<'_> {
                     let name = self.parse_path()?;
                     if self.peek_character() == Some('-') {
                         return Err(self.error("names use underscores, not hyphens"));
+                    }
+                    if matches!(name.as_str(), "if" | "for") {
+                        nodes.push(self.parse_control(&name, start)?);
+                        continue;
                     }
                     let has_arguments = self.peek_character() == Some('(');
                     let arguments = if has_arguments {
@@ -285,6 +307,7 @@ impl Parser<'_> {
             }
         }
         self.depth -= 1;
+        self.closing_delimiter = previous_delimiter;
         Ok(nodes)
     }
 
