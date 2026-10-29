@@ -1,0 +1,8 @@
+#function helper_text()
+return document.paragraph(document.upper("text")," / ",document.pt(12)," / ",document["in"](1)," / ",document.color("#28734f"))
+end
+#helper_text()
+
+#let(saved=(function() retained_paragraph=document.paragraph; return true end)())
+#let(content=retained_paragraph("Retained constructor"))
+#content

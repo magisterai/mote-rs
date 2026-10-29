@@ -1,0 +1,205 @@
+{
+  "document": {
+    "margin": {
+      "top": {
+        "text": "72pt",
+        "unit": "pt",
+        "value": 72
+      }
+    },
+    "page": {
+      "height": {
+        "text": "10in",
+        "unit": "in",
+        "value": 10
+      },
+      "width": {
+        "text": "8in",
+        "unit": "in",
+        "value": 8
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "10in",
+        "unit": "in",
+        "value": 10
+      },
+      "width": {
+        "text": "8in",
+        "unit": "in",
+        "value": 8
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "72pt",
+      "unit": "pt",
+      "value": 72
+    },
+    "properties": {
+      "top": {
+        "text": "72pt",
+        "unit": "pt",
+        "value": 72
+      }
+    }
+  },
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Arial",
+      "properties": {
+        "latin": "Arial"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "Summary",
+      "type": "paragraph",
+      "run": {
+        "color": "#28734f"
+      },
+      "properties": {
+        "run": {
+          "color": "#28734f"
+        },
+        "type": "paragraph"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "10in",
+            "unit": "in",
+            "value": 10
+          },
+          "width": {
+            "text": "8in",
+            "unit": "in",
+            "value": 8
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "72pt",
+          "unit": "pt",
+          "value": 72
+        },
+        "properties": {
+          "top": {
+            "text": "72pt",
+            "unit": "pt",
+            "value": 72
+          }
+        }
+      },
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Header"
+            }
+          ]
+        }
+      ],
+      "header_properties": {
+        "distance": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "distance": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "footer_properties": {
+        "height": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "height": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "font": "body",
+            "style": "Summary"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Configured"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "font": "body",
+        "style": "Summary"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Configured"
+        }
+      ]
+    }
+  ]
+}

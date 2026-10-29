@@ -1,48 +1,12 @@
 use super::{
-    attributes::{ALIGNMENTS, evaluate_attributes, normalize_length_map},
+    attributes::{ALIGNMENTS, normalize_length_map},
     values::*,
 };
 use crate::{
     diagnostics::{Diagnostic, Span},
-    model::{Content, Element, ElementKind, Value},
-    syntax::Call,
+    model::Value,
 };
 
-pub(super) fn evaluate(
-    call: &Call,
-    span: Span,
-    state: &mut super::EvaluationState<'_>,
-) -> Result<Content, Diagnostic> {
-    if !call.bodies.is_empty() {
-        return Err(Diagnostic::new(span, "image accepts no body"));
-    }
-    let positional: Vec<_> = call
-        .arguments
-        .iter()
-        .filter(|argument| argument.name.is_none())
-        .collect();
-    if positional.len() > 1
-        || (!positional.is_empty()
-            && call
-                .arguments
-                .iter()
-                .any(|argument| argument.name.as_deref() == Some("src")))
-    {
-        return Err(Diagnostic::new(span, "image source must be supplied once"));
-    }
-    let attributes = evaluate_attributes(ElementKind::Image, &call.arguments, state)?;
-    if attributes
-        .get("src")
-        .is_none_or(|value| value.to_text().is_empty())
-    {
-        return Err(Diagnostic::new(span, "image requires a source"));
-    }
-    Ok(Content::Element(Element {
-        kind: ElementKind::Image,
-        attributes,
-        children: Vec::new(),
-    }))
-}
 pub(super) fn normalize(name: &str, value: Value, span: Span) -> Result<Value, Diagnostic> {
     match name {
         "width" | "height" => normalize_length(value, span, name),

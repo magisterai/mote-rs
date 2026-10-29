@@ -64,13 +64,16 @@ Status: initial draft.
 23. [Functions](functions.md): lexical definitions, arguments, content bodies,
     return conversions and current scope limits.
 
+24. [Document constructors](document-constructors.md): Lua element values, property
+    tables, content arguments, declarations and output semantics.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
 the rule they violate. Implementation deferrals do not replace definitions.
 
 Later chapters will introduce additional data helpers, formatting,
-constructors, and layout. Their syntax is not used in the
+and layout. Their syntax is not used in the
 introductory examples.
 
 The [directive checklists](../checklists/README.md) record planned attributes and

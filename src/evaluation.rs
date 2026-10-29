@@ -6,8 +6,8 @@ use crate::syntax::{Call, Node, NodeKind, SyntaxTree};
 
 mod attributes;
 mod bindings;
-mod captions;
 mod configuration;
+mod constructors;
 mod control;
 mod data;
 mod declarations;
@@ -22,7 +22,6 @@ mod tables;
 use sections::EvaluationState;
 mod values;
 
-use attributes::evaluate_attributes;
 use expressions::{evaluate_helper, value_as_text};
 
 #[derive(Clone, Copy)]
@@ -514,215 +513,19 @@ fn evaluate_call(
     context: EvaluationContext<'_>,
     document: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
-    if matches!(call.name.as_str(), "table" | "row" | "cell") {
-        return tables::evaluate(call, span, context, document);
+    if let Some(signature) = constructors::Signature::find(&call.name) {
+        return constructors::evaluate(signature, call, span, context, document);
     }
-    if matches!(call.name.as_str(), "bookmark" | "label" | "ref") {
-        return references::evaluate(call, span, context, document);
-    }
-    if matches!(call.name.as_str(), "figure" | "caption") {
-        return captions::evaluate(call, span, context, document);
-    }
-    if matches!(call.name.as_str(), "footnote" | "endnote") {
-        return notes::evaluate(call, span, context, document);
-    }
-    if call.name == "image" {
-        return images::evaluate(call, span, document);
-    }
-    if call.name == "code" {
-        return evaluate_code(call, span, context, document);
-    }
-    if matches!(
-        call.name.as_str(),
-        "line_break" | "tab" | "break" | "page_number"
-    ) {
-        let kind = match call.name.as_str() {
-            "tab" => ElementKind::Tab,
-            "page_number" => ElementKind::PageNumber,
-            "break" => ElementKind::Break,
-            _ => ElementKind::LineBreak,
-        };
-        if call
-            .arguments
-            .iter()
-            .any(|argument| argument.name.is_none())
-            || !call.bodies.is_empty()
-        {
-            return Err(Diagnostic::new(
-                span,
-                format!(
-                    "{} accepts no positional arguments or content body",
-                    call.name
-                ),
-            ));
-        }
-        let mut attributes = evaluate_attributes(kind, &call.arguments, document)?;
-        if kind == ElementKind::Break {
-            attributes
-                .entry("type".into())
-                .or_insert_with(|| Value::String("page".into()));
-        }
-        return Ok(Content::Element(Element {
-            kind,
-            attributes,
-            children: Vec::new(),
-        }));
-    }
-    let kind = match call.name.as_str() {
-        "paragraph" => ElementKind::Paragraph,
-        "heading" => ElementKind::Heading,
-        "span" => ElementKind::Span,
-        "link" => ElementKind::Link,
-        "strong" => ElementKind::Strong,
-        "emphasis" => ElementKind::Emphasis,
-        "list" => ElementKind::List,
-        "ordered_list" => ElementKind::OrderedList,
-        "item" => ElementKind::ListItem,
-        "blockquote" => ElementKind::Blockquote,
-        _ => {
-            if !call.bodies.is_empty() {
-                return Err(Diagnostic::new(
-                    span,
-                    format!("unsupported directive: {}", call.name),
-                ));
-            }
-            return Ok(Content::Text(value_as_text(
-                &evaluate_helper(&call.name, &call.arguments, span, document)?,
-                span,
-            )?));
-        }
-    };
-    if call.bodies.len() != 1 {
+    if !call.bodies.is_empty() {
         return Err(Diagnostic::new(
             span,
-            format!("{} requires one content body", call.name),
+            format!("unsupported directive: {}", call.name),
         ));
     }
-    if matches!(kind, ElementKind::Heading | ElementKind::Link)
-        && call
-            .arguments
-            .iter()
-            .any(|argument| argument.name.is_none())
-        && call.arguments.iter().any(|argument| {
-            argument.name.as_deref()
-                == Some(if kind == ElementKind::Heading {
-                    "level"
-                } else {
-                    "url"
-                })
-        })
-    {
-        return Err(Diagnostic::new(
-            span,
-            "primary argument cannot be supplied both positionally and by name",
-        ));
-    }
-    let permitted_positional_arguments =
-        usize::from(matches!(kind, ElementKind::Heading | ElementKind::Link));
-    if let Some(argument) = call
-        .arguments
-        .iter()
-        .filter(|argument| argument.name.is_none())
-        .nth(permitted_positional_arguments)
-    {
-        return Err(Diagnostic::new(
-            argument.span,
-            "unexpected positional argument",
-        ));
-    }
-    let attributes = evaluate_attributes(kind, &call.arguments, document)?;
-    if kind == ElementKind::Link
-        && attributes
-            .get("url")
-            .is_none_or(|value| value.to_text().is_empty())
-    {
-        return Err(Diagnostic::new(span, "link requires a URL"));
-    }
-    let body_mode = match kind {
-        ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
-        ElementKind::ListItem | ElementKind::Blockquote => ContentMode::Block,
-        _ => ContentMode::Inline,
-    };
-    let mut children = evaluate_body(&call.bodies[0], body_mode, context, document)?;
-    if body_mode == ContentMode::ListBody {
-        children.retain(|child| !matches!(child, Content::Text(text) if text.trim().is_empty()));
-        if children.iter().any(|child| !matches!(child, Content::Element(element) if element.kind == ElementKind::ListItem)) {
-            return Err(Diagnostic::new(span, "list bodies accept only items and separating whitespace"));
-        }
-        for child in &children {
-            match child {
-                Content::Element(item) if item.children.iter().any(|child| matches!(child, Content::Element(element) if element.kind == ElementKind::ListItem)) => {
-                    return Err(Diagnostic::new(span, "nested Markdown items in an explicit list require an item body or a nested list container"));
-                }
-                _ => {}
-            }
-        }
-    }
-    Ok(Content::Element(Element {
-        kind,
-        attributes,
-        children,
-    }))
-}
-
-fn evaluate_code(
-    call: &Call,
-    span: Span,
-    context: EvaluationContext<'_>,
-    document: &mut EvaluationState<'_>,
-) -> Result<Content, Diagnostic> {
-    if call.bodies.len() > 1 {
-        return Err(Diagnostic::new(
-            span,
-            "code accepts at most one content body",
-        ));
-    }
-    let positional: Vec<_> = call
-        .arguments
-        .iter()
-        .filter(|argument| argument.name.is_none())
-        .collect();
-    if positional.len() > 1 {
-        return Err(Diagnostic::new(
-            span,
-            "code accepts at most one positional argument",
-        ));
-    }
-    let mut arguments = expressions::evaluate_arguments(&call.arguments, document)?;
-    let text_argument = arguments.positional.pop();
-    let attributes = attributes::normalize_arguments(ElementKind::Code, arguments)?;
-    let preserve_space =
-        context.preserve_space || attributes.get("preserve_space") == Some(&Value::Boolean(true));
-    let context = EvaluationContext {
-        preserve_space,
-        ..context
-    };
-    let mut children = if let Some(body) = call.bodies.first() {
-        evaluate_body(body, ContentMode::Inline, context, document)?
-    } else {
-        Vec::new()
-    };
-    if let Some(argument) = text_argument {
-        let value = argument.value;
-        if !matches!(
-            value,
-            Value::String(_) | Value::Number(_) | Value::Boolean(_)
-        ) {
-            return Err(Diagnostic::new(
-                argument.span,
-                "code text must be a string, number, or boolean",
-            ));
-        }
-        children = vec![Content::Text(value_as_text(&value, argument.span)?)];
-    }
-    if preserve_space {
-        normalize_preserved_content(&mut children);
-    }
-    Ok(Content::Element(Element {
-        kind: ElementKind::Code,
-        attributes,
-        children,
-    }))
+    Ok(Content::Text(value_as_text(
+        &evaluate_helper(&call.name, &call.arguments, span, document)?,
+        span,
+    )?))
 }
 
 fn normalize_line_endings(text: &str) -> String {

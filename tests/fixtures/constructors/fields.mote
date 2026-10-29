@@ -1,0 +1,8 @@
+#function fields()
+return {
+ document.paragraph(document.bookmark("anchor","Anchor")," ",document.label("target"),document.link("https://example.com","External")),
+ document.paragraph("Target: ",document.ref({target="target",fallback="Target"})," page ",document.page_number()),
+ document.paragraph("Note",document.footnote(document.paragraph("Footnote text"))," End",document.endnote(document.paragraph("Endnote text")))
+}
+end
+#fields()

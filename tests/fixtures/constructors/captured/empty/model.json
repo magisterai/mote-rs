@@ -1,0 +1,106 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " / "
+            },
+            {
+              "kind": "tab",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " / "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " / "
+        },
+        {
+          "kind": "tab",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " / "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

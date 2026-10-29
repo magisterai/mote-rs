@@ -1,0 +1,286 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "bookmark",
+              "category": "inline",
+              "attributes": {
+                "name": "anchor"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Anchor"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "target"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "External"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Target: "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "fallback": "Target",
+                "target": "target"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " page "
+            },
+            {
+              "kind": "page_number",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Note"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Footnote text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " End"
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Endnote text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "bookmark",
+          "category": "inline",
+          "attributes": {
+            "name": "anchor"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Anchor"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "target"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "External"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Target: "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "fallback": "Target",
+            "target": "target"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " page "
+        },
+        {
+          "kind": "page_number",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Note"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Footnote text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " End"
+        },
+        {
+          "kind": "endnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Endnote text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

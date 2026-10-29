@@ -1,0 +1,10 @@
+#function report(body)
+return {
+  document.heading({level=2,color="#28734f"},"Generated heading"),
+  document.paragraph({alignment="center",spacing={after=pt(8)}},
+    document.strong("Bold")," / ",document.emphasis("italic")," / ",document.span({size=pt(12)},body)),
+  document.code({preserve_space=true},"first\n  second"),
+  document.blockquote(document.paragraph("A quotation."))
+}
+end
+#report[**Body** text.]

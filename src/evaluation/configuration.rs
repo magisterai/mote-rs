@@ -21,7 +21,15 @@ pub(super) fn evaluate(
             "document accepts named arguments and no content body",
         ));
     }
-    for (name, argument) in evaluate_named_arguments(&call.arguments, document)? {
+    let arguments = evaluate_named_arguments(&call.arguments, document)?;
+    apply(arguments, document)
+}
+
+pub(super) fn apply(
+    arguments: std::collections::BTreeMap<String, super::expressions::EvaluatedArgument>,
+    document: &mut super::EvaluationState<'_>,
+) -> Result<(), Diagnostic> {
+    for (name, argument) in arguments {
         let location = argument.span;
         reject_flat_property(&name, location)?;
         match name.as_str() {

@@ -1,0 +1,9 @@
+#function configure()
+document.document({page={width=inch(8),height=inch(10)},margin={top=pt(72)}})
+document.font({name="body",latin="Arial"})
+document.style({name="Summary",type="paragraph",run={color="#28734f"}})
+document.header({distance=pt(24)},document.paragraph("Header"))
+document.footer({height=pt(24)},document.paragraph("Page ",document.page_number()))
+return document.paragraph({style="Summary",font="body"},"Configured")
+end
+#configure()

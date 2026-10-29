@@ -547,6 +547,16 @@
       "example": "functions/3",
       "model": "functions-3",
       "lua": true
+    },
+    {
+      "example": "document-constructors/1",
+      "model": "document-constructors-1",
+      "lua": true
+    },
+    {
+      "example": "document-constructors/2",
+      "model": "document-constructors-2",
+      "lua": true
     }
   ],
   "models": {
@@ -7669,6 +7679,172 @@
             {
               "kind": "text",
               "text": "Draft: Report"
+            }
+          ]
+        }
+      ]
+    },
+    "document-constructors-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "center",
+                "spacing": {
+                  "after": {
+                    "text": "8pt",
+                    "unit": "pt",
+                    "value": 8.0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Notice: "
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "The report is ready."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "spacing": {
+              "after": {
+                "text": "8pt",
+                "unit": "pt",
+                "value": 8.0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Notice: "
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "The report is ready."
+            }
+          ]
+        }
+      ]
+    },
+    "document-constructors-2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 2.0
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Resources"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "tooltip": "Project information",
+                    "url": "https://example.com"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Project website"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2.0
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Resources"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "tooltip": "Project information",
+                "url": "https://example.com"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Project website"
+                }
+              ]
             }
           ]
         }

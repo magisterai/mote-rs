@@ -1,81 +1,13 @@
 use super::{
     ContentMode, EvaluationContext, EvaluationState,
-    attributes::evaluate_attributes,
     declarations::{TableGroup, normalize_table_group},
-    evaluate_body, evaluate_nodes,
+    evaluate_nodes,
     values::*,
 };
 use crate::{
     diagnostics::{Diagnostic, Span},
     model::{Content, Element, ElementKind, Properties, Value},
-    syntax::Call,
 };
-
-pub(super) fn evaluate(
-    call: &Call,
-    span: Span,
-    context: EvaluationContext<'_>,
-    document: &mut EvaluationState<'_>,
-) -> Result<Content, Diagnostic> {
-    let kind = match call.name.as_str() {
-        "table" => ElementKind::Table,
-        "row" => ElementKind::Row,
-        _ => ElementKind::Cell,
-    };
-    if call.bodies.len() != 1
-        || call
-            .arguments
-            .iter()
-            .any(|argument| argument.name.is_none())
-    {
-        return Err(Diagnostic::new(
-            span,
-            format!("{} requires one body and named arguments", call.name),
-        ));
-    }
-    let attributes = evaluate_attributes(kind, &call.arguments, document)?;
-    let mode = if kind == ElementKind::Cell {
-        ContentMode::Block
-    } else {
-        ContentMode::Structural
-    };
-    let mut children = evaluate_body(&call.bodies[0], mode, context, document)?;
-    if kind != ElementKind::Cell {
-        children.retain(|child| !matches!(child, Content::Text(text) if text.trim().is_empty()));
-        let required = if kind == ElementKind::Table {
-            ElementKind::Row
-        } else {
-            ElementKind::Cell
-        };
-        if children
-            .iter()
-            .any(|child| !matches!(child, Content::Element(element) if element.kind == required))
-        {
-            return Err(Diagnostic::new(
-                span,
-                format!(
-                    "{} bodies contain only {} elements and whitespace",
-                    call.name,
-                    required.as_text()
-                ),
-            ));
-        }
-        if children.is_empty() {
-            document.warnings.push(Diagnostic::new(
-                span,
-                format!(
-                    "{} body is empty; emitting an empty {}",
-                    call.name, call.name
-                ),
-            ));
-        }
-    }
-    Ok(Content::Element(Element {
-        kind,
-        attributes,
-        children,
-    }))
-}
 
 pub(super) fn normalize(
     kind: ElementKind,

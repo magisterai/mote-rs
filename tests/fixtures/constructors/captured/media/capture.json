@@ -1,0 +1,31 @@
+{
+  "source_sha256": "6642feeda3688abb17df79762ee69d37d3597dc47c26debe625f59873bf8b1dc",
+  "captured_docx_sha256": "d9cb3623915cd5b1b7ab479ed2566d9be79158a4806398cea0532312400d57f1",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/media/image1.png",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "assets": {
+    "assets/pattern.png": "906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce"
+  },
+  "native_pdf_pages": 2,
+  "native_pdf_comparison_dpi": 144,
+  "native_pdf_changed_pixels": 0,
+  "native_png_dpi": 72,
+  "native_png_maximum_channel_difference": 36,
+  "native_png_mean_foreground_difference": 10.057471264367816,
+  "native_png_files": {
+    "reference-1.png": "2ecb1cabca379c80e3fc37fceafea289983369d127d2aa7f22bd9f8f66360b48",
+    "reference-2.png": "157478e3391684623f3ff257bab2b2135184bfad8e75101e3a56412858510929"
+  }
+}

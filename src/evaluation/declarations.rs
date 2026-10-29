@@ -21,10 +21,19 @@ pub(super) fn evaluate_declaration(
             format!("{} accepts named arguments and no content body", call.name),
         ));
     }
-    let mut fields = evaluate_named_arguments(&call.arguments, document)?;
+    let fields = evaluate_named_arguments(&call.arguments, document)?;
+    apply(&call.name, fields, span, document)
+}
+
+pub(super) fn apply(
+    directive: &str,
+    mut fields: std::collections::BTreeMap<String, super::expressions::EvaluatedArgument>,
+    span: Span,
+    document: &mut super::EvaluationState<'_>,
+) -> Result<(), Diagnostic> {
     let name = fields
         .remove("name")
-        .ok_or_else(|| Diagnostic::new(span, format!("{} requires name", call.name)))?;
+        .ok_or_else(|| Diagnostic::new(span, format!("{} requires name", directive)))?;
     let name_span = name.span;
     let numeric_name = matches!(name.value, Value::Number(_));
     let name = normalize_identifier(name.value, name_span, "name")?;
@@ -33,27 +42,27 @@ pub(super) fn evaluate_declaration(
             span,
             format!(
                 "{} name was coerced from number to string {name:?}",
-                call.name
+                directive
             ),
         ));
     }
-    if call.name == "font" && name.trim().is_empty() {
+    if directive == "font" && name.trim().is_empty() {
         return Err(Diagnostic::new(
             name_span,
-            format!("{} name must not be empty", call.name),
+            format!("{} name must not be empty", directive),
         ));
     }
     let mut properties = Properties::new();
     for (field, argument) in fields {
         let location = argument.span;
-        let value = if call.name == "font" {
+        let value = if directive == "font" {
             normalize_font_property(&field, argument.value, location)?
         } else {
             normalize_style_property(&field, argument.value, location)?
         };
         properties.insert(field, value);
     }
-    if call.name == "font" {
+    if directive == "font" {
         document
             .fonts
             .insert(name.clone(), FontDeclaration { name, properties });

@@ -83,5 +83,5 @@ that created them.
 
 Functions share the Lua execution budget, restricted global environment, and
 source-relative JSON resolver described in the preceding chapter. Their return
-values feed the same model and output paths as ordinary directives. The
-`document` constructor namespace is not available yet.
+values feed the same model and output paths as ordinary directives. The next chapter defines the
+[`document` constructor namespace](document-constructors.md).

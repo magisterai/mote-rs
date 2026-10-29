@@ -1,0 +1,260 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "color": "#28734f",
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Generated heading"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "spacing": {
+              "after": {
+                "text": "8pt",
+                "unit": "pt",
+                "value": 8
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Bold"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " / "
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "italic"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " / "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12
+                }
+              },
+              "children": [
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Body"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " text."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "code",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "first\n  second"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A quotation."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "color": "#28734f",
+        "level": 2
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Generated heading"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "center",
+        "spacing": {
+          "after": {
+            "text": "8pt",
+            "unit": "pt",
+            "value": 8
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "strong",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Bold"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " / "
+        },
+        {
+          "kind": "emphasis",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "italic"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " / "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "size": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            }
+          },
+          "children": [
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Body"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " text."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "code",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "first\n  second"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A quotation."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

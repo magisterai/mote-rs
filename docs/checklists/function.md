@@ -13,7 +13,11 @@ content follows the inventories of its receiving directives.
 - [x] Scalar, typed length/color, object, array and content return conversions.
 - [x] Lua expressions and one-based indexing are explicitly enabled; disabled by default.
 - [x] Only supported pure base globals and registered Mote helpers are available.
-- [ ] Existing document constructors are available through the `document` namespace.
+- [x] Existing document constructors are available through the `document` namespace.
+  Inventory: all current text/list, table, media, note, field, anchor, caption and
+  figure directives; document/font/style/header/footer declarations; registered
+  value helpers. Section retains raw syntax and is excluded. Property maps precede
+  positional values and body content; ordinary attribute normalization still applies.
 - [x] One shared execution budget across a compilation, with located runtime errors.
 - [x] Source-relative JSON uses the same resolver and snapshot from scripts.
 - [x] Returned content observes the enclosing body mode and output rules.
@@ -29,4 +33,7 @@ Function definitions and content returns: [language](../specification/functions.
 [implementation](../../src/evaluation/functions.rs), [tests](../../tests/functions.rs),
 and [captured models/packages](../../tests/function_captures.rs). Empty content and
 nested-call global behavior have explicit compatibility limits in the language
-chapter. Constructor support remains unchecked.
+chapter. Constructors: [language](../specification/document-constructors.md),
+[shared validation](../../src/evaluation/constructors.rs),
+[tests](../../tests/constructors.rs), and
+[output captures](../../tests/constructor_captures.rs).

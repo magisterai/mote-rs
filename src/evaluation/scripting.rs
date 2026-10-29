@@ -1,4 +1,5 @@
 //! Opt-in Lua execution with a compilation-wide clock and scoped host callbacks.
+mod constructors;
 mod values;
 use super::{
     EvaluationState,
@@ -82,6 +83,24 @@ impl Runtime {
                 .eval()?;
             globals.set(*name, function)?;
         }
+        let document = self.lua.create_table()?;
+        for name in crate::evaluation::constructors::ELEMENT_NAMES
+            .iter()
+            .chain(HELPERS)
+            .chain(["document", "font", "style", "header", "footer", "in"].iter())
+        {
+            if state.bindings.function(name).is_some() {
+                continue;
+            }
+            let wrapper: mlua::Function = self
+                .lua
+                .load(format!(
+                    "return function(...) return __mote_constructor({name:?}, ...) end"
+                ))
+                .eval()?;
+            document.raw_set(*name, wrapper)?;
+        }
+        globals.set("document", document)?;
         let functions = state.bindings.visible_functions();
         for (name, function) in &functions {
             // Pointer identity is stable while the registry retains this function.
@@ -187,6 +206,20 @@ fn with_runtime(
                         &mut callback_state.borrow_mut(),
                     )
                     .map_err(mlua::Error::external)?;
+                    values::to_lua(lua, &value)
+                },
+            )?,
+        )?;
+        runtime.lua.globals().set(
+            "__mote_constructor",
+            scope.create_function(
+                move |lua, (name, arguments): (String, mlua::Variadic<mlua::Value>)| {
+                    let value = constructors::call(
+                        &name,
+                        arguments,
+                        span,
+                        &mut callback_state.borrow_mut(),
+                    )?;
                     values::to_lua(lua, &value)
                 },
             )?,

@@ -1,0 +1,9 @@
+#function structures()
+return {
+ document.list(document.item("First"),document.item({checked=true},document.paragraph("Second"))),
+ document.ordered_list({start=3},document.item("Third")),
+ document.table({width=pt(300)},document.row({repeat_header=true},document.cell({fill="#dddddd"},"Header")),document.row(document.cell("Value"))),
+ document.figure(document.paragraph("Figure content"),document.caption({numbering={label="Figure"}},"Caption"))
+}
+end
+#structures()

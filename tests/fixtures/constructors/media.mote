@@ -1,0 +1,9 @@
+#function media()
+return {
+ document.image({src="assets/pattern.png",width=pt(120),height=pt(60),rotation=15,border={width=pt(1),color="#28734f"}}),
+ document.paragraph("Before",document.line_break(),"after"),
+ document["break"]({type="page"}),
+ document.paragraph("Following page")
+}
+end
+#media()

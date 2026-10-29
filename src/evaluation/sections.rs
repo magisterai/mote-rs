@@ -77,7 +77,7 @@ impl EvaluationState<'_> {
             .content
             .extend_from_slice(content);
     }
-    fn set_story(&mut self, header: bool, story: HeaderFooter) {
+    pub(super) fn set_story(&mut self, header: bool, story: HeaderFooter) {
         self.declared_sections = true;
         if let Some(capture) = self.captures.last_mut() {
             *if header {
@@ -135,11 +135,31 @@ pub(super) fn evaluate_story(
 ) -> Result<(), Diagnostic> {
     check_body(call, span)?;
     let arguments = evaluate_named_arguments(&call.arguments, state)?;
+    let properties = story_properties(&call.name, arguments, span)?;
+    let previous_story = state.story_declaration.replace(span.start + 1);
+    let content = evaluate_body(&call.bodies[0], ContentMode::Block, context, state);
+    state.story_declaration = previous_story;
+    let content = content?;
+    state.set_story(
+        call.name == "header",
+        HeaderFooter {
+            declaration_id: span.start + 1,
+            properties,
+            content,
+        },
+    );
+    Ok(())
+}
+pub(super) fn story_properties(
+    directive: &str,
+    arguments: std::collections::BTreeMap<String, super::expressions::EvaluatedArgument>,
+    span: Span,
+) -> Result<Properties, Diagnostic> {
     for (name, argument) in &arguments {
         if !matches!(name.as_str(), "properties" | "height" | "distance") {
             return Err(Diagnostic::new(
                 argument.span,
-                format!("unknown {} argument {name:?}", call.name),
+                format!("unknown {directive} argument {name:?}"),
             ));
         }
     }
@@ -156,19 +176,7 @@ pub(super) fn evaluate_story(
             properties.insert(name.into(), normalize_length(value, span, name)?);
         }
     }
-    let previous_story = state.story_declaration.replace(span.start + 1);
-    let content = evaluate_body(&call.bodies[0], ContentMode::Block, context, state);
-    state.story_declaration = previous_story;
-    let content = content?;
-    state.set_story(
-        call.name == "header",
-        HeaderFooter {
-            declaration_id: span.start + 1,
-            properties,
-            content,
-        },
-    );
-    Ok(())
+    Ok(properties)
 }
 pub(super) fn evaluate_section(
     call: &Call,

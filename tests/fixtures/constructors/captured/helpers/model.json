@@ -1,0 +1,108 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "TEXT"
+            },
+            {
+              "kind": "text",
+              "text": " / "
+            },
+            {
+              "kind": "text",
+              "text": "12pt"
+            },
+            {
+              "kind": "text",
+              "text": " / "
+            },
+            {
+              "kind": "text",
+              "text": "1in"
+            },
+            {
+              "kind": "text",
+              "text": " / "
+            },
+            {
+              "kind": "text",
+              "text": "#28734f"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Retained constructor"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "TEXT"
+        },
+        {
+          "kind": "text",
+          "text": " / "
+        },
+        {
+          "kind": "text",
+          "text": "12pt"
+        },
+        {
+          "kind": "text",
+          "text": " / "
+        },
+        {
+          "kind": "text",
+          "text": "1in"
+        },
+        {
+          "kind": "text",
+          "text": " / "
+        },
+        {
+          "kind": "text",
+          "text": "#28734f"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Retained constructor"
+        }
+      ]
+    }
+  ]
+}

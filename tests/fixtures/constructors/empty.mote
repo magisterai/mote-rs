@@ -1,0 +1,4 @@
+#function empty()
+return document.paragraph(document.span("")," / ",document.tab()," / ",document.page_number())
+end
+#empty()

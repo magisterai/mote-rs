@@ -1,0 +1,178 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#28734f",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            },
+            "height": {
+              "text": "60pt",
+              "unit": "pt",
+              "value": 60
+            },
+            "rotation": "15",
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "120pt",
+              "unit": "pt",
+              "value": 120
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before"
+            },
+            {
+              "kind": "line_break",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "after"
+            }
+          ]
+        },
+        {
+          "kind": "break",
+          "category": "block",
+          "attributes": {
+            "type": "page"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Following page"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "color": "#28734f",
+          "width": {
+            "text": "1pt",
+            "unit": "pt",
+            "value": 1
+          }
+        },
+        "height": {
+          "text": "60pt",
+          "unit": "pt",
+          "value": 60
+        },
+        "rotation": "15",
+        "src": "assets/pattern.png",
+        "width": {
+          "text": "120pt",
+          "unit": "pt",
+          "value": 120
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before"
+        },
+        {
+          "kind": "line_break",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "after"
+        }
+      ]
+    },
+    {
+      "kind": "break",
+      "category": "block",
+      "attributes": {
+        "type": "page"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Following page"
+        }
+      ]
+    }
+  ]
+}

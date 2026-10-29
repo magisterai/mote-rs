@@ -1,12 +1,8 @@
 //! Argument validation, property merging, and directive-specific normalization.
 
-use super::{
-    expressions::{EvaluatedArguments, evaluate_arguments},
-    values::*,
-};
+use super::{expressions::EvaluatedArguments, values::*};
 use crate::diagnostics::{Diagnostic, Span};
 use crate::model::{ElementKind, Properties, Value};
-use crate::syntax::Argument;
 use std::collections::BTreeMap;
 
 pub(super) const ALIGNMENTS: &[&str] = &["left", "center", "right", "justify"];
@@ -17,14 +13,6 @@ const NUMBER_FORMATS: &[&str] = &[
     "lower_roman",
     "upper_roman",
 ];
-
-pub(super) fn evaluate_attributes(
-    kind: ElementKind,
-    arguments: &[Argument],
-    state: &mut super::EvaluationState<'_>,
-) -> Result<Properties, Diagnostic> {
-    normalize_arguments(kind, evaluate_arguments(arguments, state)?)
-}
 
 pub(super) fn normalize_arguments(
     kind: ElementKind,
