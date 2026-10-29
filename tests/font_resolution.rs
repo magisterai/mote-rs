@@ -269,3 +269,42 @@ fn embedding_permissions_are_checked_before_selecting_declared_font_data() {
         assert_eq!(selection.substitution.is_none(), allowed);
     }
 }
+
+#[test]
+fn ambiguous_and_overlapping_permission_tables_use_visible_fallbacks() {
+    let table_count = usize::from(u16::from_be_bytes([FONT[4], FONT[5]]));
+    let permission_record = (0..table_count)
+        .map(|index| 12 + index * 16)
+        .find(|offset| &FONT[*offset..*offset + 4] == b"OS/2")
+        .unwrap();
+    let mut duplicate = FONT.to_vec();
+    let other_record = (0..table_count)
+        .map(|index| 12 + index * 16)
+        .find(|offset| *offset != permission_record)
+        .unwrap();
+    duplicate[other_record..other_record + 16]
+        .copy_from_slice(&FONT[permission_record..permission_record + 16]);
+    let mut overlapping = FONT.to_vec();
+    overlapping[permission_record + 8..permission_record + 12]
+        .copy_from_slice(&12_u32.to_be_bytes());
+    let mut truncated = FONT.to_vec();
+    truncated[permission_record + 12..permission_record + 16].copy_from_slice(&9_u32.to_be_bytes());
+    for (bytes, reason) in [
+        (duplicate, "duplicate OS/2"),
+        (overlapping, "invalid OS/2"),
+        (truncated, "invalid OS/2"),
+    ] {
+        let document = mote::compile(r#"#font(name="body",files={regular="body.ttf"})"#).unwrap();
+        let resolver = |_: AssetRequest<'_>| {
+            Ok(ResolvedAsset {
+                name: "memory://font".into(),
+                bytes: bytes.clone(),
+            })
+        };
+        let mut measurer = TextMeasurer::new(&document, &resolver, None);
+        let selected = measurer.resolve("body", FontVariant::Regular);
+        assert_eq!(selected.source, FontSource::Core);
+        assert!(selected.bytes.is_none());
+        assert!(selected.substitution.unwrap().contains(reason));
+    }
+}

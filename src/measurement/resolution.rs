@@ -232,14 +232,33 @@ fn named_selection(name: &str, family: &str, variant: FontVariant) -> FontSelect
 }
 
 fn validate_embedding(bytes: &[u8]) -> Result<(), String> {
-    let face = ttf_parser::Face::parse(bytes, 0)
-        .map_err(|_| "font data could not be parsed as OpenType")?;
-    let permissions = face
-        .raw_face()
-        .table(ttf_parser::Tag::from_bytes(b"OS/2"))
-        .and_then(|table| table.get(8..10))
-        .ok_or("OS/2 embedding permissions are unavailable")?;
-    let permissions = u16::from_be_bytes(permissions.try_into().unwrap());
+    let header = bytes.get(..12).ok_or("invalid sfnt table directory")?;
+    let table_count = usize::from(u16::from_be_bytes([header[4], header[5]]));
+    if table_count == 0 || table_count > (bytes.len() - 12) / 16 {
+        return Err("invalid sfnt table directory".into());
+    }
+    let directory_end = 12 + table_count * 16;
+    let mut permission_table = None;
+    for record in bytes[12..directory_end].chunks_exact(16) {
+        if &record[..4] != b"OS/2" {
+            continue;
+        }
+        if permission_table.is_some() {
+            return Err("duplicate OS/2 tables".into());
+        }
+        let offset = u32::from_be_bytes(record[8..12].try_into().unwrap()) as usize;
+        let length = u32::from_be_bytes(record[12..16].try_into().unwrap()) as usize;
+        if length < 10
+            || offset < directory_end
+            || offset > bytes.len()
+            || length > bytes.len() - offset
+        {
+            return Err("invalid OS/2 table".into());
+        }
+        permission_table = Some(&bytes[offset..offset + length]);
+    }
+    let table = permission_table.ok_or("OS/2 embedding permissions are unavailable")?;
+    let permissions = u16::from_be_bytes([table[8], table[9]]);
     let reason = if permissions & 2 != 0 {
         "OS/2 fsType restricts embedding"
     } else if permissions & 0x100 != 0 {
