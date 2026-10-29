@@ -1,6 +1,8 @@
 //! Editable Word document generation. Layout and pagination are performed by Word.
 
+mod builtin_styles;
 mod fonts;
+mod headings;
 mod package;
 mod paragraph_properties;
 mod paragraphs;

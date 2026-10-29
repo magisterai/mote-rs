@@ -145,14 +145,14 @@ table property objects. Table declaration normalization is available; applying
 table styles and resolving conditional regions await the table model. Numeric
 font/style names produce source-located warnings in `Document.warnings`.
 
-Document configuration, bindings, JSON loading, defaults, Lua, layout, and
-Office/PDF/PNG output remain deferred.
+Document configuration, bindings, JSON loading, defaults, Lua, native layout,
+PowerPoint/PDF/PNG output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)
 contains source, expected JSON, and a captured DOCX package with comparison notes.
-Its source/model agreement is tested. DOCX generation and package comparison are
-not implemented; this fixture remains unreviewed in Microsoft Word.
+Its source/model agreement and generated package parts are tested. The fixture
+remains unreviewed in Microsoft Word.
 
 ## Formatting resolution
 
@@ -169,9 +169,9 @@ independent. Font resolution returns declared script mappings or a direct
 typeface name without looking up installed fonts. See
 [Styles and fonts](specification/styles-and-fonts.md) for the exact contracts.
 
-Implicit output styles, document/list/container defaults, font-file lookup,
-glyph coverage, measured line height, and output-specific formatting remain
-future work. The resolver does not lay out or render documents.
+The DOCX writer supplies the supported implicit output styles separately.
+Document/list/container defaults, font-file lookup, glyph coverage and measured
+line height remain future work. The resolver does not lay out or render documents.
 
 ## JSON inspection
 
@@ -226,7 +226,7 @@ accepted substitute for a defined example. See the
 
 `docx::emit(&document)` returns a complete Word package without modifying the
 model. `mote --format docx -o report.docx input.mote` writes it to a file. The
-writer supports paragraphs with the captured document defaults, Unicode text,
+writer supports paragraphs and headings with captured defaults, Unicode text,
 XML escaping, tabs, empty paragraphs, and hard line breaks. Ordinary whitespace
 at paragraph and explicit line edges is trimmed; interior whitespace is retained.
 Unsupported content, attributes, and declarations return explicit errors before
@@ -250,9 +250,15 @@ script-specific typefaces. `word_line_height` remains metadata for later layout.
 
 Unknown nested properties, missing style references, cycles and unsupported
 output values fail explicitly. Declared style sizes must round to a positive
-half-point value. Table styles, headings, lists, quotes, font files and embedding
+half-point value. Table styles, lists, quotes, font files and embedding
 remain deferred. These are output limits; their language/model support is
 unchanged. Authored exact line heights are preserved without estimating clipping.
+
+Headings use built-in styles for levels one through six, with declared overrides
+and direct paragraph properties. Higher levels need a declared style; levels
+above nine map to nine. At the start of the document only implicit before-spacing
+is suppressed. Explicit empty style references differ from omitted references.
+Heading numbering remains deferred.
 
 Font measurement is not required for DOCX emission; Word performs layout and
 pagination. Production dependencies add ZIP/DEFLATE and UTC metadata support;
@@ -261,7 +267,7 @@ libraries remain deferred. The resolved production graph has no duplicate crate
 versions.
 
 [DOCX tests](../tests/docx.rs) compare evaluated models and every captured package
-part across [six focused fixtures](../tests/fixtures/README.md). JSON numbers are
+part across [focused fixtures](../tests/fixtures/README.md). JSON numbers are
 compared numerically; XML names use namespace URIs. Generation timestamps and
 formatting whitespace outside text elements are ignored. Captured advisory
 pagination markers are counted separately and omitted; actual break settings

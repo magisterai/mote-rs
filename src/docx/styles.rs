@@ -1,18 +1,20 @@
 use super::{
-    Error, check_attributes, paragraph_properties,
+    Error,
+    builtin_styles::{self, normalize_name},
+    check_attributes, paragraph_properties,
     run_properties::{self, RunFormatting},
     values, xml,
 };
 use crate::{
     formatting::{ResolutionIssue, StyleResolver},
-    model::{Content, Document, ElementKind, Properties, StyleDeclaration, StyleKind, Unit, Value},
+    model::{Document, Properties, StyleDeclaration, StyleKind, Value},
 };
 use std::collections::{BTreeMap, BTreeSet};
 
 pub(super) struct Styles<'document> {
     pub document: &'document Document,
     identifiers: BTreeMap<String, String>,
-    code_needed: bool,
+    builtin_needed: BTreeSet<String>,
 }
 
 impl<'document> Styles<'document> {
@@ -34,7 +36,7 @@ impl<'document> Styles<'document> {
             }
             identifiers.insert(name.clone(), identifier);
         }
-        for builtin in ["Normal", "Code"] {
+        for &builtin in builtin_styles::NAMES {
             if !identifiers
                 .keys()
                 .any(|name| normalize_name(name) == normalize_name(builtin))
@@ -50,15 +52,7 @@ impl<'document> Styles<'document> {
         let result = Self {
             document,
             identifiers,
-            code_needed: needs_code(&document.content)
-                || document.styles.values().any(|declaration| {
-                    ["based_on", "next", "link"].iter().any(|name| {
-                        declaration
-                            .properties
-                            .get(*name)
-                            .is_some_and(|value| normalize_name(&value.to_text()) == "code")
-                    })
-                }),
+            builtin_needed: builtin_styles::needed(document)?,
         };
         for declaration in document.styles.values() {
             result.resolved_run(&declaration.name)?;
@@ -100,7 +94,7 @@ impl<'document> Styles<'document> {
         for issue in &resolved.issues {
             match issue {
                 ResolutionIssue::MissingStyle(missing)
-                    if matches!(normalize_name(missing).as_str(), "normal" | "code") => {}
+                    if builtin_styles::canonical_name(missing).is_some() => {}
                 _ => {
                     return Err(Error::Unsupported(format!(
                         "style resolution issue {issue:?}"
@@ -108,25 +102,14 @@ impl<'document> Styles<'document> {
                 }
             }
         }
-        if !self
-            .document
-            .styles
-            .keys()
-            .any(|candidate| candidate == name || normalize_name(candidate) == normalize_name(name))
-            && normalize_name(name) == "code"
-        {
-            return Ok(Properties::from([
-                ("font".into(), Value::String("mono".into())),
-                (
-                    "size".into(),
-                    Value::Length {
-                        value: 10.0,
-                        unit: Unit::Point,
-                    },
-                ),
-            ]));
+        let mut properties = Properties::new();
+        for issue in &resolved.issues {
+            if let ResolutionIssue::MissingStyle(name) = issue {
+                properties.extend(builtin_styles::run_properties(name));
+            }
         }
-        Ok(resolved.run)
+        properties.extend(resolved.run);
+        Ok(properties)
     }
 
     pub fn write(&self) -> Result<String, Error> {
@@ -136,7 +119,16 @@ impl<'document> Styles<'document> {
         if !self.declared("Normal") {
             content.push_str("<w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\"><w:name w:val=\"Normal\"/><w:qFormat/></w:style>");
         }
-        if self.code_needed && !self.declared("Code") {
+        for level in 1..=6 {
+            let name = format!("Heading{level}");
+            if self.builtin_needed.contains(&name) && !self.declared(&name) {
+                content.push_str(&builtin_styles::write_heading(
+                    level,
+                    self.identifier("Normal")?,
+                ));
+            }
+        }
+        if self.builtin_needed.contains("Code") && !self.declared("Code") {
             let formatting = RunFormatting {
                 properties: self.resolved_run("Code")?,
                 ..RunFormatting::default()
@@ -247,29 +239,4 @@ fn declaration_group(
         result.extend(values::object(nested)?.clone());
     }
     Ok(result)
-}
-
-fn normalize_name(name: &str) -> String {
-    name.to_lowercase()
-        .chars()
-        .filter(char::is_ascii_alphanumeric)
-        .collect()
-}
-
-fn needs_code(children: &[Content]) -> bool {
-    children.iter().any(|child| match child {
-        Content::Text(_) => false,
-        Content::Element(element) => {
-            (element.kind == ElementKind::Code
-                && element
-                    .attributes
-                    .get("style")
-                    .is_none_or(|value| value.to_text().is_empty()))
-                || element
-                    .attributes
-                    .get("style")
-                    .is_some_and(|value| normalize_name(&value.to_text()) == "code")
-                || needs_code(&element.children)
-        }
-    })
 }

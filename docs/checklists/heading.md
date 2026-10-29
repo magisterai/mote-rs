@@ -53,13 +53,19 @@ heading labels. An authored marker is not an arbitrary heading-number template.
 Presentation container text defaults belong to their future container checklist;
 an unrestricted nested `text` object is not a direct heading-formatting target.
 
-The evaluator retains `keep_together` on headings; its output scope still needs
-verification, independently of the completed attribute contract.
+DOCX emits `keep_together` as `keepLines`, independently of the completed
+attribute contract. The focused capture also verifies direct fill and outline level.
 
 ## Output limits
 
-Rendered heading styles, outline levels, numbering, and pagination remain
-unsupported. The checked attributes record language/model behaviour.
+DOCX emits heading styles, outline levels, direct paragraph properties and
+pagination requests. Built-in styles cover levels one through six; levels seven
+through nine need a declared style, and larger levels map to nine. Omitted style
+selects the level fallback; an explicit empty style suppresses its paragraph
+reference. At document start, implicit before-spacing becomes zero while authored
+before-spacing remains. Numbering remains deferred. Real Word review is unreviewed.
+See the [heading captures](../../tests/fixtures/docx/headings/README.md) and
+[style capture](../../tests/fixtures/docx/heading-styles/README.md).
 
 ## Specification inventory
 

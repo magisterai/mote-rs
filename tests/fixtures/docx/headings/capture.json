@@ -1,0 +1,24 @@
+{
+  "source": "source.mote",
+  "model": "model.json",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "source_sha256": "a1654d96f032719e75768a6c395513270e5a6efbb12b255652cf1cc84e339aa5",
+  "captured_docx_sha256": "1686debd8da761cbdca576a69d817d308e429319c05084b916509355ee3ee15e",
+  "captured_at_utc": "2026-10-29T03:43:55.927058+00:00",
+  "word_review_status": "unreviewed",
+  "normalization": "XML pretty-printing only; namespaces, attributes, element order, and text values retained.",
+  "capture_warnings": [
+    "heading.fill, heading.keep_together and heading.outline_level were reported as unsupported; the captured document contains their shading, keepLines and outlineLvl properties."
+  ]
+}

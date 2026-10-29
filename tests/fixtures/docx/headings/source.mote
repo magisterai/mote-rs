@@ -1,0 +1,27 @@
+# First heading
+
+Body with **strong** and *emphasized* text.
+
+## Second heading
+
+### Third heading
+
+#### Fourth heading
+
+##### Fifth heading
+
+###### Sixth heading
+
+#heading[]
+
+#heading(level=2, alignment="right", spacing={before=pt(0), after=pt(3), line={rule="multiple", value=1.25}}, indent={left=pt(4)}, keep_with_next=false, keep_together=true, page_break_before=false, widow_control=false, fill="#f0f0f0", outline_level=4)[Direct #span(color="#245", bold=false)[overrides]]
+
+#heading(3, style="Custom Title")[Declared style]
+
+#heading(7)[Declared seventh level]
+
+#heading(99)[Clamped ninth level]
+
+#style(name="Custom Title", based_on="Normal", size=pt(15), bold=true, paragraph={outline_level=2, spacing_after=pt(5)})
+#style(name="Heading7", based_on="Normal", size=pt(10), paragraph={outline_level=6})
+#style(name="Heading9", based_on="Normal", size=pt(9), paragraph={outline_level=8})

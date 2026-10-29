@@ -1,0 +1,14 @@
+#heading(spacing_before=pt(7))[Explicit opening space]
+
+#heading(level=2, style="Heading 1", spacing={after=pt(0)}, keep_with_next=false)[Declared heading]
+
+#heading(2)[Fallback heading]
+
+#paragraph(style="Heading4")[Paragraph using a heading style]
+
+#heading(5, style="Derived")[Derived heading style]
+
+#heading(2, style="", spacing={before=pt(5)})[Empty style uses fallback]
+
+#style(name="Heading 1", based_on="Normal", font="Arial", size=pt(19), bold=false, paragraph={spacing_before=pt(17), outline_level=0})
+#style(name="Derived", based_on="Heading 1", size=pt(13), paragraph={keep_with_next=true})

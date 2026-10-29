@@ -48,7 +48,6 @@ fn paragraphs_generate_content_independently_of_the_reference() {
 #[test]
 fn unsupported_content_and_attributes_fail_explicitly() {
     for source in [
-        "#heading[Title]",
         "#list[#item[Item]]",
         "#paragraph(custom=true)[Text]",
         "#span(custom=true)[Text]",
@@ -177,4 +176,61 @@ fn empty_named_font_does_not_erase_an_inherited_direct_typeface() {
         .find(|node| node.has_tag_name((namespace, "rFonts")))
         .unwrap();
     assert_eq!(fonts.attribute((namespace, "ascii")), Some("Arial"));
+}
+
+#[test]
+fn headings_match_reference() {
+    support::compare_fixture("headings");
+    support::compare_fixture("heading-styles");
+}
+
+#[test]
+fn heading_flow_start_preserves_explicit_spacing_only() {
+    let namespace = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+    for (attributes, expected) in [
+        ("", "0"),
+        ("spacing_before=pt(7)", "140"),
+        ("spacing={before=pt(3)}", "60"),
+        ("spacing={spacing_before=pt(4)}", "80"),
+        ("spacing_before=pt(7),spacing={before=pt(3)}", "60"),
+        ("style=\"Title\"", "0"),
+    ] {
+        let source = format!(
+            "#style(name=\"Title\",paragraph={{spacing_before=pt(12)}})#heading({attributes})[Title]"
+        );
+        let parts = support::package(&source);
+        let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+        let spacing = document
+            .descendants()
+            .find(|node| node.has_tag_name((namespace, "spacing")))
+            .unwrap();
+        assert_eq!(
+            spacing.attribute((namespace, "before")),
+            Some(expected),
+            "{source}"
+        );
+    }
+    let parts = support::package("#paragraph[]\n\n#heading[Title]");
+    let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+    assert!(
+        !document
+            .descendants()
+            .any(|node| node.has_tag_name((namespace, "spacing")))
+    );
+}
+
+#[test]
+fn unsupported_heading_styles_and_numbering_fail_explicitly() {
+    for source in [
+        "#heading(level=7)[Missing default]",
+        "#heading(style=\"Missing\")[Missing style]",
+        "#heading(numbering={enabled=true})[Numbered]",
+        "#heading(marker=\"custom\")[Marker]",
+        "#heading(level=1, custom=true)[Unknown]",
+    ] {
+        assert!(
+            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
+            "{source}"
+        );
+    }
 }

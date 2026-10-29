@@ -50,3 +50,6 @@ settings remain part of the comparison.
 
 All captures remain **unreviewed in Microsoft Word**. Structural agreement does
 not establish layout, font substitution, wrapping or pagination conformance.
+
+- [Headings](docx/headings/README.md): levels, direct properties and fallback styles.
+- [Heading styles](docx/heading-styles/README.md): declarations and opening spacing.

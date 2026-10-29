@@ -1,0 +1,273 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Derived",
+      "type": "paragraph",
+      "based_on": "Heading 1",
+      "paragraph": {
+        "keep_with_next": true
+      },
+      "properties": {
+        "based_on": "Heading 1",
+        "paragraph": {
+          "keep_with_next": true
+        },
+        "size": {
+          "text": "13pt",
+          "unit": "pt",
+          "value": 13
+        }
+      }
+    },
+    {
+      "name": "Heading 1",
+      "type": "paragraph",
+      "based_on": "Normal",
+      "font": "Arial",
+      "paragraph": {
+        "outline_level": 0,
+        "spacing_before": {
+          "text": "17pt",
+          "unit": "pt",
+          "value": 17
+        }
+      },
+      "properties": {
+        "based_on": "Normal",
+        "bold": false,
+        "font": "Arial",
+        "paragraph": {
+          "outline_level": 0,
+          "spacing_before": {
+            "text": "17pt",
+            "unit": "pt",
+            "value": 17
+          }
+        },
+        "size": {
+          "text": "19pt",
+          "unit": "pt",
+          "value": 19
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "spacing_before": {
+              "text": "7pt",
+              "unit": "pt",
+              "value": 7
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Explicit opening space"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "keep_with_next": false,
+            "level": 2,
+            "spacing": {
+              "after": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              }
+            },
+            "style": "Heading 1"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Declared heading"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Fallback heading"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "style": "Heading4"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Paragraph using a heading style"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 5,
+            "style": "Derived"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Derived heading style"
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2,
+            "spacing": {
+              "before": {
+                "text": "5pt",
+                "unit": "pt",
+                "value": 5
+              }
+            },
+            "style": ""
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Empty style uses fallback"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "spacing_before": {
+          "text": "7pt",
+          "unit": "pt",
+          "value": 7
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Explicit opening space"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "keep_with_next": false,
+        "level": 2,
+        "spacing": {
+          "after": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          }
+        },
+        "style": "Heading 1"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Declared heading"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Fallback heading"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "style": "Heading4"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Paragraph using a heading style"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 5,
+        "style": "Derived"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Derived heading style"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2,
+        "spacing": {
+          "before": {
+            "text": "5pt",
+            "unit": "pt",
+            "value": 5
+          }
+        },
+        "style": ""
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Empty style uses fallback"
+        }
+      ]
+    }
+  ]
+}

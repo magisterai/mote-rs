@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps">
+  <w:body>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading1"/>
+        <w:spacing w:before="0"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">First heading</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:t xml:space="preserve">Body with </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+          <w:bCs/>
+        </w:rPr>
+        <w:t xml:space="preserve">strong</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> and </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+          <w:bCs/>
+        </w:rPr>
+        <w:t xml:space="preserve">emphasized</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> text.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Second heading</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading3"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Third heading</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading4"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Fourth heading</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading5"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Fifth heading</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading6"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Sixth heading</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading1"/>
+      </w:pPr>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+        <w:keepNext w:val="0"/>
+        <w:keepLines/>
+        <w:pageBreakBefore w:val="0"/>
+        <w:widowControl w:val="0"/>
+        <w:shd w:val="clear" w:color="auto" w:fill="F0F0F0"/>
+        <w:spacing w:before="0" w:after="60" w:line="300" w:lineRule="auto"/>
+        <w:ind w:left="80"/>
+        <w:jc w:val="right"/>
+        <w:outlineLvl w:val="4"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Direct </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:color w:val="224455"/>
+        </w:rPr>
+        <w:t xml:space="preserve">overrides</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="CustomTitle"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Declared style</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading7"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Declared seventh level</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading9"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Clamped ninth level</w:t>
+      </w:r>
+    </w:p>
+    <w:sectPr>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+    </w:sectPr>
+  </w:body>
+</w:document>
