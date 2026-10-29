@@ -1,0 +1,5 @@
+#paragraph(tabs = { { position = pt(72), alignment = "", align = "right", leader = "" } })[Left#tab()Right]
+#paragraph(tabs = { { position = pt(72), alignment = "", leader = "" } })[Default#tab()alignment]
+#paragraph(border = { top = { style = "", val = "double", color = "" }, bottom = { style = "" } })[Border aliases and defaults.]
+#paragraph(border = { all = "single", top = nil, bottom = "" })[Empty sides override the all-side default.]
+#paragraph(border = { top = nil, bottom = "" })[No borders.]

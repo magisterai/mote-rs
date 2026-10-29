@@ -162,7 +162,7 @@ Each side is a border-style string or a property object with these fields:
 
 | Field | Meaning |
 | --- | --- |
-| `style`, `val` | Border-style spelling; `style` takes precedence over its alias `val`. |
+| `style`, `val` | Border-style spelling; a nonempty `style` takes precedence over its alias `val`. |
 | `size` | Non-negative integer width in eighths of a point. |
 | `width` | Non-negative length; takes precedence over `size`; a bare number denotes points for this field. |
 | `space` | Non-negative integer border separation in points. |
@@ -171,7 +171,10 @@ Each side is a border-style string or a property object with these fields:
 `all` supplies sides that are not authored individually. `single` requests a
 single stroke; `none` or `nil` as strings requests no visible border. Evaluation
 checks that an outer `border` argument is an object, then retains its contents
-without validating individual sides or values. A border supplied through
+without validating individual sides or values. For DOCX, an empty style in a
+property object falls through to `val`, then to `single`; an empty color uses the
+default border color. An empty string or `nil` side produces no border for that
+side and still overrides `all`. A border supplied through
 `properties` is retained without that outer type check. Output support for individual border-style spellings must be
 verified separately; a stored string is not a conformance claim.
 
@@ -182,7 +185,8 @@ the repeated fill character. The usual alignment values are `left`, `center`,
 `right`, and `decimal`; `dot` requests a dotted leader. A single-entry object
 such as `{ right = pt(72) }` is alignment/position shorthand. Stops retain their
 order and authored fields; no sorting, merging, or tab insertion occurs.
-Evaluation checks only the outer collection type, not stop fields or positions.
+An empty alignment falls through to `align`, then to left alignment; an empty
+leader supplies no leader. Evaluation checks only the outer collection type, not stop fields or positions.
 A `tabs` value supplied through `properties` is retained as supplied.
 
 ```mote

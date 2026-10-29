@@ -226,13 +226,15 @@ fn borders(value: &Value) -> Result<String, Error> {
             )?;
             (
                 properties,
-                values::first(properties, &["style", "val"])
-                    .map(Value::to_text)
+                values::first_text(properties, &["style", "val"])
                     .unwrap_or_else(|| "single".into()),
             )
         } else {
             (&empty, value.to_text())
         };
+        if style.is_empty() {
+            continue;
+        }
         if matches!(style.as_str(), "none" | "nil") {
             result.push_str(&format!("<w:{side} w:val=\"nil\"/>"));
             continue;
@@ -259,6 +261,7 @@ fn borders(value: &Value) -> Result<String, Error> {
         )?;
         let color = properties
             .get("color")
+            .filter(|value| !value.to_text().trim().trim_start_matches('#').is_empty())
             .map(values::color)
             .transpose()?
             .unwrap_or_else(|| "BFBFBF".into());
@@ -314,19 +317,15 @@ fn tabs(value: &Value) -> Result<String, Error> {
         )?;
         let position = values::first(&stop, &["position", "pos", "right", "left", "center"])
             .ok_or_else(|| Error::InvalidValue("tab stop requires a position".into()))?;
-        let alignment = values::first(&stop, &["alignment", "align"])
-            .map(Value::to_text)
-            .unwrap_or_else(|| "left".into());
+        let alignment =
+            values::first_text(&stop, &["alignment", "align"]).unwrap_or_else(|| "left".into());
         result.push_str(&format!(
             "<w:tab w:val=\"{}\" w:pos=\"{}\"",
             xml::escape(&alignment)?,
             values::twips(position)?
         ));
-        if let Some(leader) = stop.get("leader") {
-            result.push_str(&format!(
-                " w:leader=\"{}\"",
-                xml::escape(&leader.to_text())?
-            ));
+        if let Some(leader) = values::first_text(&stop, &["leader"]) {
+            result.push_str(&format!(" w:leader=\"{}\"", xml::escape(&leader)?));
         }
         result.push_str("/>");
     }

@@ -9,6 +9,16 @@ pub(super) fn first<'value>(
     names.iter().find_map(|name| properties.get(*name))
 }
 
+/// Alias lookup for text properties whose empty spelling means "unspecified".
+pub(super) fn first_text(properties: &Properties, names: &[&str]) -> Option<String> {
+    names.iter().find_map(|name| {
+        properties
+            .get(*name)
+            .map(Value::to_text)
+            .filter(|text| !text.is_empty())
+    })
+}
+
 pub(super) fn object(value: &Value) -> Result<&Properties, Error> {
     match value {
         Value::Object(properties) => Ok(properties),

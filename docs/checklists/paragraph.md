@@ -76,3 +76,7 @@ signature checks, normalization, and declaration boundaries.
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [evaluation tests](../../tests/evaluation.rs),
 and [specification examples](../../tests/conformance.rs) cover the checked items.
+
+[Empty-property captures](../../tests/fixtures/docx/empty-paragraph-properties/README.md)
+cover border/tab alias fallback, omitted empty leaders and explicit empty sides
+without rewriting authored metadata.

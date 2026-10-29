@@ -1,0 +1,256 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "tabs": [
+              {
+                "align": "right",
+                "alignment": "",
+                "leader": "",
+                "position": {
+                  "text": "72pt",
+                  "unit": "pt",
+                  "value": 72
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Left"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "Right"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "tabs": [
+              {
+                "alignment": "",
+                "leader": "",
+                "position": {
+                  "text": "72pt",
+                  "unit": "pt",
+                  "value": 72
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Default"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "alignment"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "bottom": {
+                "style": ""
+              },
+              "top": {
+                "color": "",
+                "style": "",
+                "val": "double"
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Border aliases and defaults."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "all": "single",
+              "bottom": "",
+              "top": null
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Empty sides override the all-side default."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "bottom": "",
+              "top": null
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "No borders."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "tabs": [
+          {
+            "align": "right",
+            "alignment": "",
+            "leader": "",
+            "position": {
+              "text": "72pt",
+              "unit": "pt",
+              "value": 72
+            }
+          }
+        ]
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Left"
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "Right"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "tabs": [
+          {
+            "alignment": "",
+            "leader": "",
+            "position": {
+              "text": "72pt",
+              "unit": "pt",
+              "value": 72
+            }
+          }
+        ]
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Default"
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "alignment"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "bottom": {
+            "style": ""
+          },
+          "top": {
+            "color": "",
+            "style": "",
+            "val": "double"
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Border aliases and defaults."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "all": "single",
+          "bottom": "",
+          "top": null
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Empty sides override the all-side default."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "bottom": "",
+          "top": null
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "No borders."
+        }
+      ]
+    }
+  ]
+}

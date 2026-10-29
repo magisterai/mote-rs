@@ -72,6 +72,8 @@ fingerprints and comparison notes:
 
 - [Empty inline font](docx/empty-inline-font/README.md): inherited typefaces survive empty overrides.
 
+- [Empty paragraph properties](docx/empty-paragraph-properties/README.md): border/tab aliases and default selection.
+
 [DOCX package tests](../docx_packages.rs) generate packages and compare each fixture's evaluated
 model and all XML parts. They also verify that style, numbering and package
 relationships resolve to existing targets. Numeric JSON values compare by value rather than decimal

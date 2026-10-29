@@ -238,3 +238,23 @@ fn unsupported_heading_styles_and_properties_fail_explicitly() {
 fn derived_builtin_styles_preserve_inherited_direct_formatting() {
     support::compare_fixture("derived-builtin-styles");
 }
+
+#[test]
+fn empty_border_and_tab_fields_preserve_alias_and_default_selection() {
+    let parts = support::compare_fixture("empty-paragraph-properties");
+    let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+    let namespace = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+    for node in document.descendants().filter(|node| node.is_element()) {
+        for attribute in node
+            .attributes()
+            .filter(|attribute| attribute.namespace() == Some(namespace))
+        {
+            assert!(
+                !attribute.value().is_empty(),
+                "empty {} on {}",
+                attribute.name(),
+                node.tag_name().name()
+            );
+        }
+    }
+}
