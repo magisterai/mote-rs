@@ -1,0 +1,215 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "footer": "36pt",
+      "gutter": {
+        "text": "120twip",
+        "unit": "twip",
+        "value": 120
+      },
+      "header": 500,
+      "left": {
+        "text": "1in",
+        "unit": "in",
+        "value": 1
+      },
+      "right": {
+        "text": "15mm",
+        "unit": "mm",
+        "value": 15
+      },
+      "top": {
+        "text": "2cm",
+        "unit": "cm",
+        "value": 2
+      }
+    },
+    "page": {
+      "orientation": "landscape",
+      "size": "a4"
+    }
+  },
+  "page": {
+    "properties": {
+      "orientation": "landscape",
+      "size": "a4"
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "2cm",
+      "unit": "cm",
+      "value": 2
+    },
+    "right": {
+      "text": "15mm",
+      "unit": "mm",
+      "value": 15
+    },
+    "bottom": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "left": {
+      "text": "1in",
+      "unit": "in",
+      "value": 1
+    },
+    "header": 500,
+    "footer": {
+      "text": "36pt",
+      "unit": "pt",
+      "value": 36
+    },
+    "gutter": {
+      "text": "120twip",
+      "unit": "twip",
+      "value": 120
+    },
+    "properties": {
+      "bottom": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "footer": {
+        "text": "36pt",
+        "unit": "pt",
+        "value": 36
+      },
+      "gutter": {
+        "text": "120twip",
+        "unit": "twip",
+        "value": 120
+      },
+      "header": 500,
+      "left": {
+        "text": "1in",
+        "unit": "in",
+        "value": 1
+      },
+      "right": {
+        "text": "15mm",
+        "unit": "mm",
+        "value": 15
+      },
+      "top": {
+        "text": "2cm",
+        "unit": "cm",
+        "value": 2
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "orientation": "landscape",
+          "size": "a4"
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "2cm",
+          "unit": "cm",
+          "value": 2
+        },
+        "right": {
+          "text": "15mm",
+          "unit": "mm",
+          "value": 15
+        },
+        "bottom": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "left": {
+          "text": "1in",
+          "unit": "in",
+          "value": 1
+        },
+        "header": 500,
+        "footer": {
+          "text": "36pt",
+          "unit": "pt",
+          "value": 36
+        },
+        "gutter": {
+          "text": "120twip",
+          "unit": "twip",
+          "value": 120
+        },
+        "properties": {
+          "bottom": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "footer": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          },
+          "gutter": {
+            "text": "120twip",
+            "unit": "twip",
+            "value": 120
+          },
+          "header": 500,
+          "left": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "right": {
+            "text": "15mm",
+            "unit": "mm",
+            "value": 15
+          },
+          "top": {
+            "text": "2cm",
+            "unit": "cm",
+            "value": 2
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Configured page."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Configured page."
+        }
+      ]
+    }
+  ]
+}

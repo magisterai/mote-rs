@@ -1,0 +1,49 @@
+# Document configuration checklist
+
+[Checklist index](README.md)
+
+## Declaration and attributes
+
+- [x] Named arguments only, no body; produce no visible content node.
+- [x] Document-wide configuration; repeated calls merge page and margin fields.
+- [x] `page.size`: named paper size; `page.width` and `page.height`: non-negative lengths; `page.orientation`: portrait or landscape.
+- [x] `margin.top`, `right`, `bottom`, `left`, `header`, `footer`, `gutter`: non-negative lengths.
+- [x] Retain authored arguments separately from normalized geometry in JSON.
+- [x] Reject flat page/margin aliases and invalid geometry objects or values.
+- [ ] `columns.count`, `gap`, `separator`, `equal_width`: column configuration.
+- [ ] `default_font`, `default_size`, and `language`: effective document defaults.
+  Other `default_*` fields are not automatically supported formatting.
+
+Extra document properties and page fields may be retained as metadata. This does
+not give them an output effect. An unflattened `properties` argument is metadata.
+Explicit section boundaries and header/footer content need separate directives.
+
+## Specification inventory
+
+The complete [section property inventory](attributes/word-paragraphs.md#w-ct_sectpr)
+includes every retained Strict and Transitional field and its nested types:
+[page size](attributes/word-paragraphs.md#w-ct_pagesz),
+[margins](attributes/word-paragraphs.md#w-ct_pagemar),
+[columns](attributes/word-paragraphs.md#w-ct_columns), page borders, paper sources,
+page numbering, text direction, vertical alignment, line numbering, grids,
+header/footer references, section starts, revision metadata, and note settings.
+Unmapped entries remain unchecked; they are not invented Mote argument names.
+[Style defaults](attributes/styles.md#w-ct_docdefaults),
+[font selection](attributes/fonts.md), and
+[run properties](attributes/word-runs.md) inventory inherited document defaults.
+[Word extensions](attributes/word-extensions.md) includes section extensions.
+
+## Output limits and evidence
+
+DOCX emits a single section with the configured paper and margins. Missing values
+use Letter, one-inch body margins, half-inch header/footer distances, and zero
+gutter. Named-size dimensions, explicit overrides, orientation, unit conversion,
+rounding, repeated declarations and overflow failures are covered by
+[configuration tests](../../tests/configuration.rs) and
+[DOCX configuration tests](../../tests/docx_configuration.rs), including frozen
+package/model captures. Unsupported fields fail at output. Native layout and real
+Word visual review remain unreviewed.
+
+[Specification](../specification/document-configuration.md),
+[evaluator](../../src/evaluation/configuration.rs), and
+[writer](../../src/docx/configuration.rs) define and implement the checked scope.

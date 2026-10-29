@@ -396,6 +396,34 @@
       "example": "styles-and-fonts/9",
       "invalid": "A final style declaration cannot be based directly on itself.",
       "diagnostic": "style \"Body\" cannot be based on itself"
+    },
+    {
+      "example": "document-configuration/1",
+      "model": "document-configuration-1"
+    },
+    {
+      "example": "document-configuration/2",
+      "model": "document-configuration-2"
+    },
+    {
+      "example": "document-configuration/3",
+      "diagnostic": "no content body",
+      "invalid": "Document declarations do not accept bodies."
+    },
+    {
+      "example": "document-configuration/4",
+      "diagnostic": "page_size is not supported",
+      "invalid": "Page size belongs in the page object."
+    },
+    {
+      "example": "document-configuration/5",
+      "diagnostic": "page.orientation must be one of",
+      "invalid": "Orientation must be portrait or landscape."
+    },
+    {
+      "example": "document-configuration/6",
+      "diagnostic": "margin.top must be a non-negative length",
+      "invalid": "Margins must not be negative."
     }
   ],
   "models": {
@@ -4690,6 +4718,260 @@
             {
               "kind": "text",
               "text": "Text"
+            }
+          ]
+        }
+      ]
+    },
+    "document-configuration-1": {
+      "document": {
+        "page": {
+          "orientation": "landscape",
+          "size": "a4"
+        }
+      },
+      "page": {
+        "properties": {
+          "orientation": "landscape",
+          "size": "a4"
+        }
+      },
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {
+            "properties": {
+              "orientation": "landscape",
+              "size": "a4"
+            }
+          },
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A landscape page."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A landscape page."
+            }
+          ]
+        }
+      ]
+    },
+    "document-configuration-2": {
+      "document": {
+        "margin": {
+          "gutter": {
+            "text": "6pt",
+            "unit": "pt",
+            "value": 6.0
+          },
+          "left": {
+            "text": "3cm",
+            "unit": "cm",
+            "value": 3.0
+          }
+        },
+        "page": {
+          "height": {
+            "text": "9in",
+            "unit": "in",
+            "value": 9.0
+          },
+          "width": {
+            "text": "6in",
+            "unit": "in",
+            "value": 6.0
+          }
+        }
+      },
+      "page": {
+        "properties": {
+          "height": {
+            "text": "9in",
+            "unit": "in",
+            "value": 9.0
+          },
+          "width": {
+            "text": "6in",
+            "unit": "in",
+            "value": 6.0
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "1in",
+          "unit": "in",
+          "value": 1.0
+        },
+        "right": {
+          "text": "2cm",
+          "unit": "cm",
+          "value": 2.0
+        },
+        "bottom": {
+          "text": "1in",
+          "unit": "in",
+          "value": 1.0
+        },
+        "left": {
+          "text": "3cm",
+          "unit": "cm",
+          "value": 3.0
+        },
+        "gutter": {
+          "text": "6pt",
+          "unit": "pt",
+          "value": 6.0
+        },
+        "properties": {
+          "bottom": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1.0
+          },
+          "gutter": {
+            "text": "6pt",
+            "unit": "pt",
+            "value": 6.0
+          },
+          "left": {
+            "text": "3cm",
+            "unit": "cm",
+            "value": 3.0
+          },
+          "right": {
+            "text": "2cm",
+            "unit": "cm",
+            "value": 2.0
+          },
+          "top": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1.0
+          }
+        }
+      },
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {
+            "properties": {
+              "height": {
+                "text": "9in",
+                "unit": "in",
+                "value": 9.0
+              },
+              "width": {
+                "text": "6in",
+                "unit": "in",
+                "value": 6.0
+              }
+            }
+          },
+          "margin": {
+            "top": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1.0
+            },
+            "right": {
+              "text": "2cm",
+              "unit": "cm",
+              "value": 2.0
+            },
+            "bottom": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1.0
+            },
+            "left": {
+              "text": "3cm",
+              "unit": "cm",
+              "value": 3.0
+            },
+            "gutter": {
+              "text": "6pt",
+              "unit": "pt",
+              "value": 6.0
+            },
+            "properties": {
+              "bottom": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "gutter": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6.0
+              },
+              "left": {
+                "text": "3cm",
+                "unit": "cm",
+                "value": 3.0
+              },
+              "right": {
+                "text": "2cm",
+                "unit": "cm",
+                "value": 2.0
+              },
+              "top": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              }
+            }
+          },
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "The later declaration changes the left margin and adds a gutter."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "The later declaration changes the left margin and adds a gutter."
             }
           ]
         }

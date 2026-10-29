@@ -27,13 +27,16 @@ Status: initial draft.
 9. [Styles and fonts](styles-and-fonts.md): declarations, registration, inheritance,
    direct precedence, font aliases, and the resolution API.
 
+10. [Document configuration](document-configuration.md): document-wide page geometry,
+    margins, repeated declarations, and model inspection.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
 the rule they violate. Implementation deferrals do not replace definitions.
 
 Later chapters will introduce bindings, data loading, additional formatting,
-document configuration, scripting, and layout. Their syntax is not used in the
+sections, scripting, and layout. Their syntax is not used in the
 introductory examples.
 
 The [directive checklists](../checklists/README.md) record planned attributes and

@@ -308,8 +308,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [ ] `footnotePr` — [w:CT_FtnProps](word-paragraphs.md#w-ct_ftnprops); Strict, Transitional; minOccurs=0.
 - [ ] `endnotePr` — [w:CT_EdnProps](word-paragraphs.md#w-ct_ednprops); Strict, Transitional; minOccurs=0.
 - [ ] `type` — [w:CT_SectType](word-paragraphs.md#w-ct_secttype); Strict, Transitional; minOccurs=0. Section Type; [§17.6.22](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0618-0622-0117.md#source-page-621-part-1).
-- [ ] `pgSz` — [w:CT_PageSz](word-paragraphs.md#w-ct_pagesz); Strict, Transitional; minOccurs=0. Page Size; [§17.6.13](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0594-0598-0112.md#source-page-595-part-1).
-- [ ] `pgMar` — [w:CT_PageMar](word-paragraphs.md#w-ct_pagemar); Strict, Transitional; minOccurs=0. Page Margins; [§17.6.11](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0585-0589-0110.md#source-page-589-part-1).
+- [ ] `pgSz` — [w:CT_PageSz](word-paragraphs.md#w-ct_pagesz); Strict, Transitional; minOccurs=0. Page Size; [§17.6.13](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0594-0598-0112.md#source-page-595-part-1). Named paper sizes, explicit dimensions and orientation are supported; printer paper codes are unsupported. Only the implicit document section is implemented. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [ ] `pgMar` — [w:CT_PageMar](word-paragraphs.md#w-ct_pagemar); Strict, Transitional; minOccurs=0. Page Margins; [§17.6.11](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0585-0589-0110.md#source-page-589-part-1). All seven margin fields are supported for non-negative lengths; negative top/bottom margins are unsupported. Only the implicit document section is implemented. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 - [ ] `paperSrc` — [w:CT_PaperSource](word-paragraphs.md#w-ct_papersource); Strict, Transitional; minOccurs=0. Paper Source Information; [§17.6.9](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0585-0589-0110.md#source-page-585-part-1).
 - [ ] `pgBorders` — [w:CT_PageBorders](word-paragraphs.md#w-ct_pageborders); Strict, Transitional; minOccurs=0. Page Borders; [§17.6.10](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0585-0589-0110.md#source-page-586-part-1).
 - [ ] `lnNumType` — [w:CT_LineNumber](word-paragraphs.md#w-ct_linenumber); Strict, Transitional; minOccurs=0. Line Numbering Settings; [§17.6.8](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0580-0584-0109.md#source-page-583-part-1).
@@ -407,9 +407,9 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `@w` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional.
-- [ ] `@h` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional.
-- [ ] `@orient` — [w:ST_PageOrientation](values-word.md#w-st_pageorientation); Strict, Transitional; use=optional.
+- [x] `@w` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional. Document page.width: normalized geometry and single-section DOCX output; omitted orientation uses portrait dimensions. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@h` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional. Document page.height: normalized geometry and single-section DOCX output; omitted orientation uses portrait dimensions. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@orient` — [w:ST_PageOrientation](values-word.md#w-st_pageorientation); Strict, Transitional; use=optional. Document page.orientation: normalized geometry and single-section DOCX output; omitted orientation uses portrait dimensions. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 - [ ] `@code` — [w:ST_DecimalNumber](values-word.md#w-st_decimalnumber); Strict, Transitional; use=optional.
 
 <a id="w-ct_pagemar"></a>
@@ -418,13 +418,13 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `@top` — [w:ST_SignedTwipsMeasure](values-word.md#w-st_signedtwipsmeasure); Strict, Transitional; use=required.
-- [ ] `@right` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required.
-- [ ] `@bottom` — [w:ST_SignedTwipsMeasure](values-word.md#w-st_signedtwipsmeasure); Strict, Transitional; use=required.
-- [ ] `@left` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required.
-- [ ] `@header` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required.
-- [ ] `@footer` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required.
-- [ ] `@gutter` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required.
+- [ ] `@top` — [w:ST_SignedTwipsMeasure](values-word.md#w-st_signedtwipsmeasure); Strict, Transitional; use=required. Document margin.top: non-negative lengths and single-section DOCX output. Negative signed margins are unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@right` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required. Document margin.right: non-negative lengths and single-section DOCX output. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [ ] `@bottom` — [w:ST_SignedTwipsMeasure](values-word.md#w-st_signedtwipsmeasure); Strict, Transitional; use=required. Document margin.bottom: non-negative lengths and single-section DOCX output. Negative signed margins are unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@left` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required. Document margin.left: non-negative lengths and single-section DOCX output. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@header` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required. Document margin.header: non-negative lengths and single-section DOCX output. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@footer` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required. Document margin.footer: non-negative lengths and single-section DOCX output. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
+- [x] `@gutter` — [s:ST_TwipsMeasure](values-shared.md#s-st_twipsmeasure); Strict, Transitional; use=required. Document margin.gutter: non-negative lengths and single-section DOCX output. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [configuration.rs](../../../tests/configuration.rs), [docx_configuration.rs](../../../tests/docx_configuration.rs).
 
 <a id="w-ct_papersource"></a>
 

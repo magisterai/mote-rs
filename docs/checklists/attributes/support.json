@@ -1723,5 +1723,113 @@
       "docs/specification/formatting-attributes.md",
       "tests/attributes.rs"
     ]
+  },
+  "w:CT_PageSz/@w": {
+    "status": "supported",
+    "note": "Document page.width: normalized geometry and single-section DOCX output; omitted orientation uses portrait dimensions.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageSz/@h": {
+    "status": "supported",
+    "note": "Document page.height: normalized geometry and single-section DOCX output; omitted orientation uses portrait dimensions.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageSz/@orient": {
+    "status": "supported",
+    "note": "Document page.orientation: normalized geometry and single-section DOCX output; omitted orientation uses portrait dimensions.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageMar/@top": {
+    "status": "partial",
+    "note": "Document margin.top: non-negative lengths and single-section DOCX output. Negative signed margins are unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageMar/@right": {
+    "status": "supported",
+    "note": "Document margin.right: non-negative lengths and single-section DOCX output.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageMar/@bottom": {
+    "status": "partial",
+    "note": "Document margin.bottom: non-negative lengths and single-section DOCX output. Negative signed margins are unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageMar/@left": {
+    "status": "supported",
+    "note": "Document margin.left: non-negative lengths and single-section DOCX output.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageMar/@header": {
+    "status": "supported",
+    "note": "Document margin.header: non-negative lengths and single-section DOCX output.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageMar/@footer": {
+    "status": "supported",
+    "note": "Document margin.footer: non-negative lengths and single-section DOCX output.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_PageMar/@gutter": {
+    "status": "supported",
+    "note": "Document margin.gutter: non-negative lengths and single-section DOCX output.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_SectPr/pgSz": {
+    "status": "partial",
+    "note": "Named paper sizes, explicit dimensions and orientation are supported; printer paper codes are unsupported. Only the implicit document section is implemented.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
+  },
+  "w:CT_SectPr/pgMar": {
+    "status": "partial",
+    "note": "All seven margin fields are supported for non-negative lengths; negative top/bottom margins are unsupported. Only the implicit document section is implemented.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/configuration.rs",
+      "tests/docx_configuration.rs"
+    ]
   }
 }

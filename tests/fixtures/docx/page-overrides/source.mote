@@ -1,0 +1,3 @@
+#document(page = { size = "legal", width = "6in", orientation = "landscape" }, margin = { top = 720, left = 900 })
+#paragraph[Configuration applies document-wide.]
+#document(page = { height = "4in" }, margin = { right = 0, top = pt(20) })

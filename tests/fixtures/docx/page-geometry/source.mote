@@ -1,0 +1,3 @@
+#document(page = { size = "a4", orientation = "landscape" }, margin = { top = cm(2), right = mm(15), bottom = pt(36), left = inch(1), header = 500, footer = "36pt", gutter = twip(120) })
+
+#paragraph[Configured page.]

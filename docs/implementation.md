@@ -18,8 +18,8 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [diagnostics](../src/diagnostics.rs) | Shared source ranges and diagnostic locations. |
 | [source](../src/source.rs) | Asset resolver interface and UTF-8 source loading, with filesystem lookup and logical-name handling in separate modules. |
 | [syntax](../src/syntax.rs) | Syntax tree and parser entry points, with separate markup and expression parsers. |
-| [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, and value-normalization modules. |
-| [model](../src/model.rs) | Evaluated content, values, and declaration registries. |
+| [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, configuration, and value-normalization modules. |
+| [model](../src/model.rs) | Evaluated content, values, geometry, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
 | [json](../src/json.rs) | Deterministic model inspection. |
@@ -69,6 +69,19 @@ logical names remain deferred. Resolvers must supply stable bytes for a logical
 name during a compilation. Tests in [source.rs](../tests/source.rs) and
 [cli.rs](../tests/cli.rs) cover custom sources, relative names, failure propagation,
 encoding, and CLI diagnostics.
+
+## Document configuration
+
+`document` declarations retain authored arguments and merge normalized page and
+margin fields. They produce no visible node, including when evaluated inside a
+body. JSON preserves both the last authored argument and the merged geometry,
+which also appears on the implicit section. DOCX maps named paper sizes, custom
+dimensions, orientation and all seven margin distances to a single section.
+Unitless geometry is measured in twips; conversion rounds to the nearest integer.
+Unsupported configuration fields fail explicitly at emission. Columns, explicit
+sections, effective document defaults and header/footer content remain deferred.
+[Configuration tests](../tests/configuration.rs) and
+[output captures](../tests/docx_configuration.rs) cover this boundary.
 
 ## Parser
 
@@ -145,7 +158,7 @@ table property objects. Table declaration normalization is available; applying
 table styles and resolving conditional regions await the table model. Numeric
 font/style names produce source-located warnings in `Document.warnings`.
 
-Document configuration, bindings, JSON loading, defaults, Lua, native layout,
+Explicit sections, bindings, JSON loading, effective defaults, Lua, native layout,
 PowerPoint/PDF/PNG output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
@@ -187,10 +200,10 @@ The tool writes the complete evaluated model to standard output. Errors go to
 standard error with a source name, line, and column, and return a nonzero exit
 status. It accepts one source file. `--help` describes the available options.
 
-JSON contains a root `content` array and empty `page`, `margin`, and `columns`
-objects until document configuration is implemented. Nonempty content also
-appears in one implicit `sections` entry, alongside empty section geometry,
-numbering, and header/footer property objects. Empty content omits `sections`.
+JSON contains a root `content` array, configured `page` and `margin` objects, and
+an empty `columns` object. Nonempty content also appears in one implicit
+`sections` entry with the same geometry, plus empty section, numbering, and
+header/footer property objects. Empty content omits `sections`.
 Elements have `kind` and `category`; empty `children` and `attributes` are omitted.
 Text nodes have `kind = "text"` and omit `text` only when empty. Adjacent fragments
 remain distinct, including helper results, escaped characters, and line breaks.

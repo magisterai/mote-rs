@@ -1,0 +1,134 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "0twip",
+        "unit": "twip",
+        "value": 0
+      },
+      "left": 0.5,
+      "right": "0.49",
+      "top": 0
+    },
+    "page": {
+      "height": {
+        "text": "20cm",
+        "unit": "cm",
+        "value": 20
+      },
+      "orientation": "portrait",
+      "size": "custom",
+      "width": {
+        "text": "130mm",
+        "unit": "mm",
+        "value": 130
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "20cm",
+        "unit": "cm",
+        "value": 20
+      },
+      "orientation": "portrait",
+      "size": "custom",
+      "width": {
+        "text": "130mm",
+        "unit": "mm",
+        "value": 130
+      }
+    }
+  },
+  "margin": {
+    "top": 0,
+    "right": "0.49",
+    "bottom": {
+      "text": "0twip",
+      "unit": "twip",
+      "value": 0
+    },
+    "left": 0.5,
+    "properties": {
+      "bottom": {
+        "text": "0twip",
+        "unit": "twip",
+        "value": 0
+      },
+      "left": 0.5,
+      "right": "0.49",
+      "top": 0
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "20cm",
+            "unit": "cm",
+            "value": 20
+          },
+          "orientation": "portrait",
+          "size": "custom",
+          "width": {
+            "text": "130mm",
+            "unit": "mm",
+            "value": 130
+          }
+        }
+      },
+      "margin": {
+        "top": 0,
+        "right": "0.49",
+        "bottom": {
+          "text": "0twip",
+          "unit": "twip",
+          "value": 0
+        },
+        "left": 0.5,
+        "properties": {
+          "bottom": {
+            "text": "0twip",
+            "unit": "twip",
+            "value": 0
+          },
+          "left": 0.5,
+          "right": "0.49",
+          "top": 0
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Custom dimensions."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Custom dimensions."
+        }
+      ]
+    }
+  ]
+}

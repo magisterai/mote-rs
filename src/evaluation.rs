@@ -5,6 +5,7 @@ use crate::model::{Content, Document, Element, ElementKind, Properties, Value};
 use crate::syntax::{Call, Node, NodeKind, SyntaxTree};
 
 mod attributes;
+mod configuration;
 mod declarations;
 mod expressions;
 mod values;
@@ -74,6 +75,13 @@ fn evaluate_nodes(
             continue;
         }
         skip_declaration_trivia = false;
+        if let NodeKind::Call(call) = &node.kind
+            && call.name == "document"
+        {
+            configuration::evaluate(call, node.span, document)?;
+            skip_declaration_trivia = true;
+            continue;
+        }
         if let NodeKind::Call(call) = &node.kind
             && matches!(call.name.as_str(), "font" | "style")
         {

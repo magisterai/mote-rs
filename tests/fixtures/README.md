@@ -52,6 +52,10 @@ fingerprints and comparison notes:
 - [Task items](docx/task-items/README.md): editable checkbox controls and numbered-list interaction.
 - [Derived built-in styles](docx/derived-builtin-styles/README.md): inherited direct-formatting precedence.
 
+- [Page geometry](docx/page-geometry/README.md): named paper, landscape and all margin fields.
+- [Page overrides](docx/page-overrides/README.md): repeated configuration and explicit dimensions.
+- [Custom page](docx/page-custom/README.md): metric sizes, zero margins and fractional twips.
+
 [DOCX package tests](../docx_packages.rs) generate packages and compare each fixture's evaluated
 model and all XML parts. They also verify that style, numbering and package
 relationships resolve to existing targets. Numeric JSON values compare by value rather than decimal

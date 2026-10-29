@@ -52,6 +52,7 @@ their concepts before using them in examples.
 | `item` | [Item](item.md) | Block body, markers, layout and task metadata. |
 | `blockquote` | [Block quote](blockquote.md) | Block body, quote lines, scoped formatting attributes. |
 | `span` | [Span](span.md) | General inline formatting and explicit resolution. |
+| `document` | [Document configuration](document.md) | Document-wide page and margin geometry. |
 | `font` | [Font declaration](font.md) | Named script mappings and alias resolution. |
 | `style` | [Style declaration](style.md) | Style declarations, paragraph/run inheritance, and table-property storage. |
 

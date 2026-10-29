@@ -1,0 +1,117 @@
+{
+  "document": {
+    "margin": {
+      "right": 0,
+      "top": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      }
+    },
+    "page": {
+      "height": "4in"
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "4in",
+        "unit": "in",
+        "value": 4
+      },
+      "orientation": "landscape",
+      "size": "legal",
+      "width": {
+        "text": "6in",
+        "unit": "in",
+        "value": 6
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "20pt",
+      "unit": "pt",
+      "value": 20
+    },
+    "right": 0,
+    "left": 900,
+    "properties": {
+      "left": 900,
+      "right": 0,
+      "top": {
+        "text": "20pt",
+        "unit": "pt",
+        "value": 20
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "4in",
+            "unit": "in",
+            "value": 4
+          },
+          "orientation": "landscape",
+          "size": "legal",
+          "width": {
+            "text": "6in",
+            "unit": "in",
+            "value": 6
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "right": 0,
+        "left": 900,
+        "properties": {
+          "left": 900,
+          "right": 0,
+          "top": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Configuration applies document-wide."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Configuration applies document-wide."
+        }
+      ]
+    }
+  ]
+}

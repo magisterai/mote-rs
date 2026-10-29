@@ -1,6 +1,6 @@
 use super::{
-    Error, block_quotes, controls::Controls, headings, lists, numbering::Numbering, paragraphs,
-    styles::Styles, xml,
+    Error, block_quotes, configuration, controls::Controls, headings, lists, numbering::Numbering,
+    paragraphs, styles::Styles, xml,
 };
 use crate::model::{Content, Document, ElementKind};
 
@@ -55,7 +55,7 @@ pub(super) fn write_document(
             numbering_reference,
         )?);
     }
-    body.push_str("<w:sectPr><w:pgSz w:w=\"12240\" w:h=\"15840\"/><w:pgMar w:top=\"1440\" w:right=\"1440\" w:bottom=\"1440\" w:left=\"1440\" w:header=\"720\" w:footer=\"720\" w:gutter=\"0\"/></w:sectPr>");
+    body.push_str(&configuration::section_properties(document)?);
     Ok(format!(
         r#"{}<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="w14 wps"><w:body>{body}</w:body></w:document>"#,
         xml::HEADER

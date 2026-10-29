@@ -11,10 +11,23 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
         .map(content_as_json)
         .collect::<Result<Vec<_>, _>>()?;
     let mut output = json!({"page":{}, "margin":{}, "columns":{}, "content": content});
+    copy_nonempty_properties(&mut output["page"], &document.page)?;
+    copy_nonempty_properties(&mut output["margin"], &document.margin)?;
+    for name in [
+        "top", "right", "bottom", "left", "header", "footer", "gutter",
+    ] {
+        copy_nonempty_field(&mut output["margin"], &document.margin, name)?;
+    }
+    if !document.properties.is_empty() {
+        output["document"] = properties_as_json(&document.properties)?;
+    }
+    if !document.defaults.is_empty() {
+        output["defaults"] = properties_as_json(&document.defaults)?;
+    }
     if !document.content.is_empty() {
         output["sections"] = json!([{
-            "section_properties":{}, "page_numbering":{}, "page":{},
-            "margin":{}, "columns":{}, "header_properties":{},
+            "section_properties":{}, "page_numbering":{}, "page":output["page"],
+            "margin":output["margin"], "columns":{}, "header_properties":{},
             "footer_properties":{}, "content":output["content"],
         }]);
     }

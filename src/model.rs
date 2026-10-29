@@ -76,6 +76,13 @@ impl Unit {
 
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct Document {
+    /// Authored document arguments, with later arguments replacing earlier ones.
+    pub properties: Properties,
+    /// Normalized geometry, merged by field across document declarations.
+    pub page: Properties,
+    pub margin: Properties,
+    /// Retained default_* and language arguments; output support is separate.
+    pub defaults: Properties,
     pub content: Vec<Content>,
     pub fonts: BTreeMap<String, FontDeclaration>,
     pub styles: BTreeMap<String, StyleDeclaration>,
