@@ -63,10 +63,7 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
         let Content::Element(element) = child else {
             continue;
         };
-        if matches!(
-            element.kind,
-            ElementKind::Image | ElementKind::Figure | ElementKind::Caption
-        ) {
+        if matches!(element.kind, ElementKind::Image | ElementKind::Caption) {
             names.insert("Caption".into());
         }
         if matches!(element.kind, ElementKind::Link | ElementKind::Reference) {

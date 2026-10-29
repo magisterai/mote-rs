@@ -104,3 +104,22 @@ fn captions_and_figures_reject_invalid_structure_and_attributes() {
         assert!(mote::compile(source).is_err(), "{source}");
     }
 }
+
+#[test]
+fn figure_style_registration_follows_its_content() {
+    for (source, expected) in [
+        ("#figure[#paragraph[Plain content]]", false),
+        ("#figure[#paragraph[Plain content]#caption[Caption]]", true),
+    ] {
+        let document = mote::compile(source).unwrap();
+        let package = mote::docx::emit(&document).unwrap();
+        let mut archive = zip::ZipArchive::new(Cursor::new(package)).unwrap();
+        let mut styles = String::new();
+        archive
+            .by_name("word/styles.xml")
+            .unwrap()
+            .read_to_string(&mut styles)
+            .unwrap();
+        assert_eq!(styles.contains("w:styleId=\"Caption\""), expected);
+    }
+}
