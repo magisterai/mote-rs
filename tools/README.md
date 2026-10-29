@@ -83,3 +83,36 @@ Run all comparison tool regression checks with:
 ```sh
 python3 -m unittest discover -s tools -p 'test_compare_*.py'
 ```
+
+## Native layout captures
+
+Verify the seven frozen layout collections, including file fingerprints and exact
+case coverage, without running a renderer:
+
+```sh
+python3 tools/verify_layout_fixtures.py
+```
+
+This checks 1,540 cases across lines, styles, paragraph text, page geometry,
+paragraph flow, document text and inline decoration. It rejects changed bytes,
+duplicate JSON fields/case identities, non-finite numbers and missing cases.
+`fixture_verified` confirms capture integrity, not candidate output agreement.
+`cargo test` compares the Rust implementation with these frozen expectations.
+The separate font-measurement command checks its 960 cases and bundled font data.
+
+Emit independent document-text candidate JSON from source requests:
+
+```sh
+cargo run --example plan_document_text -- \
+  tests/fixtures/document-text/requests.json target/document-text-candidate.json
+```
+
+Requests contain `schema_version: 1` and uniquely identified `cases`, each with
+`id`, `source`, and an optional `source_name` for asset resolution. The exporter
+never reads expected results. Successful cases contain page text geometry;
+compilation errors, unsupported layout and invalid geometry remain explicit
+separate outcomes. This projection does not serialize PDF/PNG or claim that all
+painted properties are represented. The fixture regression test compares this
+same export format with captured expectations.
+
+Run all tool checks with `python3 -m unittest discover -s tools -p 'test_*.py'`.
