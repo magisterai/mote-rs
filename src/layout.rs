@@ -1,6 +1,8 @@
 //! Native text geometry shared by output painters.
 
+mod decorations;
 mod document;
+pub use decorations::{DecorationKind, HighlightRectangle, TextDecoration};
 mod flow;
 pub use document::{DocumentTextPlan, PlacedTextLine, TextPage, plan_document_text};
 mod geometry;
@@ -184,6 +186,28 @@ pub struct TextLine {
     pub width: f64,
     pub line_break: LineBreak,
     pub fragments: Vec<TextFragment>,
+    pub highlights: Vec<HighlightRectangle>,
+    pub decorations: Vec<TextDecoration>,
+}
+impl TextLine {
+    pub(super) fn translate(&mut self, horizontal: f64, vertical: f64) {
+        self.x += horizontal;
+        self.baseline += vertical;
+        for fragment in &mut self.fragments {
+            fragment.x += horizontal;
+            fragment.baseline += vertical;
+            fragment.top += vertical;
+        }
+        for highlight in &mut self.highlights {
+            highlight.x += horizontal;
+            highlight.top += vertical;
+        }
+        for decoration in &mut self.decorations {
+            decoration.start += horizontal;
+            decoration.end += horizontal;
+            decoration.y += vertical;
+        }
+    }
 }
 
 #[derive(Debug)]

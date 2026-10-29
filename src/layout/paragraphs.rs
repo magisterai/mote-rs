@@ -69,10 +69,7 @@ pub fn plan_paragraph_text(
     let runs = resolve_inline(&element.children, &style.text, styles);
     let mut lines = plan_text(&runs, &options, measurer)?;
     for line in &mut lines {
-        line.x += origin;
-        for fragment in &mut line.fragments {
-            fragment.x += origin;
-        }
+        line.translate(origin, 0.0);
     }
     Ok(ParagraphText {
         is_empty: runs.is_empty(),

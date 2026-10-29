@@ -1,0 +1,455 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "decoration-000",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#ff8\",size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-001",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#ff8\",size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-002",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-003",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-004",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-005",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-006",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#ff8\",size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-007",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#ff8\",size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-008",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-009",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-010",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-011",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-012",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#ff8\",size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-013",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#ff8\",size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-014",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-015",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-016",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-017",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#ff8\",size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#ff8\",font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-018",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(underline=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-019",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(underline=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-020",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(underline=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-021",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(underline=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-022",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(underline=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-023",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(underline=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-024",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(underline=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-025",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(underline=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-026",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(underline=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-027",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(underline=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-028",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(underline=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-029",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(underline=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-030",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(underline=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-031",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(underline=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-032",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(underline=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-033",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(underline=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-034",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(underline=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-035",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(underline=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(underline=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-036",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-037",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-038",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-039",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-040",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-041",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-042",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-043",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-044",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-045",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-046",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-047",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-048",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-049",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-050",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-051",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-052",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-053",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-054",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-055",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-056",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-057",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-058",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-059",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-060",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-061",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-062",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-063",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-064",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-065",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-066",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-067",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-068",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-069",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-070",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-071",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-072",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-073",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-074",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-075",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-076",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-077",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(9),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(9),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-078",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-079",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-080",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-081",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-082",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-083",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(11),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(11),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-084",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-085",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"multiple\",value=1.5}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-086",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-087",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"exact\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-088",
+      "width": 35,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    },
+    {
+      "id": "decoration-089",
+      "width": 100,
+      "source": "#paragraph(alignment=\"justify\",spacing={line={rule=\"at_least\",value=pt(16)}})[Plain #span(highlight=\"#cee\",underline=true,double_strike=true,size=pt(18),color=\"#369\")[A B C D E F G] #span(highlight=\"#cee\",underline=true,double_strike=true,font=\"Times\",size=pt(18),color=\"#369\")[H I J K L]]"
+    }
+  ]
+}

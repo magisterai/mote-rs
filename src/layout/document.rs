@@ -142,6 +142,8 @@ pub fn plan_document_text(
                             width: frame.width,
                             line_break: LineBreak::Final,
                             fragments: Vec::new(),
+                            highlights: Vec::new(),
+                            decorations: Vec::new(),
                         },
                     });
                     cursor.y += style.line_height;
@@ -199,13 +201,7 @@ pub fn plan_document_text(
                             paragraph.continuation_frame
                         };
                         let horizontal = placement.frame.x - relative_frame.x;
-                        line.x += horizontal;
-                        line.baseline += placement.top;
-                        for fragment in &mut line.fragments {
-                            fragment.x += horizontal;
-                            fragment.baseline += placement.top;
-                            fragment.top += placement.top;
-                        }
+                        line.translate(horizontal, placement.top);
                         pages[placement.page_number - 1].lines.push(PlacedTextLine {
                             top: placement.top,
                             line,

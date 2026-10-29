@@ -83,6 +83,7 @@ pub fn plan_text(
             .base_line_height
             .filter(|height| *height > 0.0)
             .unwrap_or(natural_height);
+        let mut base_height = height;
         if !matches!(options.spacing, LineSpacing::Exact(_)) {
             height = height.max(natural_height);
         }
@@ -98,6 +99,7 @@ pub fn plan_text(
         }
         if height <= 0.0 {
             height = base_style.measurement.size_points * 1.18 * 1.15 * 1.02;
+            base_height = height;
         }
         let baseline = 0.5 * height + 0.3 * ordinary_size;
         if !height.is_finite() || !baseline.is_finite() {
@@ -124,6 +126,8 @@ pub fn plan_text(
                 missing_codepoints: measurement.missing_codepoints,
             });
         }
+        let (highlights, decorations) =
+            super::decorations::plan(&fragments, height, base_height, options);
         lines.push(TextLine {
             x,
             baseline,
@@ -131,6 +135,8 @@ pub fn plan_text(
             width,
             line_break: wrapped.line_break,
             fragments,
+            highlights,
+            decorations,
         });
     }
     Ok(lines)

@@ -423,6 +423,12 @@ successful complete-source page plans and two expected invalid-height rejections
 It rejects lists, block quotes, heading numbering and balanced multiple columns.
 This text projection does not paint paragraph borders/fills or custom tab stops.
 
+Text lines also carry highlight rectangles and underline/strike strokes.
+[90 decoration captures](../tests/fixtures/text-decorations/README.md) verify their
+position, extent, color, thickness, merging and operation order. A shared translation
+moves fragments and decorations together into paragraph and page coordinates.
+No painter remeasurement is needed for these operations.
+
 Shaping, complete document painting, column balancing, PDF and PNG generation remain unimplemented.
 Numeric agreement remains separate
 from visual review in Word.

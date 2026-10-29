@@ -12,8 +12,10 @@ pub(super) fn boolean(properties: &Properties, name: &str) -> bool {
     }
 }
 pub(super) fn color(properties: &Properties, name: &str) -> Option<String> {
-    let text = text(properties, name);
-    let text = text.trim().trim_start_matches('#');
+    parse_color(&text(properties, name))
+}
+pub(super) fn parse_color(text: &str) -> Option<String> {
+    let text = text.trim().strip_prefix('#').unwrap_or(text.trim());
     if !matches!(text.len(), 3 | 6) || !text.bytes().all(|byte| byte.is_ascii_hexdigit()) {
         return None;
     }
