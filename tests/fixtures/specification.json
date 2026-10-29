@@ -478,6 +478,14 @@
     {
       "example": "figures-and-captions/1",
       "model": "figures-and-captions"
+    },
+    {
+      "example": "notes/1",
+      "model": "notes-1"
+    },
+    {
+      "example": "notes/2",
+      "model": "notes-2"
     }
   ],
   "models": {
@@ -6540,6 +6548,250 @@
                   "text": "Revenue by region"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    "notes-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "  The result is provisional"
+                },
+                {
+                  "kind": "footnote",
+                  "category": "inline",
+                  "attributes": {
+                    "id": "method"
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "The sample is small."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "  See the archive"
+                },
+                {
+                  "kind": "endnote",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Archive catalogue, volume 2."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "  The result is provisional"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "attributes": {
+                "id": "method"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "The sample is small."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "  See the archive"
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Archive catalogue, volume 2."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            }
+          ]
+        }
+      ]
+    },
+    "notes-2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A measured result"
+                },
+                {
+                  "kind": "footnote",
+                  "category": "inline",
+                  "attributes": {
+                    "id": "method"
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Three independent samples."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A measured result"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "attributes": {
+                "id": "method"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Three independent samples."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
             }
           ]
         }

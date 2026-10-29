@@ -1,0 +1,4 @@
+#document(default_font="Helvetica", default_size=pt(11))
+Body#footnote(id="a")[A first note] and #endnote(id=4)[A final note].
+
+A second#footnote[#strong[Bold] and #emphasis[italic] text].

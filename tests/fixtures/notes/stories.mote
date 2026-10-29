@@ -1,0 +1,3 @@
+#header[Header#footnote[visible header note]]
+#footer[Footer#endnote[visible footer note]]
+Body#footnote[Outer #endnote[nested visible] note] and #endnote[End #footnote[nested footnote]].

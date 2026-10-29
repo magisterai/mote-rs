@@ -1,0 +1,248 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Header"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "visible header note"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "header_properties": {},
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Footer"
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "visible footer note"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Outer "
+                    },
+                    {
+                      "kind": "endnote",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "nested visible"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " note"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "End "
+                    },
+                    {
+                      "kind": "footnote",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "nested footnote"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outer "
+                },
+                {
+                  "kind": "endnote",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "nested visible"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " note"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "endnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "End "
+                },
+                {
+                  "kind": "footnote",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "nested footnote"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

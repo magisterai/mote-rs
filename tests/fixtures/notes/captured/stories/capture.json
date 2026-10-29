@@ -1,0 +1,23 @@
+{
+  "source": "../../stories.mote",
+  "source_sha256": "299eb8da65cf9735e421964477582fc08907555985a3b2450a0664c5887e4021",
+  "captured_docx_sha256": "8a88063d4380c629917404f048d47702cc9b3b7b1f83b4af0039fb9f6883359c",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/endnotes.xml",
+    "word/fontTable.xml",
+    "word/footer1.xml",
+    "word/footnotes.xml",
+    "word/header1.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T23:16:27.883937+00:00"
+}

@@ -140,6 +140,10 @@ fn validate_named_argument(
         Some(ArgumentType::Object)
     } else {
         match kind {
+            Footnote | Endnote => match name {
+                "id" => Some(ArgumentType::NumberOrString),
+                _ => None,
+            },
             Figure | Caption => match name {
                 "kind" | "style" | "alignment" | "position" => Some(ArgumentType::String),
                 "numbering" | "placement" => Some(ArgumentType::Object),

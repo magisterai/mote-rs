@@ -11,6 +11,7 @@ mod headings;
 mod images;
 mod list_layout;
 mod lists;
+mod notes;
 mod numbering;
 mod package;
 mod paragraph_properties;
@@ -94,6 +95,7 @@ pub fn emit_with_assets(
     state.resources.anchors = crate::references::Catalog::build(document);
     state.resources.images = crate::media::ImageCatalog::load(document, resolver, source_name);
     let body = document::write_document(document, &styles, &mut state)?;
+    notes::write_parts(&styles, &mut state)?;
     let bytes = package::write(
         &body,
         &styles_xml,

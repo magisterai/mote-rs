@@ -1,0 +1,302 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "attributes": {
+                "id": 19
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First paragraph "
+                    },
+                    {
+                      "kind": "link",
+                      "category": "inline",
+                      "attributes": {
+                        "url": "https://example.com"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "link"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second paragraph."
+                    }
+                  ]
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "List text."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Cell text."
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "endnote",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Heading body"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "attributes": {
+            "id": 19
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "right"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "link"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second paragraph."
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "List text."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Cell text."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "endnote",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Heading body"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+#document(default_font="Helvetica", default_size=pt(11))
+A forward note[^later], repeated[^later], and missing[^missing].
+
+[^later]: A **bold** note.
+
+After the definitions.

@@ -55,6 +55,18 @@ pub(super) fn write(
     {
         content_types = content_types.replace("</Types>", &format!(r#"<Override PartName="/word/{}" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.{}+xml"/></Types>"#, story.name, story.kind));
     }
+    for kind in ["footnotes", "endnotes"] {
+        if let Some(story) = stories.iter().find(|story| story.kind == kind) {
+            let marker = r#"  <Override PartName="/docProps/core.xml""#;
+            content_types = content_types.replace(marker, &format!(r#"<Override PartName="/word/{}" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.{kind}+xml"/>{marker}"#, story.name));
+        }
+    }
+    let mut settings = SETTINGS.to_owned();
+    for kind in ["footnote", "endnote"] {
+        if stories.iter().any(|story| story.kind == format!("{kind}s")) {
+            settings = settings.replace("  <w:compat>", &format!(r#"<w:{kind}Pr><w:{kind} w:id="-1"/><w:{kind} w:id="0"/></w:{kind}Pr>  <w:compat>"#));
+        }
+    }
     for (name, contents) in [
         ("[Content_Types].xml", content_types.as_str()),
         ("_rels/.rels", ROOT_RELATIONSHIPS),
@@ -63,7 +75,7 @@ pub(super) fn write(
         ("word/document.xml", document),
         ("word/_rels/document.xml.rels", relationships),
         ("word/styles.xml", styles),
-        ("word/settings.xml", SETTINGS),
+        ("word/settings.xml", &settings),
         ("word/fontTable.xml", font_table),
         ("word/numbering.xml", numbering),
     ] {

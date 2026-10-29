@@ -18,6 +18,7 @@ struct StoryCapture {
 #[derive(Default)]
 pub(super) struct EvaluationState {
     document: Document,
+    pub markdown_notes: std::collections::BTreeMap<String, super::notes::Definition>,
     pub labels: Vec<super::references::NamedLocation>,
     pub references: Vec<super::references::NamedLocation>,
     pub story_declaration: Option<usize>,

@@ -3,6 +3,7 @@ use super::{Error, package, xml};
 /// Relationships accumulated in content order during one package emission.
 pub(super) struct Resources {
     relationships: Vec<Relationship>,
+    pub notes: super::notes::NoteCollection,
     pub anchors: crate::references::Catalog,
     pub next_bookmark: usize,
     pub caption_sequences: std::collections::BTreeMap<String, u64>,
@@ -23,6 +24,7 @@ impl Default for Resources {
     fn default() -> Self {
         Self {
             relationships: Vec::new(),
+            notes: Default::default(),
             anchors: Default::default(),
             next_bookmark: 0,
             caption_sequences: Default::default(),
@@ -37,6 +39,9 @@ impl Default for Resources {
     }
 }
 impl Resources {
+    pub fn in_main_story(&self) -> bool {
+        self.relationship_offset == 4
+    }
     pub fn story(&mut self, kind: &'static str, name: &str) -> String {
         self.relationships.push(Relationship {
             kind,

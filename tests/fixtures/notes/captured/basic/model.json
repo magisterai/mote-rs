@@ -1,0 +1,256 @@
+{
+  "document": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "defaults": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "attributes": {
+                "id": "a"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A first note"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "attributes": {
+                "id": 4
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A final note"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A second"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Bold"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "emphasis",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "italic"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "attributes": {
+            "id": "a"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A first note"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "endnote",
+          "category": "inline",
+          "attributes": {
+            "id": 4
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A final note"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A second"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "italic"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

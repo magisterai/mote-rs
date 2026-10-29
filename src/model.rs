@@ -180,6 +180,8 @@ pub enum ElementKind {
     Strong,
     Emphasis,
     Code,
+    Footnote,
+    Endnote,
     PageNumber,
     Bookmark,
     Label,
@@ -214,6 +216,8 @@ impl ElementKind {
             Self::Reference => "ref",
             Self::Figure => "figure",
             Self::Caption => "caption",
+            Self::Footnote => "footnote",
+            Self::Endnote => "endnote",
             Self::PageNumber => "page_number",
             Self::LineBreak => "line_break",
             Self::Tab => "tab",
@@ -242,9 +246,39 @@ impl ElementKind {
                 | Self::Bookmark
                 | Self::Label
                 | Self::Reference
+                | Self::Footnote
+                | Self::Endnote
                 | Self::PageNumber
                 | Self::LineBreak
                 | Self::Tab
         )
     }
+}
+
+/// Wrap consecutive inline nodes in paragraphs while retaining existing blocks.
+pub(crate) fn wrap_block_content(content: &[Content]) -> Vec<Content> {
+    let mut result = Vec::new();
+    let mut inline = Vec::new();
+    for node in content {
+        if matches!(node, Content::Element(element) if element.kind.is_block()) {
+            if !inline.is_empty() {
+                result.push(Content::Element(Element {
+                    kind: ElementKind::Paragraph,
+                    attributes: Properties::new(),
+                    children: std::mem::take(&mut inline),
+                }));
+            }
+            result.push(node.clone());
+        } else {
+            inline.push(node.clone());
+        }
+    }
+    if !inline.is_empty() {
+        result.push(Content::Element(Element {
+            kind: ElementKind::Paragraph,
+            attributes: Properties::new(),
+            children: inline,
+        }));
+    }
+    result
 }

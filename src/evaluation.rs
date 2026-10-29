@@ -10,6 +10,7 @@ mod configuration;
 mod declarations;
 mod expressions;
 mod images;
+mod notes;
 mod references;
 mod sections;
 mod tables;
@@ -27,6 +28,7 @@ struct EvaluationContext<'source> {
 
 pub fn evaluate(tree: &SyntaxTree) -> Result<Document, Diagnostic> {
     let mut document = EvaluationState::default();
+    notes::collect_definitions(&tree.nodes, &mut document);
     document.content = evaluate_nodes(
         &tree.nodes,
         ContentMode::Document,
@@ -128,6 +130,10 @@ fn evaluate_nodes(
             skip_declaration_trivia = true;
             continue;
         }
+        if matches!(node.kind, NodeKind::FootnoteDefinition { .. }) {
+            skip_declaration_trivia = true;
+            continue;
+        }
         if mode.is_block() && matches!(node.kind, NodeKind::ParagraphBreak) {
             flush_paragraph(&mut paragraph, &mut result);
             continue;
@@ -149,6 +155,10 @@ fn evaluate_nodes(
             }
         }
         let content = match &node.kind {
+            NodeKind::FootnoteDefinition { .. } => unreachable!(),
+            NodeKind::FootnoteReference(name) => {
+                notes::markdown_reference(name, node.span, context, document)?
+            }
             NodeKind::Table(rows) => tables::evaluate_markdown(rows, context, document)?,
             NodeKind::Text(text) => Content::Text(text.clone()),
             NodeKind::LineBreak { hard } => Content::Text(
@@ -364,6 +374,9 @@ fn evaluate_call(
     }
     if matches!(call.name.as_str(), "figure" | "caption") {
         return captions::evaluate(call, span, context, document);
+    }
+    if matches!(call.name.as_str(), "footnote" | "endnote") {
+        return notes::evaluate(call, span, context, document);
     }
     if call.name == "image" {
         return images::evaluate(call, span);

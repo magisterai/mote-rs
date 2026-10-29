@@ -45,6 +45,8 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `footnote` | [Footnotes](footnote.md) | Inline references, block bodies, identifiers, and Markdown definitions. |
+| `endnote` | [Endnotes](endnote.md) | Inline references, block bodies, and identifiers. |
 | `section` | [Sections](section.md) | Geometry, boundaries, page numbering, and local running stories. |
 | `header` | [Headers](header.md) | Inherited and local header declarations, sizing, and content. |
 | `footer` | [Footers](footer.md) | Inherited and local footer declarations, sizing, and content. |

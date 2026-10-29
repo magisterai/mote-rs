@@ -68,6 +68,13 @@ pub(super) fn write_formatted(
                 )?);
                 result.push_str(&super::references::end(identifier));
             }
+            Content::Element(element)
+                if matches!(element.kind, ElementKind::Footnote | ElementKind::Endnote) =>
+            {
+                result.push_str(&super::notes::write_reference(
+                    element, formatting, styles, resources,
+                )?);
+            }
             Content::Element(element) if element.kind == ElementKind::Reference => {
                 result.push_str(&super::references::write(
                     element, formatting, styles, resources,

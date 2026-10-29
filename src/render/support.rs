@@ -297,6 +297,12 @@ fn content(
             ElementKind::Reference => {
                 allowed.extend(["target", "kind", "display", "fallback", "title"])
             }
+            ElementKind::Footnote | ElementKind::Endnote => {
+                allowed.push("id");
+                warnings.insert(format!(
+                    "{path} native output currently flattens note content inline"
+                ));
+            }
             ElementKind::PageNumber => allowed.push("kind"),
             ElementKind::Tab | ElementKind::LineBreak => {}
         }

@@ -32,7 +32,8 @@ pub(super) fn write_blocks(
     state: &mut DocumentState,
 ) -> Result<String, Error> {
     let mut body = String::new();
-    let mut at_flow_start = state.table_cell_depth == 0 && state.figure_depth == 0;
+    let mut at_flow_start =
+        state.table_cell_depth == 0 && state.figure_depth == 0 && !state.resources.notes.writing;
     let mut previous_table = false;
     let mut pending_column_break = false;
     for content in content {

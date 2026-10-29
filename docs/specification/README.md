@@ -47,6 +47,9 @@ Status: initial draft.
 17. [Figures and captions](figures-and-captions.md): grouped content, captions,
     shared numbering sequences and caption references.
 
+18. [Footnotes and endnotes](notes.md): inline note references, block note bodies,
+    identifiers and Markdown definitions.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

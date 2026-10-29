@@ -78,6 +78,10 @@ impl Parser<'_> {
             {
                 continuation_start = false;
                 self.skip_horizontal_whitespace();
+                if let Some(node) = self.parse_footnote_definition()? {
+                    nodes.push(node);
+                    continue;
+                }
                 if let Some(node) = self.parse_markdown_table()? {
                     nodes.push(node);
                     continue;
@@ -113,6 +117,12 @@ impl Parser<'_> {
             }
             if self.starts_with("![")
                 && let Some(node) = self.parse_markdown_image()
+            {
+                nodes.push(node);
+                continue;
+            }
+            if character == '['
+                && let Some(node) = self.parse_footnote_reference()
             {
                 nodes.push(node);
                 continue;

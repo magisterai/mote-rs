@@ -1,0 +1,258 @@
+{
+  "document": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "defaults": {
+    "default_font": "Helvetica",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A forward note"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "attributes": {
+                "id": "later"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " note."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", repeated"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "attributes": {
+                "id": "later"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " note."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", and missing"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "attributes": {
+                "id": "missing"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "missing"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the definitions."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A forward note"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "attributes": {
+            "id": "later"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " note."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ", repeated"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "attributes": {
+            "id": "later"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " note."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ", and missing"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "attributes": {
+            "id": "missing"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "missing"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After the definitions."
+        }
+      ]
+    }
+  ]
+}

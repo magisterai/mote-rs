@@ -1,0 +1,6 @@
+Body#footnote(id=19)[
+#paragraph(alignment="right")[First paragraph #link("https://example.com")[link].]
+#paragraph[Second paragraph.]
+#list[#item[List text.]]
+#table[#row[#cell[Cell text.]]]
+] and #endnote[] and #footnote[#heading[Heading body]].

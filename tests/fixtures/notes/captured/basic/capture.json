@@ -1,0 +1,21 @@
+{
+  "source": "../../basic.mote",
+  "source_sha256": "6915a3ac8d48dce8fca78424d5011305befac8b31ce87cb1ed527634ff686dfc",
+  "captured_docx_sha256": "8a9b2f4ed9b6001bb96e9551858d2f821780239dca85f5dc300525286b4d6c7f",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/endnotes.xml",
+    "word/fontTable.xml",
+    "word/footnotes.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T23:16:27.878208+00:00"
+}

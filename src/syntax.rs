@@ -6,6 +6,7 @@ pub use crate::diagnostics::{Diagnostic, Span};
 mod expressions;
 mod links;
 mod markup;
+mod notes;
 mod tables;
 
 use markup::MarkupBoundary;
@@ -49,6 +50,11 @@ pub enum NodeKind {
     Table(Vec<MarkdownTableRow>),
     Call(Call),
     Reference(String),
+    FootnoteDefinition {
+        name: String,
+        body: Vec<Node>,
+    },
+    FootnoteReference(String),
 }
 
 #[derive(Debug, Clone, PartialEq)]
