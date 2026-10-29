@@ -336,3 +336,9 @@ built-in style declarations even when they are used only as dependencies, and
 normalized style names resolve to the actual declared identifier. This prevents
 dangling references; reference captures with omitted declarations are not treated
 as structurally identical output.
+
+The [output comparison command](../tools/README.md#output-comparison) can rerun
+JSON and DOCX comparisons against an explicitly selected reference executable.
+It retains source snapshots, both outputs and diagnostics, with input fingerprints
+and a machine-readable report. It reports known differences and unsupported cases
+separately from matches, and never claims a Word visual review.
