@@ -45,15 +45,15 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
-| `section` | [Sections](section.md) | Pending definition and implementation. |
-| `header` | [Headers](header.md) | Pending definition and implementation. |
-| `footer` | [Footers](footer.md) | Pending definition and implementation. |
-| `page_number` | [Page numbers](page-number.md) | Pending definition and implementation. |
-| `bookmark` | [Bookmarks](bookmark.md) | Pending definition and implementation. |
-| `label` | [Labels](label.md) | Pending definition and implementation. |
-| `ref` | [Cross-references](ref.md) | Pending definition and implementation. |
-| `caption` | [Captions](caption.md) | Pending definition and implementation. |
-| `figure` | [Figures](figure.md) | Pending definition and implementation. |
+| `section` | [Sections](section.md) | Geometry, boundaries, page numbering, and local running stories. |
+| `header` | [Headers](header.md) | Inherited and local header declarations, sizing, and content. |
+| `footer` | [Footers](footer.md) | Inherited and local footer declarations, sizing, and content. |
+| `page_number` | [Page numbers](page-number.md) | Current and total page fields with formatting metadata. |
+| `bookmark` | [Bookmarks](bookmark.md) | Named content ranges and native destinations. |
+| `label` | [Labels](label.md) | Invisible named targets with title and number metadata. |
+| `ref` | [Cross-references](ref.md) | Forward references, display modes, fallbacks, and internal links. |
+| `caption` | [Captions](caption.md) | Caption text, placement, numbering sequences, and references. |
+| `figure` | [Figures](figure.md) | Grouped content, alignment, and caption association. |
 | `table` | [Table](table.md) | Row structure, sizing, defaults, borders and styles. |
 | `row` | [Row](row.md) | Cell structure, height, repeating headers and splitting. |
 | `cell` | [Cell](cell.md) | Content, spans, margins, alignment and borders. |
