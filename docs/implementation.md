@@ -453,3 +453,10 @@ and raster tolerances. Initial painter support follows the single-column documen
 text planner: paragraphs, headings, inline formatting and explicit breaks. Other
 block structures and paragraph painting remain separate layout work. These native
 checks do not establish Microsoft Word or PowerPoint visual conformance.
+
+The command line accepts `--format pdf -o report.pdf` and
+`--format png -o report.png --dpi 144` (the single-dash forms are also accepted).
+PNG writes `report-1.png`, `report-2.png`, and so on; an output directory uses
+`page` as the prefix. `--dpi` is valid only for PNG. Font paths resolve relative
+to the source file. Generation errors leave existing output untouched, and source
+paths cannot be used as output destinations, including generated PNG page names.

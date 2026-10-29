@@ -191,3 +191,75 @@ fn docx_writes_a_package_and_failures_preserve_existing_output() {
     fs::remove_file(path).unwrap();
     assert!(!run(&["--format", "docx"], b"Hello.").status.success());
 }
+
+#[test]
+fn native_outputs_write_pdf_and_numbered_png_pages() {
+    let prefix = temporary_input_path().with_extension("png");
+    let text = prefix.to_str().unwrap();
+    let output = run(
+        &["--format", "png", "--dpi", "144", "-o", text],
+        b"First page.\n#break(type=\"page\")\nSecond page.",
+    );
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert!(!prefix.exists());
+    for number in 1..=2 {
+        let path = prefix.with_file_name(format!(
+            "{}-{number}.png",
+            prefix.file_stem().unwrap().to_str().unwrap()
+        ));
+        let bytes = fs::read(&path).unwrap();
+        fs::remove_file(&path).unwrap();
+        let reader = png::Decoder::new(std::io::Cursor::new(bytes))
+            .read_info()
+            .unwrap();
+        assert_eq!((reader.info().width, reader.info().height), (1224, 1584));
+    }
+    let pdf = prefix.with_extension("pdf");
+    let output = run(
+        &["--format", "pdf", "-o", pdf.to_str().unwrap()],
+        b"A searchable PDF.",
+    );
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert!(fs::read(&pdf).unwrap().starts_with(b"%PDF-1.7"));
+    fs::write(&pdf, b"previous output").unwrap();
+    let failed = run(
+        &["--format", "pdf", "-o", pdf.to_str().unwrap()],
+        b"#document(page={width=0,height=0})\nInvalid.",
+    );
+    assert!(!failed.status.success());
+    assert_eq!(fs::read(&pdf).unwrap(), b"previous output");
+    fs::remove_file(pdf).unwrap();
+}
+
+#[test]
+fn native_options_and_generated_source_collision_are_rejected() {
+    for arguments in [
+        vec!["--format", "png"],
+        vec!["--dpi", "144"],
+        vec!["--format", "png", "--dpi", "0"],
+        vec!["--format", "pdf", "--dpi", "144"],
+    ] {
+        assert!(!run(&arguments, b"Text").status.success());
+    }
+    let prefix = temporary_input_path();
+    let mut source = prefix.as_os_str().to_owned();
+    source.push("-1.png");
+    fs::write(&source, b"Do not overwrite this source.").unwrap();
+    let output = Command::new(env!("CARGO_BIN_EXE_mote"))
+        .args(["--format", "png", "-o"])
+        .arg(&prefix)
+        .arg(&source)
+        .output()
+        .unwrap();
+    assert!(!output.status.success());
+    assert_eq!(fs::read(&source).unwrap(), b"Do not overwrite this source.");
+    fs::remove_file(&source).unwrap();
+}
