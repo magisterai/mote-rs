@@ -416,6 +416,13 @@ leading spacing, keep-together and widow/orphan decisions verified against
 explicit transitions and placements and rejects invalid or non-progressing areas.
 It does not independently resolve text or paint output.
 
-Shaping, whole-document assembly, column balancing, PDF and PNG generation remain unimplemented.
+`plan_document_text` assembles single-column paragraphs, headings and explicit
+breaks, collapses adjacent spacing and applies keep-with-next lookahead. Its
+[document text captures](../tests/fixtures/document-text/README.md) compare 47
+successful complete-source page plans and two expected invalid-height rejections.
+It rejects lists, block quotes, heading numbering and balanced multiple columns.
+This text projection does not paint paragraph borders/fills or custom tab stops.
+
+Shaping, complete document painting, column balancing, PDF and PNG generation remain unimplemented.
 Numeric agreement remains separate
 from visual review in Word.

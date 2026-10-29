@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_count": 49,
+  "successful_plans": 47,
+  "rejected_plans": 2,
+  "units": "points",
+  "absolute_tolerance": 1e-09,
+  "word_review": "unreviewed",
+  "files": {
+    "requests.json": {
+      "sha256": "b5896f045150370c68aa3ee6336b27f01a6d7464cd717ef975731514e67f745f",
+      "bytes": 20436
+    },
+    "expected.json": {
+      "sha256": "a7930f4b35a973103ad6a82bdebc4693624de8b3131c2807696518a76af68ba1",
+      "bytes": 942253
+    }
+  }
+}

@@ -21,6 +21,26 @@ pub fn compare(expected: &Value, actual: &Value, path: &str, differences: &mut V
             }
         }
         _ if expected == actual => {}
-        _ => differences.push(format!("{path}: expected {expected}, actual {actual}")),
+        (Value::Array(expected), Value::Array(actual)) => differences.push(format!(
+            "{path}: expected {} items, actual {}",
+            expected.len(),
+            actual.len()
+        )),
+        _ => differences.push(format!(
+            "{path}: expected {}, actual {}",
+            abbreviated(expected),
+            abbreviated(actual)
+        )),
+    }
+}
+
+fn abbreviated(value: &Value) -> String {
+    let text = value.to_string();
+    let mut characters = text.chars();
+    let preview: String = characters.by_ref().take(300).collect();
+    if characters.next().is_some() {
+        format!("{preview}…")
+    } else {
+        preview
     }
 }

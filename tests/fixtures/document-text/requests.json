@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "document-000",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#heading(level=1)[Title]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph[Last paragraph.]"
+    },
+    {
+      "id": "document-001",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(spacing_after=pt(25))[A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph(spacing_before=pt(40))[A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-002",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#heading(level=2)[A kept heading]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-003",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph(keep_together=true)[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-004",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(widow_control=false)[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-005",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(keep_with_next=true)[First]\n#paragraph(keep_with_next=true)[Second]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-006",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[First]\n#paragraph(page_break_before=true)[New page]\n#paragraph(page_break_before=true)[Another]"
+    },
+    {
+      "id": "document-007",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(page_break_before=true)[First page]\n#break(type=\"page\")\n#heading(level=1)[After break]\n#paragraph[After heading]"
+    },
+    {
+      "id": "document-008",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[First]\n#break(type=\"column\")\n#paragraph[After column]"
+    },
+    {
+      "id": "document-009",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(indent={left=pt(9),right=pt(4),hanging=pt(5)},alignment=\"justify\")[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-010",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(spacing={line={rule=\"exact\",value=pt(9)}})[Small #span(size=pt(20))[large] A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-011",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[#code(preserve_space=true)[  code\n  next] #tab()after#line_break()again]"
+    },
+    {
+      "id": "document-012",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[Before]\n#paragraph[]\n#paragraph[After]"
+    },
+    {
+      "id": "document-013",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#heading(level=1,spacing_before=pt(8))[Explicit title]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-014",
+      "source": "#document(page={width=pt(190),height=pt(180)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[Before]\n#break(type=\"line\")\n#paragraph[After]"
+    },
+    {
+      "id": "document-015",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#heading(level=1)[Title]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph[Last paragraph.]"
+    },
+    {
+      "id": "document-016",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(spacing_after=pt(25))[A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph(spacing_before=pt(40))[A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-017",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#heading(level=2)[A kept heading]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-018",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph(keep_together=true)[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-019",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(widow_control=false)[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-020",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(keep_with_next=true)[First]\n#paragraph(keep_with_next=true)[Second]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-021",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[First]\n#paragraph(page_break_before=true)[New page]\n#paragraph(page_break_before=true)[Another]"
+    },
+    {
+      "id": "document-022",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(page_break_before=true)[First page]\n#break(type=\"page\")\n#heading(level=1)[After break]\n#paragraph[After heading]"
+    },
+    {
+      "id": "document-023",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[First]\n#break(type=\"column\")\n#paragraph[After column]"
+    },
+    {
+      "id": "document-024",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(indent={left=pt(9),right=pt(4),hanging=pt(5)},alignment=\"justify\")[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-025",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(spacing={line={rule=\"exact\",value=pt(9)}})[Small #span(size=pt(20))[large] A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-026",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[#code(preserve_space=true)[  code\n  next] #tab()after#line_break()again]"
+    },
+    {
+      "id": "document-027",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[Before]\n#paragraph[]\n#paragraph[After]"
+    },
+    {
+      "id": "document-028",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#heading(level=1,spacing_before=pt(8))[Explicit title]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-029",
+      "source": "#document(page={width=pt(190),height=pt(260)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[Before]\n#break(type=\"line\")\n#paragraph[After]"
+    },
+    {
+      "id": "document-030",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#heading(level=1)[Title]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph[Last paragraph.]"
+    },
+    {
+      "id": "document-031",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(spacing_after=pt(25))[A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph(spacing_before=pt(40))[A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-032",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#heading(level=2)[A kept heading]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-033",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]\n#paragraph(keep_together=true)[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-034",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(widow_control=false)[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-035",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(keep_with_next=true)[First]\n#paragraph(keep_with_next=true)[Second]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-036",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[First]\n#paragraph(page_break_before=true)[New page]\n#paragraph(page_break_before=true)[Another]"
+    },
+    {
+      "id": "document-037",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(page_break_before=true)[First page]\n#break(type=\"page\")\n#heading(level=1)[After break]\n#paragraph[After heading]"
+    },
+    {
+      "id": "document-038",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[First]\n#break(type=\"column\")\n#paragraph[After column]"
+    },
+    {
+      "id": "document-039",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(indent={left=pt(9),right=pt(4),hanging=pt(5)},alignment=\"justify\")[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-040",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph(spacing={line={rule=\"exact\",value=pt(9)}})[Small #span(size=pt(20))[large] A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-041",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[#code(preserve_space=true)[  code\n  next] #tab()after#line_break()again]"
+    },
+    {
+      "id": "document-042",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[Before]\n#paragraph[]\n#paragraph[After]"
+    },
+    {
+      "id": "document-043",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#heading(level=1,spacing_before=pt(8))[Explicit title]\n#paragraph[A measured paragraph with several words and enough content to cross line boundaries. A measured paragraph with several words and enough content to cross line boundaries. ]"
+    },
+    {
+      "id": "document-044",
+      "source": "#document(page={width=pt(190),height=pt(792)},margin={top=pt(10),bottom=pt(10),left=pt(12),right=pt(12),header=pt(0),footer=pt(0)})\n#paragraph[Before]\n#break(type=\"line\")\n#paragraph[After]"
+    },
+    {
+      "id": "document-045",
+      "source": "#paragraph[before#line_break()#line_break()after]"
+    },
+    {
+      "id": "document-046",
+      "source": "#paragraph[#code(preserve_space=true)[first\n\nthird\n]]"
+    },
+    {
+      "id": "document-047",
+      "source": "#paragraph(spacing={line={rule=\"exact\",value=pt(0)}})[]\n#paragraph[After]"
+    },
+    {
+      "id": "document-048",
+      "source": "#document(default_size=0)\n#paragraph[]\n#paragraph[After]"
+    }
+  ]
+}

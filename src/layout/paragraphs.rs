@@ -15,6 +15,7 @@ pub struct LineFrame {
 #[derive(Debug, Clone, PartialEq)]
 pub struct ParagraphText {
     pub style: ParagraphStyle,
+    pub is_empty: bool,
     pub first_frame: LineFrame,
     pub continuation_frame: LineFrame,
     /// Line geometry is paragraph-relative; vertical positions are not stacked.
@@ -74,6 +75,7 @@ pub fn plan_paragraph_text(
         }
     }
     Ok(ParagraphText {
+        is_empty: runs.is_empty(),
         style,
         first_frame,
         continuation_frame,

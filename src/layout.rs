@@ -1,6 +1,8 @@
 //! Native text geometry shared by output painters.
 
+mod document;
 mod flow;
+pub use document::{DocumentTextPlan, PlacedTextLine, TextPage, plan_document_text};
 mod geometry;
 mod inline;
 mod lines;
@@ -186,6 +188,7 @@ pub struct TextLine {
 
 #[derive(Debug)]
 pub enum LayoutError {
+    Unsupported(String),
     InvalidGeometry(&'static str),
     Measurement(MeasurementError),
 }
@@ -193,6 +196,7 @@ pub enum LayoutError {
 impl fmt::Display for LayoutError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
+            Self::Unsupported(message) => formatter.write_str(message),
             Self::InvalidGeometry(message) => formatter.write_str(message),
             Self::Measurement(error) => error.fmt(formatter),
         }
