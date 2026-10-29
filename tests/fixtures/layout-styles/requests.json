@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "style-000",
+      "source": "#heading(level = 1)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-001",
+      "source": "#heading(level = 2)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-002",
+      "source": "#heading(level = 3)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-003",
+      "source": "#heading(level = 4)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-004",
+      "source": "#heading(level = 5)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-005",
+      "source": "#heading(level = 6)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-006",
+      "source": "#heading(level = 7)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-007",
+      "source": "#heading(level = 8)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-008",
+      "source": "#heading(level = 9)[Heading #span(color = \"#369\")[color]]"
+    },
+    {
+      "id": "style-009",
+      "source": "#paragraph(alignment = \"left\")[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-010",
+      "source": "#paragraph(alignment = \"center\")[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-011",
+      "source": "#paragraph(alignment = \"right\")[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-012",
+      "source": "#paragraph(alignment = \"justify\")[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-013",
+      "source": "#paragraph(spacing_before = 12)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-014",
+      "source": "#paragraph(spacing_before = pt(12))[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-015",
+      "source": "#paragraph(spacing_before = \"12.025pt\")[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-016",
+      "source": "#paragraph(spacing_after = 0)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-017",
+      "source": "#paragraph(spacing_after = pt(8))[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-018",
+      "source": "#paragraph(line_spacing = pt(18))[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-019",
+      "source": "#paragraph(indent = { left = pt(12), right = pt(6), first_line = pt(5) })[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-020",
+      "source": "#paragraph(indent = { left = pt(12), first_line = pt(5), hanging = pt(7) })[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-021",
+      "source": "#paragraph(keep_with_next = true)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-022",
+      "source": "#paragraph(keep_with_next = false)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-023",
+      "source": "#paragraph(keep_together = true)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-024",
+      "source": "#paragraph(keep_together = false)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-025",
+      "source": "#paragraph(page_break_before = true)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-026",
+      "source": "#paragraph(page_break_before = false)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-027",
+      "source": "#paragraph(widow_control = true)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-028",
+      "source": "#paragraph(widow_control = false)[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-029",
+      "source": "#paragraph(fill = \"#aBc\")[Ordinary #strong[bold] #emphasis[italic] text.]"
+    },
+    {
+      "id": "style-030",
+      "source": "#paragraph(spacing = {before = pt(5), after = pt(6), line = {rule = \"multiple\", value = 1.5 } })[Small #span(size = pt(9))[different]]"
+    },
+    {
+      "id": "style-031",
+      "source": "#paragraph(spacing = {before = pt(5), after = pt(6), line = {rule = \"multiple\", value = 1.5 } })[Small #span(size = pt(18))[different]]"
+    },
+    {
+      "id": "style-032",
+      "source": "#paragraph(spacing = {before = pt(5), after = pt(6), line = {rule = \"exact\", value = pt(18) } })[Small #span(size = pt(9))[different]]"
+    },
+    {
+      "id": "style-033",
+      "source": "#paragraph(spacing = {before = pt(5), after = pt(6), line = {rule = \"exact\", value = pt(18) } })[Small #span(size = pt(18))[different]]"
+    },
+    {
+      "id": "style-034",
+      "source": "#paragraph(spacing = {before = pt(5), after = pt(6), line = {rule = \"at_least\", value = pt(18) } })[Small #span(size = pt(9))[different]]"
+    },
+    {
+      "id": "style-035",
+      "source": "#paragraph(spacing = {before = pt(5), after = pt(6), line = {rule = \"at_least\", value = pt(18) } })[Small #span(size = pt(18))[different]]"
+    },
+    {
+      "id": "style-036",
+      "source": "#document(default_font = \"Helvetica\", default_size = pt(13))\n#paragraph[Default #code[code]]"
+    },
+    {
+      "id": "style-037",
+      "source": "#document(default_font = \"Times\", default_size = pt(13))\n#paragraph[Default #code[code]]"
+    },
+    {
+      "id": "style-038",
+      "source": "#document(default_font = \"Courier\", default_size = pt(13))\n#paragraph[Default #code[code]]"
+    },
+    {
+      "id": "style-039",
+      "source": "#document(default_font = \"mono\", default_size = pt(13))\n#paragraph[Default #code[code]]"
+    },
+    {
+      "id": "style-040",
+      "source": "#document(default_font = \"Courier New\", default_size = pt(13))\n#paragraph[Default #code[code]]"
+    },
+    {
+      "id": "style-041",
+      "source": "#document(default_font = \"sans serif\", default_size = pt(13))\n#paragraph[Default #code[code]]"
+    },
+    {
+      "id": "style-042",
+      "source": "#document(default_font = \"Missing\", default_size = pt(13))\n#paragraph[Default #code[code]]"
+    },
+    {
+      "id": "style-043",
+      "source": "#document(default_size = 12)\n#paragraph[#span(size = 12)[sized] default]"
+    },
+    {
+      "id": "style-044",
+      "source": "#document(default_size = \"12\")\n#paragraph[#span(size = \"12\")[sized] default]"
+    },
+    {
+      "id": "style-045",
+      "source": "#document(default_size = pt(12))\n#paragraph[#span(size = pt(12))[sized] default]"
+    },
+    {
+      "id": "style-046",
+      "source": "#document(default_size = \"12.025pt\")\n#paragraph[#span(size = \"12.025pt\")[sized] default]"
+    },
+    {
+      "id": "style-047",
+      "source": "#document(default_size = mm(4))\n#paragraph[#span(size = mm(4))[sized] default]"
+    },
+    {
+      "id": "style-048",
+      "source": "#document(default_size = 0)\n#paragraph[#span(size = 0)[sized] default]"
+    },
+    {
+      "id": "style-049",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #span(bold = false, italic = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-050",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #span(font = \"Times\", size = pt(14), color = \"#456\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-051",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #span(style = \"Accent\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-052",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #span(small_caps = true, underline = true, double_strike = true)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-053",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #span(strike = true, double_strike = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-054",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #strong(bold = false, italic = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-055",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #strong(font = \"Times\", size = pt(14), color = \"#456\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-056",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #strong(style = \"Accent\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-057",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #strong(small_caps = true, underline = true, double_strike = true)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-058",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #strong(strike = true, double_strike = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-059",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #emphasis(bold = false, italic = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-060",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #emphasis(font = \"Times\", size = pt(14), color = \"#456\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-061",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #emphasis(style = \"Accent\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-062",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #emphasis(small_caps = true, underline = true, double_strike = true)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-063",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #emphasis(strike = true, double_strike = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-064",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #code(bold = false, italic = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-065",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #code(font = \"Times\", size = pt(14), color = \"#456\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-066",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #code(style = \"Accent\")[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-067",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #code(small_caps = true, underline = true, double_strike = true)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-068",
+      "source": "#style(name = \"Accent\", type = \"character\", run = { bold = false, italic = true, color = \"#639\", size = pt(13) })\n#paragraph[A #code(strike = true, double_strike = false)[changed #span(bold = true)[nested]] Z]"
+    },
+    {
+      "id": "style-069",
+      "source": "#paragraph(style = \"Normal\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-070",
+      "source": "#paragraph(style = \"normal\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-071",
+      "source": "#paragraph(style = \"Heading1\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-072",
+      "source": "#paragraph(style = \"Code\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-073",
+      "source": "#paragraph(style = \"BlockQuote\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-074",
+      "source": "#paragraph(style = \"Caption\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-075",
+      "source": "#paragraph(style = \"Header\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-076",
+      "source": "#paragraph(style = \"Footer\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-077",
+      "source": "#paragraph(style = \"Definition\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-078",
+      "source": "#paragraph(style = \"DefinitionTerm\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-079",
+      "source": "#paragraph(style = \"HorizontalRule\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-080",
+      "source": "#paragraph(style = \"Missing\")[Styled #code[preserved  code]]"
+    },
+    {
+      "id": "style-081",
+      "source": "#style(name = \"Normal\", run = {size = pt(15), italic = true}, paragraph = {spacing = {after = pt(2)}})\n#paragraph[Default #code[one  two]]\n#heading(level = 1)[Title]"
+    },
+    {
+      "id": "style-082",
+      "source": "#style(name = \"normal\", type = \"character\", run = {size = pt(15)})\n#paragraph[Default #code[one  two]]\n#heading(level = 1)[Title]"
+    },
+    {
+      "id": "style-083",
+      "source": "#style(name = \"Heading1\", run = {size = pt(15), bold = false})\n#paragraph[Default #code[one  two]]\n#heading(level = 1)[Title]"
+    },
+    {
+      "id": "style-084",
+      "source": "#style(name = \"Code\", run = {font = \"Times\", size = pt(9)})\n#paragraph[Default #code[one  two]]\n#heading(level = 1)[Title]"
+    },
+    {
+      "id": "style-085",
+      "source": "#font(name = \"body\", latin = \"Helvetica\")\n#document(default_font = \"body\")\n#paragraph[Hello #span(size = pt(20))[large]]"
+    },
+    {
+      "id": "style-086",
+      "source": "#font(name = \"body\", latin = \"Helvetica\", word_line_height = 1.4)\n#document(default_font = \"body\")\n#paragraph[Hello #span(size = pt(20))[large]]"
+    },
+    {
+      "id": "style-087",
+      "source": "#font(name = \"body\", latin = \"Courier New\")\n#document(default_font = \"body\")\n#paragraph[Hello #span(size = pt(20))[large]]"
+    },
+    {
+      "id": "style-088",
+      "source": "#font(name = \"body\", latin = \"Courier New\", word_line_height = 1.4)\n#document(default_font = \"body\")\n#paragraph[Hello #span(size = pt(20))[large]]"
+    },
+    {
+      "id": "style-089",
+      "source": "#style(name = \"Base\", run = {bold = true, size = pt(13)}, paragraph = {spacing = {after = pt(2), line = {rule = \"multiple\", value = 1.5}}, indent = {left = pt(9)}})\n#style(name = \"Child\", based_on = \"Base\", paragraph = {spacing_after = pt(3), indent = {right = pt(2)}})\n#paragraph(style = \"child\", spacing = {before = pt(1)}, indent = {first_line = pt(4)})[Inherited #span(bold = false)[off]]"
+    },
+    {
+      "id": "style-090",
+      "source": "#paragraph[before #code(preserve_space = true)[  code\n next  ] after #tab()here#line_break()there]"
+    }
+  ]
+}

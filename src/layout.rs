@@ -1,6 +1,11 @@
 //! Native text geometry shared by output painters.
 
+mod inline;
 mod lines;
+mod style_values;
+mod styles;
+pub use inline::resolve_inline;
+pub use styles::{LayoutStyleResolver, ParagraphStyle};
 mod placement;
 mod wrapping;
 
@@ -90,11 +95,7 @@ impl Default for LineSpacing {
 
 impl LineSpacing {
     fn height(self, style: &TextStyle, fallback_multiplier: f64) -> f64 {
-        let size = if style.measurement.size_points > 0.0 {
-            style.measurement.size_points
-        } else {
-            11.0
-        };
+        let size = style.measurement.size_points;
         match self {
             Self::Multiple(multiple) => match style.word_line_height {
                 Some(scale) if scale > 0.0 => size * scale * multiple,

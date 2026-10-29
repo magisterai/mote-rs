@@ -392,6 +392,16 @@ Four focused Unicode table libraries supply line breaks, grapheme boundaries,
 script properties and letter categories; each adds no runtime dependencies.
 Their Unicode data versions differ, so coverage remains explicitly fixture-scoped.
 
+`LayoutStyleResolver` connects document defaults, implicit Normal/heading/Code
+styles, inheritance and direct attributes to native run and paragraph properties.
+Inline resolution merges adjacent equal runs before measuring so a style boundary
+that changes no formatting does not disrupt kerning. The
+[91 style captures](../tests/fixtures/layout-styles/README.md) cover the source-to-style
+mapping. Pagination requests remain data at this stage; borders, tab stops and
+paragraph decoration are not painted. Native unitless font sizes currently resolve
+as twips, while DOCX uses points; explicit point lengths avoid this recorded
+output discrepancy. It remains a compatibility observation awaiting review.
+
 Shaping, document paragraph placement, pagination, PDF and PNG generation remain unimplemented.
 Numeric agreement remains separate
 from visual review in Word.
