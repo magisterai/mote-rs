@@ -182,7 +182,7 @@ Sources: [MS-DOCX](../../reference/reading/ooxml/microsoft/MS-DOCX/chunks/pages-
 
 Sources: [MS-DOCX](../../reference/reading/ooxml/microsoft/MS-DOCX/README.md).
 
-- [ ] `checkbox` — [w14:CT_SdtCheckbox](word-extensions.md#w14-ct_sdtcheckbox); MS-DOCX. Partial: `checkbox.kind=content_control` selects task-control intent; custom checked/unchecked symbols are not exposed. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `checkbox` — [w14:CT_SdtCheckbox](word-extensions.md#w14-ct_sdtcheckbox); MS-DOCX. Partial: `checkbox.kind=content_control` emits editable task controls with fixed checked/unchecked symbols; custom symbols are not exposed. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs), [docx_controls.rs](../../../tests/docx_controls.rs).
 
 <a id="w14-entitypicker"></a>
 
@@ -457,7 +457,7 @@ Sources: [MS-DOCX](../../reference/reading/ooxml/microsoft/MS-DOCX/README.md).
 
 Sources: [MS-DOCX](../../reference/reading/ooxml/microsoft/MS-DOCX/README.md).
 
-- [x] `checked` — [w14:CT_OnOff](word-extensions.md#w14-ct_onoff); MS-DOCX; minOccurs=0. Model support: `item.checked` and the documented nested checkbox-state precedence are normalized and tested; this records state only. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [x] `checked` — [w14:CT_OnOff](word-extensions.md#w14-ct_onoff); MS-DOCX; minOccurs=0. `item.checked` supplies Word 2010 task-control state and a matching fallback glyph; nested state alone does not create a task. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs), [docx_controls.rs](../../../tests/docx_controls.rs).
 - [ ] `checkedState` — [w14:CT_SdtCheckboxSymbol](word-extensions.md#w14-ct_sdtcheckboxsymbol); MS-DOCX; minOccurs=0.
 - [ ] `uncheckedState` — [w14:CT_SdtCheckboxSymbol](word-extensions.md#w14-ct_sdtcheckboxsymbol); MS-DOCX; minOccurs=0.
 

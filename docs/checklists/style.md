@@ -46,10 +46,10 @@
   Declaration storage is implemented; application requires the table model.
 
 DOCX emits paragraph and character declarations, inheritance and next/link
-references, the Normal default and Code fallback, and direct/named precedence.
+references, the Normal default, heading/quote/Code fallbacks, and direct/named precedence.
 [Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
-cover font mappings and stable unique identifiers. Table styles, other implicit
-block styles, font measurement, and native output remain unsupported. Missing
+cover font mappings and stable unique identifiers. Table styles, font measurement,
+and native output remain unsupported. Missing
 references and cycles fail explicitly during DOCX emission; language-level
 resolution still returns the documented partial result. Real Word review is
 unreviewed.

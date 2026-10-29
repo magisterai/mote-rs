@@ -18,7 +18,8 @@ not introduce a new Mote argument.
 
 - A checked entry has the specific Mote language/model behaviour stated beside
   it, backed by linked specifications and tests. It does not claim XML emission
-  or rendered support.
+  or rendered support unless the note explicitly identifies verified output.
+  XML emission remains separate from real Office layout review.
 - A partial entry stays unchecked and names the supported Mote subset. For
   example, four alignment values do not complete the full Word alignment domain,
   and boolean underline does not complete all underline styles.

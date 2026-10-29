@@ -46,8 +46,8 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
 - [ ] `rPr` — [w:CT_RPr](word-runs.md#w-ct_rpr); Strict, Transitional; minOccurs=0.
-- [ ] `alias` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0. Partial: `checkbox.title` is retained task-control metadata; structured-document-tag generation is absent. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
-- [ ] `tag` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0. Partial: `checkbox.name` is retained task-control metadata; structured-document-tag generation is absent. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [x] `alias` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0. `checkbox.title` supplies the alias of a task content control; absent/empty titles omit the alias. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs), [docx_controls.rs](../../../tests/docx_controls.rs).
+- [x] `tag` — [w:CT_String](word-paragraphs.md#w-ct_string); Strict, Transitional; minOccurs=0. `checkbox.name` supplies the tag of a task content control; absent/empty names omit the tag. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs), [docx_controls.rs](../../../tests/docx_controls.rs).
 - [ ] `id` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=0.
 - [ ] `lock` — [w:CT_Lock](controls.md#w-ct_lock); Strict, Transitional; minOccurs=0.
 - [ ] `placeholder` — [w:CT_Placeholder](controls.md#w-ct_placeholder); Strict, Transitional; minOccurs=0.
@@ -83,7 +83,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `name` — [w:CT_FFName](controls.md#w-ct_ffname); Strict, Transitional. Partial: `checkbox.name` is retained task metadata; legacy form-field name encoding is absent. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [x] `name` — [w:CT_FFName](controls.md#w-ct_ffname); Strict, Transitional. `checkbox.name` supplies a legacy task-field name; omission uses a unique generated name. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs), [docx_controls.rs](../../../tests/docx_controls.rs).
 - [ ] `label` — [w:CT_DecimalNumber](word-paragraphs.md#w-ct_decimalnumber); Strict, Transitional; minOccurs=0.
 - [ ] `tabIndex` — [w:CT_UnsignedDecimalNumber](controls.md#w-ct_unsigneddecimalnumber); Strict, Transitional; minOccurs=0.
 - [ ] `enabled` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional.
@@ -92,7 +92,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [ ] `exitMacro` — [w:CT_MacroName](controls.md#w-ct_macroname); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `helpText` — [w:CT_FFHelpText](controls.md#w-ct_ffhelptext); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `statusText` — [w:CT_FFStatusText](controls.md#w-ct_ffstatustext); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `checkBox` — [w:CT_FFCheckBox](controls.md#w-ct_ffcheckbox); Strict, Transitional. Partial: `checkbox.kind=legacy_form_field` selects task-control intent; auto size, fixed size, and default-state controls are missing. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [ ] `checkBox` — [w:CT_FFCheckBox](controls.md#w-ct_ffcheckbox); Strict, Transitional. Partial: `checkbox.kind=legacy_form_field` emits task fields with automatic size and matching default/checked state; independent size/default-state controls are not exposed. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs), [docx_controls.rs](../../../tests/docx_controls.rs).
 - [ ] `ddList` — [w:CT_FFDDList](controls.md#w-ct_ffddlist); Strict, Transitional.
 - [ ] `textInput` — [w:CT_FFTextInput](controls.md#w-ct_fftextinput); Strict, Transitional.
 
@@ -229,7 +229,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [ ] `size` — [w:CT_HpsMeasure](word-runs.md#w-ct_hpsmeasure); Strict, Transitional.
 - [ ] `sizeAuto` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional.
 - [ ] `default` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0.
-- [x] `checked` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0. Model support: `item.checked` and the documented nested checkbox-state precedence are normalized and tested; this records state only. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs).
+- [x] `checked` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional; minOccurs=0. `item.checked` supplies legacy task-field state, overriding nested checkbox state; absence of item state leaves ordinary list numbering. Evidence: [formatting-attributes.md](../../../docs/specification/formatting-attributes.md), [attributes.rs](../../../tests/attributes.rs), [docx_controls.rs](../../../tests/docx_controls.rs).
 
 <a id="w-ct_ffddlist"></a>
 

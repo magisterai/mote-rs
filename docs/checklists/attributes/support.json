@@ -97,10 +97,12 @@
   },
   "w:CT_PPr/numPr": {
     "status": "partial",
-    "note": "Partial: List and heading numbering intent exists; Word numbering identifiers, overrides, and revision metadata are not implemented.",
+    "note": "Partial: List and heading numbering emits level/instance references and start overrides; numbering revision metadata is not represented.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs",
+      "tests/docx_packages.rs"
     ]
   },
   "w:CT_PPrBase/pStyle": {
@@ -201,10 +203,12 @@
   },
   "w:CT_PPrBase/numPr": {
     "status": "partial",
-    "note": "Partial: List and heading numbering intent exists; Word numbering identifiers, overrides, and revision metadata are not implemented.",
+    "note": "Partial: List and heading numbering emits level/instance references and start overrides; numbering revision metadata is not represented.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs",
+      "tests/docx_packages.rs"
     ]
   },
   "w:CT_PPrGeneral/pStyle": {
@@ -305,10 +309,12 @@
   },
   "w:CT_PPrGeneral/numPr": {
     "status": "partial",
-    "note": "Partial: List and heading numbering intent exists; Word numbering identifiers, overrides, and revision metadata are not implemented.",
+    "note": "Partial: List and heading numbering emits level/instance references and start overrides; numbering revision metadata is not represented.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs",
+      "tests/docx_packages.rs"
     ]
   },
   "w:CT_Spacing/@before": {
@@ -329,18 +335,20 @@
   },
   "w:CT_Spacing/@line": {
     "status": "partial",
-    "note": "Partial: `spacing.line` represents multiple, exact, and at-least rules with normalized values; signed raw Word values and output unit conversion are not implemented.",
+    "note": "Partial: `spacing.line` supports multiple, exact and at-least rules with verified DOCX unit conversion; signed raw Word values remain outside the defined language range.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx.rs"
     ]
   },
   "w:CT_Spacing/@lineRule": {
     "status": "partial",
-    "note": "Partial: `spacing.line` represents multiple, exact, and at-least rules with normalized values; signed raw Word values and output unit conversion are not implemented.",
+    "note": "Partial: `spacing.line` supports multiple, exact and at-least rules with verified DOCX unit conversion; signed raw Word values remain outside the defined language range.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx.rs"
     ]
   },
   "w:CT_Ind/@left": {
@@ -1139,12 +1147,14 @@
     ]
   },
   "w:CT_Style/@styleId": {
-    "status": "partial",
-    "note": "Partial: Mote declaration identity exists; independent serialized style identifiers are not implemented.",
+    "status": "supported",
+    "note": "`style.name` maps to stable, unique Word identifiers with normalized reference lookup; relationship targets are checked.",
     "evidence": [
       "docs/specification/styles-and-fonts.md",
       "tests/declarations.rs",
-      "tests/formatting.rs"
+      "tests/formatting.rs",
+      "tests/docx.rs",
+      "tests/docx_packages.rs"
     ]
   },
   "w:CT_Style/@type": {
@@ -1311,10 +1321,11 @@
   },
   "w:CT_Lvl/start": {
     "status": "partial",
-    "note": "Partial: `start` accepts positive integers; zero and Word-specific numbering application are missing.",
+    "note": "Partial: Positive starts are emitted through instance-level overrides; the abstract definition starts at one. Zero starts and independently authored level defaults are not exposed.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs"
     ]
   },
   "w:CT_Lvl/numFmt": {
@@ -1327,26 +1338,29 @@
   },
   "w:CT_Lvl/lvlRestart": {
     "status": "partial",
-    "note": "Partial: `restart` is a boolean intent; a numeric restart-after-level policy is not exposed.",
+    "note": "Partial: `restart` allocates a fresh numbering instance; a numeric restart-after-level policy is not exposed.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs"
     ]
   },
   "w:CT_Lvl/lvlText": {
     "status": "partial",
-    "note": "Partial: Heading separator/label/prefix metadata and presentation bullet text exist; arbitrary hierarchical number templates are missing.",
+    "note": "Partial: Heading separators produce hierarchical labels and numeric lists use level counters; arbitrary number templates and custom DOCX bullets are not exposed.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs"
     ]
   },
   "w:CT_Lvl/@ilvl": {
-    "status": "partial",
-    "note": "Partial: Mote stores positive nesting levels; Word zero-based levels and their limits are not resolved.",
+    "status": "supported",
+    "note": "Positive Mote levels one through nine map to zero-based Word levels; out-of-range list levels fail explicitly.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs"
     ]
   },
   "w:CT_Lvl/pPr": {
@@ -1374,91 +1388,105 @@
     ]
   },
   "w:CT_Num/@numId": {
-    "status": "partial",
-    "note": "Partial: `id` stores sequence identity; concrete Word instance identifiers are not allocated.",
+    "status": "supported",
+    "note": "Sequence identity, definition geometry/format and restart rules allocate concrete Word numbering instances; references are verified.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs",
+      "tests/docx_packages.rs"
     ]
   },
   "w:CT_NumPr/ilvl": {
-    "status": "partial",
-    "note": "Partial: Positive Mote list levels are retained; zero-based Word numbering references are not resolved.",
+    "status": "supported",
+    "note": "Mote list/heading levels map to Word numbering levels; list levels are bounded to nine and heading levels map to at most nine.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs"
     ]
   },
   "w:CT_NumPr/numId": {
-    "status": "partial",
-    "note": "Partial: Sequence identity is retained; Word numbering-instance references are not allocated.",
+    "status": "supported",
+    "note": "List and heading paragraphs reference allocated numbering instances; task items do not consume those instances.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs",
+      "tests/docx_controls.rs",
+      "tests/docx_packages.rs"
     ]
   },
   "w:CT_LevelText/@val": {
     "status": "partial",
-    "note": "Partial: Source markers and heading label/prefix metadata do not implement arbitrary Word numbering templates.",
+    "note": "Partial: Hierarchical heading labels use the authored separator and numeric lists use level counters. Label/prefix metadata does not implement arbitrary Word numbering templates.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_lists.rs"
     ]
   },
   "w:CT_SdtPr/alias": {
-    "status": "partial",
-    "note": "Partial: `checkbox.title` is retained task-control metadata; structured-document-tag generation is absent.",
+    "status": "supported",
+    "note": "`checkbox.title` supplies the alias of a task content control; absent/empty titles omit the alias.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_controls.rs"
     ]
   },
   "w:CT_SdtPr/tag": {
-    "status": "partial",
-    "note": "Partial: `checkbox.name` is retained task-control metadata; structured-document-tag generation is absent.",
+    "status": "supported",
+    "note": "`checkbox.name` supplies the tag of a task content control; absent/empty names omit the tag.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_controls.rs"
     ]
   },
   "w:CT_FFData/name": {
-    "status": "partial",
-    "note": "Partial: `checkbox.name` is retained task metadata; legacy form-field name encoding is absent.",
+    "status": "supported",
+    "note": "`checkbox.name` supplies a legacy task-field name; omission uses a unique generated name.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_controls.rs"
     ]
   },
   "w:CT_FFCheckBox/checked": {
     "status": "supported",
-    "note": "Model support: `item.checked` and the documented nested checkbox-state precedence are normalized and tested; this records state only.",
+    "note": "`item.checked` supplies legacy task-field state, overriding nested checkbox state; absence of item state leaves ordinary list numbering.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_controls.rs"
     ]
   },
   "w14:CT_SdtCheckbox/checked": {
     "status": "supported",
-    "note": "Model support: `item.checked` and the documented nested checkbox-state precedence are normalized and tested; this records state only.",
+    "note": "`item.checked` supplies Word 2010 task-control state and a matching fallback glyph; nested state alone does not create a task.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_controls.rs"
     ]
   },
   "w14:checkbox/checkbox": {
     "status": "partial",
-    "note": "Partial: `checkbox.kind=content_control` selects task-control intent; custom checked/unchecked symbols are not exposed.",
+    "note": "Partial: `checkbox.kind=content_control` emits editable task controls with fixed checked/unchecked symbols; custom symbols are not exposed.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_controls.rs"
     ]
   },
   "w:CT_FFData/checkBox": {
     "status": "partial",
-    "note": "Partial: `checkbox.kind=legacy_form_field` selects task-control intent; auto size, fixed size, and default-state controls are missing.",
+    "note": "Partial: `checkbox.kind=legacy_form_field` emits task fields with automatic size and matching default/checked state; independent size/default-state controls are not exposed.",
     "evidence": [
       "docs/specification/formatting-attributes.md",
-      "tests/attributes.rs"
+      "tests/attributes.rs",
+      "tests/docx_controls.rs"
     ]
   },
   "a:CT_TextCharacterProperties/@b": {
