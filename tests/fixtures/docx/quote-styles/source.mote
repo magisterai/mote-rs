@@ -1,0 +1,6 @@
+#style(name="Block Quote",based_on="Normal",font="Arial",italic=false,size=pt(12),paragraph={indent={left=pt(20)}})
+#blockquote[Declared quote]
+#blockquote(style="Block Quote",spacing_after=pt(3))[Explicit named quote]
+#blockquote(style="")[No paragraph style]
+
+Normal paragraph.

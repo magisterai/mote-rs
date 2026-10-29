@@ -1,0 +1,600 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Custom Quote",
+      "type": "paragraph",
+      "based_on": "Normal",
+      "paragraph": {
+        "indent": {
+          "left": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          }
+        },
+        "spacing_after": {
+          "text": "5pt",
+          "unit": "pt",
+          "value": 5
+        }
+      },
+      "properties": {
+        "based_on": "Normal",
+        "color": "#445566",
+        "italic": false,
+        "paragraph": {
+          "indent": {
+            "left": {
+              "text": "18pt",
+              "unit": "pt",
+              "value": 18
+            }
+          },
+          "spacing_after": {
+            "text": "5pt",
+            "unit": "pt",
+            "value": 5
+          }
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Markdown quote with "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "strong"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " text."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Another quote line."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Outside paragraph."
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph with "
+                },
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "emphasis"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second paragraph."
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Bullet text"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "More bullet text"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "ordered_list",
+              "category": "block",
+              "attributes": {
+                "start": 3
+              },
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Numbered text"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "blockquote",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Nested quote text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "attributes": {
+            "alignment": "right",
+            "border": {
+              "left": {
+                "color": "#468",
+                "space": 3,
+                "style": "single",
+                "width": {
+                  "text": "1.5pt",
+                  "unit": "pt",
+                  "value": 1.5
+                }
+              }
+            },
+            "fill": "#f0f4f8",
+            "indent": {
+              "left": {
+                "text": "42pt",
+                "unit": "pt",
+                "value": 42
+              }
+            },
+            "spacing": {
+              "after": {
+                "text": "4pt",
+                "unit": "pt",
+                "value": 4
+              },
+              "before": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              },
+              "line": {
+                "rule": "multiple",
+                "value": 1.1
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Formatted "
+                },
+                {
+                  "kind": "code",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "quote"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "attributes": {
+            "style": "Custom Quote"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Named quote"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "attributes": {
+            "style": ""
+          }
+        },
+        {
+          "kind": "blockquote",
+          "category": "block"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Markdown quote with "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "strong"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " text."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Another quote line."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Outside paragraph."
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First paragraph with "
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "emphasis"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second paragraph."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Bullet text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "More bullet text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "attributes": {
+            "start": 3
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Numbered text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Nested quote text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "attributes": {
+        "alignment": "right",
+        "border": {
+          "left": {
+            "color": "#468",
+            "space": 3,
+            "style": "single",
+            "width": {
+              "text": "1.5pt",
+              "unit": "pt",
+              "value": 1.5
+            }
+          }
+        },
+        "fill": "#f0f4f8",
+        "indent": {
+          "left": {
+            "text": "42pt",
+            "unit": "pt",
+            "value": 42
+          }
+        },
+        "spacing": {
+          "after": {
+            "text": "4pt",
+            "unit": "pt",
+            "value": 4
+          },
+          "before": {
+            "text": "2pt",
+            "unit": "pt",
+            "value": 2
+          },
+          "line": {
+            "rule": "multiple",
+            "value": 1.1
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Formatted "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "quote"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "attributes": {
+        "style": "Custom Quote"
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Named quote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "attributes": {
+        "style": ""
+      }
+    },
+    {
+      "kind": "blockquote",
+      "category": "block"
+    }
+  ]
+}

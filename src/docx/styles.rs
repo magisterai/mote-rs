@@ -128,6 +128,13 @@ impl<'document> Styles<'document> {
                 ));
             }
         }
+        if self.builtin_needed.contains("BlockQuote") && !self.declared("BlockQuote") {
+            let formatting = RunFormatting {
+                properties: self.resolved_run("BlockQuote")?,
+                ..RunFormatting::default()
+            };
+            content.push_str(&format!("<w:style w:type=\"paragraph\" w:styleId=\"BlockQuote\"><w:name w:val=\"Block Quote\"/><w:basedOn w:val=\"{}\"/><w:pPr><w:spacing w:before=\"120\" w:after=\"120\" w:line=\"276\" w:lineRule=\"auto\"/><w:ind w:left=\"720\"/></w:pPr><w:rPr>{}</w:rPr></w:style>", self.identifier("Normal")?, formatting.write_declaration(self)?));
+        }
         if self.builtin_needed.contains("Code") && !self.declared("Code") {
             let formatting = RunFormatting {
                 properties: self.resolved_run("Code")?,

@@ -250,7 +250,7 @@ script-specific typefaces. `word_line_height` remains metadata for later layout.
 
 Unknown nested properties, missing style references, cycles and unsupported
 output values fail explicitly. Declared style sizes must round to a positive
-half-point value. Table styles, quotes, font files and embedding
+half-point value. Table styles, font files and embedding
 remain deferred. These are output limits; their language/model support is
 unchanged. Authored exact line heights are preserved without estimating clipping.
 
@@ -272,6 +272,11 @@ Ordered lists preserve all five numeric formats, explicit starts and starts from
 source markers. Named instances continue by default; unnamed instances restart
 by default. Explicit restart replaces subsequent continuation, while a later start
 on a continued sequence is ignored. No new dependency is needed for list output.
+
+Block quotes emit one paragraph with the fallback BlockQuote style or a declared
+style, plus direct borders, shading and geometry. Nested blocks supply inline text
+without separate paragraphs or numbered markers. Nested block formatting remains
+unsupported and fails explicitly. Following paragraphs retain their own formatting.
 
 Font measurement is not required for DOCX emission; Word performs layout and
 pagination. Production dependencies add ZIP/DEFLATE and UTC metadata support;

@@ -1,0 +1,194 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Block Quote",
+      "type": "paragraph",
+      "based_on": "Normal",
+      "font": "Arial",
+      "paragraph": {
+        "indent": {
+          "left": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          }
+        }
+      },
+      "properties": {
+        "based_on": "Normal",
+        "font": "Arial",
+        "italic": false,
+        "paragraph": {
+          "indent": {
+            "left": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          }
+        },
+        "size": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Declared quote"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "attributes": {
+            "spacing_after": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "style": "Block Quote"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Explicit named quote"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "attributes": {
+            "style": ""
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "No paragraph style"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Normal paragraph."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Declared quote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "attributes": {
+        "spacing_after": {
+          "text": "3pt",
+          "unit": "pt",
+          "value": 3
+        },
+        "style": "Block Quote"
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Explicit named quote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "attributes": {
+        "style": ""
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "No paragraph style"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Normal paragraph."
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,15 @@ use crate::model::{Content, Document, ElementKind, Properties, Unit, Value};
 use std::collections::BTreeSet;
 
 pub(super) const NAMES: &[&str] = &[
-    "Normal", "Heading1", "Heading2", "Heading3", "Heading4", "Heading5", "Heading6", "Code",
+    "Normal",
+    "Heading1",
+    "Heading2",
+    "Heading3",
+    "Heading4",
+    "Heading5",
+    "Heading6",
+    "BlockQuote",
+    "Code",
 ];
 
 pub(super) fn normalize_name(name: &str) -> String {
@@ -56,6 +64,9 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
                 ElementKind::Code => {
                     names.insert("Code".into());
                 }
+                ElementKind::Blockquote => {
+                    names.insert("BlockQuote".into());
+                }
                 ElementKind::Heading => {
                     let level = headings::level(element)?;
                     if level <= 6 {
@@ -73,6 +84,17 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
 pub(super) fn run_properties(name: &str) -> Properties {
     let mut properties = Properties::new();
     match canonical_name(name) {
+        Some("BlockQuote") => {
+            properties.insert("font".into(), Value::String("Helvetica".into()));
+            properties.insert("italic".into(), Value::Boolean(true));
+            properties.insert(
+                "size".into(),
+                Value::Length {
+                    value: 11.0,
+                    unit: Unit::Point,
+                },
+            );
+        }
         Some("Code") => {
             properties.insert("font".into(), Value::String("mono".into()));
             properties.insert(

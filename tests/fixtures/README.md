@@ -61,3 +61,6 @@ not establish layout, font substitution, wrapping or pagination conformance.
 - [List continuation](docx/list-continuation/README.md): restarts and sequence identity.
 
 - [Heading numbering](docx/heading-numbering/README.md): hierarchy and sequence controls.
+
+- [Block quotes](docx/block-quotes/README.md): nested content and direct formatting.
+- [Quote styles](docx/quote-styles/README.md): declared replacements and scope.

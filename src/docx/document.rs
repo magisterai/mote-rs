@@ -1,4 +1,6 @@
-use super::{Error, headings, lists, numbering::Numbering, paragraphs, styles::Styles, xml};
+use super::{
+    Error, block_quotes, headings, lists, numbering::Numbering, paragraphs, styles::Styles, xml,
+};
 use crate::model::{Content, Document, ElementKind};
 
 pub(super) fn write_document(
@@ -22,6 +24,10 @@ pub(super) fn write_document(
                     .for_heading(element, level)?
                     .map(|identifier| (identifier, level));
                 headings::attributes(element, index == 0)?
+            }
+            ElementKind::Blockquote => {
+                body.push_str(&block_quotes::write(element, styles)?);
+                continue;
             }
             ElementKind::List | ElementKind::OrderedList => {
                 body.push_str(&lists::write(element, 0, styles, numbering)?);

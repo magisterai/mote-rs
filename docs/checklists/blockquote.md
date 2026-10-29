@@ -34,18 +34,23 @@ merging, `fill` normalizes; other geometry remains unvalidated metadata.
 ## Dependencies and limits
 
 Style references, colors, borders, and layout requests are defined in the
-formatting chapter; presentation containers remain future work. DOCX's scoped quote
-attributes are `style`, `border`, and `fill`; native and presentation controls
-listed above do not imply additional DOCX support. Presentation border/fill
-behaviour must not be inferred from paged-document support.
+formatting chapter; presentation containers remain future work. DOCX emits
+`style`, `border`, `fill`, alignment, spacing and indentation. The capture confirms
+those geometry values despite unsupported-property warnings from its validator.
+Presentation border/fill behaviour must not be inferred from paged-document support.
 
 Nested `text` and `paragraph` defaults belong to future presentation container
 checklists; they are not extra direct quote-formatting controls in this scope.
 
 ## Output limits
 
-Applying quote formatting to rendered child paragraphs, lists, and nested
-quotes remains unsupported.
+DOCX emits one paragraph per quote, with a fallback or named style and direct
+paragraph properties. Nested paragraph, list and quote content flattens to inline
+runs without separators or numbered markers. Separate child-block formatting is
+unsupported and fails explicitly. Empty quotes remain paragraphs; an empty style
+reference suppresses the fallback reference. Formatting does not escape the quote.
+See [quote captures](../../tests/fixtures/docx/block-quotes/README.md) and
+[tests](../../tests/docx_quotes.rs). Word review remains unreviewed.
 
 ## Specification inventory
 

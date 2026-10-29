@@ -1,0 +1,21 @@
+> Markdown quote with **strong** text.
+> Another quote line.
+
+Outside paragraph.
+
+#blockquote[
+First paragraph with #emphasis[emphasis].
+
+Second paragraph.
+#list[#item[Bullet text]#item[More bullet text]]
+#ordered_list(start=3)[#item[Numbered text]]
+#blockquote[Nested quote text]
+]
+
+#blockquote(border={left={style="single",width=pt(1.5),space=3,color="#468"}},fill="#f0f4f8",alignment="right",indent={left=pt(42)},spacing={before=pt(2),after=pt(4),line={rule="multiple",value=1.1}})[Formatted #code[quote]]
+
+#blockquote(style="Custom Quote")[Named quote]
+#blockquote(style="")[]
+#blockquote[]
+
+#style(name="Custom Quote",based_on="Normal",italic=false,color="#456",paragraph={indent={left=pt(18)},spacing_after=pt(5)})
