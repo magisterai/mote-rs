@@ -68,12 +68,14 @@ pub(super) fn place(
     }
     let mut widths = Vec::new();
     for (run, _) in &fragments {
-        widths.push(
+        widths.push(if let Some(advance) = run.fixed_advance {
+            advance
+        } else {
             measurer
                 .measure(&run.style.measurement, &run.text, kerning)?
                 .measurement
-                .layout_width,
-        );
+                .layout_width
+        });
     }
     let natural: f64 = widths.iter().sum();
     let extra = if gaps.is_empty() {

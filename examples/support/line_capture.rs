@@ -58,6 +58,7 @@ pub fn measure_cases(root: &Path, requests: &Value) -> Result<Value, Box<dyn Err
                 text: run["text"].as_str().unwrap().into(),
                 preserve_space: boolean(run, "preserve_space"),
                 synthetic_tab: false,
+                fixed_advance: None,
                 style: TextStyle {
                     measurement: MeasurementStyle {
                         font: run["font"].as_str().unwrap_or("Helvetica").into(),

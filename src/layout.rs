@@ -1,7 +1,10 @@
 //! Native text geometry shared by output painters.
 
+mod blocks;
 mod decorations;
 mod document;
+mod lists;
+mod numbering;
 pub use decorations::{DecorationKind, HighlightRectangle, TextDecoration};
 mod flow;
 pub use document::{DocumentTextPlan, PlacedTextLine, TextPage, plan_document_text};
@@ -19,7 +22,9 @@ mod style_values;
 mod styles;
 pub use inline::resolve_inline;
 pub use styles::{LayoutStyleResolver, ParagraphStyle};
+mod painting;
 mod paragraphs;
+pub use painting::{ListMarker, ListMarkerKind, PageOperation, Rule};
 mod placement;
 mod wrapping;
 
@@ -67,6 +72,8 @@ pub struct TextRun {
     pub style: TextStyle,
     pub preserve_space: bool,
     pub synthetic_tab: bool,
+    /// Invisible spacing used by generated numbering separators.
+    pub fixed_advance: Option<f64>,
 }
 
 impl TextRun {
@@ -76,6 +83,7 @@ impl TextRun {
             style,
             preserve_space: false,
             synthetic_tab: false,
+            fixed_advance: None,
         }
     }
     fn with_text(&self, text: &str) -> Self {

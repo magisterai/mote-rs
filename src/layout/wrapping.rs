@@ -15,10 +15,14 @@ pub(super) fn measure(
 ) -> Result<f64, LayoutError> {
     let mut width = 0.0;
     for run in runs {
-        width += measurer
-            .measure(&run.style.measurement, &run.text, kerning)?
-            .measurement
-            .layout_width;
+        width += if let Some(advance) = run.fixed_advance {
+            advance
+        } else {
+            measurer
+                .measure(&run.style.measurement, &run.text, kerning)?
+                .measurement
+                .layout_width
+        };
     }
     Ok(width)
 }

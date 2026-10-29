@@ -24,6 +24,10 @@
     "truetype.mote": {
       "sha256": "7dcf75f6f592fd291ef68b00bdae46b8fea5678bf9d005889fb562d4b119aec6",
       "bytes": 514
+    },
+    "blocks.mote": {
+      "sha256": "71338fc7ac1b4865aa5a8961a36163298300d1555479706ff2b9c3d6e21f7e0e",
+      "bytes": 1616
     }
   }
 }

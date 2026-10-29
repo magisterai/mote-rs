@@ -43,8 +43,8 @@ impl Fonts {
         for fragment in plan
             .pages
             .iter()
-            .flat_map(|page| &page.lines)
-            .flat_map(|line| &line.line.fragments)
+            .flat_map(|page| page.text_lines())
+            .flat_map(|line| &line.fragments)
         {
             if let Some((_, characters)) = selections
                 .iter_mut()

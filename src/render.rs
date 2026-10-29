@@ -64,8 +64,8 @@ pub fn plan(
     for fragment in output
         .pages
         .iter()
-        .flat_map(|page| &page.lines)
-        .flat_map(|line| &line.line.fragments)
+        .flat_map(|page| page.text_lines())
+        .flat_map(|line| &line.fragments)
     {
         if let Some(reason) = &fragment.font.substitution {
             warnings.insert(reason.clone());
@@ -138,9 +138,71 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
     if plan.pages.len() > i32::MAX as usize {
         return Err(RenderError::Invalid("too many pages".into()));
     }
-    for placed in plan.pages.iter().flat_map(|page| &page.lines) {
-        let line = &placed.line;
-        if ![line.x, placed.top, line.baseline, line.height, line.width]
+    for page in &plan.pages {
+        let mut seen = vec![false; page.lines.len()];
+        for operation in &page.operations {
+            match operation {
+                crate::layout::PageOperation::Text(index) => {
+                    let Some(visited) = seen.get_mut(*index) else {
+                        return Err(RenderError::Invalid(
+                            "page operation refers to a missing text line".into(),
+                        ));
+                    };
+                    if *visited {
+                        return Err(RenderError::Invalid("page repeats a text line".into()));
+                    }
+                    *visited = true;
+                }
+                crate::layout::PageOperation::Rectangle(rectangle) => {
+                    if ![
+                        rectangle.x,
+                        rectangle.top,
+                        rectangle.width,
+                        rectangle.height,
+                    ]
+                    .iter()
+                    .all(|value| value.is_finite())
+                        || rectangle.width <= 0.0
+                        || rectangle.height <= 0.0
+                    {
+                        return Err(RenderError::Invalid("invalid page rectangle".into()));
+                    }
+                    color(&rectangle.color)?;
+                }
+                crate::layout::PageOperation::Rule(rule) => {
+                    if !rule
+                        .start
+                        .iter()
+                        .chain(&rule.end)
+                        .chain([&rule.width])
+                        .all(|value| value.is_finite())
+                        || rule.width <= 0.0
+                    {
+                        return Err(RenderError::Invalid("invalid page rule".into()));
+                    }
+                    color(&rule.color)?;
+                }
+                crate::layout::PageOperation::ListMarker(marker) => {
+                    if !marker
+                        .slot
+                        .iter()
+                        .chain([&marker.baseline, &marker.font_size])
+                        .all(|value| value.is_finite())
+                        || marker.slot[2] <= 0.0
+                        || marker.slot[3] <= 0.0
+                        || marker.font_size <= 0.0
+                    {
+                        return Err(RenderError::Invalid("invalid list marker slot".into()));
+                    }
+                }
+            }
+        }
+        if seen.iter().any(|visited| !visited) {
+            return Err(RenderError::Invalid("page omits a text line".into()));
+        }
+    }
+    for line in plan.pages.iter().flat_map(|page| page.text_lines()) {
+        if ![line.x, line.baseline, line.height, line.width]
             .iter()
             .all(|value| value.is_finite())
             || line.height <= 0.0

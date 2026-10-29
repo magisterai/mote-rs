@@ -80,3 +80,14 @@ signature checks, normalization, and declaration boundaries.
 [Attribute implementation](../../src/evaluation/attributes.rs),
 [attribute tests](../../tests/attributes.rs), [evaluator](../../src/evaluation.rs), [list tests](../../tests/content.rs), and
 [specification examples](../../tests/conformance.rs) cover the checked items.
+
+## Native output evidence
+
+PDF and PNG use the shared block plan, including list and heading numbering,
+quote text, and paragraph fills. Native paragraph borders currently use the
+resolved `all.color` or `bottom.color` for a 0.35-point bottom rule on each line;
+other sides, widths, and border styles are outside that painting behavior.
+List item child blocks and quote child blocks flatten to inline text; nested lists
+inside list items retain their own markers. See the
+[native block captures](../../tests/fixtures/native-blocks/README.md) and
+[block tests](../../tests/native_blocks.rs). Office visual review remains unreviewed.

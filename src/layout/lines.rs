@@ -28,6 +28,14 @@ pub fn plan_text(
             "line spacing must be finite and non-negative",
         ));
     }
+    if runs.iter().any(|run| {
+        run.fixed_advance
+            .is_some_and(|advance| !advance.is_finite() || advance < 0.0)
+    }) {
+        return Err(LayoutError::InvalidGeometry(
+            "fixed text advance must be finite and non-negative",
+        ));
+    }
     for style in std::iter::once(&options.base_style).chain(runs.iter().map(|run| &run.style)) {
         measurer.measure(&style.measurement, "", options.layout_kerning)?;
         if style
@@ -107,6 +115,9 @@ pub fn plan_text(
         }
         let mut fragments = Vec::new();
         for placed in placed {
+            if placed.run.fixed_advance.is_some() {
+                continue;
+            }
             let measured = measurer.measure(
                 &placed.run.style.measurement,
                 &placed.run.text,
@@ -145,7 +156,7 @@ pub fn plan_text(
 fn small_caps(runs: &[TextRun]) -> Vec<TextRun> {
     let mut output = Vec::new();
     for run in runs {
-        if !run.style.small_caps || run.text.is_empty() {
+        if !run.style.small_caps || run.text.is_empty() || run.fixed_advance.is_some() {
             output.push(run.clone());
             continue;
         }

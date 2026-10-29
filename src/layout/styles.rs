@@ -74,6 +74,46 @@ impl<'document> LayoutStyleResolver<'document> {
         }
         style
     }
+    pub(super) fn border_color(&self, element: &Element) -> Option<String> {
+        fn direct(properties: &Properties) -> Option<String> {
+            let Value::Object(border) = properties.get("border")? else {
+                return None;
+            };
+            for name in ["all", "bottom"] {
+                if let Some(Value::Object(side)) = border.get(name)
+                    && let Some(color) = values::color(side, "color")
+                {
+                    return Some(color);
+                }
+            }
+            None
+        }
+        let mut name = values::text(&element.attributes, "style");
+        if name.is_empty() {
+            name = if element.kind == ElementKind::Heading {
+                format!(
+                    "Heading{}",
+                    element
+                        .attributes
+                        .get("level")
+                        .and_then(values::number)
+                        .unwrap_or(1.0)
+                        .clamp(1.0, 6.0) as usize
+                )
+            } else {
+                "Normal".into()
+            };
+        }
+        direct(&element.attributes).or_else(|| {
+            if self.find_declaration(&name).is_some() {
+                direct(&self.declarations.resolve_style(&name).paragraph)
+            } else if values::normalize_name(&name) == "horizontalrule" {
+                Some("D1D5DB".into())
+            } else {
+                None
+            }
+        })
+    }
     pub fn paragraph(&self, element: &Element) -> ParagraphStyle {
         let mut style = ParagraphStyle {
             text: self.default_text(),

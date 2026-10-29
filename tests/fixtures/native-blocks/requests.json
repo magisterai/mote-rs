@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "include_operations": true,
+  "cases": [
+    {
+      "id": "blockquote_64.mote",
+      "source": "#blockquote(spacing={after=pt(0)})[Text]",
+      "source_name": "/tmp/mote-output-audit/blockquote_64.mote"
+    },
+    {
+      "id": "blockquote_65.mote",
+      "source": "#blockquote(spacing_before=pt(6))[Text]",
+      "source_name": "/tmp/mote-output-audit/blockquote_65.mote"
+    },
+    {
+      "id": "blockquote_66.mote",
+      "source": "#blockquote(spacing={before=pt(4)})[Text]",
+      "source_name": "/tmp/mote-output-audit/blockquote_66.mote"
+    },
+    {
+      "id": "blockquote_67.mote",
+      "source": "#blockquote(spacing={line={rule=\"at_least\",value=pt(13)}})[Text]",
+      "source_name": "/tmp/mote-output-audit/blockquote_67.mote"
+    },
+    {
+      "id": "blockquote_68.mote",
+      "source": "#blockquote(line_spacing=pt(11))[Text]",
+      "source_name": "/tmp/mote-output-audit/blockquote_68.mote"
+    },
+    {
+      "id": "cross-list-0000.mote",
+      "source": "#ordered_list(format = \"bullet\", start = 3, restart = true, spacing = { after = pt(3) }, id = \"\")[#item(spacing = { after = 0 })[First#ordered_list(id = \"nested\")[#item()[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"bullet\", start = 3, restart = true, spacing = { after = pt(3) }, id = \"\")[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0000.mote"
+    },
+    {
+      "id": "cross-list-0033.mote",
+      "source": "#ordered_list(format = \"decimal\", restart = true)[#item(checked = true)[First#ordered_list(id = \"nested\")[#item(checked = false)[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"decimal\", restart = true)[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0033.mote"
+    },
+    {
+      "id": "cross-list-0065.mote",
+      "source": "#ordered_list(format = \"upper_roman\", start = 3)[#item(tight = false)[First#ordered_list(id = \"nested\")[#item(marker = \"12.\")[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"upper_roman\", start = 3)[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0065.mote"
+    },
+    {
+      "id": "cross-list-0098.mote",
+      "source": "#ordered_list(format = \"upper_roman\", restart = true, restart = false, id = \"named\")[#item()[First#ordered_list(id = \"nested\")[#item(checked = false, checkbox = { kind = \"legacy_form_field\", name = \"Legacy\" })[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"upper_roman\", restart = true, restart = false, id = \"named\")[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0098.mote"
+    },
+    {
+      "id": "cross-list-0131.mote",
+      "source": "#ordered_list(format = \"lower_roman\", tight = true, id = \"\", level = 3, restart = true)[#item(tight = true)[First#ordered_list(id = \"nested\")[#item()[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"lower_roman\", tight = true, id = \"\", level = 3, restart = true)[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0131.mote"
+    },
+    {
+      "id": "cross-list-0163.mote",
+      "source": "#ordered_list(format = \"lower_roman\", id = \"\", tight = false)[#item(level = 2)[First#ordered_list(id = \"nested\")[#item(marker = \"12.\")[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"lower_roman\", id = \"\", tight = false)[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0163.mote"
+    },
+    {
+      "id": "cross-list-0196.mote",
+      "source": "#ordered_list(format = \"lower_alpha\", tight = true, spacing = { after = pt(3) })[#item(checked = false)[First#ordered_list(id = \"nested\")[#item(spacing = { after = 0 })[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"lower_alpha\", tight = true, spacing = { after = pt(3) })[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0196.mote"
+    },
+    {
+      "id": "cross-list-0228.mote",
+      "source": "#ordered_list(format = \"lower_roman\", tight = false, start = 3)[#item(level = 2)[First#ordered_list(id = \"nested\")[#item(level = 2)[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"lower_roman\", tight = false, start = 3)[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0228.mote"
+    },
+    {
+      "id": "cross-list-0261.mote",
+      "source": "#ordered_list(format = \"lower_roman\", spacing = { after = pt(3) })[#item(tight = true)[First#ordered_list(id = \"nested\")[#item(checked = true, checkbox = { name = \"Task\", title = \"Task title\" })[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"lower_roman\", spacing = { after = pt(3) })[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0261.mote"
+    },
+    {
+      "id": "cross-list-0294.mote",
+      "source": "#ordered_list(format = \"lower_alpha\", tight = true)[#item(indent = { left = pt(30), hanging = pt(10) })[First#ordered_list(id = \"nested\")[#item(checked = false, checkbox = { kind = \"legacy_form_field\", name = \"Legacy\" })[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"lower_alpha\", tight = true)[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0294.mote"
+    },
+    {
+      "id": "cross-list-0326.mote",
+      "source": "#ordered_list(format = \"upper_alpha\", start = 3, id = \"named\")[#item(tight = false)[First#ordered_list(id = \"nested\")[#item()[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"upper_alpha\", start = 3, id = \"named\")[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0326.mote"
+    },
+    {
+      "id": "cross-list-0359.mote",
+      "source": "#ordered_list(format = \"bullet\", restart = false, id = \"\", tight = true, id = \"named\")[#item(checked = true, checkbox = { name = \"Task\", title = \"Task title\" })[First#ordered_list(id = \"nested\")[#item(marker = \"12.\")[Nested]]]#item[Second]]\n#paragraph[Between.]\n#ordered_list(format = \"bullet\", restart = false, id = \"\", tight = true, id = \"named\")[#item[Continued]]",
+      "source_name": "/tmp/mote-output-audit/cross-list-0359.mote"
+    },
+    {
+      "id": "heading_0_empty_list.mote",
+      "source": "#style(name=\"Custom\",based_on=\"Normal\",size=pt(17))\n#list[]\n\n#heading()[Title]",
+      "source_name": "/tmp/mote-output-audit/heading_0_empty_list.mote"
+    },
+    {
+      "id": "heading_1_empty_list.mote",
+      "source": "#style(name=\"Custom\",based_on=\"Normal\",size=pt(17))\n#list[]\n\n#heading(style=\"\")[Title]",
+      "source_name": "/tmp/mote-output-audit/heading_1_empty_list.mote"
+    },
+    {
+      "id": "heading_2_empty_list.mote",
+      "source": "#style(name=\"Custom\",based_on=\"Normal\",size=pt(17))\n#list[]\n\n#heading(style=\"Normal\")[Title]",
+      "source_name": "/tmp/mote-output-audit/heading_2_empty_list.mote"
+    },
+    {
+      "id": "heading_3_empty_list.mote",
+      "source": "#style(name=\"Custom\",based_on=\"Normal\",size=pt(17))\n#list[]\n\n#heading(style=\"Heading1\")[Title]",
+      "source_name": "/tmp/mote-output-audit/heading_3_empty_list.mote"
+    },
+    {
+      "id": "heading_4_empty_list.mote",
+      "source": "#style(name=\"Custom\",based_on=\"Normal\",size=pt(17))\n#list[]\n\n#heading(style=\"Heading 1\")[Title]",
+      "source_name": "/tmp/mote-output-audit/heading_4_empty_list.mote"
+    },
+    {
+      "id": "heading_5_empty_list.mote",
+      "source": "#style(name=\"Custom\",based_on=\"Normal\",size=pt(17))\n#list[]\n\n#heading(style=\"heading-1\")[Title]",
+      "source_name": "/tmp/mote-output-audit/heading_5_empty_list.mote"
+    },
+    {
+      "id": "heading_6_empty_list.mote",
+      "source": "#style(name=\"Custom\",based_on=\"Normal\",size=pt(17))\n#list[]\n\n#heading(style=\"Custom\")[Title]",
+      "source_name": "/tmp/mote-output-audit/heading_6_empty_list.mote"
+    },
+    {
+      "id": "list_71.mote",
+      "source": "#list(indent={left=pt(0)},tight=true)[#item(indent={left=pt(5)},level=2)[A]#item[#list[#item[B]]]]",
+      "source_name": "/tmp/mote-output-audit/list_71.mote"
+    },
+    {
+      "id": "list_72.mote",
+      "source": "#list(indent={left=pt(0)},tight=false)[#item(indent={left=pt(5)},level=2)[A]#item[#list[#item[B]]]]",
+      "source_name": "/tmp/mote-output-audit/list_72.mote"
+    },
+    {
+      "id": "list_75.mote",
+      "source": "#list(indent={level=pt(0)},tight=true)[#item(indent={left=pt(5)},level=2)[A]#item[#list[#item[B]]]]",
+      "source_name": "/tmp/mote-output-audit/list_75.mote"
+    },
+    {
+      "id": "list_76.mote",
+      "source": "#list(indent={level=pt(0)},tight=false)[#item(indent={left=pt(5)},level=2)[A]#item[#list[#item[B]]]]",
+      "source_name": "/tmp/mote-output-audit/list_76.mote"
+    },
+    {
+      "id": "list_77.mote",
+      "source": "#list(indent={left=pt(35.775),level=pt(18.025)},tight=true)[#item(indent={left=pt(5)},level=2)[A]#item[#list[#item[B]]]]",
+      "source_name": "/tmp/mote-output-audit/list_77.mote"
+    },
+    {
+      "id": "list_78.mote",
+      "source": "#list(indent={left=pt(35.775),level=pt(18.025)},tight=false)[#item(indent={left=pt(5)},level=2)[A]#item[#list[#item[B]]]]",
+      "source_name": "/tmp/mote-output-audit/list_78.mote"
+    },
+    {
+      "id": "painted-blocks",
+      "source": "#font(name=\"body\",files={regular=\"tests/fixtures/measurements/fonts/SourceSans3-Regular.ttf\"})\n#document(page={width=pt(420),height=pt(510)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)},default_font=\"body\",default_size=pt(12))\n#heading(level=1,numbering={id=\"sections\",enabled=true})[Lists and paragraph paint]\n#paragraph(fill=\"#e0f0ff\",spacing={after=pt(6)},border={bottom={color=\"#225588\"}})[A shaded paragraph wraps onto another line with enough text to exercise the full band width.]\n#paragraph(fill=\"#ffe8d5\",spacing={before=pt(3),after=pt(8)},indent={left=pt(12),first_line=pt(8)})[Adjacent shading bridges spacing using the previous fill.]\n#list(indent={left=pt(30),hanging=pt(14)})[\n#item[Bullet with #span(underline=true)[underlined text].]\n#item(checked=true)[Completed task.]\n#item(checked=false)[Pending task.]\n#item[A nested sequence follows. #ordered_list(format=\"lower_alpha\",start=26)[#item[First letter.]#item[Repeated letter.]]]\n]\n#ordered_list(id=\"steps\",start=8)[#item[Numbered step.]#item(checked=false)[A task does not consume a number.]#item[Another step.]]\n#blockquote(fill=\"#eef5e8\",border={bottom={color=\"#557722\"}})[A quote with #strong[emphasis] and ordinary text.]\n#break()\n#heading(level=2,numbering={id=\"sections\",enabled=true})[Continued content]\n#ordered_list(id=\"steps\")[#item[Continuation.]#item(indent={left=pt(48),hanging=pt(12)})[Item geometry override with a longer line that wraps within its narrower frame.]]\n#ordered_list(format=\"upper_roman\",start=9)[#item[Ninth.]#item[Tenth.]]\n#list[#item[]#item[After the empty item.]]\n#paragraph(fill=\"#ddeeff\")[A final shaded line.]\n"
+    },
+    {
+      "id": "nested-sequence-restart",
+      "source": "#ordered_list(id=\"sequence\",start=3)[#item[Outer #ordered_list(id=\"sequence\",level=1,restart=true,start=8)[#item[Inner]]]#item[Outer continued]]\n#ordered_list(id=\"sequence\")[#item[Next list]]"
+    },
+    {
+      "id": "tasks-only-sequence",
+      "source": "#ordered_list(id=\"steps\",start=4)[#item[Four]]\n#ordered_list(id=\"steps\",restart=true,start=9)[#item(checked=true)[Complete]#item(checked=false)[Pending]]\n#ordered_list(id=\"steps\")[#item[Five]]"
+    },
+    {
+      "id": "heading-sequence-levels",
+      "source": "#heading(level=2,numbering={start=3,separator=\"-\",id=\"parts\"})[Part]\n#heading(level=3,numbering={separator=\"-\",id=\"parts\"})[Child]\n#heading(level=2,numbering={separator=\"-\",id=\"parts\"})[Next]\n#heading(level=1,numbering={restart=true,start=8,id=\"parts\"})[Restart]"
+    },
+    {
+      "id": "alphabetic-cycle",
+      "source": "#ordered_list(format=\"lower_alpha\",start=26)[#item[Z]#item[AA]#item[BB]]\n#ordered_list(format=\"upper_alpha\",start=52)[#item[ZZ]#item[AAA]]"
+    },
+    {
+      "id": "item-paragraph-precedence",
+      "source": "#list(indent={left=pt(30)},spacing={after=pt(5)})[#item(indent={hanging=pt(4)},spacing={before=pt(2)})[#paragraph(indent={left=pt(20),right=pt(30)},spacing={before=pt(9),after=pt(12)},fill=\"#abc\")[First]#paragraph[Second]]#item[Next]]"
+    },
+    {
+      "id": "fill-list-boundary",
+      "source": "#paragraph(fill=\"#abc\")[Before]\n#list[#item(fill=\"#def\")[First]#item(fill=\"#f00\")[Second]]\n#paragraph(fill=\"#987\")[After]"
+    },
+    {
+      "id": "quote-empty-style",
+      "source": "#blockquote(style=\"\")[Quote without fallback]\n#blockquote[Quote with fallback]"
+    }
+  ]
+}

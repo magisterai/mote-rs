@@ -1,5 +1,11 @@
 use super::{RenderError, Rendered, color, fonts::RasterFonts, validate_plan};
-use crate::{layout::DocumentTextPlan, measurement::glyphs};
+use crate::{
+    layout::{
+        DocumentTextPlan, HighlightRectangle, ListMarker, ListMarkerKind, PageOperation, Rule,
+        TextLine,
+    },
+    measurement::glyphs,
+};
 use std::collections::BTreeSet;
 use tiny_skia::{FillRule, Paint, PathBuilder, Pixmap, Transform};
 use ttf_parser::{Face, OutlineBuilder};
@@ -57,67 +63,22 @@ pub fn paint_png(
             .ok_or_else(|| RenderError::Invalid("cannot allocate PNG page".into()))?;
         pixels.fill(tiny_skia::Color::WHITE);
         if let Some(page) = plan.pages.get(page_index) {
-            for placed in &page.lines {
-                let line = &placed.line;
-                for rectangle in &line.highlights {
-                    let left = (rectangle.x * scale).round() as f32;
-                    let top = (rectangle.top * scale).round() as f32;
-                    let right = ((rectangle.x + rectangle.width) * scale).round() as f32;
-                    let bottom = ((rectangle.top + rectangle.height) * scale).round() as f32;
-                    if let Some(bounds) = tiny_skia::Rect::from_ltrb(left, top, right, bottom) {
-                        pixels.fill_rect(
-                            bounds,
-                            &paint(&rectangle.color, false)?,
-                            Transform::identity(),
-                            None,
-                        );
-                    }
-                }
-                for fragment in &line.fragments {
-                    let selected = fonts.resolve(&fragment.font)?;
-                    if selected.fallback {
-                        warnings.insert(format!(
-                            "PNG uses a bundled outline fallback for {} {}",
-                            fragment.font.family,
-                            fragment.font.variant.as_text()
-                        ));
-                    }
-                    let face = Face::parse(&selected.bytes, selected.face_index)
-                        .map_err(|_| RenderError::Invalid("invalid PNG font".into()))?;
-                    let size = fragment.style.measurement.size_points * scale;
-                    let outline_scale =
-                        (size * 64.0).round() / 64.0 / f64::from(face.units_per_em());
-                    let baseline = (fragment.baseline * scale).round();
-                    let origin = (fragment.x * scale).round();
-                    let brush = paint(&fragment.style.color, true)?;
-                    for placement in glyphs::placements(&face, &fragment.text, size)? {
-                        let mut outline = Outline {
-                            path: PathBuilder::new(),
-                            scale: outline_scale,
-                            origin: origin + placement.offset,
-                            baseline,
-                        };
-                        face.outline_glyph(placement.glyph, &mut outline);
-                        if let Some(path) = outline.path.finish() {
-                            pixels.fill_path(
-                                &path,
-                                &brush,
-                                FillRule::Winding,
-                                Transform::identity(),
-                                None,
-                            );
-                        }
-                    }
-                }
-                for decoration in &line.decorations {
-                    crisp_horizontal(
+            for operation in &page.operations {
+                match operation {
+                    PageOperation::Text(index) => paint_line(
                         &mut pixels,
-                        decoration.start * scale,
-                        decoration.end * scale,
-                        decoration.y * scale,
-                        decoration.width * scale,
-                        color(&decoration.color)?,
-                    );
+                        &page.lines[*index].line,
+                        scale,
+                        &mut fonts,
+                        &mut warnings,
+                    )?,
+                    PageOperation::Rectangle(rectangle) => {
+                        fill_rectangle(&mut pixels, rectangle, scale)?
+                    }
+                    PageOperation::Rule(rule) => paint_rule(&mut pixels, rule, scale)?,
+                    PageOperation::ListMarker(marker) => {
+                        paint_marker(&mut pixels, marker, scale, &mut fonts, &mut warnings)?
+                    }
                 }
             }
         }
@@ -238,4 +199,181 @@ fn crisp_horizontal(
             }
         }
     }
+}
+
+fn paint_line(
+    pixels: &mut Pixmap,
+    line: &TextLine,
+    scale: f64,
+    fonts: &mut RasterFonts,
+    warnings: &mut BTreeSet<String>,
+) -> Result<(), RenderError> {
+    for rectangle in &line.highlights {
+        let left = (rectangle.x * scale).round() as f32;
+        let top = (rectangle.top * scale).round() as f32;
+        let right = ((rectangle.x + rectangle.width) * scale).round() as f32;
+        let bottom = ((rectangle.top + rectangle.height) * scale).round() as f32;
+        if let Some(bounds) = tiny_skia::Rect::from_ltrb(left, top, right, bottom) {
+            pixels.fill_rect(
+                bounds,
+                &paint(&rectangle.color, false)?,
+                Transform::identity(),
+                None,
+            );
+        }
+    }
+    for fragment in &line.fragments {
+        let selected = fonts.resolve(&fragment.font)?;
+        if selected.fallback {
+            warnings.insert(format!(
+                "PNG uses a bundled outline fallback for {} {}",
+                fragment.font.family,
+                fragment.font.variant.as_text()
+            ));
+        }
+        let face = Face::parse(&selected.bytes, selected.face_index)
+            .map_err(|_| RenderError::Invalid("invalid PNG font".into()))?;
+        let size = fragment.style.measurement.size_points * scale;
+        let outline_scale = (size * 64.0).round() / 64.0 / f64::from(face.units_per_em());
+        let baseline = (fragment.baseline * scale).round();
+        let origin = (fragment.x * scale).round();
+        let brush = paint(&fragment.style.color, true)?;
+        for placement in glyphs::placements(&face, &fragment.text, size)? {
+            let mut outline = Outline {
+                path: PathBuilder::new(),
+                scale: outline_scale,
+                origin: origin + placement.offset,
+                baseline,
+            };
+            face.outline_glyph(placement.glyph, &mut outline);
+            if let Some(path) = outline.path.finish() {
+                pixels.fill_path(
+                    &path,
+                    &brush,
+                    FillRule::Winding,
+                    Transform::identity(),
+                    None,
+                );
+            }
+        }
+    }
+    for decoration in &line.decorations {
+        crisp_horizontal(
+            pixels,
+            decoration.start * scale,
+            decoration.end * scale,
+            decoration.y * scale,
+            decoration.width * scale,
+            color(&decoration.color)?,
+        );
+    }
+    Ok(())
+}
+
+fn fill_rectangle(
+    pixels: &mut Pixmap,
+    rectangle: &HighlightRectangle,
+    scale: f64,
+) -> Result<(), RenderError> {
+    let left = (rectangle.x * scale).round() as f32;
+    let top = (rectangle.top * scale).round() as f32;
+    let right = ((rectangle.x + rectangle.width) * scale).round() as f32;
+    let bottom = ((rectangle.top + rectangle.height) * scale).round() as f32;
+    if let Some(bounds) = tiny_skia::Rect::from_ltrb(left, top, right, bottom) {
+        pixels.fill_rect(
+            bounds,
+            &paint(&rectangle.color, false)?,
+            Transform::identity(),
+            None,
+        );
+    }
+    Ok(())
+}
+fn paint_rule(pixels: &mut Pixmap, rule: &Rule, scale: f64) -> Result<(), RenderError> {
+    if rule.start[1] == rule.end[1] {
+        crisp_horizontal(
+            pixels,
+            rule.start[0] * scale,
+            rule.end[0] * scale,
+            rule.start[1] * scale,
+            rule.width * scale,
+            color(&rule.color)?,
+        );
+    } else {
+        let mut path = PathBuilder::new();
+        path.move_to(
+            (rule.start[0] * scale) as f32,
+            (rule.start[1] * scale) as f32,
+        );
+        path.line_to((rule.end[0] * scale) as f32, (rule.end[1] * scale) as f32);
+        if let Some(path) = path.finish() {
+            pixels.stroke_path(
+                &path,
+                &paint(&rule.color, true)?,
+                &tiny_skia::Stroke {
+                    width: (rule.width * scale).max(1.0) as f32,
+                    line_cap: tiny_skia::LineCap::Round,
+                    ..Default::default()
+                },
+                Transform::identity(),
+                None,
+            );
+        }
+    }
+    Ok(())
+}
+fn paint_marker(
+    pixels: &mut Pixmap,
+    marker: &ListMarker,
+    scale: f64,
+    fonts: &mut RasterFonts,
+    warnings: &mut BTreeSet<String>,
+) -> Result<(), RenderError> {
+    if marker.kind != ListMarkerKind::Task {
+        if let Some(line) = &marker.text {
+            paint_line(pixels, line, scale, fonts, warnings)?;
+        }
+        return Ok(());
+    }
+    let [left, top, width, height] = marker.slot;
+    let size = marker.font_size * 8.25 / 12.0;
+    let horizontal = left + ((width - size) / 2.0).max(0.0);
+    let vertical = top - 6.0 + (height - size) / 2.0 + marker.font_size * 0.25 / 12.0;
+    let stroke = (marker.font_size * 0.8 / 12.0).max(1.0 / scale);
+    for [x, y, width, height] in [
+        [horizontal, vertical, size, stroke],
+        [horizontal, vertical + size - stroke, size, stroke],
+        [horizontal, vertical, stroke, size],
+        [horizontal + size - stroke, vertical, stroke, size],
+    ] {
+        fill_rectangle(
+            pixels,
+            &HighlightRectangle {
+                x,
+                top: y,
+                width,
+                height,
+                color: "111827".into(),
+            },
+            scale,
+        )?;
+    }
+    if marker.checked {
+        for (start, end) in [
+            ([2.1 / 8.25, 4.8 / 8.25], [4.2 / 8.25, 5.4 / 8.25]),
+            ([4.2 / 8.25, 5.4 / 8.25], [6.4 / 8.25, 2.3 / 8.25]),
+        ] {
+            paint_rule(
+                pixels,
+                &Rule {
+                    start: [horizontal + size * start[0], vertical + size * start[1]],
+                    end: [horizontal + size * end[0], vertical + size * end[1]],
+                    width: marker.font_size * 0.8 / 12.0,
+                    color: "111827".into(),
+                },
+                scale,
+            )?;
+        }
+    }
+    Ok(())
 }

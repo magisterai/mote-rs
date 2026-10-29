@@ -1,7 +1,10 @@
 mod fonts;
 use super::{RenderError, color, validate_plan};
 use crate::{
-    layout::{DocumentTextPlan, TextLine},
+    layout::{
+        DocumentTextPlan, HighlightRectangle, ListMarker, ListMarkerKind, PageOperation, Rule,
+        TextLine,
+    },
     measurement::{glyphs, win_ansi},
 };
 use flate2::{Compression, write::ZlibEncoder};
@@ -25,8 +28,25 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
         page_ids.push(page_id);
         let mut content = Content::new();
         if let Some(page) = plan.pages.get(page_index) {
-            for placed in &page.lines {
-                paint_line(&mut content, &placed.line, plan.geometry.height, &fonts)?;
+            for operation in &page.operations {
+                match operation {
+                    PageOperation::Text(index) => paint_line(
+                        &mut content,
+                        &page.lines[*index].line,
+                        plan.geometry.height,
+                        &fonts,
+                        "",
+                    )?,
+                    PageOperation::Rectangle(rectangle) => {
+                        paint_rectangle(&mut content, rectangle, plan.geometry.height)?
+                    }
+                    PageOperation::Rule(rule) => {
+                        paint_rule(&mut content, rule, plan.geometry.height)?
+                    }
+                    PageOperation::ListMarker(marker) => {
+                        paint_marker(&mut content, marker, plan.geometry.height, &fonts)?
+                    }
+                }
             }
         }
         let content_bytes = compress(&content.finish())?;
@@ -59,19 +79,10 @@ fn paint_line(
     line: &TextLine,
     page_height: f64,
     fonts: &fonts::Fonts,
+    actual_text_suffix: &str,
 ) -> Result<(), RenderError> {
     for rectangle in &line.highlights {
-        let [red, green, blue] = color(&rectangle.color)?
-            .map(|channel| ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32);
-        content
-            .set_fill_rgb(red, green, blue)
-            .rect(
-                rounded(rectangle.x),
-                rounded(page_height - rectangle.top),
-                rounded(rectangle.width),
-                -rounded(rectangle.height),
-            )
-            .fill_nonzero();
+        paint_rectangle(content, rectangle, page_height)?;
     }
     let mut actual_text = String::new();
     let mut previous: Option<&crate::layout::TextFragment> = None;
@@ -86,6 +97,7 @@ fn paint_line(
         actual_text.push_str(&fragment.text);
         previous = Some(fragment);
     }
+    actual_text.push_str(actual_text_suffix);
     let preserve_actual_text = !actual_text.is_empty()
         && line
             .fragments
@@ -198,5 +210,124 @@ fn compress(bytes: &[u8]) -> Result<Vec<u8>, RenderError> {
 }
 
 fn rounded(value: f64) -> f32 {
-    ((value * 100.0).round() / 100.0) as f32
+    format!("{value:.2}")
+        .parse()
+        .expect("finite PDF coordinate")
+}
+
+fn paint_rectangle(
+    content: &mut Content,
+    rectangle: &HighlightRectangle,
+    page_height: f64,
+) -> Result<(), RenderError> {
+    let [red, green, blue] = color(&rectangle.color)?
+        .map(|channel| ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32);
+    content
+        .set_fill_rgb(red, green, blue)
+        .rect(
+            rounded(rectangle.x),
+            rounded(page_height - rectangle.top),
+            rounded(rectangle.width),
+            -rounded(rectangle.height),
+        )
+        .fill_nonzero();
+    Ok(())
+}
+fn paint_rule(content: &mut Content, rule: &Rule, page_height: f64) -> Result<(), RenderError> {
+    let [red, green, blue] = color(&rule.color)?
+        .map(|channel| ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32);
+    content
+        .set_stroke_rgb(red, green, blue)
+        .set_line_width(rounded(rule.width))
+        .move_to(rounded(rule.start[0]), rounded(page_height - rule.start[1]))
+        .line_to(rounded(rule.end[0]), rounded(page_height - rule.end[1]))
+        .stroke();
+    Ok(())
+}
+fn paint_marker(
+    content: &mut Content,
+    marker: &ListMarker,
+    page_height: f64,
+    fonts: &fonts::Fonts,
+) -> Result<(), RenderError> {
+    let [left, top, width, height] = marker.slot;
+    match marker.kind {
+        ListMarkerKind::Ordered => {
+            if let Some(line) = &marker.text {
+                paint_line(content, line, page_height, fonts, " ")?;
+            }
+        }
+        ListMarkerKind::Bullet => {
+            let radius = marker.font_size * 1.7 / 12.0;
+            let center_x = left + (radius * 2.0).min(width) / 2.0;
+            let center_y = top + height * 0.56;
+            let color_value = marker
+                .text
+                .as_ref()
+                .and_then(|line| line.fragments.first())
+                .map(|fragment| fragment.style.color.as_str())
+                .unwrap_or("111827");
+            let [red, green, blue] = color(color_value)?
+                .map(|channel| ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32);
+            content.set_fill_rgb(red, green, blue);
+            circle(content, center_x, page_height - center_y, radius);
+        }
+        ListMarkerKind::Task => {
+            let size = marker.font_size * 7.5 / 12.0;
+            let horizontal = left + ((width - size) / 2.0).max(0.0);
+            let vertical = top + (height - size) / 2.0 + marker.font_size * 0.5 / 12.0;
+            content
+                .set_stroke_rgb(0.067, 0.094, 0.153)
+                .set_line_width(rounded(marker.font_size * 0.75 / 12.0))
+                .rect(
+                    rounded(horizontal),
+                    rounded(page_height - vertical),
+                    rounded(size),
+                    -rounded(size),
+                )
+                .stroke();
+            if marker.checked {
+                for (start, end) in [
+                    ([1.4 / 7.5, 4.2 / 7.5], [3.2 / 7.5, 6.0 / 7.5]),
+                    ([3.2 / 7.5, 6.0 / 7.5], [6.5 / 7.5, 1.4 / 7.5]),
+                ] {
+                    content
+                        .move_to(
+                            rounded(horizontal + size * start[0]),
+                            rounded(page_height - vertical - size * start[1]),
+                        )
+                        .line_to(
+                            rounded(horizontal + size * end[0]),
+                            rounded(page_height - vertical - size * end[1]),
+                        )
+                        .stroke();
+                }
+            }
+        }
+    }
+    Ok(())
+}
+fn circle(content: &mut Content, horizontal: f64, vertical: f64, radius: f64) {
+    // Six cubic segments retain the established circular marker contour.
+    let step = std::f64::consts::TAU / 6.0;
+    let tangent_scale = step / 3.0;
+    let precise = |value: f64| {
+        format!("{value:.5}")
+            .parse::<f32>()
+            .expect("finite marker coordinate")
+    };
+    content.move_to(rounded(horizontal + radius), rounded(vertical));
+    for segment in 0..6 {
+        let start = segment as f64 * step;
+        let end = (segment + 1) as f64 * step;
+        content.cubic_to(
+            precise(horizontal + radius * (start.cos() - start.sin() * tangent_scale)),
+            precise(vertical + radius * (start.sin() + start.cos() * tangent_scale)),
+            precise(horizontal + radius * (end.cos() + end.sin() * tangent_scale)),
+            precise(vertical + radius * (end.sin() - end.cos() * tangent_scale)),
+            precise(horizontal + radius * end.cos()),
+            precise(vertical + radius * end.sin()),
+        );
+    }
+    content.fill_nonzero();
 }

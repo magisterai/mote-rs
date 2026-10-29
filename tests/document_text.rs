@@ -31,12 +31,8 @@ fn complete_sources_match_captured_page_text_geometry() {
 #[test]
 fn document_text_scope_rejects_unplanned_structure() {
     let assets = FileAssetResolver::from_current_directory().unwrap();
-    for source in [
-        "#list[#item[One]]",
-        "#blockquote[Quote]",
-        "#document(columns={count=2})\nText",
-        "#heading(numbering={enabled=true})[Numbered]",
-    ] {
+    {
+        let source = "#document(columns={count=2})\nText";
         let document = mote::compile(source).unwrap();
         let mut measurer = TextMeasurer::new(&document, &assets, None);
         assert!(
