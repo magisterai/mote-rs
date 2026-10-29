@@ -1,0 +1,20 @@
+{
+  "source": "../../position.mote",
+  "source_sha256": "953f3195868b06a4f20a08e739cda2c4fd12099573efd71a73f4697cfeef1216",
+  "captured_docx_sha256": "19cea5adabf818db862968b6d7fd76629137f756073df2e02fa0c31d16d1812b",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:31:19.322192+00:00",
+  "ignored_advisory_markers": {}
+}

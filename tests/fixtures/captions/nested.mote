@@ -1,0 +1,10 @@
+#document(page={width=pt(360),height=pt(360)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#figure(numbering={enabled=true})[
+ #label("outer")
+ #table[#row[#cell[#caption(numbering={enabled=true})[Caption in a cell]]]]
+ #figure(numbering={enabled=true})[#label("inner")#paragraph[Nested body]#caption[Nested caption]]
+ #caption[Outer caption]
+]
+#paragraph[#ref("inner",kind="number") then #ref("outer",kind="number").]
+#figure[#label("empty")#caption[]]
+#paragraph[An empty caption on page #ref("empty",kind="page").]

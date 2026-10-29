@@ -1,0 +1,608 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    },
+    "page": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "leading"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "attributes": {
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First body"
+                }
+              ]
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First inferred title"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "attributes": {
+            "kind": "image",
+            "numbering": {
+              "label": "Picture"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "label",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "explicit",
+                    "number": "Custom 10",
+                    "title": "Explicit title"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second body"
+                }
+              ]
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second inferred title"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "standalone"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "attributes": {
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Standalone title"
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "label",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "without"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Figure without caption"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": "leading"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "number",
+                "target": "leading"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "; "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": "explicit"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "number",
+                "target": "explicit"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "; "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "number",
+                "target": "standalone"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "; "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "fallback": "no caption",
+                "target": "without"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "leading"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "attributes": {
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First body"
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First inferred title"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "attributes": {
+        "kind": "image",
+        "numbering": {
+          "label": "Picture"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "explicit",
+                "number": "Custom 10",
+                "title": "Explicit title"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second body"
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second inferred title"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "standalone"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "caption",
+      "category": "block",
+      "attributes": {
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Standalone title"
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "without"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Figure without caption"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "target": "leading"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "number",
+            "target": "leading"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "; "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "target": "explicit"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "number",
+            "target": "explicit"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "; "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "number",
+            "target": "standalone"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "; "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "fallback": "no caption",
+            "target": "without"
+          }
+        }
+      ]
+    }
+  ]
+}

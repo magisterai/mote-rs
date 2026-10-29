@@ -22,4 +22,6 @@ mod tables;
 
 mod properties;
 
+mod captions;
+mod numbering;
 mod references;

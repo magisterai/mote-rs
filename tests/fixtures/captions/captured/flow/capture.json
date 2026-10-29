@@ -1,0 +1,22 @@
+{
+  "source": "../../flow.mote",
+  "source_sha256": "33b5397b06cc13d337bccc17ed632851b3cb29c98a00d046c282d2011d3c189c",
+  "captured_docx_sha256": "a8e61a696b67cbba6de4b3e3add8a9d622adbbe407f95230e7492cad052018b4",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:31:19.310953+00:00",
+  "ignored_advisory_markers": {
+    "word/document.xml": 1
+  }
+}

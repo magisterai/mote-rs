@@ -474,6 +474,10 @@
     {
       "example": "anchors-and-references/1",
       "model": "anchors-and-references"
+    },
+    {
+      "example": "figures-and-captions/1",
+      "model": "figures-and-captions"
     }
   ],
   "models": {
@@ -6232,6 +6236,310 @@
             {
               "kind": "text",
               "text": " remains ordinary visible text."
+            }
+          ]
+        }
+      ]
+    },
+    "figures-and-captions": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "See "
+                },
+                {
+                  "kind": "ref",
+                  "category": "inline",
+                  "attributes": {
+                    "kind": "number",
+                    "target": "results"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "figure",
+              "category": "block",
+              "attributes": {
+                "kind": "table",
+                "numbering": {
+                  "enabled": true
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "label",
+                      "category": "inline",
+                      "attributes": {
+                        "name": "results"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Region"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Revenue"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "North"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "120"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "caption",
+                  "category": "block",
+                  "attributes": {
+                    "position": "below"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Revenue by region"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "See "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "number",
+                "target": "results"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "attributes": {
+            "kind": "table",
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "label",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "results"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Region"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Revenue"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "North"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "120"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "attributes": {
+                "position": "below"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Revenue by region"
+                }
+              ]
             }
           ]
         }

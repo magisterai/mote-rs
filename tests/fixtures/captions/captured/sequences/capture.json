@@ -1,0 +1,20 @@
+{
+  "source": "../../sequences.mote",
+  "source_sha256": "8c36a1fa63fb3e15d8faedd7b220f76352366bb6622bc004392dd1b2ff2bb0d1",
+  "captured_docx_sha256": "a14cba1e5f59219f6271a1a054a873d4c9491c7c2422605b73d6686fa0cb0c40",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "captured_at_utc": "2026-10-29T14:31:19.323733+00:00",
+  "ignored_advisory_markers": {}
+}

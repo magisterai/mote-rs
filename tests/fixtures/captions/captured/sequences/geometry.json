@@ -1,0 +1,347 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 29.348,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "Plate ",
+              "x": 24
+            },
+            {
+              "advance": 17.116,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "IV: ",
+              "x": 53.348
+            },
+            {
+              "advance": 24.442,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "First ",
+              "x": 70.464
+            },
+            {
+              "advance": 50.754,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "sequence ",
+              "x": 94.906
+            },
+            {
+              "advance": 20.779,
+              "baseline": 46.91277,
+              "size": 11,
+              "text": "item",
+              "x": 145.66
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 36,
+          "width": 142.439,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 29.348,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "Plate ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "v. ",
+              "x": 53.348
+            },
+            {
+              "advance": 31.79,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "Same ",
+              "x": 65.58
+            },
+            {
+              "advance": 56.848,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "normalized ",
+              "x": 97.37
+            },
+            {
+              "advance": 47.696,
+              "baseline": 70.13830999999999,
+              "size": 11,
+              "text": "sequence",
+              "x": 154.21800000000002
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 59.225539999999995,
+          "width": 177.91400000000002,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44,
+              "baseline": 93.36384999999999,
+              "size": 11,
+              "text": "Custom ",
+              "x": 24
+            },
+            {
+              "advance": 9.174,
+              "baseline": 93.36384999999999,
+              "size": 11,
+              "text": "6 ",
+              "x": 68
+            },
+            {
+              "advance": 14.058,
+              "baseline": 93.36384999999999,
+              "size": 11,
+              "text": "— ",
+              "x": 77.174
+            },
+            {
+              "advance": 45.859,
+              "baseline": 93.36384999999999,
+              "size": 11,
+              "text": "Inherited ",
+              "x": 91.232
+            },
+            {
+              "advance": 47.696,
+              "baseline": 93.36384999999999,
+              "size": 11,
+              "text": "sequence",
+              "x": 137.091
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 82.45107999999999,
+          "width": 160.787,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 36.674,
+              "baseline": 116.58938999999998,
+              "size": 11,
+              "text": "Figure ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 116.58938999999998,
+              "size": 11,
+              "text": "7. ",
+              "x": 60.674
+            },
+            {
+              "advance": 40.964,
+              "baseline": 116.58938999999998,
+              "size": 11,
+              "text": "Caption ",
+              "x": 72.906
+            },
+            {
+              "advance": 41.58,
+              "baseline": 116.58938999999998,
+              "size": 11,
+              "text": "enables ",
+              "x": 113.87
+            },
+            {
+              "advance": 51.964,
+              "baseline": 116.58938999999998,
+              "size": 11,
+              "text": "numbering",
+              "x": 155.45
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 105.67661999999999,
+          "width": 183.414,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 36.674,
+              "baseline": 139.81492999999998,
+              "size": 11,
+              "text": "Figure ",
+              "x": 24
+            },
+            {
+              "advance": 11.616,
+              "baseline": 139.81492999999998,
+              "size": 11,
+              "text": "z. ",
+              "x": 60.674
+            },
+            {
+              "advance": 38.511,
+              "baseline": 139.81492999999998,
+              "size": 11,
+              "text": "Restart ",
+              "x": 72.28999999999999
+            },
+            {
+              "advance": 22.616,
+              "baseline": 139.81492999999998,
+              "size": 11,
+              "text": "with ",
+              "x": 110.801
+            },
+            {
+              "advance": 29.953,
+              "baseline": 139.81492999999998,
+              "size": 11,
+              "text": "letters",
+              "x": 133.417
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 128.90215999999998,
+          "width": 139.37,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 36.674,
+              "baseline": 163.04046999999997,
+              "size": 11,
+              "text": "Figure ",
+              "x": 24
+            },
+            {
+              "advance": 22,
+              "baseline": 163.04046999999997,
+              "size": 11,
+              "text": "AA. ",
+              "x": 60.674
+            },
+            {
+              "advance": 50.754,
+              "baseline": 163.04046999999997,
+              "size": 11,
+              "text": "Repeated ",
+              "x": 82.674
+            },
+            {
+              "advance": 29.953,
+              "baseline": 163.04046999999997,
+              "size": 11,
+              "text": "letters",
+              "x": 133.428
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 152.12769999999998,
+          "width": 139.381,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 40.964,
+              "baseline": 186.26600999999997,
+              "size": 11,
+              "text": "Caption ",
+              "x": 24
+            },
+            {
+              "advance": 43.406,
+              "baseline": 186.26600999999997,
+              "size": 11,
+              "text": "disables ",
+              "x": 64.964
+            },
+            {
+              "advance": 51.964,
+              "baseline": 186.26600999999997,
+              "size": 11,
+              "text": "numbering",
+              "x": 108.37
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 175.35323999999997,
+          "width": 136.334,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.127,
+              "baseline": 209.49154999999996,
+              "size": 11,
+              "text": "Plate ",
+              "x": 24
+            },
+            {
+              "advance": 10.395,
+              "baseline": 209.49154999999996,
+              "size": 11,
+              "text": "IV",
+              "x": 52.126999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 209.49154999999996,
+              "size": 11,
+              "text": " ",
+              "x": 62.522
+            },
+            {
+              "advance": 21.406,
+              "baseline": 209.49154999999996,
+              "size": 11,
+              "text": "and ",
+              "x": 65.58
+            },
+            {
+              "advance": 40.953,
+              "baseline": 209.49154999999996,
+              "size": 11,
+              "text": "Custom ",
+              "x": 86.98599999999999
+            },
+            {
+              "advance": 6.116,
+              "baseline": 209.49154999999996,
+              "size": 11,
+              "text": "6",
+              "x": 127.939
+            },
+            {
+              "advance": 3.058,
+              "baseline": 209.49154999999996,
+              "size": 11,
+              "text": ".",
+              "x": 134.055
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 198.57877999999997,
+          "width": 113.113,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

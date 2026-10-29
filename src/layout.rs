@@ -1,6 +1,7 @@
 //! Native text geometry shared by output painters.
 
 mod blocks;
+mod captions;
 mod columns;
 mod decorations;
 mod document;

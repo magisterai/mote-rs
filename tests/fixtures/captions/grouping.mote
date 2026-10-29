@@ -1,0 +1,6 @@
+#document(page={width=pt(320),height=pt(350)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#figure[#heading(level=1)[First figure heading]#caption[First caption]]
+#paragraph(fill="#e4ecfa")[A filled paragraph before a figure.]
+#figure[#paragraph(fill="#e4ecfa")[A filled paragraph inside a figure.]]
+#paragraph(fill="#e4ecfa")[A filled paragraph after a figure.]
+#figure[#heading(level=2)[Later figure heading]#caption(numbering={enabled=true})[Last caption]]

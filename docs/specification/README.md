@@ -44,6 +44,9 @@ Status: initial draft.
 16. [Anchors and references](anchors-and-references.md): named ranges, invisible labels,
     internal links, forward references and displayed page references.
 
+17. [Figures and captions](figures-and-captions.md): grouped content, captions,
+    shared numbering sequences and caption references.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

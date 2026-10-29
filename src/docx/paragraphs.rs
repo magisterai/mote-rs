@@ -9,6 +9,24 @@ pub(super) fn write(
     leading_column_break: bool,
     resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
+    let mut paragraph = opening(attributes, styles, numbering_reference, resources)?;
+    let (bookmarks, bookmark_identifiers) = super::references::start_pending(resources)?;
+    paragraph.push_str(&bookmarks);
+    if leading_column_break {
+        paragraph.push_str("<w:r><w:br w:type=\"column\"/></w:r>");
+    }
+    paragraph.push_str(&runs::write_inlines(children, styles, resources)?);
+    paragraph.push_str(&super::references::end_pending(&bookmark_identifiers));
+    paragraph.push_str("</w:p>");
+    Ok(paragraph)
+}
+
+pub(super) fn opening(
+    attributes: &Properties,
+    styles: &Styles<'_>,
+    numbering_reference: Option<(usize, u8)>,
+    resources: &mut super::resources::Resources,
+) -> Result<String, Error> {
     let mut attributes = attributes.clone();
     for field in [
         "font",
@@ -45,13 +63,5 @@ pub(super) fn write(
     if !properties.is_empty() {
         paragraph.push_str(&format!("<w:pPr>{properties}</w:pPr>"));
     }
-    let (bookmarks, bookmark_identifiers) = super::references::start_pending(resources)?;
-    paragraph.push_str(&bookmarks);
-    if leading_column_break {
-        paragraph.push_str("<w:r><w:br w:type=\"column\"/></w:r>");
-    }
-    paragraph.push_str(&runs::write_inlines(children, styles, resources)?);
-    paragraph.push_str(&super::references::end_pending(&bookmark_identifiers));
-    paragraph.push_str("</w:p>");
     Ok(paragraph)
 }

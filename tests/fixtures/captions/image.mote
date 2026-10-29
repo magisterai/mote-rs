@@ -1,0 +1,7 @@
+#document(page={width=pt(300),height=pt(260)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#figure(kind="picture",alignment="right",style="Caption",numbering={prefix="Diagram"},placement={width=pt(90),height=pt(40),x=pt(10),y=pt(5),margin={left=pt(2)},type="floating",float="top",wrap="square",anchor="paragraph",align="center",allow_overlap="true",behind_text=false,layout_in_cell=true,locked=false,relative_height=2,horizontal={relative_to="margin",alignment="center",offset=pt(3)},vertical={relative_to="paragraph",alignment="top",offset=pt(4)}})[
+ #label("image")
+ #image("assets/pattern.png",width=pt(80),height=pt(45),alt="Diagnostic pattern")
+ #caption(position="below")[Image with inherited alignment]
+]
+#paragraph[See #ref("image",kind="number") on page #ref("image",kind="page").]

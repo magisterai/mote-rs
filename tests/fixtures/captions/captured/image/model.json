@@ -1,0 +1,466 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    },
+    "page": {
+      "height": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      },
+      "width": {
+        "text": "300pt",
+        "unit": "pt",
+        "value": 300
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "260pt",
+            "unit": "pt",
+            "value": 260
+          },
+          "width": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "figure",
+          "category": "block",
+          "attributes": {
+            "alignment": "right",
+            "kind": "picture",
+            "numbering": {
+              "prefix": "Diagram"
+            },
+            "placement": {
+              "align": "center",
+              "allow_overlap": true,
+              "anchor": "paragraph",
+              "behind_text": false,
+              "float": "top",
+              "height": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "horizontal": {
+                "alignment": "center",
+                "offset": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "relative_to": "margin"
+              },
+              "layout_in_cell": true,
+              "locked": false,
+              "margin": {
+                "left": {
+                  "text": "2pt",
+                  "unit": "pt",
+                  "value": 2
+                }
+              },
+              "relative_height": 2,
+              "type": "floating",
+              "vertical": {
+                "alignment": "top",
+                "offset": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                },
+                "relative_to": "paragraph"
+              },
+              "width": {
+                "text": "90pt",
+                "unit": "pt",
+                "value": 90
+              },
+              "wrap": "square",
+              "x": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              },
+              "y": {
+                "text": "5pt",
+                "unit": "pt",
+                "value": 5
+              }
+            },
+            "style": "Caption"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "label",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "image"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "alt": "Diagnostic pattern",
+                "height": {
+                  "text": "45pt",
+                  "unit": "pt",
+                  "value": 45
+                },
+                "src": "assets/pattern.png",
+                "width": {
+                  "text": "80pt",
+                  "unit": "pt",
+                  "value": 80
+                }
+              }
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "attributes": {
+                "position": "below"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Image with inherited alignment"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "See "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "number",
+                "target": "image"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " on page "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "page",
+                "target": "image"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "figure",
+      "category": "block",
+      "attributes": {
+        "alignment": "right",
+        "kind": "picture",
+        "numbering": {
+          "prefix": "Diagram"
+        },
+        "placement": {
+          "align": "center",
+          "allow_overlap": true,
+          "anchor": "paragraph",
+          "behind_text": false,
+          "float": "top",
+          "height": {
+            "text": "40pt",
+            "unit": "pt",
+            "value": 40
+          },
+          "horizontal": {
+            "alignment": "center",
+            "offset": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "relative_to": "margin"
+          },
+          "layout_in_cell": true,
+          "locked": false,
+          "margin": {
+            "left": {
+              "text": "2pt",
+              "unit": "pt",
+              "value": 2
+            }
+          },
+          "relative_height": 2,
+          "type": "floating",
+          "vertical": {
+            "alignment": "top",
+            "offset": {
+              "text": "4pt",
+              "unit": "pt",
+              "value": 4
+            },
+            "relative_to": "paragraph"
+          },
+          "width": {
+            "text": "90pt",
+            "unit": "pt",
+            "value": 90
+          },
+          "wrap": "square",
+          "x": {
+            "text": "10pt",
+            "unit": "pt",
+            "value": 10
+          },
+          "y": {
+            "text": "5pt",
+            "unit": "pt",
+            "value": 5
+          }
+        },
+        "style": "Caption"
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "image"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "alt": "Diagnostic pattern",
+            "height": {
+              "text": "45pt",
+              "unit": "pt",
+              "value": 45
+            },
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "80pt",
+              "unit": "pt",
+              "value": 80
+            }
+          }
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "attributes": {
+            "position": "below"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Image with inherited alignment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "See "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "number",
+            "target": "image"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " on page "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "page",
+            "target": "image"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

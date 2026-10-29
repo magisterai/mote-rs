@@ -10,6 +10,7 @@ pub(crate) struct Anchor {
 #[derive(Default)]
 pub(crate) struct Catalog {
     pub anchors: BTreeMap<String, Anchor>,
+    sequences: BTreeMap<String, u64>,
 }
 pub(crate) struct Resolution<'catalog> {
     pub target: String,
@@ -23,10 +24,19 @@ impl Catalog {
         if document.sections.is_empty() {
             catalog.scan_flow(&document.content);
         } else {
+            let mut stories = std::collections::BTreeSet::new();
             for section in &document.sections {
-                catalog.scan_flow(&section.header.content);
+                if section.header.declaration_id == 0
+                    || stories.insert(section.header.declaration_id)
+                {
+                    catalog.scan_flow(&section.header.content);
+                }
                 catalog.scan_flow(&section.content);
-                catalog.scan_flow(&section.footer.content);
+                if section.footer.declaration_id == 0
+                    || stories.insert(section.footer.declaration_id)
+                {
+                    catalog.scan_flow(&section.footer.content);
+                }
             }
         }
         catalog
@@ -67,6 +77,12 @@ impl Catalog {
             if matches!(node, Content::Text(text) if text.trim().is_empty()) {
                 continue;
             }
+            if let Content::Element(element) = node
+                && element.kind == ElementKind::Figure
+            {
+                self.scan_figure(element, std::mem::take(&mut pending));
+                continue;
+            }
             for name in pending.drain(..) {
                 if let Some(anchor) = self.anchors.get_mut(&name)
                     && anchor.title.is_empty()
@@ -79,6 +95,18 @@ impl Catalog {
     }
     fn scan_node(&mut self, node: &Content) {
         if let Content::Element(element) = node {
+            if element.kind == ElementKind::Figure {
+                self.scan_figure(element, Vec::new());
+                return;
+            }
+            if element.kind == ElementKind::Caption {
+                let _ = crate::captions::Numbering::resolve(
+                    "figure",
+                    &element.attributes,
+                    &Properties::new(),
+                )
+                .advance(&mut self.sequences);
+            }
             if matches!(element.kind, ElementKind::Label | ElementKind::Bookmark) {
                 self.register(element);
             }
@@ -91,6 +119,52 @@ impl Catalog {
             } else {
                 for child in &element.children {
                     self.scan_node(child);
+                }
+            }
+        }
+    }
+    fn scan_figure(&mut self, figure: &Element, mut labels: Vec<String>) {
+        let mut association = None;
+        for child in &figure.children {
+            if let Some(declarations) = standalone_labels(child) {
+                labels.extend(declarations.iter().filter_map(|label| self.register(label)));
+                continue;
+            }
+            if let Content::Element(caption) = child
+                && caption.kind == ElementKind::Caption
+            {
+                let numbering = crate::captions::Numbering::resolve(
+                    &crate::properties::text(&figure.attributes, "kind"),
+                    &caption.attributes,
+                    &figure.attributes,
+                );
+                let number = numbering
+                    .advance(&mut self.sequences)
+                    .ok()
+                    .flatten()
+                    .map(|number| {
+                        format!("{} {}", numbering.label, number.formatted)
+                            .trim()
+                            .to_owned()
+                    })
+                    .unwrap_or_default();
+                association.get_or_insert((text(&caption.children).trim().to_owned(), number));
+                for child in &caption.children {
+                    self.scan_node(child);
+                }
+            } else {
+                self.scan_node(child);
+            }
+        }
+        if let Some((title, number)) = association {
+            for label in labels {
+                if let Some(anchor) = self.anchors.get_mut(&label) {
+                    if anchor.title.is_empty() {
+                        anchor.title = title.clone();
+                    }
+                    if anchor.number.is_empty() {
+                        anchor.number = number.clone();
+                    }
                 }
             }
         }

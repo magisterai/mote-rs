@@ -9,6 +9,7 @@ pub(super) struct DocumentState {
     pub numbering: Numbering,
     pub controls: Controls,
     pub table_cell_depth: usize,
+    pub figure_depth: usize,
     pub resources: super::resources::Resources,
 }
 
@@ -31,7 +32,7 @@ pub(super) fn write_blocks(
     state: &mut DocumentState,
 ) -> Result<String, Error> {
     let mut body = String::new();
-    let mut at_flow_start = state.table_cell_depth == 0;
+    let mut at_flow_start = state.table_cell_depth == 0 && state.figure_depth == 0;
     let mut previous_table = false;
     let mut pending_column_break = false;
     for content in content {
@@ -94,6 +95,22 @@ pub(super) fn write_blocks(
         }
         let mut numbering_reference = None;
         let attributes = match element.kind {
+            ElementKind::Figure => {
+                body.push_str(&super::captions::write_figure(element, styles, state)?);
+                at_flow_start = false;
+                continue;
+            }
+            ElementKind::Caption => {
+                body.push_str(&super::captions::write_caption(
+                    element,
+                    "figure",
+                    &Default::default(),
+                    styles,
+                    state,
+                )?);
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Table => {
                 body.push_str(&super::tables::write(element, styles, state)?);
                 at_flow_start = false;

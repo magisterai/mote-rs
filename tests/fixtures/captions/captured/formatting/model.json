@@ -1,0 +1,381 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    },
+    "page": {
+      "height": {
+        "text": "280pt",
+        "unit": "pt",
+        "value": 280
+      },
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "280pt",
+        "unit": "pt",
+        "value": 280
+      },
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    }
+  },
+  "columns": {},
+  "styles": [
+    {
+      "name": "MyCaption",
+      "type": "paragraph",
+      "based_on": "Caption",
+      "properties": {
+        "based_on": "Caption",
+        "color": "#315577",
+        "size": {
+          "text": "10pt",
+          "unit": "pt",
+          "value": 10
+        },
+        "spacing": {
+          "after": {
+            "text": "4pt",
+            "unit": "pt",
+            "value": 4
+          },
+          "before": {
+            "text": "3pt",
+            "unit": "pt",
+            "value": 3
+          }
+        },
+        "type": "paragraph"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "280pt",
+            "unit": "pt",
+            "value": 280
+          },
+          "width": {
+            "text": "320pt",
+            "unit": "pt",
+            "value": 320
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "figure",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Centered body"
+                }
+              ]
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "attributes": {
+                "alignment": "right",
+                "style": "MyCaption"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "bold": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "color": "#a02b10"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "colored"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " caption."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "numbering": {
+              "custom": "retained",
+              "enabled": true,
+              "label": "99",
+              "restart": true,
+              "separator": ": ",
+              "start": 3
+            },
+            "position": "below"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Normalized caption"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "figure",
+      "category": "block",
+      "attributes": {
+        "alignment": "center",
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Centered body"
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "attributes": {
+            "alignment": "right",
+            "style": "MyCaption"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "bold": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "bold"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#a02b10"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "colored"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " caption."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "caption",
+      "category": "block",
+      "attributes": {
+        "alignment": "center",
+        "numbering": {
+          "custom": "retained",
+          "enabled": true,
+          "label": "99",
+          "restart": true,
+          "separator": ": ",
+          "start": 3
+        },
+        "position": "below"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Normalized caption"
+        }
+      ]
+    }
+  ]
+}

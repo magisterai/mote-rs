@@ -140,6 +140,11 @@ fn validate_named_argument(
         Some(ArgumentType::Object)
     } else {
         match kind {
+            Figure | Caption => match name {
+                "kind" | "style" | "alignment" | "position" => Some(ArgumentType::String),
+                "numbering" | "placement" => Some(ArgumentType::Object),
+                _ => None,
+            },
             Bookmark | Label => match name {
                 "name" | "kind" | "title" => Some(ArgumentType::String),
                 "number" if kind == Label => Some(ArgumentType::NumberOrString),
@@ -272,6 +277,13 @@ pub(super) fn normalize_attribute(
 ) -> Result<Value, Diagnostic> {
     use ElementKind::*;
     match kind {
+        Figure | Caption => match name {
+            "alignment" => normalize_enum(value, span, name, ALIGNMENTS),
+            "position" if kind == Caption => normalize_enum(value, span, name, &["above", "below"]),
+            "numbering" => normalize_numbering(value, span),
+            "placement" if kind == Figure => super::images::normalize(name, value, span),
+            _ => Ok(value),
+        },
         Reference if name == "kind" => {
             normalize_enum(value, span, name, &["title", "number", "page", "text"])
         }

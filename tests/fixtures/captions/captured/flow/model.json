@@ -1,0 +1,586 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    },
+    "page": {
+      "height": {
+        "text": "200pt",
+        "unit": "pt",
+        "value": 200
+      },
+      "width": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "200pt",
+        "unit": "pt",
+        "value": 200
+      },
+      "width": {
+        "text": "260pt",
+        "unit": "pt",
+        "value": 260
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "200pt",
+            "unit": "pt",
+            "value": 200
+          },
+          "width": {
+            "text": "260pt",
+            "unit": "pt",
+            "value": 260
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "The opening paragraphs provide natural flow before a labeled figure whose caption wraps over several lines."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Content continues without authored page breaks or artificial row heights."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "label",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "long"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Item"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Value"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "First"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "10"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Second"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "20"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "An extended caption that wraps naturally while keeping its label and reference on the same logical target."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "See "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "number",
+                "target": "long"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " on page "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "kind": "page",
+                "target": "long"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "The opening paragraphs provide natural flow before a labeled figure whose caption wraps over several lines."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Content continues without authored page breaks or artificial row heights."
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "attributes": {
+        "alignment": "center",
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "long"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "category": "block",
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Item"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Value"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "First"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "10"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Second"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "20"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "An extended caption that wraps naturally while keeping its label and reference on the same logical target."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "See "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "number",
+            "target": "long"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " on page "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "kind": "page",
+            "target": "long"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

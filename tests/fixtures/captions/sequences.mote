@@ -1,0 +1,9 @@
+#document(page={width=pt(360),height=pt(360)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#figure(numbering={id="shared-1",label="Plate",start=4,format="upper_roman",separator=": "})[#label("first")#caption[First sequence item]]
+#caption(numbering={id="shared_1",prefix="Plate",format="lower_roman"})[Same normalized sequence]
+#figure(numbering={id="shared-1",start=20,format="decimal"})[#label("second")#caption(numbering={label="Custom",separator=" — "})[Inherited sequence]]
+#figure(numbering={id="shared-1",enabled=false})[#caption(numbering={separator=". "})[Caption enables numbering]]
+#caption(numbering={id="shared-1",restart=true,start=26,format="lower_alpha"})[Restart with letters]
+#caption(numbering={id="shared-1",format="upper_alpha"})[Repeated letters]
+#figure(numbering={enabled=true})[#caption(numbering={enabled=false})[Caption disables numbering]]
+#paragraph[#ref("first",kind="number") and #ref("second",kind="number").]

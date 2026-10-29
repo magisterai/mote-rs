@@ -1,0 +1,262 @@
+{
+  "pages": [
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 24.442,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "First ",
+              "x": 24
+            },
+            {
+              "advance": 23.848,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "body",
+              "x": 48.442
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 48,
+          "width": 48.29,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 36.674,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "Figure ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "1. ",
+              "x": 60.674
+            },
+            {
+              "advance": 24.442,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "First ",
+              "x": 72.906
+            },
+            {
+              "advance": 26.906,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "body ",
+              "x": 97.348
+            },
+            {
+              "advance": 35.464,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "caption",
+              "x": 124.25399999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 71.22554,
+          "width": 135.718,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 53.801,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": "Reference ",
+              "x": 24
+            },
+            {
+              "advance": 34.232,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": "Figure ",
+              "x": 77.801
+            },
+            {
+              "advance": 6.116,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": "2",
+              "x": 112.033
+            },
+            {
+              "advance": 3.058,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": ".",
+              "x": 118.149
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 94.45107999999999,
+          "width": 97.207,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.022,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Running ",
+              "x": 24
+            },
+            {
+              "advance": 35.464,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "caption",
+              "x": 68.02199999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 79.48599999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    },
+    {
+      "images": [],
+      "lines": [
+        {
+          "fragments": [
+            {
+              "advance": 40.359,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "Second ",
+              "x": 24
+            },
+            {
+              "advance": 23.848,
+              "baseline": 58.91277,
+              "size": 11,
+              "text": "body",
+              "x": 64.35900000000001
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 48,
+          "width": 64.207,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 36.674,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "Figure ",
+              "x": 24
+            },
+            {
+              "advance": 12.232,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "2. ",
+              "x": 60.674
+            },
+            {
+              "advance": 40.359,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "Second ",
+              "x": 72.906
+            },
+            {
+              "advance": 26.906,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "body ",
+              "x": 113.265
+            },
+            {
+              "advance": 35.464,
+              "baseline": 82.13830999999999,
+              "size": 11,
+              "text": "caption",
+              "x": 140.171
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 71.22554,
+          "width": 151.635,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 53.801,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": "Reference ",
+              "x": 24
+            },
+            {
+              "advance": 34.232,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": "Figure ",
+              "x": 77.801
+            },
+            {
+              "advance": 6.116,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": "3",
+              "x": 112.033
+            },
+            {
+              "advance": 3.058,
+              "baseline": 105.36384999999999,
+              "size": 11,
+              "text": ".",
+              "x": 118.149
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 94.45107999999999,
+          "width": 97.207,
+          "x": 24
+        },
+        {
+          "fragments": [
+            {
+              "advance": 44.022,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "Running ",
+              "x": 24
+            },
+            {
+              "advance": 35.464,
+              "baseline": 22.912770000000002,
+              "size": 11,
+              "text": "caption",
+              "x": 68.02199999999999
+            }
+          ],
+          "height": 15.225539999999999,
+          "top": 12,
+          "width": 79.48599999999999,
+          "x": 24
+        }
+      ],
+      "rules": []
+    }
+  ]
+}

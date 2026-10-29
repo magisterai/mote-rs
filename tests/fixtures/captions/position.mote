@@ -1,0 +1,12 @@
+#document(page={width=pt(300),height=pt(260)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#figure(alignment="center",numbering={enabled=true})[
+ #label("above")
+ #paragraph[Body before authored caption.]
+ #caption(position="above")[Displayed above in native layout]
+]
+#figure(placement={align="right"},numbering={enabled=true})[
+ #label("below")
+ #caption(position="below")[Displayed below in native layout]
+ #paragraph[Body after authored caption.]
+]
+#paragraph[See #ref("above",kind="number") and #ref("below",kind="number").]

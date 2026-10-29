@@ -5,6 +5,7 @@ use crate::model::{Content, Document, Element, ElementKind, Properties, Value};
 use crate::syntax::{Call, Node, NodeKind, SyntaxTree};
 
 mod attributes;
+mod captions;
 mod configuration;
 mod declarations;
 mod expressions;
@@ -367,6 +368,9 @@ fn evaluate_call(
     }
     if matches!(call.name.as_str(), "bookmark" | "label" | "ref") {
         return references::evaluate(call, span, context, document);
+    }
+    if matches!(call.name.as_str(), "figure" | "caption") {
+        return captions::evaluate(call, span, context, document);
     }
     if call.name == "image" {
         return images::evaluate(call, span);

@@ -1,0 +1,384 @@
+{
+  "document": {
+    "margin": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    },
+    "page": {
+      "height": {
+        "text": "350pt",
+        "unit": "pt",
+        "value": 350
+      },
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      }
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "350pt",
+        "unit": "pt",
+        "value": 350
+      },
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "350pt",
+            "unit": "pt",
+            "value": 350
+          },
+          "width": {
+            "text": "320pt",
+            "unit": "pt",
+            "value": 320
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "figure",
+          "category": "block",
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First figure heading"
+                }
+              ]
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First caption"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "fill": "#e4ecfa"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A filled paragraph before a figure."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "fill": "#e4ecfa"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A filled paragraph inside a figure."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "fill": "#e4ecfa"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A filled paragraph after a figure."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 2
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Later figure heading"
+                }
+              ]
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "attributes": {
+                "numbering": {
+                  "enabled": true
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Last caption"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "figure",
+      "category": "block",
+      "children": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "First figure heading"
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First caption"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "fill": "#e4ecfa"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "A filled paragraph before a figure."
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "fill": "#e4ecfa"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A filled paragraph inside a figure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "fill": "#e4ecfa"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "A filled paragraph after a figure."
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "children": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Later figure heading"
+            }
+          ]
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "attributes": {
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Last caption"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

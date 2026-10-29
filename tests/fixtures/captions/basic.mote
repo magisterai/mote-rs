@@ -1,0 +1,9 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#paragraph[See #ref("results",kind="number") and #ref("results",kind="title") on page #ref("results",kind="page").]
+#figure(kind="table",numbering={enabled=true})[
+ #label("results")
+ #table[#row[#cell[Region]#cell[Revenue]]#row[#cell[North]#cell[120]]]
+ #caption(position="below")[Revenue by region]
+]
+#caption[An unnumbered standalone caption.]
+#caption(numbering={enabled=true})[An independent numbered caption.]

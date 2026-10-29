@@ -201,6 +201,13 @@ pub(super) fn place_blocks(
             }
             Block::Paragraph(prepared) => {
                 let paragraph = &prepared.text;
+                if paragraph.lines.is_empty() {
+                    pages[cursor.page_number - 1].place_anchors(
+                        &prepared.anchors,
+                        [geometry.column_left(cursor.column_index), cursor.y],
+                    );
+                    continue;
+                }
                 if prepared.clear_fill_before {
                     painting.clear_fill();
                 }

@@ -1,0 +1,9 @@
+#document(page={width=pt(260),height=pt(200)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#paragraph[The opening paragraphs provide natural flow before a labeled figure whose caption wraps over several lines.]
+#paragraph[Content continues without authored page breaks or artificial row heights.]
+#figure(numbering={enabled=true},alignment="center")[
+ #label("long")
+ #table[#row[#cell[Item]#cell[Value]]#row[#cell[First]#cell[10]]#row[#cell[Second]#cell[20]]]
+ #caption[An extended caption that wraps naturally while keeping its label and reference on the same logical target.]
+]
+#paragraph[See #ref("long",kind="number") on page #ref("long",kind="page").]

@@ -159,6 +159,7 @@ pub(super) fn evaluate_story(
     state.set_story(
         call.name == "header",
         HeaderFooter {
+            declaration_id: span.start + 1,
             properties,
             content,
         },

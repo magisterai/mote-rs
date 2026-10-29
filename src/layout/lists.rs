@@ -160,7 +160,9 @@ impl ListCursor {
                 .ok_or(LayoutError::InvalidGeometry("list counter overflow"))?,
         );
         instance.retain(|candidate, _| *candidate <= level);
-        Ok(super::numbering::format_counter(number, &self.key.format)? + ".")
+        Ok(crate::numbering::format_counter(number, &self.key.format)
+            .map_err(super::LayoutError::InvalidGeometry)?
+            + ".")
     }
 }
 fn source_marker_start(marker: &str) -> Option<u64> {

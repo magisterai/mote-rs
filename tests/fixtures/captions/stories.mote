@@ -1,0 +1,10 @@
+#document(page={width=pt(300),height=pt(240)},margin={top=pt(48),bottom=pt(40),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[#caption(numbering={enabled=true})[Running caption]]
+#section[
+ #figure(numbering={enabled=true})[#label("first")#paragraph[First body]#caption[First body caption]]
+ #paragraph[Reference #ref("first",kind="number").]
+]
+#section[
+ #figure(numbering={enabled=true})[#label("second")#paragraph[Second body]#caption[Second body caption]]
+ #paragraph[Reference #ref("second",kind="number").]
+]

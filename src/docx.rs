@@ -2,6 +2,7 @@
 
 mod block_quotes;
 mod builtin_styles;
+mod captions;
 mod configuration;
 mod controls;
 mod document;

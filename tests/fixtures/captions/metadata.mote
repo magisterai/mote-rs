@@ -1,0 +1,8 @@
+#document(page={width=pt(360),height=pt(300)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#label("leading")
+#figure(numbering={enabled=true})[#paragraph[First body]#caption[First inferred title]]
+#figure(kind="image",numbering={label="Picture"})[#label("explicit",title="Explicit title",number="Custom 10")#paragraph[Second body]#caption[Second inferred title]]
+#label("standalone")
+#caption(numbering={enabled=true})[Standalone title]
+#figure[#label("without")#paragraph[Figure without caption]]
+#paragraph[#ref("leading") #ref("leading",kind="number"); #ref("explicit") #ref("explicit",kind="number"); #ref("standalone",kind="number"); #ref("without",fallback="no caption")]

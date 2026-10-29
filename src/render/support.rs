@@ -268,6 +268,29 @@ fn content(
             ]),
             ElementKind::Link => allowed.push("url"),
             ElementKind::Break => allowed.push("type"),
+            ElementKind::Figure | ElementKind::Caption => {
+                allowed.extend(["kind", "position", "alignment", "numbering"]);
+                if element.kind == ElementKind::Caption {
+                    allowed.push("style");
+                }
+                if let Some(Value::Object(numbering)) = element.attributes.get("numbering") {
+                    unknown(
+                        numbering,
+                        &[
+                            "enabled",
+                            "restart",
+                            "start",
+                            "id",
+                            "label",
+                            "prefix",
+                            "format",
+                            "separator",
+                        ],
+                        "numbering",
+                        warnings,
+                    );
+                }
+            }
             ElementKind::Bookmark | ElementKind::Label => {
                 allowed.extend(["name", "kind", "title", "number"])
             }
@@ -361,6 +384,12 @@ fn content(
                     warnings.insert(format!("{path}.{property} does not paint a native paragraph band inside a cell; inline highlighting remains visible"));
                 }
             }
+        }
+        if element.kind == ElementKind::Caption
+            && attributes.contains_key("numbering")
+            && (in_cell || flattened)
+        {
+            warnings.insert(format!("{path}.numbering is omitted from native cell or flattened story text; reference numbering can differ from visible caption numbers"));
         }
         let cell_context = in_cell || element.kind == ElementKind::Cell;
         let flattened = flattened

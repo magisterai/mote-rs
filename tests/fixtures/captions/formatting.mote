@@ -1,0 +1,7 @@
+#document(page={width=pt(320),height=pt(280)},margin={top=pt(24),bottom=pt(24),left=pt(24),right=pt(24)})
+#style(name="MyCaption",type="paragraph",based_on="Caption",spacing={before=pt(3),after=pt(4)},color="#315577",size=pt(10))
+#figure(alignment="center",numbering={enabled=true})[
+ #paragraph[Centered body]
+ #caption(style="MyCaption",alignment="right")[A #span(bold=true)[bold] and #span(color="#a02b10")[colored] caption.]
+]
+#caption(properties={numbering={enabled="true",restart="true",start="3",label=99,separator=": ",custom="retained"},alignment="center",position="below"})[Normalized caption]

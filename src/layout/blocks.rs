@@ -47,6 +47,7 @@ impl PreparedParagraph {
 pub(super) struct BlockNumbers {
     pub headings: HeadingNumbers,
     pub lists: ListNumbers,
+    pub captions: std::collections::BTreeMap<String, u64>,
 }
 pub(super) fn prepare_content(
     content: &[Content],
@@ -57,6 +58,7 @@ pub(super) fn prepare_content(
     numbers: &mut BlockNumbers,
     in_cell: bool,
 ) -> Result<Vec<Block>, LayoutError> {
+    let content = super::captions::expand(content);
     let mut builder = BlockBuilder {
         width,
         styles,
@@ -67,7 +69,7 @@ pub(super) fn prepare_content(
         flow_start: !in_cell,
         pending_anchors: Vec::new(),
     };
-    for content in content {
+    for content in &content {
         if let Some(labels) = crate::references::standalone_labels(content) {
             builder.pending_anchors.extend(
                 labels
@@ -86,10 +88,14 @@ pub(super) fn prepare_content(
                 "document planning requires evaluated block content".into(),
             ));
         };
+        if values::boolean(&element.attributes, super::captions::BEFORE) {
+            builder.flow_start = false;
+        }
         match element.kind {
-            ElementKind::Paragraph | ElementKind::Heading | ElementKind::Blockquote => {
-                builder.paragraph(element)?
-            }
+            ElementKind::Paragraph
+            | ElementKind::Heading
+            | ElementKind::Blockquote
+            | ElementKind::Caption => builder.paragraph(element)?,
             ElementKind::List | ElementKind::OrderedList => {
                 builder.pending_anchors.clear();
                 builder.list(element, 0, true)?;
@@ -163,6 +169,41 @@ impl BlockBuilder<'_, '_, '_> {
         }
         let style = self.styles.paragraph(&element);
         let mut runs = resolve_inline(&element.children, &style.text, self.styles);
+        if element.kind == ElementKind::Caption && !self.in_cell {
+            let parent = match element.attributes.get(super::captions::PARENT) {
+                Some(Value::Object(parent)) => parent.clone(),
+                _ => Properties::new(),
+            };
+            let numbering = crate::captions::Numbering::resolve(
+                &values::text(&element.attributes, super::captions::KIND),
+                &element.attributes,
+                &parent,
+            );
+            if let Some(number) = numbering
+                .advance(&mut self.numbers.captions)
+                .map_err(LayoutError::InvalidGeometry)?
+            {
+                let mut prefix_style = style.text.clone();
+                prefix_style.measurement.variant = crate::measurement::FontVariant::from_emphasis(
+                    true,
+                    matches!(
+                        prefix_style.measurement.variant,
+                        crate::measurement::FontVariant::Italic
+                            | crate::measurement::FontVariant::BoldItalic
+                    ),
+                );
+                runs.insert(
+                    0,
+                    TextRun::new(
+                        format!(
+                            "{} {}{}",
+                            numbering.label, number.formatted, numbering.separator
+                        ),
+                        prefix_style,
+                    ),
+                );
+            }
+        }
         if element.kind == ElementKind::Heading
             && let Some(marker) = self.numbers.headings.next(&element)?
         {
@@ -187,6 +228,11 @@ impl BlockBuilder<'_, '_, '_> {
             self.measurer,
             true,
         )?;
+        if element.kind == ElementKind::Caption && runs.is_empty() {
+            paragraph.lines.clear();
+            paragraph.style.spacing_before = 0.0;
+            paragraph.style.spacing_after = 0.0;
+        }
         if paragraph.is_empty {
             if paragraph.style.line_height <= 0.0 {
                 return Err(LayoutError::InvalidGeometry(
@@ -208,8 +254,8 @@ impl BlockBuilder<'_, '_, '_> {
                 },
                 text: paragraph,
                 marker: None,
-                clear_fill_before: false,
-                clear_fill_after: false,
+                clear_fill_before: values::boolean(&element.attributes, super::captions::BEFORE),
+                clear_fill_after: values::boolean(&element.attributes, super::captions::AFTER),
             })));
         self.flow_start = false;
         Ok(())

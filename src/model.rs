@@ -110,6 +110,8 @@ pub struct Section {
 }
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct HeaderFooter {
+    /// Identity of an authored story declaration, retained through inheritance.
+    pub declaration_id: usize,
     pub properties: Properties,
     pub content: Vec<Content>,
 }
@@ -182,6 +184,8 @@ pub enum ElementKind {
     Bookmark,
     Label,
     Reference,
+    Figure,
+    Caption,
     LineBreak,
     Tab,
     Break,
@@ -208,6 +212,8 @@ impl ElementKind {
             Self::Bookmark => "bookmark",
             Self::Label => "label",
             Self::Reference => "ref",
+            Self::Figure => "figure",
+            Self::Caption => "caption",
             Self::PageNumber => "page_number",
             Self::LineBreak => "line_break",
             Self::Tab => "tab",
