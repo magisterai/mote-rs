@@ -195,6 +195,10 @@ impl Parser<'_> {
                         nodes.push(self.parse_control(&name, start)?);
                         continue;
                     }
+                    if name == "function" {
+                        nodes.push(self.parse_function(start)?);
+                        continue;
+                    }
                     let has_arguments = self.peek_character() == Some('(');
                     let arguments = if has_arguments {
                         self.parse_arguments(ArgumentListKind::Call)?

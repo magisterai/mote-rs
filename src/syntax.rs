@@ -67,6 +67,11 @@ pub enum NodeKind {
         iterable: Expression,
         body: Vec<Node>,
     },
+    FunctionDefinition {
+        name: String,
+        parameters: Vec<String>,
+        body: String,
+    },
 }
 
 #[derive(Debug, Clone, PartialEq)]

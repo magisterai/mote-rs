@@ -1,0 +1,10 @@
+#function first(value) return "first:" .. upper(value) end
+#let(saved = (function() retained = first; return true end)())
+#function first(value) return "second:" .. upper(value) end
+#let(result = retained("old"))
+#result
+
+#first("new")
+
+#let(first = "value")
+#first / #first("function")

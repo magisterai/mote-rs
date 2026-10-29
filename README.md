@@ -20,9 +20,9 @@ the documented language subset. It supports text and lists, links and images,
 tables, styles and fonts, sections and columns, headers and footers, page fields,
 bookmarks, cross-references, figures, captions, footnotes, and endnotes. Native
 output uses shared layout checked against captured geometry and rendered output.
-Typed bindings, JSON data, conditions, iteration, and opt-in Lua expressions feed
-the existing document directives. Broader Office content, PowerPoint output, and
-custom document functions remain planned.
+Typed bindings, JSON data, conditions, iteration, opt-in Lua expressions, and reusable
+functions feed the existing document directives. Broader Office content and
+PowerPoint output remain planned.
 
 Directives use `#name(arguments)[content]` for structure and formatting:
 

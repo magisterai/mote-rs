@@ -532,6 +532,21 @@
       "example": "lua-expressions/1",
       "model": "lua-expressions-1",
       "lua": true
+    },
+    {
+      "example": "functions/1",
+      "model": "functions-1",
+      "lua": true
+    },
+    {
+      "example": "functions/2",
+      "model": "functions-2",
+      "lua": true
+    },
+    {
+      "example": "functions/3",
+      "model": "functions-3",
+      "lua": true
     }
   ],
   "models": {
@@ -7478,6 +7493,182 @@
             {
               "kind": "text",
               "text": "Review required."
+            }
+          ]
+        }
+      ]
+    },
+    "functions-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Hello Ada!"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Hello Lin."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Hello Ada!"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Hello Lin."
+            }
+          ]
+        }
+      ]
+    },
+    "functions-2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Start: "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Important"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " text."
+                },
+                {
+                  "kind": "text",
+                  "text": " / complete"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Start: "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Important"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " text."
+            },
+            {
+              "kind": "text",
+              "text": " / complete"
+            }
+          ]
+        }
+      ]
+    },
+    "functions-3": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Draft: Report"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Draft: Report"
             }
           ]
         }

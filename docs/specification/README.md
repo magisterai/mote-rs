@@ -61,13 +61,16 @@ Status: initial draft.
 22. [Lua expressions](lua-expressions.md): opt-in expression evaluation, typed
     conversions, indexing, available helpers and the shared execution budget.
 
+23. [Functions](functions.md): lexical definitions, arguments, content bodies,
+    return conversions and current scope limits.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
 the rule they violate. Implementation deferrals do not replace definitions.
 
 Later chapters will introduce additional data helpers, formatting,
-functions, and layout. Their syntax is not used in the
+constructors, and layout. Their syntax is not used in the
 introductory examples.
 
 The [directive checklists](../checklists/README.md) record planned attributes and

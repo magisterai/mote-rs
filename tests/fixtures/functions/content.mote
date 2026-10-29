@@ -1,0 +1,10 @@
+#function surround(prefix, body)
+return {prefix, body, " / complete"}
+end
+#surround("Start: ")[**Strong**, #span(color = "#28734f")[green], and `code`.]
+
+#surround("Blocks: ")[
+#heading(2)[A heading]
+#paragraph[Text.]
+#list[#item[First]#item[Second]]
+]

@@ -1,0 +1,18 @@
+#let(label = "first")
+#function previous(value)
+return label .. value
+end
+#let(label = "second")
+#function current(value)
+local before = label
+local inner = previous(value)
+return before .. "/" .. inner .. "/" .. label
+end
+#current("!")
+
+#paragraph[
+#let(label = "inner")
+#function local_label() return label end
+#local_label()
+]
+#previous("?")

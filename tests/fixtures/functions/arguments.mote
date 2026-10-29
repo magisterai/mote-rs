@@ -1,0 +1,10 @@
+#function greeting(name, suffix)
+if suffix == nil then suffix = "!" end
+return "Hello " .. name .. suffix
+end
+#greeting("Ada")
+
+#greeting(suffix = ".", name = "Lin")
+
+#let(message = greeting("Sam", "?"))
+#message

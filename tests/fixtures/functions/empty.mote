@@ -1,0 +1,9 @@
+#function identity(body)
+return body
+end
+Before #identity[] after.
+
+#identity()
+
+#function empty_array() return {} end
+#empty_array()

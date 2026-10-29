@@ -168,6 +168,13 @@ fn value_as_json(value: &Value) -> Result<JsonValue, serde_json::Error> {
         Value::Number(number) => number_as_json(*number)?,
         Value::Boolean(boolean) => JsonValue::Bool(*boolean),
         Value::Nil => JsonValue::Null,
+        Value::Content(content) => JsonValue::Array(
+            content
+                .iter()
+                .map(content_as_json)
+                .collect::<Result<_, _>>()?,
+        ),
+        Value::Element(element) => content_as_json(&Content::Element((**element).clone()))?,
         Value::Object(properties) => properties_as_json(properties)?,
         Value::Array(values) => {
             JsonValue::Array(values.iter().map(value_as_json).collect::<Result<_, _>>()?)

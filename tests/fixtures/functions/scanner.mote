@@ -1,0 +1,14 @@
+#function nested(value)
+-- function end ignored
+local marker = [=[end function]=]
+local build = function(number)
+local total = 0
+for index = 1, number do
+if index > 0 then total = total + index end
+end
+repeat total = total + 1 until total > 6
+return total
+end
+return marker .. ":" .. build(value)
+end
+#nested(3)

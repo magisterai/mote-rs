@@ -14,6 +14,8 @@ pub enum Value {
     Array(Vec<Value>),
     Color(String),
     Length { value: f64, unit: Unit },
+    Content(Vec<Content>),
+    Element(Box<Element>),
 }
 
 impl Value {
@@ -24,6 +26,8 @@ impl Value {
             Self::Number(number) => number.to_string(),
             Self::Boolean(boolean) => boolean.to_string(),
             Self::Nil => String::new(),
+            Self::Content(content) => content.iter().map(Content::to_text).collect(),
+            Self::Element(element) => element.children.iter().map(Content::to_text).collect(),
             Self::Length { value, unit } => format!("{value}{}", unit.as_text()),
             Self::Array(values) => values
                 .iter()
@@ -167,6 +171,15 @@ pub struct Element {
     pub children: Vec<Content>,
 }
 
+impl Content {
+    pub fn to_text(&self) -> String {
+        match self {
+            Self::Text(text) => text.clone(),
+            Self::Element(element) => element.children.iter().map(Self::to_text).collect(),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ElementKind {
     Paragraph,
@@ -198,6 +211,39 @@ pub enum ElementKind {
 }
 
 impl ElementKind {
+    pub(crate) fn from_name(name: &str) -> Option<Self> {
+        [
+            Self::Paragraph,
+            Self::Heading,
+            Self::Span,
+            Self::Link,
+            Self::Image,
+            Self::Table,
+            Self::Row,
+            Self::Cell,
+            Self::Strong,
+            Self::Emphasis,
+            Self::Code,
+            Self::Footnote,
+            Self::Endnote,
+            Self::PageNumber,
+            Self::Bookmark,
+            Self::Label,
+            Self::Reference,
+            Self::Figure,
+            Self::Caption,
+            Self::LineBreak,
+            Self::Tab,
+            Self::Break,
+            Self::List,
+            Self::OrderedList,
+            Self::ListItem,
+            Self::Blockquote,
+        ]
+        .into_iter()
+        .find(|kind| kind.as_text() == name)
+    }
+
     pub fn as_text(self) -> &'static str {
         match self {
             Self::Paragraph => "paragraph",

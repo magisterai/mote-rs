@@ -1,0 +1,14 @@
+#function typed(kind)
+if kind == "length" then return pt(12) end
+if kind == "color" then return color("#28734f") end
+if kind == "map" then return { label = "data" } end
+if kind == "array" then return {"one", {"two", 3}, false} end
+return nil
+end
+#typed("length") / #typed("color") / #typed("map") / #typed("array")
+
+#typed("missing")
+Visible.
+
+#function first_result() return "first", "second" end
+#first_result()

@@ -6,13 +6,19 @@ use crate::{
     syntax::Call,
 };
 
+#[derive(Clone, Default)]
+struct Scope {
+    values: Properties,
+    functions: std::collections::BTreeMap<String, std::rc::Rc<super::functions::DocumentFunction>>,
+}
+#[derive(Clone)]
 pub(super) struct Bindings {
-    scopes: Vec<Properties>,
+    scopes: Vec<Scope>,
 }
 impl Default for Bindings {
     fn default() -> Self {
         Self {
-            scopes: vec![Properties::new()],
+            scopes: vec![Scope::default()],
         }
     }
 }
@@ -20,7 +26,7 @@ impl Bindings {
     pub fn visible_values(&self) -> Properties {
         let mut values = Properties::new();
         for scope in &self.scopes {
-            values.extend(scope.clone());
+            values.extend(scope.values.clone());
         }
         values
     }
@@ -33,23 +39,57 @@ impl Bindings {
             return None;
         }
         let root = path.split('.').next()?;
-        self.scopes.iter().rev().find_map(|scope| scope.get(root))?;
+        self.scopes
+            .iter()
+            .rev()
+            .find_map(|scope| scope.values.get(root))?;
         self.resolve(path, Span { start: 0, end: 0 }).ok()
     }
     pub fn enter(&mut self) {
-        self.scopes.push(Properties::new());
+        self.scopes.push(Scope::default());
     }
     pub fn leave(&mut self) {
         assert!(self.scopes.len() > 1);
         self.scopes.pop();
     }
     pub fn set(&mut self, name: String, value: Value) {
-        self.scopes.last_mut().unwrap().insert(name, value);
+        self.scopes.last_mut().unwrap().values.insert(name, value);
+    }
+    pub fn set_function(
+        &mut self,
+        name: String,
+        function: std::rc::Rc<super::functions::DocumentFunction>,
+    ) {
+        self.scopes
+            .last_mut()
+            .unwrap()
+            .functions
+            .insert(name, function);
+    }
+    pub fn function(&self, name: &str) -> Option<std::rc::Rc<super::functions::DocumentFunction>> {
+        self.scopes
+            .iter()
+            .rev()
+            .find_map(|scope| scope.functions.get(name))
+            .cloned()
+    }
+    pub fn visible_functions(
+        &self,
+    ) -> std::collections::BTreeMap<String, std::rc::Rc<super::functions::DocumentFunction>> {
+        self.scopes
+            .iter()
+            .flat_map(|scope| scope.functions.clone())
+            .collect()
     }
     pub fn resolve(&self, path: &str, span: Span) -> Result<Value, Diagnostic> {
         let mut components = path.split('.');
         let root = components.next().unwrap_or_default();
-        let Some(mut value) = self.scopes.iter().rev().find_map(|scope| scope.get(root)) else {
+        let Some(mut value) = self
+            .scopes
+            .iter()
+            .rev()
+            .find_map(|scope| scope.values.get(root))
+        else {
             return match path {
                 "true" => Ok(Value::Boolean(true)),
                 "false" => Ok(Value::Boolean(false)),

@@ -1,0 +1,300 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Start: "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Strong"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#28734f"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "green"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", and "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "code"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " / complete"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Blocks: "
+            }
+          ]
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A heading"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "/ complete"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Start: "
+        },
+        {
+          "kind": "strong",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Strong"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "color": "#28734f"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "green"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ", and "
+        },
+        {
+          "kind": "code",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "code"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "text",
+          "text": " / complete"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Blocks: "
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "A heading"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Text."
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "/ complete"
+        }
+      ]
+    }
+  ]
+}

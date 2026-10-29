@@ -12,6 +12,7 @@ mod control;
 mod data;
 mod declarations;
 mod expressions;
+mod functions;
 mod images;
 mod notes;
 mod references;
@@ -127,6 +128,7 @@ enum ContentMode {
     ListBody,
     Structural,
     Flow,
+    Any,
 }
 
 impl ContentMode {
@@ -146,6 +148,26 @@ fn evaluate_nodes(
     let mut skip_declaration_trivia = false;
     let mut captured = 0;
     for node in nodes {
+        if let NodeKind::FunctionDefinition {
+            name,
+            parameters,
+            body,
+        } = &node.kind
+        {
+            functions::define(name, parameters, body, node.span, context, document)?;
+            skip_declaration_trivia = true;
+            continue;
+        }
+        if let NodeKind::Call(call) = &node.kind
+            && let Some(function) = document.bindings.function(&call.name)
+        {
+            let value = functions::evaluate(&function, call, node.span, context, document)?;
+            skip_declaration_trivia = value == Value::Nil;
+            for child in scripting::value_content(value) {
+                append_evaluated_content(child, mode, node.span, &mut paragraph, &mut result)?;
+            }
+            continue;
+        }
         if let NodeKind::Call(call) = &node.kind
             && matches!(call.name.as_str(), "header" | "footer" | "section")
         {
@@ -236,6 +258,7 @@ fn evaluate_nodes(
         }
         let content = match &node.kind {
             NodeKind::FootnoteDefinition { .. }
+            | NodeKind::FunctionDefinition { .. }
             | NodeKind::Conditional { .. }
             | NodeKind::Iteration { .. } => unreachable!(),
             NodeKind::FootnoteReference(name) => {
@@ -346,7 +369,10 @@ fn evaluate_nodes(
                     skip_declaration_trivia = true;
                     continue;
                 }
-                Content::Text(value.to_text())
+                for child in scripting::value_content(value) {
+                    append_evaluated_content(child, mode, node.span, &mut paragraph, &mut result)?;
+                }
+                continue;
             }
         };
         append_evaluated_content(content, mode, node.span, &mut paragraph, &mut result)?;
@@ -365,7 +391,7 @@ fn evaluate_nodes(
 }
 
 fn append_evaluated_content(
-    content: Content,
+    mut content: Content,
     mode: ContentMode,
     span: Span,
     paragraph: &mut Vec<Content>,
@@ -382,12 +408,23 @@ fn append_evaluated_content(
         flush_paragraph(paragraph, result);
         result.push(content);
     } else if mode.is_block() {
-        if matches!(&content, Content::Text(text) if text.trim().is_empty() && text.contains("\n\n"))
-        {
-            flush_paragraph(paragraph, result);
-        } else {
-            paragraph.push(content);
+        if let Content::Text(text) = &mut content {
+            if text.trim().is_empty() {
+                if text.contains("\n\n") {
+                    flush_paragraph(paragraph, result);
+                } else if !paragraph.is_empty() {
+                    paragraph.push(content);
+                }
+                return Ok(());
+            }
+            if paragraph.is_empty() {
+                *text = text.trim_start_matches([' ', '\t', '\r', '\n']).to_owned();
+            } else if matches!(paragraph.last(), Some(Content::Text(previous)) if previous.ends_with('\n'))
+            {
+                *text = text.trim_start_matches([' ', '\t']).to_owned();
+            }
         }
+        paragraph.push(content);
     } else {
         result.push(content);
     }
@@ -451,20 +488,17 @@ fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
 }
 
 fn flush_paragraph(buffer: &mut Vec<Content>, result: &mut Vec<Content>) {
-    while let Some(Content::Text(text)) = buffer.first_mut() {
+    if let Some(Content::Text(text)) = buffer.first_mut() {
         *text = text.trim_start_matches([' ', '\t', '\r', '\n']).to_owned();
-        if !text.is_empty() {
-            break;
-        }
-        buffer.remove(0);
     }
-    while let Some(Content::Text(text)) = buffer.last_mut() {
+    if matches!(buffer.last(), Some(Content::Text(text)) if text.trim().is_empty()) {
+        while matches!(buffer.last(), Some(Content::Text(text)) if text.trim().is_empty()) {
+            buffer.pop();
+        }
+    } else if let Some(Content::Text(text)) = buffer.last_mut() {
         text.truncate(text.trim_end_matches([' ', '\t', '\r', '\n']).len());
-        if !text.is_empty() {
-            break;
-        }
-        buffer.pop();
     }
+    buffer.retain(|node| !matches!(node, Content::Text(text) if text.is_empty()));
     if !buffer.is_empty() {
         result.push(Content::Element(Element {
             kind: ElementKind::Paragraph,

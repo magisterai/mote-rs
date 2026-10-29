@@ -1,0 +1,27 @@
+{
+  "source_sha256": "e0f1b9017a4af54c2e979c33003eb2ab44ed7f91e6787b8c0d82e416973988ed",
+  "captured_docx_sha256": "bf8c9e7287c8c9bf847de0d2130bd7c110ea635b844785a2e3267449ffdce7e4",
+  "parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "docProps/core.xml",
+    "word/_rels/document.xml.rels",
+    "word/document.xml",
+    "word/fontTable.xml",
+    "word/numbering.xml",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "word_review_status": "unreviewed",
+  "assets": {},
+  "native_pdf_pages": 1,
+  "native_pdf_comparison_dpi": 144,
+  "native_pdf_changed_pixels": 0,
+  "native_png_dpi": 72,
+  "native_png_maximum_channel_difference": 101,
+  "native_png_mean_foreground_difference": 14.59181636726547,
+  "native_png_files": {
+    "reference-1.png": "135e4510cba78383f6077048fc15077957427131789f853139990d2414c9c759"
+  }
+}
