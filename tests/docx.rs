@@ -141,24 +141,69 @@ fn declared_property_order_and_style_identity_match_reference() {
 
 #[test]
 fn builtin_style_dependencies_are_emitted_and_references_are_resolved() {
-    let parts = support::package(
-        r##"#style(name="Snippet",type="character",based_on="Code",color="#123")
-#span(style="Snippet")[Text]"##,
-    );
-    let styles = roxmltree::Document::parse(&parts["word/styles.xml"]).unwrap();
     let namespace = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
-    let identifiers: std::collections::BTreeSet<_> = styles
-        .descendants()
-        .filter(|node| node.has_tag_name((namespace, "style")))
-        .map(|node| node.attribute((namespace, "styleId")).unwrap())
-        .collect();
-    assert!(identifiers.contains("Code"));
-    for node in styles.descendants().filter(|node| {
-        ["basedOn", "next", "link"]
-            .iter()
-            .any(|name| node.has_tag_name((namespace, *name)))
-    }) {
-        assert!(identifiers.contains(node.attribute((namespace, "val")).unwrap()));
+    for (source, required_identifier) in [
+        (
+            r##"#style(name="Snippet",type="character",based_on="Code",color="#123")
+#span(style="Snippet")[Text]"##,
+            "Code",
+        ),
+        (
+            r#"#style(name="Quotation",based_on="BlockQuote")
+#paragraph(style="Quotation")[Text]"#,
+            "BlockQuote",
+        ),
+        (
+            r#"#style(name="Body",next="Heading1")
+#paragraph(style="Body")[Text]"#,
+            "Heading1",
+        ),
+        (
+            r#"#style(name="Linked",type="character",link="Heading2")
+#span(style="Linked")[Text]"#,
+            "Heading2",
+        ),
+        (r#"#heading(style="heading-1")[Text]"#, "Heading1"),
+        (
+            r#"#style(name="normal",font="Arial")
+#heading[Heading]#blockquote[Quote]"#,
+            "normal",
+        ),
+        (
+            r#"#style(name="NORMAL",font="Arial")
+#heading[Heading]#blockquote[Quote]"#,
+            "NORMAL",
+        ),
+    ] {
+        let parts = support::package(source);
+        let styles = roxmltree::Document::parse(&parts["word/styles.xml"]).unwrap();
+        let identifiers: std::collections::BTreeSet<_> = styles
+            .descendants()
+            .filter(|node| node.has_tag_name((namespace, "style")))
+            .map(|node| node.attribute((namespace, "styleId")).unwrap())
+            .collect();
+        assert!(identifiers.contains(required_identifier), "{source}");
+        for node in styles.descendants().filter(|node| {
+            ["basedOn", "next", "link"]
+                .iter()
+                .any(|name| node.has_tag_name((namespace, *name)))
+        }) {
+            assert!(
+                identifiers.contains(node.attribute((namespace, "val")).unwrap()),
+                "{source}"
+            );
+        }
+        let document = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+        for reference in document.descendants().filter(|node| {
+            ["pStyle", "rStyle"]
+                .iter()
+                .any(|name| node.has_tag_name((namespace, *name)))
+        }) {
+            assert!(
+                identifiers.contains(reference.attribute((namespace, "val")).unwrap()),
+                "{source}"
+            );
+        }
     }
 }
 
