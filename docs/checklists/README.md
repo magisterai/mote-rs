@@ -105,8 +105,8 @@ directive can exist before those definitions; its tasks remain unchecked.
 The current attribute implementation work covers evaluation, validation, and
 model storage. Declaration and explicit resolution tasks now have their own
 checklists; their completion does not establish layout or output conformance.
-DOCX has Normal and Code output defaults. Other implicit styles and
-document/list/container defaults remain deferred.
+DOCX has implicit Normal, heading, Code and BlockQuote styles, plus document
+font, size and language defaults. Broader list/container defaults remain deferred.
 
 ## Checklist-first workflow
 

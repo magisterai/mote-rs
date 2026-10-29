@@ -1876,5 +1876,45 @@
       "tests/configuration.rs",
       "tests/docx_configuration.rs"
     ]
+  },
+  "w:CT_Styles/docDefaults": {
+    "status": "partial",
+    "note": "Document font, size and language defaults are emitted; arbitrary default run/paragraph properties are unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/docx_defaults.rs"
+    ]
+  },
+  "w:CT_DocDefaults/rPrDefault": {
+    "status": "partial",
+    "note": "Document font, size and language defaults are emitted; other run defaults are unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/docx_defaults.rs"
+    ]
+  },
+  "w:CT_RPrDefault/rPr": {
+    "status": "partial",
+    "note": "Document font, size and language defaults only.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/docx_defaults.rs"
+    ]
+  },
+  "w:CT_RPr/lang": {
+    "status": "partial",
+    "note": "Document-level language default only; direct and style-level language properties remain unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/docx_defaults.rs"
+    ]
+  },
+  "w:CT_Language/@val": {
+    "status": "supported",
+    "note": "Document language defaults emit the authored string as the Latin language tag. Script-specific language attributes remain unsupported.",
+    "evidence": [
+      "docs/specification/document-configuration.md",
+      "tests/docx_defaults.rs"
+    ]
   }
 }

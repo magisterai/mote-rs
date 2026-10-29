@@ -428,6 +428,10 @@
     {
       "example": "document-configuration/7",
       "model": "document-columns"
+    },
+    {
+      "example": "document-configuration/8",
+      "model": "document-defaults"
     }
   ],
   "models": {
@@ -5066,6 +5070,119 @@
             {
               "kind": "text",
               "text": "Text flows through two equal-width columns."
+            }
+          ]
+        }
+      ]
+    },
+    "document-defaults": {
+      "document": {
+        "default_font": "body",
+        "default_size": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12.0
+        },
+        "language": "en-GB"
+      },
+      "defaults": {
+        "default_font": "body",
+        "default_size": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12.0
+        },
+        "language": "en-GB"
+      },
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "fonts": [
+        {
+          "name": "body",
+          "latin": "Aptos",
+          "east_asian": "Yu Gothic",
+          "complex_script": "Arial",
+          "properties": {
+            "complex_script": "Arial",
+            "east_asian": "Yu Gothic",
+            "latin": "Aptos"
+          }
+        }
+      ],
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Default text and "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "size": {
+                      "text": "14pt",
+                      "unit": "pt",
+                      "value": 14.0
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "a direct size override"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Default text and "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "14pt",
+                  "unit": "pt",
+                  "value": 14.0
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "a direct size override"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
             }
           ]
         }

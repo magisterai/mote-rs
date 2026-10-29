@@ -1,7 +1,7 @@
 use super::{
     Error,
     builtin_styles::{self, normalize_name},
-    check_attributes, paragraph_properties,
+    check_attributes, configuration, paragraph_properties,
     run_properties::{self, RunFormatting},
     values, xml,
 };
@@ -109,9 +109,7 @@ impl<'document> Styles<'document> {
     }
 
     pub fn write(&self) -> Result<String, Error> {
-        let mut content = String::from(
-            "<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii=\"Helvetica\" w:hAnsi=\"Helvetica\"/><w:sz w:val=\"22\"/><w:szCs w:val=\"22\"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after=\"160\" w:line=\"276\" w:lineRule=\"auto\"/></w:pPr></w:pPrDefault></w:docDefaults>",
-        );
+        let mut content = configuration::document_defaults(self.document)?;
         if !self.declared("Normal") {
             content.push_str("<w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\"><w:name w:val=\"Normal\"/><w:qFormat/></w:style>");
         }

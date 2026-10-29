@@ -1,0 +1,107 @@
+{
+  "document": {
+    "default_font": "scripted",
+    "default_size": {
+      "text": "0.125in",
+      "unit": "in",
+      "value": 0.125
+    },
+    "language": "ar-SA"
+  },
+  "defaults": {
+    "default_font": "scripted",
+    "default_size": {
+      "text": "0.125in",
+      "unit": "in",
+      "value": 0.125
+    },
+    "language": "ar-SA"
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "scripted",
+      "east_asian": "Yu Gothic",
+      "complex_script": "Arial",
+      "properties": {
+        "complex_script": "Arial",
+        "east_asian": "Yu Gothic"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Default Latin fallback and script mappings."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "scripted"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Inline alias leaves Latin inherited."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Default Latin fallback and script mappings."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "scripted"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Inline alias leaves Latin inherited."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

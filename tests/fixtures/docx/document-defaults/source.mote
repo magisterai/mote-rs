@@ -1,0 +1,8 @@
+#document(default_font = "body", default_size = pt(12.25), language = "en-GB")
+#font(name = "body", latin = "Aptos", east_asian = "Yu Gothic", complex_script = "Arial")
+#style(name = "Small", type = "character", size = pt(9))
+
+#heading(1)[Heading retains its own size]
+#paragraph[Body #span(size = pt(14))[large] #span(style = "Small")[small] and #code[code].]
+#blockquote[Quote retains its own defaults.]
+#list[#item[List item.]]

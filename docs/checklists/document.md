@@ -15,7 +15,11 @@
 - [x] `columns.equal_width`: normalized boolean retained in the model; equal-width
   output only. Unequal widths need individual column geometry and remain unsupported.
 - [x] Repeated column declarations merge fields; omitted count creates no columns.
-- [ ] `default_font`, `default_size`, and `language`: effective document defaults.
+- [x] `default_font`: literal typeface or declared font alias, including script mappings
+  and a Latin fallback for a script-only alias.
+- [x] `default_size`: document text size, with unitless values in points.
+- [x] `language`: default text language; empty values leave the output language unset.
+- [x] Document defaults remain separate from explicit styles and direct attributes.
   Other `default_*` fields are not automatically supported formatting.
 
 Extra document properties and page fields may be retained as metadata. This does
@@ -39,7 +43,9 @@ Unmapped entries remain unchecked; they are not invented Mote argument names.
 
 ## Output limits and evidence
 
-DOCX emits a single section with the configured paper, margins and equal-width columns. Missing values
+DOCX writes text defaults for font, size and language without flattening them
+into direct formatting. [Default tests](../../tests/docx_defaults.rs) cover
+script mappings, precedence and size rounding. DOCX emits a single section with the configured paper, margins and equal-width columns. Missing values
 use Letter, one-inch body margins, half-inch header/footer distances, and zero
 gutter. Named-size dimensions, explicit overrides, orientation, unit conversion,
 rounding, repeated declarations and overflow failures are covered by

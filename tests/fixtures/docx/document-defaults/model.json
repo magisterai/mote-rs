@@ -1,0 +1,291 @@
+{
+  "document": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12.25pt",
+      "unit": "pt",
+      "value": 12.25
+    },
+    "language": "en-GB"
+  },
+  "defaults": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12.25pt",
+      "unit": "pt",
+      "value": 12.25
+    },
+    "language": "en-GB"
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Aptos",
+      "east_asian": "Yu Gothic",
+      "complex_script": "Arial",
+      "properties": {
+        "complex_script": "Arial",
+        "east_asian": "Yu Gothic",
+        "latin": "Aptos"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "Small",
+      "type": "character",
+      "properties": {
+        "size": {
+          "text": "9pt",
+          "unit": "pt",
+          "value": 9
+        },
+        "type": "character"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Heading retains its own size"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "14pt",
+                  "unit": "pt",
+                  "value": 14
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "large"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Small"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "small"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "code"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quote retains its own defaults."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "List item."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Heading retains its own size"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "size": {
+              "text": "14pt",
+              "unit": "pt",
+              "value": 14
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "large"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "style": "Small"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "small"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "code",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "code"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quote retains its own defaults."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "List item."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

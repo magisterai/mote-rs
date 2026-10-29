@@ -66,7 +66,7 @@ fn portrait_preserves_explicit_dimensions_and_landscape_swaps_only_when_needed()
 #[test]
 fn unsupported_properties_and_overflow_fail_without_partial_packages() {
     for source in [
-        "#document(default_size = 12)",
+        "#document(default_color = \"#ff0000\")",
         "#document(page = { code = 1 })",
         "#document(margin = { inside = 20 })",
         "#document(page_numbering = { start = 2 })",

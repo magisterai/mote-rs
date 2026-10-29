@@ -51,7 +51,7 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `docDefaults` — [w:CT_DocDefaults](styles.md#w-ct_docdefaults); Strict, Transitional; minOccurs=0. Document Default Paragraph and Run Properties; [§17.7.5.1](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0654-0658-0124.md#source-page-657-part-1).
+- [ ] `docDefaults` — [w:CT_DocDefaults](styles.md#w-ct_docdefaults); Strict, Transitional; minOccurs=0. Document Default Paragraph and Run Properties; [§17.7.5.1](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0654-0658-0124.md#source-page-657-part-1). Document font, size and language defaults are emitted; arbitrary default run/paragraph properties are unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [docx_defaults.rs](../../../tests/docx_defaults.rs).
 - [ ] `latentStyles` — [w:CT_LatentStyles](styles.md#w-ct_latentstyles); Strict, Transitional; minOccurs=0; maxOccurs=1. Latent Style Information; [§17.7.4.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0628-0634-0119.md#source-page-634-part-1).
 - [ ] `style` — [w:CT_Style](styles.md#w-ct_style); Strict, Transitional; minOccurs=0; maxOccurs=unbounded. Style Definition; [§17.7.4.17](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0649-0653-0123.md#source-page-650-part-1).
 
@@ -61,7 +61,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `rPrDefault` — [w:CT_RPrDefault](styles.md#w-ct_rprdefault); Strict, Transitional; minOccurs=0. Default Run Properties; [§17.7.5.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0659-0665-0125.md#source-page-660-part-1).
+- [ ] `rPrDefault` — [w:CT_RPrDefault](styles.md#w-ct_rprdefault); Strict, Transitional; minOccurs=0. Default Run Properties; [§17.7.5.5](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0659-0665-0125.md#source-page-660-part-1). Document font, size and language defaults are emitted; other run defaults are unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [docx_defaults.rs](../../../tests/docx_defaults.rs).
 - [ ] `pPrDefault` — [w:CT_PPrDefault](styles.md#w-ct_pprdefault); Strict, Transitional; minOccurs=0. Default Paragraph Properties; [§17.7.5.3](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0659-0665-0125.md#source-page-659-part-1).
 
 <a id="w-ct_latentstyles"></a>
@@ -117,7 +117,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `rPr` — [w:CT_RPr](word-runs.md#w-ct_rpr); Strict, Transitional; minOccurs=0.
+- [ ] `rPr` — [w:CT_RPr](word-runs.md#w-ct_rpr); Strict, Transitional; minOccurs=0. Document font, size and language defaults only. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [docx_defaults.rs](../../../tests/docx_defaults.rs).
 
 <a id="w-ct_pprdefault"></a>
 

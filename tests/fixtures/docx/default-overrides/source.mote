@@ -1,0 +1,6 @@
+#document(default_font = "Times New Roman", default_size = 14, language = "en-US")
+#document(default_size = "10.25pt", language = "")
+#style(name = "Normal", font = "Arial", size = pt(13))
+
+#paragraph[Normal style overrides document defaults.]
+#paragraph[#span(size = pt(15))[Direct size remains direct.]]

@@ -1,15 +1,44 @@
 use super::{Error, check_attributes, xml};
-use crate::{formatting::StyleResolver, model::Document};
+use crate::{
+    formatting::{ResolvedFont, StyleResolver},
+    model::{Document, Value},
+};
 use std::collections::BTreeSet;
 
 pub(super) fn run_fonts(document: &Document, reference: &str) -> Result<String, Error> {
     if reference.is_empty() {
         return Ok(String::new());
     }
+    write_run_fonts(&resolve_run_fonts(document, reference))
+}
+
+fn resolve_run_fonts(document: &Document, reference: &str) -> ResolvedFont {
     let mut font = StyleResolver::new(document).resolve_font(reference);
     if !font.declared && reference.trim().eq_ignore_ascii_case("mono") {
         font.latin = Some("Courier New".into());
     }
+    font
+}
+
+pub(super) fn default_run_fonts(document: &Document) -> Result<String, Error> {
+    let reference = match document.defaults.get("default_font") {
+        None => "Helvetica",
+        Some(Value::String(reference)) if reference.is_empty() => "Helvetica",
+        Some(Value::String(reference)) => reference,
+        _ => {
+            return Err(Error::InvalidValue(
+                "default_font must be a string for DOCX output".into(),
+            ));
+        }
+    };
+    let mut font = resolve_run_fonts(document, reference);
+    if font.latin.as_ref().is_none_or(String::is_empty) {
+        font.latin = Some("Helvetica".into());
+    }
+    write_run_fonts(&font)
+}
+
+fn write_run_fonts(font: &ResolvedFont) -> Result<String, Error> {
     let mut attributes = String::new();
     for (name, typeface) in [
         ("ascii", &font.latin),

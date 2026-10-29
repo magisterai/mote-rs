@@ -1,12 +1,19 @@
 //! Single-section page geometry. This does not perform pagination.
 
-use super::{Error, check_attributes, values};
+use super::{Error, check_attributes, fonts, values, xml};
 use crate::model::{ColumnConfiguration, Document, Properties, Value};
 
 pub(super) fn section_properties(document: &Document) -> Result<String, Error> {
     check_attributes(
         &document.properties,
-        &["page", "margin", "columns"],
+        &[
+            "page",
+            "margin",
+            "columns",
+            "default_font",
+            "default_size",
+            "language",
+        ],
         "document",
     )?;
     check_attributes(
@@ -77,6 +84,39 @@ pub(super) fn section_properties(document: &Document) -> Result<String, Error> {
     output.push_str(&column_properties(&document.columns)?);
     output.push_str("</w:sectPr>");
     Ok(output)
+}
+
+pub(super) fn document_defaults(document: &Document) -> Result<String, Error> {
+    check_attributes(
+        &document.defaults,
+        &["default_font", "default_size", "language"],
+        "document defaults",
+    )?;
+    let size = document
+        .defaults
+        .get("default_size")
+        .map(values::half_points)
+        .transpose()?
+        .unwrap_or(22);
+    if size == 0 {
+        return Err(Error::InvalidValue(
+            "document default size must round to a positive half-point value".into(),
+        ));
+    }
+    let language = match document.defaults.get("language") {
+        None => String::new(),
+        Some(Value::String(language)) if language.is_empty() => String::new(),
+        Some(Value::String(language)) => format!("<w:lang w:val=\"{}\"/>", xml::escape(language)?),
+        _ => {
+            return Err(Error::InvalidValue(
+                "document language must be a string for DOCX output".into(),
+            ));
+        }
+    };
+    Ok(format!(
+        "<w:docDefaults><w:rPrDefault><w:rPr>{}<w:sz w:val=\"{size}\"/><w:szCs w:val=\"{size}\"/>{language}</w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after=\"160\" w:line=\"276\" w:lineRule=\"auto\"/></w:pPr></w:pPrDefault></w:docDefaults>",
+        fonts::default_run_fonts(document)?
+    ))
 }
 
 fn column_properties(columns: &ColumnConfiguration) -> Result<String, Error> {

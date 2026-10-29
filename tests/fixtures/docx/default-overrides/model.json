@@ -1,0 +1,111 @@
+{
+  "document": {
+    "default_font": "Times New Roman",
+    "default_size": "10.25pt",
+    "language": ""
+  },
+  "defaults": {
+    "default_font": "Times New Roman",
+    "default_size": "10.25pt",
+    "language": ""
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Normal",
+      "type": "paragraph",
+      "font": "Arial",
+      "properties": {
+        "font": "Arial",
+        "size": {
+          "text": "13pt",
+          "unit": "pt",
+          "value": 13
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Normal style overrides document defaults."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "15pt",
+                  "unit": "pt",
+                  "value": 15
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Direct size remains direct."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Normal style overrides document defaults."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "size": {
+              "text": "15pt",
+              "unit": "pt",
+              "value": 15
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Direct size remains direct."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

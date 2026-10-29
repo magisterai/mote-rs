@@ -81,8 +81,11 @@ single section. Columns support count, gap and separator; an omitted count emits
 no column property. Unequal-width columns are retained in JSON but rejected by
 DOCX until individual column geometry is implemented.
 Unitless geometry is measured in twips; conversion rounds to the nearest integer.
-Unsupported configuration fields fail explicitly at emission. Explicit
-sections, effective document defaults and header/footer content remain deferred.
+Unsupported configuration fields fail explicitly at emission. Explicit sections and header/footer content remain deferred.
+Document font, size and language defaults map to Word default run properties;
+explicit styles and direct attributes keep their existing precedence. Script-only
+default font aliases receive the physical Latin fallback. Default sizes use the
+existing half-point conversion; invalid or zero results fail explicitly.
 [Configuration tests](../tests/configuration.rs) and
 [output captures](../tests/docx_configuration.rs) cover this boundary.
 
@@ -161,7 +164,7 @@ table property objects. Table declaration normalization is available; applying
 table styles and resolving conditional regions await the table model. Numeric
 font/style names produce source-located warnings in `Document.warnings`.
 
-Explicit sections, bindings, JSON loading, effective defaults, Lua, native layout,
+Explicit sections, bindings, JSON loading, Lua, native layout,
 PowerPoint/PDF/PNG output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
@@ -186,7 +189,7 @@ typeface name without looking up installed fonts. See
 [Styles and fonts](specification/styles-and-fonts.md) for the exact contracts.
 
 The DOCX writer supplies the supported implicit output styles separately.
-Document/list/container defaults, font-file lookup, glyph coverage and measured
+List/container defaults, font-file lookup, glyph coverage and measured
 line height remain future work. The resolver does not lay out or render documents.
 
 ## JSON inspection

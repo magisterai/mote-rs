@@ -58,7 +58,7 @@ Extra page fields and document arguments remain metadata, without an implied
 formatting effect. Extra margin fields must still be valid lengths. A declaration's
 `properties` argument is retained as an ordinary argument, not flattened.
 Arguments named `default_*` or `language` are additionally retained in `defaults`;
-their effective formatting is not yet supported. DOCX rejects unsupported
+only the defaults defined below have an effective formatting mapping. DOCX rejects unsupported
 properties instead of silently dropping them.
 
 ## Invalid uses
@@ -88,8 +88,7 @@ Negative margins are invalid:
 #document(margin = { top = -1 })
 ```
 
-Explicit sections, document defaults, and header/footer content will be
-defined separately. These declarations establish geometry, not pagination or a
+Explicit sections and header/footer content will be defined separately. These declarations establish geometry, not pagination or a
 claim of visual conformance.
 
 ## Equal-width columns
@@ -118,3 +117,43 @@ Word default intact. An omitted `equal_width` selects equal widths. Setting it t
 false is retained in the model, but DOCX rejects it because individual column
 widths are not implemented. Explicit column breaks will be introduced separately;
 column configuration itself introduces no break or section boundary.
+
+## Document text defaults
+
+`default_font`, `default_size`, and `language` provide inherited text defaults.
+They are document-wide, and later declarations replace the same argument. They
+remain in both the authored `document` object and the `defaults` object. Unlike
+page geometry, these arguments are retained without value normalization.
+
+`default_font` is a literal typeface string or a declared font alias, using the
+font rules from [Styles and fonts](styles-and-fonts.md). Omission or an empty
+string selects Helvetica. A declared alias supplies its script mappings; when
+it has no Latin mapping, the document default adds Helvetica for Latin while
+retaining its other script mappings. The implicit `mono` alias selects Courier
+New unless explicitly declared.
+
+`default_size` accepts a number in points, a numeric string, a point string such
+as `"12pt"`, or a typed length from the length helpers. Omission selects 11 points.
+Output rounds to half-points; the result must be positive. Typed point lengths
+round directly to half-points. Point strings and other typed lengths first round
+to twips, then half-points. Other unit strings are not accepted for DOCX default
+sizes; use the corresponding helper. Invalid values remain inspectable in JSON
+but fail DOCX emission.
+
+`language` is a string language tag for the default text, such as `"en-GB"`.
+Omission or an empty string leaves it unset. It does not translate text or select
+font files. Language tags are retained rather than validated against a registry.
+
+```mote
+#font(name = "body", latin = "Aptos", east_asian = "Yu Gothic", complex_script = "Arial")
+#document(default_font = "body", default_size = pt(12), language = "en-GB")
+
+#paragraph[Default text and #span(size = pt(14))[a direct size override].]
+```
+
+Defaults are not copied into each content node. Explicit styles and direct
+formatting keep their own properties, which override inherited defaults in Word.
+Built-in headings, code, and quotes retain the sizes and other properties supplied
+by their styles. The explicit `StyleResolver` API still resolves authored styles;
+it does not synthesize document or output defaults. Font measurement and native
+layout remain separate capabilities.

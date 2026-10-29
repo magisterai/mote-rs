@@ -79,7 +79,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 - [ ] `rtl` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional. Right To Left Text; [§17.3.2.30](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0313-0317-0064.md#source-page-317-part-1).
 - [ ] `cs` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional. Use Complex Script Formatting on Run; [§17.3.2.7](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0277-0281-0057.md#source-page-280-part-1).
 - [ ] `em` — [w:CT_Em](word-runs.md#w-ct_em); Strict, Transitional. Emphasis Mark; [§17.3.2.12](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0287-0291-0059.md#source-page-288-part-1).
-- [ ] `lang` — [w:CT_Language](word-runs.md#w-ct_language); Strict, Transitional. Languages for Run Content; [§17.3.2.20](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0292-0296-0060.md#source-page-295-part-1).
+- [ ] `lang` — [w:CT_Language](word-runs.md#w-ct_language); Strict, Transitional. Languages for Run Content; [§17.3.2.20](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0292-0296-0060.md#source-page-295-part-1). Document-level language default only; direct and style-level language properties remain unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [docx_defaults.rs](../../../tests/docx_defaults.rs).
 - [ ] `eastAsianLayout` — [w:CT_EastAsianLayout](word-runs.md#w-ct_eastasianlayout); Strict, Transitional. East Asian Typography Settings; [§17.3.2.10](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0282-0286-0058.md#source-page-283-part-1).
 - [ ] `specVanish` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional. Paragraph Mark Is Always Hidden; [§17.3.2.36](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0318-0322-0065.md#source-page-322-part-1).
 - [ ] `oMath` — [w:CT_OnOff](word-paragraphs.md#w-ct_onoff); Strict, Transitional. Office Open XML Math; [§17.3.2.22](../../reference/reading/ooxml/ecma-376/part-1/chunks/pages-0297-0302-0061.md#source-page-297-part-1).
@@ -283,7 +283,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/w
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd).
 
-- [ ] `@val` — [s:ST_Lang](values-shared.md#s-st_lang); Strict, Transitional; use=optional.
+- [x] `@val` — [s:ST_Lang](values-shared.md#s-st_lang); Strict, Transitional; use=optional. Document language defaults emit the authored string as the Latin language tag. Script-specific language attributes remain unsupported. Evidence: [document-configuration.md](../../../docs/specification/document-configuration.md), [docx_defaults.rs](../../../tests/docx_defaults.rs).
 - [ ] `@eastAsia` — [s:ST_Lang](values-shared.md#s-st_lang); Strict, Transitional; use=optional.
 - [ ] `@bidi` — [s:ST_Lang](values-shared.md#s-st_lang); Strict, Transitional; use=optional.
 

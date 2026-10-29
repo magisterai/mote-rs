@@ -1,0 +1,5 @@
+#document(default_font = "scripted", default_size = inch(0.125), language = "ar-SA")
+#font(name = "scripted", east_asian = "Yu Gothic", complex_script = "Arial")
+
+#paragraph[Default Latin fallback and script mappings.]
+#paragraph[#span(font = "scripted")[Inline alias leaves Latin inherited.]]
