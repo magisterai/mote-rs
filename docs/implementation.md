@@ -1,7 +1,7 @@
 # Implementation
 
 The Rust crate implements the initial language core, a progressive DOCX writer, and
-native PDF/PNG output for the documented text, list, link and image features. The
+native PDF/PNG output for the documented document-language subset. The
 [specification](specification/README.md) describes the language; this page records
 what this crate currently implements.
 
@@ -22,6 +22,8 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [evaluation](../src/evaluation.rs) | Content flow and directive bodies, with separate expression, attribute, declaration, configuration, and value-normalization modules. |
 | [model](../src/model.rs) | Evaluated content, values, geometry, and declaration registries. |
 | [formatting](../src/formatting.rs) | Style inheritance and font-alias resolution. |
+| [references](../src/references.rs) | Document anchor metadata, caption associations and reference text selection. |
+| [captions](../src/captions.rs) | Shared caption sequences and child alignment defaults, with counter formatting in `numbering`. |
 | [measurement](../src/measurement.rs) | Core and static OpenType font metrics, with separate kerning and font-table modules. |
 | [media](../src/media.rs) | Cached raster assets, bounded PNG/JPEG/GIF decoding and shared image transforms. |
 | [layout](../src/layout.rs) | Shared native line and block geometry, paragraph flow, numbering, columns, and ordered painting operations. |
@@ -84,12 +86,14 @@ margin and column fields. They produce no visible node, including when evaluated
 body. JSON preserves both the last authored argument and the merged geometry,
 which also appears on the implicit section. DOCX maps named paper sizes, custom
 dimensions, orientation, all seven margin distances and equal-width columns to a
-single section. Columns support count, gap and separator; an omitted count emits
+resolved section snapshots. Columns support count, gap and separator; an omitted
+count emits
 no column property. Unequal-width columns are retained in JSON but rejected by
 DOCX until individual column geometry is implemented.
 Unitless geometry is measured in twips; conversion rounds to the nearest integer.
 DOCX rejects unsupported configuration fields; native output reports retained
-fields without a rendering effect. Explicit sections and header/footer content remain deferred.
+fields without a rendering effect. Explicit sections and running stories are
+described below.
 Document font, size and language defaults map to Word default run properties;
 explicit styles and direct attributes keep their existing precedence. Script-only
 default font aliases receive the physical Latin fallback. Default sizes use the
@@ -101,7 +105,7 @@ Top-level `break` elements support page, column and block line breaks. A pending
 column break prefixes the next paragraph, heading or quote where possible;
 consecutive/trailing breaks and breaks before lists remain separate paragraphs.
 Heading implicit before-spacing is suppressed at column starts, preserving
-explicit values. Nested breaks and section-related types remain deferred.
+explicit values. Section boundaries have their own geometry and start semantics.
 [Break tests](../tests/breaks.rs) compare models and frozen package parts.
 
 ## Parser
@@ -179,7 +183,7 @@ table property objects. Table styles apply inherited cell and text defaults,
 with conditional-region output limits described below. Numeric
 font/style names produce source-located warnings in `Document.warnings`.
 
-Explicit sections, bindings, JSON loading, Lua and PowerPoint output remain deferred.
+Bindings, JSON loading, Lua and PowerPoint output remain deferred.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)
@@ -221,9 +225,10 @@ standard error with a source name, line, and column, and return a nonzero exit
 status. It accepts one source file. `--help` describes the available options.
 
 JSON contains a root `content` array, configured `page` and `margin` objects, and
-a `columns` object. Nonempty content also appears in one implicit
-`sections` entry with the same geometry, plus empty section, numbering, and
-header/footer property objects. Empty content omits `sections`.
+a `columns` object. Ordinary nonempty content also appears in one implicit
+`sections` entry. Explicit section snapshots retain local geometry, numbering,
+header/footer properties and content; root content mirrors the section bodies.
+Empty documents omit `sections`, while explicit empty sections remain represented.
 Elements have `kind` and `category`; empty `children` and `attributes` are omitted.
 Text nodes have `kind = "text"` and omit `text` only when empty. Adjacent fragments
 remain distinct, including helper results, escaped characters, and line breaks.
@@ -443,8 +448,9 @@ position, extent, color, thickness, merging and operation order. A shared transl
 moves fragments and decorations together into paragraph and page coordinates.
 No painter remeasurement is needed for these operations.
 
-Script shaping, continuous sections and section-boundary column balancing remain
-outside the current language and native output scope. Numeric agreement remains
+Script shaping remains outside the current native output scope. Continuous
+section flow and section-boundary column balancing are implemented. Numeric
+agreement remains
 separate from visual review in Word.
 
 ### Native text painters
@@ -504,7 +510,7 @@ URL, title, tooltip and target metadata. DOCX uses content-order relationships a
 the Hyperlink character style; PDF annotations use each positioned fragment's
 advance and full line height. PNG paints the same text and decorations. Metadata
 without an output effect remains documented separately. Fragment-only Markdown
-references remain unsupported until bookmarks and references are defined.
+links lower to internal references, described below.
 
 [Link tests](../tests/links.rs) compare three independently captured models and
 complete DOCX packages, validate argument/body rules, and check wrapped PDF link
@@ -550,3 +556,55 @@ a safe continuation warn and fall back to individual rows.
 See [table captures](../tests/fixtures/tables/README.md) for frozen model/package,
 geometry and native raster evidence, including the blocked repeated-header case.
 Microsoft Word visual review remains unreviewed.
+
+## Sections and running stories
+
+Explicit sections inherit document geometry and retain local page, margin, column,
+start, numbering and vertical-alignment properties. Header/footer declarations
+provide defaults or local overrides, including empty resets. Inherited stories
+retain declaration identity so anchor metadata counts each declaration once.
+DOCX writes section properties and independently related header/footer parts.
+
+Native layout owns geometry and story selection per physical page. Continuous
+sections share a page where their page size permits it, and intermediate multi-column
+sections balance their final area. Current/total page fields and page references
+use bounded pagination passes; authored models remain unchanged. Running text uses
+full-width header/footer bands, and overflow removes complete trailing lines with
+a warning. Native fields currently use decimal text, section vertical alignment
+is ignored, and parity/next-column section starts advance to a page. Story media
+and tables use explicit text fallbacks.
+
+[Section captures](../tests/fixtures/sections-stories/README.md) cover 14 cases and
+41 pages, including mixed page sizes, section numbering restarts, column balancing,
+story inheritance, resets and overflow.
+
+## Anchors, references and captions
+
+Labels are unique across retained body and story declarations. References require
+a declared label and support forward targets, title/number/page/text selection,
+explicit fallback text and styled Markdown children. Replaced stories that were
+never used contribute no labels or references. Authored bookmarks occupy a separate
+Word namespace. Stable label names use SHA-256 suffixes; the focused `sha2`
+dependency supplies this hashing without default features.
+
+DOCX emits bookmark ranges, internal hyperlinks, editable REF/PAGEREF fields and
+caption SEQ fields. Native PDF emits internal GoTo actions at the placed body
+destination; PNG shares its text, styling and geometry. Page references use the
+displayed section page number. Unplaced targets retain visible text and warn
+without creating fabricated PDF links.
+
+Figures group existing blocks with one optional caption. Caption numbering shares
+counter formatting with headings and lists, supports independent sequences and
+restarts, and supplies inferred label title/number metadata. Native layout orders
+captions by position; DOCX retains authored order. Direct figure alignment applies
+to compatible children; `placement.align` is a DOCX-only fallback. Figure style
+and floating placement remain metadata. Native cells and running stories omit
+caption numbering even though those captions contribute to reference metadata;
+the resulting number mismatch is a documented, warned limitation.
+
+[Reference captures](../tests/fixtures/references/README.md) cover seven cases and
+13 pages. [Caption captures](../tests/fixtures/captions/README.md) cover ten cases
+and 12 pages. Tests compare complete models/packages, native geometry and native
+PNGs. PDF rasters matched at 144 DPI with zero changed pixels, and link rectangles,
+destination heights and target pages were independently compared. All captured
+native PDF pages were visually inspected. Microsoft Word review remains unreviewed.
