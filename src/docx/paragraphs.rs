@@ -28,21 +28,8 @@ pub(super) fn opening(
     resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
     let mut attributes = attributes.clone();
-    for field in [
-        "font",
-        "size",
-        "color",
-        "bold",
-        "italic",
-        "underline",
-        "strike",
-        "double_strike",
-        "small_caps",
-        "highlight",
-    ] {
-        if attributes.remove(field).is_some() {
-            resources.warnings.push(format!("paragraph.{field} is retained but has no editable paragraph effect; use an inline span or a named style"));
-        }
+    for field in remove_run_attributes(&mut attributes) {
+        resources.warnings.push(format!("paragraph.{field} is retained but has no editable paragraph effect; use an inline span or a named style"));
     }
     let mut properties = String::new();
     if let Some(name) = attributes
@@ -64,4 +51,22 @@ pub(super) fn opening(
         paragraph.push_str(&format!("<w:pPr>{properties}</w:pPr>"));
     }
     Ok(paragraph)
+}
+
+pub(super) fn remove_run_attributes(attributes: &mut Properties) -> Vec<&'static str> {
+    [
+        "font",
+        "size",
+        "color",
+        "bold",
+        "italic",
+        "underline",
+        "strike",
+        "double_strike",
+        "small_caps",
+        "highlight",
+    ]
+    .into_iter()
+    .filter(|field| attributes.remove(*field).is_some())
+    .collect()
 }

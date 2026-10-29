@@ -319,3 +319,25 @@ fn declared_font_files_do_not_change_the_editable_word_package() {
         support::compare_xml(&with_files[&name], &expected, &name);
     }
 }
+
+#[test]
+fn headings_warn_about_direct_run_metadata_without_rejecting_the_package() {
+    let document = mote::compile("#heading(2,color='#28734f')[Title]").unwrap();
+    let original = document.clone();
+    let resolver = mote::source::FileAssetResolver::new(".").unwrap();
+    let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+    assert_eq!(document, original);
+    assert!(
+        generated
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("paragraph.color"))
+    );
+    let actual = support::unpack(generated.bytes);
+    let expected = support::package("#heading(2)[Title]");
+    support::compare_xml(
+        &actual["word/document.xml"],
+        &expected["word/document.xml"],
+        "heading metadata",
+    );
+}

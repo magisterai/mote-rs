@@ -35,6 +35,7 @@ pub(super) fn attributes(element: &Element, at_flow_start: bool) -> Result<Prope
     // Validate the direct paragraph properties before applying an output style.
     let mut direct = attributes.clone();
     direct.remove("style");
+    super::paragraphs::remove_run_attributes(&mut direct);
     paragraph_properties::write(&direct)?;
     Ok(attributes)
 }
