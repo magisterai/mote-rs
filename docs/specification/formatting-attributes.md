@@ -342,3 +342,16 @@ The outer style argument on a paragraph requires a string:
 ```
 
 Continue with [Spans](spans.md) for general inline formatting.
+
+## Markdown task markers
+
+After an unordered or ordered Markdown list marker, `[ ]` followed by whitespace
+sets the item's `checked` state to false. `[x]` and `[X]` set it to true. The
+marker is removed from the visible text; an ordinary item has no `checked`
+attribute. Nested items follow the same rule. These forms use the task formatting
+and output rules above.
+
+```mote
+- [x] Read the report.
+- [ ] Check the totals.
+```

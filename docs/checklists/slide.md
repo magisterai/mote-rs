@@ -11,13 +11,14 @@
 - [x] `footer`, `date`, `slide_number`: slide overrides, including false to suppress.
 - [ ] `layout`: trimmed name; built-in/custom resolution and typed slots.
 - [x] `properties` overrides, retained metadata and Lua construction.
-- [ ] Automatic loose-content layout: a leading heading, grouped text, separate
+- [x] Automatic loose-content layout: a leading heading, grouped text, separate
   image/table frames, shared fitting and page-size-aware geometry.
 - [ ] Implicit top-level Markdown slide separators and heading boundaries in
   presentation mode; explicit slides mixed with implicit segments.
 
 Output supports explicit slides with positioned text, pictures, tables, shapes,
-connectors and charts. Automatic layout and named layouts remain unsupported.
+connectors and charts, plus automatic text, image and table layout. Named layouts
+remain unsupported.
 Speaker notes are plain PPTX metadata. Footer text, dates and slide numbers render
 in editable and native output, with independent suppression on each slide.
 Master/layout inheritance, hidden slides, transitions, timing, animation and
@@ -43,3 +44,5 @@ metadata and do not paint onto slides.
 [Editable and native captures](../../tests/fixtures/presentation-fields/README.md)
 cover these effects, including independent overrides and combined slide content.
 PowerPoint review remains pending.
+
+Automatic layout has [editable and native captures](../../tests/fixtures/presentation-automatic/README.md) for standard, wide and custom canvases. PowerPoint review remains pending.

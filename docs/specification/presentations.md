@@ -51,10 +51,29 @@ the inherited text. Speaker notes are trimmed plain text, independent of the
 visible slide body; directive syntax inside a note string is not evaluated.
 
 A slide contains either positioned boxes, shapes and lines, or loose content.
-Mixing positioned objects and loose content in one slide is invalid. Loose
-content can be represented in the model before automatic layout is implemented.
-Named layouts, slot assignments and implicit Markdown slide separators remain
-outside this initial chapter; their reserved attributes are rejected explicitly.
+Mixing positioned objects and loose content in one slide is invalid.
+
+Loose content receives automatic layout. A leading heading of any level occupies
+the title frame; the remaining consecutive text blocks share a content frame.
+Each image or table occupies a separate frame, with equal-height frames stacked
+vertically. These frames adapt to the declared slide size and use text shrinking
+to fit their available height. Explicitly positioned slides retain their authored
+geometry. Automatic layout supports the same text, image and table properties as
+positioned boxes.
+
+```mote
+#presentation(size="standard")
+#slide[
+  #heading(level=1)[Quarterly review]
+  Revenue increased by #span(bold=true)[12%].
+
+  - Expanded into two markets.
+  - Improved customer retention.
+]
+```
+
+Named layouts, slot assignments and implicit Markdown slide boundaries are
+specified separately as their contracts are introduced.
 
 ## Positioned boxes
 

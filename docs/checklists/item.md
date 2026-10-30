@@ -7,6 +7,7 @@
 - [x] One required block body, including an empty body; no positional arguments.
 - [x] Bare text becomes paragraphs in explicit items; Markdown items retain
   direct inline content and their source markers.
+- [x] Markdown `[ ]`, `[x]` and `[X]` markers map to the existing task state.
 - [x] Nested lists belong to item bodies; standalone adjacent items group by kind.
 
 ## Attributes
