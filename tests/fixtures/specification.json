@@ -583,22 +583,42 @@
       "model": "charts-3"
     },
     {
-      "example": "presentations/1",
+      "example": "presentations/3",
       "model": "presentation-example-1"
     },
     {
-      "example": "presentations/2",
+      "example": "presentations/4",
       "model": "presentation-example-2"
     },
     {
-      "example": "presentations/3",
+      "example": "presentations/5",
       "lua": true,
       "model": "presentation-example-3"
     },
     {
-      "example": "presentations/4",
+      "example": "presentations/6",
       "diagnostic": "slide cannot mix",
       "invalid": "An explicit slide cannot combine positioned boxes with loose content."
+    },
+    {
+      "example": "presentations/1",
+      "model": "presentations-1"
+    },
+    {
+      "example": "presentations/2",
+      "model": "presentations-2"
+    },
+    {
+      "example": "formatting-attributes/14",
+      "model": "formatting-attributes-14"
+    },
+    {
+      "example": "presentation-layouts/1",
+      "model": "presentation-layouts-1"
+    },
+    {
+      "example": "presentation-layouts/2",
+      "model": "presentation-layouts-2"
     }
   ],
   "models": {
@@ -9034,6 +9054,708 @@
                     {
                       "kind": "text",
                       "text": "From Lua"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentations-1": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "level": 1.0
+              },
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quarterly review"
+                }
+              ],
+              "kind": "heading"
+            },
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Revenue increased by "
+                },
+                {
+                  "attributes": {
+                    "bold": true
+                  },
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "12%"
+                    }
+                  ],
+                  "kind": "span"
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ],
+              "kind": "paragraph"
+            },
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Expanded into two markets."
+                    }
+                  ],
+                  "kind": "list_item"
+                },
+                {
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Improved customer retention."
+                    }
+                  ],
+                  "kind": "list_item"
+                }
+              ],
+              "kind": "list"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "presentation": {
+        "properties": {
+          "size": "standard"
+        },
+        "size": {
+          "properties": {
+            "size": "standard"
+          }
+        }
+      },
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "level": 1.0
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quarterly review"
+                    }
+                  ],
+                  "kind": "heading"
+                },
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Revenue increased by "
+                    },
+                    {
+                      "attributes": {
+                        "bold": true
+                      },
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "12%"
+                        }
+                      ],
+                      "kind": "span"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ],
+                  "kind": "paragraph"
+                },
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Expanded into two markets."
+                        }
+                      ],
+                      "kind": "list_item"
+                    },
+                    {
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Improved customer retention."
+                        }
+                      ],
+                      "kind": "list_item"
+                    }
+                  ],
+                  "kind": "list"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentations-2": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "level": 1.0,
+            "marker": "#"
+          },
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "First slide"
+            }
+          ],
+          "kind": "heading"
+        },
+        {
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A short introduction."
+            }
+          ],
+          "kind": "paragraph"
+        },
+        {
+          "category": "block",
+          "kind": "divider"
+        },
+        {
+          "attributes": {
+            "level": 2.0,
+            "marker": "#"
+          },
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second slide"
+            }
+          ],
+          "kind": "heading"
+        },
+        {
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "The divider started this slide."
+            }
+          ],
+          "kind": "paragraph"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "level": 1.0,
+                "marker": "#"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First slide"
+                }
+              ],
+              "kind": "heading"
+            },
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A short introduction."
+                }
+              ],
+              "kind": "paragraph"
+            },
+            {
+              "category": "block",
+              "kind": "divider"
+            },
+            {
+              "attributes": {
+                "level": 2.0,
+                "marker": "#"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second slide"
+                }
+              ],
+              "kind": "heading"
+            },
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "The divider started this slide."
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "formatting-attributes-14": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "checked": true,
+                "marker": "- [x]"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Read the report."
+                }
+              ],
+              "kind": "list_item"
+            },
+            {
+              "attributes": {
+                "checked": false,
+                "marker": "- [ ]"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Check the totals."
+                }
+              ],
+              "kind": "list_item"
+            }
+          ],
+          "kind": "list"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "checked": true,
+                    "marker": "- [x]"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Read the report."
+                    }
+                  ],
+                  "kind": "list_item"
+                },
+                {
+                  "attributes": {
+                    "checked": false,
+                    "marker": "- [ ]"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Check the totals."
+                    }
+                  ],
+                  "kind": "list_item"
+                }
+              ],
+              "kind": "list"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentation-layouts-1": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "layout": "two_column"
+          },
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "slot": "title"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "level": 1.0
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quarterly review"
+                    }
+                  ],
+                  "kind": "heading"
+                }
+              ],
+              "kind": "box"
+            },
+            {
+              "attributes": {
+                "slot": "left"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Revenue increased by 12%."
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "box"
+            },
+            {
+              "attributes": {
+                "slot": "right"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Customer retention improved."
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "presentation": {
+        "properties": {
+          "size": "wide"
+        },
+        "size": {
+          "properties": {
+            "size": "wide"
+          }
+        }
+      },
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "layout": "two_column"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "slot": "title"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "level": 1.0
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Quarterly review"
+                        }
+                      ],
+                      "kind": "heading"
+                    }
+                  ],
+                  "kind": "box"
+                },
+                {
+                  "attributes": {
+                    "slot": "left"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Revenue increased by 12%."
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "box"
+                },
+                {
+                  "attributes": {
+                    "slot": "right"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Customer retention improved."
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentation-layouts-2": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "layout": "title_and_content"
+          },
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "fill": "#eff6ff",
+                "slot": "content",
+                "text": {
+                  "size": {
+                    "text": "22pt",
+                    "unit": "pt",
+                    "value": 22.0
+                  }
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A styled content frame."
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "box"
+            },
+            {
+              "attributes": {
+                "slot": "title"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "level": 1.0
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Summary"
+                    }
+                  ],
+                  "kind": "heading"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "layout": "title_and_content"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "fill": "#eff6ff",
+                    "slot": "content",
+                    "text": {
+                      "size": {
+                        "text": "22pt",
+                        "unit": "pt",
+                        "value": 22.0
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A styled content frame."
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "box"
+                },
+                {
+                  "attributes": {
+                    "slot": "title"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "level": 1.0
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Summary"
+                        }
+                      ],
+                      "kind": "heading"
                     }
                   ],
                   "kind": "box"

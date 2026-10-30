@@ -75,6 +75,9 @@ Status: initial draft.
 27. [Presentations and positioned boxes](presentations.md): deck declarations,
     explicit slides, positioned content and text properties.
 
+28. [Named presentation layouts](presentation-layouts.md): typed slots, built-in
+    geometry and property overrides.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

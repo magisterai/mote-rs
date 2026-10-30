@@ -106,12 +106,12 @@ Bare Markdown in automatic or document mode stays an ordinary document; headings
 do not select a deck implicitly. A divider currently has no native document
 painting behavior and reports unsupported content in document mode.
 
-Named layouts and slot assignments are specified separately as their contracts
-are introduced.
+Continue with [Named presentation layouts](presentation-layouts.md) for slots and reusable geometry.
 
 ## Positioned boxes
 
-`box` requires a block body and a `position` table. `width` and `height` are
+`box` ordinarily requires a block body and a `position` table. Named slot
+assignments use the exceptions defined in the next chapter. `width` and `height` are
 required; omitted `x` and `y` become zero inches. All four values normalize
 non-negative lengths. The origin is the slide's upper-left corner, horizontal
 coordinates increase rightward and vertical coordinates increase downward.

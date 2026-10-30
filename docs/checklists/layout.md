@@ -17,9 +17,9 @@
 
 ## Slots and resolution
 
-- [ ] Eight built-ins: blank, title_slide, title_and_content, section_header,
+- [x] Eight built-ins: blank, title_slide, title_and_content, section_header,
   two_column, comparison, image_and_caption, chart_and_caption.
-- [ ] `box.slot`: nonempty name; direct slide assignments use layout order.
+- [x] `box.slot`: nonempty name; direct slide assignments use layout order.
 - [ ] `box.kind`: content, text, image, table or chart; content is the default.
 - [ ] `box.required`: explicit false overrides inherited true; required slots
   must be supplied, and optional absent slots emit no content.
@@ -28,7 +28,7 @@
 - [ ] Recursive property overrides; retain inherited slot order and append new slots.
 - [ ] Reject duplicate slots, unknown assignments, type mismatches, loose slide
   content and slot assignments outside a layout-backed slide.
-- [ ] Ordinary positioned objects follow supplied slots in authored order.
+- [x] Ordinary positioned objects follow supplied slots in authored order.
 - [ ] Layout defaults merge recursively; an explicit slide background replaces
   the complete inherited background. Source-relative assets remain resolvable.
 
@@ -40,3 +40,5 @@ native PDF and PNG use the same resolved geometry. PresentationML slide/layout/m
 relationships, placeholder identities, inherited color maps, transitions, timing,
 animation, and other unimplemented standard properties remain in the linked
 inventories. These checkboxes do not imply support for them or Office conformance.
+
+The [language definition](../specification/presentation-layouts.md), [validation tests](../../tests/presentation_layouts.rs) and [built-in captures](../../tests/fixtures/presentation-layouts/README.md) cover built-in slots and resolution. Custom declaration entries remain pending. PowerPoint review remains pending.
