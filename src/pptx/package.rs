@@ -176,6 +176,21 @@ pub(super) fn write(
                     "PPTX currently requires positioned slide objects".into(),
                 ));
             };
+            if element.kind == ElementKind::Shape {
+                output.push_str(&super::shapes::write(
+                    element,
+                    document,
+                    &deck.theme,
+                    measurer,
+                    &mut next_shape,
+                    &mut relations,
+                )?);
+                continue;
+            }
+            if element.kind == ElementKind::Line {
+                output.push_str(&super::shapes::connector(element, &mut next_shape)?);
+                continue;
+            }
             if element.kind != ElementKind::Box {
                 return Err(Error(format!(
                     "PPTX does not yet support {} slide objects",

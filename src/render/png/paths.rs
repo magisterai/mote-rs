@@ -45,6 +45,13 @@ pub(super) fn draw(
         );
     }
     if let Some(stroke) = &path.stroke {
+        if !path.closed
+            && path.points.len() == 2
+            && stroke.dash.is_empty()
+            && (path.points[0][0] == path.points[1][0] || path.points[0][1] == path.points[1][1])
+        {
+            return crisp(pixels, path.points[0], path.points[1], stroke, scale, clip);
+        }
         let segments = path.points.windows(2).map(|pair| [pair[0], pair[1]]).chain(
             path.closed
                 .then(|| [*path.points.last().unwrap(), path.points[0]]),

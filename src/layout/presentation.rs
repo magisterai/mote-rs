@@ -1,5 +1,6 @@
 //! Positioned slides use the same page operations as document layout.
 mod images;
+pub(crate) mod shapes;
 mod tables;
 use super::{
     DocumentTextPlan, HighlightRectangle, LayoutError, LineCap, PageGeometry, PageOperation,
@@ -150,6 +151,15 @@ fn plan(
                     "presentation output currently requires positioned slide objects".into(),
                 ));
             };
+            if element.kind == ElementKind::Shape {
+                shapes::place(document, element, &deck.theme, measurer, &mut page)?;
+                continue;
+            }
+            if element.kind == ElementKind::Line {
+                page.operations
+                    .extend(shapes::connector(&element.attributes));
+                continue;
+            }
             if element.kind != ElementKind::Box {
                 return Err(LayoutError::Unsupported(format!(
                     "native slides do not yet support {} objects",

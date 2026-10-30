@@ -57,69 +57,8 @@ fn drawing_units(value: &crate::model::Value) -> Result<i64, Error> {
 }
 
 fn shape_properties(attributes: &Properties, width: i64, height: i64) -> Result<String, Error> {
-    let mut transform = String::new();
-    if let Some(degrees) = properties::number(attributes, "rotation") {
-        transform.push_str(&format!(" rot=\"{}\"", rotation_units(degrees)?));
-    }
-    for (name, field) in [("flip_horizontal", "flipH"), ("flip_vertical", "flipV")] {
-        if properties::boolean(attributes, name) {
-            transform.push_str(&format!(" {field}=\"1\""));
-        }
-    }
-    let kind = text(attributes, "kind");
-    let preset = match kind.as_str() {
-        "round_rect" => "roundRect",
-        "ellipse" | "triangle" | "diamond" | "hexagon" | "chevron" | "cloud" | "parallelogram"
-        | "trapezoid" => &kind,
-        _ => "rect",
-    };
-    let fill = if let Some(value) = attributes.get("fill") {
-        let color = values::color(value)?;
-        let alpha = alpha(attributes, "opacity").filter(|alpha| *alpha < 100000);
-        let color = if let Some(alpha) = alpha {
-            format!("<a:srgbClr val=\"{color}\"><a:alpha val=\"{alpha}\"/></a:srgbClr>")
-        } else {
-            format!("<a:srgbClr val=\"{color}\"/>")
-        };
-        format!("<a:solidFill>{color}</a:solidFill>")
-    } else {
-        "<a:noFill/>".into()
-    };
-    let border = if object(attributes, "border").is_some() {
-        images::border_xml(attributes, drawing_units)?
-    } else {
-        "<a:ln><a:noFill/></a:ln>".into()
-    };
-    let shadow = shadow_xml(attributes)?;
-    Ok(format!(
-        "<a:xfrm{transform}><a:off x=\"0\" y=\"0\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"{preset}\"><a:avLst/></a:prstGeom>{fill}{border}{shadow}"
-    ))
-}
-
-fn alpha(properties: &Properties, name: &str) -> Option<i64> {
-    properties::number(properties, name).map(|value| {
-        (value * if value <= 1.0 { 100000.0 } else { 1000.0 })
-            .round()
-            .clamp(0.0, 100000.0) as i64
-    })
-}
-
-fn shadow_xml(attributes: &Properties) -> Result<String, Error> {
-    let Some(shadow) = object(attributes, "shadow") else {
-        return Ok(String::new());
-    };
-    let color = shadow
-        .get("color")
-        .map(values::color)
-        .transpose()?
-        .unwrap_or_else(|| "000000".into());
-    let opacity = alpha(shadow, "opacity").unwrap_or(35000);
-    let blur = length(shadow, "blur", 50800)?;
-    let distance = length(shadow, "distance", 25400)?;
-    let direction = rotation_units(properties::number(shadow, "angle").unwrap_or(270.0))?;
-    Ok(format!(
-        "<a:effectLst><a:outerShdw blurRad=\"{blur}\" dist=\"{distance}\" dir=\"{direction}\" algn=\"tl\" rotWithShape=\"0\"><a:srgbClr val=\"{color}\"><a:alpha val=\"{opacity}\"/></a:srgbClr></a:outerShdw></a:effectLst>"
-    ))
+    crate::drawings::drawingml::shape(attributes, [0, 0, width, height])
+        .map_err(Error::InvalidValue)
 }
 
 fn text_box(
@@ -204,14 +143,4 @@ fn body_properties(attributes: &Properties) -> Result<String, Error> {
         _ => output.push_str("/>"),
     }
     Ok(output)
-}
-
-fn rotation_units(degrees: f64) -> Result<i64, Error> {
-    let value = (degrees * 60000.0).round();
-    if !value.is_finite() || value < f64::from(i32::MIN) || value > f64::from(i32::MAX) {
-        return Err(Error::InvalidValue(
-            "drawing angle exceeds the signed integer range".into(),
-        ));
-    }
-    Ok(value as i64)
 }

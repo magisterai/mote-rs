@@ -1,4 +1,5 @@
 //! Drawing text defaults shared by editable and native output.
+pub(crate) mod drawingml;
 pub(crate) mod paragraphs;
 pub(crate) mod pictures;
 use crate::{

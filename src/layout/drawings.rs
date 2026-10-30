@@ -1,4 +1,4 @@
-mod geometry;
+pub(crate) mod geometry;
 mod text;
 use super::{LayoutError, PageOperation, PaintedPath, TextPage};
 use crate::model::Element;

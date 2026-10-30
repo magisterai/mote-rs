@@ -206,3 +206,17 @@ fn positioned_tables_match_captured_editable_packages() {
         &["geometry", "merges", "formatting", "flow", "borders"],
     );
 }
+
+#[test]
+fn positioned_drawings_match_captured_editable_packages() {
+    compare_captured_packages(
+        "presentation-shapes",
+        &[
+            "presets",
+            "transforms",
+            "fitting",
+            "connectors",
+            "connector-caps",
+        ],
+    );
+}

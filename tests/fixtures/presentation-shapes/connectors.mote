@@ -1,0 +1,15 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(width=pt(600),height=pt(400),background="#f8fafc",theme={colors={accent1="#2563eb"}})
+#slide[
+#line(name="none",from={x=pt(30),y=pt(30)},to={x=pt(270),y=pt(60)},border={color="#2563eb",width=pt(2)},arrow={start="none",to="none",size="large",length="small"})
+#line(name="triangle",from={x=pt(30),y=pt(95)},to={x=pt(270),y=pt(125)},border={color="#2563eb",width=pt(2)},arrow={start="triangle",to="triangle",size="large",length="small"})
+#line(name="stealth",from={x=pt(30),y=pt(160)},to={x=pt(270),y=pt(190)},border={color="#2563eb",width=pt(2)},arrow={start="stealth",to="stealth",size="large",length="small"})
+#line(name="diamond",from={x=pt(30),y=pt(225)},to={x=pt(270),y=pt(255)},border={color="#2563eb",width=pt(2)},arrow={start="diamond",to="diamond",size="large",length="small"})
+#line(name="oval",from={x=pt(30),y=pt(290)},to={x=pt(270),y=pt(320)},border={color="#2563eb",width=pt(2)},arrow={start="oval",to="oval",size="large",length="small"})
+#line(from={x=pt(570),y=pt(30)},to={x=pt(330),y=pt(60)},border={color="#dc2626",width=pt(3),style="solid"},opacity=0.6,arrow={to="triangle",start_size="small",end_size="large"})
+#line(from={x=pt(570),y=pt(95)},to={x=pt(330),y=pt(125)},border={color="#dc2626",width=pt(3),style="solid"},cap="round",opacity=0.6,arrow={to="triangle",start_size="small",end_size="large"})
+#line(from={x=pt(570),y=pt(160)},to={x=pt(330),y=pt(190)},border={color="#dc2626",width=pt(3),style="solid"},cap="square",opacity=0.6,arrow={to="triangle",start_size="small",end_size="large"})
+#line(from={x=pt(570),y=pt(225)},to={x=pt(330),y=pt(255)},border={color="#dc2626",width=pt(3),style="dashed"},cap="round",opacity=0.6,arrow={to="triangle",start_size="small",end_size="large"})
+#line(from={x=pt(570),y=pt(290)},to={x=pt(330),y=pt(320)},border={color="#dc2626",width=pt(3),style="dotted"},opacity=0.6,arrow={to="triangle",start_size="small",end_size="large"})
+#line(from={x=pt(20),y=pt(380)},to={x=pt(580),y=pt(380)},border={width=pt(0.5),color="#111827"})
+#line(from={x=pt(20),y=pt(380)},to={x=pt(20),y=pt(380)})]

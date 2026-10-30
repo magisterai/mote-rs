@@ -1,0 +1,1269 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#f8fafc",
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb"
+        }
+      },
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      }
+    },
+    "size": {
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      },
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "properties": {
+        "height": {
+          "text": "400pt",
+          "unit": "pt",
+          "value": 400
+        },
+        "width": {
+          "text": "600pt",
+          "unit": "pt",
+          "value": 600
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "rectangle",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "15pt",
+                    "unit": "pt",
+                    "value": 15
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "rectangle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "round_rect",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "132pt",
+                    "unit": "pt",
+                    "value": 132
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Rounded rectangle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "ellipse",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "249pt",
+                    "unit": "pt",
+                    "value": 249
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "ellipse"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "triangle",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "366pt",
+                    "unit": "pt",
+                    "value": 366
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "triangle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "diamond",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "483pt",
+                    "unit": "pt",
+                    "value": 483
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "diamond"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "hexagon",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "15pt",
+                    "unit": "pt",
+                    "value": 15
+                  },
+                  "y": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "hexagon"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "chevron",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "132pt",
+                    "unit": "pt",
+                    "value": 132
+                  },
+                  "y": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "chevron"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "cloud",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "249pt",
+                    "unit": "pt",
+                    "value": 249
+                  },
+                  "y": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "cloud"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "parallelogram",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "366pt",
+                    "unit": "pt",
+                    "value": 366
+                  },
+                  "y": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "parallelogram"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "trapezoid",
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "108pt",
+                    "unit": "pt",
+                    "value": 108
+                  },
+                  "x": {
+                    "text": "483pt",
+                    "unit": "pt",
+                    "value": 483
+                  },
+                  "y": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "trapezoid"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "rectangle",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "rectangle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "round_rect",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "132pt",
+                "unit": "pt",
+                "value": 132
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Rounded rectangle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "ellipse",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "249pt",
+                "unit": "pt",
+                "value": 249
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "ellipse"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "triangle",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "366pt",
+                "unit": "pt",
+                "value": 366
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "triangle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "diamond",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "483pt",
+                "unit": "pt",
+                "value": 483
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "diamond"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "hexagon",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              },
+              "y": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "hexagon"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "chevron",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "132pt",
+                "unit": "pt",
+                "value": 132
+              },
+              "y": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "chevron"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "cloud",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "249pt",
+                "unit": "pt",
+                "value": 249
+              },
+              "y": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "cloud"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "parallelogram",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "366pt",
+                "unit": "pt",
+                "value": 366
+              },
+              "y": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "parallelogram"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "trapezoid",
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "108pt",
+                "unit": "pt",
+                "value": 108
+              },
+              "x": {
+                "text": "483pt",
+                "unit": "pt",
+                "value": 483
+              },
+              "y": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "trapezoid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@ use crate::{
 };
 use std::f64::consts::PI;
 
-pub(super) fn points(value: Option<&Value>, fallback: f64) -> f64 {
+pub(crate) fn points(value: Option<&Value>, fallback: f64) -> f64 {
     let Some(value) = value else { return fallback };
     let units = match value {
         Value::Length { value, unit } => {
@@ -29,7 +29,7 @@ pub(super) fn points(value: Option<&Value>, fallback: f64) -> f64 {
         fallback
     }
 }
-pub(super) fn rectangle(attributes: &Properties) -> [f64; 4] {
+pub(crate) fn rectangle(attributes: &Properties) -> [f64; 4] {
     let empty = Properties::new();
     let position = object(attributes, "position").unwrap_or(&empty);
     [
@@ -60,7 +60,7 @@ fn paint(attributes: &Properties, name: &str, fallback: Option<&str>) -> Option<
         alpha: alpha(attributes, "opacity", 255),
     })
 }
-fn stroke(attributes: &Properties) -> Option<PathStroke> {
+pub(crate) fn stroke(attributes: &Properties) -> Option<PathStroke> {
     if text(attributes, "style") == "none" {
         return None;
     }
@@ -88,7 +88,7 @@ fn stroke(attributes: &Properties) -> Option<PathStroke> {
         cap,
     })
 }
-pub(super) fn shape(attributes: &Properties) -> Vec<PaintedPath> {
+pub(crate) fn shape(attributes: &Properties) -> Vec<PaintedPath> {
     let bounds = rectangle(attributes);
     if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
         return Vec::new();
@@ -342,7 +342,7 @@ fn shadows(attributes: &Properties, points: &[[f64; 2]]) -> Vec<PaintedPath> {
         .collect()
 }
 
-pub(super) fn text_rectangle(kind: &str, bounds: [f64; 4]) -> [f64; 4] {
+pub(crate) fn text_rectangle(kind: &str, bounds: [f64; 4]) -> [f64; 4] {
     let [left, top, width, height] = bounds;
     let (horizontal, vertical, inner_width, inner_height) = match kind {
         "round_rect" => {

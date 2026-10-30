@@ -123,7 +123,7 @@ pub(super) fn border(attributes: &Properties) -> Result<String, Error> {
     };
     Ok(format!("<a:ln w=\"{width}\">{fill}{dash}</a:ln>"))
 }
-fn body_properties(attributes: &Properties, font_scale: f64) -> Result<String, Error> {
+pub(super) fn body_properties(attributes: &Properties, font_scale: f64) -> Result<String, Error> {
     let anchor = match text(attributes, "vertical_alignment").as_str() {
         "center" | "middle" => "ctr",
         "bottom" => "b",

@@ -140,7 +140,7 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                 "date",
                 "slide_number",
             ]),
-            ElementKind::Box => {
+            ElementKind::Box | ElementKind::Shape => {
                 allowed.extend([
                     "name",
                     "position",
@@ -154,6 +154,9 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     "margin",
                     "vertical_alignment",
                 ]);
+                if element.kind == ElementKind::Shape {
+                    allowed.extend(["kind", "rotation", "flip_horizontal", "flip_vertical"]);
+                }
                 allowed.extend_from_slice(RUN);
                 allowed.extend_from_slice(PARAGRAPH);
                 if attributes.contains_key("fit") && super::images::child(element).is_none() {
@@ -176,6 +179,14 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     fields.extend(["fit", "margin", "vertical_alignment", "paragraph", "list"]);
                     unknown(nested, &fields, &format!("{path}.text"), warnings);
                     formatting(nested, &format!("{path}.text"), warnings);
+                }
+            }
+            ElementKind::Line => {
+                allowed.extend(["name", "from", "to", "border", "opacity", "cap", "arrow"]);
+                for name in ["from", "to"] {
+                    if let Some(fields) = object(attributes, name) {
+                        unknown(fields, &["x", "y"], &format!("{path}.{name}"), warnings);
+                    }
                 }
             }
             ElementKind::Table => allowed.extend([

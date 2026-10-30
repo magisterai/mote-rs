@@ -327,3 +327,40 @@ fn table_geometry_and_native_rasters_match_captured_output() {
         ],
     );
 }
+
+#[test]
+fn drawing_geometry_and_native_rasters_match_captured_output() {
+    compare_captured_slides(
+        "presentation-shapes",
+        &[
+            ("presets", 96, 0.3, 140),
+            ("transforms", 88, 0.16, 4),
+            ("fitting", 48, 0.35, 0),
+            ("connectors", 64, 1.0, 0),
+        ],
+    );
+}
+
+#[test]
+fn explicit_flat_connector_caps_can_be_painted_natively() {
+    let document =
+        mote::compile("#slide[#line(from={x=pt(10),y=pt(10)},to={x=pt(100),y=pt(40)},cap='flat')]")
+            .unwrap();
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let plan =
+        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+            .unwrap();
+    assert!(!plan.output.pages[0].operations.is_empty());
+    assert!(
+        render::paint_pdf(&plan.output)
+            .unwrap()
+            .starts_with(b"%PDF-")
+    );
+    assert_eq!(
+        render::paint_png(&plan.output, &Default::default())
+            .unwrap()
+            .output
+            .len(),
+        1
+    );
+}
