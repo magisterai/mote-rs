@@ -186,6 +186,20 @@ pub(super) fn write(
                 deck.warnings.push("PPTX omits empty boxes".into());
                 continue;
             }
+            if let [Content::Element(table)] = element.children.as_slice()
+                && table.kind == ElementKind::Table
+            {
+                output.push_str(&super::tables::write(
+                    document,
+                    element,
+                    table,
+                    &deck.theme,
+                    &mut next_shape,
+                    &mut relations,
+                    &mut deck.warnings,
+                )?);
+                continue;
+            }
             let mut placeholder;
             let element = if let Some(image) = crate::presentation::images::child(element) {
                 if let Some(picture) =

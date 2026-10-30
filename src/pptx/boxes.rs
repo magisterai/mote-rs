@@ -81,7 +81,7 @@ pub(super) fn write(
         r#"<p:sp><p:nvSpPr><p:cNvPr id="{identifier}" name="{name}"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="{horizontal}" y="{vertical}"/><a:ext cx="{width}" cy="{height}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom>{fill}{line}</p:spPr><p:txBody>{body}<a:lstStyle/>{content}</p:txBody></p:sp>"#
     ))
 }
-fn solid_fill(color: &str, opacity: Option<f64>) -> String {
+pub(super) fn solid_fill(color: &str, opacity: Option<f64>) -> String {
     let alpha = opacity
         .map(|value| {
             if value <= 1.0 {

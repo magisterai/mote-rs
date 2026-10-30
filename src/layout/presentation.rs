@@ -1,5 +1,6 @@
 //! Positioned slides use the same page operations as document layout.
 mod images;
+mod tables;
 use super::{
     DocumentTextPlan, HighlightRectangle, LayoutError, LineCap, PageGeometry, PageOperation,
     PathPaint, PathStroke, TextPage,
@@ -159,6 +160,20 @@ fn plan(
                 deck.warnings.push("native slides omit empty boxes".into());
                 continue;
             }
+            if let [Content::Element(table)] = element.children.as_slice()
+                && table.kind == ElementKind::Table
+            {
+                tables::place(
+                    document,
+                    element,
+                    table,
+                    &deck.theme,
+                    measurer,
+                    &mut page,
+                    &mut deck.warnings,
+                )?;
+                continue;
+            }
             if let Some(image) = crate::presentation::images::child(element) {
                 images::place(
                     element,
@@ -176,19 +191,7 @@ fn plan(
             if let Some(rectangle) = rectangle(prepared.bounds, &element.attributes) {
                 page.operations.push(rectangle);
             }
-            let offset = page.lines.len();
-            page.lines.extend(prepared.fitted.page.lines);
-            page.operations.extend(
-                prepared
-                    .fitted
-                    .page
-                    .operations
-                    .into_iter()
-                    .map(|operation| match operation {
-                        PageOperation::Text(index) => PageOperation::Text(index + offset),
-                        other => other,
-                    }),
-            );
+            page.append_content(prepared.fitted.page);
         }
         page.operations.push(PageOperation::PopClip);
         pages.push(page);

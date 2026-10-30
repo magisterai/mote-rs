@@ -1,0 +1,751 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#f8fafc",
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb"
+        }
+      },
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      }
+    },
+    "size": {
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      },
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "properties": {
+        "height": {
+          "text": "400pt",
+          "unit": "pt",
+          "value": 400
+        },
+        "width": {
+          "text": "600pt",
+          "unit": "pt",
+          "value": 600
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "170pt",
+                    "unit": "pt",
+                    "value": 170
+                  },
+                  "width": {
+                    "text": "560pt",
+                    "unit": "pt",
+                    "value": 560
+                  },
+                  "x": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "attributes": {
+                    "cell": {
+                      "margin": {
+                        "all": {
+                          "text": "7pt",
+                          "unit": "pt",
+                          "value": 7
+                        }
+                      }
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "attributes": {
+                        "height": {
+                          "text": "90pt",
+                          "unit": "pt",
+                          "value": 90
+                        },
+                        "height_rule": "exact"
+                      },
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Two paragraphs."
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Second paragraph."
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "vertical_alignment": "bottom"
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Bottom aligned"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "no_wrap": true
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "A long line that must wrap within this narrow table cell."
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "attributes": {
+                        "height": {
+                          "text": "60pt",
+                          "unit": "pt",
+                          "value": 60
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "span",
+                                  "category": "inline",
+                                  "attributes": {
+                                    "bold": true,
+                                    "color": "#2563eb"
+                                  },
+                                  "children": [
+                                    {
+                                      "kind": "text",
+                                      "text": "Bold blue"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "text",
+                                  "text": " and normal."
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "list",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "list_item",
+                                  "category": "block",
+                                  "children": [
+                                    {
+                                      "kind": "paragraph",
+                                      "category": "block",
+                                      "children": [
+                                        {
+                                          "kind": "text",
+                                          "text": "One"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "list_item",
+                                  "category": "block",
+                                  "children": [
+                                    {
+                                      "kind": "paragraph",
+                                      "category": "block",
+                                      "children": [
+                                        {
+                                          "kind": "text",
+                                          "text": "Two"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "attributes": {
+                                "alignment": "right"
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Right"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "130pt",
+                    "unit": "pt",
+                    "value": 130
+                  },
+                  "width": {
+                    "text": "560pt",
+                    "unit": "pt",
+                    "value": 560
+                  },
+                  "x": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "y": {
+                    "text": "220pt",
+                    "unit": "pt",
+                    "value": 220
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "text_direction": "tb_rl"
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Vertical one"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "text_direction": "bt_lr",
+                            "vertical_alignment": "center"
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Vertical two"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "text_direction": "rtl"
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Ordinary text"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "170pt",
+                "unit": "pt",
+                "value": 170
+              },
+              "width": {
+                "text": "560pt",
+                "unit": "pt",
+                "value": 560
+              },
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "table",
+              "category": "block",
+              "attributes": {
+                "cell": {
+                  "margin": {
+                    "all": {
+                      "text": "7pt",
+                      "unit": "pt",
+                      "value": 7
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "attributes": {
+                    "height": {
+                      "text": "90pt",
+                      "unit": "pt",
+                      "value": 90
+                    },
+                    "height_rule": "exact"
+                  },
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Two paragraphs."
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Second paragraph."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "vertical_alignment": "bottom"
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Bottom aligned"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "no_wrap": true
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "A long line that must wrap within this narrow table cell."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "attributes": {
+                    "height": {
+                      "text": "60pt",
+                      "unit": "pt",
+                      "value": 60
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "span",
+                              "category": "inline",
+                              "attributes": {
+                                "bold": true,
+                                "color": "#2563eb"
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Bold blue"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "text",
+                              "text": " and normal."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "list",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "list_item",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "paragraph",
+                                  "category": "block",
+                                  "children": [
+                                    {
+                                      "kind": "text",
+                                      "text": "One"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "list_item",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "paragraph",
+                                  "category": "block",
+                                  "children": [
+                                    {
+                                      "kind": "text",
+                                      "text": "Two"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "attributes": {
+                            "alignment": "right"
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Right"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "130pt",
+                "unit": "pt",
+                "value": 130
+              },
+              "width": {
+                "text": "560pt",
+                "unit": "pt",
+                "value": 560
+              },
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": {
+                "text": "220pt",
+                "unit": "pt",
+                "value": 220
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "table",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "text_direction": "tb_rl"
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Vertical one"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "text_direction": "bt_lr",
+                        "vertical_alignment": "center"
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Vertical two"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "text_direction": "rtl"
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Ordinary text"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

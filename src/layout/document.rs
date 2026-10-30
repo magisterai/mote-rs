@@ -27,6 +27,20 @@ pub struct TextPage {
     pub note_body_bottom: Option<f64>,
 }
 impl TextPage {
+    pub(crate) fn append_content(&mut self, page: Self) {
+        let offset = self.lines.len();
+        self.lines.extend(page.lines);
+        self.anchors.extend(page.anchors);
+        self.operations.extend(
+            page.operations
+                .into_iter()
+                .map(|operation| match operation {
+                    PageOperation::Text(index) => PageOperation::Text(index + offset),
+                    other => other,
+                }),
+        );
+    }
+
     pub(super) fn place_anchors(&mut self, names: &[String], position: [f64; 2]) {
         for name in names {
             self.anchors.entry(name.clone()).or_insert(position);

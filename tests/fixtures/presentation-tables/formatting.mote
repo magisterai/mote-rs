@@ -1,0 +1,9 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(width=pt(600),height=pt(400),background="#f8fafc",theme={colors={accent1="#2563eb"}})
+#style(name="SlideTable",type="table",table={cell={margin={all=pt(5)},vertical_alignment="center"},text={font="body",size=pt(14)},paragraph={alignment="center",spacing_after=pt(3)},banding={odd={fill="#eff6ff"},even={fill="#dcfce7"},odd_column={text={italic=true}}},first_row={fill="#1e40af",text={bold=true,color="#ffffff"}},last_row={text={bold=true}},first_column={text={color="#b91c1c"}},last_column={paragraph={alignment="right"}}})
+#slide[
+#box(position={x=pt(20),y=pt(20),width=pt(560),height=pt(330)})[#table(style="SlideTable")[
+#row[#cell[Product]#cell[Quantity]#cell[Total]]
+#row[#cell[Subscriptions]#cell[12]#cell[#link("https://example.com/bill")[120.00]]]
+#row[#cell[Support]#cell[3]#cell[75.00]]
+#row[#cell(colspan=2,fill="#fef3c7")[Total]#cell(alignment="left")[195.00]]]]]

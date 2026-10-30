@@ -198,3 +198,11 @@ fn authored_template_tokens_remain_literal_in_theme_metadata() {
         assert_eq!(latin.attribute("typeface"), Some(expected));
     }
 }
+
+#[test]
+fn positioned_tables_match_captured_editable_packages() {
+    compare_captured_packages(
+        "presentation-tables",
+        &["geometry", "merges", "formatting", "flow", "borders"],
+    );
+}

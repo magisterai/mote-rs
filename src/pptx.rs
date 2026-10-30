@@ -2,6 +2,7 @@
 mod boxes;
 mod package;
 mod pictures;
+mod tables;
 mod text;
 use crate::{model::Document, presentation::Deck};
 use std::fmt;

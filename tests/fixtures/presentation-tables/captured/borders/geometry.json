@@ -1,0 +1,575 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "F8FAFC"
+    },
+    {
+      "kind": "rectangle",
+      "bounds": [
+        20,
+        20,
+        186.66661417322834,
+        70
+      ],
+      "color": "DBEAFE"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 23.6,
+        "height": 21.6648,
+        "x": 27.2,
+        "width": 75.024,
+        "fragments": [
+          {
+            "text": "Preferred",
+            "x": 27.2,
+            "baseline": 39.8324,
+            "advance": 75.024,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        27.2,
+        23.6,
+        172.26661417322836,
+        62.800000000000004
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 23.6,
+        "height": 21.6648,
+        "x": 213.86661417322833,
+        "width": 87.03,
+        "fragments": [
+          {
+            "text": "Competing",
+            "x": 213.86661417322833,
+            "baseline": 39.8324,
+            "advance": 87.03,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        213.86661417322833,
+        23.6,
+        172.26661417322836,
+        62.800000000000004
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 23.6,
+        "height": 21.6648,
+        "x": 400.53322834645667,
+        "width": 58.014,
+        "fragments": [
+          {
+            "text": "Control",
+            "x": 400.53322834645667,
+            "baseline": 39.8324,
+            "advance": 58.014,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        400.53322834645667,
+        23.6,
+        172.26661417322833,
+        62.800000000000004
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 93.6,
+        "height": 21.6648,
+        "x": 27.2,
+        "width": 43.02,
+        "fragments": [
+          {
+            "text": "None",
+            "x": 27.2,
+            "baseline": 109.83239999999999,
+            "advance": 43.02,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        27.2,
+        93.6,
+        172.26661417322836,
+        62.800000000000004
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 93.6,
+        "height": 21.6648,
+        "x": 213.86661417322833,
+        "width": 53.01,
+        "fragments": [
+          {
+            "text": "Visible",
+            "x": 213.86661417322833,
+            "baseline": 109.83239999999999,
+            "advance": 53.01,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        213.86661417322833,
+        93.6,
+        172.26661417322836,
+        62.800000000000004
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 93.6,
+        "height": 21.6648,
+        "x": 400.53322834645667,
+        "width": 37.008,
+        "fragments": [
+          {
+            "text": "Dots",
+            "x": 400.53322834645667,
+            "baseline": 109.83239999999999,
+            "advance": 37.008,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        400.53322834645667,
+        93.6,
+        172.26661417322833,
+        62.800000000000004
+      ]
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          20,
+          20
+        ],
+        [
+          579.999842519685,
+          20
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "0F172A",
+        "alpha": 255,
+        "width": 2.5,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          20,
+          90
+        ],
+        [
+          579.999842519685,
+          90
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "94A3B8",
+        "alpha": 255,
+        "width": 0.75,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          20,
+          160
+        ],
+        [
+          393.3332283464567,
+          160
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "0F172A",
+        "alpha": 255,
+        "width": 2.5,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          393.3332283464567,
+          160
+        ],
+        [
+          579.999842519685,
+          160
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "7C3AED",
+        "alpha": 255,
+        "width": 1.5,
+        "dash": [
+          0.015,
+          6
+        ],
+        "cap": "Round"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          160
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "0F172A",
+        "alpha": 255,
+        "width": 2.5,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          206.66661417322834,
+          20
+        ],
+        [
+          206.66661417322834,
+          90
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "DC2626",
+        "alpha": 255,
+        "width": 2,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          393.3332283464567,
+          20
+        ],
+        [
+          393.3332283464567,
+          160
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "94A3B8",
+        "alpha": 255,
+        "width": 0.75,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          579.999842519685,
+          20
+        ],
+        [
+          579.999842519685,
+          160
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "0F172A",
+        "alpha": 255,
+        "width": 2.5,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 213.6,
+        "height": 21.6648,
+        "x": 27.2,
+        "width": 86.022,
+        "fragments": [
+          {
+            "text": "Borderless",
+            "x": 27.2,
+            "baseline": 229.8324,
+            "advance": 86.022,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        27.2,
+        213.6,
+        115.6,
+        132.8
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 213.6,
+        "height": 21.6648,
+        "x": 157.2,
+        "width": 58.014,
+        "fragments": [
+          {
+            "text": "Control",
+            "x": 157.2,
+            "baseline": 229.8324,
+            "advance": 58.014,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        157.2,
+        213.6,
+        115.6,
+        132.8
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 213.6,
+        "height": 21.6648,
+        "x": 327.2,
+        "width": 62.028,
+        "fragments": [
+          {
+            "text": "Dashed",
+            "x": 327.2,
+            "baseline": 229.8324,
+            "advance": 62.028,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        327.2,
+        213.6,
+        115.6,
+        132.8
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 213.6,
+        "height": 21.6648,
+        "x": 457.2,
+        "width": 81.036,
+        "fragments": [
+          {
+            "text": "Half ",
+            "x": 457.2,
+            "baseline": 229.8324,
+            "advance": 37.008,
+            "size": 18
+          },
+          {
+            "text": "alpha",
+            "x": 494.20799999999997,
+            "baseline": 229.8324,
+            "advance": 44.028,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        457.2,
+        213.6,
+        115.6,
+        132.8
+      ]
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          320,
+          210
+        ],
+        [
+          580,
+          210
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "E11D48",
+        "alpha": 128,
+        "width": 1.5,
+        "dash": [
+          4.5,
+          4.5
+        ],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          320,
+          350
+        ],
+        [
+          580,
+          350
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "E11D48",
+        "alpha": 128,
+        "width": 1.5,
+        "dash": [
+          4.5,
+          4.5
+        ],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          320,
+          210
+        ],
+        [
+          320,
+          350
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "E11D48",
+        "alpha": 128,
+        "width": 1.5,
+        "dash": [
+          4.5,
+          4.5
+        ],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          450,
+          210
+        ],
+        [
+          450,
+          350
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "E11D48",
+        "alpha": 128,
+        "width": 1.5,
+        "dash": [
+          4.5,
+          4.5
+        ],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          580,
+          210
+        ],
+        [
+          580,
+          350
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "E11D48",
+        "alpha": 128,
+        "width": 1.5,
+        "dash": [
+          4.5,
+          4.5
+        ],
+        "cap": "Flat"
+      }
+    }
+  ]
+]

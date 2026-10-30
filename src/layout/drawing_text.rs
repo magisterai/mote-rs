@@ -9,6 +9,11 @@ use crate::{
     model::{Properties, Value},
     properties::{object, text},
 };
+#[derive(Clone, Copy)]
+pub(crate) enum TextFrame {
+    Drawing,
+    TableCell,
+}
 pub(crate) struct FittedText {
     pub page: TextPage,
     pub font_scale: f64,
@@ -24,6 +29,7 @@ fn plan_paragraphs(
     width: f64,
     alignment: &str,
     scale: f64,
+    frame: TextFrame,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<(Vec<ParagraphText>, f64), LayoutError> {
     let mut output = Vec::new();
@@ -31,6 +37,11 @@ fn plan_paragraphs(
     for paragraph in paragraphs {
         let mut style = paragraph.style.clone();
         let mut runs = paragraph.runs.clone();
+        if matches!(frame, TextFrame::TableCell) {
+            style.indent_left = 0.0;
+            style.indent_right = 0.0;
+            style.first_line = 0.0;
+        }
         if !alignment.is_empty() {
             style.alignment = alignment.into();
         }
@@ -54,7 +65,11 @@ fn plan_paragraphs(
             style,
             None,
             &runs,
-            width + 0.75,
+            width
+                + match frame {
+                    TextFrame::Drawing => 0.75,
+                    TextFrame::TableCell => 0.0,
+                },
             measurer,
             false,
         )?;
@@ -75,6 +90,15 @@ pub(crate) fn fit(
     paragraphs: &[DrawingParagraph],
     bounds: [f64; 4],
     attributes: &Properties,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<FittedText, LayoutError> {
+    fit_with_frame(paragraphs, bounds, attributes, TextFrame::Drawing, measurer)
+}
+pub(crate) fn fit_with_frame(
+    paragraphs: &[DrawingParagraph],
+    bounds: [f64; 4],
+    attributes: &Properties,
+    frame: TextFrame,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<FittedText, LayoutError> {
     let mut paragraphs = paragraphs.to_vec();
@@ -103,15 +127,21 @@ pub(crate) fn fit(
     let initial_height = content[3];
     let alignment = text(attributes, "alignment");
     let (mut planned, mut total) =
-        plan_paragraphs(&paragraphs, content[2], &alignment, 1.0, measurer)?;
+        plan_paragraphs(&paragraphs, content[2], &alignment, 1.0, frame, measurer)?;
     let mut scale = 1.0;
     if text(attributes, "fit") == "shrink" && total > content[3] {
         let mut low = 0.1;
         let mut high = 1.0;
         for _ in 0..14 {
             let candidate = (low + high) / 2.0;
-            let (_, height) =
-                plan_paragraphs(&paragraphs, content[2], &alignment, candidate, measurer)?;
+            let (_, height) = plan_paragraphs(
+                &paragraphs,
+                content[2],
+                &alignment,
+                candidate,
+                frame,
+                measurer,
+            )?;
             if height <= content[3] {
                 low = candidate
             } else {
@@ -136,8 +166,15 @@ pub(crate) fn fit(
             if quantized > 0.0 {
                 let candidate = quantized / anchor;
                 if candidate > scale
-                    && plan_paragraphs(&paragraphs, content[2], &alignment, candidate, measurer)?.1
-                        > content[3] + 0.25
+                    && plan_paragraphs(
+                        &paragraphs,
+                        content[2],
+                        &alignment,
+                        candidate,
+                        frame,
+                        measurer,
+                    )?
+                    .1 > content[3] + 0.25
                 {
                     quantized = effective.floor();
                 }
@@ -150,7 +187,8 @@ pub(crate) fn fit(
         content[3] = total;
     }
     if scale != 1.0 {
-        (planned, total) = plan_paragraphs(&paragraphs, content[2], &alignment, scale, measurer)?;
+        (planned, total) =
+            plan_paragraphs(&paragraphs, content[2], &alignment, scale, frame, measurer)?;
     }
     let mut top = content[1]
         + match text(attributes, "vertical_alignment").as_str() {

@@ -1,0 +1,12 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(width=pt(600),height=pt(400),background="#f8fafc",theme={colors={accent1="#2563eb"}})
+#slide[
+#box(name="Default table",position={x=pt(15),y=pt(15),width=pt(260),height=pt(130)})[#table[
+#row[#cell[Name]#cell[Amount]]#row[#cell[First]#cell[120]]#row[#cell[Second]#cell[240]]]]
+#box(position={x=pt(305),y=pt(15),width=pt(280),height=pt(130)})[#table(width=pt(210),alignment="right")[
+#row(height=pt(35),height_rule="exact")[#cell(width=pt(80))[Left]#cell(width=pt(130))[Right]]
+#row[#cell[Value]#cell[320]]]]
+#box(position={x=pt(15),y=pt(200),width=pt(570),height=pt(160)})[#table(width=pt(450),alignment="center",cell={vertical_alignment="center",margin={all=pt(6)}})[
+#row[#cell(width=pt(150))[First]#cell(width=pt(130))[Second]#cell(width=pt(170))[Third]]
+#row(height=pt(65),height_rule="at_least")[#cell[One]#cell[Two]#cell[Three]]]]
+]

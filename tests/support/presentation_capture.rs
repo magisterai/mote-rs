@@ -29,6 +29,8 @@ pub fn projection(plan: &DocumentTextPlan) -> Value {
                 },
                 PageOperation::Rectangle(rectangle) => operations.push(json!({"kind":"rectangle","bounds":[rectangle.x,rectangle.top,rectangle.width,rectangle.height],"color":rectangle.color})),
                 PageOperation::PaintedRectangle {bounds,fill,stroke} => operations.push(json!({"kind":"painted_rectangle","bounds":bounds,"fill":fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
+                PageOperation::Stroke {rule,dash,round_cap} => operations.push(json!({"kind":"path","points":[rule.start,rule.end],"closed":false,"fill":null,"stroke":{"color":rule.color,"alpha":255,"width":rule.width,"dash":dash,"cap":if *round_cap {"Round"} else {"Flat"}}})),
+                PageOperation::Path(path) => operations.push(json!({"kind":"path","points":path.points,"closed":path.closed,"fill":path.fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":path.stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
                 PageOperation::ListMarker(marker) => operations.push(json!({"kind":"marker","slot":marker.slot,"baseline":marker.baseline,"font_size":marker.font_size,"checked":marker.checked,"clip":clip})),
                 _ => panic!("uncaptured presentation operation: {operation:?}"),
             }

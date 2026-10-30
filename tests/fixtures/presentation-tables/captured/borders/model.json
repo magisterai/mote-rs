@@ -1,0 +1,869 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#f8fafc",
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb"
+        }
+      },
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      }
+    },
+    "size": {
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      },
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "properties": {
+        "height": {
+          "text": "400pt",
+          "unit": "pt",
+          "value": 400
+        },
+        "width": {
+          "text": "600pt",
+          "unit": "pt",
+          "value": 600
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "560pt",
+                    "unit": "pt",
+                    "value": 560
+                  },
+                  "x": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "attributes": {
+                    "borders": {
+                      "inside": {
+                        "color": "#94a3b8",
+                        "width": {
+                          "text": "0.75pt",
+                          "unit": "pt",
+                          "value": 0.75
+                        }
+                      },
+                      "outside": {
+                        "color": "#0f172a",
+                        "width": {
+                          "text": "2.5pt",
+                          "unit": "pt",
+                          "value": 2.5
+                        }
+                      }
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "borders": {
+                              "right": {
+                                "color": "#dc2626",
+                                "width": {
+                                  "text": "2pt",
+                                  "unit": "pt",
+                                  "value": 2
+                                }
+                              }
+                            },
+                            "fill": "#dbeafe"
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Preferred"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "borders": {
+                              "left": {
+                                "color": "#2563eb",
+                                "width": {
+                                  "text": "4pt",
+                                  "unit": "pt",
+                                  "value": 4
+                                }
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Competing"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Control"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "borders": {
+                              "right": {
+                                "style": "none"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "None"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "borders": {
+                              "left": {
+                                "color": "#059669",
+                                "width": {
+                                  "text": "3pt",
+                                  "unit": "pt",
+                                  "value": 3
+                                }
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Visible"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "attributes": {
+                            "borders": {
+                              "bottom": {
+                                "color": "#7c3aed",
+                                "style": "dotted",
+                                "width": {
+                                  "text": "1.5pt",
+                                  "unit": "pt",
+                                  "value": 1.5
+                                }
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Dots"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "260pt",
+                    "unit": "pt",
+                    "value": 260
+                  },
+                  "x": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "y": {
+                    "text": "210pt",
+                    "unit": "pt",
+                    "value": 210
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "attributes": {
+                    "borders": {
+                      "all": {
+                        "style": "none"
+                      }
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Borderless"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Control"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "width": {
+                    "text": "260pt",
+                    "unit": "pt",
+                    "value": 260
+                  },
+                  "x": {
+                    "text": "320pt",
+                    "unit": "pt",
+                    "value": 320
+                  },
+                  "y": {
+                    "text": "210pt",
+                    "unit": "pt",
+                    "value": 210
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "attributes": {
+                    "borders": {
+                      "all": {
+                        "color": "#e11d48",
+                        "opacity": 50,
+                        "style": "dashed",
+                        "width": {
+                          "text": "1.5pt",
+                          "unit": "pt",
+                          "value": 1.5
+                        }
+                      }
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Dashed"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Half alpha"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "560pt",
+                "unit": "pt",
+                "value": 560
+              },
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "table",
+              "category": "block",
+              "attributes": {
+                "borders": {
+                  "inside": {
+                    "color": "#94a3b8",
+                    "width": {
+                      "text": "0.75pt",
+                      "unit": "pt",
+                      "value": 0.75
+                    }
+                  },
+                  "outside": {
+                    "color": "#0f172a",
+                    "width": {
+                      "text": "2.5pt",
+                      "unit": "pt",
+                      "value": 2.5
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "borders": {
+                          "right": {
+                            "color": "#dc2626",
+                            "width": {
+                              "text": "2pt",
+                              "unit": "pt",
+                              "value": 2
+                            }
+                          }
+                        },
+                        "fill": "#dbeafe"
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Preferred"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "borders": {
+                          "left": {
+                            "color": "#2563eb",
+                            "width": {
+                              "text": "4pt",
+                              "unit": "pt",
+                              "value": 4
+                            }
+                          }
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Competing"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Control"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "borders": {
+                          "right": {
+                            "style": "none"
+                          }
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "None"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "borders": {
+                          "left": {
+                            "color": "#059669",
+                            "width": {
+                              "text": "3pt",
+                              "unit": "pt",
+                              "value": 3
+                            }
+                          }
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Visible"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "attributes": {
+                        "borders": {
+                          "bottom": {
+                            "color": "#7c3aed",
+                            "style": "dotted",
+                            "width": {
+                              "text": "1.5pt",
+                              "unit": "pt",
+                              "value": 1.5
+                            }
+                          }
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Dots"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "260pt",
+                "unit": "pt",
+                "value": 260
+              },
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": {
+                "text": "210pt",
+                "unit": "pt",
+                "value": 210
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "table",
+              "category": "block",
+              "attributes": {
+                "borders": {
+                  "all": {
+                    "style": "none"
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Borderless"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Control"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "width": {
+                "text": "260pt",
+                "unit": "pt",
+                "value": 260
+              },
+              "x": {
+                "text": "320pt",
+                "unit": "pt",
+                "value": 320
+              },
+              "y": {
+                "text": "210pt",
+                "unit": "pt",
+                "value": 210
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "table",
+              "category": "block",
+              "attributes": {
+                "borders": {
+                  "all": {
+                    "color": "#e11d48",
+                    "opacity": 50,
+                    "style": "dashed",
+                    "width": {
+                      "text": "1.5pt",
+                      "unit": "pt",
+                      "value": 1.5
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Dashed"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Half alpha"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

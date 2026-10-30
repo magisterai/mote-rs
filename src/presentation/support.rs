@@ -1,7 +1,7 @@
 //! Retained properties must not imply an output effect.
 use crate::{
     model::{Content, Document, ElementKind, Properties},
-    properties::object,
+    properties::{object, text},
 };
 use std::collections::BTreeSet;
 const RUN: &[&str] = &[
@@ -101,6 +101,21 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
             "run",
             "paragraph",
         ]);
+        if text(&style.properties, "type") == "table" {
+            allowed.extend([
+                "table",
+                "cell",
+                "text",
+                "borders",
+                "banding",
+                "first_row",
+                "last_row",
+                "first_column",
+                "last_column",
+                "style_id",
+                "powerpoint_style_id",
+            ]);
+        }
         let path = format!("style[{name:?}]");
         unknown(&style.properties, &allowed, &path, &mut warnings);
         formatting(&style.properties, &path, &mut warnings);
@@ -163,6 +178,29 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     formatting(nested, &format!("{path}.text"), warnings);
                 }
             }
+            ElementKind::Table => allowed.extend([
+                "style",
+                "width",
+                "alignment",
+                "cell",
+                "borders",
+                "style_id",
+                "powerpoint_style_id",
+            ]),
+            ElementKind::Row => allowed.extend(["height"]),
+            ElementKind::Cell => allowed.extend([
+                "colspan",
+                "rowspan",
+                "style",
+                "width",
+                "fill",
+                "alignment",
+                "vertical_alignment",
+                "margin",
+                "borders",
+                "text_direction",
+                "no_wrap",
+            ]),
             ElementKind::Image => {
                 allowed.extend([
                     "src",

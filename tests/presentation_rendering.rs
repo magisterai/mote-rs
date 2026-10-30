@@ -313,3 +313,17 @@ fn missing_slide_pictures_have_truthful_diagnostics_and_rotated_pdf_links_follow
         }
     }
 }
+
+#[test]
+fn table_geometry_and_native_rasters_match_captured_output() {
+    compare_captured_slides(
+        "presentation-tables",
+        &[
+            ("flow", 40, 0.28, 0),
+            ("geometry", 48, 0.16, 0),
+            ("merges", 40, 0.12, 0),
+            ("formatting", 48, 0.07, 0),
+            ("borders", 48, 0.15, 0),
+        ],
+    );
+}
