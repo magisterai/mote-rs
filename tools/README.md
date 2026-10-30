@@ -44,7 +44,11 @@ Comparison rules are deliberately narrow:
   Text pieces separated only by such a marker within one run are joined when
   their text attributes agree. Authored `w:br`, tabs, formatting changes and real
   text-node boundaries remain compared.
-- Binary parts compare by SHA-256, and duplicate ZIP entries are errors.
+- Embedded `.xlsx` workbooks compare recursively by package part, using these
+  same XML and binary rules. ZIP compression and entry order are immaterial;
+  workbook cells, formulas, styles and relationships remain significant.
+- Other binary parts compare by SHA-256, and duplicate ZIP entries are errors,
+  including inside embedded workbooks. Nesting beyond four levels is rejected.
 
 Promote a confirmed mismatch into a focused frozen fixture and regression test.
 Do not change fixture text or geometry to conceal a rendering difference. Keep

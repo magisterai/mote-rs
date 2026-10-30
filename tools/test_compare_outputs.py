@@ -2,6 +2,7 @@
 
 from decimal import Decimal
 import json
+import io
 from pathlib import Path
 import sys
 import tempfile
@@ -76,6 +77,33 @@ class ComparisonTests(unittest.TestCase):
                 archive.writestr('word/document.xml', '<changed/>')
             with self.assertRaisesRegex(ValueError, 'duplicate package part'):
                 compare_outputs.read_package(path)
+
+    def test_embedded_workbooks_compare_contents_not_archive_encoding(self):
+        def package(value, reverse=False, duplicate=False):
+            workbook = io.BytesIO()
+            entries = [('xl/worksheets/sheet1.xml', '<sheet><cell>' + value + '</cell></sheet>'),
+                       ('xl/styles.xml', '<styles/>')]
+            if reverse:
+                entries.reverse()
+            with zipfile.ZipFile(workbook, 'w', compression=(zipfile.ZIP_DEFLATED if reverse else zipfile.ZIP_STORED)) as archive:
+                for name, contents in entries:
+                    archive.writestr(name, contents)
+                if duplicate:
+                    with warnings.catch_warnings():
+                        warnings.simplefilter('ignore', UserWarning)
+                        archive.writestr('xl/styles.xml', '<other/>')
+            document = io.BytesIO()
+            with zipfile.ZipFile(document, 'w') as archive:
+                archive.writestr('word/embeddings/chart1.xlsx', workbook.getvalue())
+            document.seek(0)
+            return document
+        original = compare_outputs.read_package(package('4'))
+        self.assertEqual(original, compare_outputs.read_package(package('4', reverse=True)))
+        self.assertNotEqual(original, compare_outputs.read_package(package('5')))
+        with self.assertRaisesRegex(ValueError, 'duplicate package part'):
+            compare_outputs.read_package(package('4', duplicate=True))
+        with self.assertRaisesRegex(ValueError, 'nesting'):
+            compare_outputs.read_package(package('4'), depth=5)
 
     def test_failed_emitters_and_timeouts_cannot_be_reported_as_matches(self):
         with tempfile.TemporaryDirectory() as directory:

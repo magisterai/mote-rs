@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from decimal import Decimal
 import hashlib
+import io
 import json
 from pathlib import Path
 import subprocess
@@ -86,7 +87,9 @@ def canonical_xml(element, preserve_space=False):
     return (element.tag, tuple(sorted(element.attrib.items())), text, tuple(children))
 
 
-def read_package(path):
+def read_package(path, depth=0):
+    if depth > 4:
+        raise ValueError('embedded package nesting exceeds four levels')
     parts = {}
     advisory_counts = {}
     with zipfile.ZipFile(path) as archive:
@@ -100,6 +103,11 @@ def read_package(path):
                 count = sum(node.tag == ADVISORY_BREAK for node in element.iter())
                 if count:
                     advisory_counts[entry.filename] = count
+            elif entry.filename.endswith('.xlsx'):
+                nested, counts = read_package(io.BytesIO(data), depth + 1)
+                parts[entry.filename] = ('package', nested)
+                advisory_counts.update({entry.filename + '/' + name: count
+                                        for name, count in counts.items()})
             else:
                 parts[entry.filename] = ('bytes', hashlib.sha256(data).hexdigest())
     return parts, advisory_counts
