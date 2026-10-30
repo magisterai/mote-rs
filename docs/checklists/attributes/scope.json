@@ -139,6 +139,90 @@
       "namespace": "http://schemas.microsoft.com/office/word/2010/wordprocessingShape",
       "edition": "MS-ODRAWXML",
       "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "c",
+      "namespace": "http://schemas.openxmlformats.org/drawingml/2006/chart",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/dml-chart.xsd"
+    },
+    {
+      "prefix": "cdr",
+      "namespace": "http://schemas.openxmlformats.org/drawingml/2006/chartDrawing",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/dml-chartDrawing.xsd"
+    },
+    {
+      "prefix": "c",
+      "namespace": "http://purl.oclc.org/ooxml/drawingml/chart",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/dml-chart.xsd"
+    },
+    {
+      "prefix": "cdr",
+      "namespace": "http://purl.oclc.org/ooxml/drawingml/chartDrawing",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/dml-chartDrawing.xsd"
+    },
+    {
+      "prefix": "cdr14",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2010/chartDrawing",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "c14",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2007/8/2/chart",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "c15",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2012/chart",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "cs",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2012/chartStyle",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "c16",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2014/chart",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "c16ac",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2014/chart/ac",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "cx",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2014/chartex",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "c16r3",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2017/03/chart",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "c16r2",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2015/06/chart",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "a14",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2010/main",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
     }
   ],
   "families": [
@@ -532,6 +616,228 @@
           "attributes_only": true
         }
       ]
+    },
+    {
+      "file": "charts.md",
+      "title": "DrawingML charts",
+      "description": "Complete chart-space, chart-kind, series, caches, labels, axes, legend, layout, style, printing and chart-drawing property families. Every unsupported chart kind and property remains visible. Embedded workbook packaging is an output detail; spreadsheet authoring is outside this directive.",
+      "roots": [
+        {
+          "type": "c:CT_ChartSpace"
+        },
+        {
+          "type": "cdr:CT_Drawing"
+        }
+      ]
+    },
+    {
+      "file": "chart-extensions.md",
+      "title": "Chart extensions",
+      "description": "Complete retained Microsoft chart, chart drawing, chart style and extended-chart declarations. These include modern chart families, formatting, data bindings, filtered-series and label controls. No extension entry implies a new Mote argument or implementation commitment.",
+      "roots": [
+        {
+          "type": "cdr14:contentPart",
+          "kind": "element"
+        },
+        {
+          "type": "c14:pivotOptions",
+          "kind": "element"
+        },
+        {
+          "type": "c14:invertSolidFillFmt",
+          "kind": "element"
+        },
+        {
+          "type": "c14:style",
+          "kind": "element"
+        },
+        {
+          "type": "c15:pivotSource",
+          "kind": "element"
+        },
+        {
+          "type": "c15:numFmt",
+          "kind": "element"
+        },
+        {
+          "type": "c15:spPr",
+          "kind": "element"
+        },
+        {
+          "type": "c15:layout",
+          "kind": "element"
+        },
+        {
+          "type": "c15:fullRef",
+          "kind": "element"
+        },
+        {
+          "type": "c15:levelRef",
+          "kind": "element"
+        },
+        {
+          "type": "c15:formulaRef",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredSeriesTitle",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredCategoryTitle",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredAreaSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredBarSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredBubbleSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredLineSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredPieSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredRadarSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredScatterSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:filteredSurfaceSeries",
+          "kind": "element"
+        },
+        {
+          "type": "c15:datalabelsRange",
+          "kind": "element"
+        },
+        {
+          "type": "c15:categoryFilterExceptions",
+          "kind": "element"
+        },
+        {
+          "type": "c15:dlblFieldTable",
+          "kind": "element"
+        },
+        {
+          "type": "c15:xForSave",
+          "kind": "element"
+        },
+        {
+          "type": "c15:showDataLabelsRange",
+          "kind": "element"
+        },
+        {
+          "type": "c15:tx",
+          "kind": "element"
+        },
+        {
+          "type": "c15:showLeaderLines",
+          "kind": "element"
+        },
+        {
+          "type": "c15:leaderLines",
+          "kind": "element"
+        },
+        {
+          "type": "c15:autoCat",
+          "kind": "element"
+        },
+        {
+          "type": "cs:colorStyle",
+          "kind": "element"
+        },
+        {
+          "type": "cs:chartStyle",
+          "kind": "element"
+        },
+        {
+          "type": "c16:datapointuniqueidmap",
+          "kind": "element"
+        },
+        {
+          "type": "c16:spPr",
+          "kind": "element"
+        },
+        {
+          "type": "c16:explosion",
+          "kind": "element"
+        },
+        {
+          "type": "c16:invertIfNegative",
+          "kind": "element"
+        },
+        {
+          "type": "c16:bubble3D",
+          "kind": "element"
+        },
+        {
+          "type": "c16:marker",
+          "kind": "element"
+        },
+        {
+          "type": "c16:dLbl",
+          "kind": "element"
+        },
+        {
+          "type": "c16:categoryFilterExceptions",
+          "kind": "element"
+        },
+        {
+          "type": "c16:pivotOptions16",
+          "kind": "element"
+        },
+        {
+          "type": "c16ac:multiLvlStrLit",
+          "kind": "element"
+        },
+        {
+          "type": "cx:chartSpace",
+          "kind": "element"
+        },
+        {
+          "type": "cx:chart",
+          "kind": "element"
+        },
+        {
+          "type": "c16r3:dataDisplayOptions16",
+          "kind": "element"
+        },
+        {
+          "type": "c16r2:formatcode2",
+          "kind": "element"
+        },
+        {
+          "type": "c14:CT_BooleanTrue"
+        },
+        {
+          "type": "c16:CT_NumFilteredLiteralCache"
+        },
+        {
+          "type": "c16:CT_StrFilteredLiteralCache"
+        },
+        {
+          "type": "c16:CT_MultiLvlStrFilteredLiteralCache"
+        },
+        {
+          "type": "c16:CT_LiteralDataChart"
+        },
+        {
+          "type": "cx:CT_FeatureExtension"
+        }
+      ]
     }
   ],
   "supplemental_notes": {
@@ -543,7 +849,8 @@
     "w:ST_OnOff": "s:ST_OnOff",
     "w:ST_String": "s:ST_String",
     "w:ST_HexColorRGB": "s:ST_HexColorRGB",
-    "w:ST_UnsignedDecimalNumber": "s:ST_UnsignedDecimalNumber"
+    "w:ST_UnsignedDecimalNumber": "s:ST_UnsignedDecimalNumber",
+    "c:ST_Xstring": "s:ST_Xstring"
   },
   "clause_indexes": {
     "w": [
@@ -563,6 +870,11 @@
       "docs/reference/reading/ooxml/ecma-376/part-1/sections/02775-21-1-2-2-paragraph-formatting.md",
       "docs/reference/reading/ooxml/ecma-376/part-1/sections/02790-21-1-2-3-run-formatting.md",
       "docs/reference/reading/ooxml/ecma-376/part-1/sections/02806-21-1-2-4-bullets-and-numbering.md"
+    ],
+    "c": [
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/02850-21-2-2-elements-01.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/02850-21-2-2-elements-02.md",
+      "docs/reference/reading/ooxml/ecma-376/part-1/sections/02850-21-2-2-elements-03.md"
     ]
   }
 }

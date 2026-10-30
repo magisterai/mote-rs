@@ -45,6 +45,8 @@ behaviour is deliberately defined and implemented.
 | [Word paragraphs](word-paragraphs.md) | Paragraphs, headings, quotes, and list-item paragraphs; includes nested section-boundary properties. | [17.3.1 Paragraphs](../../reference/reading/ooxml/ecma-376/part-1/sections/00163-17-3-1-paragraphs.md) |
 | [Tables](tables.md) | Tables, rows, cells, grids, borders and conditional formatting. | WordprocessingML and DrawingML table properties. |
 | [Shapes and connectors](shapes-and-lines.md) | Shape/connector geometry, metadata, appearance and Word hosting. | [DrawingML framework](../../reference/topics/drawings-charts.md) and MS-ODRAWXML Word shapes. |
+| [Charts](charts.md) | Chart kinds, series, data caches, axes, labels, legends, styling and chart drawings. | [21.2 Charts](../../reference/reading/ooxml/ecma-376/part-1/sections/02848-21-2-drawingml-charts.md) |
+| [Chart extensions](chart-extensions.md) | Retained Microsoft chart, chart-style and extended-chart properties. | [MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md) |
 | [Images](images.md) | Raster pictures, transforms, effects, borders and placement. | DrawingML picture and Word drawing properties. |
 | [Hyperlinks](links.md) | Inline external destinations and interaction metadata. | WordprocessingML and DrawingML hyperlink records. |
 | [Word runs](word-runs.md) | Spans, strong/emphasis/code, paragraph marks, and line breaks. | [17.3.2 Runs](../../reference/reading/ooxml/ecma-376/part-1/sections/00209-17-3-2-run.md) |
@@ -80,6 +82,18 @@ are omitted from its consolidated schema appendix. Their individual clauses are
 included as supplemental declarations. Four legacy Word scalar imports are
 explicitly mapped to the corresponding shared scalar definitions in the retained
 ECMA schema set; the value pages identify those aliases.
+
+## Chart coverage
+
+[Charts](charts.md) inventories the complete retained Strict and Transitional
+chart-space and chart-drawing families. [Chart extensions](chart-extensions.md)
+adds every retained Microsoft chart namespace, including chart styles and modern
+extended chart kinds; all remain unsupported until a directive mapping is stated.
+[Chart values](values-charts.md) preserves their full value domains. Embedded
+workbook packaging is an output detail rather than spreadsheet authoring support.
+The legacy chart `c:ST_Xstring` import maps to shared `s:ST_Xstring`, as identified
+on its value page. Extension imports select their actual namespace when multiple
+editions of a dependency are retained.
 
 ## Coverage boundary
 

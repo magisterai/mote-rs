@@ -81,6 +81,7 @@ class SchemaCollection:
                 self.definitions.setdefault(key, []).append((definition, namespaces, source))
 
     def resolve(self, name, namespaces, source):
+        name = name.strip()
         if ':' in name:
             prefix, local_name = name.split(':', 1)
             if prefix == 'xml':
@@ -97,6 +98,17 @@ class SchemaCollection:
             identifier = CONFIGURATION.get('legacy_value_aliases', {}).get(identifier, identifier)
         prefix, local_name = identifier.split(':', 1)
         return self.definitions.get((prefix, kind, local_name), [])
+
+    def imported_variants(self, name, kind, namespaces, source):
+        """An extension imports one namespace, not every retained edition of it."""
+        name = name.strip()
+        identifier = self.resolve(name, namespaces, source)
+        namespace = (namespaces.get(name.split(':', 1)[0]) if ':' in name
+                     else namespaces.get('', source['namespace']))
+        variants = self.variants(identifier, kind)
+        matching = [entry for entry in variants if entry[2]['namespace'] == namespace]
+        edition = [entry for entry in matching if entry[2]['edition'] == source['edition']]
+        return edition or matching
 
     def fields(self, identifier, selection=None, attributes_only=False, kind='complexType'):
         combined = {}
@@ -118,10 +130,8 @@ class SchemaCollection:
                         field_name = resolved_reference
                         declarations = self.variants(resolved_reference, tag)
                         if declarations:
-                            matches = [entry for entry in declarations
-                                       if entry[2]['edition'] == current_source['edition']]
-                            if not matches and len(declarations) == 1:
-                                matches = declarations
+                            matches = self.imported_variants(
+                                node.get('ref'), tag, current_namespaces, current_source)
                             if len(matches) != 1:
                                 raise ValueError(f'Ambiguous declaration {resolved_reference}')
                             declaration, reference_namespaces, reference_source = matches[0]
@@ -144,9 +154,8 @@ class SchemaCollection:
                     return
                 if tag in ('group', 'attributeGroup') and node.get('ref'):
                     reference = self.resolve(node.get('ref'), current_namespaces, current_source)
-                    variants = self.variants(reference, tag)
-                    matches = [entry for entry in variants
-                               if entry[2]['edition'] == current_source['edition']]
+                    matches = self.imported_variants(
+                        node.get('ref'), tag, current_namespaces, current_source)
                     if not matches:
                         raise ValueError(f'Unresolved group {reference}')
                     if reference in seen:
@@ -157,8 +166,8 @@ class SchemaCollection:
                 if tag in ('extension', 'restriction') and node.get('base'):
                     base = self.resolve(node.get('base'), current_namespaces, current_source)
                     variants = self.variants(base)
-                    matches = [entry for entry in variants
-                               if entry[2]['edition'] == current_source['edition']]
+                    matches = self.imported_variants(
+                        node.get('base'), 'complexType', current_namespaces, current_source)
                     if variants and not matches:
                         raise ValueError(f'Unresolved base edition for {base}')
                     if not variants and not (base.startswith('xsd:')
@@ -195,6 +204,8 @@ def anchor(identifier):
 def value_file(identifier):
     prefix = identifier.split(':', 1)[0]
     family = ('word' if prefix == 'w' else 'drawing' if prefix in ('a', 'p', 'wp')
+              else 'charts' if prefix in ('c', 'cdr', 'cdr14', 'c14', 'c15', 'cs',
+                                         'c16', 'c16ac', 'cx', 'c16r3', 'c16r2')
               else 'shared' if prefix in ('s', 'r') else 'extensions')
     return f'values-{family}.md'
 

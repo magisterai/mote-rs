@@ -16,6 +16,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_BlackWhiteMode](#a-st_blackwhitemode)
 - [a:ST_BlendMode](#a-st_blendmode)
 - [a:ST_BlipCompression](#a-st_blipcompression)
+- [a:ST_ColorSchemeIndex](#a-st_colorschemeindex)
 - [a:ST_CompoundLine](#a-st_compoundline)
 - [a:ST_Coordinate](#a-st_coordinate)
 - [a:ST_Coordinate32](#a-st_coordinate32)
@@ -191,6 +192,26 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `print`
 - enumeration: value: `hqprint`
 - enumeration: value: `none`
+
+<a id="a-st_colorschemeindex"></a>
+
+## a:ST_ColorSchemeIndex
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `dk1`
+- enumeration: value: `lt1`
+- enumeration: value: `dk2`
+- enumeration: value: `lt2`
+- enumeration: value: `accent1`
+- enumeration: value: `accent2`
+- enumeration: value: `accent3`
+- enumeration: value: `accent4`
+- enumeration: value: `accent5`
+- enumeration: value: `accent6`
+- enumeration: value: `hlink`
+- enumeration: value: `folHlink`
 
 <a id="a-st_compoundline"></a>
 
