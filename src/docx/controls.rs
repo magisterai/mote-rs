@@ -1,4 +1,4 @@
-use super::{Error, check_attributes, fonts, styles::Styles, values, xml};
+use super::{Error, check_attributes, run_properties::RunFormatting, styles::Styles, values, xml};
 use crate::model::{Properties, Value};
 
 pub(super) struct Controls {
@@ -19,6 +19,7 @@ impl Controls {
         properties: &Properties,
         checked: bool,
         styles: &Styles<'_>,
+        inherited: &RunFormatting,
     ) -> Result<String, Error> {
         check_attributes(
             properties,
@@ -67,8 +68,12 @@ impl Controls {
         if !name.is_empty() {
             content.push_str(&format!("<w:tag w:val=\"{}\"/>", xml::escape(&name)?));
         }
+        let mut formatting = inherited.clone();
+        formatting
+            .properties
+            .insert("font".into(), Value::String("MS Gothic".into()));
         let symbol = if checked { '☒' } else { '☐' };
-        content.push_str(&format!("<w14:checkbox><w14:checked w14:val=\"{checked_value}\"/><w14:checkedState w14:val=\"2612\" w14:font=\"MS Gothic\"/><w14:uncheckedState w14:val=\"2610\" w14:font=\"MS Gothic\"/></w14:checkbox></w:sdtPr><w:sdtContent><w:r><w:rPr>{}</w:rPr><w:t xml:space=\"preserve\">{symbol}</w:t></w:r></w:sdtContent></w:sdt>", fonts::run_fonts(styles.document, "MS Gothic")?));
+        content.push_str(&format!("<w14:checkbox><w14:checked w14:val=\"{checked_value}\"/><w14:checkedState w14:val=\"2612\" w14:font=\"MS Gothic\"/><w14:uncheckedState w14:val=\"2610\" w14:font=\"MS Gothic\"/></w14:checkbox></w:sdtPr><w:sdtContent><w:r><w:rPr>{}</w:rPr><w:t xml:space=\"preserve\">{symbol}</w:t></w:r></w:sdtContent></w:sdt>", formatting.write(styles)?));
         Ok(content)
     }
 }

@@ -79,8 +79,17 @@ pub(super) fn write(
         }
         output.push_str("</w:pPr>");
         if let Some(checked) = checked {
-            output.push_str(&state.controls.write_checkbox(&checkbox, checked, styles)?);
-            output.push_str("<w:r><w:t xml:space=\"preserve\"> </w:t></w:r>");
+            output.push_str(&state.controls.write_checkbox(
+                &checkbox,
+                checked,
+                styles,
+                &state.resources.active_text,
+            )?);
+            output.push_str(&runs::write_text(
+                " ",
+                &state.resources.active_text,
+                styles,
+            )?);
         }
         output.push_str(&runs::write_inlines(&inline, styles, &mut state.resources)?);
         output.push_str("</w:p>");
@@ -208,8 +217,12 @@ fn write_structured_item(
                 &mut state.resources,
             )?;
             if first && let Some(checked) = checked {
-                let checkbox = state.controls.write_checkbox(checkbox, checked, styles)?
-                    + "<w:r><w:t xml:space=\"preserve\"> </w:t></w:r>";
+                let checkbox = state.controls.write_checkbox(
+                    checkbox,
+                    checked,
+                    styles,
+                    &state.resources.active_text,
+                )? + &runs::write_text(" ", &state.resources.active_text, styles)?;
                 let index = paragraph.find("</w:pPr>").map_or(5, |index| index + 8);
                 paragraph.insert_str(index, &checkbox);
             }

@@ -386,3 +386,18 @@ fn shape_rotation_and_shadow_direction_accept_signed_angles() {
     assert!(document.contains("rot=\"-900000\""));
     assert!(document.contains("dir=\"-2700000\""));
 }
+
+#[test]
+fn task_controls_inherit_drawing_text_without_changing_following_lists() {
+    let package = support::package(
+        "#shape(position={width=inch(2),height=inch(1)},text={size=pt(14),color='#112233'})[\
+         #list[#item(checked=true)[Inside]#item(checked=false)[Pending]]\
+         ]#list[#item(checked=true)[Outside]]",
+    );
+    let document = &package["word/document.xml"];
+    let symbol_properties = "<w:rFonts w:ascii=\"MS Gothic\" w:hAnsi=\"MS Gothic\"/><w:color w:val=\"112233\"/><w:sz w:val=\"28\"/><w:szCs w:val=\"28\"/>";
+    assert_eq!(document.matches(symbol_properties).count(), 2);
+    let spacer = "<w:rPr><w:rFonts w:ascii=\"Aptos\" w:hAnsi=\"Aptos\"/><w:color w:val=\"112233\"/><w:sz w:val=\"28\"/><w:szCs w:val=\"28\"/></w:rPr><w:t xml:space=\"preserve\"> </w:t>";
+    assert_eq!(document.matches(spacer).count(), 2);
+    assert!(document.contains("<w:rPr><w:rFonts w:ascii=\"MS Gothic\" w:hAnsi=\"MS Gothic\"/></w:rPr><w:t xml:space=\"preserve\">☒</w:t>"));
+}
