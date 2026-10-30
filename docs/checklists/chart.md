@@ -74,3 +74,9 @@ and external data, trendlines, error bars, secondary/date axes, per-point overri
 manual layouts, legend-entry overrides, rich label formatting, modern extended
 chart families and Microsoft chart styling extensions. No new authoring names are
 assigned to those properties here.
+
+Positioned slide chart output requires box geometry, editable chart parts and
+embedded workbooks, all twelve existing chart kinds, and the authored title,
+axes, legends, labels, fills, borders, gridlines, palette, gap and overlap fields.
+Deck palette and text defaults must also reach native chart layout. Presentation
+captures are pending separately from the existing document captures.
