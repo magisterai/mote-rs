@@ -67,6 +67,9 @@ Status: initial draft.
 24. [Document constructors](document-constructors.md): Lua element values, property
     tables, content arguments, declarations and output semantics.
 
+25. [Shapes and lines](drawings.md): positioned geometry, appearance, shape text,
+    and connector markers.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

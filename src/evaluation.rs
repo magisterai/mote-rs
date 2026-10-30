@@ -11,6 +11,7 @@ mod constructors;
 mod control;
 mod data;
 mod declarations;
+mod drawings;
 mod expressions;
 mod functions;
 mod images;

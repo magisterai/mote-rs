@@ -206,6 +206,11 @@ fn content(
         let item = element.kind == ElementKind::ListItem;
         let mut allowed = Vec::new();
         match element.kind {
+            ElementKind::Shape | ElementKind::Line => {
+                warnings.insert(format!(
+                    "{path} drawing geometry is not yet supported in native output"
+                ));
+            }
             ElementKind::Paragraph
             | ElementKind::Heading
             | ElementKind::Blockquote

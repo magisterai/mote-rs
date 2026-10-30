@@ -1,0 +1,4 @@
+#function drawings()
+return {document.shape({kind="diamond",position={width=pt(50),height=pt(50)},text={color="#123456"}},document.paragraph("Text")),document.line({from={x=0,y=0},to={x=72,y=72},arrow={["end"]="triangle"}})}
+end
+#drawings()

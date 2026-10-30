@@ -1,0 +1,218 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "triangle"
+            },
+            "border": {
+              "color": "#aabbcc",
+              "opacity": "70",
+              "style": "dotted",
+              "width": {
+                "text": "1.25pt",
+                "unit": "pt",
+                "value": 1.25
+              }
+            },
+            "cap": "round",
+            "from": {
+              "x": 0,
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "name": "4",
+            "opacity": "90",
+            "to": {
+              "x": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          }
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "stealth",
+              "end_length": "med",
+              "end_size": "sm",
+              "length": "lg",
+              "size": "sm",
+              "start": "diamond",
+              "start_length": "lg",
+              "start_size": "med"
+            },
+            "cap": "square",
+            "from": {
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": 30
+            },
+            "to": {
+              "x": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "y": {
+                "text": "50pt",
+                "unit": "pt",
+                "value": 50
+              }
+            }
+          }
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "oval",
+              "end_size": "sm",
+              "start": "none",
+              "start_size": "lg"
+            },
+            "from": {
+              "x": 0,
+              "y": 0
+            },
+            "to": {
+              "x": 1,
+              "y": 2
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "line",
+      "category": "block",
+      "attributes": {
+        "arrow": {
+          "end": "triangle"
+        },
+        "border": {
+          "color": "#aabbcc",
+          "opacity": "70",
+          "style": "dotted",
+          "width": {
+            "text": "1.25pt",
+            "unit": "pt",
+            "value": 1.25
+          }
+        },
+        "cap": "round",
+        "from": {
+          "x": 0,
+          "y": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          }
+        },
+        "name": "4",
+        "opacity": "90",
+        "to": {
+          "x": {
+            "text": "3in",
+            "unit": "in",
+            "value": 3
+          },
+          "y": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          }
+        }
+      }
+    },
+    {
+      "kind": "line",
+      "category": "block",
+      "attributes": {
+        "arrow": {
+          "end": "stealth",
+          "end_length": "med",
+          "end_size": "sm",
+          "length": "lg",
+          "size": "sm",
+          "start": "diamond",
+          "start_length": "lg",
+          "start_size": "med"
+        },
+        "cap": "square",
+        "from": {
+          "x": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "y": 30
+        },
+        "to": {
+          "x": {
+            "text": "100pt",
+            "unit": "pt",
+            "value": 100
+          },
+          "y": {
+            "text": "50pt",
+            "unit": "pt",
+            "value": 50
+          }
+        }
+      }
+    },
+    {
+      "kind": "line",
+      "category": "block",
+      "attributes": {
+        "arrow": {
+          "end": "oval",
+          "end_size": "sm",
+          "start": "none",
+          "start_size": "lg"
+        },
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 1,
+          "y": 2
+        }
+      }
+    }
+  ]
+}

@@ -16,6 +16,8 @@ pub(super) const ELEMENT_NAMES: &[&str] = &[
     "span",
     "link",
     "image",
+    "shape",
+    "line",
     "table",
     "row",
     "cell",
@@ -67,6 +69,7 @@ impl Signature {
         !matches!(
             self.kind,
             ElementKind::Image
+                | ElementKind::Line
                 | ElementKind::Label
                 | ElementKind::Reference
                 | ElementKind::PageNumber
@@ -76,13 +79,18 @@ impl Signature {
         )
     }
     fn body_required(self) -> bool {
-        self.body_allowed() && !matches!(self.kind, ElementKind::Code | ElementKind::Bookmark)
+        self.body_allowed()
+            && !matches!(
+                self.kind,
+                ElementKind::Code | ElementKind::Bookmark | ElementKind::Shape
+            )
     }
     pub fn body_mode(self) -> ContentMode {
         match self.kind {
             ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
             ElementKind::Table | ElementKind::Row => ContentMode::Structural,
-            ElementKind::Cell
+            ElementKind::Shape
+            | ElementKind::Cell
             | ElementKind::ListItem
             | ElementKind::Blockquote
             | ElementKind::Figure
@@ -194,6 +202,20 @@ impl Signature {
             }
             _ => {}
         }
+        if matches!(self.kind, ElementKind::Shape | ElementKind::Line) {
+            for required in if self.kind == ElementKind::Shape {
+                &["position"][..]
+            } else {
+                &["from", "to"][..]
+            } {
+                if !attributes.contains_key(*required) {
+                    return Err(Diagnostic::new(
+                        span,
+                        format!("{} requires {required}", self.kind.as_text()),
+                    ));
+                }
+            }
+        }
         let text = text
             .map(|argument| {
                 if !matches!(
@@ -276,6 +298,9 @@ impl PreparedElement {
                     ),
                 ));
             }
+        }
+        if kind == ElementKind::Shape {
+            children.retain(|child| !matches!(child,Content::Text(text) if text.trim().is_empty()));
         }
         if kind == ElementKind::Figure && children.iter().filter(|child| matches!(child,Content::Element(element) if element.kind == ElementKind::Caption)).count() > 1 {
             return Err(Diagnostic::new(span,"figure can contain at most one caption"));

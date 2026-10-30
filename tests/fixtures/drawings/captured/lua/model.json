@@ -1,0 +1,154 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "kind": "diamond",
+            "position": {
+              "height": {
+                "text": "50pt",
+                "unit": "pt",
+                "value": 50
+              },
+              "width": {
+                "text": "50pt",
+                "unit": "pt",
+                "value": 50
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            },
+            "text": {
+              "color": "#123456"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "triangle"
+            },
+            "from": {
+              "x": 0,
+              "y": 0
+            },
+            "to": {
+              "x": 72,
+              "y": 72
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "kind": "diamond",
+        "position": {
+          "height": {
+            "text": "50pt",
+            "unit": "pt",
+            "value": 50
+          },
+          "width": {
+            "text": "50pt",
+            "unit": "pt",
+            "value": 50
+          },
+          "x": {
+            "text": "0in",
+            "unit": "in",
+            "value": 0
+          },
+          "y": {
+            "text": "0in",
+            "unit": "in",
+            "value": 0
+          }
+        },
+        "text": {
+          "color": "#123456"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "line",
+      "category": "block",
+      "attributes": {
+        "arrow": {
+          "end": "triangle"
+        },
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 72,
+          "y": 72
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        }
+      ]
+    }
+  ]
+}

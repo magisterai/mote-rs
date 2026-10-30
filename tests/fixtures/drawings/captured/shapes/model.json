@@ -1,0 +1,400 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "border": {
+              "color": "#28734f",
+              "opacity": "80",
+              "style": "dashed",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            },
+            "fill": "#aabbcc",
+            "flip_horizontal": true,
+            "flip_vertical": false,
+            "kind": "round_rect",
+            "margin": {
+              "left": {
+                "text": "4pt",
+                "unit": "pt",
+                "value": 4
+              },
+              "top": 2
+            },
+            "name": "7",
+            "opacity": "90",
+            "position": {
+              "height": {
+                "text": "72pt",
+                "unit": "pt",
+                "value": 72
+              },
+              "width": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            },
+            "rotation": "15",
+            "shadow": {
+              "angle": "45",
+              "blur": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              },
+              "color": "#123456",
+              "distance": {
+                "text": "3pt",
+                "unit": "pt",
+                "value": 3
+              },
+              "opacity": "25"
+            },
+            "vertical_alignment": "center"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Shape text."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "kind": "ellipse",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "x": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "y": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              }
+            },
+            "text": {
+              "alignment": "right",
+              "bold": true,
+              "color": "#aabbcc",
+              "double_strike": false,
+              "fit": "shrink",
+              "font": "12",
+              "highlight": "#ddeeff",
+              "indent": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "italic": true,
+              "list": {
+                "indent": {
+                  "left": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6
+                  }
+                },
+                "spacing_before": {
+                  "text": "2pt",
+                  "unit": "pt",
+                  "value": 2
+                }
+              },
+              "margin": {
+                "top": {
+                  "text": "2pt",
+                  "unit": "pt",
+                  "value": 2
+                }
+              },
+              "paragraph": {
+                "alignment": "center",
+                "keep_with_next": true,
+                "spacing_after": {
+                  "text": "2pt",
+                  "unit": "pt",
+                  "value": 2
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "small_caps": true,
+              "spacing": {
+                "line": {
+                  "rule": "multiple",
+                  "value": 1.2
+                }
+              },
+              "spacing_before": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              },
+              "strike": false,
+              "underline": false,
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Body"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "alignment": "center",
+        "border": {
+          "color": "#28734f",
+          "opacity": "80",
+          "style": "dashed",
+          "width": {
+            "text": "1pt",
+            "unit": "pt",
+            "value": 1
+          }
+        },
+        "fill": "#aabbcc",
+        "flip_horizontal": true,
+        "flip_vertical": false,
+        "kind": "round_rect",
+        "margin": {
+          "left": {
+            "text": "4pt",
+            "unit": "pt",
+            "value": 4
+          },
+          "top": 2
+        },
+        "name": "7",
+        "opacity": "90",
+        "position": {
+          "height": {
+            "text": "72pt",
+            "unit": "pt",
+            "value": 72
+          },
+          "width": {
+            "text": "2in",
+            "unit": "in",
+            "value": 2
+          },
+          "x": {
+            "text": "0in",
+            "unit": "in",
+            "value": 0
+          },
+          "y": {
+            "text": "0in",
+            "unit": "in",
+            "value": 0
+          }
+        },
+        "rotation": "15",
+        "shadow": {
+          "angle": "45",
+          "blur": {
+            "text": "2pt",
+            "unit": "pt",
+            "value": 2
+          },
+          "color": "#123456",
+          "distance": {
+            "text": "3pt",
+            "unit": "pt",
+            "value": 3
+          },
+          "opacity": "25"
+        },
+        "vertical_alignment": "center"
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Shape text."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "kind": "ellipse",
+        "position": {
+          "height": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "width": {
+            "text": "2in",
+            "unit": "in",
+            "value": 2
+          },
+          "x": {
+            "text": "3in",
+            "unit": "in",
+            "value": 3
+          },
+          "y": {
+            "text": "2in",
+            "unit": "in",
+            "value": 2
+          }
+        },
+        "text": {
+          "alignment": "right",
+          "bold": true,
+          "color": "#aabbcc",
+          "double_strike": false,
+          "fit": "shrink",
+          "font": "12",
+          "highlight": "#ddeeff",
+          "indent": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "italic": true,
+          "list": {
+            "indent": {
+              "left": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6
+              }
+            },
+            "spacing_before": {
+              "text": "2pt",
+              "unit": "pt",
+              "value": 2
+            }
+          },
+          "margin": {
+            "top": {
+              "text": "2pt",
+              "unit": "pt",
+              "value": 2
+            }
+          },
+          "paragraph": {
+            "alignment": "center",
+            "keep_with_next": true,
+            "spacing_after": {
+              "text": "2pt",
+              "unit": "pt",
+              "value": 2
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "small_caps": true,
+          "spacing": {
+            "line": {
+              "rule": "multiple",
+              "value": 1.2
+            }
+          },
+          "spacing_before": {
+            "text": "1pt",
+            "unit": "pt",
+            "value": 1
+          },
+          "strike": false,
+          "underline": false,
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

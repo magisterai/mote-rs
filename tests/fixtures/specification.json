@@ -557,6 +557,18 @@
       "example": "document-constructors/2",
       "model": "document-constructors-2",
       "lua": true
+    },
+    {
+      "example": "drawings/1",
+      "model": "drawings-1"
+    },
+    {
+      "example": "drawings/2",
+      "model": "drawings-2"
+    },
+    {
+      "example": "drawings/3",
+      "model": "drawings-3"
     }
   ],
   "models": {
@@ -7847,6 +7859,376 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    "drawings-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#28734f",
+                  "width": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1.0
+                  }
+                },
+                "fill": "#e6f2ed",
+                "kind": "round_rect",
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "width": {
+                    "text": "3in",
+                    "unit": "in",
+                    "value": 3.0
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "y": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A positioned drawing with editable text."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#28734f",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1.0
+              }
+            },
+            "fill": "#e6f2ed",
+            "kind": "round_rect",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "width": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3.0
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "y": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2.0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A positioned drawing with editable text."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "drawings-2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "width": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "color": "#123456",
+                  "fit": "shrink",
+                  "margin": {
+                    "left": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4.0
+                    },
+                    "right": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4.0
+                    }
+                  },
+                  "size": {
+                    "text": "16pt",
+                    "unit": "pt",
+                    "value": 16.0
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Status"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "width": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2.0
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0.0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0.0
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "color": "#123456",
+              "fit": "shrink",
+              "margin": {
+                "left": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4.0
+                },
+                "right": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4.0
+                }
+              },
+              "size": {
+                "text": "16pt",
+                "unit": "pt",
+                "value": 16.0
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Status"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "drawings-3": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "line",
+              "category": "block",
+              "attributes": {
+                "arrow": {
+                  "end": "triangle"
+                },
+                "border": {
+                  "color": "#28734f",
+                  "width": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2.0
+                  }
+                },
+                "cap": "round",
+                "from": {
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  }
+                },
+                "to": {
+                  "x": {
+                    "text": "3in",
+                    "unit": "in",
+                    "value": 3.0
+                  },
+                  "y": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "triangle"
+            },
+            "border": {
+              "color": "#28734f",
+              "width": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2.0
+              }
+            },
+            "cap": "round",
+            "from": {
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              }
+            },
+            "to": {
+              "x": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3.0
+              },
+              "y": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2.0
+              }
+            }
+          }
         }
       ]
     }

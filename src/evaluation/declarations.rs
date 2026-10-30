@@ -108,7 +108,11 @@ fn normalize_font_property(name: &str, value: Value, span: Span) -> Result<Value
     }
 }
 
-fn normalize_style_property(name: &str, value: Value, span: Span) -> Result<Value, Diagnostic> {
+pub(super) fn normalize_style_property(
+    name: &str,
+    value: Value,
+    span: Span,
+) -> Result<Value, Diagnostic> {
     match name {
         "type" => normalize_enum(
             value,

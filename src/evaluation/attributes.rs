@@ -134,6 +134,21 @@ fn validate_named_argument(
         Some(ArgumentType::Object)
     } else {
         match kind {
+            Shape => match name {
+                "name" | "rotation" | "opacity" => Some(ArgumentType::NumberOrString),
+                "kind" | "alignment" | "vertical_alignment" => Some(ArgumentType::String),
+                "position" | "border" | "margin" | "text" | "shadow" => Some(ArgumentType::Object),
+                "fill" => Some(ArgumentType::Color),
+                "flip_horizontal" | "flip_vertical" => Some(ArgumentType::Boolean),
+                _ => None,
+            },
+            Line => match name {
+                "name" | "opacity" => Some(ArgumentType::NumberOrString),
+                "from" | "to" | "border" => Some(ArgumentType::Object),
+                "arrow" => Some(ArgumentType::StringOrObject),
+                "cap" => Some(ArgumentType::String),
+                _ => None,
+            },
             Footnote | Endnote => match name {
                 "id" => Some(ArgumentType::NumberOrString),
                 _ => None,
@@ -275,6 +290,7 @@ pub(super) fn normalize_attribute(
 ) -> Result<Value, Diagnostic> {
     use ElementKind::*;
     match kind {
+        Shape | Line => super::drawings::normalize(kind, name, value, span),
         Figure | Caption => match name {
             "alignment" => normalize_enum(value, span, name, ALIGNMENTS),
             "position" if kind == Caption => normalize_enum(value, span, name, &["above", "below"]),
