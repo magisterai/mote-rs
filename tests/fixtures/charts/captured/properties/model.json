@@ -1,0 +1,252 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "axis": {
+              "category": {
+                "title": "Quarter"
+              },
+              "value": {
+                "name": "Amount"
+              }
+            },
+            "background": "#f8fafc",
+            "border": {
+              "color": "#cbd5e1",
+              "enabled": true,
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            },
+            "colors": [
+              "#aabbcc",
+              "#123456"
+            ],
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "Revenue",
+                  "values": [
+                    10,
+                    12
+                  ]
+                },
+                {
+                  "name": "Cost",
+                  "values": [
+                    6,
+                    8
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "position": "outEnd",
+              "value": true
+            },
+            "gap_width": 75,
+            "gridlines": {
+              "color": "#e5e7eb",
+              "major": true,
+              "minor": false,
+              "width": {
+                "text": "0.5pt",
+                "unit": "pt",
+                "value": 0.5
+              }
+            },
+            "height": {
+              "text": "252pt",
+              "unit": "pt",
+              "value": 252
+            },
+            "kind": "column",
+            "legend": {
+              "enabled": true,
+              "position": "b"
+            },
+            "overlap": -25,
+            "plot_area": {
+              "background": "#ffffff",
+              "border": false
+            },
+            "style": "Retained",
+            "title": "42",
+            "width": {
+              "text": "6in",
+              "unit": "in",
+              "value": 6
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "border": "#aabbcc",
+            "colors": {
+              "extra": "#ffffff",
+              "series1": "#ff0000",
+              "series2": "#0000ff"
+            },
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": true,
+            "gridlines": false,
+            "legend": true,
+            "plot_area": {
+              "border": {
+                "enabled": false,
+                "width": 12700
+              },
+              "color": "#dddddd",
+              "fill": "#eeeeee"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "axis": {
+          "category": {
+            "title": "Quarter"
+          },
+          "value": {
+            "name": "Amount"
+          }
+        },
+        "background": "#f8fafc",
+        "border": {
+          "color": "#cbd5e1",
+          "enabled": true,
+          "width": {
+            "text": "1pt",
+            "unit": "pt",
+            "value": 1
+          }
+        },
+        "colors": [
+          "#aabbcc",
+          "#123456"
+        ],
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "Revenue",
+              "values": [
+                10,
+                12
+              ]
+            },
+            {
+              "name": "Cost",
+              "values": [
+                6,
+                8
+              ]
+            }
+          ]
+        },
+        "data_labels": {
+          "position": "outEnd",
+          "value": true
+        },
+        "gap_width": 75,
+        "gridlines": {
+          "color": "#e5e7eb",
+          "major": true,
+          "minor": false,
+          "width": {
+            "text": "0.5pt",
+            "unit": "pt",
+            "value": 0.5
+          }
+        },
+        "height": {
+          "text": "252pt",
+          "unit": "pt",
+          "value": 252
+        },
+        "kind": "column",
+        "legend": {
+          "enabled": true,
+          "position": "b"
+        },
+        "overlap": -25,
+        "plot_area": {
+          "background": "#ffffff",
+          "border": false
+        },
+        "style": "Retained",
+        "title": "42",
+        "width": {
+          "text": "6in",
+          "unit": "in",
+          "value": 6
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "border": "#aabbcc",
+        "colors": {
+          "extra": "#ffffff",
+          "series1": "#ff0000",
+          "series2": "#0000ff"
+        },
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": true,
+        "gridlines": false,
+        "legend": true,
+        "plot_area": {
+          "border": {
+            "enabled": false,
+            "width": 12700
+          },
+          "color": "#dddddd",
+          "fill": "#eeeeee"
+        }
+      }
+    }
+  ]
+}

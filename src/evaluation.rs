@@ -6,6 +6,7 @@ use crate::syntax::{Call, Node, NodeKind, SyntaxTree};
 
 mod attributes;
 mod bindings;
+mod charts;
 mod configuration;
 mod constructors;
 mod control;

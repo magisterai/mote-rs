@@ -1,0 +1,3 @@
+#let(data=json("assets/chart.json"))
+#let(generated=document.chart({kind="line",title="From JSON",data=data,legend="top",data_labels={position="top"}}))
+#generated

@@ -1,0 +1,4 @@
+#for legend in {true,false,"true","false","top","right","bottom","left"} {
+#chart(data={values={1,2}},legend=legend)
+}
+#chart(data={values={1}},legend={enabled="false",position="left",extra=17})

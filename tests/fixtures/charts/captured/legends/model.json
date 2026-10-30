@@ -1,0 +1,276 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": true
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": false
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": true
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": false
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": {
+              "position": "t"
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": {
+              "position": "r"
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": {
+              "position": "b"
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "legend": {
+              "position": "l"
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1
+              ]
+            },
+            "legend": {
+              "enabled": false,
+              "extra": 17,
+              "position": "l"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": true
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": false
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": true
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": false
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": {
+          "position": "t"
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": {
+          "position": "r"
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": {
+          "position": "b"
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "legend": {
+          "position": "l"
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1
+          ]
+        },
+        "legend": {
+          "enabled": false,
+          "extra": 17,
+          "position": "l"
+        }
+      }
+    }
+  ]
+}

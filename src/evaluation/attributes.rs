@@ -90,11 +90,23 @@ enum ArgumentType {
     Object,
     Collection,
     StringOrObject,
+    BooleanOrObject,
+    BooleanOrStringOrObject,
+    BooleanOrColorOrObject,
 }
 
 impl ArgumentType {
     fn accepts(self, value: &Value) -> bool {
         match self {
+            Self::BooleanOrObject => matches!(value, Value::Boolean(_) | Value::Object(_)),
+            Self::BooleanOrStringOrObject => matches!(
+                value,
+                Value::Boolean(_) | Value::String(_) | Value::Object(_)
+            ),
+            Self::BooleanOrColorOrObject => matches!(
+                value,
+                Value::Boolean(_) | Value::String(_) | Value::Color(_) | Value::Object(_)
+            ),
             Self::StringOrObject => matches!(value, Value::String(_) | Value::Object(_)),
             Self::String => matches!(value, Value::String(_)),
             Self::NumberOrString => matches!(value, Value::Number(_) | Value::String(_)),
@@ -111,6 +123,9 @@ impl ArgumentType {
 
     fn description(self) -> &'static str {
         match self {
+            Self::BooleanOrObject => "boolean or object",
+            Self::BooleanOrStringOrObject => "boolean, string or object",
+            Self::BooleanOrColorOrObject => "boolean, color or object",
             Self::StringOrObject => "string or object",
             Self::String => "string",
             Self::NumberOrString => "number or string",
@@ -134,6 +149,18 @@ fn validate_named_argument(
         Some(ArgumentType::Object)
     } else {
         match kind {
+            Chart => match name {
+                "kind" | "style" => Some(ArgumentType::String),
+                "title" | "gap_width" | "overlap" => Some(ArgumentType::NumberOrString),
+                "data" | "axis" => Some(ArgumentType::Object),
+                "width" | "height" => Some(ArgumentType::Length),
+                "legend" => Some(ArgumentType::BooleanOrStringOrObject),
+                "colors" => Some(ArgumentType::Collection),
+                "background" => Some(ArgumentType::Color),
+                "border" => Some(ArgumentType::BooleanOrColorOrObject),
+                "plot_area" | "gridlines" | "data_labels" => Some(ArgumentType::BooleanOrObject),
+                _ => None,
+            },
             Shape => match name {
                 "name" | "rotation" | "opacity" => Some(ArgumentType::NumberOrString),
                 "kind" | "alignment" | "vertical_alignment" => Some(ArgumentType::String),
@@ -290,6 +317,7 @@ pub(super) fn normalize_attribute(
 ) -> Result<Value, Diagnostic> {
     use ElementKind::*;
     match kind {
+        Chart => super::charts::normalize(name, value, span),
         Shape | Line => super::drawings::normalize(kind, name, value, span),
         Figure | Caption => match name {
             "alignment" => normalize_enum(value, span, name, ALIGNMENTS),

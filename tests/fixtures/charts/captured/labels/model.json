@@ -1,0 +1,846 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "ctr",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "inBase",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "inEnd",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "outEnd",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "bestFit",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "l",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "r",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "t",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "b",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "ctr",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "inBase",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "inEnd",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "outEnd",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "bestFit",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "l",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "r",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "t",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "enabled": true,
+              "extra": 17,
+              "percent": false,
+              "percentage": true,
+              "position": "b",
+              "series": true,
+              "value": false
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1
+              ]
+            },
+            "data_labels": false,
+            "gridlines": {
+              "major": false,
+              "minor": true
+            },
+            "plot_area": false
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "ctr",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "inBase",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "inEnd",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "outEnd",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "bestFit",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "l",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "r",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "t",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "b",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "ctr",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "inBase",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "inEnd",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "outEnd",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "bestFit",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "l",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "r",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "t",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "enabled": true,
+          "extra": 17,
+          "percent": false,
+          "percentage": true,
+          "position": "b",
+          "series": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1
+          ]
+        },
+        "data_labels": false,
+        "gridlines": {
+          "major": false,
+          "minor": true
+        },
+        "plot_area": false
+      }
+    }
+  ]
+}

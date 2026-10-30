@@ -70,6 +70,8 @@ Status: initial draft.
 25. [Shapes and lines](drawings.md): positioned geometry, appearance, shape text,
     and connector markers.
 
+26. [Charts](charts.md): chart data, kinds, dimensions, appearance, legends and labels.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

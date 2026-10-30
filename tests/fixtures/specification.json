@@ -569,6 +569,18 @@
     {
       "example": "drawings/3",
       "model": "drawings-3"
+    },
+    {
+      "example": "charts/1",
+      "model": "charts-1"
+    },
+    {
+      "example": "charts/2",
+      "model": "charts-2"
+    },
+    {
+      "example": "charts/3",
+      "model": "charts-3"
     }
   ],
   "models": {
@@ -8227,6 +8239,270 @@
                 "unit": "in",
                 "value": 2.0
               }
+            }
+          }
+        }
+      ]
+    },
+    "charts-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "Q1",
+                    "Q2"
+                  ],
+                  "series": [
+                    {
+                      "name": "Revenue",
+                      "values": [
+                        10.0,
+                        12.0
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "title": "Quarterly revenue"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "Revenue",
+                  "values": [
+                    10.0,
+                    12.0
+                  ]
+                }
+              ]
+            },
+            "kind": "column",
+            "title": "Quarterly revenue"
+          }
+        }
+      ]
+    },
+    "charts-2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "background": "#ffffff",
+                "border": {
+                  "color": "#cbd5e1",
+                  "width": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1.0
+                  }
+                },
+                "colors": [
+                  "#2563eb",
+                  "#059669"
+                ],
+                "data": {
+                  "categories": [
+                    "A",
+                    "B"
+                  ],
+                  "series": [
+                    {
+                      "values": [
+                        4.0,
+                        7.0
+                      ]
+                    }
+                  ]
+                },
+                "gap_width": 75.0,
+                "gridlines": {
+                  "major": true,
+                  "minor": false
+                },
+                "height": {
+                  "text": "3in",
+                  "unit": "in",
+                  "value": 3.0
+                },
+                "overlap": -25.0,
+                "plot_area": {
+                  "border": false,
+                  "fill": "#f8fafc"
+                },
+                "width": {
+                  "text": "6in",
+                  "unit": "in",
+                  "value": 6.0
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "background": "#ffffff",
+            "border": {
+              "color": "#cbd5e1",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1.0
+              }
+            },
+            "colors": [
+              "#2563eb",
+              "#059669"
+            ],
+            "data": {
+              "categories": [
+                "A",
+                "B"
+              ],
+              "series": [
+                {
+                  "values": [
+                    4.0,
+                    7.0
+                  ]
+                }
+              ]
+            },
+            "gap_width": 75.0,
+            "gridlines": {
+              "major": true,
+              "minor": false
+            },
+            "height": {
+              "text": "3in",
+              "unit": "in",
+              "value": 3.0
+            },
+            "overlap": -25.0,
+            "plot_area": {
+              "border": false,
+              "fill": "#f8fafc"
+            },
+            "width": {
+              "text": "6in",
+              "unit": "in",
+              "value": 6.0
+            }
+          }
+        }
+      ]
+    },
+    "charts-3": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "series": [
+                    {
+                      "name": "Total",
+                      "values": [
+                        4.0,
+                        7.0
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "category": true,
+                  "position": "outEnd",
+                  "value": true
+                },
+                "legend": {
+                  "enabled": true,
+                  "position": "b"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "series": [
+                {
+                  "name": "Total",
+                  "values": [
+                    4.0,
+                    7.0
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "position": "outEnd",
+              "value": true
+            },
+            "legend": {
+              "enabled": true,
+              "position": "b"
             }
           }
         }

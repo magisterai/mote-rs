@@ -1,0 +1,716 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "column"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "bar"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "line"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "pie"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "doughnut"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "stacked_column"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "stacked_bar"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "percent_stacked_column"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "percent_stacked_bar"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "area"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "stacked_area"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "One",
+                  "values": [
+                    10,
+                    -5
+                  ]
+                },
+                {
+                  "name": "Two",
+                  "values": [
+                    6,
+                    4
+                  ]
+                }
+              ]
+            },
+            "kind": "percent_stacked_area"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "column"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "bar"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "line"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "pie"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "doughnut"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "stacked_column"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "stacked_bar"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "percent_stacked_column"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "percent_stacked_bar"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "area"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "stacked_area"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "One",
+              "values": [
+                10,
+                -5
+              ]
+            },
+            {
+              "name": "Two",
+              "values": [
+                6,
+                4
+              ]
+            }
+          ]
+        },
+        "kind": "percent_stacked_area"
+      }
+    }
+  ]
+}

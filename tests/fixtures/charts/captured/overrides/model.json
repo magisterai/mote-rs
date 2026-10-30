@@ -1,0 +1,76 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "background": "#aabbcc",
+            "data": {
+              "values": [
+                1
+              ]
+            },
+            "legend": {
+              "position": "t"
+            },
+            "metadata": {
+              "retained": true
+            },
+            "title": "12"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "axis": "retained",
+            "data": false,
+            "style": 17
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "background": "#aabbcc",
+        "data": {
+          "values": [
+            1
+          ]
+        },
+        "legend": {
+          "position": "t"
+        },
+        "metadata": {
+          "retained": true
+        },
+        "title": "12"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "axis": "retained",
+        "data": false,
+        "style": 17
+      }
+    }
+  ]
+}

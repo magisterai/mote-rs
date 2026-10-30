@@ -1,0 +1,2 @@
+#chart(data={values={1}},legend=true,properties={legend="top",title=12,background="#abc",metadata={retained=true}})
+#chart(data={values={1}},properties={data=false,axis="retained",style=17})

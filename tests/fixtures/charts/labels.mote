@@ -1,0 +1,4 @@
+#for position in {"center","inside_base","inside_end","outside_end","best_fit","left","right","top","bottom","ctr","inBase","inEnd","outEnd","bestFit","l","r","t","b"} {
+#chart(data={values={1,2}},data_labels={enabled="true",value="false",category=true,series="1",percent=false,percentage="true",position=position,extra=17})
+}
+#chart(data={values={1}},data_labels=false,plot_area=false,gridlines={major=false,minor=true})

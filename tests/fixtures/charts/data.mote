@@ -1,0 +1,4 @@
+#chart(data={values={10,12},name="Revenue"})
+#chart(data={labels={"Q1",2,true},series={{values={1,"3.5","invalid"}},{name="Short",values={2}}}})
+#chart(data={categories={"A"},labels={"B"},series={17,{name=42},{values={}}},values={4,5},extra="retained"})
+#chart(data={metadata=true})

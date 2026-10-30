@@ -17,6 +17,7 @@ pub(super) const ELEMENT_NAMES: &[&str] = &[
     "link",
     "image",
     "shape",
+    "chart",
     "line",
     "table",
     "row",
@@ -69,6 +70,7 @@ impl Signature {
         !matches!(
             self.kind,
             ElementKind::Image
+                | ElementKind::Chart
                 | ElementKind::Line
                 | ElementKind::Label
                 | ElementKind::Reference
@@ -170,6 +172,12 @@ impl Signature {
         } else {
             None
         };
+        if self.kind == ElementKind::Chart && !arguments.named.contains_key("data") {
+            return Err(Diagnostic::new(
+                span,
+                "chart requires a named data argument",
+            ));
+        }
         let mut attributes = attributes::normalize_arguments(self.kind, arguments)?;
         if self.kind == ElementKind::Break {
             attributes

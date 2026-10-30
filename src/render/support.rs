@@ -218,6 +218,7 @@ fn content(
                     | ElementKind::Cell
                     | ElementKind::Image
                     | ElementKind::Shape
+                    | ElementKind::Chart
                     | ElementKind::Line
                     | ElementKind::Figure
                     | ElementKind::Caption
@@ -280,6 +281,11 @@ fn content(
                 {
                     warnings.insert(format!("{path} rotates visible text, but PDF link hit areas remain at unrotated positions"));
                 }
+            }
+            ElementKind::Chart => {
+                warnings.insert(format!(
+                    "{path} chart painting is not yet supported in native output"
+                ));
             }
             ElementKind::Line => {
                 warnings.insert(format!(

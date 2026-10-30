@@ -1,0 +1,176 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "name": "Revenue",
+              "values": [
+                10,
+                12
+              ]
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "labels": [
+                "Q1",
+                2,
+                true
+              ],
+              "series": [
+                {
+                  "values": [
+                    1,
+                    "3.5",
+                    "invalid"
+                  ]
+                },
+                {
+                  "name": "Short",
+                  "values": [
+                    2
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "A"
+              ],
+              "extra": "retained",
+              "labels": [
+                "B"
+              ],
+              "series": [
+                17,
+                {
+                  "name": 42
+                },
+                {
+                  "values": {}
+                }
+              ],
+              "values": [
+                4,
+                5
+              ]
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "metadata": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "name": "Revenue",
+          "values": [
+            10,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "labels": [
+            "Q1",
+            2,
+            true
+          ],
+          "series": [
+            {
+              "values": [
+                1,
+                "3.5",
+                "invalid"
+              ]
+            },
+            {
+              "name": "Short",
+              "values": [
+                2
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "A"
+          ],
+          "extra": "retained",
+          "labels": [
+            "B"
+          ],
+          "series": [
+            17,
+            {
+              "name": 42
+            },
+            {
+              "values": {}
+            }
+          ],
+          "values": [
+            4,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "metadata": true
+        }
+      }
+    }
+  ]
+}

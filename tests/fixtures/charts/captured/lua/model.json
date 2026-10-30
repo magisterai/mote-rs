@@ -1,0 +1,90 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Q1",
+                "Q2"
+              ],
+              "series": [
+                {
+                  "name": "Revenue",
+                  "values": [
+                    10,
+                    12
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "position": "t"
+            },
+            "kind": "line",
+            "legend": {
+              "position": "t"
+            },
+            "title": "From JSON"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Q1",
+            "Q2"
+          ],
+          "series": [
+            {
+              "name": "Revenue",
+              "values": [
+                10,
+                12
+              ]
+            }
+          ]
+        },
+        "data_labels": {
+          "position": "t"
+        },
+        "kind": "line",
+        "legend": {
+          "position": "t"
+        },
+        "title": "From JSON"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        }
+      ]
+    }
+  ]
+}
