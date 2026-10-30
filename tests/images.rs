@@ -303,6 +303,12 @@ fn unavailable_or_invalid_images_have_visible_placeholders_and_diagnostics() {
     let parts = xml_support::unpack(generated.bytes);
     assert!(parts["word/document.xml"].contains("[Image: Missing diagram]"));
     assert_eq!(generated.warnings.len(), 3);
+    assert!(
+        generated
+            .warnings
+            .iter()
+            .all(|warning| warning.contains("placeholder"))
+    );
 }
 
 #[test]

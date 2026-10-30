@@ -109,10 +109,14 @@ pub fn emit_with_assets(
         &state.resources.relationships()?,
         &state.resources,
     )?;
-    state
-        .resources
-        .warnings
-        .extend(state.resources.images.warnings);
+    state.resources.warnings.extend(
+        state
+            .resources
+            .images
+            .warnings
+            .into_iter()
+            .map(|warning| format!("{warning}; emitted placeholder text")),
+    );
     state.resources.warnings.sort();
     state.resources.warnings.dedup();
     Ok(GeneratedPackage {

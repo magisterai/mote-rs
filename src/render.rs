@@ -124,7 +124,12 @@ pub fn plan_with_layout_and_fonts(
         images.prepare_all(&document.content);
         let output = plan_document_with_images(document, &mut measurer, &images)?;
         let mut warnings = support::warnings(document);
-        warnings.extend(images.warnings);
+        warnings.extend(
+            images
+                .warnings
+                .into_iter()
+                .map(|warning| format!("{warning}; emitted placeholder text")),
+        );
         (output, warnings)
     };
     warnings.extend(output.warnings.iter().cloned());
