@@ -13,7 +13,7 @@
 - [x] `properties` overrides, retained metadata and Lua construction.
 - [x] Automatic loose-content layout: a leading heading, grouped text, separate
   image/table frames, shared fitting and page-size-aware geometry.
-- [ ] Implicit top-level Markdown slide separators and heading boundaries in
+- [x] Implicit top-level Markdown slide separators and heading boundaries in
   presentation mode; explicit slides mixed with implicit segments.
 
 Output supports explicit slides with positioned text, pictures, tables, shapes,
@@ -46,3 +46,5 @@ cover these effects, including independent overrides and combined slide content.
 PowerPoint review remains pending.
 
 Automatic layout has [editable and native captures](../../tests/fixtures/presentation-automatic/README.md) for standard, wide and custom canvases. PowerPoint review remains pending.
+
+[Markdown deck captures](../../tests/fixtures/presentation-markdown/README.md) cover implicit boundaries, explicit/implicit mixtures and document-mode isolation.

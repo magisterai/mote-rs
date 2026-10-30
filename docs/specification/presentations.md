@@ -72,8 +72,42 @@ positioned boxes.
 ]
 ```
 
-Named layouts, slot assignments and implicit Markdown slide boundaries are
-specified separately as their contracts are introduced.
+## Plain Markdown decks
+
+Presentation mode collects top-level content into slides. A level-one heading
+starts a new slide when preceding content exists. A standalone line of at least
+three hyphens (`---`) separates slides. Blank segments create no slides. Content
+before the first heading forms a slide of its own. Lower-level headings stay on
+the current slide. Explicit `slide` bodies form independent slides, and their
+internal headings are not boundaries; implicit content may appear before or after
+them.
+
+Underlined Markdown headings use a nonempty text line followed immediately by a
+line of at least two `=` characters (level one) or `-` characters (level two).
+They retain `marker="setext"`. Underlined-heading recognition precedes divider
+recognition, so adjacent `---` lines form a level-two heading containing `---`.
+Put blank lines around separators to keep the boundary unambiguous.
+
+```mote
+# First slide
+
+A short introduction.
+
+---
+
+## Second slide
+
+The divider started this slide.
+```
+
+PPTX always selects presentation mode. Native PDF/PNG selects it through an
+explicit presentation configuration or the caller's `presentation` layout mode.
+Bare Markdown in automatic or document mode stays an ordinary document; headings
+do not select a deck implicitly. A divider currently has no native document
+painting behavior and reports unsupported content in document mode.
+
+Named layouts and slot assignments are specified separately as their contracts
+are introduced.
 
 ## Positioned boxes
 

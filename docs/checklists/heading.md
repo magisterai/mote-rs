@@ -8,6 +8,7 @@
 - [x] Optional positive integer level, supplied positionally as a number or by
   name as a number/integer string; reject supplying it both ways.
 - [x] Hash Markdown headings and omitted-level semantics.
+- [x] Underlined Markdown headings with retained setext marker and precedence.
 
 ## Attributes
 
