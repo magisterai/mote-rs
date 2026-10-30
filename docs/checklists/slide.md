@@ -18,7 +18,9 @@ layouts, notes and footer fields need their own focused implementation and
 captures. Master/layout inheritance, hidden slides, transitions, timing,
 animation and extension properties remain inventoried and unsupported unless
 mapped above. DOCX treatment and native/PPTX output require separate evidence;
-PowerPoint review is pending.
+Editable positioned text and solid slide backgrounds are covered by
+[package captures](../../tests/fixtures/presentation-text/README.md). Native output
+and PowerPoint review remain pending.
 
 The [language definition](../specification/presentations.md) and
 [model tests](../../tests/presentations.rs) cover checked contracts.

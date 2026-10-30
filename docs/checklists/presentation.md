@@ -26,5 +26,8 @@ notes masters, accessibility metadata, media, transitions, animation, zoom and
 collaboration extensions remain visible in the inventories. No additional Mote
 names are assigned to unmapped standard fields. The [language definition](../specification/presentations.md) and
 [model captures](../../tests/fixtures/presentations/README.md) cover these contracts.
-Output and Office review are pending; model acceptance alone does not establish
-their effects.
+Editable packages support explicit slides, page dimensions, theme colors/fonts
+and solid backgrounds. Background images and footer fields fail explicitly.
+See [package captures](../../tests/fixtures/presentation-text/README.md). Native
+output and PowerPoint review remain pending; model acceptance alone does not
+establish output effects.

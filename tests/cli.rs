@@ -263,3 +263,29 @@ fn native_options_and_generated_source_collision_are_rejected() {
     assert_eq!(fs::read(&source).unwrap(), b"Do not overwrite this source.");
     fs::remove_file(&source).unwrap();
 }
+
+#[test]
+fn pptx_output_contains_editable_slides_and_requires_a_path() {
+    let source = b"#slide[#box(position={width=inch(6),height=inch(2)})[Editable text]]";
+    let missing = run(&["--format", "pptx"], source);
+    assert!(!missing.status.success());
+    assert!(String::from_utf8_lossy(&missing.stderr).contains("PPTX output requires --output or -o"));
+    let path = temporary_input_path().with_extension("pptx");
+    let output = run(&["--format", "pptx", "-o", path.to_str().unwrap()], source);
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert!(output.stdout.is_empty());
+    let bytes = fs::read(&path).unwrap();
+    fs::remove_file(&path).unwrap();
+    let mut archive = zip::ZipArchive::new(std::io::Cursor::new(bytes)).unwrap();
+    let mut slide = String::new();
+    std::io::Read::read_to_string(
+        &mut archive.by_name("ppt/slides/slide1.xml").unwrap(),
+        &mut slide,
+    )
+    .unwrap();
+    assert!(slide.contains("<a:t>Editable text</a:t>"));
+}

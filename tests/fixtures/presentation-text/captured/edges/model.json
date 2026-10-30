@@ -1,0 +1,362 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "3in",
+        "unit": "in",
+        "value": 3
+      },
+      "width": {
+        "text": "4in",
+        "unit": "in",
+        "value": 4
+      }
+    },
+    "size": {
+      "width": {
+        "text": "4in",
+        "unit": "in",
+        "value": 4
+      },
+      "height": {
+        "text": "3in",
+        "unit": "in",
+        "value": 3
+      },
+      "properties": {
+        "height": {
+          "text": "3in",
+          "unit": "in",
+          "value": 3
+        },
+        "width": {
+          "text": "4in",
+          "unit": "in",
+          "value": 4
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "width": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Zero rectangle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "width": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "style": "none"
+                },
+                "fill": "#ffffff",
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  },
+                  "width": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  },
+                  "x": {
+                    "text": "3in",
+                    "unit": "in",
+                    "value": 3
+                  },
+                  "y": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Outside canvas"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  },
+                  "x": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "width": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Zero rectangle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "width": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            }
+          }
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "style": "none"
+            },
+            "fill": "#ffffff",
+            "position": {
+              "height": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "width": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "x": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "y": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outside canvas"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "x": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "y": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

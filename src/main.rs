@@ -9,7 +9,7 @@ use mote::source::{
     AssetRequest, CachingAssetResolver, FileAssetResolver, SourceFile, load_source,
 };
 
-const HELP: &str = "Usage: mote [--format json|docx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX requires an output path. PDF and PNG also require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PowerPoint output is not implemented.\n";
+const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX requires an output path. PDF and PNG also require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
 
 fn main() -> ExitCode {
     match run_command() {
@@ -38,8 +38,10 @@ fn run_command() -> Result<(), String> {
                 format = arguments
                     .next()
                     .and_then(|value| value.into_string().ok())
-                    .filter(|value| matches!(value.as_str(), "json" | "docx" | "pdf" | "png"))
-                    .ok_or("--format requires 'json', 'docx', 'pdf' or 'png'")?;
+                    .filter(|value| {
+                        matches!(value.as_str(), "json" | "docx" | "pptx" | "pdf" | "png")
+                    })
+                    .ok_or("--format requires 'json', 'docx', 'pptx', 'pdf' or 'png'")?;
             }
             Some("--lua" | "-lua") => enable_lua = true,
             Some("--lua-timeout" | "-lua-timeout") => {
@@ -160,6 +162,11 @@ fn run_command() -> Result<(), String> {
         rendered.output
     } else if format == "docx" {
         let generated = mote::docx::emit_with_assets(&document, &resolver, source_name)
+            .map_err(|error| format!("{name}: {error}"))?;
+        print_warnings(&name, &generated.warnings)?;
+        generated.bytes
+    } else if format == "pptx" {
+        let generated = mote::pptx::emit_with_warnings(&document)
             .map_err(|error| format!("{name}: {error}"))?;
         print_warnings(&name, &generated.warnings)?;
         generated.bytes

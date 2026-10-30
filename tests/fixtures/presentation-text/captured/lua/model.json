@@ -1,0 +1,149 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#ffffff",
+      "size": "wide"
+    },
+    "size": {
+      "properties": {
+        "size": "wide"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "name": "Lua slide"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  }
+                },
+                "text": {
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "From Lua"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "name": "Lua slide"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "6in",
+                "unit": "in",
+                "value": 6
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            },
+            "text": {
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "From Lua"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

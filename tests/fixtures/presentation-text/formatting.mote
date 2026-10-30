@@ -1,0 +1,18 @@
+#presentation(size="standard",background="#eef2ff")
+#slide(background="#f8fafc")[
+#box(name="Heading",position={x=inch(0.5),y=inch(0.5),width=inch(9),height=inch(1)})[#heading(level=2)[Formatted text]]
+#box(position={x=inch(0.5),y=inch(1.75),width=inch(4),height=inch(4)},fill="#fff",opacity="85%",border={color="#2563eb",width=pt(1.5),style="dashed"},text={margin={left=pt(8),right=pt(6),top=pt(5),bottom=pt(4)},size=pt(18),color="#111827",alignment="left",fit="clip"})[
+#paragraph(spacing={before=pt(4),after=pt(8)},indent={left=pt(2),right=pt(3),first_line=pt(4)},line_spacing=1.2)[Normal **bold** *italic* #span(underline=true)[underlined] #span(strike=true)[struck] #span(highlight="#ffff00")[highlighted].]
+#paragraph(alignment="center")[A [link](https://example.com) and `code`.#line_break()Second line.]
+]
+#box(position={x=inch(5),y=inch(1.75),width=inch(4),height=inch(4)},text={vertical_alignment="bottom",size=pt(16)})[
+#list[
+#item[First]
+#item[Second
+#list[#item[Nested]]
+]
+]
+#ordered_list(start=3,format="lower_alpha")[#item[Third]#item[Fourth]]
+#list[#item(checked=true)[Done]#item(checked=false)[Pending]]
+]
+]

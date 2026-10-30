@@ -1,0 +1,50 @@
+//! Editable PresentationML packages for explicit slides and positioned text.
+mod boxes;
+mod package;
+mod text;
+use crate::{model::Document, presentation::Deck};
+use std::fmt;
+
+#[derive(Debug)]
+pub struct Error(String);
+impl fmt::Display for Error {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter.write_str(&self.0)
+    }
+}
+impl std::error::Error for Error {}
+impl From<crate::xml::InvalidCharacter> for Error {
+    fn from(error: crate::xml::InvalidCharacter) -> Self {
+        Self(error.to_string())
+    }
+}
+impl From<std::io::Error> for Error {
+    fn from(error: std::io::Error) -> Self {
+        Self(error.to_string())
+    }
+}
+impl From<zip::result::ZipError> for Error {
+    fn from(error: zip::result::ZipError) -> Self {
+        Self(error.to_string())
+    }
+}
+pub struct GeneratedPackage {
+    pub bytes: Vec<u8>,
+    pub warnings: Vec<String>,
+}
+pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
+    Ok(emit_with_warnings(document)?.bytes)
+}
+pub fn emit_with_warnings(document: &Document) -> Result<GeneratedPackage, Error> {
+    let mut deck = Deck::resolve(document).map_err(Error)?;
+    let bytes = package::write(document, &mut deck)?;
+    Ok(GeneratedPackage {
+        bytes,
+        warnings: deck.warnings,
+    })
+}
+fn escape(value: &str) -> Result<String, Error> {
+    Ok(crate::xml::escape(value)?)
+}
+const ROOT_ATTRIBUTES: &str = r#"xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="a14" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main""#;
+const GROUP: &str = r#"<p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="0" cy="0"/><a:chOff x="0" y="0"/><a:chExt cx="0" cy="0"/></a:xfrm></p:grpSpPr>"#;

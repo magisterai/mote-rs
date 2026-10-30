@@ -1,0 +1,17 @@
+#font(name="body",latin="Arial")
+#font(name="mono",latin="Courier New")
+#style(name="Normal",run={font="body",size=pt(17),color="#334155"},paragraph={spacing={after=pt(5)}})
+#style(name="Heading1",run={size=pt(30),color="#2563eb"})
+#style(name="Notice",based_on="Normal",run={italic=true},paragraph={alignment="right",spacing={before=pt(3)}})
+#style(name="Code",run={color="#7c3aed",size=pt(15)})
+#presentation()
+#slide[
+#box(position={x=inch(0.5),y=inch(0.5),width=inch(6),height=inch(5)},text={paragraph={line_spacing=pt(22)},list={indent={left=pt(32),hanging=pt(12)},spacing={after=pt(4)}}})[
+#heading(level=1)[Styled heading]
+#paragraph[Normal text with #span(small_caps=true)[small capitals], #span(double_strike=true)[double strike] and #span(bold=true,italic=true)[both].]
+#paragraph(style="Notice")[Notice and #span(style="Normal",bold=true)[reset text].]
+#paragraph[#code(preserve_space=true)[  indented  code]#tab()After tab]
+#blockquote[Quoted text.]
+#ordered_list(start=8,format="upper_roman")[#item[Eight]#item[Nine]]
+]
+]

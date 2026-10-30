@@ -28,7 +28,10 @@ Initial output scope is positioned text. Image/table/chart boxes and named layou
 slots remain separate steps. Text body properties, all paragraph/run/list fields,
 geometry, fills, strokes, effects, hyperlinks, accessibility and nonvisual
 metadata remain in the shared inventories, including unsupported values.
-Native and editable output support and PowerPoint review remain pending.
+Editable positioned text supports paragraph/run/list formatting, theme fonts and
+colors, margins, alignment, clipping, fills, borders and links. Shrinking/resizing,
+shadows and non-text boxes fail explicitly. Native output and PowerPoint review
+remain pending. See [package captures](../../tests/fixtures/presentation-text/README.md).
 
 The [language definition](../specification/presentations.md) and
 [model tests](../../tests/presentations.rs) cover checked contracts.

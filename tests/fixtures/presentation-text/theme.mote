@@ -1,0 +1,9 @@
+#document(title="Theme & typography")
+#font(name="display",latin="Arial")
+#font(name="body",latin="Times New Roman")
+#presentation(width=inch(8),height=inch(6),theme={name="Review & notes",colors={text="#222222",background="#ffeecc",accent1="#008844",hyperlink="#cc5500"},fonts={heading="display",body="body"}})
+#slide(name="First")[
+#box(position={width=inch(7),height=inch(1)})[#heading(level=1)[Theme title]]
+#box(position={y=inch(1),width=inch(7),height=inch(2)},text={font="body",size=pt(20)})[Body text and [a link](https://example.org).]
+]
+#slide()[#box(position={x=inch(1),y=inch(1),width=inch(6),height=inch(3)},fill="#fff",border={color="#333",width=pt(2)},text={alignment="right",vertical_alignment="center"})[Second slide.]]

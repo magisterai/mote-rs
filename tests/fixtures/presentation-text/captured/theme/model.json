@@ -1,0 +1,442 @@
+{
+  "document": {
+    "title": "Theme \u0026 typography"
+  },
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "6in",
+        "unit": "in",
+        "value": 6
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#008844",
+          "background": "#ffeecc",
+          "hyperlink": "#cc5500",
+          "text": "#222222"
+        },
+        "fonts": {
+          "body": "body",
+          "heading": "display"
+        },
+        "name": "Review \u0026 notes"
+      },
+      "width": {
+        "text": "8in",
+        "unit": "in",
+        "value": 8
+      }
+    },
+    "size": {
+      "width": {
+        "text": "8in",
+        "unit": "in",
+        "value": 8
+      },
+      "height": {
+        "text": "6in",
+        "unit": "in",
+        "value": 6
+      },
+      "properties": {
+        "height": {
+          "text": "6in",
+          "unit": "in",
+          "value": 6
+        },
+        "width": {
+          "text": "8in",
+          "unit": "in",
+          "value": 8
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Times New Roman",
+      "properties": {
+        "latin": "Times New Roman"
+      }
+    },
+    {
+      "name": "display",
+      "latin": "Arial",
+      "properties": {
+        "latin": "Arial"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "name": "First"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "7in",
+                    "unit": "in",
+                    "value": 7
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Theme title"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  },
+                  "width": {
+                    "text": "7in",
+                    "unit": "in",
+                    "value": 7
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  }
+                },
+                "text": {
+                  "font": "body",
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Body text and "
+                    },
+                    {
+                      "kind": "link",
+                      "category": "inline",
+                      "attributes": {
+                        "url": "https://example.org"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "a link"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#333333",
+                  "width": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  }
+                },
+                "fill": "#ffffff",
+                "position": {
+                  "height": {
+                    "text": "3in",
+                    "unit": "in",
+                    "value": 3
+                  },
+                  "width": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  }
+                },
+                "text": {
+                  "alignment": "right",
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second slide."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "name": "First"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "7in",
+                "unit": "in",
+                "value": 7
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Theme title"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "width": {
+                "text": "7in",
+                "unit": "in",
+                "value": 7
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              }
+            },
+            "text": {
+              "font": "body",
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Body text and "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.org"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "a link"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#333333",
+              "width": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              }
+            },
+            "fill": "#ffffff",
+            "position": {
+              "height": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "width": {
+                "text": "6in",
+                "unit": "in",
+                "value": 6
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              }
+            },
+            "text": {
+              "alignment": "right",
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second slide."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

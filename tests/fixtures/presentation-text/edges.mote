@@ -1,0 +1,7 @@
+#presentation(width=inch(4),height=inch(3))
+#slide[
+#box(position={width=pt(0),height=pt(0)})[Zero rectangle]
+#box(position={width=pt(0),height=pt(0)})[]
+#box(position={x=inch(3),y=inch(2),width=inch(2),height=inch(2)},fill="#fff",border={style="none"})[Outside canvas]
+#box(position={x=pt(0),y=pt(0),width=inch(2),height=inch(1)})[#paragraph[]]
+]
