@@ -1,0 +1,23 @@
+#header[
+#chart(data={values={1,2}},width=inch(2),height=inch(1))
+]
+#footer[
+#chart(kind="pie",data={values={3,4}},width=inch(2),height=inch(1))
+]
+#label("overview")
+#chart(data={values={4,5}},properties={name="Overview & totals"})
+#shape(position={x=inch(5),y=inch(1),width=inch(1),height=inch(1)})[A shape]
+#figure[
+#chart(kind="line",data={values={2,3}})
+#caption[Trend]
+]
+A note#footnote[
+#chart(data={values={1}},width=inch(1),height=inch(1))
+].
+#table[
+#row[
+#cell[
+#chart(data={values={4}},width=inch(1),height=inch(1))
+]
+]
+]

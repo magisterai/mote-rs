@@ -31,29 +31,59 @@ retained. Model acceptance alone does not validate that data can be plotted.
 The kinds are `column`, `bar`, `line`, `pie`, `doughnut`, `stacked_column`,
 `stacked_bar`, `percent_stacked_column`, `percent_stacked_bar`, `area`,
 `stacked_area`, and `percent_stacked_area`. Kind names are case-sensitive.
-An omitted kind remains absent in the evaluated model. Output defaults and data
-interpretation are separate from argument normalization.
+An omitted kind remains absent in the evaluated model and selects `column` when
+resolved for output. Data interpretation is separate from argument normalization.
+
+## Resolving data
+
+`data.categories` supplies category labels; `data.labels` is used when categories
+is not an array. Category values become text without trimming. When the selected
+array is empty or absent, labels `1`, `2`, and so on cover the longest series.
+
+`data.series` supplies ordered series tables. Entries without a `values` array are
+skipped. Series names are trimmed; an empty or absent name becomes `Series N`,
+where N is the entry's original one-based position. If `series` is not an array,
+`data.values` supplies one series named by `data.name`, defaulting to `Series 1`.
+An existing series array takes precedence over this shorthand, even when empty.
+
+Numeric values remain numeric; numeric text is parsed after trimming. Other
+unparseable values become zero. Non-finite values are rejected during output.
+Arrays retain their different lengths: use one value per category when the
+editable workbook and chart cache must describe identical data.
 
 ## Dimensions and appearance
 
 `title` accepts a string or number and normalizes it to text. `width` and `height`
 use the established non-negative length rules; explicit units avoid ambiguity
-between output coordinate systems. `background` accepts a hex color.
+between output coordinate systems. Chart dimensions default to 6 inches by 3.5
+inches; unitless drawing dimensions use EMUs (914,400 per inch).
+`background` accepts a hex color.
 
 `colors` accepts an array of colors or a property table of colors. Every member
 is normalized, including additional property-table keys. `axis` accepts a property
 table and retains its contents unchanged. `style` accepts a string and is retained;
-its presence does not establish a formatting effect.
+its presence does not establish a formatting effect. Arrays choose colors in
+order. Property tables use consecutive `series1`, `series2`, and so on, stopping
+at the first missing entry. Remaining colors use the repeating palette `#2563EB`,
+`#059669`, `#D97706`, `#DC2626`, `#7C3AED`, `#0891B2`. Pie and doughnut colors
+apply to points in the first series. Axis tables use `category.title` and
+`value.title`, with `name` as a fallback for an empty title.
 
 `border` accepts a boolean, color, or property table. Its table form normalizes
 `enabled` as a boolean, `color` as a color, and `width` as a length. `plot_area`
 accepts a boolean or property table; its table normalizes `background`, `fill`,
-and `color` as colors, and `border` by the same border rules.
+and `color` as colors, and `border` by the same border rules. Chart and plot areas default to no fill
+and no border. An enabled border defaults to one point and `#D1D5DB`. In a plot
+area table, the first nonempty background/fill/color supplies its fill. A boolean
+plot area has no appearance effect.
 
 `gridlines` accepts a boolean or property table. Its table normalizes `major` and
 `minor` as booleans, `color` as a color, and `width` as a length. `gap_width` and
 `overlap` accept signed integers or integer strings and normalize to numbers;
-evaluation does not apply an output-specific percentage range.
+evaluation does not apply an output-specific percentage range. Editable bar and
+column charts retain authored gap and overlap values without clamping; stacked
+variants default to 100% overlap. Omitted gridlines enable major lines and disable
+minor lines; a boolean controls major lines.
 
 ```mote
 #chart(data = {categories = {"A", "B"}, series = {{values = {4, 7}}}},
@@ -73,12 +103,18 @@ implied formatting effect.
 `legend` accepts a boolean, the strings `true` or `false`, a position string, or a
 property table. Input positions are `right`, `left`, `top`, and `bottom`; they
 normalize to `r`, `l`, `t`, and `b`. The shortened forms are model values and are
-not accepted as legend input positions. A legend table normalizes `enabled` as a
+not accepted as legend input positions. Without a legend attribute, pie and
+doughnut charts show a legend, and other charts show one when more than one series
+exists. Line and area kinds place it at the top; others use the bottom. A legend
+table defaults to enabled and normalizes `enabled` as a
 boolean and `position` by the same position rules.
 
 `data_labels` accepts a boolean or property table. Its table normalizes `enabled`,
 `value`, `category`, `series`, `percent`, and `percentage` as booleans. Both percentage
-keys remain distinct in the model. Position names normalize as follows; each
+keys remain distinct in the model and either can enable percentages. A true
+boolean enables value labels. A property table defaults to enabled; when it
+selects no value/category/series/percentage component, value labels are enabled.
+Position names normalize as follows; each
 normalized value is also accepted as label input.
 
 | Label position | Normalized value |

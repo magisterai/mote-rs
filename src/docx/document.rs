@@ -114,6 +114,11 @@ pub(super) fn write_blocks(
                 at_flow_start = false;
                 continue;
             }
+            ElementKind::Chart => {
+                body.push_str(&super::charts::write(element, &mut state.resources)?);
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Shape => {
                 body.push_str(&super::shapes::write(element, styles, state)?);
                 at_flow_start = false;

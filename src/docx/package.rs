@@ -8,9 +8,10 @@ pub(super) fn write(
     font_table: &str,
     numbering: &str,
     relationships: &str,
-    media: &[(String, crate::media::ImageAsset)],
-    stories: &[super::sections::StoryPart],
+    resources: &super::resources::Resources,
 ) -> Result<Vec<u8>, Error> {
+    let media = &resources.media;
+    let stories = &resources.stories;
     let now = time::OffsetDateTime::now_utc();
     let timestamp = format!(
         "{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z",
@@ -38,6 +39,12 @@ pub(super) fn write(
     for (_, asset) in media {
         types.insert(asset.extension.trim_start_matches('.'), asset.content_type);
     }
+    if !resources.charts.is_empty() {
+        content_types = content_types.replace(
+            "  <Override PartName=\"/word/document.xml\"",
+            &format!(r#"<Default Extension="xlsx" ContentType="{}"/>  <Override PartName="/word/document.xml""#, crate::charts::workbook::CONTENT_TYPE),
+        );
+    }
     let entries = types
         .iter()
         .map(|(extension, content_type)| {
@@ -60,6 +67,16 @@ pub(super) fn write(
             let marker = r#"  <Override PartName="/docProps/core.xml""#;
             content_types = content_types.replace(marker, &format!(r#"<Override PartName="/word/{}" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.{kind}+xml"/>{marker}"#, story.name));
         }
+    }
+    for chart in &resources.charts {
+        content_types = content_types.replace(
+            "</Types>",
+            &format!(
+                r#"<Override PartName="/word/{}" ContentType="{}"/></Types>"#,
+                chart.name,
+                crate::charts::drawingml::CONTENT_TYPE
+            ),
+        );
     }
     let mut settings = SETTINGS.to_owned();
     for kind in ["footnote", "endnote"] {
@@ -89,6 +106,15 @@ pub(super) fn write(
             archive.start_file(format!("word/_rels/{}.rels", story.name), options)?;
             archive.write_all(relationships.as_bytes())?;
         }
+    }
+    for chart in &resources.charts {
+        archive.start_file(format!("word/{}", chart.name), options)?;
+        archive.write_all(chart.content.as_bytes())?;
+        let filename = chart.name.rsplit('/').next().unwrap();
+        archive.start_file(format!("word/charts/_rels/{filename}.rels"), options)?;
+        archive.write_all(chart.relationships.as_bytes())?;
+        archive.start_file(format!("word/{}", chart.workbook_name), options)?;
+        archive.write_all(&chart.workbook)?;
     }
     for (name, asset) in media {
         archive.start_file(format!("word/{name}"), options)?;

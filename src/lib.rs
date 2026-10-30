@@ -18,6 +18,7 @@ pub fn compile(source: &str) -> Result<model::Document, diagnostics::Diagnostic>
     evaluation::evaluate(&syntax::parse(source)?)
 }
 
+mod charts;
 mod drawings;
 mod tables;
 mod xml;

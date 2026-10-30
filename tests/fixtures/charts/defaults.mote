@@ -1,0 +1,6 @@
+#chart(data={values={1,2}})
+#chart(kind="pie",data={values={1,2,3,4,5,6,7,8}},colors={series1="#123",series3="#456"})
+#chart(kind="line",data={series={{values={1,2}},{values={3,4}}}},width=cm(15.24),height=mm(88.9))
+#chart(kind="area",data={values={2,-1}},legend={enabled=true},axis={category={title="",name="Category"},value={title="Amount",name="Ignored"}})
+#chart(data={values={2}},width=5486400,height=3200400,border=true,plot_area=true,gridlines={minor=true},data_labels={enabled=true})
+#chart(kind="stacked_column",data={values={2}},width=twip(8640),height=pt(252),gap_width=-12,overlap=125,gridlines={width=12700},border={width=0})

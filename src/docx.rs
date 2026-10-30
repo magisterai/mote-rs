@@ -3,6 +3,7 @@
 mod block_quotes;
 mod builtin_styles;
 mod captions;
+mod charts;
 mod configuration;
 mod controls;
 mod document;
@@ -103,8 +104,7 @@ pub fn emit_with_assets(
         &font_table,
         &state.numbering.write()?,
         &state.resources.relationships()?,
-        &state.resources.media,
-        &state.resources.stories,
+        &state.resources,
     )?;
     state
         .resources

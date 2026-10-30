@@ -1,0 +1,8 @@
+#function many_series()
+local series = {}
+for index = 1, 28 do
+  series[index] = {name = "Series " .. index, values = {index, index + 0.5}}
+end
+return document.chart({data = {categories = {"First", "Second"}, series = series}})
+end
+#many_series()

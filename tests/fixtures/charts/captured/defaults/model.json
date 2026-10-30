@@ -1,0 +1,310 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "colors": {
+              "series1": "#112233",
+              "series3": "#445566"
+            },
+            "data": {
+              "values": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+              ]
+            },
+            "kind": "pie"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "series": [
+                {
+                  "values": [
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "values": [
+                    3,
+                    4
+                  ]
+                }
+              ]
+            },
+            "height": {
+              "text": "88.9mm",
+              "unit": "mm",
+              "value": 88.9
+            },
+            "kind": "line",
+            "width": {
+              "text": "15.24cm",
+              "unit": "cm",
+              "value": 15.24
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "axis": {
+              "category": {
+                "name": "Category",
+                "title": ""
+              },
+              "value": {
+                "name": "Ignored",
+                "title": "Amount"
+              }
+            },
+            "data": {
+              "values": [
+                2,
+                -1
+              ]
+            },
+            "kind": "area",
+            "legend": {
+              "enabled": true
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "border": true,
+            "data": {
+              "values": [
+                2
+              ]
+            },
+            "data_labels": {
+              "enabled": true
+            },
+            "gridlines": {
+              "minor": true
+            },
+            "height": 3200400,
+            "plot_area": true,
+            "width": 5486400
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "width": 0
+            },
+            "data": {
+              "values": [
+                2
+              ]
+            },
+            "gap_width": -12,
+            "gridlines": {
+              "width": 12700
+            },
+            "height": {
+              "text": "252pt",
+              "unit": "pt",
+              "value": 252
+            },
+            "kind": "stacked_column",
+            "overlap": 125,
+            "width": {
+              "text": "8640twip",
+              "unit": "twip",
+              "value": 8640
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "colors": {
+          "series1": "#112233",
+          "series3": "#445566"
+        },
+        "data": {
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "kind": "pie"
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "series": [
+            {
+              "values": [
+                1,
+                2
+              ]
+            },
+            {
+              "values": [
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        "height": {
+          "text": "88.9mm",
+          "unit": "mm",
+          "value": 88.9
+        },
+        "kind": "line",
+        "width": {
+          "text": "15.24cm",
+          "unit": "cm",
+          "value": 15.24
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "axis": {
+          "category": {
+            "name": "Category",
+            "title": ""
+          },
+          "value": {
+            "name": "Ignored",
+            "title": "Amount"
+          }
+        },
+        "data": {
+          "values": [
+            2,
+            -1
+          ]
+        },
+        "kind": "area",
+        "legend": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "border": true,
+        "data": {
+          "values": [
+            2
+          ]
+        },
+        "data_labels": {
+          "enabled": true
+        },
+        "gridlines": {
+          "minor": true
+        },
+        "height": 3200400,
+        "plot_area": true,
+        "width": 5486400
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "width": 0
+        },
+        "data": {
+          "values": [
+            2
+          ]
+        },
+        "gap_width": -12,
+        "gridlines": {
+          "width": 12700
+        },
+        "height": {
+          "text": "252pt",
+          "unit": "pt",
+          "value": 252
+        },
+        "kind": "stacked_column",
+        "overlap": 125,
+        "width": {
+          "text": "8640twip",
+          "unit": "twip",
+          "value": 8640
+        }
+      }
+    }
+  ]
+}

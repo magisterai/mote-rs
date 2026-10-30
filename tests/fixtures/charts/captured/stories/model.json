@@ -1,0 +1,419 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                1,
+                2
+              ]
+            },
+            "height": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1
+            },
+            "width": {
+              "text": "2in",
+              "unit": "in",
+              "value": 2
+            }
+          }
+        }
+      ],
+      "header_properties": {},
+      "footer": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                3,
+                4
+              ]
+            },
+            "height": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1
+            },
+            "kind": "pie",
+            "width": {
+              "text": "2in",
+              "unit": "in",
+              "value": 2
+            }
+          }
+        }
+      ],
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "overview"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                4,
+                5
+              ]
+            },
+            "name": "Overview \u0026 totals"
+          }
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "x": {
+                "text": "5in",
+                "unit": "in",
+                "value": 5
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A shape"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "values": [
+                    2,
+                    3
+                  ]
+                },
+                "kind": "line"
+              }
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Trend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A note"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "values": [
+                        1
+                      ]
+                    },
+                    "height": {
+                      "text": "1in",
+                      "unit": "in",
+                      "value": 1
+                    },
+                    "width": {
+                      "text": "1in",
+                      "unit": "in",
+                      "value": 1
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "category": "block",
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "chart",
+                      "category": "block",
+                      "attributes": {
+                        "data": {
+                          "values": [
+                            4
+                          ]
+                        },
+                        "height": {
+                          "text": "1in",
+                          "unit": "in",
+                          "value": 1
+                        },
+                        "width": {
+                          "text": "1in",
+                          "unit": "in",
+                          "value": 1
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "values": [
+            4,
+            5
+          ]
+        },
+        "name": "Overview \u0026 totals"
+      }
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "position": {
+          "height": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "width": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "x": {
+            "text": "5in",
+            "unit": "in",
+            "value": 5
+          },
+          "y": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A shape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "children": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "values": [
+                2,
+                3
+              ]
+            },
+            "kind": "line"
+          }
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Trend"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A note"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "values": [
+                    1
+                  ]
+                },
+                "height": {
+                  "text": "1in",
+                  "unit": "in",
+                  "value": 1
+                },
+                "width": {
+                  "text": "1in",
+                  "unit": "in",
+                  "value": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "category": "block",
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "values": [
+                        4
+                      ]
+                    },
+                    "height": {
+                      "text": "1in",
+                      "unit": "in",
+                      "value": 1
+                    },
+                    "width": {
+                      "text": "1in",
+                      "unit": "in",
+                      "value": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
