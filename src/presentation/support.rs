@@ -134,6 +134,7 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
         match element.kind {
             ElementKind::Slide => allowed.extend([
                 "name",
+                "layout",
                 "background",
                 "notes",
                 "footer",
@@ -143,6 +144,7 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
             ElementKind::Box | ElementKind::Shape => {
                 allowed.extend([
                     "name",
+                    "slot",
                     "position",
                     "fill",
                     "border",

@@ -3,6 +3,7 @@ mod automatic;
 pub(crate) mod backgrounds;
 pub(crate) mod fields;
 pub(crate) mod images;
+pub(crate) mod layouts;
 mod segmentation;
 mod support;
 pub(crate) mod tables;
@@ -77,13 +78,20 @@ impl Deck {
                 children: Vec::new(),
             });
         }
+        let layouts = layouts::Layouts::builtin([width, height]);
+        for element in &mut slides {
+            if let Some(resolved) = layouts.apply(element)? {
+                *element = resolved;
+            } else {
+                element.children = automatic::elements(&element.children, [width, height]);
+            }
+        }
         let today = fields::current_date(document, &slides, &mut warnings);
         let deck = Self {
             empty,
             slides: slides
                 .into_iter()
-                .map(|mut element| {
-                    element.children = automatic::elements(&element.children, [width, height]);
+                .map(|element| {
                     let background = backgrounds::Background::resolve(document, &element);
                     let metadata = fields::SlideMetadata::resolve(document, &element, &today);
                     Slide {

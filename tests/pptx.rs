@@ -335,3 +335,8 @@ fn markdown_decks_match_captured_models_and_packages() {
         &["headings", "separators", "mixed"],
     );
 }
+
+#[test]
+fn builtin_layouts_match_captured_models_and_editable_packages() {
+    compare_captured_packages("presentation-layouts", &["wide", "standard", "custom"]);
+}

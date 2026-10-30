@@ -1,0 +1,12 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#font(name="heading",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(width=pt(613.123),height=pt(409.789))
+#slide(layout="two_column")[
+ #box(slot="title")[Custom dimensions]
+ #box(slot="left")[Proportional left frame.]
+ #box(slot="right")[Proportional right frame.]
+]
+#slide(layout="title_slide")[#box(slot="subtitle",position={x=pt(12),y=pt(200),width=pt(500),height=pt(70)},text={alignment="right"})[Overridden position, absent title.]]
+#let(assigned=document.box({slot="title"},document.heading({level=1},"Lua slot assignment")))
+#let(page=document.slide({layout="section_header"},assigned))
+#page

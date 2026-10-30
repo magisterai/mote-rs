@@ -142,7 +142,8 @@ impl Signature {
                 ),
             ));
         }
-        if (self.body_required() && bodies != 1)
+        let declares_slot = self.kind == ElementKind::Box && (arguments.named.contains_key("slot") || arguments.named.get("properties").is_some_and(|argument| matches!(&argument.value, Value::Object(fields) if fields.contains_key("slot"))));
+        if (self.body_required() && !declares_slot && bodies != 1)
             || bodies > usize::from(self.body_allowed() || from_markdown)
         {
             return Err(Diagnostic::new(
@@ -217,7 +218,9 @@ impl Signature {
         if matches!(
             self.kind,
             ElementKind::Shape | ElementKind::Box | ElementKind::Line
-        ) {
+        ) && !(self.kind == ElementKind::Box
+            && !crate::properties::text(&attributes, "slot").is_empty())
+        {
             for required in if self.kind != ElementKind::Line {
                 &["position"][..]
             } else {
@@ -322,7 +325,10 @@ impl PreparedElement {
         }
         if matches!(kind, ElementKind::Slide | ElementKind::Box) {
             super::presentation::validate_children(kind, &children, span)?;
-            if children.is_empty() {
+            if children.is_empty()
+                && !(kind == ElementKind::Box
+                    && !crate::properties::text(&self.attributes, "slot").is_empty())
+            {
                 state.warnings.push(Diagnostic::new(
                     span,
                     format!(

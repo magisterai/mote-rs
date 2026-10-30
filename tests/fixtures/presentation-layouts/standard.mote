@@ -1,0 +1,48 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#font(name="heading",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(size="standard",footer="Built-in layouts",slide_number=true)
+#slide(layout="blank")[#box(position={x=pt(40),y=pt(40),width=pt(360),height=pt(70)})[Blank layout with an ordinary box.]]
+#slide(layout="title_slide")[
+ #box(slot="subtitle")[A reusable opening.]
+ #box(slot="title")[#heading(level=1)[Title slide]]
+]
+#slide(layout="title_and_content")[
+ #box(slot="content",fill="#eff6ff",text={size=pt(20),margin={left=pt(12)},paragraph={spacing={after=pt(8)}}})[
+  First paragraph.
+
+  - One
+  - Two
+ ]
+ #box(slot="title")[#heading(level=1)[Title and content]]
+]
+#slide(layout="section_header")[
+ #box(slot="title")[#heading(level=1)[Section header]]
+ #box(slot="subtitle")[A new section.]
+]
+#slide(layout="two_column")[
+ #box(slot="right")[#table[#row[#cell[Name]#cell[Count]]#row[#cell[North]#cell[12]]]]
+ #box(slot="title")[#heading(level=1)[Two columns]]
+ #box(slot="left")[Left content with **bold** and a list.
+
+ - First item
+ - Second item
+ ]
+]
+#slide(layout="comparison")[
+ #box(slot="right")[After: new capabilities.]
+ #box(slot="right_title")[#heading(level=2)[After]]
+ #box(slot="left")[Before: established capabilities.]
+ #box(slot="left_title")[#heading(level=2)[Before]]
+ #box(slot="title")[#heading(level=1)[Comparison]]
+ #shape(position={x=pt(10),y=pt(10),width=pt(14),height=pt(14)},fill="#2563eb")
+]
+#slide(layout="image_and_caption")[
+ #box(slot="caption")[A source-relative image.]
+ #box(slot="image",fit="contain")[#image(src="../images/assets/pattern.png")]
+ #box(slot="title")[#heading(level=1)[Image and caption]]
+]
+#slide(layout="chart_and_caption")[
+ #box(slot="title")[#heading(level=1)[Chart and caption]]
+ #box(slot="chart")[#chart(kind="column",data={categories={"North","South"},series={{name="Actual",values={12,25}},{name="Target",values={16,20}}}},legend={position="bottom"})]
+ #box(slot="caption")[An editable chart and native painting.]
+]

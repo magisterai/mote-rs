@@ -1,0 +1,1540 @@
+{
+  "presentation": {
+    "properties": {
+      "footer": "Built-in layouts",
+      "size": "standard",
+      "slide_number": true
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    },
+    {
+      "name": "heading",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "blank"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "70pt",
+                    "unit": "pt",
+                    "value": 70
+                  },
+                  "width": {
+                    "text": "360pt",
+                    "unit": "pt",
+                    "value": 360
+                  },
+                  "x": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "y": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Blank layout with an ordinary box."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "title_slide"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "subtitle"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A reusable opening."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Title slide"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "title_and_content"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#eff6ff",
+                "slot": "content",
+                "text": {
+                  "margin": {
+                    "left": {
+                      "text": "12pt",
+                      "unit": "pt",
+                      "value": 12
+                    }
+                  },
+                  "paragraph": {
+                    "spacing": {
+                      "after": {
+                        "text": "8pt",
+                        "unit": "pt",
+                        "value": 8
+                      }
+                    }
+                  },
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First paragraph."
+                    }
+                  ]
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "One"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Two"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Title and content"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "section_header"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Section header"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "subtitle"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A new section."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "two_column"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "right"
+              },
+              "children": [
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Name"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Count"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "North"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "12"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Two columns"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "left"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Left content with "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and a list."
+                    }
+                  ]
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "First item"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Second item"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "comparison"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "right"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "After: new capabilities."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "right_title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 2
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "After"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "left"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Before: established capabilities."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "left_title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 2
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Before"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Comparison"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "fill": "#2563eb",
+                "position": {
+                  "height": {
+                    "text": "14pt",
+                    "unit": "pt",
+                    "value": 14
+                  },
+                  "width": {
+                    "text": "14pt",
+                    "unit": "pt",
+                    "value": 14
+                  },
+                  "x": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  },
+                  "y": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "image_and_caption"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "caption"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A source-relative image."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "slot": "image"
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Image and caption"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "chart_and_caption"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Chart and caption"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "chart"
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25
+                          ]
+                        },
+                        {
+                          "name": "Target",
+                          "values": [
+                            16,
+                            20
+                          ]
+                        }
+                      ]
+                    },
+                    "kind": "column",
+                    "legend": {
+                      "position": "b"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "caption"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "An editable chart and native painting."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "blank"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "70pt",
+                "unit": "pt",
+                "value": 70
+              },
+              "width": {
+                "text": "360pt",
+                "unit": "pt",
+                "value": 360
+              },
+              "x": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "y": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Blank layout with an ordinary box."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "title_slide"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "subtitle"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A reusable opening."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Title slide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "title_and_content"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#eff6ff",
+            "slot": "content",
+            "text": {
+              "margin": {
+                "left": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12
+                }
+              },
+              "paragraph": {
+                "spacing": {
+                  "after": {
+                    "text": "8pt",
+                    "unit": "pt",
+                    "value": 8
+                  }
+                }
+              },
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph."
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "One"
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Two"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Title and content"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "section_header"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Section header"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "subtitle"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A new section."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "two_column"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "right"
+          },
+          "children": [
+            {
+              "kind": "table",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Name"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Count"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "North"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "12"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Two columns"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "left"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Left content with "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and a list."
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First item"
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second item"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "comparison"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "right"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After: new capabilities."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "right_title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 2
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "left"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before: established capabilities."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "left_title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 2
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Comparison"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#2563eb",
+            "position": {
+              "height": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "width": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "x": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              },
+              "y": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "image_and_caption"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "caption"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A source-relative image."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "slot": "image"
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Image and caption"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "chart_and_caption"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Chart and caption"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "chart"
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "North",
+                    "South"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25
+                      ]
+                    },
+                    {
+                      "name": "Target",
+                      "values": [
+                        16,
+                        20
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "legend": {
+                  "position": "b"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "caption"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "An editable chart and native painting."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -118,6 +118,15 @@ fn evaluate_with_state(
         }
     }
     references::validate(&document)?;
+    crate::presentation::layouts::validate(&document).map_err(|message| {
+        Diagnostic::new(
+            Span {
+                start: 0,
+                end: tree.source.len(),
+            },
+            message,
+        )
+    })?;
     Ok(document.finish())
 }
 

@@ -214,15 +214,22 @@ pub(super) fn normalize(
             "background" => background(value, span),
             "footer" | "date" => text_or_boolean(value, span, name),
             "slide_number" => normalize_boolean(value, span, name),
-            "layout" => Err(Diagnostic::new(
-                span,
-                "named slide layouts are not yet supported",
-            )),
+            "layout" => {
+                let name = normalize_identifier(value, span, name)?;
+                if name.trim().is_empty() {
+                    return Err(Diagnostic::new(span, "slide layout must not be empty"));
+                }
+                Ok(Value::String(name.trim().into()))
+            }
             _ => Ok(value),
         };
     }
     match name {
-        "slot" | "kind" | "required" | "remove" => Err(Diagnostic::new(
+        "slot" => {
+            let name = normalize_identifier(value, span, name)?;
+            Ok(Value::String(name.trim().into()))
+        }
+        "kind" | "required" | "remove" => Err(Diagnostic::new(
             span,
             "named layout slots are not yet supported",
         )),

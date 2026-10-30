@@ -526,3 +526,15 @@ fn markdown_boundaries_do_not_change_document_mode_or_split_nested_headings() {
         .to_string();
     assert!(error.contains("divider"), "{error}");
 }
+
+#[test]
+fn builtin_layouts_match_captured_native_geometry_and_rasters() {
+    compare_captured_slides(
+        "presentation-layouts",
+        &[
+            ("wide", 50, 7.5, 0),
+            ("standard", 50, 7.5, 0),
+            ("custom", 48, 8.3, 0),
+        ],
+    );
+}

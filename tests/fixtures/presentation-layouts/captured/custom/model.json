@@ -1,0 +1,382 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "409.789pt",
+        "unit": "pt",
+        "value": 409.789
+      },
+      "width": {
+        "text": "613.123pt",
+        "unit": "pt",
+        "value": 613.123
+      }
+    },
+    "size": {
+      "width": {
+        "text": "613.123pt",
+        "unit": "pt",
+        "value": 613.123
+      },
+      "height": {
+        "text": "409.789pt",
+        "unit": "pt",
+        "value": 409.789
+      },
+      "properties": {
+        "height": {
+          "text": "409.789pt",
+          "unit": "pt",
+          "value": 409.789
+        },
+        "width": {
+          "text": "613.123pt",
+          "unit": "pt",
+          "value": 613.123
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    },
+    {
+      "name": "heading",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "two_column"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Custom dimensions"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "left"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Proportional left frame."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "right"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Proportional right frame."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "title_slide"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "70pt",
+                    "unit": "pt",
+                    "value": 70
+                  },
+                  "width": {
+                    "text": "500pt",
+                    "unit": "pt",
+                    "value": 500
+                  },
+                  "x": {
+                    "text": "12pt",
+                    "unit": "pt",
+                    "value": 12
+                  },
+                  "y": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  }
+                },
+                "slot": "subtitle",
+                "text": {
+                  "alignment": "right"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Overridden position, absent title."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "section_header"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Lua slot assignment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "two_column"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Custom dimensions"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "left"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Proportional left frame."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "right"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Proportional right frame."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "title_slide"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "70pt",
+                "unit": "pt",
+                "value": 70
+              },
+              "width": {
+                "text": "500pt",
+                "unit": "pt",
+                "value": 500
+              },
+              "x": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              },
+              "y": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              }
+            },
+            "slot": "subtitle",
+            "text": {
+              "alignment": "right"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Overridden position, absent title."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "section_header"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Lua slot assignment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
