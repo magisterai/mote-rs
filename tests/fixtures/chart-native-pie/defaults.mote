@@ -1,0 +1,2 @@
+#chart(kind="pie",title="Distribution",data={categories={"North","South","West"},values={12,8,5}})
+#chart(kind="doughnut",title="Distribution",data={categories={"North","South","West"},values={12,8,5}})

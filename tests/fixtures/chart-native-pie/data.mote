@@ -1,0 +1,6 @@
+#chart(kind="pie",title="Empty data",data={metadata=true})
+#chart(kind="doughnut",title="No positive data",data={values={0,-2,0}})
+#chart(kind="pie",title="Signed and zero",data={categories={"Positive","Negative","Zero"},values={4,-2,0}},data_labels={value=true,percent=true})
+#chart(kind="doughnut",title="One value",data={values={5}},background="#e0f2fe",data_labels=true)
+#chart(kind="pie",title="Short categories",data={categories={"One"},series={{name="First",values={1,2,3}},{name="Second",values={4,5,6}}}})
+#chart(kind="doughnut",title="Short values",data={categories={"One","Two","Three"},values={5}},plot_area={fill="#fce7f3"})

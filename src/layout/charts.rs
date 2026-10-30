@@ -4,6 +4,8 @@ mod bars;
 mod curves;
 mod geometry;
 mod legend;
+mod paths;
+mod pie;
 mod scale;
 mod text;
 use super::{
@@ -44,6 +46,8 @@ impl ChartBlock {
                 | "area"
                 | "stacked_area"
                 | "percent_stacked_area"
+                | "pie"
+                | "doughnut"
         ) {
             return Err(LayoutError::Unsupported(format!(
                 "native {} charts are not yet supported",
@@ -93,6 +97,7 @@ impl ChartBlock {
         }
         match chart.kind.as_str() {
             "line" => planner.line_chart(&chart, &layout)?,
+            "pie" | "doughnut" => planner.pie_chart(&chart, &layout)?,
             "area" | "stacked_area" | "percent_stacked_area" => {
                 planner.area_chart(&chart, &layout)?
             }

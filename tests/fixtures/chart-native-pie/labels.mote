@@ -1,0 +1,4 @@
+#chart(kind="pie",title="Values",data={categories={"First","Second","Third"},values={2,3,7}},data_labels=true)
+#chart(kind="pie",title="All label components",data={categories={"First","Second","Third"},name="Total",values={2,3,7}},data_labels={category=true,series=true,value=true,percent=true})
+#chart(kind="doughnut",title="All label components",legend=false,data={categories={"First","Second","Third"},name="Total",values={2,3,7}},data_labels={category=true,series=true,value=true,percent=true})
+#chart(kind="pie",title="Small sectors",legend="bottom",data={categories={"Alpha","Beta","Gamma","Delta"},values={1,1,1,97}},data_labels={category=true,percent=true})

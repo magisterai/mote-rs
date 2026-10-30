@@ -1,0 +1,40 @@
+{
+  "source_sha256": "ae0df376a00dc7bc3a21ee1bfc474020c2bdcb3125a53d7c180bce1e0057dc99",
+  "geometry_sha256": "f9f6cca0f14c1f75c9308502025a78daa439d4b64578025d0787a661e71c4025",
+  "native_png_files": {
+    "reference-1.png": "3dba169bd0673db44fc8e124d7cef01ef8b121a21174441ee9351b134de2f755",
+    "reference-2.png": "527dcb629d5e3fa165d17a2da707a348bef17e9cbbbe14791f2c471b4e7b996c",
+    "reference-3.png": "57e82dede7e8ed4787498e340eea62b2abf1b4bbd755377db39acc6e2f160372",
+    "reference-4.png": "fcf885a680dc1f62b55547ebcf61218fe6841095b14634c1a386cad9b40818ab"
+  },
+  "native_png_dpi": 72,
+  "native_pdf_comparison_dpi": 144,
+  "native_pdf_comparison": [
+    {
+      "case": "legends",
+      "page": "reference-pdf-1",
+      "maximum": 0,
+      "changed": 0
+    },
+    {
+      "case": "legends",
+      "page": "reference-pdf-2",
+      "maximum": 0,
+      "changed": 0
+    },
+    {
+      "case": "legends",
+      "page": "reference-pdf-3",
+      "maximum": 0,
+      "changed": 0
+    },
+    {
+      "case": "legends",
+      "page": "reference-pdf-4",
+      "maximum": 0,
+      "changed": 0
+    }
+  ],
+  "native_pages_visually_inspected": true,
+  "word_review_status": "unreviewed"
+}

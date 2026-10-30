@@ -87,6 +87,18 @@ fn kind_limits(attributes: &Properties, path: &str, warnings: &mut BTreeSet<Stri
             "{path}.data_labels are omitted from native area charts"
         ));
     }
+    if matches!(kind, "pie" | "doughnut") {
+        if labels.enabled && !labels.position.is_empty() {
+            warnings.insert(format!("{path}.data_labels.position uses automatic radial placement in native {kind} charts"));
+        }
+        for name in ["axis", "gridlines"] {
+            if attributes.contains_key(name) {
+                warnings.insert(format!(
+                    "{path}.{name} has no effect on native {kind} charts"
+                ));
+            }
+        }
+    }
     if kind == "line" && labels.enabled && !labels.position.is_empty() && labels.position != "t" {
         warnings.insert(format!(
             "{path}.data_labels.position uses the fixed position above native line markers"
@@ -94,7 +106,7 @@ fn kind_limits(attributes: &Properties, path: &str, warnings: &mut BTreeSet<Stri
     }
     if matches!(
         kind,
-        "line" | "area" | "stacked_area" | "percent_stacked_area"
+        "line" | "area" | "stacked_area" | "percent_stacked_area" | "pie" | "doughnut"
     ) {
         for name in ["gap_width", "overlap"] {
             if attributes.contains_key(name) {

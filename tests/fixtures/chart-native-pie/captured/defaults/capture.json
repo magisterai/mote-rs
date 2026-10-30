@@ -1,0 +1,19 @@
+{
+  "source_sha256": "441509ffcc53b88182f1e8588e7a2b95084ca71c45c5eb548286f35b2b454c9d",
+  "geometry_sha256": "653d6c0f637dd69f77dc5935debb65735f27eac6079c1330f0cdcb6f780c2816",
+  "native_png_files": {
+    "reference-1.png": "d07b6eca70979135984f6cb3c293c94806c472f1ed49e00d6a10f792220749a9"
+  },
+  "native_png_dpi": 72,
+  "native_pdf_comparison_dpi": 144,
+  "native_pdf_comparison": [
+    {
+      "case": "defaults",
+      "page": "reference-pdf-1",
+      "maximum": 0,
+      "changed": 0
+    }
+  ],
+  "native_pages_visually_inspected": true,
+  "word_review_status": "unreviewed"
+}

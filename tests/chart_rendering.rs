@@ -21,6 +21,14 @@ fn native_line_and_area_charts_preserve_paths_markers_and_labels() {
     compare_captures("chart-native-curves", &["kinds", "legends", "data"]);
 }
 
+#[test]
+fn native_pie_and_doughnut_charts_preserve_sectors_labels_and_backgrounds() {
+    compare_captures(
+        "chart-native-pie",
+        &["defaults", "legends", "labels", "data"],
+    );
+}
+
 fn compare_captures(collection: &str, cases: &[&str]) {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("tests/fixtures")
@@ -95,6 +103,10 @@ fn compare_captures(collection: &str, cases: &[&str]) {
                 ("chart-native-bars", "appearance") => (88, 0.5, 4),
                 ("chart-native-curves", "data") => (92, 2.5, 1),
                 ("chart-native-curves", "legends") => (88, 0.6, 4),
+                ("chart-native-pie", "data") if page.number == 1 => (48, 8.5, 0),
+                ("chart-native-pie", "data") => (92, 0.3, 1),
+                ("chart-native-pie", "legends") => (56, 0.2, 0),
+                ("chart-native-pie", _) => (48, 1.0, 0),
                 _ => (64, 2.0, 0),
             };
             assert!(
@@ -109,9 +121,10 @@ fn compare_captures(collection: &str, cases: &[&str]) {
 fn native_chart_support_boundaries_and_numeric_failures_are_explicit() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for source in [
-        "#chart(kind='pie',data={values={1,2}})",
         "#table[#row[#cell[#chart(data={values={1}})]]]",
         "#chart(data={values={'Inf'}})",
+        "#chart(kind='pie',data={values={'1e308','1e308'}})",
+        "#chart(kind='pie',data={values={'1e308'}})",
         "#chart(kind='stacked_column',data={series={{values={'1e308'}},{values={'1e308'}}}})",
     ] {
         let document = mote::compile(source).unwrap();
@@ -194,6 +207,32 @@ fn native_curve_chart_warnings_describe_retained_properties() {
         let document = mote::compile(&source).unwrap();
         let plan = render::plan(&document, &resolver, None).unwrap();
         for fragment in [expected, ".gap_width", ".overlap"] {
+            assert!(
+                plan.warnings
+                    .iter()
+                    .any(|warning| warning.contains(fragment)),
+                "{kind}: {fragment}: {:?}",
+                plan.warnings
+            );
+        }
+    }
+}
+
+#[test]
+fn native_radial_chart_warnings_describe_automatic_placement() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for kind in ["pie", "doughnut"] {
+        let source = format!(
+            "#chart(kind='{kind}',data={{values={{1,2,3}}}},data_labels={{position='outside_end'}},axis={{value={{title='Unused'}}}},gridlines=true,gap_width=100,overlap=20)"
+        );
+        let plan = render::plan(&mote::compile(&source).unwrap(), &resolver, None).unwrap();
+        for fragment in [
+            "automatic radial placement",
+            ".axis",
+            ".gridlines",
+            ".gap_width",
+            ".overlap",
+        ] {
             assert!(
                 plan.warnings
                     .iter()
