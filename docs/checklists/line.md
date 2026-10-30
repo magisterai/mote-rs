@@ -27,3 +27,9 @@ Output boundary: editable connectors and native line painting belong to
 presentation layout. The document output baseline does not emit editable lines;
 its unsupported behavior must remain explicit. Shape borders are a separate
 supported drawing property and must not be confused with line directives.
+
+Positioned-slide output covers the existing drawing vocabulary: geometry,
+transforms, fills, stroke patterns and opacity, names and text defaults. Shapes
+also require preset text bounds, fitting and shadows; connectors require endpoint
+geometry, caps and start/end marker kinds and sizes. Editable/native slide
+coverage and PowerPoint visual review are pending independently of model support.
