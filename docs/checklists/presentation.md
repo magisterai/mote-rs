@@ -5,8 +5,8 @@
 
 The complete deck, slide, master, layout, notes, timing, transition and theme
 families are inventoried, including unsupported properties and value domains.
-The first implementation covers explicit decks and positioned text; broader
-features remain separate steps within the established compatibility baseline.
+Output covers explicit decks with positioned text and pictures. Broader features
+remain separate steps within the established compatibility baseline.
 
 - [x] Named declaration arguments, no body, no visible element; repeated
   declarations merge normalized properties and size fields.

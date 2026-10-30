@@ -26,6 +26,14 @@
 The linked inventory contains every reachable picture/placement property and
 value domain. Floating anchors, wrapping exclusion, additional blip effects,
 geometry presets and three-dimensional transforms are not enabled merely by
-retaining their metadata. Native borders currently paint a solid opaque stroke;
-DOCX retains authored dash and opacity. Images inside flattened quote/list text
-use a visible native placeholder. Office visual review remains unreviewed.
+retaining their metadata. Native document-image borders currently paint a solid
+opaque stroke; DOCX retains authored dash and opacity. Positioned slide images
+support patterned translucent borders in PPTX and native PDF/PNG. Images inside
+flattened quote/list text use a visible native placeholder. Office visual review
+remains unreviewed.
+
+A single image inside a positioned `box` supports contain/cover/stretch, crop,
+flips, effects, whole-picture rotation and links. The box owns its frame and an
+image border overrides the box border. See the [box support notes](box.md) and
+[picture captures](../../tests/fixtures/presentation-images/README.md) for fitting
+and missing-asset differences between output formats.

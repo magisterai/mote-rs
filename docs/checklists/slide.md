@@ -19,7 +19,9 @@ captures. Master/layout inheritance, hidden slides, transitions, timing,
 animation and extension properties remain inventoried and unsupported unless
 mapped above. DOCX treatment and native/PPTX output require separate evidence;
 Editable positioned text and solid slide backgrounds are covered by
-[package captures](../../tests/fixtures/presentation-text/README.md). Native PDF/PNG uses the same text resolution, wrapping and fitting. PowerPoint
+[package captures](../../tests/fixtures/presentation-text/README.md). Positioned
+image boxes also have [package and native captures](../../tests/fixtures/presentation-images/README.md).
+Native PDF/PNG uses the same text resolution, wrapping and fitting. PowerPoint
 review remains pending.
 
 The [language definition](../specification/presentations.md) and

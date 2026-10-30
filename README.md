@@ -18,7 +18,8 @@ Mote is inspired by Typst's approach to programmable typesetting.
 The current implementation produces JSON, editable DOCX, and native PDF/PNG for
 the documented document subset, including text, tables, images, sections, headers
 and footers, references, notes, shapes, and charts. Initial PPTX and native slide
-output support explicit slides with positioned text and shared text fitting.
+output support explicit slides with positioned text, shared text fitting, and
+images with cropping, fitting, rotation and effects.
 Typed bindings, JSON data, conditions, iteration, opt-in Lua, and reusable
 functions generate content through the same directives. Output is checked against
 captured packages, geometry, and rasters; new Office cases remain unreviewed.
