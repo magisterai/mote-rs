@@ -16,13 +16,12 @@ Mote is inspired by Typst's approach to programmable typesetting.
   Word and PowerPoint.
 
 The current implementation produces JSON, editable DOCX, and native PDF/PNG for
-the documented language subset. It supports text and lists, links and images,
-tables, styles and fonts, sections and columns, headers and footers, page fields,
-bookmarks, cross-references, figures, captions, footnotes, and endnotes. Native
-output uses shared layout checked against captured geometry and rendered output.
-Typed bindings, JSON data, conditions, iteration, opt-in Lua expressions, and reusable
-functions feed the existing document directives. Broader Office content and
-PowerPoint output remain planned.
+the documented document subset, including text, tables, images, sections, headers
+and footers, references, notes, shapes, and charts. Initial PPTX and native slide
+output support explicit slides with positioned text and shared text fitting.
+Typed bindings, JSON data, conditions, iteration, opt-in Lua, and reusable
+functions generate content through the same directives. Output is checked against
+captured packages, geometry, and rasters; new Office cases remain unreviewed.
 
 Directives use `#name(arguments)[content]` for structure and formatting:
 

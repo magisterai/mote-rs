@@ -1,7 +1,7 @@
 # Implementation
 
-The Rust crate implements the initial language core, a progressive DOCX writer, and
-native PDF/PNG output for the documented document-language subset. The
+The Rust crate implements the language core, editable DOCX, initial positioned-text
+PPTX, and native PDF/PNG output for the documented document and slide subsets. The
 [specification](specification/README.md) describes the language; this page records
 what this crate currently implements.
 
@@ -29,6 +29,10 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [layout](../src/layout.rs) | Shared native line and block geometry, paragraph flow, numbering, columns, and ordered painting operations. |
 | [render](../src/render.rs) | Independent PDF and PNG painters, font embedding, rasterization and native support diagnostics. |
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
+| [drawings](../src/drawings.rs) | Shared drawing text semantics and physical unit conversion. |
+| [charts](../src/charts.rs) | Resolved chart data and appearance, editable chart XML and embedded workbooks. |
+| [presentation](../src/presentation.rs) | Deck dimensions, themes, positioned text semantics and support diagnostics. |
+| [pptx](../src/pptx.rs) | Editable slide packages, masters, layouts, themes and positioned text boxes. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
 
@@ -74,7 +78,8 @@ Standard input remains labelled `<stdin>`.
 and rejects conflicting bytes for one logical name. The font measurer owns a
 wrapper for its lifetime and retains selected font bytes for future painters.
 Images also cache resolved assets and transformed rasters for the duration of planning.
-Imports and data-loading helpers remain deferred. Tests in
+The JSON helper shares source-relative resolution and compilation snapshots; imports
+remain deferred. Tests in
 [asset_cache.rs](../tests/asset_cache.rs), [source.rs](../tests/source.rs) and
 [cli.rs](../tests/cli.rs) cover custom sources, relative names, failure propagation,
 encoding, and CLI diagnostics.
@@ -212,8 +217,12 @@ value types; no generic serialization layer is added. The runtime opens the base
 library with the documented restricted globals, shares one deadline, and routes
 JSON through the selected resolver. The normal and build dependency graph was
 reviewed; asynchronous runtimes, macros and alternate VM features are disabled.
-Function definitions, document constructors from scripts, and PowerPoint output
-remain deferred.
+Lexical functions capture definition-time values, validate named/positional calls,
+and convert typed results back to content. The `document` namespace constructs
+registered directives through the same validation as authored calls. The
+[function](../tests/fixtures/functions/README.md) and
+[constructor captures](../tests/fixtures/constructors/README.md) cover models,
+packages and native output.
 Model support does not demonstrate rendered behaviour or Office conformance.
 
 The [plain-paragraph reference fixture](../tests/fixtures/docx/plain-paragraph/README.md)
@@ -269,8 +278,8 @@ hexadecimal strings. Documents with declarations also contain `fonts` and
 fields are exposed as defined in [Styles and fonts](specification/styles-and-fonts.md).
 Empty registries are omitted. Conversion warnings go to standard error and stay
 out of JSON. This deterministic inspection format contains no computed layout
-geometry and is not yet a stable interchange schema. JSON output does not enable
-the deferred `json(...)` data-loading helper.
+geometry and is not yet a stable interchange schema. Nonempty presentation
+configuration and explicit slide/box content are retained in the same model.
 
 ## Development
 
@@ -660,3 +669,44 @@ unless an explicit footer height is reserved.
 [Note captures](../tests/fixtures/notes/README.md) cover eleven cases and 19 pages,
 with full model/package comparisons, geometry, PNGs, and a recorded PDF raster
 exception for negative off-page coordinates. Word review remains unreviewed.
+
+## Drawings and charts
+
+Positioned shapes emit editable Word DrawingML with text, preset geometry,
+transforms, fills, borders and shadows. Native shape paths and fitted text use
+shared measurement and the page painters. Line declarations retain connector
+geometry and markers in the model; document output does not paint them.
+See [shape captures](../tests/fixtures/shape-text/README.md) for output limits.
+
+Charts resolve data, defaults and appearance once. DOCX writes editable chart
+parts with embedded workbooks for twelve kinds. Native document charts cover
+column/bar, stacked and percentage variants, line, area, stacked/percentage area,
+pie and doughnut. The shared geometry includes titles, legends, axes, grids and
+supported labels. Chart labels, signed percentage stacks and mismatched data
+lengths retain the limits recorded in the [chart checklist](checklists/chart.md).
+Native table-cell charts and presentation chart placement remain unsupported.
+
+## Explicit presentations
+
+`pptx::emit_with_assets` generates editable slides with positioned text boxes,
+solid backgrounds, themes, lists, links and box formatting. Shared text fitting
+computes shrink ratios and resized heights before serializing the editable box.
+Font assets resolve relative to the source; unavailable faces produce warnings
+when substituted metrics affect fitting. Native PDF/PNG uses the same semantic
+text resolution and fit result, then paints directly through the page plan.
+
+The CLI accepts `--format pptx`. PDF/PNG selects slide layout for nonempty explicit
+presentation configuration, or with `--layout presentation`. `--layout document`
+selects document flow explicitly; ordinary Markdown remains document content.
+The native slide subset requires explicit `slide` bodies and positioned text;
+`#slide[]` creates a blank slide. Automatic layout, named layouts, notes, footer
+fields, background images, box shadows and non-text slide objects remain outside
+this slice and fail explicitly. Retained properties without an effect warn.
+
+[Presentation captures](../tests/fixtures/presentation-text/README.md) compare
+nine complete editable packages and eleven native slide pages, including
+source-relative fonts, clipping, shrinking and resizing. Geometry agrees within
+1e-8 points, PNG differences have fixed per-case limits, and nine PDF page rasters
+match exactly. Two PDF captures omit top-edge text; native output preserves its
+signed coordinates. These are independent output checks, not Microsoft PowerPoint
+review. The new Word and PowerPoint cases remain unreviewed in Office.

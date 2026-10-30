@@ -59,8 +59,9 @@ replacement glyph and embedding permissions suitable for editable native output.
 Unavailable, invalid or restricted files use an explicitly reported fallback.
 Requests are snapshotted for the measurer's lifetime, including failures; two
 assets with one logical name must have identical bytes. The selected bytes are
-retained for painting without a second file lookup. Installed-font discovery,
-font embedding and script shaping remain deferred. DOCX continues to reference
+retained for painting without a second file lookup. Native render entry points
+can use an installed-font resolver and embed the selected font bytes; measurement callers can omit that resolver for deterministic
+asset-only behavior. Complex script shaping remains deferred. DOCX references
 the declared typeface names and ignores `files`; it does not embed these assets.
 
 ## 2. Style declarations

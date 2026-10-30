@@ -45,7 +45,7 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
-| `function` | [Functions and scripting](function.md) | Opt-in Lua expressions and typed values; function definitions remain pending. |
+| `function` | [Functions and scripting](function.md) | Lexical functions, content bodies, opt-in Lua, typed values and document constructors. |
 | `if` | [Conditional content](if.md) | Truthiness, selected branches, child scopes and surrounding flow. |
 | `for` | [Iteration](for.md) | Ordered array/object iteration, local bindings and generated content. |
 | `json` | [JSON data](json.md) | Typed JSON values, source-relative resolution and compilation snapshots. |
@@ -80,7 +80,7 @@ their concepts before using them in examples.
 | `presentation` | [Presentation](presentation.md) | Deck properties, normalized dimensions, overrides and Lua declarations. |
 | `slide` | [Slide](slide.md) | Explicit bodies, positioned/loose content rules, appearance and metadata. |
 | `box` | [Box](box.md) | Positioned content, text/appearance properties and child validation. |
-| `chart` | [Chart](chart.md) | Typed data and appearance arguments; output pending. |
+| `chart` | [Chart](chart.md) | Typed data and appearance; editable document charts and native chart geometry. |
 | `shape` | [Shape](shape.md) | Positioned shape geometry, appearance and text. |
 | `line` | [Line](line.md) | Positioned line endpoints, strokes and arrow markers. |
 | `span` | [Span](span.md) | General inline formatting and explicit resolution. |
