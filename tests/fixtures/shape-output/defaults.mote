@@ -1,0 +1,3 @@
+#shape(position={width=inch(2),height=inch(1)})[Default shape text.]
+#shape(position={x=914400,y=1828800,width=1828800,height=914400},border={width=12700},fill="#abc",shadow={})
+#shape(position={x=inch(4),y=inch(1),width=inch(1),height=inch(1)},border={style="none"},text={fit="resize_shape",margin={top=pt(4)},vertical_alignment="bottom"})[Resized]

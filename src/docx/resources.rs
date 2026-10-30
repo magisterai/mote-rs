@@ -9,6 +9,7 @@ pub(super) struct Resources {
     pub caption_sequences: std::collections::BTreeMap<String, u64>,
     pub pending_bookmarks: Vec<crate::model::Element>,
     relationship_offset: usize,
+    drawing_count: usize,
     pub stories: Vec<super::sections::StoryPart>,
     pub warnings: Vec<String>,
     pub active_text: super::run_properties::RunFormatting,
@@ -30,6 +31,7 @@ impl Default for Resources {
             caption_sequences: Default::default(),
             pending_bookmarks: Vec::new(),
             relationship_offset: 4,
+            drawing_count: 0,
             stories: Vec::new(),
             warnings: Vec::new(),
             active_text: Default::default(),
@@ -64,6 +66,10 @@ impl Resources {
         self.relationship_offset = 4;
         result
     }
+    pub fn next_drawing(&mut self) -> usize {
+        self.drawing_count += 1;
+        self.drawing_count
+    }
     pub fn image(&mut self, asset: crate::media::ImageAsset) -> (String, String, usize) {
         let identifier = self.media.len() + 1;
         let name = format!("media/image{identifier}{}", asset.extension);
@@ -76,7 +82,7 @@ impl Resources {
         (
             format!("rId{}", self.relationships.len() + self.relationship_offset),
             name,
-            identifier,
+            self.next_drawing(),
         )
     }
     pub fn hyperlink(&mut self, target: &str) -> String {

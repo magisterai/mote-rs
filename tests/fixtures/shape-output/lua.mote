@@ -1,0 +1,4 @@
+#let(shape=document.shape({position={x=inch(1),y=inch(1),width=inch(3),height=inch(1)},fill="#abc"},"Raw text"))
+#shape
+#let(empty=document.shape({position={x=inch(1),y=inch(3),width=inch(3),height=inch(1)},fill="#def"}))
+#empty

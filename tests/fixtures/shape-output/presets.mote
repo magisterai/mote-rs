@@ -1,0 +1,3 @@
+#for kind in {"rectangle","rect","round_rect","rounded","ellipse","oval","triangle","diamond","hexagon","chevron","cloud","parallelogram","trapezoid"} {
+#shape(kind=kind,position={width=72,height=36})
+}

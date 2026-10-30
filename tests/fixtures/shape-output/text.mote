@@ -1,0 +1,8 @@
+#style(name="Notice",run={color="#28734f",bold=true})
+#shape(position={x=inch(1),y=inch(1),width=inch(3),height=inch(4)},name="Text & styles",text={font="Aptos",size=pt(14),fit="clip",margin={left=pt(4),right=pt(4)},paragraph={alignment="center",spacing_after=pt(4)}})[
+#heading(2)[Heading]
+#paragraph[#span(style="Notice")[Styled] #emphasis[text] #link("https://example.com")[link].]
+#list[#item[First]#item[Second]]
+#blockquote[Quoted]
+]
+#paragraph[Following text.]

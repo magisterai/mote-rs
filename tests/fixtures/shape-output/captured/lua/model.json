@@ -1,0 +1,160 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#aabbcc",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Raw text"
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#ddeeff",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#aabbcc",
+        "position": {
+          "height": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "width": {
+            "text": "3in",
+            "unit": "in",
+            "value": 3
+          },
+          "x": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "y": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Raw text"
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#ddeeff",
+        "position": {
+          "height": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "width": {
+            "text": "3in",
+            "unit": "in",
+            "value": 3
+          },
+          "x": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "y": {
+            "text": "3in",
+            "unit": "in",
+            "value": 3
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+#label("drawing")
+#shape(position={x=inch(1),y=inch(2),width=inch(3),height=inch(1)},fill="#abcdef")[Before image]
+#image("assets/pattern.png",width=inch(1))
+#shape(position={x=inch(1),y=inch(4),width=inch(3),height=inch(1)},fill="#fedcba")[After image]
+#image("assets/pattern.png",width=inch(1))
+#paragraph[See #ref("drawing").]

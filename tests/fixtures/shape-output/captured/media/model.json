@@ -1,0 +1,300 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "drawing"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#abcdef",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before image"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1
+            }
+          }
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#fedcba",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After image"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "src": "assets/pattern.png",
+            "width": {
+              "text": "1in",
+              "unit": "in",
+              "value": 1
+            }
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "See "
+            },
+            {
+              "kind": "ref",
+              "category": "inline",
+              "attributes": {
+                "target": "drawing"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "drawing"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#abcdef",
+        "position": {
+          "height": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "width": {
+            "text": "3in",
+            "unit": "in",
+            "value": 3
+          },
+          "x": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "y": {
+            "text": "2in",
+            "unit": "in",
+            "value": 2
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "src": "assets/pattern.png",
+        "width": {
+          "text": "1in",
+          "unit": "in",
+          "value": 1
+        }
+      }
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#fedcba",
+        "position": {
+          "height": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "width": {
+            "text": "3in",
+            "unit": "in",
+            "value": 3
+          },
+          "x": {
+            "text": "1in",
+            "unit": "in",
+            "value": 1
+          },
+          "y": {
+            "text": "4in",
+            "unit": "in",
+            "value": 4
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "src": "assets/pattern.png",
+        "width": {
+          "text": "1in",
+          "unit": "in",
+          "value": 1
+        }
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "See "
+        },
+        {
+          "kind": "ref",
+          "category": "inline",
+          "attributes": {
+            "target": "drawing"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    }
+  ]
+}

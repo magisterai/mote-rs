@@ -114,6 +114,11 @@ pub(super) fn write_blocks(
                 at_flow_start = false;
                 continue;
             }
+            ElementKind::Shape => {
+                body.push_str(&super::shapes::write(element, styles, state)?);
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Image => {
                 body.push_str(&super::images::write(
                     element,

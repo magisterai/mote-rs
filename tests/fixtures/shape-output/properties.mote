@@ -1,0 +1,4 @@
+#shape(position={width=inch(2),height=pt(72)},name=7,kind="rounded",fill="#abc",border={width="1pt",color="#28734f",style="dashed",opacity="80%"},rotation="15deg",flip_horizontal="true",flip_vertical=false,alignment="center",vertical_alignment="middle",margin={left=pt(4),top=2},opacity="90%",shadow={color="#123456",blur=pt(2),distance="3pt",opacity=25,angle="45deg"})[
+#paragraph[Shape text.]
+]
+#shape(kind="oval",position={x=inch(3),y=inch(2),width=inch(2),height=inch(1)},text={fit="autofit",margin={top=pt(2)},alignment="right",vertical_alignment="middle",font=12,size="14pt",color="#abc",highlight="#def",bold="true",italic=true,underline=false,small_caps=true,strike=false,double_strike=false,spacing_before=pt(1),spacing={line={rule="multiple",value=1.2}},indent={left=pt(3)},paragraph={alignment="center",spacing_after="2pt",keep_with_next=true},list={spacing_before=pt(2),indent={left=pt(6)}}})[Body]

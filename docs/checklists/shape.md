@@ -3,7 +3,8 @@
 [Directive index](README.md) · [Drawing property inventory](attributes/shapes-and-lines.md)
 
 The [language model](../specification/drawings.md) is covered by
-[normalization and capture tests](../../tests/drawings.rs). Output remains pending.
+[normalization and capture tests](../../tests/drawings.rs). Editable DOCX shape output is covered by
+[complete package captures](../../tests/shape_captures.rs). Native output remains pending.
  Shape properties inherit the complete
 [DrawingML text](attributes/drawing-text.md), [image/placement](attributes/images.md),
 and [value-domain](attributes/values.md) inventories. An unchecked standard
@@ -33,7 +34,8 @@ property has no implied Mote argument or output support.
 - [x] Optional body contains significant block content, including text paragraphs.
 - [x] Lua `document.shape` uses the same validation and typed attributes.
 
-Output boundaries to verify: absolute page anchoring and editable Word shape text;
-editable slide shape geometry; native path geometry, preset text rectangles,
-transforms, clipping, fills, borders, opacity, shadows and text. These support notes
-do not claim an Office render review or authorize unsupported standard geometry.
+DOCX emits absolute page anchors, editable Word shape text, preset geometry,
+transforms, fills, borders, opacity, shadows, text margins and fit settings.
+Presentation output and native drawing geometry remain pending. Microsoft Word
+render review is unreviewed; matching package captures do not establish visual
+Office conformance. Unknown metadata has no implied output effect.

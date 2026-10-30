@@ -104,10 +104,10 @@ pub(super) fn write_run(
             output.push_str(&format!(" {field}=\"1\""));
         }
     }
-    output.push_str(&format!("><a:off x=\"0\" y=\"0\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"rect\"><a:avLst/></a:prstGeom>{}</pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>",border_xml(attributes)?));
+    output.push_str(&format!("><a:off x=\"0\" y=\"0\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"rect\"><a:avLst/></a:prstGeom>{}</pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>",border_xml(attributes, length_in_drawing_units)?));
     Ok(Some(output))
 }
-fn length_in_drawing_units(value: &Value) -> Result<i64, Error> {
+pub(super) fn length_in_drawing_units(value: &Value) -> Result<i64, Error> {
     if let Value::Length { value, unit } = value {
         values::rounded(
             value
@@ -167,7 +167,10 @@ fn effects_xml(attributes: &Properties) -> Result<String, Error> {
     }
     Ok(output)
 }
-fn border_xml(attributes: &Properties) -> Result<String, Error> {
+pub(super) fn border_xml(
+    attributes: &Properties,
+    convert_length: fn(&Value) -> Result<i64, Error>,
+) -> Result<String, Error> {
     let Some(border) = media::object(attributes, "border") else {
         return Ok(String::new());
     };
@@ -177,7 +180,7 @@ fn border_xml(attributes: &Properties) -> Result<String, Error> {
     }
     let width = border
         .get("width")
-        .map(length_in_drawing_units)
+        .map(convert_length)
         .transpose()?
         .unwrap_or(12700);
     let color = border

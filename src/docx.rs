@@ -21,6 +21,7 @@ mod resources;
 mod run_properties;
 mod runs;
 mod sections;
+mod shapes;
 mod styles;
 mod tables;
 mod values;
