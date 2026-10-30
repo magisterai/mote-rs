@@ -136,26 +136,18 @@ fn dashed(
     clip: Option<&Mask>,
 ) -> Result<(), RenderError> {
     let length = (end[0] - start[0]).hypot(end[1] - start[1]);
-    let mut position = 0.0;
-    let mut index = 0;
-    while position < length {
-        let next = (position + stroke.dash[index % stroke.dash.len()]).min(length);
-        if index.is_multiple_of(2) {
-            let first = std::array::from_fn(|axis| {
-                start[axis] + (end[axis] - start[axis]) * position / length
-            });
-            let last =
-                std::array::from_fn(|axis| start[axis] + (end[axis] - start[axis]) * next / length);
-            if first[0] == last[0] || first[1] == last[1] {
-                crisp(pixels, first, last, stroke, scale, clip)?;
-            } else {
-                let mut builder = PathBuilder::new();
-                capsule(&mut builder, first, last, stroke.width, scale);
-                fill_stroke(pixels, builder, &stroke.paint, clip)?;
-            }
+    for (position, next) in super::dashes::segments(length, &stroke.dash)? {
+        let first =
+            std::array::from_fn(|axis| start[axis] + (end[axis] - start[axis]) * position / length);
+        let last =
+            std::array::from_fn(|axis| start[axis] + (end[axis] - start[axis]) * next / length);
+        if first[0] == last[0] || first[1] == last[1] {
+            crisp(pixels, first, last, stroke, scale, clip)?;
+        } else {
+            let mut builder = PathBuilder::new();
+            capsule(&mut builder, first, last, stroke.width, scale);
+            fill_stroke(pixels, builder, &stroke.paint, clip)?;
         }
-        position = next;
-        index += 1;
     }
     Ok(())
 }

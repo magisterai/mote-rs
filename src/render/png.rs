@@ -1,4 +1,5 @@
 mod clipping;
+mod dashes;
 mod images;
 mod paths;
 mod rotation;

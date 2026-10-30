@@ -9,6 +9,12 @@ pub(super) fn paint(
     scale: f64,
     clip: Option<&Mask>,
 ) -> Result<(), RenderError> {
+    let length = (rule.end[0] - rule.start[0]).hypot(rule.end[1] - rule.start[1]);
+    let segments = if dash.is_empty() {
+        None
+    } else {
+        Some(super::dashes::segments(length, dash)?)
+    };
     if rule.start[0] != rule.end[0] && rule.start[1] != rule.end[1] {
         let mut path = tiny_skia::PathBuilder::new();
         path.move_to(
@@ -72,33 +78,21 @@ pub(super) fn paint(
         }
         return Ok(());
     }
-    let length = (rule.end[0] - rule.start[0]).hypot(rule.end[1] - rule.start[1]);
-    let mut position = 0.0;
-    let mut index = 0;
-    while position < length {
-        let segment = dash
-            .get(index % dash.len().max(1))
-            .copied()
-            .unwrap_or(length);
-        let next = (position + segment).min(length);
-        if index.is_multiple_of(2) {
-            let start = std::array::from_fn(|axis| {
-                (rule.start[axis] + (rule.end[axis] - rule.start[axis]) * position / length) * scale
-            });
-            let end = std::array::from_fn(|axis| {
-                (rule.start[axis] + (rule.end[axis] - rule.start[axis]) * next / length) * scale
-            });
-            super::crisp_axis_aligned(
-                pixels,
-                start,
-                end,
-                rule.width * scale,
-                color(&rule.color)?,
-                clip,
-            );
-        }
-        position = next;
-        index += 1;
+    for (position, next) in segments.into_iter().flatten() {
+        let start = std::array::from_fn(|axis| {
+            (rule.start[axis] + (rule.end[axis] - rule.start[axis]) * position / length) * scale
+        });
+        let end = std::array::from_fn(|axis| {
+            (rule.start[axis] + (rule.end[axis] - rule.start[axis]) * next / length) * scale
+        });
+        super::crisp_axis_aligned(
+            pixels,
+            start,
+            end,
+            rule.width * scale,
+            color(&rule.color)?,
+            clip,
+        );
     }
     Ok(())
 }

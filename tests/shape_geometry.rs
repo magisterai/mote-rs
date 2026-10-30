@@ -126,3 +126,61 @@ fn path_painters_reject_invalid_geometry_before_writing_output() {
         plan.pages[0].operations.pop();
     }
 }
+
+#[test]
+fn raster_dash_patterns_reject_unbounded_work_before_traversal() {
+    use mote::layout::{LineCap, PaintedPath, PathPaint, PathStroke, Rule, RuleRole};
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let mut plan = render::plan(&mote::compile("Text").unwrap(), &resolver, None)
+        .unwrap()
+        .output;
+    for dash in [vec![1e-100, 1e-100], vec![f64::MAX, f64::MAX]] {
+        let stroke = PathStroke {
+            paint: PathPaint {
+                color: "000000".into(),
+                alpha: 255,
+            },
+            width: 1.0,
+            dash: dash.clone(),
+            cap: LineCap::Flat,
+        };
+        let rule = Rule {
+            role: RuleRole::Generic,
+            start: [10.0, 10.0],
+            end: [110.0, 10.0],
+            width: 1.0,
+            color: "000000".into(),
+        };
+        for operation in [
+            PageOperation::Path(PaintedPath {
+                points: vec![rule.start, rule.end],
+                closed: false,
+                fill: None,
+                stroke: Some(stroke.clone()),
+            }),
+            PageOperation::PaintedRectangle {
+                bounds: [10.0, 10.0, 100.0, 30.0],
+                fill: None,
+                stroke: Some(stroke),
+            },
+            PageOperation::Stroke {
+                rule: rule.clone(),
+                dash: dash.clone(),
+                round_cap: false,
+            },
+            PageOperation::Stroke {
+                rule: Rule {
+                    end: [110.0, 110.0],
+                    ..rule
+                },
+                dash: dash.clone(),
+                round_cap: false,
+            },
+        ] {
+            plan.pages[0].operations.push(operation);
+            let error = render::paint_png(&plan, &Default::default()).unwrap_err();
+            assert!(error.to_string().contains("PNG dash pattern"), "{error}");
+            plan.pages[0].operations.pop();
+        }
+    }
+}
