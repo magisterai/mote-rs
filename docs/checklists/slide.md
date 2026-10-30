@@ -30,4 +30,4 @@ The [language definition](../specification/presentations.md) and
 Background-image output inventory: source-relative loading, inherited deck
 backgrounds, whole-value slide overrides, color fallback, contain/cover/stretch
 placement, clipping and foreground layering. Missing sources must retain the
-background color and warn. Editable and native captures are pending separately.
+background color and warn. These effects have [editable and native captures](../../tests/fixtures/presentation-backgrounds/README.md); PowerPoint review remains pending.

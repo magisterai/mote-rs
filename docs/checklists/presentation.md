@@ -27,7 +27,7 @@ collaboration extensions remain visible in the inventories. No additional Mote
 names are assigned to unmapped standard fields. The [language definition](../specification/presentations.md) and
 [model captures](../../tests/fixtures/presentations/README.md) cover these contracts.
 Editable packages support explicit slides, page dimensions, theme colors/fonts
-and solid backgrounds. Background images and footer fields fail explicitly.
+and solid backgrounds. Background images are supported; footer fields still fail explicitly.
 See [package captures](../../tests/fixtures/presentation-text/README.md). Native PDF/PNG supports the same initial subset and uses explicit slide geometry.
 Native output needs at least one explicit slide. PowerPoint review remains
 pending; model acceptance alone does not establish output effects.
@@ -35,4 +35,4 @@ pending; model acceptance alone does not establish output effects.
 Background-image output inventory: source-relative loading, inherited deck
 backgrounds, whole-value slide overrides, color fallback, contain/cover/stretch
 placement, clipping and foreground layering. Missing sources must retain the
-background color and warn. Editable and native captures are pending separately.
+background color and warn. These effects have [editable and native captures](../../tests/fixtures/presentation-backgrounds/README.md); PowerPoint review remains pending.
