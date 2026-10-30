@@ -5,6 +5,7 @@ mod captions;
 mod columns;
 mod decorations;
 mod document;
+mod drawings;
 mod fields;
 mod lists;
 mod notes;
@@ -35,7 +36,10 @@ pub use inline::resolve_inline;
 pub use styles::{LayoutStyleResolver, ParagraphStyle};
 mod painting;
 mod paragraphs;
-pub use painting::{ListMarker, ListMarkerKind, PageOperation, Rule, RuleRole};
+pub use painting::{
+    LineCap, ListMarker, ListMarkerKind, PageOperation, PaintedPath, PathPaint, PathStroke, Rule,
+    RuleRole,
+};
 mod placement;
 mod wrapping;
 

@@ -1,0 +1,7 @@
+#paragraph[Drawing transforms and appearance]
+#shape(kind="round_rect",position={x=pt(70),y=pt(130),width=pt(180),height=pt(130)},fill="#c8e5d6",rotation=25,flip_horizontal=true,opacity="60%",shadow={blur=pt(5),distance=pt(8),angle=45})
+#shape(kind="triangle",position={x=pt(320),y=pt(130),width=pt(180),height=pt(130)},fill="#c8e5d6",flip_vertical=true,border={width=pt(2),color="#123456",style="dashed"})
+#shape(kind="cloud",position={x=pt(70),y=pt(330),width=pt(180),height=pt(130)},fill="#c8e5d6",rotation=-15,shadow={color="#123456",opacity="70%",blur=pt(2),distance=pt(5),angle=180})
+#shape(kind="ellipse",position={x=pt(320),y=pt(330),width=pt(180),height=pt(130)},fill="#c8e5d6",border={width=pt(1.5),color="#d15a36",style="dotted",opacity="75%"})
+#shape(kind="diamond",position={x=pt(70),y=pt(530),width=pt(180),height=pt(130)},fill="#c8e5d6",rotation=45,opacity=0.25,shadow={blur=pt(0),distance=pt(4),opacity=0.8})
+#shape(kind="trapezoid",position={x=pt(320),y=pt(530),width=pt(180),height=pt(130)},fill="#c8e5d6",flip_horizontal=true,flip_vertical=true,rotation=10,border={style="none"})

@@ -95,6 +95,7 @@ fn paint_operations(page: &mote::layout::TextPage) -> Value {
     let mut operations = Vec::new();
     for operation in &page.operations {
         match operation {
+            PageOperation::Path(path) => operations.push(json!({"kind":"path","points":path.points,"closed":path.closed,"fill":path.fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":path.stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
             PageOperation::PushClip(bounds) => operations.push(json!({"kind":"push_clip","bounds":bounds})),
             PageOperation::PopClip => operations.push(json!({"kind":"pop_clip"})),
             PageOperation::Stroke{rule,dash,round_cap} => operations.push(json!({"kind":"stroke","start":rule.start,"end":rule.end,"width":rule.width,"color":rule.color,"dash":dash,"round_cap":round_cap})),

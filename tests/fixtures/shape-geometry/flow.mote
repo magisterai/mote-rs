@@ -1,0 +1,9 @@
+#document(page={width=inch(5),height=inch(4)},margin={top=inch(0.5),bottom=inch(0.5),left=inch(0.5),right=inch(0.5)})
+#paragraph(spacing_after=pt(12))[Before anchor]
+#label("positioned")
+#shape(position={x=inch(3),y=inch(1),width=inch(1),height=inch(1)},fill="#fedcba",border={width=pt(2),color="#123456"})
+#paragraph[After anchor]
+#break()
+#shape(position={x=inch(2),y=inch(2),width=pt(0),height=pt(30)},fill="#ff0000")
+#paragraph[After zero-width anchor]
+#shape(position={x=inch(2),y=inch(2),width=inch(1),height=inch(1)},border={width=pt(0)},opacity=0)

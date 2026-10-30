@@ -190,6 +190,7 @@ pub(super) fn block_geometry(block: &Block) -> (f64, f64, f64) {
         ),
         Block::Image(image) => (image.height(), image.before, image.after),
         Block::Table(table) => (table.height(), 0.0, 0.0),
+        Block::Drawing(_) => (1.0, 0.0, 0.0),
         Block::Break(_) => (0.0, 0.0, 0.0),
     }
 }

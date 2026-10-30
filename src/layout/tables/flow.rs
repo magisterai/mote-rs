@@ -389,6 +389,11 @@ fn place_cell(
                 }
                 borders.append(std::slice::from_mut(page));
             }
+            Block::Drawing(_) => {
+                return Err(LayoutError::Unsupported(
+                    "native shapes in table cells are not yet supported".into(),
+                ));
+            }
             Block::Break(_) => {}
         }
     }

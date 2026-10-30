@@ -169,6 +169,29 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
         let mut clip_depth = 0usize;
         for operation in &page.operations {
             match operation {
+                crate::layout::PageOperation::Path(path) => {
+                    if path.points.len() < if path.closed { 3 } else { 2 }
+                        || path.points.iter().flatten().any(|value| !value.is_finite())
+                    {
+                        return Err(RenderError::Invalid("invalid painted path geometry".into()));
+                    }
+                    if let Some(fill) = &path.fill {
+                        color(&fill.color)?;
+                    }
+                    if let Some(stroke) = &path.stroke {
+                        color(&stroke.paint.color)?;
+                        if !stroke.width.is_finite()
+                            || stroke.width <= 0.0
+                            || stroke
+                                .dash
+                                .iter()
+                                .any(|value| !value.is_finite() || *value <= 0.0)
+                        {
+                            return Err(RenderError::Invalid("invalid painted path stroke".into()));
+                        }
+                    }
+                }
+
                 crate::layout::PageOperation::PushClip(bounds) => {
                     if !bounds.iter().all(|value| value.is_finite())
                         || bounds[2] <= 0.0

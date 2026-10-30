@@ -206,7 +206,26 @@ fn content(
         let item = element.kind == ElementKind::ListItem;
         let mut allowed = Vec::new();
         match element.kind {
-            ElementKind::Shape | ElementKind::Line => {
+            ElementKind::Shape => {
+                allowed.extend([
+                    "position",
+                    "kind",
+                    "fill",
+                    "border",
+                    "rotation",
+                    "flip_horizontal",
+                    "flip_vertical",
+                    "opacity",
+                    "shadow",
+                    "name",
+                    "text",
+                    "margin",
+                    "alignment",
+                    "vertical_alignment",
+                ]);
+                allowed.extend_from_slice(RUN);
+            }
+            ElementKind::Line => {
                 warnings.insert(format!(
                     "{path} drawing geometry is not yet supported in native output"
                 ));
@@ -315,6 +334,19 @@ fn content(
                 warnings.insert(format!(
                     "{path} uses a visible image placeholder inside flattened text"
                 ));
+            }
+        } else if element.kind == ElementKind::Shape {
+            for (group, fields) in [
+                ("position", &["x", "y", "width", "height"][..]),
+                ("border", &["width", "color", "style", "opacity"][..]),
+                (
+                    "shadow",
+                    &["color", "opacity", "blur", "distance", "angle"][..],
+                ),
+            ] {
+                if let Some(Value::Object(properties)) = attributes.get(group) {
+                    unknown(properties, fields, &format!("{path}.{group}"), warnings);
+                }
             }
         } else if matches!(element.kind, ElementKind::Table | ElementKind::Cell) {
             table_fields(attributes, &path, warnings);

@@ -1,5 +1,6 @@
 mod clipping;
 mod images;
+mod paths;
 mod strokes;
 use super::{RenderError, Rendered, color, fonts::RasterFonts, validate_plan};
 use crate::{
@@ -75,6 +76,7 @@ pub fn paint_png(
             for operation in &page.operations {
                 let clip = clips.mask();
                 match operation {
+                    PageOperation::Path(path) => paths::draw(&mut pixels, path, scale, clip)?,
                     PageOperation::PushClip(bounds) => clips.push(*bounds, scale),
                     PageOperation::PopClip => clips.pop(),
                     PageOperation::Stroke {

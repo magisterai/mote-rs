@@ -4,7 +4,8 @@
 
 The [language model](../specification/drawings.md) is covered by
 [normalization and capture tests](../../tests/drawings.rs). Editable DOCX shape output is covered by
-[complete package captures](../../tests/shape_captures.rs). Native output remains pending.
+[complete package captures](../../tests/shape_captures.rs). Native preset geometry is covered by
+[path and raster captures](../../tests/shape_geometry.rs); native shape text remains pending.
  Shape properties inherit the complete
 [DrawingML text](attributes/drawing-text.md), [image/placement](attributes/images.md),
 and [value-domain](attributes/values.md) inventories. An unchecked standard
@@ -36,6 +37,8 @@ property has no implied Mote argument or output support.
 
 DOCX emits absolute page anchors, editable Word shape text, preset geometry,
 transforms, fills, borders, opacity, shadows, text margins and fit settings.
-Presentation output and native drawing geometry remain pending. Microsoft Word
+Native document output paints preset paths, transforms, fills, borders, opacity
+and shadows with one-point anchor flow. Native shape text, table-cell shapes,
+and presentation output remain pending. Microsoft Word
 render review is unreviewed; matching package captures do not establish visual
 Office conformance. Unknown metadata has no implied output effect.

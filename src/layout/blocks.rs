@@ -11,6 +11,7 @@ use crate::{
 };
 
 pub(super) enum Block {
+    Drawing(Box<super::drawings::Drawing>),
     Paragraph(Box<PreparedParagraph>),
     Break(String),
     Image(Box<super::images::ImageBlock>),
@@ -99,6 +100,17 @@ pub(super) fn prepare_content(
             ElementKind::List | ElementKind::OrderedList => {
                 builder.pending_anchors.clear();
                 builder.list(element, 0, true)?;
+                builder.flow_start = false;
+            }
+            ElementKind::Shape => {
+                if in_cell {
+                    return Err(LayoutError::Unsupported(
+                        "native shapes in table cells are not yet supported".into(),
+                    ));
+                }
+                let mut drawing = super::drawings::Drawing::prepare(element)?;
+                drawing.anchors = std::mem::take(&mut builder.pending_anchors);
+                builder.blocks.push(Block::Drawing(Box::new(drawing)));
                 builder.flow_start = false;
             }
             ElementKind::Image => {

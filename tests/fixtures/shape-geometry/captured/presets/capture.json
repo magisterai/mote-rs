@@ -1,0 +1,12 @@
+{
+  "source_sha256": "cfb6f41440eccf9ff7b753231c50beecd3ff17cb8342e40c28b97ac5eb431850",
+  "native_png_dpi": 72,
+  "native_png_files": {
+    "reference-1.png": "136abc78b422ba20aedb09e588018f052830288ace64bee1cf5df2f494c7c94f"
+  },
+  "native_pdf_comparison_dpi": 144,
+  "native_pdf_changed_pixels": 0,
+  "native_pdf_maximum_channel_difference": 0,
+  "native_pages_visually_inspected": true,
+  "word_review_status": "unreviewed"
+}

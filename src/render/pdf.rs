@@ -1,5 +1,6 @@
 mod fonts;
 mod images;
+mod paths;
 use super::{RenderError, color, validate_plan};
 use crate::{
     layout::{
@@ -37,9 +38,18 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
 
         let mut content = Content::new();
         let mut page_images = Vec::new();
+        let mut opacities = paths::Opacities::default();
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 match operation {
+                    PageOperation::Path(path) => paths::draw(
+                        &mut content,
+                        path,
+                        geometry.height,
+                        &mut document,
+                        &mut objects,
+                        &mut opacities,
+                    )?,
                     PageOperation::PushClip(bounds) => {
                         content
                             .save_state()
@@ -196,6 +206,12 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
             let mut images = resources.x_objects();
             for (name, reference) in page_images {
                 images.pair(Name(name.as_bytes()), reference);
+            }
+        }
+        if !opacities.entries.is_empty() {
+            let mut states = resources.ext_g_states();
+            for (_, (name, reference)) in opacities.entries {
+                states.pair(Name(name.as_bytes()), reference);
             }
         }
         let mut page_fonts = resources.fonts();

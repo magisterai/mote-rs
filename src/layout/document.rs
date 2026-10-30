@@ -109,6 +109,20 @@ pub(super) fn place_blocks(
     let mut painting = super::painting::ParagraphPainting::default();
     for (index, block) in blocks.iter().enumerate() {
         match block {
+            Block::Drawing(drawing) => {
+                painting.clear_fill();
+                if *pending_spacing > 0.0 {
+                    ensure_space(cursor, pages, columns, geometry, boundary, *pending_spacing);
+                    cursor.y += *pending_spacing;
+                }
+                *pending_spacing = 0.0;
+                ensure_space(cursor, pages, columns, geometry, boundary, 1.0);
+                drawing.place(&mut pages[cursor.page_number - 1]);
+                cursor.y += 1.0;
+                cursor.body_started = true;
+                columns.note(cursor, geometry);
+            }
+
             Block::Break(kind) => {
                 painting.clear_fill();
                 if kind == "line" {

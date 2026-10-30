@@ -1,0 +1,11 @@
+#paragraph[Preset geometry]
+#shape(kind="rectangle",position={x=pt(48),y=pt(105),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="round_rect",position={x=pt(228),y=pt(105),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="ellipse",position={x=pt(408),y=pt(105),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="triangle",position={x=pt(48),y=pt(255),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="diamond",position={x=pt(228),y=pt(255),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="hexagon",position={x=pt(408),y=pt(255),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="chevron",position={x=pt(48),y=pt(405),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="cloud",position={x=pt(228),y=pt(405),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="parallelogram",position={x=pt(408),y=pt(405),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})
+#shape(kind="trapezoid",position={x=pt(48),y=pt(555),width=pt(144),height=pt(105)},fill="#c8e5d6",border={width=pt(1.5),color="#28734f"})

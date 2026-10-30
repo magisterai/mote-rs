@@ -20,6 +20,7 @@ pub struct Rule {
 /// Ordered page operations refer to text lines stored on the same page.
 #[derive(Debug, Clone, PartialEq)]
 pub enum PageOperation {
+    Path(PaintedPath),
     Text(usize),
     PushClip([f64; 4]),
     PopClip,
@@ -37,6 +38,34 @@ pub enum PageOperation {
     Rectangle(HighlightRectangle),
     Rule(Rule),
     ListMarker(Box<ListMarker>),
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct PathPaint {
+    pub color: String,
+    pub alpha: u8,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum LineCap {
+    #[default]
+    Flat,
+    Round,
+    Square,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct PathStroke {
+    pub paint: PathPaint,
+    pub width: f64,
+    pub dash: Vec<f64>,
+    pub cap: LineCap,
+}
+/// A painter-neutral polygon or open polyline in page coordinates.
+#[derive(Debug, Clone, PartialEq)]
+pub struct PaintedPath {
+    pub points: Vec<[f64; 2]>,
+    pub closed: bool,
+    pub fill: Option<PathPaint>,
+    pub stroke: Option<PathStroke>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
