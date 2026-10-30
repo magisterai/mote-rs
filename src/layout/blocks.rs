@@ -11,6 +11,7 @@ use crate::{
 };
 
 pub(super) enum Block {
+    Chart(Box<super::charts::ChartBlock>),
     Drawing(Box<super::drawings::Drawing>),
     Paragraph(Box<PreparedParagraph>),
     Break(String),
@@ -101,6 +102,20 @@ pub(super) fn prepare_content(
                 builder.pending_anchors.clear();
                 builder.list(element, 0, true)?;
                 builder.flow_start = false;
+            }
+            ElementKind::Chart => {
+                if in_cell {
+                    return Err(LayoutError::Unsupported(
+                        "native charts in table cells are not yet supported".into(),
+                    ));
+                }
+                let mut chart =
+                    super::charts::ChartBlock::prepare(element, width, styles, builder.measurer)?;
+                chart.anchors = std::mem::take(&mut builder.pending_anchors);
+                if chart.height > 0.0 {
+                    builder.flow_start = false;
+                }
+                builder.blocks.push(Block::Chart(Box::new(chart)));
             }
             ElementKind::Shape => {
                 if in_cell {

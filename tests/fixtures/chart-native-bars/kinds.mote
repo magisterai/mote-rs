@@ -1,0 +1,3 @@
+#for kind in {"column","bar","stacked_column","stacked_bar","percent_stacked_column","percent_stacked_bar"} {
+#chart(kind=kind,title=kind,data={categories={"Q1","Q2","Q3"},series={{name="Sales",values={10,-5,12}},{name="Costs",values={6,4,-2}}}})
+}

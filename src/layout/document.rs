@@ -109,6 +109,37 @@ pub(super) fn place_blocks(
     let mut painting = super::painting::ParagraphPainting::default();
     for (index, block) in blocks.iter().enumerate() {
         match block {
+            Block::Chart(chart) => {
+                painting.clear_fill();
+                if chart.height <= 0.0 {
+                    continue;
+                }
+                let leading = (*pending_spacing).max(chart.before);
+                if leading > 0.0 {
+                    let previous = (cursor.page_number, cursor.column_index);
+                    ensure_space(
+                        cursor,
+                        pages,
+                        columns,
+                        geometry,
+                        boundary,
+                        leading + chart.height,
+                    );
+                    if previous == (cursor.page_number, cursor.column_index) {
+                        cursor.y += leading;
+                    }
+                }
+                ensure_space(cursor, pages, columns, geometry, boundary, chart.height);
+                chart.place(
+                    &mut pages[cursor.page_number - 1],
+                    geometry.column_left(cursor.column_index),
+                    cursor.y,
+                );
+                cursor.y += chart.height;
+                cursor.body_started = true;
+                columns.note(cursor, geometry);
+                *pending_spacing = chart.after.max(0.0);
+            }
             Block::Drawing(drawing) => {
                 painting.clear_fill();
                 if *pending_spacing > 0.0 {

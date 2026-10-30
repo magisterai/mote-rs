@@ -2,6 +2,7 @@
 
 mod blocks;
 mod captions;
+mod charts;
 mod columns;
 mod decorations;
 mod document;

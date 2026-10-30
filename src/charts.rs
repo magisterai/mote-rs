@@ -1,5 +1,5 @@
 //! Resolved chart data and appearance shared by editable and native output.
-mod appearance;
+pub(crate) mod appearance;
 mod data;
 pub(crate) mod drawingml;
 pub(crate) mod workbook;

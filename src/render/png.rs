@@ -380,6 +380,46 @@ fn paint_rule(
     scale: f64,
     clip: Option<&tiny_skia::Mask>,
 ) -> Result<(), RenderError> {
+    if matches!(
+        rule.role,
+        crate::layout::RuleRole::ChartAxis | crate::layout::RuleRole::ChartGridline
+    ) && (rule.start[0] == rule.end[0] || rule.start[1] == rule.end[1])
+    {
+        let pixel_width = (rule.width * scale).round().max(1.0) as i64;
+        let half_width = pixel_width / 2;
+        let start = rule.start.map(|value| (value * scale).round());
+        let end = rule.end.map(|value| (value * scale).round());
+        let (left, top, right, bottom) = if start[1] == end[1] {
+            let left = start[0].min(end[0]);
+            let top = start[1] - half_width as f64;
+            (
+                left,
+                top,
+                start[0].max(end[0]).max(left + 1.0),
+                top + pixel_width as f64,
+            )
+        } else {
+            let top = start[1].min(end[1]);
+            let left = start[0] - half_width as f64;
+            (
+                left,
+                top,
+                left + pixel_width as f64,
+                start[1].max(end[1]).max(top + 1.0),
+            )
+        };
+        if let Some(bounds) =
+            tiny_skia::Rect::from_ltrb(left as f32, top as f32, right as f32, bottom as f32)
+        {
+            pixels.fill_rect(
+                bounds,
+                &paint(&rule.color, false)?,
+                Transform::identity(),
+                clip,
+            );
+        }
+        return Ok(());
+    }
     if rule.role == crate::layout::RuleRole::NoteSeparator {
         return fill_rectangle(
             pixels,

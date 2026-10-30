@@ -283,9 +283,74 @@ fn content(
                 }
             }
             ElementKind::Chart => {
-                warnings.insert(format!(
-                    "{path} chart painting is not yet supported in native output"
-                ));
+                allowed.extend([
+                    "kind",
+                    "data",
+                    "title",
+                    "width",
+                    "height",
+                    "legend",
+                    "axis",
+                    "colors",
+                    "background",
+                    "border",
+                    "plot_area",
+                    "gridlines",
+                    "data_labels",
+                    "gap_width",
+                    "overlap",
+                    "name",
+                ]);
+                if flattened {
+                    warnings.insert(format!(
+                        "{path} chart geometry is omitted from flattened native stories"
+                    ));
+                }
+                for (name, fields) in [
+                    ("legend", &["enabled", "position"][..]),
+                    ("border", &["enabled", "color", "width"][..]),
+                    ("gridlines", &["major", "minor", "color", "width"][..]),
+                    (
+                        "data_labels",
+                        &[
+                            "enabled",
+                            "value",
+                            "category",
+                            "series",
+                            "percent",
+                            "percentage",
+                            "position",
+                        ][..],
+                    ),
+                    ("plot_area", &["background", "fill", "color", "border"][..]),
+                    ("axis", &["category", "value"][..]),
+                ] {
+                    if let Some(properties) = crate::properties::object(attributes, name) {
+                        unknown(properties, fields, &format!("{path}.{name}"), warnings);
+                    }
+                }
+                if let Some(plot) = crate::properties::object(attributes, "plot_area")
+                    && let Some(border) = crate::properties::object(plot, "border")
+                {
+                    unknown(
+                        border,
+                        &["enabled", "color", "width"],
+                        &format!("{path}.plot_area.border"),
+                        warnings,
+                    );
+                }
+                if let Some(axis) = crate::properties::object(attributes, "axis") {
+                    for name in ["category", "value"] {
+                        if let Some(properties) = crate::properties::object(axis, name) {
+                            unknown(
+                                properties,
+                                &["title", "name"],
+                                &format!("{path}.axis.{name}"),
+                                warnings,
+                            );
+                        }
+                    }
+                }
             }
             ElementKind::Line => {
                 warnings.insert(format!(
@@ -412,7 +477,7 @@ fn content(
             }
         } else if matches!(element.kind, ElementKind::Table | ElementKind::Cell) {
             table_fields(attributes, &path, warnings);
-        } else {
+        } else if element.kind != ElementKind::Chart {
             nested(attributes, &path, list, item, warnings);
         }
         if element.kind == ElementKind::Heading

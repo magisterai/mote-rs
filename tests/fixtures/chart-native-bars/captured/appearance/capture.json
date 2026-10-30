@@ -1,0 +1,14 @@
+{
+  "source_sha256": "a7da81f350219dc60f464bec5edc1e71c123dced98a3f50b5b2e7328721f502c",
+  "geometry_sha256": "9a8eb2b3aa5b0350df2f063218bf1f1ec6e9c876a235055ae10b6c6a7629abdb",
+  "native_png_files": {
+    "reference-1.png": "32aa9f01538a806989dd03a245be501067cdec5e8acbc85c8c206acafbcefc0a",
+    "reference-2.png": "76373fa39af767d9141b7ddd4d122abda6a803867f41f1c7e7cd3684dff5185c"
+  },
+  "native_png_dpi": 72,
+  "native_pdf_comparison_dpi": 144,
+  "native_pdf_changed_pixels": 0,
+  "native_pdf_maximum_channel_difference": 0,
+  "native_pages_visually_inspected": true,
+  "word_review_status": "unreviewed"
+}

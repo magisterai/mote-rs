@@ -1,0 +1,9 @@
+#style(name="Normal",type="paragraph",spacing_before=pt(4),spacing_after=pt(10))
+Before the first chart.
+#chart(title="Width constrained",width=inch(12),height=inch(4),data={values={3,7}})
+After the first chart.
+#chart(title="Compact",width=inch(3),height=inch(2),data={values={10,20,30}})
+#chart(width=0,data={values={1}})
+#chart(title="Empty",data={metadata=true})
+#chart(title="Negative values",data={values={-3,-6,-9}},gridlines={major=false,minor=true})
+After the final chart.

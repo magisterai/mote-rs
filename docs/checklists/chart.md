@@ -51,8 +51,15 @@ twelve kinds. Doughnut label positions are omitted from editable XML so Office
 can choose their placement. Editable pie/doughnut charts use the first series; the
 workbook retains every series. Workbook rows follow category count, padding short
 series with zeros and omitting excess values; caches retain original lengths.
-Keep arrays aligned to avoid that editing discrepancy. Native chart geometry and
-presentation placement remain pending. Office render review is unreviewed.
+Keep arrays aligned to avoid that editing discrepancy. Native document PDF/PNG supports column and bar kinds, including stacked and
+percentage variants, titles, axis titles, legends, fills, borders, gridlines and
+data labels. Width fits the current column while preserving aspect ratio; zero
+dimensions omit the chart. Native gap is clamped at zero, horizontal bars ignore
+overlap, and other native kinds remain pending. Native charts in table cells are
+rejected; flattened running stories omit chart geometry with a warning.
+[Native captures](../../tests/fixtures/chart-native-bars/README.md) separately
+record geometry, pixel comparisons and retained layout limitations.
+Presentation placement remains pending. Office render review is unreviewed.
 
 Unsupported standard families remain in the linked inventories: 3D and combination
 charts, scatter/bubble/radar/stock/surface charts, chart drawings, arbitrary formulas

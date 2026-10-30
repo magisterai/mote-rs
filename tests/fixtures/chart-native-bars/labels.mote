@@ -1,0 +1,5 @@
+#for position in {"center","inside_base","inside_end","outside_end"} {
+#for kind in {"column","bar"} {
+#chart(kind=kind,title=position,data={categories={"A","B"},series={{name="Total",values={10,-5}}}},legend=false,gridlines=false,data_labels={value=true,category=true,series=true,position=position})
+}
+}
