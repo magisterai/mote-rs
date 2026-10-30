@@ -1,11 +1,10 @@
 use super::{Error, escape, package::Relationship};
 use crate::{
-    drawings::paragraphs::{self, DrawingParagraph},
-    layout::{LayoutStyleResolver, LineSpacing, TextRun, TextStyle},
+    drawings::paragraphs::DrawingParagraph,
+    layout::{LineSpacing, TextRun, TextStyle},
     measurement::FontVariant,
-    model::{Content, Document, Element, ElementKind, Properties},
+    model::{Content, Document, Properties},
     presentation::font_name,
-    properties::text,
 };
 use std::collections::BTreeMap;
 
@@ -13,34 +12,11 @@ pub(super) fn write(
     document: &Document,
     content: &[Content],
     attributes: &Properties,
-    hyperlink_color: &str,
+    theme: &crate::presentation::Theme,
     relationships: &mut Vec<Relationship>,
 ) -> Result<String, Error> {
-    validate_content(content)?;
-    let styles = LayoutStyleResolver::new(document);
-    let mut base = TextStyle::default();
-    base.measurement.font.clear();
-    base.measurement.size_points = 0.0;
-    base.color.clear();
-    base = styles.inline(
-        &Element {
-            kind: ElementKind::Span,
-            attributes: attributes.clone(),
-            children: Vec::new(),
-        },
-        &base,
-    );
-    let heading = (text(attributes, "font").is_empty() && text(attributes, "style").is_empty())
-        .then_some("+mj-lt");
-    let paragraphs = paragraphs::resolve(
-        content,
-        &base,
-        &paragraphs::paragraph_defaults(attributes),
-        heading,
-        &styles,
-        None,
-    )
-    .map_err(|error| Error(error.to_string()))?;
+    let paragraphs = crate::presentation::text::resolve(document, content, attributes, theme, None)
+        .map_err(|error| Error(error.to_string()))?;
     if paragraphs.is_empty() {
         return Ok("<a:p/>".into());
     }
@@ -73,9 +49,6 @@ pub(super) fn write(
                 continue;
             }
             let mut run = run.clone();
-            if run.link.is_some() {
-                run.style.color = hyperlink_color.into();
-            }
             if !run.preserve_space {
                 if run.text.trim().is_empty() && run.text != "\t" {
                     let next = paragraph.runs[index + 1..]
@@ -105,35 +78,6 @@ pub(super) fn write(
         output.push_str("<a:endParaRPr lang=\"en-US\"/></a:p>");
     }
     Ok(output)
-}
-fn validate_content(content: &[Content]) -> Result<(), Error> {
-    for child in content {
-        if let Content::Element(element) = child {
-            if !matches!(
-                element.kind,
-                ElementKind::Paragraph
-                    | ElementKind::Heading
-                    | ElementKind::Span
-                    | ElementKind::Strong
-                    | ElementKind::Emphasis
-                    | ElementKind::Code
-                    | ElementKind::Link
-                    | ElementKind::LineBreak
-                    | ElementKind::Tab
-                    | ElementKind::List
-                    | ElementKind::OrderedList
-                    | ElementKind::ListItem
-                    | ElementKind::Blockquote
-            ) {
-                return Err(Error(format!(
-                    "PPTX text boxes do not yet support {}",
-                    element.kind.as_text()
-                )));
-            }
-            validate_content(&element.children)?;
-        }
-    }
-    Ok(())
 }
 fn properties(paragraph: &DrawingParagraph) -> Result<String, Error> {
     let style = &paragraph.style;

@@ -28,6 +28,11 @@ pub enum PageOperation {
     },
     PopRotation,
     Path(PaintedPath),
+    PaintedRectangle {
+        bounds: [f64; 4],
+        fill: Option<PathPaint>,
+        stroke: Option<PathStroke>,
+    },
     Text(usize),
     PushClip([f64; 4]),
     PopClip,

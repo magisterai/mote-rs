@@ -30,6 +30,8 @@ fn positioned_slides_match_captured_models_and_complete_editable_packages() {
         "edges",
         "empty",
         "formatting",
+        "fitting",
+        "font-assets",
         "lua",
         "styles",
         "theme",
@@ -67,7 +69,8 @@ fn positioned_slides_match_captured_models_and_complete_editable_packages() {
         normalize_numbers(&mut expected);
         assert_eq!(actual, expected, "{case}");
         let original = document.clone();
-        let package = mote::pptx::emit_with_warnings(&document).unwrap();
+        let package =
+            mote::pptx::emit_with_assets(&document, &resolver, Some(path.as_os_str())).unwrap();
         compare_package(&package.bytes, &manifest["parts"], &root, case);
         assert_eq!(document, original);
     }
@@ -120,7 +123,6 @@ fn pending_slide_features_fail_explicitly() {
         r##"#presentation(footer="Footer")#slide[]"##,
         r##"#slide(notes="Notes")[]"##,
         r##"#presentation(background={src="image.png"})#slide[]"##,
-        r##"#slide[#box(position={width=inch(2),height=inch(1)},text={fit="shrink"})[Text]]"##,
         r##"#slide[#box(position={width=inch(2),height=inch(1)},shadow={color="#000"})[Text]]"##,
         r##"#slide[#box(position={width=inch(2),height=inch(1)})[#chart(data={values={1}})]]"##,
     ] {

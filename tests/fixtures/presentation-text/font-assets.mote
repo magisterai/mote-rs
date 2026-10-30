@@ -1,0 +1,10 @@
+#font(name="local",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(size="standard")
+#slide[
+#box(position={x=inch(0.5),y=inch(0.5),width=inch(4),height=inch(1)},text={font="local",size=pt(30),fit="shrink"})[
+#paragraph[Explicit font files measure this **shrinking** text without installed-font discovery.]
+]
+#box(position={x=inch(0.5),y=inch(2),width=inch(4),height=inch(0.5)},text={font="local",size=pt(24),fit="resize_shape"},fill="#f8fafc")[
+#paragraph[The same local font measures this growing text box before either output paints it.]
+]
+]

@@ -1,0 +1,508 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 36,
+        "height": 22,
+        "x": 36,
+        "width": 187.625,
+        "fragments": [
+          {
+            "text": "Styled ",
+            "x": 36,
+            "baseline": 56,
+            "advance": 87.328125,
+            "size": 30
+          },
+          {
+            "text": "heading",
+            "x": 123.328125,
+            "baseline": 56,
+            "advance": 100.296875,
+            "size": 30
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 58,
+        "height": 22,
+        "x": 36,
+        "width": 426.71875,
+        "fragments": [
+          {
+            "text": "Normal ",
+            "x": 36,
+            "baseline": 74.1,
+            "advance": 59.5,
+            "size": 17
+          },
+          {
+            "text": "text ",
+            "x": 95.5,
+            "baseline": 74.1,
+            "advance": 32.109375,
+            "size": 17
+          },
+          {
+            "text": "with ",
+            "x": 127.609375,
+            "baseline": 74.1,
+            "advance": 34.953125,
+            "size": 17
+          },
+          {
+            "text": "SMALL",
+            "x": 162.5625,
+            "baseline": 74.1,
+            "advance": 44.578125,
+            "size": 13.600000000000001
+          },
+          {
+            "text": " ",
+            "x": 207.140625,
+            "baseline": 74.1,
+            "advance": 4.71875,
+            "size": 17
+          },
+          {
+            "text": "CAPITALS",
+            "x": 211.859375,
+            "baseline": 74.1,
+            "advance": 65.703125,
+            "size": 13.600000000000001
+          },
+          {
+            "text": ", ",
+            "x": 277.5625,
+            "baseline": 74.1,
+            "advance": 9.4375,
+            "size": 17
+          },
+          {
+            "text": "double ",
+            "x": 287,
+            "baseline": 74.1,
+            "advance": 55.765625,
+            "size": 17
+          },
+          {
+            "text": "strike",
+            "x": 342.765625,
+            "baseline": 74.1,
+            "advance": 40.609375,
+            "size": 17
+          },
+          {
+            "text": " ",
+            "x": 383.375,
+            "baseline": 74.1,
+            "advance": 4.71875,
+            "size": 17
+          },
+          {
+            "text": "and ",
+            "x": 388.09375,
+            "baseline": 74.1,
+            "advance": 33.078125,
+            "size": 17
+          },
+          {
+            "text": "both",
+            "x": 421.171875,
+            "baseline": 74.1,
+            "advance": 36.828125,
+            "size": 17
+          },
+          {
+            "text": ".",
+            "x": 458,
+            "baseline": 74.1,
+            "advance": 4.71875,
+            "size": 17
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "decoration",
+      "start": 287,
+      "end": 342.765625,
+      "y": 70.10000000000001,
+      "width": 0.2,
+      "color": "334155",
+      "decoration_kind": "strike",
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "decoration",
+      "start": 287,
+      "end": 342.765625,
+      "y": 71.46000000000001,
+      "width": 0.2,
+      "color": "334155",
+      "decoration_kind": "strike",
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "decoration",
+      "start": 342.765625,
+      "end": 383.375,
+      "y": 70.10000000000001,
+      "width": 0.2,
+      "color": "334155",
+      "decoration_kind": "strike",
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "decoration",
+      "start": 342.765625,
+      "end": 383.375,
+      "y": 71.46000000000001,
+      "width": 0.2,
+      "color": "334155",
+      "decoration_kind": "strike",
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 88,
+        "height": 22,
+        "x": 302.484375,
+        "width": 166.265625,
+        "fragments": [
+          {
+            "text": "Notice ",
+            "x": 302.484375,
+            "baseline": 104.1,
+            "advance": 52.90625,
+            "size": 17
+          },
+          {
+            "text": "and ",
+            "x": 355.390625,
+            "baseline": 104.1,
+            "advance": 33.078125,
+            "size": 17
+          },
+          {
+            "text": "reset ",
+            "x": 388.46875,
+            "baseline": 104.1,
+            "advance": 45.34375,
+            "size": 17
+          },
+          {
+            "text": "text",
+            "x": 433.8125,
+            "baseline": 104.1,
+            "advance": 30.21875,
+            "size": 17
+          },
+          {
+            "text": ".",
+            "x": 464.03125,
+            "baseline": 104.1,
+            "advance": 4.71875,
+            "size": 17
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 115,
+        "height": 22,
+        "x": 36,
+        "width": 227.109375,
+        "fragments": [
+          {
+            "text": " ",
+            "x": 36,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": " ",
+            "x": 45,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "i",
+            "x": 54,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "n",
+            "x": 63,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "d",
+            "x": 72,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "e",
+            "x": 81,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "n",
+            "x": 90,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "t",
+            "x": 99,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "e",
+            "x": 108,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "d",
+            "x": 117,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": " ",
+            "x": 126,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": " ",
+            "x": 135,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "c",
+            "x": 144,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "o",
+            "x": 153,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "d",
+            "x": 162,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "e",
+            "x": 171,
+            "baseline": 131.1,
+            "advance": 9,
+            "size": 15
+          },
+          {
+            "text": "    ",
+            "x": 180,
+            "baseline": 131.1,
+            "advance": 18.875,
+            "size": 17
+          },
+          {
+            "text": "After ",
+            "x": 198.875,
+            "baseline": 131.1,
+            "advance": 40.609375,
+            "size": 17
+          },
+          {
+            "text": "tab",
+            "x": 239.484375,
+            "baseline": 131.1,
+            "advance": 23.625,
+            "size": 17
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 142,
+        "height": 22,
+        "x": 36,
+        "width": 98.078125,
+        "fragments": [
+          {
+            "text": "Quoted ",
+            "x": 36,
+            "baseline": 158.4,
+            "advance": 64.0625,
+            "size": 18
+          },
+          {
+            "text": "text.",
+            "x": 100.0625,
+            "baseline": 158.4,
+            "advance": 34.015625,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 164,
+        "height": 22,
+        "x": 56,
+        "width": 78.03125,
+        "fragments": [
+          {
+            "text": "VIII.",
+            "x": 56,
+            "baseline": 180.4,
+            "advance": 32,
+            "size": 18
+          },
+          {
+            "text": "Eight",
+            "x": 93,
+            "baseline": 180.4,
+            "advance": 41.03125,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 190,
+        "height": 22,
+        "x": 56,
+        "width": 64.03125,
+        "fragments": [
+          {
+            "text": "IX.",
+            "x": 56,
+            "baseline": 206.4,
+            "advance": 22,
+            "size": 18
+          },
+          {
+            "text": "Nine",
+            "x": 83,
+            "baseline": 206.4,
+            "advance": 37.03125,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        432,
+        360
+      ]
+    }
+  ]
+]

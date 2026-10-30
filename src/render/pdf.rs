@@ -60,6 +60,20 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                         content.restore_state();
                     }
 
+                    PageOperation::PaintedRectangle {
+                        bounds,
+                        fill,
+                        stroke,
+                    } => paths::draw_rectangle(
+                        &mut content,
+                        *bounds,
+                        fill.as_ref(),
+                        stroke.as_ref(),
+                        geometry.height,
+                        &mut document,
+                        &mut objects,
+                        &mut opacities,
+                    )?,
                     PageOperation::Path(path) => paths::draw(
                         &mut content,
                         path,

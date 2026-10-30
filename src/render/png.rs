@@ -99,6 +99,18 @@ pub fn paint_png(
                         rotation::paint(&mut pixels, layer, degrees, center, scale, clips.mask());
                     }
 
+                    PageOperation::PaintedRectangle {
+                        bounds,
+                        fill,
+                        stroke,
+                    } => paths::draw_rectangle(
+                        &mut pixels,
+                        *bounds,
+                        fill.as_ref(),
+                        stroke.as_ref(),
+                        scale,
+                        clip,
+                    )?,
                     PageOperation::Path(path) => paths::draw(&mut pixels, path, scale, clip)?,
                     PageOperation::PushClip(bounds) => clips.push(*bounds, scale),
                     PageOperation::PopClip => clips.pop(),
@@ -293,18 +305,7 @@ fn paint_line(
     clip: Option<&tiny_skia::Mask>,
 ) -> Result<(), RenderError> {
     for rectangle in &line.highlights {
-        let left = (rectangle.x * scale).round() as f32;
-        let top = (rectangle.top * scale).round() as f32;
-        let right = ((rectangle.x + rectangle.width) * scale).round() as f32;
-        let bottom = ((rectangle.top + rectangle.height) * scale).round() as f32;
-        if let Some(bounds) = tiny_skia::Rect::from_ltrb(left, top, right, bottom) {
-            pixels.fill_rect(
-                bounds,
-                &paint(&rectangle.color, false)?,
-                Transform::identity(),
-                clip,
-            );
-        }
+        fill_rectangle(pixels, rectangle, scale, clip)?;
     }
     for fragment in &line.fragments {
         let selected = fonts.resolve(&fragment.font)?;
@@ -364,6 +365,9 @@ fn fill_rectangle(
     let top = (rectangle.top * scale).round() as f32;
     let right = ((rectangle.x + rectangle.width) * scale).round() as f32;
     let bottom = ((rectangle.top + rectangle.height) * scale).round() as f32;
+    if right <= left || bottom <= top {
+        return Ok(());
+    }
     if let Some(bounds) = tiny_skia::Rect::from_ltrb(left, top, right, bottom) {
         pixels.fill_rect(
             bounds,

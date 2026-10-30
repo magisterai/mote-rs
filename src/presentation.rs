@@ -1,4 +1,6 @@
 //! Resolved deck geometry and defaults shared by editable and native slides.
+mod support;
+pub(crate) mod text;
 use crate::{
     model::{Content, Document, Element, ElementKind, Properties, Value},
     properties::{object, text},
@@ -38,7 +40,7 @@ impl Deck {
         if width <= 0 || height <= 0 {
             return Err("presentation dimensions must be positive".into());
         }
-        let mut warnings = Vec::new();
+        let mut warnings: Vec<_> = support::warnings(document).into_iter().collect();
         for name in properties.keys() {
             if ![
                 "size",

@@ -52,7 +52,11 @@ fn relation(kind: &'static str, target: impl Into<String>) -> Relationship {
 fn template(value: &str) -> String {
     value.replace(">\n<", "><").trim_end().to_owned()
 }
-pub(super) fn write(document: &Document, deck: &mut Deck) -> Result<Vec<u8>, Error> {
+pub(super) fn write(
+    document: &Document,
+    deck: &mut Deck,
+    measurer: &mut crate::measurement::TextMeasurer<'_>,
+) -> Result<Vec<u8>, Error> {
     let mut parts = BTreeMap::new();
     for (name, value) in [
         (
@@ -160,7 +164,9 @@ pub(super) fn write(document: &Document, deck: &mut Deck) -> Result<Vec<u8>, Err
             output.push_str(&super::boxes::write(
                 element,
                 document,
-                &deck.theme.colors[10],
+                &deck.theme,
+                measurer,
+                &mut deck.warnings,
                 &mut next_shape,
                 &mut relations,
             )?);

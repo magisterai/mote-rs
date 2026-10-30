@@ -1,0 +1,580 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        720,
+        540
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        36,
+        36,
+        288,
+        72
+      ],
+      "fill": {
+        "color": "EEF2FF",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 20.461199999999998,
+        "x": 42,
+        "width": 221.03125,
+        "fragments": [
+          {
+            "text": "Text ",
+            "x": 42,
+            "baseline": 55.3306,
+            "advance": 33.5625,
+            "size": 17
+          },
+          {
+            "text": "shrinks ",
+            "x": 75.5625,
+            "baseline": 55.3306,
+            "advance": 56.765625,
+            "size": 17
+          },
+          {
+            "text": "to ",
+            "x": 132.328125,
+            "baseline": 55.3306,
+            "advance": 18.328125,
+            "size": 17
+          },
+          {
+            "text": "fit ",
+            "x": 150.65625,
+            "baseline": 55.3306,
+            "advance": 18.140625,
+            "size": 17
+          },
+          {
+            "text": "the ",
+            "x": 168.796875,
+            "baseline": 55.3306,
+            "advance": 27.28125,
+            "size": 17
+          },
+          {
+            "text": "authored",
+            "x": 196.078125,
+            "baseline": 55.3306,
+            "advance": 66.953125,
+            "size": 17
+          }
+        ]
+      },
+      "clip": [
+        42,
+        40,
+        276,
+        64
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 60.4612,
+        "height": 20.461199999999998,
+        "x": 42,
+        "width": 261.484375,
+        "fragments": [
+          {
+            "text": "rectangle. ",
+            "x": 42,
+            "baseline": 75.7918,
+            "advance": 77.390625,
+            "size": 17
+          },
+          {
+            "text": "Several ",
+            "x": 119.390625,
+            "baseline": 75.7918,
+            "advance": 57.8125,
+            "size": 17
+          },
+          {
+            "text": "words ",
+            "x": 177.203125,
+            "baseline": 75.7918,
+            "advance": 48.5625,
+            "size": 17
+          },
+          {
+            "text": "must ",
+            "x": 225.765625,
+            "baseline": 75.7918,
+            "advance": 41.21875,
+            "size": 17
+          },
+          {
+            "text": "wrap",
+            "x": 266.984375,
+            "baseline": 75.7918,
+            "advance": 36.5,
+            "size": 17
+          }
+        ]
+      },
+      "clip": [
+        42,
+        40,
+        276,
+        64
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 80.9224,
+        "height": 20.461199999999998,
+        "x": 42,
+        "width": 92.9375,
+        "fragments": [
+          {
+            "text": "across ",
+            "x": 42,
+            "baseline": 96.253,
+            "advance": 53,
+            "size": 17
+          },
+          {
+            "text": "lines.",
+            "x": 95,
+            "baseline": 96.253,
+            "advance": 39.9375,
+            "size": 17
+          }
+        ]
+      },
+      "clip": [
+        42,
+        40,
+        276,
+        64
+      ]
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        360,
+        36,
+        288,
+        123.54560000000001
+      ],
+      "fill": {
+        "color": "ECFDF5",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 28.886400000000002,
+        "x": 366,
+        "width": 250.171875,
+        "fragments": [
+          {
+            "text": "Text ",
+            "x": 366,
+            "baseline": 61.6432,
+            "advance": 47.390625,
+            "size": 24
+          },
+          {
+            "text": "grows ",
+            "x": 413.390625,
+            "baseline": 61.6432,
+            "advance": 66.734375,
+            "size": 24
+          },
+          {
+            "text": "the ",
+            "x": 480.125,
+            "baseline": 61.6432,
+            "advance": 38.515625,
+            "size": 24
+          },
+          {
+            "text": "rectangle",
+            "x": 518.640625,
+            "baseline": 61.6432,
+            "advance": 97.53125,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        366,
+        40,
+        276,
+        115.54560000000001
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 68.88640000000001,
+        "height": 28.886400000000002,
+        "x": 366,
+        "width": 254.953125,
+        "fragments": [
+          {
+            "text": "when ",
+            "x": 366,
+            "baseline": 90.52960000000002,
+            "advance": 61.28125,
+            "size": 24
+          },
+          {
+            "text": "its ",
+            "x": 427.28125,
+            "baseline": 90.52960000000002,
+            "advance": 30.03125,
+            "size": 24
+          },
+          {
+            "text": "authored ",
+            "x": 457.3125,
+            "baseline": 90.52960000000002,
+            "advance": 99.40625,
+            "size": 24
+          },
+          {
+            "text": "height",
+            "x": 556.71875,
+            "baseline": 90.52960000000002,
+            "advance": 64.234375,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        366,
+        40,
+        276,
+        115.54560000000001
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 97.77280000000002,
+        "height": 28.886400000000002,
+        "x": 366,
+        "width": 224.90625,
+        "fragments": [
+          {
+            "text": "cannot ",
+            "x": 366,
+            "baseline": 119.41600000000003,
+            "advance": 77.703125,
+            "size": 24
+          },
+          {
+            "text": "contain ",
+            "x": 443.703125,
+            "baseline": 119.41600000000003,
+            "advance": 83.4375,
+            "size": 24
+          },
+          {
+            "text": "all ",
+            "x": 527.140625,
+            "baseline": 119.41600000000003,
+            "advance": 30.125,
+            "size": 24
+          },
+          {
+            "text": "the",
+            "x": 557.265625,
+            "baseline": 119.41600000000003,
+            "advance": 33.640625,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        366,
+        40,
+        276,
+        115.54560000000001
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 126.65920000000003,
+        "height": 28.886400000000002,
+        "x": 366,
+        "width": 152.359375,
+        "fragments": [
+          {
+            "text": "wrapped ",
+            "x": 366,
+            "baseline": 148.30240000000003,
+            "advance": 95.984375,
+            "size": 24
+          },
+          {
+            "text": "lines.",
+            "x": 461.984375,
+            "baseline": 148.30240000000003,
+            "advance": 56.375,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        366,
+        40,
+        276,
+        115.54560000000001
+      ]
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        36,
+        216,
+        288,
+        72
+      ],
+      "fill": {
+        "color": "FFF7ED",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 216,
+        "height": 36.108,
+        "x": 36,
+        "width": 240.578125,
+        "fragments": [
+          {
+            "text": "This ",
+            "x": 36,
+            "baseline": 243.054,
+            "advance": 58.71875,
+            "size": 30
+          },
+          {
+            "text": "text ",
+            "x": 94.71875,
+            "baseline": 243.054,
+            "advance": 54.578125,
+            "size": 30
+          },
+          {
+            "text": "retains ",
+            "x": 149.296875,
+            "baseline": 243.054,
+            "advance": 95.84375,
+            "size": 30
+          },
+          {
+            "text": "its",
+            "x": 245.140625,
+            "baseline": 243.054,
+            "advance": 31.4375,
+            "size": 30
+          }
+        ]
+      },
+      "clip": [
+        36,
+        216,
+        288,
+        72
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 252.108,
+        "height": 36.108,
+        "x": 36,
+        "width": 254.15625,
+        "fragments": [
+          {
+            "text": "size ",
+            "x": 36,
+            "baseline": 279.162,
+            "advance": 56.78125,
+            "size": 30
+          },
+          {
+            "text": "and ",
+            "x": 92.78125,
+            "baseline": 279.162,
+            "advance": 55.375,
+            "size": 30
+          },
+          {
+            "text": "clips ",
+            "x": 148.15625,
+            "baseline": 279.162,
+            "advance": 68.21875,
+            "size": 30
+          },
+          {
+            "text": "at ",
+            "x": 216.375,
+            "baseline": 279.162,
+            "advance": 31.734375,
+            "size": 30
+          },
+          {
+            "text": "the",
+            "x": 248.109375,
+            "baseline": 279.162,
+            "advance": 42.046875,
+            "size": 30
+          }
+        ]
+      },
+      "clip": [
+        36,
+        216,
+        288,
+        72
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 288.216,
+        "height": 36.108,
+        "x": 36,
+        "width": 220.703125,
+        "fragments": [
+          {
+            "text": "lower ",
+            "x": 36,
+            "baseline": 315.27,
+            "advance": 77.921875,
+            "size": 30
+          },
+          {
+            "text": "edge ",
+            "x": 113.921875,
+            "baseline": 315.27,
+            "advance": 69.0625,
+            "size": 30
+          },
+          {
+            "text": "of ",
+            "x": 182.984375,
+            "baseline": 315.27,
+            "advance": 31.671875,
+            "size": 30
+          },
+          {
+            "text": "the",
+            "x": 214.65625,
+            "baseline": 315.27,
+            "advance": 42.046875,
+            "size": 30
+          }
+        ]
+      },
+      "clip": [
+        36,
+        216,
+        288,
+        72
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 324.324,
+        "height": 36.108,
+        "x": 36,
+        "width": 179.4375,
+        "fragments": [
+          {
+            "text": "authored ",
+            "x": 36,
+            "baseline": 351.378,
+            "advance": 124.234375,
+            "size": 30
+          },
+          {
+            "text": "box.",
+            "x": 160.234375,
+            "baseline": 351.378,
+            "advance": 55.203125,
+            "size": 30
+          }
+        ]
+      },
+      "clip": [
+        36,
+        216,
+        288,
+        72
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 237.5568,
+        "height": 28.886400000000002,
+        "x": 441.265625,
+        "width": 126.21875,
+        "fragments": [
+          {
+            "text": "Fits ",
+            "x": 441.265625,
+            "baseline": 259.2,
+            "advance": 42.625,
+            "size": 24
+          },
+          {
+            "text": "already.",
+            "x": 483.890625,
+            "baseline": 259.2,
+            "advance": 83.59375,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        360,
+        216,
+        288,
+        72
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        720,
+        540
+      ],
+      "color": "FFFFFF"
+    }
+  ]
+]

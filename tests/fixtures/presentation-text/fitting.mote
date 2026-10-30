@@ -1,0 +1,14 @@
+#presentation(size="standard")
+#slide[
+#box(position={x=inch(0.5),y=inch(0.5),width=inch(4),height=inch(1)},fill="#eef2ff",text={size=pt(30),fit="shrink",margin={left=pt(6),right=pt(6),top=pt(4),bottom=pt(4)}})[
+#paragraph[Text shrinks to fit the authored rectangle. Several words must wrap across lines.]
+]
+#box(position={x=inch(5),y=inch(0.5),width=inch(4),height=inch(1)},fill="#ecfdf5",text={size=pt(24),fit="resize_shape",margin={left=pt(6),right=pt(6),top=pt(4),bottom=pt(4)}})[
+#paragraph[Text grows the rectangle when its authored height cannot contain all the wrapped lines.]
+]
+#box(position={x=inch(0.5),y=inch(3),width=inch(4),height=inch(1)},fill="#fff7ed",text={size=pt(30),fit="clip"})[
+#paragraph[This text retains its size and clips at the lower edge of the authored box.]
+]
+#box(position={x=inch(5),y=inch(3),width=inch(4),height=inch(1)},text={size=pt(24),fit="shrink",alignment="center",vertical_alignment="center"})[Fits already.]
+]
+#slide[]

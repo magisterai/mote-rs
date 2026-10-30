@@ -66,5 +66,9 @@
       "path": "captured/parts/68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7.xml",
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     }
+  },
+  "geometry_sha256": "53d4339c7ec3bad4406767094e59c0bb83498ec72d46dbb7ffee1d256bbb4ec5",
+  "native_png_files": {
+    "reference-1.png": "26f0f62fae98483b93b8a66b79b0954f3a5c67ccf432e801e935315f7d66403b"
   }
 }

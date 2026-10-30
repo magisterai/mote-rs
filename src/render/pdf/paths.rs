@@ -97,3 +97,51 @@ pub(super) fn draw(
     content.restore_state();
     Ok(())
 }
+
+#[allow(clippy::too_many_arguments)]
+pub(super) fn draw_rectangle(
+    content: &mut Content,
+    bounds: [f64; 4],
+    fill: Option<&crate::layout::PathPaint>,
+    stroke: Option<&crate::layout::PathStroke>,
+    height: f64,
+    document: &mut Pdf,
+    objects: &mut Objects,
+    opacities: &mut Opacities,
+) -> Result<(), RenderError> {
+    content.save_state();
+    let name = opacities.name(
+        fill.map_or(255, |paint| paint.alpha),
+        stroke.map_or(255, |stroke| stroke.paint.alpha),
+        document,
+        objects,
+    );
+    content.set_parameters(Name(name.as_bytes()));
+    let rectangle = |content: &mut Content| {
+        content.rect(
+            rounded(bounds[0]),
+            rounded(height - bounds[1]),
+            rounded(bounds[2]),
+            -rounded(bounds[3]),
+        );
+    };
+    if let Some(fill) = fill {
+        let [red, green, blue] = color(&fill.color)?
+            .map(|value| ((f64::from(value) / 255.0 * 1000.0).round() / 1000.0) as f32);
+        content.set_fill_rgb(red, green, blue);
+        rectangle(content);
+        content.fill_nonzero();
+    }
+    if let Some(stroke) = stroke {
+        let [red, green, blue] = color(&stroke.paint.color)?
+            .map(|value| ((f64::from(value) / 255.0 * 1000.0).round() / 1000.0) as f32);
+        content
+            .set_stroke_rgb(red, green, blue)
+            .set_line_width(rounded(stroke.width));
+        content.set_dash_pattern(stroke.dash.iter().map(|value| rounded(*value)), 0.0);
+        rectangle(content);
+        content.stroke();
+    }
+    content.restore_state();
+    Ok(())
+}

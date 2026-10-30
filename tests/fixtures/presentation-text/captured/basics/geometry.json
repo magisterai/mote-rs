@@ -1,0 +1,109 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 72,
+        "height": 43.3296,
+        "x": 72,
+        "width": 254.25,
+        "fragments": [
+          {
+            "text": "Quarterly ",
+            "x": 72,
+            "baseline": 104.4648,
+            "advance": 152.171875,
+            "size": 36
+          },
+          {
+            "text": "review",
+            "x": 224.171875,
+            "baseline": 104.4648,
+            "advance": 102.078125,
+            "size": 36
+          }
+        ]
+      },
+      "clip": [
+        72,
+        72,
+        432,
+        72
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 158.4,
+        "height": 21.6648,
+        "x": 72,
+        "width": 213.25,
+        "fragments": [
+          {
+            "text": "Revenue ",
+            "x": 72,
+            "baseline": 174.63240000000002,
+            "advance": 71.140625,
+            "size": 18
+          },
+          {
+            "text": "increased ",
+            "x": 143.140625,
+            "baseline": 174.63240000000002,
+            "advance": 80.71875,
+            "size": 18
+          },
+          {
+            "text": "by ",
+            "x": 223.859375,
+            "baseline": 174.63240000000002,
+            "advance": 21.890625,
+            "size": 18
+          },
+          {
+            "text": "12%",
+            "x": 245.75,
+            "baseline": 174.63240000000002,
+            "advance": 34.359375,
+            "size": 18
+          },
+          {
+            "text": ".",
+            "x": 280.109375,
+            "baseline": 174.63240000000002,
+            "advance": 5.140625,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        72,
+        158.4,
+        432,
+        144
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "color": "FFFFFF"
+    }
+  ]
+]

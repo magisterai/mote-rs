@@ -1,0 +1,45 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 0,
+        "height": 43.3296,
+        "x": 0,
+        "width": 142.390625,
+        "fragments": [
+          {
+            "text": "From ",
+            "x": 0,
+            "baseline": 32.4648,
+            "advance": 87.203125,
+            "size": 36
+          },
+          {
+            "text": "Lua",
+            "x": 87.203125,
+            "baseline": 32.4648,
+            "advance": 55.1875,
+            "size": 36
+          }
+        ]
+      },
+      "clip": [
+        0,
+        0,
+        432,
+        72
+      ]
+    }
+  ]
+]

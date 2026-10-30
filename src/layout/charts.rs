@@ -145,6 +145,7 @@ impl ChartBlock {
                     rectangle.top += top;
                 }
                 PageOperation::OutlineRectangle { bounds, .. }
+                | PageOperation::PaintedRectangle { bounds, .. }
                 | PageOperation::PushClip(bounds) => {
                     bounds[0] += left;
                     bounds[1] += top;

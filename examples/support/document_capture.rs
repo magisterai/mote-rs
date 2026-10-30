@@ -40,7 +40,12 @@ pub fn capture_sources(requests: &Value) -> Result<Value, Box<dyn Error>> {
         if request["system_fonts"].as_bool() == Some(true) {
             measurer = measurer.with_font_resolver(&fonts);
         }
-        let result = match plan_document_text(&document, &mut measurer) {
+        let planned = if request["layout"] == "presentation" {
+            mote::layout::plan_presentation(&document, &mut measurer)
+        } else {
+            plan_document_text(&document, &mut measurer)
+        };
+        let result = match planned {
             Ok(plan) => {
                 json!({"id":identity,"pages":pages_value(&plan, requests["include_operations"].as_bool().unwrap_or(false))})
             }
@@ -110,6 +115,7 @@ fn paint_operations(page: &mote::layout::TextPage) -> Value {
             PageOperation::PushRotation {degrees,center} => operations.push(json!({"kind":"push_rotation","degrees":degrees,"center":center})),
             PageOperation::PopRotation => operations.push(json!({"kind":"pop_rotation"})),
 
+            PageOperation::PaintedRectangle {bounds,fill,stroke} => operations.push(json!({"kind":"painted_rectangle","bounds":bounds,"fill":fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
             PageOperation::Path(path) => operations.push(json!({"kind":"path","points":path.points,"closed":path.closed,"fill":path.fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":path.stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
             PageOperation::PushClip(bounds) => operations.push(json!({"kind":"push_clip","bounds":bounds})),
             PageOperation::PopClip => operations.push(json!({"kind":"pop_clip"})),

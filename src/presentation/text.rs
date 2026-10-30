@@ -1,0 +1,92 @@
+//! Shared text semantics for editable and native presentation boxes.
+use super::Theme;
+use crate::{
+    drawings::paragraphs::{self, DrawingParagraph},
+    layout::{LayoutError, LayoutStyleResolver, TextStyle},
+    measurement::TextMeasurer,
+    model::{Content, Document, Element, ElementKind, Properties},
+    properties::text,
+};
+pub(crate) fn resolve(
+    document: &Document,
+    content: &[Content],
+    attributes: &Properties,
+    theme: &Theme,
+    measurer: Option<&mut TextMeasurer<'_>>,
+) -> Result<Vec<DrawingParagraph>, LayoutError> {
+    validate_content(content).map_err(LayoutError::Unsupported)?;
+    let styles = LayoutStyleResolver::new(document);
+    let native = measurer.is_some();
+    let mut base = TextStyle::default();
+    base.measurement.font = if native {
+        theme.body.clone()
+    } else {
+        String::new()
+    };
+    base.measurement.size_points = if native { 18.0 } else { 0.0 };
+    base.color = if native {
+        theme.colors[0].clone()
+    } else {
+        String::new()
+    };
+    base = styles.inline(
+        &Element {
+            kind: ElementKind::Span,
+            attributes: attributes.clone(),
+            children: Vec::new(),
+        },
+        &base,
+    );
+    let heading = (text(attributes, "font").is_empty()
+        && (native || text(attributes, "style").is_empty()))
+    .then_some(if native {
+        theme.heading.as_str()
+    } else {
+        "+mj-lt"
+    });
+    let mut paragraphs = paragraphs::resolve(
+        content,
+        &base,
+        &paragraphs::paragraph_defaults(attributes),
+        heading,
+        &styles,
+        measurer,
+    )?;
+    for paragraph in &mut paragraphs {
+        for run in &mut paragraph.runs {
+            if run.link.is_some() {
+                run.style.color = theme.colors[10].clone();
+            }
+        }
+    }
+    Ok(paragraphs)
+}
+pub(super) fn validate_content(content: &[Content]) -> Result<(), String> {
+    for child in content {
+        if let Content::Element(element) = child {
+            if !matches!(
+                element.kind,
+                ElementKind::Paragraph
+                    | ElementKind::Heading
+                    | ElementKind::Span
+                    | ElementKind::Strong
+                    | ElementKind::Emphasis
+                    | ElementKind::Code
+                    | ElementKind::Link
+                    | ElementKind::LineBreak
+                    | ElementKind::Tab
+                    | ElementKind::List
+                    | ElementKind::OrderedList
+                    | ElementKind::ListItem
+                    | ElementKind::Blockquote
+            ) {
+                return Err(format!(
+                    "presentation text boxes do not yet support {}",
+                    element.kind.as_text()
+                ));
+            }
+            validate_content(&element.children)?;
+        }
+    }
+    Ok(())
+}

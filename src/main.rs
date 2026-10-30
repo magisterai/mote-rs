@@ -9,7 +9,7 @@ use mote::source::{
     AssetRequest, CachingAssetResolver, FileAssetResolver, SourceFile, load_source,
 };
 
-const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX requires an output path. PDF and PNG also require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
+const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX, PPTX, PDF and PNG require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--layout document|presentation selects native layout explicitly.\nWithout --layout, an explicit presentation declaration selects slide layout.\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
 
 fn main() -> ExitCode {
     match run_command() {
@@ -28,6 +28,7 @@ fn run_command() -> Result<(), String> {
     let mut format = String::from("json");
     let mut output_path: Option<OsString> = None;
     let mut dots_per_inch = None;
+    let mut layout = mote::render::LayoutMode::Automatic;
     let mut enable_lua = false;
     let mut lua_timeout = Some(std::time::Duration::from_secs(10));
     while let Some(argument) = arguments.next() {
@@ -42,6 +43,17 @@ fn run_command() -> Result<(), String> {
                         matches!(value.as_str(), "json" | "docx" | "pptx" | "pdf" | "png")
                     })
                     .ok_or("--format requires 'json', 'docx', 'pptx', 'pdf' or 'png'")?;
+            }
+            Some("--layout" | "-layout") => {
+                layout = match arguments
+                    .next()
+                    .and_then(|value| value.into_string().ok())
+                    .as_deref()
+                {
+                    Some("document") => mote::render::LayoutMode::Document,
+                    Some("presentation") => mote::render::LayoutMode::Presentation,
+                    _ => return Err("--layout requires 'document' or 'presentation'".into()),
+                };
             }
             Some("--lua" | "-lua") => enable_lua = true,
             Some("--lua-timeout" | "-lua-timeout") => {
@@ -81,6 +93,9 @@ fn run_command() -> Result<(), String> {
             "{} output requires --output or -o",
             format.to_uppercase()
         ));
+    }
+    if layout != mote::render::LayoutMode::Automatic && !matches!(format.as_str(), "pdf" | "png") {
+        return Err("--layout applies only to PDF or PNG output".into());
     }
     if dots_per_inch.is_some() && format != "png" {
         return Err("--dpi applies only to PNG output".into());
@@ -142,11 +157,12 @@ fn run_command() -> Result<(), String> {
         .map_err(|error| format!("standard error: {error}"))?;
     }
     let bytes = if matches!(format.as_str(), "pdf" | "png") {
+        let planned = mote::render::plan_with_layout(&document, &resolver, source_name, layout)
+            .map_err(|error| format!("{name}: {error}"))?;
+        print_warnings(&name, &planned.warnings)?;
         if format == "png" {
-            let rendered = mote::render::emit_png(
-                &document,
-                &resolver,
-                source_name,
+            let rendered = mote::render::paint_png(
+                &planned.output,
                 &mote::render::PngOptions {
                     dots_per_inch: dots_per_inch.unwrap_or(72),
                     ..Default::default()
@@ -156,17 +172,14 @@ fn run_command() -> Result<(), String> {
             print_warnings(&name, &rendered.warnings)?;
             return write_png_pages(output_path.as_ref().unwrap(), source_name, &rendered.output);
         }
-        let rendered = mote::render::emit_pdf(&document, &resolver, source_name)
-            .map_err(|error| format!("{name}: {error}"))?;
-        print_warnings(&name, &rendered.warnings)?;
-        rendered.output
+        mote::render::paint_pdf(&planned.output).map_err(|error| format!("{name}: {error}"))?
     } else if format == "docx" {
         let generated = mote::docx::emit_with_assets(&document, &resolver, source_name)
             .map_err(|error| format!("{name}: {error}"))?;
         print_warnings(&name, &generated.warnings)?;
         generated.bytes
     } else if format == "pptx" {
-        let generated = mote::pptx::emit_with_warnings(&document)
+        let generated = mote::pptx::emit_with_assets(&document, &resolver, source_name)
             .map_err(|error| format!("{name}: {error}"))?;
         print_warnings(&name, &generated.warnings)?;
         generated.bytes

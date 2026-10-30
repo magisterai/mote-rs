@@ -209,3 +209,53 @@ fn crisp(
     }
     Ok(())
 }
+
+pub(super) fn draw_rectangle(
+    pixels: &mut Pixmap,
+    bounds: [f64; 4],
+    fill: Option<&PathPaint>,
+    stroke: Option<&PathStroke>,
+    scale: f64,
+    clip: Option<&Mask>,
+) -> Result<(), RenderError> {
+    let fill_rectangle =
+        |pixels: &mut Pixmap, bounds: [f64; 4], value: &PathPaint| -> Result<(), RenderError> {
+            let [left, top, width, height] = bounds;
+            let [left, top, right, bottom] =
+                [left, top, left + width, top + height].map(|value| (value * scale).round() as f32);
+            if right <= left || bottom <= top {
+                return Ok(());
+            }
+            if let Some(rectangle) = tiny_skia::Rect::from_ltrb(left, top, right, bottom) {
+                pixels.fill_rect(rectangle, &paint(value)?, Transform::identity(), clip);
+            }
+            Ok(())
+        };
+    if let Some(fill) = fill {
+        fill_rectangle(pixels, bounds, fill)?;
+    }
+    if let Some(stroke) = stroke {
+        let [left, top, width, height] = bounds;
+        if stroke.dash.is_empty() {
+            let line = stroke.width.max(1.0 / scale);
+            for rectangle in [
+                [left, top, width, line],
+                [left, top + height - line, width, line],
+                [left, top, line, height],
+                [left + width - line, top, line, height],
+            ] {
+                fill_rectangle(pixels, rectangle, &stroke.paint)?;
+            }
+        } else {
+            for [start, end] in [
+                [[left, top], [left + width, top]],
+                [[left + width, top], [left + width, top + height]],
+                [[left + width, top + height], [left, top + height]],
+                [[left, top + height], [left, top]],
+            ] {
+                dashed(pixels, start, end, stroke, scale, clip)?;
+            }
+        }
+    }
+    Ok(())
+}

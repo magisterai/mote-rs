@@ -8,7 +8,9 @@ use crate::{
 pub(super) fn write(
     element: &Element,
     document: &Document,
-    hyperlink_color: &str,
+    theme: &crate::presentation::Theme,
+    measurer: &mut crate::measurement::TextMeasurer<'_>,
+    warnings: &mut Vec<String>,
     next_shape: &mut usize,
     relationships: &mut Vec<Relationship>,
 ) -> Result<String, Error> {
@@ -29,7 +31,7 @@ pub(super) fn write(
     let horizontal = coordinate("x", 0)?;
     let vertical = coordinate("y", 0)?;
     let width = coordinate("width", 3657600)?;
-    let height = coordinate("height", 1828800)?;
+    let mut height = coordinate("height", 1828800)?;
     let identifier = *next_shape;
     *next_shape += 1;
     let mut name = text(attributes, "name");
@@ -44,12 +46,47 @@ pub(super) fn write(
     };
     let line = border(attributes)?;
     let text_attributes = crate::drawings::text_attributes(attributes);
-    let body = body_properties(&text_attributes)?;
+    let mut font_scale = 1.0;
+    if matches!(
+        text(&text_attributes, "fit").as_str(),
+        "shrink" | "resize_shape"
+    ) {
+        let prepared = crate::layout::presentation::prepare_box(document, element, theme, measurer)
+            .map_err(|error| Error(error.to_string()))?;
+        font_scale = prepared.fitted.font_scale;
+        let delta = units(Some(&crate::model::Value::Length {
+            value: prepared.fitted.height_delta,
+            unit: crate::model::Unit::Point,
+        }))
+        .ok_or_else(|| Error("fitted box height exceeds the drawing-unit range".into()))?;
+        height = height
+            .checked_add(delta)
+            .ok_or_else(|| Error("fitted box height exceeds the drawing-unit range".into()))?;
+        if font_scale < 0.999995 || prepared.fitted.height_delta > 0.0 {
+            for line in prepared.fitted.page.text_lines() {
+                for fragment in &line.fragments {
+                    if let Some(reason) = &fragment.font.substitution {
+                        warnings.push(format!(
+                            "PPTX text fitting substituted font {:?}: {reason}",
+                            fragment.style.measurement.font
+                        ));
+                    }
+                    for character in &fragment.missing_codepoints {
+                        warnings.push(format!(
+                            "PPTX text fitting replaces missing glyph U+{:04X} with '?'",
+                            *character as u32
+                        ));
+                    }
+                }
+            }
+        }
+    }
+    let body = body_properties(&text_attributes, font_scale)?;
     let content = super::text::write(
         document,
         &element.children,
         &text_attributes,
-        hyperlink_color,
+        theme,
         relationships,
     )?;
     Ok(format!(
@@ -98,16 +135,13 @@ fn border(attributes: &Properties) -> Result<String, Error> {
     };
     Ok(format!("<a:ln w=\"{width}\">{fill}{dash}</a:ln>"))
 }
-fn body_properties(attributes: &Properties) -> Result<String, Error> {
+fn body_properties(attributes: &Properties, font_scale: f64) -> Result<String, Error> {
     let anchor = match text(attributes, "vertical_alignment").as_str() {
         "center" | "middle" => "ctr",
         "bottom" => "b",
         _ => "t",
     };
     let fit = text(attributes, "fit");
-    if matches!(fit.as_str(), "shrink" | "resize_shape") {
-        return Err(Error("PPTX text fitting requires shared presentation measurement, which is not yet supported".into()));
-    }
     let mut output = format!("<a:bodyPr wrap=\"square\" anchor=\"{anchor}\"");
     if fit == "clip" {
         output.push_str(" vertOverflow=\"clip\"");
@@ -127,10 +161,20 @@ fn body_properties(attributes: &Properties) -> Result<String, Error> {
         };
         output.push_str(&format!(" {attribute}=\"{value}\""));
     }
-    if fit == "clip" {
-        output.push_str("><a:noAutofit/></a:bodyPr>");
-    } else {
+    let fitting = match fit.as_str() {
+        "clip" => "<a:noAutofit/>".into(),
+        "shrink" if font_scale > 0.0 && font_scale < 0.999995 => format!(
+            "<a:normAutofit fontScale=\"{}\"/>",
+            (font_scale * 100000.0).round() as i64
+        ),
+        "shrink" => "<a:normAutofit/>".into(),
+        "resize_shape" => "<a:spAutoFit/>".into(),
+        _ => String::new(),
+    };
+    if fitting.is_empty() {
         output.push_str("/>");
+    } else {
+        output.push_str(&format!(">{fitting}</a:bodyPr>"));
     }
     Ok(output)
 }

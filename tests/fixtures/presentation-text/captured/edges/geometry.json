@@ -1,0 +1,75 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        288,
+        216
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        216,
+        144,
+        144,
+        144
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 144,
+        "height": 21.6648,
+        "x": 216,
+        "width": 120.734375,
+        "fragments": [
+          {
+            "text": "Outside ",
+            "x": 216,
+            "baseline": 160.23239999999998,
+            "advance": 65.34375,
+            "size": 18
+          },
+          {
+            "text": "canvas",
+            "x": 281.34375,
+            "baseline": 160.23239999999998,
+            "advance": 55.390625,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        216,
+        144,
+        144,
+        144
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 0,
+        "height": 21.6648,
+        "x": 0,
+        "width": 0,
+        "fragments": []
+      },
+      "clip": [
+        0,
+        0,
+        144,
+        72
+      ]
+    }
+  ]
+]

@@ -1,0 +1,281 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "local",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "x": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  },
+                  "y": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  }
+                },
+                "text": {
+                  "fit": "shrink",
+                  "font": "local",
+                  "size": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Explicit font files measure this "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "shrinking"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " text without installed-font discovery."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#f8fafc",
+                "position": {
+                  "height": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  },
+                  "width": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "x": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  },
+                  "y": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  }
+                },
+                "text": {
+                  "fit": "resize_shape",
+                  "font": "local",
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "The same local font measures this growing text box before either output paints it."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "x": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              },
+              "y": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              }
+            },
+            "text": {
+              "fit": "shrink",
+              "font": "local",
+              "size": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Explicit font files measure this "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "shrinking"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " text without installed-font discovery."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#f8fafc",
+            "position": {
+              "height": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              },
+              "width": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "x": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              },
+              "y": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              }
+            },
+            "text": {
+              "fit": "resize_shape",
+              "font": "local",
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "The same local font measures this growing text box before either output paints it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

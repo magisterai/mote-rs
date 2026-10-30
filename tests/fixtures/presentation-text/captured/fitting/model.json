@@ -1,0 +1,532 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#eef2ff",
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "x": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  },
+                  "y": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  }
+                },
+                "text": {
+                  "fit": "shrink",
+                  "margin": {
+                    "bottom": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    },
+                    "left": {
+                      "text": "6pt",
+                      "unit": "pt",
+                      "value": 6
+                    },
+                    "right": {
+                      "text": "6pt",
+                      "unit": "pt",
+                      "value": 6
+                    },
+                    "top": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    }
+                  },
+                  "size": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Text shrinks to fit the authored rectangle. Several words must wrap across lines."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#ecfdf5",
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "x": {
+                    "text": "5in",
+                    "unit": "in",
+                    "value": 5
+                  },
+                  "y": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  }
+                },
+                "text": {
+                  "fit": "resize_shape",
+                  "margin": {
+                    "bottom": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    },
+                    "left": {
+                      "text": "6pt",
+                      "unit": "pt",
+                      "value": 6
+                    },
+                    "right": {
+                      "text": "6pt",
+                      "unit": "pt",
+                      "value": 6
+                    },
+                    "top": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    }
+                  },
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Text grows the rectangle when its authored height cannot contain all the wrapped lines."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#fff7ed",
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "x": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  },
+                  "y": {
+                    "text": "3in",
+                    "unit": "in",
+                    "value": 3
+                  }
+                },
+                "text": {
+                  "fit": "clip",
+                  "size": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "This text retains its size and clips at the lower edge of the authored box."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "x": {
+                    "text": "5in",
+                    "unit": "in",
+                    "value": 5
+                  },
+                  "y": {
+                    "text": "3in",
+                    "unit": "in",
+                    "value": 3
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "fit": "shrink",
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Fits already."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#eef2ff",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "x": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              },
+              "y": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              }
+            },
+            "text": {
+              "fit": "shrink",
+              "margin": {
+                "bottom": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                },
+                "left": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6
+                },
+                "right": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6
+                },
+                "top": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                }
+              },
+              "size": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text shrinks to fit the authored rectangle. Several words must wrap across lines."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#ecfdf5",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "x": {
+                "text": "5in",
+                "unit": "in",
+                "value": 5
+              },
+              "y": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              }
+            },
+            "text": {
+              "fit": "resize_shape",
+              "margin": {
+                "bottom": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                },
+                "left": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6
+                },
+                "right": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6
+                },
+                "top": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                }
+              },
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text grows the rectangle when its authored height cannot contain all the wrapped lines."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#fff7ed",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "x": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              },
+              "y": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              }
+            },
+            "text": {
+              "fit": "clip",
+              "size": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "This text retains its size and clips at the lower edge of the authored box."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "x": {
+                "text": "5in",
+                "unit": "in",
+                "value": 5
+              },
+              "y": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "fit": "shrink",
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Fits already."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block"
+    }
+  ]
+}

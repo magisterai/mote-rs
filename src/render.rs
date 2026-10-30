@@ -70,14 +70,57 @@ pub fn plan_with_fonts(
     source_name: Option<&OsStr>,
     fonts: Option<&dyn FontResolver>,
 ) -> Result<Rendered<DocumentTextPlan>, RenderError> {
+    plan_with_layout_and_fonts(
+        document,
+        resolver,
+        source_name,
+        LayoutMode::Automatic,
+        fonts,
+    )
+}
+
+/// Automatic mode selects slides only for an explicit presentation declaration.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub enum LayoutMode {
+    #[default]
+    Automatic,
+    Document,
+    Presentation,
+}
+pub fn plan_with_layout(
+    document: &Document,
+    resolver: &dyn AssetResolver,
+    source_name: Option<&OsStr>,
+    mode: LayoutMode,
+) -> Result<Rendered<DocumentTextPlan>, RenderError> {
+    let fonts = SystemFontResolver::new();
+    plan_with_layout_and_fonts(document, resolver, source_name, mode, Some(&fonts))
+}
+pub fn plan_with_layout_and_fonts(
+    document: &Document,
+    resolver: &dyn AssetResolver,
+    source_name: Option<&OsStr>,
+    mode: LayoutMode,
+    fonts: Option<&dyn FontResolver>,
+) -> Result<Rendered<DocumentTextPlan>, RenderError> {
+    let presentation = mode == LayoutMode::Presentation
+        || (mode == LayoutMode::Automatic && !document.presentation.properties.is_empty());
     let mut measurer = TextMeasurer::new(document, resolver, source_name);
     if let Some(fonts) = fonts {
         measurer = measurer.with_font_resolver(fonts);
     }
     let mut images = crate::media::ImageCatalog::load(document, resolver, source_name);
     images.prepare_all(&document.content);
-    let output = plan_document_with_images(document, &mut measurer, &images)?;
-    let mut warnings = support::warnings(document);
+    let output = if presentation {
+        crate::layout::plan_presentation(document, &mut measurer)?
+    } else {
+        plan_document_with_images(document, &mut measurer, &images)?
+    };
+    let mut warnings = if presentation {
+        std::collections::BTreeSet::new()
+    } else {
+        support::warnings(document)
+    };
     warnings.extend(images.warnings);
     warnings.extend(output.warnings.iter().cloned());
     for fragment in output
@@ -209,6 +252,37 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
                     }
                 }
 
+                crate::layout::PageOperation::PaintedRectangle {
+                    bounds,
+                    fill,
+                    stroke,
+                } => {
+                    if bounds.iter().any(|value| !value.is_finite())
+                        || bounds[2] <= 0.0
+                        || bounds[3] <= 0.0
+                    {
+                        return Err(RenderError::Invalid(
+                            "invalid painted rectangle geometry".into(),
+                        ));
+                    }
+                    if let Some(fill) = fill {
+                        color(&fill.color)?;
+                    }
+                    if let Some(stroke) = stroke {
+                        color(&stroke.paint.color)?;
+                        if !stroke.width.is_finite()
+                            || stroke.width <= 0.0
+                            || stroke
+                                .dash
+                                .iter()
+                                .any(|value| !value.is_finite() || *value <= 0.0)
+                        {
+                            return Err(RenderError::Invalid(
+                                "invalid painted rectangle stroke".into(),
+                            ));
+                        }
+                    }
+                }
                 crate::layout::PageOperation::PushClip(bounds) => {
                     if !bounds.iter().all(|value| value.is_finite())
                         || bounds[2] <= 0.0

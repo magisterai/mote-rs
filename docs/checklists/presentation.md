@@ -28,6 +28,6 @@ names are assigned to unmapped standard fields. The [language definition](../spe
 [model captures](../../tests/fixtures/presentations/README.md) cover these contracts.
 Editable packages support explicit slides, page dimensions, theme colors/fonts
 and solid backgrounds. Background images and footer fields fail explicitly.
-See [package captures](../../tests/fixtures/presentation-text/README.md). Native
-output and PowerPoint review remain pending; model acceptance alone does not
-establish output effects.
+See [package captures](../../tests/fixtures/presentation-text/README.md). Native PDF/PNG supports the same initial subset and uses explicit slide geometry.
+Native output needs at least one explicit slide. PowerPoint review remains
+pending; model acceptance alone does not establish output effects.

@@ -1,0 +1,329 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        720,
+        540
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 36,
+        "height": 24.072,
+        "x": 36,
+        "width": 249.5625,
+        "fragments": [
+          {
+            "text": "Explicit ",
+            "x": 36,
+            "baseline": 54.036,
+            "advance": 65.390625,
+            "size": 20
+          },
+          {
+            "text": "font ",
+            "x": 101.390625,
+            "baseline": 54.036,
+            "advance": 38.390625,
+            "size": 20
+          },
+          {
+            "text": "files ",
+            "x": 139.78125,
+            "baseline": 54.036,
+            "advance": 38.15625,
+            "size": 20
+          },
+          {
+            "text": "measure ",
+            "x": 177.9375,
+            "baseline": 54.036,
+            "advance": 76.6875,
+            "size": 20
+          },
+          {
+            "text": "this",
+            "x": 254.625,
+            "baseline": 54.036,
+            "advance": 30.9375,
+            "size": 20
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        288,
+        72
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 60.072,
+        "height": 24.072,
+        "x": 36,
+        "width": 272.078125,
+        "fragments": [
+          {
+            "text": "shrinking",
+            "x": 36,
+            "baseline": 78.108,
+            "advance": 83.78125,
+            "size": 20
+          },
+          {
+            "text": " ",
+            "x": 119.78125,
+            "baseline": 78.108,
+            "advance": 4,
+            "size": 20
+          },
+          {
+            "text": "text ",
+            "x": 123.78125,
+            "baseline": 78.108,
+            "advance": 36.375,
+            "size": 20
+          },
+          {
+            "text": "without ",
+            "x": 160.15625,
+            "baseline": 78.108,
+            "advance": 69.421875,
+            "size": 20
+          },
+          {
+            "text": "installed-",
+            "x": 229.578125,
+            "baseline": 78.108,
+            "advance": 78.5,
+            "size": 20
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        288,
+        72
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 84.144,
+        "height": 24.072,
+        "x": 36,
+        "width": 123.28125,
+        "fragments": [
+          {
+            "text": "font ",
+            "x": 36,
+            "baseline": 102.18,
+            "advance": 38.390625,
+            "size": 20
+          },
+          {
+            "text": "discovery.",
+            "x": 74.390625,
+            "baseline": 102.18,
+            "advance": 84.890625,
+            "size": 20
+          }
+        ]
+      },
+      "clip": [
+        36,
+        36,
+        288,
+        72
+      ]
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        36,
+        144,
+        288,
+        115.54560000000001
+      ],
+      "fill": {
+        "color": "F8FAFC",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 144,
+        "height": 28.886400000000002,
+        "x": 36,
+        "width": 195.734375,
+        "fragments": [
+          {
+            "text": "The ",
+            "x": 36,
+            "baseline": 165.6432,
+            "advance": 42.625,
+            "size": 24
+          },
+          {
+            "text": "same ",
+            "x": 78.625,
+            "baseline": 165.6432,
+            "advance": 58.75,
+            "size": 24
+          },
+          {
+            "text": "local ",
+            "x": 137.375,
+            "baseline": 165.6432,
+            "advance": 53.09375,
+            "size": 24
+          },
+          {
+            "text": "font",
+            "x": 190.46875,
+            "baseline": 165.6432,
+            "advance": 41.265625,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        36,
+        144,
+        288,
+        115.54560000000001
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 172.8864,
+        "height": 28.886400000000002,
+        "x": 36,
+        "width": 269.484375,
+        "fragments": [
+          {
+            "text": "measures ",
+            "x": 36,
+            "baseline": 194.52960000000002,
+            "advance": 102.109375,
+            "size": 24
+          },
+          {
+            "text": "this ",
+            "x": 138.109375,
+            "baseline": 194.52960000000002,
+            "advance": 41.9375,
+            "size": 24
+          },
+          {
+            "text": "growing ",
+            "x": 180.046875,
+            "baseline": 194.52960000000002,
+            "advance": 86.609375,
+            "size": 24
+          },
+          {
+            "text": "text",
+            "x": 266.65625,
+            "baseline": 194.52960000000002,
+            "advance": 38.828125,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        36,
+        144,
+        288,
+        115.54560000000001
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 201.77280000000002,
+        "height": 28.886400000000002,
+        "x": 36,
+        "width": 244.703125,
+        "fragments": [
+          {
+            "text": "box ",
+            "x": 36,
+            "baseline": 223.41600000000003,
+            "advance": 41.78125,
+            "size": 24
+          },
+          {
+            "text": "before ",
+            "x": 77.78125,
+            "baseline": 223.41600000000003,
+            "advance": 70.234375,
+            "size": 24
+          },
+          {
+            "text": "either ",
+            "x": 148.015625,
+            "baseline": 223.41600000000003,
+            "advance": 64.015625,
+            "size": 24
+          },
+          {
+            "text": "output",
+            "x": 212.03125,
+            "baseline": 223.41600000000003,
+            "advance": 68.671875,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        36,
+        144,
+        288,
+        115.54560000000001
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 230.65920000000003,
+        "height": 28.886400000000002,
+        "x": 36,
+        "width": 87.390625,
+        "fragments": [
+          {
+            "text": "paints ",
+            "x": 36,
+            "baseline": 252.30240000000003,
+            "advance": 67.40625,
+            "size": 24
+          },
+          {
+            "text": "it.",
+            "x": 103.40625,
+            "baseline": 252.30240000000003,
+            "advance": 19.984375,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        36,
+        144,
+        288,
+        115.54560000000001
+      ]
+    }
+  ]
+]

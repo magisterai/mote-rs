@@ -54,7 +54,13 @@ fn presentation_declarations_slides_and_boxes_match_captured_models() {
             "{case} has no document output mapping"
         );
         assert!(
-            mote::render::plan(&document, &resolver, None).is_err(),
+            mote::render::plan_with_layout(
+                &document,
+                &resolver,
+                None,
+                mote::render::LayoutMode::Document
+            )
+            .is_err(),
             "{case} needs presentation layout"
         );
     }

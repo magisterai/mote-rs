@@ -147,7 +147,7 @@ fn help_describes_the_current_output_boundary() {
     assert!(
         String::from_utf8(output.stdout)
             .unwrap()
-            .contains("DOCX requires an output path")
+            .contains("DOCX, PPTX, PDF and PNG require an output path")
     );
 }
 
@@ -269,7 +269,9 @@ fn pptx_output_contains_editable_slides_and_requires_a_path() {
     let source = b"#slide[#box(position={width=inch(6),height=inch(2)})[Editable text]]";
     let missing = run(&["--format", "pptx"], source);
     assert!(!missing.status.success());
-    assert!(String::from_utf8_lossy(&missing.stderr).contains("PPTX output requires --output or -o"));
+    assert!(
+        String::from_utf8_lossy(&missing.stderr).contains("PPTX output requires --output or -o")
+    );
     let path = temporary_input_path().with_extension("pptx");
     let output = run(&["--format", "pptx", "-o", path.to_str().unwrap()], source);
     assert!(
@@ -288,4 +290,37 @@ fn pptx_output_contains_editable_slides_and_requires_a_path() {
     )
     .unwrap();
     assert!(slide.contains("<a:t>Editable text</a:t>"));
+}
+
+#[test]
+fn native_slide_layout_is_selected_explicitly() {
+    let path = temporary_input_path().with_extension("slide");
+    let output = run(
+        &[
+            "--format",
+            "png",
+            "--layout",
+            "presentation",
+            "-o",
+            path.to_str().unwrap(),
+        ],
+        b"#slide[]",
+    );
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let page = PathBuf::from(format!("{}-1.png", path.display()));
+    let bytes = fs::read(&page).unwrap();
+    fs::remove_file(page).unwrap();
+    let decoder = png::Decoder::new(std::io::Cursor::new(bytes));
+    let reader = decoder.read_info().unwrap();
+    assert_eq!((reader.info().width, reader.info().height), (960, 540));
+    let invalid = run(
+        &["--format", "json", "--layout", "presentation"],
+        b"#slide[]",
+    );
+    assert!(!invalid.status.success());
+    assert!(String::from_utf8_lossy(&invalid.stderr).contains("applies only to PDF or PNG"));
 }
