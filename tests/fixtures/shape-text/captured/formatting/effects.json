@@ -1,0 +1,39 @@
+[
+  {
+    "clips": [
+      [
+        62,
+        61.23,
+        502,
+        642
+      ]
+    ],
+    "rotations": [],
+    "markers": [
+      {
+        "checked": true,
+        "slot": [
+          75.5,
+          204.18280000000001,
+          14,
+          16.8504
+        ],
+        "baseline": 216.80800000000002,
+        "font_size": 14,
+        "task_mark": "cross"
+      },
+      {
+        "checked": false,
+        "slot": [
+          75.5,
+          224.03320000000002,
+          14,
+          16.8504
+        ],
+        "baseline": 236.65840000000003,
+        "font_size": 14,
+        "task_mark": "cross"
+      }
+    ]
+  }
+]

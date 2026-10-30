@@ -341,3 +341,39 @@ fn shadows(attributes: &Properties, points: &[[f64; 2]]) -> Vec<PaintedPath> {
         })
         .collect()
 }
+
+pub(super) fn text_rectangle(kind: &str, bounds: [f64; 4]) -> [f64; 4] {
+    let [left, top, width, height] = bounds;
+    let (horizontal, vertical, inner_width, inner_height) = match kind {
+        "round_rect" => {
+            let inset = width.min(height) * 16667.0 / 100000.0 * 29289.0 / 100000.0;
+            (inset, inset, width - 2.0 * inset, height - 2.0 * inset)
+        }
+        "ellipse" => {
+            let horizontal = width * (1.0 - 1.0 / std::f64::consts::SQRT_2) / 2.0;
+            let vertical = height * (1.0 - 1.0 / std::f64::consts::SQRT_2) / 2.0;
+            (
+                horizontal,
+                vertical,
+                width - 2.0 * horizontal,
+                height - 2.0 * vertical,
+            )
+        }
+        "triangle" => (width / 4.0, height / 2.0, width / 2.0, height / 2.0),
+        "diamond" => (width / 4.0, height / 4.0, width / 2.0, height / 2.0),
+        "chevron" if width > height => (height / 2.0, 0.0, width - height, height),
+        "cloud" => (
+            width * 2977.0 / 21600.0,
+            height * 3262.0 / 21600.0,
+            width * (17087.0 - 2977.0) / 21600.0,
+            height * (17337.0 - 3262.0) / 21600.0,
+        ),
+        _ => return bounds,
+    };
+    [
+        left + horizontal,
+        top + vertical,
+        inner_width.max(1.0),
+        inner_height.max(1.0),
+    ]
+}

@@ -167,8 +167,25 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
     for page in &plan.pages {
         let mut seen = vec![false; page.lines.len()];
         let mut clip_depth = 0usize;
+        let mut rotation_clips = Vec::new();
         for operation in &page.operations {
             match operation {
+                crate::layout::PageOperation::PushRotation { degrees, center } => {
+                    if !degrees.is_finite()
+                        || center.iter().any(|value| !value.is_finite())
+                        || rotation_clips.len() >= 16
+                    {
+                        return Err(RenderError::Invalid(
+                            "invalid or excessively nested page rotation".into(),
+                        ));
+                    }
+                    rotation_clips.push(clip_depth);
+                }
+                crate::layout::PageOperation::PopRotation => {
+                    if rotation_clips.pop() != Some(clip_depth) {
+                        return Err(RenderError::Invalid("unbalanced page rotation".into()));
+                    }
+                }
                 crate::layout::PageOperation::Path(path) => {
                     if path.points.len() < if path.closed { 3 } else { 2 }
                         || path.points.iter().flatten().any(|value| !value.is_finite())
@@ -202,6 +219,14 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
                     clip_depth += 1;
                 }
                 crate::layout::PageOperation::PopClip => {
+                    if rotation_clips
+                        .last()
+                        .is_some_and(|depth| clip_depth <= *depth)
+                    {
+                        return Err(RenderError::Invalid(
+                            "page clip crosses a rotation boundary".into(),
+                        ));
+                    }
                     clip_depth = clip_depth
                         .checked_sub(1)
                         .ok_or_else(|| RenderError::Invalid("unbalanced page clip".into()))?;
@@ -308,6 +333,9 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
                     }
                 }
             }
+        }
+        if !rotation_clips.is_empty() {
+            return Err(RenderError::Invalid("unbalanced page rotation".into()));
         }
         if clip_depth != 0 {
             return Err(RenderError::Invalid("unbalanced page clip".into()));

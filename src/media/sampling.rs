@@ -33,6 +33,21 @@ pub(crate) fn sample(
     horizontal: &[(u32, f64)],
     vertical: &[(u32, f64)],
 ) -> [u16; 4] {
+    sample_values(source, horizontal, vertical, false)
+}
+pub(crate) fn sample_premultiplied(
+    source: &RasterImage,
+    horizontal: &[(u32, f64)],
+    vertical: &[(u32, f64)],
+) -> [u16; 4] {
+    sample_values(source, horizontal, vertical, true)
+}
+fn sample_values(
+    source: &RasterImage,
+    horizontal: &[(u32, f64)],
+    vertical: &[(u32, f64)],
+    premultiplied: bool,
+) -> [u16; 4] {
     let mut output = [0.0; 4];
     for &(row, row_weight) in vertical {
         let mut intermediate = [0.0; 4];
@@ -42,7 +57,11 @@ pub(crate) fn sample(
             let alpha = u32::from(pixel[3]) * 257;
             for channel in 0..3 {
                 // Straight bytes are converted through the 16-bit color contract.
-                let premultiplied = u32::from(pixel[channel]) * 257 * alpha / 65535;
+                let premultiplied = if premultiplied {
+                    u32::from(pixel[channel]) * 257
+                } else {
+                    u32::from(pixel[channel]) * 257 * alpha / 65535
+                };
                 intermediate[channel] += f64::from(premultiplied) * column_weight;
             }
             intermediate[3] += f64::from(alpha) * column_weight;

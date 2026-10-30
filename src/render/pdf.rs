@@ -42,6 +42,24 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 match operation {
+                    PageOperation::PushRotation { degrees, center } => {
+                        let (sine, cosine) = degrees.to_radians().sin_cos();
+                        let [horizontal, vertical] = [center[0], geometry.height - center[1]];
+                        let matrix = [
+                            cosine,
+                            -sine,
+                            sine,
+                            cosine,
+                            horizontal - cosine * horizontal - sine * vertical,
+                            vertical + sine * horizontal - cosine * vertical,
+                        ]
+                        .map(|value| ((value * 100000.0).round() / 100000.0) as f32);
+                        content.save_state().transform(matrix);
+                    }
+                    PageOperation::PopRotation => {
+                        content.restore_state();
+                    }
+
                     PageOperation::Path(path) => paths::draw(
                         &mut content,
                         path,
@@ -438,10 +456,15 @@ fn paint_marker(
                 )
                 .stroke();
             if marker.checked {
-                for (start, end) in [
-                    ([1.4 / 7.5, 4.2 / 7.5], [3.2 / 7.5, 6.0 / 7.5]),
-                    ([3.2 / 7.5, 6.0 / 7.5], [6.5 / 7.5, 1.4 / 7.5]),
-                ] {
+                let segments = if marker.task_mark == crate::layout::TaskMark::Cross {
+                    [([0.18, 0.18], [0.82, 0.82]), ([0.82, 0.18], [0.18, 0.82])]
+                } else {
+                    [
+                        ([1.4 / 7.5, 4.2 / 7.5], [3.2 / 7.5, 6.0 / 7.5]),
+                        ([3.2 / 7.5, 6.0 / 7.5], [6.5 / 7.5, 1.4 / 7.5]),
+                    ]
+                };
+                for (start, end) in segments {
                     content
                         .move_to(
                             rounded(horizontal + size * start[0]),

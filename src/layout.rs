@@ -38,7 +38,7 @@ mod painting;
 mod paragraphs;
 pub use painting::{
     LineCap, ListMarker, ListMarkerKind, PageOperation, PaintedPath, PathPaint, PathStroke, Rule,
-    RuleRole,
+    RuleRole, TaskMark,
 };
 mod placement;
 mod wrapping;

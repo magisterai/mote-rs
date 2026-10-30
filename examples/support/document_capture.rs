@@ -19,15 +19,27 @@ pub fn capture_sources(requests: &Value) -> Result<Value, Box<dyn Error>> {
             return Err("duplicate case identity".into());
         }
         let source = request["source"].as_str().ok_or("source missing")?;
-        let document = match mote::compile(source) {
+        let source_name = request["source_name"].as_str().map(OsStr::new);
+        let document = match mote::compile_with_options(
+            source,
+            mote::evaluation::EvaluationOptions {
+                enable_lua: request["lua"].as_bool().unwrap_or(false),
+                asset_resolver: Some(&resolver),
+                source_name,
+                ..Default::default()
+            },
+        ) {
             Ok(document) => document,
             Err(error) => {
                 cases.push(json!({"id":identity,"compile_error":error.to_string()}));
                 continue;
             }
         };
-        let source_name = request["source_name"].as_str().map(OsStr::new);
         let mut measurer = TextMeasurer::new(&document, &resolver, source_name);
+        let fonts = mote::measurement::SystemFontResolver::new();
+        if request["system_fonts"].as_bool() == Some(true) {
+            measurer = measurer.with_font_resolver(&fonts);
+        }
         let result = match plan_document_text(&document, &mut measurer) {
             Ok(plan) => {
                 json!({"id":identity,"pages":pages_value(&plan, requests["include_operations"].as_bool().unwrap_or(false))})
@@ -95,6 +107,9 @@ fn paint_operations(page: &mote::layout::TextPage) -> Value {
     let mut operations = Vec::new();
     for operation in &page.operations {
         match operation {
+            PageOperation::PushRotation {degrees,center} => operations.push(json!({"kind":"push_rotation","degrees":degrees,"center":center})),
+            PageOperation::PopRotation => operations.push(json!({"kind":"pop_rotation"})),
+
             PageOperation::Path(path) => operations.push(json!({"kind":"path","points":path.points,"closed":path.closed,"fill":path.fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":path.stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
             PageOperation::PushClip(bounds) => operations.push(json!({"kind":"push_clip","bounds":bounds})),
             PageOperation::PopClip => operations.push(json!({"kind":"pop_clip"})),

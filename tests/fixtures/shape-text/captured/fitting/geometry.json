@@ -1,0 +1,1370 @@
+{
+  "pages": [
+    {
+      "lines": [
+        {
+          "top": 56.01,
+          "height": 21.6648,
+          "x": 59,
+          "width": 197.5625,
+          "fragments": [
+            {
+              "text": "clip ",
+              "x": 59,
+              "baseline": 72.2424,
+              "advance": 32.1875,
+              "size": 18
+            },
+            {
+              "text": "top: ",
+              "x": 91.1875,
+              "baseline": 72.2424,
+              "advance": 34.640625,
+              "size": 18
+            },
+            {
+              "text": "A ",
+              "x": 125.828125,
+              "baseline": 72.2424,
+              "advance": 14.265625,
+              "size": 18
+            },
+            {
+              "text": "long ",
+              "x": 140.09375,
+              "baseline": 72.2424,
+              "advance": 36.921875,
+              "size": 18
+            },
+            {
+              "text": "paragraph",
+              "x": 177.015625,
+              "baseline": 72.2424,
+              "advance": 79.546875,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 77.6748,
+          "height": 21.6648,
+          "x": 59,
+          "width": 189.140625,
+          "fragments": [
+            {
+              "text": "with ",
+              "x": 59,
+              "baseline": 93.9072,
+              "advance": 36.65625,
+              "size": 18
+            },
+            {
+              "text": "enough ",
+              "x": 95.65625,
+              "baseline": 93.9072,
+              "advance": 61.703125,
+              "size": 18
+            },
+            {
+              "text": "text ",
+              "x": 157.359375,
+              "baseline": 93.9072,
+              "advance": 32.734375,
+              "size": 18
+            },
+            {
+              "text": "to ",
+              "x": 190.09375,
+              "baseline": 93.9072,
+              "advance": 19.40625,
+              "size": 18
+            },
+            {
+              "text": "wrap",
+              "x": 209.5,
+              "baseline": 93.9072,
+              "advance": 38.640625,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 99.3396,
+          "height": 21.6648,
+          "x": 59,
+          "width": 194.203125,
+          "fragments": [
+            {
+              "text": "through ",
+              "x": 59,
+              "baseline": 115.572,
+              "advance": 64.046875,
+              "size": 18
+            },
+            {
+              "text": "several ",
+              "x": 123.046875,
+              "baseline": 115.572,
+              "advance": 59.78125,
+              "size": 18
+            },
+            {
+              "text": "lines ",
+              "x": 182.828125,
+              "baseline": 115.572,
+              "advance": 40.796875,
+              "size": 18
+            },
+            {
+              "text": "and",
+              "x": 223.625,
+              "baseline": 115.572,
+              "advance": 29.578125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 121.0044,
+          "height": 21.6648,
+          "x": 59,
+          "width": 158.203125,
+          "fragments": [
+            {
+              "text": "exercise ",
+              "x": 59,
+              "baseline": 137.23680000000002,
+              "advance": 68.59375,
+              "size": 18
+            },
+            {
+              "text": "the ",
+              "x": 127.59375,
+              "baseline": 137.23680000000002,
+              "advance": 28.875,
+              "size": 18
+            },
+            {
+              "text": "text ",
+              "x": 156.46875,
+              "baseline": 137.23680000000002,
+              "advance": 32.734375,
+              "size": 18
+            },
+            {
+              "text": "box",
+              "x": 189.203125,
+              "baseline": 137.23680000000002,
+              "advance": 28,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 142.6692,
+          "height": 21.6648,
+          "x": 59,
+          "width": 53.296875,
+          "fragments": [
+            {
+              "text": "height.",
+              "x": 59,
+              "baseline": 158.90159999999997,
+              "advance": 53.296875,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 164.334,
+          "height": 21.6648,
+          "x": 59,
+          "width": 178.9375,
+          "fragments": [
+            {
+              "text": "Second ",
+              "x": 59,
+              "baseline": 180.5664,
+              "advance": 62.734375,
+              "size": 18
+            },
+            {
+              "text": "paragraph ",
+              "x": 121.734375,
+              "baseline": 180.5664,
+              "advance": 83.203125,
+              "size": 18
+            },
+            {
+              "text": "with",
+              "x": 204.9375,
+              "baseline": 180.5664,
+              "advance": 33,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 185.99880000000002,
+          "height": 28.886400000000002,
+          "x": 59,
+          "width": 115.890625,
+          "fragments": [
+            {
+              "text": "larger",
+              "x": 59,
+              "baseline": 207.64200000000002,
+              "advance": 59.328125,
+              "size": 24
+            },
+            {
+              "text": " ",
+              "x": 118.328125,
+              "baseline": 207.64200000000002,
+              "advance": 3.65625,
+              "size": 18
+            },
+            {
+              "text": "words.",
+              "x": 121.984375,
+              "baseline": 207.64200000000002,
+              "advance": 52.90625,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 56.01,
+          "height": 21.6648,
+          "x": 329,
+          "width": 145.46875,
+          "fragments": [
+            {
+              "text": "clip ",
+              "x": 329,
+              "baseline": 72.2424,
+              "advance": 32.1875,
+              "size": 18
+            },
+            {
+              "text": "bottom: ",
+              "x": 361.1875,
+              "baseline": 72.2424,
+              "advance": 65.75,
+              "size": 18
+            },
+            {
+              "text": "A ",
+              "x": 426.9375,
+              "baseline": 72.2424,
+              "advance": 14.265625,
+              "size": 18
+            },
+            {
+              "text": "long",
+              "x": 441.203125,
+              "baseline": 72.2424,
+              "advance": 33.265625,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 77.6748,
+          "height": 21.6648,
+          "x": 329,
+          "width": 210.640625,
+          "fragments": [
+            {
+              "text": "paragraph ",
+              "x": 329,
+              "baseline": 93.9072,
+              "advance": 83.203125,
+              "size": 18
+            },
+            {
+              "text": "with ",
+              "x": 412.203125,
+              "baseline": 93.9072,
+              "advance": 36.65625,
+              "size": 18
+            },
+            {
+              "text": "enough ",
+              "x": 448.859375,
+              "baseline": 93.9072,
+              "advance": 61.703125,
+              "size": 18
+            },
+            {
+              "text": "text",
+              "x": 510.5625,
+              "baseline": 93.9072,
+              "advance": 29.078125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 99.3396,
+          "height": 21.6648,
+          "x": 329,
+          "width": 181.875,
+          "fragments": [
+            {
+              "text": "to ",
+              "x": 329,
+              "baseline": 115.572,
+              "advance": 19.40625,
+              "size": 18
+            },
+            {
+              "text": "wrap ",
+              "x": 348.40625,
+              "baseline": 115.572,
+              "advance": 42.296875,
+              "size": 18
+            },
+            {
+              "text": "through ",
+              "x": 390.703125,
+              "baseline": 115.572,
+              "advance": 64.046875,
+              "size": 18
+            },
+            {
+              "text": "several",
+              "x": 454.75,
+              "baseline": 115.572,
+              "advance": 56.125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 121.0044,
+          "height": 21.6648,
+          "x": 329,
+          "width": 200.578125,
+          "fragments": [
+            {
+              "text": "lines ",
+              "x": 329,
+              "baseline": 137.23680000000002,
+              "advance": 40.796875,
+              "size": 18
+            },
+            {
+              "text": "and ",
+              "x": 369.796875,
+              "baseline": 137.23680000000002,
+              "advance": 33.234375,
+              "size": 18
+            },
+            {
+              "text": "exercise ",
+              "x": 403.03125,
+              "baseline": 137.23680000000002,
+              "advance": 68.59375,
+              "size": 18
+            },
+            {
+              "text": "the ",
+              "x": 471.625,
+              "baseline": 137.23680000000002,
+              "advance": 28.875,
+              "size": 18
+            },
+            {
+              "text": "text",
+              "x": 500.5,
+              "baseline": 137.23680000000002,
+              "advance": 29.078125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 142.6692,
+          "height": 21.6648,
+          "x": 329,
+          "width": 84.953125,
+          "fragments": [
+            {
+              "text": "box ",
+              "x": 329,
+              "baseline": 158.90159999999997,
+              "advance": 31.65625,
+              "size": 18
+            },
+            {
+              "text": "height.",
+              "x": 360.65625,
+              "baseline": 158.90159999999997,
+              "advance": 53.296875,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 164.334,
+          "height": 21.6648,
+          "x": 329,
+          "width": 178.9375,
+          "fragments": [
+            {
+              "text": "Second ",
+              "x": 329,
+              "baseline": 180.5664,
+              "advance": 62.734375,
+              "size": 18
+            },
+            {
+              "text": "paragraph ",
+              "x": 391.734375,
+              "baseline": 180.5664,
+              "advance": 83.203125,
+              "size": 18
+            },
+            {
+              "text": "with",
+              "x": 474.9375,
+              "baseline": 180.5664,
+              "advance": 33,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 185.99880000000002,
+          "height": 28.886400000000002,
+          "x": 329,
+          "width": 115.890625,
+          "fragments": [
+            {
+              "text": "larger",
+              "x": 329,
+              "baseline": 207.64200000000002,
+              "advance": 59.328125,
+              "size": 24
+            },
+            {
+              "text": " ",
+              "x": 388.328125,
+              "baseline": 207.64200000000002,
+              "advance": 3.65625,
+              "size": 18
+            },
+            {
+              "text": "words.",
+              "x": 391.984375,
+              "baseline": 207.64200000000002,
+              "advance": 52.90625,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 276.01,
+          "height": 14.443200000000001,
+          "x": 59,
+          "width": 210.03125,
+          "fragments": [
+            {
+              "text": "shrink ",
+              "x": 59,
+              "baseline": 286.8316,
+              "advance": 34.203125,
+              "size": 12
+            },
+            {
+              "text": "top: ",
+              "x": 93.203125,
+              "baseline": 286.8316,
+              "advance": 23.09375,
+              "size": 12
+            },
+            {
+              "text": "A ",
+              "x": 116.296875,
+              "baseline": 286.8316,
+              "advance": 9.515625,
+              "size": 12
+            },
+            {
+              "text": "long ",
+              "x": 125.8125,
+              "baseline": 286.8316,
+              "advance": 24.609375,
+              "size": 12
+            },
+            {
+              "text": "paragraph ",
+              "x": 150.421875,
+              "baseline": 286.8316,
+              "advance": 55.484375,
+              "size": 12
+            },
+            {
+              "text": "with ",
+              "x": 205.90625,
+              "baseline": 286.8316,
+              "advance": 24.4375,
+              "size": 12
+            },
+            {
+              "text": "enough",
+              "x": 230.34375,
+              "baseline": 286.8316,
+              "advance": 38.6875,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 290.4532,
+          "height": 14.443200000000001,
+          "x": 59,
+          "width": 192.4375,
+          "fragments": [
+            {
+              "text": "text ",
+              "x": 59,
+              "baseline": 301.27479999999997,
+              "advance": 21.828125,
+              "size": 12
+            },
+            {
+              "text": "to ",
+              "x": 80.828125,
+              "baseline": 301.27479999999997,
+              "advance": 12.9375,
+              "size": 12
+            },
+            {
+              "text": "wrap ",
+              "x": 93.765625,
+              "baseline": 301.27479999999997,
+              "advance": 28.21875,
+              "size": 12
+            },
+            {
+              "text": "through ",
+              "x": 121.984375,
+              "baseline": 301.27479999999997,
+              "advance": 42.6875,
+              "size": 12
+            },
+            {
+              "text": "several ",
+              "x": 164.671875,
+              "baseline": 301.27479999999997,
+              "advance": 39.859375,
+              "size": 12
+            },
+            {
+              "text": "lines ",
+              "x": 204.53125,
+              "baseline": 301.27479999999997,
+              "advance": 27.1875,
+              "size": 12
+            },
+            {
+              "text": "and",
+              "x": 231.71875,
+              "baseline": 301.27479999999997,
+              "advance": 19.71875,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 304.89639999999997,
+          "height": 14.443200000000001,
+          "x": 59,
+          "width": 143.4375,
+          "fragments": [
+            {
+              "text": "exercise ",
+              "x": 59,
+              "baseline": 315.71799999999996,
+              "advance": 45.734375,
+              "size": 12
+            },
+            {
+              "text": "the ",
+              "x": 104.734375,
+              "baseline": 315.71799999999996,
+              "advance": 19.25,
+              "size": 12
+            },
+            {
+              "text": "text ",
+              "x": 123.984375,
+              "baseline": 315.71799999999996,
+              "advance": 21.828125,
+              "size": 12
+            },
+            {
+              "text": "box ",
+              "x": 145.8125,
+              "baseline": 315.71799999999996,
+              "advance": 21.109375,
+              "size": 12
+            },
+            {
+              "text": "height.",
+              "x": 166.921875,
+              "baseline": 315.71799999999996,
+              "advance": 35.515625,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 319.3396,
+          "height": 19.2576,
+          "x": 59,
+          "width": 199.046875,
+          "fragments": [
+            {
+              "text": "Second ",
+              "x": 59,
+              "baseline": 333.76840000000004,
+              "advance": 41.828125,
+              "size": 12
+            },
+            {
+              "text": "paragraph ",
+              "x": 100.828125,
+              "baseline": 333.76840000000004,
+              "advance": 55.484375,
+              "size": 12
+            },
+            {
+              "text": "with ",
+              "x": 156.3125,
+              "baseline": 333.76840000000004,
+              "advance": 24.4375,
+              "size": 12
+            },
+            {
+              "text": "larger",
+              "x": 180.75,
+              "baseline": 333.76840000000004,
+              "advance": 39.578125,
+              "size": 16
+            },
+            {
+              "text": " ",
+              "x": 220.328125,
+              "baseline": 333.76840000000004,
+              "advance": 2.4375,
+              "size": 12
+            },
+            {
+              "text": "words.",
+              "x": 222.765625,
+              "baseline": 333.76840000000004,
+              "advance": 35.28125,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 277.4228,
+          "height": 14.443200000000001,
+          "x": 329,
+          "width": 189.640625,
+          "fragments": [
+            {
+              "text": "shrink ",
+              "x": 329,
+              "baseline": 288.2444,
+              "advance": 34.203125,
+              "size": 12
+            },
+            {
+              "text": "bottom: ",
+              "x": 363.203125,
+              "baseline": 288.2444,
+              "advance": 43.828125,
+              "size": 12
+            },
+            {
+              "text": "A ",
+              "x": 407.03125,
+              "baseline": 288.2444,
+              "advance": 9.515625,
+              "size": 12
+            },
+            {
+              "text": "long ",
+              "x": 416.546875,
+              "baseline": 288.2444,
+              "advance": 24.609375,
+              "size": 12
+            },
+            {
+              "text": "paragraph ",
+              "x": 441.15625,
+              "baseline": 288.2444,
+              "advance": 55.484375,
+              "size": 12
+            },
+            {
+              "text": "with",
+              "x": 496.640625,
+              "baseline": 288.2444,
+              "advance": 22,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 291.866,
+          "height": 14.443200000000001,
+          "x": 329,
+          "width": 184.21875,
+          "fragments": [
+            {
+              "text": "enough ",
+              "x": 329,
+              "baseline": 302.6876,
+              "advance": 41.125,
+              "size": 12
+            },
+            {
+              "text": "text ",
+              "x": 370.125,
+              "baseline": 302.6876,
+              "advance": 21.828125,
+              "size": 12
+            },
+            {
+              "text": "to ",
+              "x": 391.953125,
+              "baseline": 302.6876,
+              "advance": 12.9375,
+              "size": 12
+            },
+            {
+              "text": "wrap ",
+              "x": 404.890625,
+              "baseline": 302.6876,
+              "advance": 28.21875,
+              "size": 12
+            },
+            {
+              "text": "through ",
+              "x": 433.109375,
+              "baseline": 302.6876,
+              "advance": 42.6875,
+              "size": 12
+            },
+            {
+              "text": "several",
+              "x": 475.796875,
+              "baseline": 302.6876,
+              "advance": 37.421875,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 306.3092,
+          "height": 14.443200000000001,
+          "x": 329,
+          "width": 192.78125,
+          "fragments": [
+            {
+              "text": "lines ",
+              "x": 329,
+              "baseline": 317.13079999999997,
+              "advance": 27.1875,
+              "size": 12
+            },
+            {
+              "text": "and ",
+              "x": 356.1875,
+              "baseline": 317.13079999999997,
+              "advance": 22.15625,
+              "size": 12
+            },
+            {
+              "text": "exercise ",
+              "x": 378.34375,
+              "baseline": 317.13079999999997,
+              "advance": 45.734375,
+              "size": 12
+            },
+            {
+              "text": "the ",
+              "x": 424.078125,
+              "baseline": 317.13079999999997,
+              "advance": 19.25,
+              "size": 12
+            },
+            {
+              "text": "text ",
+              "x": 443.328125,
+              "baseline": 317.13079999999997,
+              "advance": 21.828125,
+              "size": 12
+            },
+            {
+              "text": "box ",
+              "x": 465.15625,
+              "baseline": 317.13079999999997,
+              "advance": 21.109375,
+              "size": 12
+            },
+            {
+              "text": "height.",
+              "x": 486.265625,
+              "baseline": 317.13079999999997,
+              "advance": 35.515625,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 320.75239999999997,
+          "height": 19.2576,
+          "x": 329,
+          "width": 199.046875,
+          "fragments": [
+            {
+              "text": "Second ",
+              "x": 329,
+              "baseline": 335.1812,
+              "advance": 41.828125,
+              "size": 12
+            },
+            {
+              "text": "paragraph ",
+              "x": 370.828125,
+              "baseline": 335.1812,
+              "advance": 55.484375,
+              "size": 12
+            },
+            {
+              "text": "with ",
+              "x": 426.3125,
+              "baseline": 335.1812,
+              "advance": 24.4375,
+              "size": 12
+            },
+            {
+              "text": "larger",
+              "x": 450.75,
+              "baseline": 335.1812,
+              "advance": 39.578125,
+              "size": 16
+            },
+            {
+              "text": " ",
+              "x": 490.328125,
+              "baseline": 335.1812,
+              "advance": 2.4375,
+              "size": 12
+            },
+            {
+              "text": "words.",
+              "x": 492.765625,
+              "baseline": 335.1812,
+              "advance": 35.28125,
+              "size": 12
+            }
+          ]
+        },
+        {
+          "top": 496.01,
+          "height": 21.6648,
+          "x": 59,
+          "width": 183.21875,
+          "fragments": [
+            {
+              "text": "resize ",
+              "x": 59,
+              "baseline": 512.2424,
+              "advance": 49.578125,
+              "size": 18
+            },
+            {
+              "text": "shape ",
+              "x": 108.578125,
+              "baseline": 512.2424,
+              "advance": 51.46875,
+              "size": 18
+            },
+            {
+              "text": "top: ",
+              "x": 160.046875,
+              "baseline": 512.2424,
+              "advance": 34.640625,
+              "size": 18
+            },
+            {
+              "text": "A ",
+              "x": 194.6875,
+              "baseline": 512.2424,
+              "advance": 14.265625,
+              "size": 18
+            },
+            {
+              "text": "long",
+              "x": 208.953125,
+              "baseline": 512.2424,
+              "advance": 33.265625,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 517.6748,
+          "height": 21.6648,
+          "x": 59,
+          "width": 210.640625,
+          "fragments": [
+            {
+              "text": "paragraph ",
+              "x": 59,
+              "baseline": 533.9072,
+              "advance": 83.203125,
+              "size": 18
+            },
+            {
+              "text": "with ",
+              "x": 142.203125,
+              "baseline": 533.9072,
+              "advance": 36.65625,
+              "size": 18
+            },
+            {
+              "text": "enough ",
+              "x": 178.859375,
+              "baseline": 533.9072,
+              "advance": 61.703125,
+              "size": 18
+            },
+            {
+              "text": "text",
+              "x": 240.5625,
+              "baseline": 533.9072,
+              "advance": 29.078125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 539.3396,
+          "height": 21.6648,
+          "x": 59,
+          "width": 181.875,
+          "fragments": [
+            {
+              "text": "to ",
+              "x": 59,
+              "baseline": 555.572,
+              "advance": 19.40625,
+              "size": 18
+            },
+            {
+              "text": "wrap ",
+              "x": 78.40625,
+              "baseline": 555.572,
+              "advance": 42.296875,
+              "size": 18
+            },
+            {
+              "text": "through ",
+              "x": 120.703125,
+              "baseline": 555.572,
+              "advance": 64.046875,
+              "size": 18
+            },
+            {
+              "text": "several",
+              "x": 184.75,
+              "baseline": 555.572,
+              "advance": 56.125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 561.0044,
+          "height": 21.6648,
+          "x": 59,
+          "width": 200.578125,
+          "fragments": [
+            {
+              "text": "lines ",
+              "x": 59,
+              "baseline": 577.2368,
+              "advance": 40.796875,
+              "size": 18
+            },
+            {
+              "text": "and ",
+              "x": 99.796875,
+              "baseline": 577.2368,
+              "advance": 33.234375,
+              "size": 18
+            },
+            {
+              "text": "exercise ",
+              "x": 133.03125,
+              "baseline": 577.2368,
+              "advance": 68.59375,
+              "size": 18
+            },
+            {
+              "text": "the ",
+              "x": 201.625,
+              "baseline": 577.2368,
+              "advance": 28.875,
+              "size": 18
+            },
+            {
+              "text": "text",
+              "x": 230.5,
+              "baseline": 577.2368,
+              "advance": 29.078125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 582.6692,
+          "height": 21.6648,
+          "x": 59,
+          "width": 84.953125,
+          "fragments": [
+            {
+              "text": "box ",
+              "x": 59,
+              "baseline": 598.9016,
+              "advance": 31.65625,
+              "size": 18
+            },
+            {
+              "text": "height.",
+              "x": 90.65625,
+              "baseline": 598.9016,
+              "advance": 53.296875,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 604.334,
+          "height": 21.6648,
+          "x": 59,
+          "width": 178.9375,
+          "fragments": [
+            {
+              "text": "Second ",
+              "x": 59,
+              "baseline": 620.5663999999999,
+              "advance": 62.734375,
+              "size": 18
+            },
+            {
+              "text": "paragraph ",
+              "x": 121.734375,
+              "baseline": 620.5663999999999,
+              "advance": 83.203125,
+              "size": 18
+            },
+            {
+              "text": "with",
+              "x": 204.9375,
+              "baseline": 620.5663999999999,
+              "advance": 33,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 625.9988,
+          "height": 28.886400000000002,
+          "x": 59,
+          "width": 115.890625,
+          "fragments": [
+            {
+              "text": "larger",
+              "x": 59,
+              "baseline": 647.6419999999999,
+              "advance": 59.328125,
+              "size": 24
+            },
+            {
+              "text": " ",
+              "x": 118.328125,
+              "baseline": 647.6419999999999,
+              "advance": 3.65625,
+              "size": 18
+            },
+            {
+              "text": "words.",
+              "x": 121.984375,
+              "baseline": 647.6419999999999,
+              "advance": 52.90625,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 496.01,
+          "height": 21.6648,
+          "x": 329,
+          "width": 177.40625,
+          "fragments": [
+            {
+              "text": "resize ",
+              "x": 329,
+              "baseline": 512.2424,
+              "advance": 49.578125,
+              "size": 18
+            },
+            {
+              "text": "shape ",
+              "x": 378.578125,
+              "baseline": 512.2424,
+              "advance": 51.46875,
+              "size": 18
+            },
+            {
+              "text": "bottom: ",
+              "x": 430.046875,
+              "baseline": 512.2424,
+              "advance": 65.75,
+              "size": 18
+            },
+            {
+              "text": "A",
+              "x": 495.796875,
+              "baseline": 512.2424,
+              "advance": 10.609375,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 517.6748,
+          "height": 21.6648,
+          "x": 329,
+          "width": 153.125,
+          "fragments": [
+            {
+              "text": "long ",
+              "x": 329,
+              "baseline": 533.9072,
+              "advance": 36.921875,
+              "size": 18
+            },
+            {
+              "text": "paragraph ",
+              "x": 365.921875,
+              "baseline": 533.9072,
+              "advance": 83.203125,
+              "size": 18
+            },
+            {
+              "text": "with",
+              "x": 449.125,
+              "baseline": 533.9072,
+              "advance": 33,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 539.3396,
+          "height": 21.6648,
+          "x": 329,
+          "width": 152.484375,
+          "fragments": [
+            {
+              "text": "enough ",
+              "x": 329,
+              "baseline": 555.572,
+              "advance": 61.703125,
+              "size": 18
+            },
+            {
+              "text": "text ",
+              "x": 390.703125,
+              "baseline": 555.572,
+              "advance": 32.734375,
+              "size": 18
+            },
+            {
+              "text": "to ",
+              "x": 423.4375,
+              "baseline": 555.572,
+              "advance": 19.40625,
+              "size": 18
+            },
+            {
+              "text": "wrap",
+              "x": 442.84375,
+              "baseline": 555.572,
+              "advance": 38.640625,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 561.0044,
+          "height": 21.6648,
+          "x": 329,
+          "width": 194.203125,
+          "fragments": [
+            {
+              "text": "through ",
+              "x": 329,
+              "baseline": 577.2368,
+              "advance": 64.046875,
+              "size": 18
+            },
+            {
+              "text": "several ",
+              "x": 393.046875,
+              "baseline": 577.2368,
+              "advance": 59.78125,
+              "size": 18
+            },
+            {
+              "text": "lines ",
+              "x": 452.828125,
+              "baseline": 577.2368,
+              "advance": 40.796875,
+              "size": 18
+            },
+            {
+              "text": "and",
+              "x": 493.625,
+              "baseline": 577.2368,
+              "advance": 29.578125,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 582.6692,
+          "height": 21.6648,
+          "x": 329,
+          "width": 158.203125,
+          "fragments": [
+            {
+              "text": "exercise ",
+              "x": 329,
+              "baseline": 598.9016,
+              "advance": 68.59375,
+              "size": 18
+            },
+            {
+              "text": "the ",
+              "x": 397.59375,
+              "baseline": 598.9016,
+              "advance": 28.875,
+              "size": 18
+            },
+            {
+              "text": "text ",
+              "x": 426.46875,
+              "baseline": 598.9016,
+              "advance": 32.734375,
+              "size": 18
+            },
+            {
+              "text": "box",
+              "x": 459.203125,
+              "baseline": 598.9016,
+              "advance": 28,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 604.3340000000001,
+          "height": 21.6648,
+          "x": 329,
+          "width": 53.296875,
+          "fragments": [
+            {
+              "text": "height.",
+              "x": 329,
+              "baseline": 620.5664,
+              "advance": 53.296875,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 625.9988,
+          "height": 21.6648,
+          "x": 329,
+          "width": 178.9375,
+          "fragments": [
+            {
+              "text": "Second ",
+              "x": 329,
+              "baseline": 642.2312,
+              "advance": 62.734375,
+              "size": 18
+            },
+            {
+              "text": "paragraph ",
+              "x": 391.734375,
+              "baseline": 642.2312,
+              "advance": 83.203125,
+              "size": 18
+            },
+            {
+              "text": "with",
+              "x": 474.9375,
+              "baseline": 642.2312,
+              "advance": 33,
+              "size": 18
+            }
+          ]
+        },
+        {
+          "top": 647.6636,
+          "height": 28.886400000000002,
+          "x": 329,
+          "width": 115.890625,
+          "fragments": [
+            {
+              "text": "larger",
+              "x": 329,
+              "baseline": 669.3068,
+              "advance": 59.328125,
+              "size": 24
+            },
+            {
+              "text": " ",
+              "x": 388.328125,
+              "baseline": 669.3068,
+              "advance": 3.65625,
+              "size": 18
+            },
+            {
+              "text": "words.",
+              "x": 391.984375,
+              "baseline": 669.3068,
+              "advance": 52.90625,
+              "size": 18
+            }
+          ]
+        }
+      ],
+      "rules": [],
+      "images": []
+    }
+  ]
+}

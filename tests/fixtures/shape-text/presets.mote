@@ -1,0 +1,30 @@
+#shape(kind="rectangle",position={x=pt(54),y=pt(48),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[rectangle: text wraps inside the preset bounds.]
+]
+#shape(kind="round_rect",position={x=pt(324),y=pt(48),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[round rectangle: text wraps inside the preset bounds.]
+]
+#shape(kind="ellipse",position={x=pt(54),y=pt(188),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[ellipse: text wraps inside the preset bounds.]
+]
+#shape(kind="triangle",position={x=pt(324),y=pt(188),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[triangle: text wraps inside the preset bounds.]
+]
+#shape(kind="diamond",position={x=pt(54),y=pt(328),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[diamond: text wraps inside the preset bounds.]
+]
+#shape(kind="hexagon",position={x=pt(324),y=pt(328),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[hexagon: text wraps inside the preset bounds.]
+]
+#shape(kind="chevron",position={x=pt(54),y=pt(468),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[chevron: text wraps inside the preset bounds.]
+]
+#shape(kind="cloud",position={x=pt(324),y=pt(468),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[cloud: text wraps inside the preset bounds.]
+]
+#shape(kind="parallelogram",position={x=pt(54),y=pt(608),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[parallelogram: text wraps inside the preset bounds.]
+]
+#shape(kind="trapezoid",position={x=pt(324),y=pt(608),width=pt(240),height=pt(110)},fill="#e8f0fa",text={size=pt(14),alignment="center",vertical_alignment="center",margin={left=pt(3),right=pt(3)}})[
+#paragraph[trapezoid: text wraps inside the preset bounds.]
+]

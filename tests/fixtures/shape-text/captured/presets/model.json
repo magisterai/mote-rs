@@ -1,0 +1,1280 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "rectangle",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "54pt",
+                "unit": "pt",
+                "value": 54
+              },
+              "y": {
+                "text": "48pt",
+                "unit": "pt",
+                "value": 48
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "rectangle: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "round_rect",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "324pt",
+                "unit": "pt",
+                "value": 324
+              },
+              "y": {
+                "text": "48pt",
+                "unit": "pt",
+                "value": 48
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "round rectangle: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "ellipse",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "54pt",
+                "unit": "pt",
+                "value": 54
+              },
+              "y": {
+                "text": "188pt",
+                "unit": "pt",
+                "value": 188
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "ellipse: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "triangle",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "324pt",
+                "unit": "pt",
+                "value": 324
+              },
+              "y": {
+                "text": "188pt",
+                "unit": "pt",
+                "value": 188
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "triangle: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "diamond",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "54pt",
+                "unit": "pt",
+                "value": 54
+              },
+              "y": {
+                "text": "328pt",
+                "unit": "pt",
+                "value": 328
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "diamond: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "hexagon",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "324pt",
+                "unit": "pt",
+                "value": 324
+              },
+              "y": {
+                "text": "328pt",
+                "unit": "pt",
+                "value": 328
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "hexagon: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "chevron",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "54pt",
+                "unit": "pt",
+                "value": 54
+              },
+              "y": {
+                "text": "468pt",
+                "unit": "pt",
+                "value": 468
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "chevron: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "cloud",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "324pt",
+                "unit": "pt",
+                "value": 324
+              },
+              "y": {
+                "text": "468pt",
+                "unit": "pt",
+                "value": 468
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "cloud: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "parallelogram",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "54pt",
+                "unit": "pt",
+                "value": 54
+              },
+              "y": {
+                "text": "608pt",
+                "unit": "pt",
+                "value": 608
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "parallelogram: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#e8f0fa",
+            "kind": "trapezoid",
+            "position": {
+              "height": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "324pt",
+                "unit": "pt",
+                "value": 324
+              },
+              "y": {
+                "text": "608pt",
+                "unit": "pt",
+                "value": 608
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "margin": {
+                "left": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                },
+                "right": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "trapezoid: text wraps inside the preset bounds."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "rectangle",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "54pt",
+            "unit": "pt",
+            "value": 54
+          },
+          "y": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "rectangle: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "round_rect",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "324pt",
+            "unit": "pt",
+            "value": 324
+          },
+          "y": {
+            "text": "48pt",
+            "unit": "pt",
+            "value": 48
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "round rectangle: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "ellipse",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "54pt",
+            "unit": "pt",
+            "value": 54
+          },
+          "y": {
+            "text": "188pt",
+            "unit": "pt",
+            "value": 188
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "ellipse: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "triangle",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "324pt",
+            "unit": "pt",
+            "value": 324
+          },
+          "y": {
+            "text": "188pt",
+            "unit": "pt",
+            "value": 188
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "triangle: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "diamond",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "54pt",
+            "unit": "pt",
+            "value": 54
+          },
+          "y": {
+            "text": "328pt",
+            "unit": "pt",
+            "value": 328
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "diamond: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "hexagon",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "324pt",
+            "unit": "pt",
+            "value": 324
+          },
+          "y": {
+            "text": "328pt",
+            "unit": "pt",
+            "value": 328
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "hexagon: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "chevron",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "54pt",
+            "unit": "pt",
+            "value": 54
+          },
+          "y": {
+            "text": "468pt",
+            "unit": "pt",
+            "value": 468
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "chevron: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "cloud",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "324pt",
+            "unit": "pt",
+            "value": 324
+          },
+          "y": {
+            "text": "468pt",
+            "unit": "pt",
+            "value": 468
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "cloud: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "parallelogram",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "54pt",
+            "unit": "pt",
+            "value": 54
+          },
+          "y": {
+            "text": "608pt",
+            "unit": "pt",
+            "value": 608
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "parallelogram: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#e8f0fa",
+        "kind": "trapezoid",
+        "position": {
+          "height": {
+            "text": "110pt",
+            "unit": "pt",
+            "value": 110
+          },
+          "width": {
+            "text": "240pt",
+            "unit": "pt",
+            "value": 240
+          },
+          "x": {
+            "text": "324pt",
+            "unit": "pt",
+            "value": 324
+          },
+          "y": {
+            "text": "608pt",
+            "unit": "pt",
+            "value": 608
+          }
+        },
+        "text": {
+          "alignment": "center",
+          "margin": {
+            "left": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            },
+            "right": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "trapezoid: text wraps inside the preset bounds."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

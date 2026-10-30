@@ -1,0 +1,520 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#eff5fc",
+            "position": {
+              "height": {
+                "text": "130pt",
+                "unit": "pt",
+                "value": 130
+              },
+              "width": {
+                "text": "220pt",
+                "unit": "pt",
+                "value": 220
+              },
+              "x": {
+                "text": "90pt",
+                "unit": "pt",
+                "value": 90
+              },
+              "y": {
+                "text": "90pt",
+                "unit": "pt",
+                "value": 90
+              }
+            },
+            "rotation": "25",
+            "text": {
+              "fit": "clip",
+              "margin": {
+                "left": {
+                  "text": "5pt",
+                  "unit": "pt",
+                  "value": 5
+                },
+                "top": {
+                  "text": "5pt",
+                  "unit": "pt",
+                  "value": 5
+                }
+              },
+              "size": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "highlight": "#fff6aa"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Rotated"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "linked text"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " with clipping near the edge of a shape."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second paragraph."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#f3eafc",
+            "flip_horizontal": true,
+            "flip_vertical": true,
+            "kind": "chevron",
+            "position": {
+              "height": {
+                "text": "130pt",
+                "unit": "pt",
+                "value": 130
+              },
+              "width": {
+                "text": "220pt",
+                "unit": "pt",
+                "value": 220
+              },
+              "x": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "y": {
+                "text": "330pt",
+                "unit": "pt",
+                "value": 330
+              }
+            },
+            "rotation": "-30",
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text turns with the shape and remains readable through flips."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "width": {
+                "text": "220pt",
+                "unit": "pt",
+                "value": 220
+              },
+              "x": {
+                "text": "90pt",
+                "unit": "pt",
+                "value": 90
+              },
+              "y": {
+                "text": "570pt",
+                "unit": "pt",
+                "value": 570
+              }
+            },
+            "rotation": "90",
+            "text": {
+              "margin": {
+                "left": {
+                  "text": "5pt",
+                  "unit": "pt",
+                  "value": 5
+                },
+                "top": {
+                  "text": "5pt",
+                  "unit": "pt",
+                  "value": 5
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "checked": true
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Rotated task"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "checked": false
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Another task"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#eff5fc",
+        "position": {
+          "height": {
+            "text": "130pt",
+            "unit": "pt",
+            "value": 130
+          },
+          "width": {
+            "text": "220pt",
+            "unit": "pt",
+            "value": 220
+          },
+          "x": {
+            "text": "90pt",
+            "unit": "pt",
+            "value": 90
+          },
+          "y": {
+            "text": "90pt",
+            "unit": "pt",
+            "value": 90
+          }
+        },
+        "rotation": "25",
+        "text": {
+          "fit": "clip",
+          "margin": {
+            "left": {
+              "text": "5pt",
+              "unit": "pt",
+              "value": 5
+            },
+            "top": {
+              "text": "5pt",
+              "unit": "pt",
+              "value": 5
+            }
+          },
+          "size": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "highlight": "#fff6aa"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Rotated"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "linked text"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " with clipping near the edge of a shape."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second paragraph."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#f3eafc",
+        "flip_horizontal": true,
+        "flip_vertical": true,
+        "kind": "chevron",
+        "position": {
+          "height": {
+            "text": "130pt",
+            "unit": "pt",
+            "value": 130
+          },
+          "width": {
+            "text": "220pt",
+            "unit": "pt",
+            "value": 220
+          },
+          "x": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          },
+          "y": {
+            "text": "330pt",
+            "unit": "pt",
+            "value": 330
+          }
+        },
+        "rotation": "-30",
+        "text": {
+          "alignment": "center",
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text turns with the shape and remains readable through flips."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "position": {
+          "height": {
+            "text": "100pt",
+            "unit": "pt",
+            "value": 100
+          },
+          "width": {
+            "text": "220pt",
+            "unit": "pt",
+            "value": 220
+          },
+          "x": {
+            "text": "90pt",
+            "unit": "pt",
+            "value": 90
+          },
+          "y": {
+            "text": "570pt",
+            "unit": "pt",
+            "value": 570
+          }
+        },
+        "rotation": "90",
+        "text": {
+          "margin": {
+            "left": {
+              "text": "5pt",
+              "unit": "pt",
+              "value": 5
+            },
+            "top": {
+              "text": "5pt",
+              "unit": "pt",
+              "value": 5
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": true
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Rotated task"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": false
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Another task"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

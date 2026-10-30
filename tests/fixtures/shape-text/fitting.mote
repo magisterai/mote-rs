@@ -1,0 +1,24 @@
+#shape(position={x=pt(54),y=pt(54),width=pt(220),height=pt(70)},fill="#eef3ed",text={fit="clip",size=pt(18),vertical_alignment="top",margin={left=pt(5),right=pt(5),top=pt(3),bottom=pt(3)}})[
+#paragraph[clip top: A long paragraph with enough text to wrap through several lines and exercise the text box height.]
+#paragraph[Second paragraph with #span(size=pt(24))[larger] words.]
+]
+#shape(position={x=pt(324),y=pt(54),width=pt(220),height=pt(70)},fill="#eef3ed",text={fit="clip",size=pt(18),vertical_alignment="bottom",margin={left=pt(5),right=pt(5),top=pt(3),bottom=pt(3)}})[
+#paragraph[clip bottom: A long paragraph with enough text to wrap through several lines and exercise the text box height.]
+#paragraph[Second paragraph with #span(size=pt(24))[larger] words.]
+]
+#shape(position={x=pt(54),y=pt(274),width=pt(220),height=pt(70)},fill="#eef3ed",text={fit="shrink",size=pt(18),vertical_alignment="top",margin={left=pt(5),right=pt(5),top=pt(3),bottom=pt(3)}})[
+#paragraph[shrink top: A long paragraph with enough text to wrap through several lines and exercise the text box height.]
+#paragraph[Second paragraph with #span(size=pt(24))[larger] words.]
+]
+#shape(position={x=pt(324),y=pt(274),width=pt(220),height=pt(70)},fill="#eef3ed",text={fit="shrink",size=pt(18),vertical_alignment="bottom",margin={left=pt(5),right=pt(5),top=pt(3),bottom=pt(3)}})[
+#paragraph[shrink bottom: A long paragraph with enough text to wrap through several lines and exercise the text box height.]
+#paragraph[Second paragraph with #span(size=pt(24))[larger] words.]
+]
+#shape(position={x=pt(54),y=pt(494),width=pt(220),height=pt(70)},fill="#eef3ed",text={fit="resize_shape",size=pt(18),vertical_alignment="top",margin={left=pt(5),right=pt(5),top=pt(3),bottom=pt(3)}})[
+#paragraph[resize shape top: A long paragraph with enough text to wrap through several lines and exercise the text box height.]
+#paragraph[Second paragraph with #span(size=pt(24))[larger] words.]
+]
+#shape(position={x=pt(324),y=pt(494),width=pt(220),height=pt(70)},fill="#eef3ed",text={fit="resize_shape",size=pt(18),vertical_alignment="bottom",margin={left=pt(5),right=pt(5),top=pt(3),bottom=pt(3)}})[
+#paragraph[resize shape bottom: A long paragraph with enough text to wrap through several lines and exercise the text box height.]
+#paragraph[Second paragraph with #span(size=pt(24))[larger] words.]
+]

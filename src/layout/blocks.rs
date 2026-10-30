@@ -108,7 +108,8 @@ pub(super) fn prepare_content(
                         "native shapes in table cells are not yet supported".into(),
                     ));
                 }
-                let mut drawing = super::drawings::Drawing::prepare(element)?;
+                let mut drawing =
+                    super::drawings::Drawing::prepare(element, styles, builder.measurer)?;
                 drawing.anchors = std::mem::take(&mut builder.pending_anchors);
                 builder.blocks.push(Block::Drawing(Box::new(drawing)));
                 builder.flow_start = false;
@@ -412,6 +413,7 @@ impl BlockBuilder<'_, '_, '_> {
                             level: item_level,
                             hanging: item_geometry.hanging,
                             marker: ListMarker {
+                                task_mark: Default::default(),
                                 kind,
                                 checked: values::boolean(&item.attributes, "checked"),
                                 slot: [0.0; 4],

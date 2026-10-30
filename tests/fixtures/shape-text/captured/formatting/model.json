@@ -1,0 +1,848 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Accent",
+      "type": "paragraph",
+      "run": {
+        "bold": true,
+        "color": "#28664d"
+      },
+      "properties": {
+        "run": {
+          "bold": true,
+          "color": "#28664d"
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "color": "#cc0000",
+            "position": {
+              "height": {
+                "text": "650pt",
+                "unit": "pt",
+                "value": 650
+              },
+              "width": {
+                "text": "510pt",
+                "unit": "pt",
+                "value": 510
+              },
+              "x": {
+                "text": "54pt",
+                "unit": "pt",
+                "value": 54
+              },
+              "y": {
+                "text": "54pt",
+                "unit": "pt",
+                "value": 54
+              }
+            },
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            },
+            "text": {
+              "color": "#112233",
+              "list": {
+                "spacing_after": {
+                  "text": "3pt",
+                  "unit": "pt",
+                  "value": 3
+                }
+              },
+              "margin": {
+                "left": {
+                  "text": "8pt",
+                  "unit": "pt",
+                  "value": 8
+                },
+                "top": {
+                  "text": "8pt",
+                  "unit": "pt",
+                  "value": 8
+                }
+              },
+              "size": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "spacing_after": {
+                "text": "5pt",
+                "unit": "pt",
+                "value": 5
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 2
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Drawing text"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "Accent"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Named style"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " with "
+                },
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "italic"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "highlight": "#ffff99",
+                    "underline": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Highlight"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "strike": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "strike"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "double_strike": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "double"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "small_caps": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Small Caps"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "code",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "preserved  code"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "tab",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": "tab "
+                },
+                {
+                  "kind": "line_break",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": "line break."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A linked phrase"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " after wrapping text with ordinary words."
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "checked": true
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Checked task"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "checked": false
+                  },
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Unchecked task"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Parent"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "list_item",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Nested bullet"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "ordered_list",
+              "category": "block",
+              "attributes": {
+                "format": "upper_roman",
+                "start": 3
+              },
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Third"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Fourth"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "blockquote",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quoted text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "color": "#cc0000",
+        "position": {
+          "height": {
+            "text": "650pt",
+            "unit": "pt",
+            "value": 650
+          },
+          "width": {
+            "text": "510pt",
+            "unit": "pt",
+            "value": 510
+          },
+          "x": {
+            "text": "54pt",
+            "unit": "pt",
+            "value": 54
+          },
+          "y": {
+            "text": "54pt",
+            "unit": "pt",
+            "value": 54
+          }
+        },
+        "size": {
+          "text": "20pt",
+          "unit": "pt",
+          "value": 20
+        },
+        "text": {
+          "color": "#112233",
+          "list": {
+            "spacing_after": {
+              "text": "3pt",
+              "unit": "pt",
+              "value": 3
+            }
+          },
+          "margin": {
+            "left": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8
+            },
+            "top": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8
+            }
+          },
+          "size": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "spacing_after": {
+            "text": "5pt",
+            "unit": "pt",
+            "value": 5
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Drawing text"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "style": "Accent"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Named style"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "bold"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " with "
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "italic"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "highlight": "#ffff99",
+                "underline": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Highlight"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "strike": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "strike"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "double_strike": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "double"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "small_caps": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Small Caps"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "preserved  code"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "tab "
+            },
+            {
+              "kind": "line_break",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "line break."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A linked phrase"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " after wrapping text with ordinary words."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": true
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Checked task"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": false
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Unchecked task"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Parent"
+                    }
+                  ]
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Nested bullet"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "attributes": {
+            "format": "upper_roman",
+            "start": 3
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Third"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Fourth"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quoted text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

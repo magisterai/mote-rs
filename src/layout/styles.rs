@@ -151,6 +151,34 @@ impl<'document> LayoutStyleResolver<'document> {
         }
         style
     }
+    pub(super) fn drawing_paragraph(
+        &self,
+        inherited: &TextStyle,
+        properties: &Properties,
+        implicit: &str,
+    ) -> ParagraphStyle {
+        let mut style = ParagraphStyle {
+            text: inherited.clone(),
+            spacing_after: 0.0,
+            line_spacing: LineSpacing::Multiple(1.0),
+            line_multiplier: 1.0,
+            ..Default::default()
+        };
+        let explicit = values::text(properties, "style");
+        if !explicit.is_empty() {
+            self.apply_named_paragraph(&mut style, &explicit);
+        } else if self.find_declaration(implicit).is_some() {
+            self.apply_named_paragraph(&mut style, implicit);
+        }
+        self.apply_run(&mut style.text, properties);
+        self.apply_paragraph(&mut style, properties);
+        if style.line_height == 0.0 {
+            style.line_height = style
+                .line_spacing
+                .height(&style.text, style.line_multiplier);
+        }
+        style
+    }
     pub fn inline(&self, element: &Element, inherited: &TextStyle) -> TextStyle {
         let mut style = inherited.clone();
         let (mut bold, mut italic) = emphasis(style.measurement.variant);
@@ -205,7 +233,7 @@ impl<'document> LayoutStyleResolver<'document> {
             _ => None,
         };
     }
-    fn apply_run(&self, style: &mut TextStyle, properties: &Properties) {
+    pub(super) fn apply_run(&self, style: &mut TextStyle, properties: &Properties) {
         let font = values::text(properties, "font");
         if !font.is_empty() {
             self.apply_font(style, &font);

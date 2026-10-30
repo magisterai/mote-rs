@@ -1,0 +1,11 @@
+#style(name="Accent",run={color="#28664d",bold=true})
+#shape(position={x=pt(54),y=pt(54),width=pt(510),height=pt(650)},size=pt(20),color="#cc0000",text={size=pt(14),color="#112233",margin={left=pt(8),top=pt(8)},spacing_after=pt(5),list={spacing_after=pt(3)}})[
+#heading(2)[Drawing text]
+#paragraph[#span(style="Accent")[Named style] and #strong[bold] with #emphasis[italic].]
+#paragraph[#span(highlight="#ffff99",underline=true)[Highlight] #span(strike=true)[strike] #span(double_strike=true)[double] #span(small_caps=true)[Small Caps].]
+#paragraph[#code[preserved  code] #tab()tab #line_break()line break.]
+#paragraph[#link("https://example.com")[A linked phrase] after wrapping text with ordinary words.]
+#list[#item(checked=true)[Checked task]#item(checked=false)[Unchecked task]#item[Parent#list[#item[Nested bullet]]]]
+#ordered_list(start=3,format="upper_roman")[#item[Third]#item[Fourth]]
+#blockquote[Quoted text]
+]

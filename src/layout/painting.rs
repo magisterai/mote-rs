@@ -20,6 +20,11 @@ pub struct Rule {
 /// Ordered page operations refer to text lines stored on the same page.
 #[derive(Debug, Clone, PartialEq)]
 pub enum PageOperation {
+    PushRotation {
+        degrees: f64,
+        center: [f64; 2],
+    },
+    PopRotation,
     Path(PaintedPath),
     Text(usize),
     PushClip([f64; 4]),
@@ -75,10 +80,18 @@ pub enum ListMarkerKind {
     Task,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum TaskMark {
+    #[default]
+    Check,
+    Cross,
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct ListMarker {
     pub kind: ListMarkerKind,
     pub checked: bool,
+    pub task_mark: TaskMark,
     pub slot: [f64; 4],
     pub baseline: f64,
     pub font_size: f64,

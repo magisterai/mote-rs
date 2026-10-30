@@ -1,0 +1,10 @@
+#shape(position={x=pt(90),y=pt(90),width=pt(220),height=pt(130)},rotation=25,fill="#eff5fc",text={size=pt(18),margin={left=pt(5),top=pt(5)},fit="clip"})[
+#paragraph[#span(highlight="#fff6aa")[Rotated] #link("https://example.com")[linked text] with clipping near the edge of a shape.]
+#paragraph[Second paragraph.]
+]
+#shape(kind="chevron",position={x=pt(300),y=pt(330),width=pt(220),height=pt(130)},rotation=-30,flip_horizontal=true,flip_vertical=true,fill="#f3eafc",text={size=pt(14),alignment="center",vertical_alignment="center"})[
+#paragraph[Text turns with the shape and remains readable through flips.]
+]
+#shape(position={x=pt(90),y=pt(570),width=pt(220),height=pt(100)},rotation=90,text={size=pt(14),margin={left=pt(5),top=pt(5)}})[
+#list[#item(checked=true)[Rotated task]#item(checked=false)[Another task]]
+]

@@ -50,3 +50,42 @@ pub(crate) fn paragraph_properties(text: &Properties) -> Properties {
     }
     paragraph
 }
+
+pub(crate) const TEXT_ATTRIBUTES: &[&str] = &[
+    "alignment",
+    "background",
+    "bold",
+    "color",
+    "double_strike",
+    "fit",
+    "font",
+    "highlight",
+    "indent",
+    "italic",
+    "line_spacing",
+    "list",
+    "margin",
+    "paragraph",
+    "size",
+    "small_caps",
+    "spacing",
+    "spacing_after",
+    "spacing_before",
+    "strike",
+    "style",
+    "underline",
+    "vertical_alignment",
+];
+
+/// Extract text values without importing a shape's fill, border or placement.
+pub(crate) fn text_attributes(attributes: &Properties) -> Properties {
+    let mut text: Properties = attributes
+        .iter()
+        .filter(|(name, _)| TEXT_ATTRIBUTES.contains(&name.as_str()))
+        .map(|(name, value)| (name.clone(), value.clone()))
+        .collect();
+    if let Some(nested) = object(attributes, "text") {
+        text.extend(nested.clone());
+    }
+    text
+}

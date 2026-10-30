@@ -1,6 +1,7 @@
 mod clipping;
 mod images;
 mod paths;
+mod rotation;
 mod strokes;
 use super::{RenderError, Rendered, color, fonts::RasterFonts, validate_plan};
 use crate::{
@@ -72,10 +73,32 @@ pub fn paint_png(
             .ok_or_else(|| RenderError::Invalid("cannot allocate PNG page".into()))?;
         pixels.fill(tiny_skia::Color::WHITE);
         let mut clips = clipping::Clips::new(width as u32, height as u32)?;
+        let mut rotations = Vec::new();
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 let clip = clips.mask();
                 match operation {
+                    PageOperation::PushRotation { degrees, center } => {
+                        let layer =
+                            Pixmap::new(pixels.width(), pixels.height()).ok_or_else(|| {
+                                RenderError::Invalid("cannot allocate drawing text layer".into())
+                            })?;
+                        let layer_clips = clipping::Clips::new(pixels.width(), pixels.height())?;
+                        rotations.push((
+                            std::mem::replace(&mut pixels, layer),
+                            std::mem::replace(&mut clips, layer_clips),
+                            *degrees,
+                            *center,
+                        ));
+                    }
+                    PageOperation::PopRotation => {
+                        let (parent, parent_clips, degrees, center) =
+                            rotations.pop().expect("validated rotation nesting");
+                        let layer = std::mem::replace(&mut pixels, parent);
+                        clips = parent_clips;
+                        rotation::paint(&mut pixels, layer, degrees, center, scale, clips.mask());
+                    }
+
                     PageOperation::Path(path) => paths::draw(&mut pixels, path, scale, clip)?,
                     PageOperation::PushClip(bounds) => clips.push(*bounds, scale),
                     PageOperation::PopClip => clips.pop(),
@@ -456,10 +479,15 @@ fn paint_marker(
         )?;
     }
     if marker.checked {
-        for (start, end) in [
-            ([2.1 / 8.25, 4.8 / 8.25], [4.2 / 8.25, 5.4 / 8.25]),
-            ([4.2 / 8.25, 5.4 / 8.25], [6.4 / 8.25, 2.3 / 8.25]),
-        ] {
+        let segments = if marker.task_mark == crate::layout::TaskMark::Cross {
+            [([0.18, 0.18], [0.82, 0.82]), ([0.82, 0.18], [0.18, 0.82])]
+        } else {
+            [
+                ([2.1 / 8.25, 4.8 / 8.25], [4.2 / 8.25, 5.4 / 8.25]),
+                ([4.2 / 8.25, 5.4 / 8.25], [6.4 / 8.25, 2.3 / 8.25]),
+            ]
+        };
+        for (start, end) in segments {
             paint_rule(
                 pixels,
                 &Rule {

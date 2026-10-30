@@ -118,7 +118,14 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
             }
         }
     }
-    content(&document.content, "content", false, false, &mut warnings);
+    content(
+        &document.content,
+        "content",
+        false,
+        false,
+        false,
+        &mut warnings,
+    );
     for (index, section) in document.sections.iter().enumerate() {
         let path = format!("section[{index}]");
         unknown(
@@ -173,7 +180,7 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
                 &path,
                 &mut warnings,
             );
-            content(&story.content, &path, false, true, &mut warnings);
+            content(&story.content, &path, false, true, false, &mut warnings);
             story_fallbacks(&story.content, &path, &mut warnings);
         }
     }
@@ -194,6 +201,7 @@ fn content(
     path: &str,
     in_cell: bool,
     flattened: bool,
+    drawing: bool,
     warnings: &mut BTreeSet<String>,
 ) {
     for (index, node) in nodes.iter().enumerate() {
@@ -202,6 +210,49 @@ fn content(
         };
         let path = format!("{path}[{index}].{}", element.kind.as_text());
         let attributes = &element.attributes;
+        if drawing
+            && matches!(
+                element.kind,
+                ElementKind::Table
+                    | ElementKind::Row
+                    | ElementKind::Cell
+                    | ElementKind::Image
+                    | ElementKind::Shape
+                    | ElementKind::Line
+                    | ElementKind::Figure
+                    | ElementKind::Caption
+                    | ElementKind::Break
+            )
+        {
+            warnings.insert(format!("{path} is omitted from native drawing text"));
+            continue;
+        }
+        if drawing
+            && matches!(
+                element.kind,
+                ElementKind::PageNumber
+                    | ElementKind::Label
+                    | ElementKind::Reference
+                    | ElementKind::Bookmark
+                    | ElementKind::Footnote
+                    | ElementKind::Endnote
+            )
+        {
+            warnings.insert(format!("{path} contributes only child text inside native drawings; field, anchor and note semantics are omitted"));
+        }
+        if drawing {
+            for field in [
+                "border",
+                "keep_with_next",
+                "keep_together",
+                "page_break_before",
+                "widow_control",
+            ] {
+                if attributes.contains_key(field) {
+                    warnings.insert(format!("{path}.{field} has no native drawing text effect"));
+                }
+            }
+        }
         let list = matches!(element.kind, ElementKind::List | ElementKind::OrderedList);
         let item = element.kind == ElementKind::ListItem;
         let mut allowed = Vec::new();
@@ -223,7 +274,12 @@ fn content(
                     "alignment",
                     "vertical_alignment",
                 ]);
-                allowed.extend_from_slice(RUN);
+                allowed.extend_from_slice(crate::drawings::TEXT_ATTRIBUTES);
+                if crate::properties::number(attributes, "rotation").unwrap_or(0.0) != 0.0
+                    && contains_link(&element.children)
+                {
+                    warnings.insert(format!("{path} rotates visible text, but PDF link hit areas remain at unrotated positions"));
+                }
             }
             ElementKind::Line => {
                 warnings.insert(format!(
@@ -393,7 +449,8 @@ fn content(
                     "{path}.checkbox does not create a native task marker; use checked"
                 ));
             }
-            if let Some(marker) = attributes.get("marker")
+            if !drawing
+                && let Some(marker) = attributes.get("marker")
                 && !source_marker(&marker.to_text())
             {
                 warnings.insert(format!(
@@ -438,7 +495,14 @@ fn content(
                     element.kind,
                     ElementKind::Blockquote | ElementKind::ListItem
                 ));
-        content(&element.children, &path, cell_context, flattened, warnings);
+        content(
+            &element.children,
+            &path,
+            cell_context,
+            flattened,
+            drawing || element.kind == ElementKind::Shape,
+            warnings,
+        );
     }
 }
 fn nested(
@@ -722,4 +786,11 @@ fn table_style(properties: &Properties, path: &str, warnings: &mut BTreeSet<Stri
             nested(fields, &format!("{path}.{field}"), false, false, warnings);
         }
     }
+}
+
+fn contains_link(nodes: &[Content]) -> bool {
+    nodes.iter().any(|node| {
+        matches!(node, Content::Element(element)
+        if element.kind == ElementKind::Link || contains_link(&element.children))
+    })
 }
