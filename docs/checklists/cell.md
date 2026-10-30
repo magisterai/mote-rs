@@ -29,6 +29,7 @@ and paragraph borders inside cells are omitted; inline highlights remain visible
 
 Microsoft Word visual review remains unreviewed.
 
-Positioned-slide cells need separate coverage for merged slots, conditional style
-precedence, margins, vertical text, clipping and shared physical edges. PowerPoint
+Positioned-slide cells have [captured coverage](../../tests/fixtures/presentation-tables/README.md)
+for merged slots, conditional style precedence, margins, vertical text, clipping
+and shared physical edges. PowerPoint
 wraps table-cell text; `no_wrap` must report that limitation in both slide outputs.

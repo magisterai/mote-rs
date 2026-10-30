@@ -24,5 +24,5 @@ group without a safe split warns and falls back to individual rows.
 Microsoft Word visual review remains unreviewed.
 
 Positioned-slide rows use their containing box and explicit heights rather than
-page fragmentation. Slide sizing and merge continuity need separate output
-coverage; document pagination flags do not imply slide pagination.
+page fragmentation. Slide sizing and merge continuity are covered by the
+[positioned table captures](../../tests/fixtures/presentation-tables/README.md); document pagination flags do not imply slide pagination.
