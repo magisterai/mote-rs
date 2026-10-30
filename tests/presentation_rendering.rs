@@ -199,11 +199,6 @@ fn presentation_output_reports_unsupported_retained_properties_and_structures() 
             );
         }
     }
-    let document = mote::compile("#slide[Loose content]").unwrap();
-    assert!(
-        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
-            .is_err()
-    );
 }
 
 #[test]
@@ -462,5 +457,17 @@ fn speaker_notes_do_not_change_native_slide_content() {
     assert_eq!(
         presentation_capture::projection(&with_notes.output),
         presentation_capture::projection(&without_notes.output)
+    );
+}
+
+#[test]
+fn automatic_slide_geometry_and_rasters_match_captures() {
+    compare_captured_slides(
+        "presentation-automatic",
+        &[
+            ("standard", 48, 6.2, 0),
+            ("media", 48, 0.16, 0),
+            ("fitting", 64, 11.0, 0),
+        ],
     );
 }

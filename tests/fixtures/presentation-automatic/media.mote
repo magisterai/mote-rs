@@ -1,0 +1,17 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#font(name="heading",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(size="wide",slide_number=true)
+#slide[
+# Images and tables
+
+A short introduction.
+
+#image("../images/assets/pattern.png")
+
+#table[#row[#cell[Name]#cell[Value]]#row[#cell[Alpha]#cell[12]]]
+]
+#slide[
+#table[#row[#cell[One]#cell[Two]]#row[#cell[Three]#cell[Four]]]
+
+Text after the table.
+]

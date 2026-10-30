@@ -139,13 +139,11 @@ fn compare_package(bytes: &[u8], manifest: &Value, root: &Path, context: &str) {
 
 #[test]
 fn pending_slide_features_fail_explicitly() {
-    for source in [
-        r##"#slide[Loose text]"##,
+    let document = mote::compile(
         r##"#slide[#box(position={width=inch(2),height=inch(1)},shadow={color="#000"})[Text]]"##,
-    ] {
-        let document = mote::compile(source).unwrap();
-        assert!(mote::pptx::emit(&document).is_err(), "{source}");
-    }
+    )
+    .unwrap();
+    assert!(mote::pptx::emit(&document).is_err());
 }
 #[test]
 fn invalid_physical_slide_dimensions_cannot_create_a_package() {
@@ -323,4 +321,9 @@ fn automatic_dates_keep_editable_fields_and_paint_the_current_calendar_date() {
             .len(),
         3
     );
+}
+
+#[test]
+fn automatic_slides_match_captured_models_and_packages() {
+    compare_captured_packages("presentation-automatic", &["standard", "media", "fitting"]);
 }

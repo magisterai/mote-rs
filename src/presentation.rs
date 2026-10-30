@@ -1,4 +1,5 @@
 //! Resolved deck geometry and defaults shared by editable and native slides.
+mod automatic;
 pub(crate) mod backgrounds;
 pub(crate) mod fields;
 pub(crate) mod images;
@@ -90,7 +91,8 @@ impl Deck {
         let deck = Self {
             slides: slides
                 .into_iter()
-                .map(|element| {
+                .map(|mut element| {
+                    element.children = automatic::elements(&element.children, [width, height]);
                     let background = backgrounds::Background::resolve(document, &element);
                     let metadata = fields::SlideMetadata::resolve(document, &element, &today);
                     Slide {

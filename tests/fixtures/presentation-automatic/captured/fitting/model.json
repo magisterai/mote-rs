@@ -1,0 +1,150 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "301.456pt",
+        "unit": "pt",
+        "value": 301.456
+      },
+      "width": {
+        "text": "421.123pt",
+        "unit": "pt",
+        "value": 421.123
+      }
+    },
+    "size": {
+      "width": {
+        "text": "421.123pt",
+        "unit": "pt",
+        "value": 421.123
+      },
+      "height": {
+        "text": "301.456pt",
+        "unit": "pt",
+        "value": 301.456
+      },
+      "properties": {
+        "height": {
+          "text": "301.456pt",
+          "unit": "pt",
+          "value": 301.456
+        },
+        "width": {
+          "text": "421.123pt",
+          "unit": "pt",
+          "value": 421.123
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    },
+    {
+      "name": "heading",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1,
+                "marker": "#"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A title that wraps across multiple lines"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "marker": "#"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A title that wraps across multiple lines"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. Longer content demonstrates wrapping and shrinking in the available content rectangle. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block"
+    }
+  ]
+}

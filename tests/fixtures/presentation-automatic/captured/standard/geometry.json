@@ -1,0 +1,706 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        720,
+        540
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 28.8,
+        "height": 43.3296,
+        "x": 50.4,
+        "width": 250.01999999999998,
+        "fragments": [
+          {
+            "text": "Automatic ",
+            "x": 50.4,
+            "baseline": 61.264799999999994,
+            "advance": 186.012,
+            "size": 36
+          },
+          {
+            "text": "title",
+            "x": 236.412,
+            "baseline": 61.264799999999994,
+            "advance": 64.008,
+            "size": 36
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        28.8,
+        619.2,
+        57.6
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 100.8,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 359.15400000000005,
+        "fragments": [
+          {
+            "text": "A ",
+            "x": 50.4,
+            "baseline": 117.0324,
+            "advance": 17.01,
+            "size": 18
+          },
+          {
+            "text": "paragraph ",
+            "x": 67.41,
+            "baseline": 117.0324,
+            "advance": 87.048,
+            "size": 18
+          },
+          {
+            "text": "with ",
+            "x": 154.458,
+            "baseline": 117.0324,
+            "advance": 37.008,
+            "size": 18
+          },
+          {
+            "text": "bold",
+            "x": 191.466,
+            "baseline": 117.0324,
+            "advance": 37.998,
+            "size": 18
+          },
+          {
+            "text": ", ",
+            "x": 229.464,
+            "baseline": 117.0324,
+            "advance": 10.008,
+            "size": 18
+          },
+          {
+            "text": "emphasis",
+            "x": 239.472,
+            "baseline": 117.0324,
+            "advance": 83.034,
+            "size": 18
+          },
+          {
+            "text": " ",
+            "x": 322.506,
+            "baseline": 117.0324,
+            "advance": 5.004,
+            "size": 18
+          },
+          {
+            "text": "and ",
+            "x": 327.51,
+            "baseline": 117.0324,
+            "advance": 35.028,
+            "size": 18
+          },
+          {
+            "text": "a ",
+            "x": 362.538,
+            "baseline": 117.0324,
+            "advance": 15.012,
+            "size": 18
+          },
+          {
+            "text": "link",
+            "x": 377.55,
+            "baseline": 117.0324,
+            "advance": 27,
+            "size": 18
+          },
+          {
+            "text": ".",
+            "x": 404.55,
+            "baseline": 117.0324,
+            "advance": 5.004,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "decoration",
+      "start": 377.55,
+      "end": 404.55,
+      "y": 118.83239999999999,
+      "width": 0.9,
+      "color": "2563EB",
+      "decoration_kind": "underline",
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 122.4648,
+        "height": 21.6648,
+        "x": 63.9,
+        "width": 87.498,
+        "fragments": [
+          {
+            "text": "\u2022",
+            "x": 63.9,
+            "baseline": 138.6972,
+            "advance": 6.3,
+            "size": 18
+          },
+          {
+            "text": "First ",
+            "x": 77.4,
+            "baseline": 138.6972,
+            "advance": 39.996,
+            "size": 18
+          },
+          {
+            "text": "item",
+            "x": 117.39600000000002,
+            "baseline": 138.6972,
+            "advance": 34.002,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 144.12959999999998,
+        "height": 21.6648,
+        "x": 63.9,
+        "width": 113.54400000000001,
+        "fragments": [
+          {
+            "text": "\u2022",
+            "x": 63.9,
+            "baseline": 160.36199999999997,
+            "advance": 6.3,
+            "size": 18
+          },
+          {
+            "text": "Second ",
+            "x": 77.4,
+            "baseline": 160.36199999999997,
+            "advance": 66.042,
+            "size": 18
+          },
+          {
+            "text": "item",
+            "x": 143.442,
+            "baseline": 160.36199999999997,
+            "advance": 34.002,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 165.7944,
+        "height": 21.6648,
+        "x": 90.9,
+        "width": 109.53,
+        "fragments": [
+          {
+            "text": "\u2022",
+            "x": 90.9,
+            "baseline": 182.02679999999998,
+            "advance": 6.3,
+            "size": 18
+          },
+          {
+            "text": "Nested ",
+            "x": 104.4,
+            "baseline": 182.02679999999998,
+            "advance": 62.028,
+            "size": 18
+          },
+          {
+            "text": "item",
+            "x": 166.428,
+            "baseline": 182.02679999999998,
+            "advance": 34.002,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 187.4592,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 213.102,
+        "fragments": [
+          {
+            "text": "A ",
+            "x": 50.4,
+            "baseline": 203.6916,
+            "advance": 17.01,
+            "size": 18
+          },
+          {
+            "text": "quotation ",
+            "x": 67.41,
+            "baseline": 203.6916,
+            "advance": 79.056,
+            "size": 18
+          },
+          {
+            "text": "follows ",
+            "x": 146.466,
+            "baseline": 203.6916,
+            "advance": 60.012,
+            "size": 18
+          },
+          {
+            "text": "the ",
+            "x": 206.478,
+            "baseline": 203.6916,
+            "advance": 30.024,
+            "size": 18
+          },
+          {
+            "text": "list.",
+            "x": 236.502,
+            "baseline": 203.6916,
+            "advance": 27,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 70.03999999999999,
+        "fragments": [
+          {
+            "text": "Standard ",
+            "x": 43.2,
+            "baseline": 518.982,
+            "advance": 43.36,
+            "size": 10
+          },
+          {
+            "text": "layout",
+            "x": 86.56,
+            "baseline": 518.982,
+            "advance": 26.68,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        507.6,
+        225.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 321.74,
+        "width": 77.27,
+        "fragments": [
+          {
+            "text": "October ",
+            "x": 321.74,
+            "baseline": 518.982,
+            "advance": 38.35,
+            "size": 10
+          },
+          {
+            "text": "30, ",
+            "x": 360.09000000000003,
+            "baseline": 518.982,
+            "advance": 16.68,
+            "size": 10
+          },
+          {
+            "text": "2026",
+            "x": 376.77,
+            "baseline": 518.982,
+            "advance": 22.24,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        277.2,
+        507.6,
+        165.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 671.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "1",
+            "x": 671.99,
+            "baseline": 518.982,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        633.6,
+        507.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        720,
+        540
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 28.8,
+        "height": 33.7008,
+        "x": 50.4,
+        "width": 418.572,
+        "fragments": [
+          {
+            "text": "A ",
+            "x": 50.4,
+            "baseline": 54.050399999999996,
+            "advance": 28,
+            "size": 28
+          },
+          {
+            "text": "second-",
+            "x": 78.4,
+            "baseline": 54.050399999999996,
+            "advance": 107.352,
+            "size": 28
+          },
+          {
+            "text": "level ",
+            "x": 185.752,
+            "baseline": 54.050399999999996,
+            "advance": 70.056,
+            "size": 28
+          },
+          {
+            "text": "leading ",
+            "x": 255.80800000000002,
+            "baseline": 54.050399999999996,
+            "advance": 105.812,
+            "size": 28
+          },
+          {
+            "text": "heading",
+            "x": 361.62,
+            "baseline": 54.050399999999996,
+            "advance": 107.352,
+            "size": 28
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        28.8,
+        619.2,
+        57.6
+      ]
+    },
+    {
+      "kind": "marker",
+      "slot": [
+        63.9,
+        100.8,
+        18,
+        21.6648
+      ],
+      "baseline": 117.0324,
+      "font_size": 18,
+      "checked": true,
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 100.8,
+        "height": 21.6648,
+        "x": 63.9,
+        "width": 129.042,
+        "fragments": [
+          {
+            "text": "Finished ",
+            "x": 86.904,
+            "baseline": 117.0324,
+            "advance": 73.026,
+            "size": 18
+          },
+          {
+            "text": "task",
+            "x": 159.93,
+            "baseline": 117.0324,
+            "advance": 33.012,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "marker",
+      "slot": [
+        63.9,
+        122.4648,
+        18,
+        21.6648
+      ],
+      "baseline": 138.6972,
+      "font_size": 18,
+      "checked": false,
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 122.4648,
+        "height": 21.6648,
+        "x": 63.9,
+        "width": 127.06200000000001,
+        "fragments": [
+          {
+            "text": "Pending ",
+            "x": 86.904,
+            "baseline": 138.6972,
+            "advance": 71.046,
+            "size": 18
+          },
+          {
+            "text": "task",
+            "x": 157.95000000000002,
+            "baseline": 138.6972,
+            "advance": 33.012,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 144.12959999999998,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 142.074,
+        "fragments": [
+          {
+            "text": "A ",
+            "x": 50.4,
+            "baseline": 160.36199999999997,
+            "advance": 17.01,
+            "size": 18
+          },
+          {
+            "text": "final ",
+            "x": 67.41,
+            "baseline": 160.36199999999997,
+            "advance": 38.016,
+            "size": 18
+          },
+          {
+            "text": "paragraph.",
+            "x": 105.42599999999999,
+            "baseline": 160.36199999999997,
+            "advance": 87.048,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        619.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 70.03999999999999,
+        "fragments": [
+          {
+            "text": "Standard ",
+            "x": 43.2,
+            "baseline": 518.982,
+            "advance": 43.36,
+            "size": 10
+          },
+          {
+            "text": "layout",
+            "x": 86.56,
+            "baseline": 518.982,
+            "advance": 26.68,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        507.6,
+        225.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 321.74,
+        "width": 77.27,
+        "fragments": [
+          {
+            "text": "October ",
+            "x": 321.74,
+            "baseline": 518.982,
+            "advance": 38.35,
+            "size": 10
+          },
+          {
+            "text": "30, ",
+            "x": 360.09000000000003,
+            "baseline": 518.982,
+            "advance": 16.68,
+            "size": 10
+          },
+          {
+            "text": "2026",
+            "x": 376.77,
+            "baseline": 518.982,
+            "advance": 22.24,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        277.2,
+        507.6,
+        165.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 671.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "2",
+            "x": 671.99,
+            "baseline": 518.982,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        633.6,
+        507.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ]
+]
