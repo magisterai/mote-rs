@@ -49,8 +49,25 @@ fn relation(kind: &'static str, target: impl Into<String>) -> Relationship {
         external: false,
     }
 }
-fn template(value: &str) -> String {
-    value.replace(">\n<", "><").trim_end().to_owned()
+fn render_template(source: &str, values: &[(&str, String)]) -> Result<String, Error> {
+    let source = source.replace(">\n<", "><");
+    let mut remaining = source.trim_end();
+    let mut output = String::new();
+    // Scan only the template. Authored values may themselves contain tokens.
+    while let Some((literal, token)) = remaining.split_once("{{") {
+        output.push_str(literal);
+        let (name, rest) = token
+            .split_once("}}")
+            .ok_or_else(|| Error("unterminated PPTX template token".into()))?;
+        let (_, value) = values
+            .iter()
+            .find(|(key, _)| *key == name)
+            .ok_or_else(|| Error(format!("unknown PPTX template token: {name}")))?;
+        output.push_str(value);
+        remaining = rest;
+    }
+    output.push_str(remaining);
+    Ok(output)
 }
 pub(super) fn write(
     document: &Document,
@@ -75,19 +92,18 @@ pub(super) fn write(
             "ppt/tableStyles.xml",
             include_str!("templates/table-styles.xml"),
         ),
-        (
-            "docProps/core.xml",
-            include_str!("templates/core-properties.xml"),
-        ),
     ] {
-        parts.insert(name.to_owned(), template(value));
+        parts.insert(name.to_owned(), render_template(value, &[])?);
     }
     parts.insert(
         "docProps/core.xml".into(),
-        template(include_str!("templates/core-properties.xml")).replace(
-            "{{title}}",
-            &escape(&crate::properties::text(&document.properties, "title"))?,
-        ),
+        render_template(
+            include_str!("templates/core-properties.xml"),
+            &[(
+                "title",
+                escape(&crate::properties::text(&document.properties, "title"))?,
+            )],
+        )?,
     );
     parts.insert(
         "_rels/.rels".into(),
@@ -108,24 +124,31 @@ pub(super) fn write(
         "ppt/slideLayouts/_rels/slideLayout1.xml.rels".into(),
         relationships(&[relation("slideMaster", "../slideMasters/slideMaster1.xml")])?,
     );
-    let mut master = template(include_str!("templates/slide-master.xml"));
-    for (name, value) in [
+    let master_values = [
         ("content_width", (deck.width - 914400).max(0)),
         ("body_height", (deck.height - 2332037).max(0)),
         ("footer_y", (deck.height - 501650).max(0)),
         ("footer_center", ((deck.width - 2895600) / 2).max(0)),
         ("slide_number_x", (deck.width - 2590800).max(0)),
-    ] {
-        master = master.replace(&format!("{{{{{name}}}}}"), &value.to_string());
-    }
+    ]
+    .map(|(name, value)| (name, value.to_string()));
+    let master = render_template(include_str!("templates/slide-master.xml"), &master_values)?;
     parts.insert("ppt/slideMasters/slideMaster1.xml".into(), master);
-    let mut theme = template(include_str!("templates/theme.xml"))
-        .replace("{{theme_name}}", &escape(&deck.theme.name)?)
-        .replace("{{heading_font}}", &escape(&deck.theme.heading)?)
-        .replace("{{body_font}}", &escape(&deck.theme.body)?);
-    for (index, color) in deck.theme.colors.iter().enumerate() {
-        theme = theme.replace(&format!("{{{{color_{index}}}}}"), color);
-    }
+    let color_names: Vec<_> = (0..deck.theme.colors.len())
+        .map(|index| format!("color_{index}"))
+        .collect();
+    let mut theme_values = vec![
+        ("theme_name", escape(&deck.theme.name)?),
+        ("heading_font", escape(&deck.theme.heading)?),
+        ("body_font", escape(&deck.theme.body)?),
+    ];
+    theme_values.extend(
+        color_names
+            .iter()
+            .zip(&deck.theme.colors)
+            .map(|(name, color)| (name.as_str(), color.clone())),
+    );
+    let theme = render_template(include_str!("templates/theme.xml"), &theme_values)?;
     parts.insert("ppt/theme/theme1.xml".into(), theme);
     let mut slide_ids = String::new();
     let mut presentation_relations = vec![relation("slideMaster", "slideMasters/slideMaster1.xml")];
@@ -192,20 +215,28 @@ pub(super) fn write(
         "ppt/_rels/presentation.xml.rels".into(),
         relationships(&presentation_relations)?,
     );
-    let presentation = template(include_str!("templates/presentation.xml"))
-        .replace("{{slide_ids}}", &slide_ids)
-        .replace("{{width}}", &deck.width.to_string())
-        .replace("{{height}}", &deck.height.to_string())
-        .replace("{{size_type}}", deck.size_type);
+    let presentation = render_template(
+        include_str!("templates/presentation.xml"),
+        &[
+            ("slide_ids", slide_ids),
+            ("width", deck.width.to_string()),
+            ("height", deck.height.to_string()),
+            ("size_type", deck.size_type.into()),
+        ],
+    )?;
     parts.insert("ppt/presentation.xml".into(), presentation);
     let titles = (1..=deck.slides.len())
         .map(|number| format!("<vt:lpstr>Slide {number}</vt:lpstr>"))
         .collect::<String>();
     parts.insert(
         "docProps/app.xml".into(),
-        template(include_str!("templates/application-properties.xml"))
-            .replace("{{slide_count}}", &deck.slides.len().to_string())
-            .replace("{{titles}}", &titles),
+        render_template(
+            include_str!("templates/application-properties.xml"),
+            &[
+                ("slide_count", deck.slides.len().to_string()),
+                ("titles", titles),
+            ],
+        )?,
     );
     let mut types = format!(
         r#"{HEADER}<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>"#

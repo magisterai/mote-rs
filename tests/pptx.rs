@@ -140,3 +140,40 @@ fn invalid_physical_slide_dimensions_cannot_create_a_package() {
         assert!(mote::pptx::emit(&document).is_err(), "{source}");
     }
 }
+
+#[test]
+fn authored_template_tokens_remain_literal_in_theme_metadata() {
+    let document = mote::compile(
+        r##"#presentation(theme={name="{{heading_font}} & <theme>",fonts={heading="{{body_font}}",body="{{color_0}}"}})#slide[]"##,
+    )
+    .unwrap();
+    let bytes = mote::pptx::emit(&document).unwrap();
+    let mut archive = zip::ZipArchive::new(Cursor::new(bytes)).unwrap();
+    let mut source = String::new();
+    archive
+        .by_name("ppt/theme/theme1.xml")
+        .unwrap()
+        .read_to_string(&mut source)
+        .unwrap();
+    let theme = roxmltree::Document::parse(&source).unwrap();
+    assert_eq!(
+        theme.root_element().attribute("name"),
+        Some("{{heading_font}} & <theme>")
+    );
+    for (kind, expected) in [("majorFont", "{{body_font}}"), ("minorFont", "{{color_0}}")] {
+        let font = theme
+            .descendants()
+            .find(|node| {
+                node.has_tag_name((
+                    "http://schemas.openxmlformats.org/drawingml/2006/main",
+                    kind,
+                ))
+            })
+            .unwrap();
+        let latin = font
+            .children()
+            .find(|node| node.tag_name().name() == "latin")
+            .unwrap();
+        assert_eq!(latin.attribute("typeface"), Some(expected));
+    }
+}
