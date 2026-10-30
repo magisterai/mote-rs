@@ -199,11 +199,7 @@ fn presentation_output_reports_unsupported_retained_properties_and_structures() 
             );
         }
     }
-    for source in [
-        "#slide(notes='Speaker')[]",
-        "#slide[Loose content]",
-        "#slide[#box(position={width=inch(3),height=inch(2)})[#chart(data={values={1}})]]",
-    ] {
+    for source in ["#slide(notes='Speaker')[]", "#slide[Loose content]"] {
         let document = mote::compile(source).unwrap();
         assert!(
             render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
@@ -362,5 +358,19 @@ fn explicit_flat_connector_caps_can_be_painted_natively() {
             .output
             .len(),
         1
+    );
+}
+
+#[test]
+fn slide_chart_geometry_and_native_rasters_match_captured_output() {
+    compare_captured_slides(
+        "presentation-charts",
+        &[
+            ("bars", 48, 0.1, 0),
+            ("curves", 48, 0.12, 0),
+            ("pie", 40, 0.05, 0),
+            ("theme", 48, 0.18, 0),
+            ("labels", 40, 0.06, 0),
+        ],
     );
 }

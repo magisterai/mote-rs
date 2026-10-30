@@ -4,7 +4,8 @@ use crate::layout::{LineSpacing, ParagraphStyle, PlacedTextLine, TextRun, TextSt
 impl Planner<'_, '_> {
     fn text_style(&self, size: f64) -> TextStyle {
         let mut style = TextStyle::default();
-        style.measurement.font = "Aptos".into();
+        style.measurement.font = self.font.clone();
+        style.color = self.text_color.clone();
         style.measurement.size_points = size;
         style
     }

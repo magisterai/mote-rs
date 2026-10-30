@@ -66,7 +66,8 @@ impl Planner<'_, '_> {
             angle += sweep;
         }
         if chart.kind == "doughnut" {
-            let mut background = "FFFFFF";
+            let default_background = self.background.clone();
+            let mut background = default_background.as_str();
             for color in [
                 Some(chart.chart_area.fill.as_str()),
                 chart.plot_area.as_ref().map(|area| area.fill.as_str()),

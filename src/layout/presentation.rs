@@ -170,6 +170,20 @@ fn plan(
                 deck.warnings.push("native slides omit empty boxes".into());
                 continue;
             }
+            if let [Content::Element(chart)] = element.children.as_slice()
+                && chart.kind == ElementKind::Chart
+            {
+                deck.warnings
+                    .extend(crate::charts::support::native_warnings(&chart.attributes));
+                page.append_content(super::charts::plan_slide(
+                    document,
+                    element,
+                    chart,
+                    &deck.theme,
+                    measurer,
+                )?);
+                continue;
+            }
             if let [Content::Element(table)] = element.children.as_slice()
                 && table.kind == ElementKind::Table
             {

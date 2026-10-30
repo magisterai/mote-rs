@@ -34,26 +34,6 @@ impl ChartBlock {
     ) -> Result<Self, LayoutError> {
         let chart = Chart::from_element(element)
             .map_err(|error| LayoutError::Unsupported(error.to_string()))?;
-        if !matches!(
-            chart.kind.as_str(),
-            "column"
-                | "bar"
-                | "stacked_column"
-                | "stacked_bar"
-                | "percent_stacked_column"
-                | "percent_stacked_bar"
-                | "line"
-                | "area"
-                | "stacked_area"
-                | "percent_stacked_area"
-                | "pie"
-                | "doughnut"
-        ) {
-            return Err(LayoutError::Unsupported(format!(
-                "native {} charts are not yet supported",
-                chart.kind
-            )));
-        }
         let mut width = chart.width as f64 / 12700.0;
         let mut height = chart.height as f64 / 12700.0;
         if width > column_width && width > 0.0 {
@@ -69,56 +49,22 @@ impl ChartBlock {
                 anchors: Vec::new(),
             });
         }
-        if matches!(
-            chart.kind.as_str(),
-            "line" | "area" | "stacked_area" | "percent_stacked_area"
-        ) && chart.categories.len() == 1
-            && !chart.series.is_empty()
-        {
-            return Err(LayoutError::Unsupported(
-                "native line and area charts with series require at least two categories".into(),
-            ));
-        }
-        let mut planner = Planner {
-            measurer,
-            page: TextPage::default(),
-        };
-        let layout = planner.geometry(
+        let content = plan_chart(
             &chart,
-            Rectangle::new(0.0, 0.0, round_coordinate(width), round_coordinate(height)),
+            [0.0, 0.0, round_coordinate(width), round_coordinate(height)],
+            "Aptos",
+            "111827",
+            "111827",
+            "FFFFFF",
+            measurer,
         )?;
-        planner.area(
-            layout.chart,
-            &chart.chart_area.fill,
-            &chart.chart_area.border,
-        );
-        if let Some(area) = &chart.plot_area {
-            planner.area(layout.plot, &area.fill, &area.border);
-        }
-        match chart.kind.as_str() {
-            "line" => planner.line_chart(&chart, &layout)?,
-            "pie" | "doughnut" => planner.pie_chart(&chart, &layout)?,
-            "area" | "stacked_area" | "percent_stacked_area" => {
-                planner.area_chart(&chart, &layout)?
-            }
-            _ => planner.bars(&chart, &layout)?,
-        }
-        planner.text(layout.title, &chart.title, 18.0, "center", 0.0)?;
-        planner.legend(&chart, &layout)?;
-        let original_lines = std::mem::take(&mut planner.page.lines);
-        for operation in &mut planner.page.operations {
-            if let PageOperation::Text(index) = operation {
-                planner.page.lines.push(original_lines[*index].clone());
-                *index = planner.page.lines.len() - 1;
-            }
-        }
         let paragraph = styles.paragraph(&Element {
             kind: ElementKind::Paragraph,
             attributes: Properties::new(),
             children: Vec::new(),
         });
         Ok(Self {
-            content: planner.page,
+            content,
             height,
             before: paragraph.spacing_before,
             after: paragraph.spacing_after,
@@ -177,7 +123,118 @@ impl ChartBlock {
         }
     }
 }
+pub(crate) fn plan_slide(
+    document: &crate::model::Document,
+    container: &Element,
+    element: &Element,
+    theme: &crate::presentation::Theme,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<TextPage, LayoutError> {
+    let mut chart = Chart::from_element(element)
+        .map_err(|error| LayoutError::Unsupported(error.to_string()))?;
+    theme.apply_chart_palette(&mut chart);
+    let bounds = crate::presentation::box_bounds(&container.attributes)
+        .map_err(LayoutError::Unsupported)?
+        .map(|value| value as f64 / 12700.0);
+    if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
+        return Ok(TextPage::default());
+    }
+    let font = if document.fonts.contains_key("Aptos") {
+        "Aptos"
+    } else {
+        &theme.body
+    };
+    plan_chart(
+        &chart,
+        bounds,
+        font,
+        &theme.colors[0],
+        &theme.colors[0],
+        &theme.colors[1],
+        measurer,
+    )
+}
+fn plan_chart(
+    chart: &Chart,
+    bounds: [f64; 4],
+    font: &str,
+    text_color: &str,
+    axis_color: &str,
+    background: &str,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<TextPage, LayoutError> {
+    if !matches!(
+        chart.kind.as_str(),
+        "column"
+            | "bar"
+            | "stacked_column"
+            | "stacked_bar"
+            | "percent_stacked_column"
+            | "percent_stacked_bar"
+            | "line"
+            | "area"
+            | "stacked_area"
+            | "percent_stacked_area"
+            | "pie"
+            | "doughnut"
+    ) {
+        return Err(LayoutError::Unsupported(format!(
+            "native {} charts are not yet supported",
+            chart.kind
+        )));
+    }
+    if matches!(
+        chart.kind.as_str(),
+        "line" | "area" | "stacked_area" | "percent_stacked_area"
+    ) && chart.categories.len() == 1
+        && !chart.series.is_empty()
+    {
+        return Err(LayoutError::Unsupported(
+            "native line and area charts with series require at least two categories".into(),
+        ));
+    }
+    let mut planner = Planner {
+        font: font.into(),
+        text_color: text_color.into(),
+        axis_color: axis_color.into(),
+        background: background.into(),
+        measurer,
+        page: TextPage::default(),
+    };
+    let layout = planner.geometry(
+        chart,
+        Rectangle::new(bounds[0], bounds[1], bounds[2], bounds[3]),
+    )?;
+    planner.area(
+        layout.chart,
+        &chart.chart_area.fill,
+        &chart.chart_area.border,
+    );
+    if let Some(area) = &chart.plot_area {
+        planner.area(layout.plot, &area.fill, &area.border);
+    }
+    match chart.kind.as_str() {
+        "line" => planner.line_chart(chart, &layout)?,
+        "pie" | "doughnut" => planner.pie_chart(chart, &layout)?,
+        "area" | "stacked_area" | "percent_stacked_area" => planner.area_chart(chart, &layout)?,
+        _ => planner.bars(chart, &layout)?,
+    }
+    planner.text(layout.title, &chart.title, 18.0, "center", 0.0)?;
+    planner.legend(chart, &layout)?;
+    let original_lines = std::mem::take(&mut planner.page.lines);
+    for operation in &mut planner.page.operations {
+        if let PageOperation::Text(index) = operation {
+            planner.page.lines.push(original_lines[*index].clone());
+            *index = planner.page.lines.len() - 1;
+        }
+    }
+    Ok(planner.page)
+}
 struct Planner<'planner, 'assets> {
+    font: String,
+    text_color: String,
+    axis_color: String,
+    background: String,
     measurer: &'planner mut TextMeasurer<'assets>,
     page: TextPage,
 }

@@ -30,9 +30,10 @@ pub fn projection(plan: &DocumentTextPlan) -> Value {
                 PageOperation::Rectangle(rectangle) => operations.push(json!({"kind":"rectangle","bounds":[rectangle.x,rectangle.top,rectangle.width,rectangle.height],"color":rectangle.color})),
                 PageOperation::PaintedRectangle {bounds,fill,stroke} => operations.push(json!({"kind":"painted_rectangle","bounds":bounds,"fill":fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
                 PageOperation::Stroke {rule,dash,round_cap} => operations.push(json!({"kind":"path","points":[rule.start,rule.end],"closed":false,"fill":null,"stroke":{"color":rule.color,"alpha":255,"width":rule.width,"dash":dash,"cap":if *round_cap {"Round"} else {"Flat"}}})),
+                PageOperation::Rule(rule) => operations.push(json!({"kind":"rule","start":rule.start,"end":rule.end,"width":rule.width,"color":rule.color})),
+                PageOperation::OutlineRectangle {bounds,width,color} => operations.push(json!({"kind":"outline","bounds":bounds,"width":width,"color":color})),
                 PageOperation::Path(path) => operations.push(json!({"kind":"path","points":path.points,"closed":path.closed,"fill":path.fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":path.stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
                 PageOperation::ListMarker(marker) => operations.push(json!({"kind":"marker","slot":marker.slot,"baseline":marker.baseline,"font_size":marker.font_size,"checked":marker.checked,"clip":clip})),
-                _ => panic!("uncaptured presentation operation: {operation:?}"),
             }
             if let Some(rotation) = rotations.last() {
                 for operation in &mut operations[previous_count..] {

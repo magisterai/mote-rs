@@ -1,0 +1,1073 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#f8fafc",
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb"
+        }
+      },
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      }
+    },
+    "size": {
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      },
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "properties": {
+        "height": {
+          "text": "540pt",
+          "unit": "pt",
+          "value": 540
+        },
+        "width": {
+          "text": "720pt",
+          "unit": "pt",
+          "value": 720
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Region"
+                      },
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South",
+                        "West"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25,
+                            18
+                          ]
+                        },
+                        {
+                          "name": "Target",
+                          "values": [
+                            16,
+                            20,
+                            24
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "show_value": true
+                    },
+                    "kind": "column",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "Column"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Region"
+                      },
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South",
+                        "West"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25,
+                            18
+                          ]
+                        },
+                        {
+                          "name": "Target",
+                          "values": [
+                            16,
+                            20,
+                            24
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "show_value": true
+                    },
+                    "kind": "bar",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "Bar"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Region"
+                      },
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South",
+                        "West"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25,
+                            18
+                          ]
+                        },
+                        {
+                          "name": "Target",
+                          "values": [
+                            16,
+                            20,
+                            24
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "show_value": true
+                    },
+                    "kind": "stacked_column",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "Stacked Column"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Region"
+                      },
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South",
+                        "West"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25,
+                            18
+                          ]
+                        },
+                        {
+                          "name": "Target",
+                          "values": [
+                            16,
+                            20,
+                            24
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "show_value": true
+                    },
+                    "kind": "stacked_bar",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "Stacked Bar"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Region"
+                      },
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South",
+                        "West"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25,
+                            18
+                          ]
+                        },
+                        {
+                          "name": "Target",
+                          "values": [
+                            16,
+                            20,
+                            24
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "show_value": true
+                    },
+                    "kind": "percent_stacked_column",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "Percent Stacked Column"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Region"
+                      },
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South",
+                        "West"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25,
+                            18
+                          ]
+                        },
+                        {
+                          "name": "Target",
+                          "values": [
+                            16,
+                            20,
+                            24
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "show_value": true
+                    },
+                    "kind": "percent_stacked_bar",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "Percent Stacked Bar"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Region"
+                  },
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "North",
+                    "South",
+                    "West"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25,
+                        18
+                      ]
+                    },
+                    {
+                      "name": "Target",
+                      "values": [
+                        16,
+                        20,
+                        24
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "show_value": true
+                },
+                "kind": "column",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "Column"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Region"
+                  },
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "North",
+                    "South",
+                    "West"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25,
+                        18
+                      ]
+                    },
+                    {
+                      "name": "Target",
+                      "values": [
+                        16,
+                        20,
+                        24
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "show_value": true
+                },
+                "kind": "bar",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "Bar"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Region"
+                  },
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "North",
+                    "South",
+                    "West"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25,
+                        18
+                      ]
+                    },
+                    {
+                      "name": "Target",
+                      "values": [
+                        16,
+                        20,
+                        24
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "show_value": true
+                },
+                "kind": "stacked_column",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "Stacked Column"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Region"
+                  },
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "North",
+                    "South",
+                    "West"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25,
+                        18
+                      ]
+                    },
+                    {
+                      "name": "Target",
+                      "values": [
+                        16,
+                        20,
+                        24
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "show_value": true
+                },
+                "kind": "stacked_bar",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "Stacked Bar"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Region"
+                  },
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "North",
+                    "South",
+                    "West"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25,
+                        18
+                      ]
+                    },
+                    {
+                      "name": "Target",
+                      "values": [
+                        16,
+                        20,
+                        24
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "show_value": true
+                },
+                "kind": "percent_stacked_column",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "Percent Stacked Column"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Region"
+                  },
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "North",
+                    "South",
+                    "West"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25,
+                        18
+                      ]
+                    },
+                    {
+                      "name": "Target",
+                      "values": [
+                        16,
+                        20,
+                        24
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "show_value": true
+                },
+                "kind": "percent_stacked_bar",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "Percent Stacked Bar"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

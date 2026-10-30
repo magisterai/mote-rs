@@ -1,9 +1,21 @@
-use super::{BTreeSet, Properties, unknown};
+use crate::model::Properties;
+use std::collections::BTreeSet;
+fn unknown(properties: &Properties, allowed: &[&str], path: &str, warnings: &mut BTreeSet<String>) {
+    for name in properties
+        .keys()
+        .filter(|name| !allowed.contains(&name.as_str()))
+    {
+        warnings.insert(format!(
+            "{path}.{name} is retained without a chart output effect"
+        ));
+    }
+}
 
-pub(super) fn warnings(
+pub(crate) fn warnings(
     attributes: &Properties,
     path: &str,
     flattened: bool,
+    native: bool,
     warnings: &mut BTreeSet<String>,
 ) -> &'static [&'static str] {
     const ALLOWED: &[&str] = &[
@@ -74,7 +86,9 @@ pub(super) fn warnings(
             }
         }
     }
-    kind_limits(attributes, path, warnings);
+    if native {
+        kind_limits(attributes, path, warnings);
+    }
     ALLOWED
 }
 
@@ -116,4 +130,10 @@ fn kind_limits(attributes: &Properties, path: &str, warnings: &mut BTreeSet<Stri
             }
         }
     }
+}
+
+pub(crate) fn native_warnings(attributes: &Properties) -> Vec<String> {
+    let mut warnings = BTreeSet::new();
+    kind_limits(attributes, "chart", &mut warnings);
+    warnings.into_iter().collect()
 }

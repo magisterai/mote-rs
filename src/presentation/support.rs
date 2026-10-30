@@ -189,6 +189,9 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     }
                 }
             }
+            ElementKind::Chart => allowed.extend_from_slice(crate::charts::support::warnings(
+                attributes, &path, false, false, warnings,
+            )),
             ElementKind::Table => allowed.extend([
                 "style",
                 "width",

@@ -14,7 +14,8 @@ impl Planner<'_, '_> {
         horizontal: bool,
     ) -> Result<Vec<PageOperation>, LayoutError> {
         let plot = layout.plot;
-        let grid_color = super::valid_color(&chart.gridlines.color).unwrap_or("111827");
+        let axis_color = self.axis_color.clone();
+        let grid_color = super::valid_color(&chart.gridlines.color).unwrap_or(&axis_color);
         let grid_width = if chart.gridlines.width > 0 {
             chart.gridlines.width as f64 / 12700.0
         } else {
@@ -88,14 +89,14 @@ impl Planner<'_, '_> {
                 [zero, plot.top],
                 [zero, plot.top + plot.height],
                 0.75,
-                "111827",
+                &axis_color,
                 RuleRole::ChartAxis,
             );
             self.rule(
                 [plot.left, plot.top + plot.height],
                 [plot.left + plot.width, plot.top + plot.height],
                 0.75,
-                "111827",
+                &axis_color,
                 RuleRole::ChartAxis,
             );
         } else {
@@ -104,14 +105,14 @@ impl Planner<'_, '_> {
                 [plot.left, plot.top],
                 [plot.left, plot.top + plot.height],
                 0.75,
-                "111827",
+                &axis_color,
                 RuleRole::ChartAxis,
             );
             self.rule(
                 [plot.left, zero],
                 [plot.left + plot.width, zero],
                 0.75,
-                "111827",
+                &axis_color,
                 RuleRole::ChartAxis,
             );
         }

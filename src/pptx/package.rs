@@ -153,6 +153,7 @@ pub(super) fn write(
     parts.insert("ppt/theme/theme1.xml".into(), theme);
     let mut slide_ids = String::new();
     let mut presentation_relations = vec![relation("slideMaster", "slideMasters/slideMaster1.xml")];
+    let mut chart_parts = Vec::new();
     let mut next_shape = 2;
     let mut pictures = super::pictures::Pictures::new(images);
     for (index, slide) in deck.slides.iter().enumerate() {
@@ -199,6 +200,19 @@ pub(super) fn write(
             }
             if element.children.is_empty() {
                 deck.warnings.push("PPTX omits empty boxes".into());
+                continue;
+            }
+            if let [Content::Element(chart)] = element.children.as_slice()
+                && chart.kind == ElementKind::Chart
+            {
+                output.push_str(&super::charts::write(
+                    element,
+                    chart,
+                    &deck.theme,
+                    &mut next_shape,
+                    &mut relations,
+                    &mut chart_parts,
+                )?);
                 continue;
             }
             if let [Content::Element(table)] = element.children.as_slice()
@@ -302,6 +316,9 @@ pub(super) fn write(
             r#"<Default Extension="{extension}" ContentType="image/{kind}"/>"#
         ));
     }
+    if !chart_parts.is_empty() {
+        types.push_str(r#"<Default Extension="xlsx" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>"#);
+    }
     for (name, kind) in [
         ("docProps/core.xml", "package.core-properties+xml"),
         ("docProps/app.xml", "extended-properties+xml"),
@@ -334,6 +351,21 @@ pub(super) fn write(
     for number in 1..=deck.slides.len() {
         types.push_str(&format!(r#"<Override PartName="/ppt/slides/slide{number}.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml"/>"#));
     }
+    for chart in &chart_parts {
+        types.push_str(&format!(
+            r#"<Override PartName="/ppt/charts/chart{}.xml" ContentType="{}"/>"#,
+            chart.number,
+            crate::charts::drawingml::CONTENT_TYPE
+        ));
+        parts.insert(
+            format!("ppt/charts/chart{}.xml", chart.number),
+            chart.xml.clone(),
+        );
+        parts.insert(
+            format!("ppt/charts/_rels/chart{}.xml.rels", chart.number),
+            chart.relationships.clone(),
+        );
+    }
     types.push_str("</Types>");
     parts.insert("[Content_Types].xml".into(), types);
     let mut archive = zip::ZipWriter::new(Cursor::new(Vec::new()));
@@ -345,7 +377,13 @@ pub(super) fn write(
         )?;
         archive.write_all(value.as_bytes())?;
     }
-    for (name, bytes) in pictures.media {
+    let workbooks = chart_parts.into_iter().map(|chart| {
+        (
+            format!("ppt/embeddings/chart{}.xlsx", chart.number),
+            std::sync::Arc::<[u8]>::from(chart.workbook),
+        )
+    });
+    for (name, bytes) in pictures.media.into_iter().chain(workbooks) {
         archive.start_file(
             name,
             zip::write::SimpleFileOptions::default()

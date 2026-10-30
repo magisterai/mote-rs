@@ -145,7 +145,6 @@ fn pending_slide_features_fail_explicitly() {
         r##"#slide(notes="Notes")[]"##,
         r##"#presentation(background={src="image.png"})#slide[]"##,
         r##"#slide[#box(position={width=inch(2),height=inch(1)},shadow={color="#000"})[Text]]"##,
-        r##"#slide[#box(position={width=inch(2),height=inch(1)})[#chart(data={values={1}})]]"##,
     ] {
         let document = mote::compile(source).unwrap();
         assert!(mote::pptx::emit(&document).is_err(), "{source}");
@@ -218,5 +217,13 @@ fn positioned_drawings_match_captured_editable_packages() {
             "connectors",
             "connector-caps",
         ],
+    );
+}
+
+#[test]
+fn positioned_charts_match_captured_packages_and_workbooks() {
+    compare_captured_packages(
+        "presentation-charts",
+        &["bars", "curves", "pie", "theme", "labels"],
     );
 }

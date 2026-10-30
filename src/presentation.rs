@@ -171,6 +171,17 @@ pub(crate) struct Theme {
     pub body: String,
 }
 impl Theme {
+    pub(crate) fn apply_chart_palette(&self, chart: &mut crate::charts::Chart) {
+        let mut colors = self.colors[4..10].to_vec();
+        colors.resize(colors.len().max(chart.colors.len()), String::new());
+        for (index, color) in chart.colors.iter().enumerate() {
+            if !color.is_empty() {
+                colors[index] = color.clone();
+            }
+        }
+        chart.colors = colors;
+    }
+
     fn resolve(document: &Document) -> Self {
         let mut theme = Self {
             name: "Mote".into(),

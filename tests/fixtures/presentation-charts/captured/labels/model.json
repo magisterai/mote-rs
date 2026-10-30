@@ -1,0 +1,645 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#f8fafc",
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb"
+        }
+      },
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      }
+    },
+    "size": {
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      },
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "properties": {
+        "height": {
+          "text": "540pt",
+          "unit": "pt",
+          "value": 540
+        },
+        "width": {
+          "text": "720pt",
+          "unit": "pt",
+          "value": 720
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "categories": [
+                        "One",
+                        "Two",
+                        "Three"
+                      ],
+                      "series": [
+                        {
+                          "name": "Value",
+                          "values": [
+                            10,
+                            20,
+                            30
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "category": true,
+                      "percentage": true,
+                      "position": "inBase",
+                      "series": true,
+                      "value": true
+                    },
+                    "kind": "column",
+                    "legend": {
+                      "position": "t"
+                    },
+                    "title": "Labels"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "categories": [
+                        "One",
+                        "Two",
+                        "Three"
+                      ],
+                      "series": [
+                        {
+                          "name": "Value",
+                          "values": [
+                            10,
+                            20,
+                            30
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "category": true,
+                      "percentage": true,
+                      "position": "outEnd",
+                      "series": true,
+                      "value": true
+                    },
+                    "kind": "bar",
+                    "legend": {
+                      "position": "l"
+                    },
+                    "title": "Labels"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "categories": [
+                        "One",
+                        "Two",
+                        "Three"
+                      ],
+                      "series": [
+                        {
+                          "name": "Value",
+                          "values": [
+                            10,
+                            20,
+                            30
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "category": true,
+                      "percentage": true,
+                      "position": "bestFit",
+                      "series": true,
+                      "value": true
+                    },
+                    "kind": "pie",
+                    "legend": {
+                      "position": "r"
+                    },
+                    "title": "Labels"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "490pt",
+                    "unit": "pt",
+                    "value": 490
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "categories": [
+                        "One",
+                        "Two",
+                        "Three"
+                      ],
+                      "series": [
+                        {
+                          "name": "Value",
+                          "values": [
+                            10,
+                            20,
+                            30
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "category": true,
+                      "percentage": true,
+                      "position": "t",
+                      "series": true,
+                      "value": true
+                    },
+                    "kind": "line",
+                    "legend": {
+                      "position": "t"
+                    },
+                    "title": "Labels"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Value",
+                      "values": [
+                        10,
+                        20,
+                        30
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "category": true,
+                  "percentage": true,
+                  "position": "inBase",
+                  "series": true,
+                  "value": true
+                },
+                "kind": "column",
+                "legend": {
+                  "position": "t"
+                },
+                "title": "Labels"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Value",
+                      "values": [
+                        10,
+                        20,
+                        30
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "category": true,
+                  "percentage": true,
+                  "position": "outEnd",
+                  "series": true,
+                  "value": true
+                },
+                "kind": "bar",
+                "legend": {
+                  "position": "l"
+                },
+                "title": "Labels"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Value",
+                      "values": [
+                        10,
+                        20,
+                        30
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "category": true,
+                  "percentage": true,
+                  "position": "bestFit",
+                  "series": true,
+                  "value": true
+                },
+                "kind": "pie",
+                "legend": {
+                  "position": "r"
+                },
+                "title": "Labels"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "490pt",
+                "unit": "pt",
+                "value": 490
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Value",
+                      "values": [
+                        10,
+                        20,
+                        30
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "category": true,
+                  "percentage": true,
+                  "position": "t",
+                  "series": true,
+                  "value": true
+                },
+                "kind": "line",
+                "legend": {
+                  "position": "t"
+                },
+                "title": "Labels"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

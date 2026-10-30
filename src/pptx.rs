@@ -1,5 +1,6 @@
 //! Editable PresentationML packages for explicit slides and positioned content.
 mod boxes;
+mod charts;
 mod package;
 mod pictures;
 mod shapes;

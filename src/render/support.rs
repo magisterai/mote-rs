@@ -1,4 +1,4 @@
-mod charts;
+use crate::charts::support as charts;
 use crate::model::{Content, Document, ElementKind, Properties, StyleKind, Value};
 use std::collections::BTreeSet;
 
@@ -287,7 +287,9 @@ fn content(
                 }
             }
             ElementKind::Chart => {
-                allowed.extend_from_slice(charts::warnings(attributes, &path, flattened, warnings));
+                allowed.extend_from_slice(charts::warnings(
+                    attributes, &path, flattened, true, warnings,
+                ));
             }
             ElementKind::Line => {
                 warnings.insert(format!(

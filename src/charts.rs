@@ -2,6 +2,7 @@
 pub(crate) mod appearance;
 mod data;
 pub(crate) mod drawingml;
+pub(crate) mod support;
 pub(crate) mod workbook;
 
 use crate::drawings::length_in_drawing_units as drawing_units;
