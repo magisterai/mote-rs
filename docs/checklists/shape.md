@@ -48,12 +48,13 @@ Tables, images, nested drawings, figure/caption blocks and page breaks inside
 shape text are omitted with warnings. Field, note and anchor semantics contribute
 only their child text. Paragraph pagination properties have no drawing-text effect.
 Rotated PDF hyperlinks retain unrotated hit areas and warn about that limit.
-Table-cell shapes and presentation output remain pending. Microsoft Word
+Table-cell shapes remain pending. Positioned slide shapes have
+[editable and native captures](../../tests/fixtures/presentation-shapes/README.md). Microsoft Word
 render review is unreviewed; matching package captures do not establish visual
 Office conformance. Unknown metadata has no implied output effect.
 
 Positioned-slide output covers the existing drawing vocabulary: geometry,
 transforms, fills, stroke patterns and opacity, names and text defaults. Shapes
 also require preset text bounds, fitting and shadows; connectors require endpoint
-geometry, caps and start/end marker kinds and sizes. Editable/native slide
-coverage and PowerPoint visual review are pending independently of model support.
+geometry, caps and start/end marker kinds and sizes. Editable and native slide coverage is captured; PowerPoint visual review remains
+unreviewed independently of model support.
