@@ -11,7 +11,10 @@
 - [x] `footer`, `date`, `slide_number`: slide overrides, including false to suppress.
 - [ ] `layout`: trimmed name; built-in/custom resolution and typed slots.
 - [x] `properties` overrides, retained metadata and Lua construction.
-- [ ] Implicit top-level Markdown slide separators and automatic loose layout.
+- [ ] Automatic loose-content layout: a leading heading, grouped text, separate
+  image/table frames, shared fitting and page-size-aware geometry.
+- [ ] Implicit top-level Markdown slide separators and heading boundaries in
+  presentation mode; explicit slides mixed with implicit segments.
 
 Output supports explicit slides with positioned text, pictures, tables, shapes,
 connectors and charts. Automatic layout and named layouts remain unsupported.
