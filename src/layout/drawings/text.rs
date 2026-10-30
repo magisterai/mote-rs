@@ -31,8 +31,7 @@ pub(super) fn prepare(
         (text(&attributes, "font").is_empty() && text(&attributes, "style").is_empty())
             .then_some("Aptos"),
         styles,
-        Some(measurer),
-    )?;
+    );
     let mut bounds = geometry::text_rectangle(
         &text(&element.attributes, "kind"),
         geometry::rectangle(&element.attributes),

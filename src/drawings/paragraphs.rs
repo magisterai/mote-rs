@@ -1,7 +1,7 @@
 //! Resolves drawing paragraph, inline, and list semantics before measurement.
 use crate::{
-    layout::{LayoutError, LayoutStyleResolver, ParagraphStyle, TextRun, TextStyle},
-    measurement::{FontVariant, TextMeasurer},
+    layout::{LayoutStyleResolver, ParagraphStyle, TextRun, TextStyle},
+    measurement::FontVariant,
     model::{Content, Element, ElementKind, Properties, Unit, Value},
     properties::{self, object, text},
 };
@@ -160,8 +160,7 @@ pub(crate) fn resolve(
     defaults: &Properties,
     heading_font: Option<&str>,
     styles: &LayoutStyleResolver<'_>,
-    mut measurer: Option<&mut TextMeasurer<'_>>,
-) -> Result<Vec<DrawingParagraph>, LayoutError> {
+) -> Vec<DrawingParagraph> {
     let mut output = Vec::new();
     for child in content {
         let element = match child {
@@ -228,14 +227,9 @@ pub(crate) fn resolve(
                     styles,
                 ));
             }
-            ElementKind::List | ElementKind::OrderedList => output.extend(resolve_list(
-                element,
-                base,
-                defaults,
-                0,
-                styles,
-                measurer.as_deref_mut(),
-            )?),
+            ElementKind::List | ElementKind::OrderedList => {
+                output.extend(resolve_list(element, base, defaults, 0, styles))
+            }
             _ if !element.kind.is_block() => output.push(paragraph(
                 std::slice::from_ref(child),
                 base,
@@ -246,7 +240,7 @@ pub(crate) fn resolve(
             _ => {}
         }
     }
-    Ok(output)
+    output
 }
 fn resolve_list(
     element: &Element,
@@ -254,8 +248,7 @@ fn resolve_list(
     defaults: &Properties,
     level: usize,
     styles: &LayoutStyleResolver<'_>,
-    mut measurer: Option<&mut TextMeasurer<'_>>,
-) -> Result<Vec<DrawingParagraph>, LayoutError> {
+) -> Vec<DrawingParagraph> {
     let ordered = element.kind == ElementKind::OrderedList;
     let start = properties::number(&element.attributes, "start").unwrap_or(1.0) as u64;
     let format = text(&element.attributes, "format");
@@ -332,60 +325,15 @@ fn resolve_list(
         if item.attributes.contains_key("checked") {
             paragraph.task = Some(properties::boolean(&item.attributes, "checked"));
         }
-        if let Some(measurer) = measurer.as_deref_mut() {
-            add_native_marker(&mut paragraph, measurer)?;
-        }
         output.push(paragraph);
         for child in &item.children {
             if let Content::Element(nested) = child
                 && matches!(nested.kind, ElementKind::List | ElementKind::OrderedList)
             {
-                output.extend(resolve_list(
-                    nested,
-                    base,
-                    defaults,
-                    level + 1,
-                    styles,
-                    measurer.as_deref_mut(),
-                )?);
+                output.extend(resolve_list(nested, base, defaults, level + 1, styles));
             }
         }
         number += 1;
     }
-    Ok(output)
-}
-
-fn add_native_marker(
-    paragraph: &mut DrawingParagraph,
-    measurer: &mut TextMeasurer<'_>,
-) -> Result<(), LayoutError> {
-    let style = paragraph.style.text.clone();
-    let mut prefix = Vec::new();
-    let space = measurer
-        .measure(&style.measurement, " ", false)?
-        .measurement;
-    if paragraph.task.is_some() {
-        let mut spacer = TextRun::new(" ", style.clone());
-        spacer.fixed_advance = Some(style.measurement.size_points + space.layout_width);
-        spacer.preserve_space = true;
-        prefix.push(spacer);
-    } else if let Some(marker) = &paragraph.marker {
-        let advance = measurer
-            .measure(&style.measurement, &marker.text, false)?
-            .measurement
-            .layout_width;
-        let hanging = if paragraph.style.first_line < 0.0 {
-            -paragraph.style.first_line
-        } else {
-            advance + space.paint_width
-        };
-        prefix.push(TextRun::new(marker.text.clone(), style.clone()));
-        let mut spacer = TextRun::new(" ", style);
-        spacer.preserve_space = true;
-        spacer.fixed_advance = Some((hanging - advance).max(space.paint_width));
-        prefix.push(spacer);
-    }
-    prefix.append(&mut paragraph.runs);
-    paragraph.runs = prefix;
-    Ok(())
+    output
 }

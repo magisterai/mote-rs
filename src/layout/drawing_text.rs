@@ -3,7 +3,7 @@ use crate::drawings::paragraphs::DrawingParagraph;
 use crate::{
     layout::{
         LayoutError, LineSpacing, ListMarker, ListMarkerKind, PageOperation, ParagraphText,
-        PlacedTextLine, TextPage,
+        PlacedTextLine, TextPage, TextRun,
     },
     measurement::TextMeasurer,
     model::{Properties, Value},
@@ -19,7 +19,7 @@ fn points(value: Option<&Value>, fallback: f64) -> f64 {
         .map(|value| value as f64 / 12700.0)
         .unwrap_or(fallback)
 }
-fn planned(
+fn plan_paragraphs(
     paragraphs: &[DrawingParagraph],
     width: f64,
     alignment: &str,
@@ -77,6 +77,12 @@ pub(crate) fn fit(
     attributes: &Properties,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<FittedText, LayoutError> {
+    let mut paragraphs = paragraphs.to_vec();
+    for paragraph in &mut paragraphs {
+        if paragraph.marker.is_some() {
+            add_native_marker(paragraph, measurer)?;
+        }
+    }
     let empty = Properties::new();
     let margin = object(attributes, "margin").unwrap_or(&empty);
     for name in ["left", "right", "top", "bottom"] {
@@ -96,14 +102,16 @@ pub(crate) fn fit(
     ];
     let initial_height = content[3];
     let alignment = text(attributes, "alignment");
-    let (_, total) = planned(paragraphs, content[2], &alignment, 1.0, measurer)?;
+    let (mut planned, mut total) =
+        plan_paragraphs(&paragraphs, content[2], &alignment, 1.0, measurer)?;
     let mut scale = 1.0;
     if text(attributes, "fit") == "shrink" && total > content[3] {
         let mut low = 0.1;
         let mut high = 1.0;
         for _ in 0..14 {
             let candidate = (low + high) / 2.0;
-            let (_, height) = planned(paragraphs, content[2], &alignment, candidate, measurer)?;
+            let (_, height) =
+                plan_paragraphs(&paragraphs, content[2], &alignment, candidate, measurer)?;
             if height <= content[3] {
                 low = candidate
             } else {
@@ -128,7 +136,7 @@ pub(crate) fn fit(
             if quantized > 0.0 {
                 let candidate = quantized / anchor;
                 if candidate > scale
-                    && planned(paragraphs, content[2], &alignment, candidate, measurer)?.1
+                    && plan_paragraphs(&paragraphs, content[2], &alignment, candidate, measurer)?.1
                         > content[3] + 0.25
                 {
                     quantized = effective.floor();
@@ -141,7 +149,9 @@ pub(crate) fn fit(
     } else if text(attributes, "fit") == "resize_shape" && total > content[3] {
         content[3] = total;
     }
-    let (planned, total) = planned(paragraphs, content[2], &alignment, scale, measurer)?;
+    if scale != 1.0 {
+        (planned, total) = plan_paragraphs(&paragraphs, content[2], &alignment, scale, measurer)?;
+    }
     let mut top = content[1]
         + match text(attributes, "vertical_alignment").as_str() {
             "center" | "middle" => ((content[3] - total) / 2.0).max(0.0),
@@ -185,4 +195,39 @@ pub(crate) fn fit(
         font_scale: scale,
         height_delta: (content[3] - initial_height).max(0.0),
     })
+}
+
+fn add_native_marker(
+    paragraph: &mut DrawingParagraph,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<(), LayoutError> {
+    let style = paragraph.style.text.clone();
+    let mut prefix = Vec::new();
+    let space = measurer
+        .measure(&style.measurement, " ", false)?
+        .measurement;
+    if paragraph.task.is_some() {
+        let mut spacer = TextRun::new(" ", style.clone());
+        spacer.fixed_advance = Some(style.measurement.size_points + space.layout_width);
+        spacer.preserve_space = true;
+        prefix.push(spacer);
+    } else if let Some(marker) = &paragraph.marker {
+        let advance = measurer
+            .measure(&style.measurement, &marker.text, false)?
+            .measurement
+            .layout_width;
+        let hanging = if paragraph.style.first_line < 0.0 {
+            -paragraph.style.first_line
+        } else {
+            advance + space.paint_width
+        };
+        prefix.push(TextRun::new(marker.text.clone(), style.clone()));
+        let mut spacer = TextRun::new(" ", style);
+        spacer.preserve_space = true;
+        spacer.fixed_advance = Some((hanging - advance).max(space.paint_width));
+        prefix.push(spacer);
+    }
+    prefix.append(&mut paragraph.runs);
+    paragraph.runs = prefix;
+    Ok(())
 }

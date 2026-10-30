@@ -15,8 +15,14 @@ pub(super) fn write(
     theme: &crate::presentation::Theme,
     relationships: &mut Vec<Relationship>,
 ) -> Result<String, Error> {
-    let paragraphs = crate::presentation::text::resolve(document, content, attributes, theme, None)
-        .map_err(|error| Error(error.to_string()))?;
+    let paragraphs = crate::presentation::text::resolve(
+        document,
+        content,
+        attributes,
+        theme,
+        crate::presentation::text::TextDefaults::Inherited,
+    )
+    .map_err(|error| Error(error.to_string()))?;
     if paragraphs.is_empty() {
         return Ok("<a:p/>".into());
     }

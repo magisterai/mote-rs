@@ -61,7 +61,7 @@ pub(crate) fn prepare_box(
         &element.children,
         &attributes,
         theme,
-        Some(measurer),
+        crate::presentation::text::TextDefaults::Resolved,
     )?;
     let fitted = drawing_text::fit(&paragraphs, bounds, &attributes, measurer)?;
     bounds[3] += fitted.height_delta;

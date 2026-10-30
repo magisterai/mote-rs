@@ -3,20 +3,26 @@ use super::Theme;
 use crate::{
     drawings::paragraphs::{self, DrawingParagraph},
     layout::{LayoutError, LayoutStyleResolver, TextStyle},
-    measurement::TextMeasurer,
     model::{Content, Document, Element, ElementKind, Properties},
     properties::text,
 };
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub(crate) enum TextDefaults {
+    /// Leave theme defaults implicit in editable DrawingML.
+    Inherited,
+    /// Supply concrete theme fonts, sizes and colors for native measurement.
+    Resolved,
+}
 pub(crate) fn resolve(
     document: &Document,
     content: &[Content],
     attributes: &Properties,
     theme: &Theme,
-    measurer: Option<&mut TextMeasurer<'_>>,
+    defaults: TextDefaults,
 ) -> Result<Vec<DrawingParagraph>, LayoutError> {
     validate_content(content).map_err(LayoutError::Unsupported)?;
     let styles = LayoutStyleResolver::new(document);
-    let native = measurer.is_some();
+    let native = defaults == TextDefaults::Resolved;
     let mut base = TextStyle::default();
     base.measurement.font = if native {
         theme.body.clone()
@@ -50,8 +56,7 @@ pub(crate) fn resolve(
         &paragraphs::paragraph_defaults(attributes),
         heading,
         &styles,
-        measurer,
-    )?;
+    );
     for paragraph in &mut paragraphs {
         for run in &mut paragraph.runs {
             if run.link.is_some() {
