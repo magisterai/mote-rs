@@ -1,0 +1,3 @@
+#for legend in {"top","right","bottom","left"} {
+#chart(kind="line",title="Regional revenue",data={categories={"North","South","West"},series={{name="Revenue",values={10,20,30}},{name="Costs",values={7,12,19}}}},legend=legend,axis={category={title="Region"},value={title="Amount"}},colors={"#2563eb","#059669"},background="#f8fafc",border={color="#94a3b8",width=pt(1)},plot_area={fill="#fff",border={color="#cbd5e1",width=pt(0.5)}},gridlines={major=true,minor=true,color="#e5e7eb",width=pt(0.5)},data_labels={value=true,percent=true})
+}

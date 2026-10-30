@@ -1,0 +1,140 @@
+//! Line and area marks use the same axes, category centers and signed scales.
+use super::{Chart, LayoutError, Planner, geometry::ChartLayout, scale::Scale};
+
+impl Planner<'_, '_> {
+    pub(super) fn line_chart(
+        &mut self,
+        chart: &Chart,
+        layout: &ChartLayout,
+    ) -> Result<(), LayoutError> {
+        let scale = Scale::for_chart(chart, layout.plot.height, false).validate()?;
+        let foreground = self.axes(chart, layout, scale, false)?;
+        let count = chart.categories.len();
+        if count > 0 {
+            for (series_index, series) in chart.series.iter().enumerate() {
+                let points: Vec<_> = (0..count)
+                    .map(|index| {
+                        [
+                            layout.plot.category_center(count, index),
+                            layout.plot.top
+                                + layout.plot.height
+                                    * (1.0 - scale.ratio(super::series_value(series, index))),
+                        ]
+                    })
+                    .collect();
+                let color = chart.color(series_index);
+                self.path(points.clone(), false, None, Some((color, 2.0)));
+                for (index, point) in points.iter().enumerate() {
+                    self.ellipse([point[0], point[1]], [5.0, 5.0], 24, color);
+                    if chart.data_labels.enabled {
+                        self.text(
+                            super::geometry::Rectangle::new(
+                                point[0] - 28.0,
+                                point[1] - 19.0,
+                                56.0,
+                                16.0,
+                            ),
+                            &super::bars::label(chart, series_index, index),
+                            10.0,
+                            "center",
+                            0.0,
+                        )?;
+                    }
+                }
+            }
+        }
+        self.page.operations.extend(foreground);
+        Ok(())
+    }
+    pub(super) fn area_chart(
+        &mut self,
+        chart: &Chart,
+        layout: &ChartLayout,
+    ) -> Result<(), LayoutError> {
+        let scale = Scale::for_chart(chart, layout.plot.height, false).validate()?;
+        let foreground = self.axes(chart, layout, scale, false)?;
+        let count = chart.categories.len();
+        if count > 0 {
+            let stacked = chart.kind.contains("stacked");
+            let percent = chart.kind == "percent_stacked_area";
+            let mut positive = vec![0.0; count];
+            let mut negative = vec![0.0; count];
+            for (series_index, series) in chart.series.iter().enumerate() {
+                let mut upper = Vec::with_capacity(count);
+                let mut lower = Vec::with_capacity(count);
+                for index in 0..count {
+                    let mut value = super::series_value(series, index);
+                    if percent {
+                        let total = super::category_total(chart, index);
+                        if total != 0.0 {
+                            value = value / total * 100.0;
+                        }
+                    }
+                    let mut base = 0.0;
+                    if stacked {
+                        if value < 0.0 {
+                            base = negative[index];
+                            negative[index] += value;
+                        } else {
+                            base = positive[index];
+                            positive[index] += value;
+                        }
+                    }
+                    let left = layout.plot.category_center(count, index);
+                    upper.push([
+                        left,
+                        layout.plot.top + layout.plot.height * (1.0 - scale.ratio(base + value)),
+                    ]);
+                    lower.push([
+                        left,
+                        layout.plot.top + layout.plot.height * (1.0 - scale.ratio(base)),
+                    ]);
+                }
+                upper.extend(lower.into_iter().rev());
+                self.path(upper, true, Some(chart.color(series_index)), None);
+            }
+        }
+        self.page.operations.extend(foreground);
+        Ok(())
+    }
+    pub(super) fn path(
+        &mut self,
+        points: Vec<[f64; 2]>,
+        closed: bool,
+        fill: Option<&str>,
+        stroke: Option<(&str, f64)>,
+    ) {
+        use crate::layout::{LineCap, PageOperation, PaintedPath, PathPaint, PathStroke};
+        if points.len() < if closed { 3 } else { 2 } {
+            return;
+        }
+        let paint = |color: &str| PathPaint {
+            color: super::valid_color(color).unwrap_or("2563EB").into(),
+            alpha: 255,
+        };
+        self.page.operations.push(PageOperation::Path(PaintedPath {
+            points,
+            closed,
+            fill: fill.map(paint),
+            stroke: stroke.map(|(color, width)| PathStroke {
+                paint: paint(color),
+                width,
+                dash: Vec::new(),
+                cap: LineCap::Flat,
+            }),
+        }));
+    }
+    pub(super) fn ellipse(&mut self, center: [f64; 2], size: [f64; 2], steps: usize, color: &str) {
+        let steps = steps.max(8);
+        let points = (0..steps)
+            .map(|index| {
+                let angle = 2.0 * std::f64::consts::PI * index as f64 / steps as f64;
+                [
+                    center[0] + angle.cos() * size[0] / 2.0,
+                    center[1] + angle.sin() * size[1] / 2.0,
+                ]
+            })
+            .collect();
+        self.path(points, true, Some(color), None);
+    }
+}

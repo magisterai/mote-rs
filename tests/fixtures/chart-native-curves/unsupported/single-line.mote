@@ -1,0 +1,1 @@
+#chart(kind="line",title="One category",data={categories={"One"},values={4}},data_labels=true)

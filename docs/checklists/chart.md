@@ -55,9 +55,13 @@ Keep arrays aligned to avoid that editing discrepancy. Native document PDF/PNG s
 percentage variants, titles, axis titles, legends, fills, borders, gridlines and
 data labels. Width fits the current column while preserving aspect ratio; zero
 dimensions omit the chart. Native gap is clamped at zero, horizontal bars ignore
-overlap, and other native kinds remain pending. Native charts in table cells are
+overlap, and pie/doughnut painting remains pending. Native line and area kinds share axes,
+scales and legends; line charts include circular markers and labels above points.
+Area charts omit data labels with a warning. Nonempty line/area series require
+at least two categories. Gap and overlap have no native line/area effect. Native charts in table cells are
 rejected; flattened running stories omit chart geometry with a warning.
-[Native captures](../../tests/fixtures/chart-native-bars/README.md) separately
+[Bar captures](../../tests/fixtures/chart-native-bars/README.md) and
+[line/area captures](../../tests/fixtures/chart-native-curves/README.md) separately
 record geometry, pixel comparisons and retained layout limitations.
 Presentation placement remains pending. Office render review is unreviewed.
 

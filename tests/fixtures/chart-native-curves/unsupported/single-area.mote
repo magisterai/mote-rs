@@ -1,0 +1,1 @@
+#chart(kind="area",title="One category",data={categories={"One"},values={4}})

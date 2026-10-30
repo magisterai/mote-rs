@@ -1,0 +1,26 @@
+{
+  "source_sha256": "59264ce01839410645d2e943bb9fda2537131fe8c85c93bf2f4f587fe5d4cceb",
+  "geometry_sha256": "595c27b2dbb28840c6709c835ea45d3f93c3439a6a282f1569a4aa4d795d46a8",
+  "native_png_files": {
+    "reference-1.png": "d2d42e5c913464d058245c5744ec460fde87b49dca2e737856f8731b56dd6da2",
+    "reference-2.png": "ea5adea72bab07bd7f96ba13c0cc26813341b0b5fcfc0b1b51f61ad9942ae6c1"
+  },
+  "native_png_dpi": 72,
+  "native_pdf_comparison_dpi": 144,
+  "native_pdf_comparison": [
+    {
+      "case": "legends",
+      "page": "reference-pdf-1",
+      "maximum": 0,
+      "changed": 0
+    },
+    {
+      "case": "legends",
+      "page": "reference-pdf-2",
+      "maximum": 0,
+      "changed": 0
+    }
+  ],
+  "native_pages_visually_inspected": true,
+  "word_review_status": "unreviewed"
+}

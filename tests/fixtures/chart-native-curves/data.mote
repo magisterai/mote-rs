@@ -1,0 +1,4 @@
+#chart(kind="line",title="Empty data",data={metadata=true})
+#chart(kind="area",title="All zero",data={values={0,0,0}})
+#chart(kind="line",title="Short series",data={categories={"One","Two","Three"},series={{name="Short",values={3}},{name="Full",values={1,2,3}}}})
+#chart(kind="percent_stacked_area",title="Positive percentages",data={series={{values={1,2,3}},{values={3,2,1}}}})

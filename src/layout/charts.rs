@@ -1,6 +1,7 @@
 //! Native chart operations share text measurement and both page painters.
 mod axes;
 mod bars;
+mod curves;
 mod geometry;
 mod legend;
 mod scale;
@@ -39,6 +40,10 @@ impl ChartBlock {
                 | "stacked_bar"
                 | "percent_stacked_column"
                 | "percent_stacked_bar"
+                | "line"
+                | "area"
+                | "stacked_area"
+                | "percent_stacked_area"
         ) {
             return Err(LayoutError::Unsupported(format!(
                 "native {} charts are not yet supported",
@@ -60,6 +65,16 @@ impl ChartBlock {
                 anchors: Vec::new(),
             });
         }
+        if matches!(
+            chart.kind.as_str(),
+            "line" | "area" | "stacked_area" | "percent_stacked_area"
+        ) && chart.categories.len() == 1
+            && !chart.series.is_empty()
+        {
+            return Err(LayoutError::Unsupported(
+                "native line and area charts with series require at least two categories".into(),
+            ));
+        }
         let mut planner = Planner {
             measurer,
             page: TextPage::default(),
@@ -76,7 +91,13 @@ impl ChartBlock {
         if let Some(area) = &chart.plot_area {
             planner.area(layout.plot, &area.fill, &area.border);
         }
-        planner.bars(&chart, &layout)?;
+        match chart.kind.as_str() {
+            "line" => planner.line_chart(&chart, &layout)?,
+            "area" | "stacked_area" | "percent_stacked_area" => {
+                planner.area_chart(&chart, &layout)?
+            }
+            _ => planner.bars(&chart, &layout)?,
+        }
         planner.text(layout.title, &chart.title, 18.0, "center", 0.0)?;
         planner.legend(&chart, &layout)?;
         let original_lines = std::mem::take(&mut planner.page.lines);

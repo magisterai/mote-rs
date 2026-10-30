@@ -30,6 +30,20 @@ pub(super) fn labels(chart: &Chart) -> Vec<&str> {
     }
 }
 impl Planner<'_, '_> {
+    fn legend_key(&mut self, chart: &Chart, left: f64, top: f64, color: &str) {
+        if chart.kind == "line" {
+            self.rule(
+                [left, top + 8.0],
+                [left + 18.0, top + 8.0],
+                2.0,
+                color,
+                crate::layout::RuleRole::Generic,
+            );
+            self.ellipse([left + 9.0, top + 8.0], [5.0, 5.0], 16, color);
+        } else {
+            self.fill(Rectangle::new(left, top + 5.0, 6.0, 6.0), color);
+        }
+    }
     pub(super) fn legend(
         &mut self,
         chart: &Chart,
@@ -54,8 +68,10 @@ impl Planner<'_, '_> {
             let mut top =
                 bounds.top + ((bounds.height - 18.0 * labels.len() as f64) / 2.0).max(0.0);
             for (index, label) in labels.iter().enumerate() {
-                self.fill(
-                    Rectangle::new(bounds.left + 2.0, top + 5.0, 6.0, 6.0),
+                self.legend_key(
+                    chart,
+                    bounds.left + 2.0,
+                    top,
                     chart.color(color_index(chart, index)),
                 );
                 self.text(
@@ -75,8 +91,10 @@ impl Planner<'_, '_> {
         } else {
             let mut left = bounds.left + (bounds.width - total) / 2.0;
             for (index, label) in labels.iter().enumerate() {
-                self.fill(
-                    Rectangle::new(left, bounds.top + 5.0, 6.0, 6.0),
+                self.legend_key(
+                    chart,
+                    left,
+                    bounds.top,
                     chart.color(color_index(chart, index)),
                 );
                 left += key + 4.0;

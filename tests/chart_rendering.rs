@@ -10,9 +10,23 @@ use std::{fs, path::Path};
 
 #[test]
 fn native_bar_charts_preserve_geometry_paint_order_and_independent_pngs() {
-    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/chart-native-bars");
+    compare_captures(
+        "chart-native-bars",
+        &["kinds", "appearance", "labels", "flow"],
+    );
+}
+
+#[test]
+fn native_line_and_area_charts_preserve_paths_markers_and_labels() {
+    compare_captures("chart-native-curves", &["kinds", "legends", "data"]);
+}
+
+fn compare_captures(collection: &str, cases: &[&str]) {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("tests/fixtures")
+        .join(collection);
     let resolver = FileAssetResolver::new(&root).unwrap();
-    for case in ["kinds", "appearance", "labels", "flow"] {
+    for &case in cases {
         let source = fs::read_to_string(root.join(format!("{case}.mote"))).unwrap();
         let folder = root.join("captured").join(case);
         let manifest: Value =
@@ -77,10 +91,11 @@ fn native_bar_charts_preserve_geometry_paint_order_and_independent_pngs() {
                 }
             }
             let mean = sum as f64 / count.max(1) as f64;
-            let (maximum_limit, mean_limit, edge_limit) = if case == "appearance" {
-                (88, 0.5, 4)
-            } else {
-                (64, 2.0, 0)
+            let (maximum_limit, mean_limit, edge_limit) = match (collection, case) {
+                ("chart-native-bars", "appearance") => (88, 0.5, 4),
+                ("chart-native-curves", "data") => (92, 2.5, 1),
+                ("chart-native-curves", "legends") => (88, 0.6, 4),
+                _ => (64, 2.0, 0),
             };
             assert!(
                 maximum <= maximum_limit && mean <= mean_limit && edges <= edge_limit,
@@ -145,4 +160,47 @@ fn zero_size_charts_end_fill_continuity_without_consuming_flow_space() {
     };
     assert_eq!(rectangles(&plain), 3);
     assert_eq!(rectangles(&divided), 2);
+}
+
+#[test]
+fn single_category_line_and_area_limits_are_explicit() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("tests/fixtures/chart-native-curves/unsupported");
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    for case in ["single-line", "single-area"] {
+        let source = fs::read_to_string(root.join(format!("{case}.mote"))).unwrap();
+        let document = mote::compile(&source).unwrap();
+        let error = render::plan(&document, &resolver, None).err().unwrap();
+        assert!(
+            error.to_string().contains("at least two categories"),
+            "{error}"
+        );
+        assert!(mote::docx::emit(&document).is_ok());
+    }
+}
+
+#[test]
+fn native_curve_chart_warnings_describe_retained_properties() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for (kind, labels, expected) in [
+        ("line", "{position='bottom'}", "fixed position above"),
+        ("area", "true", "omitted from native area"),
+        ("stacked_area", "true", "omitted from native area"),
+        ("percent_stacked_area", "true", "omitted from native area"),
+    ] {
+        let source = format!(
+            "#chart(kind='{kind}',data={{values={{1,2,3}}}},data_labels={labels},gap_width=100,overlap=20)"
+        );
+        let document = mote::compile(&source).unwrap();
+        let plan = render::plan(&document, &resolver, None).unwrap();
+        for fragment in [expected, ".gap_width", ".overlap"] {
+            assert!(
+                plan.warnings
+                    .iter()
+                    .any(|warning| warning.contains(fragment)),
+                "{kind}: {fragment}: {:?}",
+                plan.warnings
+            );
+        }
+    }
 }
