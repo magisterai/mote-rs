@@ -1,0 +1,5 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#let(configured=document.presentation({width=pt(600),height=pt(400),footer="Lua footer",date="Fixed",slide_number=true}))
+#let(content=document.box({position={x=pt(40),y=pt(30),width=pt(300),height=pt(60)}},"Generated content"))
+#let(page=document.slide({notes="Lua notes & text",date=false},content))
+#page

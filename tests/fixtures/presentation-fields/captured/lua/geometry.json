@@ -1,0 +1,100 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 30,
+        "height": 21.6648,
+        "x": 40,
+        "width": 149.094,
+        "fragments": [
+          {
+            "text": "Generated ",
+            "x": 40,
+            "baseline": 46.2324,
+            "advance": 90.054,
+            "size": 18
+          },
+          {
+            "text": "content",
+            "x": 130.054,
+            "baseline": 46.2324,
+            "advance": 59.04,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        40,
+        30,
+        300,
+        60
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 45.03,
+        "fragments": [
+          {
+            "text": "Lua ",
+            "x": 43.2,
+            "baseline": 378.98199999999997,
+            "advance": 19.46,
+            "size": 10
+          },
+          {
+            "text": "footer",
+            "x": 62.660000000000004,
+            "baseline": 378.98199999999997,
+            "advance": 25.57,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        367.6,
+        185.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 551.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "1",
+            "x": 551.99,
+            "baseline": 378.98199999999997,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        513.6,
+        367.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ]
+]

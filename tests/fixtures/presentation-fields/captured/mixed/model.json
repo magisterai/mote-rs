@@ -1,0 +1,837 @@
+{
+  "presentation": {
+    "properties": {
+      "background": {
+        "color": "#f8fafc",
+        "fit": "contain",
+        "src": "../images/assets/pattern.png"
+      },
+      "date": "October 30, 2026",
+      "footer": "Combined content",
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "slide_number": true,
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      }
+    },
+    "size": {
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      },
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "properties": {
+        "height": {
+          "text": "400pt",
+          "unit": "pt",
+          "value": 400
+        },
+        "width": {
+          "text": "600pt",
+          "unit": "pt",
+          "value": 600
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "notes": "All positioned objects, footer fields and an image background."
+          },
+          "children": [
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "fill": "#ffffff",
+                "kind": "rectangle",
+                "opacity": "0.95",
+                "position": {
+                  "height": {
+                    "text": "320pt",
+                    "unit": "pt",
+                    "value": 320
+                  },
+                  "width": {
+                    "text": "560pt",
+                    "unit": "pt",
+                    "value": 560
+                  },
+                  "x": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              }
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "130pt",
+                    "unit": "pt",
+                    "value": 130
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "table",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Item"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Value"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Alpha"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "12"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "row",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Beta"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "cell",
+                          "category": "table_part",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "24"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "280pt",
+                    "unit": "pt",
+                    "value": 280
+                  },
+                  "width": {
+                    "text": "270pt",
+                    "unit": "pt",
+                    "value": 270
+                  },
+                  "x": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "background": "#ffffff",
+                    "data": {
+                      "categories": [
+                        "Alpha",
+                        "Beta"
+                      ],
+                      "values": [
+                        12,
+                        24
+                      ]
+                    },
+                    "kind": "column",
+                    "legend": false,
+                    "title": "Values"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "width": {
+                    "text": "100pt",
+                    "unit": "pt",
+                    "value": 100
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "180pt",
+                    "unit": "pt",
+                    "value": 180
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "link": "https://example.com/image",
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "round_rect",
+                "position": {
+                  "height": {
+                    "text": "60pt",
+                    "unit": "pt",
+                    "value": 60
+                  },
+                  "width": {
+                    "text": "120pt",
+                    "unit": "pt",
+                    "value": 120
+                  },
+                  "x": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  },
+                  "y": {
+                    "text": "180pt",
+                    "unit": "pt",
+                    "value": 180
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "size": {
+                    "text": "16pt",
+                    "unit": "pt",
+                    "value": 16
+                  },
+                  "vertical_alignment": "center"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Summary"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "line",
+              "category": "block",
+              "attributes": {
+                "arrow": {
+                  "end": "triangle"
+                },
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  }
+                },
+                "from": {
+                  "x": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  },
+                  "y": {
+                    "text": "280pt",
+                    "unit": "pt",
+                    "value": 280
+                  }
+                },
+                "to": {
+                  "x": {
+                    "text": "270pt",
+                    "unit": "pt",
+                    "value": 270
+                  },
+                  "y": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "notes": "All positioned objects, footer fields and an image background."
+      },
+      "children": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#ffffff",
+            "kind": "rectangle",
+            "opacity": "0.95",
+            "position": {
+              "height": {
+                "text": "320pt",
+                "unit": "pt",
+                "value": 320
+              },
+              "width": {
+                "text": "560pt",
+                "unit": "pt",
+                "value": 560
+              },
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          }
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "130pt",
+                "unit": "pt",
+                "value": 130
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "table",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Item"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Value"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Alpha"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "12"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "row",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Beta"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "cell",
+                      "category": "table_part",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "24"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "280pt",
+                "unit": "pt",
+                "value": 280
+              },
+              "width": {
+                "text": "270pt",
+                "unit": "pt",
+                "value": 270
+              },
+              "x": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "background": "#ffffff",
+                "data": {
+                  "categories": [
+                    "Alpha",
+                    "Beta"
+                  ],
+                  "values": [
+                    12,
+                    24
+                  ]
+                },
+                "kind": "column",
+                "legend": false,
+                "title": "Values"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "width": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "180pt",
+                "unit": "pt",
+                "value": 180
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "link": "https://example.com/image",
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "round_rect",
+            "position": {
+              "height": {
+                "text": "60pt",
+                "unit": "pt",
+                "value": 60
+              },
+              "width": {
+                "text": "120pt",
+                "unit": "pt",
+                "value": 120
+              },
+              "x": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              },
+              "y": {
+                "text": "180pt",
+                "unit": "pt",
+                "value": 180
+              }
+            },
+            "text": {
+              "alignment": "center",
+              "size": {
+                "text": "16pt",
+                "unit": "pt",
+                "value": 16
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Summary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "triangle"
+            },
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              }
+            },
+            "from": {
+              "x": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              },
+              "y": {
+                "text": "280pt",
+                "unit": "pt",
+                "value": 280
+              }
+            },
+            "to": {
+              "x": {
+                "text": "270pt",
+                "unit": "pt",
+                "value": 270
+              },
+              "y": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(width=pt(600),height=pt(400),footer="Notes deck",slide_number=true)
+#slide(notes="  First note: & <xml> ")[#box(position={x=pt(40),y=pt(30),width=pt(300),height=pt(60)},text={size=pt(24)})[Content]]
+#slide(notes="   ")[#box(position={x=pt(40),y=pt(30),width=pt(300),height=pt(60)},text={size=pt(24)})[Content]]
+#slide(notes="Line one\nLine two #strong[plain text]")[#box(position={x=pt(40),y=pt(30),width=pt(300),height=pt(60)},text={size=pt(24)})[Content]]
+#slide[#box(position={x=pt(40),y=pt(30),width=pt(300),height=pt(60)},text={size=pt(24)})[Content]]

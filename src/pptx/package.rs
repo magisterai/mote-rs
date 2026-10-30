@@ -154,6 +154,7 @@ pub(super) fn write(
     let mut slide_ids = String::new();
     let mut presentation_relations = vec![relation("slideMaster", "slideMasters/slideMaster1.xml")];
     let mut chart_parts = Vec::new();
+    let mut notes_count = 0;
     let mut next_shape = 2;
     let mut pictures = super::pictures::Pictures::new(images);
     for (index, slide) in deck.slides.iter().enumerate() {
@@ -265,6 +266,37 @@ pub(super) fn write(
                 &mut relations,
             )?);
         }
+        output.push_str(&super::fields::write(
+            &slide.metadata,
+            [deck.width, deck.height],
+            number,
+            &mut next_shape,
+        )?);
+        if !slide.metadata.notes.is_empty() {
+            notes_count += 1;
+            relations.push(relation(
+                "notesSlide",
+                format!("../notesSlides/notesSlide{notes_count}.xml"),
+            ));
+            parts.insert(
+                format!("ppt/notesSlides/notesSlide{notes_count}.xml"),
+                super::notes::write(
+                    &slide.metadata.notes,
+                    document,
+                    &deck.theme,
+                    measurer,
+                    &mut deck.warnings,
+                    &mut next_shape,
+                )?,
+            );
+            parts.insert(
+                format!("ppt/notesSlides/_rels/notesSlide{notes_count}.xml.rels"),
+                relationships(&[
+                    relation("slide", format!("../slides/slide{number}.xml")),
+                    relation("notesMaster", "../notesMasters/notesMaster1.xml"),
+                ])?,
+            );
+        }
         output.push_str(
             "</p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr></p:sld>",
         );
@@ -281,6 +313,17 @@ pub(super) fn write(
         ("tableStyles", "tableStyles.xml"),
     ] {
         presentation_relations.push(relation(kind, target));
+    }
+    if notes_count > 0 {
+        presentation_relations.push(relation("notesMaster", "notesMasters/notesMaster1.xml"));
+        parts.insert(
+            "ppt/notesMasters/notesMaster1.xml".into(),
+            super::notes::master(),
+        );
+        parts.insert(
+            "ppt/notesMasters/_rels/notesMaster1.xml.rels".into(),
+            relationships(&[relation("theme", "../theme/theme1.xml")])?,
+        );
     }
     parts.insert(
         "ppt/_rels/presentation.xml.rels".into(),
@@ -306,6 +349,7 @@ pub(super) fn write(
             &[
                 ("slide_count", deck.slides.len().to_string()),
                 ("titles", titles),
+                ("notes_count", notes_count.to_string()),
             ],
         )?,
     );
@@ -354,8 +398,14 @@ pub(super) fn write(
             r#"<Override PartName="/{name}" ContentType="{prefix}{kind}"/>"#
         ));
     }
+    if notes_count > 0 {
+        types.push_str(r#"<Override PartName="/ppt/notesMasters/notesMaster1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.notesMaster+xml"/>"#);
+    }
     for number in 1..=deck.slides.len() {
         types.push_str(&format!(r#"<Override PartName="/ppt/slides/slide{number}.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml"/>"#));
+    }
+    for number in 1..=notes_count {
+        types.push_str(&format!(r#"<Override PartName="/ppt/notesSlides/notesSlide{number}.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.notesSlide+xml"/>"#));
     }
     for chart in &chart_parts {
         types.push_str(&format!(

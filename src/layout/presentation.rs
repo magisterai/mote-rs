@@ -229,6 +229,11 @@ fn plan(
             }
             page.append_content(prepared.fitted.page);
         }
+        for field in slide.metadata.fields(index + 1) {
+            let element = field.native_box([geometry.width, geometry.height]);
+            let prepared = prepare_box(document, &element, &deck.theme, measurer)?;
+            page.append_content(prepared.fitted.page);
+        }
         page.operations.push(PageOperation::PopClip);
         pages.push(page);
     }

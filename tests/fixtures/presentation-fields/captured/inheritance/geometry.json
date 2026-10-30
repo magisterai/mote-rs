@@ -1,0 +1,482 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 30,
+        "height": 28.886400000000002,
+        "x": 40,
+        "width": 84.048,
+        "fragments": [
+          {
+            "text": "Content",
+            "x": 40,
+            "baseline": 51.6432,
+            "advance": 84.048,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        40,
+        30,
+        300,
+        60
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 91.16,
+        "fragments": [
+          {
+            "text": "Deck ",
+            "x": 43.2,
+            "baseline": 378.98199999999997,
+            "advance": 25.56,
+            "size": 10
+          },
+          {
+            "text": "footer ",
+            "x": 68.76,
+            "baseline": 378.98199999999997,
+            "advance": 28.35,
+            "size": 10
+          },
+          {
+            "text": "& ",
+            "x": 97.11,
+            "baseline": 378.98199999999997,
+            "advance": 9.45,
+            "size": 10
+          },
+          {
+            "text": "<text>",
+            "x": 106.56,
+            "baseline": 378.98199999999997,
+            "advance": 27.8,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        367.6,
+        185.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 261.74,
+        "width": 77.27,
+        "fragments": [
+          {
+            "text": "October ",
+            "x": 261.74,
+            "baseline": 378.98199999999997,
+            "advance": 38.35,
+            "size": 10
+          },
+          {
+            "text": "30, ",
+            "x": 300.09000000000003,
+            "baseline": 378.98199999999997,
+            "advance": 16.68,
+            "size": 10
+          },
+          {
+            "text": "2026",
+            "x": 316.77,
+            "baseline": 378.98199999999997,
+            "advance": 22.24,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        232.2,
+        367.6,
+        135.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 551.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "1",
+            "x": 551.99,
+            "baseline": 378.98199999999997,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        513.6,
+        367.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 30,
+        "height": 28.886400000000002,
+        "x": 40,
+        "width": 84.048,
+        "fragments": [
+          {
+            "text": "Content",
+            "x": 40,
+            "baseline": 51.6432,
+            "advance": 84.048,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        40,
+        30,
+        300,
+        60
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 91.16,
+        "fragments": [
+          {
+            "text": "Deck ",
+            "x": 43.2,
+            "baseline": 378.98199999999997,
+            "advance": 25.56,
+            "size": 10
+          },
+          {
+            "text": "footer ",
+            "x": 68.76,
+            "baseline": 378.98199999999997,
+            "advance": 28.35,
+            "size": 10
+          },
+          {
+            "text": "& ",
+            "x": 97.11,
+            "baseline": 378.98199999999997,
+            "advance": 9.45,
+            "size": 10
+          },
+          {
+            "text": "<text>",
+            "x": 106.56,
+            "baseline": 378.98199999999997,
+            "advance": 27.8,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        367.6,
+        185.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 277.03,
+        "width": 46.69,
+        "fragments": [
+          {
+            "text": "Fixed ",
+            "x": 277.03,
+            "baseline": 378.98199999999997,
+            "advance": 27.23,
+            "size": 10
+          },
+          {
+            "text": "date",
+            "x": 304.26,
+            "baseline": 378.98199999999997,
+            "advance": 19.46,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        232.2,
+        367.6,
+        135.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 551.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "2",
+            "x": 551.99,
+            "baseline": 378.98199999999997,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        513.6,
+        367.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 30,
+        "height": 28.886400000000002,
+        "x": 40,
+        "width": 84.048,
+        "fragments": [
+          {
+            "text": "Content",
+            "x": 40,
+            "baseline": 51.6432,
+            "advance": 84.048,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        40,
+        30,
+        300,
+        60
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 52.25,
+        "fragments": [
+          {
+            "text": "Local ",
+            "x": 43.2,
+            "baseline": 378.98199999999997,
+            "advance": 26.68,
+            "size": 10
+          },
+          {
+            "text": "footer",
+            "x": 69.88,
+            "baseline": 378.98199999999997,
+            "advance": 25.57,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        367.6,
+        185.60000000000002,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 551.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "3",
+            "x": 551.99,
+            "baseline": 378.98199999999997,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        513.6,
+        367.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 30,
+        "height": 28.886400000000002,
+        "x": 40,
+        "width": 84.048,
+        "fragments": [
+          {
+            "text": "Content",
+            "x": 40,
+            "baseline": 51.6432,
+            "advance": 84.048,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        40,
+        30,
+        300,
+        60
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 261.74,
+        "width": 77.27,
+        "fragments": [
+          {
+            "text": "October ",
+            "x": 261.74,
+            "baseline": 378.98199999999997,
+            "advance": 38.35,
+            "size": 10
+          },
+          {
+            "text": "30, ",
+            "x": 300.09000000000003,
+            "baseline": 378.98199999999997,
+            "advance": 16.68,
+            "size": 10
+          },
+          {
+            "text": "2026",
+            "x": 316.77,
+            "baseline": 378.98199999999997,
+            "advance": 22.24,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        232.2,
+        367.6,
+        135.60000000000002,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 30,
+        "height": 28.886400000000002,
+        "x": 40,
+        "width": 84.048,
+        "fragments": [
+          {
+            "text": "Content",
+            "x": 40,
+            "baseline": 51.6432,
+            "advance": 84.048,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        40,
+        30,
+        300,
+        60
+      ]
+    }
+  ]
+]

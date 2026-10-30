@@ -1,0 +1,180 @@
+{
+  "presentation": {
+    "properties": {
+      "date": "A longer fixed date",
+      "footer": "Long footer that continues until it wraps naturally inside the fixed footer field",
+      "height": {
+        "text": "401.456pt",
+        "unit": "pt",
+        "value": 401.456
+      },
+      "slide_number": true,
+      "width": {
+        "text": "601.123pt",
+        "unit": "pt",
+        "value": 601.123
+      }
+    },
+    "size": {
+      "width": {
+        "text": "601.123pt",
+        "unit": "pt",
+        "value": 601.123
+      },
+      "height": {
+        "text": "401.456pt",
+        "unit": "pt",
+        "value": 401.456
+      },
+      "properties": {
+        "height": {
+          "text": "401.456pt",
+          "unit": "pt",
+          "value": 401.456
+        },
+        "width": {
+          "text": "601.123pt",
+          "unit": "pt",
+          "value": 601.123
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "60pt",
+                    "unit": "pt",
+                    "value": 60
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "text": {
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Content"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "60pt",
+                "unit": "pt",
+                "value": 60
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "text": {
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Content"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

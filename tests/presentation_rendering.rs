@@ -199,14 +199,11 @@ fn presentation_output_reports_unsupported_retained_properties_and_structures() 
             );
         }
     }
-    for source in ["#slide(notes='Speaker')[]", "#slide[Loose content]"] {
-        let document = mote::compile(source).unwrap();
-        assert!(
-            render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
-                .is_err(),
-            "{source}"
-        );
-    }
+    let document = mote::compile("#slide[Loose content]").unwrap();
+    assert!(
+        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+            .is_err()
+    );
 }
 
 #[test]
@@ -433,4 +430,37 @@ fn background_assets_share_the_picture_cache_and_overrides_avoid_unused_sources(
     render::paint_pdf(&plan.output).unwrap();
     render::paint_png(&plan.output, &Default::default()).unwrap();
     assert_eq!(calls.get(), 2);
+}
+
+#[test]
+fn footer_fields_match_captured_native_geometry_and_rasters() {
+    compare_captured_slides(
+        "presentation-fields",
+        &[
+            ("inheritance", 40, 6.9, 0),
+            ("notes", 40, 6.6, 0),
+            ("geometry", 40, 6.3, 0),
+            ("lua", 48, 7.6, 0),
+            ("mixed", 44, 0.16, 0),
+        ],
+    );
+}
+
+#[test]
+fn speaker_notes_do_not_change_native_slide_content() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-fields");
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    let path = root.join("notes.mote");
+    let mut document = mote::compile(&fs::read_to_string(&path).unwrap()).unwrap();
+    let with_notes = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
+    for content in &mut document.content {
+        if let mote::model::Content::Element(element) = content {
+            element.attributes.remove("notes");
+        }
+    }
+    let without_notes = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
+    assert_eq!(
+        presentation_capture::projection(&with_notes.output),
+        presentation_capture::projection(&without_notes.output)
+    );
 }

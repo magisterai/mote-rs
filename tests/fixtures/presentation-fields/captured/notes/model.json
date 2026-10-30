@@ -1,0 +1,515 @@
+{
+  "presentation": {
+    "properties": {
+      "footer": "Notes deck",
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "slide_number": true,
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      }
+    },
+    "size": {
+      "width": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      },
+      "height": {
+        "text": "400pt",
+        "unit": "pt",
+        "value": 400
+      },
+      "properties": {
+        "height": {
+          "text": "400pt",
+          "unit": "pt",
+          "value": 400
+        },
+        "width": {
+          "text": "600pt",
+          "unit": "pt",
+          "value": 600
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "notes": "  First note: \u0026 \u003cxml\u003e "
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "60pt",
+                    "unit": "pt",
+                    "value": 60
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "text": {
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Content"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "notes": "   "
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "60pt",
+                    "unit": "pt",
+                    "value": 60
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "text": {
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Content"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "notes": "Line one\nLine two #strong[plain text]"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "60pt",
+                    "unit": "pt",
+                    "value": 60
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "text": {
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Content"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "60pt",
+                    "unit": "pt",
+                    "value": 60
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "text": {
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Content"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "notes": "  First note: \u0026 \u003cxml\u003e "
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "60pt",
+                "unit": "pt",
+                "value": 60
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "text": {
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Content"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "notes": "   "
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "60pt",
+                "unit": "pt",
+                "value": 60
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "text": {
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Content"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "notes": "Line one\nLine two #strong[plain text]"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "60pt",
+                "unit": "pt",
+                "value": 60
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "text": {
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Content"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "60pt",
+                "unit": "pt",
+                "value": 60
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "text": {
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Content"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

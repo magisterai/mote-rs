@@ -141,8 +141,6 @@ fn compare_package(bytes: &[u8], manifest: &Value, root: &Path, context: &str) {
 fn pending_slide_features_fail_explicitly() {
     for source in [
         r##"#slide[Loose text]"##,
-        r##"#presentation(footer="Footer")#slide[]"##,
-        r##"#slide(notes="Notes")[]"##,
         r##"#slide[#box(position={width=inch(2),height=inch(1)},shadow={color="#000"})[Text]]"##,
     ] {
         let document = mote::compile(source).unwrap();
@@ -232,5 +230,97 @@ fn slide_backgrounds_match_captured_editable_packages() {
     compare_captured_packages(
         "presentation-backgrounds",
         &["fitting", "aspect", "inheritance", "missing"],
+    );
+}
+
+#[test]
+fn footer_fields_and_speaker_notes_match_captured_editable_packages() {
+    compare_captured_packages(
+        "presentation-fields",
+        &["inheritance", "notes", "geometry", "lua", "mixed"],
+    );
+}
+
+#[test]
+fn automatic_dates_keep_editable_fields_and_paint_the_current_calendar_date() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-fields");
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    let path = root.join("automatic.mote");
+    let source = concat!(
+        "#font(name='body',latin='Source Sans 3',files={regular='../measurements/fonts/SourceSans3-Regular.ttf'})",
+        "#presentation(width=pt(600),height=pt(400),date=true,slide_number=true)",
+        "#slide[]#slide(date=false)[]#slide[]"
+    );
+    let document = mote::compile(source).unwrap();
+    let calendar_date = || {
+        let today = time::OffsetDateTime::now_local()
+            .unwrap_or_else(|_| time::OffsetDateTime::now_utc())
+            .date();
+        format!("{} {}, {}", today.month(), today.day(), today.year())
+    };
+    let before = calendar_date();
+    let package =
+        mote::pptx::emit_with_assets(&document, &resolver, Some(path.as_os_str())).unwrap();
+    let plan = mote::render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
+    let after = calendar_date();
+    let mut archive = zip::ZipArchive::new(Cursor::new(package.bytes)).unwrap();
+    let mut identifiers = std::collections::BTreeSet::new();
+    for number in 1..=3 {
+        let mut source = String::new();
+        archive
+            .by_name(&format!("ppt/slides/slide{number}.xml"))
+            .unwrap()
+            .read_to_string(&mut source)
+            .unwrap();
+        let slide = roxmltree::Document::parse(&source).unwrap();
+        let fields: Vec<_> = slide
+            .descendants()
+            .filter(|node| {
+                node.has_tag_name((
+                    "http://schemas.openxmlformats.org/drawingml/2006/main",
+                    "fld",
+                ))
+            })
+            .collect();
+        assert_eq!(fields.len(), if number == 2 { 1 } else { 2 });
+        for field in fields {
+            assert!(identifiers.insert(field.attribute("id").unwrap().to_owned()));
+            let value = field
+                .children()
+                .find(|node| node.tag_name().name() == "t")
+                .unwrap()
+                .text()
+                .unwrap();
+            if field.attribute("type") == Some("datetime4") {
+                assert!(value == before || value == after);
+            } else {
+                assert_eq!(field.attribute("type"), Some("slidenum"));
+                assert_eq!(value, number.to_string());
+            }
+        }
+        let visible = plan.output.pages[number - 1]
+            .text_lines()
+            .flat_map(|line| line.fragments.iter().map(|fragment| fragment.text.as_str()))
+            .collect::<String>();
+        if number == 2 {
+            assert_eq!(visible, "2");
+        } else {
+            assert!(
+                visible.contains(&before) || visible.contains(&after),
+                "{visible}"
+            );
+        }
+    }
+    assert!(
+        mote::render::paint_pdf(&plan.output)
+            .unwrap()
+            .starts_with(b"%PDF-")
+    );
+    assert_eq!(
+        mote::render::paint_png(&plan.output, &Default::default())
+            .unwrap()
+            .output
+            .len(),
+        3
     );
 }

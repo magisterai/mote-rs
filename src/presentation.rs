@@ -1,5 +1,6 @@
 //! Resolved deck geometry and defaults shared by editable and native slides.
 pub(crate) mod backgrounds;
+pub(crate) mod fields;
 pub(crate) mod images;
 mod support;
 pub(crate) mod tables;
@@ -20,13 +21,11 @@ pub(crate) struct Deck {
 pub(crate) struct Slide {
     pub element: Element,
     pub background: backgrounds::Background,
+    pub metadata: fields::SlideMetadata,
 }
 impl Deck {
     pub fn resolve(document: &Document) -> Result<Self, String> {
         let properties = &document.presentation.properties;
-        for name in ["footer", "date", "slide_number"] {
-            check_disabled(properties, name)?;
-        }
         let dimension = |name: &str| {
             document
                 .presentation
@@ -71,12 +70,6 @@ impl Deck {
             match node {
                 Content::Text(value) if value.trim().is_empty() => {}
                 Content::Element(element) if element.kind == ElementKind::Slide => {
-                    for name in ["footer", "date", "slide_number"] {
-                        check_disabled(&element.attributes, name)?;
-                    }
-                    if !text(&element.attributes, "notes").is_empty() {
-                        return Err("presentation speaker notes are not yet supported".into());
-                    }
                     slides.push(element.clone());
                 }
                 _ => {
@@ -93,12 +86,15 @@ impl Deck {
                 children: Vec::new(),
             });
         }
+        let today = fields::current_date(document, &slides, &mut warnings);
         let deck = Self {
             slides: slides
                 .into_iter()
                 .map(|element| {
                     let background = backgrounds::Background::resolve(document, &element);
+                    let metadata = fields::SlideMetadata::resolve(document, &element, &today);
                     Slide {
+                        metadata,
                         element,
                         background,
                     }
@@ -114,15 +110,6 @@ impl Deck {
     }
 }
 
-fn check_disabled(properties: &Properties, name: &str) -> Result<(), String> {
-    if let Some(value) = properties.get(name)
-        && value != &Value::Boolean(false)
-        && !value.to_text().is_empty()
-    {
-        return Err(format!("presentation {name} fields are not yet supported"));
-    }
-    Ok(())
-}
 pub(crate) fn box_bounds(attributes: &Properties) -> Result<[i64; 4], String> {
     let position = object(attributes, "position").ok_or("box position is missing")?;
     let coordinate = |name: &str, fallback| {
