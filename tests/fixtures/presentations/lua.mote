@@ -1,0 +1,5 @@
+#let(configured=document.presentation({size="16:9",background="#fff"}))
+#let(title=document.heading({level=1},"From Lua"))
+#let(placed=document.box({position={width=inch(6),height=inch(1)},text={size=pt(24)}},title))
+#let(page=document.slide({name="Lua slide"},placed))
+#page

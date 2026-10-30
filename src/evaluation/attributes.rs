@@ -93,11 +93,15 @@ enum ArgumentType {
     BooleanOrObject,
     BooleanOrStringOrObject,
     BooleanOrColorOrObject,
+    ColorOrObject,
 }
 
 impl ArgumentType {
     fn accepts(self, value: &Value) -> bool {
         match self {
+            Self::ColorOrObject => {
+                matches!(value, Value::String(_) | Value::Color(_) | Value::Object(_))
+            }
             Self::BooleanOrObject => matches!(value, Value::Boolean(_) | Value::Object(_)),
             Self::BooleanOrStringOrObject => matches!(
                 value,
@@ -123,6 +127,7 @@ impl ArgumentType {
 
     fn description(self) -> &'static str {
         match self {
+            Self::ColorOrObject => "color or object",
             Self::BooleanOrObject => "boolean or object",
             Self::BooleanOrStringOrObject => "boolean, string or object",
             Self::BooleanOrColorOrObject => "boolean, color or object",
@@ -149,6 +154,23 @@ fn validate_named_argument(
         Some(ArgumentType::Object)
     } else {
         match kind {
+            Slide => match name {
+                "name" => Some(ArgumentType::NumberOrString),
+                "layout" | "notes" => Some(ArgumentType::String),
+                "background" => Some(ArgumentType::ColorOrObject),
+                "footer" | "date" | "slide_number" => Some(ArgumentType::Boolean),
+                _ => None,
+            },
+            Box => match name {
+                "name" | "slot" | "opacity" => Some(ArgumentType::NumberOrString),
+                "kind" | "style" | "alignment" | "vertical_alignment" | "fit" => {
+                    Some(ArgumentType::String)
+                }
+                "position" | "border" | "margin" | "text" | "shadow" => Some(ArgumentType::Object),
+                "fill" => Some(ArgumentType::Color),
+                "required" | "remove" => Some(ArgumentType::Boolean),
+                _ => None,
+            },
             Chart => match name {
                 "kind" | "style" => Some(ArgumentType::String),
                 "title" | "gap_width" | "overlap" => Some(ArgumentType::NumberOrString),
@@ -318,6 +340,7 @@ pub(super) fn normalize_attribute(
     use ElementKind::*;
     match kind {
         Chart => super::charts::normalize(name, value, span),
+        Slide | Box => super::presentation::normalize(kind, name, value, span),
         Shape | Line => super::drawings::normalize(kind, name, value, span),
         Figure | Caption => match name {
             "alignment" => normalize_enum(value, span, name, ALIGNMENTS),

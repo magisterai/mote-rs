@@ -1,0 +1,6 @@
+#presentation(size="4:3",background={color="#eef",src="back.png",fit="cover",metadata=true},footer="Internal",date="October",slide_number="true",theme={name="Report",colors={background="#fff",text="#111827",accent1="#2563eb",dark2="#222",light2="#eee",accent2="#059669",accent3="#d97706",accent4="#dc2626",accent5="#7c3aed",accent6="#0891b2",hyperlink="#00f",followed_hyperlink="#808",metadata=true},fonts={heading="Aptos Display",body="Aptos",major="Major",minor="Minor",metadata=true}},metadata=12)
+#slide(name=1,notes="Speaker notes",footer=false,date=true,slide_number=false,background={color="#fef3c7",fit="contain"})[
+#box(name=17,position={width="4in",height=inch(2),metadata=true},fill="#f8fafc",border={color="#2563eb",width=pt(1),dash="dash"},alignment="center",vertical_alignment="middle",margin={left=pt(4),right=pt(6)},opacity="80%",shadow={color="#000",blur=pt(2),distance=pt(3),angle="45deg",opacity="25%"},text={font="Aptos",size=pt(18),bold="true",fit="autofit",margin={top=pt(2)},alignment="right",vertical_alignment="bottom",paragraph={spacing={before=pt(4),after=pt(6)},indent={left=pt(2)}},list={indent={left=pt(24),hanging=pt(10)}}},fit="contain",style="Box style",color="#111827",size=pt(20),italic=true)[
+Styled text.
+]
+]

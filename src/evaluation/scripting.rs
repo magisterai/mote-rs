@@ -87,7 +87,18 @@ impl Runtime {
         for name in crate::evaluation::constructors::ELEMENT_NAMES
             .iter()
             .chain(HELPERS)
-            .chain(["document", "font", "style", "header", "footer", "in"].iter())
+            .chain(
+                [
+                    "document",
+                    "presentation",
+                    "font",
+                    "style",
+                    "header",
+                    "footer",
+                    "in",
+                ]
+                .iter(),
+            )
         {
             if state.bindings.function(name).is_some() {
                 continue;

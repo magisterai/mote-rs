@@ -581,6 +581,24 @@
     {
       "example": "charts/3",
       "model": "charts-3"
+    },
+    {
+      "example": "presentations/1",
+      "model": "presentation-example-1"
+    },
+    {
+      "example": "presentations/2",
+      "model": "presentation-example-2"
+    },
+    {
+      "example": "presentations/3",
+      "lua": true,
+      "model": "presentation-example-3"
+    },
+    {
+      "example": "presentations/4",
+      "diagnostic": "slide cannot mix",
+      "invalid": "An explicit slide cannot combine positioned boxes with loose content."
     }
   ],
   "models": {
@@ -8505,6 +8523,531 @@
               "position": "b"
             }
           }
+        }
+      ]
+    },
+    "presentation-example-1": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "name": "Opening"
+          },
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "width": {
+                    "text": "8in",
+                    "unit": "in",
+                    "value": 8.0
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  }
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "level": 1.0
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quarterly review"
+                    }
+                  ],
+                  "kind": "heading"
+                }
+              ],
+              "kind": "box"
+            },
+            {
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  },
+                  "width": {
+                    "text": "8in",
+                    "unit": "in",
+                    "value": 8.0
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "y": {
+                    "text": "2.3in",
+                    "unit": "in",
+                    "value": 2.3
+                  }
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Revenue increased by "
+                    },
+                    {
+                      "attributes": {
+                        "bold": true,
+                        "color": "#2563eb"
+                      },
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "12%"
+                        }
+                      ],
+                      "kind": "span"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "presentation": {
+        "properties": {
+          "background": "#ffffff",
+          "size": "wide"
+        },
+        "size": {
+          "properties": {
+            "size": "wide"
+          }
+        }
+      },
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "name": "Opening"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "position": {
+                      "height": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      },
+                      "width": {
+                        "text": "8in",
+                        "unit": "in",
+                        "value": 8.0
+                      },
+                      "x": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      },
+                      "y": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "level": 1.0
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Quarterly review"
+                        }
+                      ],
+                      "kind": "heading"
+                    }
+                  ],
+                  "kind": "box"
+                },
+                {
+                  "attributes": {
+                    "position": {
+                      "height": {
+                        "text": "2in",
+                        "unit": "in",
+                        "value": 2.0
+                      },
+                      "width": {
+                        "text": "8in",
+                        "unit": "in",
+                        "value": 8.0
+                      },
+                      "x": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      },
+                      "y": {
+                        "text": "2.3in",
+                        "unit": "in",
+                        "value": 2.3
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Revenue increased by "
+                        },
+                        {
+                          "attributes": {
+                            "bold": true,
+                            "color": "#2563eb"
+                          },
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "12%"
+                            }
+                          ],
+                          "kind": "span"
+                        },
+                        {
+                          "kind": "text",
+                          "text": "."
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentation-example-2": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "fill": "#f8fafc",
+                "margin": {
+                  "left": {
+                    "text": "12pt",
+                    "unit": "pt",
+                    "value": 12.0
+                  },
+                  "right": {
+                    "text": "12pt",
+                    "unit": "pt",
+                    "value": 12.0
+                  }
+                },
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  },
+                  "width": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6.0
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  }
+                },
+                "text": {
+                  "alignment": "center",
+                  "fit": "shrink",
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24.0
+                  }
+                },
+                "vertical_alignment": "center"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A positioned message."
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "fill": "#f8fafc",
+                    "margin": {
+                      "left": {
+                        "text": "12pt",
+                        "unit": "pt",
+                        "value": 12.0
+                      },
+                      "right": {
+                        "text": "12pt",
+                        "unit": "pt",
+                        "value": 12.0
+                      }
+                    },
+                    "position": {
+                      "height": {
+                        "text": "2in",
+                        "unit": "in",
+                        "value": 2.0
+                      },
+                      "width": {
+                        "text": "6in",
+                        "unit": "in",
+                        "value": 6.0
+                      },
+                      "x": {
+                        "text": "0in",
+                        "unit": "in",
+                        "value": 0.0
+                      },
+                      "y": {
+                        "text": "0in",
+                        "unit": "in",
+                        "value": 0.0
+                      }
+                    },
+                    "text": {
+                      "alignment": "center",
+                      "fit": "shrink",
+                      "size": {
+                        "text": "24pt",
+                        "unit": "pt",
+                        "value": 24.0
+                      }
+                    },
+                    "vertical_alignment": "center"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A positioned message."
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentation-example-3": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "name": "Generated"
+          },
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  },
+                  "width": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6.0
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  }
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "From Lua"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "presentation": {
+        "properties": {
+          "size": "standard"
+        },
+        "size": {
+          "properties": {
+            "size": "standard"
+          }
+        }
+      },
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "name": "Generated"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "position": {
+                      "height": {
+                        "text": "2in",
+                        "unit": "in",
+                        "value": 2.0
+                      },
+                      "width": {
+                        "text": "6in",
+                        "unit": "in",
+                        "value": 6.0
+                      },
+                      "x": {
+                        "text": "0in",
+                        "unit": "in",
+                        "value": 0.0
+                      },
+                      "y": {
+                        "text": "0in",
+                        "unit": "in",
+                        "value": 0.0
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "From Lua"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
         }
       ]
     }

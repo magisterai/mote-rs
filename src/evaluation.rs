@@ -17,6 +17,7 @@ mod expressions;
 mod functions;
 mod images;
 mod notes;
+mod presentation;
 mod references;
 mod scripting;
 mod sections;
@@ -199,6 +200,13 @@ fn evaluate_nodes(
             continue;
         }
         skip_declaration_trivia = false;
+        if let NodeKind::Call(call) = &node.kind
+            && call.name == "presentation"
+        {
+            presentation::evaluate(call, node.span, document)?;
+            skip_declaration_trivia = true;
+            continue;
+        }
         if let NodeKind::Call(call) = &node.kind
             && call.name == "document"
         {

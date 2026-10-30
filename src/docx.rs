@@ -90,6 +90,9 @@ pub fn emit_with_assets(
     resolver: &dyn crate::source::AssetResolver,
     source_name: Option<&std::ffi::OsStr>,
 ) -> Result<GeneratedPackage, Error> {
+    if !document.presentation.properties.is_empty() {
+        return Err(Error::Unsupported("presentation declarations".into()));
+    }
     let styles = styles::Styles::new(document)?;
     let font_table = fonts::write_table(document)?;
     let styles_xml = styles.write()?;

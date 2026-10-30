@@ -12,7 +12,7 @@ pub(super) fn normalize(
     span: Span,
 ) -> Result<Value, Diagnostic> {
     match name {
-        "position" if kind == ElementKind::Shape => position(value, span),
+        "position" if kind == ElementKind::Shape => position(value, span, "shape.position"),
         "from" | "to" if kind == ElementKind::Line => point(value, span, name),
         "name" => normalize_identifier(value, span, name).map(Value::String),
         "border" => images::normalize(name, value, span),
@@ -88,7 +88,7 @@ fn vertical_alignment(value: Value, span: Span) -> Result<Value, Diagnostic> {
 fn percent(value: Value) -> Value {
     Value::String(value.to_text().trim().trim_end_matches('%').trim().into())
 }
-fn position(value: Value, span: Span) -> Result<Value, Diagnostic> {
+pub(super) fn position(value: Value, span: Span, owner: &str) -> Result<Value, Diagnostic> {
     let mut fields = require_object(value, span, "position")?;
     for name in ["x", "y"] {
         fields.entry(name.into()).or_insert(Value::Length {
@@ -98,10 +98,7 @@ fn position(value: Value, span: Span) -> Result<Value, Diagnostic> {
     }
     for name in ["width", "height"] {
         if !fields.contains_key(name) {
-            return Err(Diagnostic::new(
-                span,
-                format!("shape.position requires {name}"),
-            ));
+            return Err(Diagnostic::new(span, format!("{owner} requires {name}")));
         }
     }
     for name in ["x", "y", "width", "height"] {

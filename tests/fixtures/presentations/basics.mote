@@ -1,0 +1,10 @@
+#presentation(size="wide",background="#fff")
+#slide(name="Opening")[
+#box(position={x=inch(1),y=inch(1),width=inch(6),height=inch(1)})[
+#heading(level=1)[Quarterly review]
+]
+#box(position={x=inch(1),y=inch(2.2),width=inch(6),height=inch(2)})[
+Revenue increased by #span(bold=true,color="#2563eb")[12%].
+]
+]
+#slide(name=2)[]

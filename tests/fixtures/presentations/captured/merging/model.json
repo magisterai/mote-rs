@@ -1,0 +1,172 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#eeeeee",
+      "height": {
+        "text": "8in",
+        "unit": "in",
+        "value": 8
+      },
+      "metadata": "last",
+      "size": "standard",
+      "width": {
+        "text": "9in",
+        "unit": "in",
+        "value": 9
+      }
+    },
+    "size": {
+      "width": {
+        "text": "9in",
+        "unit": "in",
+        "value": 9
+      },
+      "height": {
+        "text": "8in",
+        "unit": "in",
+        "value": 8
+      },
+      "properties": {
+        "height": {
+          "text": "8in",
+          "unit": "in",
+          "value": 8
+        },
+        "size": "standard",
+        "width": {
+          "text": "9in",
+          "unit": "in",
+          "value": 9
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "background": "#aabbcc",
+            "name": "3",
+            "slide_number": false
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#fef3c7",
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  },
+                  "width": {
+                    "text": "5in",
+                    "unit": "in",
+                    "value": 5
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  }
+                },
+                "text": {
+                  "fit": "clip"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Override"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "background": "#aabbcc",
+        "name": "3",
+        "slide_number": false
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#fef3c7",
+            "position": {
+              "height": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "width": {
+                "text": "5in",
+                "unit": "in",
+                "value": 5
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            },
+            "text": {
+              "fit": "clip"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Override"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

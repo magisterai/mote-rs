@@ -18,6 +18,8 @@ pub(super) const ELEMENT_NAMES: &[&str] = &[
     "image",
     "shape",
     "chart",
+    "slide",
+    "box",
     "line",
     "table",
     "row",
@@ -92,6 +94,8 @@ impl Signature {
             ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
             ElementKind::Table | ElementKind::Row => ContentMode::Structural,
             ElementKind::Shape
+            | ElementKind::Slide
+            | ElementKind::Box
             | ElementKind::Cell
             | ElementKind::ListItem
             | ElementKind::Blockquote
@@ -210,8 +214,11 @@ impl Signature {
             }
             _ => {}
         }
-        if matches!(self.kind, ElementKind::Shape | ElementKind::Line) {
-            for required in if self.kind == ElementKind::Shape {
+        if matches!(
+            self.kind,
+            ElementKind::Shape | ElementKind::Box | ElementKind::Line
+        ) {
+            for required in if self.kind != ElementKind::Line {
                 &["position"][..]
             } else {
                 &["from", "to"][..]
@@ -307,8 +314,24 @@ impl PreparedElement {
                 ));
             }
         }
-        if kind == ElementKind::Shape {
+        if matches!(
+            kind,
+            ElementKind::Shape | ElementKind::Slide | ElementKind::Box
+        ) {
             children.retain(|child| !matches!(child,Content::Text(text) if text.trim().is_empty()));
+        }
+        if matches!(kind, ElementKind::Slide | ElementKind::Box) {
+            super::presentation::validate_children(kind, &children, span)?;
+            if children.is_empty() {
+                state.warnings.push(Diagnostic::new(
+                    span,
+                    format!(
+                        "{} body is empty; emitting an empty {}",
+                        kind.as_text(),
+                        kind.as_text()
+                    ),
+                ));
+            }
         }
         if kind == ElementKind::Figure && children.iter().filter(|child| matches!(child,Content::Element(element) if element.kind == ElementKind::Caption)).count() > 1 {
             return Err(Diagnostic::new(span,"figure can contain at most one caption"));

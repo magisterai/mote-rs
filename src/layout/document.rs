@@ -82,6 +82,11 @@ pub(crate) fn plan_document_with_images(
     measurer: &mut TextMeasurer<'_>,
     images: &crate::media::ImageCatalog,
 ) -> Result<DocumentTextPlan, LayoutError> {
+    if !document.presentation.properties.is_empty() {
+        return Err(LayoutError::Unsupported(
+            "presentation output is not yet supported".into(),
+        ));
+    }
     super::sections::plan(document, measurer, images)
 }
 

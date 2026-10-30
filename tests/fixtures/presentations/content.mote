@@ -1,0 +1,19 @@
+#slide[
+#box(position={width=inch(4),height=inch(3)})[
+#paragraph[Opening]
+#list[#item[First]#item[Second]]
+#blockquote[Context]
+]
+#shape(position={x=inch(5),y=inch(1),width=inch(1),height=inch(1)},fill="#059669")
+#line(from={x=inch(1),y=inch(5)},to={x=inch(7),y=inch(5)})
+]
+#slide[
+# Heading
+
+Loose content.
+]
+#slide[
+#box(position={width=inch(4),height=inch(3)})[#chart(data={values={1,2,3}})]
+#box(position={x=inch(5),width=inch(4),height=inch(3)})[#image(src="image.png")]
+#box(position={y=inch(4),width=inch(4),height=inch(2)})[#table[#row[#cell[Cell]]]]
+]

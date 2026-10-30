@@ -89,12 +89,21 @@ pub struct Document {
     /// Retained default_* and language arguments; output support is separate.
     pub defaults: Properties,
     pub content: Vec<Content>,
+    pub presentation: Presentation,
     /// Resolved section snapshots; empty means one implicit document section.
     pub sections: Vec<Section>,
     pub fonts: BTreeMap<String, FontDeclaration>,
     pub styles: BTreeMap<String, StyleDeclaration>,
     /// Non-fatal evaluation diagnostics, kept separate from JSON inspection.
     pub warnings: Vec<crate::diagnostics::Diagnostic>,
+}
+
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct Presentation {
+    pub properties: Properties,
+    pub size_properties: Properties,
+    /// Resolved authored dimensions, kept separate from the last size declaration.
+    pub dimensions: Properties,
 }
 
 #[derive(Debug, Clone, Default, PartialEq)]
@@ -189,6 +198,8 @@ pub enum ElementKind {
     Image,
     Shape,
     Chart,
+    Slide,
+    Box,
     Line,
     Table,
     Row,
@@ -223,6 +234,8 @@ impl ElementKind {
             Self::Image,
             Self::Shape,
             Self::Chart,
+            Self::Slide,
+            Self::Box,
             Self::Line,
             Self::Table,
             Self::Row,
@@ -259,6 +272,8 @@ impl ElementKind {
             Self::Image => "image",
             Self::Shape => "shape",
             Self::Chart => "chart",
+            Self::Slide => "slide",
+            Self::Box => "box",
             Self::Line => "line",
             Self::Table => "table",
             Self::Row => "row",

@@ -1,0 +1,265 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#ffffff",
+      "size": "wide"
+    },
+    "size": {
+      "properties": {
+        "size": "wide"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "name": "Opening"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "width": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quarterly review"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  },
+                  "width": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "y": {
+                    "text": "2.2in",
+                    "unit": "in",
+                    "value": 2.2
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Revenue increased by "
+                    },
+                    {
+                      "kind": "span",
+                      "category": "inline",
+                      "attributes": {
+                        "bold": true,
+                        "color": "#2563eb"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "12%"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "name": "2"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "name": "Opening"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "width": {
+                "text": "6in",
+                "unit": "in",
+                "value": 6
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quarterly review"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "width": {
+                "text": "6in",
+                "unit": "in",
+                "value": 6
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "2.2in",
+                "unit": "in",
+                "value": 2.2
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Revenue increased by "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "bold": true,
+                    "color": "#2563eb"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "12%"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "name": "2"
+      }
+    }
+  ]
+}

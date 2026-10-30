@@ -26,7 +26,10 @@ pub(super) fn call(
         return crate::evaluation::expressions::evaluate_helper_value(name, argument, span, state)
             .map_err(mlua::Error::external);
     }
-    if matches!(name, "document" | "font" | "style" | "header" | "footer") {
+    if matches!(
+        name,
+        "document" | "presentation" | "font" | "style" | "header" | "footer"
+    ) {
         return declaration(name, arguments, span, state);
     }
     let signature = Signature::find(name).ok_or_else(|| {
@@ -126,7 +129,9 @@ fn declaration(
                 "{name} accepts named arguments only"
             )));
         }
-        if name == "document" {
+        if name == "presentation" {
+            crate::evaluation::presentation::apply(named, state).map_err(mlua::Error::external)?;
+        } else if name == "document" {
             crate::evaluation::configuration::apply(named, state).map_err(mlua::Error::external)?;
         } else {
             crate::evaluation::declarations::apply(name, named, span, state)

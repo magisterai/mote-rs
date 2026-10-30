@@ -259,6 +259,9 @@ fn content(
         let item = element.kind == ElementKind::ListItem;
         let mut allowed = Vec::new();
         match element.kind {
+            ElementKind::Slide | ElementKind::Box => {
+                warnings.insert(format!("{path} presentation output is not yet supported"));
+            }
             ElementKind::Shape => {
                 allowed.extend([
                     "position",

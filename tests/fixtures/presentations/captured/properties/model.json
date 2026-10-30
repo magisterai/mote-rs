@@ -1,0 +1,389 @@
+{
+  "presentation": {
+    "properties": {
+      "background": {
+        "color": "#eeeeff",
+        "fit": "cover",
+        "metadata": true,
+        "src": "back.png"
+      },
+      "date": "October",
+      "footer": "Internal",
+      "metadata": 12,
+      "size": "standard",
+      "slide_number": true,
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb",
+          "accent2": "#059669",
+          "accent3": "#d97706",
+          "accent4": "#dc2626",
+          "accent5": "#7c3aed",
+          "accent6": "#0891b2",
+          "background": "#ffffff",
+          "dark2": "#222222",
+          "followed_hyperlink": "#880088",
+          "hyperlink": "#0000ff",
+          "light2": "#eeeeee",
+          "metadata": true,
+          "text": "#111827"
+        },
+        "fonts": {
+          "body": "Aptos",
+          "heading": "Aptos Display",
+          "major": "Major",
+          "metadata": true,
+          "minor": "Minor"
+        },
+        "name": "Report"
+      }
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "background": {
+              "color": "#fef3c7",
+              "fit": "contain"
+            },
+            "date": true,
+            "footer": false,
+            "name": "1",
+            "notes": "Speaker notes",
+            "slide_number": false
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "alignment": "center",
+                "border": {
+                  "color": "#2563eb",
+                  "dash": "dash",
+                  "width": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1
+                  }
+                },
+                "color": "#111827",
+                "fill": "#f8fafc",
+                "fit": "contain",
+                "italic": true,
+                "margin": {
+                  "left": {
+                    "text": "4pt",
+                    "unit": "pt",
+                    "value": 4
+                  },
+                  "right": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6
+                  }
+                },
+                "name": "17",
+                "opacity": "80",
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2
+                  },
+                  "metadata": true,
+                  "width": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0
+                  }
+                },
+                "shadow": {
+                  "angle": "45",
+                  "blur": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  },
+                  "color": "#000000",
+                  "distance": {
+                    "text": "3pt",
+                    "unit": "pt",
+                    "value": 3
+                  },
+                  "opacity": "25"
+                },
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                },
+                "style": "Box style",
+                "text": {
+                  "alignment": "right",
+                  "bold": true,
+                  "fit": "shrink",
+                  "font": "Aptos",
+                  "list": {
+                    "indent": {
+                      "hanging": {
+                        "text": "10pt",
+                        "unit": "pt",
+                        "value": 10
+                      },
+                      "left": {
+                        "text": "24pt",
+                        "unit": "pt",
+                        "value": 24
+                      }
+                    }
+                  },
+                  "margin": {
+                    "top": {
+                      "text": "2pt",
+                      "unit": "pt",
+                      "value": 2
+                    }
+                  },
+                  "paragraph": {
+                    "indent": {
+                      "left": {
+                        "text": "2pt",
+                        "unit": "pt",
+                        "value": 2
+                      }
+                    },
+                    "spacing": {
+                      "after": {
+                        "text": "6pt",
+                        "unit": "pt",
+                        "value": 6
+                      },
+                      "before": {
+                        "text": "4pt",
+                        "unit": "pt",
+                        "value": 4
+                      }
+                    }
+                  },
+                  "size": {
+                    "text": "18pt",
+                    "unit": "pt",
+                    "value": 18
+                  },
+                  "vertical_alignment": "bottom"
+                },
+                "vertical_alignment": "center"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Styled text."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "background": {
+          "color": "#fef3c7",
+          "fit": "contain"
+        },
+        "date": true,
+        "footer": false,
+        "name": "1",
+        "notes": "Speaker notes",
+        "slide_number": false
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "border": {
+              "color": "#2563eb",
+              "dash": "dash",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            },
+            "color": "#111827",
+            "fill": "#f8fafc",
+            "fit": "contain",
+            "italic": true,
+            "margin": {
+              "left": {
+                "text": "4pt",
+                "unit": "pt",
+                "value": 4
+              },
+              "right": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6
+              }
+            },
+            "name": "17",
+            "opacity": "80",
+            "position": {
+              "height": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2
+              },
+              "metadata": true,
+              "width": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0
+              }
+            },
+            "shadow": {
+              "angle": "45",
+              "blur": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              },
+              "color": "#000000",
+              "distance": {
+                "text": "3pt",
+                "unit": "pt",
+                "value": 3
+              },
+              "opacity": "25"
+            },
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            },
+            "style": "Box style",
+            "text": {
+              "alignment": "right",
+              "bold": true,
+              "fit": "shrink",
+              "font": "Aptos",
+              "list": {
+                "indent": {
+                  "hanging": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  },
+                  "left": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "margin": {
+                "top": {
+                  "text": "2pt",
+                  "unit": "pt",
+                  "value": 2
+                }
+              },
+              "paragraph": {
+                "indent": {
+                  "left": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  }
+                },
+                "spacing": {
+                  "after": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6
+                  },
+                  "before": {
+                    "text": "4pt",
+                    "unit": "pt",
+                    "value": 4
+                  }
+                }
+              },
+              "size": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18
+              },
+              "vertical_alignment": "bottom"
+            },
+            "vertical_alignment": "center"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Styled text."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

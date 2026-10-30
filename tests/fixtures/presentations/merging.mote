@@ -1,0 +1,6 @@
+#presentation(size={width=inch(12),height=inch(7),custom=pt(1)},width=inch(10),metadata="first")
+#presentation(size="standard",height=inch(8),background="#fff")
+#presentation(properties={width=inch(9),metadata="last",background="#eee"})
+#slide(properties={name=3,background="#abc",slide_number="false"})[
+#box(position={width=inch(4),height=inch(1)},properties={position={width=inch(5),height=inch(2)},fill="#fef3c7",text={fit="none"}})[Override]
+]

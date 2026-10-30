@@ -31,6 +31,19 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
     if !document.properties.is_empty() {
         output["document"] = properties_as_json(&document.properties)?;
     }
+    if !document.presentation.properties.is_empty()
+        || !document.presentation.size_properties.is_empty()
+        || !document.presentation.dimensions.is_empty()
+    {
+        let presentation = &document.presentation;
+        let mut value = json!({"size":{}});
+        copy_nonempty_properties(&mut value, &presentation.properties)?;
+        copy_nonempty_properties(&mut value["size"], &presentation.size_properties)?;
+        for name in ["width", "height"] {
+            copy_nonempty_field(&mut value["size"], &presentation.dimensions, name)?;
+        }
+        output["presentation"] = value;
+    }
     if !document.defaults.is_empty() {
         output["defaults"] = properties_as_json(&document.defaults)?;
     }
