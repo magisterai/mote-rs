@@ -309,10 +309,32 @@ fn nested_markup_retains_unicode_source_ranges_and_bounded_recursion() {
             .message
             .contains("nesting limit")
     );
-    assert!(
-        parse("- [x] Task")
-            .unwrap_err()
-            .message
-            .contains("task list")
+}
+
+#[test]
+fn markdown_task_markers_preserve_unchecked_and_absent_states() {
+    let model = content_model(
+        "- [x] Complete\n- [ ] Pending\n- [X] Also complete\n- Ordinary\n  - [ ] Nested",
+    );
+    let items = &model["content"][0]["children"];
+    for (index, checked) in [(0, true), (1, false), (2, true)] {
+        assert_eq!(items[index]["attributes"]["checked"], checked);
+        assert_eq!(
+            items[index]["attributes"]["marker"],
+            ["- [x]", "- [ ]", "- [X]"][index]
+        );
+    }
+    assert!(items[3]["attributes"].get("checked").is_none());
+    let nested = items[3]["children"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|child| child["kind"] == "list")
+        .unwrap();
+    assert_eq!(nested["children"][0]["attributes"]["checked"], false);
+    assert_eq!(items[0]["children"][0]["text"], "Complete");
+    assert_eq!(
+        content_model("1. [x] Ordered")["content"][0]["children"][0]["attributes"]["checked"],
+        true
     );
 }

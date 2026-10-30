@@ -316,9 +316,20 @@ fn evaluate_nodes(
                 attributes: Properties::new(),
                 children: vec![Content::Text(text.clone())],
             }),
-            NodeKind::ListItem { marker, body } => Content::Element(Element {
+            NodeKind::ListItem {
+                marker,
+                checked,
+                body,
+            } => Content::Element(Element {
                 kind: ElementKind::ListItem,
-                attributes: Properties::from([("marker".into(), Value::String(marker.clone()))]),
+                attributes: {
+                    let mut attributes =
+                        Properties::from([("marker".into(), Value::String(marker.clone()))]);
+                    if let Some(checked) = checked {
+                        attributes.insert("checked".into(), Value::Boolean(*checked));
+                    }
+                    attributes
+                },
                 children: evaluate_nodes(body, ContentMode::MarkdownItem, context, document)?,
             }),
             NodeKind::Blockquote(body) => Content::Element(Element {

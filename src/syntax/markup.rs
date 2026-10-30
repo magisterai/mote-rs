@@ -397,17 +397,28 @@ impl Parser<'_> {
             self.position = start;
             return Ok(None);
         }
-        let marker = self.source[start..self.position].to_owned();
+        let mut marker = self.source[start..self.position].to_owned();
         self.skip_horizontal_whitespace();
-        if ["[ ] ", "[x] ", "[X] ", "[ ]\t", "[x]\t", "[X]\t"]
+        let checked = if ["[ ] ", "[x] ", "[X] ", "[ ]\t", "[x]\t", "[X]\t"]
             .iter()
             .any(|prefix| self.starts_with(prefix))
         {
-            return Err(self.error("task list markers are not supported yet"));
-        }
+            let checked = !self.starts_with("[ ]");
+            marker.push(' ');
+            marker.push_str(&self.source[self.position..self.position + 3]);
+            self.position += 3;
+            self.skip_horizontal_whitespace();
+            Some(checked)
+        } else {
+            None
+        };
         let body = self.parse_markup(MarkupBoundary::ListItem { marker_column })?;
         Ok(Some(Node {
-            kind: NodeKind::ListItem { marker, body },
+            kind: NodeKind::ListItem {
+                marker,
+                checked,
+                body,
+            },
             span: self.span(start),
         }))
     }

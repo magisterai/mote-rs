@@ -41,6 +41,7 @@ pub enum NodeKind {
     Code(String),
     ListItem {
         marker: String,
+        checked: Option<bool>,
         body: Vec<Node>,
     },
     Blockquote(Vec<Node>),
