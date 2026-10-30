@@ -66,7 +66,9 @@ rejected; flattened running stories omit chart geometry with a warning.
 [line/area captures](../../tests/fixtures/chart-native-curves/README.md), and
 [pie/doughnut captures](../../tests/fixtures/chart-native-pie/README.md) separately
 record geometry, pixel comparisons and retained layout limitations.
-Presentation placement remains pending. Office render review is unreviewed.
+Positioned presentation placement, shared theme defaults, editable workbooks
+and native painting have [captured coverage](../../tests/fixtures/presentation-charts/README.md).
+Office render review is unreviewed.
 
 Unsupported standard families remain in the linked inventories: 3D and combination
 charts, scatter/bubble/radar/stock/surface charts, chart drawings, arbitrary formulas
@@ -79,4 +81,4 @@ Positioned slide chart output requires box geometry, editable chart parts and
 embedded workbooks, all twelve existing chart kinds, and the authored title,
 axes, legends, labels, fills, borders, gridlines, palette, gap and overlap fields.
 Deck palette and text defaults must also reach native chart layout. Presentation
-captures are pending separately from the existing document captures.
+captures cover these fields separately from the existing document captures.
