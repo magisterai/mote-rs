@@ -22,11 +22,11 @@
 - [x] `shadow`: enabled, color, blur, distance, angle and opacity.
 - [x] `fit`: contain, cover, stretch for an image child.
 - [x] `slot`: nonempty named assignment, with optional position and body.
-- [ ] `kind`, `required`, `remove`: layout-only declaration fields; see the
+- [x] `kind`, `required`, `remove`: layout-only declaration fields; see the
   [layout inventory](layout.md).
 - [x] `properties` overrides and Lua construction.
 
-Output covers positioned text, image, table and chart boxes. Built-in named layout slots are supported; custom declarations remain pending. Text body properties, paragraph/run/list
+Output covers positioned text, image, table and chart boxes. Built-in and custom named layout slots are supported. Text body properties, paragraph/run/list
 fields, geometry, fills, strokes, effects, hyperlinks, accessibility and nonvisual
 metadata remain in the shared inventories, including unsupported values.
 Editable positioned text supports paragraph/run/list formatting, theme fonts and

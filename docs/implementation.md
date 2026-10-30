@@ -31,7 +31,7 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
 | [drawings](../src/drawings.rs) | Shared drawing text, shape/connector XML and physical unit conversion. |
 | [charts](../src/charts.rs) | Resolved chart data and appearance, editable chart XML and embedded workbooks. |
-| [presentation](../src/presentation.rs) | Deck dimensions, themes, backgrounds, slide metadata, text and table semantics, image placement and support diagnostics. |
+| [presentation](../src/presentation.rs) | Deck dimensions, segmentation, automatic frames, named layout resolution, themes, backgrounds, slide metadata and shared object semantics. |
 | [pptx](../src/pptx.rs) | Editable slide packages, masters, themes, positioned objects, chart workbooks, footer fields and speaker notes. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
@@ -271,7 +271,7 @@ Empty documents omit `sections`, while explicit empty sections remain represente
 Elements have `kind` and `category`; empty `children` and `attributes` are omitted.
 Text nodes have `kind = "text"` and omit `text` only when empty. Adjacent fragments
 remain distinct, including helper results, escaped characters, and line breaks.
-Markdown headings retain `marker = "#"` alongside their numeric level. Objects retain named fields; lengths carry `value`, `unit`, and a readable
+Markdown headings retain `marker = "#"` or `marker = "setext"` alongside their numeric level. Objects retain named fields; lengths carry `value`, `unit`, and a readable
 `text` representation. Arrays retain order; typed colors serialize as normalized
 hexadecimal strings. Documents with declarations also contain `fonts` and
 `styles` arrays sorted by name. Nonempty authored properties and structural
@@ -280,6 +280,8 @@ Empty registries are omitted. Conversion warnings go to standard error and stay
 out of JSON. This deterministic inspection format contains no computed layout
 geometry and is not yet a stable interchange schema. Nonempty presentation
 configuration and explicit slide/box content are retained in the same model.
+Custom layout declarations remain in the library model but are currently omitted
+from JSON inspection.
 
 ## Development
 
@@ -687,7 +689,7 @@ lengths retain the limits recorded in the [chart checklist](checklists/chart.md)
 Native table-cell charts remain unsupported. Positioned presentation charts use
 the same geometry with deck theme colors and fonts.
 
-## Explicit presentations
+## Presentations
 
 `pptx::emit_with_assets` generates editable slides with positioned text, pictures,
 tables, shapes, connectors and charts. Deck defaults and slide overrides resolve
@@ -708,9 +710,20 @@ values and omit notes. Notes use their own parts, relationships and master.
 The CLI accepts `--format pptx`. PDF/PNG selects slide layout for nonempty explicit
 presentation configuration, or with `--layout presentation`. `--layout document`
 selects document flow explicitly; ordinary Markdown remains document content.
-Native slide output requires explicit `slide` bodies and positioned objects;
-`#slide[]` creates a blank slide. Automatic layout, named layouts and text-box
-shadows remain unsupported. Retained properties without an effect warn.
+Presentation mode segments top-level headings/dividers and explicit slides,
+then resolves automatic content frames or built-in/custom named layouts. Slots
+materialize in layout order, followed by ordinary positioned objects. Layout
+inheritance resolves iteratively, with recursive property overrides, typed and
+required slots, removals and layout-level metadata. The authored model remains
+unchanged. `#slide[]` creates a blank slide. Text-box shadows remain unsupported;
+retained properties without an effect warn after inherited properties resolve.
+
+All eight built-ins adapt to slide dimensions. Custom declarations preserve their
+order, allow forward inheritance and replace repeated names in place. JSON values
+can declare slots; Lua can declare derived layouts and provide content. Empty Lua
+box round-trips currently prevent Lua slot declarations; the language chapter
+records this boundary. Source-relative images and fonts use the same resolver for
+inherited layouts and ordinary slides.
 
 Fixed captures compare complete models and canonical packages, including embedded
 chart workbooks, plus ordered native geometry and independent PNG output. The
@@ -720,7 +733,11 @@ chart workbooks, plus ordered native geometry and independent PNG output. The
 [drawing](../tests/fixtures/presentation-shapes/README.md),
 [chart](../tests/fixtures/presentation-charts/README.md),
 [background](../tests/fixtures/presentation-backgrounds/README.md) and
-[field/notes](../tests/fixtures/presentation-fields/README.md) capture guides record
+[field/notes](../tests/fixtures/presentation-fields/README.md),
+[automatic layout](../tests/fixtures/presentation-automatic/README.md),
+[Markdown decks](../tests/fixtures/presentation-markdown/README.md),
+[built-in layouts](../tests/fixtures/presentation-layouts/README.md) and
+[custom layouts](../tests/fixtures/presentation-custom/README.md) capture guides record
 coverage, raster bounds and remaining output differences. The field cases also
 combine all supported positioned object kinds in one slide. These checks do not
 establish PowerPoint conformance; the new cases remain unreviewed in Office.

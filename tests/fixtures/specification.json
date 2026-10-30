@@ -619,6 +619,29 @@
     {
       "example": "presentation-layouts/2",
       "model": "presentation-layouts-2"
+    },
+    {
+      "example": "presentation-layouts/3",
+      "model": "presentation-layouts-3"
+    },
+    {
+      "example": "presentation-layouts/4",
+      "model": "presentation-layouts-4"
+    },
+    {
+      "example": "presentation-layouts/5",
+      "model": "presentation-layouts-5",
+      "lua": true
+    },
+    {
+      "example": "presentation-layouts/6",
+      "diagnostic": "missing required slot",
+      "invalid": "A slide must supply every required slot."
+    },
+    {
+      "example": "presentation-layouts/7",
+      "diagnostic": "cycle",
+      "invalid": "Layout inheritance cannot contain a cycle."
     }
   ],
   "models": {
@@ -9756,6 +9779,338 @@
                         }
                       ],
                       "kind": "heading"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentation-layouts-3": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "layout": "report"
+          },
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "slot": "title"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "level": 1.0
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quarterly report"
+                    }
+                  ],
+                  "kind": "heading"
+                }
+              ],
+              "kind": "box"
+            },
+            {
+              "attributes": {
+                "slot": "content"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Revenue increased by 12%."
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "presentation": {
+        "properties": {
+          "size": "standard"
+        },
+        "size": {
+          "properties": {
+            "size": "standard"
+          }
+        }
+      },
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "layout": "report"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "slot": "title"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "level": 1.0
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Quarterly report"
+                        }
+                      ],
+                      "kind": "heading"
+                    }
+                  ],
+                  "kind": "box"
+                },
+                {
+                  "attributes": {
+                    "slot": "content"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Revenue increased by 12%."
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentation-layouts-4": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "layout": "opening"
+          },
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "slot": "title"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "level": 1.0
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Annual review"
+                    }
+                  ],
+                  "kind": "heading"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "layout": "opening"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "slot": "title"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "level": 1.0
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Annual review"
+                        }
+                      ],
+                      "kind": "heading"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentation-layouts-5": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "layout": "summary"
+          },
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "slot": "title"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "level": 1.0
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Summary"
+                    }
+                  ],
+                  "kind": "heading"
+                }
+              ],
+              "kind": "box"
+            },
+            {
+              "attributes": {
+                "slot": "content"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A reusable layout declared through Lua."
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "box"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "layout": "summary"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "slot": "title"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "level": 1.0
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Summary"
+                        }
+                      ],
+                      "kind": "heading"
+                    }
+                  ],
+                  "kind": "box"
+                },
+                {
+                  "attributes": {
+                    "slot": "content"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A reusable layout declared through Lua."
+                        }
+                      ],
+                      "kind": "paragraph"
                     }
                   ],
                   "kind": "box"

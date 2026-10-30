@@ -9,8 +9,8 @@
 - [x] `background`: color or `color`, `src`, `fit` property table; replaces the
   complete deck background rather than merging image and color fields.
 - [x] `footer`, `date`, `slide_number`: slide overrides, including false to suppress.
-- [ ] `layout`: trimmed name and built-in typed slots are supported; custom
-  declarations remain pending in the [layout checklist](layout.md).
+- [x] `layout`: trimmed name, built-in/custom resolution and typed slots; see
+  the [layout checklist](layout.md).
 - [x] `properties` overrides, retained metadata and Lua construction.
 - [x] Automatic loose-content layout: a leading heading, grouped text, separate
   image/table frames, shared fitting and page-size-aware geometry.
@@ -18,7 +18,7 @@
   presentation mode; explicit slides mixed with implicit segments.
 
 Output supports explicit slides with positioned text, pictures, tables, shapes,
-connectors and charts, plus automatic text, image and table layout. Built-in named layouts are supported; custom declarations remain pending.
+connectors and charts, plus automatic text, image and table layout. Built-in and custom named layouts are supported.
 Speaker notes are plain PPTX metadata. Footer text, dates and slide numbers render
 in editable and native output, with independent suppression on each slide.
 Master/layout inheritance, hidden slides, transitions, timing, animation and

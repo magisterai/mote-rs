@@ -76,7 +76,7 @@ Status: initial draft.
     explicit slides, positioned content and text properties.
 
 28. [Named presentation layouts](presentation-layouts.md): typed slots, built-in
-    geometry and property overrides.
+    geometry, custom declarations, inheritance and property overrides.
 
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
