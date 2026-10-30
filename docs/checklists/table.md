@@ -28,3 +28,10 @@ also remain editable-output capabilities. See the [capture notes](../../tests/fi
 for comparison coverage and font requirements.
 
 Microsoft Word visual review remains unreviewed.
+
+Positioned-slide table output is inventoried separately from document flow:
+box geometry, table width/alignment, explicit column widths, row heights,
+row/column merges, cell margins/fills/text direction/alignment, declared table
+regions and text defaults, and physical border ownership. Editable and native
+slide output are pending. Table styles may select `style_id` or
+`powerpoint_style_id`; first/last row/column and banding flags need output evidence.

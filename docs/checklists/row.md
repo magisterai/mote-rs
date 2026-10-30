@@ -22,3 +22,7 @@ group without a safe split warns and falls back to individual rows.
 `height` and `height_rule` affect editable DOCX only and produce native support warnings.
 
 Microsoft Word visual review remains unreviewed.
+
+Positioned-slide rows use their containing box and explicit heights rather than
+page fragmentation. Slide sizing and merge continuity need separate output
+coverage; document pagination flags do not imply slide pagination.

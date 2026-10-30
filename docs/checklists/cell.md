@@ -28,3 +28,7 @@ and paragraph borders inside cells are omitted; inline highlights remain visible
 `text_direction` and `no_wrap` affect editable DOCX only and produce native support warnings.
 
 Microsoft Word visual review remains unreviewed.
+
+Positioned-slide cells need separate coverage for merged slots, conditional style
+precedence, margins, vertical text, clipping and shared physical edges. PowerPoint
+wraps table-cell text; `no_wrap` must report that limitation in both slide outputs.
