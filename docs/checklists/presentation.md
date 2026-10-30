@@ -31,3 +31,8 @@ and solid backgrounds. Background images and footer fields fail explicitly.
 See [package captures](../../tests/fixtures/presentation-text/README.md). Native PDF/PNG supports the same initial subset and uses explicit slide geometry.
 Native output needs at least one explicit slide. PowerPoint review remains
 pending; model acceptance alone does not establish output effects.
+
+Background-image output inventory: source-relative loading, inherited deck
+backgrounds, whole-value slide overrides, color fallback, contain/cover/stretch
+placement, clipping and foreground layering. Missing sources must retain the
+background color and warn. Editable and native captures are pending separately.

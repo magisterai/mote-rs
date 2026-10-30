@@ -26,3 +26,8 @@ review remains pending.
 
 The [language definition](../specification/presentations.md) and
 [model tests](../../tests/presentations.rs) cover checked contracts.
+
+Background-image output inventory: source-relative loading, inherited deck
+backgrounds, whole-value slide overrides, color fallback, contain/cover/stretch
+placement, clipping and foreground layering. Missing sources must retain the
+background color and warn. Editable and native captures are pending separately.
