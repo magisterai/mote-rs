@@ -31,3 +31,10 @@ Background-image output inventory: source-relative loading, inherited deck
 backgrounds, whole-value slide overrides, color fallback, contain/cover/stretch
 placement, clipping and foreground layering. Missing sources must retain the
 background color and warn. These effects have [editable and native captures](../../tests/fixtures/presentation-backgrounds/README.md); PowerPoint review remains pending.
+
+Footer and notes output inventory: inherited footer text, `footer=true` using
+that text, fixed and automatic dates, one-based slide-number fields, independent
+false overrides, field geometry/alignment, editable field identifiers and cached
+text, plain speaker-note text, slide/notes/master relationships and notes counts.
+Automatic dates use the local calendar at generation time. Notes remain package
+metadata and do not paint onto slides. Focused output captures are pending.
