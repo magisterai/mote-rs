@@ -381,10 +381,15 @@ fn image_painters_reject_corrupt_pixel_buffers_in_a_modified_plan() {
     let mut plan = render::plan_with_fonts(&document, &resolver, None, None)
         .unwrap()
         .output;
-    let PageOperation::Image(image) = &mut plan.pages[0].operations[0] else {
-        panic!()
-    };
-    Arc::make_mut(&mut image.image).raster.pixels = Arc::from([0_u8]);
-    assert!(render::paint_pdf(&plan).is_err());
-    assert!(render::paint_png(&plan, &PngOptions::default()).is_err());
+    for (width, height) in [(2, 2), (u32::MAX, u32::MAX), (0, 1)] {
+        let PageOperation::Image(image) = &mut plan.pages[0].operations[0] else {
+            panic!()
+        };
+        let raster = &mut Arc::make_mut(&mut image.image).raster;
+        raster.width = width;
+        raster.height = height;
+        raster.pixels = Arc::from([0_u8]);
+        assert!(render::paint_pdf(&plan).is_err());
+        assert!(render::paint_png(&plan, &PngOptions::default()).is_err());
+    }
 }

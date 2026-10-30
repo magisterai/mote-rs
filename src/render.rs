@@ -334,6 +334,10 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
                     color(color_value)?;
                 }
                 crate::layout::PageOperation::Image(image) => {
+                    let raster = &image.image.raster;
+                    let byte_count = u64::from(raster.width)
+                        .checked_mul(u64::from(raster.height))
+                        .and_then(|pixels| pixels.checked_mul(4));
                     if !image
                         .bounds
                         .iter()
@@ -343,12 +347,9 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
                         || image.bounds[3] <= 0.0
                         || image.clip[2] <= 0.0
                         || image.clip[3] <= 0.0
-                        || image.image.raster.width == 0
-                        || image.image.raster.height == 0
-                        || image.image.raster.pixels.len() as u64
-                            != u64::from(image.image.raster.width)
-                                * u64::from(image.image.raster.height)
-                                * 4
+                        || raster.width == 0
+                        || raster.height == 0
+                        || byte_count != Some(raster.pixels.len() as u64)
                     {
                         return Err(RenderError::Invalid("invalid positioned image".into()));
                     }
