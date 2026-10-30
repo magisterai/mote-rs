@@ -36,3 +36,10 @@ explicitly. PowerPoint review remains pending. See [package captures](../../test
 
 The [language definition](../specification/presentations.md) and
 [model tests](../../tests/presentations.rs) cover checked contracts.
+
+The image-box output boundary includes the existing `position`, `fit`, image
+source, crop, flips, rotation, effects, link and metadata contracts. A box owns
+the image frame; image block dimensions, alignment and spacing do not reposition
+it. An image border overrides the box border. Image-box fills, opacity, shadows
+and text properties have no picture effect. Background images remain separate.
+These contracts are inventoried before implementation; image output is pending.
