@@ -24,16 +24,15 @@
 - [ ] `slot`, `kind`, `required`, `remove`: named layout declarations/assignments.
 - [x] `properties` overrides and Lua construction.
 
-Output covers positioned text and image boxes. Table/chart boxes and named
-layout slots remain separate steps. Text body properties, paragraph/run/list
+Output covers positioned text, image, table and chart boxes. Named layout slots
+remain unsupported. Text body properties, paragraph/run/list
 fields, geometry, fills, strokes, effects, hyperlinks, accessibility and nonvisual
 metadata remain in the shared inventories, including unsupported values.
 Editable positioned text supports paragraph/run/list formatting, theme fonts and
 colors, margins, alignment, clipping, fills, borders and links. Shrinking/resizing
 uses the shared native measurement result.
 Native PDF/PNG covers the same positioned-text subset, with source-relative font
-assets and fixed geometry/raster captures. Text-box shadows and table/chart boxes
-fail explicitly. PowerPoint review remains pending. See
+assets and fixed geometry/raster captures. Text-box shadows fail explicitly. PowerPoint review remains pending. See
 [package captures](../../tests/fixtures/presentation-text/README.md).
 
 The [language definition](../specification/presentations.md) and
@@ -43,11 +42,15 @@ The image-box output boundary includes the existing `position`, `fit`, image
 source, crop, flips, rotation, effects, link and metadata contracts. A box owns
 the image frame; direct image width/height, alignment and spacing do not
 reposition it. An image border overrides the box border. Image-box fills, opacity,
-shadows and text properties have no picture effect. Background images remain
-separate.
+shadows and text properties have no picture effect. Background images have
+[separate captures](../../tests/fixtures/presentation-backgrounds/README.md).
 Editable PPTX and native PDF/PNG support this picture subset, including source-
 relative assets, image effects, patterned translucent borders and rotated links.
 Cropped-image fitting differs between editable and native output; see the fixed
 [picture captures](../../tests/fixtures/presentation-images/README.md) and
 [native tests](../../tests/presentation_rendering.rs). Missing images become PPTX
 placeholder text and are omitted with a diagnostic natively.
+
+Positioned [tables](../../tests/fixtures/presentation-tables/README.md) and
+[charts](../../tests/fixtures/presentation-charts/README.md) use the box rectangle
+for layout. Their capture guides record style, sizing and native output limits.

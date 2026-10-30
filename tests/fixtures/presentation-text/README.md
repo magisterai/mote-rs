@@ -27,6 +27,8 @@ The `edges` case intentionally extends a box beyond the canvas.
 
 Native output requires at least one explicit slide. `#slide[]` creates a blank
 slide. The declaration-only `empty` source retains package coverage; it does not
-have a native capture. Shadows, automatic slide layout, background images,
-footer fields, speaker notes and table/chart boxes fail explicitly in this slice.
-Positioned pictures have separate [image captures](../presentation-images/README.md).
+have a native capture. Text-box shadows and automatic slide layout remain
+unsupported. Positioned [pictures](../presentation-images/README.md),
+[tables](../presentation-tables/README.md), [drawings](../presentation-shapes/README.md),
+[charts](../presentation-charts/README.md), [backgrounds](../presentation-backgrounds/README.md)
+and [fields/notes](../presentation-fields/README.md) have separate captures.

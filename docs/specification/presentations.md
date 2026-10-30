@@ -26,7 +26,9 @@ are not inserted into the model.
 image resource; `fit` is `stretch`, `cover` or `contain`, using the image fitting
 meanings defined earlier. Additional fields remain metadata. `footer` is text
 or a boolean; `date` is fixed text, true for an automatic date field, or false to
-suppress it. `slide_number` normalizes a boolean.
+suppress it. An automatic date uses the generation date with the full English
+month name, day and year. `slide_number` normalizes a boolean and displays the
+one-based slide index when enabled.
 
 `theme` is a property table. Its `name` is retained metadata. `colors` normalizes
 background, text, dark1, light1, dark2, light2, accent1–accent6, hyperlink and
@@ -43,7 +45,10 @@ creates an empty slide and a warning. `name` accepts text or a number and become
 text. `notes` is speaker-note text. Background, footer, date and slide-number
 properties override deck defaults; an explicit slide background replaces the
 whole deck background, including an inherited image. False suppresses an inherited
-footer, date or slide number.
+footer, date or slide number. `footer=true` uses the declared deck footer text;
+without deck text it produces no footer. A fixed footer or date string replaces
+the inherited text. Speaker notes are trimmed plain text, independent of the
+visible slide body; directive syntax inside a note string is not evaluated.
 
 A slide contains either positioned boxes, shapes and lines, or loose content.
 Mixing positioned objects and loose content in one slide is invalid. Loose

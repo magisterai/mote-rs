@@ -5,7 +5,8 @@
 
 The complete deck, slide, master, layout, notes, timing, transition and theme
 families are inventoried, including unsupported properties and value domains.
-Output covers explicit decks with positioned text and pictures. Broader features
+Output covers explicit decks with positioned text, pictures, tables, drawings
+and charts, background images and footer fields. Broader features
 remain separate steps within the established compatibility baseline.
 
 - [x] Named declaration arguments, no body, no visible element; repeated
@@ -26,20 +27,25 @@ notes masters, accessibility metadata, media, transitions, animation, zoom and
 collaboration extensions remain visible in the inventories. No additional Mote
 names are assigned to unmapped standard fields. The [language definition](../specification/presentations.md) and
 [model captures](../../tests/fixtures/presentations/README.md) cover these contracts.
-Editable packages support explicit slides, page dimensions, theme colors/fonts
-and solid backgrounds. Background images are supported; footer fields still fail explicitly.
-See [package captures](../../tests/fixtures/presentation-text/README.md). Native PDF/PNG supports the same initial subset and uses explicit slide geometry.
-Native output needs at least one explicit slide. PowerPoint review remains
-pending; model acceptance alone does not establish output effects.
+Editable packages support explicit slides, page dimensions, themes and the
+positioned objects listed above. Native PDF/PNG uses the same resolved deck state
+and paints independently. Native output needs at least one explicit slide.
+PowerPoint review remains pending; model acceptance alone does not establish
+output effects.
 
 Background-image output inventory: source-relative loading, inherited deck
 backgrounds, whole-value slide overrides, color fallback, contain/cover/stretch
 placement, clipping and foreground layering. Missing sources must retain the
-background color and warn. These effects have [editable and native captures](../../tests/fixtures/presentation-backgrounds/README.md); PowerPoint review remains pending.
+background color and warn. These effects have
+[editable and native captures](../../tests/fixtures/presentation-backgrounds/README.md);
+PowerPoint review remains pending.
 
 Footer and notes output inventory: inherited footer text, `footer=true` using
 that text, fixed and automatic dates, one-based slide-number fields, independent
 false overrides, field geometry/alignment, editable field identifiers and cached
 text, plain speaker-note text, slide/notes/master relationships and notes counts.
 Automatic dates use the local calendar at generation time. Notes remain package
-metadata and do not paint onto slides. Focused output captures are pending.
+metadata and do not paint onto slides.
+[Editable and native captures](../../tests/fixtures/presentation-fields/README.md)
+cover these effects, including independent overrides and combined slide content.
+PowerPoint review remains pending.

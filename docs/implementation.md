@@ -1,7 +1,7 @@
 # Implementation
 
-The Rust crate implements the language core, editable DOCX, initial positioned-text
-PPTX, and native PDF/PNG output for the documented document and slide subsets. The
+The Rust crate implements the language core, editable DOCX and PPTX, and native
+PDF/PNG output for the documented document and slide subsets. The
 [specification](specification/README.md) describes the language; this page records
 what this crate currently implements.
 
@@ -29,10 +29,10 @@ new capabilities should justify a separate crate through a substantial boundary.
 | [layout](../src/layout.rs) | Shared native line and block geometry, paragraph flow, numbering, columns, and ordered painting operations. |
 | [render](../src/render.rs) | Independent PDF and PNG painters, font embedding, rasterization and native support diagnostics. |
 | [docx](../src/docx.rs) | Editable Word output, with separate document flow, list/numbering, properties, styles, fonts, XML and package modules. |
-| [drawings](../src/drawings.rs) | Shared drawing text semantics and physical unit conversion. |
+| [drawings](../src/drawings.rs) | Shared drawing text, shape/connector XML and physical unit conversion. |
 | [charts](../src/charts.rs) | Resolved chart data and appearance, editable chart XML and embedded workbooks. |
-| [presentation](../src/presentation.rs) | Deck dimensions, themes, positioned text semantics and support diagnostics. |
-| [pptx](../src/pptx.rs) | Editable slide packages, masters, layouts, themes and positioned text boxes. |
+| [presentation](../src/presentation.rs) | Deck dimensions, themes, backgrounds, slide metadata, text and table semantics, image placement and support diagnostics. |
+| [pptx](../src/pptx.rs) | Editable slide packages, masters, themes, positioned objects, chart workbooks, footer fields and speaker notes. |
 | [json](../src/json.rs) | Deterministic model inspection. |
 | [main](../src/main.rs) | Command-line arguments, input/output, and diagnostic reporting. |
 
@@ -684,29 +684,43 @@ column/bar, stacked and percentage variants, line, area, stacked/percentage area
 pie and doughnut. The shared geometry includes titles, legends, axes, grids and
 supported labels. Chart labels, signed percentage stacks and mismatched data
 lengths retain the limits recorded in the [chart checklist](checklists/chart.md).
-Native table-cell charts and presentation chart placement remain unsupported.
+Native table-cell charts remain unsupported. Positioned presentation charts use
+the same geometry with deck theme colors and fonts.
 
 ## Explicit presentations
 
-`pptx::emit_with_assets` generates editable slides with positioned text boxes,
-solid backgrounds, themes, lists, links and box formatting. Shared text fitting
-computes shrink ratios and resized heights before serializing the editable box.
-Font assets resolve relative to the source; unavailable faces produce warnings
-when substituted metrics affect fitting. Native PDF/PNG uses the same semantic
-text resolution and fit result, then paints directly through the page plan.
+`pptx::emit_with_assets` generates editable slides with positioned text, pictures,
+tables, shapes, connectors and charts. Deck defaults and slide overrides resolve
+once in `presentation`; editable serializers and native layout consume that state.
+Shape XML, chart workbooks, image resources, font measurement and native painters
+reuse the document components. Text fitting computes shrink ratios and resized
+heights before serializing editable boxes. Source-relative font assets and image
+resources use the existing resolver and cache.
+
+Background images support contain, cover and stretch beneath foreground objects;
+a slide override replaces the entire deck background. Footer text, fixed or
+automatic dates and slide numbers occupy fixed footer frames and can be suppressed
+independently per slide. Automatic dates use the local calendar once per output,
+with a warning and UTC fallback if the local time zone is unavailable. PPTX keeps
+editable date/number fields and plain speaker notes; native slides paint the field
+values and omit notes. Notes use their own parts, relationships and master.
 
 The CLI accepts `--format pptx`. PDF/PNG selects slide layout for nonempty explicit
 presentation configuration, or with `--layout presentation`. `--layout document`
 selects document flow explicitly; ordinary Markdown remains document content.
-The native slide subset requires explicit `slide` bodies and positioned text;
-`#slide[]` creates a blank slide. Automatic layout, named layouts, notes, footer
-fields, background images, box shadows and non-text slide objects remain outside
-this slice and fail explicitly. Retained properties without an effect warn.
+Native slide output requires explicit `slide` bodies and positioned objects;
+`#slide[]` creates a blank slide. Automatic layout, named layouts and text-box
+shadows remain unsupported. Retained properties without an effect warn.
 
-[Presentation captures](../tests/fixtures/presentation-text/README.md) compare
-nine complete editable packages and eleven native slide pages, including
-source-relative fonts, clipping, shrinking and resizing. Geometry agrees within
-1e-8 points, PNG differences have fixed per-case limits, and nine PDF page rasters
-match exactly. Two PDF captures omit top-edge text; native output preserves its
-signed coordinates. These are independent output checks, not Microsoft PowerPoint
-review. The new Word and PowerPoint cases remain unreviewed in Office.
+Fixed captures compare complete models and canonical packages, including embedded
+chart workbooks, plus ordered native geometry and independent PNG output. The
+[text](../tests/fixtures/presentation-text/README.md),
+[picture](../tests/fixtures/presentation-images/README.md),
+[table](../tests/fixtures/presentation-tables/README.md),
+[drawing](../tests/fixtures/presentation-shapes/README.md),
+[chart](../tests/fixtures/presentation-charts/README.md),
+[background](../tests/fixtures/presentation-backgrounds/README.md) and
+[field/notes](../tests/fixtures/presentation-fields/README.md) capture guides record
+coverage, raster bounds and remaining output differences. The field cases also
+combine all supported positioned object kinds in one slide. These checks do not
+establish PowerPoint conformance; the new cases remain unreviewed in Office.
