@@ -26,25 +26,9 @@ pub(crate) fn prepare_box(
             "presentation box shadows are not yet supported".into(),
         ));
     }
-    let position = object(&element.attributes, "position")
-        .ok_or(LayoutError::InvalidGeometry("box position is missing"))?;
-    let coordinate = |name: &str, fallback: i64| {
-        position
-            .get(name)
-            .map(|value| {
-                units(Some(value)).ok_or(LayoutError::InvalidGeometry(
-                    "invalid box position coordinate",
-                ))
-            })
-            .transpose()
-            .map(|value| value.unwrap_or(fallback) as f64 / 12700.0)
-    };
-    let mut bounds = [
-        coordinate("x", 0)?,
-        coordinate("y", 0)?,
-        coordinate("width", 3657600)?,
-        coordinate("height", 1828800)?,
-    ];
+    let mut bounds = crate::presentation::images::box_bounds(&element.attributes)
+        .map_err(LayoutError::Unsupported)?
+        .map(|value| value as f64 / 12700.0);
     if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
         return Ok(PreparedBox {
             bounds,

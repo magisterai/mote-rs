@@ -73,6 +73,7 @@ pub(super) fn write(
     document: &Document,
     deck: &mut Deck,
     measurer: &mut crate::measurement::TextMeasurer<'_>,
+    images: &crate::media::ImageCatalog,
 ) -> Result<Vec<u8>, Error> {
     let mut parts = BTreeMap::new();
     for (name, value) in [
@@ -153,6 +154,7 @@ pub(super) fn write(
     let mut slide_ids = String::new();
     let mut presentation_relations = vec![relation("slideMaster", "slideMasters/slideMaster1.xml")];
     let mut next_shape = 2;
+    let mut pictures = super::pictures::Pictures::new(images);
     for (index, slide) in deck.slides.iter().enumerate() {
         let number = index + 1;
         slide_ids.push_str(&format!(
@@ -184,6 +186,26 @@ pub(super) fn write(
                 deck.warnings.push("PPTX omits empty boxes".into());
                 continue;
             }
+            let mut placeholder;
+            let element = if let Some(image) = crate::presentation::images::child(element) {
+                if let Some(picture) =
+                    pictures.write(element, image, &mut next_shape, &mut relations)?
+                {
+                    output.push_str(&picture);
+                    continue;
+                }
+                placeholder = element.clone();
+                let source = crate::properties::text(&image.attributes, "src");
+                let label = if source.is_empty() {
+                    "[missing image]".into()
+                } else {
+                    format!("[image: {source}]")
+                };
+                placeholder.children = vec![Content::Text(label)];
+                &placeholder
+            } else {
+                element
+            };
             output.push_str(&super::boxes::write(
                 element,
                 document,
@@ -293,6 +315,14 @@ pub(super) fn write(
                 .compression_method(zip::CompressionMethod::Deflated),
         )?;
         archive.write_all(value.as_bytes())?;
+    }
+    for (name, bytes) in pictures.media {
+        archive.start_file(
+            name,
+            zip::write::SimpleFileOptions::default()
+                .compression_method(zip::CompressionMethod::Deflated),
+        )?;
+        archive.write_all(&bytes)?;
     }
     Ok(archive.finish()?.into_inner())
 }

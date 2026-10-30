@@ -23,19 +23,36 @@ fn normalize_numbers(value: &mut Value) {
 
 #[test]
 fn positioned_slides_match_captured_models_and_complete_editable_packages() {
-    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-text");
+    compare_captured_packages(
+        "presentation-text",
+        &[
+            "basics",
+            "edges",
+            "empty",
+            "formatting",
+            "fitting",
+            "font-assets",
+            "lua",
+            "styles",
+            "theme",
+        ],
+    );
+}
+
+#[test]
+fn picture_slides_match_captured_models_and_complete_editable_packages() {
+    compare_captured_packages(
+        "presentation-images",
+        &["placement", "transforms", "formats", "missing"],
+    );
+}
+
+fn compare_captured_packages(directory: &str, cases: &[&str]) {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("tests/fixtures")
+        .join(directory);
     let resolver = FileAssetResolver::new(&root).unwrap();
-    for case in [
-        "basics",
-        "edges",
-        "empty",
-        "formatting",
-        "fitting",
-        "font-assets",
-        "lua",
-        "styles",
-        "theme",
-    ] {
+    for case in cases {
         let path = root.join(format!("{case}.mote"));
         let source = fs::read_to_string(&path).unwrap();
         let folder = root.join("captured").join(case);
@@ -107,11 +124,15 @@ fn compare_package(bytes: &[u8], manifest: &Value, root: &Path, context: &str) {
                 entry["sha256"],
                 "{context}: capture integrity"
             );
-            xml_support::compare_xml(
-                std::str::from_utf8(&actual).unwrap(),
-                std::str::from_utf8(&expected).unwrap(),
-                &context,
-            );
+            if name.ends_with(".xml") || name.ends_with(".rels") {
+                xml_support::compare_xml(
+                    std::str::from_utf8(&actual).unwrap(),
+                    std::str::from_utf8(&expected).unwrap(),
+                    &context,
+                );
+            } else {
+                assert_eq!(actual, expected, "{context}: embedded bytes");
+            }
         }
     }
 }

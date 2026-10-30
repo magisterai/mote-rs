@@ -57,30 +57,51 @@ impl ImageCatalog {
                 continue;
             };
             if element.kind == ElementKind::Image {
-                let source = text(&element.attributes, "src");
-                if !self.entries.contains_key(&source) {
-                    let loaded = resolver
-                        .resolve_asset(AssetRequest {
-                            reference: OsStr::new(&source),
-                            source_name,
-                        })
-                        .map_err(|error| {
-                            let reason = if error.kind() == std::io::ErrorKind::Unsupported {
-                                "is unsupported"
-                            } else {
-                                "could not be read"
-                            };
-                            format!("image {source:?} {reason}: {error}")
-                        })
-                        .and_then(|asset| decoding::decode(asset.bytes, &source));
-                    if let Err(error) = &loaded {
-                        self.warnings
-                            .push(format!("{error}; emitted placeholder text"));
-                    }
-                    self.entries.insert(source, loaded);
-                }
+                self.load_image(element, resolver, source_name);
             }
             self.collect(&element.children, resolver, source_name);
+        }
+    }
+    /// Load only the image elements selected by a layout or package writer.
+    pub fn load_selected<'a>(
+        elements: impl IntoIterator<Item = &'a Element>,
+        resolver: &dyn AssetResolver,
+        source_name: Option<&OsStr>,
+    ) -> Self {
+        let resolver = CachingAssetResolver::new(resolver);
+        let mut catalog = Self::default();
+        for element in elements {
+            catalog.load_image(element, &resolver, source_name);
+        }
+        catalog
+    }
+    fn load_image(
+        &mut self,
+        element: &Element,
+        resolver: &dyn AssetResolver,
+        source_name: Option<&OsStr>,
+    ) {
+        let source = text(&element.attributes, "src");
+        if !self.entries.contains_key(&source) {
+            let loaded = resolver
+                .resolve_asset(AssetRequest {
+                    reference: OsStr::new(&source),
+                    source_name,
+                })
+                .map_err(|error| {
+                    let reason = if error.kind() == std::io::ErrorKind::Unsupported {
+                        "is unsupported"
+                    } else {
+                        "could not be read"
+                    };
+                    format!("image {source:?} {reason}: {error}")
+                })
+                .and_then(|asset| decoding::decode(asset.bytes, &source));
+            if let Err(error) = &loaded {
+                self.warnings
+                    .push(format!("{error}; emitted placeholder text"));
+            }
+            self.entries.insert(source, loaded);
         }
     }
     pub fn prepare_all(&mut self, content: &[Content]) {
@@ -88,26 +109,32 @@ impl ImageCatalog {
             let Content::Element(element) = child else {
                 continue;
             };
-            if element.kind == ElementKind::Image
-                && !self.prepared.iter().any(|(attributes, _)| {
-                    attributes == &transformation_properties(&element.attributes)
-                })
-            {
-                let prepared = self
-                    .get(element)
-                    .and_then(|asset| prepare(asset, &element.attributes))
-                    .map(Arc::new);
-                if let Err(error) = &prepared
-                    && self.get(element).is_ok()
-                {
-                    self.warnings
-                        .push(format!("{error}; emitted placeholder text"));
-                }
-                self.prepared
-                    .push((transformation_properties(&element.attributes), prepared));
+            if element.kind == ElementKind::Image {
+                self.prepare_element(element);
             }
             self.prepare_all(&element.children);
         }
+    }
+    pub fn prepare_element(&mut self, element: &Element) {
+        let attributes = transformation_properties(&element.attributes);
+        if self
+            .prepared
+            .iter()
+            .any(|(existing, _)| existing == &attributes)
+        {
+            return;
+        }
+        let prepared = self
+            .get(element)
+            .and_then(|asset| prepare(asset, &element.attributes))
+            .map(Arc::new);
+        if let Err(error) = &prepared
+            && self.get(element).is_ok()
+        {
+            self.warnings
+                .push(format!("{error}; emitted placeholder text"));
+        }
+        self.prepared.push((attributes, prepared));
     }
     pub fn prepared(&self, element: &Element) -> Result<Arc<PreparedImage>, String> {
         self.prepared

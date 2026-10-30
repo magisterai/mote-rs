@@ -1,6 +1,7 @@
-//! Editable PresentationML packages for explicit slides and positioned text.
+//! Editable PresentationML packages for explicit slides and positioned content.
 mod boxes;
 mod package;
+mod pictures;
 mod text;
 use crate::{model::Document, presentation::Deck};
 use std::fmt;
@@ -59,7 +60,13 @@ pub fn emit_with_fonts(
         measurer = measurer.with_font_resolver(fonts);
     }
     let mut deck = Deck::resolve(document).map_err(Error)?;
-    let bytes = package::write(document, &mut deck, &mut measurer)?;
+    let images = crate::media::ImageCatalog::load_selected(
+        crate::presentation::images::elements(&deck),
+        resolver,
+        source_name,
+    );
+    let bytes = package::write(document, &mut deck, &mut measurer, &images)?;
+    deck.warnings.extend(images.warnings);
     deck.warnings.sort();
     deck.warnings.dedup();
     Ok(GeneratedPackage {

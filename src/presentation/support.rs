@@ -141,7 +141,7 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                 ]);
                 allowed.extend_from_slice(RUN);
                 allowed.extend_from_slice(PARAGRAPH);
-                if attributes.contains_key("fit") {
+                if attributes.contains_key("fit") && super::images::child(element).is_none() {
                     warnings.insert(format!(
                         "{path}.fit applies to image boxes, not text; use text.fit for text fitting"
                     ));
@@ -161,6 +161,34 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
                     fields.extend(["fit", "margin", "vertical_alignment", "paragraph", "list"]);
                     unknown(nested, &fields, &format!("{path}.text"), warnings);
                     formatting(nested, &format!("{path}.text"), warnings);
+                }
+            }
+            ElementKind::Image => {
+                allowed.extend([
+                    "src",
+                    "name",
+                    "description",
+                    "alt",
+                    "title",
+                    "link",
+                    "crop",
+                    "rotation",
+                    "flip_horizontal",
+                    "flip_vertical",
+                    "effects",
+                    "border",
+                ]);
+                for (name, fields) in [
+                    ("crop", &["left", "top", "right", "bottom"][..]),
+                    (
+                        "effects",
+                        &["brightness", "contrast", "grayscale", "transparency"][..],
+                    ),
+                    ("border", &["color", "width", "style", "opacity"][..]),
+                ] {
+                    if let Some(nested) = object(attributes, name) {
+                        unknown(nested, fields, &format!("{path}.{name}"), warnings);
+                    }
                 }
             }
             _ => {

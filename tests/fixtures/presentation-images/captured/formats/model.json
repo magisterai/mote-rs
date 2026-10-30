@@ -1,0 +1,575 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#f1f5f9",
+      "height": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      },
+      "width": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      }
+    },
+    "size": {
+      "width": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "height": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      },
+      "properties": {
+        "height": {
+          "text": "320pt",
+          "unit": "pt",
+          "value": 320
+        },
+        "width": {
+          "text": "480pt",
+          "unit": "pt",
+          "value": 480
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "120pt",
+                    "unit": "pt",
+                    "value": 120
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "15pt",
+                    "unit": "pt",
+                    "value": 15
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "alt": "Alternative \u0026 text",
+                    "description": "Description \u003cimage\u003e",
+                    "name": "Picture 0",
+                    "src": "../images/assets/pattern.png",
+                    "title": "Title"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "120pt",
+                    "unit": "pt",
+                    "value": 120
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "170pt",
+                    "unit": "pt",
+                    "value": 170
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "alt": "Alternative \u0026 text",
+                    "description": "Description \u003cimage\u003e",
+                    "name": "Picture 1",
+                    "src": "../images/assets/pattern.jpeg",
+                    "title": "Title"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "120pt",
+                    "unit": "pt",
+                    "value": 120
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "325pt",
+                    "unit": "pt",
+                    "value": 325
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "alt": "Alternative \u0026 text",
+                    "description": "Description \u003cimage\u003e",
+                    "name": "Picture 2",
+                    "src": "../images/assets/pattern.gif",
+                    "title": "Title"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "120pt",
+                    "unit": "pt",
+                    "value": 120
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "15pt",
+                    "unit": "pt",
+                    "value": 15
+                  },
+                  "y": {
+                    "text": "165pt",
+                    "unit": "pt",
+                    "value": 165
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "alt": "Alternative \u0026 text",
+                    "description": "Description \u003cimage\u003e",
+                    "name": "Picture 3",
+                    "src": "../images/assets/gray.jpeg",
+                    "title": "Title"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "120pt",
+                    "unit": "pt",
+                    "value": 120
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "170pt",
+                    "unit": "pt",
+                    "value": 170
+                  },
+                  "y": {
+                    "text": "165pt",
+                    "unit": "pt",
+                    "value": 165
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "alt": "Alternative \u0026 text",
+                    "description": "Description \u003cimage\u003e",
+                    "name": "Picture 4",
+                    "src": "../images/assets/cmyk.jpeg",
+                    "title": "Title"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "120pt",
+                    "unit": "pt",
+                    "value": 120
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "325pt",
+                    "unit": "pt",
+                    "value": 325
+                  },
+                  "y": {
+                    "text": "165pt",
+                    "unit": "pt",
+                    "value": 165
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "alt": "Alternative \u0026 text",
+                    "description": "Description \u003cimage\u003e",
+                    "name": "Picture 5",
+                    "src": "../images/assets/subframe.gif",
+                    "title": "Title"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "120pt",
+                "unit": "pt",
+                "value": 120
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "alt": "Alternative \u0026 text",
+                "description": "Description \u003cimage\u003e",
+                "name": "Picture 0",
+                "src": "../images/assets/pattern.png",
+                "title": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "120pt",
+                "unit": "pt",
+                "value": 120
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "170pt",
+                "unit": "pt",
+                "value": 170
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "alt": "Alternative \u0026 text",
+                "description": "Description \u003cimage\u003e",
+                "name": "Picture 1",
+                "src": "../images/assets/pattern.jpeg",
+                "title": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "120pt",
+                "unit": "pt",
+                "value": 120
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "325pt",
+                "unit": "pt",
+                "value": 325
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "alt": "Alternative \u0026 text",
+                "description": "Description \u003cimage\u003e",
+                "name": "Picture 2",
+                "src": "../images/assets/pattern.gif",
+                "title": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "120pt",
+                "unit": "pt",
+                "value": 120
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              },
+              "y": {
+                "text": "165pt",
+                "unit": "pt",
+                "value": 165
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "alt": "Alternative \u0026 text",
+                "description": "Description \u003cimage\u003e",
+                "name": "Picture 3",
+                "src": "../images/assets/gray.jpeg",
+                "title": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "120pt",
+                "unit": "pt",
+                "value": 120
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "170pt",
+                "unit": "pt",
+                "value": 170
+              },
+              "y": {
+                "text": "165pt",
+                "unit": "pt",
+                "value": 165
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "alt": "Alternative \u0026 text",
+                "description": "Description \u003cimage\u003e",
+                "name": "Picture 4",
+                "src": "../images/assets/cmyk.jpeg",
+                "title": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "120pt",
+                "unit": "pt",
+                "value": 120
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "325pt",
+                "unit": "pt",
+                "value": 325
+              },
+              "y": {
+                "text": "165pt",
+                "unit": "pt",
+                "value": 165
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "alt": "Alternative \u0026 text",
+                "description": "Description \u003cimage\u003e",
+                "name": "Picture 5",
+                "src": "../images/assets/subframe.gif",
+                "title": "Title"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

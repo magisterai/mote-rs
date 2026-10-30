@@ -1,4 +1,5 @@
 //! Resolved deck geometry and defaults shared by editable and native slides.
+pub(crate) mod images;
 mod support;
 pub(crate) mod text;
 use crate::{

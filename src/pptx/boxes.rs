@@ -18,20 +18,8 @@ pub(super) fn write(
     if attributes.contains_key("shadow") {
         return Err(Error("PPTX box shadows are not yet supported".into()));
     }
-    let position =
-        object(attributes, "position").ok_or_else(|| Error("PPTX box requires position".into()))?;
-    let coordinate = |name: &str, fallback| -> Result<i64, Error> {
-        match position.get(name) {
-            Some(value) => {
-                units(Some(value)).ok_or_else(|| Error(format!("invalid box position.{name}")))
-            }
-            None => Ok(fallback),
-        }
-    };
-    let horizontal = coordinate("x", 0)?;
-    let vertical = coordinate("y", 0)?;
-    let width = coordinate("width", 3657600)?;
-    let mut height = coordinate("height", 1828800)?;
+    let [horizontal, vertical, width, mut height] =
+        crate::presentation::images::box_bounds(attributes).map_err(Error)?;
     let identifier = *next_shape;
     *next_shape += 1;
     let mut name = text(attributes, "name");
@@ -111,7 +99,7 @@ fn solid_fill(color: &str, opacity: Option<f64>) -> String {
     };
     format!("<a:solidFill>{color}</a:solidFill>")
 }
-fn border(attributes: &Properties) -> Result<String, Error> {
+pub(super) fn border(attributes: &Properties) -> Result<String, Error> {
     let Some(border) = object(attributes, "border") else {
         return Ok("<a:ln><a:noFill/></a:ln>".into());
     };

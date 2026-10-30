@@ -1,0 +1,17 @@
+#presentation(width=pt(480),height=pt(320),background="#f1f5f9")
+#slide[
+  #box(position={x=pt(10),y=pt(20),width=pt(130),height=pt(100)},fit="stretch")[#image("../images/assets/pattern.png",crop={left=15,right=25,top=10,bottom=5})]
+  #box(position={x=pt(170),y=pt(20),width=pt(130),height=pt(100)},fit="contain")[#image("../images/assets/pattern.png",crop={left=15,right=25,top=10,bottom=5})]
+  #box(position={x=pt(330),y=pt(20),width=pt(130),height=pt(100)},fit="cover")[#image("../images/assets/pattern.png",crop={left=15,right=25,top=10,bottom=5})]
+  #box(position={x=pt(10),y=pt(180),width=pt(110),height=pt(80)})[#image("../images/assets/pattern.png",flip_horizontal=true)]
+  #box(position={x=pt(180),y=pt(180),width=pt(110),height=pt(80)})[#image("../images/assets/pattern.png",flip_vertical=true)]
+  #box(position={x=pt(340),y=pt(180),width=pt(110),height=pt(80)})[#image("../images/assets/pattern.png",flip_horizontal=true,flip_vertical=true)]
+]
+#slide[
+  #box(position={x=pt(20),y=pt(45),width=pt(120),height=pt(90)},fit="contain",border={color="#2563eb",width=pt(2)})[#image("../images/assets/pattern.png",rotation=30,link="https://example.com/image?a=1&b=2")]
+  #box(position={x=pt(185),y=pt(45),width=pt(110),height=pt(90)},fit="cover")[#image("../images/assets/pattern.png",rotation=-25,flip_horizontal=true)]
+  #box(position={x=pt(350),y=pt(45),width=pt(90),height=pt(110)})[#image("../images/assets/pattern.png",rotation=90)]
+  #box(position={x=pt(30),y=pt(210),width=pt(120),height=pt(70)},fit="stretch")[#image("../images/assets/pattern.png",effects={brightness=15,contrast=25,transparency=30,grayscale=true})]
+  #box(position={x=pt(195),y=pt(210),width=pt(110),height=pt(70)},border={color="#dc2626",width=pt(3),style="dashed"})[#image("../images/assets/pattern.png",border={color="#059669",width=pt(1.5),style="dotted",opacity=70})]
+  #box(position={x=pt(350),y=pt(230),width=pt(90),height=pt(70)},border={color="#111827",width=pt(2)})[#image("../images/assets/pattern.png",border={style="none"})]
+]

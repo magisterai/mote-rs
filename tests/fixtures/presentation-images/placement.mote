@@ -1,0 +1,10 @@
+#presentation(width=pt(480),height=pt(320),background="#f1f5f9")
+#slide[
+  #box(position={x=pt(10),y=pt(20),width=pt(140),height=pt(100)})[#image("../images/assets/pattern.png")]
+  #box(position={x=pt(170),y=pt(20),width=pt(140),height=pt(100)},fit="contain")[#image("../images/assets/pattern.png")]
+  #box(position={x=pt(330),y=pt(20),width=pt(140),height=pt(100)},fit="cover")[#image("../images/assets/pattern.png")]
+  #box(position={x=pt(10),y=pt(150),width=pt(70),height=pt(150)},fit="contain")[#image("../images/assets/pattern.png")]
+  #box(position={x=pt(110),y=pt(150),width=pt(70),height=pt(150)},fit="cover")[#image("../images/assets/pattern.png")]
+  #box(position={x=pt(210),y=pt(150),width=pt(100),height=pt(100)},fit="stretch")[#image("../images/assets/pattern.png")]
+  #box(position={x=pt(350),y=pt(240),width=pt(130),height=pt(80)},fit="contain")[#image("../images/assets/pattern.png")]
+]

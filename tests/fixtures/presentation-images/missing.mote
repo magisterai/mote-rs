@@ -1,0 +1,6 @@
+#presentation(width=pt(480),height=pt(320),background="#f1f5f9")
+#slide[
+  #box(position={x=pt(20),y=pt(30),width=pt(180),height=pt(90)})[#image("missing.png")]
+  #box(position={x=pt(240),y=pt(30),width=pt(180),height=pt(90)})[#image("https://example.com/missing.png")]
+  #box(position={x=pt(140),y=pt(180),width=pt(180),height=pt(100)})[#image("../images/assets/pattern.png")]
+]

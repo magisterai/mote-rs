@@ -93,7 +93,7 @@ pub(super) fn write_run(
     let name = xml::escape(&name)?;
     let description = xml::escape(&description)?;
     let mut output = String::new();
-    output.push_str(&format!("<w:r><w:drawing><wp:inline><wp:extent cx=\"{width}\" cy=\"{height}\"/><wp:docPr id=\"{drawing_identifier}\" name=\"{name}\" descr=\"{description}\">{hyperlink}</wp:docPr><wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect=\"1\"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri=\"http://schemas.openxmlformats.org/drawingml/2006/picture\"><pic:pic><pic:nvPicPr><pic:cNvPr id=\"{drawing_identifier}\" name=\"{name}\" descr=\"{description}\">{hyperlink}</pic:cNvPr><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed=\"{relationship}\">{}</a:blip>",effects_xml(attributes)?));
+    output.push_str(&format!("<w:r><w:drawing><wp:inline><wp:extent cx=\"{width}\" cy=\"{height}\"/><wp:docPr id=\"{drawing_identifier}\" name=\"{name}\" descr=\"{description}\">{hyperlink}</wp:docPr><wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect=\"1\"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri=\"http://schemas.openxmlformats.org/drawingml/2006/picture\"><pic:pic><pic:nvPicPr><pic:cNvPr id=\"{drawing_identifier}\" name=\"{name}\" descr=\"{description}\">{hyperlink}</pic:cNvPr><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed=\"{relationship}\">{}</a:blip>",crate::drawings::pictures::effects(attributes)));
     output.push_str(&crop_xml(attributes));
     output.push_str("<a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm");
     if let Some(degrees) = media::number(attributes, "rotation") {
@@ -141,31 +141,6 @@ fn crop_xml(attributes: &Properties) -> String {
     } else {
         format!("<a:srcRect{fields}/>")
     }
-}
-fn effects_xml(attributes: &Properties) -> Result<String, Error> {
-    let Some(effects) = media::object(attributes, "effects") else {
-        return Ok(String::new());
-    };
-    let mut output = String::new();
-    let mut luminance = String::new();
-    for (name, field) in [("brightness", "bright"), ("contrast", "contrast")] {
-        if let Some(value) = percent(effects, name) {
-            luminance.push_str(&format!(" {field}=\"{value}\""));
-        }
-    }
-    if !luminance.is_empty() {
-        output.push_str(&format!("<a:lum{luminance}/>"));
-    }
-    if media::boolean(effects, "grayscale") {
-        output.push_str("<a:grayscl/>");
-    }
-    if let Some(transparency) = percent(effects, "transparency") {
-        output.push_str(&format!(
-            "<a:alphaModFix amt=\"{}\"/>",
-            (100000 - transparency).max(0)
-        ));
-    }
-    Ok(output)
 }
 pub(super) fn border_xml(
     attributes: &Properties,

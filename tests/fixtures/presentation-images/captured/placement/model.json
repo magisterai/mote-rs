@@ -1,0 +1,601 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#f1f5f9",
+      "height": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      },
+      "width": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      }
+    },
+    "size": {
+      "width": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "height": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      },
+      "properties": {
+        "height": {
+          "text": "320pt",
+          "unit": "pt",
+          "value": 320
+        },
+        "width": {
+          "text": "480pt",
+          "unit": "pt",
+          "value": 480
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "100pt",
+                    "unit": "pt",
+                    "value": 100
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "100pt",
+                    "unit": "pt",
+                    "value": 100
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "170pt",
+                    "unit": "pt",
+                    "value": 170
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "cover",
+                "position": {
+                  "height": {
+                    "text": "100pt",
+                    "unit": "pt",
+                    "value": 100
+                  },
+                  "width": {
+                    "text": "140pt",
+                    "unit": "pt",
+                    "value": 140
+                  },
+                  "x": {
+                    "text": "330pt",
+                    "unit": "pt",
+                    "value": 330
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  },
+                  "width": {
+                    "text": "70pt",
+                    "unit": "pt",
+                    "value": 70
+                  },
+                  "x": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  },
+                  "y": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "cover",
+                "position": {
+                  "height": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  },
+                  "width": {
+                    "text": "70pt",
+                    "unit": "pt",
+                    "value": 70
+                  },
+                  "x": {
+                    "text": "110pt",
+                    "unit": "pt",
+                    "value": 110
+                  },
+                  "y": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "stretch",
+                "position": {
+                  "height": {
+                    "text": "100pt",
+                    "unit": "pt",
+                    "value": 100
+                  },
+                  "width": {
+                    "text": "100pt",
+                    "unit": "pt",
+                    "value": 100
+                  },
+                  "x": {
+                    "text": "210pt",
+                    "unit": "pt",
+                    "value": 210
+                  },
+                  "y": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "position": {
+                  "height": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "width": {
+                    "text": "130pt",
+                    "unit": "pt",
+                    "value": 130
+                  },
+                  "x": {
+                    "text": "350pt",
+                    "unit": "pt",
+                    "value": 350
+                  },
+                  "y": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "170pt",
+                "unit": "pt",
+                "value": 170
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "cover",
+            "position": {
+              "height": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "width": {
+                "text": "140pt",
+                "unit": "pt",
+                "value": 140
+              },
+              "x": {
+                "text": "330pt",
+                "unit": "pt",
+                "value": 330
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              },
+              "width": {
+                "text": "70pt",
+                "unit": "pt",
+                "value": 70
+              },
+              "x": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              },
+              "y": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "cover",
+            "position": {
+              "height": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              },
+              "width": {
+                "text": "70pt",
+                "unit": "pt",
+                "value": 70
+              },
+              "x": {
+                "text": "110pt",
+                "unit": "pt",
+                "value": 110
+              },
+              "y": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "stretch",
+            "position": {
+              "height": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "width": {
+                "text": "100pt",
+                "unit": "pt",
+                "value": 100
+              },
+              "x": {
+                "text": "210pt",
+                "unit": "pt",
+                "value": 210
+              },
+              "y": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fit": "contain",
+            "position": {
+              "height": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "width": {
+                "text": "130pt",
+                "unit": "pt",
+                "value": 130
+              },
+              "x": {
+                "text": "350pt",
+                "unit": "pt",
+                "value": 350
+              },
+              "y": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
