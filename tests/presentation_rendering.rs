@@ -192,3 +192,31 @@ fn presentation_output_reports_unsupported_retained_properties_and_structures() 
         );
     }
 }
+
+#[test]
+fn unsupported_slide_images_are_rejected_without_loading_document_assets() {
+    let document = mote::compile(
+        "#presentation(size='wide')#slide[#box(position={width=inch(3),height=inch(2)})[#image(src='unused.png')]]",
+    )
+    .unwrap();
+    let requests = std::cell::RefCell::new(Vec::new());
+    let resolver = |request: mote::source::AssetRequest<'_>| {
+        requests.borrow_mut().push(request.reference.to_owned());
+        Err(std::io::Error::new(
+            std::io::ErrorKind::NotFound,
+            "unused asset",
+        ))
+    };
+    for mode in [
+        render::LayoutMode::Automatic,
+        render::LayoutMode::Presentation,
+    ] {
+        let error =
+            render::plan_with_layout_and_fonts(&document, &resolver, None, mode, None).unwrap_err();
+        assert!(error.to_string().contains("do not yet support image"));
+    }
+    assert!(
+        requests.borrow().is_empty(),
+        "unexpected requests: {requests:?}"
+    );
+}

@@ -109,19 +109,19 @@ pub fn plan_with_layout_and_fonts(
     if let Some(fonts) = fonts {
         measurer = measurer.with_font_resolver(fonts);
     }
-    let mut images = crate::media::ImageCatalog::load(document, resolver, source_name);
-    images.prepare_all(&document.content);
-    let output = if presentation {
-        crate::layout::plan_presentation(document, &mut measurer)?
+    let (output, mut warnings) = if presentation {
+        (
+            crate::layout::plan_presentation(document, &mut measurer)?,
+            std::collections::BTreeSet::new(),
+        )
     } else {
-        plan_document_with_images(document, &mut measurer, &images)?
+        let mut images = crate::media::ImageCatalog::load(document, resolver, source_name);
+        images.prepare_all(&document.content);
+        let output = plan_document_with_images(document, &mut measurer, &images)?;
+        let mut warnings = support::warnings(document);
+        warnings.extend(images.warnings);
+        (output, warnings)
     };
-    let mut warnings = if presentation {
-        std::collections::BTreeSet::new()
-    } else {
-        support::warnings(document)
-    };
-    warnings.extend(images.warnings);
     warnings.extend(output.warnings.iter().cloned());
     for fragment in output
         .pages
