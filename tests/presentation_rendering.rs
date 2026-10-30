@@ -152,10 +152,11 @@ fn native_layout_selection_preserves_document_mode_and_explicit_slide_boundaries
         ),
         (612.0, 792.0)
     );
-    assert!(
+    let forced =
         render::plan_with_layout(&report, &resolver, None, render::LayoutMode::Presentation)
-            .is_err()
-    );
+            .unwrap();
+    assert_eq!(forced.output.pages.len(), 1);
+    assert_eq!(forced.output.geometry.width, 960.0);
     let slides = mote::compile("#presentation(size='standard')#slide[]#slide[]").unwrap();
     let deck = render::plan(&slides, &resolver, None).unwrap();
     assert_eq!(deck.output.pages.len(), 2);
@@ -470,4 +471,58 @@ fn automatic_slide_geometry_and_rasters_match_captures() {
             ("fitting", 64, 11.0, 0),
         ],
     );
+}
+
+#[test]
+fn markdown_decks_match_captured_geometry_and_rasters() {
+    compare_captured_slides(
+        "presentation-markdown",
+        &[
+            ("headings", 64, 9.0, 0),
+            ("separators", 64, 9.0, 0),
+            ("mixed", 64, 9.0, 0),
+        ],
+    );
+}
+
+#[test]
+fn markdown_boundaries_do_not_change_document_mode_or_split_nested_headings() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let source = "# First\n\nBody.\n\n# Second\n\nBody.";
+    let document = mote::compile(source).unwrap();
+    assert_eq!(
+        render::plan(&document, &resolver, None)
+            .unwrap()
+            .output
+            .pages
+            .len(),
+        1
+    );
+    assert_eq!(
+        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+            .unwrap()
+            .output
+            .pages
+            .len(),
+        2
+    );
+    for source in [
+        "---\n\n---\n\n# Title\n\n---",
+        "#slide[#heading(level=1)[One]#heading(level=1)[Two]]",
+    ] {
+        let document = mote::compile(source).unwrap();
+        assert_eq!(
+            render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+                .unwrap()
+                .output
+                .pages
+                .len(),
+            1
+        );
+    }
+    let document = mote::compile("# First\n\n---\n\n# Second").unwrap();
+    let error = render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Document)
+        .unwrap_err()
+        .to_string();
+    assert!(error.contains("divider"), "{error}");
 }

@@ -338,3 +338,19 @@ fn markdown_task_markers_preserve_unchecked_and_absent_states() {
         true
     );
 }
+
+#[test]
+fn underlined_headings_retain_marker_precedence_and_inline_content() {
+    let model = content_model("A **title**\n===\n\nSubheading\n---\n\n---\n---");
+    let content = model["content"].as_array().unwrap();
+    assert_eq!(content.len(), 3);
+    for (index, level) in [(0, 1), (1, 2), (2, 2)] {
+        assert_eq!(
+            content[index]["attributes"]["level"].as_f64(),
+            Some(level as f64)
+        );
+        assert_eq!(content[index]["attributes"]["marker"], "setext");
+    }
+    assert_eq!(content[0]["children"][1]["kind"], "strong");
+    assert_eq!(content[2]["children"][0]["text"], "---");
+}

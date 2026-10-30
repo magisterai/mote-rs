@@ -32,8 +32,10 @@ pub enum NodeKind {
         hard: bool,
     },
     ParagraphBreak,
+    Divider,
     Heading {
         level: usize,
+        marker: String,
         body: Vec<Node>,
     },
     Strong(Vec<Node>),

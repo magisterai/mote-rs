@@ -1,0 +1,18 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#font(name="heading",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+Introduction before a title.
+
+# First title
+
+A paragraph and a list.
+
+- First
+- [x] Second
+
+## A smaller heading
+
+Still on the same slide.
+
+# Second title
+
+Final paragraph.

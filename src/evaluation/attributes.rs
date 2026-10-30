@@ -317,7 +317,7 @@ fn validate_named_argument(
             },
             Strong | Emphasis | LineBreak | Tab => None,
             Break if name == "type" => Some(ArgumentType::String),
-            Break => None,
+            Break | Divider => None,
         }
     };
     if let Some(constraint) = constraint

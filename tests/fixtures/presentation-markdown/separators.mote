@@ -1,0 +1,18 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#font(name="heading",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+---
+
+## Explicit divider boundary
+
+The smaller heading does not create its own boundary.
+
+---
+---
+
+# After dividers
+
+| Label | Value |
+| --- | --- |
+| Amount | 12 |
+
+---

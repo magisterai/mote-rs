@@ -391,7 +391,7 @@ fn content(
                 allowed.push("id");
             }
             ElementKind::PageNumber => allowed.push("kind"),
-            ElementKind::Tab | ElementKind::LineBreak => {}
+            ElementKind::Tab | ElementKind::LineBreak | ElementKind::Divider => {}
         }
         unknown(attributes, &allowed, &path, warnings);
         if element.kind == ElementKind::Image {

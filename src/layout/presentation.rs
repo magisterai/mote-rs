@@ -55,7 +55,7 @@ pub(crate) fn prepare_box(
     Ok(PreparedBox { bounds, fitted })
 }
 
-/// Plan explicit slides and positioned text without reinterpreting ordinary Markdown.
+/// Plan a document explicitly selected for presentation layout.
 pub fn plan_presentation(
     document: &Document,
     measurer: &mut TextMeasurer<'_>,
@@ -98,13 +98,9 @@ fn plan(
     mut deck: Deck,
     images: &mut crate::media::ImageCatalog,
 ) -> Result<DocumentTextPlan, LayoutError> {
-    if !document
-        .content
-        .iter()
-        .any(|node| matches!(node, Content::Element(element) if element.kind == ElementKind::Slide))
-    {
+    if deck.empty {
         return Err(LayoutError::Unsupported(
-            "native presentation output requires at least one explicit slide".into(),
+            "native presentation output requires at least one slide".into(),
         ));
     }
     let geometry = PageGeometry {

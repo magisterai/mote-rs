@@ -104,6 +104,23 @@ impl Parser<'_> {
                     nodes.push(node);
                     continue;
                 }
+                if let Some(node) = self.parse_underlined_heading()? {
+                    nodes.push(node);
+                    continue;
+                }
+                let line = self.source[self.position..]
+                    .split(['\r', '\n'])
+                    .next()
+                    .unwrap_or_default();
+                let trimmed = line.trim_end();
+                if trimmed.len() >= 3 && trimmed.bytes().all(|byte| byte == b'-') {
+                    self.position += line.len();
+                    nodes.push(Node {
+                        kind: NodeKind::Divider,
+                        span: self.span(start),
+                    });
+                    continue;
+                }
                 if let Some(node) = self.parse_heading()? {
                     nodes.push(node);
                     continue;
@@ -328,7 +345,64 @@ impl Parser<'_> {
         self.skip_horizontal_whitespace();
         let body = self.parse_markup(MarkupBoundary::Line)?;
         Ok(Some(Node {
-            kind: NodeKind::Heading { level, body },
+            kind: NodeKind::Heading {
+                level,
+                marker: "#".into(),
+                body,
+            },
+            span: self.span(start),
+        }))
+    }
+
+    fn parse_underlined_heading(&mut self) -> Result<Option<Node>, Diagnostic> {
+        let start = self.position;
+        let line_end = self.source[start..]
+            .find(['\r', '\n'])
+            .map(|offset| start + offset)
+            .unwrap_or(self.source.len());
+        let line = &self.source[start..line_end];
+        if line.trim().is_empty()
+            || ["#", ">", "```", "~~~", "- ", "+ "]
+                .iter()
+                .any(|prefix| line.starts_with(prefix))
+            || self
+                .closing_delimiter
+                .is_some_and(|delimiter| line.contains(delimiter))
+        {
+            return Ok(None);
+        }
+        let after_digits = line.trim_start_matches(|character: char| character.is_ascii_digit());
+        if after_digits.len() != line.len()
+            && (after_digits.starts_with(". ") || after_digits.starts_with(".\t"))
+        {
+            return Ok(None);
+        }
+        let mut delimiter_start = line_end;
+        if self.source[delimiter_start..].starts_with("\r\n") {
+            delimiter_start += 2;
+        } else if delimiter_start < self.source.len() {
+            delimiter_start += 1;
+        }
+        let delimiter_end = self.source[delimiter_start..]
+            .find(|character| {
+                matches!(character, '\r' | '\n') || Some(character) == self.closing_delimiter
+            })
+            .map(|offset| delimiter_start + offset)
+            .unwrap_or(self.source.len());
+        let delimiter = self.source[delimiter_start..delimiter_end].trim();
+        let level = match delimiter.as_bytes().first() {
+            Some(b'=') if delimiter.len() >= 2 && delimiter.bytes().all(|byte| byte == b'=') => 1,
+            Some(b'-') if delimiter.len() >= 2 && delimiter.bytes().all(|byte| byte == b'-') => 2,
+            _ => return Ok(None),
+        };
+        let body = self.parse_markup(MarkupBoundary::Line)?;
+        self.position = delimiter_end;
+        Ok(Some(Node {
+            kind: NodeKind::Heading {
+                level,
+                marker: "setext".into(),
+                body,
+            },
             span: self.span(start),
         }))
     }

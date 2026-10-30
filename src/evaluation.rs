@@ -273,6 +273,11 @@ fn evaluate_nodes(
             NodeKind::FootnoteReference(name) => {
                 notes::markdown_reference(name, node.span, context, document)?
             }
+            NodeKind::Divider => Content::Element(Element {
+                kind: ElementKind::Divider,
+                attributes: Properties::new(),
+                children: Vec::new(),
+            }),
             NodeKind::Table(rows) => tables::evaluate_markdown(rows, context, document)?,
             NodeKind::Text(text) => Content::Text(text.clone()),
             NodeKind::LineBreak { hard } => Content::Text(
@@ -293,11 +298,15 @@ fn evaluate_nodes(
             } else {
                 "\n\n".into()
             }),
-            NodeKind::Heading { level, body } => Content::Element(Element {
+            NodeKind::Heading {
+                level,
+                marker,
+                body,
+            } => Content::Element(Element {
                 kind: ElementKind::Heading,
                 attributes: Properties::from([
                     ("level".into(), Value::Number(*level as f64)),
-                    ("marker".into(), Value::String("#".into())),
+                    ("marker".into(), Value::String(marker.clone())),
                 ]),
                 children: evaluate_nodes(body, ContentMode::Inline, context, document)?,
             }),

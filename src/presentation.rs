@@ -3,16 +3,18 @@ mod automatic;
 pub(crate) mod backgrounds;
 pub(crate) mod fields;
 pub(crate) mod images;
+mod segmentation;
 mod support;
 pub(crate) mod tables;
 pub(crate) mod text;
 use crate::{
-    model::{Content, Document, Element, ElementKind, Properties, Value},
+    model::{Document, Element, ElementKind, Properties, Value},
     properties::{object, text},
 };
 
 pub(crate) struct Deck {
     pub slides: Vec<Slide>,
+    pub empty: bool,
     pub width: i64,
     pub height: i64,
     pub size_type: &'static str,
@@ -66,20 +68,8 @@ impl Deck {
                 ));
             }
         }
-        let mut slides = Vec::new();
-        for node in &document.content {
-            match node {
-                Content::Text(value) if value.trim().is_empty() => {}
-                Content::Element(element) if element.kind == ElementKind::Slide => {
-                    slides.push(element.clone());
-                }
-                _ => {
-                    return Err(
-                        "presentation output currently requires explicit slide bodies".into(),
-                    );
-                }
-            }
-        }
+        let mut slides = segmentation::slides(&document.content);
+        let empty = slides.is_empty();
         if slides.is_empty() {
             slides.push(Element {
                 kind: ElementKind::Slide,
@@ -89,6 +79,7 @@ impl Deck {
         }
         let today = fields::current_date(document, &slides, &mut warnings);
         let deck = Self {
+            empty,
             slides: slides
                 .into_iter()
                 .map(|mut element| {

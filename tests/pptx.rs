@@ -327,3 +327,11 @@ fn automatic_dates_keep_editable_fields_and_paint_the_current_calendar_date() {
 fn automatic_slides_match_captured_models_and_packages() {
     compare_captured_packages("presentation-automatic", &["standard", "media", "fitting"]);
 }
+
+#[test]
+fn markdown_decks_match_captured_models_and_packages() {
+    compare_captured_packages(
+        "presentation-markdown",
+        &["headings", "separators", "mixed"],
+    );
+}
