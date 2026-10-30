@@ -143,7 +143,6 @@ fn pending_slide_features_fail_explicitly() {
         r##"#slide[Loose text]"##,
         r##"#presentation(footer="Footer")#slide[]"##,
         r##"#slide(notes="Notes")[]"##,
-        r##"#presentation(background={src="image.png"})#slide[]"##,
         r##"#slide[#box(position={width=inch(2),height=inch(1)},shadow={color="#000"})[Text]]"##,
     ] {
         let document = mote::compile(source).unwrap();
@@ -225,5 +224,13 @@ fn positioned_charts_match_captured_packages_and_workbooks() {
     compare_captured_packages(
         "presentation-charts",
         &["bars", "curves", "pie", "theme", "labels"],
+    );
+}
+
+#[test]
+fn slide_backgrounds_match_captured_editable_packages() {
+    compare_captured_packages(
+        "presentation-backgrounds",
+        &["fitting", "aspect", "inheritance", "missing"],
     );
 }

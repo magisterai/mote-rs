@@ -165,13 +165,19 @@ pub(super) fn write(
         ));
         presentation_relations.push(relation("slide", format!("slides/slide{number}.xml")));
         let mut output = format!("{HEADER}<p:sld {}><p:cSld>", super::ROOT_ATTRIBUTES);
-        if let Some(color) = deck.background(document, slide).map_err(Error)? {
-            output.push_str(&format!(r#"<p:bg><p:bgPr><a:solidFill><a:srgbClr val="{color}"/></a:solidFill></p:bgPr></p:bg>"#));
-        }
+        let mut relations = vec![relation("slideLayout", "../slideLayouts/slideLayout1.xml")];
+        let (background, picture) = pictures.background(
+            &slide.background,
+            [deck.width, deck.height],
+            &deck.theme.colors[1],
+            &mut next_shape,
+            &mut relations,
+        )?;
+        output.push_str(&background);
         output.push_str("<p:spTree>");
         output.push_str(super::GROUP);
-        let mut relations = vec![relation("slideLayout", "../slideLayouts/slideLayout1.xml")];
-        for content in &slide.children {
+        output.push_str(&picture);
+        for content in &slide.element.children {
             let Content::Element(element) = content else {
                 return Err(Error(
                     "PPTX currently requires positioned slide objects".into(),

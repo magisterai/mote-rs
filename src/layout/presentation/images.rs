@@ -7,9 +7,15 @@ use crate::{
     properties::{number, text},
 };
 
+pub(super) enum ImageContainer {
+    Background,
+    Box,
+}
+
 pub(super) fn place(
     container: &Element,
     image: &Element,
+    context: ImageContainer,
     images: &mut ImageCatalog,
     operations: &mut Vec<PageOperation>,
     warnings: &mut Vec<String>,
@@ -73,7 +79,9 @@ pub(super) fn place(
     }
     operations.push(PageOperation::PushClip(bounds));
     for mut operation in block.place(placement.paint[0], placement.paint[2], placement.paint[1])? {
-        if let PageOperation::Image(image) = &mut operation {
+        if matches!(context, ImageContainer::Box)
+            && let PageOperation::Image(image) = &mut operation
+        {
             let Some(clip) = intersection(image.clip, bounds) else {
                 continue;
             };

@@ -1,0 +1,268 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "E0E7FF"
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "image_clip": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "clip": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "link": null
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        40,
+        30,
+        280,
+        90
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 179
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 28.886400000000002,
+        "x": 52,
+        "width": 124.056,
+        "fragments": [
+          {
+            "text": "Foreground",
+            "x": 52,
+            "baseline": 61.6432,
+            "advance": 124.056,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        52,
+        40,
+        268,
+        80
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FEF3C7"
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        40,
+        30,
+        280,
+        90
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 179
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 28.886400000000002,
+        "x": 52,
+        "width": 124.056,
+        "fragments": [
+          {
+            "text": "Foreground",
+            "x": 52,
+            "baseline": 61.6432,
+            "advance": 124.056,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        52,
+        40,
+        268,
+        80
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "image_clip": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "clip": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "link": null
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        40,
+        30,
+        280,
+        90
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 179
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 28.886400000000002,
+        "x": 52,
+        "width": 124.056,
+        "fragments": [
+          {
+            "text": "Foreground",
+            "x": 52,
+            "baseline": 61.6432,
+            "advance": 124.056,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        52,
+        40,
+        268,
+        80
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "E0E7FF"
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "image_clip": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "clip": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "link": null
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        40,
+        30,
+        280,
+        90
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 179
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 28.886400000000002,
+        "x": 52,
+        "width": 124.056,
+        "fragments": [
+          {
+            "text": "Foreground",
+            "x": 52,
+            "baseline": 61.6432,
+            "advance": 124.056,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        52,
+        40,
+        268,
+        80
+      ]
+    }
+  ]
+]

@@ -98,8 +98,7 @@ impl ImageCatalog {
                 })
                 .and_then(|asset| decoding::decode(asset.bytes, &source));
             if let Err(error) = &loaded {
-                self.warnings
-                    .push(format!("{error}; emitted placeholder text"));
+                self.warnings.push(error.clone());
             }
             self.entries.insert(source, loaded);
         }
@@ -131,8 +130,7 @@ impl ImageCatalog {
         if let Err(error) = &prepared
             && self.get(element).is_ok()
         {
-            self.warnings
-                .push(format!("{error}; emitted placeholder text"));
+            self.warnings.push(error.clone());
         }
         self.prepared.push((attributes, prepared));
     }

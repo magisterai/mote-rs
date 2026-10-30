@@ -1,0 +1,7 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(width=pt(600),height=pt(400),background="#f8fafc",theme={colors={accent1="#2563eb"}})
+#presentation(background={src="../images/assets/pattern.png",color="#e0e7ff",fit="contain"})
+#slide[#box(position={x=pt(40),y=pt(30),width=pt(280),height=pt(90)},fill="#ffffff",opacity=0.7,text={size=pt(24),margin={left=pt(12),top=pt(10)}})[Foreground]]
+#slide(background="#fef3c7")[#box(position={x=pt(40),y=pt(30),width=pt(280),height=pt(90)},fill="#ffffff",opacity=0.7,text={size=pt(24),margin={left=pt(12),top=pt(10)}})[Foreground]]
+#slide(background={src="../images/assets/pattern.jpeg",fit="cover"})[#box(position={x=pt(40),y=pt(30),width=pt(280),height=pt(90)},fill="#ffffff",opacity=0.7,text={size=pt(24),margin={left=pt(12),top=pt(10)}})[Foreground]]
+#slide[#box(position={x=pt(40),y=pt(30),width=pt(280),height=pt(90)},fill="#ffffff",opacity=0.7,text={size=pt(24),margin={left=pt(12),top=pt(10)}})[Foreground]]

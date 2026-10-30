@@ -1,4 +1,5 @@
 //! Resolved deck geometry and defaults shared by editable and native slides.
+pub(crate) mod backgrounds;
 pub(crate) mod images;
 mod support;
 pub(crate) mod tables;
@@ -9,12 +10,16 @@ use crate::{
 };
 
 pub(crate) struct Deck {
-    pub slides: Vec<Element>,
+    pub slides: Vec<Slide>,
     pub width: i64,
     pub height: i64,
     pub size_type: &'static str,
     pub theme: Theme,
     pub warnings: Vec<String>,
+}
+pub(crate) struct Slide {
+    pub element: Element,
+    pub background: backgrounds::Background,
 }
 impl Deck {
     pub fn resolve(document: &Document) -> Result<Self, String> {
@@ -89,38 +94,26 @@ impl Deck {
             });
         }
         let deck = Self {
-            slides,
+            slides: slides
+                .into_iter()
+                .map(|element| {
+                    let background = backgrounds::Background::resolve(document, &element);
+                    Slide {
+                        element,
+                        background,
+                    }
+                })
+                .collect(),
             width,
             height,
             size_type,
             theme: Theme::resolve(document),
             warnings,
         };
-        for slide in &deck.slides {
-            deck.background(document, slide)?;
-        }
         Ok(deck)
     }
-    pub fn background(
-        &self,
-        document: &Document,
-        slide: &Element,
-    ) -> Result<Option<String>, String> {
-        let value = slide
-            .attributes
-            .get("background")
-            .or_else(|| document.presentation.properties.get("background"));
-        match value {
-            Some(Value::Object(fields)) => {
-                if !text(fields, "src").is_empty() {
-                    return Err("presentation background images are not yet supported".into());
-                }
-                Ok(color(fields.get("color")))
-            }
-            _ => Ok(color(value)),
-        }
-    }
 }
+
 fn check_disabled(properties: &Properties, name: &str) -> Result<(), String> {
     if let Some(value) = properties.get(name)
         && value != &Value::Boolean(false)

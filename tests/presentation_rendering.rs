@@ -374,3 +374,63 @@ fn slide_chart_geometry_and_native_rasters_match_captured_output() {
         ],
     );
 }
+
+#[test]
+fn background_geometry_and_native_rasters_match_captured_output() {
+    compare_captured_slides(
+        "presentation-backgrounds",
+        &[
+            ("fitting", 32, 0.04, 0),
+            ("aspect", 32, 0.05, 0),
+            ("inheritance", 40, 0.31, 0),
+            ("missing", 40, 0.07, 0),
+        ],
+    );
+}
+
+#[test]
+fn background_assets_share_the_picture_cache_and_overrides_avoid_unused_sources() {
+    use mote::{
+        layout::PageOperation,
+        source::{AssetRequest, ResolvedAsset},
+    };
+    use std::{cell::Cell, ffi::OsStr, sync::Arc};
+    let calls = Cell::new(0);
+    let available = Cell::new(true);
+    let resolver = |request: AssetRequest<'_>| {
+        assert!(available.get());
+        calls.set(calls.get() + 1);
+        assert_eq!(request.source_name, Some(OsStr::new("memory:slides")));
+        assert_eq!(request.reference, OsStr::new("picture"));
+        Ok(ResolvedAsset {
+            name: "memory:picture".into(),
+            bytes: include_bytes!("fixtures/images/assets/pattern.png").to_vec(),
+        })
+    };
+    let document = mote::compile("#presentation(width=pt(200),height=pt(200),background={src='unused'})#slide(background={src='picture',fit='contain'})[#box(position={x=pt(10),y=pt(10),width=pt(60),height=pt(40)})[#image('picture')]]#slide(background='#ffffff')[]").unwrap();
+    let source_name = Some(OsStr::new("memory:slides"));
+    mote::pptx::emit_with_fonts(&document, &resolver, source_name, None).unwrap();
+    assert_eq!(calls.get(), 1);
+    let plan = render::plan_with_fonts(&document, &resolver, source_name, None).unwrap();
+    assert_eq!(calls.get(), 2);
+    let pictures: Vec<_> = plan.output.pages[0]
+        .operations
+        .iter()
+        .filter_map(|operation| match operation {
+            PageOperation::Image(image) => Some(image),
+            _ => None,
+        })
+        .collect();
+    assert_eq!(pictures.len(), 2);
+    assert!(Arc::ptr_eq(&pictures[0].image, &pictures[1].image));
+    assert!(
+        !plan.output.pages[1]
+            .operations
+            .iter()
+            .any(|operation| matches!(operation, PageOperation::Image(_)))
+    );
+    available.set(false);
+    render::paint_pdf(&plan.output).unwrap();
+    render::paint_png(&plan.output, &Default::default()).unwrap();
+    assert_eq!(calls.get(), 2);
+}

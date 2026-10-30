@@ -1,0 +1,102 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FCE7F3"
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        40,
+        30,
+        280,
+        90
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 179
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 28.886400000000002,
+        "x": 52,
+        "width": 124.056,
+        "fragments": [
+          {
+            "text": "Foreground",
+            "x": 52,
+            "baseline": 61.6432,
+            "advance": 124.056,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        52,
+        40,
+        268,
+        80
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "DCFCE7"
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        40,
+        30,
+        280,
+        90
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 179
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 40,
+        "height": 28.886400000000002,
+        "x": 52,
+        "width": 124.056,
+        "fragments": [
+          {
+            "text": "Foreground",
+            "x": 52,
+            "baseline": 61.6432,
+            "advance": 124.056,
+            "size": 24
+          }
+        ]
+      },
+      "clip": [
+        52,
+        40,
+        268,
+        80
+      ]
+    }
+  ]
+]

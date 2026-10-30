@@ -127,9 +127,10 @@ fn plan(
             page_number: index + 1,
             ..Default::default()
         };
-        let background = deck
-            .background(document, slide)
-            .map_err(LayoutError::Unsupported)?
+        let background = slide
+            .background
+            .color
+            .clone()
             .unwrap_or_else(|| deck.theme.colors[1].clone());
         page.operations
             .push(PageOperation::Rectangle(HighlightRectangle {
@@ -145,7 +146,17 @@ fn plan(
             geometry.width,
             geometry.height,
         ]));
-        for child in &slide.children {
+        if let Some(image) = &slide.background.image {
+            images::place(
+                &slide.background.container(deck.width, deck.height),
+                image,
+                images::ImageContainer::Background,
+                images,
+                &mut page.operations,
+                &mut deck.warnings,
+            )?;
+        }
+        for child in &slide.element.children {
             let Content::Element(element) = child else {
                 return Err(LayoutError::Unsupported(
                     "presentation output currently requires positioned slide objects".into(),
@@ -202,6 +213,7 @@ fn plan(
                 images::place(
                     element,
                     image,
+                    images::ImageContainer::Box,
                     images,
                     &mut page.operations,
                     &mut deck.warnings,

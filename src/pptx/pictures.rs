@@ -22,6 +22,63 @@ impl<'a> Pictures<'a> {
             media: Vec::new(),
         }
     }
+    pub fn background(
+        &mut self,
+        background: &crate::presentation::backgrounds::Background,
+        size: [i64; 2],
+        default_color: &str,
+        next_shape: &mut usize,
+        relationships: &mut Vec<Relationship>,
+    ) -> Result<(String, String), Error> {
+        let solid = |color: &str| {
+            format!(
+                r#"<p:bg><p:bgPr><a:solidFill><a:srgbClr val="{color}"/></a:solidFill></p:bgPr></p:bg>"#
+            )
+        };
+        let fallback = background.color.as_deref().map(solid).unwrap_or_default();
+        let Some(image) = &background.image else {
+            return Ok((fallback, String::new()));
+        };
+        let contain = background.fit == "contain";
+        let fallback = if contain {
+            solid(background.color.as_deref().unwrap_or(default_color))
+        } else {
+            fallback
+        };
+        let Ok(asset) = self.images.get(image) else {
+            return Ok((fallback, String::new()));
+        };
+        let name = format!("media/image{}{}", self.media.len() + 1, asset.extension);
+        self.media
+            .push((format!("ppt/{name}"), asset.original.clone()));
+        relationships.push(Relationship {
+            kind: "image",
+            target: format!("../{name}"),
+            external: false,
+        });
+        let relationship = relationships.len();
+        let placement = ImagePlacement::resolve(
+            [0.0, 0.0, size[0] as f64, size[1] as f64],
+            [asset.natural_width as f64, asset.natural_height as f64],
+            &background.fit,
+        );
+        if !contain {
+            let crop = crop_xml(placement.crop);
+            return Ok((
+                format!(
+                    r#"<p:bg><p:bgPr><a:blipFill><a:blip r:embed="rId{relationship}"/>{crop}<a:stretch><a:fillRect/></a:stretch></a:blipFill><a:effectLst/></p:bgPr></p:bg>"#
+                ),
+                String::new(),
+            ));
+        }
+        let identifier = *next_shape;
+        *next_shape += 1;
+        let [left, top, width, height] = placement.object.map(|value| value.round() as i64);
+        let picture = format!(
+            r#"<p:pic><p:nvPicPr><p:cNvPr id="{identifier}" name="Background Image" descr="presentation background"/><p:cNvPicPr><a:picLocks noChangeAspect="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId{relationship}"/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr><a:xfrm><a:off x="{left}" y="{top}"/><a:ext cx="{width}" cy="{height}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:ln><a:noFill/></a:ln></p:spPr></p:pic>"#
+        );
+        Ok((fallback, picture))
+    }
     pub fn write(
         &mut self,
         container: &Element,

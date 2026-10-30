@@ -107,11 +107,22 @@ fn round_coordinate(value: f64) -> f64 {
 
 /// Select direct image boxes without resolving unrelated document assets.
 pub(crate) fn elements(deck: &super::Deck) -> impl Iterator<Item = &Element> {
-    deck.slides
-        .iter()
-        .flat_map(|slide| &slide.children)
-        .filter_map(|content| match content {
-            Content::Element(element) if element.kind == ElementKind::Box => child(element),
-            _ => None,
-        })
+    deck.slides.iter().flat_map(|slide| {
+        slide
+            .background
+            .image
+            .iter()
+            .chain(
+                slide
+                    .element
+                    .children
+                    .iter()
+                    .filter_map(|content| match content {
+                        Content::Element(element) if element.kind == ElementKind::Box => {
+                            child(element)
+                        }
+                        _ => None,
+                    }),
+            )
+    })
 }
