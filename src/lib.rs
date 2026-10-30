@@ -20,6 +20,7 @@ pub fn compile(source: &str) -> Result<model::Document, diagnostics::Diagnostic>
 
 mod drawings;
 mod tables;
+mod xml;
 
 mod properties;
 
