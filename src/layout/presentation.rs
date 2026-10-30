@@ -1,4 +1,5 @@
 //! Positioned slides use the same page operations as document layout.
+mod images;
 use super::{
     DocumentTextPlan, HighlightRectangle, LayoutError, LineCap, PageGeometry, PageOperation,
     PathPaint, PathStroke, TextPage,
@@ -26,7 +27,7 @@ pub(crate) fn prepare_box(
             "presentation box shadows are not yet supported".into(),
         ));
     }
-    let mut bounds = crate::presentation::images::box_bounds(&element.attributes)
+    let mut bounds = crate::presentation::box_bounds(&element.attributes)
         .map_err(LayoutError::Unsupported)?
         .map(|value| value as f64 / 12700.0);
     if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
@@ -57,7 +58,44 @@ pub fn plan_presentation(
     document: &Document,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<DocumentTextPlan, LayoutError> {
-    let mut deck = Deck::resolve(document).map_err(LayoutError::Unsupported)?;
+    let deck = Deck::resolve(document).map_err(LayoutError::Unsupported)?;
+    if crate::presentation::images::elements(&deck)
+        .next()
+        .is_some()
+    {
+        return Err(LayoutError::Unsupported(
+            "presentation images require an asset resolver".into(),
+        ));
+    }
+    plan(
+        document,
+        measurer,
+        deck,
+        &mut crate::media::ImageCatalog::default(),
+    )
+}
+
+pub(crate) fn plan_with_assets(
+    document: &Document,
+    measurer: &mut TextMeasurer<'_>,
+    resolver: &dyn crate::source::AssetResolver,
+    source_name: Option<&std::ffi::OsStr>,
+) -> Result<DocumentTextPlan, LayoutError> {
+    let deck = Deck::resolve(document).map_err(LayoutError::Unsupported)?;
+    let mut images = crate::media::ImageCatalog::load_selected(
+        crate::presentation::images::elements(&deck),
+        resolver,
+        source_name,
+    );
+    plan(document, measurer, deck, &mut images)
+}
+
+fn plan(
+    document: &Document,
+    measurer: &mut TextMeasurer<'_>,
+    mut deck: Deck,
+    images: &mut crate::media::ImageCatalog,
+) -> Result<DocumentTextPlan, LayoutError> {
     if !document
         .content
         .iter()
@@ -119,6 +157,16 @@ pub fn plan_presentation(
             }
             if element.children.is_empty() {
                 deck.warnings.push("native slides omit empty boxes".into());
+                continue;
+            }
+            if let Some(image) = crate::presentation::images::child(element) {
+                images::place(
+                    element,
+                    image,
+                    images,
+                    &mut page.operations,
+                    &mut deck.warnings,
+                )?;
                 continue;
             }
             let prepared = prepare_box(document, element, &deck.theme, measurer)?;

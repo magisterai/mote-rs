@@ -1,0 +1,355 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        480,
+        320
+      ],
+      "color": "F1F5F9"
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        10,
+        20,
+        130,
+        100
+      ],
+      "image_clip": [
+        10,
+        20,
+        130,
+        100
+      ],
+      "clip": [
+        10,
+        20,
+        130,
+        100
+      ],
+      "link": null
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        170,
+        26.666667,
+        130,
+        86.66666666666667
+      ],
+      "image_clip": [
+        170,
+        26.666667,
+        130,
+        86.66666666666667
+      ],
+      "clip": [
+        170,
+        20,
+        130,
+        100
+      ],
+      "link": null
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        320,
+        20,
+        150,
+        100
+      ],
+      "image_clip": [
+        330,
+        20,
+        130,
+        100
+      ],
+      "clip": [
+        330,
+        20,
+        130,
+        100
+      ],
+      "link": null
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        10,
+        180,
+        110,
+        80
+      ],
+      "image_clip": [
+        10,
+        180,
+        110,
+        80
+      ],
+      "clip": [
+        10,
+        180,
+        110,
+        80
+      ],
+      "link": null
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        180,
+        180,
+        110,
+        80
+      ],
+      "image_clip": [
+        180,
+        180,
+        110,
+        80
+      ],
+      "clip": [
+        180,
+        180,
+        110,
+        80
+      ],
+      "link": null
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        340,
+        180,
+        110,
+        80
+      ],
+      "image_clip": [
+        340,
+        180,
+        110,
+        80
+      ],
+      "clip": [
+        340,
+        180,
+        110,
+        80
+      ],
+      "link": null
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        480,
+        320
+      ],
+      "color": "F1F5F9"
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        20,
+        50,
+        120,
+        80
+      ],
+      "image_clip": [
+        20,
+        50,
+        120,
+        80
+      ],
+      "clip": [
+        20,
+        45,
+        120,
+        90
+      ],
+      "link": "https://example.com/image?a=1&b=2",
+      "rotation": {
+        "degrees": 30,
+        "center": [
+          80,
+          90
+        ]
+      }
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        20,
+        50,
+        120,
+        80
+      ],
+      "fill": null,
+      "stroke": {
+        "color": "2563EB",
+        "alpha": 255,
+        "width": 2,
+        "dash": [],
+        "cap": "Flat"
+      },
+      "rotation": {
+        "degrees": 30,
+        "center": [
+          80,
+          90
+        ]
+      }
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        172.5,
+        45,
+        135,
+        90
+      ],
+      "image_clip": [
+        185,
+        45,
+        110,
+        90
+      ],
+      "clip": [
+        185,
+        45,
+        110,
+        90
+      ],
+      "link": null,
+      "rotation": {
+        "degrees": -25,
+        "center": [
+          240,
+          90
+        ]
+      }
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        350,
+        45,
+        90,
+        110
+      ],
+      "image_clip": [
+        350,
+        45,
+        90,
+        110
+      ],
+      "clip": [
+        350,
+        45,
+        90,
+        110
+      ],
+      "link": null,
+      "rotation": {
+        "degrees": 90,
+        "center": [
+          395,
+          100
+        ]
+      }
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        30,
+        210,
+        120,
+        70
+      ],
+      "image_clip": [
+        30,
+        210,
+        120,
+        70
+      ],
+      "clip": [
+        30,
+        210,
+        120,
+        70
+      ],
+      "link": null
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        195,
+        210,
+        110,
+        70
+      ],
+      "image_clip": [
+        195,
+        210,
+        110,
+        70
+      ],
+      "clip": [
+        195,
+        210,
+        110,
+        70
+      ],
+      "link": null
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        195,
+        210,
+        110,
+        70
+      ],
+      "fill": null,
+      "stroke": {
+        "color": "059669",
+        "alpha": 178,
+        "width": 1.5,
+        "dash": [
+          0.015,
+          6
+        ],
+        "cap": "Round"
+      }
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        350,
+        230,
+        90,
+        70
+      ],
+      "image_clip": [
+        350,
+        230,
+        90,
+        70
+      ],
+      "clip": [
+        350,
+        230,
+        90,
+        70
+      ],
+      "link": null
+    }
+  ]
+]

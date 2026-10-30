@@ -129,5 +129,10 @@
       "path": "captured/parts/906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce.bin",
       "sha256": "906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce"
     }
+  },
+  "geometry_sha256": "fe2a02bc85d8b874beed6924bb5a838a4ae0f5102d912b8d0cd4704ae032156b",
+  "native_png_files": {
+    "reference-1.png": "0cdf90f2a266bb2bf2f60726e929da5da60e00985aac81f91c0752606e40409d",
+    "reference-2.png": "3aaf3f114cec169cb5615a7fde1e5aa4a63e8d068045c10c1498e3c31b2faf3e"
   }
 }

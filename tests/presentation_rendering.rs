@@ -10,18 +10,39 @@ use std::{fs, path::Path};
 
 #[test]
 fn native_slide_geometry_and_independent_rasters_match_captured_output() {
-    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-text");
+    compare_captured_slides(
+        "presentation-text",
+        &[
+            ("basics", 48, 6.0, 0),
+            ("edges", 48, 9.0, 0),
+            ("fitting", 64, 2.0, 0),
+            ("font-assets", 64, 6.0, 0),
+            ("formatting", 48, 0.2, 0),
+            ("lua", 40, 5.0, 0),
+            ("styles", 48, 6.0, 0),
+            ("theme", 48, 0.1, 0),
+        ],
+    );
+}
+
+#[test]
+fn picture_geometry_and_native_rasters_match_captured_output() {
+    compare_captured_slides(
+        "presentation-images",
+        &[
+            ("placement", 0, 0.0, 0),
+            ("formats", 3, 0.03, 0),
+            ("transforms", 64, 0.06, 0),
+            ("missing", 0, 0.0, 0),
+        ],
+    );
+}
+fn compare_captured_slides(directory: &str, cases: &[(&str, u8, f64, usize)]) {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("tests/fixtures")
+        .join(directory);
     let resolver = FileAssetResolver::new(&root).unwrap();
-    for (case, maximum_limit, mean_limit, edge_limit) in [
-        ("basics", 48, 6.0, 0),
-        ("edges", 48, 9.0, 0),
-        ("fitting", 64, 2.0, 0),
-        ("font-assets", 64, 6.0, 0),
-        ("formatting", 48, 0.2, 0),
-        ("lua", 40, 5.0, 0),
-        ("styles", 48, 6.0, 0),
-        ("theme", 48, 0.1, 0),
-    ] {
+    for &(case, maximum_limit, mean_limit, edge_limit) in cases {
         let path = root.join(format!("{case}.mote"));
         let source = fs::read_to_string(&path).unwrap();
         let folder = root.join("captured").join(case);
@@ -181,7 +202,6 @@ fn presentation_output_reports_unsupported_retained_properties_and_structures() 
     for source in [
         "#slide(notes='Speaker')[]",
         "#slide[Loose content]",
-        "#slide[#box(position={width=inch(3),height=inch(2)})[#image(src='missing.png')]]",
         "#slide[#box(position={width=inch(3),height=inch(2)})[#chart(data={values={1}})]]",
     ] {
         let document = mote::compile(source).unwrap();
@@ -194,29 +214,102 @@ fn presentation_output_reports_unsupported_retained_properties_and_structures() 
 }
 
 #[test]
-fn unsupported_slide_images_are_rejected_without_loading_document_assets() {
-    let document = mote::compile(
-        "#presentation(size='wide')#slide[#box(position={width=inch(3),height=inch(2)})[#image(src='unused.png')]]",
-    )
-    .unwrap();
-    let requests = std::cell::RefCell::new(Vec::new());
-    let resolver = |request: mote::source::AssetRequest<'_>| {
-        requests.borrow_mut().push(request.reference.to_owned());
-        Err(std::io::Error::new(
-            std::io::ErrorKind::NotFound,
-            "unused asset",
-        ))
-    };
+fn slide_layout_does_not_load_document_header_assets() {
+    let document =
+        mote::compile("#header[#image(src='unused.png')]#presentation(size='wide')#slide[]")
+            .unwrap();
+    let resolver =
+        |_: mote::source::AssetRequest<'_>| -> std::io::Result<mote::source::ResolvedAsset> {
+            panic!("presentation requested an unused document asset");
+        };
     for mode in [
         render::LayoutMode::Automatic,
         render::LayoutMode::Presentation,
     ] {
-        let error =
-            render::plan_with_layout_and_fonts(&document, &resolver, None, mode, None).unwrap_err();
-        assert!(error.to_string().contains("do not yet support image"));
+        render::plan_with_layout_and_fonts(&document, &resolver, None, mode, None).unwrap();
     }
-    assert!(
-        requests.borrow().is_empty(),
-        "unexpected requests: {requests:?}"
-    );
+    mote::pptx::emit_with_fonts(&document, &resolver, None, None).unwrap();
+}
+
+#[test]
+fn slide_pictures_cache_source_relative_assets_and_freeze_them_before_painting() {
+    use mote::{
+        layout::PageOperation,
+        source::{AssetRequest, ResolvedAsset},
+    };
+    use std::{cell::Cell, ffi::OsStr, sync::Arc};
+    let calls = Cell::new(0);
+    let available = Cell::new(true);
+    let resolver = |request: AssetRequest<'_>| {
+        assert!(available.get());
+        calls.set(calls.get() + 1);
+        assert_eq!(request.source_name, Some(OsStr::new("memory:slides")));
+        assert_eq!(request.reference, OsStr::new("picture"));
+        Ok(ResolvedAsset {
+            name: "memory:picture".into(),
+            bytes: include_bytes!("fixtures/images/assets/pattern.png").to_vec(),
+        })
+    };
+    let document = mote::compile("#presentation(width=pt(200),height=pt(200))#slide[        #box(position={x=pt(10),y=pt(10),width=pt(60),height=pt(40)})[#image('picture',width=pt(400),height=pt(300),alignment='right',spacing={before=pt(50)})]        #box(position={x=pt(100),y=pt(10),width=pt(60),height=pt(40)})[#image('picture',rotation=30)]]").unwrap();
+    let source_name = Some(OsStr::new("memory:slides"));
+    mote::pptx::emit_with_fonts(&document, &resolver, source_name, None).unwrap();
+    assert_eq!(calls.get(), 1);
+    let planned = render::plan_with_fonts(&document, &resolver, source_name, None).unwrap();
+    assert_eq!(calls.get(), 2);
+    let pictures: Vec<_> = planned.output.pages[0]
+        .operations
+        .iter()
+        .filter_map(|operation| match operation {
+            PageOperation::Image(image) => Some(image),
+            _ => None,
+        })
+        .collect();
+    assert_eq!(pictures.len(), 2);
+    assert_eq!(pictures[0].bounds, [10.0, 10.0, 60.0, 40.0]);
+    assert!(Arc::ptr_eq(&pictures[0].image, &pictures[1].image));
+    available.set(false);
+    render::paint_pdf(&planned.output).unwrap();
+    for dots_per_inch in [72, 144] {
+        render::paint_png(
+            &planned.output,
+            &render::PngOptions {
+                dots_per_inch,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+    }
+    assert_eq!(calls.get(), 2);
+}
+
+#[test]
+fn missing_slide_pictures_have_truthful_diagnostics_and_rotated_pdf_links_follow_pictures() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-images");
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    for case in ["missing", "transforms"] {
+        let path = root.join(format!("{case}.mote"));
+        let document = mote::compile(&fs::read_to_string(&path).unwrap()).unwrap();
+        let plan = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
+        if case == "missing" {
+            assert_eq!(
+                plan.warnings
+                    .iter()
+                    .filter(|warning| warning.contains("omitted picture"))
+                    .count(),
+                2
+            );
+            assert!(
+                !plan
+                    .warnings
+                    .iter()
+                    .any(|warning| warning.contains("placeholder"))
+            );
+        } else {
+            assert!(plan.warnings.is_empty(), "{:?}", plan.warnings);
+            let bytes = render::paint_pdf(&plan.output).unwrap();
+            let serialized = String::from_utf8_lossy(&bytes);
+            assert!(serialized.contains("/Rect [8.04 165.36 151.96 294.64]"));
+            assert!(serialized.contains("/URI (https://example.com/image?a=1&b=2)"));
+        }
+    }
 }

@@ -3,7 +3,10 @@ use super::{Error, escape, package::Relationship};
 use crate::{
     media::ImageCatalog,
     model::Element,
-    presentation::images::{Crop, ImagePlacement, box_bounds},
+    presentation::{
+        box_bounds,
+        images::{Crop, ImagePlacement},
+    },
     properties::{boolean, number, object, text},
 };
 use std::sync::Arc;

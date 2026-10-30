@@ -129,6 +129,23 @@ fn check_disabled(properties: &Properties, name: &str) -> Result<(), String> {
     }
     Ok(())
 }
+pub(crate) fn box_bounds(attributes: &Properties) -> Result<[i64; 4], String> {
+    let position = object(attributes, "position").ok_or("box position is missing")?;
+    let coordinate = |name: &str, fallback| {
+        position
+            .get(name)
+            .map(|value| units(Some(value)).ok_or_else(|| format!("invalid box position.{name}")))
+            .transpose()
+            .map(|value| value.unwrap_or(fallback))
+    };
+    Ok([
+        coordinate("x", 0)?,
+        coordinate("y", 0)?,
+        coordinate("width", 3657600)?,
+        coordinate("height", 1828800)?,
+    ])
+}
+
 pub(crate) fn units(value: Option<&Value>) -> Option<i64> {
     crate::drawings::length_in_drawing_units(value)
 }

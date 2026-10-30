@@ -19,7 +19,7 @@ pub(super) fn write(
         return Err(Error("PPTX box shadows are not yet supported".into()));
     }
     let [horizontal, vertical, width, mut height] =
-        crate::presentation::images::box_bounds(attributes).map_err(Error)?;
+        crate::presentation::box_bounds(attributes).map_err(Error)?;
     let identifier = *next_shape;
     *next_shape += 1;
     let mut name = text(attributes, "name");

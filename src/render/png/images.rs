@@ -50,13 +50,12 @@ pub(super) fn paint(
                 continue;
             }
             let pixel = &mut pixels.data_mut()[offset..offset + 4];
-            for channel in 0..3 {
+            for channel in 0..4 {
                 pixel[channel] = ((u32::from(sampled[channel])
                     + (65535 - u32::from(sampled[3])) * u32::from(pixel[channel]) / 255)
                     .min(65535)
                     >> 8) as u8;
             }
-            pixel[3] = 255;
         }
     }
 }

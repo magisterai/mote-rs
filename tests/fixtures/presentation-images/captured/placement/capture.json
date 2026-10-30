@@ -101,5 +101,9 @@
       "path": "captured/parts/906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce.bin",
       "sha256": "906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce"
     }
+  },
+  "geometry_sha256": "6f7484f560dee0d39b55df047c34fc18bea94d5a0f75a4675c1013f1b55de6e6",
+  "native_png_files": {
+    "reference-1.png": "ad1339ca07a28c079546e1cf50a76f06c3f76301325f213af1ceff0820b9ff94"
   }
 }

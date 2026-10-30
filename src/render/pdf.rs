@@ -161,7 +161,17 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
             .filter(Filter::FlateDecode);
         let mut annotations = Vec::new();
         if let Some(page) = plan.pages.get(page_index) {
+            let mut rotations = Vec::new();
             for operation in &page.operations {
+                match operation {
+                    PageOperation::PushRotation { degrees, center } => {
+                        rotations.push((*degrees, *center))
+                    }
+                    PageOperation::PopRotation => {
+                        rotations.pop();
+                    }
+                    _ => {}
+                }
                 if let PageOperation::Image(image) = operation
                     && let Some(target) = &image.link
                 {
@@ -170,7 +180,11 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                     let mut annotation = document.annotation(reference);
                     annotation
                         .subtype(pdf_writer::types::AnnotationType::Link)
-                        .rect(images::annotation_bounds(image, geometry.height))
+                        .rect(images::annotation_bounds(
+                            image,
+                            geometry.height,
+                            &rotations,
+                        ))
                         .border(0.0, 0.0, 0.0, None);
                     annotation
                         .action()

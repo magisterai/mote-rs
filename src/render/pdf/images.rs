@@ -87,12 +87,45 @@ pub(super) fn paint(image: &PositionedImage, content: &mut Content, name: &str, 
         .x_object(Name(name.as_bytes()))
         .restore_state();
 }
-pub(super) fn annotation_bounds(image: &PositionedImage, page_height: f64) -> Rect {
+pub(super) fn annotation_bounds(
+    image: &PositionedImage,
+    page_height: f64,
+    rotations: &[(f64, [f64; 2])],
+) -> Rect {
     let [left, top, width, height] = image.clip;
+    let mut corners = [
+        [left, top],
+        [left + width, top],
+        [left, top + height],
+        [left + width, top + height],
+    ];
+    for (degrees, center) in rotations.iter().rev() {
+        let (sine, cosine) = degrees.to_radians().sin_cos();
+        for point in &mut corners {
+            let horizontal = point[0] - center[0];
+            let vertical = point[1] - center[1];
+            *point = [
+                center[0] + horizontal * cosine - vertical * sine,
+                center[1] + horizontal * sine + vertical * cosine,
+            ];
+        }
+    }
+    let minimum = |axis: usize| {
+        corners
+            .iter()
+            .map(|point| point[axis])
+            .fold(f64::INFINITY, f64::min)
+    };
+    let maximum = |axis: usize| {
+        corners
+            .iter()
+            .map(|point| point[axis])
+            .fold(f64::NEG_INFINITY, f64::max)
+    };
     Rect::new(
-        rounded(left),
-        rounded(page_height - top - height),
-        rounded(left + width),
-        rounded(page_height - top),
+        rounded(minimum(0)),
+        rounded(page_height - maximum(1)),
+        rounded(maximum(0)),
+        rounded(page_height - minimum(1)),
     )
 }

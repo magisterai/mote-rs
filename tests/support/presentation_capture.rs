@@ -4,10 +4,15 @@ use serde_json::{Value, json};
 pub fn projection(plan: &DocumentTextPlan) -> Value {
     Value::Array(plan.pages.iter().map(|page| {
         let mut clips = Vec::new();
+        let mut rotations = Vec::new();
         let mut operations = Vec::new();
         for operation in &page.operations {
             let clip = (clips.len() > 1).then(|| clips.last().unwrap());
+            let previous_count = operations.len();
             match operation {
+                PageOperation::PushRotation { degrees, center } => rotations.push(json!({"degrees":degrees,"center":center})),
+                PageOperation::PopRotation => { rotations.pop().unwrap(); },
+                PageOperation::Image(image) => operations.push(json!({"kind":"image","bounds":image.bounds,"image_clip":image.clip,"clip":clip,"link":image.link})),
                 PageOperation::PushClip(bounds) => clips.push(*bounds),
                 PageOperation::PopClip => { clips.pop().unwrap(); },
                 PageOperation::Text(index) => {
@@ -27,8 +32,14 @@ pub fn projection(plan: &DocumentTextPlan) -> Value {
                 PageOperation::ListMarker(marker) => operations.push(json!({"kind":"marker","slot":marker.slot,"baseline":marker.baseline,"font_size":marker.font_size,"checked":marker.checked,"clip":clip})),
                 _ => panic!("uncaptured presentation operation: {operation:?}"),
             }
+            if let Some(rotation) = rotations.last() {
+                for operation in &mut operations[previous_count..] {
+                    operation["rotation"] = rotation.clone();
+                }
+            }
         }
         assert!(clips.is_empty());
+        assert!(rotations.is_empty());
         Value::Array(operations)
     }).collect())
 }

@@ -111,7 +111,12 @@ pub fn plan_with_layout_and_fonts(
     }
     let (output, mut warnings) = if presentation {
         (
-            crate::layout::plan_presentation(document, &mut measurer)?,
+            crate::layout::presentation::plan_with_assets(
+                document,
+                &mut measurer,
+                resolver,
+                source_name,
+            )?,
             std::collections::BTreeSet::new(),
         )
     } else {
