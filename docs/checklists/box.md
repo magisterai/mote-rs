@@ -21,7 +21,9 @@
 - [x] `opacity`: fraction, percentage number or percentage string.
 - [x] `shadow`: enabled, color, blur, distance, angle and opacity.
 - [x] `fit`: contain, cover, stretch for an image child.
-- [ ] `slot`, `kind`, `required`, `remove`: named layout declarations/assignments.
+- [ ] `slot`: nonempty named assignment, with optional position and body.
+- [ ] `kind`, `required`, `remove`: layout-only declaration fields; see the
+  [layout inventory](layout.md).
 - [x] `properties` overrides and Lua construction.
 
 Output covers positioned text, image, table and chart boxes. Named layout slots

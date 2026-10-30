@@ -78,6 +78,7 @@ their concepts before using them in examples.
 | `image` | [Image](image.md) | Block media and placement. |
 | `link` | [Link](link.md) | External inline destinations and metadata. |
 | `presentation` | [Presentation](presentation.md) | Deck properties, normalized dimensions, overrides and Lua declarations. |
+| `layout` | [Reusable presentation layouts](layout.md) | Layout names, inheritance, typed slots and defaults. |
 | `slide` | [Slide](slide.md) | Explicit bodies, positioned/loose content rules, appearance and metadata. |
 | `box` | [Box](box.md) | Positioned content, text/appearance properties and child validation. |
 | `chart` | [Chart](chart.md) | Typed data and appearance; editable document charts and native chart geometry. |
