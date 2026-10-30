@@ -32,7 +32,7 @@ pub use flow::{
 pub use geometry::PageGeometry;
 pub use widows::minimum_start_height;
 mod style_values;
-mod styles;
+pub(crate) mod styles;
 pub use inline::resolve_inline;
 pub use styles::{LayoutStyleResolver, ParagraphStyle};
 mod painting;
@@ -150,7 +150,7 @@ impl Default for LineSpacing {
 }
 
 impl LineSpacing {
-    fn height(self, style: &TextStyle, fallback_multiplier: f64) -> f64 {
+    pub(crate) fn height(self, style: &TextStyle, fallback_multiplier: f64) -> f64 {
         let size = style.measurement.size_points;
         match self {
             Self::Multiple(multiple) => match style.word_line_height {

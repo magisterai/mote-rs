@@ -4,6 +4,7 @@ mod data;
 pub(crate) mod drawingml;
 pub(crate) mod workbook;
 
+use crate::drawings::length_in_drawing_units as drawing_units;
 use crate::{
     model::{Element, Value},
     properties::object,
@@ -160,22 +161,4 @@ fn integer(value: Option<&Value>) -> Option<i64> {
         Value::String(text) => text.trim().parse().ok(),
         _ => None,
     }
-}
-fn drawing_units(value: Option<&Value>) -> Option<i64> {
-    let text = text(value);
-    let (number, units) = ["twip", "pt", "in", "cm", "mm"]
-        .into_iter()
-        .find_map(|unit| text.strip_suffix(unit).map(|number| (number, unit)))
-        .unwrap_or((&text, ""));
-    let number: f64 = number.trim().parse().ok()?;
-    let converted = match units {
-        "twip" => number * 635.0,
-        "pt" => number * 12700.0,
-        "in" => number * 914400.0,
-        "cm" => number * 914400.0 / 2.54,
-        "mm" => number * 914400.0 / 25.4,
-        _ => number,
-    };
-    (converted.is_finite() && converted >= i64::MIN as f64 && converted < i64::MAX as f64)
-        .then(|| converted.round() as i64)
 }

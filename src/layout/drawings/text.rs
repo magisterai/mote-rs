@@ -1,8 +1,6 @@
 //! Fits resolved drawing paragraphs into preset-specific text bounds.
-use super::{
-    geometry,
-    paragraphs::{self, DrawingParagraph},
-};
+use super::geometry;
+use crate::drawings::paragraphs::{self, DrawingParagraph};
 use crate::{
     layout::{
         LayoutError, LayoutStyleResolver, LineSpacing, ListMarker, ListMarkerKind, PageOperation,
@@ -86,9 +84,10 @@ pub(super) fn prepare(
         &element.children,
         &base,
         &paragraphs::paragraph_defaults(&attributes),
-        text(&attributes, "font").is_empty() && text(&attributes, "style").is_empty(),
+        (text(&attributes, "font").is_empty() && text(&attributes, "style").is_empty())
+            .then_some("Aptos"),
         styles,
-        measurer,
+        Some(measurer),
     )?;
     let mut bounds = geometry::text_rectangle(
         &text(&element.attributes, "kind"),

@@ -1,5 +1,4 @@
 mod geometry;
-mod paragraphs;
 mod text;
 use super::{LayoutError, PageOperation, PaintedPath, TextPage};
 use crate::model::Element;

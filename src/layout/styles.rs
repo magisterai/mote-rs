@@ -47,7 +47,7 @@ impl Default for ParagraphStyle {
 }
 
 pub struct LayoutStyleResolver<'document> {
-    pub(super) document: &'document Document,
+    pub(crate) document: &'document Document,
     declarations: StyleResolver<'document>,
     pub(super) anchors: crate::references::Catalog,
     pub(super) reference_pages: std::collections::BTreeMap<String, usize>,
@@ -151,7 +151,7 @@ impl<'document> LayoutStyleResolver<'document> {
         }
         style
     }
-    pub(super) fn drawing_paragraph(
+    pub(crate) fn drawing_paragraph(
         &self,
         inherited: &TextStyle,
         properties: &Properties,
@@ -427,7 +427,7 @@ impl<'document> LayoutStyleResolver<'document> {
         }
     }
 }
-pub(super) fn emphasis(variant: FontVariant) -> (bool, bool) {
+pub(crate) fn emphasis(variant: FontVariant) -> (bool, bool) {
     match variant {
         FontVariant::Regular => (false, false),
         FontVariant::Bold => (true, false),
