@@ -50,7 +50,7 @@ impl Deck {
         if width <= 0 || height <= 0 {
             return Err("presentation dimensions must be positive".into());
         }
-        let mut warnings: Vec<_> = support::warnings(document).into_iter().collect();
+        let mut warnings = Vec::new();
         for name in properties.keys() {
             if ![
                 "size",
@@ -78,7 +78,7 @@ impl Deck {
                 children: Vec::new(),
             });
         }
-        let layouts = layouts::Layouts::builtin([width, height]);
+        let layouts = layouts::Layouts::resolve(&document.presentation, [width, height])?;
         for element in &mut slides {
             if let Some(resolved) = layouts.apply(element)? {
                 *element = resolved;
@@ -86,6 +86,7 @@ impl Deck {
                 element.children = automatic::elements(&element.children, [width, height]);
             }
         }
+        warnings.extend(support::warnings(document, &slides));
         let today = fields::current_date(document, &slides, &mut warnings);
         let deck = Self {
             empty,

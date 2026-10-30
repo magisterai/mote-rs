@@ -1,0 +1,19 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#font(name="heading",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(size="standard",slide_number=true)
+#let(config=json("config.json"))
+#layout(name=config.name,based_on="blank")[
+ #box(slot="title",kind="text",required=true,position=config.position,text={size=pt(26),color=config.color,fit="shrink"})
+ #box(slot="chart",kind="chart",required=true,position={x=pt(50),y=pt(140),width=pt(620),height=pt(330)})
+]
+#function configure_layout()
+ local config = json("config.json")
+ document.layout({name="from_lua",based_on=config.name,footer=config.footer,background="#f8fafc"})
+ return nil
+end
+#configure_layout()
+#layout(name="styled",based_on="from_lua")[#box(slot="title",fill="#eff6ff")]
+#let(title=document.box({slot="title"},config.title))
+#let(chart=document.box({slot="chart"},document.chart({kind="line",data={categories=config.categories,series={{name="Actual",values=config.values}}},colors={config.color}})))
+#let(page=document.slide({layout="styled"},title,chart))
+#page

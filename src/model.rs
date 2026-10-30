@@ -102,8 +102,28 @@ pub struct Document {
 pub struct Presentation {
     pub properties: Properties,
     pub size_properties: Properties,
+    /// Authored declarations in stable order; replacement retains the original index.
+    pub layouts: Vec<PresentationLayout>,
     /// Resolved authored dimensions, kept separate from the last size declaration.
     pub dimensions: Properties,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct PresentationLayout {
+    pub name: String,
+    pub based_on: String,
+    pub properties: Properties,
+    pub slots: Vec<PresentationLayoutSlot>,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct PresentationLayoutSlot {
+    pub name: String,
+    /// Empty inherits the parent's kind, or becomes content for a new slot.
+    pub kind: String,
+    /// None inherits; Some(false) explicitly makes an inherited slot optional.
+    pub required: Option<bool>,
+    pub remove: bool,
+    pub properties: Properties,
 }
 
 #[derive(Debug, Clone, Default, PartialEq)]

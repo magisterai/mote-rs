@@ -1,6 +1,6 @@
 //! Retained properties must not imply an output effect.
 use crate::{
-    model::{Content, Document, ElementKind, Properties},
+    model::{Content, Document, Element, ElementKind, Properties},
     properties::{object, text},
 };
 use std::collections::BTreeSet;
@@ -73,7 +73,7 @@ fn formatting(properties: &Properties, path: &str, warnings: &mut BTreeSet<Strin
         }
     }
 }
-pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
+pub(super) fn warnings(document: &Document, slides: &[Element]) -> BTreeSet<String> {
     let mut warnings = BTreeSet::new();
     unknown(
         &document.properties,
@@ -120,152 +120,159 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
         unknown(&style.properties, &allowed, &path, &mut warnings);
         formatting(&style.properties, &path, &mut warnings);
     }
-    content(&document.content, "content", &mut warnings);
+    for (index, slide) in slides.iter().enumerate() {
+        inspect(slide, &format!("content[{index}].slide"), &mut warnings);
+    }
     warnings
 }
 fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
     for (index, node) in nodes.iter().enumerate() {
-        let Content::Element(element) = node else {
-            continue;
-        };
-        let path = format!("{path}[{index}].{}", element.kind.as_text());
-        let attributes = &element.attributes;
-        let mut allowed = Vec::new();
-        match element.kind {
-            ElementKind::Slide => allowed.extend([
+        if let Content::Element(element) = node {
+            inspect(
+                element,
+                &format!("{path}[{index}].{}", element.kind.as_text()),
+                warnings,
+            );
+        }
+    }
+}
+fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
+    let attributes = &element.attributes;
+    let mut allowed = Vec::new();
+    match element.kind {
+        ElementKind::Slide => allowed.extend([
+            "name",
+            "layout",
+            "background",
+            "notes",
+            "footer",
+            "date",
+            "slide_number",
+        ]),
+        ElementKind::Box | ElementKind::Shape => {
+            allowed.extend([
                 "name",
-                "layout",
-                "background",
-                "notes",
-                "footer",
-                "date",
-                "slide_number",
-            ]),
-            ElementKind::Box | ElementKind::Shape => {
-                allowed.extend([
-                    "name",
-                    "slot",
-                    "position",
-                    "fill",
-                    "border",
-                    "opacity",
-                    "shadow",
-                    "text",
-                    "paragraph",
-                    "list",
-                    "margin",
-                    "vertical_alignment",
-                ]);
-                if element.kind == ElementKind::Shape {
-                    allowed.extend(["kind", "rotation", "flip_horizontal", "flip_vertical"]);
-                }
-                allowed.extend_from_slice(RUN);
-                allowed.extend_from_slice(PARAGRAPH);
-                if attributes.contains_key("fit") && super::images::child(element).is_none() {
-                    warnings.insert(format!(
-                        "{path}.fit applies to image boxes, not text; use text.fit for text fitting"
-                    ));
-                }
-                allowed.push("fit");
-                for (name, fields) in [
-                    ("position", &["x", "y", "width", "height"][..]),
-                    ("border", &["color", "width", "style", "opacity"][..]),
-                ] {
-                    if let Some(nested) = object(attributes, name) {
-                        unknown(nested, fields, &format!("{path}.{name}"), warnings);
-                    }
-                }
-                if let Some(nested) = object(attributes, "text") {
-                    let mut fields = RUN.to_vec();
-                    fields.extend_from_slice(PARAGRAPH);
-                    fields.extend(["fit", "margin", "vertical_alignment", "paragraph", "list"]);
-                    unknown(nested, &fields, &format!("{path}.text"), warnings);
-                    formatting(nested, &format!("{path}.text"), warnings);
-                }
-            }
-            ElementKind::Line => {
-                allowed.extend(["name", "from", "to", "border", "opacity", "cap", "arrow"]);
-                for name in ["from", "to"] {
-                    if let Some(fields) = object(attributes, name) {
-                        unknown(fields, &["x", "y"], &format!("{path}.{name}"), warnings);
-                    }
-                }
-            }
-            ElementKind::Chart => allowed.extend_from_slice(crate::charts::support::warnings(
-                attributes, &path, false, false, warnings,
-            )),
-            ElementKind::Table => allowed.extend([
-                "style",
-                "width",
-                "alignment",
-                "cell",
-                "borders",
-                "style_id",
-                "powerpoint_style_id",
-            ]),
-            ElementKind::Row => allowed.extend(["height"]),
-            ElementKind::Cell => allowed.extend([
-                "colspan",
-                "rowspan",
-                "style",
-                "width",
+                "slot",
+                "position",
                 "fill",
-                "alignment",
-                "vertical_alignment",
+                "border",
+                "opacity",
+                "shadow",
+                "text",
+                "paragraph",
+                "list",
                 "margin",
-                "borders",
-                "text_direction",
-                "no_wrap",
-            ]),
-            ElementKind::Image => {
-                allowed.extend([
-                    "src",
-                    "name",
-                    "description",
-                    "alt",
-                    "title",
-                    "link",
-                    "crop",
-                    "rotation",
-                    "flip_horizontal",
-                    "flip_vertical",
-                    "effects",
-                    "border",
-                ]);
-                for (name, fields) in [
-                    ("crop", &["left", "top", "right", "bottom"][..]),
-                    (
-                        "effects",
-                        &["brightness", "contrast", "grayscale", "transparency"][..],
-                    ),
-                    ("border", &["color", "width", "style", "opacity"][..]),
-                ] {
-                    if let Some(nested) = object(attributes, name) {
-                        unknown(nested, fields, &format!("{path}.{name}"), warnings);
-                    }
+                "vertical_alignment",
+            ]);
+            if element.kind == ElementKind::Shape {
+                allowed.extend(["kind", "rotation", "flip_horizontal", "flip_vertical"]);
+            }
+            allowed.extend_from_slice(RUN);
+            allowed.extend_from_slice(PARAGRAPH);
+            if attributes.contains_key("fit") && super::images::child(element).is_none() {
+                warnings.insert(format!(
+                    "{path}.fit applies to image boxes, not text; use text.fit for text fitting"
+                ));
+            }
+            allowed.push("fit");
+            for (name, fields) in [
+                ("position", &["x", "y", "width", "height"][..]),
+                ("border", &["color", "width", "style", "opacity"][..]),
+            ] {
+                if let Some(nested) = object(attributes, name) {
+                    unknown(nested, fields, &format!("{path}.{name}"), warnings);
                 }
             }
-            _ => {
-                allowed.extend_from_slice(RUN);
-                if element.kind.is_block() {
-                    allowed.extend_from_slice(PARAGRAPH);
-                }
-                if matches!(
-                    element.kind,
-                    ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem
-                ) {
-                    allowed.extend_from_slice(LIST);
-                }
-                match element.kind {
-                    ElementKind::Heading => allowed.push("level"),
-                    ElementKind::Link => allowed.push("url"),
-                    ElementKind::Code => allowed.push("preserve_space"),
-                    _ => {}
+            if let Some(nested) = object(attributes, "text") {
+                let mut fields = RUN.to_vec();
+                fields.extend_from_slice(PARAGRAPH);
+                fields.extend(["fit", "margin", "vertical_alignment", "paragraph", "list"]);
+                unknown(nested, &fields, &format!("{path}.text"), warnings);
+                formatting(nested, &format!("{path}.text"), warnings);
+            }
+        }
+        ElementKind::Line => {
+            allowed.extend(["name", "from", "to", "border", "opacity", "cap", "arrow"]);
+            for name in ["from", "to"] {
+                if let Some(fields) = object(attributes, name) {
+                    unknown(fields, &["x", "y"], &format!("{path}.{name}"), warnings);
                 }
             }
         }
-        unknown(attributes, &allowed, &path, warnings);
-        formatting(attributes, &path, warnings);
-        content(&element.children, &path, warnings);
+        ElementKind::Chart => allowed.extend_from_slice(crate::charts::support::warnings(
+            attributes, path, false, false, warnings,
+        )),
+        ElementKind::Table => allowed.extend([
+            "style",
+            "width",
+            "alignment",
+            "cell",
+            "borders",
+            "style_id",
+            "powerpoint_style_id",
+        ]),
+        ElementKind::Row => allowed.extend(["height"]),
+        ElementKind::Cell => allowed.extend([
+            "colspan",
+            "rowspan",
+            "style",
+            "width",
+            "fill",
+            "alignment",
+            "vertical_alignment",
+            "margin",
+            "borders",
+            "text_direction",
+            "no_wrap",
+        ]),
+        ElementKind::Image => {
+            allowed.extend([
+                "src",
+                "name",
+                "description",
+                "alt",
+                "title",
+                "link",
+                "crop",
+                "rotation",
+                "flip_horizontal",
+                "flip_vertical",
+                "effects",
+                "border",
+            ]);
+            for (name, fields) in [
+                ("crop", &["left", "top", "right", "bottom"][..]),
+                (
+                    "effects",
+                    &["brightness", "contrast", "grayscale", "transparency"][..],
+                ),
+                ("border", &["color", "width", "style", "opacity"][..]),
+            ] {
+                if let Some(nested) = object(attributes, name) {
+                    unknown(nested, fields, &format!("{path}.{name}"), warnings);
+                }
+            }
+        }
+        _ => {
+            allowed.extend_from_slice(RUN);
+            if element.kind.is_block() {
+                allowed.extend_from_slice(PARAGRAPH);
+            }
+            if matches!(
+                element.kind,
+                ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem
+            ) {
+                allowed.extend_from_slice(LIST);
+            }
+            match element.kind {
+                ElementKind::Heading => allowed.push("level"),
+                ElementKind::Link => allowed.push("url"),
+                ElementKind::Code => allowed.push("preserve_space"),
+                _ => {}
+            }
+        }
     }
+    unknown(attributes, &allowed, path, warnings);
+    formatting(attributes, path, warnings);
+    content(&element.children, path, warnings);
 }

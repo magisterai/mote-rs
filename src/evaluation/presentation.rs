@@ -229,10 +229,20 @@ pub(super) fn normalize(
             let name = normalize_identifier(value, span, name)?;
             Ok(Value::String(name.trim().into()))
         }
-        "kind" | "required" | "remove" => Err(Diagnostic::new(
-            span,
-            "named layout slots are not yet supported",
-        )),
+        "kind" => {
+            let kind = normalize_enum(
+                value,
+                span,
+                "layout slot kind",
+                &["content", "any", "text", "image", "table", "chart"],
+            )?;
+            Ok(if kind.to_text() == "any" {
+                Value::String("content".into())
+            } else {
+                kind
+            })
+        }
+        "required" | "remove" => normalize_boolean(value, span, name),
         "position" => drawings::position(value, span, "box.position"),
         "fit" => normalize_enum(value, span, name, &["contain", "cover", "stretch"]),
         "rotation" | "flip_horizontal" | "flip_vertical" => Ok(value),

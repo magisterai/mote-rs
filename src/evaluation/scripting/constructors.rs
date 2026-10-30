@@ -28,7 +28,7 @@ pub(super) fn call(
     }
     if matches!(
         name,
-        "document" | "presentation" | "font" | "style" | "header" | "footer"
+        "document" | "presentation" | "layout" | "font" | "style" | "header" | "footer"
     ) {
         return declaration(name, arguments, span, state);
     }
@@ -107,7 +107,15 @@ fn declaration(
     } else {
         Default::default()
     };
-    if matches!(name, "header" | "footer") {
+    if name == "layout" {
+        crate::evaluation::presentation_layouts::apply(
+            named,
+            arguments.flat_map(values::into_content).collect(),
+            span,
+            state,
+        )
+        .map_err(mlua::Error::external)?;
+    } else if matches!(name, "header" | "footer") {
         if arguments.peek().is_none() {
             return Err(mlua::Error::RuntimeError(format!(
                 "{name} requires one content body"

@@ -1,0 +1,562 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "color": "EFF6FF"
+    },
+    {
+      "kind": "image",
+      "bounds": [
+        75,
+        0,
+        810,
+        540
+      ],
+      "image_clip": [
+        75,
+        0,
+        810,
+        540
+      ],
+      "clip": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "link": null
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        50.4,
+        28.8,
+        859.2,
+        57.6
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 28.8,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 241.10999999999999,
+        "fragments": [
+          {
+            "text": "Inherited ",
+            "x": 50.4,
+            "baseline": 45.032399999999996,
+            "advance": 75.042,
+            "size": 18
+          },
+          {
+            "text": "image ",
+            "x": 125.44200000000001,
+            "baseline": 45.032399999999996,
+            "advance": 54.018,
+            "size": 18
+          },
+          {
+            "text": "and ",
+            "x": 179.46,
+            "baseline": 45.032399999999996,
+            "advance": 35.028,
+            "size": 18
+          },
+          {
+            "text": "new ",
+            "x": 214.488,
+            "baseline": 45.032399999999996,
+            "advance": 38.016,
+            "size": 18
+          },
+          {
+            "text": "color",
+            "x": 252.504,
+            "baseline": 45.032399999999996,
+            "advance": 39.006,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        28.8,
+        859.2,
+        57.6
+      ]
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        50.4,
+        100.8,
+        859.2,
+        403.2
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 230
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 100.8,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 384.156,
+        "fragments": [
+          {
+            "text": "Nested ",
+            "x": 50.4,
+            "baseline": 117.0324,
+            "advance": 62.028,
+            "size": 18
+          },
+          {
+            "text": "background ",
+            "x": 112.428,
+            "baseline": 117.0324,
+            "advance": 99.054,
+            "size": 18
+          },
+          {
+            "text": "fields ",
+            "x": 211.482,
+            "baseline": 117.0324,
+            "advance": 47.016,
+            "size": 18
+          },
+          {
+            "text": "merge ",
+            "x": 258.498,
+            "baseline": 117.0324,
+            "advance": 56.016,
+            "size": 18
+          },
+          {
+            "text": "across ",
+            "x": 314.51399999999995,
+            "baseline": 117.0324,
+            "advance": 58.014,
+            "size": 18
+          },
+          {
+            "text": "layouts.",
+            "x": 372.52799999999996,
+            "baseline": 117.0324,
+            "advance": 62.028,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        859.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 68.92,
+        "fragments": [
+          {
+            "text": "Inherited ",
+            "x": 43.2,
+            "baseline": 518.982,
+            "advance": 41.69,
+            "size": 10
+          },
+          {
+            "text": "image",
+            "x": 84.89,
+            "baseline": 518.982,
+            "advance": 27.23,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        507.6,
+        305.6,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 911.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "1",
+            "x": 911.99,
+            "baseline": 518.982,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        873.6,
+        507.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "color": "F0FDF4"
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        50.4,
+        28.8,
+        859.2,
+        57.6
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 28.8,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 220.086,
+        "fragments": [
+          {
+            "text": "Whole ",
+            "x": 50.4,
+            "baseline": 45.032399999999996,
+            "advance": 56.016,
+            "size": 18
+          },
+          {
+            "text": "background ",
+            "x": 106.416,
+            "baseline": 45.032399999999996,
+            "advance": 99.054,
+            "size": 18
+          },
+          {
+            "text": "override",
+            "x": 205.47,
+            "baseline": 45.032399999999996,
+            "advance": 65.016,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        28.8,
+        859.2,
+        57.6
+      ]
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        50.4,
+        100.8,
+        859.2,
+        403.2
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 230
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 100.8,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 527.652,
+        "fragments": [
+          {
+            "text": "The ",
+            "x": 50.4,
+            "baseline": 117.0324,
+            "advance": 36.018,
+            "size": 18
+          },
+          {
+            "text": "slide's ",
+            "x": 86.418,
+            "baseline": 117.0324,
+            "advance": 54.45,
+            "size": 18
+          },
+          {
+            "text": "color-",
+            "x": 140.868,
+            "baseline": 117.0324,
+            "advance": 45,
+            "size": 18
+          },
+          {
+            "text": "only ",
+            "x": 185.86800000000002,
+            "baseline": 117.0324,
+            "advance": 38.016,
+            "size": 18
+          },
+          {
+            "text": "background ",
+            "x": 223.88400000000001,
+            "baseline": 117.0324,
+            "advance": 99.054,
+            "size": 18
+          },
+          {
+            "text": "suppresses ",
+            "x": 322.938,
+            "baseline": 117.0324,
+            "advance": 97.038,
+            "size": 18
+          },
+          {
+            "text": "the ",
+            "x": 419.976,
+            "baseline": 117.0324,
+            "advance": 30.024,
+            "size": 18
+          },
+          {
+            "text": "inherited ",
+            "x": 450,
+            "baseline": 117.0324,
+            "advance": 74.034,
+            "size": 18
+          },
+          {
+            "text": "image.",
+            "x": 524.034,
+            "baseline": 117.0324,
+            "advance": 54.018,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        100.8,
+        859.2,
+        403.2
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 50.58,
+        "fragments": [
+          {
+            "text": "Slide ",
+            "x": 43.2,
+            "baseline": 518.982,
+            "advance": 25.01,
+            "size": 10
+          },
+          {
+            "text": "footer",
+            "x": 68.21000000000001,
+            "baseline": 518.982,
+            "advance": 25.57,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        507.6,
+        305.6,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 911.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "2",
+            "x": 911.99,
+            "baseline": 518.982,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        873.6,
+        507.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "color": "FEF2F2"
+    },
+    {
+      "kind": "painted_rectangle",
+      "bounds": [
+        50.4,
+        28.8,
+        859.2,
+        57.6
+      ],
+      "fill": {
+        "color": "FFFFFF",
+        "alpha": 255
+      },
+      "stroke": null
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 28.8,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 181.044,
+        "fragments": [
+          {
+            "text": "Missing ",
+            "x": 50.4,
+            "baseline": 45.032399999999996,
+            "advance": 66.006,
+            "size": 18
+          },
+          {
+            "text": "image ",
+            "x": 116.406,
+            "baseline": 45.032399999999996,
+            "advance": 54.018,
+            "size": 18
+          },
+          {
+            "text": "fallback",
+            "x": 170.424,
+            "baseline": 45.032399999999996,
+            "advance": 61.02,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        28.8,
+        859.2,
+        57.6
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 68.92,
+        "fragments": [
+          {
+            "text": "Inherited ",
+            "x": 43.2,
+            "baseline": 518.982,
+            "advance": 41.69,
+            "size": 10
+          },
+          {
+            "text": "image",
+            "x": 84.89,
+            "baseline": 518.982,
+            "advance": 27.23,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        507.6,
+        305.6,
+        14.4
+      ]
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 509.964,
+        "height": 12.036,
+        "x": 911.99,
+        "width": 5.56,
+        "fragments": [
+          {
+            "text": "3",
+            "x": 911.99,
+            "baseline": 518.982,
+            "advance": 5.56,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        873.6,
+        507.6,
+        43.199999999999996,
+        14.4
+      ]
+    }
+  ]
+]

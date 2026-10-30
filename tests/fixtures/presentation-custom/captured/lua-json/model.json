@@ -1,0 +1,179 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard",
+      "slide_number": true
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    },
+    {
+      "name": "heading",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "styled"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Data-driven layouts"
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "chart"
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "colors": [
+                      "#2563eb"
+                    ],
+                    "data": {
+                      "categories": [
+                        "North",
+                        "South"
+                      ],
+                      "series": [
+                        {
+                          "name": "Actual",
+                          "values": [
+                            12,
+                            25
+                          ]
+                        }
+                      ]
+                    },
+                    "kind": "line"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "{}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "styled"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Data-driven layouts"
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "chart"
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "colors": [
+                  "#2563eb"
+                ],
+                "data": {
+                  "categories": [
+                    "North",
+                    "South"
+                  ],
+                  "series": [
+                    {
+                      "name": "Actual",
+                      "values": [
+                        12,
+                        25
+                      ]
+                    }
+                  ]
+                },
+                "kind": "line"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

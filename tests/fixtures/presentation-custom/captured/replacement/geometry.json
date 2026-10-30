@@ -1,0 +1,489 @@
+[
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "rectangle",
+      "bounds": [
+        50.4,
+        100.8,
+        249.6,
+        263.2
+      ],
+      "color": "E8EAFB"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 104.39999999999999,
+        "height": 21.6648,
+        "x": 57.6,
+        "width": 142.074,
+        "fragments": [
+          {
+            "text": "Latest ",
+            "x": 57.6,
+            "baseline": 120.63239999999999,
+            "advance": 54.036,
+            "size": 18
+          },
+          {
+            "text": "declaration",
+            "x": 111.636,
+            "baseline": 120.63239999999999,
+            "advance": 88.038,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        57.6,
+        104.39999999999999,
+        235.20000000000002,
+        255.99999999999997
+      ]
+    },
+    {
+      "kind": "rectangle",
+      "bounds": [
+        300,
+        100.8,
+        249.6,
+        263.2
+      ],
+      "color": "E8EAFB"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 104.39999999999999,
+        "height": 21.6648,
+        "x": 307.2,
+        "width": 20.016,
+        "fragments": [
+          {
+            "text": "12",
+            "x": 307.2,
+            "baseline": 120.63239999999999,
+            "advance": 20.016,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        307.2,
+        104.39999999999999,
+        235.20000000000002,
+        255.99999999999997
+      ]
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          50.4,
+          100.8
+        ],
+        [
+          549.6,
+          100.8
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          50.4,
+          364
+        ],
+        [
+          549.6,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          50.4,
+          100.8
+        ],
+        [
+          50.4,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          300,
+          100.8
+        ],
+        [
+          300,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          549.6,
+          100.8
+        ],
+        [
+          549.6,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 87.25999999999999,
+        "fragments": [
+          {
+            "text": "Replacement ",
+            "x": 43.2,
+            "baseline": 378.98199999999997,
+            "advance": 61.69,
+            "size": 10
+          },
+          {
+            "text": "footer",
+            "x": 104.89,
+            "baseline": 378.98199999999997,
+            "advance": 25.57,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        367.6,
+        185.60000000000002,
+        14.4
+      ]
+    }
+  ],
+  [
+    {
+      "kind": "rectangle",
+      "bounds": [
+        0,
+        0,
+        600,
+        400
+      ],
+      "color": "FFFFFF"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 28.8,
+        "height": 21.6648,
+        "x": 50.4,
+        "width": 106.038,
+        "fragments": [
+          {
+            "text": "Required ",
+            "x": 50.4,
+            "baseline": 45.032399999999996,
+            "advance": 78.03,
+            "size": 18
+          },
+          {
+            "text": "title",
+            "x": 128.43,
+            "baseline": 45.032399999999996,
+            "advance": 28.008,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        50.4,
+        28.8,
+        499.2,
+        57.6
+      ]
+    },
+    {
+      "kind": "rectangle",
+      "bounds": [
+        50.4,
+        100.8,
+        249.6,
+        263.2
+      ],
+      "color": "E8EAFB"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 104.39999999999999,
+        "height": 21.6648,
+        "x": 57.6,
+        "width": 103.05000000000001,
+        "fragments": [
+          {
+            "text": "Second ",
+            "x": 57.6,
+            "baseline": 120.63239999999999,
+            "advance": 66.042,
+            "size": 18
+          },
+          {
+            "text": "slide",
+            "x": 123.642,
+            "baseline": 120.63239999999999,
+            "advance": 37.008,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        57.6,
+        104.39999999999999,
+        235.20000000000002,
+        255.99999999999997
+      ]
+    },
+    {
+      "kind": "rectangle",
+      "bounds": [
+        300,
+        100.8,
+        249.6,
+        263.2
+      ],
+      "color": "E8EAFB"
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 104.39999999999999,
+        "height": 21.6648,
+        "x": 307.2,
+        "width": 20.016,
+        "fragments": [
+          {
+            "text": "24",
+            "x": 307.2,
+            "baseline": 120.63239999999999,
+            "advance": 20.016,
+            "size": 18
+          }
+        ]
+      },
+      "clip": [
+        307.2,
+        104.39999999999999,
+        235.20000000000002,
+        255.99999999999997
+      ]
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          50.4,
+          100.8
+        ],
+        [
+          549.6,
+          100.8
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          50.4,
+          364
+        ],
+        [
+          549.6,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          50.4,
+          100.8
+        ],
+        [
+          50.4,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          300,
+          100.8
+        ],
+        [
+          300,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          549.6,
+          100.8
+        ],
+        [
+          549.6,
+          364
+        ]
+      ],
+      "closed": false,
+      "fill": null,
+      "stroke": {
+        "color": "FFFFFF",
+        "alpha": 255,
+        "width": 1,
+        "dash": [],
+        "cap": "Flat"
+      }
+    },
+    {
+      "kind": "text",
+      "line": {
+        "top": 369.964,
+        "height": 12.036,
+        "x": 43.2,
+        "width": 87.25999999999999,
+        "fragments": [
+          {
+            "text": "Replacement ",
+            "x": 43.2,
+            "baseline": 378.98199999999997,
+            "advance": 61.69,
+            "size": 10
+          },
+          {
+            "text": "footer",
+            "x": 104.89,
+            "baseline": 378.98199999999997,
+            "advance": 25.57,
+            "size": 10
+          }
+        ]
+      },
+      "clip": [
+        43.2,
+        367.6,
+        185.60000000000002,
+        14.4
+      ]
+    }
+  ]
+]

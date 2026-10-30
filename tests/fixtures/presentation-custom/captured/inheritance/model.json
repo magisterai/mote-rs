@@ -1,0 +1,406 @@
+{
+  "presentation": {
+    "properties": {
+      "footer": "Deck footer",
+      "size": "standard",
+      "slide_number": true
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    },
+    {
+      "name": "heading",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "derived",
+            "notes": "Inherited layout with typed media"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "image"
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "body",
+                "text": {
+                  "paragraph": {
+                    "spacing": {
+                      "after": {
+                        "text": "12pt",
+                        "unit": "pt",
+                        "value": 12
+                      }
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First paragraph."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second paragraph with "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " text."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Inherited properties"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "fill": "#059669",
+                "position": {
+                  "height": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "width": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "x": {
+                    "text": "680pt",
+                    "unit": "pt",
+                    "value": 680
+                  },
+                  "y": {
+                    "text": "15pt",
+                    "unit": "pt",
+                    "value": 15
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "date": false,
+            "footer": false,
+            "layout": "derived",
+            "slide_number": false
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "title"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Optional body omitted"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "image"
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "derived",
+        "notes": "Inherited layout with typed media"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "image"
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "body",
+            "text": {
+              "paragraph": {
+                "spacing": {
+                  "after": {
+                    "text": "12pt",
+                    "unit": "pt",
+                    "value": 12
+                  }
+                }
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second paragraph with "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " text."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Inherited properties"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#059669",
+            "position": {
+              "height": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "width": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "x": {
+                "text": "680pt",
+                "unit": "pt",
+                "value": 680
+              },
+              "y": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "date": false,
+        "footer": false,
+        "layout": "derived",
+        "slide_number": false
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "title"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Optional body omitted"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "image"
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

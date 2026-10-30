@@ -1,7 +1,8 @@
 //! Named slot validation and materialization shared by all presentation outputs.
 mod builtins;
+mod custom;
 use crate::{
-    model::{Content, Document, Element, ElementKind, Properties, Value},
+    model::{Content, Document, Element, ElementKind, Presentation, Properties, Value},
     properties::text,
 };
 use std::collections::BTreeMap;
@@ -13,7 +14,7 @@ struct Slot {
     required: bool,
     properties: Properties,
 }
-#[derive(Clone)]
+#[derive(Clone, Default)]
 struct Layout {
     properties: Properties,
     slots: Vec<Slot>,
@@ -22,10 +23,13 @@ pub(crate) struct Layouts {
     definitions: BTreeMap<String, Layout>,
 }
 impl Layouts {
-    pub(crate) fn builtin(dimensions: [i64; 2]) -> Self {
-        Self {
-            definitions: builtins::layouts(dimensions),
-        }
+    pub(crate) fn resolve(
+        presentation: &Presentation,
+        dimensions: [i64; 2],
+    ) -> Result<Self, String> {
+        let mut definitions = builtins::layouts(dimensions);
+        custom::resolve(&presentation.layouts, &mut definitions)?;
+        Ok(Self { definitions })
     }
     pub(crate) fn apply(&self, slide: &Element) -> Result<Option<Element>, String> {
         let name = text(&slide.attributes, "layout");
@@ -142,7 +146,7 @@ impl Layouts {
     }
 }
 pub(crate) fn validate(document: &Document) -> Result<(), String> {
-    let layouts = Layouts::builtin([12192000, 6858000]);
+    let layouts = Layouts::resolve(&document.presentation, [12192000, 6858000])?;
     layouts.validate_content(&document.content, false)?;
     for section in &document.sections {
         layouts.validate_content(&section.header.content, false)?;
@@ -178,4 +182,18 @@ fn merge(base: &Properties, overlay: &Properties) -> Properties {
         result.insert(name.clone(), value);
     }
     result
+}
+
+pub(crate) fn is_builtin(name: &str) -> bool {
+    matches!(
+        name,
+        "blank"
+            | "title_slide"
+            | "title_and_content"
+            | "section_header"
+            | "two_column"
+            | "comparison"
+            | "image_and_caption"
+            | "chart_and_caption"
+    )
 }

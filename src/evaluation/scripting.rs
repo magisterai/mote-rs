@@ -91,6 +91,7 @@ impl Runtime {
                 [
                     "document",
                     "presentation",
+                    "layout",
                     "font",
                     "style",
                     "header",

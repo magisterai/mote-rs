@@ -1,0 +1,11 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#font(name="heading",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(size="wide",background="#e2e8f0",slide_number=true)
+#layout(name="base",based_on="title_and_content",background={src="../images/assets/pattern.png",fit="contain",color="#fff7ed"},footer="Inherited image")
+#layout(name="derived",based_on="base",background={color="#eff6ff"})[
+ #box(slot="title",fill="#ffffff")
+ #box(slot="content",fill="#ffffff",opacity=0.9)
+]
+#slide(layout="derived")[#box(slot="title")[Inherited image and new color]#box(slot="content")[Nested background fields merge across layouts.]]
+#slide(layout="derived",background={color="#f0fdf4"},footer="Slide footer")[#box(slot="title")[Whole background override]#box(slot="content")[The slide's color-only background suppresses the inherited image.]]
+#slide(layout="derived",background={src="missing-layout-background.png",color="#fef2f2"})[#box(slot="title")[Missing image fallback]]

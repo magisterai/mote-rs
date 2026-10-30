@@ -538,3 +538,16 @@ fn builtin_layouts_match_captured_native_geometry_and_rasters() {
         ],
     );
 }
+
+#[test]
+fn custom_layouts_match_captured_native_geometry_and_rasters() {
+    compare_captured_slides(
+        "presentation-custom",
+        &[
+            ("inheritance", 48, 0.1, 0),
+            ("backgrounds", 48, 0.1, 0),
+            ("replacement", 48, 0.1, 0),
+            ("lua-json", 40, 0.04, 0),
+        ],
+    );
+}
