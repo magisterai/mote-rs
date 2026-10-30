@@ -139,7 +139,6 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [c16r3:CT_BooleanFalse](#c16r3-ct_booleanfalse)
 - [c:CT_NumVal](#c-ct_numval)
 - [c:CT_StrVal](#c-ct_strval)
-- [a14:CT_NonVisualInkContentPartProperties](#a14-ct_nonvisualinkcontentpartproperties)
 - [c:CT_LayoutTarget](#c-ct_layouttarget)
 - [c:CT_LayoutMode](#c-ct_layoutmode)
 - [c:CT_Double](#c-ct_double)
@@ -166,7 +165,6 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [cx:CT_PageMargins](#cx-ct_pagemargins)
 - [cx:CT_PageSetup](#cx-ct_pagesetup)
 - [cx:CT_Extension](#cx-ct_extension)
-- [a14:CT_ContentPartLocking](#a14-ct_contentpartlocking)
 - [c:CT_TrendlineType](#c-ct_trendlinetype)
 - [c:CT_Order](#c-ct_order)
 - [c:CT_Period](#c-ct_period)
@@ -1073,7 +1071,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 Sources: [MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md).
 
 - [ ] `cNvPr` — [a:CT_NonVisualDrawingProps](images.md#a-ct_nonvisualdrawingprops); MS-ODRAWXML; minOccurs=1; maxOccurs=1.
-- [ ] `cNvContentPartPr` — [a14:CT_NonVisualInkContentPartProperties](chart-extensions.md#a14-ct_nonvisualinkcontentpartproperties); MS-ODRAWXML; minOccurs=0; maxOccurs=1.
+- [ ] `cNvContentPartPr` — [a14:CT_NonVisualInkContentPartProperties](presentation-extensions.md#a14-ct_nonvisualinkcontentpartproperties); MS-ODRAWXML; minOccurs=0; maxOccurs=1.
 
 <a id="cdr14-ct_applicationnonvisualdrawingprops"></a>
 
@@ -1522,16 +1520,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `v` — [s:ST_Xstring](values-shared.md#s-st_xstring); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `@idx` — `xsd:unsignedInt`; Strict, Transitional; use=required.
 
-<a id="a14-ct_nonvisualinkcontentpartproperties"></a>
-
-## a14:CT_NonVisualInkContentPartProperties
-
-Sources: [MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md).
-
-- [ ] `cpLocks` — [a14:CT_ContentPartLocking](chart-extensions.md#a14-ct_contentpartlocking); MS-ODRAWXML; minOccurs=0; maxOccurs=1.
-- [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); MS-ODRAWXML; minOccurs=0; maxOccurs=1.
-- [ ] `@isComment` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=true.
-
 <a id="c-ct_layouttarget"></a>
 
 ## c:CT_LayoutTarget
@@ -1847,24 +1835,6 @@ Sources: [MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/READM
 
 - [ ] `*` — extension wildcard; MS-ODRAWXML; processContents=lax.
 - [ ] `@uri` — `xsd:token`; MS-ODRAWXML.
-
-<a id="a14-ct_contentpartlocking"></a>
-
-## a14:CT_ContentPartLocking
-
-Sources: [MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md).
-
-- [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); MS-ODRAWXML; minOccurs=0; maxOccurs=1.
-- [ ] `@noGrp` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noSelect` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noRot` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noChangeAspect` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noMove` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noResize` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noEditPoints` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noAdjustHandles` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noChangeArrowheads` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
-- [ ] `@noChangeShapeType` — `xsd:boolean`; MS-ODRAWXML; use=optional; default=false.
 
 <a id="c-ct_trendlinetype"></a>
 

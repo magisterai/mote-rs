@@ -10,7 +10,11 @@ See also [prose-defined extensions](prose-extensions.md).
 ## Types
 
 - [r:ST_RelationshipId](#r-st_relationshipid)
+- [s:ST_AlgClass](#s-st_algclass)
+- [s:ST_AlgType](#s-st_algtype)
 - [s:ST_CalendarType](#s-st_calendartype)
+- [s:ST_ConformanceClass](#s-st_conformanceclass)
+- [s:ST_CryptProv](#s-st_cryptprov)
 - [s:ST_FixedPercentage](#s-st_fixedpercentage)
 - [s:ST_Guid](#s-st_guid)
 - [s:ST_HexColorRGB](#s-st_hexcolorrgb)
@@ -39,6 +43,26 @@ See also [prose-defined extensions](prose-extensions.md).
 
 - restriction: base: `xsd:string`
 
+<a id="s-st_algclass"></a>
+
+## s:ST_AlgClass
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `hash`
+- enumeration: value: `custom`
+
+<a id="s-st_algtype"></a>
+
+## s:ST_AlgType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `typeAny`
+- enumeration: value: `custom`
+
 <a id="s-st_calendartype"></a>
 
 ## s:ST_CalendarType
@@ -62,6 +86,27 @@ MS-DOCX adds the [umalqura calendar value](prose-extensions.md#calendar) outside
 - enumeration: value: `gregorianXlitEnglish`
 - enumeration: value: `gregorianXlitFrench`
 - enumeration: value: `none`
+
+<a id="s-st_conformanceclass"></a>
+
+## s:ST_ConformanceClass
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-commonSimpleTypes.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `strict`
+- enumeration: value: `transitional`
+
+<a id="s-st_cryptprov"></a>
+
+## s:ST_CryptProv
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `rsaAES`
+- enumeration: value: `rsaFull`
+- enumeration: value: `custom`
 
 <a id="s-st_fixedpercentage"></a>
 

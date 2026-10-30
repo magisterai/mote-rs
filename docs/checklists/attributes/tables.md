@@ -73,7 +73,6 @@ names and `@attributes` identify specification properties, not new Mote syntax.
 - [a:CT_GradientStopList](#a-ct_gradientstoplist)
 - [a:CT_LinearShadeProperties](#a-ct_linearshadeproperties)
 - [a:CT_PathShadeProperties](#a-ct_pathshadeproperties)
-- [a:CT_Color](#a-ct_color)
 - [a:CT_BlurEffect](#a-ct_blureffect)
 - [a:CT_FillOverlayEffect](#a-ct_filloverlayeffect)
 - [a:CT_GlowEffect](#a-ct_gloweffect)
@@ -628,8 +627,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `fgClr` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `bgClr` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `fgClr` — [a:CT_Color](presentation-extensions.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `bgClr` — [a:CT_Color](presentation-extensions.md#a-ct_color); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@prst` — [a:ST_PresetPatternVal](values-drawing.md#a-st_presetpatternval); Strict, Transitional; use=optional.
 
 <a id="a-ct_groupfillproperties"></a>
@@ -1083,19 +1082,6 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 - [ ] `fillToRect` — [a:CT_RelativeRect](images.md#a-ct_relativerect); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@path` — [a:ST_PathShadeType](values-drawing.md#a-st_pathshadetype); Strict, Transitional; use=optional.
 
-<a id="a-ct_color"></a>
-
-## a:CT_Color
-
-Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
-
-- [ ] `scrgbClr` — [a:CT_ScRgbColor](tables.md#a-ct_scrgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `srgbClr` — [a:CT_SRgbColor](tables.md#a-ct_srgbcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `hslClr` — [a:CT_HslColor](tables.md#a-ct_hslcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `sysClr` — [a:CT_SystemColor](tables.md#a-ct_systemcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `schemeClr` — [a:CT_SchemeColor](tables.md#a-ct_schemecolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `prstClr` — [a:CT_PresetColor](tables.md#a-ct_presetcolor); Strict, Transitional; minOccurs=1; maxOccurs=1.
-
 <a id="a-ct_blureffect"></a>
 
 ## a:CT_BlurEffect
@@ -1316,8 +1302,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `clrFrom` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `clrTo` — [a:CT_Color](tables.md#a-ct_color); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `clrFrom` — [a:CT_Color](presentation-extensions.md#a-ct_color); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `clrTo` — [a:CT_Color](presentation-extensions.md#a-ct_color); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `@useA` — `xsd:boolean`; Strict, Transitional; use=optional; default=true.
 
 <a id="a-ct_colorreplaceeffect"></a>

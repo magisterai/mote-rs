@@ -141,3 +141,9 @@ intentional source/scope/support change. Refreshing never infers support or chec
 off a newly discovered field. Review the support evidence separately. Add roots
 for a future directive before implementing it, then link its inventory from that
 directive's checklist.
+
+Presentation deck, slide, master, layout, notes and theme properties are listed in
+[presentations](presentations.md). The [presentation extension inventory](presentation-extensions.md)
+includes every retained MS-PPTX property record and its imported drawing command
+types. Unsupported animation, transitions, zoom, media and collaboration remain
+visible; their presence does not introduce Mote authoring names.

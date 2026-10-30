@@ -223,6 +223,132 @@
       "namespace": "http://schemas.microsoft.com/office/drawing/2010/main",
       "edition": "MS-ODRAWXML",
       "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "p2010",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2010/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2012",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2012/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2013__command",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2013/main/command",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2015_09",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2015/09/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2015_10",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2015/10/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2015",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2015/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2016_6",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2016/6/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2016_sectionzoom",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2016/sectionzoom",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2016_slidezoom",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2016/slidezoom",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2016_summaryzoom",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2016/summaryzoom",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2017_10",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2017/10/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2017_3",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2017/3/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2018_4",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2018/4/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2018_8",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2018/8/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2019_9__command",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2019/9/main/command",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2020_02",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2020/02/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2022_03",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2022/03/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2022_06__command",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2022/06/main/command",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2022_08",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2022/08/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "p2023_02",
+      "namespace": "http://schemas.microsoft.com/office/powerpoint/2023/02/main",
+      "edition": "MS-PPTX",
+      "document": "MS-PPTX"
+    },
+    {
+      "prefix": "a2013__command",
+      "namespace": "http://schemas.microsoft.com/office/drawing/2013/main/command",
+      "edition": "MS-ODRAWXML",
+      "document": "MS-ODRAWXML"
     }
   ],
   "families": [
@@ -838,6 +964,377 @@
           "type": "cx:CT_FeatureExtension"
         }
       ]
+    },
+    {
+      "file": "presentations.md",
+      "title": "Presentation, slide and layout properties",
+      "description": "Complete PresentationML deck, slide, master, layout and notes families, with shared DrawingML themes. Includes unsupported transitions, timing, media, comments, embedded objects and extension carriers. Standard fields do not define new Mote arguments.",
+      "roots": [
+        {
+          "type": "p:CT_Presentation"
+        },
+        {
+          "type": "p:CT_Slide"
+        },
+        {
+          "type": "p:CT_SlideLayout"
+        },
+        {
+          "type": "p:CT_SlideMaster"
+        },
+        {
+          "type": "p:CT_NotesSlide"
+        },
+        {
+          "type": "p:CT_NotesMaster"
+        },
+        {
+          "type": "a:CT_OfficeStyleSheet"
+        }
+      ]
+    },
+    {
+      "file": "presentation-extensions.md",
+      "title": "Presentation extensions",
+      "description": "Complete retained Microsoft PresentationML extension property records. Includes unsupported collaboration, media, transitions, slide zoom, drawing commands and metadata. These inventory entries do not introduce authoring syntax.",
+      "roots": [
+        {
+          "type": "p2010:CT_LeftRightDirectionTransition"
+        },
+        {
+          "type": "p2010:CT_RippleTransition"
+        },
+        {
+          "type": "p2010:CT_PrismTransition"
+        },
+        {
+          "type": "p2010:CT_GlitterTransition"
+        },
+        {
+          "type": "p2010:CT_FlyThroughTransition"
+        },
+        {
+          "type": "p2010:CT_ShredTransition"
+        },
+        {
+          "type": "p2010:CT_RevealTransition"
+        },
+        {
+          "type": "p2010:CT_MediaBookmarkTarget"
+        },
+        {
+          "type": "p2010:CT_ContentPartNonVisual"
+        },
+        {
+          "type": "p2010:CT_MediaTrim"
+        },
+        {
+          "type": "p2010:CT_MediaFade"
+        },
+        {
+          "type": "p2010:CT_MediaBookmark"
+        },
+        {
+          "type": "p2010:CT_MediaBookmarkList"
+        },
+        {
+          "type": "p2010:CT_Media"
+        },
+        {
+          "type": "p2010:CT_SectionSlideIdListEntry"
+        },
+        {
+          "type": "p2010:CT_SectionSlideIdList"
+        },
+        {
+          "type": "p2010:CT_Section"
+        },
+        {
+          "type": "p2010:CT_SectionList"
+        },
+        {
+          "type": "p2010:CT_BrowseMode"
+        },
+        {
+          "type": "p2010:CT_DefaultImageDpi"
+        },
+        {
+          "type": "p2010:CT_DiscardImageEditData"
+        },
+        {
+          "type": "p2010:CT_ShowMediaControls"
+        },
+        {
+          "type": "p2010:CT_LaserTracePoint"
+        },
+        {
+          "type": "p2010:CT_LaserTrace"
+        },
+        {
+          "type": "p2010:CT_LaserTraceList"
+        },
+        {
+          "type": "p2010:CT_RandomId"
+        },
+        {
+          "type": "p2010:CT_TriggerEventRecord"
+        },
+        {
+          "type": "p2010:CT_NullEventRecord"
+        },
+        {
+          "type": "p2010:CT_MediaPlaybackEventRecord"
+        },
+        {
+          "type": "p2010:CT_MediaSeekEventRecord"
+        },
+        {
+          "type": "p2010:CT_ShowEventRecordList"
+        },
+        {
+          "type": "p2012:CT_PresetTransition"
+        },
+        {
+          "type": "p2012:CT_PresenceInfo"
+        },
+        {
+          "type": "p2012:CT_ParentCommentIdentifier"
+        },
+        {
+          "type": "p2012:CT_CommentThreading"
+        },
+        {
+          "type": "p2012:CT_ExtendedGuide"
+        },
+        {
+          "type": "p2012:CT_ExtendedGuideList"
+        },
+        {
+          "type": "p2012:CT_ChartTrackingRefBased"
+        },
+        {
+          "type": "p2012:CT_IsNarration"
+        },
+        {
+          "type": "p2013__command:CT_DocumentMoniker"
+        },
+        {
+          "type": "p2013__command:CT_SlideMoniker"
+        },
+        {
+          "type": "p2013__command:CT_MainMasterMoniker"
+        },
+        {
+          "type": "p2013__command:CT_SlideLayoutMoniker"
+        },
+        {
+          "type": "p2013__command:CT_CommentMoniker"
+        },
+        {
+          "type": "p2013__command:CT_CommentAuthorMoniker"
+        },
+        {
+          "type": "p2013__command:CT_DocumentMonikerList"
+        },
+        {
+          "type": "p2013__command:CT_SlideBaseMonikerList"
+        },
+        {
+          "type": "p2013__command:CT_MainMasterMonikerList"
+        },
+        {
+          "type": "p2013__command:CT_SlideLayoutMonikerList"
+        },
+        {
+          "type": "p2013__command:CT_SlideMonikerList"
+        },
+        {
+          "type": "p2013__command:CT_CommentMonikerList"
+        },
+        {
+          "type": "p2013__command:CT_CommentAuthorMonikerList"
+        },
+        {
+          "type": "p2013__command:CT_CommentChanges"
+        },
+        {
+          "type": "p2013__command:CT_CommentAuthorChanges"
+        },
+        {
+          "type": "p2013__command:CT_SlideChanges"
+        },
+        {
+          "type": "p2013__command:CT_SlideLayoutChanges"
+        },
+        {
+          "type": "p2013__command:CT_MainMasterChanges"
+        },
+        {
+          "type": "p2013__command:CT_DocumentChanges"
+        },
+        {
+          "type": "p2013__command:CT_DocumentChangesList"
+        },
+        {
+          "type": "p2013__command:CT_ChangesInfo"
+        },
+        {
+          "type": "p2015_09:CT_MorphTransition"
+        },
+        {
+          "type": "p2015_10:CT_ClientRevision"
+        },
+        {
+          "type": "p2015_10:CT_ClientRevisionList"
+        },
+        {
+          "type": "p2015_10:CT_RevisionInfo"
+        },
+        {
+          "type": "p2015:CT_DesignElement"
+        },
+        {
+          "type": "p2016_6:CT_ZoomObjectProperties"
+        },
+        {
+          "type": "p2016_sectionzoom:CT_SectionZoomObject"
+        },
+        {
+          "type": "p2016_sectionzoom:CT_SectionZoom"
+        },
+        {
+          "type": "p2016_slidezoom:CT_SlideZoomObject"
+        },
+        {
+          "type": "p2016_slidezoom:CT_SlideZoom"
+        },
+        {
+          "type": "p2016_summaryzoom:CT_SummaryZoomObject"
+        },
+        {
+          "type": "p2016_summaryzoom:CT_GridLayout"
+        },
+        {
+          "type": "p2016_summaryzoom:CT_FixedLayout"
+        },
+        {
+          "type": "p2016_summaryzoom:CT_SummaryZoom"
+        },
+        {
+          "type": "p2017_10:CT_ReadonlyRecommended"
+        },
+        {
+          "type": "p2017_3:CT_Track"
+        },
+        {
+          "type": "p2017_3:CT_TrackList"
+        },
+        {
+          "type": "p2017_3:CT_TracksInfo"
+        },
+        {
+          "type": "p2018_4:CT_ClassificationOutcome"
+        },
+        {
+          "type": "p2018_8:CT_Author"
+        },
+        {
+          "type": "p2018_8:CT_AuthorList"
+        },
+        {
+          "type": "p2018_8:CT_CommentReply"
+        },
+        {
+          "type": "p2018_8:CT_CommentReplyList"
+        },
+        {
+          "type": "p2018_8:CT_CommentUnknownAnchor"
+        },
+        {
+          "type": "p2018_8:CT_Comment"
+        },
+        {
+          "type": "p2018_8:CT_CommentList"
+        },
+        {
+          "type": "p2018_8:CT_CommentRelationship"
+        },
+        {
+          "type": "p2019_9__command:CT_CommentV2MonikerList"
+        },
+        {
+          "type": "p2019_9__command:CT_CommentReplyV2MonikerList"
+        },
+        {
+          "type": "p2019_9__command:CT_CommentV2Moniker"
+        },
+        {
+          "type": "p2019_9__command:CT_CommentReplyV2Moniker"
+        },
+        {
+          "type": "p2020_02:CT_DesignerTag"
+        },
+        {
+          "type": "p2020_02:CT_DesignerTagList"
+        },
+        {
+          "type": "p2020_02:CT_DesignerDrawingProps"
+        },
+        {
+          "type": "p2022_03:CT_ReactionInstance"
+        },
+        {
+          "type": "p2022_03:CT_Reaction"
+        },
+        {
+          "type": "p2022_03:CT_Reactions"
+        },
+        {
+          "type": "p2022_06__command:CT_CommentReplyV2Changes"
+        },
+        {
+          "type": "p2022_06__command:CT_CommentV2Changes"
+        },
+        {
+          "type": "p2022_08:CT_TaskScheduleEventInfo"
+        },
+        {
+          "type": "p2022_08:CT_TaskProgressEventInfo"
+        },
+        {
+          "type": "p2022_08:CT_TaskTitleEventInfo"
+        },
+        {
+          "type": "p2022_08:CT_TaskAssignUnassignUser"
+        },
+        {
+          "type": "p2022_08:CT_TaskUnknownRecord"
+        },
+        {
+          "type": "p2022_08:CT_CommentAnchor"
+        },
+        {
+          "type": "p2022_08:CT_TaskAnchor"
+        },
+        {
+          "type": "p2022_08:CT_TaskUndo"
+        },
+        {
+          "type": "p2022_08:CT_TaskHistoryEvent"
+        },
+        {
+          "type": "p2022_08:CT_TaskHistory"
+        },
+        {
+          "type": "p2022_08:CT_TaskDetails"
+        },
+        {
+          "type": "p2023_02:CT_PlaceholderTypeACB"
+        },
+        {
+          "type": "p2023_02:CT_PlaceholderTypeExtension"
+        }
+      ]
     }
   ],
   "supplemental_notes": {
@@ -850,7 +1347,9 @@
     "w:ST_String": "s:ST_String",
     "w:ST_HexColorRGB": "s:ST_HexColorRGB",
     "w:ST_UnsignedDecimalNumber": "s:ST_UnsignedDecimalNumber",
-    "c:ST_Xstring": "s:ST_Xstring"
+    "c:ST_Xstring": "s:ST_Xstring",
+    "a:ST_TextLanguageID": "s:ST_Lang",
+    "a:ST_Guid": "s:ST_Guid"
   },
   "clause_indexes": {
     "w": [

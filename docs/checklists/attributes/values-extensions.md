@@ -9,7 +9,52 @@ See also [prose-defined extensions](prose-extensions.md).
 
 ## Types
 
+- [a2013__command:ST_ConnectorChangeBit](#a2013__command-st_connectorchangebit)
+- [a2013__command:ST_ConnectorChangesBits](#a2013__command-st_connectorchangesbits)
+- [a2013__command:ST_GraphicFrameChangeBit](#a2013__command-st_graphicframechangebit)
+- [a2013__command:ST_GraphicFrameChangesBits](#a2013__command-st_graphicframechangesbits)
+- [a2013__command:ST_GroupShapeChangeBit](#a2013__command-st_groupshapechangebit)
+- [a2013__command:ST_GroupShapeChangesBits](#a2013__command-st_groupshapechangesbits)
+- [a2013__command:ST_InkChangeBit](#a2013__command-st_inkchangebit)
+- [a2013__command:ST_InkChangesBits](#a2013__command-st_inkchangesbits)
+- [a2013__command:ST_PictureChangeBit](#a2013__command-st_picturechangebit)
+- [a2013__command:ST_PictureChangesBits](#a2013__command-st_picturechangesbits)
+- [a2013__command:ST_ShapeChangeBit](#a2013__command-st_shapechangebit)
+- [a2013__command:ST_ShapeChangesBits](#a2013__command-st_shapechangesbits)
 - [ahyp:ST_HyperlinkColor](#ahyp-st_hyperlinkcolor)
+- [p2010:ST_TransitionCenterDirectionType](#p2010-st_transitioncenterdirectiontype)
+- [p2010:ST_TransitionCornerAndCenterDirectionType](#p2010-st_transitioncornerandcenterdirectiontype)
+- [p2010:ST_TransitionLeftRightDirectionType](#p2010-st_transitionleftrightdirectiontype)
+- [p2010:ST_TransitionPattern](#p2010-st_transitionpattern)
+- [p2010:ST_TransitionShredPattern](#p2010-st_transitionshredpattern)
+- [p2010:ST_UniversalTimeOffset](#p2010-st_universaltimeoffset)
+- [p2013__command:ST_CommentAuthorChangeBit](#p2013__command-st_commentauthorchangebit)
+- [p2013__command:ST_CommentAuthorChangeBits](#p2013__command-st_commentauthorchangebits)
+- [p2013__command:ST_CommentChangeBit](#p2013__command-st_commentchangebit)
+- [p2013__command:ST_CommentChangeBits](#p2013__command-st_commentchangebits)
+- [p2013__command:ST_CreationId](#p2013__command-st_creationid)
+- [p2013__command:ST_DocumentChangeBit](#p2013__command-st_documentchangebit)
+- [p2013__command:ST_DocumentChangeBits](#p2013__command-st_documentchangebits)
+- [p2013__command:ST_MainMasterChangeBit](#p2013__command-st_mainmasterchangebit)
+- [p2013__command:ST_MainMasterChangeBits](#p2013__command-st_mainmasterchangebits)
+- [p2013__command:ST_SlideChangeBit](#p2013__command-st_slidechangebit)
+- [p2013__command:ST_SlideChangeBits](#p2013__command-st_slidechangebits)
+- [p2013__command:ST_SlideLayoutChangeBit](#p2013__command-st_slidelayoutchangebit)
+- [p2013__command:ST_SlideLayoutChangeBits](#p2013__command-st_slidelayoutchangebits)
+- [p2015_09:ST_TransitionMorphOption](#p2015_09-st_transitionmorphoption)
+- [p2015_10:ST_ClientID](#p2015_10-st_clientid)
+- [p2015_10:ST_ClientRevisionNumber](#p2015_10-st_clientrevisionnumber)
+- [p2016_6:ST_ZoomObjectImageType](#p2016_6-st_zoomobjectimagetype)
+- [p2017_3:ST_DisplayLocation](#p2017_3-st_displaylocation)
+- [p2018_4:ST_ClassificationOutcomeType](#p2018_4-st_classificationoutcometype)
+- [p2018_8:ST_AuthorId](#p2018_8-st_authorid)
+- [p2018_8:ST_AuthorIdList](#p2018_8-st_authoridlist)
+- [p2018_8:ST_CommentId](#p2018_8-st_commentid)
+- [p2018_8:ST_CommentStatus](#p2018_8-st_commentstatus)
+- [p2022_06__command:ST_CommentReplyV2ChangeBit](#p2022_06__command-st_commentreplyv2changebit)
+- [p2022_06__command:ST_CommentReplyV2ChangeBits](#p2022_06__command-st_commentreplyv2changebits)
+- [p2022_06__command:ST_CommentV2ChangeBit](#p2022_06__command-st_commentv2changebit)
+- [p2022_06__command:ST_CommentV2ChangeBits](#p2022_06__command-st_commentv2changebits)
 - [w14:ST_BevelPresetType](#w14-st_bevelpresettype)
 - [w14:ST_CompoundLine](#w14-st_compoundline)
 - [w14:ST_Ligatures](#w14-st_ligatures)
@@ -28,6 +73,161 @@ See also [prose-defined extensions](prose-extensions.md).
 - [w14:ST_SchemeColorVal](#w14-st_schemecolorval)
 - [w15:ST_SdtAppearance](#w15-st_sdtappearance)
 
+<a id="a2013__command-st_connectorchangebit"></a>
+
+## a2013__command:ST_ConnectorChangeBit
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `topLvl`
+- enumeration: value: `modVis`
+- enumeration: value: `replST`
+- enumeration: value: `delST`
+- enumeration: value: `replId`
+
+<a id="a2013__command-st_connectorchangesbits"></a>
+
+## a2013__command:ST_ConnectorChangesBits
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- list: itemType: [a2013__command:ST_ConnectorChangeBit](values-extensions.md#a2013__command-st_connectorchangebit)
+
+<a id="a2013__command-st_graphicframechangebit"></a>
+
+## a2013__command:ST_GraphicFrameChangeBit
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `topLvl`
+- enumeration: value: `modVis`
+- enumeration: value: `replST`
+- enumeration: value: `delST`
+- enumeration: value: `replId`
+- enumeration: value: `modGraphic`
+
+<a id="a2013__command-st_graphicframechangesbits"></a>
+
+## a2013__command:ST_GraphicFrameChangesBits
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- list: itemType: [a2013__command:ST_GraphicFrameChangeBit](values-extensions.md#a2013__command-st_graphicframechangebit)
+
+<a id="a2013__command-st_groupshapechangebit"></a>
+
+## a2013__command:ST_GroupShapeChangeBit
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `topLvl`
+- enumeration: value: `modVis`
+- enumeration: value: `replST`
+- enumeration: value: `delST`
+- enumeration: value: `replId`
+
+<a id="a2013__command-st_groupshapechangesbits"></a>
+
+## a2013__command:ST_GroupShapeChangesBits
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- list: itemType: [a2013__command:ST_GroupShapeChangeBit](values-extensions.md#a2013__command-st_groupshapechangebit)
+
+<a id="a2013__command-st_inkchangebit"></a>
+
+## a2013__command:ST_InkChangeBit
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `topLvl`
+- enumeration: value: `modVis`
+- enumeration: value: `replST`
+- enumeration: value: `delST`
+- enumeration: value: `replId`
+- enumeration: value: `reco`
+- enumeration: value: `modStrokes`
+
+<a id="a2013__command-st_inkchangesbits"></a>
+
+## a2013__command:ST_InkChangesBits
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- list: itemType: [a2013__command:ST_InkChangeBit](values-extensions.md#a2013__command-st_inkchangebit)
+
+<a id="a2013__command-st_picturechangebit"></a>
+
+## a2013__command:ST_PictureChangeBit
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `topLvl`
+- enumeration: value: `modVis`
+- enumeration: value: `replST`
+- enumeration: value: `delST`
+- enumeration: value: `replId`
+- enumeration: value: `modCrop`
+
+<a id="a2013__command-st_picturechangesbits"></a>
+
+## a2013__command:ST_PictureChangesBits
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- list: itemType: [a2013__command:ST_PictureChangeBit](values-extensions.md#a2013__command-st_picturechangebit)
+
+<a id="a2013__command-st_shapechangebit"></a>
+
+## a2013__command:ST_ShapeChangeBit
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `topLvl`
+- enumeration: value: `modVis`
+- enumeration: value: `replST`
+- enumeration: value: `delST`
+- enumeration: value: `replId`
+- enumeration: value: `modCrop`
+
+<a id="a2013__command-st_shapechangesbits"></a>
+
+## a2013__command:ST_ShapeChangesBits
+
+[MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md):
+
+- list: itemType: [a2013__command:ST_ShapeChangeBit](values-extensions.md#a2013__command-st_shapechangebit)
+
 <a id="ahyp-st_hyperlinkcolor"></a>
 
 ## ahyp:ST_HyperlinkColor
@@ -37,6 +237,424 @@ See also [prose-defined extensions](prose-extensions.md).
 - restriction: base: `xsd:token`
 - enumeration: value: `hlink`
 - enumeration: value: `tx`
+
+<a id="p2010-st_transitioncenterdirectiontype"></a>
+
+## p2010:ST_TransitionCenterDirectionType
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `center`
+
+<a id="p2010-st_transitioncornerandcenterdirectiontype"></a>
+
+## p2010:ST_TransitionCornerAndCenterDirectionType
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- union: memberTypes: [p:ST_TransitionCornerDirectionType](values-drawing.md#p-st_transitioncornerdirectiontype), [p2010:ST_TransitionCenterDirectionType](values-extensions.md#p2010-st_transitioncenterdirectiontype)
+
+<a id="p2010-st_transitionleftrightdirectiontype"></a>
+
+## p2010:ST_TransitionLeftRightDirectionType
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `l`
+- enumeration: value: `r`
+
+<a id="p2010-st_transitionpattern"></a>
+
+## p2010:ST_TransitionPattern
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `diamond`
+- enumeration: value: `hexagon`
+
+<a id="p2010-st_transitionshredpattern"></a>
+
+## p2010:ST_TransitionShredPattern
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `strip`
+- enumeration: value: `rectangle`
+
+<a id="p2010-st_universaltimeoffset"></a>
+
+## p2010:ST_UniversalTimeOffset
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:string`
+
+<a id="p2013__command-st_commentauthorchangebit"></a>
+
+## p2013__command:ST_CommentAuthorChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `replId`
+
+<a id="p2013__command-st_commentauthorchangebits"></a>
+
+## p2013__command:ST_CommentAuthorChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2013__command:ST_CommentAuthorChangeBit](values-extensions.md#p2013__command-st_commentauthorchangebit)
+
+<a id="p2013__command-st_commentchangebit"></a>
+
+## p2013__command:ST_CommentChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `replId`
+
+<a id="p2013__command-st_commentchangebits"></a>
+
+## p2013__command:ST_CommentChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2013__command:ST_CommentChangeBit](values-extensions.md#p2013__command-st_commentchangebit)
+
+<a id="p2013__command-st_creationid"></a>
+
+## p2013__command:ST_CreationId
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:unsignedInt`
+
+<a id="p2013__command-st_documentchangebit"></a>
+
+## p2013__command:ST_DocumentChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `undo`
+- enumeration: value: `redo`
+- enumeration: value: `ext`
+- enumeration: value: `custSel`
+- enumeration: value: `mod`
+- enumeration: value: `addSld`
+- enumeration: value: `delSld`
+- enumeration: value: `modSld`
+- enumeration: value: `sldOrd`
+- enumeration: value: `addMainMaster`
+- enumeration: value: `delMainMaster`
+- enumeration: value: `modMainMaster`
+- enumeration: value: `mainMasterOrd`
+- enumeration: value: `addSection`
+- enumeration: value: `delSection`
+- enumeration: value: `modSection`
+- enumeration: value: `addCmAuthor`
+- enumeration: value: `delCmAuthor`
+- enumeration: value: `modCmAuthor`
+- enumeration: value: `replTag`
+- enumeration: value: `delTag`
+- enumeration: value: `addCustShow`
+- enumeration: value: `delCustShow`
+- enumeration: value: `modCustShow`
+- enumeration: value: `modNotesMaster`
+- enumeration: value: `modHandout`
+- enumeration: value: `modShowInfo`
+- enumeration: value: `addOsfTaskPaneApp`
+- enumeration: value: `delOsfTaskPaneApp`
+- enumeration: value: `setSldSz`
+- enumeration: value: `modRtl`
+- enumeration: value: `modChgInfo`
+
+<a id="p2013__command-st_documentchangebits"></a>
+
+## p2013__command:ST_DocumentChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2013__command:ST_DocumentChangeBit](values-extensions.md#p2013__command-st_documentchangebit)
+
+<a id="p2013__command-st_mainmasterchangebit"></a>
+
+## p2013__command:ST_MainMasterChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `addSp`
+- enumeration: value: `delSp`
+- enumeration: value: `modSp`
+- enumeration: value: `spOrd`
+- enumeration: value: `new`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `replId`
+- enumeration: value: `modTransition`
+- enumeration: value: `modMedia`
+- enumeration: value: `setBg`
+- enumeration: value: `setFolMasterAnim`
+- enumeration: value: `setFolMasterObjs`
+- enumeration: value: `modClrScheme`
+- enumeration: value: `addAnim`
+- enumeration: value: `delAnim`
+- enumeration: value: `modAnim`
+- enumeration: value: `replTag`
+- enumeration: value: `delTag`
+- enumeration: value: `setClrOvrMap`
+- enumeration: value: `delDesignElem`
+- enumeration: value: `modShow`
+- enumeration: value: `addSldLayout`
+- enumeration: value: `delSldLayout`
+- enumeration: value: `modSldLayout`
+- enumeration: value: `sldLayoutOrd`
+
+<a id="p2013__command-st_mainmasterchangebits"></a>
+
+## p2013__command:ST_MainMasterChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2013__command:ST_MainMasterChangeBit](values-extensions.md#p2013__command-st_mainmasterchangebit)
+
+<a id="p2013__command-st_slidechangebit"></a>
+
+## p2013__command:ST_SlideChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `addSp`
+- enumeration: value: `delSp`
+- enumeration: value: `modSp`
+- enumeration: value: `spOrd`
+- enumeration: value: `new`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `replId`
+- enumeration: value: `modTransition`
+- enumeration: value: `modMedia`
+- enumeration: value: `setBg`
+- enumeration: value: `setFolMasterAnim`
+- enumeration: value: `setFolMasterObjs`
+- enumeration: value: `modClrScheme`
+- enumeration: value: `addAnim`
+- enumeration: value: `delAnim`
+- enumeration: value: `modAnim`
+- enumeration: value: `replTag`
+- enumeration: value: `delTag`
+- enumeration: value: `setClrOvrMap`
+- enumeration: value: `delDesignElem`
+- enumeration: value: `modShow`
+- enumeration: value: `addCm`
+- enumeration: value: `delCm`
+- enumeration: value: `modCm`
+- enumeration: value: `chgLayout`
+- enumeration: value: `modNotes`
+- enumeration: value: `modNotesTx`
+- enumeration: value: `setSldSyncInfo`
+- enumeration: value: `newSectionLinks`
+
+<a id="p2013__command-st_slidechangebits"></a>
+
+## p2013__command:ST_SlideChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2013__command:ST_SlideChangeBit](values-extensions.md#p2013__command-st_slidechangebit)
+
+<a id="p2013__command-st_slidelayoutchangebit"></a>
+
+## p2013__command:ST_SlideLayoutChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `addSp`
+- enumeration: value: `delSp`
+- enumeration: value: `modSp`
+- enumeration: value: `spOrd`
+- enumeration: value: `new`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `ord`
+- enumeration: value: `replId`
+- enumeration: value: `modTransition`
+- enumeration: value: `modMedia`
+- enumeration: value: `setBg`
+- enumeration: value: `setFolMasterAnim`
+- enumeration: value: `setFolMasterObjs`
+- enumeration: value: `modClrScheme`
+- enumeration: value: `addAnim`
+- enumeration: value: `delAnim`
+- enumeration: value: `modAnim`
+- enumeration: value: `replTag`
+- enumeration: value: `delTag`
+- enumeration: value: `setClrOvrMap`
+- enumeration: value: `delDesignElem`
+- enumeration: value: `modShow`
+
+<a id="p2013__command-st_slidelayoutchangebits"></a>
+
+## p2013__command:ST_SlideLayoutChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2013__command:ST_SlideLayoutChangeBit](values-extensions.md#p2013__command-st_slidelayoutchangebit)
+
+<a id="p2015_09-st_transitionmorphoption"></a>
+
+## p2015_09:ST_TransitionMorphOption
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `byObject`
+- enumeration: value: `byWord`
+- enumeration: value: `byChar`
+
+<a id="p2015_10-st_clientid"></a>
+
+## p2015_10:ST_ClientID
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:string`
+
+<a id="p2015_10-st_clientrevisionnumber"></a>
+
+## p2015_10:ST_ClientRevisionNumber
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:unsignedInt`
+
+<a id="p2016_6-st_zoomobjectimagetype"></a>
+
+## p2016_6:ST_ZoomObjectImageType
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `preview`
+- enumeration: value: `cover`
+
+<a id="p2017_3-st_displaylocation"></a>
+
+## p2017_3:ST_DisplayLocation
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `media`
+- enumeration: value: `slide`
+
+<a id="p2018_4-st_classificationoutcometype"></a>
+
+## p2018_4:ST_ClassificationOutcomeType
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `none`
+- enumeration: value: `hdr`
+- enumeration: value: `ftr`
+- enumeration: value: `watermark`
+
+<a id="p2018_8-st_authorid"></a>
+
+## p2018_8:ST_AuthorId
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: [s:ST_Guid](values-shared.md#s-st_guid)
+
+<a id="p2018_8-st_authoridlist"></a>
+
+## p2018_8:ST_AuthorIdList
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2018_8:ST_AuthorId](values-extensions.md#p2018_8-st_authorid)
+
+<a id="p2018_8-st_commentid"></a>
+
+## p2018_8:ST_CommentId
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: [s:ST_Guid](values-shared.md#s-st_guid)
+
+<a id="p2018_8-st_commentstatus"></a>
+
+## p2018_8:ST_CommentStatus
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `active`
+- enumeration: value: `resolved`
+- enumeration: value: `closed`
+
+<a id="p2022_06__command-st_commentreplyv2changebit"></a>
+
+## p2022_06__command:ST_CommentReplyV2ChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `modRxn`
+
+<a id="p2022_06__command-st_commentreplyv2changebits"></a>
+
+## p2022_06__command:ST_CommentReplyV2ChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2022_06__command:ST_CommentReplyV2ChangeBit](values-extensions.md#p2022_06__command-st_commentreplyv2changebit)
+
+<a id="p2022_06__command-st_commentv2changebit"></a>
+
+## p2022_06__command:ST_CommentV2ChangeBit
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `add`
+- enumeration: value: `del`
+- enumeration: value: `mod`
+- enumeration: value: `modTsk`
+- enumeration: value: `modRxn`
+
+<a id="p2022_06__command-st_commentv2changebits"></a>
+
+## p2022_06__command:ST_CommentV2ChangeBits
+
+[MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
+
+- list: itemType: [p2022_06__command:ST_CommentV2ChangeBit](values-extensions.md#p2022_06__command-st_commentv2changebit)
 
 <a id="w14-st_bevelpresettype"></a>
 

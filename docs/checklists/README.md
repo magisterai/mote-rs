@@ -77,6 +77,9 @@ their concepts before using them in examples.
 | `blockquote` | [Block quote](blockquote.md) | Block body, quote lines, scoped formatting attributes. |
 | `image` | [Image](image.md) | Block media and placement. |
 | `link` | [Link](link.md) | External inline destinations and metadata. |
+| `presentation` | [Presentation](presentation.md) | Deck properties and slide dimensions inventoried; implementation pending. |
+| `slide` | [Slide](slide.md) | Slide body, appearance and metadata inventoried; implementation pending. |
+| `box` | [Box](box.md) | Positioned content and text properties inventoried; implementation pending. |
 | `chart` | [Chart](chart.md) | Typed data and appearance arguments; output pending. |
 | `shape` | [Shape](shape.md) | Positioned shape geometry, appearance and text. |
 | `line` | [Line](line.md) | Positioned line endpoints, strokes and arrow markers. |

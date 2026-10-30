@@ -12,16 +12,23 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_AdjAngle](#a-st_adjangle)
 - [a:ST_AdjCoordinate](#a-st_adjcoordinate)
 - [a:ST_Angle](#a-st_angle)
+- [a:ST_AnimationBuildType](#a-st_animationbuildtype)
+- [a:ST_AnimationChartBuildType](#a-st_animationchartbuildtype)
+- [a:ST_AnimationChartOnlyBuildType](#a-st_animationchartonlybuildtype)
+- [a:ST_AnimationDgmBuildType](#a-st_animationdgmbuildtype)
+- [a:ST_AnimationDgmOnlyBuildType](#a-st_animationdgmonlybuildtype)
 - [a:ST_BevelPresetType](#a-st_bevelpresettype)
 - [a:ST_BlackWhiteMode](#a-st_blackwhitemode)
 - [a:ST_BlendMode](#a-st_blendmode)
 - [a:ST_BlipCompression](#a-st_blipcompression)
+- [a:ST_ChartBuildStep](#a-st_chartbuildstep)
 - [a:ST_ColorSchemeIndex](#a-st_colorschemeindex)
 - [a:ST_CompoundLine](#a-st_compoundline)
 - [a:ST_Coordinate](#a-st_coordinate)
 - [a:ST_Coordinate32](#a-st_coordinate32)
 - [a:ST_Coordinate32Unqualified](#a-st_coordinate32unqualified)
 - [a:ST_CoordinateUnqualified](#a-st_coordinateunqualified)
+- [a:ST_DgmBuildStep](#a-st_dgmbuildstep)
 - [a:ST_DrawingElementId](#a-st_drawingelementid)
 - [a:ST_EffectContainerType](#a-st_effectcontainertype)
 - [a:ST_FOVAngle](#a-st_fovangle)
@@ -31,6 +38,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_FontCollectionIndex](#a-st_fontcollectionindex)
 - [a:ST_GeomGuideFormula](#a-st_geomguideformula)
 - [a:ST_GeomGuideName](#a-st_geomguidename)
+- [a:ST_Guid](#a-st_guid)
 - [a:ST_LightRigDirection](#a-st_lightrigdirection)
 - [a:ST_LightRigType](#a-st_lightrigtype)
 - [a:ST_LineCap](#a-st_linecap)
@@ -60,6 +68,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_PresetShadowVal](#a-st_presetshadowval)
 - [a:ST_RectAlignment](#a-st_rectalignment)
 - [a:ST_SchemeColorVal](#a-st_schemecolorval)
+- [a:ST_ShapeID](#a-st_shapeid)
 - [a:ST_ShapeType](#a-st_shapetype)
 - [a:ST_StyleMatrixColumnIndex](#a-st_stylematrixcolumnindex)
 - [a:ST_SystemColorVal](#a-st_systemcolorval)
@@ -77,6 +86,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_TextHorzOverflowType](#a-st_texthorzoverflowtype)
 - [a:ST_TextIndent](#a-st_textindent)
 - [a:ST_TextIndentLevelType](#a-st_textindentleveltype)
+- [a:ST_TextLanguageID](#a-st_textlanguageid)
 - [a:ST_TextMargin](#a-st_textmargin)
 - [a:ST_TextNonNegativePoint](#a-st_textnonnegativepoint)
 - [a:ST_TextPoint](#a-st_textpoint)
@@ -93,9 +103,56 @@ See also [prose-defined extensions](prose-extensions.md).
 - [a:ST_TextVerticalType](#a-st_textverticaltype)
 - [a:ST_TextWrappingType](#a-st_textwrappingtype)
 - [a:ST_TileFlipMode](#a-st_tileflipmode)
+- [p:ST_BookmarkIdSeed](#p-st_bookmarkidseed)
 - [p:ST_Direction](#p-st_direction)
+- [p:ST_Index](#p-st_index)
+- [p:ST_IterateType](#p-st_iteratetype)
+- [p:ST_Name](#p-st_name)
+- [p:ST_PhotoAlbumFrameShape](#p-st_photoalbumframeshape)
+- [p:ST_PhotoAlbumLayout](#p-st_photoalbumlayout)
 - [p:ST_PlaceholderSize](#p-st_placeholdersize)
 - [p:ST_PlaceholderType](#p-st_placeholdertype)
+- [p:ST_SlideId](#p-st_slideid)
+- [p:ST_SlideLayoutId](#p-st_slidelayoutid)
+- [p:ST_SlideLayoutType](#p-st_slidelayouttype)
+- [p:ST_SlideMasterId](#p-st_slidemasterid)
+- [p:ST_SlideSizeCoordinate](#p-st_slidesizecoordinate)
+- [p:ST_SlideSizeType](#p-st_slidesizetype)
+- [p:ST_TLAnimateBehaviorCalcMode](#p-st_tlanimatebehaviorcalcmode)
+- [p:ST_TLAnimateBehaviorValueType](#p-st_tlanimatebehaviorvaluetype)
+- [p:ST_TLAnimateColorDirection](#p-st_tlanimatecolordirection)
+- [p:ST_TLAnimateColorSpace](#p-st_tlanimatecolorspace)
+- [p:ST_TLAnimateEffectTransition](#p-st_tlanimateeffecttransition)
+- [p:ST_TLAnimateMotionBehaviorOrigin](#p-st_tlanimatemotionbehaviororigin)
+- [p:ST_TLAnimateMotionPathEditMode](#p-st_tlanimatemotionpatheditmode)
+- [p:ST_TLBehaviorAccumulateType](#p-st_tlbehavioraccumulatetype)
+- [p:ST_TLBehaviorAdditiveType](#p-st_tlbehavioradditivetype)
+- [p:ST_TLBehaviorOverrideType](#p-st_tlbehavioroverridetype)
+- [p:ST_TLBehaviorTransformType](#p-st_tlbehaviortransformtype)
+- [p:ST_TLChartSubelementType](#p-st_tlchartsubelementtype)
+- [p:ST_TLCommandType](#p-st_tlcommandtype)
+- [p:ST_TLDiagramBuildType](#p-st_tldiagrambuildtype)
+- [p:ST_TLNextActionType](#p-st_tlnextactiontype)
+- [p:ST_TLOleChartBuildType](#p-st_tlolechartbuildtype)
+- [p:ST_TLParaBuildType](#p-st_tlparabuildtype)
+- [p:ST_TLPreviousActionType](#p-st_tlpreviousactiontype)
+- [p:ST_TLTime](#p-st_tltime)
+- [p:ST_TLTimeAnimateValueTime](#p-st_tltimeanimatevaluetime)
+- [p:ST_TLTimeIndefinite](#p-st_tltimeindefinite)
+- [p:ST_TLTimeNodeFillType](#p-st_tltimenodefilltype)
+- [p:ST_TLTimeNodeID](#p-st_tltimenodeid)
+- [p:ST_TLTimeNodeMasterRelation](#p-st_tltimenodemasterrelation)
+- [p:ST_TLTimeNodePresetClassType](#p-st_tltimenodepresetclasstype)
+- [p:ST_TLTimeNodeRestartType](#p-st_tltimenoderestarttype)
+- [p:ST_TLTimeNodeSyncType](#p-st_tltimenodesynctype)
+- [p:ST_TLTimeNodeType](#p-st_tltimenodetype)
+- [p:ST_TLTriggerEvent](#p-st_tltriggerevent)
+- [p:ST_TLTriggerRuntimeNode](#p-st_tltriggerruntimenode)
+- [p:ST_TransitionCornerDirectionType](#p-st_transitioncornerdirectiontype)
+- [p:ST_TransitionEightDirectionType](#p-st_transitioneightdirectiontype)
+- [p:ST_TransitionInOutDirectionType](#p-st_transitioninoutdirectiontype)
+- [p:ST_TransitionSideDirectionType](#p-st_transitionsidedirectiontype)
+- [p:ST_TransitionSpeed](#p-st_transitionspeed)
 - [wp:ST_AlignH](#wp-st_alignh)
 - [wp:ST_AlignV](#wp-st_alignv)
 - [wp:ST_PositionOffset](#wp-st_positionoffset)
@@ -127,6 +184,54 @@ See also [prose-defined extensions](prose-extensions.md).
 [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
 
 - restriction: base: `xsd:int`
+
+<a id="a-st_animationbuildtype"></a>
+
+## a:ST_AnimationBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `allAtOnce`
+
+<a id="a-st_animationchartbuildtype"></a>
+
+## a:ST_AnimationChartBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- union: memberTypes: [a:ST_AnimationBuildType](values-drawing.md#a-st_animationbuildtype), [a:ST_AnimationChartOnlyBuildType](values-drawing.md#a-st_animationchartonlybuildtype)
+
+<a id="a-st_animationchartonlybuildtype"></a>
+
+## a:ST_AnimationChartOnlyBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `series`
+- enumeration: value: `category`
+- enumeration: value: `seriesEl`
+- enumeration: value: `categoryEl`
+
+<a id="a-st_animationdgmbuildtype"></a>
+
+## a:ST_AnimationDgmBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- union: memberTypes: [a:ST_AnimationBuildType](values-drawing.md#a-st_animationbuildtype), [a:ST_AnimationDgmOnlyBuildType](values-drawing.md#a-st_animationdgmonlybuildtype)
+
+<a id="a-st_animationdgmonlybuildtype"></a>
+
+## a:ST_AnimationDgmOnlyBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `one`
+- enumeration: value: `lvlOne`
+- enumeration: value: `lvlAtOnce`
 
 <a id="a-st_bevelpresettype"></a>
 
@@ -192,6 +297,20 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `print`
 - enumeration: value: `hqprint`
 - enumeration: value: `none`
+
+<a id="a-st_chartbuildstep"></a>
+
+## a:ST_ChartBuildStep
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `category`
+- enumeration: value: `ptInCategory`
+- enumeration: value: `series`
+- enumeration: value: `ptInSeries`
+- enumeration: value: `allPts`
+- enumeration: value: `gridLegend`
 
 <a id="a-st_colorschemeindex"></a>
 
@@ -259,6 +378,16 @@ See also [prose-defined extensions](prose-extensions.md).
 - restriction: base: `xsd:long`
 - minInclusive: value: `-27273042329600`
 - maxInclusive: value: `27273042316900`
+
+<a id="a-st_dgmbuildstep"></a>
+
+## a:ST_DgmBuildStep
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `sp`
+- enumeration: value: `bg`
 
 <a id="a-st_drawingelementid"></a>
 
@@ -346,6 +475,18 @@ See also [prose-defined extensions](prose-extensions.md).
 [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
 
 - restriction: base: `xsd:token`
+
+<a id="a-st_guid"></a>
+
+## a:ST_Guid
+
+Publisher imports use this legacy name; the corresponding shared
+value definition is `s:ST_Guid` in the retained ECMA schemas.
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-commonSimpleTypes.xsd):
+
+- restriction: base: `xsd:token`
+- pattern: value: `\{[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}\}`
 
 <a id="a-st_lightrigdirection"></a>
 
@@ -1061,6 +1202,14 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `dk2`
 - enumeration: value: `lt2`
 
+<a id="a-st_shapeid"></a>
+
+## a:ST_ShapeID
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd):
+
+- restriction: base: `xsd:token`
+
 <a id="a-st_shapetype"></a>
 
 ## a:ST_ShapeType
@@ -1494,6 +1643,17 @@ See also [prose-defined extensions](prose-extensions.md).
 - minInclusive: value: `0`
 - maxInclusive: value: `8`
 
+<a id="a-st_textlanguageid"></a>
+
+## a:ST_TextLanguageID
+
+Publisher imports use this legacy name; the corresponding shared
+value definition is `s:ST_Lang` in the retained ECMA schemas.
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-commonSimpleTypes.xsd):
+
+- restriction: base: `xsd:string`
+
 <a id="a-st_textmargin"></a>
 
 ## a:ST_TextMargin
@@ -1718,6 +1878,16 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `y`
 - enumeration: value: `xy`
 
+<a id="p-st_bookmarkidseed"></a>
+
+## p:ST_BookmarkIdSeed
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:unsignedInt`
+- minInclusive: value: `1`
+- maxExclusive: value: `2147483648`
+
 <a id="p-st_direction"></a>
 
 ## p:ST_Direction
@@ -1727,6 +1897,63 @@ See also [prose-defined extensions](prose-extensions.md).
 - restriction: base: `xsd:token`
 - enumeration: value: `horz`
 - enumeration: value: `vert`
+
+<a id="p-st_index"></a>
+
+## p:ST_Index
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:unsignedInt`
+
+<a id="p-st_iteratetype"></a>
+
+## p:ST_IterateType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `el`
+- enumeration: value: `wd`
+- enumeration: value: `lt`
+
+<a id="p-st_name"></a>
+
+## p:ST_Name
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:string`
+
+<a id="p-st_photoalbumframeshape"></a>
+
+## p:ST_PhotoAlbumFrameShape
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `frameStyle1`
+- enumeration: value: `frameStyle2`
+- enumeration: value: `frameStyle3`
+- enumeration: value: `frameStyle4`
+- enumeration: value: `frameStyle5`
+- enumeration: value: `frameStyle6`
+- enumeration: value: `frameStyle7`
+
+<a id="p-st_photoalbumlayout"></a>
+
+## p:ST_PhotoAlbumLayout
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `fitToSlide`
+- enumeration: value: `1pic`
+- enumeration: value: `2pic`
+- enumeration: value: `4pic`
+- enumeration: value: `1picTitle`
+- enumeration: value: `2picTitle`
+- enumeration: value: `4picTitle`
 
 <a id="p-st_placeholdersize"></a>
 
@@ -1762,6 +1989,513 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `media`
 - enumeration: value: `sldImg`
 - enumeration: value: `pic`
+
+<a id="p-st_slideid"></a>
+
+## p:ST_SlideId
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:unsignedInt`
+- minInclusive: value: `256`
+- maxExclusive: value: `2147483648`
+
+<a id="p-st_slidelayoutid"></a>
+
+## p:ST_SlideLayoutId
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:unsignedInt`
+- minInclusive: value: `2147483648`
+
+<a id="p-st_slidelayouttype"></a>
+
+## p:ST_SlideLayoutType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `title`
+- enumeration: value: `tx`
+- enumeration: value: `twoColTx`
+- enumeration: value: `tbl`
+- enumeration: value: `txAndChart`
+- enumeration: value: `chartAndTx`
+- enumeration: value: `dgm`
+- enumeration: value: `chart`
+- enumeration: value: `txAndClipArt`
+- enumeration: value: `clipArtAndTx`
+- enumeration: value: `titleOnly`
+- enumeration: value: `blank`
+- enumeration: value: `txAndObj`
+- enumeration: value: `objAndTx`
+- enumeration: value: `objOnly`
+- enumeration: value: `obj`
+- enumeration: value: `txAndMedia`
+- enumeration: value: `mediaAndTx`
+- enumeration: value: `objOverTx`
+- enumeration: value: `txOverObj`
+- enumeration: value: `txAndTwoObj`
+- enumeration: value: `twoObjAndTx`
+- enumeration: value: `twoObjOverTx`
+- enumeration: value: `fourObj`
+- enumeration: value: `vertTx`
+- enumeration: value: `clipArtAndVertTx`
+- enumeration: value: `vertTitleAndTx`
+- enumeration: value: `vertTitleAndTxOverChart`
+- enumeration: value: `twoObj`
+- enumeration: value: `objAndTwoObj`
+- enumeration: value: `twoObjAndObj`
+- enumeration: value: `cust`
+- enumeration: value: `secHead`
+- enumeration: value: `twoTxTwoObj`
+- enumeration: value: `objTx`
+- enumeration: value: `picTx`
+
+<a id="p-st_slidemasterid"></a>
+
+## p:ST_SlideMasterId
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:unsignedInt`
+- minInclusive: value: `2147483648`
+
+<a id="p-st_slidesizecoordinate"></a>
+
+## p:ST_SlideSizeCoordinate
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: [a:ST_PositiveCoordinate32](values-drawing.md#a-st_positivecoordinate32)
+- minInclusive: value: `914400`
+- maxInclusive: value: `51206400`
+
+<a id="p-st_slidesizetype"></a>
+
+## p:ST_SlideSizeType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `screen4x3`
+- enumeration: value: `letter`
+- enumeration: value: `A4`
+- enumeration: value: `35mm`
+- enumeration: value: `overhead`
+- enumeration: value: `banner`
+- enumeration: value: `custom`
+- enumeration: value: `ledger`
+- enumeration: value: `A3`
+- enumeration: value: `B4ISO`
+- enumeration: value: `B5ISO`
+- enumeration: value: `B4JIS`
+- enumeration: value: `B5JIS`
+- enumeration: value: `hagakiCard`
+- enumeration: value: `screen16x9`
+- enumeration: value: `screen16x10`
+
+<a id="p-st_tlanimatebehaviorcalcmode"></a>
+
+## p:ST_TLAnimateBehaviorCalcMode
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `discrete`
+- enumeration: value: `lin`
+- enumeration: value: `fmla`
+
+<a id="p-st_tlanimatebehaviorvaluetype"></a>
+
+## p:ST_TLAnimateBehaviorValueType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `str`
+- enumeration: value: `num`
+- enumeration: value: `clr`
+
+<a id="p-st_tlanimatecolordirection"></a>
+
+## p:ST_TLAnimateColorDirection
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `cw`
+- enumeration: value: `ccw`
+
+<a id="p-st_tlanimatecolorspace"></a>
+
+## p:ST_TLAnimateColorSpace
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `rgb`
+- enumeration: value: `hsl`
+
+<a id="p-st_tlanimateeffecttransition"></a>
+
+## p:ST_TLAnimateEffectTransition
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `in`
+- enumeration: value: `out`
+- enumeration: value: `none`
+
+<a id="p-st_tlanimatemotionbehaviororigin"></a>
+
+## p:ST_TLAnimateMotionBehaviorOrigin
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `parent`
+- enumeration: value: `layout`
+
+<a id="p-st_tlanimatemotionpatheditmode"></a>
+
+## p:ST_TLAnimateMotionPathEditMode
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `relative`
+- enumeration: value: `fixed`
+
+<a id="p-st_tlbehavioraccumulatetype"></a>
+
+## p:ST_TLBehaviorAccumulateType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `none`
+- enumeration: value: `always`
+
+<a id="p-st_tlbehavioradditivetype"></a>
+
+## p:ST_TLBehaviorAdditiveType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `base`
+- enumeration: value: `sum`
+- enumeration: value: `repl`
+- enumeration: value: `mult`
+- enumeration: value: `none`
+
+<a id="p-st_tlbehavioroverridetype"></a>
+
+## p:ST_TLBehaviorOverrideType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `normal`
+- enumeration: value: `childStyle`
+
+<a id="p-st_tlbehaviortransformtype"></a>
+
+## p:ST_TLBehaviorTransformType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `pt`
+- enumeration: value: `img`
+
+<a id="p-st_tlchartsubelementtype"></a>
+
+## p:ST_TLChartSubelementType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `gridLegend`
+- enumeration: value: `series`
+- enumeration: value: `category`
+- enumeration: value: `ptInSeries`
+- enumeration: value: `ptInCategory`
+
+<a id="p-st_tlcommandtype"></a>
+
+## p:ST_TLCommandType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `evt`
+- enumeration: value: `call`
+- enumeration: value: `verb`
+
+<a id="p-st_tldiagrambuildtype"></a>
+
+## p:ST_TLDiagramBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `whole`
+- enumeration: value: `depthByNode`
+- enumeration: value: `depthByBranch`
+- enumeration: value: `breadthByNode`
+- enumeration: value: `breadthByLvl`
+- enumeration: value: `cw`
+- enumeration: value: `cwIn`
+- enumeration: value: `cwOut`
+- enumeration: value: `ccw`
+- enumeration: value: `ccwIn`
+- enumeration: value: `ccwOut`
+- enumeration: value: `inByRing`
+- enumeration: value: `outByRing`
+- enumeration: value: `up`
+- enumeration: value: `down`
+- enumeration: value: `allAtOnce`
+- enumeration: value: `cust`
+
+<a id="p-st_tlnextactiontype"></a>
+
+## p:ST_TLNextActionType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `none`
+- enumeration: value: `seek`
+
+<a id="p-st_tlolechartbuildtype"></a>
+
+## p:ST_TLOleChartBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `allAtOnce`
+- enumeration: value: `series`
+- enumeration: value: `category`
+- enumeration: value: `seriesEl`
+- enumeration: value: `categoryEl`
+
+<a id="p-st_tlparabuildtype"></a>
+
+## p:ST_TLParaBuildType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `allAtOnce`
+- enumeration: value: `p`
+- enumeration: value: `cust`
+- enumeration: value: `whole`
+
+<a id="p-st_tlpreviousactiontype"></a>
+
+## p:ST_TLPreviousActionType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `none`
+- enumeration: value: `skipTimed`
+
+<a id="p-st_tltime"></a>
+
+## p:ST_TLTime
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- union: memberTypes: `xsd:unsignedInt`, [p:ST_TLTimeIndefinite](values-drawing.md#p-st_tltimeindefinite)
+
+<a id="p-st_tltimeanimatevaluetime"></a>
+
+## p:ST_TLTimeAnimateValueTime
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- union: memberTypes: [a:ST_PositiveFixedPercentage](values-drawing.md#a-st_positivefixedpercentage), [p:ST_TLTimeIndefinite](values-drawing.md#p-st_tltimeindefinite)
+
+<a id="p-st_tltimeindefinite"></a>
+
+## p:ST_TLTimeIndefinite
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `indefinite`
+
+<a id="p-st_tltimenodefilltype"></a>
+
+## p:ST_TLTimeNodeFillType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `remove`
+- enumeration: value: `freeze`
+- enumeration: value: `hold`
+- enumeration: value: `transition`
+
+<a id="p-st_tltimenodeid"></a>
+
+## p:ST_TLTimeNodeID
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:unsignedInt`
+
+<a id="p-st_tltimenodemasterrelation"></a>
+
+## p:ST_TLTimeNodeMasterRelation
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `sameClick`
+- enumeration: value: `lastClick`
+- enumeration: value: `nextClick`
+
+<a id="p-st_tltimenodepresetclasstype"></a>
+
+## p:ST_TLTimeNodePresetClassType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `entr`
+- enumeration: value: `exit`
+- enumeration: value: `emph`
+- enumeration: value: `path`
+- enumeration: value: `verb`
+- enumeration: value: `mediacall`
+
+<a id="p-st_tltimenoderestarttype"></a>
+
+## p:ST_TLTimeNodeRestartType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `always`
+- enumeration: value: `whenNotActive`
+- enumeration: value: `never`
+
+<a id="p-st_tltimenodesynctype"></a>
+
+## p:ST_TLTimeNodeSyncType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `canSlip`
+- enumeration: value: `locked`
+
+<a id="p-st_tltimenodetype"></a>
+
+## p:ST_TLTimeNodeType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `clickEffect`
+- enumeration: value: `withEffect`
+- enumeration: value: `afterEffect`
+- enumeration: value: `mainSeq`
+- enumeration: value: `interactiveSeq`
+- enumeration: value: `clickPar`
+- enumeration: value: `withGroup`
+- enumeration: value: `afterGroup`
+- enumeration: value: `tmRoot`
+
+<a id="p-st_tltriggerevent"></a>
+
+## p:ST_TLTriggerEvent
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `onBegin`
+- enumeration: value: `onEnd`
+- enumeration: value: `begin`
+- enumeration: value: `end`
+- enumeration: value: `onClick`
+- enumeration: value: `onDblClick`
+- enumeration: value: `onMouseOver`
+- enumeration: value: `onMouseOut`
+- enumeration: value: `onNext`
+- enumeration: value: `onPrev`
+- enumeration: value: `onStopAudio`
+
+<a id="p-st_tltriggerruntimenode"></a>
+
+## p:ST_TLTriggerRuntimeNode
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `first`
+- enumeration: value: `last`
+- enumeration: value: `all`
+
+<a id="p-st_transitioncornerdirectiontype"></a>
+
+## p:ST_TransitionCornerDirectionType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `lu`
+- enumeration: value: `ru`
+- enumeration: value: `ld`
+- enumeration: value: `rd`
+
+<a id="p-st_transitioneightdirectiontype"></a>
+
+## p:ST_TransitionEightDirectionType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- union: memberTypes: [p:ST_TransitionSideDirectionType](values-drawing.md#p-st_transitionsidedirectiontype), [p:ST_TransitionCornerDirectionType](values-drawing.md#p-st_transitioncornerdirectiontype)
+
+<a id="p-st_transitioninoutdirectiontype"></a>
+
+## p:ST_TransitionInOutDirectionType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `out`
+- enumeration: value: `in`
+
+<a id="p-st_transitionsidedirectiontype"></a>
+
+## p:ST_TransitionSideDirectionType
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `l`
+- enumeration: value: `u`
+- enumeration: value: `r`
+- enumeration: value: `d`
+
+<a id="p-st_transitionspeed"></a>
+
+## p:ST_TransitionSpeed
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd):
+
+- restriction: base: `xsd:token`
+- enumeration: value: `slow`
+- enumeration: value: `med`
+- enumeration: value: `fast`
 
 <a id="wp-st_alignh"></a>
 
