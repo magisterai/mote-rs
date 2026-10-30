@@ -59,7 +59,7 @@ fn drawing_units(value: &crate::model::Value) -> Result<i64, Error> {
 fn shape_properties(attributes: &Properties, width: i64, height: i64) -> Result<String, Error> {
     let mut transform = String::new();
     if let Some(degrees) = properties::number(attributes, "rotation") {
-        transform.push_str(&format!(" rot=\"{}\"", values::rounded(degrees * 60000.0)?));
+        transform.push_str(&format!(" rot=\"{}\"", rotation_units(degrees)?));
     }
     for (name, field) in [("flip_horizontal", "flipH"), ("flip_vertical", "flipV")] {
         if properties::boolean(attributes, name) {
@@ -116,8 +116,7 @@ fn shadow_xml(attributes: &Properties) -> Result<String, Error> {
     let opacity = alpha(shadow, "opacity").unwrap_or(35000);
     let blur = length(shadow, "blur", 50800)?;
     let distance = length(shadow, "distance", 25400)?;
-    let direction =
-        values::rounded(properties::number(shadow, "angle").unwrap_or(270.0) * 60000.0)?;
+    let direction = rotation_units(properties::number(shadow, "angle").unwrap_or(270.0))?;
     Ok(format!(
         "<a:effectLst><a:outerShdw blurRad=\"{blur}\" dist=\"{distance}\" dir=\"{direction}\" algn=\"tl\" rotWithShape=\"0\"><a:srgbClr val=\"{color}\"><a:alpha val=\"{opacity}\"/></a:srgbClr></a:outerShdw></a:effectLst>"
     ))
@@ -205,4 +204,14 @@ fn body_properties(attributes: &Properties) -> Result<String, Error> {
         _ => output.push_str("/>"),
     }
     Ok(output)
+}
+
+fn rotation_units(degrees: f64) -> Result<i64, Error> {
+    let value = (degrees * 60000.0).round();
+    if !value.is_finite() || value < f64::from(i32::MIN) || value > f64::from(i32::MAX) {
+        return Err(Error::InvalidValue(
+            "drawing angle exceeds the signed integer range".into(),
+        ));
+    }
+    Ok(value as i64)
 }

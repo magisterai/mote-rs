@@ -376,3 +376,13 @@ fn leaf_controls_ignore_model_children_and_labels_remain_zero_width() {
         "leaf controls",
     );
 }
+
+#[test]
+fn shape_rotation_and_shadow_direction_accept_signed_angles() {
+    let package = support::package(
+        "#shape(position={width=inch(2),height=inch(1)},rotation=-15,shadow={angle=-45})",
+    );
+    let document = &package["word/document.xml"];
+    assert!(document.contains("rot=\"-900000\""));
+    assert!(document.contains("dir=\"-2700000\""));
+}
