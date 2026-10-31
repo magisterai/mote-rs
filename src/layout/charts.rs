@@ -76,54 +76,10 @@ impl ChartBlock {
     }
     pub fn place(&self, page: &mut TextPage, left: f64, top: f64) {
         page.place_anchors(&self.anchors, [left, top]);
-        let left = round_coordinate(left);
-        let top = round_coordinate(top);
-        let offset = page.lines.len();
-        page.lines
-            .extend(self.content.lines.iter().cloned().map(|mut line| {
-                line.top += top;
-                line.line.translate(left, top);
-                line
-            }));
-        for operation in &self.content.operations {
-            let mut operation = operation.clone();
-            match &mut operation {
-                PageOperation::Text(index) => *index += offset,
-                PageOperation::Rectangle(rectangle) => {
-                    rectangle.x += left;
-                    rectangle.top += top;
-                }
-                PageOperation::OutlineRectangle { bounds, .. }
-                | PageOperation::PaintedRectangle { bounds, .. }
-                | PageOperation::PushClip(bounds) => {
-                    bounds[0] += left;
-                    bounds[1] += top;
-                }
-                PageOperation::Rule(rule) => {
-                    rule.start[0] += left;
-                    rule.start[1] += top;
-                    rule.end[0] += left;
-                    rule.end[1] += top;
-                }
-                PageOperation::Path(path) => {
-                    for point in &mut path.points {
-                        point[0] += left;
-                        point[1] += top;
-                    }
-                }
-                PageOperation::PushRotation { center, .. } => {
-                    center[0] += left;
-                    center[1] += top;
-                }
-                PageOperation::PopClip | PageOperation::PopRotation => {}
-                PageOperation::Stroke { .. }
-                | PageOperation::Image(_)
-                | PageOperation::ListMarker(_) => {
-                    unreachable!("chart planner only creates chart painting operations")
-                }
-            }
-            page.operations.push(operation);
-        }
+        page.append_content_at(
+            self.content.clone(),
+            [round_coordinate(left), round_coordinate(top)],
+        );
     }
 }
 pub(crate) fn plan_slide(

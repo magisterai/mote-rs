@@ -44,19 +44,7 @@ impl Drawing {
                 center: self.center,
             });
         }
-        let offset = page.lines.len();
-        page.lines.extend(self.text.lines.clone());
-        page.operations
-            .extend(
-                self.text
-                    .operations
-                    .iter()
-                    .cloned()
-                    .map(|operation| match operation {
-                        PageOperation::Text(index) => PageOperation::Text(index + offset),
-                        other => other,
-                    }),
-            );
+        page.append_content(self.text.clone());
         if self.rotation != 0.0 {
             page.operations.push(PageOperation::PopRotation);
         }

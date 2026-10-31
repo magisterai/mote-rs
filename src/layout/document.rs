@@ -1,79 +1,13 @@
 use super::{
-    FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError, LayoutStyleResolver, LineBreak,
-    LineFrame, PageGeometry, PageOperation, TextLine, minimum_start_height, plan_paragraph_flow,
+    DocumentTextPlan, FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError,
+    LayoutStyleResolver, LineBreak, LineFrame, PageGeometry, PlacedTextLine, TextLine, TextPage,
+    minimum_start_height, plan_paragraph_flow,
 };
 use super::{blocks::Block, columns::ColumnSeparators};
 use crate::{
     measurement::TextMeasurer,
     model::{Document, Element, ElementKind, Properties},
 };
-
-/// Absolute text positions. Painting and non-text block layout are separate stages.
-#[derive(Debug, Clone, PartialEq)]
-pub struct PlacedTextLine {
-    pub top: f64,
-    pub line: TextLine,
-}
-#[derive(Debug, Clone, Default, PartialEq)]
-pub struct TextPage {
-    /// Section geometry of the physical page; absent on manually assembled plans.
-    pub geometry: Option<PageGeometry>,
-    pub section_index: usize,
-    pub page_number: usize,
-    pub lines: Vec<PlacedTextLine>,
-    pub anchors: std::collections::BTreeMap<String, [f64; 2]>,
-    pub operations: Vec<PageOperation>,
-    /// Body-flow boundary after reserving space for notes on this page.
-    pub note_body_bottom: Option<f64>,
-}
-impl TextPage {
-    pub(crate) fn append_content(&mut self, page: Self) {
-        let offset = self.lines.len();
-        self.lines.extend(page.lines);
-        self.anchors.extend(page.anchors);
-        self.operations.extend(
-            page.operations
-                .into_iter()
-                .map(|operation| match operation {
-                    PageOperation::Text(index) => PageOperation::Text(index + offset),
-                    other => other,
-                }),
-        );
-    }
-
-    pub(super) fn place_anchors(&mut self, names: &[String], position: [f64; 2]) {
-        for name in names {
-            self.anchors.entry(name.clone()).or_insert(position);
-        }
-    }
-    pub(super) fn push_line(&mut self, line: PlacedTextLine) {
-        for fragment in &line.line.fragments {
-            self.place_anchors(&fragment.anchors, [fragment.x, line.top]);
-        }
-        self.operations.push(PageOperation::Text(self.lines.len()));
-        self.lines.push(line);
-    }
-    pub fn text_lines(&self) -> impl Iterator<Item = &TextLine> {
-        self.lines
-            .iter()
-            .map(|placed| &placed.line)
-            .chain(
-                self.operations
-                    .iter()
-                    .filter_map(|operation| match operation {
-                        PageOperation::ListMarker(marker) => marker.text.as_ref(),
-                        _ => None,
-                    }),
-            )
-    }
-}
-#[derive(Debug, Clone, PartialEq)]
-pub struct DocumentTextPlan {
-    pub geometry: PageGeometry,
-    pub pages: Vec<TextPage>,
-    /// Observable layout fallbacks shared by every painter.
-    pub warnings: Vec<String>,
-}
 
 /// Resolve block content and assemble ordered native painting operations.
 pub fn plan_document_text(

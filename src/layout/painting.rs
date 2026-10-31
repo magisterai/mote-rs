@@ -53,6 +53,46 @@ pub enum PageOperation {
     ListMarker(Box<ListMarker>),
 }
 
+impl PageOperation {
+    pub(super) fn translate(&mut self, [horizontal, vertical]: [f64; 2]) {
+        let move_point = |point: &mut [f64; 2]| {
+            point[0] += horizontal;
+            point[1] += vertical;
+        };
+        let move_bounds = |bounds: &mut [f64; 4]| {
+            bounds[0] += horizontal;
+            bounds[1] += vertical;
+        };
+        match self {
+            Self::PushRotation { center, .. } => move_point(center),
+            Self::Path(path) => path.points.iter_mut().for_each(move_point),
+            Self::PaintedRectangle { bounds, .. }
+            | Self::OutlineRectangle { bounds, .. }
+            | Self::PushClip(bounds) => move_bounds(bounds),
+            Self::Stroke { rule, .. } | Self::Rule(rule) => {
+                move_point(&mut rule.start);
+                move_point(&mut rule.end);
+            }
+            Self::Image(image) => {
+                move_bounds(&mut image.bounds);
+                move_bounds(&mut image.clip);
+            }
+            Self::Rectangle(rectangle) => {
+                rectangle.x += horizontal;
+                rectangle.top += vertical;
+            }
+            Self::ListMarker(marker) => {
+                move_bounds(&mut marker.slot);
+                marker.baseline += vertical;
+                if let Some(text) = &mut marker.text {
+                    text.translate(horizontal, vertical);
+                }
+            }
+            Self::Text(_) | Self::PopClip | Self::PopRotation => {}
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct PathPaint {
     pub color: String,
