@@ -40,6 +40,12 @@ fn malformed_raw_math_cannot_corrupt_an_office_package() {
         "<m:oMath/>trailing",
         "<foreign:oMath/>",
         "<m:oMath xmlns:m=\"urn:unrelated\"/>",
+        "<m:oMath><unknown:r/></m:oMath>",
+        "<m:oMath unknown:flag=\"1\"/>",
+        "<m:oMath m:flag=\"1\" m:flag=\"2\"/>",
+        "<m:oMath><m:r xmlns:local=\"urn:local\"/><local:r/></m:oMath>",
+        "<?xml version=\"1.0\"?><m:oMath/>",
+        "<!DOCTYPE m:oMath><m:oMath/>",
     ] {
         let quoted = serde_json::to_string(equation).unwrap();
         let source = format!("#math({quoted},format=\"omml\")");
@@ -73,6 +79,49 @@ fn malformed_raw_math_cannot_corrupt_an_office_package() {
         let parts = package_support::unpack(generated.bytes);
         let xml = roxmltree::Document::parse(&parts["ppt/slides/slide1.xml"]).unwrap();
         assert!(xml.descendants().any(|node| node.text() == Some(equation)));
+    }
+}
+
+#[test]
+fn raw_equations_inherit_the_destination_namespace_context() {
+    for (source, presentation) in [
+        (
+            r#"<m:oMath mc:Ignorable="w14"><m:r><m:t>x</m:t></m:r></m:oMath>"#,
+            false,
+        ),
+        (
+            r#"<m:oMath mc:Ignorable="a14"><m:r><m:t>x</m:t></m:r></m:oMath>"#,
+            true,
+        ),
+    ] {
+        let equation = format!(
+            "#math({},format=\"omml\")",
+            serde_json::to_string(source).unwrap()
+        );
+        let (parts, part) = if presentation {
+            let document = mote::compile(&presentation_source(&equation)).unwrap();
+            let generated = mote::pptx::emit_with_warnings(&document).unwrap();
+            assert!(generated.warnings.is_empty(), "{:?}", generated.warnings);
+            (
+                package_support::unpack(generated.bytes),
+                "ppt/slides/slide1.xml",
+            )
+        } else {
+            let document = mote::compile(&equation).unwrap();
+            let generated = mote::docx::emit_with_assets(
+                &document,
+                &mote::source::FileAssetResolver::from_current_directory().unwrap(),
+                None,
+            )
+            .unwrap();
+            assert!(generated.warnings.is_empty(), "{:?}", generated.warnings);
+            (
+                package_support::unpack(generated.bytes),
+                "word/document.xml",
+            )
+        };
+        roxmltree::Document::parse(&parts[part]).unwrap();
+        assert!(parts[part].contains(source));
     }
 }
 
@@ -137,4 +186,11 @@ fn invalid_xml_characters_fail_before_math_serialization() {
     let document = mote::compile(&source).unwrap();
     let error = mote::docx::emit(&document).err().unwrap();
     assert!(error.to_string().contains("U+0001"));
+}
+
+fn presentation_source(content: &str) -> String {
+    format!(
+        "#presentation()\n#slide[\n\
+         #box(position={{x=pt(20),y=pt(20),width=pt(600),height=pt(200)}})[{content}]\n]"
+    )
 }

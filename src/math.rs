@@ -44,9 +44,12 @@ pub(crate) fn convert(
     })
 }
 fn raw(source: &str, display: bool, presentation: bool) -> Equation {
-    let wrapped = format!(
-        r#"<root xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">{source}</root>"#
-    );
+    let namespaces = if presentation {
+        crate::xml::PRESENTATION_ROOT_ATTRIBUTES
+    } else {
+        crate::xml::WORD_ROOT_ATTRIBUTES
+    };
+    let wrapped = format!("<root {namespaces}>{source}</root>");
     let valid = roxmltree::Document::parse(&wrapped)
         .ok()
         .is_some_and(|document| {
