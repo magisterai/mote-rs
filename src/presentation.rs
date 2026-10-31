@@ -5,7 +5,7 @@ pub(crate) mod fields;
 pub(crate) mod images;
 pub(crate) mod layouts;
 mod segmentation;
-mod support;
+pub(crate) mod support;
 pub(crate) mod tables;
 pub(crate) mod text;
 use crate::{

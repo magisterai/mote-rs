@@ -257,6 +257,14 @@ fn content(
         }
         let list = matches!(element.kind, ElementKind::List | ElementKind::OrderedList);
         let item = element.kind == ElementKind::ListItem;
+        if element.kind == ElementKind::Underline
+            && matches!(
+                crate::properties::text(&element.attributes, "style").as_str(),
+                "none" | "wave"
+            )
+        {
+            warnings.insert("native underline styles none and wave use a solid underline".into());
+        }
         let mut allowed = Vec::new();
         match element.kind {
             ElementKind::Slide | ElementKind::Box => {
@@ -309,9 +317,21 @@ fn content(
                     allowed.extend(["level", "tight", "marker", "checked", "checkbox"]);
                 }
             }
-            ElementKind::Span | ElementKind::Strong | ElementKind::Emphasis | ElementKind::Code => {
+            ElementKind::Span
+            | ElementKind::Strong
+            | ElementKind::Emphasis
+            | ElementKind::Code
+            | ElementKind::Underline
+            | ElementKind::Strike
+            | ElementKind::Highlight
+            | ElementKind::SmallCaps
+            | ElementKind::Subscript
+            | ElementKind::Superscript => {
                 allowed.extend_from_slice(RUN);
                 allowed.push("style");
+                if element.kind == ElementKind::Strike {
+                    allowed.push("kind");
+                }
                 if element.kind == ElementKind::Code {
                     allowed.push("preserve_space");
                 }

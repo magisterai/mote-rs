@@ -141,6 +141,40 @@ fn inline_precedence_applies_intent_then_named_style_then_direct_values_without_
 }
 
 #[test]
+fn semantic_inline_resolution_retains_intent_without_treating_patterns_as_named_styles() {
+    let document = compile(
+        r##"#style(name="double",bold=true)
+        #paragraph[#underline(style="double",color="#123")[Line]#strike(kind="double")[Removed]#highlight(fill="#fff2cc")[Marked]#small_caps[Small]#subscript[Low]#superscript[High]]"##,
+    )
+    .unwrap();
+    let resolver = StyleResolver::new(&document);
+    let inherited = Properties::from([("italic".into(), Value::Boolean(true))]);
+    let children = &element(&document.content[0]).children;
+    let resolved: Vec<_> = children
+        .iter()
+        .map(|child| resolver.resolve_inline(element(child), &inherited))
+        .collect();
+    for style in &resolved {
+        assert!(style.issues.is_empty());
+        assert_eq!(style.run["italic"], Value::Boolean(true));
+        assert!(!style.run.contains_key("bold"));
+    }
+    assert_eq!(resolved[0].run["underline"], Value::Boolean(true));
+    assert_eq!(resolved[0].run["underline_style"].to_text(), "double");
+    assert_eq!(resolved[0].run["underline_color"].to_text(), "#112233");
+    assert_eq!(resolved[1].run["strike"], Value::Boolean(true));
+    assert_eq!(resolved[1].run["double_strike"], Value::Boolean(true));
+    assert_eq!(resolved[2].run["fill"].to_text(), "#fff2cc");
+    for (style, property) in resolved[3..]
+        .iter()
+        .zip(["small_caps", "subscript", "superscript"])
+    {
+        assert_eq!(style.run[property], Value::Boolean(true));
+    }
+    assert_eq!(inherited.len(), 1);
+}
+
+#[test]
 fn exact_lookup_precedes_deterministic_normalized_lookup_and_preserves_unicode_identity() {
     let document = compile(
         r#"#style(name="Body-Text",bold=true)

@@ -1,0 +1,14 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-Italic.ttf"})
+#presentation(size="standard")
+#slide[
+#box(position={x=pt(25),y=pt(25),width=pt(670),height=pt(480)},text={font="body",size=pt(20)})[
+#paragraph[Single #underline[sample] and #underline(style="double")[double] underlines.]
+#paragraph[#underline(style="dotted")[Dotted words] and #underline(style="dashed")[dashed words].]
+#paragraph[#underline(style="wave")[Wave request] and #underline(style="none")[none request].]
+#paragraph[#underline(color="#c026d3",size=pt(15))[Colored underline] then plain.]
+#paragraph[One #strike[line] and #strike(kind="double")[two lines].]
+#paragraph[H#subscript[2]O and x#superscript[2] and x#subscript[#superscript[3]].]
+#paragraph[#highlight(fill="#fde68a")[Highlighted #strong[text]] and #small_caps[Small Capitals].]
+#paragraph[#span(underline=true)[Inherited #underline(style="double")[double #span(underline=false)[off] double] single.]]
+]
+]

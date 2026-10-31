@@ -45,6 +45,12 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `underline` | [Underline](underline.md) | Specified and tested; see the checklist for output limits. |
+| `strike` | [Strikethrough](strike.md) | Specified and tested; see the checklist for output limits. |
+| `highlight` | [Highlighted text](highlight.md) | Specified and tested; see the checklist for output limits. |
+| `small_caps` | [Small capitals](small-caps.md) | Specified and tested; see the checklist for output limits. |
+| `subscript` | [Subscript](subscript.md) | Specified and tested; see the checklist for output limits. |
+| `superscript` | [Superscript](superscript.md) | Specified and tested; see the checklist for output limits. |
 | `function` | [Functions and scripting](function.md) | Lexical functions, content bodies, opt-in Lua, typed values and document constructors. |
 | `if` | [Conditional content](if.md) | Truthiness, selected branches, child scopes and surrounding flow. |
 | `for` | [Iteration](for.md) | Ordered array/object iteration, local bindings and generated content. |

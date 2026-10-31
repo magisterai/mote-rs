@@ -140,13 +140,38 @@ impl<'document> StyleResolver<'document> {
             ElementKind::Emphasis => {
                 result.run.insert("italic".into(), Value::Boolean(true));
             }
+            ElementKind::Underline => {
+                result.run.insert("underline".into(), Value::Boolean(true));
+                result.run.remove("underline_style");
+                result.run.remove("underline_color");
+                for (attribute, property) in
+                    [("style", "underline_style"), ("color", "underline_color")]
+                {
+                    if let Some(value) = element.attributes.get(attribute) {
+                        result.run.insert(property.into(), value.clone());
+                    }
+                }
+            }
+            ElementKind::Strike => {
+                result.run.insert("strike".into(), Value::Boolean(true));
+                result.run.insert(
+                    "double_strike".into(),
+                    Value::Boolean(string_property(&element.attributes, "kind") == Some("double")),
+                );
+            }
+            ElementKind::SmallCaps | ElementKind::Subscript | ElementKind::Superscript => {
+                result
+                    .run
+                    .insert(element.kind.as_text().into(), Value::Boolean(true));
+            }
             _ => {}
         }
-        if let Some(name) = element
-            .attributes
-            .get("style")
-            .map(Value::to_text)
-            .filter(|name| !name.is_empty())
+        if element.kind != ElementKind::Underline
+            && let Some(name) = element
+                .attributes
+                .get("style")
+                .map(Value::to_text)
+                .filter(|name| !name.is_empty())
         {
             let named = self.resolve_style(&name);
             result.run.extend(named.run);

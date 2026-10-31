@@ -21,6 +21,7 @@ pub struct TextDecoration {
     pub y: f64,
     pub width: f64,
     pub color: String,
+    pub dash: Vec<f64>,
 }
 
 pub(super) fn plan(
@@ -31,12 +32,14 @@ pub(super) fn plan(
 ) -> (Vec<HighlightRectangle>, Vec<TextDecoration>) {
     let mut highlights = Vec::new();
     let mut underlines = Vec::new();
+    let mut second_underlines = Vec::new();
     let mut strikes = Vec::new();
     for fragment in fragments {
         let style = &fragment.style;
         let size = style.measurement.size_points;
         let band_height = match options.spacing {
             LineSpacing::Exact(_) => base_height,
+            _ if style.subscript || style.superscript => base_height,
             _ => options.spacing.height(style, options.fallback_multiplier),
         }
         .min(height);
@@ -66,17 +69,36 @@ pub(super) fn plan(
         }
         let color = style_values::parse_color(&style.color).unwrap_or_else(|| "111827".into());
         if style.underline {
-            append_decoration(
-                &mut underlines,
-                TextDecoration {
-                    kind: DecorationKind::Underline,
-                    start: fragment.x,
-                    end: fragment.x + fragment.advance,
-                    y: fragment.baseline + size * 0.1,
-                    width: size * 0.05,
-                    color: color.clone(),
+            let double = style.underline_style == "double";
+            let width = if double {
+                (size * 0.025).max(0.35)
+            } else {
+                size * 0.05
+            };
+            let decoration = TextDecoration {
+                kind: DecorationKind::Underline,
+                start: fragment.x,
+                end: fragment.x + fragment.advance,
+                y: fragment.baseline + size * if double { 0.075 } else { 0.1 },
+                width,
+                color: style_values::parse_color(&style.underline_color)
+                    .unwrap_or_else(|| color.clone()),
+                dash: match style.underline_style.as_str() {
+                    "dashed" => vec![3.0 * width, 3.0 * width],
+                    "dotted" => vec![width, 2.0 * width],
+                    _ => Vec::new(),
                 },
-            );
+            };
+            append_decoration(&mut underlines, decoration.clone());
+            if double {
+                append_decoration(
+                    &mut second_underlines,
+                    TextDecoration {
+                        y: decoration.y + (size * 0.08).max(1.1),
+                        ..decoration
+                    },
+                );
+            }
         }
         if style.strike {
             let decoration = TextDecoration {
@@ -86,6 +108,7 @@ pub(super) fn plan(
                 y: band_top + band_height * 0.55,
                 width: 0.2,
                 color,
+                dash: Vec::new(),
             };
             append_decoration(&mut strikes, decoration.clone());
             if style.double_strike {
@@ -99,6 +122,7 @@ pub(super) fn plan(
             }
         }
     }
+    underlines.extend(second_underlines);
     underlines.extend(strikes);
     (highlights, underlines)
 }
@@ -119,6 +143,7 @@ fn append_decoration(decorations: &mut Vec<TextDecoration>, decoration: TextDeco
         && previous.kind == decoration.kind
         && previous.color == decoration.color
         && previous.width == decoration.width
+        && previous.dash == decoration.dash
         && (previous.end - decoration.start).abs() < 0.001
         && (previous.y - decoration.y).abs() < 0.001
     {

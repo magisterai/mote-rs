@@ -191,6 +191,12 @@ fn collect(
                     ElementKind::Span
                         | ElementKind::Strong
                         | ElementKind::Emphasis
+                        | ElementKind::Underline
+                        | ElementKind::Strike
+                        | ElementKind::Highlight
+                        | ElementKind::SmallCaps
+                        | ElementKind::Subscript
+                        | ElementKind::Superscript
                         | ElementKind::Code
                 ) {
                     styles.inline(element, inherited)

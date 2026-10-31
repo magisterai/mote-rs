@@ -1,0 +1,828 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-Italic.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "480pt",
+                    "unit": "pt",
+                    "value": 480
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  }
+                },
+                "text": {
+                  "font": "body",
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Single "
+                    },
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "sample"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "double"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "double"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " underlines."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "dotted"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Dotted words"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "dashed"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "dashed words"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "wave"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Wave request"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "none"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "none request"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "color": "#c026d3",
+                        "size": {
+                          "text": "15pt",
+                          "unit": "pt",
+                          "value": 15
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Colored underline"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " then plain."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "One "
+                    },
+                    {
+                      "kind": "strike",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "line"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "strike",
+                      "category": "inline",
+                      "attributes": {
+                        "kind": "double"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "two lines"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "H"
+                    },
+                    {
+                      "kind": "subscript",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "O and x"
+                    },
+                    {
+                      "kind": "superscript",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and x"
+                    },
+                    {
+                      "kind": "subscript",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "superscript",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "3"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "highlight",
+                      "category": "inline",
+                      "attributes": {
+                        "fill": "#fde68a"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Highlighted "
+                        },
+                        {
+                          "kind": "strong",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "small_caps",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Small Capitals"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "category": "inline",
+                      "attributes": {
+                        "underline": true
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Inherited "
+                        },
+                        {
+                          "kind": "underline",
+                          "category": "inline",
+                          "attributes": {
+                            "style": "double"
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "double "
+                            },
+                            {
+                              "kind": "span",
+                              "category": "inline",
+                              "attributes": {
+                                "underline": false
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "off"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "text",
+                              "text": " double"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "text",
+                          "text": " single."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "480pt",
+                "unit": "pt",
+                "value": 480
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              }
+            },
+            "text": {
+              "font": "body",
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Single "
+                },
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "sample"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "double"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "double"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " underlines."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "dotted"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Dotted words"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "dashed"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "dashed words"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "wave"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Wave request"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "none"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "none request"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "color": "#c026d3",
+                    "size": {
+                      "text": "15pt",
+                      "unit": "pt",
+                      "value": 15
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Colored underline"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " then plain."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "One "
+                },
+                {
+                  "kind": "strike",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "line"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "strike",
+                  "category": "inline",
+                  "attributes": {
+                    "kind": "double"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "two lines"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "H"
+                },
+                {
+                  "kind": "subscript",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "2"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "O and x"
+                },
+                {
+                  "kind": "superscript",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "2"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and x"
+                },
+                {
+                  "kind": "subscript",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "superscript",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "highlight",
+                  "category": "inline",
+                  "attributes": {
+                    "fill": "#fde68a"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Highlighted "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "text"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "small_caps",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Small Capitals"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "underline": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Inherited "
+                    },
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "double"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "double "
+                        },
+                        {
+                          "kind": "span",
+                          "category": "inline",
+                          "attributes": {
+                            "underline": false
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "off"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "text",
+                          "text": " double"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " single."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

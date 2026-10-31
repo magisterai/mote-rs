@@ -381,12 +381,14 @@ fn paint_line(
     for stroke in &line.decorations {
         let [red, green, blue] = color(&stroke.color)?
             .map(|channel| ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32);
+        content.set_dash_pattern(stroke.dash.iter().map(|value| rounded(*value)), 0.0);
         content
             .set_stroke_rgb(red, green, blue)
             .set_line_width(rounded(stroke.width))
             .move_to(rounded(stroke.start), rounded(page_height - stroke.y))
             .line_to(rounded(stroke.end), rounded(page_height - stroke.y))
             .stroke();
+        content.set_dash_pattern([], 0.0);
     }
     Ok(())
 }

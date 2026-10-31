@@ -252,6 +252,14 @@ fn validate_named_argument(
                 }
                 _ => None,
             },
+            Underline | Strike | Highlight | SmallCaps | Subscript | Superscript => match name {
+                "style" | "font" => Some(ArgumentType::String),
+                "size" => Some(ArgumentType::Length),
+                "color" => Some(ArgumentType::Color),
+                "fill" if kind == Highlight => Some(ArgumentType::Color),
+                "kind" if kind == Strike => Some(ArgumentType::String),
+                _ => None,
+            },
             Code => match name {
                 "style" | "language" => Some(ArgumentType::String),
                 "preserve_space" => Some(ArgumentType::Boolean),
@@ -377,6 +385,18 @@ pub(super) fn normalize_attribute(
         },
         Image => super::images::normalize(name, value, span),
         Table | Row | Cell => super::tables::normalize(kind, name, value, span),
+        Underline | Strike | Highlight | SmallCaps | Subscript | Superscript => match name {
+            "color" | "fill" => normalize_color(value, span, name),
+            "size" => normalize_length(value, span, name),
+            "style" if kind == Underline => normalize_enum(
+                value,
+                span,
+                name,
+                &["single", "double", "dotted", "dashed", "wave", "none"],
+            ),
+            "kind" if kind == Strike => normalize_enum(value, span, name, &["single", "double"]),
+            _ => Ok(value),
+        },
         Span => match name {
             "color" | "highlight" => normalize_color(value, span, name),
             "size" => normalize_length(value, span, name),

@@ -59,20 +59,32 @@ fn resolve_runs(
         };
         let mut style = base.clone();
         match element.kind {
-            ElementKind::Strong | ElementKind::Emphasis | ElementKind::Span => {
-                style = styles.inline(element, &style)
+            ElementKind::Subscript | ElementKind::Superscript => {
+                let wrapper = Element {
+                    kind: ElementKind::Span,
+                    ..element.clone()
+                };
+                style = styles.inline(&wrapper, &style);
+                style.subscript = element.kind == ElementKind::Subscript;
+                style.superscript = element.kind == ElementKind::Superscript;
             }
+            ElementKind::Strong
+            | ElementKind::Emphasis
+            | ElementKind::Span
+            | ElementKind::Underline
+            | ElementKind::Strike
+            | ElementKind::Highlight
+            | ElementKind::SmallCaps => style = styles.inline(element, &style),
             ElementKind::Code => {
-                style.measurement.font = if styles.document.fonts.contains_key("mono") {
+                let font = if styles.document.fonts.contains_key("mono") {
                     "mono"
                 } else {
                     "Courier New"
-                }
-                .into();
+                };
+                styles.apply_font(&mut style, font);
                 if style.measurement.size_points <= 0.0 {
                     style.measurement.size_points = 14.0;
                 }
-                style.word_line_height = Some(1.137391304347826);
                 style.code = true;
                 let mut attributes = element.attributes.clone();
                 if !attributes.contains_key("style") && styles.document.styles.contains_key("Code")

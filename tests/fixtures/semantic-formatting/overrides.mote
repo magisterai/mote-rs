@@ -1,0 +1,8 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-Italic.ttf"})
+#presentation(size="standard")
+#slide[
+#box(position={x=pt(25),y=pt(25),width=pt(670),height=pt(480)},text={font="body",size=pt(20)})[
+#paragraph[H#subscript(size=pt(24),color="#2563eb")[2]O and x#superscript(size=pt(18))[2].]
+#paragraph[#small_caps(size=pt(24))[Larger capitals] and #highlight(fill="#bbf7d0",color="#166534")[green].]
+]
+]

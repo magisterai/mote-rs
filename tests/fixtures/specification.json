@@ -642,6 +642,10 @@
       "example": "presentation-layouts/7",
       "diagnostic": "cycle",
       "invalid": "Layout inheritance cannot contain a cycle."
+    },
+    {
+      "example": "semantic-formatting/1",
+      "model": "semantic-formatting/1"
     }
   ],
   "models": {
@@ -10125,6 +10129,264 @@
           "page": {},
           "page_numbering": {},
           "section_properties": {}
+        }
+      ]
+    },
+    "semantic-formatting/1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "double"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Underlined"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": ", "
+                },
+                {
+                  "kind": "strike",
+                  "category": "inline",
+                  "attributes": {
+                    "kind": "double"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "removed"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": ","
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "highlight",
+                  "category": "inline",
+                  "attributes": {
+                    "fill": "#fff2cc"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "highlighted"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": ", and "
+                },
+                {
+                  "kind": "small_caps",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Small capitals"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "  Water is H"
+                },
+                {
+                  "kind": "subscript",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "2"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "O; a square is x"
+                },
+                {
+                  "kind": "superscript",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "2"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "underline",
+              "category": "inline",
+              "attributes": {
+                "style": "double"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Underlined"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "strike",
+              "category": "inline",
+              "attributes": {
+                "kind": "double"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "removed"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ","
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "highlight",
+              "category": "inline",
+              "attributes": {
+                "fill": "#fff2cc"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "highlighted"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", and "
+            },
+            {
+              "kind": "small_caps",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Small capitals"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "  Water is H"
+            },
+            {
+              "kind": "subscript",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "O; a square is x"
+            },
+            {
+              "kind": "superscript",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            }
+          ]
         }
       ]
     }

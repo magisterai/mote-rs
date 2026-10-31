@@ -12,6 +12,7 @@ pub(super) fn prepare(
     styles: &LayoutStyleResolver<'_>,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<TextPage, LayoutError> {
+    let styles = LayoutStyleResolver::for_drawing_text(styles.document);
     let attributes = crate::drawings::text_attributes(&element.attributes);
     let mut base = TextStyle::default();
     base.measurement.font = "Aptos".into();
@@ -30,7 +31,7 @@ pub(super) fn prepare(
         &paragraphs::paragraph_defaults(&attributes),
         (text(&attributes, "font").is_empty() && text(&attributes, "style").is_empty())
             .then_some("Aptos"),
-        styles,
+        &styles,
     );
     let mut bounds = geometry::text_rectangle(
         &text(&element.attributes, "kind"),

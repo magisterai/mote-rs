@@ -78,6 +78,9 @@ Status: initial draft.
 28. [Named presentation layouts](presentation-layouts.md): typed slots, built-in
     geometry, custom declarations, inheritance and property overrides.
 
+29. [Semantic text formatting](semantic-formatting.md): underline patterns, strike,
+    highlights, small capitals and script baselines.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

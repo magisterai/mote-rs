@@ -96,7 +96,7 @@ pub fn plan_text(
             height = height.max(natural_height);
         }
         for run in &wrapped.runs {
-            if run.style.superscript {
+            if run.style.superscript || run.style.subscript {
                 continue;
             }
             ordinary_size = ordinary_size.max(run.style.measurement.size_points);
@@ -127,12 +127,26 @@ pub fn plan_text(
                 options.layout_kerning,
             )?;
             let measurement = measured.measurement;
-            let baseline = if placed.run.style.superscript {
-                baseline + 0.3 * (placed.run.style.measurement.size_points - ordinary_size)
-                    - base_height * 0.22
-            } else {
-                baseline
-            };
+            let style = &placed.run.style;
+            let mut baseline = baseline;
+            if style.subscript || style.superscript {
+                if style.presentation_script {
+                    if style.superscript {
+                        baseline -= style.measurement.size_points * 0.42;
+                    }
+                    if style.subscript {
+                        baseline += style.measurement.size_points * 0.26;
+                    }
+                } else {
+                    baseline += 0.3 * (style.measurement.size_points - ordinary_size);
+                    if style.superscript {
+                        baseline -= base_height * 0.22;
+                    }
+                    if style.subscript {
+                        baseline += base_height * 0.18;
+                    }
+                }
+            }
             fragments.push(TextFragment {
                 link: placed.run.link,
                 internal_target: placed.run.internal_target,

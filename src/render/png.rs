@@ -344,6 +344,23 @@ fn paint_line(
         }
     }
     for decoration in &line.decorations {
+        if !decoration.dash.is_empty() {
+            strokes::paint(
+                pixels,
+                &crate::layout::Rule {
+                    role: crate::layout::RuleRole::Generic,
+                    start: [decoration.start, decoration.y],
+                    end: [decoration.end, decoration.y],
+                    width: decoration.width,
+                    color: decoration.color.clone(),
+                },
+                &decoration.dash,
+                false,
+                scale,
+                clip,
+            )?;
+            continue;
+        }
         crisp_axis_aligned(
             pixels,
             [decoration.start * scale, decoration.y * scale],

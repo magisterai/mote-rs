@@ -49,6 +49,7 @@ impl Default for ParagraphStyle {
 pub struct LayoutStyleResolver<'document> {
     pub(crate) document: &'document Document,
     declarations: StyleResolver<'document>,
+    use_document_line_heights: bool,
     pub(super) anchors: crate::references::Catalog,
     pub(super) reference_pages: std::collections::BTreeMap<String, usize>,
 }
@@ -57,8 +58,16 @@ impl<'document> LayoutStyleResolver<'document> {
         Self {
             document,
             declarations: StyleResolver::new(document),
+            use_document_line_heights: true,
             anchors: crate::references::Catalog::build(document),
             reference_pages: Default::default(),
+        }
+    }
+    pub(crate) fn for_drawing_text(document: &'document Document) -> Self {
+        // DrawingML line spacing does not use document font calibrations.
+        Self {
+            use_document_line_heights: false,
+            ..Self::new(document)
         }
     }
     pub fn default_text(&self) -> TextStyle {
@@ -185,6 +194,26 @@ impl<'document> LayoutStyleResolver<'document> {
         match element.kind {
             ElementKind::Strong => bold = true,
             ElementKind::Emphasis => italic = true,
+            ElementKind::Underline => {
+                style.underline = true;
+                style.underline_style = values::text(&element.attributes, "style");
+                style.underline_color =
+                    values::parse_color(&values::text(&element.attributes, "color"))
+                        .unwrap_or_default();
+            }
+            ElementKind::Strike => {
+                style.strike = true;
+                style.double_strike = values::text(&element.attributes, "kind") == "double";
+            }
+            ElementKind::SmallCaps => style.small_caps = true,
+            ElementKind::Subscript => {
+                style.subscript = true;
+                style.measurement.size_points *= 0.75;
+            }
+            ElementKind::Superscript => {
+                style.superscript = true;
+                style.measurement.size_points *= 0.75;
+            }
             ElementKind::Code => style.code = true,
             _ => {}
         }
@@ -216,8 +245,12 @@ impl<'document> LayoutStyleResolver<'document> {
                 .map(|(_, declaration)| declaration)
         })
     }
-    fn apply_font(&self, style: &mut TextStyle, name: &str) {
+    pub(crate) fn apply_font(&self, style: &mut TextStyle, name: &str) {
         style.measurement.font = name.into();
+        if !self.use_document_line_heights {
+            style.word_line_height = None;
+            return;
+        }
         let family;
         if let Some(font) = self.document.fonts.get(name) {
             if let Some(scale) = font.properties.get("word_line_height") {

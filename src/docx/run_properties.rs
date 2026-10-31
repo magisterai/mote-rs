@@ -19,6 +19,10 @@ pub(super) struct RunFormatting {
     pub properties: Properties,
     pub character_style: Option<String>,
     pub fixed_tabs: bool,
+    pub underline_style: String,
+    pub underline_color: String,
+    pub subscript: bool,
+    pub superscript: bool,
 }
 
 impl RunFormatting {
@@ -58,6 +62,67 @@ impl RunFormatting {
                 result
                     .properties
                     .insert(property.into(), Value::Boolean(true));
+            }
+            ElementKind::Underline => {
+                let mut supported = ATTRIBUTES.to_vec();
+                supported.push("style");
+                check_attributes(&element.attributes, &supported, "underline")?;
+                result
+                    .properties
+                    .insert("underline".into(), Value::Boolean(true));
+                result.properties.extend(
+                    element
+                        .attributes
+                        .iter()
+                        .filter(|(name, _)| name.as_str() != "style")
+                        .map(|(name, value)| (name.clone(), value.clone())),
+                );
+                if let Some(value) = element.attributes.get("style") {
+                    result.underline_style = value.to_text();
+                }
+                result.underline_color = element
+                    .attributes
+                    .get("color")
+                    .map(values::color)
+                    .transpose()?
+                    .unwrap_or_default();
+            }
+            ElementKind::Strike
+            | ElementKind::Highlight
+            | ElementKind::SmallCaps
+            | ElementKind::Subscript
+            | ElementKind::Superscript => {
+                let allowed: &[&str] = match element.kind {
+                    ElementKind::Strike => &["kind"],
+                    ElementKind::Highlight => &["fill"],
+                    _ => &[],
+                };
+                check_attributes(&element.attributes, allowed, element.kind.as_text())?;
+                match element.kind {
+                    ElementKind::Strike => {
+                        let name =
+                            if crate::properties::text(&element.attributes, "kind") == "double" {
+                                "double_strike"
+                            } else {
+                                "strike"
+                            };
+                        result.properties.insert(name.into(), Value::Boolean(true));
+                    }
+                    ElementKind::SmallCaps => {
+                        result
+                            .properties
+                            .insert("small_caps".into(), Value::Boolean(true));
+                    }
+                    ElementKind::Subscript => result.subscript = true,
+                    ElementKind::Superscript => result.superscript = true,
+                    ElementKind::Highlight => {
+                        result.properties.remove("highlight");
+                        if let Some(fill) = element.attributes.get("fill") {
+                            result.properties.insert("highlight".into(), fill.clone());
+                        }
+                    }
+                    _ => unreachable!(),
+                }
             }
             ElementKind::Code => {
                 check_attributes(
@@ -106,6 +171,10 @@ impl RunFormatting {
             if supplied.contains_key(property) {
                 self.properties.remove(property);
             }
+        }
+        if supplied.contains_key("underline") {
+            self.underline_style.clear();
+            self.underline_color.clear();
         }
         if ["fill", "background", "highlight"]
             .iter()
@@ -183,12 +252,26 @@ impl RunFormatting {
             }
         }
         if let Some(underline) = self.properties.get("underline") {
-            let underline = if values::boolean(underline)? {
+            let enabled = values::boolean(underline)?;
+            let underline = if !enabled {
+                "none"
+            } else if self.underline_style.is_empty() {
                 "single"
             } else {
-                "none"
+                &self.underline_style
             };
-            result.push_str(&format!("<w:u w:val=\"{underline}\"/>"));
+            let color = if enabled && !self.underline_color.is_empty() {
+                format!(" w:color=\"{}\"", xml::escape(&self.underline_color)?)
+            } else {
+                String::new()
+            };
+            result.push_str(&format!("<w:u w:val=\"{underline}\"{color}/>"));
+        }
+        if self.subscript {
+            result.push_str("<w:vertAlign w:val=\"subscript\"/>");
+        }
+        if self.superscript {
+            result.push_str("<w:vertAlign w:val=\"superscript\"/>");
         }
         if !declaration && let Some(highlight) = self.properties.get("highlight") {
             result.push_str(&shading(highlight)?);

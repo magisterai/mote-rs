@@ -185,12 +185,26 @@ fn run_xml(
         output.push_str(" i=\"1\"");
     }
     if style.underline {
-        output.push_str(" u=\"sng\"");
+        let underline = match style.underline_style.as_str() {
+            "double" => "dbl",
+            "dotted" => "dotted",
+            "dashed" => "dash",
+            "wave" => "wavy",
+            "none" => "none",
+            _ => "sng",
+        };
+        output.push_str(&format!(" u=\"{underline}\""));
     }
     if style.double_strike {
         output.push_str(" strike=\"dblStrike\"");
     } else if style.strike {
         output.push_str(" strike=\"sngStrike\"");
+    }
+    if style.subscript {
+        output.push_str(" baseline=\"-25000\"");
+    }
+    if style.superscript {
+        output.push_str(" baseline=\"30000\"");
     }
     if style.small_caps {
         output.push_str(" cap=\"small\"");
@@ -206,6 +220,12 @@ fn run_xml(
         output.push_str(&format!(
             "<a:solidFill><a:srgbClr val=\"{}\"/></a:solidFill>",
             escape(&style.color)?
+        ));
+    }
+    if style.underline && !style.underline_color.is_empty() {
+        output.push_str(&format!(
+            "<a:uFill><a:solidFill><a:srgbClr val=\"{}\"/></a:solidFill></a:uFill>",
+            escape(&style.underline_color)?
         ));
     }
     if let Some(color) = &style.highlight {

@@ -226,6 +226,12 @@ pub enum ElementKind {
     Cell,
     Strong,
     Emphasis,
+    Underline,
+    Strike,
+    Highlight,
+    SmallCaps,
+    Subscript,
+    Superscript,
     Code,
     Footnote,
     Endnote,
@@ -263,6 +269,12 @@ impl ElementKind {
             Self::Cell,
             Self::Strong,
             Self::Emphasis,
+            Self::Underline,
+            Self::Strike,
+            Self::Highlight,
+            Self::SmallCaps,
+            Self::Subscript,
+            Self::Superscript,
             Self::Code,
             Self::Footnote,
             Self::Endnote,
@@ -302,6 +314,12 @@ impl ElementKind {
             Self::Cell => "cell",
             Self::Strong => "strong",
             Self::Emphasis => "emphasis",
+            Self::Underline => "underline",
+            Self::Strike => "strike",
+            Self::Highlight => "highlight",
+            Self::SmallCaps => "small_caps",
+            Self::Subscript => "subscript",
+            Self::Superscript => "superscript",
             Self::Code => "code",
             Self::Bookmark => "bookmark",
             Self::Label => "label",
@@ -335,6 +353,12 @@ impl ElementKind {
                 | Self::Span
                 | Self::Strong
                 | Self::Emphasis
+                | Self::Underline
+                | Self::Strike
+                | Self::Highlight
+                | Self::SmallCaps
+                | Self::Subscript
+                | Self::Superscript
                 | Self::Code
                 | Self::Bookmark
                 | Self::Label

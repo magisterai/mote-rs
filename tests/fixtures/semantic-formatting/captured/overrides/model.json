@@ -1,0 +1,328 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-Italic.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "480pt",
+                    "unit": "pt",
+                    "value": 480
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  }
+                },
+                "text": {
+                  "font": "body",
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "H"
+                    },
+                    {
+                      "kind": "subscript",
+                      "category": "inline",
+                      "attributes": {
+                        "color": "#2563eb",
+                        "size": {
+                          "text": "24pt",
+                          "unit": "pt",
+                          "value": 24
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "O and x"
+                    },
+                    {
+                      "kind": "superscript",
+                      "category": "inline",
+                      "attributes": {
+                        "size": {
+                          "text": "18pt",
+                          "unit": "pt",
+                          "value": 18
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "small_caps",
+                      "category": "inline",
+                      "attributes": {
+                        "size": {
+                          "text": "24pt",
+                          "unit": "pt",
+                          "value": 24
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Larger capitals"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "highlight",
+                      "category": "inline",
+                      "attributes": {
+                        "color": "#166534",
+                        "fill": "#bbf7d0"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "green"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "480pt",
+                "unit": "pt",
+                "value": 480
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              }
+            },
+            "text": {
+              "font": "body",
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "H"
+                },
+                {
+                  "kind": "subscript",
+                  "category": "inline",
+                  "attributes": {
+                    "color": "#2563eb",
+                    "size": {
+                      "text": "24pt",
+                      "unit": "pt",
+                      "value": 24
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "2"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "O and x"
+                },
+                {
+                  "kind": "superscript",
+                  "category": "inline",
+                  "attributes": {
+                    "size": {
+                      "text": "18pt",
+                      "unit": "pt",
+                      "value": 18
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "2"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "small_caps",
+                  "category": "inline",
+                  "attributes": {
+                    "size": {
+                      "text": "24pt",
+                      "unit": "pt",
+                      "value": 24
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Larger capitals"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "highlight",
+                  "category": "inline",
+                  "attributes": {
+                    "color": "#166534",
+                    "fill": "#bbf7d0"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "green"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

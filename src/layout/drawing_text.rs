@@ -37,6 +37,12 @@ fn plan_paragraphs(
     for paragraph in paragraphs {
         let mut style = paragraph.style.clone();
         let mut runs = paragraph.runs.clone();
+        for run in &mut runs {
+            if run.style.subscript || run.style.superscript {
+                run.style.measurement.size_points *= 2.0 / 3.0;
+                run.style.presentation_script = true;
+            }
+        }
         if matches!(frame, TextFrame::TableCell) {
             style.indent_left = 0.0;
             style.indent_right = 0.0;

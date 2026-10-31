@@ -21,7 +21,7 @@ pub(crate) fn resolve(
     defaults: TextDefaults,
 ) -> Result<Vec<DrawingParagraph>, LayoutError> {
     validate_content(content).map_err(LayoutError::Unsupported)?;
-    let styles = LayoutStyleResolver::new(document);
+    let styles = LayoutStyleResolver::for_drawing_text(document);
     let native = defaults == TextDefaults::Resolved;
     let mut base = TextStyle::default();
     base.measurement.font = if native {
@@ -76,6 +76,12 @@ pub(super) fn validate_content(content: &[Content]) -> Result<(), String> {
                     | ElementKind::Span
                     | ElementKind::Strong
                     | ElementKind::Emphasis
+                    | ElementKind::Underline
+                    | ElementKind::Strike
+                    | ElementKind::Highlight
+                    | ElementKind::SmallCaps
+                    | ElementKind::Subscript
+                    | ElementKind::Superscript
                     | ElementKind::Code
                     | ElementKind::Link
                     | ElementKind::LineBreak

@@ -266,6 +266,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             }
             match element.kind {
                 ElementKind::Heading => allowed.push("level"),
+                ElementKind::Strike => allowed.push("kind"),
                 ElementKind::Link => allowed.push("url"),
                 ElementKind::Code => allowed.push("preserve_space"),
                 _ => {}
@@ -275,4 +276,21 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
     unknown(attributes, &allowed, path, warnings);
     formatting(attributes, path, warnings);
     content(&element.children, path, warnings);
+}
+
+/// Native underline painting currently retains two patterns as solid strokes.
+pub(crate) fn native_text_warnings(content: &[Content]) -> BTreeSet<String> {
+    let mut warnings = BTreeSet::new();
+    for node in content {
+        if let Content::Element(element) = node {
+            if element.kind == ElementKind::Underline
+                && matches!(text(&element.attributes, "style").as_str(), "none" | "wave")
+            {
+                warnings
+                    .insert("native underline styles none and wave use a solid underline".into());
+            }
+            warnings.extend(native_text_warnings(&element.children));
+        }
+    }
+    warnings
 }
