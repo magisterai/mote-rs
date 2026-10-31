@@ -41,6 +41,57 @@ depending on the parser; formatting and JSON inspection operate on the model.
 Named-argument evaluation retains each value with its source expression so type
 checks and conversion diagnostics keep the correct location.
 
+### Data flow and ownership
+
+```mermaid
+flowchart LR
+    Source[Source text] --> Syntax[Syntax tree]
+    Syntax --> Model[Evaluated document]
+    Model --> JSON[JSON inspection]
+    Model --> DOCX[Editable DOCX]
+    Model --> Slides[Resolved presentation]
+    Model --> Flow[Document layout]
+    Slides --> PPTX[Editable PPTX]
+    Slides --> Placement[Slide layout]
+    Flow --> Plan[Page plan]
+    Placement --> Plan
+    Plan --> PDF[PDF painter]
+    Plan --> PNG[PNG painter]
+```
+
+The evaluated model retains authoring intent. Output preparation borrows it and
+owns any resolved copies; selecting an output must not change the model. Shared
+formatting, chart data, image transforms and text measurement supply the output
+paths. Editable packages retain their own serialization responsibilities.
+Presentation text fitting and automatic chart frames use the same measurements
+as native layout, so those decisions do not depend on the selected painter.
+
+The [page module](../src/layout/page.rs) owns painter-neutral plans and content
+composition. A prepared fragment has local text-line indices and ordered drawing
+operations. Appending it remaps those indices once; placing it also translates
+text, anchors, paths, image bounds, clips and rotation centers together. Page
+geometry, numbering and flow reservations belong to the receiving page. New
+operation variants must participate in the exhaustive translation and painter
+matches. PDF and PNG consume the completed plan without repaginating it.
+
+Chart measurement owns font measurement and text fitting; it has no page or
+drawing-operation buffer. Both automatic frame selection and chart planning use
+its measured plot, title and legend layout. The chart planner then emits ordered
+operations into a page fragment. This keeps fitting decisions independent of
+painting while preserving one set of geometry rules.
+
+Recursive property overlays use `properties::merge`: object fields merge,
+while scalar values and arrays replace their predecessors. Domain-specific
+precedence stays with its owner, including paragraph spacing aliases and a
+slide's whole-background override. Table styles and named layouts share the
+overlay mechanism without sharing those separate precedence rules.
+
+Keep these responsibilities in cohesive modules within the current crate.
+An independent crate should follow a stable interface and a concrete consumer,
+rather than a file-count target. Regression checks cover evaluated models,
+package parts, page geometry and raster output separately; none substitutes for
+review in the authoritative Office application.
+
 ## Source loading
 
 `source::load_source` loads a single named input through an `AssetResolver` and
