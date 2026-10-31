@@ -81,10 +81,56 @@ pub(super) fn break_offsets(text: &str) -> BTreeSet<usize> {
         .grapheme_indices(true)
         .map(|(offset, cluster)| offset + cluster.len())
         .collect();
-    unicode_linebreak::linebreaks(text)
+    let mut offsets: BTreeSet<_> = unicode_linebreak::linebreaks(text)
         .map(|(offset, _)| offset)
         .filter(|offset| graphemes.contains(offset))
-        .collect()
+        .collect();
+    numeric_context_breaks(text, &graphemes, &mut offsets);
+    offsets
+}
+
+/// Brackets bind to numeric prefixes/suffixes only in numeric expressions. The
+/// pair-table breaker conservatively suppresses those boundaries even outside
+/// numeric context; restore the contextual opportunities.
+fn numeric_context_breaks(text: &str, graphemes: &BTreeSet<usize>, offsets: &mut BTreeSet<usize>) {
+    use unicode_linebreak::{BreakClass, break_property};
+    let mut previous = None;
+    let mut numeric_sequence = false;
+    let mut closed_number = false;
+    for (offset, character) in text.char_indices() {
+        let class = break_property(character as u32);
+        if class == BreakClass::CombiningMark {
+            continue;
+        }
+        if matches!(class, BreakClass::Prefix | BreakClass::Postfix)
+            && matches!(
+                previous,
+                Some(BreakClass::ClosePunctuation | BreakClass::CloseParenthesis)
+            )
+            && !closed_number
+            && graphemes.contains(&offset)
+        {
+            offsets.insert(offset);
+        }
+        if class == BreakClass::OpenPunctuation
+            && matches!(previous, Some(BreakClass::Prefix | BreakClass::Postfix))
+            && !text[offset + character.len_utf8()..]
+                .chars()
+                .next()
+                .is_some_and(|next| break_property(next as u32) == BreakClass::Numeric)
+            && graphemes.contains(&offset)
+        {
+            offsets.insert(offset);
+        }
+        closed_number = numeric_sequence
+            && matches!(
+                class,
+                BreakClass::ClosePunctuation | BreakClass::CloseParenthesis
+            );
+        numeric_sequence = class == BreakClass::Numeric
+            || numeric_sequence && matches!(class, BreakClass::Symbol | BreakClass::InfixSeparator);
+        previous = Some(class);
+    }
 }
 
 pub(super) fn groups(runs: &[TextRun]) -> Vec<Vec<TextRun>> {
@@ -234,4 +280,36 @@ fn flush(
         lines.push(WrappedLine { runs, line_break });
     }
     current.clear();
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn numeric_suffixes_bind_to_numbers_but_not_algebraic_brackets() {
+        for (source, expected) in [
+            ("x}+y", vec!["x}", "+y"]),
+            ("1}+2", vec!["1}+2"]),
+            ("(a)+b", vec!["(a)", "+b"]),
+            ("(1)+2", vec!["(1)+2"]),
+            ("a}%b", vec!["a}", "%b"]),
+            ("1}%2", vec!["1}%2"]),
+            ("x}\u{301}+y", vec!["x}\u{301}", "+y"]),
+            ("1}\u{301}+2", vec!["1}\u{301}+2"]),
+            ("x}\u{200d}+y", vec!["x}\u{200d}+y"]),
+            ("\\{x", vec!["\\", "{x"]),
+            ("+(x)", vec!["+", "(x)"]),
+            ("$(1)", vec!["$(1)"]),
+        ] {
+            let mut start = 0;
+            let actual: Vec<_> = super::break_offsets(source)
+                .into_iter()
+                .map(|end| {
+                    let piece = &source[start..end];
+                    start = end;
+                    piece
+                })
+                .collect();
+            assert_eq!(actual, expected, "{source}");
+        }
+    }
 }
