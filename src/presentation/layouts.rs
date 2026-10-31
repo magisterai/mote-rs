@@ -2,8 +2,8 @@
 mod builtins;
 mod custom;
 use crate::{
-    model::{Content, Document, Element, ElementKind, Presentation, Properties, Value},
-    properties::text,
+    model::{Content, Document, Element, ElementKind, Presentation, Properties},
+    properties::{merge, text},
 };
 use std::collections::BTreeMap;
 
@@ -89,7 +89,8 @@ impl Layouts {
             match supplied.get(&slot.name) {
                 Some(authored) => {
                     let mut element = (*authored).clone();
-                    element.attributes = merge(&slot.properties, &element.attributes);
+                    element.attributes = slot.properties.clone();
+                    merge(&mut element.attributes, &authored.attributes);
                     element.attributes.remove("slot");
                     children.push(Content::Element(element));
                 }
@@ -103,7 +104,8 @@ impl Layouts {
             }
         }
         children.extend(ordinary);
-        let mut attributes = merge(&layout.properties, &slide.attributes);
+        let mut attributes = layout.properties.clone();
+        merge(&mut attributes, &slide.attributes);
         // A slide background is an intentional whole-value override.
         if let Some(background) = slide.attributes.get("background") {
             attributes.insert("background".into(), background.clone());
@@ -178,20 +180,6 @@ fn content_kind(element: &Element) -> &str {
     }
     "text"
 }
-fn merge(base: &Properties, overlay: &Properties) -> Properties {
-    let mut result = base.clone();
-    for (name, value) in overlay {
-        let value = match (result.get(name), value) {
-            (Some(Value::Object(base)), Value::Object(overlay)) => {
-                Value::Object(merge(base, overlay))
-            }
-            _ => value.clone(),
-        };
-        result.insert(name.clone(), value);
-    }
-    result
-}
-
 pub(crate) fn is_builtin(name: &str) -> bool {
     matches!(
         name,

@@ -1,6 +1,7 @@
 //! Resolve inheritance iteratively so long chains do not consume the call stack.
-use super::{Layout, Slot, merge};
+use super::{Layout, Slot};
 use crate::model::PresentationLayout;
+use crate::properties::merge;
 use std::collections::{BTreeMap, BTreeSet};
 
 pub(super) fn resolve(
@@ -68,7 +69,7 @@ pub(super) fn resolve(
             if declaration.properties.contains_key("background") {
                 layout.background_source_name = declaration.source_name.clone();
             }
-            layout.properties = merge(&layout.properties, &declaration.properties);
+            merge(&mut layout.properties, &declaration.properties);
             for declaration_slot in &declaration.slots {
                 let index = layout
                     .slots
@@ -92,7 +93,7 @@ pub(super) fn resolve(
                     if let Some(required) = declaration_slot.required {
                         slot.required = required;
                     }
-                    slot.properties = merge(&slot.properties, &declaration_slot.properties);
+                    merge(&mut slot.properties, &declaration_slot.properties);
                 } else {
                     layout.slots.push(Slot {
                         name: declaration_slot.name.clone(),

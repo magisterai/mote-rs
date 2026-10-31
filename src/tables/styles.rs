@@ -1,5 +1,5 @@
 use crate::{
-    model::{Document, Element, Properties, StyleDeclaration, Value},
+    model::{Document, Element, Properties, StyleDeclaration},
     properties as property_values,
 };
 use std::collections::BTreeSet;
@@ -49,20 +49,9 @@ pub(crate) fn resolved(document: &Document, name: &str) -> Properties {
     }
     let mut properties = Properties::new();
     for style in chain.into_iter().rev() {
-        merge_nested(&mut properties, &declared(style));
+        property_values::merge(&mut properties, &declared(style));
     }
     properties
-}
-pub(crate) fn merge_nested(target: &mut Properties, overlay: &Properties) {
-    for (name, value) in overlay {
-        if let (Some(Value::Object(existing)), Value::Object(fields)) =
-            (target.get_mut(name), value)
-        {
-            merge_nested(existing, fields);
-        } else {
-            target.insert(name.clone(), value.clone());
-        }
-    }
 }
 pub(crate) fn bands(properties: &Properties) -> (bool, bool) {
     let Some(banding) = property_values::object(properties, "banding") else {
