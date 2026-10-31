@@ -1,0 +1,63 @@
+[
+  {
+    "name": "document-typography",
+    "format": "docx"
+  },
+  {
+    "name": "document-pagination",
+    "format": "docx"
+  },
+  {
+    "name": "document-sections",
+    "format": "docx"
+  },
+  {
+    "name": "document-table-flow",
+    "format": "docx"
+  },
+  {
+    "name": "document-table-edges",
+    "format": "docx"
+  },
+  {
+    "name": "document-objects",
+    "format": "docx"
+  },
+  {
+    "name": "slide-text",
+    "format": "pptx"
+  },
+  {
+    "name": "slide-table",
+    "format": "pptx"
+  },
+  {
+    "name": "slide-media-edges",
+    "format": "pptx"
+  },
+  {
+    "name": "slide-charts",
+    "format": "pptx",
+    "expected_error": "presentation text boxes do not yet support chart"
+  },
+  {
+    "name": "slide-layouts",
+    "format": "pptx"
+  },
+  {
+    "name": "slide-automatic",
+    "format": "pptx"
+  },
+  {
+    "name": "slide-positioned-charts",
+    "format": "pptx"
+  },
+  {
+    "name": "document-formatted-notes",
+    "format": "docx"
+  },
+  {
+    "name": "document-drawing-metrics",
+    "format": "docx"
+  }
+]

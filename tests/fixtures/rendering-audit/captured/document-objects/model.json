@@ -1,0 +1,502 @@
+{
+  "document": {
+    "default_font": "body",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    },
+    "margin": {
+      "bottom": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      },
+      "left": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      },
+      "right": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      },
+      "top": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      }
+    },
+    "page": {
+      "height": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      },
+      "width": {
+        "text": "420pt",
+        "unit": "pt",
+        "value": 420
+      }
+    }
+  },
+  "defaults": {
+    "default_font": "body",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "600pt",
+        "unit": "pt",
+        "value": 600
+      },
+      "width": {
+        "text": "420pt",
+        "unit": "pt",
+        "value": 420
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "28pt",
+      "unit": "pt",
+      "value": 28
+    },
+    "right": {
+      "text": "28pt",
+      "unit": "pt",
+      "value": 28
+    },
+    "bottom": {
+      "text": "28pt",
+      "unit": "pt",
+      "value": 28
+    },
+    "left": {
+      "text": "28pt",
+      "unit": "pt",
+      "value": 28
+    },
+    "properties": {
+      "bottom": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      },
+      "left": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      },
+      "right": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      },
+      "top": {
+        "text": "28pt",
+        "unit": "pt",
+        "value": 28
+      }
+    }
+  },
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "600pt",
+            "unit": "pt",
+            "value": 600
+          },
+          "width": {
+            "text": "420pt",
+            "unit": "pt",
+            "value": 420
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "28pt",
+          "unit": "pt",
+          "value": 28
+        },
+        "right": {
+          "text": "28pt",
+          "unit": "pt",
+          "value": 28
+        },
+        "bottom": {
+          "text": "28pt",
+          "unit": "pt",
+          "value": 28
+        },
+        "left": {
+          "text": "28pt",
+          "unit": "pt",
+          "value": 28
+        },
+        "properties": {
+          "bottom": {
+            "text": "28pt",
+            "unit": "pt",
+            "value": 28
+          },
+          "left": {
+            "text": "28pt",
+            "unit": "pt",
+            "value": 28
+          },
+          "right": {
+            "text": "28pt",
+            "unit": "pt",
+            "value": 28
+          },
+          "top": {
+            "text": "28pt",
+            "unit": "pt",
+            "value": 28
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "keep_with_next": true,
+            "level": 2
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Objects in flow"
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "category": "block",
+          "attributes": {
+            "alignment": "center"
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "style": "dashed",
+                  "width": {
+                    "text": "1.25pt",
+                    "unit": "pt",
+                    "value": 1.25
+                  }
+                },
+                "crop": {
+                  "left": "12",
+                  "right": "8"
+                },
+                "effects": {
+                  "brightness": "8",
+                  "contrast": "-6",
+                  "transparency": "20"
+                },
+                "flip_horizontal": true,
+                "height": {
+                  "text": "72pt",
+                  "unit": "pt",
+                  "value": 72
+                },
+                "link": "https://example.com/image",
+                "rotation": "15",
+                "src": "../images/assets/pattern.png",
+                "width": {
+                  "text": "180pt",
+                  "unit": "pt",
+                  "value": 180
+                }
+              }
+            },
+            {
+              "kind": "caption",
+              "category": "block",
+              "attributes": {
+                "numbering": {
+                  "enabled": true
+                },
+                "position": "below"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Transformed picture"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Following text stays below the picture and caption."
+            }
+          ]
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "category_axis": {
+              "title": "Region"
+            },
+            "data": {
+              "categories": [
+                "North",
+                "South",
+                "West"
+              ],
+              "series": [
+                {
+                  "name": "Actual",
+                  "values": [
+                    18,
+                    -7,
+                    24
+                  ]
+                },
+                {
+                  "name": "Plan",
+                  "values": [
+                    14,
+                    9,
+                    21
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "position": "outEnd",
+              "value": true
+            },
+            "height": {
+              "text": "200pt",
+              "unit": "pt",
+              "value": 200
+            },
+            "kind": "bar",
+            "legend": {
+              "position": "b"
+            },
+            "title": "Signed results",
+            "value_axis": {
+              "title": "Amount"
+            },
+            "width": {
+              "text": "350pt",
+              "unit": "pt",
+              "value": 350
+            }
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Conclusion after the chart."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "keep_with_next": true,
+        "level": 2
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Objects in flow"
+        }
+      ]
+    },
+    {
+      "kind": "figure",
+      "category": "block",
+      "attributes": {
+        "alignment": "center"
+      },
+      "children": [
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "style": "dashed",
+              "width": {
+                "text": "1.25pt",
+                "unit": "pt",
+                "value": 1.25
+              }
+            },
+            "crop": {
+              "left": "12",
+              "right": "8"
+            },
+            "effects": {
+              "brightness": "8",
+              "contrast": "-6",
+              "transparency": "20"
+            },
+            "flip_horizontal": true,
+            "height": {
+              "text": "72pt",
+              "unit": "pt",
+              "value": 72
+            },
+            "link": "https://example.com/image",
+            "rotation": "15",
+            "src": "../images/assets/pattern.png",
+            "width": {
+              "text": "180pt",
+              "unit": "pt",
+              "value": 180
+            }
+          }
+        },
+        {
+          "kind": "caption",
+          "category": "block",
+          "attributes": {
+            "numbering": {
+              "enabled": true
+            },
+            "position": "below"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Transformed picture"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Following text stays below the picture and caption."
+        }
+      ]
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "category_axis": {
+          "title": "Region"
+        },
+        "data": {
+          "categories": [
+            "North",
+            "South",
+            "West"
+          ],
+          "series": [
+            {
+              "name": "Actual",
+              "values": [
+                18,
+                -7,
+                24
+              ]
+            },
+            {
+              "name": "Plan",
+              "values": [
+                14,
+                9,
+                21
+              ]
+            }
+          ]
+        },
+        "data_labels": {
+          "position": "outEnd",
+          "value": true
+        },
+        "height": {
+          "text": "200pt",
+          "unit": "pt",
+          "value": 200
+        },
+        "kind": "bar",
+        "legend": {
+          "position": "b"
+        },
+        "title": "Signed results",
+        "value_axis": {
+          "title": "Amount"
+        },
+        "width": {
+          "text": "350pt",
+          "unit": "pt",
+          "value": 350
+        }
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Conclusion after the chart."
+        }
+      ]
+    }
+  ]
+}

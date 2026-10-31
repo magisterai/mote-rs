@@ -1,0 +1,1033 @@
+{
+  "document": {
+    "default_font": "body",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    },
+    "margin": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    },
+    "page": {
+      "height": {
+        "text": "500pt",
+        "unit": "pt",
+        "value": 500
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "defaults": {
+    "default_font": "body",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "500pt",
+        "unit": "pt",
+        "value": 500
+      },
+      "width": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "right": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "bottom": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "left": {
+      "text": "24pt",
+      "unit": "pt",
+      "value": 24
+    },
+    "properties": {
+      "bottom": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "left": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "right": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      },
+      "top": {
+        "text": "24pt",
+        "unit": "pt",
+        "value": 24
+      }
+    }
+  },
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "Accent",
+      "type": "character",
+      "properties": {
+        "bold": true,
+        "color": "#7c3aed",
+        "type": "character"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "500pt",
+            "unit": "pt",
+            "value": 500
+          },
+          "width": {
+            "text": "360pt",
+            "unit": "pt",
+            "value": 360
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "right": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "bottom": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "left": {
+          "text": "24pt",
+          "unit": "pt",
+          "value": 24
+        },
+        "properties": {
+          "bottom": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "left": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "right": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          },
+          "top": {
+            "text": "24pt",
+            "unit": "pt",
+            "value": 24
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "keep_with_next": true,
+            "level": 2,
+            "numbering": {
+              "enabled": true
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text metrics and wrapping"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "justify",
+            "indent": {
+              "first_line": {
+                "text": "14pt",
+                "unit": "pt",
+                "value": 14
+              },
+              "left": {
+                "text": "8pt",
+                "unit": "pt",
+                "value": 8
+              },
+              "right": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              }
+            },
+            "spacing": {
+              "after": {
+                "text": "9pt",
+                "unit": "pt",
+                "value": 9
+              },
+              "before": {
+                "text": "4pt",
+                "unit": "pt",
+                "value": 4
+              },
+              "line": {
+                "rule": "at_least",
+                "value": {
+                  "text": "18pt",
+                  "unit": "pt",
+                  "value": 18
+                }
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A café, naïve façade, and a coöperative résumé. "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "19pt",
+                  "unit": "pt",
+                  "value": 19
+                },
+                "style": "Accent"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Larger text"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " beside ordinary words, H"
+            },
+            {
+              "kind": "subscript",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "O, x"
+            },
+            {
+              "kind": "superscript",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "small_caps",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Small Capitals"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ". Wrapping must preserve the measured baseline and the requested indentation across several lines."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "bottom": {
+                "color": "#2563eb",
+                "width": {
+                  "text": "1pt",
+                  "unit": "pt",
+                  "value": 1
+                }
+              }
+            },
+            "fill": "#eff6ff",
+            "spacing": {
+              "line": {
+                "rule": "exact",
+                "value": {
+                  "text": "22pt",
+                  "unit": "pt",
+                  "value": 22
+                }
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "highlight",
+              "category": "inline",
+              "attributes": {
+                "fill": "#fde68a"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A highlighted "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "size": {
+                      "text": "17pt",
+                      "unit": "pt",
+                      "value": 17
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "mixed-size"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " phrase"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " with "
+            },
+            {
+              "kind": "underline",
+              "category": "inline",
+              "attributes": {
+                "color": "#be185d",
+                "style": "dashed"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "wrapping underlined words that continue towards the edge of the paragraph"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "strike",
+              "category": "inline",
+              "attributes": {
+                "kind": "double"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "removed text"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "right",
+            "tabs": [
+              {
+                "alignment": "right",
+                "leader": "dot",
+                "position": {
+                  "text": "150pt",
+                  "unit": "pt",
+                  "value": 150
+                }
+              }
+            ]
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Left"
+            },
+            {
+              "kind": "tab",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "Right"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "keep_together": true,
+            "spacing_before": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            }
+          },
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "Courier",
+                "size": {
+                  "text": "10pt",
+                  "unit": "pt",
+                  "value": 10
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "TOKEN"
+                },
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "WITHOUT"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "NORMAL"
+                },
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "BREAKS"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "01234567890123456789012345678901234567890123456789"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " followed by ordinary text."
+            }
+          ]
+        },
+        {
+          "kind": "raw",
+          "category": "block",
+          "attributes": {
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "first\tsecond"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            },
+            {
+              "kind": "text",
+              "text": "third   fourth"
+            }
+          ]
+        },
+        {
+          "kind": "definition_list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "term",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Term"
+                }
+              ]
+            },
+            {
+              "kind": "definition",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A definition with "
+                    },
+                    {
+                      "kind": "emphasis",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "emphasis"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "link",
+                      "category": "inline",
+                      "attributes": {
+                        "url": "https://example.com"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "a link"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "keep_with_next": true,
+        "level": 2,
+        "numbering": {
+          "enabled": true
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Text metrics and wrapping"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "justify",
+        "indent": {
+          "first_line": {
+            "text": "14pt",
+            "unit": "pt",
+            "value": 14
+          },
+          "left": {
+            "text": "8pt",
+            "unit": "pt",
+            "value": 8
+          },
+          "right": {
+            "text": "12pt",
+            "unit": "pt",
+            "value": 12
+          }
+        },
+        "spacing": {
+          "after": {
+            "text": "9pt",
+            "unit": "pt",
+            "value": 9
+          },
+          "before": {
+            "text": "4pt",
+            "unit": "pt",
+            "value": 4
+          },
+          "line": {
+            "rule": "at_least",
+            "value": {
+              "text": "18pt",
+              "unit": "pt",
+              "value": 18
+            }
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "A café, naïve façade, and a coöperative résumé. "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "size": {
+              "text": "19pt",
+              "unit": "pt",
+              "value": 19
+            },
+            "style": "Accent"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Larger text"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " beside ordinary words, H"
+        },
+        {
+          "kind": "subscript",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "O, x"
+        },
+        {
+          "kind": "superscript",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "small_caps",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Small Capitals"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ". Wrapping must preserve the measured baseline and the requested indentation across several lines."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "border": {
+          "bottom": {
+            "color": "#2563eb",
+            "width": {
+              "text": "1pt",
+              "unit": "pt",
+              "value": 1
+            }
+          }
+        },
+        "fill": "#eff6ff",
+        "spacing": {
+          "line": {
+            "rule": "exact",
+            "value": {
+              "text": "22pt",
+              "unit": "pt",
+              "value": 22
+            }
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "highlight",
+          "category": "inline",
+          "attributes": {
+            "fill": "#fde68a"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A highlighted "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "17pt",
+                  "unit": "pt",
+                  "value": 17
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "mixed-size"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " phrase"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " with "
+        },
+        {
+          "kind": "underline",
+          "category": "inline",
+          "attributes": {
+            "color": "#be185d",
+            "style": "dashed"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "wrapping underlined words that continue towards the edge of the paragraph"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "strike",
+          "category": "inline",
+          "attributes": {
+            "kind": "double"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "removed text"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "alignment": "right",
+        "tabs": [
+          {
+            "alignment": "right",
+            "leader": "dot",
+            "position": {
+              "text": "150pt",
+              "unit": "pt",
+              "value": 150
+            }
+          }
+        ]
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Left"
+        },
+        {
+          "kind": "tab",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "Right"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "keep_together": true,
+        "spacing_before": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        }
+      },
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "Courier",
+            "size": {
+              "text": "10pt",
+              "unit": "pt",
+              "value": 10
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "TOKEN"
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "WITHOUT"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "NORMAL"
+            },
+            {
+              "kind": "emphasis",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "BREAKS"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "01234567890123456789012345678901234567890123456789"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " followed by ordinary text."
+        }
+      ]
+    },
+    {
+      "kind": "raw",
+      "category": "block",
+      "attributes": {
+        "preserve_space": true
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "first\tsecond"
+        },
+        {
+          "kind": "text",
+          "text": "\n"
+        },
+        {
+          "kind": "text",
+          "text": "third   fourth"
+        }
+      ]
+    },
+    {
+      "kind": "definition_list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "term",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Term"
+            }
+          ]
+        },
+        {
+          "kind": "definition",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A definition with "
+                },
+                {
+                  "kind": "emphasis",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "emphasis"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "a link"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

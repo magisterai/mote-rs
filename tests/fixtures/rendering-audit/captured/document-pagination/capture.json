@@ -1,0 +1,93 @@
+{
+  "format": "docx",
+  "source_sha256": "1b63f62ee8900ceb4ac4423ebb0a5a4fbef14bfac88cd0d14ae797a199170129",
+  "assets": {
+    "../measurements/fonts/SourceSans3-Bold.ttf": "9214b9d95e4231c609802815c2646c98174e2102d0d37f88978a7f8e71006e6a",
+    "../measurements/fonts/SourceSans3-It.ttf": "192afd78f0f54a3c69eaf02d43f4d9a821e9d6110e41d3d25d61a7385cd580e4",
+    "../measurements/fonts/SourceSans3-Regular.ttf": "4644c81b86ec9caaa76b634889968ed3c4f4f52f054855933acc7c2b21e53b0f"
+  },
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "captured/parts/741fb11e7ffae9bb5c99f82db9bd7bbce38f550a2846910092f81d9653955904.xml",
+      "sha256": "741fb11e7ffae9bb5c99f82db9bd7bbce38f550a2846910092f81d9653955904"
+    },
+    "_rels/.rels": {
+      "path": "captured/parts/f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae",
+      "sha256": "f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae"
+    },
+    "docProps/app.xml": {
+      "path": "captured/parts/5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5.xml",
+      "sha256": "5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5"
+    },
+    "docProps/core.xml": {
+      "path": "captured/parts/ad92e07bc2bc53e3273347464ce960ffcb40cb4309e92dd61d606439c625061d.xml",
+      "sha256": "ad92e07bc2bc53e3273347464ce960ffcb40cb4309e92dd61d606439c625061d"
+    },
+    "word/_rels/document.xml.rels": {
+      "path": "captured/parts/a8ad68c0fd91f0ee6b8ee3b130200d9979daf700d34b658543f16ad6c86281dc.rels",
+      "sha256": "a8ad68c0fd91f0ee6b8ee3b130200d9979daf700d34b658543f16ad6c86281dc"
+    },
+    "word/document.xml": {
+      "path": "captured/parts/8903837260b2206aeb7597da7293ab07d71f2f919070d05d8c9a96523e066a4f.xml",
+      "sha256": "8903837260b2206aeb7597da7293ab07d71f2f919070d05d8c9a96523e066a4f"
+    },
+    "word/fontTable.xml": {
+      "path": "captured/parts/221f0ed9bad139de36a09766bba664ad8476843d2b2e894130f5c1ebf44d7d48.xml",
+      "sha256": "221f0ed9bad139de36a09766bba664ad8476843d2b2e894130f5c1ebf44d7d48"
+    },
+    "word/footer1.xml": {
+      "path": "captured/parts/dd4662d95615f4e6b02b11ba8ca1f86f699c7e8aed26c2ab8f00f60a9fc2be37.xml",
+      "sha256": "dd4662d95615f4e6b02b11ba8ca1f86f699c7e8aed26c2ab8f00f60a9fc2be37"
+    },
+    "word/footnotes.xml": {
+      "path": "captured/parts/7d3bbdb119fec04be96616d5699d5d72c92215cea8834708833915e7706a09d5.xml",
+      "sha256": "7d3bbdb119fec04be96616d5699d5d72c92215cea8834708833915e7706a09d5"
+    },
+    "word/header1.xml": {
+      "path": "captured/parts/308f147998ef6c53445fcb674e81cae4fd2a726696b04ae1812795241db96630.xml",
+      "sha256": "308f147998ef6c53445fcb674e81cae4fd2a726696b04ae1812795241db96630"
+    },
+    "word/numbering.xml": {
+      "path": "captured/parts/0788d9ed150ad0999c2fa886aa7294ffab3333ef2f6795feb8f326d448f1db10.xml",
+      "sha256": "0788d9ed150ad0999c2fa886aa7294ffab3333ef2f6795feb8f326d448f1db10"
+    },
+    "word/settings.xml": {
+      "path": "captured/parts/fab64df4aecf6d49e2b37322a912f48fbf548f1fee7690ec909eda51a1a0d2bc.xml",
+      "sha256": "fab64df4aecf6d49e2b37322a912f48fbf548f1fee7690ec909eda51a1a0d2bc"
+    },
+    "word/styles.xml": {
+      "path": "captured/parts/e0ce22b3a9f031a0755eaa987adb7dcf3dc1f0a0da8144a5bb4cc60c0e0cb4ec.xml",
+      "sha256": "e0ce22b3a9f031a0755eaa987adb7dcf3dc1f0a0da8144a5bb4cc60c0e0cb4ec"
+    }
+  },
+  "pages": [
+    {
+      "path": "reference-1.png",
+      "sha256": "6ac5cac86a1150f274cd75caa85ab0d2e4c11613f1bdd61174180c771877f03a",
+      "maximum": 47,
+      "mean": 10.008,
+      "outliers": 0
+    },
+    {
+      "path": "reference-2.png",
+      "sha256": "0e9865154bb8eca09dcfd8561d48e49107e94c67193b161ef05058481fac26fc",
+      "maximum": 44,
+      "mean": 10.04,
+      "outliers": 0
+    },
+    {
+      "path": "reference-3.png",
+      "sha256": "d8e9843e707b5eb5a177c6f9bb06d662395964409238045d7b8081b56410ae37",
+      "maximum": 44,
+      "mean": 10.303,
+      "outliers": 0
+    },
+    {
+      "path": "reference-4.png",
+      "sha256": "d504f6bb2605da52f4fd3e5639695e610874878bcfc76ba7810ab53aeca69b5f",
+      "maximum": 44,
+      "mean": 10.26,
+      "outliers": 0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",default_size=pt(11))
+#document(page={width=pt(420),height=pt(600)},margin={top=pt(28),right=pt(28),bottom=pt(28),left=pt(28)})
+#heading(level=2,keep_with_next=true)[Objects in flow]
+#figure(alignment="center")[
+#image(src="../images/assets/pattern.png",width=pt(180),height=pt(72),crop={left="12%",right="8%"},flip_horizontal=true,rotation=15,effects={brightness=8,contrast=-6,transparency=20},border={width=pt(1.25),color="#2563eb",style="dashed"},link="https://example.com/image")
+#caption(numbering={enabled=true},position="below")[Transformed picture]
+]
+#paragraph[Following text stays below the picture and caption.]
+#chart(kind="bar",width=pt(350),height=pt(200),title="Signed results",data={categories={"North","South","West"},series={{name="Actual",values={18,-7,24}},{name="Plan",values={14,9,21}}}},legend={position="bottom"},data_labels={value=true,position="outside_end"},category_axis={title="Region"},value_axis={title="Amount"})
+#paragraph[Conclusion after the chart.]

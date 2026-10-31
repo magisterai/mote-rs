@@ -241,6 +241,10 @@ struct Planner<'planner, 'assets> {
 }
 impl Planner<'_, '_> {
     fn fill(&mut self, bounds: Rectangle, color: &str) {
+        // Zero-valued bars retain their labels but have no painted area.
+        if bounds.width == 0.0 || bounds.height == 0.0 {
+            return;
+        }
         self.page
             .operations
             .push(PageOperation::Rectangle(HighlightRectangle {

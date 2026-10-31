@@ -1,0 +1,10 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#presentation(width=pt(640),height=pt(480),theme={fonts={major="body",minor="body"},colors={accent1="#2563eb",accent2="#dc2626"}})
+#slide(background={color="#f8fafc",image="../images/assets/pattern.png",fit="contain"})[
+#shape(position={x=pt(0),y=pt(0),width=pt(640),height=pt(480)},fill="#fff",opacity=0.4,border={width=pt(1.5),color="#111827"})[]
+#box(position={x=pt(20),y=pt(30),width=pt(250),height=pt(145)})[#image(src="../images/assets/pattern.png",fit="cover",crop={left="8%",top="12%"},flip_horizontal=true,rotation=-12,border={width=pt(1),color="#be185d",style="dotted"},effects={grayscale=true,transparency=15},link="https://example.com/rotated")]
+#shape(kind="round_rect",position={x=pt(345),y=pt(30),width=pt(230),height=pt(145)},rotation=18,fill="#dbeafe",border={color="#2563eb",width=pt(2),style="dashed"},shadow={blur=pt(2),distance=pt(5),angle=45,opacity=35},text={font="body",size=pt(20),alignment="center",fit="shrink"})[Rotated shape text]
+#box(position={x=pt(0),y=pt(300),width=pt(200),height=pt(180)})[#image(src="../images/assets/pattern.png",fit="contain",rotation=10,flip_vertical=true)]
+#line(from={x=pt(0),y=pt(480)},to={x=pt(640),y=pt(0)},border={width=pt(1.25),color="#dc2626",style="dashed"},arrow={to="triangle",size="large"})
+#shape(position={x=pt(620),y=pt(460),width=pt(20),height=pt(20)},fill="#16a34a",border={width=pt(0.5),color="#14532d"})[]
+]

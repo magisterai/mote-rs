@@ -1,0 +1,630 @@
+{
+  "presentation": {
+    "properties": {
+      "footer": "Automatic layout",
+      "size": "standard",
+      "slide_number": true,
+      "theme": {
+        "fonts": {
+          "major": "body",
+          "minor": "body"
+        }
+      }
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "marker": "#"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Automatic text and tables"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text contains "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "size": {
+                  "text": "28pt",
+                  "unit": "pt",
+                  "value": 28
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "large words"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": ", H"
+            },
+            {
+              "kind": "subscript",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "O, and "
+            },
+            {
+              "kind": "highlight",
+              "category": "inline",
+              "attributes": {
+                "fill": "#fde68a"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "highlighted words"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First list item with enough content to wrap in the available frame."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "-"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A nested item with "
+                        },
+                        {
+                          "kind": "strong",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "bold"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "text",
+                          "text": " text."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second list item."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "category": "block",
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "attributes": {
+                "repeat_header": true
+              },
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Region"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "children": [
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Value"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "North"
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "12"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "South"
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "8"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "divider",
+          "category": "block"
+        },
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1,
+            "marker": "#"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Automatic pictures"
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "alt": "Source-relative picture",
+            "src": "../images/assets/pattern.png"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A paragraph follows the image and must remain inside the standard slide."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "marker": "#"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Automatic text and tables"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Text contains "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "size": {
+              "text": "28pt",
+              "unit": "pt",
+              "value": 28
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "large words"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": ", H"
+        },
+        {
+          "kind": "subscript",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "O, and "
+        },
+        {
+          "kind": "highlight",
+          "category": "inline",
+          "attributes": {
+            "fill": "#fde68a"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "highlighted words"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "marker": "-"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "First list item with enough content to wrap in the available frame."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "marker": "-"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A nested item with "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " text."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "marker": "-"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second list item."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "category": "block",
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "attributes": {
+            "repeat_header": true
+          },
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Region"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "attributes": {
+                "alignment": "right"
+              },
+              "children": [
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Value"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "North"
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "attributes": {
+                "alignment": "right"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "12"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "South"
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "attributes": {
+                "alignment": "right"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "8"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "divider",
+      "category": "block"
+    },
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1,
+        "marker": "#"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Automatic pictures"
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "alt": "Source-relative picture",
+        "src": "../images/assets/pattern.png"
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A paragraph follows the image and must remain inside the standard slide."
+        }
+      ]
+    }
+  ]
+}

@@ -40,15 +40,9 @@ pub(super) fn write_reference(
     };
     notes.push(element.clone());
     let identifier = notes.len();
-    let properties = format!(
-        r#"{}<w:vertAlign w:val="superscript"/>"#,
-        formatting.write(styles)?
-    );
-    let properties = if properties.is_empty() {
-        properties
-    } else {
-        format!("<w:rPr>{properties}</w:rPr>")
-    };
+    let mut formatting = formatting.clone();
+    formatting.superscript = true;
+    let properties = format!("<w:rPr>{}</w:rPr>", formatting.write(styles)?);
     Ok(format!(
         r#"<w:r>{properties}<w:{}Reference w:id="{identifier}"/></w:r>"#,
         element.kind.as_text()

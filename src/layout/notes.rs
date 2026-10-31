@@ -162,9 +162,12 @@ impl NoteLayout {
 fn child_flow(kind: ElementKind, inline: bool) -> (bool, bool) {
     use ElementKind::*;
     match kind {
-        Paragraph | Heading | Blockquote | Caption | ListItem => (true, true),
-        List | OrderedList | Table | Row | Cell => (false, true),
-        Strong | Emphasis | Span | Code | Link | Bookmark => (true, inline),
+        Paragraph | Heading | Blockquote | Raw | Caption | ListItem | Term | Definition => {
+            (true, true)
+        }
+        List | OrderedList | DefinitionList | Table | Row | Cell => (false, true),
+        Strong | Emphasis | Underline | Strike | Highlight | SmallCaps | Subscript
+        | Superscript | Span | Code | Link | Bookmark => (true, inline),
         _ => (false, false),
     }
 }
@@ -253,6 +256,7 @@ fn measure(
         base_line_height: Some(style.line_height),
         spacing: style.line_spacing,
         fallback_multiplier: style.line_multiplier,
+        layout_kerning: true,
         ..Default::default()
     };
     let mut lines = super::plan_text(&runs, &options, measurer)?;

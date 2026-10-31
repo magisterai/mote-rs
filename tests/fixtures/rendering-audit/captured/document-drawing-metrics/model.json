@@ -1,0 +1,620 @@
+{
+  "document": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    },
+    "margin": {
+      "bottom": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "left": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "right": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "top": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      }
+    },
+    "page": {
+      "height": {
+        "text": "500pt",
+        "unit": "pt",
+        "value": 500
+      },
+      "width": {
+        "text": "500pt",
+        "unit": "pt",
+        "value": 500
+      }
+    }
+  },
+  "defaults": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    }
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "500pt",
+        "unit": "pt",
+        "value": 500
+      },
+      "width": {
+        "text": "500pt",
+        "unit": "pt",
+        "value": 500
+      }
+    }
+  },
+  "margin": {
+    "top": {
+      "text": "30pt",
+      "unit": "pt",
+      "value": 30
+    },
+    "right": {
+      "text": "30pt",
+      "unit": "pt",
+      "value": 30
+    },
+    "bottom": {
+      "text": "30pt",
+      "unit": "pt",
+      "value": 30
+    },
+    "left": {
+      "text": "30pt",
+      "unit": "pt",
+      "value": 30
+    },
+    "properties": {
+      "bottom": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "left": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "right": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      },
+      "top": {
+        "text": "30pt",
+        "unit": "pt",
+        "value": 30
+      }
+    }
+  },
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    },
+    {
+      "name": "mono",
+      "latin": "Courier New",
+      "properties": {
+        "latin": "Courier New",
+        "word_line_height": 1.6
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "500pt",
+            "unit": "pt",
+            "value": 500
+          },
+          "width": {
+            "text": "500pt",
+            "unit": "pt",
+            "value": 500
+          }
+        }
+      },
+      "margin": {
+        "top": {
+          "text": "30pt",
+          "unit": "pt",
+          "value": 30
+        },
+        "right": {
+          "text": "30pt",
+          "unit": "pt",
+          "value": 30
+        },
+        "bottom": {
+          "text": "30pt",
+          "unit": "pt",
+          "value": 30
+        },
+        "left": {
+          "text": "30pt",
+          "unit": "pt",
+          "value": 30
+        },
+        "properties": {
+          "bottom": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          },
+          "left": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          },
+          "right": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          },
+          "top": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Shape text uses drawing line spacing within a document."
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#eff6ff",
+            "position": {
+              "height": {
+                "text": "180pt",
+                "unit": "pt",
+                "value": 180
+              },
+              "width": {
+                "text": "210pt",
+                "unit": "pt",
+                "value": 210
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "90pt",
+                "unit": "pt",
+                "value": 90
+              }
+            },
+            "text": {
+              "font": "mono",
+              "margin": {
+                "all": {
+                  "text": "8pt",
+                  "unit": "pt",
+                  "value": 8
+                }
+              },
+              "size": {
+                "text": "17pt",
+                "unit": "pt",
+                "value": 17
+              },
+              "vertical_alignment": "bottom"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Monospace lines wrap inside the shape and align at the bottom."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#dcfce7",
+            "position": {
+              "height": {
+                "text": "180pt",
+                "unit": "pt",
+                "value": 180
+              },
+              "width": {
+                "text": "210pt",
+                "unit": "pt",
+                "value": 210
+              },
+              "x": {
+                "text": "260pt",
+                "unit": "pt",
+                "value": 260
+              },
+              "y": {
+                "text": "90pt",
+                "unit": "pt",
+                "value": 90
+              }
+            },
+            "text": {
+              "fit": "shrink",
+              "font": "body",
+              "margin": {
+                "all": {
+                  "text": "8pt",
+                  "unit": "pt",
+                  "value": 8
+                }
+              },
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Inline "
+                },
+                {
+                  "kind": "code",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "code words wrap onto several lines"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " within ordinary text."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "fill": "#fef3c7",
+            "position": {
+              "height": {
+                "text": "160pt",
+                "unit": "pt",
+                "value": 160
+              },
+              "width": {
+                "text": "440pt",
+                "unit": "pt",
+                "value": 440
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              }
+            },
+            "text": {
+              "font": "mono",
+              "margin": {
+                "all": {
+                  "text": "8pt",
+                  "unit": "pt",
+                  "value": 8
+                }
+              },
+              "paragraph": {
+                "spacing": {
+                  "line": {
+                    "rule": "exact",
+                    "value": {
+                      "text": "24pt",
+                      "unit": "pt",
+                      "value": 24
+                    }
+                  }
+                }
+              },
+              "size": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18
+              },
+              "vertical_alignment": "center"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Explicit line spacing remains fixed when the font declares a document line-height calibration."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Shape text uses drawing line spacing within a document."
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#eff6ff",
+        "position": {
+          "height": {
+            "text": "180pt",
+            "unit": "pt",
+            "value": 180
+          },
+          "width": {
+            "text": "210pt",
+            "unit": "pt",
+            "value": 210
+          },
+          "x": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          },
+          "y": {
+            "text": "90pt",
+            "unit": "pt",
+            "value": 90
+          }
+        },
+        "text": {
+          "font": "mono",
+          "margin": {
+            "all": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8
+            }
+          },
+          "size": {
+            "text": "17pt",
+            "unit": "pt",
+            "value": 17
+          },
+          "vertical_alignment": "bottom"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Monospace lines wrap inside the shape and align at the bottom."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#dcfce7",
+        "position": {
+          "height": {
+            "text": "180pt",
+            "unit": "pt",
+            "value": 180
+          },
+          "width": {
+            "text": "210pt",
+            "unit": "pt",
+            "value": 210
+          },
+          "x": {
+            "text": "260pt",
+            "unit": "pt",
+            "value": 260
+          },
+          "y": {
+            "text": "90pt",
+            "unit": "pt",
+            "value": 90
+          }
+        },
+        "text": {
+          "fit": "shrink",
+          "font": "body",
+          "margin": {
+            "all": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8
+            }
+          },
+          "size": {
+            "text": "20pt",
+            "unit": "pt",
+            "value": 20
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Inline "
+            },
+            {
+              "kind": "code",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "code words wrap onto several lines"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " within ordinary text."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "shape",
+      "category": "block",
+      "attributes": {
+        "fill": "#fef3c7",
+        "position": {
+          "height": {
+            "text": "160pt",
+            "unit": "pt",
+            "value": 160
+          },
+          "width": {
+            "text": "440pt",
+            "unit": "pt",
+            "value": 440
+          },
+          "x": {
+            "text": "30pt",
+            "unit": "pt",
+            "value": 30
+          },
+          "y": {
+            "text": "300pt",
+            "unit": "pt",
+            "value": 300
+          }
+        },
+        "text": {
+          "font": "mono",
+          "margin": {
+            "all": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8
+            }
+          },
+          "paragraph": {
+            "spacing": {
+              "line": {
+                "rule": "exact",
+                "value": {
+                  "text": "24pt",
+                  "unit": "pt",
+                  "value": 24
+                }
+              }
+            }
+          },
+          "size": {
+            "text": "18pt",
+            "unit": "pt",
+            "value": 18
+          },
+          "vertical_alignment": "center"
+        }
+      },
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Explicit line spacing remains fixed when the font declares a document line-height calibration."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

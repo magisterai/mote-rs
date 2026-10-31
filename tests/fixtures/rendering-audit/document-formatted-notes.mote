@@ -1,0 +1,10 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",default_size=pt(11),page={width=pt(420),height=pt(560)},margin={top=pt(30),right=pt(30),bottom=pt(30),left=pt(30)})
+#paragraph[Notes remain attached through semantic formatting wrappers.]
+#paragraph[Before #underline[wrapped text#footnote[Note 1: AVATAR takes space with measured kerning.]] after.]
+#paragraph[Before #strike[wrapped text#footnote[Note 2: AVATAR takes space with measured kerning.]] after.]
+#paragraph[Before #highlight(fill="#fef08a")[wrapped text#footnote[Note 3: AVATAR takes space with measured kerning.]] after.]
+#paragraph[Before #small_caps[wrapped text#footnote[Note 4: AVATAR takes space with measured kerning.]] after.]
+#paragraph[Before #subscript[wrapped text#footnote[Note 5: AVATAR takes space with measured kerning.]] after.]
+#paragraph[Before #superscript[wrapped text#footnote[Note 6: AVATAR takes space with measured kerning.]] after.]
+#definition_list[#term[Term#footnote[A term note remains in the page note band.]]#definition[Definition#endnote[An endnote follows the document body.]]]

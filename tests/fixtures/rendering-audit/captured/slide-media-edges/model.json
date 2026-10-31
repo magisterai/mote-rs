@@ -1,0 +1,692 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb",
+          "accent2": "#dc2626"
+        },
+        "fonts": {
+          "major": "body",
+          "minor": "body"
+        }
+      },
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      }
+    },
+    "size": {
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      },
+      "height": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "properties": {
+        "height": {
+          "text": "480pt",
+          "unit": "pt",
+          "value": 480
+        },
+        "width": {
+          "text": "640pt",
+          "unit": "pt",
+          "value": 640
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "background": {
+              "color": "#f8fafc",
+              "fit": "contain",
+              "image": "../images/assets/pattern.png"
+            }
+          },
+          "children": [
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#111827",
+                  "width": {
+                    "text": "1.5pt",
+                    "unit": "pt",
+                    "value": 1.5
+                  }
+                },
+                "fill": "#ffffff",
+                "opacity": "0.4",
+                "position": {
+                  "height": {
+                    "text": "480pt",
+                    "unit": "pt",
+                    "value": 480
+                  },
+                  "width": {
+                    "text": "640pt",
+                    "unit": "pt",
+                    "value": 640
+                  },
+                  "x": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "145pt",
+                    "unit": "pt",
+                    "value": 145
+                  },
+                  "width": {
+                    "text": "250pt",
+                    "unit": "pt",
+                    "value": 250
+                  },
+                  "x": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "border": {
+                      "color": "#be185d",
+                      "style": "dotted",
+                      "width": {
+                        "text": "1pt",
+                        "unit": "pt",
+                        "value": 1
+                      }
+                    },
+                    "crop": {
+                      "left": "8",
+                      "top": "12"
+                    },
+                    "effects": {
+                      "grayscale": true,
+                      "transparency": "15"
+                    },
+                    "fit": "cover",
+                    "flip_horizontal": true,
+                    "link": "https://example.com/rotated",
+                    "rotation": "-12",
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#2563eb",
+                  "style": "dashed",
+                  "width": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  }
+                },
+                "fill": "#dbeafe",
+                "kind": "round_rect",
+                "position": {
+                  "height": {
+                    "text": "145pt",
+                    "unit": "pt",
+                    "value": 145
+                  },
+                  "width": {
+                    "text": "230pt",
+                    "unit": "pt",
+                    "value": 230
+                  },
+                  "x": {
+                    "text": "345pt",
+                    "unit": "pt",
+                    "value": 345
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "rotation": "18",
+                "shadow": {
+                  "angle": "45",
+                  "blur": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  },
+                  "distance": {
+                    "text": "5pt",
+                    "unit": "pt",
+                    "value": 5
+                  },
+                  "opacity": "35"
+                },
+                "text": {
+                  "alignment": "center",
+                  "fit": "shrink",
+                  "font": "body",
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Rotated shape text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "180pt",
+                    "unit": "pt",
+                    "value": 180
+                  },
+                  "width": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  },
+                  "x": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "fit": "contain",
+                    "flip_vertical": true,
+                    "rotation": "10",
+                    "src": "../images/assets/pattern.png"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "line",
+              "category": "block",
+              "attributes": {
+                "arrow": {
+                  "end": "triangle",
+                  "size": "lg"
+                },
+                "border": {
+                  "color": "#dc2626",
+                  "style": "dashed",
+                  "width": {
+                    "text": "1.25pt",
+                    "unit": "pt",
+                    "value": 1.25
+                  }
+                },
+                "from": {
+                  "x": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "y": {
+                    "text": "480pt",
+                    "unit": "pt",
+                    "value": 480
+                  }
+                },
+                "to": {
+                  "x": {
+                    "text": "640pt",
+                    "unit": "pt",
+                    "value": 640
+                  },
+                  "y": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#14532d",
+                  "width": {
+                    "text": "0.5pt",
+                    "unit": "pt",
+                    "value": 0.5
+                  }
+                },
+                "fill": "#16a34a",
+                "position": {
+                  "height": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "width": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "x": {
+                    "text": "620pt",
+                    "unit": "pt",
+                    "value": 620
+                  },
+                  "y": {
+                    "text": "460pt",
+                    "unit": "pt",
+                    "value": 460
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "background": {
+          "color": "#f8fafc",
+          "fit": "contain",
+          "image": "../images/assets/pattern.png"
+        }
+      },
+      "children": [
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#111827",
+              "width": {
+                "text": "1.5pt",
+                "unit": "pt",
+                "value": 1.5
+              }
+            },
+            "fill": "#ffffff",
+            "opacity": "0.4",
+            "position": {
+              "height": {
+                "text": "480pt",
+                "unit": "pt",
+                "value": 480
+              },
+              "width": {
+                "text": "640pt",
+                "unit": "pt",
+                "value": 640
+              },
+              "x": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "y": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              }
+            }
+          }
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "145pt",
+                "unit": "pt",
+                "value": 145
+              },
+              "width": {
+                "text": "250pt",
+                "unit": "pt",
+                "value": 250
+              },
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#be185d",
+                  "style": "dotted",
+                  "width": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1
+                  }
+                },
+                "crop": {
+                  "left": "8",
+                  "top": "12"
+                },
+                "effects": {
+                  "grayscale": true,
+                  "transparency": "15"
+                },
+                "fit": "cover",
+                "flip_horizontal": true,
+                "link": "https://example.com/rotated",
+                "rotation": "-12",
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#2563eb",
+              "style": "dashed",
+              "width": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              }
+            },
+            "fill": "#dbeafe",
+            "kind": "round_rect",
+            "position": {
+              "height": {
+                "text": "145pt",
+                "unit": "pt",
+                "value": 145
+              },
+              "width": {
+                "text": "230pt",
+                "unit": "pt",
+                "value": 230
+              },
+              "x": {
+                "text": "345pt",
+                "unit": "pt",
+                "value": 345
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "rotation": "18",
+            "shadow": {
+              "angle": "45",
+              "blur": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              },
+              "distance": {
+                "text": "5pt",
+                "unit": "pt",
+                "value": 5
+              },
+              "opacity": "35"
+            },
+            "text": {
+              "alignment": "center",
+              "fit": "shrink",
+              "font": "body",
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Rotated shape text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "180pt",
+                "unit": "pt",
+                "value": 180
+              },
+              "width": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              },
+              "x": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "y": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "fit": "contain",
+                "flip_vertical": true,
+                "rotation": "10",
+                "src": "../images/assets/pattern.png"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "triangle",
+              "size": "lg"
+            },
+            "border": {
+              "color": "#dc2626",
+              "style": "dashed",
+              "width": {
+                "text": "1.25pt",
+                "unit": "pt",
+                "value": 1.25
+              }
+            },
+            "from": {
+              "x": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "y": {
+                "text": "480pt",
+                "unit": "pt",
+                "value": 480
+              }
+            },
+            "to": {
+              "x": {
+                "text": "640pt",
+                "unit": "pt",
+                "value": 640
+              },
+              "y": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              }
+            }
+          }
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#14532d",
+              "width": {
+                "text": "0.5pt",
+                "unit": "pt",
+                "value": 0.5
+              }
+            },
+            "fill": "#16a34a",
+            "position": {
+              "height": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "width": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "x": {
+                "text": "620pt",
+                "unit": "pt",
+                "value": 620
+              },
+              "y": {
+                "text": "460pt",
+                "unit": "pt",
+                "value": 460
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

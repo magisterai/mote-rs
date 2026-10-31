@@ -1,0 +1,8 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#presentation(width=pt(640),height=pt(480),theme={fonts={major="body",minor="body"},colors={accent1="#2563eb",accent2="#dc2626"}})
+#slide(background="#f8fafc")[
+#box(position={x=pt(12),y=pt(18),width=pt(300),height=pt(210)})[#chart(kind="percent_stacked_bar",title="Signed percentages",data={categories={"Long category A","Long category B","Zero"},series={{name="First series",values={12,-8,0}},{name="Second series",values={6,-4,0}}}},legend={position="bottom"},data_labels={show_value=true,position="center"},axis={category={title="Category"},value={title="Share"}})]
+#box(position={x=pt(328),y=pt(18),width=pt(300),height=pt(210)})[#chart(kind="doughnut",title="Distribution",data={categories={"North","South","West"},series={{name="Regions",values={12,8,5}}}},legend={position="right"},data_labels={show_category_name=true,show_percent=true,position="outside_end"})]
+#box(position={x=pt(12),y=pt(248),width=pt(300),height=pt(215)})[#chart(kind="line",title="Crossing zero",data={categories={"One","Two","Three"},series={{name="Trend",values={-10,0,16}}}},data_labels={show_value=true,position="top"},legend=false)]
+#box(position={x=pt(328),y=pt(248),width=pt(300),height=pt(215)})[#chart(kind="stacked_area",title="Area totals",data={categories={"One","Two","Three"},series={{name="Base",values={8,12,6}},{name="Added",values={4,3,5}}}},legend={position="top"})]
+]

@@ -1,0 +1,19 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#presentation(width=pt(640),height=pt(480),theme={fonts={major="body",minor="body"},colors={accent1="#2563eb",accent2="#dc2626"}})
+#slide[
+#box(position={x=pt(20),y=pt(18),width=pt(290),height=pt(195)},fill="#eff6ff",text={font="body",size=pt(20),fit="shrink",margin={all=pt(8)},paragraph={spacing={after=pt(8)}}})[
+#paragraph[Mixed #span(size=pt(30))[large] text, H#subscript[2]O and x#superscript[2].]
+#paragraph[#underline(style="double",color="#7c3aed")[An underlined phrase] alongside #highlight(fill="#fde68a")[highlighted words] that wrap naturally.]
+#ordered_list(start=98)[#item[Wide numbered marker]#item[Another marker]]
+]
+#box(position={x=pt(330),y=pt(18),width=pt(290),height=pt(195)},border={color="#dc2626",width=pt(0.75)},text={font="body",size=pt(18),fit="clip",vertical_alignment="bottom",margin={all=pt(6)}})[
+#paragraph(alignment="center",spacing={line={rule="exact",value=pt(25)}})[Café, naïve façade. #span(size=pt(26))[A larger run] and #small_caps[Small capitals].]
+#paragraph[#span(font="Courier",size=pt(14))[LONG_TOKEN_WITHOUT_BREAKS_012345678901234567890123456789]]
+]
+#shape(kind="diamond",position={x=pt(40),y=pt(250),width=pt(240),height=pt(185)},fill="#dcfce7",rotation=12,text={font="body",size=pt(22),fit="shrink",alignment="center",vertical_alignment="center",margin={all=pt(5)}})[#paragraph[Text inside a rotated diamond with #superscript[script] and several wrapping words.]]
+#box(position={x=pt(335),y=pt(245),width=pt(280),height=pt(175)},text={font="body",size=pt(17),fit="resize"})[
+#definition_list[#term[Definition]#definition[Body text with a #link("https://example.com")[link] and #strike[removed words].]]
+#raw(preserve_space=true)[one   two
+three	four]
+]
+]

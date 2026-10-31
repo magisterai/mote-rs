@@ -1,0 +1,17 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#presentation(width=pt(640),height=pt(480),theme={fonts={major="body",minor="body"},colors={accent1="#2563eb",accent2="#dc2626"}})
+#layout(name="review",based_on="blank",background="#f8fafc",footer="Layout review",slide_number=true)[
+#box(slot="title",kind="text",required=true,position={x=pt(20),y=pt(15),width=pt(600),height=pt(60)},text={font="body",size=pt(28),fit="shrink",margin={left=pt(8),right=pt(8)}})
+#box(slot="body",kind="content",position={x=pt(20),y=pt(95),width=pt(310),height=pt(320)},text={font="body",size=pt(18),fit="shrink"})
+#box(slot="picture",kind="image",position={x=pt(360),y=pt(100),width=pt(260),height=pt(280)},fit="contain")
+]
+#slide(layout="review")[
+#box(slot="picture")[#image(src="../images/assets/pattern.png",border={width=pt(1),color="#2563eb"})]
+#box(slot="body")[#paragraph[Named slots preserve layout order despite authored order.]#list[#item[First item with #strong[emphasis].]#item[Second item with a long line of text that wraps naturally.]]#paragraph[H#subscript[2]O and x#superscript[2].]]
+#box(slot="title")[A long title fits the inherited title frame]
+]
+#slide(layout="review",footer=false,slide_number=false)[
+#box(slot="title",text={alignment="right"})[Local overrides]
+#box(slot="body",text={size=pt(22),margin={all=pt(12)}})[#paragraph[Local margins and type size change wrapping inside the inherited frame.]]
+#box(slot="picture")[#image(src="../images/assets/pattern.png",rotation=90)]
+]

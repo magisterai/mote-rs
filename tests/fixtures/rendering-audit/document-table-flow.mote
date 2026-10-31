@@ -1,0 +1,15 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",default_size=pt(11))
+#document(page={width=pt(370),height=pt(320)},margin={top=pt(32),right=pt(24),bottom=pt(32),left=pt(24)})
+#footer(distance=pt(10))[Table page #page_number() of #page_number(kind="total")]
+#paragraph[Table rows follow natural page flow.]
+#table(width=pt(322),cell={margin={top=pt(5),bottom=pt(5),left=pt(6),right=pt(6)}},borders={top={width=pt(1),color="#334155"},bottom={width=pt(1),color="#334155"},inside_h={width=pt(0.5),color="#94a3b8"},inside_v={width=pt(0.75),color="#64748b"}})[
+#row(repeat_header=true)[#cell(fill="#dbeafe")[Group]#cell(fill="#dbeafe")[Details]]
+#row[#cell(rowspan=4,vertical_alignment="center",fill="#f0fdf4")[Merged group]#cell[#paragraph[First row with two paragraphs.]#paragraph[#underline[Underlined] second paragraph and H#subscript[2]O.]]]
+#row[#cell[A longer second row wraps naturally. It has enough prose to span multiple lines, exposing how merged borders follow a row fragment and the available body height.]]
+#row[#cell[#list[#item[First list item with detail.]#item[Second list item with detail.]]]]
+#row[#cell[Last row in the merged group. A few more words demonstrate the physical boundary of the merged cell.]]
+#row[#cell(colspan=2)[#table[#row[#cell[Nested left]#cell[Nested right]]#row[#cell[Second]#cell[Row]]]]]
+#row[#cell[Next group]#cell[Final row after the nested table.]]
+]
+#paragraph[Text after the table.]

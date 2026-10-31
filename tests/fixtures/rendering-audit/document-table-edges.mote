@@ -1,0 +1,12 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",default_size=pt(11))
+#document(page={width=pt(400),height=pt(430)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#style(name="Grid",type="table",table={cell={margin={all=pt(6)},fill="#f8fafc"},first_row={fill="#dbeafe",bold=true},last_row={fill="#dcfce7"},banded_rows={fill="#fff7ed"}})
+#table(style="Grid",width=pt(340),alignment="center",borders={top={width=pt(2.25),color="#111827"},bottom={width=pt(1.25),color="#111827"},left={width=pt(1.5),color="#111827"},right={width=pt(0.75),color="#111827"},inside_h={width=pt(0.5),color="#64748b"},inside_v={width=pt(0.5),color="#64748b"}})[
+#row[#cell[First]#cell[Second]#cell[Third]]
+#row[#cell(rowspan=2,borders={right={width=pt(2),color="#dc2626"}},fill="#fef2f2")[Merged]#cell(borders={left={width=pt(1),color="#2563eb"},bottom="none"})[Thin conflict]#cell[Right]]
+#row[#cell(borders={top={width=pt(1.5),color="#16a34a"}},colspan=2)[Visible edge beside explicit none]]
+#row[#cell[Bottom left]#cell[Bottom middle]#cell[Bottom right]]
+]
+#paragraph[Separate borderless table.]
+#table(borders={top="none",bottom="none",left="none",right="none",inside_h="none",inside_v="none"})[#row[#cell[One]#cell[Two]]]

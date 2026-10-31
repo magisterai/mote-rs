@@ -1,0 +1,18 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",default_size=pt(11))
+#document(page={width=pt(340),height=pt(300)},margin={top=pt(45),right=pt(22),bottom=pt(45),left=pt(22),header=pt(12),footer=pt(12)})
+#header[#paragraph(alignment="right")[#small_caps[Review] / #page_number(kind="total") pages]]
+#footer[#paragraph(alignment="center")[Page #page_number() of #page_number(kind="total")]]
+#heading(level=1,keep_with_next=true)[Natural flow]
+#paragraph[Opening text with a footnote#footnote[This note takes space below the body and keeps its marker with the reference.] and an eventual #ref("finish",display="page").]
+#paragraph(keep_with_next=true,keep_together=false,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 1. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#paragraph(keep_with_next=false,keep_together=false,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 2. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#paragraph(keep_with_next=false,keep_together=false,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 3. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#paragraph(keep_with_next=true,keep_together=true,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 4. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#paragraph(keep_with_next=false,keep_together=false,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 5. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#paragraph(keep_with_next=false,keep_together=false,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 6. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#paragraph(keep_with_next=true,keep_together=false,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 7. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#paragraph(keep_with_next=false,keep_together=true,widow_control=true,spacing={before=pt(3),after=pt(7)})[Paragraph 8. Representative prose spans several lines so that heading chains, paragraph keeps and widow control affect natural page boundaries. #span(size=pt(13))[Measured text] stays within the body frame.]
+#label("finish",title="Conclusion")
+#heading(level=2,keep_with_next=true)[Conclusion]
+#paragraph[The final paragraph follows the heading and keeps the page count stable.]

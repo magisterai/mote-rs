@@ -1,0 +1,23 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",default_size=pt(11))
+#document(page={width=pt(380),height=pt(340)},margin={top=pt(40),bottom=pt(40),left=pt(24),right=pt(24)})
+#header(distance=pt(12))[Shared report header]
+#footer(distance=pt(12))[Page #page_number() of #page_number(kind="total")]
+#paragraph[Opening full-width introduction.]
+#section(properties={start="continuous"},columns={count=2,gap=pt(20),separator=true})[
+#paragraph[Column paragraph 1: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 2: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 3: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 4: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 5: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 6: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 7: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 8: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Column paragraph 9: text fills the available width naturally and keeps its spacing through the change of column.]
+#paragraph[Final text before column balancing.]
+]
+#paragraph[Full-width conclusion follows the balanced columns.]
+#section(properties={start="continuous"},margin={left=pt(48),right=pt(36)})[
+#header[Changed header]
+#paragraph[The next continuous section changes its horizontal frame without changing the page size.]
+]

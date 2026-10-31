@@ -1,0 +1,12 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",default_size=pt(11))
+#document(page={width=pt(360),height=pt(500)},margin={top=pt(24),right=pt(24),bottom=pt(24),left=pt(24)})
+#style(name="Accent",type="character",color="#7c3aed",bold=true)
+#heading(level=2,numbering={enabled=true},keep_with_next=true)[Text metrics and wrapping]
+#paragraph(alignment="justify",indent={left=pt(8),right=pt(12),first_line=pt(14)},spacing={before=pt(4),after=pt(9),line={rule="at_least",value=pt(18)}})[A café, naïve façade, and a coöperative résumé. #span(size=pt(19),style="Accent")[Larger text] beside ordinary words, H#subscript[2]O, x#superscript[2] and #small_caps[Small Capitals]. Wrapping must preserve the measured baseline and the requested indentation across several lines.]
+#paragraph(spacing={line={rule="exact",value=pt(22)}},fill="#eff6ff",border={bottom={color="#2563eb",width=pt(1)}})[#highlight(fill="#fde68a")[A highlighted #span(size=pt(17))[mixed-size] phrase] with #underline(style="dashed",color="#be185d")[wrapping underlined words that continue towards the edge of the paragraph] and #strike(kind="double")[removed text].]
+#paragraph(alignment="right",tabs={{position=pt(150),alignment="right",leader="dot"}})[Left#tab()Right]
+#paragraph(keep_together=true,spacing_before=pt(12))[#span(font="Courier",size=pt(10))[TOKEN_WITHOUT_NORMAL_BREAKS_01234567890123456789012345678901234567890123456789] followed by ordinary text.]
+#raw(preserve_space=true)[first	second
+third   fourth]
+#definition_list[#term[Term]#definition[A definition with #emphasis[emphasis] and #link("https://example.com")[a link].]]
