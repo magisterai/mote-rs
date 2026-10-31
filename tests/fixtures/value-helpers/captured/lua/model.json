@@ -1,0 +1,88 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "CAFÉ STRAßE ᾈ"
+            },
+            {
+              "kind": "text",
+              "text": "iσ"
+            },
+            {
+              "kind": "text",
+              "text": "EUR 1,234.50"
+            },
+            {
+              "kind": "text",
+              "text": "2in"
+            },
+            {
+              "kind": "text",
+              "text": "2024-02-29"
+            },
+            {
+              "kind": "text",
+              "text": "café"
+            },
+            {
+              "kind": "text",
+              "text": "2024-02-29"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "CAFÉ STRAßE ᾈ"
+        },
+        {
+          "kind": "text",
+          "text": "iσ"
+        },
+        {
+          "kind": "text",
+          "text": "EUR 1,234.50"
+        },
+        {
+          "kind": "text",
+          "text": "2in"
+        },
+        {
+          "kind": "text",
+          "text": "2024-02-29"
+        },
+        {
+          "kind": "text",
+          "text": "café"
+        },
+        {
+          "kind": "text",
+          "text": "2024-02-29"
+        }
+      ]
+    }
+  ]
+}

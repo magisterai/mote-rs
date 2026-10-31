@@ -1,0 +1,232 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "CAFÉ STRAßE ᾈ"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "istanbul σ café"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "$1,234,567.12"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "-EUR 42.50"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "GBP 0.01"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "$-0.00"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "12.5pt"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "2in"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "3cm"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "4mm"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "20twip"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "2024-02-29"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "2000-01-01"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "CAFÉ STRAßE ᾈ"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "istanbul σ café"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "$1,234,567.12"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "-EUR 42.50"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "GBP 0.01"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "$-0.00"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "12.5pt"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "2in"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "3cm"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "4mm"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "20twip"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "2024-02-29"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "2000-01-01"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+#function values()
+local saved = date("2024-02-29")
+return {upper("café Straße ᾀ"), lower("İΣ"), format_money(1234.5, "eur"), length(2,"in"), date(saved), document.lower("CAFÉ"), document.date(saved)}
+end
+#values()

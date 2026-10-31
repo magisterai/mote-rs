@@ -57,3 +57,5 @@ pub fn compile_with_options(
 
 pub mod pptx;
 mod presentation;
+
+mod casing;

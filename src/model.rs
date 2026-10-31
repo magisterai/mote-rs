@@ -13,6 +13,7 @@ pub enum Value {
     Object(Properties),
     Array(Vec<Value>),
     Color(String),
+    Date(String),
     Length { value: f64, unit: Unit },
     Content(Vec<Content>),
     Element(Box<Element>),
@@ -22,7 +23,7 @@ impl Value {
     /// Textual representation used when a property explicitly requests coercion.
     pub fn to_text(&self) -> String {
         match self {
-            Self::String(text) | Self::Color(text) => text.clone(),
+            Self::String(text) | Self::Color(text) | Self::Date(text) => text.clone(),
             Self::Number(number) => number.to_string(),
             Self::Boolean(boolean) => boolean.to_string(),
             Self::Nil => String::new(),

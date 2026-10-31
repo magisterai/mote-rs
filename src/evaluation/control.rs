@@ -75,7 +75,7 @@ fn is_truthy(value: &Value) -> bool {
         Value::Content(content) => !content.is_empty(),
         Value::Element(_) => true,
         Value::Boolean(value) => *value,
-        Value::String(value) | Value::Color(value) => !value.is_empty(),
+        Value::String(value) | Value::Color(value) | Value::Date(value) => !value.is_empty(),
         Value::Number(value) | Value::Length { value, .. } => *value != 0.0,
         Value::Array(values) => !values.is_empty(),
         Value::Object(fields) => !fields.is_empty(),

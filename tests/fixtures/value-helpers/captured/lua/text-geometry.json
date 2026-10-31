@@ -1,0 +1,72 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 72,
+        "top": 72,
+        "height": 15.225539999999999,
+        "width": 310.58500000000004,
+        "baseline": 82.91277,
+        "fragments": [
+          {
+            "text": "CAF\u00c9 ",
+            "x": 72,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 32.395,
+            "height": 10.175,
+            "advance": 32.395,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "STRA\u00dfE ",
+            "x": 104.39500000000001,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 46.453,
+            "height": 10.175,
+            "advance": 46.453,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "?i?EUR ",
+            "x": 150.848,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 40.953,
+            "height": 10.175,
+            "advance": 40.953,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": [
+              8072,
+              963
+            ]
+          },
+          {
+            "text": "1,234.502in2024-02-29caf\u00e92024-02-29",
+            "x": 191.80100000000002,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 190.784,
+            "height": 10.175,
+            "advance": 190.784,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

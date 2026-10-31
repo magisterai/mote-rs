@@ -186,7 +186,7 @@ fn number_as_json(number: f64) -> Result<JsonValue, serde_json::Error> {
 
 fn value_as_json(value: &Value) -> Result<JsonValue, serde_json::Error> {
     Ok(match value {
-        Value::String(text) => JsonValue::String(text.clone()),
+        Value::String(text) | Value::Date(text) => JsonValue::String(text.clone()),
         Value::Number(number) => number_as_json(*number)?,
         Value::Boolean(boolean) => JsonValue::Bool(*boolean),
         Value::Nil => JsonValue::Null,

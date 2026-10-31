@@ -134,6 +134,23 @@ fn evaluate_helper_arguments(
         let arguments = evaluate_arguments(arguments, state)?;
         return super::data::evaluate(name, arguments, span, state);
     }
+    if matches!(name, "upper" | "lower" | "format_money" | "length" | "date") {
+        let mut evaluated = EvaluatedArguments::default();
+        for argument in arguments {
+            let value = if static_arguments {
+                evaluate_static_expression(&argument.value, state)?
+            } else {
+                evaluate_expression(&argument.value, state)?
+            };
+            let value = EvaluatedArgument::new(value, argument.value.span);
+            if let Some(name) = &argument.name {
+                evaluated.named.insert(name.clone(), value);
+            } else {
+                evaluated.positional.push(value);
+            }
+        }
+        return super::helpers::evaluate(name, evaluated, span);
+    }
     let unit = Unit::from_name(name);
     if unit.is_none() && !matches!(name, "upper" | "color" | "json") {
         return Err(Diagnostic::new(span, format!("unsupported helper: {name}")));
@@ -180,14 +197,14 @@ pub(super) fn evaluate_helper_value(
             unit,
         });
     }
-    let text = value_as_text(&value, span)?;
-    if !text.is_ascii() {
-        return Err(Diagnostic::new(
-            span,
-            "upper currently supports ASCII text only",
-        ));
-    }
-    Ok(Value::String(text.to_ascii_uppercase()))
+    super::helpers::evaluate(
+        name,
+        EvaluatedArguments {
+            positional: vec![EvaluatedArgument::new(value, span)],
+            named: Default::default(),
+        },
+        span,
+    )
 }
 
 pub(super) fn value_as_text(value: &Value, span: Span) -> Result<String, Diagnostic> {

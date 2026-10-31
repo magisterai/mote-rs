@@ -16,6 +16,7 @@ mod defaults;
 mod drawings;
 mod expressions;
 mod functions;
+mod helpers;
 mod images;
 mod imports;
 mod notes;

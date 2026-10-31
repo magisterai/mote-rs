@@ -57,6 +57,12 @@ pub(super) fn to_lua(lua: &Lua, value: &Value) -> mlua::Result<LuaValue> {
             table.raw_set("unit", unit.as_text())?;
             LuaValue::Table(table)
         }
+        Value::Date(value) => {
+            let table = lua.create_table()?;
+            table.raw_set("__mote_kind", "date")?;
+            table.raw_set("value", value.as_str())?;
+            LuaValue::Table(table)
+        }
         Value::Color(value) => {
             let table = lua.create_table()?;
             table.raw_set("__mote_kind", "color")?;
@@ -144,6 +150,7 @@ fn convert(value: LuaValue, depth: usize) -> mlua::Result<Value> {
                         })?,
                     });
                 }
+                Some("date") => return Ok(Value::Date(table.raw_get("value")?)),
                 Some("color") => return Ok(Value::Color(table.raw_get("hex")?)),
                 _ => {}
             }

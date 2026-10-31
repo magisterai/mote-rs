@@ -1,0 +1,290 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 72,
+        "top": 72,
+        "height": 15.225539999999999,
+        "width": 453.068,
+        "baseline": 82.91277,
+        "fragments": [
+          {
+            "text": "CAF\u00c9 ",
+            "x": 72,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 32.395,
+            "height": 10.175,
+            "advance": 32.395,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "STRA\u00dfE ",
+            "x": 104.39500000000001,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 46.453,
+            "height": 10.175,
+            "advance": 46.453,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "? ",
+            "x": 150.848,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 9.174,
+            "height": 10.175,
+            "advance": 9.174,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": [
+              8072
+            ]
+          },
+          {
+            "text": "istanbul ",
+            "x": 160.02200000000002,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 40.964,
+            "height": 10.175,
+            "advance": 40.964,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "? ",
+            "x": 200.98600000000002,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 9.174,
+            "height": 10.175,
+            "advance": 9.174,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": [
+              963
+            ]
+          },
+          {
+            "text": "caf\u00e9 ",
+            "x": 210.16000000000003,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 23.848,
+            "height": 10.175,
+            "advance": 23.848,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "$1,234,567.12 ",
+            "x": 234.00800000000004,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 73.392,
+            "height": 10.175,
+            "advance": 73.392,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "-",
+            "x": 307.40000000000003,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 3.663,
+            "height": 10.175,
+            "advance": 3.663,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "EUR ",
+            "x": 311.06300000000005,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 26.279,
+            "height": 10.175,
+            "advance": 26.279,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "42.50 ",
+            "x": 337.34200000000004,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 30.58,
+            "height": 10.175,
+            "advance": 30.58,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "GBP ",
+            "x": 367.922,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 26.29,
+            "height": 10.175,
+            "advance": 26.29,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "0.01 ",
+            "x": 394.21200000000005,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 24.464,
+            "height": 10.175,
+            "advance": 24.464,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "$-0.00 ",
+            "x": 418.67600000000004,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 34.243,
+            "height": 10.175,
+            "advance": 34.243,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "12.5pt ",
+            "x": 452.91900000000004,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 33.638,
+            "height": 10.175,
+            "advance": 33.638,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "2in ",
+            "x": 486.557,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 17.732,
+            "height": 10.175,
+            "advance": 17.732,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "3cm",
+            "x": 504.289,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 20.779,
+            "height": 10.175,
+            "advance": 20.779,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 87.22554,
+        "height": 15.225539999999999,
+        "width": 177.914,
+        "baseline": 98.13830999999999,
+        "fragments": [
+          {
+            "text": "4mm ",
+            "x": 72,
+            "baseline": 98.13830999999999,
+            "top": 90.24031,
+            "width": 27.5,
+            "height": 10.175,
+            "advance": 27.5,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "20twip ",
+            "x": 99.5,
+            "baseline": 98.13830999999999,
+            "top": 90.24031,
+            "width": 34.848,
+            "height": 10.175,
+            "advance": 34.848,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "2024-02-29 ",
+            "x": 134.348,
+            "baseline": 98.13830999999999,
+            "top": 90.24031,
+            "width": 59.312,
+            "height": 10.175,
+            "advance": 59.312,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "2000-01-01",
+            "x": 193.66,
+            "baseline": 98.13830999999999,
+            "top": 90.24031,
+            "width": 56.254,
+            "height": 10.175,
+            "advance": 56.254,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

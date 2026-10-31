@@ -43,6 +43,9 @@ pub(super) fn call(
         return crate::evaluation::data::evaluate(name, arguments, span, state)
             .map_err(mlua::Error::external);
     }
+    if matches!(name, "upper" | "lower" | "format_money" | "length" | "date") {
+        return scalar_helper(name, arguments, span, true);
+    }
     if super::HELPERS.contains(&name) || name == "in" {
         if arguments.len() != 1 {
             return Err(mlua::Error::RuntimeError(format!(
@@ -195,6 +198,9 @@ pub(super) fn helper(
     span: Span,
     state: &mut EvaluationState<'_>,
 ) -> mlua::Result<Value> {
+    if matches!(name, "upper" | "lower" | "format_money" | "length" | "date") {
+        return scalar_helper(name, arguments, span, false);
+    }
     if matches!(name, "csv" | "import") {
         let positional = arguments
             .into_iter()
@@ -212,4 +218,35 @@ pub(super) fn helper(
         .map_err(mlua::Error::external);
     }
     call(name, arguments, span, state)
+}
+
+fn scalar_helper(
+    name: &str,
+    arguments: mlua::Variadic<mlua::Value>,
+    span: Span,
+    document_namespace: bool,
+) -> mlua::Result<Value> {
+    let mut values = arguments
+        .into_iter()
+        .map(values::from_lua)
+        .collect::<mlua::Result<Vec<_>>>()?
+        .into_iter()
+        .peekable();
+    let mut arguments = EvaluatedArguments::default();
+    if document_namespace
+        && name == "format_money"
+        && matches!(values.peek(), Some(Value::Object(_)))
+    {
+        let Some(Value::Object(properties)) = values.next() else {
+            unreachable!()
+        };
+        arguments.named = properties
+            .into_iter()
+            .map(|(name, value)| (name, EvaluatedArgument::new(value, span)))
+            .collect();
+    }
+    arguments.positional = values
+        .map(|value| EvaluatedArgument::new(value, span))
+        .collect();
+    crate::evaluation::helpers::evaluate(name, arguments, span).map_err(mlua::Error::external)
 }

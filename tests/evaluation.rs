@@ -225,7 +225,6 @@ fn invalid_calls_report_the_problem_without_producing_a_document() {
         ("#paragraph(2)[Text]", "positional"),
         ("#unknown[Text]", "unsupported directive"),
         ("#upper(\"paid\", true)", "one positional"),
-        ("#upper(\"ß\")", "ASCII"),
         (
             "#paragraph(spacing={after=missing(12)})[Text]",
             "unsupported helper",
