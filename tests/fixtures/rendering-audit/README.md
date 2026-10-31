@@ -21,7 +21,7 @@ See the [coverage map](../../../docs/rendering-coverage.md) and
 | `slide-positioned-charts` | Four independently positioned chart kinds, signed and zero values, titles, legends and data-label positions. |
 | `slide-layouts` | Derived layouts, slot order, typed pictures, local styling, margins and inherited geometry. |
 | `slide-automatic` | Automatic text, nested lists, tables, images and footer fields on a standard-ratio slide. |
-| `slide-charts` | Four loose charts receive independent automatic frames. The deliberately crowded result retains the equal-height layout limit. |
+| `slide-charts` | Four loose charts receive a measured 2×2 grid with room for titles, legends and axes. |
 | `slide-chart-automatic` | Two loose charts with sufficient vertical space; both editable objects and native titles remain present. |
 | `slide-chart-percentages` | Negative-only, mixed-sign and zero categories in percentage columns, bars and areas, including percentage labels. |
 | `slide-chart-legends` | Long series names at all four legend positions, wrapped rows and separate axis-title space. |
@@ -49,9 +49,12 @@ Percentage stacks normalize by total magnitude and preserve signs. Zero categori
 paint no bar area. Complete labels fit their allocated frames, bar labels paint
 above every series, and legends reserve measured rows. These rules do not provide
 collision avoidance for every label or automatic pagination of crowded charts.
-The four-chart automatic case remains visibly cramped. Long decimal tick text,
-radial-label collisions, document picture border limits and output-specific table
-properties remain visible. `category_axis`/`value_axis` and `show_*` label fields in
+Automatic chart frames retain at least 72 points of Cartesian plot space or
+96 points for radial plots; one column is preferred, followed by row-major grids.
+If no grid fits, generation reports insufficient space. Numeric ticks suppress
+arithmetic noise and overlapping text, radial labels separate into side columns,
+and endnotes reserve visible footer text. Document picture border limits and
+output-specific table properties remain visible. `category_axis`/`value_axis` and `show_*` label fields in
 the earlier cases remain extra fields without their own output mapping; the new
 cases use the documented `axis` and `data_labels` vocabulary.
 Existing sources were not changed to hide these behaviors.

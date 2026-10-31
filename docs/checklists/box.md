@@ -47,7 +47,8 @@ shadows and text properties have no picture effect. Background images have
 [separate captures](../../tests/fixtures/presentation-backgrounds/README.md).
 Editable PPTX and native PDF/PNG support this picture subset, including source-
 relative assets, image effects, patterned translucent borders and rotated links.
-Cropped-image fitting differs between editable and native output; see the fixed
+Contain/cover uses the cropped source aspect ratio in editable and native output.
+Resolved native picture frames retain page-coordinate precision. See the fixed
 [picture captures](../../tests/fixtures/presentation-images/README.md) and
 [native tests](../../tests/presentation_rendering.rs). Missing images become PPTX
 placeholder text and are omitted with a diagnostic natively.
@@ -55,3 +56,9 @@ placeholder text and are omitted with a diagnostic natively.
 Positioned [tables](../../tests/fixtures/presentation-tables/README.md) and
 [charts](../../tests/fixtures/presentation-charts/README.md) use the box rectangle
 for layout. Their capture guides record style, sizing and native output limits.
+
+Loose chart objects use measured automatic frames: one column when it fits,
+then a row-major grid. Each plot reserves at least 72 points in both dimensions
+(96 for radial charts) after decorations. An impossible arrangement reports an
+error; it does not add slides. Explicit boxes retain their authored dimensions.
+See the [automatic-frame tests](../../tests/presentation_rendering.rs).
