@@ -16,7 +16,7 @@ pub(super) fn call(
     span: Span,
     state: &mut EvaluationState<'_>,
 ) -> mlua::Result<Value> {
-    if name == "import" {
+    if matches!(name, "csv" | "import") {
         let mut arguments = arguments
             .into_iter()
             .map(values::from_lua)
@@ -195,7 +195,7 @@ pub(super) fn helper(
     span: Span,
     state: &mut EvaluationState<'_>,
 ) -> mlua::Result<Value> {
-    if name == "import" {
+    if matches!(name, "csv" | "import") {
         let positional = arguments
             .into_iter()
             .map(|value| values::from_lua(value).map(|value| EvaluatedArgument::new(value, span)))

@@ -90,6 +90,8 @@ Status: initial draft.
 32. [Imported declarations](imports.md): reusable presets, exports, source
     identities and source-relative resources.
 
+33. [CSV data](csv.md): string-valued records, headers, quoted fields and loading.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

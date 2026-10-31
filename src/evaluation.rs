@@ -461,7 +461,7 @@ fn evaluate_nodes(
                     children: Vec::new(),
                 })
             }
-            NodeKind::Call(call) if call.name == "json" => {
+            NodeKind::Call(call) if matches!(call.name.as_str(), "json" | "csv") => {
                 if !call.bodies.is_empty() {
                     return Err(Diagnostic::new(
                         node.span,

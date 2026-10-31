@@ -1,4 +1,5 @@
 //! Typed external values through the compilation's selected resource resolver.
+mod csv;
 use super::{EvaluationState, expressions::EvaluatedArguments};
 use crate::{
     diagnostics::{Diagnostic, Span},
@@ -75,7 +76,11 @@ pub(super) fn evaluate(
             format!("{name} requires one positional string path"),
         ));
     }
-    if let Some((argument, value)) = arguments.named.iter().next() {
+    if let Some((argument, value)) = arguments
+        .named
+        .iter()
+        .find(|(argument, _)| name != "csv" || argument.as_str() != "heading")
+    {
         return Err(Diagnostic::new(
             value.span,
             format!("unknown {name} argument {argument:?}"),
@@ -87,6 +92,36 @@ pub(super) fn evaluate(
             format!("{name} path must be a string"),
         ));
     };
-    super::imports::load(&path, span, state)?;
-    Ok(Value::Nil)
+    if name == "import" {
+        super::imports::load(&path, span, state)?;
+        return Ok(Value::Nil);
+    }
+    let heading = arguments
+        .named
+        .remove("heading")
+        .map(|argument| {
+            super::values::normalize_boolean(argument.value, argument.span, "csv heading")
+        })
+        .transpose()?
+        == Some(Value::Boolean(true));
+    let resolver = state.assets.ok_or_else(|| {
+        Diagnostic::new(
+            span,
+            "csv requires an asset resolver; use compile_with_assets",
+        )
+    })?;
+    let asset = resolve_asset(
+        resolver,
+        AssetRequest {
+            reference: OsStr::new(&path),
+            source_name: state.source_name(),
+        },
+    )
+    .map_err(|error| Diagnostic::new(span, format!("cannot load CSV {path:?}: {error}")))?;
+    let text = std::str::from_utf8(&asset.bytes).map_err(|error| {
+        Diagnostic::new(span, format!("invalid CSV in {:?}: {error}", asset.name))
+    })?;
+    csv::decode(text, heading).map_err(|message| {
+        Diagnostic::new(span, format!("invalid CSV in {:?}: {message}", asset.name))
+    })
 }

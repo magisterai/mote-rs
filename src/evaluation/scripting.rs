@@ -19,7 +19,7 @@ use std::{
 };
 
 const HELPERS: &[&str] = &[
-    "json", "import", "upper", "color", "pt", "inch", "cm", "mm", "twip",
+    "json", "csv", "import", "upper", "color", "pt", "inch", "cm", "mm", "twip",
 ];
 
 pub(super) struct Runtime {

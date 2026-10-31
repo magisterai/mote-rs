@@ -1,0 +1,526 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "imports": [
+    "${fixture}/shared/loader.mote"
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "480pt",
+                    "unit": "pt",
+                    "value": 480
+                  },
+                  "width": {
+                    "text": "660pt",
+                    "unit": "pt",
+                    "value": 660
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "text": {
+                  "font": "body",
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Ada, A."
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "12"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "second"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Two\nlines"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "A \"quote\""
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "extra"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "last"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Short"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "text"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "North"
+                    },
+                    {
+                      "kind": "text",
+                      "text": ": "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "15"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "South"
+                    },
+                    {
+                      "kind": "text",
+                      "text": ": "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "21"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Library"
+                    },
+                    {
+                      "kind": "text",
+                      "text": ": "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "17"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Again "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "North"
+                    },
+                    {
+                      "kind": "text",
+                      "text": ": "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "15"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Again "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "South"
+                    },
+                    {
+                      "kind": "text",
+                      "text": ": "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "21"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "480pt",
+                "unit": "pt",
+                "value": 480
+              },
+              "width": {
+                "text": "660pt",
+                "unit": "pt",
+                "value": 660
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "text": {
+              "font": "body",
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Ada, A."
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text",
+                  "text": "12"
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text"
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text",
+                  "text": "second"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Two\nlines"
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text",
+                  "text": "A \"quote\""
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text",
+                  "text": "extra"
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text",
+                  "text": "last"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Short"
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text"
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text"
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "text"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "North"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "15"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "South"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "21"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Library"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "17"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Again "
+                },
+                {
+                  "kind": "text",
+                  "text": "North"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "15"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Again "
+                },
+                {
+                  "kind": "text",
+                  "text": "South"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "21"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

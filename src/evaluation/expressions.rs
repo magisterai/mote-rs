@@ -130,7 +130,7 @@ fn evaluate_helper_arguments(
     state: &mut super::EvaluationState<'_>,
     static_arguments: bool,
 ) -> Result<Value, Diagnostic> {
-    if name == "import" {
+    if matches!(name, "csv" | "import") {
         let arguments = evaluate_arguments(arguments, state)?;
         return super::data::evaluate(name, arguments, span, state);
     }

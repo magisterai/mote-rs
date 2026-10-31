@@ -1,0 +1,17 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#import("shared/loader.mote")
+#let(rows=csv("data.csv"),titled=document.csv({heading="true"},"title.csv"),loaded=imported_rows())
+#document(default_font="body",default_size=pt(12))
+#for row in rows {
+ #paragraph[#row.Name / #row.Value / #row.column_3 / #row.Name_2]
+}
+#for row in titled {
+ #paragraph[#row.Name: #row.Value]
+}
+#for row in loaded.rows {
+ #paragraph[#row.Name: #row.Value]
+}
+#let(second=document.csv({heading=true},"title.csv"))
+#for row in second {
+ #paragraph[Again #row.Name: #row.Value]
+}

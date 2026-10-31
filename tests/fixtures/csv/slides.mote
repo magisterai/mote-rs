@@ -1,0 +1,19 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#import("shared/loader.mote")
+#let(rows=csv("data.csv"),titled=document.csv({heading="true"},"title.csv"),loaded=imported_rows())
+#presentation(size="standard")
+#slide[#box(position={x=pt(30),y=pt(30),width=pt(660),height=pt(480)},text={font="body",size=pt(20)})[
+#for row in rows {
+ #paragraph[#row.Name / #row.Value / #row.column_3 / #row.Name_2]
+}
+#for row in titled {
+ #paragraph[#row.Name: #row.Value]
+}
+#for row in loaded.rows {
+ #paragraph[#row.Name: #row.Value]
+}
+#let(second=document.csv({heading=true},"title.csv"))
+#for row in second {
+ #paragraph[Again #row.Name: #row.Value]
+}
+]]

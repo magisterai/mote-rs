@@ -669,6 +669,21 @@
       "text_assets": {
         "preset.mote": "#let(label = \"Shared report\")\n#set paragraph(alignment = \"center\")"
       }
+    },
+    {
+      "example": "csv/1",
+      "model": "csv/1",
+      "text_assets": {
+        "people.csv": "Name,Role\nAda,Author\nLin,Reviewer\n"
+      }
+    },
+    {
+      "example": "csv/2",
+      "model": "csv/2",
+      "lua": true,
+      "text_assets": {
+        "titled.csv": "Team roster\nName,Role\nAda,Author\n"
+      }
     }
   ],
   "models": {
@@ -10861,6 +10876,154 @@
             {
               "kind": "text",
               "text": "Shared report"
+            }
+          ]
+        }
+      ]
+    },
+    "csv/1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Ada"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "Author"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Lin"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "Reviewer"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Ada"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "text",
+              "text": "Author"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Lin"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "text",
+              "text": "Reviewer"
+            }
+          ]
+        }
+      ]
+    },
+    "csv/2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Ada"
+                },
+                {
+                  "kind": "text",
+                  "text": ": "
+                },
+                {
+                  "kind": "text",
+                  "text": "Author"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Ada"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "text",
+              "text": "Author"
             }
           ]
         }

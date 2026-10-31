@@ -45,6 +45,7 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `csv` | [CSV data](csv.md) | Specified and tested; see the checklist for output limits. |
 | `import` | [Imported declarations](import.md) | Specified and tested; see the checklist for output limits. |
 | `set` | [Scoped defaults](set.md) | Specified and tested; see the checklist for output limits. |
 | `raw` | [Literal block content](raw.md) | Specified and tested; see the checklist for output limits. |
