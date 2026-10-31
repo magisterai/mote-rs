@@ -60,7 +60,7 @@ pub fn plan_presentation(
     document: &Document,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<DocumentTextPlan, LayoutError> {
-    let deck = Deck::resolve(document).map_err(LayoutError::Unsupported)?;
+    let deck = Deck::resolve(document, measurer).map_err(LayoutError::Unsupported)?;
     if crate::presentation::images::elements(&deck)
         .next()
         .is_some()
@@ -83,7 +83,7 @@ pub(crate) fn plan_with_assets(
     resolver: &dyn crate::source::AssetResolver,
     source_name: Option<&std::ffi::OsStr>,
 ) -> Result<DocumentTextPlan, LayoutError> {
-    let deck = Deck::resolve(document).map_err(LayoutError::Unsupported)?;
+    let deck = Deck::resolve(document, measurer).map_err(LayoutError::Unsupported)?;
     let mut images = crate::media::ImageCatalog::load_selected(
         crate::presentation::images::elements(&deck),
         resolver,

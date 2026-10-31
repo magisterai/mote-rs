@@ -9,14 +9,18 @@ const CONTENT_TOP: i64 = 1280160;
 const CONTENT_BOTTOM: i64 = 457200;
 const CONTENT_GAP: i64 = 182880;
 
-pub(super) fn elements(content: &[Content], [width, height]: [i64; 2]) -> Vec<Content> {
+pub(super) fn elements(
+    content: &[Content],
+    [width, height]: [i64; 2],
+    mut chart_fits: impl FnMut(&Element, [i64; 2]) -> Result<bool, String>,
+) -> Result<Vec<Content>, String> {
     let content: Vec<_> = content
         .iter()
         .filter(|node| meaningful(node))
         .cloned()
         .collect();
     if content.iter().all(positioned) {
-        return content;
+        return Ok(content);
     }
     let content_width = (width - CONTENT_LEFT - CONTENT_RIGHT).max(1);
     let content_height = (height - CONTENT_TOP - CONTENT_BOTTOM).max(1);
@@ -49,24 +53,45 @@ pub(super) fn elements(content: &[Content], [width, height]: [i64; 2]) -> Vec<Co
         groups.push(text);
     }
     if groups.is_empty() {
-        return output;
+        return Ok(output);
     }
-    let group_count = groups.len() as i64;
-    let group_height = (content_height - CONTENT_GAP * (group_count - 1)) / group_count;
-    for (index, group) in groups.into_iter().enumerate() {
-        output.push(container(
-            format!("content_{}", index + 1),
-            [
-                CONTENT_LEFT,
-                CONTENT_TOP + index as i64 * (group_height + CONTENT_GAP),
-                content_width,
-                group_height,
-            ],
-            group,
-        ));
+    for columns in 1..=groups.len() {
+        let rows = groups.len().div_ceil(columns);
+        let frame_width = (content_width - CONTENT_GAP * (columns as i64 - 1)) / columns as i64;
+        let frame_height = (content_height - CONTENT_GAP * (rows as i64 - 1)) / rows as i64;
+        if frame_width <= 0 || frame_height <= 0 {
+            continue;
+        }
+        let mut fits = true;
+        for group in &groups {
+            if let [Content::Element(chart)] = group.as_slice()
+                && chart.kind == ElementKind::Chart
+                && !chart_fits(chart, [frame_width, frame_height])?
+            {
+                fits = false;
+                break;
+            }
+        }
+        if !fits {
+            continue;
+        }
+        for (index, group) in groups.into_iter().enumerate() {
+            output.push(container(
+                format!("content_{}", index + 1),
+                [
+                    CONTENT_LEFT + (index % columns) as i64 * (frame_width + CONTENT_GAP),
+                    CONTENT_TOP + (index / columns) as i64 * (frame_height + CONTENT_GAP),
+                    frame_width,
+                    frame_height,
+                ],
+                group,
+            ));
+        }
+        return Ok(output);
     }
-    output
+    Err("automatic slide content does not fit; use positioned boxes, a larger slide, or fewer charts".into())
 }
+
 pub(super) fn meaningful(content: &Content) -> bool {
     !matches!(content, Content::Text(text) if text.trim().is_empty())
 }

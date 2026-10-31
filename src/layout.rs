@@ -2,7 +2,7 @@
 
 mod blocks;
 mod captions;
-mod charts;
+pub(crate) mod charts;
 mod columns;
 mod decorations;
 mod dividers;

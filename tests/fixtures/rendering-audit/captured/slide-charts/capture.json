@@ -72,8 +72,8 @@
       "sha256": "d8900d73a8ae97b2e74fb7a8d30377ecca8fe6b94012b0edf9047c8400efffcc"
     },
     "ppt/slides/slide1.xml": {
-      "path": "captured/parts/9d6be591aa0cf9f60f981549b0f102f413b832eedf4eac3b5f06b573bbb45948.xml",
-      "sha256": "9d6be591aa0cf9f60f981549b0f102f413b832eedf4eac3b5f06b573bbb45948"
+      "path": "captured/parts/6bcbd49cb34be2dcbeea6d736f60cb57a7e8203953e9463a8d8fd0ee2c12a0d3.xml",
+      "sha256": "6bcbd49cb34be2dcbeea6d736f60cb57a7e8203953e9463a8d8fd0ee2c12a0d3"
     },
     "ppt/tableStyles.xml": {
       "path": "captured/parts/eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce.xml",
@@ -123,7 +123,7 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "9a70297c2ec8c1b9f6343929074b304a763eeecac9c903f8df5d20606eb28afd",
+      "sha256": "9c902e078dca81665c8744ccd661025f882df1152a23e257ba0b039760761414",
       "maximum": 44,
       "mean": 0.25,
       "outliers": 0

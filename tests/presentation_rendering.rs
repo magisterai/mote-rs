@@ -558,3 +558,103 @@ fn custom_layouts_match_captured_native_geometry_and_rasters() {
         ],
     );
 }
+
+fn slide_xml(bytes: Vec<u8>) -> String {
+    use std::io::{Cursor, Read};
+    let mut archive = zip::ZipArchive::new(Cursor::new(bytes)).unwrap();
+    let mut xml = String::new();
+    archive
+        .by_name("ppt/slides/slide1.xml")
+        .unwrap()
+        .read_to_string(&mut xml)
+        .unwrap();
+    xml
+}
+fn object_frames(xml: &str, object_name: &str) -> Vec<[f64; 4]> {
+    let tree = roxmltree::Document::parse(xml).unwrap();
+    tree.descendants()
+        .filter(|node| node.tag_name().name() == object_name)
+        .map(|node| {
+            let transform = node
+                .descendants()
+                .find(|child| child.tag_name().name() == "xfrm")
+                .unwrap();
+            let offset = transform
+                .children()
+                .find(|child| child.tag_name().name() == "off")
+                .unwrap();
+            let extent = transform
+                .children()
+                .find(|child| child.tag_name().name() == "ext")
+                .unwrap();
+            [
+                offset.attribute("x").unwrap(),
+                offset.attribute("y").unwrap(),
+                extent.attribute("cx").unwrap(),
+                extent.attribute("cy").unwrap(),
+            ]
+            .map(|value| value.parse::<f64>().unwrap() / 12700.0)
+        })
+        .collect()
+}
+
+#[test]
+fn automatic_charts_use_a_readable_grid_or_report_insufficient_space() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let chart = "#chart(kind='column',title='Values',legend=false,data={categories={'A','B'},values={1,2}})";
+    for (width, height, count, columns) in [(640, 480, 4, 2), (720, 720, 2, 1)] {
+        let document = mote::compile(&format!(
+            "#presentation(width=pt({width}),height=pt({height}))#slide[{}]",
+            chart.repeat(count)
+        ))
+        .unwrap();
+        let plan = render::plan(&document, &resolver, None).unwrap();
+        assert_eq!(plan.output.pages.len(), 1);
+        let xml = slide_xml(mote::pptx::emit(&document).unwrap());
+        let frames = object_frames(&xml, "graphicFrame");
+        assert_eq!(frames.len(), count);
+        for (index, frame) in frames.iter().enumerate() {
+            assert!(frame[2] >= 120.0 && frame[3] >= 120.0);
+            if index >= columns {
+                assert!(frame[1] > frames[index - columns][1]);
+            }
+            if index % columns > 0 {
+                assert!(frame[0] > frames[index - 1][0]);
+                assert_eq!(frame[1], frames[index - 1][1]);
+            }
+        }
+        let titles: Vec<_> = plan.output.pages[0]
+            .lines
+            .iter()
+            .filter(|line| {
+                line.line
+                    .fragments
+                    .iter()
+                    .map(|fragment| fragment.text.as_str())
+                    .collect::<String>()
+                    == "Values"
+            })
+            .collect();
+        assert_eq!(titles.len(), count);
+        for (title, frame) in titles.iter().zip(frames) {
+            assert!(title.top >= frame[1] && title.top + title.line.height <= frame[1] + frame[3]);
+            assert!(title.line.fragments[0].x >= frame[0]);
+        }
+    }
+    let document = mote::compile(&format!(
+        "#presentation(width=pt(200),height=pt(160))#slide[{chart}]"
+    ))
+    .unwrap();
+    assert!(
+        render::plan(&document, &resolver, None)
+            .unwrap_err()
+            .to_string()
+            .contains("automatic slide content does not fit")
+    );
+    assert!(
+        mote::pptx::emit(&document)
+            .unwrap_err()
+            .to_string()
+            .contains("automatic slide content does not fit")
+    );
+}

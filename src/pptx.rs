@@ -64,7 +64,7 @@ pub fn emit_with_fonts(
     if let Some(fonts) = fonts {
         measurer = measurer.with_font_resolver(fonts);
     }
-    let mut deck = Deck::resolve(document).map_err(Error)?;
+    let mut deck = Deck::resolve(document, &mut measurer).map_err(Error)?;
     let images = crate::media::ImageCatalog::load_selected(
         crate::presentation::images::elements(&deck),
         resolver,

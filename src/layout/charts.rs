@@ -7,6 +7,7 @@ mod legend;
 mod line_labels;
 mod paths;
 mod pie;
+mod radial_labels;
 mod scale;
 mod text;
 use super::{
@@ -156,6 +157,40 @@ pub(crate) fn plan_slide(
         measurer,
     )
 }
+/// Automatic frames reserve a real plot after measured titles, axes and legends.
+pub(crate) fn automatic_frame_fits(
+    document: &crate::model::Document,
+    element: &Element,
+    theme: &crate::presentation::Theme,
+    size: [i64; 2],
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<bool, LayoutError> {
+    let chart = Chart::from_element(element)
+        .map_err(|error| LayoutError::Unsupported(error.to_string()))?;
+    let mut planner = Planner {
+        font: if document.fonts.contains_key("Aptos") {
+            "Aptos".into()
+        } else {
+            theme.body.clone()
+        },
+        text_color: theme.colors[0].clone(),
+        axis_color: theme.colors[0].clone(),
+        background: theme.colors[1].clone(),
+        measurer,
+        page: TextPage::default(),
+    };
+    let layout = planner.geometry(
+        &chart,
+        Rectangle::new(0.0, 0.0, size[0] as f64 / 12700.0, size[1] as f64 / 12700.0),
+    )?;
+    let minimum = if matches!(chart.kind.as_str(), "pie" | "doughnut") {
+        96.0
+    } else {
+        72.0
+    };
+    Ok(layout.plot.width >= minimum && layout.plot.height >= minimum)
+}
+
 fn plan_chart(
     chart: &Chart,
     bounds: [f64; 4],

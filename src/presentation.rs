@@ -28,7 +28,10 @@ pub(crate) struct Slide {
     pub metadata: fields::SlideMetadata,
 }
 impl Deck {
-    pub fn resolve(document: &Document) -> Result<Self, String> {
+    pub fn resolve(
+        document: &Document,
+        measurer: &mut crate::measurement::TextMeasurer<'_>,
+    ) -> Result<Self, String> {
         let properties = &document.presentation.properties;
         let dimension = |name: &str| {
             document
@@ -80,11 +83,18 @@ impl Deck {
             });
         }
         let layouts = layouts::Layouts::resolve(&document.presentation, [width, height])?;
+        let theme = Theme::resolve(document);
         for element in &mut slides {
             if let Some(resolved) = layouts.apply(element)? {
                 *element = resolved;
             } else {
-                element.children = automatic::elements(&element.children, [width, height]);
+                element.children =
+                    automatic::elements(&element.children, [width, height], |chart, size| {
+                        crate::layout::charts::automatic_frame_fits(
+                            document, chart, &theme, size, measurer,
+                        )
+                        .map_err(|error| error.to_string())
+                    })?;
             }
         }
         warnings.extend(support::warnings(document, &slides));
@@ -106,7 +116,7 @@ impl Deck {
             width,
             height,
             size_type,
-            theme: Theme::resolve(document),
+            theme,
             warnings,
         };
         Ok(deck)
