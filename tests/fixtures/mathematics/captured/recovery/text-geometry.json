@@ -1,0 +1,466 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 72,
+        "top": 72,
+        "height": 19.2576,
+        "width": 139.6,
+        "baseline": 86.4288,
+        "fragments": [
+          {
+            "text": "Equation ",
+            "x": 72,
+            "baseline": 86.4288,
+            "top": 74.9408,
+            "width": 72.896,
+            "height": 14.799999999999999,
+            "advance": 72.896,
+            "size": 16,
+            "font": "Helvetica",
+            "variant": "bold",
+            "missing_codepoints": []
+          },
+          {
+            "text": "recovery",
+            "x": 144.89600000000002,
+            "baseline": 86.4288,
+            "top": 74.9408,
+            "width": 66.704,
+            "height": 14.799999999999999,
+            "advance": 66.704,
+            "size": 16,
+            "font": "Helvetica",
+            "variant": "bold",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 99.2576,
+        "height": 15.225539999999999,
+        "width": 99.022,
+        "baseline": 110.17036999999999,
+        "fragments": [
+          {
+            "text": "Missing ",
+            "x": 72,
+            "baseline": 110.17036999999999,
+            "top": 102.27237,
+            "width": 40.337,
+            "height": 10.175,
+            "advance": 40.337,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "close: ",
+            "x": 112.337,
+            "baseline": 110.17036999999999,
+            "top": 102.27237,
+            "width": 31.79,
+            "height": 10.175,
+            "advance": 31.79,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "\\left(x",
+            "x": 144.127,
+            "baseline": 110.17036999999999,
+            "top": 102.27237,
+            "width": 26.895,
+            "height": 10.175,
+            "advance": 26.895,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 122.48313999999999,
+        "height": 15.225539999999999,
+        "width": 132.03300000000002,
+        "baseline": 133.39591,
+        "fragments": [
+          {
+            "text": "Missing ",
+            "x": 72,
+            "baseline": 133.39591,
+            "top": 125.49790999999999,
+            "width": 40.337,
+            "height": 10.175,
+            "advance": 40.337,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "symbol: ",
+            "x": 112.337,
+            "baseline": 133.39591,
+            "top": 125.49790999999999,
+            "width": 40.953,
+            "height": 10.175,
+            "advance": 40.953,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "\\left[x\\right",
+            "x": 153.29000000000002,
+            "baseline": 133.39591,
+            "top": 125.49790999999999,
+            "width": 50.743,
+            "height": 10.175,
+            "advance": 50.743,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 145.70868,
+        "height": 15.225539999999999,
+        "width": 131.747,
+        "baseline": 156.62144999999998,
+        "fragments": [
+          {
+            "text": "Unmatched ",
+            "x": 72,
+            "baseline": 156.62144999999998,
+            "top": 148.72344999999999,
+            "width": 59.301,
+            "height": 10.175,
+            "advance": 59.301,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "close: ",
+            "x": 131.301,
+            "baseline": 156.62144999999998,
+            "top": 148.72344999999999,
+            "width": 31.79,
+            "height": 10.175,
+            "advance": 31.79,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "a+",
+            "x": 163.091,
+            "baseline": 156.62144999999998,
+            "top": 148.72344999999999,
+            "width": 12.54,
+            "height": 10.175,
+            "advance": 12.54,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "\\right)",
+            "x": 175.631,
+            "baseline": 156.62144999999998,
+            "top": 148.72344999999999,
+            "width": 28.116,
+            "height": 10.175,
+            "advance": 28.116,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 168.93421999999998,
+        "height": 15.225539999999999,
+        "width": 156.222,
+        "baseline": 179.84698999999998,
+        "fragments": [
+          {
+            "text": "Nested ",
+            "x": 72,
+            "baseline": 179.84698999999998,
+            "top": 171.94898999999998,
+            "width": 37.906,
+            "height": 10.175,
+            "advance": 37.906,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "input: ",
+            "x": 109.906,
+            "baseline": 179.84698999999998,
+            "top": 171.94898999999998,
+            "width": 29.964,
+            "height": 10.175,
+            "advance": 29.964,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "\\left(a+",
+            "x": 139.87,
+            "baseline": 179.84698999999998,
+            "top": 171.94898999999998,
+            "width": 33.935,
+            "height": 10.175,
+            "advance": 33.935,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "\\left[b\\right]",
+            "x": 173.805,
+            "baseline": 179.84698999999998,
+            "top": 171.94898999999998,
+            "width": 54.417,
+            "height": 10.175,
+            "advance": 54.417,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 192.15975999999998,
+        "height": 15.225539999999999,
+        "width": 199.265,
+        "baseline": 203.07252999999997,
+        "fragments": [
+          {
+            "text": "Complete ",
+            "x": 72,
+            "baseline": 203.07252999999997,
+            "top": 195.17452999999998,
+            "width": 50.127,
+            "height": 10.175,
+            "advance": 50.127,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "arrow: ",
+            "x": 122.12700000000001,
+            "baseline": 203.07252999999997,
+            "top": 195.17452999999998,
+            "width": 33.616,
+            "height": 10.175,
+            "advance": 33.616,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "\\left(x\\rightarrow ",
+            "x": 155.743,
+            "baseline": 203.07252999999997,
+            "top": 195.17452999999998,
+            "width": 81.906,
+            "height": 10.175,
+            "advance": 81.906,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "y\\right)",
+            "x": 237.649,
+            "baseline": 203.07252999999997,
+            "top": 195.17452999999998,
+            "width": 33.616,
+            "height": 10.175,
+            "advance": 33.616,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 215.38529999999997,
+        "height": 15.225539999999999,
+        "width": 114.334,
+        "baseline": 226.29806999999997,
+        "fragments": [
+          {
+            "text": "Open ",
+            "x": 72,
+            "baseline": 226.29806999999997,
+            "top": 218.40006999999997,
+            "width": 29.964,
+            "height": 10.175,
+            "advance": 29.964,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "XML: ",
+            "x": 101.964,
+            "baseline": 226.29806999999997,
+            "top": 218.40006999999997,
+            "width": 28.732,
+            "height": 10.175,
+            "advance": 28.732,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "<m:oMath>",
+            "x": 130.696,
+            "baseline": 226.29806999999997,
+            "top": 218.40006999999997,
+            "width": 55.638,
+            "height": 10.175,
+            "advance": 55.638,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 238.61083999999997,
+        "height": 15.225539999999999,
+        "width": 243.947,
+        "baseline": 249.52360999999996,
+        "fragments": [
+          {
+            "text": "Unknown ",
+            "x": 72,
+            "baseline": 249.52360999999996,
+            "top": 241.62560999999997,
+            "width": 48.906,
+            "height": 10.175,
+            "advance": 48.906,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "prefix: ",
+            "x": 120.906,
+            "baseline": 249.52360999999996,
+            "top": 241.62560999999997,
+            "width": 33.011,
+            "height": 10.175,
+            "advance": 33.011,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "<m:oMath><other:r/",
+            "x": 153.917,
+            "baseline": 249.52360999999996,
+            "top": 241.62560999999997,
+            "width": 96.91,
+            "height": 10.175,
+            "advance": 96.91,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "></",
+            "x": 250.827,
+            "baseline": 249.52360999999996,
+            "top": 241.62560999999997,
+            "width": 15.906,
+            "height": 10.175,
+            "advance": 15.906,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "m:oMath>",
+            "x": 266.733,
+            "baseline": 249.52360999999996,
+            "top": 241.62560999999997,
+            "width": 49.214,
+            "height": 10.175,
+            "advance": 49.214,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 292.855,
+        "top": 261.83637999999996,
+        "height": 15.225539999999999,
+        "width": 26.29,
+        "baseline": 272.74915,
+        "fragments": [
+          {
+            "text": "\\left.x",
+            "x": 292.855,
+            "baseline": 272.74915,
+            "top": 264.85114999999996,
+            "width": 26.29,
+            "height": 10.175,
+            "advance": 26.29,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

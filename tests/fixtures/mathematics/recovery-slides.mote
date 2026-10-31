@@ -1,0 +1,13 @@
+#presentation(width=pt(720),height=pt(540))
+#slide[
+  #box(position={x=pt(36),y=pt(36),width=pt(648),height=pt(420)})[
+    #heading(level=1)[Equation recovery]
+    #paragraph[Missing close: #math("\\left(x")]
+    #paragraph[Missing symbol: #math("\\left[x\\right")]
+    #paragraph[Nested input: #math("\\left(a+\\left[b\\right]")]
+    #paragraph[Complete arrow: #math("\\left(x\\rightarrow y\\right)")]
+    #paragraph[Open XML: #math("<m:oMath>",format="omml")]
+    #paragraph[Unknown prefix: #math("<m:oMath><other:r/></m:oMath>",format="omml")]
+    #paragraph[Wrong root: #math("<w:p/>",format="omml")]
+  ]
+]

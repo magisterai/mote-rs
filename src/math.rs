@@ -30,7 +30,14 @@ pub(crate) fn convert(
         return Ok(raw(&source, display, options.presentation));
     }
     let mut parser = parser::Parser::new(&source);
-    let body = parser.sequence(&[]).xml(&options);
+    let mut expression = parser.sequence(&[]);
+    if parser.incomplete_delimiters {
+        parser
+            .warnings
+            .push("incomplete math delimiters; equation emitted as source text".into());
+        expression = nodes::Node::Text(source.clone(), nodes::TextKind::Normal);
+    }
+    let body = expression.xml(&options);
     let mut xml = format!("<m:oMath>{body}</m:oMath>");
     if display {
         xml = format!("<m:oMathPara>{xml}</m:oMathPara>");

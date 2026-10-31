@@ -8,6 +8,7 @@ pub(super) struct Parser<'a> {
     offset: usize,
     depth: usize,
     pub warnings: Vec<String>,
+    pub incomplete_delimiters: bool,
 }
 impl<'a> Parser<'a> {
     pub fn new(source: &'a str) -> Self {
@@ -16,14 +17,14 @@ impl<'a> Parser<'a> {
             offset: 0,
             depth: 0,
             warnings: Vec::new(),
+            incomplete_delimiters: false,
         }
     }
     pub fn sequence(&mut self, stops: &[&str]) -> Node {
         let mut nodes = Vec::new();
         while self.peek().is_some() {
             self.skip_space();
-            if self.peek().is_none() || stops.iter().any(|stop| self.remaining().starts_with(stop))
-            {
+            if self.peek().is_none() || stops.iter().any(|stop| self.at_stop(stop)) {
                 break;
             }
             if let Some(atom) = self.atom() {
@@ -186,15 +187,22 @@ impl<'a> Parser<'a> {
             "left" => {
                 let begin = self.delimiter();
                 let body = self.sequence(&["\\right"]);
-                if self.remaining().starts_with("\\right") {
+                let end = if self.at_stop("\\right") {
                     self.offset += "\\right".len();
-                }
-                let end = self.delimiter();
+                    self.delimiter()
+                } else {
+                    None
+                };
+                self.incomplete_delimiters |= begin.is_none() || end.is_none();
                 Node::Delimiter {
-                    begin,
-                    end,
+                    begin: begin.unwrap_or_default(),
+                    end: end.unwrap_or_default(),
                     body: Box::new(body),
                 }
+            }
+            "right" => {
+                self.incomplete_delimiters = true;
+                Node::text("\\right")
             }
             "begin" => self.environment(),
             "text" => Node::Text(self.group_source(), TextKind::Normal),
@@ -328,6 +336,7 @@ impl<'a> Parser<'a> {
         parser.depth = self.depth;
         let result = parser.sequence(&[]);
         self.warnings.extend(parser.warnings);
+        self.incomplete_delimiters |= parser.incomplete_delimiters;
         result
     }
     fn optional(&mut self) -> Option<Box<Node>> {
@@ -376,22 +385,28 @@ impl<'a> Parser<'a> {
         }
         self.source[start..self.offset].into()
     }
-    fn delimiter(&mut self) -> String {
+    fn delimiter(&mut self) -> Option<String> {
         self.skip_space();
         if self.peek() == Some('\\') {
             self.advance();
             let name = self.command_name();
-            return symbols::symbol(&name).unwrap_or(&name).into();
+            if matches!(name.as_str(), "" | "left" | "right") {
+                return None;
+            }
+            return Some(symbols::symbol(&name).unwrap_or(&name).into());
         }
         match self.advance() {
-            Some('.') => String::new(),
-            None => {
-                self.warnings
-                    .push("unterminated math delimiter emitted as a replacement character".into());
-                "�".into()
-            }
-            Some(character) => character.to_string(),
+            Some('.') => Some(String::new()),
+            None => None,
+            Some(character) => Some(character.to_string()),
         }
+    }
+    fn at_stop(&self, stop: &str) -> bool {
+        self.remaining()
+            .strip_prefix(stop)
+            .is_some_and(|remaining| {
+                stop != "\\right" || !remaining.chars().next().is_some_and(char::is_alphabetic)
+            })
     }
     fn command_name(&mut self) -> String {
         if self.peek().is_some_and(char::is_alphabetic) {

@@ -1,0 +1,330 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "heading",
+          "category": "block",
+          "attributes": {
+            "level": 1
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Equation recovery"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Missing close: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\left(x"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Missing symbol: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\left[x\\right"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Unmatched close: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "a+\\right)"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Nested input: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\left(a+\\left[b\\right]"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Complete arrow: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\left(x\\rightarrow y\\right)"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Open XML: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "omml",
+                "source": "\u003cm:oMath\u003e"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Unknown prefix: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "omml",
+                "source": "\u003cm:oMath\u003e\u003cother:r/\u003e\u003c/m:oMath\u003e"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\left.x"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "heading",
+      "category": "block",
+      "attributes": {
+        "level": 1
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Equation recovery"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Missing close: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\left(x"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Missing symbol: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\left[x\\right"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Unmatched close: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "a+\\right)"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Nested input: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\left(a+\\left[b\\right]"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Complete arrow: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\left(x\\rightarrow y\\right)"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Open XML: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "omml",
+            "source": "\u003cm:oMath\u003e"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Unknown prefix: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "omml",
+            "source": "\u003cm:oMath\u003e\u003cother:r/\u003e\u003c/m:oMath\u003e"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\left.x"
+      }
+    }
+  ]
+}

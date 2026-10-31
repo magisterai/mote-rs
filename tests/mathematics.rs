@@ -13,6 +13,8 @@ fn equations_preserve_models_editable_structure_and_native_fallback_geometry() {
             "raw-and-lua",
             "slides",
             "stories",
+            "recovery",
+            "recovery-slides",
         ],
     );
 }
@@ -79,6 +81,56 @@ fn malformed_raw_math_cannot_corrupt_an_office_package() {
         let parts = package_support::unpack(generated.bytes);
         let xml = roxmltree::Document::parse(&parts["ppt/slides/slide1.xml"]).unwrap();
         assert!(xml.descendants().any(|node| node.text() == Some(equation)));
+    }
+}
+
+#[test]
+fn unfinished_delimiters_preserve_whole_sources_in_editable_equations() {
+    for equation in [
+        r"\left",
+        r"\left(",
+        r"\left(x",
+        r"\left(x\right",
+        r"\left(x\right\",
+        r"\right)",
+        r"\left\right)",
+        r"a+\left[x<y",
+        r"\left(a+\left[b\right]",
+        r"\sqrt[\left(x]{y}",
+        r"\begin{matrix}\left(x&y\end{matrix}",
+    ] {
+        let source = format!("#math({})", serde_json::to_string(equation).unwrap());
+        let document = mote::compile(&source).unwrap();
+        let resolver = mote::source::FileAssetResolver::from_current_directory().unwrap();
+        let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+        assert!(
+            generated
+                .warnings
+                .iter()
+                .any(|warning| warning.contains("incomplete math delimiters"))
+        );
+        let parts = package_support::unpack(generated.bytes);
+        let xml = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+        assert!(
+            xml.descendants().any(|node| node.text() == Some(equation)),
+            "{equation}"
+        );
+        assert!(!parts["word/document.xml"].contains('�'));
+        let slide = mote::compile(&presentation_source(&source)).unwrap();
+        let generated = mote::pptx::emit_with_warnings(&slide).unwrap();
+        assert!(
+            generated
+                .warnings
+                .iter()
+                .any(|warning| warning.contains("incomplete math delimiters"))
+        );
+        let parts = package_support::unpack(generated.bytes);
+        let xml = roxmltree::Document::parse(&parts["ppt/slides/slide1.xml"]).unwrap();
+        assert!(
+            xml.descendants().any(|node| node.text() == Some(equation)),
+            "{equation}"
+        );
+        assert!(!parts["ppt/slides/slide1.xml"].contains('�'));
     }
 }
 

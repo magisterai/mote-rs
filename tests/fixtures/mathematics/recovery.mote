@@ -1,0 +1,9 @@
+#heading(level=1)[Equation recovery]
+#paragraph[Missing close: #math("\\left(x")]
+#paragraph[Missing symbol: #math("\\left[x\\right")]
+#paragraph[Unmatched close: #math("a+\\right)")]
+#paragraph[Nested input: #math("\\left(a+\\left[b\\right]")]
+#paragraph[Complete arrow: #math("\\left(x\\rightarrow y\\right)")]
+#paragraph[Open XML: #math("<m:oMath>",format="omml")]
+#paragraph[Unknown prefix: #math("<m:oMath><other:r/></m:oMath>",format="omml")]
+#math("\\left.x",display=true)

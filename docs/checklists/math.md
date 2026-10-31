@@ -32,6 +32,8 @@ Editable DOCX/PPTX math and visible native source-text fallbacks are separate
 capabilities. Native mathematical typesetting remains deferred. Unsupported
 commands and environments must warn while preserving a visible degradation.
 Raw OMML must have a valid math root before inclusion in an Office package.
+Malformed XML becomes visible source text with a warning. Incomplete delimiter
+pairs preserve the entire equation source; complete pairs remain editable math.
 
 Evidence: [language definition](../specification/mathematics.md),
 [contract and output tests](../../tests/mathematics.rs), and

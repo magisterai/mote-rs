@@ -40,8 +40,9 @@ and these expression families:
   rows. An `array` column declaration is accepted without column-style effects.
 
 Unknown commands become visible command names and warn; unknown environments
-flatten their contents and warn. An absent closing `right` delimiter retains a
-replacement character and warns. Whitespace outside text groups is ignored,
+flatten their contents and warn. Missing delimiter symbols, an absent closing
+`right`, or an unmatched `right` preserve the entire equation as literal source
+text and warn. Whitespace outside text groups is ignored,
 with explicit spacing commands retained. This deliberately bounded grammar
 must not be treated as arbitrary LaTeX execution.
 

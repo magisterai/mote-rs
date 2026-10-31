@@ -1,0 +1,101 @@
+{
+  "source_sha256": "9aa4e20a30ea4173bc7bd5482383b0594714e29addcfac3257278ef5bfddc96c",
+  "format": "pptx",
+  "assets": {},
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "parts/90f1672191938a44335065b73b74586f48345e1d17cc717d8d0ef917224e84e8.xml",
+      "sha256": "90f1672191938a44335065b73b74586f48345e1d17cc717d8d0ef917224e84e8"
+    },
+    "_rels/.rels": {
+      "path": "parts/47d1c24d141674ae22dcc8a13563eab314ad805e1eb604da0e5bb57159889576",
+      "sha256": "47d1c24d141674ae22dcc8a13563eab314ad805e1eb604da0e5bb57159889576"
+    },
+    "docProps/app.xml": {
+      "path": "parts/a2d627d874043a18775292624cb6ab47b7047a95e1e7c0860d864ac34be47a0a.xml",
+      "sha256": "a2d627d874043a18775292624cb6ab47b7047a95e1e7c0860d864ac34be47a0a"
+    },
+    "docProps/core.xml": {
+      "path": "parts/be592d96550de894264d73c5ced0f877b7bcc050d7f4680267fe9c5d6abc2315.xml",
+      "sha256": "be592d96550de894264d73c5ced0f877b7bcc050d7f4680267fe9c5d6abc2315"
+    },
+    "ppt/_rels/presentation.xml.rels": {
+      "path": "parts/6c912a0111dd50b5c881dcb259f8db1372fc8e8252876d24d61c1e4555abeaf0.rels",
+      "sha256": "6c912a0111dd50b5c881dcb259f8db1372fc8e8252876d24d61c1e4555abeaf0"
+    },
+    "ppt/presProps.xml": {
+      "path": "parts/7d478b1617302bdf6b85bf7b25ba0c1e53cdfa83867afbb617b7cb6cc4e29de9.xml",
+      "sha256": "7d478b1617302bdf6b85bf7b25ba0c1e53cdfa83867afbb617b7cb6cc4e29de9"
+    },
+    "ppt/presentation.xml": {
+      "path": "parts/57bd2cfec1bba2bf12c4cbbf11102692945552d57012f530530d957a92bd1dfc.xml",
+      "sha256": "57bd2cfec1bba2bf12c4cbbf11102692945552d57012f530530d957a92bd1dfc"
+    },
+    "ppt/slideLayouts/_rels/slideLayout1.xml.rels": {
+      "path": "parts/d870e5b1929e28c09916452072c7cbe08ef6ec528c3cf95727dae087693a730a.rels",
+      "sha256": "d870e5b1929e28c09916452072c7cbe08ef6ec528c3cf95727dae087693a730a"
+    },
+    "ppt/slideLayouts/slideLayout1.xml": {
+      "path": "parts/94b319de13456b3a3a346480098e2e9a24a22e3ade75447447783436032bf895.xml",
+      "sha256": "94b319de13456b3a3a346480098e2e9a24a22e3ade75447447783436032bf895"
+    },
+    "ppt/slideMasters/_rels/slideMaster1.xml.rels": {
+      "path": "parts/d96b772ebc700dbba5facc22e41f4873e7e7a61bf06c6314a18248165ca8e140.rels",
+      "sha256": "d96b772ebc700dbba5facc22e41f4873e7e7a61bf06c6314a18248165ca8e140"
+    },
+    "ppt/slideMasters/slideMaster1.xml": {
+      "path": "parts/e59b60e7ba74992454883495f9bc722ffa87280fa31a0649d1d21388115d1add.xml",
+      "sha256": "e59b60e7ba74992454883495f9bc722ffa87280fa31a0649d1d21388115d1add"
+    },
+    "ppt/slides/_rels/slide1.xml.rels": {
+      "path": "parts/c7d48b1e3d2ebf07e0ca612b7d677e3e7e81769d020b0411b580e5f1cd8f268c.rels",
+      "sha256": "c7d48b1e3d2ebf07e0ca612b7d677e3e7e81769d020b0411b580e5f1cd8f268c"
+    },
+    "ppt/slides/slide1.xml": {
+      "path": "parts/59a7c6bbeb211bd4604703aeb164c869b524c18c7e642aa9dedbaad068a0592e.xml",
+      "sha256": "59a7c6bbeb211bd4604703aeb164c869b524c18c7e642aa9dedbaad068a0592e"
+    },
+    "ppt/tableStyles.xml": {
+      "path": "parts/eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce.xml",
+      "sha256": "eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce"
+    },
+    "ppt/theme/theme1.xml": {
+      "path": "parts/983894cb6e822917e23d3b5da9e846412f5fa5811c07ae8d403a27b06a08739d.xml",
+      "sha256": "983894cb6e822917e23d3b5da9e846412f5fa5811c07ae8d403a27b06a08739d"
+    },
+    "ppt/viewProps.xml": {
+      "path": "parts/68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7.xml",
+      "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
+    }
+  },
+  "pages": [
+    {
+      "path": "page-1.png",
+      "sha256": "d7f39fe454f5bdb92f1ef5acdee1ac7ddd5b52df7b12b17baa8e5384467776bd",
+      "maximum": 96,
+      "mean": 12,
+      "outliers": 3,
+      "edge_outliers": [
+        [
+          226,
+          116
+        ],
+        [
+          264,
+          138
+        ],
+        [
+          80,
+          225
+        ]
+      ]
+    }
+  ],
+  "warnings": [
+    "mathematical typesetting is deferred"
+  ],
+  "text_geometry": {
+    "path": "text-geometry.json",
+    "sha256": "bf0f308a2e1abd5b13d9bd33e0756375a90ea4e674460423eae91253a87d9f4f"
+  }
+}
