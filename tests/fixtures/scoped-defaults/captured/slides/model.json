@@ -1,0 +1,503 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "margin": {
+                  "bottom": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  },
+                  "left": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  },
+                  "right": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  },
+                  "top": {
+                    "text": "10pt",
+                    "unit": "pt",
+                    "value": 10
+                  }
+                },
+                "position": {
+                  "height": {
+                    "text": "150pt",
+                    "unit": "pt",
+                    "value": 150
+                  },
+                  "width": {
+                    "text": "680pt",
+                    "unit": "pt",
+                    "value": 680
+                  },
+                  "x": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                },
+                "text": {
+                  "color": "#2563eb",
+                  "font": "body",
+                  "size": {
+                    "text": "22pt",
+                    "unit": "pt",
+                    "value": 22
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "category": "inline",
+                      "attributes": {
+                        "color": "#2563eb"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Captured blue"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " / "
+                    },
+                    {
+                      "kind": "span",
+                      "category": "inline",
+                      "attributes": {
+                        "color": "#9f1239"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Current red"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "One"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "alignment": "right"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Two"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Outside loop."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "shape",
+              "category": "block",
+              "attributes": {
+                "alignment": "center",
+                "border": {
+                  "color": "#94a3b8",
+                  "width": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1
+                  }
+                },
+                "fill": "#f8fafc",
+                "position": {
+                  "height": {
+                    "text": "70pt",
+                    "unit": "pt",
+                    "value": 70
+                  },
+                  "width": {
+                    "text": "200pt",
+                    "unit": "pt",
+                    "value": 200
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "220pt",
+                    "unit": "pt",
+                    "value": 220
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Default shape"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "line",
+              "category": "block",
+              "attributes": {
+                "arrow": {
+                  "end": "triangle"
+                },
+                "border": {
+                  "color": "#2563eb",
+                  "width": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  }
+                },
+                "from": {
+                  "x": {
+                    "text": "230pt",
+                    "unit": "pt",
+                    "value": 230
+                  },
+                  "y": {
+                    "text": "255pt",
+                    "unit": "pt",
+                    "value": 255
+                  }
+                },
+                "to": {
+                  "x": {
+                    "text": "400pt",
+                    "unit": "pt",
+                    "value": 400
+                  },
+                  "y": {
+                    "text": "255pt",
+                    "unit": "pt",
+                    "value": 255
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "margin": {
+              "bottom": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              },
+              "left": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              },
+              "right": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              },
+              "top": {
+                "text": "10pt",
+                "unit": "pt",
+                "value": 10
+              }
+            },
+            "position": {
+              "height": {
+                "text": "150pt",
+                "unit": "pt",
+                "value": 150
+              },
+              "width": {
+                "text": "680pt",
+                "unit": "pt",
+                "value": 680
+              },
+              "x": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "text": {
+              "color": "#2563eb",
+              "font": "body",
+              "size": {
+                "text": "22pt",
+                "unit": "pt",
+                "value": 22
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "color": "#2563eb"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Captured blue"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " / "
+                },
+                {
+                  "kind": "span",
+                  "category": "inline",
+                  "attributes": {
+                    "color": "#9f1239"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Current red"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "right"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "One"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "right"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Two"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outside loop."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "shape",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "border": {
+              "color": "#94a3b8",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            },
+            "fill": "#f8fafc",
+            "position": {
+              "height": {
+                "text": "70pt",
+                "unit": "pt",
+                "value": 70
+              },
+              "width": {
+                "text": "200pt",
+                "unit": "pt",
+                "value": 200
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "220pt",
+                "unit": "pt",
+                "value": 220
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Default shape"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "triangle"
+            },
+            "border": {
+              "color": "#2563eb",
+              "width": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              }
+            },
+            "from": {
+              "x": {
+                "text": "230pt",
+                "unit": "pt",
+                "value": 230
+              },
+              "y": {
+                "text": "255pt",
+                "unit": "pt",
+                "value": 255
+              }
+            },
+            "to": {
+              "x": {
+                "text": "400pt",
+                "unit": "pt",
+                "value": 400
+              },
+              "y": {
+                "text": "255pt",
+                "unit": "pt",
+                "value": 255
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

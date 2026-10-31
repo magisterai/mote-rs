@@ -213,6 +213,31 @@ impl Parser<'_> {
                         nodes.push(self.parse_control(&name, start)?);
                         continue;
                     }
+                    if name == "set" {
+                        self.skip_horizontal_whitespace();
+                        let target = self.parse_path()?;
+                        if target.contains('.') || self.peek_character() == Some('-') {
+                            return Err(self.error("set requires an element name with underscores"));
+                        }
+                        self.skip_horizontal_whitespace();
+                        if self.peek_character() != Some('(') {
+                            return Err(self.error("set requires named properties in parentheses"));
+                        }
+                        let arguments = self.parse_arguments(ArgumentListKind::Call)?;
+                        if self.peek_character() == Some('[') {
+                            return Err(self.error("set does not accept a content body"));
+                        }
+                        nodes.push(Node {
+                            kind: NodeKind::Set(Call {
+                                from_markdown: false,
+                                name: target,
+                                arguments,
+                                bodies: Vec::new(),
+                            }),
+                            span: self.span(start),
+                        });
+                        continue;
+                    }
                     if name == "function" {
                         nodes.push(self.parse_function(start)?);
                         continue;

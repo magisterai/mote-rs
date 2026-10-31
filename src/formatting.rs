@@ -272,18 +272,6 @@ fn declaration_properties(
     properties
 }
 
-fn merge_nested_properties(target: &mut Properties, source: &Properties) {
-    for (name, value) in source {
-        if let Value::Object(source_fields) = value
-            && let Some(Value::Object(target_fields)) = target.get_mut(name)
-        {
-            merge_nested_properties(target_fields, source_fields);
-        } else {
-            target.insert(name.clone(), value.clone());
-        }
-    }
-}
-
 fn merge_paragraph_properties(target: &mut Properties, source: &Properties) {
     for (flat, aliases) in [
         ("spacing_before", ["before", "spacing_before"]),
@@ -306,5 +294,5 @@ fn merge_paragraph_properties(target: &mut Properties, source: &Properties) {
             target.remove(flat);
         }
     }
-    merge_nested_properties(target, source);
+    crate::properties::merge(target, source);
 }

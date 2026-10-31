@@ -23,3 +23,16 @@ pub(crate) fn number(properties: &Properties, name: &str) -> Option<f64> {
 pub(crate) fn boolean(properties: &Properties, name: &str) -> bool {
     properties.get(name) == Some(&Value::Boolean(true)) || text(properties, name) == "true"
 }
+
+/// Overlay object fields recursively; other values replace the existing value.
+pub(crate) fn merge(target: &mut Properties, source: &Properties) {
+    for (name, value) in source {
+        if let Value::Object(source_fields) = value
+            && let Some(Value::Object(target_fields)) = target.get_mut(name)
+        {
+            merge(target_fields, source_fields);
+        } else {
+            target.insert(name.clone(), value.clone());
+        }
+    }
+}

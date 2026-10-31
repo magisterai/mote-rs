@@ -61,7 +61,7 @@ pub(super) fn evaluate_markdown(
             if row.header && !content.is_empty() {
                 content = vec![Content::Element(Element {
                     kind: ElementKind::Strong,
-                    attributes: Properties::new(),
+                    attributes: document.bindings.element_defaults(ElementKind::Strong),
                     children: content,
                 })];
             }
@@ -72,7 +72,9 @@ pub(super) fn evaluate_markdown(
             };
             cells.push(Content::Element(Element {
                 kind: ElementKind::Cell,
-                attributes,
+                attributes: document
+                    .bindings
+                    .element_attributes(ElementKind::Cell, &attributes),
                 children: content,
             }));
         }
@@ -83,13 +85,15 @@ pub(super) fn evaluate_markdown(
         };
         children.push(Content::Element(Element {
             kind: ElementKind::Row,
-            attributes,
+            attributes: document
+                .bindings
+                .element_attributes(ElementKind::Row, &attributes),
             children: cells,
         }));
     }
     Ok(Content::Element(Element {
         kind: ElementKind::Table,
-        attributes: Properties::new(),
+        attributes: document.bindings.element_defaults(ElementKind::Table),
         children,
     }))
 }

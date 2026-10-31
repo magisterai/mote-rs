@@ -56,7 +56,13 @@ pub(super) fn call(
             .map(|value| EvaluatedArgument::new(value, span))
             .collect();
         return signature
-            .prepare(arguments, 0, false, span)
+            .prepare(
+                arguments,
+                0,
+                false,
+                span,
+                &state.bindings.element_defaults(signature.kind),
+            )
             .and_then(|prepared| prepared.finish(Vec::new(), span, state))
             .map(|element| Value::Element(Box::new(element)))
             .map_err(mlua::Error::external);
@@ -72,7 +78,13 @@ pub(super) fn call(
     let has_body = values.peek().is_some();
     let children = values.flat_map(super::values::into_content).collect();
     let prepared = signature
-        .prepare(arguments, usize::from(has_body), false, span)
+        .prepare(
+            arguments,
+            usize::from(has_body),
+            false,
+            span,
+            &state.bindings.element_defaults(signature.kind),
+        )
         .map_err(mlua::Error::external)?;
     let preserve_space = prepared.preserve_space(false);
     let mut element = prepared

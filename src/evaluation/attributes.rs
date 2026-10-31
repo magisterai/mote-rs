@@ -16,10 +16,29 @@ const NUMBER_FORMATS: &[&str] = &[
 
 pub(super) fn normalize_arguments(
     kind: ElementKind,
-    mut arguments: EvaluatedArguments,
+    arguments: EvaluatedArguments,
+    defaults: &Properties,
 ) -> Result<Properties, Diagnostic> {
-    for (name, argument) in &arguments.named {
-        validate_named_argument(kind, name, &argument.value, argument.span)?;
+    normalize(kind, arguments, defaults, true)
+}
+
+pub(super) fn normalize_defaults(
+    kind: ElementKind,
+    arguments: EvaluatedArguments,
+) -> Result<Properties, Diagnostic> {
+    normalize(kind, arguments, &Properties::new(), false)
+}
+
+fn normalize(
+    kind: ElementKind,
+    mut arguments: EvaluatedArguments,
+    defaults: &Properties,
+    validate_outer: bool,
+) -> Result<Properties, Diagnostic> {
+    if validate_outer {
+        for (name, argument) in &arguments.named {
+            validate_named_argument(kind, name, &argument.value, argument.span)?;
+        }
     }
     let properties_argument = arguments.named.remove("properties");
     let mut attributes: BTreeMap<_, _> = arguments
@@ -70,6 +89,22 @@ pub(super) fn normalize_arguments(
         }
         if !primary.is_empty() {
             attributes.insert(primary.into(), (argument.value, argument.span));
+        }
+    }
+    // A layout-slot removal must remain property-free despite ambient box defaults.
+    let removal = kind == ElementKind::Box
+        && attributes.get("remove").is_some_and(|(value, span)| {
+            normalize_boolean(value.clone(), *span, "remove").ok() == Some(Value::Boolean(true))
+        });
+    for (name, default) in defaults.iter().filter(|_| !removal) {
+        if let Some((explicit, _)) = attributes.get_mut(name) {
+            if let (Value::Object(base), Value::Object(overlay)) = (default, &*explicit) {
+                let mut merged = base.clone();
+                crate::properties::merge(&mut merged, overlay);
+                *explicit = Value::Object(merged);
+            }
+        } else {
+            attributes.insert(name.clone(), (default.clone(), Span { start: 0, end: 0 }));
         }
     }
     attributes

@@ -125,6 +125,7 @@ impl Signature {
         bodies: usize,
         from_markdown: bool,
         span: Span,
+        defaults: &Properties,
     ) -> Result<PreparedElement, Diagnostic> {
         if matches!(self.kind, ElementKind::Code | ElementKind::Raw) {
             if bodies > 1 {
@@ -157,7 +158,7 @@ impl Signature {
                 ),
             ));
         }
-        let declares_slot = self.kind == ElementKind::Box && (arguments.named.contains_key("slot") || arguments.named.get("properties").is_some_and(|argument| matches!(&argument.value, Value::Object(fields) if fields.contains_key("slot"))));
+        let declares_slot = self.kind == ElementKind::Box && (arguments.named.contains_key("slot") || defaults.contains_key("slot") || arguments.named.get("properties").is_some_and(|argument| matches!(&argument.value, Value::Object(fields) if fields.contains_key("slot"))));
         if (self.body_required() && !declares_slot && bodies != 1)
             || bodies > usize::from(self.body_allowed() || from_markdown)
         {
@@ -187,6 +188,36 @@ impl Signature {
                 "primary argument cannot be supplied both positionally and by name",
             ));
         }
+        if matches!(
+            self.kind,
+            ElementKind::Image | ElementKind::Link | ElementKind::Bookmark | ElementKind::Label
+        ) {
+            let primary = self.primary().unwrap();
+            if arguments.positional.is_empty() && !arguments.named.contains_key(primary) {
+                return Err(Diagnostic::new(
+                    span,
+                    format!(
+                        "{} requires an explicit {primary} argument",
+                        self.kind.as_text()
+                    ),
+                ));
+            }
+        }
+        for required in match self.kind {
+            ElementKind::Shape => &["position"][..],
+            ElementKind::Line => &["from", "to"][..],
+            _ => &[][..],
+        } {
+            if !arguments.named.contains_key(*required) {
+                return Err(Diagnostic::new(
+                    span,
+                    format!(
+                        "{} requires an explicit {required} argument",
+                        self.kind.as_text()
+                    ),
+                ));
+            }
+        }
         let text = if matches!(self.kind, ElementKind::Code | ElementKind::Raw) {
             arguments.positional.pop()
         } else {
@@ -198,7 +229,7 @@ impl Signature {
                 "chart requires a named data argument",
             ));
         }
-        let mut attributes = attributes::normalize_arguments(self.kind, arguments)?;
+        let mut attributes = attributes::normalize_arguments(self.kind, arguments, defaults)?;
         if self.kind == ElementKind::Break {
             attributes
                 .entry("type".into())
@@ -409,7 +440,13 @@ pub(super) fn evaluate(
     state: &mut EvaluationState<'_>,
 ) -> Result<Content, Diagnostic> {
     let arguments = expressions::evaluate_arguments(&call.arguments, state)?;
-    let prepared = signature.prepare(arguments, call.bodies.len(), call.from_markdown, span)?;
+    let prepared = signature.prepare(
+        arguments,
+        call.bodies.len(),
+        call.from_markdown,
+        span,
+        &state.bindings.element_defaults(signature.kind),
+    )?;
     let preserve_space = prepared.preserve_space(context.preserve_space);
     let context = EvaluationContext {
         preserve_space,
@@ -421,11 +458,11 @@ pub(super) fn evaluate(
         .map(|body| evaluate_body(body, signature.body_mode(), context, state))
         .transpose()?
         .unwrap_or_default();
-    if preserve_space && signature.kind == ElementKind::Code {
+    if preserve_space && matches!(signature.kind, ElementKind::Code | ElementKind::Raw) {
         super::normalize_preserved_content(&mut children);
     }
     let mut element = prepared.finish(children, span, state)?;
-    if preserve_space && signature.kind == ElementKind::Code {
+    if preserve_space && matches!(signature.kind, ElementKind::Code | ElementKind::Raw) {
         super::normalize_preserved_content(&mut element.children);
     }
     Ok(Content::Element(element))

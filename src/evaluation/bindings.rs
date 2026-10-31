@@ -9,6 +9,8 @@ use crate::{
 #[derive(Clone, Default)]
 struct Scope {
     values: Properties,
+    defaults: std::collections::BTreeMap<String, Properties>,
+    defaults_changed: bool,
     functions: std::collections::BTreeMap<String, std::rc::Rc<super::functions::DocumentFunction>>,
 }
 #[derive(Clone)]
@@ -23,6 +25,38 @@ impl Default for Bindings {
     }
 }
 impl Bindings {
+    pub fn local_defaults_changed(&self) -> bool {
+        self.scopes.last().unwrap().defaults_changed
+    }
+    pub fn element_defaults(&self, kind: crate::model::ElementKind) -> Properties {
+        let mut properties = Properties::new();
+        for scope in &self.scopes {
+            if let Some(defaults) = scope.defaults.get(kind.as_text()) {
+                crate::properties::merge(&mut properties, defaults);
+            }
+        }
+        properties
+    }
+    pub fn element_attributes(
+        &self,
+        kind: crate::model::ElementKind,
+        explicit: &Properties,
+    ) -> Properties {
+        let mut properties = self.element_defaults(kind);
+        crate::properties::merge(&mut properties, explicit);
+        properties
+    }
+    pub fn set_defaults(&mut self, kind: crate::model::ElementKind, properties: &Properties) {
+        self.scopes.last_mut().unwrap().defaults_changed = true;
+        let defaults = self
+            .scopes
+            .last_mut()
+            .unwrap()
+            .defaults
+            .entry(kind.as_text().into())
+            .or_default();
+        crate::properties::merge(defaults, properties);
+    }
     pub fn visible_values(&self) -> Properties {
         let mut values = Properties::new();
         for scope in &self.scopes {

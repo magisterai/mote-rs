@@ -1,0 +1,33 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#document(default_font="body",default_size=pt(12))
+Before defaults.
+
+#set paragraph(alignment="right",spacing={after=pt(5)})
+After defaults.
+
+#paragraph(alignment="center")[Explicit center.]
+#if(true)[
+#set paragraph(alignment="left",spacing={before=pt(3)})
+Local defaults.
+]
+
+Outer again.
+
+#set table(layout="fixed",width=pt(360),cell={margin={left=pt(6),right=pt(6)},fill="#eeeeee"})
+#set cell(vertical_alignment="middle")
+| Item | Count |
+| --- | ---: |
+| Apples | 12 |
+#table(cell={fill="#fff2cc"})[#row[#cell[Explicit fill]#cell[Preserved margins]]]
+#set span(color="#2563eb")
+#paragraph[#span[Blue] and #span(color="#9f1239")[red].]
+#set raw(preserve_space=true)
+#raw[  Literal default
+
+  spaces]
+#set list(tight=true)
+- First
+- Second
+#set list(tight=false)
+- Third
+- Fourth

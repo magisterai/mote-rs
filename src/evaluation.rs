@@ -12,6 +12,7 @@ mod constructors;
 mod control;
 mod data;
 mod declarations;
+mod defaults;
 mod drawings;
 mod expressions;
 mod functions;
@@ -160,6 +161,23 @@ fn evaluate_nodes(
     let mut skip_declaration_trivia = false;
     let mut captured = 0;
     for node in nodes {
+        if let NodeKind::Set(call) = &node.kind {
+            if mode.is_block() {
+                flush_paragraph(&mut paragraph, &mut result, &document.bindings);
+                let pending = result.split_off(captured);
+                result.extend(group_adjacent_list_items(pending, &document.bindings));
+                if mode == ContentMode::Document {
+                    document.append_content(&result[captured..]);
+                    captured = result.len();
+                }
+            }
+            if mode == ContentMode::Flow {
+                result = normalize_block_content(result, &document.bindings)?;
+            }
+            defaults::evaluate(call, node.span, document)?;
+            skip_declaration_trivia = true;
+            continue;
+        }
         if let NodeKind::FunctionDefinition {
             name,
             parameters,
@@ -176,7 +194,14 @@ fn evaluate_nodes(
             let value = functions::evaluate(&function, call, node.span, context, document)?;
             skip_declaration_trivia = value == Value::Nil;
             for child in scripting::value_content(value) {
-                append_evaluated_content(child, mode, node.span, &mut paragraph, &mut result)?;
+                append_evaluated_content(
+                    child,
+                    mode,
+                    node.span,
+                    &mut paragraph,
+                    &mut result,
+                    &document.bindings,
+                )?;
             }
             continue;
         }
@@ -184,7 +209,7 @@ fn evaluate_nodes(
             && matches!(call.name.as_str(), "header" | "footer" | "section")
         {
             if mode.is_block() {
-                flush_paragraph(&mut paragraph, &mut result);
+                flush_paragraph(&mut paragraph, &mut result, &document.bindings);
             }
             if mode == ContentMode::Document {
                 document.append_content(&result[captured..]);
@@ -255,7 +280,14 @@ fn evaluate_nodes(
         ) {
             if let Some(children) = control::evaluate(node, mode, context, document)? {
                 for child in children {
-                    append_evaluated_content(child, mode, node.span, &mut paragraph, &mut result)?;
+                    append_evaluated_content(
+                        child,
+                        mode,
+                        node.span,
+                        &mut paragraph,
+                        &mut result,
+                        &document.bindings,
+                    )?;
                 }
             } else {
                 skip_declaration_trivia = true;
@@ -263,7 +295,7 @@ fn evaluate_nodes(
             continue;
         }
         if mode.is_block() && matches!(node.kind, NodeKind::ParagraphBreak) {
-            flush_paragraph(&mut paragraph, &mut result);
+            flush_paragraph(&mut paragraph, &mut result, &document.bindings);
             continue;
         }
         if !context.preserve_space
@@ -282,8 +314,9 @@ fn evaluate_nodes(
                 text.truncate(text.trim_end_matches(' ').len());
             }
         }
-        let content = match &node.kind {
+        let mut content = match &node.kind {
             NodeKind::FootnoteDefinition { .. }
+            | NodeKind::Set(_)
             | NodeKind::FunctionDefinition { .. }
             | NodeKind::Conditional { .. }
             | NodeKind::Iteration { .. } => unreachable!(),
@@ -407,7 +440,10 @@ fn evaluate_nodes(
             }
             NodeKind::Call(call) if call.name == "json" => {
                 if !call.bodies.is_empty() {
-                    return Err(Diagnostic::new(node.span, "json does not accept a body"));
+                    return Err(Diagnostic::new(
+                        node.span,
+                        format!("{} does not accept a body", call.name),
+                    ));
                 }
                 let value = evaluate_helper(&call.name, &call.arguments, node.span, document)?;
                 if value == Value::Nil {
@@ -428,21 +464,44 @@ fn evaluate_nodes(
                     continue;
                 }
                 for child in scripting::value_content(value) {
-                    append_evaluated_content(child, mode, node.span, &mut paragraph, &mut result)?;
+                    append_evaluated_content(
+                        child,
+                        mode,
+                        node.span,
+                        &mut paragraph,
+                        &mut result,
+                        &document.bindings,
+                    )?;
                 }
                 continue;
             }
         };
-        append_evaluated_content(content, mode, node.span, &mut paragraph, &mut result)?;
+        if !matches!(
+            node.kind,
+            NodeKind::Call(_) | NodeKind::Reference(_) | NodeKind::Table(_)
+        ) && let Content::Element(element) = &mut content
+        {
+            element.attributes = document
+                .bindings
+                .element_attributes(element.kind, &element.attributes);
+        }
+        append_evaluated_content(
+            content,
+            mode,
+            node.span,
+            &mut paragraph,
+            &mut result,
+            &document.bindings,
+        )?;
     }
     if mode.is_block() {
-        flush_paragraph(&mut paragraph, &mut result);
+        flush_paragraph(&mut paragraph, &mut result, &document.bindings);
     }
     if mode == ContentMode::Document {
         document.append_content(&result[captured..]);
     }
     if mode.is_block() {
-        Ok(group_adjacent_list_items(result))
+        Ok(group_adjacent_list_items(result, &document.bindings))
     } else {
         Ok(result)
     }
@@ -454,6 +513,7 @@ fn append_evaluated_content(
     span: Span,
     paragraph: &mut Vec<Content>,
     result: &mut Vec<Content>,
+    bindings: &bindings::Bindings,
 ) -> Result<(), Diagnostic> {
     if matches!(&content, Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())
     {
@@ -463,13 +523,13 @@ fn append_evaluated_content(
                 "inline content cannot contain a block element",
             ));
         }
-        flush_paragraph(paragraph, result);
+        flush_paragraph(paragraph, result, bindings);
         result.push(content);
     } else if mode.is_block() {
         if let Content::Text(text) = &mut content {
             if text.trim().is_empty() {
                 if text.contains("\n\n") {
-                    flush_paragraph(paragraph, result);
+                    flush_paragraph(paragraph, result, bindings);
                 } else if !paragraph.is_empty() {
                     paragraph.push(content);
                 }
@@ -489,7 +549,7 @@ fn append_evaluated_content(
     Ok(())
 }
 
-fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
+fn group_adjacent_list_items(content: Vec<Content>, bindings: &bindings::Bindings) -> Vec<Content> {
     let mut result = Vec::new();
     let mut current_list: Option<Element> = None;
     for mut node in content {
@@ -498,7 +558,8 @@ fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
             Content::Element(element)
                 if !matches!(element.kind, ElementKind::List | ElementKind::OrderedList) =>
             {
-                element.children = group_adjacent_list_items(std::mem::take(&mut element.children));
+                element.children =
+                    group_adjacent_list_items(std::mem::take(&mut element.children), bindings);
             }
             _ => {}
         }
@@ -530,7 +591,7 @@ fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
             current_list
                 .get_or_insert_with(|| Element {
                     kind,
-                    attributes: Properties::new(),
+                    attributes: bindings.element_defaults(kind),
                     children: Vec::new(),
                 })
                 .children
@@ -545,7 +606,11 @@ fn group_adjacent_list_items(content: Vec<Content>) -> Vec<Content> {
     result
 }
 
-fn flush_paragraph(buffer: &mut Vec<Content>, result: &mut Vec<Content>) {
+fn flush_paragraph(
+    buffer: &mut Vec<Content>,
+    result: &mut Vec<Content>,
+    bindings: &bindings::Bindings,
+) {
     if let Some(Content::Text(text)) = buffer.first_mut() {
         *text = text.trim_start_matches([' ', '\t', '\r', '\n']).to_owned();
     }
@@ -560,7 +625,7 @@ fn flush_paragraph(buffer: &mut Vec<Content>, result: &mut Vec<Content>) {
     if !buffer.is_empty() {
         result.push(Content::Element(Element {
             kind: ElementKind::Paragraph,
-            attributes: Properties::new(),
+            attributes: bindings.element_defaults(ElementKind::Paragraph),
             children: std::mem::take(buffer),
         }));
     }
@@ -607,7 +672,33 @@ fn evaluate_body(
     state: &mut EvaluationState<'_>,
 ) -> Result<Vec<Content>, Diagnostic> {
     state.bindings.enter();
-    let result = evaluate_nodes(nodes, mode, context, state);
+    let result = evaluate_nodes(nodes, mode, context, state).and_then(|content| {
+        if mode == ContentMode::Flow && state.bindings.local_defaults_changed() {
+            normalize_block_content(content, &state.bindings)
+        } else {
+            Ok(content)
+        }
+    });
     state.bindings.leave();
     result
+}
+
+fn normalize_block_content(
+    content: Vec<Content>,
+    bindings: &bindings::Bindings,
+) -> Result<Vec<Content>, Diagnostic> {
+    let mut paragraph = Vec::new();
+    let mut result = Vec::new();
+    for child in content {
+        append_evaluated_content(
+            child,
+            ContentMode::Block,
+            Span { start: 0, end: 0 },
+            &mut paragraph,
+            &mut result,
+            bindings,
+        )?;
+    }
+    flush_paragraph(&mut paragraph, &mut result, bindings);
+    Ok(group_adjacent_list_items(result, bindings))
 }

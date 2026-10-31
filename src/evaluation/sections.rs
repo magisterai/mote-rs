@@ -104,8 +104,10 @@ impl EvaluationState<'_> {
     pub fn finish(mut self) -> Document {
         if self.declared_sections {
             for section in &mut self.document.sections {
-                section.content =
-                    super::group_adjacent_list_items(std::mem::take(&mut section.content));
+                section.content = super::group_adjacent_list_items(
+                    std::mem::take(&mut section.content),
+                    &self.bindings,
+                );
             }
         } else {
             self.document.sections.clear();

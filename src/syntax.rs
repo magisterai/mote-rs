@@ -59,6 +59,7 @@ pub enum NodeKind {
     },
     Table(Vec<MarkdownTableRow>),
     Call(Call),
+    Set(Call),
     Reference(String),
     FootnoteDefinition {
         name: String,

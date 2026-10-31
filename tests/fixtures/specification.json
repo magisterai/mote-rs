@@ -654,6 +654,10 @@
     {
       "example": "block-content/2",
       "model": "block-content/2"
+    },
+    {
+      "example": "scoped-defaults/1",
+      "model": "scoped-defaults/1"
     }
   ],
   "models": {
@@ -10631,6 +10635,166 @@
             {
               "kind": "text",
               "text": "Content after the divider."
+            }
+          ]
+        }
+      ]
+    },
+    "scoped-defaults/1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before any default."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "right",
+                "spacing": {
+                  "after": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6.0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After the default."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "center",
+                "spacing": {
+                  "after": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6.0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A local default."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "left",
+                "spacing": {
+                  "after": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6.0
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "An explicit override."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before any default."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "right",
+            "spacing": {
+              "after": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6.0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the default."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center",
+            "spacing": {
+              "after": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6.0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A local default."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "left",
+            "spacing": {
+              "after": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6.0
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "An explicit override."
             }
           ]
         }

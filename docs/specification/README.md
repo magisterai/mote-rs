@@ -84,6 +84,9 @@ Status: initial draft.
 30. [Literal blocks, dividers and definitions](block-content.md): preserved block
     text, rule boundaries and term/definition containers.
 
+31. [Scoped defaults](scoped-defaults.md): progressive properties, recursive
+    overrides and lexical scope.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify

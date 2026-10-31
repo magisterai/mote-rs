@@ -74,6 +74,7 @@ pub(super) fn apply(
             named: arguments,
             positional: Vec::new(),
         },
+        &Default::default(),
     )?;
     properties.remove("name");
     properties.remove("based_on");
