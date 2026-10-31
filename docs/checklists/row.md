@@ -16,6 +16,8 @@ standard properties remain in the linked inventory without invented Mote names.
 Language/model and editable DOCX support are verified by captured packages.
 
 Native PDF/PNG repeats contiguous leading header rows and honors `cant_split`.
+Repeated headers have distinct placements in successive columns on the same
+page; the two-column fixture has captured native geometry and rasters.
 Ordinary rows and merged groups can continue across pages and columns at safe
 content boundaries. Oversized atomic rows warn about clipping; an oversized merged
 group without a safe split warns and falls back to individual rows.

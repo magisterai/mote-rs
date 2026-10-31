@@ -7,10 +7,17 @@
   "png_mean_foreground_difference": 9.0,
   "office_review_status": "unreviewed",
   "captured_at_utc": "2026-10-29T12:16:42.651527+00:00",
-  "native_reference_status": "blocked",
-  "reason": "Repeated headers in successive columns produce duplicate text-line identifiers on one page; native reference generation fails validation.",
+  "native_reference_status": "captured",
   "geometry_font_discovery": "disabled",
   "raster_font_discovery": "installed",
   "raster_core_outline_family": "macOS Helvetica",
-  "raster_named_font_families": []
+  "raster_named_font_families": [],
+  "pages": 2,
+  "pdf_comparison_dpi": 144,
+  "pdf_changed_pixels": 0,
+  "files": {
+    "geometry.json": "ae103869c43a435ee93f4a8ede93539d5c3ddbcae6e9d5af9f999e989756533e",
+    "reference-1.png": "e04184591b83c048d6488a219d41f9536f25e3bd93f4d39e777aa68a1eeb7179",
+    "reference-2.png": "e00a7c04ec0f06a47458cce9bcb2341527ea8d89531584e03b9b2f69bc41078c"
+  }
 }

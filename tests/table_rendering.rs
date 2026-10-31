@@ -139,6 +139,7 @@ fn table_text_edges_images_and_pagination_match_frozen_geometry() {
         "cell-blocks",
         "cell-list-order",
         "column-flow",
+        "columns",
         "content",
         "markdown",
         "merges",
@@ -165,6 +166,7 @@ fn native_table_pages_match_frozen_rasters_with_bounded_font_edge_tolerance() {
         "cell-blocks",
         "cell-list-order",
         "column-flow",
+        "columns",
         "content",
         "markdown",
         "merges",
@@ -268,7 +270,7 @@ fn repeated_table_headers_in_columns_have_distinct_page_operations() {
         &fs::read(fixtures().join("captured/columns/native-capture.json")).unwrap(),
     )
     .unwrap();
-    assert_eq!(metadata["native_reference_status"], "blocked");
+    assert_eq!(metadata["native_reference_status"], "captured");
 }
 #[test]
 fn output_limits_are_reported_without_warning_for_implemented_table_fields() {
