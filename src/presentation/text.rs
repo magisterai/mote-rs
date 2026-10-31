@@ -83,6 +83,11 @@ pub(super) fn validate_content(content: &[Content]) -> Result<(), String> {
                     | ElementKind::Subscript
                     | ElementKind::Superscript
                     | ElementKind::Code
+                    | ElementKind::Raw
+                    | ElementKind::DefinitionList
+                    | ElementKind::Term
+                    | ElementKind::Definition
+                    | ElementKind::Divider
                     | ElementKind::Link
                     | ElementKind::LineBreak
                     | ElementKind::Tab

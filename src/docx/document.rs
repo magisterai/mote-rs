@@ -133,6 +133,16 @@ pub(super) fn write_blocks(
                 at_flow_start = false;
                 continue;
             }
+            ElementKind::Raw | ElementKind::Divider | ElementKind::DefinitionList => {
+                body.push_str(&super::block_content::write(
+                    element,
+                    styles,
+                    state,
+                    leading_column_break,
+                )?);
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Paragraph => element.attributes.clone(),
             ElementKind::Heading => {
                 let level = headings::level(element)? - 1;

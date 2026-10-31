@@ -198,13 +198,14 @@ fn collect(
                         | ElementKind::Subscript
                         | ElementKind::Superscript
                         | ElementKind::Code
+                        | ElementKind::Raw
                 ) {
                     styles.inline(element, inherited)
                 } else {
                     inherited.clone()
                 };
                 let preserve_space = preserve_space
-                    || (element.kind == ElementKind::Code
+                    || (matches!(element.kind, ElementKind::Code | ElementKind::Raw)
                         && style_values::boolean(&element.attributes, "preserve_space"));
                 collect(&element.children, &style, styles, preserve_space, runs);
             }

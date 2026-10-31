@@ -96,6 +96,10 @@ impl Parser<'_> {
             {
                 continuation_start = false;
                 self.skip_horizontal_whitespace();
+                if let Some(node) = self.parse_code_fence() {
+                    nodes.push(node);
+                    continue;
+                }
                 if let Some(node) = self.parse_footnote_definition()? {
                     nodes.push(node);
                     continue;
@@ -109,11 +113,18 @@ impl Parser<'_> {
                     continue;
                 }
                 let line = self.source[self.position..]
-                    .split(['\r', '\n'])
+                    .split(|character| {
+                        matches!(character, '\r' | '\n')
+                            || Some(character) == self.closing_delimiter
+                    })
                     .next()
                     .unwrap_or_default();
                 let trimmed = line.trim_end();
-                if trimmed.len() >= 3 && trimmed.bytes().all(|byte| byte == b'-') {
+                let marker = trimmed.as_bytes().first().copied();
+                if trimmed.len() >= 3
+                    && matches!(marker, Some(b'-' | b'*' | b'_'))
+                    && trimmed.bytes().all(|byte| Some(byte) == marker)
+                {
                     self.position += line.len();
                     nodes.push(Node {
                         kind: NodeKind::Divider,
@@ -132,17 +143,6 @@ impl Parser<'_> {
                 if let Some(node) = self.parse_blockquote()? {
                     nodes.push(node);
                     continue;
-                }
-                // These block forms need their own syntax and semantics.
-                if ["```", "~~~"].iter().any(|marker| self.starts_with(marker))
-                    || (self.starts_with("---")
-                        && !self.source[self.position..]
-                            .split(['\r', '\n'])
-                            .next()
-                            .unwrap_or_default()
-                            .contains('|'))
-                {
-                    return Err(self.error("this Markdown block form is not supported yet"));
                 }
                 if self.peek_character() == Some('#') {
                     character = '#';
@@ -181,6 +181,7 @@ impl Parser<'_> {
                     self.skip_horizontal_whitespace();
                     if matches!(self.peek_character(), Some('\r' | '\n')) {
                         self.consume_line_ending();
+                        self.skip_horizontal_whitespace();
                         nodes.push(Node {
                             kind: NodeKind::ParagraphBreak,
                             span: self.span(start),

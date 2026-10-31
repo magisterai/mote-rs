@@ -5,6 +5,7 @@ mod captions;
 mod charts;
 mod columns;
 mod decorations;
+mod dividers;
 mod document;
 pub(crate) mod drawing_text;
 mod drawings;

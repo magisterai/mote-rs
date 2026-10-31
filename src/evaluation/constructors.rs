@@ -33,6 +33,11 @@ pub(super) const ELEMENT_NAMES: &[&str] = &[
     "subscript",
     "superscript",
     "code",
+    "raw",
+    "definition_list",
+    "term",
+    "definition",
+    "divider",
     "footnote",
     "endnote",
     "page_number",
@@ -70,7 +75,7 @@ impl Signature {
             ElementKind::Image => Some("src"),
             ElementKind::Bookmark | ElementKind::Label => Some("name"),
             ElementKind::Reference => Some("target"),
-            ElementKind::Code => Some("text"),
+            ElementKind::Code | ElementKind::Raw => Some("text"),
             _ => None,
         }
     }
@@ -86,13 +91,14 @@ impl Signature {
                 | ElementKind::LineBreak
                 | ElementKind::Tab
                 | ElementKind::Break
+                | ElementKind::Divider
         )
     }
     fn body_required(self) -> bool {
         self.body_allowed()
             && !matches!(
                 self.kind,
-                ElementKind::Code | ElementKind::Bookmark | ElementKind::Shape
+                ElementKind::Code | ElementKind::Raw | ElementKind::Bookmark | ElementKind::Shape
             )
     }
     pub fn body_mode(self) -> ContentMode {
@@ -107,7 +113,9 @@ impl Signature {
             | ElementKind::Blockquote
             | ElementKind::Figure
             | ElementKind::Footnote
-            | ElementKind::Endnote => ContentMode::Block,
+            | ElementKind::Endnote
+            | ElementKind::Definition => ContentMode::Block,
+            ElementKind::DefinitionList => ContentMode::Structural,
             _ => ContentMode::Inline,
         }
     }
@@ -118,7 +126,7 @@ impl Signature {
         from_markdown: bool,
         span: Span,
     ) -> Result<PreparedElement, Diagnostic> {
-        if self.kind == ElementKind::Code {
+        if matches!(self.kind, ElementKind::Code | ElementKind::Raw) {
             if bodies > 1 {
                 return Err(Diagnostic::new(
                     span,
@@ -137,6 +145,7 @@ impl Signature {
             ElementKind::LineBreak
                 | ElementKind::Tab
                 | ElementKind::Break
+                | ElementKind::Divider
                 | ElementKind::PageNumber
         ) && (bodies > 0 || !arguments.positional.is_empty())
         {
@@ -169,7 +178,7 @@ impl Signature {
             return Err(Diagnostic::new(span, "unexpected positional argument"));
         }
         if let Some(primary) = self.primary()
-            && self.kind != ElementKind::Code
+            && !matches!(self.kind, ElementKind::Code | ElementKind::Raw)
             && !arguments.positional.is_empty()
             && arguments.named.contains_key(primary)
         {
@@ -178,7 +187,7 @@ impl Signature {
                 "primary argument cannot be supplied both positionally and by name",
             ));
         }
-        let text = if self.kind == ElementKind::Code {
+        let text = if matches!(self.kind, ElementKind::Code | ElementKind::Raw) {
             arguments.positional.pop()
         } else {
             None
@@ -269,7 +278,7 @@ pub(super) struct PreparedElement {
 impl PreparedElement {
     pub fn preserve_space(&self, inherited: bool) -> bool {
         inherited
-            || self.signature.kind == ElementKind::Code
+            || matches!(self.signature.kind, ElementKind::Code | ElementKind::Raw)
                 && self.attributes.get("preserve_space") == Some(&Value::Boolean(true))
     }
     pub fn finish(
@@ -281,6 +290,18 @@ impl PreparedElement {
         let kind = self.signature.kind;
         if self.signature.body_mode() == ContentMode::Inline && children.iter().any(|child| matches!(child,Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())) {
             return Err(Diagnostic::new(span,"inline content cannot contain a block element"));
+        }
+        if kind == ElementKind::DefinitionList {
+            children
+                .retain(|child| !matches!(child, Content::Text(text) if text.trim().is_empty()));
+            if children.iter().any(|child| !matches!(child, Content::Element(element) if matches!(element.kind, ElementKind::Term | ElementKind::Definition))) {
+                return Err(Diagnostic::new(span, "definition_list bodies accept only term and definition elements"));
+            }
+            if children.is_empty() {
+                state
+                    .warnings
+                    .push(Diagnostic::new(span, "definition_list body is empty"));
+            }
         }
         let required_child = match kind {
             ElementKind::Table => Some(ElementKind::Row),

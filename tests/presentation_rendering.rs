@@ -521,10 +521,17 @@ fn markdown_boundaries_do_not_change_document_mode_or_split_nested_headings() {
         );
     }
     let document = mote::compile("# First\n\n---\n\n# Second").unwrap();
-    let error = render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Document)
-        .unwrap_err()
-        .to_string();
-    assert!(error.contains("divider"), "{error}");
+    let planned =
+        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Document)
+            .unwrap()
+            .output;
+    assert_eq!(planned.pages.len(), 1);
+    assert!(
+        planned.pages[0]
+            .operations
+            .iter()
+            .any(|operation| matches!(operation, mote::layout::PageOperation::Rule(rule) if rule.role == mote::layout::RuleRole::Divider))
+    );
 }
 
 #[test]

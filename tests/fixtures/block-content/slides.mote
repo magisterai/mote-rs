@@ -1,0 +1,22 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#presentation(size="standard")
+#slide[#box(position={x=pt(25),y=pt(25),width=pt(670),height=pt(480)},text={font="body",size=pt(20)})[
+#paragraph[Before the literal block.]
+```text
+  two leading spaces
+	and a tab
+
+last line
+```
+#raw("  alpha\n\n  beta\tend",preserve_space=true)
+#definition_list[
+ #term[API]
+ #definition[Application programming interface.]
+ #term[Second term]
+ #definition[First paragraph.
+
+Second paragraph.]
+]
+#paragraph[After the definitions.]
+#divider()
+]]

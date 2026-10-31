@@ -3,6 +3,7 @@
 // Keep parser-facing imports available alongside the shared diagnostics module.
 pub use crate::diagnostics::{Diagnostic, Span};
 
+mod blocks;
 mod control;
 mod expressions;
 mod links;
@@ -41,6 +42,10 @@ pub enum NodeKind {
     Strong(Vec<Node>),
     Emphasis(Vec<Node>),
     Code(String),
+    CodeFence {
+        text: String,
+        language: String,
+    },
     ListItem {
         marker: String,
         checked: Option<bool>,
@@ -224,6 +229,11 @@ impl Parser<'_> {
         }
     }
     fn is_at_line_start(&self) -> bool {
-        self.position == 0 || matches!(self.source.as_bytes()[self.position - 1], b'\r' | b'\n')
+        self.source[..self.position]
+            .rsplit(['\r', '\n'])
+            .next()
+            .unwrap_or_default()
+            .bytes()
+            .all(|byte| matches!(byte, b' ' | b'\t'))
     }
 }

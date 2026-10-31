@@ -3,6 +3,7 @@ use super::{HighlightRectangle, TextLine};
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RuleRole {
     Generic,
+    Divider,
     ChartAxis,
     ChartGridline,
     ColumnSeparator,

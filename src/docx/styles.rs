@@ -145,12 +145,20 @@ impl<'document> Styles<'document> {
             };
             content.push_str(&format!("<w:style w:type=\"paragraph\" w:styleId=\"BlockQuote\"><w:name w:val=\"Block Quote\"/><w:basedOn w:val=\"{}\"/><w:pPr><w:spacing w:before=\"120\" w:after=\"120\" w:line=\"276\" w:lineRule=\"auto\"/><w:ind w:left=\"720\"/></w:pPr><w:rPr>{}</w:rPr></w:style>", self.identifier("Normal")?, formatting.write_declaration(self)?));
         }
+        for name in ["HorizontalRule", "DefinitionTerm", "Definition"] {
+            if self.builtin_needed.contains(name) && !self.declared(name) {
+                content.push_str(&super::block_content::write_style(name, self)?);
+            }
+        }
         if self.builtin_needed.contains("Code") && !self.declared("Code") {
             let formatting = RunFormatting {
                 properties: self.resolved_run("Code")?,
                 ..RunFormatting::default()
             };
             content.push_str(&format!("<w:style w:type=\"character\" w:styleId=\"Code\"><w:name w:val=\"Code\"/><w:rPr>{}</w:rPr></w:style>", formatting.write_declaration(self)?));
+        }
+        if self.builtin_needed.contains("CodeBlock") && !self.declared("CodeBlock") {
+            content.push_str(&super::block_content::write_style("CodeBlock", self)?);
         }
         for declaration in self.document.styles.values() {
             content.push_str(&self.write_declaration(declaration)?);

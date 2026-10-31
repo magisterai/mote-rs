@@ -1,0 +1,369 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "480pt",
+                    "unit": "pt",
+                    "value": 480
+                  },
+                  "width": {
+                    "text": "670pt",
+                    "unit": "pt",
+                    "value": 670
+                  },
+                  "x": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  },
+                  "y": {
+                    "text": "25pt",
+                    "unit": "pt",
+                    "value": 25
+                  }
+                },
+                "text": {
+                  "font": "body",
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Before the literal block."
+                    }
+                  ]
+                },
+                {
+                  "kind": "raw",
+                  "category": "block",
+                  "attributes": {
+                    "language": "text",
+                    "preserve_space": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "  two leading spaces\n\tand a tab\n\nlast line\n"
+                    }
+                  ]
+                },
+                {
+                  "kind": "raw",
+                  "category": "block",
+                  "attributes": {
+                    "preserve_space": true
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "  alpha\n\n  beta\tend"
+                    }
+                  ]
+                },
+                {
+                  "kind": "definition_list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "term",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "API"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "definition",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Application programming interface."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "term",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Second term"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "definition",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "First paragraph."
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Second paragraph."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "After the definitions."
+                    }
+                  ]
+                },
+                {
+                  "kind": "divider",
+                  "category": "block"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "480pt",
+                "unit": "pt",
+                "value": 480
+              },
+              "width": {
+                "text": "670pt",
+                "unit": "pt",
+                "value": 670
+              },
+              "x": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              },
+              "y": {
+                "text": "25pt",
+                "unit": "pt",
+                "value": 25
+              }
+            },
+            "text": {
+              "font": "body",
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before the literal block."
+                }
+              ]
+            },
+            {
+              "kind": "raw",
+              "category": "block",
+              "attributes": {
+                "language": "text",
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  two leading spaces\n\tand a tab\n\nlast line\n"
+                }
+              ]
+            },
+            {
+              "kind": "raw",
+              "category": "block",
+              "attributes": {
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  alpha\n\n  beta\tend"
+                }
+              ]
+            },
+            {
+              "kind": "definition_list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "term",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "API"
+                    }
+                  ]
+                },
+                {
+                  "kind": "definition",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Application programming interface."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "term",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second term"
+                    }
+                  ]
+                },
+                {
+                  "kind": "definition",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "First paragraph."
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Second paragraph."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "After the definitions."
+                }
+              ]
+            },
+            {
+              "kind": "divider",
+              "category": "block"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

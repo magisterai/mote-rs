@@ -128,6 +128,41 @@ pub(super) fn place_blocks(
     let mut painting = super::painting::ParagraphPainting::default();
     for (index, block) in blocks.iter().enumerate() {
         match block {
+            Block::Divider(divider) => {
+                painting.clear_fill();
+                if divider.clamped {
+                    warnings.push("divider width was clamped to one point".into());
+                }
+                if divider.width <= 0.0 {
+                    continue;
+                }
+                let leading = (*pending_spacing).max(divider.before);
+                if leading > 0.0 {
+                    let previous = (cursor.page_number, cursor.column_index);
+                    ensure_space(
+                        cursor,
+                        pages,
+                        columns,
+                        geometry,
+                        boundary,
+                        leading + divider.width,
+                    );
+                    if previous == (cursor.page_number, cursor.column_index) {
+                        cursor.y += leading;
+                    }
+                }
+                ensure_space(cursor, pages, columns, geometry, boundary, divider.width);
+                divider.place(
+                    &mut pages[cursor.page_number - 1],
+                    geometry.column_left(cursor.column_index),
+                    cursor.y,
+                    geometry.column_width(),
+                );
+                cursor.y += divider.width;
+                cursor.body_started = true;
+                columns.note(cursor, geometry);
+                *pending_spacing = divider.after.max(0.0);
+            }
             Block::Chart(chart) => {
                 painting.clear_fill();
                 if chart.height <= 0.0 {

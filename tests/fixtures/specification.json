@@ -646,6 +646,14 @@
     {
       "example": "semantic-formatting/1",
       "model": "semantic-formatting/1"
+    },
+    {
+      "example": "block-content/1",
+      "model": "block-content/1"
+    },
+    {
+      "example": "block-content/2",
+      "model": "block-content/2"
     }
   ],
   "models": {
@@ -10385,6 +10393,244 @@
             {
               "kind": "text",
               "text": " "
+            }
+          ]
+        }
+      ]
+    },
+    "block-content/1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "raw",
+              "category": "block",
+              "attributes": {
+                "language": "text",
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  #paragraph[This stays literal.]\n"
+                }
+              ]
+            },
+            {
+              "kind": "raw",
+              "category": "block",
+              "attributes": {
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  Keep these spaces"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "raw",
+          "category": "block",
+          "attributes": {
+            "language": "text",
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  #paragraph[This stays literal.]\n"
+            }
+          ]
+        },
+        {
+          "kind": "raw",
+          "category": "block",
+          "attributes": {
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  Keep these spaces"
+            }
+          ]
+        }
+      ]
+    },
+    "block-content/2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "definition_list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "term",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Template"
+                    }
+                  ]
+                },
+                {
+                  "kind": "definition",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A reusable source document."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "term",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Directive"
+                    }
+                  ]
+                },
+                {
+                  "kind": "definition",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A named instruction with arguments and optional content."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "divider",
+              "category": "block"
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Content after the divider."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "definition_list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "term",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Template"
+                }
+              ]
+            },
+            {
+              "kind": "definition",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A reusable source document."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "term",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Directive"
+                }
+              ]
+            },
+            {
+              "kind": "definition",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A named instruction with arguments and optional content."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "divider",
+          "category": "block"
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Content after the divider."
             }
           ]
         }

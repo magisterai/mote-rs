@@ -12,6 +12,10 @@ pub(super) const NAMES: &[&str] = &[
     "Heading6",
     "BlockQuote",
     "Code",
+    "CodeBlock",
+    "HorizontalRule",
+    "DefinitionTerm",
+    "Definition",
     "Hyperlink",
     "Caption",
     "Header",
@@ -63,6 +67,9 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
         let Content::Element(element) = child else {
             continue;
         };
+        if element.kind == ElementKind::Divider {
+            names.insert("HorizontalRule".into());
+        }
         if matches!(element.kind, ElementKind::Image | ElementKind::Caption) {
             names.insert("Caption".into());
         }
@@ -79,6 +86,15 @@ fn collect(content: &[Content], names: &mut BTreeSet<String>) -> Result<(), Erro
         }
         if style.is_empty() {
             match element.kind {
+                ElementKind::Raw => {
+                    names.insert("CodeBlock".into());
+                }
+                ElementKind::Term => {
+                    names.insert("DefinitionTerm".into());
+                }
+                ElementKind::Definition => {
+                    names.insert("Definition".into());
+                }
                 ElementKind::Code => {
                     names.insert("Code".into());
                 }
@@ -113,11 +129,27 @@ pub(super) fn run_properties(name: &str) -> Properties {
                 },
             );
         }
+        Some("HorizontalRule" | "DefinitionTerm" | "Definition") => {
+            properties.insert("font".into(), Value::String("Helvetica".into()));
+            properties.insert(
+                "size".into(),
+                Value::Length {
+                    value: 11.0,
+                    unit: Unit::Point,
+                },
+            );
+            if name == "DefinitionTerm" {
+                properties.insert("bold".into(), Value::Boolean(true));
+            }
+            if name == "HorizontalRule" {
+                properties.insert("color".into(), Value::String("D1D5DB".into()));
+            }
+        }
         Some("Hyperlink") => {
             properties.insert("color".into(), Value::String("0563C1".into()));
             properties.insert("underline".into(), Value::Boolean(true));
         }
-        Some("Code") => {
+        Some("Code" | "CodeBlock") => {
             properties.insert("font".into(), Value::String("mono".into()));
             properties.insert(
                 "size".into(),

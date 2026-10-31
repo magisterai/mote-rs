@@ -368,6 +368,7 @@ fn place_cell(
                     block_top += line.height;
                 }
             }
+            Block::Divider(divider) => divider.place(page, object_left, block_top, object_width),
             Block::Image(image) => {
                 page.operations
                     .extend(image.place(object_left, object_width, block_top)?)

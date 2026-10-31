@@ -337,6 +337,18 @@ fn evaluate_nodes(
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Inline, context, document)?,
             }),
+            NodeKind::CodeFence { text, language } => Content::Element(Element {
+                kind: ElementKind::Raw,
+                attributes: {
+                    let mut attributes =
+                        Properties::from([("preserve_space".into(), Value::Boolean(true))]);
+                    if !language.is_empty() {
+                        attributes.insert("language".into(), Value::String(language.clone()));
+                    }
+                    attributes
+                },
+                children: vec![Content::Text(normalize_line_endings(text))],
+            }),
             NodeKind::Code(text) => Content::Element(Element {
                 kind: ElementKind::Code,
                 attributes: Properties::new(),

@@ -10,6 +10,9 @@ pub(super) fn write_inlines(
 ) -> Result<String, Error> {
     validate_controls(children)?;
     let formatting = resources.active_text.clone();
+    if formatting.fixed_tabs {
+        return write_formatted(children, &formatting, styles, resources);
+    }
     write_formatted(
         &whitespace::trim_line_edges(children),
         &formatting,

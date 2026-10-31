@@ -1,0 +1,24 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf"})
+#document(default_font="body",default_size=pt(12))
+#paragraph[Before the literal block.]
+```text
+  two leading spaces
+	and a tab
+
+last line
+```
+#raw("  alpha\n\n  beta\tend",preserve_space=true)
+#definition_list[
+ #term[API]
+ #definition[Application programming interface.]
+ #term[Second term]
+ #definition[First paragraph.
+
+Second paragraph.]
+]
+#paragraph[After the definitions.]
+
+---
+
+#divider(color="#2563eb",width=pt(2),spacing={before=pt(4),after=pt(9)})
+#paragraph[After the rules.]

@@ -268,7 +268,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
                 ElementKind::Heading => allowed.push("level"),
                 ElementKind::Strike => allowed.push("kind"),
                 ElementKind::Link => allowed.push("url"),
-                ElementKind::Code => allowed.push("preserve_space"),
+                ElementKind::Code | ElementKind::Raw => allowed.push("preserve_space"),
                 _ => {}
             }
         }

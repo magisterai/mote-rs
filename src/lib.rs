@@ -25,6 +25,7 @@ mod xml;
 
 mod properties;
 
+mod block_content;
 mod captions;
 mod numbering;
 mod references;

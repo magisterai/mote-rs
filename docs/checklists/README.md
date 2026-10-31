@@ -45,6 +45,11 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `raw` | [Literal block content](raw.md) | Specified and tested; see the checklist for output limits. |
+| `divider` | [Horizontal dividers](divider.md) | Specified and tested; see the checklist for output limits. |
+| `definition_list` | [Definition lists](definition-list.md) | Specified and tested; see the checklist for output limits. |
+| `term` | [Definition terms](term.md) | Specified and tested; see the checklist for output limits. |
+| `definition` | [Definitions](definition.md) | Specified and tested; see the checklist for output limits. |
 | `underline` | [Underline](underline.md) | Specified and tested; see the checklist for output limits. |
 | `strike` | [Strikethrough](strike.md) | Specified and tested; see the checklist for output limits. |
 | `highlight` | [Highlighted text](highlight.md) | Specified and tested; see the checklist for output limits. |

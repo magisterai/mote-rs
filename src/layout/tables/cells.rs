@@ -188,6 +188,7 @@ pub(super) fn block_geometry(block: &Block) -> (f64, f64, f64) {
             paragraph.text.style.spacing_before,
             paragraph.text.style.spacing_after,
         ),
+        Block::Divider(divider) => (divider.width, divider.before, divider.after),
         Block::Image(image) => (image.height(), image.before, image.after),
         Block::Table(table) => (table.height(), 0.0, 0.0),
         Block::Chart(chart) => (chart.height, chart.before, chart.after),

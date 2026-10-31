@@ -1,0 +1,355 @@
+{
+  "document": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    }
+  },
+  "defaults": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before the literal block."
+            }
+          ]
+        },
+        {
+          "kind": "raw",
+          "category": "block",
+          "attributes": {
+            "language": "text",
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  two leading spaces\n\tand a tab\n\nlast line\n"
+            }
+          ]
+        },
+        {
+          "kind": "raw",
+          "category": "block",
+          "attributes": {
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  alpha\n\n  beta\tend"
+            }
+          ]
+        },
+        {
+          "kind": "definition_list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "term",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "API"
+                }
+              ]
+            },
+            {
+              "kind": "definition",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Application programming interface."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "term",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second term"
+                }
+              ]
+            },
+            {
+              "kind": "definition",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First paragraph."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second paragraph."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the definitions."
+            }
+          ]
+        },
+        {
+          "kind": "divider",
+          "category": "block"
+        },
+        {
+          "kind": "divider",
+          "category": "block",
+          "attributes": {
+            "color": "#2563eb",
+            "spacing": {
+              "after": {
+                "text": "9pt",
+                "unit": "pt",
+                "value": 9
+              },
+              "before": {
+                "text": "4pt",
+                "unit": "pt",
+                "value": 4
+              }
+            },
+            "width": {
+              "text": "2pt",
+              "unit": "pt",
+              "value": 2
+            }
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the rules."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before the literal block."
+        }
+      ]
+    },
+    {
+      "kind": "raw",
+      "category": "block",
+      "attributes": {
+        "language": "text",
+        "preserve_space": true
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "  two leading spaces\n\tand a tab\n\nlast line\n"
+        }
+      ]
+    },
+    {
+      "kind": "raw",
+      "category": "block",
+      "attributes": {
+        "preserve_space": true
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "  alpha\n\n  beta\tend"
+        }
+      ]
+    },
+    {
+      "kind": "definition_list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "term",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "API"
+            }
+          ]
+        },
+        {
+          "kind": "definition",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Application programming interface."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "term",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second term"
+            }
+          ]
+        },
+        {
+          "kind": "definition",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second paragraph."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After the definitions."
+        }
+      ]
+    },
+    {
+      "kind": "divider",
+      "category": "block"
+    },
+    {
+      "kind": "divider",
+      "category": "block",
+      "attributes": {
+        "color": "#2563eb",
+        "spacing": {
+          "after": {
+            "text": "9pt",
+            "unit": "pt",
+            "value": 9
+          },
+          "before": {
+            "text": "4pt",
+            "unit": "pt",
+            "value": 4
+          }
+        },
+        "width": {
+          "text": "2pt",
+          "unit": "pt",
+          "value": 2
+        }
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After the rules."
+        }
+      ]
+    }
+  ]
+}

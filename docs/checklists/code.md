@@ -37,8 +37,7 @@ whitespace before their examples. The direct
 `font`, `size`, and `color` controls are not part of the DOCX code mapping in this
 scope; DOCX code formatting uses styles and inherited formatting.
 
-Fenced and block code belong to a future block-content checklist. They are not
-completed by the inline backtick implementation. Preserve-space behaviour needs
+Fenced and block code have their own [raw checklist](raw.md). Preserve-space behaviour needs
 separate presentation verification and truthful warnings for degraded output.
 
 ## Output limits

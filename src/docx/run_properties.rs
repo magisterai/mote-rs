@@ -124,7 +124,7 @@ impl RunFormatting {
                     _ => unreachable!(),
                 }
             }
-            ElementKind::Code => {
+            ElementKind::Code | ElementKind::Raw => {
                 check_attributes(
                     &element.attributes,
                     &["style", "preserve_space", "language"],

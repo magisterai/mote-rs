@@ -11,6 +11,7 @@ use crate::{
 };
 
 pub(super) enum Block {
+    Divider(super::dividers::Divider),
     Chart(Box<super::charts::ChartBlock>),
     Drawing(Box<super::drawings::Drawing>),
     Paragraph(Box<PreparedParagraph>),
@@ -97,7 +98,20 @@ pub(super) fn prepare_content(
             ElementKind::Paragraph
             | ElementKind::Heading
             | ElementKind::Blockquote
-            | ElementKind::Caption => builder.paragraph(element)?,
+            | ElementKind::Caption
+            | ElementKind::Raw => builder.paragraph(element)?,
+            ElementKind::DefinitionList => {
+                for paragraph in crate::block_content::definition_paragraphs(element, false) {
+                    builder.paragraph(&paragraph)?;
+                }
+                builder.flow_start = false;
+            }
+            ElementKind::Divider => {
+                let mut divider = super::dividers::Divider::prepare(element, styles);
+                divider.anchors = std::mem::take(&mut builder.pending_anchors);
+                builder.blocks.push(Block::Divider(divider));
+                builder.flow_start = false;
+            }
             ElementKind::List | ElementKind::OrderedList => {
                 builder.pending_anchors.clear();
                 builder.list(element, 0, true)?;
@@ -181,6 +195,12 @@ struct BlockBuilder<'builder, 'document, 'assets> {
 impl BlockBuilder<'_, '_, '_> {
     fn paragraph(&mut self, original: &Element) -> Result<(), LayoutError> {
         let mut element = original.clone();
+        if element.kind == ElementKind::Raw {
+            element
+                .attributes
+                .entry("style".into())
+                .or_insert(Value::String("Code".into()));
+        }
         if element.kind == ElementKind::Blockquote {
             element
                 .attributes
@@ -197,6 +217,13 @@ impl BlockBuilder<'_, '_, '_> {
         }
         let style = self.styles.paragraph(&element);
         let mut runs = resolve_inline(&element.children, &style.text, self.styles);
+        if element.kind == ElementKind::Raw
+            && values::boolean(&element.attributes, "preserve_space")
+        {
+            for run in &mut runs {
+                run.preserve_space = true;
+            }
+        }
         if element.kind == ElementKind::Caption && !self.in_cell {
             let parent = match element.attributes.get(super::captions::PARENT) {
                 Some(Value::Object(parent)) => parent.clone(),

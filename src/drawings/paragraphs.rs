@@ -239,6 +239,48 @@ pub(crate) fn resolve(
                     styles,
                 ));
             }
+            ElementKind::Raw => {
+                let mut base = base.clone();
+                base.measurement.size_points = 14.0;
+                let mut result = paragraph(&element.children, &base, &attributes, "Code", styles);
+                if properties::boolean(&element.attributes, "preserve_space") {
+                    for run in &mut result.runs {
+                        run.preserve_space = true;
+                    }
+                }
+                output.push(result);
+            }
+            ElementKind::DefinitionList => output.extend(resolve(
+                &element.children,
+                base,
+                defaults,
+                heading_font,
+                styles,
+            )),
+            ElementKind::Term | ElementKind::Definition => {
+                let mut base = base.clone();
+                let implicit = if element.kind == ElementKind::Term {
+                    let (_, italic) = crate::layout::styles::emphasis(base.measurement.variant);
+                    base.measurement.variant = FontVariant::from_emphasis(true, italic);
+                    "DefinitionTerm"
+                } else {
+                    "Definition"
+                };
+                output.push(paragraph(
+                    &element.children,
+                    &base,
+                    &attributes,
+                    implicit,
+                    styles,
+                ));
+            }
+            ElementKind::Divider => output.push(paragraph(
+                &[Content::Text("_".repeat(24))],
+                base,
+                defaults,
+                "",
+                styles,
+            )),
             ElementKind::List | ElementKind::OrderedList => {
                 output.extend(resolve_list(element, base, defaults, 0, styles))
             }

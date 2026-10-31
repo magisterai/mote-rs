@@ -321,6 +321,7 @@ fn content(
             | ElementKind::Strong
             | ElementKind::Emphasis
             | ElementKind::Code
+            | ElementKind::Raw
             | ElementKind::Underline
             | ElementKind::Strike
             | ElementKind::Highlight
@@ -332,7 +333,7 @@ fn content(
                 if element.kind == ElementKind::Strike {
                     allowed.push("kind");
                 }
-                if element.kind == ElementKind::Code {
+                if matches!(element.kind, ElementKind::Code | ElementKind::Raw) {
                     allowed.push("preserve_space");
                 }
             }
@@ -411,7 +412,11 @@ fn content(
                 allowed.push("id");
             }
             ElementKind::PageNumber => allowed.push("kind"),
-            ElementKind::Tab | ElementKind::LineBreak | ElementKind::Divider => {}
+            ElementKind::DefinitionList | ElementKind::Term | ElementKind::Definition => {
+                allowed.push("style")
+            }
+            ElementKind::Divider => allowed.extend(["style", "color", "width", "spacing"]),
+            ElementKind::Tab | ElementKind::LineBreak => {}
         }
         unknown(attributes, &allowed, &path, warnings);
         if element.kind == ElementKind::Image {

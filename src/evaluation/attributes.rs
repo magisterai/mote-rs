@@ -260,7 +260,7 @@ fn validate_named_argument(
                 "kind" if kind == Strike => Some(ArgumentType::String),
                 _ => None,
             },
-            Code => match name {
+            Code | Raw => match name {
                 "style" | "language" => Some(ArgumentType::String),
                 "preserve_space" => Some(ArgumentType::Boolean),
                 _ => None,
@@ -277,6 +277,17 @@ fn validate_named_argument(
                 "level" => Some(ArgumentType::NumberOrString),
                 "tight" | "checked" => Some(ArgumentType::Boolean),
                 "checkbox" | "indent" | "spacing" => Some(ArgumentType::Object),
+                _ => None,
+            },
+            DefinitionList | Definition => match name {
+                "style" => Some(ArgumentType::String),
+                _ => None,
+            },
+            Divider => match name {
+                "style" => Some(ArgumentType::String),
+                "color" => Some(ArgumentType::Color),
+                "width" => Some(ArgumentType::Length),
+                "spacing" => Some(ArgumentType::Object),
                 _ => None,
             },
             Blockquote => match name {
@@ -325,7 +336,7 @@ fn validate_named_argument(
             },
             Strong | Emphasis | LineBreak | Tab => None,
             Break if name == "type" => Some(ArgumentType::String),
-            Break | Divider => None,
+            Break | Term => None,
         }
     };
     if let Some(constraint) = constraint
@@ -383,6 +394,12 @@ pub(super) fn normalize_attribute(
             "numbering" if kind == Heading => normalize_numbering(value, span),
             _ => Ok(value),
         },
+        Divider => match name {
+            "color" => normalize_color(value, span, name),
+            "width" => normalize_length(value, span, name),
+            "spacing" => normalize_length_map(value, span, name),
+            _ => Ok(value),
+        },
         Image => super::images::normalize(name, value, span),
         Table | Row | Cell => super::tables::normalize(kind, name, value, span),
         Underline | Strike | Highlight | SmallCaps | Subscript | Superscript => match name {
@@ -431,7 +448,7 @@ pub(super) fn normalize_attribute(
             _ => Ok(value),
         },
         Blockquote if name == "fill" => normalize_color(value, span, name),
-        Code if name == "preserve_space" => normalize_boolean(value, span, name),
+        Code | Raw if name == "preserve_space" => normalize_boolean(value, span, name),
         Break if name == "type" => {
             normalize_enum(value, span, "break type", &["page", "column", "line"])
         }

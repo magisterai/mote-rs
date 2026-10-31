@@ -214,12 +214,12 @@ impl<'document> LayoutStyleResolver<'document> {
                 style.superscript = true;
                 style.measurement.size_points *= 0.75;
             }
-            ElementKind::Code => style.code = true,
+            ElementKind::Code | ElementKind::Raw => style.code = true,
             _ => {}
         }
         style.measurement.variant = FontVariant::from_emphasis(bold, italic);
         let name = values::text(&element.attributes, "style");
-        if element.kind == ElementKind::Code && name.is_empty() {
+        if matches!(element.kind, ElementKind::Code | ElementKind::Raw) && name.is_empty() {
             self.apply_named_run(&mut style, "Code");
         }
         if !name.is_empty() {
