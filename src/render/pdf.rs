@@ -313,18 +313,22 @@ fn paint_line(
         let font = fonts.find(&fragment.font)?;
         let [red, green, blue] = color(&fragment.style.color)?
             .map(|channel| ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32);
-        content
-            .set_fill_rgb(red, green, blue)
-            .begin_text()
-            .set_font(
-                Name(font.resource.as_bytes()),
-                fragment.style.measurement.size_points as f32,
-            );
         let compact = font
             .selection
             .bytes
             .as_ref()
             .is_some_and(|bytes| bytes.starts_with(b"OTTO"));
+        // Core and TrueType text uses hundredth-point PDF precision. CFF keeps
+        // the precision of its independently positioned glyphs.
+        let font_size = if compact {
+            fragment.style.measurement.size_points as f32
+        } else {
+            rounded(fragment.style.measurement.size_points)
+        };
+        content
+            .set_fill_rgb(red, green, blue)
+            .begin_text()
+            .set_font(Name(font.resource.as_bytes()), font_size);
         let baseline = if compact {
             (page_height - fragment.baseline) as f32
         } else {

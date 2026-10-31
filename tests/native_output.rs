@@ -229,3 +229,45 @@ fn fractional_paper_sizes_cover_the_complete_canvas_at_each_resolution() {
         );
     }
 }
+
+#[test]
+fn pdf_fitted_font_sizes_preserve_their_font_format_precision() {
+    use std::io::Read;
+    for name in ["core", "truetype", "cff"] {
+        let mut plan = fixture(name);
+        for page in &mut plan.pages {
+            for line in &mut page.lines {
+                for fragment in &mut line.line.fragments {
+                    fragment.style.measurement.size_points = 5.83587646484375;
+                }
+            }
+        }
+        let bytes = render::paint_pdf(&plan).unwrap();
+        let mut text_streams = String::new();
+        for (offset, marker) in bytes.windows(7).enumerate() {
+            if marker == b"stream\n" {
+                let mut decoded = String::new();
+                if flate2::read::ZlibDecoder::new(&bytes[offset + 7..])
+                    .read_to_string(&mut decoded)
+                    .is_ok()
+                    && decoded.contains(" Tf")
+                {
+                    text_streams.push_str(&decoded);
+                }
+            }
+        }
+        if name == "cff" {
+            assert!(text_streams.contains(" 5.8358765 Tf"));
+        } else {
+            assert!(text_streams.contains(" 5.84 Tf"));
+            assert!(!text_streams.contains(" 5.8358765 Tf"));
+        }
+        assert_eq!(
+            plan.pages[0].lines[0].line.fragments[0]
+                .style
+                .measurement
+                .size_points,
+            5.83587646484375
+        );
+    }
+}
