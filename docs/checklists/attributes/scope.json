@@ -349,6 +349,78 @@
       "namespace": "http://schemas.microsoft.com/office/drawing/2013/main/command",
       "edition": "MS-ODRAWXML",
       "document": "MS-ODRAWXML"
+    },
+    {
+      "prefix": "m",
+      "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/math",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/shared-math.xsd"
+    },
+    {
+      "prefix": "m",
+      "namespace": "http://purl.oclc.org/ooxml/officeDocument/math",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/shared-math.xsd"
+    },
+    {
+      "prefix": "ep",
+      "namespace": "http://purl.oclc.org/ooxml/officeDocument/extendedProperties",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/shared-documentPropertiesExtended.xsd"
+    },
+    {
+      "prefix": "custom",
+      "namespace": "http://purl.oclc.org/ooxml/officeDocument/customProperties",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/shared-documentPropertiesCustom.xsd"
+    },
+    {
+      "prefix": "vt",
+      "namespace": "http://purl.oclc.org/ooxml/officeDocument/docPropsVTypes",
+      "edition": "Strict",
+      "path": "docs/reference/ooxml/ecma-376/part-1/xsd-strict/shared-documentPropertiesVariantTypes.xsd"
+    },
+    {
+      "prefix": "ep",
+      "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/extended-properties",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/shared-documentPropertiesExtended.xsd"
+    },
+    {
+      "prefix": "custom",
+      "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/custom-properties",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/shared-documentPropertiesCustom.xsd"
+    },
+    {
+      "prefix": "vt",
+      "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes",
+      "edition": "Transitional",
+      "path": "docs/reference/ooxml/ecma-376/part-4/xsd-transitional/shared-documentPropertiesVariantTypes.xsd"
+    },
+    {
+      "prefix": "w16cid",
+      "namespace": "http://schemas.microsoft.com/office/word/2016/wordml/cid",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
+    },
+    {
+      "prefix": "w16cex",
+      "namespace": "http://schemas.microsoft.com/office/word/2018/wordml/cex",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
+    },
+    {
+      "prefix": "w2026cei",
+      "namespace": "http://schemas.microsoft.com/office/word/2026/wordml/cei",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
+    },
+    {
+      "prefix": "w16",
+      "namespace": "http://schemas.microsoft.com/office/word/2018/wordml",
+      "edition": "MS-DOCX",
+      "document": "MS-DOCX"
     }
   ],
   "families": [
@@ -1333,6 +1405,67 @@
         },
         {
           "type": "p2023_02:CT_PlaceholderTypeExtension"
+        }
+      ]
+    },
+    {
+      "file": "math.md",
+      "title": "Office Math properties",
+      "description": "Editable equations: complete OMML structures, nested control properties and value domains. Source-expression support does not imply direct authoring attributes for every XML field.",
+      "roots": [
+        {
+          "type": "m:CT_OMath"
+        },
+        {
+          "type": "m:CT_OMathPara"
+        },
+        {
+          "type": "m:CT_MathPr"
+        }
+      ]
+    },
+    {
+      "file": "comments.md",
+      "title": "Comment properties",
+      "description": "Comment identities, authorship, ranges and extension records. Story content uses the existing paragraph, run and table inventories; thread resolution, durable identities, people and modern extensions remain visible without implying Mote authoring support. Comment-range start/end use [w:CT_MarkupRange](anchors-and-fields.md#w-ct_markuprange); comment references use [w:CT_Markup](#w-ct_markup). Presentation comment records and authors are inventoried in [PresentationML](presentations.md) and its [extensions](presentation-extensions.md).",
+      "roots": [
+        {
+          "type": "w:CT_Comments"
+        },
+        {
+          "type": "w:CT_Comment",
+          "attributes_only": true
+        },
+        {
+          "type": "w:CT_Markup"
+        },
+        {
+          "type": "w15:CT_CommentsEx"
+        },
+        {
+          "type": "w15:CT_People"
+        },
+        {
+          "type": "w16cid:CT_CommentsIds"
+        },
+        {
+          "type": "w16cex:CT_CommentsExtensible"
+        },
+        {
+          "type": "w2026cei:CT_CommentEntityInfo"
+        }
+      ]
+    },
+    {
+      "file": "metadata-properties.md",
+      "title": "Extended and custom document properties",
+      "description": "Every extended property, custom-property field and nested variant value in the retained Strict and Transitional schemas. Retaining metadata in the Mote model does not imply package mappings for these properties. Core properties are inventoried separately in metadata.md.",
+      "roots": [
+        {
+          "type": "ep:CT_Properties"
+        },
+        {
+          "type": "custom:CT_Properties"
         }
       ]
     }

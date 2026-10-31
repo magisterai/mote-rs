@@ -45,6 +45,9 @@ behaviour is deliberately defined and implemented.
 | [Word paragraphs](word-paragraphs.md) | Paragraphs, headings, quotes, and list-item paragraphs; includes nested section-boundary properties. | [17.3.1 Paragraphs](../../reference/reading/ooxml/ecma-376/part-1/sections/00163-17-3-1-paragraphs.md) |
 | [Tables](tables.md) | Tables, rows, cells, grids, borders and conditional formatting. | WordprocessingML and DrawingML table properties. |
 | [Shapes and connectors](shapes-and-lines.md) | Shape/connector geometry, metadata, appearance and Word hosting. | [DrawingML framework](../../reference/topics/drawings-charts.md) and MS-ODRAWXML Word shapes. |
+| [Mathematics](math.md) | Equation sources and editable math structure. | [Math topic guide](../../reference/topics/math.md) |
+| [Comments](comments.md) | Authors, dates, ranges, identities and modern annotation extensions. | WordprocessingML and MS-DOCX. |
+| [Metadata](metadata.md) | Core, extended and custom document properties. | OPC and shared document-property schemas. |
 | [Charts](charts.md) | Chart kinds, series, data caches, axes, labels, legends, styling and chart drawings. | [21.2 Charts](../../reference/reading/ooxml/ecma-376/part-1/sections/02848-21-2-drawingml-charts.md) |
 | [Chart extensions](chart-extensions.md) | Retained Microsoft chart, chart-style and extended-chart properties. | [MS-ODRAWXML](../../reference/reading/ooxml/microsoft/MS-ODRAWXML/README.md) |
 | [Images](images.md) | Raster pictures, transforms, effects, borders and placement. | DrawingML picture and Word drawing properties. |
@@ -107,8 +110,7 @@ the settings record.
 
 Open `any`/extension payloads are recorded as wildcards; they cannot enumerate
 unpublished or arbitrary future namespaces. Known text-property extensions above
-have explicit roots. Separate content such as equations, drawings, charts,
-comments, revisions as document content, linked text boxes, diagram objects, and
+have explicit roots. Separate content such as revisions, linked text boxes, diagram objects, and
 presentation animations needs the appropriate directive inventory when introduced.
 Their presence in a standard does not make them additional arguments to a
 paragraph or span. Presentation text formatting uses DrawingML property types;

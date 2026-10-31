@@ -206,7 +206,7 @@ def value_file(identifier):
     family = ('word' if prefix == 'w' else 'drawing' if prefix in ('a', 'p', 'wp')
               else 'charts' if prefix in ('c', 'cdr', 'cdr14', 'c14', 'c15', 'cs',
                                          'c16', 'c16ac', 'cx', 'c16r3', 'c16r2')
-              else 'shared' if prefix in ('s', 'r') else 'extensions')
+              else 'math' if prefix == 'm' else 'shared' if prefix in ('s', 'r') else 'extensions')
     return f'values-{family}.md'
 
 

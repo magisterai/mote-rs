@@ -55,6 +55,10 @@ See also [prose-defined extensions](prose-extensions.md).
 - [p2022_06__command:ST_CommentReplyV2ChangeBits](#p2022_06__command-st_commentreplyv2changebits)
 - [p2022_06__command:ST_CommentV2ChangeBit](#p2022_06__command-st_commentv2changebit)
 - [p2022_06__command:ST_CommentV2ChangeBits](#p2022_06__command-st_commentv2changebits)
+- [vt:ST_ArrayBaseType](#vt-st_arraybasetype)
+- [vt:ST_Cy](#vt-st_cy)
+- [vt:ST_Error](#vt-st_error)
+- [vt:ST_VectorBaseType](#vt-st_vectorbasetype)
 - [w14:ST_BevelPresetType](#w14-st_bevelpresettype)
 - [w14:ST_CompoundLine](#w14-st_compoundline)
 - [w14:ST_Ligatures](#w14-st_ligatures)
@@ -655,6 +659,77 @@ See also [prose-defined extensions](prose-extensions.md).
 [MS-PPTX](../../reference/reading/ooxml/microsoft/MS-PPTX/README.md):
 
 - list: itemType: [p2022_06__command:ST_CommentV2ChangeBit](values-extensions.md#p2022_06__command-st_commentv2changebit)
+
+<a id="vt-st_arraybasetype"></a>
+
+## vt:ST_ArrayBaseType
+
+[Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-documentPropertiesVariantTypes.xsd), [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-documentPropertiesVariantTypes.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `variant`
+- enumeration: value: `i1`
+- enumeration: value: `i2`
+- enumeration: value: `i4`
+- enumeration: value: `int`
+- enumeration: value: `ui1`
+- enumeration: value: `ui2`
+- enumeration: value: `ui4`
+- enumeration: value: `uint`
+- enumeration: value: `r4`
+- enumeration: value: `r8`
+- enumeration: value: `decimal`
+- enumeration: value: `bstr`
+- enumeration: value: `date`
+- enumeration: value: `bool`
+- enumeration: value: `cy`
+- enumeration: value: `error`
+
+<a id="vt-st_cy"></a>
+
+## vt:ST_Cy
+
+[Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-documentPropertiesVariantTypes.xsd), [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-documentPropertiesVariantTypes.xsd):
+
+- restriction: base: `xsd:string`
+- pattern: value: `\s*[0-9]*\.[0-9]{4}\s*`
+
+<a id="vt-st_error"></a>
+
+## vt:ST_Error
+
+[Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-documentPropertiesVariantTypes.xsd), [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-documentPropertiesVariantTypes.xsd):
+
+- restriction: base: `xsd:string`
+- pattern: value: `\s*0x[0-9A-Za-z]{8}\s*`
+
+<a id="vt-st_vectorbasetype"></a>
+
+## vt:ST_VectorBaseType
+
+[Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-documentPropertiesVariantTypes.xsd), [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-documentPropertiesVariantTypes.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `variant`
+- enumeration: value: `i1`
+- enumeration: value: `i2`
+- enumeration: value: `i4`
+- enumeration: value: `i8`
+- enumeration: value: `ui1`
+- enumeration: value: `ui2`
+- enumeration: value: `ui4`
+- enumeration: value: `ui8`
+- enumeration: value: `r4`
+- enumeration: value: `r8`
+- enumeration: value: `lpstr`
+- enumeration: value: `lpwstr`
+- enumeration: value: `bstr`
+- enumeration: value: `date`
+- enumeration: value: `filetime`
+- enumeration: value: `bool`
+- enumeration: value: `cy`
+- enumeration: value: `error`
+- enumeration: value: `clsid`
 
 <a id="w14-st_bevelpresettype"></a>
 

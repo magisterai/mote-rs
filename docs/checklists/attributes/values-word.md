@@ -20,9 +20,11 @@ See also [prose-defined extensions](prose-extensions.md).
 - [w:ST_DateTime](#w-st_datetime)
 - [w:ST_DecimalNumber](#w-st_decimalnumber)
 - [w:ST_DecimalNumberOrPercent](#w-st_decimalnumberorpercent)
+- [w:ST_Direction](#w-st_direction)
 - [w:ST_DisplacedByCustomXml](#w-st_displacedbycustomxml)
 - [w:ST_DocGrid](#w-st_docgrid)
 - [w:ST_DropCap](#w-st_dropcap)
+- [w:ST_EdGrp](#w-st_edgrp)
 - [w:ST_EdnPos](#w-st_ednpos)
 - [w:ST_EighthPointMeasure](#w-st_eighthpointmeasure)
 - [w:ST_Em](#w-st_em)
@@ -55,14 +57,21 @@ See also [prose-defined extensions](prose-extensions.md).
 - [w:ST_Merge](#w-st_merge)
 - [w:ST_MultiLevelType](#w-st_multileveltype)
 - [w:ST_NumberFormat](#w-st_numberformat)
+- [w:ST_ObjectDrawAspect](#w-st_objectdrawaspect)
+- [w:ST_ObjectUpdateMode](#w-st_objectupdatemode)
 - [w:ST_OnOff](#w-st_onoff)
+- [w:ST_PTabAlignment](#w-st_ptabalignment)
+- [w:ST_PTabLeader](#w-st_ptableader)
+- [w:ST_PTabRelativeTo](#w-st_ptabrelativeto)
 - [w:ST_PageBorderDisplay](#w-st_pageborderdisplay)
 - [w:ST_PageBorderOffset](#w-st_pageborderoffset)
 - [w:ST_PageBorderZOrder](#w-st_pageborderzorder)
 - [w:ST_PageOrientation](#w-st_pageorientation)
 - [w:ST_Pitch](#w-st_pitch)
 - [w:ST_PointMeasure](#w-st_pointmeasure)
+- [w:ST_ProofErr](#w-st_prooferr)
 - [w:ST_RestartNumber](#w-st_restartnumber)
+- [w:ST_RubyAlign](#w-st_rubyalign)
 - [w:ST_SdtDateMappingType](#w-st_sdtdatemappingtype)
 - [w:ST_SectionMark](#w-st_sectionmark)
 - [w:ST_Shd](#w-st_shd)
@@ -404,6 +413,16 @@ See also [prose-defined extensions](prose-extensions.md).
 
 - union: memberTypes: [s:ST_Percentage](values-shared.md#s-st_percentage)
 
+<a id="w-st_direction"></a>
+
+## w:ST_Direction
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `ltr`
+- enumeration: value: `rtl`
+
 <a id="w-st_displacedbycustomxml"></a>
 
 ## w:ST_DisplacedByCustomXml
@@ -436,6 +455,21 @@ See also [prose-defined extensions](prose-extensions.md).
 - enumeration: value: `none`
 - enumeration: value: `drop`
 - enumeration: value: `margin`
+
+<a id="w-st_edgrp"></a>
+
+## w:ST_EdGrp
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `none`
+- enumeration: value: `everyone`
+- enumeration: value: `administrators`
+- enumeration: value: `contributors`
+- enumeration: value: `editors`
+- enumeration: value: `owners`
+- enumeration: value: `current`
 
 <a id="w-st_ednpos"></a>
 
@@ -878,6 +912,26 @@ value definition is `s:ST_HexColorRGB` in the retained ECMA schemas.
 - enumeration: value: `dollarText`
 - enumeration: value: `custom`
 
+<a id="w-st_objectdrawaspect"></a>
+
+## w:ST_ObjectDrawAspect
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `content`
+- enumeration: value: `icon`
+
+<a id="w-st_objectupdatemode"></a>
+
+## w:ST_ObjectUpdateMode
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `always`
+- enumeration: value: `onCall`
+
 <a id="w-st_onoff"></a>
 
 ## w:ST_OnOff
@@ -892,6 +946,40 @@ value definition is `s:ST_OnOff` in the retained ECMA schemas.
 [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-commonSimpleTypes.xsd):
 
 - union: memberTypes: `xsd:boolean`
+
+<a id="w-st_ptabalignment"></a>
+
+## w:ST_PTabAlignment
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `left`
+- enumeration: value: `center`
+- enumeration: value: `right`
+
+<a id="w-st_ptableader"></a>
+
+## w:ST_PTabLeader
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `none`
+- enumeration: value: `dot`
+- enumeration: value: `hyphen`
+- enumeration: value: `underscore`
+- enumeration: value: `middleDot`
+
+<a id="w-st_ptabrelativeto"></a>
+
+## w:ST_PTabRelativeTo
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `margin`
+- enumeration: value: `indent`
 
 <a id="w-st_pageborderdisplay"></a>
 
@@ -953,6 +1041,18 @@ value definition is `s:ST_OnOff` in the retained ECMA schemas.
 
 - restriction: base: [s:ST_UnsignedDecimalNumber](values-shared.md#s-st_unsigneddecimalnumber)
 
+<a id="w-st_prooferr"></a>
+
+## w:ST_ProofErr
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `spellStart`
+- enumeration: value: `spellEnd`
+- enumeration: value: `gramStart`
+- enumeration: value: `gramEnd`
+
 <a id="w-st_restartnumber"></a>
 
 ## w:ST_RestartNumber
@@ -963,6 +1063,20 @@ value definition is `s:ST_OnOff` in the retained ECMA schemas.
 - enumeration: value: `continuous`
 - enumeration: value: `eachSect`
 - enumeration: value: `eachPage`
+
+<a id="w-st_rubyalign"></a>
+
+## w:ST_RubyAlign
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/wml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/wml.xsd):
+
+- restriction: base: `xsd:string`
+- enumeration: value: `center`
+- enumeration: value: `distributeLetter`
+- enumeration: value: `distributeSpace`
+- enumeration: value: `left`
+- enumeration: value: `right`
+- enumeration: value: `rightVertical`
 
 <a id="w-st_sdtdatemappingtype"></a>
 

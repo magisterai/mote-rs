@@ -227,8 +227,10 @@ stored separately from declarations and resolved formatting. Pagination,
 numbering, indentation, and checkbox values record intent without rendering it.
 
 Length helpers are `pt`, `in`, `inch`, `cm`, `mm`, and `twip`; `color` constructs
-normalized typed hexadecimal colors. `upper` remains ASCII-only and awaits its
-detailed specification. Values retain their documented types and physical units.
+normalized typed hexadecimal colors. The [value helpers](specification/value-helpers.md)
+add Unicode simple casing, currency formatting, general lengths and typed ISO
+dates. Static and Lua calls share validation and conversion. Values retain their
+documented types and physical units.
 
 Alignment values must match their defined spelling exactly. A heading rejects a
 level supplied both directly positionally and by name. Omitted attributes remain
@@ -421,8 +423,8 @@ Task items use editable Word 2010 checkbox controls or legacy form fields.
 Authored item checked state wins over nested state; metadata alone leaves ordinary
 list numbering. Tasks do not consume numbered-list positions. Their geometry is
 written directly, and control identifiers remain unique across nested lists and
-both control kinds. Markdown task syntax and a standalone checkbox directive are
-still deferred; this increment uses the existing item attributes.
+both control kinds. Markdown task syntax supplies the same checked state.
+Standalone checkboxes share control allocation with task items.
 
 Block quotes emit one paragraph with the fallback BlockQuote style or a declared
 style, plus direct borders, shading and geometry. Nested blocks supply inline text
@@ -431,7 +433,7 @@ unsupported and fails explicitly. Following paragraphs retain their own formatti
 
 Font measurement is not required for DOCX emission; Word performs layout and
 pagination. Production dependencies add ZIP/DEFLATE and UTC metadata support;
-XML parsing for comparisons is a test-only dependency. Font-table parsing uses
+XML parsing validates raw Office Math and supports package comparisons. Font-table parsing uses
 `ttf-parser` with only `std` and `opentype-layout`; it adds no transitive crates.
 Shaping remains deferred. The resolved production graph has no duplicate crate
 versions.
@@ -746,7 +748,8 @@ column/bar, stacked and percentage variants, line, area, stacked/percentage area
 pie and doughnut. The shared geometry includes titles, legends, axes, grids and
 supported labels. Chart labels, signed percentage stacks and mismatched data
 lengths retain the limits recorded in the [chart checklist](checklists/chart.md).
-Native table-cell charts remain unsupported. Positioned presentation charts use
+Native table-cell charts use a visible `[chart]` or `[chart: title]` fallback
+with a diagnostic. Positioned presentation charts use
 the same geometry with deck theme colors and fonts.
 
 ## Presentations
@@ -823,3 +826,30 @@ uneven records and string preservation are covered explicitly.
 [defaults](../tests/scoped_defaults.rs), [imports](../tests/imports.rs) and
 [CSV](../tests/csv.rs) have frozen models, complete package parts and independent
 native rasters. These captures do not replace real Word or PowerPoint review.
+## Equations and annotations
+
+The source parser lowers mathematical delimiters to the same `math` element as
+explicit calls and Lua constructors. Its normalized display property determines
+inline versus block content. `math` owns a bounded source parser, typed expression
+nodes and shared Office Math serialization; document and presentation writers
+supply their formatting context. Raw OMML is parsed and its root validated with
+`roxmltree`, reused from the existing dependency graph. Invalid XML stays visible
+with a diagnostic instead of entering an Office part. Native layout uses italic
+source text and explicitly reports that mathematical typesetting is deferred.
+
+Standalone checkboxes reuse DOCX control allocation with task lists. General
+fields retain their instruction and cached name. Comments use an independent
+related story and package identities; running and annotation stories retain
+flattened comment text. Native document checkboxes use textual markers, general
+fields are omitted, and comments retain their body. Typed dates survive Lua and
+JSON projection. Metadata declarations merge document-wide values and map only
+the documented title/author fields.
+
+[Equation](../tests/mathematics.rs), [helper](../tests/value_helpers.rs),
+[annotation](../tests/annotations.rs) and [fallback](../tests/output_fallbacks.rs)
+regressions compare complete models and packages, immutable source hashes, font
+identities, every measured text fragment and native PNGs. Geometry uses a separate
+1e-8-point check. Chart cells and standalone document lines use documented visible
+fallbacks; supported output is generated with diagnostics instead of failing on
+those objects. Unicode closing-bracket/numeric-suffix context determines fragment
+boundaries before wrapping and pixel-origin rounding.

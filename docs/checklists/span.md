@@ -20,6 +20,10 @@
   normalized booleans, preserving omission and explicit false.
 - [x] `properties`: check outer types, merge overrides, then normalize designated
   fields using the shared precedence rules.
+- [x] `preserve_space`: retain the supplied value; Boolean true or trimmed text
+  equal to `true` preserves DOCX line-edge whitespace. It does not change native
+  layout or expand span tabs.
+  [Captured tests](../../tests/output_fallbacks.rs) verify this limited contract.
 
 ## Resolution and output
 

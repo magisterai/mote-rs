@@ -68,8 +68,11 @@ labels, series marks and plot edges. Crowded charts can still have collisions
 when none of those positions is clear. Authored label positions remain advisory
 in native line charts. See the [label placement tests](../../tests/chart_rendering.rs).
 Area charts omit data labels with a warning. Nonempty line/area series require
-at least two categories. Gap and overlap have no native line/area effect. Native charts in table cells are
-rejected; flattened running stories omit chart geometry with a warning.
+at least two categories. Gap and overlap have no native line/area effect. Native
+table cells and flattened running stories omit chart geometry with a warning.
+A chart cell uses `[chart]`, or `[chart: title]` when a title is present, with
+ordinary paragraph spacing. Flattened running stories omit the chart.
+[Fallback captures](../../tests/fixtures/output-fallbacks/README.md) verify both.
 [Bar captures](../../tests/fixtures/chart-native-bars/README.md) and
 [line/area captures](../../tests/fixtures/chart-native-curves/README.md), and
 [pie/doughnut captures](../../tests/fixtures/chart-native-pie/README.md) separately

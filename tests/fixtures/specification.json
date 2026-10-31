@@ -684,6 +684,18 @@
       "text_assets": {
         "titled.csv": "Team roster\nName,Role\nAda,Author\n"
       }
+    },
+    {
+      "example": "mathematics/1",
+      "model": "mathematics-1"
+    },
+    {
+      "example": "value-helpers/1",
+      "model": "value-helpers-1"
+    },
+    {
+      "example": "annotations/1",
+      "model": "annotations-1"
     }
   ],
   "models": {
@@ -11024,6 +11036,388 @@
             {
               "kind": "text",
               "text": "Author"
+            }
+          ]
+        }
+      ]
+    },
+    "mathematics-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "The identity "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "source": "x^2 + y^2"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " is inline."
+                }
+              ]
+            },
+            {
+              "kind": "math",
+              "category": "block",
+              "attributes": {
+                "display": "block",
+                "format": "latex",
+                "size": {
+                  "text": "14pt",
+                  "unit": "pt",
+                  "value": 14.0
+                },
+                "source": "\\frac{a+b}{c}"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "The identity "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "x^2 + y^2"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " is inline."
+            }
+          ]
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "size": {
+              "text": "14pt",
+              "unit": "pt",
+              "value": 14.0
+            },
+            "source": "\\frac{a+b}{c}"
+          }
+        }
+      ]
+    },
+    "value-helpers-1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "spacing_after": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12.0
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "CAFÉ"
+                },
+                {
+                  "kind": "text",
+                  "text": " costs "
+                },
+                {
+                  "kind": "text",
+                  "text": "EUR 1,234.50"
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "Reviewed "
+                },
+                {
+                  "kind": "text",
+                  "text": "2024-02-29"
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "spacing_after": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12.0
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "CAFÉ"
+            },
+            {
+              "kind": "text",
+              "text": " costs "
+            },
+            {
+              "kind": "text",
+              "text": "EUR 1,234.50"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "Reviewed "
+            },
+            {
+              "kind": "text",
+              "text": "2024-02-29"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            }
+          ]
+        }
+      ]
+    },
+    "annotations-1": {
+      "metadata": {
+        "author": "Ada",
+        "title": "Review"
+      },
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "Approved "
+                },
+                {
+                  "kind": "checkbox",
+                  "category": "inline",
+                  "attributes": {
+                    "checked": true,
+                    "name": "approval",
+                    "title": "Approval"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "Page "
+                },
+                {
+                  "kind": "field",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "PAGE"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "comment",
+                  "category": "inline",
+                  "attributes": {
+                    "author": "Ada",
+                    "date": "2024-02-29",
+                    "initials": "AL"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Ready for review."
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "Approved "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline",
+              "attributes": {
+                "checked": true,
+                "name": "approval",
+                "title": "Approval"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "Page "
+            },
+            {
+              "kind": "field",
+              "category": "inline",
+              "attributes": {
+                "name": "PAGE"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "attributes": {
+                "author": "Ada",
+                "date": "2024-02-29",
+                "initials": "AL"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Ready for review."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
             }
           ]
         }

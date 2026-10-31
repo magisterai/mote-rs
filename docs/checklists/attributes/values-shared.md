@@ -32,6 +32,7 @@ See also [prose-defined extensions](prose-extensions.md).
 - [s:ST_UnsignedDecimalNumber](#s-st_unsigneddecimalnumber)
 - [s:ST_VerticalAlignRun](#s-st_verticalalignrun)
 - [s:ST_XAlign](#s-st_xalign)
+- [s:ST_XmlName](#s-st_xmlname)
 - [s:ST_Xstring](#s-st_xstring)
 - [s:ST_YAlign](#s-st_yalign)
 
@@ -266,6 +267,16 @@ MS-DOCX adds the [umalqura calendar value](prose-extensions.md#calendar) outside
 - enumeration: value: `right`
 - enumeration: value: `inside`
 - enumeration: value: `outside`
+
+<a id="s-st_xmlname"></a>
+
+## s:ST_XmlName
+
+[Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/shared-commonSimpleTypes.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/shared-commonSimpleTypes.xsd):
+
+- restriction: base: `xsd:NCName`
+- minLength: value: `1`
+- maxLength: value: `255`
 
 <a id="s-st_xstring"></a>
 

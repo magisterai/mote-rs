@@ -38,7 +38,7 @@ are available in Lua. Length and color values retain their types through tagged
 Lua tables. JSON uses the same source-relative resolver and resource snapshot.
 Basic Lua functions such as `type`, `tostring`, `tonumber`, `pairs`, and `ipairs`
 are available. Additional standard libraries and filesystem/module loaders are
-not exposed. `upper` retains its currently documented ASCII restriction.
+not exposed. Additional formatting helpers are defined in [value helpers](value-helpers.md).
 
 A bare content reference can resolve a Lua base global when no Mote binding
 matches. An unknown Lua name evaluates to nil and produces no content. With

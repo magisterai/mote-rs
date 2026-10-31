@@ -47,6 +47,14 @@ Microsoft Word and PowerPoint visual review remains unreviewed.
 | [Layout](checklists/layout.md): built-ins, inheritance, typed slots, order, overrides, removal and required content | [Named layouts](../tests/presentation_layouts.rs), audit `slide-layouts` | Slot resolution precedes shared editable/native layout. Local overrides do not mutate the declaration or sibling slides. |
 | [Scoped defaults](checklists/set.md), [imports](checklists/import.md), bindings, functions, control flow, JSON and CSV | [Defaults](../tests/scoped_defaults.rs), [imports](../tests/imports.rs), [functions](../tests/function_captures.rs), [control flow](../tests/control_rendering.rs), [CSV](../tests/csv.rs) | These produce the same model consumed by the renderers. Source-relative resources, evaluation scope and constructor defaults have separate regression captures; they do not grant additional output properties. |
 
-Forms, broader metadata and additional OOXML mappings are outside this rendering
-pass. Unsupported properties remain visible in the standard inventories instead
-of being counted as completed rendering support.
+## Equations, controls and annotations
+
+| Contracts | Output evidence | Current boundary |
+| --- | --- | --- |
+| [Math](checklists/math.md) | [Math captures and validation](../tests/mathematics.rs) | Editable OMML in DOCX/PPTX; native italic source-text fallback with warnings. Raw XML is validated before package insertion. |
+| [Checkbox](checklists/checkbox.md), [field](checklists/field.md), [comment](checklists/comment.md) | [Annotation captures](../tests/annotations.rs) | DOCX controls, instructions and comment stories; native textual document checkboxes, omitted general fields and visible comment bodies. Slides omit standalone controls and fields. |
+| [Metadata](checklists/metadata.md), [value helpers](checklists/value-helpers.md) | [Annotations](../tests/annotations.rs), [helpers](../tests/value_helpers.rs) | DOCX title/author and PPTX title mappings; other metadata retained. Formatting helpers feed ordinary text and existing layout properties. |
+
+Broader form controls, native mathematical typesetting and additional OOXML
+mappings remain outside these supported subsets. Unsupported properties stay
+visible in the standard inventories.

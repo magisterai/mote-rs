@@ -49,6 +49,10 @@ node or surrounding content during evaluation.
 
 This creates an empty span inside an implicit paragraph, with no attributes.
 
+`preserve_space` retains its supplied value. Boolean true or text equal to `true`
+after trimming surrounding whitespace preserves DOCX line-edge whitespace.
+It does not expand span tabs or change native layout.
+
 ## Nesting and precedence
 
 Evaluation retains each span's own attributes and child structure. Resolving

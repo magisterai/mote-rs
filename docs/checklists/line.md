@@ -26,7 +26,8 @@ inventory, including properties without an authoring mapping.
 
 Output boundary: editable connectors and native line painting belong to
 presentation layout. The document output baseline does not emit editable lines;
-its unsupported behavior must remain explicit. Shape borders are a separate
+DOCX omits them with a warning, while native document output displays `[line]`
+and any retained child text with a warning. Shape borders are a separate
 supported drawing property and must not be confused with line directives.
 
 Positioned-slide output covers the existing drawing vocabulary: geometry,

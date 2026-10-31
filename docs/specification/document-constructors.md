@@ -59,6 +59,8 @@ The namespace includes the currently documented constructors:
   `figure`, `caption`, `footnote`, and `endnote`.
 - Declarations: `document`, `font`, `style`, `header`, and `footer`.
 - Value helpers: `json`, `upper`, `color`, `pt`, `inch`, `in`, `cm`, `mm`, and `twip`.
+  [Value helpers](value-helpers.md) defines the additional casing, amount, length and date helpers.
+  [Mathematics](mathematics.md) and [annotations](annotations.md) define the later constructors.
 
 Lua reserves the words `break` and `in`; use `document["break"](...)` and
 `document["in"](...)`. The `section` directive requires raw source syntax and is

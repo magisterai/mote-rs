@@ -92,6 +92,13 @@ Status: initial draft.
 
 33. [CSV data](csv.md): string-valued records, headers, quoted fields and loading.
 
+34. [Mathematics](mathematics.md): equation sources, inline/display forms and the supported expression grammar.
+
+35. [Value helpers](value-helpers.md): Unicode casing, amounts, lengths and dates.
+
+36. [Controls, fields, comments and metadata](annotations.md): standalone inline controls,
+    annotations and document-wide values.
+
 Define a concept before using it in an example. Examples may use concepts defined
 earlier in the reading order or immediately before the example. Every successful
 Mote example has an expected document model; deliberate invalid examples identify
