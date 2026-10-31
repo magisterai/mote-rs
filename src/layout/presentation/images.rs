@@ -3,7 +3,10 @@ use crate::{
     layout::{LayoutError, PageOperation, images::ImageBlock},
     media::ImageCatalog,
     model::{Element, Properties, Unit, Value},
-    presentation::{box_bounds, images::ImagePlacement},
+    presentation::{
+        box_bounds,
+        images::{Crop, ImagePlacement},
+    },
     properties::{number, text},
 };
 
@@ -57,17 +60,14 @@ pub(super) fn place(
             return Ok(());
         }
     };
-    // Native crop preparation preserves the original raster extent. Fit that
-    // extent here; editable packages instead fit the cropped source rectangle.
-    let placement = ImagePlacement::resolve(bounds, [block.width, block.height], &fit);
-    if (placement.paint[2] - block.width).abs() > 0.000001 {
-        resolved
-            .attributes
-            .insert("width".into(), points(placement.paint[2]));
-        resolved.attributes.remove("height");
-        block = ImageBlock::prepare(&resolved, images, placement.paint[2])
-            .map_err(LayoutError::Unsupported)?;
-    }
+    // Prepared pixels retain their storage extent; fit their cropped source
+    // aspect ratio and scale that raster into the same object as editable output.
+    let dimensions = Crop::resolve(&image.attributes).dimensions(block.width, block.height);
+    let placement = ImagePlacement::resolve(bounds, dimensions, &fit);
+    // These are resolved page coordinates, not authored document distances.
+    // Keep their precision instead of converting them through integer twips.
+    block.width = placement.paint[2];
+    block.height = placement.paint[3];
     if rotation != 0.0 {
         operations.push(PageOperation::PushRotation {
             degrees: rotation,

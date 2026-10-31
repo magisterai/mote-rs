@@ -130,9 +130,9 @@
       "sha256": "906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce"
     }
   },
-  "geometry_sha256": "fe2a02bc85d8b874beed6924bb5a838a4ae0f5102d912b8d0cd4704ae032156b",
+  "geometry_sha256": "3623312ee418afb58b01d82405e2f38dffdcaf4e3f567cc88b2e67631d6c8de2",
   "native_png_files": {
-    "reference-1.png": "0cdf90f2a266bb2bf2f60726e929da5da60e00985aac81f91c0752606e40409d",
+    "reference-1.png": "2f58d0dc3f896c41ee7597b970d32f7ad24fd4fa6e20d914b29d4b61f6d21ace",
     "reference-2.png": "3aaf3f114cec169cb5615a7fde1e5aa4a63e8d068045c10c1498e3c31b2faf3e"
   }
 }

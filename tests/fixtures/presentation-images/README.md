@@ -16,9 +16,10 @@ XML-sensitive text. Missing images produce editable placeholder text.
 
 Native captures retain all ordered picture and border operations, fitting frames,
 clips, rotations and link targets across five pages. Native crop preparation
-preserves the original raster extent, so contain/cover use that extent rather
-than the cropped aspect ratio used by PPTX. These differing captured behaviors
-remain explicit. Missing pictures are omitted with a diagnostic.
+preserves raster storage extent while contain/cover uses the cropped source
+aspect ratio, matching editable picture fitting. Resolved frames retain page
+precision without another conversion through document units. Missing pictures
+are omitted with a diagnostic.
 
 All five native PDF pages matched the captured PDF rasters exactly at 144 DPI.
 At 72 DPI, three PNG pages match exactly. The format page differs by at most

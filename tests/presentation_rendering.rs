@@ -658,3 +658,38 @@ fn automatic_charts_use_a_readable_grid_or_report_insufficient_space() {
             .contains("automatic slide content does not fit")
     );
 }
+
+#[test]
+fn cropped_contain_and_cover_preserve_the_cropped_aspect_ratio() {
+    use mote::layout::PageOperation;
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-images");
+    let path = root.join("transforms.mote");
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    let document = mote::compile(&fs::read_to_string(&path).unwrap()).unwrap();
+    let plan = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
+    let pictures: Vec<_> = plan.output.pages[0]
+        .operations
+        .iter()
+        .filter_map(|operation| {
+            if let PageOperation::Image(image) = operation {
+                Some(image)
+            } else {
+                None
+            }
+        })
+        .collect();
+    let editable =
+        mote::pptx::emit_with_assets(&document, &resolver, Some(path.as_os_str())).unwrap();
+    let frames = object_frames(&slide_xml(editable.bytes), "pic");
+    assert_eq!(pictures.len(), frames.len());
+    for (actual, expected) in pictures[1].bounds.into_iter().zip(frames[1]) {
+        assert!((actual - expected).abs() <= 1.0 / 12700.0);
+    }
+    let contain_ratio = pictures[1].bounds[2] / pictures[1].bounds[3];
+    let cover_ratio = pictures[2].bounds[2] / pictures[2].bounds[3];
+    assert!((contain_ratio - cover_ratio).abs() < 1e-8);
+    assert!(pictures[2].bounds[2] > frames[2][2] || pictures[2].bounds[3] > frames[2][3]);
+    for (actual, expected) in pictures[2].clip.into_iter().zip(frames[2]) {
+        assert!((actual - expected).abs() <= 1.0 / 12700.0);
+    }
+}

@@ -36,4 +36,5 @@ A single image inside a positioned `box` supports contain/cover/stretch, crop,
 flips, effects, whole-picture rotation and links. The box owns its frame and an
 image border overrides the box border. See the [box support notes](box.md) and
 [picture captures](../../tests/fixtures/presentation-images/README.md) for fitting
-and missing-asset differences between output formats.
+and missing-asset differences between output formats. Cropped slide contain/cover
+uses the same source aspect ratio and resolved frame in PPTX and native output.
