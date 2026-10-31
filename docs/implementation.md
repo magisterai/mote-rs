@@ -775,8 +775,10 @@ then resolves automatic content frames or built-in/custom named layouts. Slots
 materialize in layout order, followed by ordinary positioned objects. Layout
 inheritance resolves iteratively, with recursive property overrides, typed and
 required slots, removals and layout-level metadata. The authored model remains
-unchanged. `#slide[]` creates a blank slide. Text-box shadows remain unsupported;
-retained properties without an effect warn after inherited properties resolve.
+unchanged. `#slide[]` creates a blank slide. Text-box shadows use the shared
+DrawingML effect writer in PPTX. Native PDF/PNG preserves box geometry and text
+fitting while omitting the shadow with a diagnostic. Retained properties without
+an effect warn after inherited properties resolve.
 
 All eight built-ins adapt to slide dimensions. Custom declarations preserve their
 order, allow forward inheritance and replace repeated names in place. JSON values

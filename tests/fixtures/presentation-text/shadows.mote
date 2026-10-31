@@ -1,0 +1,13 @@
+#presentation(width=pt(640),height=pt(480),background="#ffffff")
+#slide(name="Shadow properties")[
+  #box(name="Defaults",position={x=pt(32),y=pt(32),width=pt(240),height=pt(128)},fill="#e0f2fe",shadow={})[Default shadow]
+  #box(name="Explicit",position={x=pt(336),y=pt(32),width=pt(240),height=pt(128)},fill="#fef3c7",opacity="80%",border={color="#92400e",width=pt(1)},shadow={color="#123456",blur=pt(6),distance=pt(8),angle="45deg",opacity="25%"})[Colored shadow]
+  #box(name="Invisible",position={x=pt(32),y=pt(256),width=pt(240),height=pt(128)},fill="#dcfce7",shadow={blur=pt(0),distance=pt(0),angle="-90deg",opacity=0})[Zero shadow opacity]
+  #box(name="Retained flag",position={x=pt(336),y=pt(256),width=pt(240),height=pt(128)},fill="#f3e8ff",shadow={enabled=false,color="#581c87",blur=pt(0),distance=pt(5),angle=180,opacity=0.5})[Retained enabled flag]
+]
+#slide(name="Shadow text fitting and edges")[
+  #box(name="Shrink",position={x=pt(32),y=pt(32),width=pt(240),height=pt(40)},fill="#e0f2fe",shadow={opacity=20},text={size=pt(32),fit="shrink",margin={left=pt(4),right=pt(4),top=pt(4),bottom=pt(4)}})[Shrinking text keeps its measured position and fitting.]
+  #box(name="Resize",position={x=pt(336),y=pt(32),width=pt(240),height=pt(20)},fill="#fef3c7",shadow={color="#92400e",blur=pt(3),distance=pt(6),angle=90},text={size=pt(24),fit="resize"})[Resizing text extends the box to contain these wrapped lines.]
+  #box(name="Unfilled",position={x=pt(32),y=pt(240),width=pt(240),height=pt(80)},shadow={color="#2563eb",blur=pt(0),distance=pt(3),angle=0,opacity=1})[Text without a box fill]
+  #box(name="Canvas edge",position={x=pt(520),y=pt(400),width=pt(160),height=pt(80)},fill="#dcfce7",shadow={blur=pt(4),distance=pt(12),angle=45,opacity=50})[Canvas edge]
+]

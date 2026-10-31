@@ -111,7 +111,7 @@ pub(crate) fn line(
     output.push_str("</a:ln>");
     Ok(output)
 }
-fn shadow(attributes: &Properties) -> Result<String, String> {
+pub(crate) fn shadow(attributes: &Properties) -> Result<String, String> {
     let Some(shadow) = object(attributes, "shadow") else {
         return Ok(String::new());
     };

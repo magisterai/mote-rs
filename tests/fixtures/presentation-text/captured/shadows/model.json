@@ -1,0 +1,1043 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#ffffff",
+      "height": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      }
+    },
+    "size": {
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      },
+      "height": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "properties": {
+        "height": {
+          "text": "480pt",
+          "unit": "pt",
+          "value": 480
+        },
+        "width": {
+          "text": "640pt",
+          "unit": "pt",
+          "value": 640
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "name": "Shadow properties"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#e0f2fe",
+                "name": "Defaults",
+                "position": {
+                  "height": {
+                    "text": "128pt",
+                    "unit": "pt",
+                    "value": 128
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  },
+                  "y": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  }
+                },
+                "shadow": {}
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Default shadow"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "border": {
+                  "color": "#92400e",
+                  "width": {
+                    "text": "1pt",
+                    "unit": "pt",
+                    "value": 1
+                  }
+                },
+                "fill": "#fef3c7",
+                "name": "Explicit",
+                "opacity": "80",
+                "position": {
+                  "height": {
+                    "text": "128pt",
+                    "unit": "pt",
+                    "value": 128
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "336pt",
+                    "unit": "pt",
+                    "value": 336
+                  },
+                  "y": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  }
+                },
+                "shadow": {
+                  "angle": "45",
+                  "blur": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6
+                  },
+                  "color": "#123456",
+                  "distance": {
+                    "text": "8pt",
+                    "unit": "pt",
+                    "value": 8
+                  },
+                  "opacity": "25"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Colored shadow"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#dcfce7",
+                "name": "Invisible",
+                "position": {
+                  "height": {
+                    "text": "128pt",
+                    "unit": "pt",
+                    "value": 128
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  },
+                  "y": {
+                    "text": "256pt",
+                    "unit": "pt",
+                    "value": 256
+                  }
+                },
+                "shadow": {
+                  "angle": "-90",
+                  "blur": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "distance": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "opacity": "0"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Zero shadow opacity"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#f3e8ff",
+                "name": "Retained flag",
+                "position": {
+                  "height": {
+                    "text": "128pt",
+                    "unit": "pt",
+                    "value": 128
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "336pt",
+                    "unit": "pt",
+                    "value": 336
+                  },
+                  "y": {
+                    "text": "256pt",
+                    "unit": "pt",
+                    "value": 256
+                  }
+                },
+                "shadow": {
+                  "angle": "180",
+                  "blur": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "color": "#581c87",
+                  "distance": {
+                    "text": "5pt",
+                    "unit": "pt",
+                    "value": 5
+                  },
+                  "enabled": false,
+                  "opacity": "0.5"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Retained enabled flag"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "name": "Shadow text fitting and edges"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#e0f2fe",
+                "name": "Shrink",
+                "position": {
+                  "height": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  },
+                  "y": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  }
+                },
+                "shadow": {
+                  "opacity": "20"
+                },
+                "text": {
+                  "fit": "shrink",
+                  "margin": {
+                    "bottom": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    },
+                    "left": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    },
+                    "right": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    },
+                    "top": {
+                      "text": "4pt",
+                      "unit": "pt",
+                      "value": 4
+                    }
+                  },
+                  "size": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Shrinking text keeps its measured position and fitting."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#fef3c7",
+                "name": "Resize",
+                "position": {
+                  "height": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "336pt",
+                    "unit": "pt",
+                    "value": 336
+                  },
+                  "y": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  }
+                },
+                "shadow": {
+                  "angle": "90",
+                  "blur": {
+                    "text": "3pt",
+                    "unit": "pt",
+                    "value": 3
+                  },
+                  "color": "#92400e",
+                  "distance": {
+                    "text": "6pt",
+                    "unit": "pt",
+                    "value": 6
+                  }
+                },
+                "text": {
+                  "fit": "resize_shape",
+                  "size": {
+                    "text": "24pt",
+                    "unit": "pt",
+                    "value": 24
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Resizing text extends the box to contain these wrapped lines."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "name": "Unfilled",
+                "position": {
+                  "height": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "width": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  },
+                  "x": {
+                    "text": "32pt",
+                    "unit": "pt",
+                    "value": 32
+                  },
+                  "y": {
+                    "text": "240pt",
+                    "unit": "pt",
+                    "value": 240
+                  }
+                },
+                "shadow": {
+                  "angle": "0",
+                  "blur": {
+                    "text": "0pt",
+                    "unit": "pt",
+                    "value": 0
+                  },
+                  "color": "#2563eb",
+                  "distance": {
+                    "text": "3pt",
+                    "unit": "pt",
+                    "value": 3
+                  },
+                  "opacity": "1"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Text without a box fill"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "fill": "#dcfce7",
+                "name": "Canvas edge",
+                "position": {
+                  "height": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "width": {
+                    "text": "160pt",
+                    "unit": "pt",
+                    "value": 160
+                  },
+                  "x": {
+                    "text": "520pt",
+                    "unit": "pt",
+                    "value": 520
+                  },
+                  "y": {
+                    "text": "400pt",
+                    "unit": "pt",
+                    "value": 400
+                  }
+                },
+                "shadow": {
+                  "angle": "45",
+                  "blur": {
+                    "text": "4pt",
+                    "unit": "pt",
+                    "value": 4
+                  },
+                  "distance": {
+                    "text": "12pt",
+                    "unit": "pt",
+                    "value": 12
+                  },
+                  "opacity": "50"
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Canvas edge"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "name": "Shadow properties"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#e0f2fe",
+            "name": "Defaults",
+            "position": {
+              "height": {
+                "text": "128pt",
+                "unit": "pt",
+                "value": 128
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              },
+              "y": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              }
+            },
+            "shadow": {}
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Default shadow"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "border": {
+              "color": "#92400e",
+              "width": {
+                "text": "1pt",
+                "unit": "pt",
+                "value": 1
+              }
+            },
+            "fill": "#fef3c7",
+            "name": "Explicit",
+            "opacity": "80",
+            "position": {
+              "height": {
+                "text": "128pt",
+                "unit": "pt",
+                "value": 128
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "336pt",
+                "unit": "pt",
+                "value": 336
+              },
+              "y": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              }
+            },
+            "shadow": {
+              "angle": "45",
+              "blur": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6
+              },
+              "color": "#123456",
+              "distance": {
+                "text": "8pt",
+                "unit": "pt",
+                "value": 8
+              },
+              "opacity": "25"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Colored shadow"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#dcfce7",
+            "name": "Invisible",
+            "position": {
+              "height": {
+                "text": "128pt",
+                "unit": "pt",
+                "value": 128
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              },
+              "y": {
+                "text": "256pt",
+                "unit": "pt",
+                "value": 256
+              }
+            },
+            "shadow": {
+              "angle": "-90",
+              "blur": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "distance": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "opacity": "0"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Zero shadow opacity"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#f3e8ff",
+            "name": "Retained flag",
+            "position": {
+              "height": {
+                "text": "128pt",
+                "unit": "pt",
+                "value": 128
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "336pt",
+                "unit": "pt",
+                "value": 336
+              },
+              "y": {
+                "text": "256pt",
+                "unit": "pt",
+                "value": 256
+              }
+            },
+            "shadow": {
+              "angle": "180",
+              "blur": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "color": "#581c87",
+              "distance": {
+                "text": "5pt",
+                "unit": "pt",
+                "value": 5
+              },
+              "enabled": false,
+              "opacity": "0.5"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Retained enabled flag"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "name": "Shadow text fitting and edges"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#e0f2fe",
+            "name": "Shrink",
+            "position": {
+              "height": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              },
+              "y": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              }
+            },
+            "shadow": {
+              "opacity": "20"
+            },
+            "text": {
+              "fit": "shrink",
+              "margin": {
+                "bottom": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                },
+                "left": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                },
+                "right": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                },
+                "top": {
+                  "text": "4pt",
+                  "unit": "pt",
+                  "value": 4
+                }
+              },
+              "size": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Shrinking text keeps its measured position and fitting."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#fef3c7",
+            "name": "Resize",
+            "position": {
+              "height": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "336pt",
+                "unit": "pt",
+                "value": 336
+              },
+              "y": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              }
+            },
+            "shadow": {
+              "angle": "90",
+              "blur": {
+                "text": "3pt",
+                "unit": "pt",
+                "value": 3
+              },
+              "color": "#92400e",
+              "distance": {
+                "text": "6pt",
+                "unit": "pt",
+                "value": 6
+              }
+            },
+            "text": {
+              "fit": "resize_shape",
+              "size": {
+                "text": "24pt",
+                "unit": "pt",
+                "value": 24
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Resizing text extends the box to contain these wrapped lines."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "name": "Unfilled",
+            "position": {
+              "height": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "width": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              },
+              "x": {
+                "text": "32pt",
+                "unit": "pt",
+                "value": 32
+              },
+              "y": {
+                "text": "240pt",
+                "unit": "pt",
+                "value": 240
+              }
+            },
+            "shadow": {
+              "angle": "0",
+              "blur": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "color": "#2563eb",
+              "distance": {
+                "text": "3pt",
+                "unit": "pt",
+                "value": 3
+              },
+              "opacity": "1"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text without a box fill"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "fill": "#dcfce7",
+            "name": "Canvas edge",
+            "position": {
+              "height": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "width": {
+                "text": "160pt",
+                "unit": "pt",
+                "value": 160
+              },
+              "x": {
+                "text": "520pt",
+                "unit": "pt",
+                "value": 520
+              },
+              "y": {
+                "text": "400pt",
+                "unit": "pt",
+                "value": 400
+              }
+            },
+            "shadow": {
+              "angle": "45",
+              "blur": {
+                "text": "4pt",
+                "unit": "pt",
+                "value": 4
+              },
+              "distance": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              },
+              "opacity": "50"
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Canvas edge"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

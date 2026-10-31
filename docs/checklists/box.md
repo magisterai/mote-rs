@@ -19,7 +19,9 @@
 - [x] Direct text color, size, bold, italic, underline, strike, double_strike,
   small_caps; extra metadata does not imply a rendering effect.
 - [x] `opacity`: fraction, percentage number or percentage string.
-- [x] `shadow`: enabled, color, blur, distance, angle and opacity.
+- [x] `shadow`: color, blur, distance, angle and opacity normalization.
+- [ ] `shadow.enabled`: retained metadata; does not enable or suppress the effect.
+  A zero shadow opacity makes the effect invisible.
 - [x] `fit`: contain, cover, stretch for an image child.
 - [x] `slot`: nonempty named assignment, with optional position and body.
 - [x] `kind`, `required`, `remove`: layout-only declaration fields; see the
@@ -30,10 +32,12 @@ Output covers positioned text, image, table and chart boxes. Built-in and custom
 fields, geometry, fills, strokes, effects, hyperlinks, accessibility and nonvisual
 metadata remain in the shared inventories, including unsupported values.
 Editable positioned text supports paragraph/run/list formatting, theme fonts and
-colors, margins, alignment, clipping, fills, borders and links. Shrinking/resizing
+colors, margins, alignment, clipping, fills, borders, shadows and links. Shrinking/resizing
 uses the shared native measurement result.
 Native PDF/PNG covers the same positioned-text subset, with source-relative font
-assets and fixed geometry/raster captures. Text-box shadows fail explicitly. PowerPoint review remains pending. See
+assets and fixed geometry/raster captures. Text-box shadows are omitted with a
+diagnostic; box geometry and text fitting are preserved. Zero-opacity shadows
+produce no omission warning. PowerPoint review remains pending. See
 [package captures](../../tests/fixtures/presentation-text/README.md).
 
 The [language definition](../specification/presentations.md) and

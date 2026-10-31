@@ -15,9 +15,6 @@ pub(super) fn write(
     relationships: &mut Vec<Relationship>,
 ) -> Result<String, Error> {
     let attributes = &element.attributes;
-    if attributes.contains_key("shadow") {
-        return Err(Error("PPTX box shadows are not yet supported".into()));
-    }
     let [horizontal, vertical, width, mut height] =
         crate::presentation::box_bounds(attributes).map_err(Error)?;
     let identifier = *next_shape;
@@ -33,6 +30,7 @@ pub(super) fn write(
         "<a:noFill/>".into()
     };
     let line = border(attributes)?;
+    let shadow = crate::drawings::drawingml::shadow(attributes).map_err(Error)?;
     let text_attributes = crate::drawings::text_attributes(attributes);
     let mut font_scale = 1.0;
     if matches!(
@@ -78,7 +76,7 @@ pub(super) fn write(
         relationships,
     )?;
     Ok(format!(
-        r#"<p:sp><p:nvSpPr><p:cNvPr id="{identifier}" name="{name}"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="{horizontal}" y="{vertical}"/><a:ext cx="{width}" cy="{height}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom>{fill}{line}</p:spPr><p:txBody>{body}<a:lstStyle/>{content}</p:txBody></p:sp>"#
+        r#"<p:sp><p:nvSpPr><p:cNvPr id="{identifier}" name="{name}"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="{horizontal}" y="{vertical}"/><a:ext cx="{width}" cy="{height}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom>{fill}{line}{shadow}</p:spPr><p:txBody>{body}<a:lstStyle/>{content}</p:txBody></p:sp>"#
     ))
 }
 pub(super) fn solid_fill(color: &str, opacity: Option<f64>) -> String {

@@ -3,7 +3,7 @@
 These fixed sources cover explicit slide boundaries, wide/standard/custom page
 sizes, solid backgrounds, theme colors and fonts, editable paragraphs, headings,
 styles, lists, task marks, links, code, margins, alignment, clipping, fills and
-borders. Empty, zero-size and off-canvas boxes remain visible as boundary cases.
+borders and editable shadows. Empty, zero-size and off-canvas boxes remain visible as boundary cases.
 Lua constructs the same model as direct directives. Shared fitting covers shrink
 and resize modes, including explicit source-relative font files.
 
@@ -13,7 +13,7 @@ compare complete canonical XML, including relationships, themes, masters and
 layouts; only volatile core timestamps are ignored. Package equality does not
 establish PowerPoint layout conformance. These cases are unreviewed in PowerPoint.
 
-Native captures cover eight sources and eleven slide pages. Every ordered paint
+Native captures cover nine sources and thirteen slide pages. Every ordered paint
 operation and text fragment is compared numerically, with fixed source and font
 hashes. PNG comparisons use per-case bounds on channel differences and visible
 pixel averages; no pixel may differ by more than 64 channel levels. Nine PDF
@@ -27,8 +27,14 @@ The `edges` case intentionally extends a box beyond the canvas.
 
 Native output requires at least one explicit slide. `#slide[]` creates a blank
 slide. The declaration-only `empty` source retains package coverage; it does not
-have a native capture. Text-box shadows and automatic slide layout remain
-unsupported. Positioned [pictures](../presentation-images/README.md),
+have a native capture. Text-box shadows are retained in PPTX and omitted with a
+diagnostic in native output. The `shadows` source covers default and explicit
+effects, zero opacity, the retained `enabled` flag, text without a fill, shrink
+and resize fitting, and canvas-edge clipping. Its two PDF pages match the captured
+rasters exactly at 144 DPI; native geometry is unchanged by the shadow property.
+The PNG bounds allow the existing glyph and translucent-fill edge differences.
+Automatic slide layout has [separate captures](../presentation-markdown/README.md).
+Positioned [pictures](../presentation-images/README.md),
 [tables](../presentation-tables/README.md), [drawings](../presentation-shapes/README.md),
 [charts](../presentation-charts/README.md), [backgrounds](../presentation-backgrounds/README.md)
 and [fields/notes](../presentation-fields/README.md) have separate captures.

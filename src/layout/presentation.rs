@@ -24,11 +24,6 @@ pub(crate) fn prepare_box(
     theme: &Theme,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<PreparedBox, LayoutError> {
-    if element.attributes.contains_key("shadow") {
-        return Err(LayoutError::Unsupported(
-            "presentation box shadows are not yet supported".into(),
-        ));
-    }
     let mut bounds = crate::presentation::box_bounds(&element.attributes)
         .map_err(LayoutError::Unsupported)?
         .map(|value| value as f64 / 12700.0);
@@ -225,6 +220,12 @@ fn plan(
             let prepared = prepare_box(document, element, &deck.theme, measurer)?;
             if prepared.bounds[2] <= 0.0 || prepared.bounds[3] <= 0.0 {
                 continue;
+            }
+            if let Some(shadow) = object(&element.attributes, "shadow")
+                && number(shadow, "opacity") != Some(0.0)
+            {
+                deck.warnings
+                    .push("native slides omit text-box shadows".into());
             }
             if let Some(rectangle) = rectangle(prepared.bounds, &element.attributes) {
                 page.operations.push(rectangle);

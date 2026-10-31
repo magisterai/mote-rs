@@ -9,6 +9,74 @@ use sha2::{Digest, Sha256};
 use std::{fs, path::Path};
 
 #[test]
+fn text_box_shadows_preserve_native_layout_and_report_the_output_limit() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-text");
+    let source = fs::read_to_string(root.join("shadows.mote")).unwrap();
+    let document = mote::compile_with_options(
+        &source,
+        mote::evaluation::EvaluationOptions {
+            enable_lua: true,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    let shadowed = render::plan(&document, &resolver, None).unwrap();
+    assert!(
+        shadowed
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("omit text-box shadows"))
+    );
+    assert!(
+        shadowed
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("shadow.enabled"))
+    );
+
+    let mut without_shadows = document.clone();
+    for content in &mut without_shadows.content {
+        if let mote::model::Content::Element(slide) = content {
+            for content in &mut slide.children {
+                if let mote::model::Content::Element(element) = content {
+                    element.attributes.remove("shadow");
+                }
+            }
+        }
+    }
+    let plain = render::plan(&without_shadows, &resolver, None).unwrap();
+    assert_eq!(
+        presentation_capture::projection(&shadowed.output),
+        presentation_capture::projection(&plain.output)
+    );
+    assert!(
+        !plain
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("shadow"))
+    );
+}
+
+#[test]
+fn invisible_text_box_shadows_do_not_report_a_native_omission() {
+    let document = mote::compile(
+        "#slide[#box(position={width=pt(200),height=pt(100)},shadow={opacity=0})[Text]]",
+    )
+    .unwrap();
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let rendered =
+        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+            .unwrap();
+    assert!(
+        !rendered
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("shadow"))
+    );
+}
+
+#[test]
 fn native_slide_geometry_and_independent_rasters_match_captured_output() {
     compare_captured_slides(
         "presentation-text",
@@ -19,6 +87,7 @@ fn native_slide_geometry_and_independent_rasters_match_captured_output() {
             ("font-assets", 64, 6.0, 0),
             ("formatting", 48, 0.2, 0),
             ("lua", 40, 5.0, 0),
+            ("shadows", 64, 1.5, 0),
             ("styles", 48, 6.0, 0),
             ("theme", 48, 0.1, 0),
         ],

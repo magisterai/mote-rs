@@ -33,6 +33,7 @@ fn positioned_slides_match_captured_models_and_complete_editable_packages() {
             "fitting",
             "font-assets",
             "lua",
+            "shadows",
             "styles",
             "theme",
         ],
@@ -138,12 +139,33 @@ fn compare_package(bytes: &[u8], manifest: &Value, root: &Path, context: &str) {
 }
 
 #[test]
-fn pending_slide_features_fail_explicitly() {
+fn text_box_shadows_use_editable_drawing_effects() {
     let document = mote::compile(
         r##"#slide[#box(position={width=inch(2),height=inch(1)},shadow={color="#000"})[Text]]"##,
     )
     .unwrap();
-    assert!(mote::pptx::emit(&document).is_err());
+    let bytes = mote::pptx::emit(&document).unwrap();
+    let mut archive = zip::ZipArchive::new(Cursor::new(bytes)).unwrap();
+    let mut source = String::new();
+    archive
+        .by_name("ppt/slides/slide1.xml")
+        .unwrap()
+        .read_to_string(&mut source)
+        .unwrap();
+    let slide = roxmltree::Document::parse(&source).unwrap();
+    let shadow = slide
+        .descendants()
+        .find(|node| {
+            node.has_tag_name((
+                "http://schemas.openxmlformats.org/drawingml/2006/main",
+                "outerShdw",
+            ))
+        })
+        .unwrap();
+    assert_eq!(shadow.attribute("blurRad"), Some("50800"));
+    assert_eq!(shadow.attribute("dist"), Some("25400"));
+    assert_eq!(shadow.attribute("dir"), Some("16200000"));
+    assert!(slide.descendants().any(|node| node.text() == Some("Text")));
 }
 #[test]
 fn invalid_physical_slide_dimensions_cannot_create_a_package() {

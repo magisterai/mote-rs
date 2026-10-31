@@ -178,6 +178,10 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             for (name, fields) in [
                 ("position", &["x", "y", "width", "height"][..]),
                 ("border", &["color", "width", "style", "opacity"][..]),
+                (
+                    "shadow",
+                    &["color", "blur", "distance", "angle", "opacity"][..],
+                ),
             ] {
                 if let Some(nested) = object(attributes, name) {
                     unknown(nested, fields, &format!("{path}.{name}"), warnings);
