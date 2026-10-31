@@ -363,6 +363,7 @@ impl BlockBuilder<'_, '_, '_> {
                 let mut attributes = attributes.clone();
                 attributes.extend(unit_attributes);
                 let element = Element {
+                    source_name: None,
                     kind: ElementKind::Paragraph,
                     attributes,
                     children,

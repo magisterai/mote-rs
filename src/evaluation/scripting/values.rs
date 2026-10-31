@@ -125,6 +125,7 @@ fn convert(value: LuaValue, depth: usize) -> mlua::Result<Value> {
                     };
                     let children = into_content(convert(table.raw_get("children")?, depth + 1)?);
                     return Ok(Value::Element(Box::new(Element {
+                        source_name: None,
                         kind,
                         attributes,
                         children,

@@ -19,6 +19,7 @@ pub(super) fn prepare(
     base.measurement.size_points = 18.0;
     base = styles.inline(
         &Element {
+            source_name: None,
             kind: ElementKind::Span,
             attributes: attributes.clone(),
             children: Vec::new(),

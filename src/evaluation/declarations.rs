@@ -38,7 +38,7 @@ pub(super) fn apply(
     let numeric_name = matches!(name.value, Value::Number(_));
     let name = normalize_identifier(name.value, name_span, "name")?;
     if numeric_name {
-        document.warnings.push(Diagnostic::new(
+        document.warn(Diagnostic::new(
             span,
             format!(
                 "{} name was coerced from number to string {name:?}",
@@ -63,9 +63,15 @@ pub(super) fn apply(
         properties.insert(field, value);
     }
     if directive == "font" {
-        document
-            .fonts
-            .insert(name.clone(), FontDeclaration { name, properties });
+        let source_name = document.source_name().map(ToOwned::to_owned);
+        document.fonts.insert(
+            name.clone(),
+            FontDeclaration {
+                source_name,
+                name,
+                properties,
+            },
+        );
     } else {
         let kind = match properties.get("type") {
             Some(Value::String(value)) if value == "character" => StyleKind::Character,

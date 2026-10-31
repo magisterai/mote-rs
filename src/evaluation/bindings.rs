@@ -82,6 +82,17 @@ impl Bindings {
     pub fn enter(&mut self) {
         self.scopes.push(Scope::default());
     }
+    pub fn export_and_leave(&mut self) {
+        assert!(self.scopes.len() > 1);
+        let exported = self.scopes.pop().unwrap();
+        let target = self.scopes.last_mut().unwrap();
+        target.values.extend(exported.values);
+        target.functions.extend(exported.functions);
+        for (name, properties) in exported.defaults {
+            crate::properties::merge(target.defaults.entry(name).or_default(), &properties);
+        }
+        target.defaults_changed |= exported.defaults_changed;
+    }
     pub fn leave(&mut self) {
         assert!(self.scopes.len() > 1);
         self.scopes.pop();

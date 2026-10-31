@@ -1,0 +1,122 @@
+{
+  "format": "pptx",
+  "source_sha256": "050964787a0a202f9c880c793f380e04a5f68c3a9a5cf938ab330cd91c5ec733",
+  "assets": {
+    "../measurements/fonts/SourceSans3-Regular.ttf": "4644c81b86ec9caaa76b634889968ed3c4f4f52f054855933acc7c2b21e53b0f",
+    "../measurements/fonts/SourceSans3-Bold.ttf": "9214b9d95e4231c609802815c2646c98174e2102d0d37f88978a7f8e71006e6a",
+    "data.json": "1076e31d9d47ba126ce32b6f395562476fb3fba24c7a32a4237f8f2f210d282a",
+    "document.mote": "dd2a27cdfedf8e23d13a96ce7fe1d74786adeb09410758f577ae843fe8fae976",
+    "asset.png": "c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e",
+    "shared/deck.mote": "7c1ef1c4dee9477ee6972574ea3268bebeb5433d68222c66f7f69834c1378af7",
+    "shared/data.json": "301ec510d8224f4c780ca6b8b05fe29d39fa4c7b9995f51d86a56e0769bc5f37",
+    "shared/preset.mote": "89821a2d47c9333cc2a167a0d8ee69360f7e92420631c0465e333ca7c20062b6",
+    "shared/asset.png": "cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c",
+    "shared/nested/data.mote": "6814296106d19eb2be11dac5d9433aae137b51f1c134d7ef9007ca4d4da0ca01"
+  },
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "captured/parts/5a35c50c0a77d4f102a525ce07ec68d8f6273f14d1dfbeb92cb6ccda7fb583fb.xml",
+      "sha256": "5a35c50c0a77d4f102a525ce07ec68d8f6273f14d1dfbeb92cb6ccda7fb583fb"
+    },
+    "_rels/.rels": {
+      "path": "captured/parts/47d1c24d141674ae22dcc8a13563eab314ad805e1eb604da0e5bb57159889576",
+      "sha256": "47d1c24d141674ae22dcc8a13563eab314ad805e1eb604da0e5bb57159889576"
+    },
+    "docProps/app.xml": {
+      "path": "captured/parts/652b3c0d5e85cace7e8d5370b89148ade2c0900e42effc0aa0f9cd4c6460bea0.xml",
+      "sha256": "652b3c0d5e85cace7e8d5370b89148ade2c0900e42effc0aa0f9cd4c6460bea0"
+    },
+    "docProps/core.xml": {
+      "path": "captured/parts/be592d96550de894264d73c5ced0f877b7bcc050d7f4680267fe9c5d6abc2315.xml",
+      "sha256": "be592d96550de894264d73c5ced0f877b7bcc050d7f4680267fe9c5d6abc2315"
+    },
+    "ppt/_rels/presentation.xml.rels": {
+      "path": "captured/parts/edaff31ee2f0fc2dd5cf3d0703a09710fb7a757baa8e160c510ccb801cad5857.rels",
+      "sha256": "edaff31ee2f0fc2dd5cf3d0703a09710fb7a757baa8e160c510ccb801cad5857"
+    },
+    "ppt/presProps.xml": {
+      "path": "captured/parts/7d478b1617302bdf6b85bf7b25ba0c1e53cdfa83867afbb617b7cb6cc4e29de9.xml",
+      "sha256": "7d478b1617302bdf6b85bf7b25ba0c1e53cdfa83867afbb617b7cb6cc4e29de9"
+    },
+    "ppt/presentation.xml": {
+      "path": "captured/parts/9f3704f3a3a644c456115bc2e815b96036605ad7c594e8c77ccf5b0d474a2a22.xml",
+      "sha256": "9f3704f3a3a644c456115bc2e815b96036605ad7c594e8c77ccf5b0d474a2a22"
+    },
+    "ppt/slideLayouts/_rels/slideLayout1.xml.rels": {
+      "path": "captured/parts/d870e5b1929e28c09916452072c7cbe08ef6ec528c3cf95727dae087693a730a.rels",
+      "sha256": "d870e5b1929e28c09916452072c7cbe08ef6ec528c3cf95727dae087693a730a"
+    },
+    "ppt/slideLayouts/slideLayout1.xml": {
+      "path": "captured/parts/94b319de13456b3a3a346480098e2e9a24a22e3ade75447447783436032bf895.xml",
+      "sha256": "94b319de13456b3a3a346480098e2e9a24a22e3ade75447447783436032bf895"
+    },
+    "ppt/slideMasters/_rels/slideMaster1.xml.rels": {
+      "path": "captured/parts/d96b772ebc700dbba5facc22e41f4873e7e7a61bf06c6314a18248165ca8e140.rels",
+      "sha256": "d96b772ebc700dbba5facc22e41f4873e7e7a61bf06c6314a18248165ca8e140"
+    },
+    "ppt/slideMasters/slideMaster1.xml": {
+      "path": "captured/parts/e59b60e7ba74992454883495f9bc722ffa87280fa31a0649d1d21388115d1add.xml",
+      "sha256": "e59b60e7ba74992454883495f9bc722ffa87280fa31a0649d1d21388115d1add"
+    },
+    "ppt/slides/_rels/slide1.xml.rels": {
+      "path": "captured/parts/dd90bb5e39bfa53e2ec46a4c1b172932473ec4b4b839f9450f6374f685af87e1.rels",
+      "sha256": "dd90bb5e39bfa53e2ec46a4c1b172932473ec4b4b839f9450f6374f685af87e1"
+    },
+    "ppt/slides/_rels/slide2.xml.rels": {
+      "path": "captured/parts/9c001678cbab35f7ff93017a4423bf1f5198f7afea0294af39b6edbac5044aca.rels",
+      "sha256": "9c001678cbab35f7ff93017a4423bf1f5198f7afea0294af39b6edbac5044aca"
+    },
+    "ppt/slides/slide1.xml": {
+      "path": "captured/parts/d5045b01125f42c32d7dba116254901740d54f4c93180bdeff658068b755f10b.xml",
+      "sha256": "d5045b01125f42c32d7dba116254901740d54f4c93180bdeff658068b755f10b"
+    },
+    "ppt/slides/slide2.xml": {
+      "path": "captured/parts/6f094ce4b2d42d7e091a899784016a8589bd5d8ee5cd1f4b13cb8b004d6f8b3a.xml",
+      "sha256": "6f094ce4b2d42d7e091a899784016a8589bd5d8ee5cd1f4b13cb8b004d6f8b3a"
+    },
+    "ppt/tableStyles.xml": {
+      "path": "captured/parts/eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce.xml",
+      "sha256": "eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce"
+    },
+    "ppt/theme/theme1.xml": {
+      "path": "captured/parts/7481e5802f5e7b083d99d31a7aec0e11dab1d6b73e344eee4b0c744e8a5a2ccc.xml",
+      "sha256": "7481e5802f5e7b083d99d31a7aec0e11dab1d6b73e344eee4b0c744e8a5a2ccc"
+    },
+    "ppt/viewProps.xml": {
+      "path": "captured/parts/68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7.xml",
+      "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
+    },
+    "ppt/media/image1.png": {
+      "path": "captured/parts/cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c.png",
+      "sha256": "cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c"
+    },
+    "ppt/media/image2.png": {
+      "path": "captured/parts/c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e.png",
+      "sha256": "c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e"
+    },
+    "ppt/media/image3.png": {
+      "path": "captured/parts/c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e.png",
+      "sha256": "c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e"
+    },
+    "ppt/media/image4.png": {
+      "path": "captured/parts/cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c.png",
+      "sha256": "cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c"
+    }
+  },
+  "pages": [
+    {
+      "path": "reference-1.png",
+      "sha256": "69fee6b15406cde45963f0bfcfde5521c5912ecf4683d9f82fb3c7d07e4f18ed",
+      "maximum": 43,
+      "mean": 0.059,
+      "outliers": 0
+    },
+    {
+      "path": "reference-2.png",
+      "sha256": "317ddedc449a2be10cc497d7a4232f92b768d448393fa1d93edc33445447674e",
+      "maximum": 27,
+      "mean": 0.033,
+      "outliers": 0
+    }
+  ]
+}

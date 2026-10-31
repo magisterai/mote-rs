@@ -130,6 +130,10 @@ fn evaluate_helper_arguments(
     state: &mut super::EvaluationState<'_>,
     static_arguments: bool,
 ) -> Result<Value, Diagnostic> {
+    if name == "import" {
+        let arguments = evaluate_arguments(arguments, state)?;
+        return super::data::evaluate(name, arguments, span, state);
+    }
     let unit = Unit::from_name(name);
     if unit.is_none() && !matches!(name, "upper" | "color" | "json") {
         return Err(Diagnostic::new(span, format!("unsupported helper: {name}")));

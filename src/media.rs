@@ -6,7 +6,11 @@ use crate::{
     model::{Content, Document, Element, ElementKind, Properties},
     source::{AssetRequest, AssetResolver, CachingAssetResolver},
 };
-use std::{collections::BTreeMap, ffi::OsStr, sync::Arc};
+use std::{
+    collections::BTreeMap,
+    ffi::{OsStr, OsString},
+    sync::Arc,
+};
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct RasterImage {
@@ -27,9 +31,14 @@ pub(crate) struct ImageAsset {
 }
 #[derive(Default)]
 pub(crate) struct ImageCatalog {
-    entries: BTreeMap<String, Result<ImageAsset, String>>,
+    entries: BTreeMap<(Option<OsString>, String), Result<ImageAsset, String>>,
     pub warnings: Vec<String>,
-    prepared: Vec<(Properties, Result<Arc<PreparedImage>, String>)>,
+    prepared: Vec<PreparedEntry>,
+}
+struct PreparedEntry {
+    source_name: Option<OsString>,
+    properties: Properties,
+    image: Result<Arc<PreparedImage>, String>,
 }
 impl ImageCatalog {
     pub fn load(
@@ -82,11 +91,12 @@ impl ImageCatalog {
         source_name: Option<&OsStr>,
     ) {
         let source = text(&element.attributes, "src");
-        if !self.entries.contains_key(&source) {
+        let key = (element.source_name.clone(), source.clone());
+        if !self.entries.contains_key(&key) {
             let loaded = resolver
                 .resolve_asset(AssetRequest {
                     reference: OsStr::new(&source),
-                    source_name,
+                    source_name: element.source_name.as_deref().or(source_name),
                 })
                 .map_err(|error| {
                     let reason = if error.kind() == std::io::ErrorKind::Unsupported {
@@ -100,7 +110,7 @@ impl ImageCatalog {
             if let Err(error) = &loaded {
                 self.warnings.push(error.clone());
             }
-            self.entries.insert(source, loaded);
+            self.entries.insert(key, loaded);
         }
     }
     pub fn prepare_all(&mut self, content: &[Content]) {
@@ -115,11 +125,11 @@ impl ImageCatalog {
         }
     }
     pub fn prepare_element(&mut self, element: &Element) {
-        let attributes = transformation_properties(&element.attributes);
+        let properties = transformation_properties(&element.attributes);
         if self
             .prepared
             .iter()
-            .any(|(existing, _)| existing == &attributes)
+            .any(|entry| entry.source_name == element.source_name && entry.properties == properties)
         {
             return;
         }
@@ -132,18 +142,28 @@ impl ImageCatalog {
         {
             self.warnings.push(error.clone());
         }
-        self.prepared.push((attributes, prepared));
+        self.prepared.push(PreparedEntry {
+            source_name: element.source_name.clone(),
+            properties,
+            image: prepared,
+        });
     }
     pub fn prepared(&self, element: &Element) -> Result<Arc<PreparedImage>, String> {
+        let properties = transformation_properties(&element.attributes);
         self.prepared
             .iter()
-            .find(|(attributes, _)| attributes == &transformation_properties(&element.attributes))
-            .map(|(_, image)| image.clone())
+            .find(|entry| {
+                entry.source_name == element.source_name && entry.properties == properties
+            })
+            .map(|entry| entry.image.clone())
             .unwrap_or_else(|| Err("image assets were not prepared".into()))
     }
     pub fn get(&self, element: &Element) -> Result<&ImageAsset, String> {
         self.entries
-            .get(&text(&element.attributes, "src"))
+            .get(&(
+                element.source_name.clone(),
+                text(&element.attributes, "src"),
+            ))
             .ok_or_else(|| "image assets were not supplied to layout".to_owned())?
             .as_ref()
             .map_err(Clone::clone)

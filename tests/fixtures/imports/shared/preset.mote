@@ -1,0 +1,12 @@
+#import("nested/data.mote")
+#font(name="body",latin="Source Sans 3",files={regular="../../measurements/fonts/SourceSans3-Regular.ttf",bold="../../measurements/fonts/SourceSans3-Bold.ttf"})
+#style(name="ImportedBody",font="body",size=pt(12),color="#2563eb")
+#set paragraph(style="ImportedBody")
+#let(title=prefix .. " preset")
+#function imported_image()
+ return document.image({width=pt(32),height=pt(32)}, "asset.png")
+end
+#function imported_label()
+ return json("data.json").label
+end
+Discarded ordinary imported content.

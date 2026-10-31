@@ -1,5 +1,5 @@
 //! Typed external values through the compilation's selected resource resolver.
-use super::EvaluationState;
+use super::{EvaluationState, expressions::EvaluatedArguments};
 use crate::{
     diagnostics::{Diagnostic, Span},
     model::Value,
@@ -25,7 +25,7 @@ pub(super) fn load_json(
         resolver,
         AssetRequest {
             reference: OsStr::new(&path),
-            source_name: state.source_name,
+            source_name: state.source_name(),
         },
     )
     .map_err(|error| Diagnostic::new(span, format!("cannot load JSON {path:?}: {error}")))?;
@@ -61,4 +61,32 @@ fn from_json(value: serde_json::Value) -> Result<Value, &'static str> {
                 .collect::<Result<_, &'static str>>()?,
         ),
     })
+}
+
+pub(super) fn evaluate(
+    name: &str,
+    mut arguments: EvaluatedArguments,
+    span: Span,
+    state: &mut EvaluationState<'_>,
+) -> Result<Value, Diagnostic> {
+    if arguments.positional.len() != 1 {
+        return Err(Diagnostic::new(
+            span,
+            format!("{name} requires one positional string path"),
+        ));
+    }
+    if let Some((argument, value)) = arguments.named.iter().next() {
+        return Err(Diagnostic::new(
+            value.span,
+            format!("unknown {name} argument {argument:?}"),
+        ));
+    }
+    let Value::String(path) = arguments.positional.remove(0).value else {
+        return Err(Diagnostic::new(
+            span,
+            format!("{name} path must be a string"),
+        ));
+    };
+    super::imports::load(&path, span, state)?;
+    Ok(Value::Nil)
 }

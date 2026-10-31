@@ -17,6 +17,7 @@ mod drawings;
 mod expressions;
 mod functions;
 mod images;
+mod imports;
 mod notes;
 mod presentation;
 mod presentation_layouts;
@@ -86,7 +87,10 @@ pub fn evaluate_with_options(
     state.assets = assets
         .as_ref()
         .map(|resolver| resolver as &dyn crate::source::AssetResolver);
-    state.source_name = options.source_name;
+    state.source = std::sync::Arc::new(crate::source::SourceFile {
+        name: options.source_name.unwrap_or_default().to_owned(),
+        text: tree.source.clone(),
+    });
     state.enable_lua = options.enable_lua;
     state.lua_timeout = options.lua_timeout;
     evaluate_with_state(tree, state)
@@ -175,6 +179,16 @@ fn evaluate_nodes(
                 result = normalize_block_content(result, &document.bindings)?;
             }
             defaults::evaluate(call, node.span, document)?;
+            skip_declaration_trivia = true;
+            continue;
+        }
+        if let NodeKind::Call(call) = &node.kind
+            && call.name == "import"
+        {
+            if mode.is_block() {
+                flush_paragraph(&mut paragraph, &mut result, &document.bindings);
+            }
+            imports::evaluate(call, node.span, document)?;
             skip_declaration_trivia = true;
             continue;
         }
@@ -324,6 +338,7 @@ fn evaluate_nodes(
                 notes::markdown_reference(name, node.span, context, document)?
             }
             NodeKind::Divider => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::Divider,
                 attributes: Properties::new(),
                 children: Vec::new(),
@@ -353,6 +368,7 @@ fn evaluate_nodes(
                 marker,
                 body,
             } => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::Heading,
                 attributes: Properties::from([
                     ("level".into(), Value::Number(*level as f64)),
@@ -361,16 +377,19 @@ fn evaluate_nodes(
                 children: evaluate_nodes(body, ContentMode::Inline, context, document)?,
             }),
             NodeKind::Strong(body) => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::Strong,
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Inline, context, document)?,
             }),
             NodeKind::Emphasis(body) => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::Emphasis,
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Inline, context, document)?,
             }),
             NodeKind::CodeFence { text, language } => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::Raw,
                 attributes: {
                     let mut attributes =
@@ -383,6 +402,7 @@ fn evaluate_nodes(
                 children: vec![Content::Text(normalize_line_endings(text))],
             }),
             NodeKind::Code(text) => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::Code,
                 attributes: Properties::new(),
                 children: vec![Content::Text(text.clone())],
@@ -392,6 +412,7 @@ fn evaluate_nodes(
                 checked,
                 body,
             } => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::ListItem,
                 attributes: {
                     let mut attributes =
@@ -404,6 +425,7 @@ fn evaluate_nodes(
                 children: evaluate_nodes(body, ContentMode::MarkdownItem, context, document)?,
             }),
             NodeKind::Blockquote(body) => Content::Element(Element {
+                source_name: None,
                 kind: ElementKind::Blockquote,
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Block, context, document)?,
@@ -433,6 +455,7 @@ fn evaluate_nodes(
                     attributes.insert("title".into(), Value::String(title.clone()));
                 }
                 Content::Element(Element {
+                    source_name: None,
                     kind: ElementKind::Image,
                     attributes,
                     children: Vec::new(),
@@ -481,6 +504,7 @@ fn evaluate_nodes(
             NodeKind::Call(_) | NodeKind::Reference(_) | NodeKind::Table(_)
         ) && let Content::Element(element) = &mut content
         {
+            element.source_name = document.source_name().map(ToOwned::to_owned);
             element.attributes = document
                 .bindings
                 .element_attributes(element.kind, &element.attributes);
@@ -590,6 +614,7 @@ fn group_adjacent_list_items(content: Vec<Content>, bindings: &bindings::Binding
         if let Some(kind) = list_kind {
             current_list
                 .get_or_insert_with(|| Element {
+                    source_name: None,
                     kind,
                     attributes: bindings.element_defaults(kind),
                     children: Vec::new(),
@@ -624,6 +649,7 @@ fn flush_paragraph(
     buffer.retain(|node| !matches!(node, Content::Text(text) if text.is_empty()));
     if !buffer.is_empty() {
         result.push(Content::Element(Element {
+            source_name: None,
             kind: ElementKind::Paragraph,
             attributes: bindings.element_defaults(ElementKind::Paragraph),
             children: std::mem::take(buffer),

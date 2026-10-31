@@ -15,6 +15,7 @@ pub fn measure_cases(root: &Path, requests: &Value) -> Result<Value, Box<dyn Err
         document.fonts.insert(
             name.into(),
             FontDeclaration {
+                source_name: None,
                 name: name.into(),
                 properties: Properties::from([(
                     "files".into(),

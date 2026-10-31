@@ -108,6 +108,7 @@ impl Field {
             unit: Unit::Point,
         };
         Element {
+            source_name: None,
             kind: ElementKind::Box,
             attributes: Properties::from([
                 (

@@ -126,7 +126,12 @@ impl<'source> TextMeasurer<'source> {
                         Some(format!("missing {} font file", variant.as_text())),
                     );
                 }
-                return self.resolve_file(name, variant, &reference);
+                return self.resolve_file(
+                    name,
+                    variant,
+                    &reference,
+                    declaration.source_name.as_deref().or(self.source_name),
+                );
             }
             if let Some(Value::String(latin)) = declaration.properties.get("latin") {
                 return self.resolve_named(name, latin, variant);
@@ -187,10 +192,16 @@ impl<'source> TextMeasurer<'source> {
         Ok((asset.name, bytes))
     }
 
-    fn resolve_file(&self, name: &str, variant: FontVariant, reference: &str) -> FontSelection {
+    fn resolve_file(
+        &self,
+        name: &str,
+        variant: FontVariant,
+        reference: &str,
+        source_name: Option<&OsStr>,
+    ) -> FontSelection {
         let loaded = self.resolver.resolve_asset(AssetRequest {
             reference: OsStr::new(reference),
-            source_name: self.source_name,
+            source_name,
         });
         let result = loaded
             .map_err(|_| "resolved font data could not be read".to_owned())

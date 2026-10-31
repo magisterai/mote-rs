@@ -144,6 +144,7 @@ pub(super) fn apply(
         });
     }
     let declaration = PresentationLayout {
+        source_name: state.source_name().map(ToOwned::to_owned),
         name,
         based_on,
         properties,

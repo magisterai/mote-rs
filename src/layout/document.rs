@@ -212,6 +212,7 @@ pub(super) fn place_blocks(
                 painting.clear_fill();
                 if kind == "line" {
                     let style = styles.paragraph(&Element {
+                        source_name: None,
                         kind: ElementKind::Paragraph,
                         attributes: Properties::new(),
                         children: Vec::new(),

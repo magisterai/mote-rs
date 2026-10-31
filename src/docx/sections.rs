@@ -168,6 +168,7 @@ fn write_story(
     let mut content = story.content.clone();
     if content.is_empty() {
         content.push(Content::Element(Element {
+            source_name: None,
             kind: ElementKind::Paragraph,
             attributes: Default::default(),
             children: Vec::new(),

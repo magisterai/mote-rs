@@ -65,6 +65,9 @@ pub(super) fn resolve(
             } else {
                 resolved[&declaration.based_on].clone()
             };
+            if declaration.properties.contains_key("background") {
+                layout.background_source_name = declaration.source_name.clone();
+            }
             layout.properties = merge(&layout.properties, &declaration.properties);
             for declaration_slot in &declaration.slots {
                 let index = layout

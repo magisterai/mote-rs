@@ -46,6 +46,7 @@ pub(super) fn place(
                         element.clone()
                     }
                     _ => Element {
+                        source_name: None,
                         kind: ElementKind::Paragraph,
                         attributes: Default::default(),
                         children: vec![child.clone()],

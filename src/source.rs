@@ -68,7 +68,7 @@ pub fn resolve_asset(
 }
 
 /// A named UTF-8 input, retained separately from the authored document model.
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct SourceFile {
     pub name: OsString,
     pub text: String,

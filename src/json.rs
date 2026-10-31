@@ -44,6 +44,15 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
         }
         output["presentation"] = value;
     }
+    if !document.imports.is_empty() {
+        output["imports"] = json!(
+            document
+                .imports
+                .iter()
+                .map(|name| name.to_string_lossy())
+                .collect::<Vec<_>>()
+        );
+    }
     if !document.defaults.is_empty() {
         output["defaults"] = properties_as_json(&document.defaults)?;
     }

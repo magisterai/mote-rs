@@ -1,0 +1,247 @@
+{
+  "document": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    }
+  },
+  "defaults": {
+    "default_font": "body",
+    "default_size": {
+      "text": "12pt",
+      "unit": "pt",
+      "value": 12
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "ImportedBody",
+      "type": "paragraph",
+      "font": "body",
+      "properties": {
+        "color": "#2563eb",
+        "font": "body",
+        "size": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        }
+      }
+    }
+  ],
+  "imports": [
+    "${fixture}/shared/preset.mote",
+    "${fixture}/shared/nested/data.mote"
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before the import."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "style": "ImportedBody"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Imported preset"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "style": "ImportedBody"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Library data"
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "height": {
+              "text": "32pt",
+              "unit": "pt",
+              "value": 32
+            },
+            "src": "asset.png",
+            "width": {
+              "text": "32pt",
+              "unit": "pt",
+              "value": 32
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "category": "block",
+          "attributes": {
+            "height": {
+              "text": "32pt",
+              "unit": "pt",
+              "value": 32
+            },
+            "src": "asset.png",
+            "width": {
+              "text": "32pt",
+              "unit": "pt",
+              "value": 32
+            }
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "style": "ImportedBody"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Caller resource paths remain independent."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before the import."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "style": "ImportedBody"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Imported preset"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "style": "ImportedBody"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Library data"
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "height": {
+          "text": "32pt",
+          "unit": "pt",
+          "value": 32
+        },
+        "src": "asset.png",
+        "width": {
+          "text": "32pt",
+          "unit": "pt",
+          "value": 32
+        }
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        }
+      ]
+    },
+    {
+      "kind": "image",
+      "category": "block",
+      "attributes": {
+        "height": {
+          "text": "32pt",
+          "unit": "pt",
+          "value": 32
+        },
+        "src": "asset.png",
+        "width": {
+          "text": "32pt",
+          "unit": "pt",
+          "value": 32
+        }
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "attributes": {
+        "style": "ImportedBody"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "Caller resource paths remain independent."
+        }
+      ]
+    }
+  ]
+}

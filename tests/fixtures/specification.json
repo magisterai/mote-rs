@@ -658,6 +658,17 @@
     {
       "example": "scoped-defaults/1",
       "model": "scoped-defaults/1"
+    },
+    {
+      "example": "imports/1",
+      "model": "imports/1"
+    },
+    {
+      "example": "imports/2",
+      "model": "imports/2",
+      "text_assets": {
+        "preset.mote": "#let(label = \"Shared report\")\n#set paragraph(alignment = \"center\")"
+      }
     }
   ],
   "models": {
@@ -10795,6 +10806,61 @@
             {
               "kind": "text",
               "text": "An explicit override."
+            }
+          ]
+        }
+      ]
+    },
+    "imports/1": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "content": []
+    },
+    "imports/2": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "imports": [
+        "preset.mote"
+      ],
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "alignment": "center"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Shared report"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "attributes": {
+            "alignment": "center"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Shared report"
             }
           ]
         }

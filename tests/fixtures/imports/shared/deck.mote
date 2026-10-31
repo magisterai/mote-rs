@@ -1,0 +1,4 @@
+#presentation(size="standard",background={src="asset.png",fit="stretch"})
+#layout(name="ImportedLayout",background={src="asset.png",fit="contain"})[
+ #box(slot="body",position={x=pt(35),y=pt(35),width=pt(650),height=pt(450)},text={font="body",size=pt(20)})
+]

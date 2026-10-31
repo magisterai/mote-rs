@@ -16,6 +16,7 @@ struct Slot {
 }
 #[derive(Clone, Default)]
 struct Layout {
+    background_source_name: Option<std::ffi::OsString>,
     properties: Properties,
     slots: Vec<Slot>,
 }
@@ -108,6 +109,13 @@ impl Layouts {
             attributes.insert("background".into(), background.clone());
         }
         Ok(Some(Element {
+            source_name: if slide.attributes.contains_key("background")
+                || !layout.properties.contains_key("background")
+            {
+                slide.source_name.clone()
+            } else {
+                layout.background_source_name.clone()
+            },
             kind: ElementKind::Slide,
             attributes,
             children,

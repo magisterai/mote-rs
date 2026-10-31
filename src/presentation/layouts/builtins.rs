@@ -151,6 +151,7 @@ pub(super) fn layouts([width, height]: [i64; 2]) -> BTreeMap<String, Layout> {
         (
             name.into(),
             Layout {
+                background_source_name: None,
                 properties: Properties::new(),
                 slots,
             },

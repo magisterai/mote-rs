@@ -25,6 +25,11 @@ impl Background {
             let source = text(fields, "src");
             if !source.is_empty() {
                 result.image = Some(Element {
+                    source_name: if slide.attributes.contains_key("background") {
+                        slide.source_name.clone()
+                    } else {
+                        document.presentation.background_source_name.clone()
+                    },
                     kind: ElementKind::Image,
                     attributes: Properties::from([
                         ("src".into(), Value::String(source)),
@@ -43,6 +48,7 @@ impl Background {
     }
     pub fn container(&self, width: i64, height: i64) -> Element {
         Element {
+            source_name: None,
             kind: ElementKind::Box,
             attributes: Properties::from([
                 (

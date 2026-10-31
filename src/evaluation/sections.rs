@@ -17,7 +17,9 @@ struct StoryCapture {
 #[derive(Default)]
 pub(super) struct EvaluationState<'resolver> {
     pub assets: Option<&'resolver dyn crate::source::AssetResolver>,
-    pub source_name: Option<&'resolver std::ffi::OsStr>,
+    pub source: std::sync::Arc<crate::source::SourceFile>,
+    pub imported: std::collections::BTreeSet<std::ffi::OsString>,
+    pub importing: Vec<std::ffi::OsString>,
     document: Document,
     pub bindings: super::bindings::Bindings,
     pub enable_lua: bool,
@@ -45,6 +47,17 @@ impl DerefMut for EvaluationState<'_> {
     }
 }
 impl EvaluationState<'_> {
+    pub fn warn(&mut self, diagnostic: Diagnostic) {
+        let diagnostic = if self.source_name().is_some() {
+            diagnostic.with_source(self.source.clone())
+        } else {
+            diagnostic
+        };
+        self.warnings.push(diagnostic);
+    }
+    pub fn source_name(&self) -> Option<&std::ffi::OsStr> {
+        (!self.source.name.is_empty()).then_some(self.source.name.as_os_str())
+    }
     pub fn append_content(&mut self, content: &[Content]) {
         if content.is_empty() {
             return;

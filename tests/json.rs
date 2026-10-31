@@ -39,6 +39,7 @@ fn json_retains_structure_types_units_and_escaped_text() {
 fn invalid_numeric_model_values_are_not_silently_emitted_as_null() {
     let document = Document {
         content: vec![Content::Element(Element {
+            source_name: None,
             kind: ElementKind::Paragraph,
             attributes: Properties::from([("value".into(), Value::Number(f64::NAN))]),
             children: vec![],

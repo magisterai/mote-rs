@@ -1,0 +1,12 @@
+Before the import.
+
+#import("shared/preset.mote")
+#document(default_font="body",default_size=pt(12))
+#title
+
+#import("shared/./preset.mote")
+#imported_label()
+
+#imported_image()
+#image("asset.png",width=pt(32),height=pt(32))
+#paragraph[Caller resource paths remain independent.]

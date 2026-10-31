@@ -87,6 +87,7 @@ pub(super) fn markdown_reference(
         vec![Content::Text(name.to_owned())]
     };
     Ok(Content::Element(Element {
+        source_name: state.source_name().map(ToOwned::to_owned),
         kind: ElementKind::Footnote,
         attributes: Properties::from([("id".into(), Value::String(name.to_owned()))]),
         children,

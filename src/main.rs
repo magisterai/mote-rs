@@ -145,10 +145,18 @@ fn run_command() -> Result<(), String> {
     )
     .map_err(|error| {
         let (line, column) = error.location(&source.text);
+        let name = error
+            .source
+            .as_ref()
+            .map_or_else(|| name.clone(), |source| source.name.to_string_lossy());
         format!("{name}:{line}:{column}: {}", error.message)
     })?;
     for warning in &document.warnings {
         let (line, column) = warning.location(&source.text);
+        let name = warning
+            .source
+            .as_ref()
+            .map_or_else(|| name.clone(), |source| source.name.to_string_lossy());
         writeln!(
             io::stderr().lock(),
             "{name}:{line}:{column}: warning: {}",

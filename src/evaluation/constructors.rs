@@ -365,7 +365,7 @@ impl PreparedElement {
                 return Err(Diagnostic::new(span,"nested Markdown items in an explicit list require an item body or a nested list container"));
             }
             if children.is_empty() && matches!(kind, ElementKind::Table | ElementKind::Row) {
-                state.warnings.push(Diagnostic::new(
+                state.warn(Diagnostic::new(
                     span,
                     format!(
                         "{} body is empty; emitting an empty {}",
@@ -387,7 +387,7 @@ impl PreparedElement {
                 && !(kind == ElementKind::Box
                     && !crate::properties::text(&self.attributes, "slot").is_empty())
             {
-                state.warnings.push(Diagnostic::new(
+                state.warn(Diagnostic::new(
                     span,
                     format!(
                         "{} body is empty; emitting an empty {}",
@@ -425,6 +425,7 @@ impl PreparedElement {
             });
         }
         Ok(Element {
+            source_name: state.source_name().map(ToOwned::to_owned),
             kind,
             attributes: self.attributes,
             children,

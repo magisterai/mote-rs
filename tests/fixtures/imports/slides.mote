@@ -1,0 +1,8 @@
+#import("shared/preset.mote")
+#import("shared/deck.mote")
+#slide(layout="ImportedLayout")[
+ #box(slot="body")[#heading(level=1)[#title]#paragraph[#imported_label()]]
+ #box(position={x=pt(50),y=pt(190),width=pt(80),height=pt(80)})[#imported_image()]
+ #box(position={x=pt(160),y=pt(190),width=pt(80),height=pt(80)})[#image("asset.png",width=pt(32),height=pt(32))]
+]
+#slide[#box(position={x=pt(40),y=pt(40),width=pt(640),height=pt(440)},text={font="body",size=pt(20)})[#paragraph[Deck background from the imported declaration.]]]

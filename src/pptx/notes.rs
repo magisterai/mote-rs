@@ -15,6 +15,7 @@ pub(super) fn write(
     next_shape: &mut usize,
 ) -> Result<String, Error> {
     let element = Element {
+        source_name: None,
         kind: ElementKind::Box,
         attributes: Properties::from([
             ("name".into(), Value::String("Speaker Notes".into())),

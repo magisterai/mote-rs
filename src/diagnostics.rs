@@ -13,6 +13,8 @@ pub struct Span {
 pub struct Diagnostic {
     pub message: String,
     pub span: Span,
+    /// Present when a failure or warning belongs to an imported or deferred source.
+    pub source: Option<std::sync::Arc<crate::source::SourceFile>>,
 }
 
 impl Diagnostic {
@@ -20,11 +22,23 @@ impl Diagnostic {
         Self {
             message: message.into(),
             span,
+            source: None,
         }
+    }
+
+    pub(crate) fn with_source(mut self, source: std::sync::Arc<crate::source::SourceFile>) -> Self {
+        if self.source.is_none() {
+            self.source = Some(source);
+        }
+        self
     }
 
     /// One-based line and Unicode scalar column, with CRLF counted once.
     pub fn location(&self, source: &str) -> (usize, usize) {
+        let source = self
+            .source
+            .as_ref()
+            .map_or(source, |source| source.text.as_str());
         let mut line = 1;
         let mut column = 1;
         let mut previous_was_carriage_return = false;

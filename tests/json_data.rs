@@ -94,7 +94,11 @@ fn json_resources_preserve_typed_values_and_snapshot_repeated_requests() {
     .unwrap();
     assert_eq!(requests.get(), 1);
     let expected = mote::compile("#paragraph[#span(bold=true,size=pt(12))[First]]").unwrap();
-    assert_eq!(document, expected);
+    // Source identity is retained separately from the authored inspection model.
+    assert_eq!(
+        mote::json::to_json(&document).unwrap(),
+        mote::json::to_json(&expected).unwrap()
+    );
 }
 
 #[test]

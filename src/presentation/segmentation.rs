@@ -35,6 +35,7 @@ pub(super) fn slides(content: &[Content]) -> Vec<Element> {
 fn flush(pending: &mut Vec<Content>, slides: &mut Vec<Element>) {
     if !pending.is_empty() {
         slides.push(Element {
+            source_name: None,
             kind: ElementKind::Slide,
             attributes: Properties::new(),
             children: std::mem::take(pending),

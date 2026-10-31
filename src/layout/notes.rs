@@ -203,6 +203,7 @@ fn has_bookmarks(content: &[Content]) -> bool {
 }
 fn empty_paragraph() -> Element {
     Element {
+        source_name: None,
         kind: ElementKind::Paragraph,
         attributes: Properties::new(),
         children: Vec::new(),

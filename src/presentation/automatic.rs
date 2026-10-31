@@ -75,6 +75,7 @@ fn positioned(content: &Content) -> bool {
 }
 fn container(name: String, bounds: [i64; 4], children: Vec<Content>) -> Content {
     Content::Element(Element {
+        source_name: None,
         kind: ElementKind::Box,
         attributes: Properties::from([
             ("name".into(), Value::String(name)),

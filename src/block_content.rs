@@ -37,6 +37,7 @@ pub(crate) fn definition_paragraphs(list: &Element, preserve_paragraphs: bool) -
                 .or_insert(Value::String(style.into()));
             attributes.extend(explicit);
             paragraphs.push(Element {
+                source_name: None,
                 kind: ElementKind::Paragraph,
                 attributes,
                 children,

@@ -87,6 +87,9 @@ pub(super) fn apply(
             Ok((name, value))
         })
         .collect::<Result<_, Diagnostic>>()?;
+    if normalized.contains_key("background") {
+        state.presentation.background_source_name = state.source_name().map(ToOwned::to_owned);
+    }
     let presentation = &mut state.presentation;
     if let Some(value) = normalized.get("size") {
         presentation

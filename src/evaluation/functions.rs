@@ -19,6 +19,7 @@ pub(super) struct DocumentFunction {
     pub environment: Bindings,
     pub span: Span,
     pub source_line: usize,
+    pub source: std::sync::Arc<crate::source::SourceFile>,
 }
 impl DocumentFunction {
     pub fn accepts_body(&self) -> bool {
@@ -91,6 +92,7 @@ pub(super) fn define(
         body: body.to_owned(),
         environment: state.bindings.clone(),
         span,
+        source: state.source.clone(),
         source_line: context.source[..span.start]
             .bytes()
             .filter(|byte| *byte == b'\n')

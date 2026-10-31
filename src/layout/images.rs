@@ -150,6 +150,7 @@ pub(super) fn fallback(element: &Element, error: &str) -> Element {
         attributes.insert("spacing".into(), spacing.clone());
     }
     Element {
+        source_name: None,
         kind: crate::model::ElementKind::Paragraph,
         attributes,
         children: vec![crate::model::Content::Text(format!(

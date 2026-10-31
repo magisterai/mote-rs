@@ -3,7 +3,7 @@ mod constructors;
 mod values;
 use super::{
     EvaluationState,
-    expressions::{EvaluatedArgument, EvaluatedArguments, evaluate_helper_value},
+    expressions::{EvaluatedArgument, EvaluatedArguments},
     functions::DocumentFunction,
 };
 use crate::{
@@ -18,7 +18,9 @@ use std::{
     time::{Duration, Instant},
 };
 
-const HELPERS: &[&str] = &["json", "upper", "color", "pt", "inch", "cm", "mm", "twip"];
+const HELPERS: &[&str] = &[
+    "json", "import", "upper", "color", "pt", "inch", "cm", "mm", "twip",
+];
 
 pub(super) struct Runtime {
     lua: Lua,
@@ -147,6 +149,8 @@ impl Runtime {
             &mut state.borrow_mut().bindings,
             function.environment.clone(),
         );
+        let caller_source =
+            std::mem::replace(&mut state.borrow_mut().source, function.source.clone());
         let result = (|| {
             self.prepare(&state.borrow())?;
             let body = function.body.trim_start_matches(['\r', '\n']);
@@ -157,7 +161,7 @@ impl Runtime {
             );
             let name = state
                 .borrow()
-                .source_name
+                .source_name()
                 .map(|name| name.to_string_lossy().into_owned())
                 .unwrap_or_else(|| function.name.clone());
             let callable: mlua::Function = self.lua.load(source).set_name(name).eval()?;
@@ -170,7 +174,12 @@ impl Runtime {
             values::from_function_return(value)
         })();
         state.borrow_mut().bindings = caller_bindings;
-        result
+        state.borrow_mut().source = caller_source;
+        result.map_err(|error| {
+            mlua::Error::external(
+                diagnostic_from_lua(&error, function.span).with_source(function.source.clone()),
+            )
+        })
     }
 }
 fn check_deadline(deadline: Option<Instant>) -> mlua::Result<()> {
@@ -199,25 +208,24 @@ fn with_runtime(
     }
     let runtime = state.lua.get().unwrap().clone();
     let state = RefCell::new(state);
+    let callbacks = ["__mote_helper", "__mote_constructor", "__mote_function"];
+    let previous: Vec<mlua::Value> = callbacks
+        .iter()
+        .map(|name| runtime.lua.globals().raw_get(*name))
+        .collect::<mlua::Result<_>>()
+        .map_err(|error| Diagnostic::new(span, error.to_string()))?;
     let result = runtime.lua.scope(|scope| {
         let callback_state = &state;
         runtime.lua.globals().set(
             "__mote_helper",
             scope.create_function(
                 move |lua, (name, arguments): (String, mlua::Variadic<mlua::Value>)| {
-                    if !HELPERS.contains(&name.as_str()) || arguments.len() != 1 {
-                        return Err(mlua::Error::RuntimeError(format!(
-                            "{name} requires one positional argument"
-                        )));
-                    }
-                    let argument = values::from_lua(arguments.into_iter().next().unwrap())?;
-                    let value = evaluate_helper_value(
+                    let value = constructors::helper(
                         &name,
-                        argument,
+                        arguments,
                         span,
                         &mut callback_state.borrow_mut(),
-                    )
-                    .map_err(mlua::Error::external)?;
+                    )?;
                     values::to_lua(lua, &value)
                 },
             )?,
@@ -270,7 +278,14 @@ fn with_runtime(
         )?;
         execute(&runtime, &state)
     });
-    result.map_err(|error| Diagnostic::new(span, error.to_string()))
+    for (name, value) in callbacks.into_iter().zip(previous) {
+        runtime
+            .lua
+            .globals()
+            .raw_set(name, value)
+            .map_err(|error| Diagnostic::new(span, error.to_string()))?;
+    }
+    result.map_err(|error| diagnostic_from_lua(&error, span))
 }
 
 pub(super) fn evaluate(
@@ -285,7 +300,7 @@ pub(super) fn evaluate(
         runtime.prepare(&state.borrow())?;
         let name = state
             .borrow()
-            .source_name
+            .source_name()
             .map(|name| name.to_string_lossy().into_owned())
             .unwrap_or_else(|| "expression".into());
         let results: mlua::MultiValue = runtime
@@ -313,4 +328,11 @@ pub(super) fn value_content(value: Value) -> Vec<Content> {
         Value::Element(element) => vec![Content::Element(*element)],
         value => vec![Content::Text(value.to_text())],
     }
+}
+
+fn diagnostic_from_lua(error: &mlua::Error, span: Span) -> Diagnostic {
+    error
+        .downcast_ref::<Diagnostic>()
+        .cloned()
+        .unwrap_or_else(|| Diagnostic::new(span, error.to_string()))
 }

@@ -16,6 +16,33 @@ pub(super) fn call(
     span: Span,
     state: &mut EvaluationState<'_>,
 ) -> mlua::Result<Value> {
+    if name == "import" {
+        let mut arguments = arguments
+            .into_iter()
+            .map(values::from_lua)
+            .collect::<mlua::Result<Vec<_>>>()?
+            .into_iter()
+            .peekable();
+        let named = if matches!(arguments.peek(), Some(Value::Object(_))) {
+            let Some(Value::Object(fields)) = arguments.next() else {
+                unreachable!()
+            };
+            fields
+                .into_iter()
+                .map(|(name, value)| (name, EvaluatedArgument::new(value, span)))
+                .collect()
+        } else {
+            Default::default()
+        };
+        let arguments = EvaluatedArguments {
+            named,
+            positional: arguments
+                .map(|value| EvaluatedArgument::new(value, span))
+                .collect(),
+        };
+        return crate::evaluation::data::evaluate(name, arguments, span, state)
+            .map_err(mlua::Error::external);
+    }
     if super::HELPERS.contains(&name) || name == "in" {
         if arguments.len() != 1 {
             return Err(mlua::Error::RuntimeError(format!(
@@ -159,4 +186,30 @@ fn declaration(
         }
     }
     Ok(Value::Nil)
+}
+
+/// Global helpers pass positional Lua values; only document constructors interpret a property table.
+pub(super) fn helper(
+    name: &str,
+    arguments: mlua::Variadic<mlua::Value>,
+    span: Span,
+    state: &mut EvaluationState<'_>,
+) -> mlua::Result<Value> {
+    if name == "import" {
+        let positional = arguments
+            .into_iter()
+            .map(|value| values::from_lua(value).map(|value| EvaluatedArgument::new(value, span)))
+            .collect::<mlua::Result<_>>()?;
+        return crate::evaluation::data::evaluate(
+            name,
+            EvaluatedArguments {
+                positional,
+                named: Default::default(),
+            },
+            span,
+            state,
+        )
+        .map_err(mlua::Error::external);
+    }
+    call(name, arguments, span, state)
 }

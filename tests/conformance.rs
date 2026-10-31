@@ -50,38 +50,38 @@ fn specification_examples_match_their_declared_outcomes() {
             let expected = models
                 .get(model_name)
                 .unwrap_or_else(|| panic!("missing expected model: {model_name}"));
-            let compiled = if case["lua"].as_bool() == Some(true) {
+            let compiled = if case["lua"].as_bool() == Some(true)
+                || case.get("assets").is_some()
+                || case.get("text_assets").is_some()
+            {
                 let resolver = |request: mote::source::AssetRequest<'_>| {
                     let name = request.reference.to_str().unwrap();
-                    let value = case
-                        .get("assets")
-                        .and_then(|assets| assets.get(name))
-                        .ok_or_else(|| std::io::Error::new(std::io::ErrorKind::NotFound, name))?;
+                    let bytes = if let Some(value) =
+                        case.get("text_assets").and_then(|assets| assets.get(name))
+                    {
+                        value.as_str().unwrap().as_bytes().to_vec()
+                    } else {
+                        let value = case
+                            .get("assets")
+                            .and_then(|assets| assets.get(name))
+                            .ok_or_else(|| {
+                                std::io::Error::new(std::io::ErrorKind::NotFound, name)
+                            })?;
+                        serde_json::to_vec(value).unwrap()
+                    };
                     Ok(mote::source::ResolvedAsset {
                         name: request.reference.to_owned(),
-                        bytes: serde_json::to_vec(value).unwrap(),
+                        bytes,
                     })
                 };
                 mote::compile_with_options(
                     &source,
                     mote::evaluation::EvaluationOptions {
-                        enable_lua: true,
+                        enable_lua: case["lua"].as_bool() == Some(true),
                         asset_resolver: Some(&resolver),
                         ..Default::default()
                     },
                 )
-            } else if let Some(assets) = case.get("assets") {
-                let resolver = |request: mote::source::AssetRequest<'_>| {
-                    let name = request.reference.to_str().unwrap();
-                    let value = assets
-                        .get(name)
-                        .ok_or_else(|| std::io::Error::new(std::io::ErrorKind::NotFound, name))?;
-                    Ok(mote::source::ResolvedAsset {
-                        name: request.reference.to_owned(),
-                        bytes: serde_json::to_vec(value).unwrap(),
-                    })
-                };
-                mote::compile_with_assets(&source, &resolver, None)
             } else {
                 compile(&source)
             };

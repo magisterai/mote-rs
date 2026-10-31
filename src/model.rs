@@ -89,6 +89,8 @@ pub struct Document {
     /// Retained default_* and language arguments; output support is separate.
     pub defaults: Properties,
     pub content: Vec<Content>,
+    /// Resolved imported sources in first-encounter order.
+    pub imports: Vec<std::ffi::OsString>,
     pub presentation: Presentation,
     /// Resolved section snapshots; empty means one implicit document section.
     pub sections: Vec<Section>,
@@ -100,6 +102,8 @@ pub struct Document {
 
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct Presentation {
+    /// Source of the current deck background, independent of later size updates.
+    pub background_source_name: Option<std::ffi::OsString>,
     pub properties: Properties,
     pub size_properties: Properties,
     /// Authored declarations in stable order; replacement retains the original index.
@@ -110,6 +114,7 @@ pub struct Presentation {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct PresentationLayout {
+    pub source_name: Option<std::ffi::OsString>,
     pub name: String,
     pub based_on: String,
     pub properties: Properties,
@@ -158,6 +163,7 @@ pub struct ColumnConfiguration {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct FontDeclaration {
+    pub source_name: Option<std::ffi::OsString>,
     pub name: String,
     pub properties: Properties,
 }
@@ -195,6 +201,8 @@ pub enum Content {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Element {
+    /// Logical source owning resource references; omitted from authored JSON.
+    pub source_name: Option<std::ffi::OsString>,
     pub kind: ElementKind,
     pub attributes: Properties,
     pub children: Vec<Content>,
@@ -392,6 +400,7 @@ pub(crate) fn wrap_block_content(content: &[Content]) -> Vec<Content> {
         if matches!(node, Content::Element(element) if element.kind.is_block()) {
             if !inline.is_empty() {
                 result.push(Content::Element(Element {
+                    source_name: None,
                     kind: ElementKind::Paragraph,
                     attributes: Properties::new(),
                     children: std::mem::take(&mut inline),
@@ -404,6 +413,7 @@ pub(crate) fn wrap_block_content(content: &[Content]) -> Vec<Content> {
     }
     if !inline.is_empty() {
         result.push(Content::Element(Element {
+            source_name: None,
             kind: ElementKind::Paragraph,
             attributes: Properties::new(),
             children: inline,

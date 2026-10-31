@@ -233,6 +233,7 @@ fn missing_parents_and_cycles_retain_discovered_properties_and_report_issues() {
     );
     let missing = resolver.resolve_inline(
         &Element {
+            source_name: None,
             kind: ElementKind::Span,
             attributes: Properties::from([
                 ("style".into(), Value::String("Absent".into())),

@@ -45,6 +45,7 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
+| `import` | [Imported declarations](import.md) | Specified and tested; see the checklist for output limits. |
 | `set` | [Scoped defaults](set.md) | Specified and tested; see the checklist for output limits. |
 | `raw` | [Literal block content](raw.md) | Specified and tested; see the checklist for output limits. |
 | `divider` | [Horizontal dividers](divider.md) | Specified and tested; see the checklist for output limits. |

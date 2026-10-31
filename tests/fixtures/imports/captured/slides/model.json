@@ -1,0 +1,470 @@
+{
+  "presentation": {
+    "properties": {
+      "background": {
+        "fit": "stretch",
+        "src": "asset.png"
+      },
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../../measurements/fonts/SourceSans3-Bold.ttf",
+          "regular": "../../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "ImportedBody",
+      "type": "paragraph",
+      "font": "body",
+      "properties": {
+        "color": "#2563eb",
+        "font": "body",
+        "size": {
+          "text": "12pt",
+          "unit": "pt",
+          "value": 12
+        }
+      }
+    }
+  ],
+  "imports": [
+    "${fixture}/shared/preset.mote",
+    "${fixture}/shared/nested/data.mote",
+    "${fixture}/shared/deck.mote"
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "layout": "ImportedLayout"
+          },
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "slot": "body"
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Imported preset"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "style": "ImportedBody"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Library data"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "width": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "x": {
+                    "text": "50pt",
+                    "unit": "pt",
+                    "value": 50
+                  },
+                  "y": {
+                    "text": "190pt",
+                    "unit": "pt",
+                    "value": 190
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "height": {
+                      "text": "32pt",
+                      "unit": "pt",
+                      "value": 32
+                    },
+                    "src": "asset.png",
+                    "width": {
+                      "text": "32pt",
+                      "unit": "pt",
+                      "value": 32
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "{}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "width": {
+                    "text": "80pt",
+                    "unit": "pt",
+                    "value": 80
+                  },
+                  "x": {
+                    "text": "160pt",
+                    "unit": "pt",
+                    "value": 160
+                  },
+                  "y": {
+                    "text": "190pt",
+                    "unit": "pt",
+                    "value": 190
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "image",
+                  "category": "block",
+                  "attributes": {
+                    "height": {
+                      "text": "32pt",
+                      "unit": "pt",
+                      "value": 32
+                    },
+                    "src": "asset.png",
+                    "width": {
+                      "text": "32pt",
+                      "unit": "pt",
+                      "value": 32
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "440pt",
+                    "unit": "pt",
+                    "value": 440
+                  },
+                  "width": {
+                    "text": "640pt",
+                    "unit": "pt",
+                    "value": 640
+                  },
+                  "x": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  },
+                  "y": {
+                    "text": "40pt",
+                    "unit": "pt",
+                    "value": 40
+                  }
+                },
+                "text": {
+                  "font": "body",
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "style": "ImportedBody"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Deck background from the imported declaration."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "layout": "ImportedLayout"
+      },
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "slot": "body"
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Imported preset"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "style": "ImportedBody"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Library data"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "width": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "x": {
+                "text": "50pt",
+                "unit": "pt",
+                "value": 50
+              },
+              "y": {
+                "text": "190pt",
+                "unit": "pt",
+                "value": 190
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "height": {
+                  "text": "32pt",
+                  "unit": "pt",
+                  "value": 32
+                },
+                "src": "asset.png",
+                "width": {
+                  "text": "32pt",
+                  "unit": "pt",
+                  "value": 32
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "width": {
+                "text": "80pt",
+                "unit": "pt",
+                "value": 80
+              },
+              "x": {
+                "text": "160pt",
+                "unit": "pt",
+                "value": 160
+              },
+              "y": {
+                "text": "190pt",
+                "unit": "pt",
+                "value": 190
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "image",
+              "category": "block",
+              "attributes": {
+                "height": {
+                  "text": "32pt",
+                  "unit": "pt",
+                  "value": 32
+                },
+                "src": "asset.png",
+                "width": {
+                  "text": "32pt",
+                  "unit": "pt",
+                  "value": 32
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "440pt",
+                "unit": "pt",
+                "value": 440
+              },
+              "width": {
+                "text": "640pt",
+                "unit": "pt",
+                "value": 640
+              },
+              "x": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              },
+              "y": {
+                "text": "40pt",
+                "unit": "pt",
+                "value": 40
+              }
+            },
+            "text": {
+              "font": "body",
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "style": "ImportedBody"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Deck background from the imported declaration."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

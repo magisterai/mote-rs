@@ -90,6 +90,7 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
             return;
         }
         let paragraph = Element {
+            source_name: None,
             kind: ElementKind::Paragraph,
             attributes: Properties::new(),
             children: std::mem::take(pending),
@@ -168,6 +169,7 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
         inherited.insert("spacing_before".into(), Value::Number(0.0));
         inherited.insert("spacing_after".into(), Value::Number(0.0));
         output.push(Content::Element(Element {
+            source_name: None,
             kind: ElementKind::Paragraph,
             attributes: inherited,
             children: vec![Content::Text(String::new())],
@@ -243,6 +245,7 @@ pub(super) fn inherit_image_alignment(
         document,
         table,
         &Element {
+            source_name: None,
             kind: ElementKind::Cell,
             attributes: Properties::new(),
             children: Vec::new(),
