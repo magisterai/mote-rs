@@ -1,6 +1,38 @@
 use mote::{layout::PageOperation, render, source::FileAssetResolver};
 
 #[test]
+fn radial_sector_sampling_is_consistent_in_documents_and_slides() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for kind in ["pie", "doughnut"] {
+        let source = format!(
+            "#chart(kind='{kind}',data={{values={{1,2,3,4,5,6,7,8}}}},legend=false,data_labels=true)"
+        );
+        let document = mote::compile(&source).unwrap();
+        for mode in [
+            render::LayoutMode::Document,
+            render::LayoutMode::Presentation,
+        ] {
+            let plan = render::plan_with_layout(&document, &resolver, None, mode)
+                .unwrap()
+                .output;
+            let vertex_counts: Vec<_> = plan.pages[0]
+                .operations
+                .iter()
+                .filter_map(|operation| match operation {
+                    PageOperation::Path(path) if path.fill.is_some() => Some(path.points.len()),
+                    _ => None,
+                })
+                .collect();
+            let mut expected = vec![5, 7, 8, 10, 12, 14, 16, 19];
+            if kind == "doughnut" {
+                expected.push(72);
+            }
+            assert_eq!(vertex_counts, expected, "{kind} in {mode:?}");
+        }
+    }
+}
+
+#[test]
 fn radial_labels_remain_visible_and_separate_for_small_and_nonpositive_values() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for kind in ["pie", "doughnut"] {

@@ -29,6 +29,40 @@ fn native_pie_and_doughnut_charts_preserve_sectors_labels_and_backgrounds() {
     );
 }
 
+#[test]
+fn default_chart_sectors_preserve_sampling_at_five_degree_boundaries() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/charts");
+    let folder = root.join("captured/defaults");
+    let source = fs::read_to_string(root.join("defaults.mote")).unwrap();
+    let manifest: Value =
+        serde_json::from_slice(&fs::read(folder.join("capture.json")).unwrap()).unwrap();
+    assert_eq!(
+        format!("{:x}", Sha256::digest(source.as_bytes())),
+        manifest["source_sha256"]
+    );
+    let expected = fs::read(folder.join("radial-geometry.json")).unwrap();
+    assert_eq!(
+        format!("{:x}", Sha256::digest(&expected)),
+        manifest["radial_geometry_sha256"]
+    );
+    let document = mote::compile(&source).unwrap();
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    let plan = render::plan(&document, &resolver, None).unwrap().output;
+    let sectors: Vec<_> = plan.pages[0]
+        .operations
+        .iter()
+        .filter_map(|operation| match operation {
+            mote::layout::PageOperation::Path(path) if path.fill.is_some() => Some(&path.points),
+            _ => None,
+        })
+        .collect();
+    capture::compare(
+        &serde_json::to_value(sectors).unwrap(),
+        &serde_json::from_slice(&expected).unwrap(),
+        "default radial sectors",
+    );
+}
+
 fn compare_captures(collection: &str, cases: &[&str]) {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("tests/fixtures")

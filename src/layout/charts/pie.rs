@@ -4,7 +4,7 @@ use super::{
     Chart, ChartPlanner, LayoutError,
     geometry::{ChartLayout, Rectangle},
 };
-use std::f64::consts::PI;
+use std::f64::consts::{PI, TAU};
 
 impl ChartPlanner<'_, '_> {
     pub(super) fn pie_chart(
@@ -28,8 +28,11 @@ impl ChartPlanner<'_, '_> {
         let center = layout.plot.center();
         let mut angle = -PI / 2.0;
         let mut labels = Vec::new();
+        // Round accumulated boundaries once in both passes. An intermediate
+        // rounding can change the number of five-degree sampling intervals.
         for (index, &value) in series.values.iter().enumerate() {
-            let sweep = 2.0 * PI * (value.max(0.0) / total);
+            let fraction = value.max(0.0) / total;
+            let sweep = TAU * fraction;
             if chart.data_labels.enabled {
                 let middle = angle + sweep / 2.0;
                 let text = label(chart, index, value, total);
@@ -54,7 +57,7 @@ impl ChartPlanner<'_, '_> {
                     outside: false,
                 });
             }
-            angle += sweep;
+            angle = TAU.mul_add(fraction, angle);
         }
         let radius = radial_labels::arrange(
             &mut labels,
@@ -65,16 +68,17 @@ impl ChartPlanner<'_, '_> {
         );
         angle = -PI / 2.0;
         for (index, &value) in series.values.iter().enumerate() {
-            let sweep = 2.0 * PI * (value.max(0.0) / total);
-            if sweep > 0.0 {
+            let fraction = value.max(0.0) / total;
+            let next_angle = TAU.mul_add(fraction, angle);
+            if fraction > 0.0 {
                 self.path(
-                    sector_points(center, radius, angle, angle + sweep),
+                    sector_points(center, radius, angle, next_angle),
                     true,
                     Some(chart.color(index)),
                     None,
                 );
             }
-            angle += sweep;
+            angle = next_angle;
         }
         if chart.kind == "doughnut" {
             let default_background = self.background.clone();
