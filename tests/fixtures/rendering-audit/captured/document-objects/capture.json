@@ -21,8 +21,8 @@
       "sha256": "5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5"
     },
     "docProps/core.xml": {
-      "path": "captured/parts/ae6847eb24ed9fa2c8024a2a7515f8df3ba027518b88b69d7797a6a8d454a565.xml",
-      "sha256": "ae6847eb24ed9fa2c8024a2a7515f8df3ba027518b88b69d7797a6a8d454a565"
+      "path": "captured/parts/e65bf4ce7c306073d868003ef6570ca2cd6a7e3aa2c496e5a1aababdda518a84.xml",
+      "sha256": "e65bf4ce7c306073d868003ef6570ca2cd6a7e3aa2c496e5a1aababdda518a84"
     },
     "word/_rels/document.xml.rels": {
       "path": "captured/parts/8c67def4d9d1b45a1e4a44d3855c3f27dd519796d29fd058add05b7b171cdbec.rels",
@@ -61,8 +61,8 @@
       "sha256": "3bfd77d1b1593f0b4867f7338dc2d51494d53455563519739bef27f82498cafe"
     },
     "word/embeddings/chart1.xlsx": {
-      "path": "captured/parts/2a9ecd2aff7642b3987d739d90837eba34c5f40df2e3e766e3caf52f428eb471.xlsx",
-      "sha256": "2a9ecd2aff7642b3987d739d90837eba34c5f40df2e3e766e3caf52f428eb471"
+      "path": "captured/parts/84700f540d8cce267694dc5762ea1bb6249bc2425fcfa6122a0aac26b2706634.xlsx",
+      "sha256": "84700f540d8cce267694dc5762ea1bb6249bc2425fcfa6122a0aac26b2706634"
     }
   },
   "pages": [

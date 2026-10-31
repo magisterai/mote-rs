@@ -36,6 +36,7 @@ impl Planner<'_, '_> {
                 / (1.0 + (series_count as f64 - 1.0) * (1.0 - overlap / 100.0) + gap / 100.0)
                     .max(1.0);
         }
+        let mut label_operations = Vec::new();
         for display_index in 0..count {
             let category_index = if horizontal {
                 count - 1 - display_index
@@ -52,7 +53,7 @@ impl Planner<'_, '_> {
             for (series_index, series) in chart.series.iter().enumerate() {
                 let mut value = super::series_value(series, category_index);
                 if percent && total != 0.0 {
-                    value = value / total * 100.0;
+                    value = super::percentage(chart, category_index, value);
                 }
                 let mut start = 0.0;
                 let mut display_series = series_index;
@@ -87,10 +88,13 @@ impl Planner<'_, '_> {
                     } else {
                         vertical_label(bar, &chart.data_labels.position, value < 0.0)
                     };
+                    let first_label_operation = self.page.operations.len();
                     self.text(bounds, &label, 10.0, alignment, 0.0)?;
+                    label_operations.extend(self.page.operations.drain(first_label_operation..));
                 }
             }
         }
+        self.page.operations.extend(label_operations);
         Ok(())
     }
 }
@@ -112,7 +116,10 @@ pub(super) fn label(chart: &Chart, series_index: usize, category_index: usize) -
     if chart.data_labels.percentage {
         let total = super::category_total(chart, category_index);
         if total != 0.0 {
-            parts.push(format!("{:.0}%", (value / total * 100.0).round()));
+            parts.push(format!(
+                "{:.0}%",
+                super::percentage(chart, category_index, value).round()
+            ));
         }
     }
     parts.join(" ")

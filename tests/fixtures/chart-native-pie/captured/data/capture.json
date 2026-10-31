@@ -10,22 +10,34 @@
   "native_pdf_comparison_dpi": 144,
   "native_pdf_comparison": [
     {
+      "group": "chart-native-pie",
       "case": "data",
-      "page": "reference-pdf-1",
-      "maximum": 0,
-      "changed": 0
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
     },
     {
+      "group": "chart-native-pie",
       "case": "data",
-      "page": "reference-pdf-2",
-      "maximum": 0,
-      "changed": 0
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
     },
     {
+      "group": "chart-native-pie",
       "case": "data",
-      "page": "reference-pdf-3",
-      "maximum": 0,
-      "changed": 0
+      "kind": "pdf",
+      "page": "reference-pdf-3.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
     }
   ],
   "native_pages_visually_inspected": true,

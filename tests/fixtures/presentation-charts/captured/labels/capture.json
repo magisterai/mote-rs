@@ -304,11 +304,54 @@
       }
     }
   },
-  "geometry_sha256": "4d36e202b3996bed3e3608560e919bf44b4f0aac9bd10f5173f17fdd1b1a6b9b",
+  "geometry_sha256": "e0cb6f21162e463a68b70886e91bb2b191941989beb95b8001bd314344d9e032",
   "native_png_files": {
     "reference-1.png": "58e4c16562b409acaebe14e9d4158665b71a853c2b3dd59ad7fc8284ea7889b1",
-    "reference-2.png": "287c6cda8b6a1ce195ac7ebedc3e743f6a3a1fbdf1f65436a72a7baeb12b4ad7",
+    "reference-2.png": "a78f8991a66c97ed6e7c4c46ccef7230d7a2eea1f7c32f4385d30bad1d3da1d4",
     "reference-3.png": "861f9a7ca62fd782b2d7be38f92176dfaf92e34df84734044774f87fce20cb08",
-    "reference-4.png": "4a99fc6a75e934892504b4c8e0d478c2f056792d506564ae1954e09747f0f71b"
-  }
+    "reference-4.png": "0895a8370e6bec6c93575b653dc8fee43f70615b0c8c9b195c971478abca6a0b"
+  },
+  "native_pdf_comparison": [
+    {
+      "group": "presentation-charts",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-3.png",
+      "max": 23,
+      "changed": 2,
+      "mean": 2e-05,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-4.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    }
+  ],
+  "native_pages_visually_inspected": true
 }

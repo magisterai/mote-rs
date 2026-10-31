@@ -1,14 +1,34 @@
 {
   "source_sha256": "4541538e85e6258fea70db8f827f689ed3787df2f97222ce73d4935606524880",
-  "geometry_sha256": "5f80856af4bc618bcb94855961a5596e2eff49bcacf04906e05dda8a2697ee04",
+  "geometry_sha256": "41de8960b1ba829e85553530883a235c523e4897255c35b7e19052728f0853af",
   "native_png_files": {
-    "reference-1.png": "0ade6a9dd4d36dfebb1e1f5b148cab7bce2fb4d7ba3827cf8d2d27a2c3591cca",
+    "reference-1.png": "832abb7340ddf9f5eb563bc8e26fe08db30a2ee09f573db8e74b78335c3a3b55",
     "reference-2.png": "c64f6772e7a83376d8121eab3fa94d595a0c5e7bdcfc7e6c3ecb4ee60e6542cb"
   },
   "native_png_dpi": 72,
   "native_pdf_comparison_dpi": 144,
-  "native_pdf_changed_pixels": 0,
-  "native_pdf_maximum_channel_difference": 0,
   "native_pages_visually_inspected": true,
-  "word_review_status": "unreviewed"
+  "word_review_status": "unreviewed",
+  "native_pdf_comparison": [
+    {
+      "group": "chart-native-bars",
+      "case": "flow",
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "chart-native-bars",
+      "case": "flow",
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    }
+  ]
 }

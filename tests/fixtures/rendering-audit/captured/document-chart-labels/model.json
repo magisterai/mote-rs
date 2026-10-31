@@ -1,0 +1,296 @@
+{
+  "document": {
+    "default_font": "body",
+    "page": {
+      "height": {
+        "text": "620pt",
+        "unit": "pt",
+        "value": 620
+      },
+      "width": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      }
+    }
+  },
+  "defaults": {
+    "default_font": "body"
+  },
+  "page": {
+    "properties": {
+      "height": {
+        "text": "620pt",
+        "unit": "pt",
+        "value": 620
+      },
+      "width": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      }
+    }
+  },
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "height": {
+            "text": "620pt",
+            "unit": "pt",
+            "value": 620
+          },
+          "width": {
+            "text": "480pt",
+            "unit": "pt",
+            "value": 480
+          }
+        }
+      },
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "First category",
+                "Second category"
+              ],
+              "series": [
+                {
+                  "name": "Northern regional contribution",
+                  "values": [
+                    2,
+                    3
+                  ]
+                },
+                {
+                  "name": "Southern regional contribution",
+                  "values": [
+                    4,
+                    2
+                  ]
+                },
+                {
+                  "name": "Western regional contribution",
+                  "values": [
+                    3,
+                    4
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "position": "outEnd",
+              "value": true
+            },
+            "height": {
+              "text": "240pt",
+              "unit": "pt",
+              "value": 240
+            },
+            "kind": "column",
+            "legend": {
+              "position": "b"
+            },
+            "title": "Long labels",
+            "width": {
+              "text": "410pt",
+              "unit": "pt",
+              "value": 410
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "axis": {
+              "category": {
+                "title": "Category"
+              },
+              "value": {
+                "title": "Share"
+              }
+            },
+            "data": {
+              "categories": [
+                "Negative only",
+                "Mixed signs",
+                "Zero"
+              ],
+              "series": [
+                {
+                  "name": "First",
+                  "values": [
+                    -2,
+                    -3,
+                    0
+                  ]
+                },
+                {
+                  "name": "Second",
+                  "values": [
+                    -6,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            "height": {
+              "text": "240pt",
+              "unit": "pt",
+              "value": 240
+            },
+            "kind": "percent_stacked_bar",
+            "legend": {
+              "position": "l"
+            },
+            "title": "Signed percentages",
+            "width": {
+              "text": "410pt",
+              "unit": "pt",
+              "value": 410
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "First category",
+            "Second category"
+          ],
+          "series": [
+            {
+              "name": "Northern regional contribution",
+              "values": [
+                2,
+                3
+              ]
+            },
+            {
+              "name": "Southern regional contribution",
+              "values": [
+                4,
+                2
+              ]
+            },
+            {
+              "name": "Western regional contribution",
+              "values": [
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        "data_labels": {
+          "category": true,
+          "position": "outEnd",
+          "value": true
+        },
+        "height": {
+          "text": "240pt",
+          "unit": "pt",
+          "value": 240
+        },
+        "kind": "column",
+        "legend": {
+          "position": "b"
+        },
+        "title": "Long labels",
+        "width": {
+          "text": "410pt",
+          "unit": "pt",
+          "value": 410
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "axis": {
+          "category": {
+            "title": "Category"
+          },
+          "value": {
+            "title": "Share"
+          }
+        },
+        "data": {
+          "categories": [
+            "Negative only",
+            "Mixed signs",
+            "Zero"
+          ],
+          "series": [
+            {
+              "name": "First",
+              "values": [
+                -2,
+                -3,
+                0
+              ]
+            },
+            {
+              "name": "Second",
+              "values": [
+                -6,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        "height": {
+          "text": "240pt",
+          "unit": "pt",
+          "value": 240
+        },
+        "kind": "percent_stacked_bar",
+        "legend": {
+          "position": "l"
+        },
+        "title": "Signed percentages",
+        "width": {
+          "text": "410pt",
+          "unit": "pt",
+          "value": 410
+        }
+      }
+    }
+  ]
+}

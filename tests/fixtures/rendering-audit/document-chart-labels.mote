@@ -1,0 +1,4 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#document(default_font="body",page={width=pt(480),height=pt(620)})
+#chart(kind="column",width=pt(410),height=pt(240),title="Long labels",data={categories={"First category","Second category"},series={{name="Northern regional contribution",values={2,3}},{name="Southern regional contribution",values={4,2}},{name="Western regional contribution",values={3,4}}}},legend="bottom",data_labels={category=true,value=true,position="outside_end"})
+#chart(kind="percent_stacked_bar",width=pt(410),height=pt(240),title="Signed percentages",data={categories={"Negative only","Mixed signs","Zero"},series={{name="First",values={-2,-3,0}},{name="Second",values={-6,1,0}}}},legend="left",axis={category={title="Category"},value={title="Share"}})

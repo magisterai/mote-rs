@@ -41,13 +41,56 @@ fn combined_rendering_cases_preserve_models_packages_and_native_pages() {
 }
 
 #[test]
-fn loose_charts_report_unsupported_content_instead_of_emitting_an_empty_slide() {
-    let (document, resolver, path) = compile_case("slide-charts");
-    let expected = "presentation text boxes do not yet support chart";
-    let editable = mote::pptx::emit_with_assets(&document, &resolver, Some(path.as_os_str()));
-    assert!(matches!(editable, Err(error) if error.to_string().contains(expected)));
-    let native = render::plan(&document, &resolver, Some(path.as_os_str()));
-    assert!(native.unwrap_err().to_string().contains(expected));
+fn loose_charts_keep_every_editable_object_and_native_title() {
+    for (name, titles) in [
+        (
+            "slide-charts",
+            vec![
+                "Signed percentages",
+                "Distribution",
+                "Crossing zero",
+                "Area totals",
+            ],
+        ),
+        (
+            "slide-chart-automatic",
+            vec!["Automatic column", "Automatic line"],
+        ),
+    ] {
+        let (document, resolver, path) = compile_case(name);
+        let editable =
+            mote::pptx::emit_with_assets(&document, &resolver, Some(path.as_os_str())).unwrap();
+        let archive = zip::ZipArchive::new(std::io::Cursor::new(editable.bytes)).unwrap();
+        let chart_count = archive
+            .file_names()
+            .filter(|name| {
+                name.as_ref().is_ok_and(|name| {
+                    name.starts_with("ppt/charts/chart") && name.ends_with(".xml")
+                })
+            })
+            .count();
+        assert_eq!(chart_count, titles.len());
+        let planned = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
+        assert_eq!(planned.output.pages.len(), 1);
+        let text: Vec<_> = planned.output.pages[0]
+            .lines
+            .iter()
+            .map(|placed| {
+                placed
+                    .line
+                    .fragments
+                    .iter()
+                    .map(|fragment| fragment.text.as_str())
+                    .collect::<String>()
+            })
+            .collect();
+        for title in titles {
+            assert!(
+                text.iter().any(|line| line == title),
+                "missing chart {title}"
+            );
+        }
+    }
 }
 
 #[test]
@@ -117,4 +160,39 @@ fn semantic_wrappers_preserve_page_notes_and_definition_endnotes() {
             .iter()
             .any(|(_, text)| text.starts_with("i An endnote"))
     );
+}
+
+#[test]
+fn signed_percentages_keep_complete_labels_and_bounded_marks() {
+    let (document, resolver, path) = compile_case("slide-chart-percentages");
+    let planned = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
+    for page in &planned.output.pages[..2] {
+        let labels: Vec<_> = page
+            .lines
+            .iter()
+            .map(|line| {
+                line.line
+                    .fragments
+                    .iter()
+                    .map(|fragment| fragment.text.as_str())
+                    .collect::<String>()
+            })
+            .collect();
+        assert!(labels.iter().any(|label| label == "-25%"));
+        assert!(
+            labels
+                .iter()
+                .filter(|label| label.as_str() == "-75%")
+                .count()
+                >= 2
+        );
+        assert!(labels.iter().any(|label| label == "25%"));
+        for operation in &page.operations {
+            if let PageOperation::Rectangle(rectangle) = operation {
+                assert!(rectangle.x >= 0.0 && rectangle.top >= 0.0);
+                assert!(rectangle.x + rectangle.width <= 720.0);
+                assert!(rectangle.top + rectangle.height <= 540.0);
+            }
+        }
+    }
 }

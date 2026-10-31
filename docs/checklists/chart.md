@@ -68,6 +68,12 @@ rejected; flattened running stories omit chart geometry with a warning.
 record geometry, pixel comparisons and retained layout limitations.
 Positioned presentation placement, shared theme defaults, editable workbooks
 and native painting have [captured coverage](../../tests/fixtures/presentation-charts/README.md).
+Native percentage stacks normalize by the sum of absolute category values and
+retain each sign. All-zero categories paint no area. Chart labels fit their
+allocated frames; bar labels paint above all series marks. Top/bottom legends
+wrap into rows and side legends reserve measured label heights. A left legend
+has separate space beside the value-axis title. These behaviors have
+[combined captures](../../tests/fixtures/rendering-audit/README.md).
 Office render review is unreviewed.
 
 Unsupported standard families remain in the linked inventories: 3D and combination

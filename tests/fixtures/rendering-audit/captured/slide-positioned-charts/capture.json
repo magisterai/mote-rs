@@ -92,40 +92,40 @@
       "sha256": "15b1f8887d4ee528d44f0a0b9d2b8048a56703b0ea2fa15b09eb750eaac35808"
     },
     "ppt/embeddings/chart1.xlsx": {
-      "path": "captured/parts/eb06536dc515657f0cdaa4e3f56c56b1232a03f17f03576e835e1ac0c872ef86.xlsx",
-      "sha256": "eb06536dc515657f0cdaa4e3f56c56b1232a03f17f03576e835e1ac0c872ef86"
+      "path": "captured/parts/9e9f42d558a481563eef71480b52cb471538554a2252f5410cd4617b2e4c5fad.xlsx",
+      "sha256": "9e9f42d558a481563eef71480b52cb471538554a2252f5410cd4617b2e4c5fad"
     },
     "ppt/charts/chart2.xml": {
       "path": "captured/parts/7981f6af5b6ac9bf440c79d57e6621b1314f5f36524a90a17e3b1d16c3d03b48.xml",
       "sha256": "7981f6af5b6ac9bf440c79d57e6621b1314f5f36524a90a17e3b1d16c3d03b48"
     },
     "ppt/embeddings/chart2.xlsx": {
-      "path": "captured/parts/fe4f6365da3cf8a308ada6235ec0ac95ce30c14153d21bc809c2ad3427e2ecf7.xlsx",
-      "sha256": "fe4f6365da3cf8a308ada6235ec0ac95ce30c14153d21bc809c2ad3427e2ecf7"
+      "path": "captured/parts/1c61396ad2441e64f0b1648a6cd2cd5c7ec5bd4fcde01cf636d4815596b2796c.xlsx",
+      "sha256": "1c61396ad2441e64f0b1648a6cd2cd5c7ec5bd4fcde01cf636d4815596b2796c"
     },
     "ppt/charts/chart3.xml": {
       "path": "captured/parts/bbe7e840ca9b39dcff281a636d1d749e834391f243a6191c862c57228bedaada.xml",
       "sha256": "bbe7e840ca9b39dcff281a636d1d749e834391f243a6191c862c57228bedaada"
     },
     "ppt/embeddings/chart3.xlsx": {
-      "path": "captured/parts/e26da7d257de3baafff2bc3e43ee00a0947779f4bf91b1bcda429c025173c370.xlsx",
-      "sha256": "e26da7d257de3baafff2bc3e43ee00a0947779f4bf91b1bcda429c025173c370"
+      "path": "captured/parts/a31e9c6d435face32d4019b06ad56319efe52fe20c7083b4171c0d810242d444.xlsx",
+      "sha256": "a31e9c6d435face32d4019b06ad56319efe52fe20c7083b4171c0d810242d444"
     },
     "ppt/charts/chart4.xml": {
       "path": "captured/parts/255b326bb4061046be7dc8f00c153d106e191070eecc67fb18980edd7874656d.xml",
       "sha256": "255b326bb4061046be7dc8f00c153d106e191070eecc67fb18980edd7874656d"
     },
     "ppt/embeddings/chart4.xlsx": {
-      "path": "captured/parts/ec8736cde1d11f19af18fa0747481f956e9749e00fc3cb7f411ced6b8d98d976.xlsx",
-      "sha256": "ec8736cde1d11f19af18fa0747481f956e9749e00fc3cb7f411ced6b8d98d976"
+      "path": "captured/parts/2bc4e7f910eb29ecd63fa83356be9929501707c11812c5f1d619b9807fe8d941.xlsx",
+      "sha256": "2bc4e7f910eb29ecd63fa83356be9929501707c11812c5f1d619b9807fe8d941"
     }
   },
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "ee5f7ed1675edc5880e0277fca59d9b04dc1a70a1b86a2f13de09b2089807c73",
+      "sha256": "36a80bca062743c90442cf7a2512bbeccf01b2f9543e1663870dc28bf86fb108",
       "maximum": 232,
-      "mean": 0.272,
+      "mean": 0.273,
       "outliers": 4
     }
   ]

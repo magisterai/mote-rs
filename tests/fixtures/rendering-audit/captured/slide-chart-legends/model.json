@@ -1,0 +1,702 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "theme": {
+        "fonts": {
+          "major": "body",
+          "minor": "body"
+        }
+      },
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      }
+    },
+    "size": {
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      },
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "properties": {
+        "height": {
+          "text": "540pt",
+          "unit": "pt",
+          "value": 540
+        },
+        "width": {
+          "text": "720pt",
+          "unit": "pt",
+          "value": 720
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "400pt",
+                    "unit": "pt",
+                    "value": 400
+                  },
+                  "width": {
+                    "text": "335pt",
+                    "unit": "pt",
+                    "value": 335
+                  },
+                  "x": {
+                    "text": "15pt",
+                    "unit": "pt",
+                    "value": 15
+                  },
+                  "y": {
+                    "text": "65pt",
+                    "unit": "pt",
+                    "value": 65
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "First category",
+                        "Second category"
+                      ],
+                      "series": [
+                        {
+                          "name": "Northern regional contribution",
+                          "values": [
+                            2,
+                            3
+                          ]
+                        },
+                        {
+                          "name": "Southern regional contribution",
+                          "values": [
+                            4,
+                            2
+                          ]
+                        },
+                        {
+                          "name": "Western regional contribution",
+                          "values": [
+                            3,
+                            4
+                          ]
+                        }
+                      ]
+                    },
+                    "kind": "column",
+                    "legend": {
+                      "position": "t"
+                    },
+                    "title": "Legend top"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "400pt",
+                    "unit": "pt",
+                    "value": 400
+                  },
+                  "width": {
+                    "text": "335pt",
+                    "unit": "pt",
+                    "value": 335
+                  },
+                  "x": {
+                    "text": "370pt",
+                    "unit": "pt",
+                    "value": 370
+                  },
+                  "y": {
+                    "text": "65pt",
+                    "unit": "pt",
+                    "value": 65
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "First category",
+                        "Second category"
+                      ],
+                      "series": [
+                        {
+                          "name": "Northern regional contribution",
+                          "values": [
+                            2,
+                            3
+                          ]
+                        },
+                        {
+                          "name": "Southern regional contribution",
+                          "values": [
+                            4,
+                            2
+                          ]
+                        },
+                        {
+                          "name": "Western regional contribution",
+                          "values": [
+                            3,
+                            4
+                          ]
+                        }
+                      ]
+                    },
+                    "kind": "column",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "Legend bottom"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "400pt",
+                    "unit": "pt",
+                    "value": 400
+                  },
+                  "width": {
+                    "text": "335pt",
+                    "unit": "pt",
+                    "value": 335
+                  },
+                  "x": {
+                    "text": "15pt",
+                    "unit": "pt",
+                    "value": 15
+                  },
+                  "y": {
+                    "text": "65pt",
+                    "unit": "pt",
+                    "value": 65
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "First category",
+                        "Second category"
+                      ],
+                      "series": [
+                        {
+                          "name": "Northern regional contribution",
+                          "values": [
+                            2,
+                            3
+                          ]
+                        },
+                        {
+                          "name": "Southern regional contribution",
+                          "values": [
+                            4,
+                            2
+                          ]
+                        },
+                        {
+                          "name": "Western regional contribution",
+                          "values": [
+                            3,
+                            4
+                          ]
+                        }
+                      ]
+                    },
+                    "kind": "column",
+                    "legend": {
+                      "position": "l"
+                    },
+                    "title": "Legend left"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "400pt",
+                    "unit": "pt",
+                    "value": 400
+                  },
+                  "width": {
+                    "text": "335pt",
+                    "unit": "pt",
+                    "value": 335
+                  },
+                  "x": {
+                    "text": "370pt",
+                    "unit": "pt",
+                    "value": 370
+                  },
+                  "y": {
+                    "text": "65pt",
+                    "unit": "pt",
+                    "value": 65
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "value": {
+                        "title": "Revenue"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "First category",
+                        "Second category"
+                      ],
+                      "series": [
+                        {
+                          "name": "Northern regional contribution",
+                          "values": [
+                            2,
+                            3
+                          ]
+                        },
+                        {
+                          "name": "Southern regional contribution",
+                          "values": [
+                            4,
+                            2
+                          ]
+                        },
+                        {
+                          "name": "Western regional contribution",
+                          "values": [
+                            3,
+                            4
+                          ]
+                        }
+                      ]
+                    },
+                    "kind": "column",
+                    "legend": {
+                      "position": "r"
+                    },
+                    "title": "Legend right"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "400pt",
+                "unit": "pt",
+                "value": 400
+              },
+              "width": {
+                "text": "335pt",
+                "unit": "pt",
+                "value": 335
+              },
+              "x": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              },
+              "y": {
+                "text": "65pt",
+                "unit": "pt",
+                "value": 65
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "First category",
+                    "Second category"
+                  ],
+                  "series": [
+                    {
+                      "name": "Northern regional contribution",
+                      "values": [
+                        2,
+                        3
+                      ]
+                    },
+                    {
+                      "name": "Southern regional contribution",
+                      "values": [
+                        4,
+                        2
+                      ]
+                    },
+                    {
+                      "name": "Western regional contribution",
+                      "values": [
+                        3,
+                        4
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "legend": {
+                  "position": "t"
+                },
+                "title": "Legend top"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "400pt",
+                "unit": "pt",
+                "value": 400
+              },
+              "width": {
+                "text": "335pt",
+                "unit": "pt",
+                "value": 335
+              },
+              "x": {
+                "text": "370pt",
+                "unit": "pt",
+                "value": 370
+              },
+              "y": {
+                "text": "65pt",
+                "unit": "pt",
+                "value": 65
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "First category",
+                    "Second category"
+                  ],
+                  "series": [
+                    {
+                      "name": "Northern regional contribution",
+                      "values": [
+                        2,
+                        3
+                      ]
+                    },
+                    {
+                      "name": "Southern regional contribution",
+                      "values": [
+                        4,
+                        2
+                      ]
+                    },
+                    {
+                      "name": "Western regional contribution",
+                      "values": [
+                        3,
+                        4
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "Legend bottom"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "400pt",
+                "unit": "pt",
+                "value": 400
+              },
+              "width": {
+                "text": "335pt",
+                "unit": "pt",
+                "value": 335
+              },
+              "x": {
+                "text": "15pt",
+                "unit": "pt",
+                "value": 15
+              },
+              "y": {
+                "text": "65pt",
+                "unit": "pt",
+                "value": 65
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "First category",
+                    "Second category"
+                  ],
+                  "series": [
+                    {
+                      "name": "Northern regional contribution",
+                      "values": [
+                        2,
+                        3
+                      ]
+                    },
+                    {
+                      "name": "Southern regional contribution",
+                      "values": [
+                        4,
+                        2
+                      ]
+                    },
+                    {
+                      "name": "Western regional contribution",
+                      "values": [
+                        3,
+                        4
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "legend": {
+                  "position": "l"
+                },
+                "title": "Legend left"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "400pt",
+                "unit": "pt",
+                "value": 400
+              },
+              "width": {
+                "text": "335pt",
+                "unit": "pt",
+                "value": 335
+              },
+              "x": {
+                "text": "370pt",
+                "unit": "pt",
+                "value": 370
+              },
+              "y": {
+                "text": "65pt",
+                "unit": "pt",
+                "value": 65
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "value": {
+                    "title": "Revenue"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "First category",
+                    "Second category"
+                  ],
+                  "series": [
+                    {
+                      "name": "Northern regional contribution",
+                      "values": [
+                        2,
+                        3
+                      ]
+                    },
+                    {
+                      "name": "Southern regional contribution",
+                      "values": [
+                        4,
+                        2
+                      ]
+                    },
+                    {
+                      "name": "Western regional contribution",
+                      "values": [
+                        3,
+                        4
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "legend": {
+                  "position": "r"
+                },
+                "title": "Legend right"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

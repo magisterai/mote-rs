@@ -424,13 +424,76 @@
       }
     }
   },
-  "geometry_sha256": "77ae8785344738bac954ebe41805cbbf318b38f9a84b2bf6e6cf4e01b682b090",
+  "geometry_sha256": "d7edc6e1409b04d009c6bdf335978187f31f4b087197760f81224507008913d3",
   "native_png_files": {
     "reference-1.png": "ca59b8e6e62a0b915b4edde8af3142fcd44722585b068bf594eecf8df92a57d6",
     "reference-2.png": "32885d1477d4450c164721706b6cf3b879bac5222b7e7e47e84d2dc403fe5ac0",
-    "reference-3.png": "8c5d6dcdea4e1efae88cb2fce05db56a4dd5985375dfbbb36d76c8e58cf75960",
-    "reference-4.png": "0a641734e9d2510a8bbe65ecd040cb047d37243ffc89640e031fb77f69c2b4a8",
-    "reference-5.png": "75d0e17d92e7d25752d65f3441772bc24a9ab8aa4c84f730f99f2442fdc65bf5",
-    "reference-6.png": "5962aa146932364025d0712977277e804ed93c9e9730f8728ef4bfa27f516bf2"
-  }
+    "reference-3.png": "7d55ff1d98e00ae328de92285d3bee4bda6bee77a5865d2f2cc5e6426f100568",
+    "reference-4.png": "b6767bf2e0edbd97c5f09bf687fa73a4392be8898c5bc23fed921cbe20e71fdb",
+    "reference-5.png": "3c1d183748fd2f1e61d9b1c640d5c0a1f92f51801ffdeef7303ce0a8fb12fd61",
+    "reference-6.png": "67efccfd996b0508e7dee0f3baa5c6702d93e4fd4861a4335f4d2c284ef6e548"
+  },
+  "native_pdf_comparison": [
+    {
+      "group": "presentation-charts",
+      "case": "bars",
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "bars",
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "bars",
+      "kind": "pdf",
+      "page": "reference-pdf-3.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "bars",
+      "kind": "pdf",
+      "page": "reference-pdf-4.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "bars",
+      "kind": "pdf",
+      "page": "reference-pdf-5.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "bars",
+      "kind": "pdf",
+      "page": "reference-pdf-6.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    }
+  ],
+  "native_pages_visually_inspected": true
 }

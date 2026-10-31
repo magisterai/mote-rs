@@ -1,0 +1,582 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "theme": {
+        "fonts": {
+          "major": "body",
+          "minor": "body"
+        }
+      },
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      }
+    },
+    "size": {
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      },
+      "height": {
+        "text": "540pt",
+        "unit": "pt",
+        "value": 540
+      },
+      "properties": {
+        "height": {
+          "text": "540pt",
+          "unit": "pt",
+          "value": 540
+        },
+        "width": {
+          "text": "720pt",
+          "unit": "pt",
+          "value": 720
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "475pt",
+                    "unit": "pt",
+                    "value": 475
+                  },
+                  "width": {
+                    "text": "660pt",
+                    "unit": "pt",
+                    "value": 660
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Category"
+                      },
+                      "value": {
+                        "title": "Percentage"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "Negative only",
+                        "Mixed signs",
+                        "Zero"
+                      ],
+                      "series": [
+                        {
+                          "name": "First",
+                          "values": [
+                            -2,
+                            -3,
+                            0
+                          ]
+                        },
+                        {
+                          "name": "Second",
+                          "values": [
+                            -6,
+                            1,
+                            0
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "percentage": true,
+                      "position": "ctr"
+                    },
+                    "kind": "percent_stacked_column",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "percent_stacked_column"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "475pt",
+                    "unit": "pt",
+                    "value": 475
+                  },
+                  "width": {
+                    "text": "660pt",
+                    "unit": "pt",
+                    "value": 660
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Category"
+                      },
+                      "value": {
+                        "title": "Percentage"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "Negative only",
+                        "Mixed signs",
+                        "Zero"
+                      ],
+                      "series": [
+                        {
+                          "name": "First",
+                          "values": [
+                            -2,
+                            -3,
+                            0
+                          ]
+                        },
+                        {
+                          "name": "Second",
+                          "values": [
+                            -6,
+                            1,
+                            0
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "percentage": true,
+                      "position": "ctr"
+                    },
+                    "kind": "percent_stacked_bar",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "percent_stacked_bar"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "475pt",
+                    "unit": "pt",
+                    "value": 475
+                  },
+                  "width": {
+                    "text": "660pt",
+                    "unit": "pt",
+                    "value": 660
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "axis": {
+                      "category": {
+                        "title": "Category"
+                      },
+                      "value": {
+                        "title": "Percentage"
+                      }
+                    },
+                    "data": {
+                      "categories": [
+                        "Negative only",
+                        "Mixed signs",
+                        "Zero"
+                      ],
+                      "series": [
+                        {
+                          "name": "First",
+                          "values": [
+                            -2,
+                            -3,
+                            0
+                          ]
+                        },
+                        {
+                          "name": "Second",
+                          "values": [
+                            -6,
+                            1,
+                            0
+                          ]
+                        }
+                      ]
+                    },
+                    "data_labels": {
+                      "percentage": true,
+                      "position": "ctr"
+                    },
+                    "kind": "percent_stacked_area",
+                    "legend": {
+                      "position": "b"
+                    },
+                    "title": "percent_stacked_area"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "475pt",
+                "unit": "pt",
+                "value": 475
+              },
+              "width": {
+                "text": "660pt",
+                "unit": "pt",
+                "value": 660
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Category"
+                  },
+                  "value": {
+                    "title": "Percentage"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "Negative only",
+                    "Mixed signs",
+                    "Zero"
+                  ],
+                  "series": [
+                    {
+                      "name": "First",
+                      "values": [
+                        -2,
+                        -3,
+                        0
+                      ]
+                    },
+                    {
+                      "name": "Second",
+                      "values": [
+                        -6,
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "percentage": true,
+                  "position": "ctr"
+                },
+                "kind": "percent_stacked_column",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "percent_stacked_column"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "475pt",
+                "unit": "pt",
+                "value": 475
+              },
+              "width": {
+                "text": "660pt",
+                "unit": "pt",
+                "value": 660
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Category"
+                  },
+                  "value": {
+                    "title": "Percentage"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "Negative only",
+                    "Mixed signs",
+                    "Zero"
+                  ],
+                  "series": [
+                    {
+                      "name": "First",
+                      "values": [
+                        -2,
+                        -3,
+                        0
+                      ]
+                    },
+                    {
+                      "name": "Second",
+                      "values": [
+                        -6,
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "percentage": true,
+                  "position": "ctr"
+                },
+                "kind": "percent_stacked_bar",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "percent_stacked_bar"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "475pt",
+                "unit": "pt",
+                "value": 475
+              },
+              "width": {
+                "text": "660pt",
+                "unit": "pt",
+                "value": 660
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "axis": {
+                  "category": {
+                    "title": "Category"
+                  },
+                  "value": {
+                    "title": "Percentage"
+                  }
+                },
+                "data": {
+                  "categories": [
+                    "Negative only",
+                    "Mixed signs",
+                    "Zero"
+                  ],
+                  "series": [
+                    {
+                      "name": "First",
+                      "values": [
+                        -2,
+                        -3,
+                        0
+                      ]
+                    },
+                    {
+                      "name": "Second",
+                      "values": [
+                        -6,
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "percentage": true,
+                  "position": "ctr"
+                },
+                "kind": "percent_stacked_area",
+                "legend": {
+                  "position": "b"
+                },
+                "title": "percent_stacked_area"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

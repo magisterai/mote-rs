@@ -1,24 +1,32 @@
 {
   "source_sha256": "59264ce01839410645d2e943bb9fda2537131fe8c85c93bf2f4f587fe5d4cceb",
-  "geometry_sha256": "595c27b2dbb28840c6709c835ea45d3f93c3439a6a282f1569a4aa4d795d46a8",
+  "geometry_sha256": "f91eadfeda9eb461263c0419ac5b8d8d96f6a2aac51f3b1e9040fedc7988b9e4",
   "native_png_files": {
     "reference-1.png": "d2d42e5c913464d058245c5744ec460fde87b49dca2e737856f8731b56dd6da2",
-    "reference-2.png": "ea5adea72bab07bd7f96ba13c0cc26813341b0b5fcfc0b1b51f61ad9942ae6c1"
+    "reference-2.png": "e0d19b932a9f85e805e146a3d3f35b7aa7214e7601da03c79eb8206b1b0e9a80"
   },
   "native_png_dpi": 72,
   "native_pdf_comparison_dpi": 144,
   "native_pdf_comparison": [
     {
+      "group": "chart-native-curves",
       "case": "legends",
-      "page": "reference-pdf-1",
-      "maximum": 0,
-      "changed": 0
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
     },
     {
+      "group": "chart-native-curves",
       "case": "legends",
-      "page": "reference-pdf-2",
-      "maximum": 0,
-      "changed": 0
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
     }
   ],
   "native_pages_visually_inspected": true,

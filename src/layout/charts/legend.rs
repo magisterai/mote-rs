@@ -2,6 +2,17 @@ use super::{
     Chart, LayoutError, Planner,
     geometry::{ChartLayout, Rectangle},
 };
+pub(super) struct LegendEntry {
+    pub index: usize,
+    pub key: [f64; 2],
+    pub text: Rectangle,
+}
+#[derive(Default)]
+struct LegendRow {
+    indices: Vec<usize>,
+    width: f64,
+    height: f64,
+}
 pub(super) fn position(chart: &Chart) -> &'static str {
     match chart.legend.position.as_str() {
         "b" | "bottom" | "" => "bottom",
@@ -30,6 +41,110 @@ pub(super) fn labels(chart: &Chart) -> Vec<&str> {
     }
 }
 impl Planner<'_, '_> {
+    pub(super) fn arrange_legend(
+        &mut self,
+        chart: &Chart,
+        layout: &mut ChartLayout,
+    ) -> Result<(), LayoutError> {
+        let labels = labels(chart);
+        let mut bounds = layout.legend;
+        if !chart.legend.enabled || labels.is_empty() || bounds.width <= 0.0 || bounds.height <= 0.0
+        {
+            return Ok(());
+        }
+        let position = position(chart);
+        let side = matches!(position, "left" | "right");
+        let key_width = key_width(chart);
+        let mut widths = labels
+            .iter()
+            .map(|label| self.text_width(label, 10.0).map(|width| width + 3.0))
+            .collect::<Result<Vec<_>, _>>()?;
+        let total_width = 12.0 * (labels.len() - 1) as f64
+            + widths
+                .iter()
+                .map(|width| key_width + 4.0 + width)
+                .sum::<f64>();
+        if !side && total_width <= bounds.width {
+            // Trailing text padding does not participate in centering.
+            let mut left =
+                bounds.left + (bounds.width - (total_width - 2.0 * labels.len() as f64)) / 2.0;
+            for (index, width) in widths.iter().enumerate() {
+                layout.legend_entries.push(LegendEntry {
+                    index,
+                    key: [left, bounds.top],
+                    text: Rectangle::new(left + key_width + 4.0, bounds.top, *width, 16.0),
+                });
+                left += key_width + 4.0 + width + 12.0;
+            }
+            return Ok(());
+        }
+        let mut rows: Vec<LegendRow> = Vec::new();
+        for (index, label) in labels.iter().enumerate() {
+            widths[index] = if side {
+                (bounds.width - key_width - 8.0).max(1.0)
+            } else {
+                widths[index].min((bounds.width - key_width - 4.0).max(1.0))
+            };
+            let entry_width = key_width + 4.0 + widths[index];
+            let text_height =
+                super::text::text_height(&self.text_plan(label, 10.0, "left", widths[index])?);
+            if side
+                || rows
+                    .last()
+                    .is_none_or(|row| row.width + 12.0 + entry_width > bounds.width)
+            {
+                rows.push(LegendRow::default());
+            }
+            let row = rows.last_mut().expect("legend row was allocated");
+            if !row.indices.is_empty() {
+                row.width += 12.0;
+            }
+            row.indices.push(index);
+            row.width += entry_width;
+            row.height = row.height.max(18.0_f64.max(text_height + 2.0));
+        }
+        let total_height: f64 = rows.iter().map(|row| row.height).sum();
+        if !side {
+            let extra = (total_height - 18.0).max(0.0).min(
+                (layout.chart.height * 0.4 - 18.0)
+                    .max(0.0)
+                    .min((layout.plot.height - 1.0).max(0.0)),
+            );
+            layout.legend.height += extra;
+            layout.plot.height -= extra;
+            if position == "top" {
+                layout.plot.top += extra;
+            } else {
+                layout.legend.top -= extra;
+            }
+            bounds = layout.legend;
+        }
+        let row_scale = (bounds.height / total_height).min(1.0);
+        let mut top = bounds.top + ((bounds.height - total_height * row_scale) / 2.0).max(0.0);
+        for row in rows {
+            let row_height = row.height * row_scale;
+            let mut left = if side {
+                bounds.left + 2.0
+            } else {
+                bounds.left + (bounds.width - row.width) / 2.0
+            };
+            for index in row.indices {
+                layout.legend_entries.push(LegendEntry {
+                    index,
+                    key: [left, top + (row_height - 18.0) / 2.0],
+                    text: Rectangle::new(
+                        left + key_width + 4.0,
+                        top,
+                        widths[index],
+                        (row_height - 2.0).max(row_height / 2.0),
+                    ),
+                });
+                left += key_width + 4.0 + widths[index] + 12.0;
+            }
+            top += row_height;
+        }
+        Ok(())
+    }
     fn legend_key(&mut self, chart: &Chart, left: f64, top: f64, color: &str) {
         if chart.kind == "line" {
             self.rule(
@@ -57,59 +172,14 @@ impl Planner<'_, '_> {
         if labels.is_empty() {
             return Ok(());
         }
-        let widths = labels
-            .iter()
-            .map(|label| self.text_width(label, 10.0).map(|width| width + 1.0))
-            .collect::<Result<Vec<_>, _>>()?;
-        let key = key_width(chart);
-        let total: f64 = widths.iter().map(|width| key + 4.0 + width).sum::<f64>()
-            + 12.0 * (labels.len() - 1) as f64;
-        if matches!(position(chart), "left" | "right") {
-            let mut top =
-                bounds.top + ((bounds.height - 18.0 * labels.len() as f64) / 2.0).max(0.0);
-            for (index, label) in labels.iter().enumerate() {
-                self.legend_key(
-                    chart,
-                    bounds.left + 2.0,
-                    top,
-                    chart.color(color_index(chart, index)),
-                );
-                self.text(
-                    Rectangle::new(
-                        bounds.left + key + 6.0,
-                        top,
-                        (bounds.width - key - 8.0).max(1.0),
-                        16.0,
-                    ),
-                    label,
-                    10.0,
-                    "left",
-                    0.0,
-                )?;
-                top += 18.0;
-            }
-        } else {
-            let mut left = bounds.left + (bounds.width - total) / 2.0;
-            for (index, label) in labels.iter().enumerate() {
-                self.legend_key(
-                    chart,
-                    left,
-                    bounds.top,
-                    chart.color(color_index(chart, index)),
-                );
-                left += key + 4.0;
-                self.text(
-                    Rectangle::new(left, bounds.top, widths[index] + 2.0, 16.0),
-                    label,
-                    10.0,
-                    "left",
-                    0.0,
-                )?;
-                left += widths[index] + 2.0;
-                if index != labels.len() - 1 {
-                    left += 12.0;
-                }
-            }
+        for entry in &layout.legend_entries {
+            self.legend_key(
+                chart,
+                entry.key[0],
+                entry.key[1],
+                chart.color(color_index(chart, entry.index)),
+            );
+            self.text(entry.text, labels[entry.index], 10.0, "left", 0.0)?;
         }
         Ok(())
     }

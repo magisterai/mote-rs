@@ -67,7 +67,7 @@ impl Planner<'_, '_> {
                     if percent {
                         let total = super::category_total(chart, index);
                         if total != 0.0 {
-                            value = value / total * 100.0;
+                            value = super::percentage(chart, index, value);
                         }
                     }
                     let mut base = 0.0;

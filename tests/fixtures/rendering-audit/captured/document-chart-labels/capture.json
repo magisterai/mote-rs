@@ -1,0 +1,84 @@
+{
+  "format": "docx",
+  "source_sha256": "e78c89e68548d37a0aa61bd1d20377259cca37385c171d3e774072b3f5b09a90",
+  "assets": {
+    "../measurements/fonts/SourceSans3-Bold.ttf": "9214b9d95e4231c609802815c2646c98174e2102d0d37f88978a7f8e71006e6a",
+    "../measurements/fonts/SourceSans3-It.ttf": "192afd78f0f54a3c69eaf02d43f4d9a821e9d6110e41d3d25d61a7385cd580e4",
+    "../measurements/fonts/SourceSans3-Regular.ttf": "4644c81b86ec9caaa76b634889968ed3c4f4f52f054855933acc7c2b21e53b0f"
+  },
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "captured/parts/44f90c56e185aa126fff1d81d3ac2ee345f5872a13079f1f4e16f5dfd2118580.xml",
+      "sha256": "44f90c56e185aa126fff1d81d3ac2ee345f5872a13079f1f4e16f5dfd2118580"
+    },
+    "_rels/.rels": {
+      "path": "captured/parts/f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae",
+      "sha256": "f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae"
+    },
+    "docProps/app.xml": {
+      "path": "captured/parts/5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5.xml",
+      "sha256": "5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5"
+    },
+    "docProps/core.xml": {
+      "path": "captured/parts/24ccd9fc241a9a128ef881e82444344de3d8126f8d358d7524f6f0b94988e5fb.xml",
+      "sha256": "24ccd9fc241a9a128ef881e82444344de3d8126f8d358d7524f6f0b94988e5fb"
+    },
+    "word/_rels/document.xml.rels": {
+      "path": "captured/parts/fd804cb5894e1288eb42b9badbf0ce482b20cd2b5a6f490484a33c09cb566400.rels",
+      "sha256": "fd804cb5894e1288eb42b9badbf0ce482b20cd2b5a6f490484a33c09cb566400"
+    },
+    "word/charts/_rels/chart1.xml.rels": {
+      "path": "captured/parts/54bce5dd4465a713772d40f1f8f058f469d3c1e16e97964b0b9b3be8a2a8414e.rels",
+      "sha256": "54bce5dd4465a713772d40f1f8f058f469d3c1e16e97964b0b9b3be8a2a8414e"
+    },
+    "word/charts/_rels/chart2.xml.rels": {
+      "path": "captured/parts/0b5edb9a20e275613e7b96c20982cc1b71a0c6c0e72f0dace3c5ce5a9b1e235e.rels",
+      "sha256": "0b5edb9a20e275613e7b96c20982cc1b71a0c6c0e72f0dace3c5ce5a9b1e235e"
+    },
+    "word/document.xml": {
+      "path": "captured/parts/76548e214b50ccfc98931dc63a6c41e6a160518452d0078badaea71dcd68f20e.xml",
+      "sha256": "76548e214b50ccfc98931dc63a6c41e6a160518452d0078badaea71dcd68f20e"
+    },
+    "word/fontTable.xml": {
+      "path": "captured/parts/221f0ed9bad139de36a09766bba664ad8476843d2b2e894130f5c1ebf44d7d48.xml",
+      "sha256": "221f0ed9bad139de36a09766bba664ad8476843d2b2e894130f5c1ebf44d7d48"
+    },
+    "word/numbering.xml": {
+      "path": "captured/parts/0788d9ed150ad0999c2fa886aa7294ffab3333ef2f6795feb8f326d448f1db10.xml",
+      "sha256": "0788d9ed150ad0999c2fa886aa7294ffab3333ef2f6795feb8f326d448f1db10"
+    },
+    "word/settings.xml": {
+      "path": "captured/parts/2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9.xml",
+      "sha256": "2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9"
+    },
+    "word/styles.xml": {
+      "path": "captured/parts/772f67f7ca8143d9576b1749d6727c7219ab8bd78e78d231662a0d845b7c8939.xml",
+      "sha256": "772f67f7ca8143d9576b1749d6727c7219ab8bd78e78d231662a0d845b7c8939"
+    },
+    "word/charts/chart1.xml": {
+      "path": "captured/parts/32a1570cf48f90332412f6662a28bc7da32aab016baac65b1f88fdc124b5a96c.xml",
+      "sha256": "32a1570cf48f90332412f6662a28bc7da32aab016baac65b1f88fdc124b5a96c"
+    },
+    "word/embeddings/chart1.xlsx": {
+      "path": "captured/parts/35c4721734952a9275419a865c643811e75332a5445ae0b1df9ec6005f32d82e.xlsx",
+      "sha256": "35c4721734952a9275419a865c643811e75332a5445ae0b1df9ec6005f32d82e"
+    },
+    "word/charts/chart2.xml": {
+      "path": "captured/parts/d83ce779477d597d9b076acf6995361483e14232cf15f11cc0b8dddc204b58b6.xml",
+      "sha256": "d83ce779477d597d9b076acf6995361483e14232cf15f11cc0b8dddc204b58b6"
+    },
+    "word/embeddings/chart2.xlsx": {
+      "path": "captured/parts/86d592771ae041d8a47db4ef017ded43696c8f20b59424228101f6d23f5a2dbd.xlsx",
+      "sha256": "86d592771ae041d8a47db4ef017ded43696c8f20b59424228101f6d23f5a2dbd"
+    }
+  },
+  "pages": [
+    {
+      "path": "reference-1.png",
+      "sha256": "acdef6f591e53157d32a8318a77a2a7bd7d7d903ee9510802cc68952e468f13d",
+      "maximum": 90,
+      "mean": 3.278,
+      "outliers": 2
+    }
+  ]
+}

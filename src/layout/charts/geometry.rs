@@ -39,6 +39,7 @@ pub(super) struct ChartLayout {
     pub title: Rectangle,
     pub legend: Rectangle,
     pub category_label_width: f64,
+    pub legend_entries: Vec<super::legend::LegendEntry>,
 }
 impl Planner<'_, '_> {
     pub(super) fn geometry(
@@ -64,13 +65,9 @@ impl Planner<'_, '_> {
                 .max(self.text_width(&axis_label(scale.maximum, percent), 10.0)?);
             (width - self.text_width("80", 10.0)?).max(0.0)
         };
-        Ok(resolve(
-            bounds,
-            chart,
-            category_width,
-            legend_width,
-            value_extra,
-        ))
+        let mut layout = resolve(bounds, chart, category_width, legend_width, value_extra);
+        self.arrange_legend(chart, &mut layout)?;
+        Ok(layout)
     }
 }
 fn resolve(
@@ -175,5 +172,6 @@ fn resolve(
         title: Rectangle::new(bounds.left, bounds.top + 4.0, bounds.width, 28.0),
         legend,
         category_label_width: category_width,
+        legend_entries: Vec::new(),
     }
 }

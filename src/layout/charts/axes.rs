@@ -187,7 +187,14 @@ impl Planner<'_, '_> {
             )?;
             self.text(
                 Rectangle::new(
-                    layout.chart.left + 23.25 - plot.height / 2.0,
+                    layout.chart.left
+                        + 23.25
+                        + if chart.legend.enabled && super::legend::position(chart) == "left" {
+                            layout.legend.width + 6.0
+                        } else {
+                            0.0
+                        }
+                        - plot.height / 2.0,
                     plot.top + plot.height / 2.0 - 14.0,
                     plot.height,
                     28.0,

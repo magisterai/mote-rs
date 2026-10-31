@@ -37,8 +37,7 @@
   },
   {
     "name": "slide-charts",
-    "format": "pptx",
-    "expected_error": "presentation text boxes do not yet support chart"
+    "format": "pptx"
   },
   {
     "name": "slide-layouts",
@@ -58,6 +57,22 @@
   },
   {
     "name": "document-drawing-metrics",
+    "format": "docx"
+  },
+  {
+    "name": "slide-chart-percentages",
+    "format": "pptx"
+  },
+  {
+    "name": "slide-chart-legends",
+    "format": "pptx"
+  },
+  {
+    "name": "slide-chart-automatic",
+    "format": "pptx"
+  },
+  {
+    "name": "document-chart-labels",
     "format": "docx"
   }
 ]

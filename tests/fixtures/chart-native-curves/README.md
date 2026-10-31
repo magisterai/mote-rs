@@ -10,13 +10,12 @@ rectangles and rules. Every coordinate compares within 1e-8 points. Source,
 geometry and independent PNG files have hashes. Native PNG differences are
 bounded by case: maximum channel differences 64–92, mean differences 0.6–2.5 on
 nonwhite pixels, and at most four edge pixels above 64. All six PDF and PNG pages
-were visually inspected. Five native PDF pages were pixel-identical at 144 DPI;
-the positive percentage area page differs at one pixel by at most three channel
-levels. Office render review remains unreviewed.
+were visually inspected. Per-page 144-DPI PDF differences are recorded in each
+manifest. Office render review remains unreviewed.
 
-The captures retain mixed-sign percentage overflow, left legend/axis-title overlap
-and long decimal tick text, as described in the [bar captures](../chart-native-bars/README.md).
-Line labels use a fixed box above each marker; other requested positions warn.
+Signed percentage stacks now normalize by total magnitude, and left legends have
+separate space beside the value-axis title. Long decimal tick text remains visible,
+as described in the [bar captures](../chart-native-bars/README.md).
 Area labels are omitted with a warning. Gap and overlap have no native effect on
 these kinds. The separate `unsupported` sources retain one-category line and area
 cases: editable packages support their data, but native planning reports the

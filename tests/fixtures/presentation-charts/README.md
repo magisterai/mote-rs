@@ -9,9 +9,8 @@ an effect; the labels case uses the documented vocabulary.
 
 Each source has a model, source/font hashes, all canonical PPTX parts and nested
 workbook parts, ordered native geometry and independent PNG captures. Geometry
-matches within 1e-8. Thirteen native PDFs match their 144-DPI capture exactly;
-the other four differ at seven isolated pixels in total, at most 23 channel
-levels. Native PNG differences remain below 48 levels and a per-case mean bound.
+matches within 1e-8. Each manifest records current 144-DPI PDF comparisons.
+Native PNG differences remain below 48 levels and the existing per-case mean bound.
 All native slides were inspected. PowerPoint visual review remains unreviewed.
 
 Chart sizing follows the containing box. Document chart rendering continues to

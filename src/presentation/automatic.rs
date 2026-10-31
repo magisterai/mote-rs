@@ -35,7 +35,7 @@ pub(super) fn elements(content: &[Content], [width, height]: [i64; 2]) -> Vec<Co
     let mut groups = Vec::new();
     let mut text = Vec::new();
     for node in remaining {
-        if matches!(node, Content::Element(element) if matches!(element.kind, ElementKind::Image | ElementKind::Table))
+        if matches!(node, Content::Element(element) if matches!(element.kind, ElementKind::Image | ElementKind::Table | ElementKind::Chart))
         {
             if !text.is_empty() {
                 groups.push(std::mem::take(&mut text));

@@ -1,0 +1,11 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#presentation(width=pt(720),height=pt(540),theme={fonts={major="body",minor="body"}})
+#slide[
+#box(position={x=pt(30),y=pt(30),width=pt(660),height=pt(475)})[#chart(kind="percent_stacked_column",title="percent_stacked_column",data={categories={"Negative only","Mixed signs","Zero"},series={{name="First",values={-2,-3,0}},{name="Second",values={-6,1,0}}}},legend="bottom",axis={category={title="Category"},value={title="Percentage"}},data_labels={percentage=true,position="center"})]
+]
+#slide[
+#box(position={x=pt(30),y=pt(30),width=pt(660),height=pt(475)})[#chart(kind="percent_stacked_bar",title="percent_stacked_bar",data={categories={"Negative only","Mixed signs","Zero"},series={{name="First",values={-2,-3,0}},{name="Second",values={-6,1,0}}}},legend="bottom",axis={category={title="Category"},value={title="Percentage"}},data_labels={percentage=true,position="center"})]
+]
+#slide[
+#box(position={x=pt(30),y=pt(30),width=pt(660),height=pt(475)})[#chart(kind="percent_stacked_area",title="percent_stacked_area",data={categories={"Negative only","Mixed signs","Zero"},series={{name="First",values={-2,-3,0}},{name="Second",values={-6,1,0}}}},legend="bottom",axis={category={title="Category"},value={title="Percentage"}},data_labels={percentage=true,position="center"})]
+]

@@ -8,10 +8,14 @@
   "native_pdf_comparison_dpi": 144,
   "native_pdf_comparison": [
     {
+      "group": "chart-native-pie",
       "case": "defaults",
-      "page": "reference-pdf-1",
-      "maximum": 0,
-      "changed": 0
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
     }
   ],
   "native_pages_visually_inspected": true,

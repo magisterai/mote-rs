@@ -243,3 +243,64 @@ fn native_radial_chart_warnings_describe_automatic_placement() {
         }
     }
 }
+
+#[test]
+fn bar_labels_paint_after_all_series_marks() {
+    let source = "#chart(data={categories={'Category'},series={{values={2}},{values={4}}}},legend=false,data_labels=true,colors={'#123456','#654321'})";
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let document = mote::compile(source).unwrap();
+    let planned = render::plan(&document, &resolver, None).unwrap();
+    let page = &planned.output.pages[0];
+    let last_bar = page.operations.iter().rposition(|operation| matches!(operation, mote::layout::PageOperation::Rectangle(rectangle) if matches!(rectangle.color.as_str(), "123456" | "654321"))).unwrap();
+    let first_label = page
+        .operations
+        .iter()
+        .position(|operation| {
+            if let mote::layout::PageOperation::Text(index) = operation {
+                let text: String = page.lines[*index]
+                    .line
+                    .fragments
+                    .iter()
+                    .map(|fragment| fragment.text.as_str())
+                    .collect();
+                text == "2" || text == "4"
+            } else {
+                false
+            }
+        })
+        .unwrap();
+    assert!(first_label > last_bar);
+}
+
+#[test]
+fn percentage_charts_normalize_finite_values_with_overflowing_total_magnitude() {
+    let source = "#chart(kind='percent_stacked_column',data={series={{values={'-1e308'}},{values={'1e308'}}}},legend=false,data_labels={percent=true})";
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let document = mote::compile(source).unwrap();
+    let planned = render::plan(&document, &resolver, None).unwrap();
+    let labels: Vec<_> = planned.output.pages[0]
+        .lines
+        .iter()
+        .map(|line| {
+            line.line
+                .fragments
+                .iter()
+                .map(|fragment| fragment.text.as_str())
+                .collect::<String>()
+        })
+        .collect();
+    assert!(labels.iter().any(|label| label == "-50%"));
+    assert!(labels.iter().any(|label| label == "50%"));
+    assert!(
+        render::paint_pdf(&planned.output)
+            .unwrap()
+            .starts_with(b"%PDF-")
+    );
+    assert_eq!(
+        render::paint_png(&planned.output, &Default::default())
+            .unwrap()
+            .output
+            .len(),
+        1
+    );
+}

@@ -1,0 +1,194 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      },
+      "theme": {
+        "fonts": {
+          "major": "body",
+          "minor": "body"
+        }
+      },
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      }
+    },
+    "size": {
+      "width": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      },
+      "height": {
+        "text": "720pt",
+        "unit": "pt",
+        "value": 720
+      },
+      "properties": {
+        "height": {
+          "text": "720pt",
+          "unit": "pt",
+          "value": 720
+        },
+        "width": {
+          "text": "720pt",
+          "unit": "pt",
+          "value": 720
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Series",
+                      "values": [
+                        1,
+                        3,
+                        2
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "legend": false,
+                "title": "Automatic column"
+              }
+            },
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Series",
+                      "values": [
+                        1,
+                        3,
+                        2
+                      ]
+                    }
+                  ]
+                },
+                "kind": "line",
+                "legend": false,
+                "title": "Automatic line"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "One",
+                "Two",
+                "Three"
+              ],
+              "series": [
+                {
+                  "name": "Series",
+                  "values": [
+                    1,
+                    3,
+                    2
+                  ]
+                }
+              ]
+            },
+            "kind": "column",
+            "legend": false,
+            "title": "Automatic column"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "One",
+                "Two",
+                "Three"
+              ],
+              "series": [
+                {
+                  "name": "Series",
+                  "values": [
+                    1,
+                    3,
+                    2
+                  ]
+                }
+              ]
+            },
+            "kind": "line",
+            "legend": false,
+            "title": "Automatic line"
+          }
+        }
+      ]
+    }
+  ]
+}

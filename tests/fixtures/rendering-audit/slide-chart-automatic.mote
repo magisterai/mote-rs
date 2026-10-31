@@ -1,0 +1,6 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#presentation(width=pt(720),height=pt(720),theme={fonts={major="body",minor="body"}})
+#slide[
+#chart(kind="column",title="Automatic column",data={categories={"One","Two","Three"},series={{name="Series",values={1,3,2}}}},legend=false)
+#chart(kind="line",title="Automatic line",data={categories={"One","Two","Three"},series={{name="Series",values={1,3,2}}}},legend=false)
+]

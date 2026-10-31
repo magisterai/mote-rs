@@ -14,21 +14,24 @@ bounded text rasterization differences: maximum channel difference 64 and mean 2
 on nonwhite pixels, with no differences above 64; the rotated axis-title case
 permits four edge pixels per page, maximum 88 and mean 0.5.
 
-All eleven native PDF pages were pixel-identical at 144 DPI. All PDF and PNG
-pages were visually inspected. This is native-output evidence, not Office review;
-Word and PowerPoint remain unreviewed.
+All eleven native PDF and PNG pages were visually inspected. The manifest records
+144-DPI PDF comparison metrics, including small text raster differences after
+label fitting. This is native-output evidence; Word and PowerPoint are unreviewed.
+
+Percentage stacks use total category magnitude and preserve each sign. Negative
+stacks remain within the percentage scale. Labels fit their allocated frames and
+paint above every bar; legends reserve measured rows and the left legend stays
+beside the value-axis title. Sources remain unchanged across these corrections.
 
 Observed limitations remain visible in the sources and captures:
 
-- Mixed-sign percentage stacks divide by the positive category total. Negative
-  values can exceed -100% and extend outside the plot.
-- A left legend can overlap the vertical value-axis title.
-- Long data labels wrap inside a fixed-height box and can clip.
+- Fitting preserves complete text, but very dense frames can require small labels;
+  independent data labels can still collide.
 - Decimal tick text retains floating-point accumulation digits.
 - Native horizontal bars ignore overlap; column overlap changes bar width without
   independently changing the inter-series offset.
 
-These are retained behavior, not layout corrections. Source geometry is not
+These remaining limits stay visible. Source geometry is not
 adjusted to conceal them. Non-finite input and overflowing stacked totals are
 separate explicit error tests. Additional native chart kinds are tested in their
 own focused collections as support is added.

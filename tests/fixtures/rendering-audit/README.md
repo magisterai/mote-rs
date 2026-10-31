@@ -21,10 +21,14 @@ See the [coverage map](../../../docs/rendering-coverage.md) and
 | `slide-positioned-charts` | Four independently positioned chart kinds, signed and zero values, titles, legends and data-label positions. |
 | `slide-layouts` | Derived layouts, slot order, typed pictures, local styling, margins and inherited geometry. |
 | `slide-automatic` | Automatic text, nested lists, tables, images and footer fields on a standard-ratio slide. |
-| `slide-charts` | Intentional unsupported composition: multiple loose charts must report an error instead of producing an empty slide. |
+| `slide-charts` | Four loose charts receive independent automatic frames. The deliberately crowded result retains the equal-height layout limit. |
+| `slide-chart-automatic` | Two loose charts with sufficient vertical space; both editable objects and native titles remain present. |
+| `slide-chart-percentages` | Negative-only, mixed-sign and zero categories in percentage columns, bars and areas, including percentage labels. |
+| `slide-chart-legends` | Long series names at all four legend positions, wrapped rows and separate axis-title space. |
+| `document-chart-labels` | Complete long labels above bar fills, wrapped legends and signed percentage charts in document flow. |
 
-`cases.json` identifies each output format and the intentional failure. Fourteen
-successful cases contain twenty-one native pages. Each capture records source and
+`cases.json` identifies each output format. Nineteen cases contain twenty-nine
+native pages. Each capture records source and
 asset hashes, complete model JSON, all editable package parts, and native PNGs.
 Repeated package parts are stored once by content hash. Package comparison
 canonicalizes XML syntax and volatile metadata; it does not remove formatting,
@@ -36,21 +40,21 @@ text pages have no pixels above 64. Rotated text, patterned edges and transforme
 images have explicitly bounded edge exceptions. Limits must not be increased to
 accommodate changed wrapping, positioning, pagination or missing objects.
 
-All twenty-one native PDF pages and corresponding PNGs were inspected. Seventeen PDF
-pages were pixel-identical to captured output at 144 DPI; three differed by at
-most nineteen pixels with channel differences at most six. The remaining chart
-page has an explicit PDF capture discrepancy at a rotated axis title whose
-unrotated text starts outside the page: the current painter preserves the signed
-coordinates, keeping the title visible. Native PNG and editable chart content
-retain the title. This exception is not evidence of Office conformance.
+All twenty-nine native PDF pages and corresponding PNGs were inspected. Twenty-two
+PDF pages are pixel-identical at 144 DPI; the remaining differences are confined
+to text rasterization and existing edge rounding. Signed PDF coordinates retain
+rotated axis titles whose unrotated text begins outside the page.
 
-Retained limitations stay visible. Long chart labels can clip, negative percentage
-stacks use the existing denominator policy, document picture borders stay
-unrotated and solid, and some table properties differ between document and slide
-layout. `category_axis`/`value_axis` in the document chart and `show_*` label
-fields in the positioned chart are retained extra fields with no output effect;
-the supported `axis` fields and label positions are independently exercised.
-Sources are not changed after capture to hide these behaviors.
+Percentage stacks normalize by total magnitude and preserve signs. Zero categories
+paint no bar area. Complete labels fit their allocated frames, bar labels paint
+above every series, and legends reserve measured rows. These rules do not provide
+collision avoidance for every label or automatic pagination of crowded charts.
+The four-chart automatic case remains visibly cramped. Long decimal tick text,
+radial-label collisions, document picture border limits and output-specific table
+properties remain visible. `category_axis`/`value_axis` and `show_*` label fields in
+the earlier cases remain extra fields without their own output mapping; the new
+cases use the documented `axis` and `data_labels` vocabulary.
+Existing sources were not changed to hide these behaviors.
 
 These are native-rendering and package comparisons. Microsoft Word and PowerPoint
 visual review remains unreviewed.

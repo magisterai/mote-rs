@@ -1,0 +1,566 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "theme": {
+        "colors": {
+          "accent1": "#2563eb",
+          "accent2": "#dc2626"
+        },
+        "fonts": {
+          "major": "body",
+          "minor": "body"
+        }
+      },
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      }
+    },
+    "size": {
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      },
+      "height": {
+        "text": "480pt",
+        "unit": "pt",
+        "value": 480
+      },
+      "properties": {
+        "height": {
+          "text": "480pt",
+          "unit": "pt",
+          "value": 480
+        },
+        "width": {
+          "text": "640pt",
+          "unit": "pt",
+          "value": 640
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "bold": "../measurements/fonts/SourceSans3-Bold.ttf",
+          "italic": "../measurements/fonts/SourceSans3-It.ttf",
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "attributes": {
+            "background": "#f8fafc"
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "category_axis": {
+                  "title": "Category"
+                },
+                "data": {
+                  "categories": [
+                    "Long category A",
+                    "Long category B",
+                    "Zero"
+                  ],
+                  "series": [
+                    {
+                      "name": "First series",
+                      "values": [
+                        12,
+                        -8,
+                        0
+                      ]
+                    },
+                    {
+                      "name": "Second series",
+                      "values": [
+                        6,
+                        -4,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "position": "ctr",
+                  "value": true
+                },
+                "kind": "percent_stacked_bar",
+                "legend": {
+                  "position": "b"
+                },
+                "position": {
+                  "height": {
+                    "text": "210pt",
+                    "unit": "pt",
+                    "value": 210
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "12pt",
+                    "unit": "pt",
+                    "value": 12
+                  },
+                  "y": {
+                    "text": "18pt",
+                    "unit": "pt",
+                    "value": 18
+                  }
+                },
+                "title": "Signed percentages",
+                "value_axis": {
+                  "title": "Share"
+                }
+              }
+            },
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "North",
+                    "South",
+                    "West"
+                  ],
+                  "series": [
+                    {
+                      "name": "Regions",
+                      "values": [
+                        12,
+                        8,
+                        5
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "category": true,
+                  "percentage": true,
+                  "position": "outEnd"
+                },
+                "kind": "doughnut",
+                "legend": {
+                  "position": "r"
+                },
+                "position": {
+                  "height": {
+                    "text": "210pt",
+                    "unit": "pt",
+                    "value": 210
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "328pt",
+                    "unit": "pt",
+                    "value": 328
+                  },
+                  "y": {
+                    "text": "18pt",
+                    "unit": "pt",
+                    "value": 18
+                  }
+                },
+                "title": "Distribution"
+              }
+            },
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Trend",
+                      "values": [
+                        -10,
+                        0,
+                        16
+                      ]
+                    }
+                  ]
+                },
+                "data_labels": {
+                  "position": "t",
+                  "value": true
+                },
+                "kind": "line",
+                "legend": false,
+                "position": {
+                  "height": {
+                    "text": "215pt",
+                    "unit": "pt",
+                    "value": 215
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "12pt",
+                    "unit": "pt",
+                    "value": 12
+                  },
+                  "y": {
+                    "text": "248pt",
+                    "unit": "pt",
+                    "value": 248
+                  }
+                },
+                "title": "Crossing zero"
+              }
+            },
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "One",
+                    "Two",
+                    "Three"
+                  ],
+                  "series": [
+                    {
+                      "name": "Base",
+                      "values": [
+                        8,
+                        12,
+                        6
+                      ]
+                    },
+                    {
+                      "name": "Added",
+                      "values": [
+                        4,
+                        3,
+                        5
+                      ]
+                    }
+                  ]
+                },
+                "kind": "stacked_area",
+                "legend": {
+                  "position": "t"
+                },
+                "position": {
+                  "height": {
+                    "text": "215pt",
+                    "unit": "pt",
+                    "value": 215
+                  },
+                  "width": {
+                    "text": "300pt",
+                    "unit": "pt",
+                    "value": 300
+                  },
+                  "x": {
+                    "text": "328pt",
+                    "unit": "pt",
+                    "value": 328
+                  },
+                  "y": {
+                    "text": "248pt",
+                    "unit": "pt",
+                    "value": 248
+                  }
+                },
+                "title": "Area totals"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "attributes": {
+        "background": "#f8fafc"
+      },
+      "children": [
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "category_axis": {
+              "title": "Category"
+            },
+            "data": {
+              "categories": [
+                "Long category A",
+                "Long category B",
+                "Zero"
+              ],
+              "series": [
+                {
+                  "name": "First series",
+                  "values": [
+                    12,
+                    -8,
+                    0
+                  ]
+                },
+                {
+                  "name": "Second series",
+                  "values": [
+                    6,
+                    -4,
+                    0
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "position": "ctr",
+              "value": true
+            },
+            "kind": "percent_stacked_bar",
+            "legend": {
+              "position": "b"
+            },
+            "position": {
+              "height": {
+                "text": "210pt",
+                "unit": "pt",
+                "value": 210
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              },
+              "y": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18
+              }
+            },
+            "title": "Signed percentages",
+            "value_axis": {
+              "title": "Share"
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "North",
+                "South",
+                "West"
+              ],
+              "series": [
+                {
+                  "name": "Regions",
+                  "values": [
+                    12,
+                    8,
+                    5
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "category": true,
+              "percentage": true,
+              "position": "outEnd"
+            },
+            "kind": "doughnut",
+            "legend": {
+              "position": "r"
+            },
+            "position": {
+              "height": {
+                "text": "210pt",
+                "unit": "pt",
+                "value": 210
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "328pt",
+                "unit": "pt",
+                "value": 328
+              },
+              "y": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18
+              }
+            },
+            "title": "Distribution"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "One",
+                "Two",
+                "Three"
+              ],
+              "series": [
+                {
+                  "name": "Trend",
+                  "values": [
+                    -10,
+                    0,
+                    16
+                  ]
+                }
+              ]
+            },
+            "data_labels": {
+              "position": "t",
+              "value": true
+            },
+            "kind": "line",
+            "legend": false,
+            "position": {
+              "height": {
+                "text": "215pt",
+                "unit": "pt",
+                "value": 215
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              },
+              "y": {
+                "text": "248pt",
+                "unit": "pt",
+                "value": 248
+              }
+            },
+            "title": "Crossing zero"
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "One",
+                "Two",
+                "Three"
+              ],
+              "series": [
+                {
+                  "name": "Base",
+                  "values": [
+                    8,
+                    12,
+                    6
+                  ]
+                },
+                {
+                  "name": "Added",
+                  "values": [
+                    4,
+                    3,
+                    5
+                  ]
+                }
+              ]
+            },
+            "kind": "stacked_area",
+            "legend": {
+              "position": "t"
+            },
+            "position": {
+              "height": {
+                "text": "215pt",
+                "unit": "pt",
+                "value": 215
+              },
+              "width": {
+                "text": "300pt",
+                "unit": "pt",
+                "value": 300
+              },
+              "x": {
+                "text": "328pt",
+                "unit": "pt",
+                "value": 328
+              },
+              "y": {
+                "text": "248pt",
+                "unit": "pt",
+                "value": 248
+              }
+            },
+            "title": "Area totals"
+          }
+        }
+      ]
+    }
+  ]
+}

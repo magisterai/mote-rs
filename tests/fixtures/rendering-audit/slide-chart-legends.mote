@@ -1,0 +1,10 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf",bold="../measurements/fonts/SourceSans3-Bold.ttf",italic="../measurements/fonts/SourceSans3-It.ttf"})
+#presentation(width=pt(720),height=pt(540),theme={fonts={major="body",minor="body"}})
+#slide[
+#box(position={x=pt(15),y=pt(65),width=pt(335),height=pt(400)})[#chart(kind="column",title="Legend top",data={categories={"First category","Second category"},series={{name="Northern regional contribution",values={2,3}},{name="Southern regional contribution",values={4,2}},{name="Western regional contribution",values={3,4}}}},legend="top",axis={value={title="Revenue"}})]
+#box(position={x=pt(370),y=pt(65),width=pt(335),height=pt(400)})[#chart(kind="column",title="Legend bottom",data={categories={"First category","Second category"},series={{name="Northern regional contribution",values={2,3}},{name="Southern regional contribution",values={4,2}},{name="Western regional contribution",values={3,4}}}},legend="bottom",axis={value={title="Revenue"}})]
+]
+#slide[
+#box(position={x=pt(15),y=pt(65),width=pt(335),height=pt(400)})[#chart(kind="column",title="Legend left",data={categories={"First category","Second category"},series={{name="Northern regional contribution",values={2,3}},{name="Southern regional contribution",values={4,2}},{name="Western regional contribution",values={3,4}}}},legend="left",axis={value={title="Revenue"}})]
+#box(position={x=pt(370),y=pt(65),width=pt(335),height=pt(400)})[#chart(kind="column",title="Legend right",data={categories={"First category","Second category"},series={{name="Northern regional contribution",values={2,3}},{name="Southern regional contribution",values={4,2}},{name="Western regional contribution",values={3,4}}}},legend="right",axis={value={title="Revenue"}})]
+]

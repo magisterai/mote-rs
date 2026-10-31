@@ -1,16 +1,56 @@
 {
   "source_sha256": "d09257fc16de046fbaefebd9de250411b1642f01477d9f5d7ed60faf428df279",
-  "geometry_sha256": "d5c5b226905eb2b303fbf51965ce59b6ded74c243ede3782db1129957ea1d898",
+  "geometry_sha256": "8fa48e8e918695b144c6c1874e6f9ec88fb268996e69518ff39d63ed88690ef4",
   "native_png_files": {
-    "reference-1.png": "bf4655b40115bc63c49438ca42ef24f32ec6dac75361443e741cd17b59dd4188",
-    "reference-2.png": "3f4c6d37f69e03afecd3fd66dbf7ab1c05b39243c4b658b1ffac74565f8518be",
-    "reference-3.png": "c2d8fd650386836bf89597b0d6dc3fc45feaf1f005c6aedaa57611adf09d734d",
-    "reference-4.png": "182c38104797a66417b132d070b2e131aa1d732257415cbbb835ff6df60977a7"
+    "reference-1.png": "165088436a7de0e0140772ee45ff8e01337314e6d0ee8b4c2b0ba3498fd77d74",
+    "reference-2.png": "bbec5b54fe59b2110fbad6fcad2624dd5fbc5e6d3a066b99e07ff194bbab423e",
+    "reference-3.png": "01c070e48a5de1f894117b1f4a0c63515aeaa64707ef694a0729564f7fdd9197",
+    "reference-4.png": "918985ea37f8a0ff4ea6c4a77f3325d8e551873b1ce5d8b818d917253fcee561"
   },
   "native_png_dpi": 72,
   "native_pdf_comparison_dpi": 144,
-  "native_pdf_changed_pixels": 0,
-  "native_pdf_maximum_channel_difference": 0,
   "native_pages_visually_inspected": true,
-  "word_review_status": "unreviewed"
+  "word_review_status": "unreviewed",
+  "native_pdf_comparison": [
+    {
+      "group": "chart-native-bars",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "chart-native-bars",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "chart-native-bars",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-3.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "chart-native-bars",
+      "case": "labels",
+      "kind": "pdf",
+      "page": "reference-pdf-4.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    }
+  ]
 }

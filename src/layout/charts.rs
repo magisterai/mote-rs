@@ -297,8 +297,31 @@ fn category_total(chart: &Chart, index: usize) -> f64 {
     chart
         .series
         .iter()
-        .map(|series| series_value(series, index).max(0.0))
+        .map(|series| series_value(series, index).abs())
         .sum()
+}
+
+// Normalize by total magnitude while preserving signs. Scaling handles a finite
+// category whose summed magnitudes exceed the floating-point range.
+fn percentage(chart: &Chart, index: usize, value: f64) -> f64 {
+    let total = category_total(chart, index);
+    if total == 0.0 {
+        return 0.0;
+    }
+    if total.is_finite() {
+        return value / total * 100.0;
+    }
+    let largest = chart
+        .series
+        .iter()
+        .map(|series| series_value(series, index).abs())
+        .fold(0.0, f64::max);
+    let scaled_total: f64 = chart
+        .series
+        .iter()
+        .map(|series| series_value(series, index).abs() / largest)
+        .sum();
+    (value / largest) / scaled_total * 100.0
 }
 
 fn round_coordinate(points: f64) -> f64 {

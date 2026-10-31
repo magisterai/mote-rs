@@ -228,8 +228,21 @@
       }
     }
   },
-  "geometry_sha256": "cdfdaa0c4f5ec163e26da672ade053c0d43b0b13803b83ad1e63cfa66b9329e4",
+  "geometry_sha256": "ca6e2fd0c912425fdd024b28d2ac8d6673e726a1f72950a1ac9ebdc11fd3d287",
   "native_png_files": {
     "reference-1.png": "3951ee65d44e56ddae49a2580918ee66da80029cca7cffd5b00c764ef680f436"
-  }
+  },
+  "native_pdf_comparison": [
+    {
+      "group": "presentation-charts",
+      "case": "theme",
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 13,
+      "changed": 1,
+      "mean": 1e-05,
+      "outliers": 0
+    }
+  ],
+  "native_pages_visually_inspected": true
 }

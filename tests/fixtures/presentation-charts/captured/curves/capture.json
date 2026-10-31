@@ -304,11 +304,54 @@
       }
     }
   },
-  "geometry_sha256": "18367280c1f96e8a148868a3f14cbc39071113ffd0d36960b95f3649f94b1dcb",
+  "geometry_sha256": "689162a45e9bb29b79c5690da86f8cd7e2ad08cff4ee56190c9802d526c080f6",
   "native_png_files": {
     "reference-1.png": "c0c07bbbf8b9330b0ee28084c301e4333376948693ed13c74c068de350a41f8d",
     "reference-2.png": "362d8b5b1eff8a9a8f67a0e340b103b5a20c35f16e2448467692b2ae66c2b081",
     "reference-3.png": "8900ead7038cd816696a404eea8afc3948d71265534b278f4ae2ef76fa36fa68",
     "reference-4.png": "b0282072f6c2931efc9349446cf8bd4dd5a1f6cd269dd06c23fe12a3de4b6de7"
-  }
+  },
+  "native_pdf_comparison": [
+    {
+      "group": "presentation-charts",
+      "case": "curves",
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "curves",
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "curves",
+      "kind": "pdf",
+      "page": "reference-pdf-3.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "curves",
+      "kind": "pdf",
+      "page": "reference-pdf-4.png",
+      "max": 0,
+      "changed": 0,
+      "mean": 0.0,
+      "outliers": 0
+    }
+  ],
+  "native_pages_visually_inspected": true
 }

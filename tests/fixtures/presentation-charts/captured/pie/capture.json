@@ -188,5 +188,28 @@
   "native_png_files": {
     "reference-1.png": "26cbc79911a8816517cfab0c381ee69ea5ddea79b4fc39eef3f0121de59d30d2",
     "reference-2.png": "64767ccad0517adcf0eacc3b06d7c733c8a1b46cef9f26e612c32d71f80b564b"
-  }
+  },
+  "native_pdf_comparison": [
+    {
+      "group": "presentation-charts",
+      "case": "pie",
+      "kind": "pdf",
+      "page": "reference-pdf-1.png",
+      "max": 21,
+      "changed": 1,
+      "mean": 1e-05,
+      "outliers": 0
+    },
+    {
+      "group": "presentation-charts",
+      "case": "pie",
+      "kind": "pdf",
+      "page": "reference-pdf-2.png",
+      "max": 21,
+      "changed": 3,
+      "mean": 2e-05,
+      "outliers": 0
+    }
+  ],
+  "native_pages_visually_inspected": true
 }
