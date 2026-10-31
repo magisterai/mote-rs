@@ -28,8 +28,13 @@ names in its font table. Missing mappings remain inherited. `word_line_height`
 has no DOCX size effect. [Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
 cover aliases and literal names. Native measurement resolves declared files,
 retains their bytes, reports substitutions and missing glyphs, and measures
-static TrueType/CFF variants. DOCX ignores `files`. Installed-font discovery,
-embedding, script shaping and painted output remain unsupported.
+static TrueType/CFF variants. DOCX ignores `files`; native PDF embeds eligible
+font data and PNG paints the selected face. Optional installed-font resolution
+uses the same validation and cache path as declared files. Complex script shaping
+and variable-font interpolation remain unsupported. `word_line_height` calibrates
+native document flow; drawing text uses its own line-spacing profile.
+[Combined rendering tests](../../tests/rendering_audit.rs) cover declared-font
+notes and monospace text in slides and document shapes.
 Real Word font/layout review remains unreviewed.
 
 ## Specification inventory

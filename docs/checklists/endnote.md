@@ -24,4 +24,7 @@ not authoring attributes. See the standard inventory for unsupported properties.
 
 Evidence: [language](../specification/notes.md), [tests](../../tests/notes.rs),
 and [captures](../../tests/fixtures/notes/README.md). Native geometry and PNG evidence: [rendering tests](../../tests/note_rendering.rs).
+
+[Combined rendering captures](../../tests/fixtures/rendering-audit/README.md)
+also cover definition endnotes alongside formatted footnotes and document kerning.
 Word review is unreviewed.

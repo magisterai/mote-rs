@@ -243,7 +243,7 @@ The public `formatting::StyleResolver` operates on an evaluated document:
 - `resolve_paragraph(attributes)` applies the explicit named style, then direct
   paragraph properties. It uses the same nested merge and spacing-alias rules.
 - `resolve_inline(element, inherited)` starts with the supplied parent run map,
-  adds the element's bold/italic intent for strong/emphasis, applies its named
+  adds the element's semantic formatting intent, applies its named
   style, then its direct run attributes. An explicit style value can therefore
   override that initial intent. Pass the returned run map to nested inline
   children; resolve each sibling from its parent's map.

@@ -35,30 +35,30 @@ Content attribute contracts are specified in
 [Formatting attributes](../specification/formatting-attributes.md) and
 [Spans](../specification/spans.md). [Styles and fonts](../specification/styles-and-fonts.md)
 defines declarations and explicit formatting resolution. Each checklist links its
-implementation and tests. Table-style application and broader native document
-content remain open. Native measurement and text geometry are covered in the
-[implementation overview](../implementation.md); those numeric captures do not
-establish painted output support. Future pending descriptions are planning notes; define
+implementation and tests. The [rendering coverage map](../rendering-coverage.md)
+links table styles, document flow, slide layout and their output limits to
+structural and painted evidence. Numeric geometry alone does not establish
+painted output support. Future pending descriptions are planning notes; define
 their concepts before using them in examples.
 
 ## Directives
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
-| `csv` | [CSV data](csv.md) | Specified and tested; see the checklist for output limits. |
-| `import` | [Imported declarations](import.md) | Specified and tested; see the checklist for output limits. |
-| `set` | [Scoped defaults](set.md) | Specified and tested; see the checklist for output limits. |
-| `raw` | [Literal block content](raw.md) | Specified and tested; see the checklist for output limits. |
-| `divider` | [Horizontal dividers](divider.md) | Specified and tested; see the checklist for output limits. |
-| `definition_list` | [Definition lists](definition-list.md) | Specified and tested; see the checklist for output limits. |
-| `term` | [Definition terms](term.md) | Specified and tested; see the checklist for output limits. |
-| `definition` | [Definitions](definition.md) | Specified and tested; see the checklist for output limits. |
 | `underline` | [Underline](underline.md) | Specified and tested; see the checklist for output limits. |
 | `strike` | [Strikethrough](strike.md) | Specified and tested; see the checklist for output limits. |
 | `highlight` | [Highlighted text](highlight.md) | Specified and tested; see the checklist for output limits. |
 | `small_caps` | [Small capitals](small-caps.md) | Specified and tested; see the checklist for output limits. |
 | `subscript` | [Subscript](subscript.md) | Specified and tested; see the checklist for output limits. |
 | `superscript` | [Superscript](superscript.md) | Specified and tested; see the checklist for output limits. |
+| `raw` | [Literal block content](raw.md) | Specified and tested; see the checklist for output limits. |
+| `divider` | [Horizontal dividers](divider.md) | Specified and tested; see the checklist for output limits. |
+| `definition_list` | [Definition lists](definition-list.md) | Specified and tested; see the checklist for output limits. |
+| `term` | [Definition terms](term.md) | Specified and tested; see the checklist for output limits. |
+| `definition` | [Definitions](definition.md) | Specified and tested; see the checklist for output limits. |
+| `set` | [Scoped defaults](set.md) | Specified and tested; see the checklist for output limits. |
+| `import` | [Imported declarations](import.md) | Specified and tested; see the checklist for output limits. |
+| `csv` | [CSV data](csv.md) | Specified and tested; see the checklist for output limits. |
 | `function` | [Functions and scripting](function.md) | Lexical functions, content bodies, opt-in Lua, typed values and document constructors. |
 | `if` | [Conditional content](if.md) | Truthiness, selected branches, child scopes and surrounding flow. |
 | `for` | [Iteration](for.md) | Ordered array/object iteration, local bindings and generated content. |

@@ -43,8 +43,8 @@ metadata. Their checkmarks do not claim bullet numbering. Effective numbered
 sequences belong to the [ordered-list checklist](ordered-list.md).
 
 Ordered formats on unordered lists and unrestricted marker styling are not
-formatting goals here. Presentation container text/list defaults belong to their
-future container checklists, rather than unrestricted direct list objects.
+formatting goals here. Presentation container text/list defaults belong to the
+[box checklist](box.md), rather than unrestricted direct list objects.
 
 ## Output limits
 

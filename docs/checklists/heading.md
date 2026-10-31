@@ -51,7 +51,7 @@ formatting chapter. Effective styles and counters remain layout/output work.
 Numbering retains `label` and `prefix` as text metadata, without generating
 heading labels. An authored marker is not an arbitrary heading-number template.
 
-Presentation container text defaults belong to their future container checklist;
+Presentation container text defaults belong to the [box checklist](box.md);
 an unrestricted nested `text` object is not a direct heading-formatting target.
 
 DOCX emits `keep_together` as `keepLines`, independently of the completed

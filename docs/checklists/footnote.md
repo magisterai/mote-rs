@@ -26,4 +26,8 @@ not authoring attributes. See the standard inventory for unsupported properties.
 
 Evidence: [language](../specification/notes.md), [tests](../../tests/notes.rs),
 and [captures](../../tests/fixtures/notes/README.md). Native geometry and PNG evidence: [rendering tests](../../tests/note_rendering.rs).
+
+[Combined rendering captures](../../tests/fixtures/rendering-audit/README.md)
+also cover note references inside semantic formatting and definition terms,
+document kerning, note-band reservation and inherited editable run properties.
 Word review is unreviewed.

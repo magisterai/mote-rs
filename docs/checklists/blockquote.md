@@ -34,13 +34,12 @@ merging, `fill` normalizes; other geometry remains unvalidated metadata.
 ## Dependencies and limits
 
 Style references, colors, borders, and layout requests are defined in the
-formatting chapter; presentation containers remain future work. DOCX emits
+formatting chapter. DOCX emits
 `style`, `border`, `fill`, alignment, spacing and indentation. The capture confirms
 those geometry values despite unsupported-property warnings from its validator.
 Presentation border/fill behaviour must not be inferred from paged-document support.
 
-Nested `text` and `paragraph` defaults belong to future presentation container
-checklists; they are not extra direct quote-formatting controls in this scope.
+Nested `text` and `paragraph` defaults belong to the [box checklist](box.md); they are not extra direct quote-formatting controls in this scope.
 
 ## Output limits
 

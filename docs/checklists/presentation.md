@@ -29,7 +29,8 @@ names are assigned to unmapped standard fields. The [language definition](../spe
 [model captures](../../tests/fixtures/presentations/README.md) cover these contracts.
 Editable packages support explicit slides, page dimensions, themes and the
 positioned objects listed above. Native PDF/PNG uses the same resolved deck state
-and paints independently. Native output needs at least one explicit slide.
+and paints independently. Native output needs at least one resolved slide;
+automatic Markdown decks select presentation layout explicitly for PDF/PNG.
 PowerPoint review remains pending; model acceptance alone does not establish
 output effects.
 

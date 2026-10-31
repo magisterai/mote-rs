@@ -18,7 +18,7 @@
   presentation mode; explicit slides mixed with implicit segments.
 
 Output supports explicit slides with positioned text, pictures, tables, shapes,
-connectors and charts, plus automatic text, image and table layout. Built-in and custom named layouts are supported.
+connectors and charts, plus automatic text, image, table and chart layout. Built-in and custom named layouts are supported.
 Speaker notes are plain PPTX metadata. Footer text, dates and slide numbers render
 in editable and native output, with independent suppression on each slide.
 Master/layout inheritance, hidden slides, transitions, timing, animation and

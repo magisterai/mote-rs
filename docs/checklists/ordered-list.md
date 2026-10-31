@@ -42,7 +42,7 @@ Markdown markers without synthesizing `start`.
 
 Arbitrary ordered marker templates, custom marker font/alignment controls, and
 additional numbering formats are outside this scope. Presentation container
-text/list defaults belong to their future container checklists.
+text/list defaults belong to the [box checklist](box.md).
 Continuation support must be stated separately for each output and layout mode.
 
 ## Output limits

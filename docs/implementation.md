@@ -46,8 +46,8 @@ checks and conversion diagnostics keep the correct location.
 `source::load_source` loads a single named input through an `AssetResolver` and
 returns a `SourceFile` containing its logical name and validated UTF-8 text.
 Callers pass that text to `mote::compile`; `compile(source)` remains independent
-of filesystem access. Loading does not add output defaults or source metadata
-to the document model.
+of filesystem access. Loading does not add output defaults. Evaluation retains resource source names
+separately from authored properties; JSON lists imports in first-encounter order.
 
 An `AssetRequest` contains the authored reference and an optional referring source
 name. A `ResolvedAsset` owns its bytes and its stable logical name. Custom
@@ -78,8 +78,11 @@ Standard input remains labelled `<stdin>`.
 and rejects conflicting bytes for one logical name. The font measurer owns a
 wrapper for its lifetime and retains selected font bytes for future painters.
 Images also cache resolved assets and transformed rasters for the duration of planning.
-The JSON helper shares source-relative resolution and compilation snapshots; imports
-remain deferred. Tests in
+JSON, CSV and imports share source-relative resolution and compilation snapshots.
+Imported local bindings, functions and defaults are exported; ordinary content is
+discarded. Native resource caches include both source and reference so identical
+filenames in different directories remain distinct. Lua element conversion retains
+the established source-metadata limitation described in the imports chapter. Tests in
 [asset_cache.rs](../tests/asset_cache.rs), [source.rs](../tests/source.rs) and
 [cli.rs](../tests/cli.rs) cover custom sources, relative names, failure propagation,
 encoding, and CLI diagnostics.
@@ -128,8 +131,8 @@ whitespace evaluation.
 Calls and paths are parsed without checking whether they are defined. Syntax
 success alone does not mean that a document can be evaluated or rendered.
 
-The parser is deliberately incomplete: task lists, fenced code blocks, additional
-Markdown forms remain deferred. Lua-enabled argument parsing retains expression source. Unsupported
+The parser supports task lists, literal fenced blocks and Markdown dividers.
+Additional Markdown forms remain deferred. Lua-enabled argument parsing retains expression source. Unsupported
 recognized Markdown forms return diagnostics; this is not a general Markdown
 parser. Recursive nesting is limited
 to protect the parser from excessive input depth.
@@ -140,7 +143,7 @@ to protect the parser from excessive input depth.
 Markdown headings, strong spans, and emphasis share semantics with their
 directives. Bare inline content becomes paragraphs. Explicit `paragraph`,
 `heading`, `span`, `strong`, and `emphasis` bodies accept inline content and reject nested
-blocks. Code supports literal scalar arguments and evaluated inline bodies;
+blocks. Code and raw blocks support literal scalar arguments and evaluated inline bodies;
 backtick spans retain literal text. Explicit `line_break` and `tab` calls retain inline
 elements, while Markdown hard breaks are line feeds in text.
 
@@ -245,9 +248,15 @@ independent. Font resolution returns declared script mappings or a direct
 typeface name without looking up installed fonts. See
 [Styles and fonts](specification/styles-and-fonts.md) for the exact contracts.
 
-The DOCX writer supplies the supported implicit output styles separately.
-List/container defaults, font-file lookup, glyph coverage and measured
-line height remain future work. The resolver does not lay out or render documents.
+The DOCX writer supplies supported implicit output styles separately. Native
+layout applies list and container defaults; measurement resolves font files, glyph
+coverage and line heights. Document font calibration stays separate from slide
+line spacing. The formatting resolver itself does not lay out or render documents.
+
+The [rendering coverage map](rendering-coverage.md) connects directive attributes
+to editable and native output evidence, including current limits. Combined
+[rendering fixtures](../tests/fixtures/rendering-audit/README.md) exercise page
+flow, formatted notes, table edges, transformed media and slide fitting.
 
 ## JSON inspection
 
@@ -741,3 +750,23 @@ chart workbooks, plus ordered native geometry and independent PNG output. The
 coverage, raster bounds and remaining output differences. The field cases also
 combine all supported positioned object kinds in one slide. These checks do not
 establish PowerPoint conformance; the new cases remain unreviewed in Office.
+
+
+## Scoped authoring and additional text forms
+
+Semantic inline directives retain underline patterns, strike kinds, highlight fills,
+small capitals and script intent. Editable outputs and native text use their own
+supported sizing and baseline mappings. Literal blocks, definition lists and document
+rules share existing paragraph flow; presentation dividers retain their existing
+slide-boundary or text-rule role.
+
+Element defaults are stored with lexical bindings, recursively merged before final
+normalization and captured by functions. Imports retain logical source identities
+for deferred data, fonts, backgrounds and diagnostics. CSV parsing uses a small
+strict parser within the data module and adds no dependency; header collisions,
+uneven records and string preservation are covered explicitly.
+
+[Semantic text](../tests/semantic_formatting.rs), [block content](../tests/block_content.rs),
+[defaults](../tests/scoped_defaults.rs), [imports](../tests/imports.rs) and
+[CSV](../tests/csv.rs) have frozen models, complete package parts and independent
+native rasters. These captures do not replace real Word or PowerPoint review.

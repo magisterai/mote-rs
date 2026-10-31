@@ -42,12 +42,11 @@ style resolution and output remain separate.
 ## Dependencies and limits
 
 Style references, colors, borders, tab-stop arrays, and pagination requests are
-defined in the formatting chapter. Style declarations have their own checklist;
-presentation containers remain future work. Tab stops and outline levels require explicit
-output coverage; they are not established by the current model. Text direction
-is not a general paragraph attribute in this checklist. Presentation container
-`text` and `list` defaults belong to their future container checklists; they are
-not additional direct paragraph controls here.
+defined in the formatting chapter. Style declarations have their own checklist.
+Tab stops and outline levels require output coverage beyond model retention.
+Text direction is not a general paragraph attribute here. Presentation container
+`text` and `list` defaults belong to the [box checklist](box.md); they are not
+additional direct paragraph controls.
 
 ## Output limits
 
@@ -55,7 +54,9 @@ DOCX maps alignment, spacing and its aliases, indentation, pagination flags,
 outline levels 0–9, shading, borders, tab stops and named paragraph styles.
 [Captured structural comparisons](../../tests/fixtures/docx/paragraph-formatting/README.md)
 cover these mappings; page layout and real Word review remain unreviewed.
-Native PDF/PNG output remains unsupported.
+Native PDF/PNG implements paragraph measurement and pagination; its painting
+limits and captures are described below. Custom tab stops remain outside native
+text layout.
 
 ## Specification inventory
 
