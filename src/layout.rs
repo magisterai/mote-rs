@@ -9,6 +9,7 @@ mod dividers;
 mod document;
 pub(crate) mod drawing_text;
 mod drawings;
+mod fallbacks;
 pub(crate) mod presentation;
 pub use presentation::plan_presentation;
 mod fields;
@@ -116,6 +117,8 @@ pub struct TextRun {
     pub anchors: Vec<String>,
     pub current_page_field: Option<CurrentPageField>,
     pub footnote_number: Option<usize>,
+    /// Retains editable mathematics while native painters measure its source text.
+    pub math: Option<Box<crate::model::Element>>,
 }
 
 impl TextRun {
@@ -131,6 +134,7 @@ impl TextRun {
             anchors: Vec::new(),
             current_page_field: None,
             footnote_number: None,
+            math: None,
         }
     }
     fn with_text(&self, text: &str) -> Self {

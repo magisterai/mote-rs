@@ -102,12 +102,16 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
             pending.push(node.clone());
             continue;
         };
-        if !original.kind.is_block() {
+        if !original.is_block() {
             pending.push(node.clone());
             continue;
         }
         flush(&mut pending, &mut output, attributes);
         let mut element = original.clone();
+        if element.kind == ElementKind::Math {
+            element.kind = ElementKind::Paragraph;
+            element.children = vec![Content::Text(super::super::fallbacks::text(original))];
+        }
         match element.kind {
             ElementKind::Paragraph | ElementKind::Heading => {
                 let mut inherited = attributes.clone();
@@ -115,7 +119,7 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
                 inherited.remove("fill");
                 inherited.remove("width");
                 element.attributes = tables::cell_defaults(&element.attributes, &inherited, false);
-                if element.kind == ElementKind::Paragraph {
+                if original.kind == ElementKind::Paragraph {
                     for name in ["before", "after"] {
                         if !explicit_spacing(&original.attributes, name) {
                             element

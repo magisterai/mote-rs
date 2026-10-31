@@ -1,0 +1,170 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Raw "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "omml",
+                "source": "\u003cm:oMath\u003e\u003cm:r\u003e\u003cm:t\u003ex\u003c/m:t\u003e\u003c/m:r\u003e\u003c/m:oMath\u003e"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "omml",
+            "source": "\u003cm:oMathPara\u003e\u003cm:oMath\u003e\u003cm:r\u003e\u003cm:t\u003ey\u003c/m:t\u003e\u003c/m:r\u003e\u003c/m:oMath\u003e\u003c/m:oMathPara\u003e"
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Invalid "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "omml",
+                "source": "\u003cw:p/\u003e"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " remains visible."
+            }
+          ]
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "size": {
+              "text": "15pt",
+              "unit": "pt",
+              "value": 15
+            },
+            "source": "z^2"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Raw "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "omml",
+            "source": "\u003cm:oMath\u003e\u003cm:r\u003e\u003cm:t\u003ex\u003c/m:t\u003e\u003c/m:r\u003e\u003c/m:oMath\u003e"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "omml",
+        "source": "\u003cm:oMathPara\u003e\u003cm:oMath\u003e\u003cm:r\u003e\u003cm:t\u003ey\u003c/m:t\u003e\u003c/m:r\u003e\u003c/m:oMath\u003e\u003c/m:oMathPara\u003e"
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Invalid "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "omml",
+            "source": "\u003cw:p/\u003e"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " remains visible."
+        }
+      ]
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "size": {
+          "text": "15pt",
+          "unit": "pt",
+          "value": 15
+        },
+        "source": "z^2"
+      },
+      "children": [
+        {
+          "kind": "text",
+          "text": "{}"
+        }
+      ]
+    }
+  ]
+}

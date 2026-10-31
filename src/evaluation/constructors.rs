@@ -41,6 +41,7 @@ pub(super) const ELEMENT_NAMES: &[&str] = &[
     "footnote",
     "endnote",
     "page_number",
+    "math",
     "bookmark",
     "label",
     "ref",
@@ -70,6 +71,7 @@ impl Signature {
     }
     pub fn primary(self) -> Option<&'static str> {
         match self.kind {
+            ElementKind::Math => Some("source"),
             ElementKind::Heading => Some("level"),
             ElementKind::Link => Some("url"),
             ElementKind::Image => Some("src"),
@@ -84,6 +86,7 @@ impl Signature {
             self.kind,
             ElementKind::Image
                 | ElementKind::Chart
+                | ElementKind::Math
                 | ElementKind::Line
                 | ElementKind::Label
                 | ElementKind::Reference
@@ -230,6 +233,10 @@ impl Signature {
             ));
         }
         let mut attributes = attributes::normalize_arguments(self.kind, arguments, defaults)?;
+        if self.kind == ElementKind::Math {
+            crate::math::normalize(&mut attributes)
+                .map_err(|message| Diagnostic::new(span, message))?;
+        }
         if self.kind == ElementKind::Break {
             attributes
                 .entry("type".into())
@@ -319,7 +326,7 @@ impl PreparedElement {
         state: &mut EvaluationState<'_>,
     ) -> Result<Element, Diagnostic> {
         let kind = self.signature.kind;
-        if self.signature.body_mode() == ContentMode::Inline && children.iter().any(|child| matches!(child,Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())) {
+        if self.signature.body_mode() == ContentMode::Inline && children.iter().any(|child| matches!(child,Content::Element(element) if element.is_block() || element.kind.is_table_part())) {
             return Err(Diagnostic::new(span,"inline content cannot contain a block element"));
         }
         if kind == ElementKind::DefinitionList {

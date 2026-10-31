@@ -271,7 +271,7 @@ pub(super) fn validate_children(
         {
             return Ok(());
         }
-        if children.iter().any(|child| matches!(child, Content::Element(element) if (element.kind.is_block() || element.kind.is_table_part()) && !matches!(element.kind, ElementKind::Paragraph | ElementKind::Heading | ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem | ElementKind::Blockquote | ElementKind::Raw | ElementKind::DefinitionList | ElementKind::Term | ElementKind::Definition | ElementKind::Divider))) {
+        if children.iter().any(|child| matches!(child, Content::Element(element) if (element.is_block() || element.kind.is_table_part()) && !matches!(element.kind, ElementKind::Math | ElementKind::Paragraph | ElementKind::Heading | ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem | ElementKind::Blockquote | ElementKind::Raw | ElementKind::DefinitionList | ElementKind::Term | ElementKind::Definition | ElementKind::Divider))) {
             return Err(Diagnostic::new(span, "box accepts text flow or exactly one image, table or chart"));
         }
     }

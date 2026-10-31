@@ -13,6 +13,7 @@ mod headings;
 mod images;
 mod list_layout;
 mod lists;
+mod math;
 mod notes;
 mod numbering;
 mod package;

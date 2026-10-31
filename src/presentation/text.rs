@@ -73,6 +73,7 @@ pub(super) fn validate_content(content: &[Content]) -> Result<(), String> {
             if !matches!(
                 element.kind,
                 ElementKind::Paragraph
+                    | ElementKind::Math
                     | ElementKind::Heading
                     | ElementKind::Span
                     | ElementKind::Strong

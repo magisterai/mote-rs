@@ -57,6 +57,11 @@ fn normalize(
     }
     if let Some(argument) = arguments.positional.into_iter().next() {
         let (primary, valid, message) = match kind {
+            ElementKind::Math => (
+                "source",
+                matches!(argument.value, Value::String(_) | Value::Number(_)),
+                "math source must be a string or number",
+            ),
             ElementKind::Heading => (
                 "level",
                 matches!(argument.value, Value::Number(_)),
@@ -204,6 +209,13 @@ fn validate_named_argument(
                 "position" | "border" | "margin" | "text" | "shadow" => Some(ArgumentType::Object),
                 "fill" => Some(ArgumentType::Color),
                 "required" | "remove" => Some(ArgumentType::Boolean),
+                _ => None,
+            },
+            Math => match name {
+                "source" => Some(ArgumentType::NumberOrString),
+                "format" => Some(ArgumentType::String),
+                "display" => Some(ArgumentType::Boolean),
+                "size" => Some(ArgumentType::Length),
                 _ => None,
             },
             Chart => match name {
@@ -393,6 +405,8 @@ pub(super) fn normalize_attribute(
 ) -> Result<Value, Diagnostic> {
     use ElementKind::*;
     match kind {
+        Math if name == "size" => normalize_length(value, span, name),
+        Math => Ok(value),
         Chart => super::charts::normalize(name, value, span),
         Slide | Box => super::presentation::normalize(kind, name, value, span),
         Shape | Line => super::drawings::normalize(kind, name, value, span),

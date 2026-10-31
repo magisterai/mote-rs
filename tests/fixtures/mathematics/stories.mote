@@ -1,0 +1,11 @@
+#header[Header $x^2$.]
+#footer[Footer \(y_1\).]
+A note#footnote[Note $a+b$.] and an endnote#endnote[End \(c+d\).].
+#table[
+#row[
+#cell[Inline $x^2$.]
+#cell[#math("x^2+y_1",display=true)]
+]
+]
+After the table.
+#span(size=pt(20),color="#123456")[Inherited $x^2$ and #math("y",size=pt(10)).]

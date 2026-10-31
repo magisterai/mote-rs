@@ -140,6 +140,22 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
     let attributes = &element.attributes;
     let mut allowed = Vec::new();
     match element.kind {
+        ElementKind::Math => {
+            allowed.extend(["source", "format", "display", "size"]);
+            match crate::math::convert(
+                element,
+                crate::math::Options {
+                    presentation: true,
+                    ..Default::default()
+                },
+            ) {
+                Ok(equation) => warnings.extend(equation.warnings),
+                Err(error) => {
+                    warnings.insert(error.to_string());
+                }
+            }
+        }
+
         ElementKind::Slide => allowed.extend([
             "name",
             "layout",
@@ -259,7 +275,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
         }
         _ => {
             allowed.extend_from_slice(RUN);
-            if element.kind.is_block() {
+            if element.is_block() {
                 allowed.extend_from_slice(PARAGRAPH);
             }
             if matches!(
@@ -292,6 +308,9 @@ pub(crate) fn native_text_warnings(content: &[Content]) -> BTreeSet<String> {
             {
                 warnings
                     .insert("native underline styles none and wave use a solid underline".into());
+            }
+            if element.kind == ElementKind::Math {
+                warnings.insert("native slides use italic math source text; mathematical typesetting is deferred".into());
             }
             warnings.extend(native_text_warnings(&element.children));
         }

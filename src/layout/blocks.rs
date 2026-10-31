@@ -172,6 +172,29 @@ pub(super) fn prepare_content(
                 builder.flow_start = kind != "line";
                 builder.blocks.push(Block::Break(kind));
             }
+            ElementKind::Math => {
+                let mut paragraph = element.clone();
+                paragraph.kind = ElementKind::Paragraph;
+                paragraph
+                    .attributes
+                    .entry("alignment".into())
+                    .or_insert(Value::String("center".into()));
+                paragraph.children = vec![Content::Element(Element {
+                    kind: ElementKind::Emphasis,
+                    attributes: Properties::new(),
+                    children: vec![Content::Text(crate::properties::text(
+                        &element.attributes,
+                        "source",
+                    ))],
+                    source_name: element.source_name.clone(),
+                })];
+                builder.paragraph(&paragraph)?;
+                if let Some(Block::Paragraph(paragraph)) = builder.blocks.last_mut() {
+                    paragraph.clear_fill_before = true;
+                    paragraph.clear_fill_after = true;
+                }
+                builder.flow_start = false;
+            }
             _ => {
                 return Err(LayoutError::Unsupported(format!(
                     "native document planning cannot place a standalone {}",

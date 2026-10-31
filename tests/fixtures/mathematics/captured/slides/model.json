@@ -1,0 +1,268 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6
+                  },
+                  "width": {
+                    "text": "9in",
+                    "unit": "in",
+                    "value": 9
+                  },
+                  "x": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  },
+                  "y": {
+                    "text": "0.5in",
+                    "unit": "in",
+                    "value": 0.5
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Inline "
+                    },
+                    {
+                      "kind": "math",
+                      "category": "inline",
+                      "attributes": {
+                        "display": "inline",
+                        "format": "latex",
+                        "source": "x^2 + y_1"
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "math",
+                      "category": "inline",
+                      "attributes": {
+                        "display": "inline",
+                        "format": "latex",
+                        "source": "e^{i\\pi}+1=0"
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "math",
+                  "category": "block",
+                  "attributes": {
+                    "display": "block",
+                    "format": "latex",
+                    "size": {
+                      "text": "20pt",
+                      "unit": "pt",
+                      "value": 20
+                    },
+                    "source": "\\frac{a}{b} + \\sqrt{x} + \\sum_{i=1}^{n}i"
+                  }
+                },
+                {
+                  "kind": "math",
+                  "category": "block",
+                  "attributes": {
+                    "display": "block",
+                    "format": "latex",
+                    "source": "\\overbrace{a+b}^{n} + \\underbrace{x+y}_{k}"
+                  }
+                },
+                {
+                  "kind": "math",
+                  "category": "block",
+                  "attributes": {
+                    "display": "block",
+                    "format": "latex",
+                    "source": "\\begin{pmatrix}a\u0026b\\\\c\u0026d\\end{pmatrix}"
+                  }
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "math",
+                      "category": "inline",
+                      "attributes": {
+                        "display": "inline",
+                        "format": "omml",
+                        "source": "\u003cm:oMath\u003e\u003cm:r\u003e\u003cm:t\u003ez\u003c/m:t\u003e\u003c/m:r\u003e\u003c/m:oMath\u003e"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "6in",
+                "unit": "in",
+                "value": 6
+              },
+              "width": {
+                "text": "9in",
+                "unit": "in",
+                "value": 9
+              },
+              "x": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              },
+              "y": {
+                "text": "0.5in",
+                "unit": "in",
+                "value": 0.5
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Inline "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "source": "x^2 + y_1"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "source": "e^{i\\pi}+1=0"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "math",
+              "category": "block",
+              "attributes": {
+                "display": "block",
+                "format": "latex",
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                },
+                "source": "\\frac{a}{b} + \\sqrt{x} + \\sum_{i=1}^{n}i"
+              }
+            },
+            {
+              "kind": "math",
+              "category": "block",
+              "attributes": {
+                "display": "block",
+                "format": "latex",
+                "source": "\\overbrace{a+b}^{n} + \\underbrace{x+y}_{k}"
+              }
+            },
+            {
+              "kind": "math",
+              "category": "block",
+              "attributes": {
+                "display": "block",
+                "format": "latex",
+                "source": "\\begin{pmatrix}a\u0026b\\\\c\u0026d\\end{pmatrix}"
+              }
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "omml",
+                    "source": "\u003cm:oMath\u003e\u003cm:r\u003e\u003cm:t\u003ez\u003c/m:t\u003e\u003c/m:r\u003e\u003c/m:oMath\u003e"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

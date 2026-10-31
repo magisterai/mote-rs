@@ -1,0 +1,146 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\begin{pmatrix}a\u0026b\\\\c\u0026d\\end{pmatrix}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\begin{bmatrix}1\u00262\\\\3\u00264\\end{bmatrix}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\begin{array}{lr}x\u0026\u0026z\\\\a\u0026b\u0026c\\end{array}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\begin{cases}x\u0026x\u003e0\\\\0\u0026x=0\\end{cases}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\begin{aligned}x\u0026=1\\\\y\u0026=2\\end{aligned}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\begin{gather}x=1\\\\y=2\\end{gather}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\unknown{x} + \\begin{unknown}y\\end{unknown}"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\begin{pmatrix}a\u0026b\\\\c\u0026d\\end{pmatrix}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\begin{bmatrix}1\u00262\\\\3\u00264\\end{bmatrix}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\begin{array}{lr}x\u0026\u0026z\\\\a\u0026b\u0026c\\end{array}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\begin{cases}x\u0026x\u003e0\\\\0\u0026x=0\\end{cases}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\begin{aligned}x\u0026=1\\\\y\u0026=2\\end{aligned}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\begin{gather}x=1\\\\y=2\\end{gather}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\unknown{x} + \\begin{unknown}y\\end{unknown}"
+      }
+    }
+  ]
+}

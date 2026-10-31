@@ -1,0 +1,11 @@
+#document(default_font="Helvetica")
+Inline $x^2 + y_1$ and \( e^{i\pi}+1=0 \). Currency $25 stays text.
+#span(color="#123456",size=pt(20))[Colored #math("a+b",size=pt(13)) equation.]
+\[
+\frac{a+b}{c} + \binom{n}{k} + \sqrt[3]{x} + \sqrt{y}
+\]
+#math("\\sum_{i=1}^{n} i + \\int_0^1 x + \\lim_{x\\to0} x",display=true)
+#math("\\overbrace{a+b}^{n} + \\underbrace{x+y}_{k} + \\hat{x}+\\vec{v}+\\dot{x}+\\ddot{x}+\\tilde{x}+\\bar{x}+\\underline{y}",display="block")
+#math("\\left( a+b \\right) + \\left\\langle x \\right\\rangle",display="display")
+#math("\\text{two words} + \\mathrm{ABC} + \\operatorname{rank} + \\sin x + \\pmod{n}",display=true)
+#math("\\mathbf{Az09} \\mathcal{BEg} \\mathbb{CR} \\mathfrak{HZ} \\mathit{hi} \\mathsf{Az1} \\mathtt{Az2}",display=true)

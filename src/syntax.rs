@@ -8,6 +8,7 @@ mod control;
 mod expressions;
 mod links;
 mod markup;
+mod math;
 mod notes;
 mod scripting;
 mod tables;

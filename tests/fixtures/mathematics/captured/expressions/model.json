@@ -1,0 +1,286 @@
+{
+  "document": {
+    "default_font": "Helvetica"
+  },
+  "defaults": {
+    "default_font": "Helvetica"
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Inline "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "x^2 + y_1"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "e^{i\\pi}+1=0"
+              }
+            },
+            {
+              "kind": "text",
+              "text": ". Currency $25 stays text."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#123456",
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Colored "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "size": {
+                      "text": "13pt",
+                      "unit": "pt",
+                      "value": 13
+                    },
+                    "source": "a+b"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " equation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\frac{a+b}{c} + \\binom{n}{k} + \\sqrt[3]{x} + \\sqrt{y}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\sum_{i=1}^{n} i + \\int_0^1 x + \\lim_{x\\to0} x"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\overbrace{a+b}^{n} + \\underbrace{x+y}_{k} + \\hat{x}+\\vec{v}+\\dot{x}+\\ddot{x}+\\tilde{x}+\\bar{x}+\\underline{y}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\left( a+b \\right) + \\left\\langle x \\right\\rangle"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\text{two words} + \\mathrm{ABC} + \\operatorname{rank} + \\sin x + \\pmod{n}"
+          }
+        },
+        {
+          "kind": "math",
+          "category": "block",
+          "attributes": {
+            "display": "block",
+            "format": "latex",
+            "source": "\\mathbf{Az09} \\mathcal{BEg} \\mathbb{CR} \\mathfrak{HZ} \\mathit{hi} \\mathsf{Az1} \\mathtt{Az2}"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Inline "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "x^2 + y_1"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "e^{i\\pi}+1=0"
+          }
+        },
+        {
+          "kind": "text",
+          "text": ". Currency $25 stays text."
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "color": "#123456",
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Colored "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "size": {
+                  "text": "13pt",
+                  "unit": "pt",
+                  "value": 13
+                },
+                "source": "a+b"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " equation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\frac{a+b}{c} + \\binom{n}{k} + \\sqrt[3]{x} + \\sqrt{y}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\sum_{i=1}^{n} i + \\int_0^1 x + \\lim_{x\\to0} x"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\overbrace{a+b}^{n} + \\underbrace{x+y}_{k} + \\hat{x}+\\vec{v}+\\dot{x}+\\ddot{x}+\\tilde{x}+\\bar{x}+\\underline{y}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\left( a+b \\right) + \\left\\langle x \\right\\rangle"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\text{two words} + \\mathrm{ABC} + \\operatorname{rank} + \\sin x + \\pmod{n}"
+      }
+    },
+    {
+      "kind": "math",
+      "category": "block",
+      "attributes": {
+        "display": "block",
+        "format": "latex",
+        "source": "\\mathbf{Az09} \\mathcal{BEg} \\mathbb{CR} \\mathfrak{HZ} \\mathit{hi} \\mathsf{Az1} \\mathtt{Az2}"
+      }
+    }
+  ]
+}

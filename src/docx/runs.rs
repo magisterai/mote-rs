@@ -75,6 +75,9 @@ pub(super) fn write_formatted(
                     element, formatting, styles, resources,
                 )?);
             }
+            Content::Element(element) if element.kind == ElementKind::Math => {
+                result.push_str(&super::math::write(element, formatting, resources)?);
+            }
             Content::Element(element) if element.kind == ElementKind::Reference => {
                 result.push_str(&super::references::write(
                     element, formatting, styles, resources,

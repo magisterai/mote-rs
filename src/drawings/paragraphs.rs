@@ -59,6 +59,14 @@ fn resolve_runs(
         };
         let mut style = base.clone();
         match element.kind {
+            ElementKind::Math => {
+                let (bold, _) = crate::layout::styles::emphasis(style.measurement.variant);
+                style.measurement.variant = FontVariant::from_emphasis(bold, true);
+                let mut run = TextRun::new(text(&element.attributes, "source"), style);
+                run.math = Some(Box::new(element.clone()));
+                output.push(run);
+                continue;
+            }
             ElementKind::Subscript | ElementKind::Superscript => {
                 let wrapper = Element {
                     source_name: None,
@@ -276,6 +284,19 @@ pub(crate) fn resolve(
                     styles,
                 ));
             }
+            ElementKind::Math => {
+                let mut attributes = attributes.clone();
+                if element.is_block() && text(&attributes, "alignment").is_empty() {
+                    attributes.insert("alignment".into(), Value::String("center".into()));
+                }
+                output.push(paragraph(
+                    std::slice::from_ref(child),
+                    base,
+                    &attributes,
+                    "",
+                    styles,
+                ));
+            }
             ElementKind::Divider => output.push(paragraph(
                 &[Content::Text("_".repeat(24))],
                 base,
@@ -286,7 +307,7 @@ pub(crate) fn resolve(
             ElementKind::List | ElementKind::OrderedList => {
                 output.extend(resolve_list(element, base, defaults, 0, styles))
             }
-            _ if !element.kind.is_block() => output.push(paragraph(
+            _ if !element.is_block() => output.push(paragraph(
                 std::slice::from_ref(child),
                 base,
                 defaults,

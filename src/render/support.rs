@@ -270,6 +270,14 @@ fn content(
             ElementKind::Slide | ElementKind::Box => {
                 warnings.insert(format!("{path} presentation output is not yet supported"));
             }
+            ElementKind::Math => {
+                allowed.extend_from_slice(RUN);
+                allowed.extend_from_slice(PARAGRAPH);
+                allowed.extend(["source", "format", "display"]);
+                warnings.insert(format!(
+                    "{path} uses italic source text; native mathematical typesetting is deferred"
+                ));
+            }
             ElementKind::Shape => {
                 allowed.extend([
                     "position",

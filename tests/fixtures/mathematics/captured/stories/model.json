@@ -1,0 +1,460 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Header "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "x^2"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ],
+      "header_properties": {},
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Footer "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "y_1"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ],
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A note"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Note "
+                    },
+                    {
+                      "kind": "math",
+                      "category": "inline",
+                      "attributes": {
+                        "display": "inline",
+                        "format": "latex",
+                        "source": "a+b"
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and an endnote"
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "End "
+                    },
+                    {
+                      "kind": "math",
+                      "category": "inline",
+                      "attributes": {
+                        "display": "inline",
+                        "format": "latex",
+                        "source": "c+d"
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "category": "block",
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Inline "
+                        },
+                        {
+                          "kind": "math",
+                          "category": "inline",
+                          "attributes": {
+                            "display": "inline",
+                            "format": "latex",
+                            "source": "x^2"
+                          }
+                        },
+                        {
+                          "kind": "text",
+                          "text": "."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "math",
+                      "category": "block",
+                      "attributes": {
+                        "display": "block",
+                        "format": "latex",
+                        "source": "x^2+y_1"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the table."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#123456",
+                "size": {
+                  "text": "20pt",
+                  "unit": "pt",
+                  "value": 20
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Inherited "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "source": "x^2"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "size": {
+                      "text": "10pt",
+                      "unit": "pt",
+                      "value": 10
+                    },
+                    "source": "y"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "A note"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Note "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "source": "a+b"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and an endnote"
+        },
+        {
+          "kind": "endnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "End "
+                },
+                {
+                  "kind": "math",
+                  "category": "inline",
+                  "attributes": {
+                    "display": "inline",
+                    "format": "latex",
+                    "source": "c+d"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "category": "block",
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Inline "
+                    },
+                    {
+                      "kind": "math",
+                      "category": "inline",
+                      "attributes": {
+                        "display": "inline",
+                        "format": "latex",
+                        "source": "x^2"
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "math",
+                  "category": "block",
+                  "attributes": {
+                    "display": "block",
+                    "format": "latex",
+                    "source": "x^2+y_1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After the table."
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "color": "#123456",
+            "size": {
+              "text": "20pt",
+              "unit": "pt",
+              "value": 20
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Inherited "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "x^2"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "size": {
+                  "text": "10pt",
+                  "unit": "pt",
+                  "value": 10
+                },
+                "source": "y"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

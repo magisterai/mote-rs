@@ -1,0 +1,1090 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 0: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\sum"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 1: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\prod"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 2: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\int"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 3: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\lim"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 4: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\lim_{x\\to0}^{n}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 5: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\sum\\limits_{i=1}^n"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 6: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\frac12"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 7: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\frac{a}{b"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 8: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\sqrt[]{}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 9: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\sqrt[a[b]]{x}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 10: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\left. x\\right|"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 11: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\left\\{x\\right\\}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 12: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\left(x"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 13: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\frac{a\u0026b}{c\u003cd}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 14: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\text{a\\{b\\}c}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 15: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\text{line\\nnext}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 16: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\begin{matrix}a\u0026\u0026b\\\\\u0026\\end{matrix}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 17: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\begin{aligned}a\u0026=b\\\\c\u0026=d\\end{aligned}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 18: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\begin{matrix}{a\u0026b}\u0026c\\\\d\u0026e\\end{matrix}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 19: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\underbrace{x}^{a}_{b}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 20: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "x^^2"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 21: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\unknown{x}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 22: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\begin{unknown}a\u0026b\\end{unknown}"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 23: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "x\ty"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Case 24: "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "\\nabla\\infty\\varepsilon\\emptyset"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Currency $25 and $ x"
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "; inline"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "a"
+            },
+            {
+              "kind": "text",
+              "text": "$"
+            },
+            {
+              "kind": "text",
+              "text": "; escaped "
+            },
+            {
+              "kind": "text",
+              "text": "$"
+            },
+            {
+              "kind": "text",
+              "text": "a; delimiters "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "b"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " and unclosed "
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "text",
+              "text": "c."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 0: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\sum"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 1: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\prod"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 2: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\int"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 3: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\lim"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 4: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\lim_{x\\to0}^{n}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 5: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\sum\\limits_{i=1}^n"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 6: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\frac12"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 7: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\frac{a}{b"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 8: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\sqrt[]{}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 9: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\sqrt[a[b]]{x}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 10: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\left. x\\right|"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 11: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\left\\{x\\right\\}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 12: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\left(x"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 13: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\frac{a\u0026b}{c\u003cd}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 14: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\text{a\\{b\\}c}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 15: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\text{line\\nnext}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 16: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\begin{matrix}a\u0026\u0026b\\\\\u0026\\end{matrix}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 17: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\begin{aligned}a\u0026=b\\\\c\u0026=d\\end{aligned}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 18: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\begin{matrix}{a\u0026b}\u0026c\\\\d\u0026e\\end{matrix}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 19: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\underbrace{x}^{a}_{b}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 20: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "x^^2"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 21: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\unknown{x}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 22: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\begin{unknown}a\u0026b\\end{unknown}"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 23: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "x\ty"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Case 24: "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "\\nabla\\infty\\varepsilon\\emptyset"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Currency $25 and $ x"
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "; inline"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "a"
+        },
+        {
+          "kind": "text",
+          "text": "$"
+        },
+        {
+          "kind": "text",
+          "text": "; escaped "
+        },
+        {
+          "kind": "text",
+          "text": "$"
+        },
+        {
+          "kind": "text",
+          "text": "a; delimiters "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "b"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " and unclosed "
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "text",
+          "text": "c."
+        }
+      ]
+    }
+  ]
+}

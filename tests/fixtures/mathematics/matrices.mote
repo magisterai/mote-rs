@@ -1,0 +1,7 @@
+#math("\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}",display=true)
+#math("\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}",display=true)
+#math("\\begin{array}{lr}x&&z\\\\a&b&c\\end{array}",display=true)
+#math("\\begin{cases}x&x>0\\\\0&x=0\\end{cases}",display=true)
+#math("\\begin{aligned}x&=1\\\\y&=2\\end{aligned}",display=true)
+#math("\\begin{gather}x=1\\\\y=2\\end{gather}",display=true)
+#math("\\unknown{x} + \\begin{unknown}y\\end{unknown}",display=true)

@@ -119,6 +119,18 @@ pub(super) fn write_blocks(
                 at_flow_start = false;
                 continue;
             }
+            ElementKind::Math => {
+                body.push_str(&paragraphs::write(
+                    &Default::default(),
+                    std::slice::from_ref(content),
+                    styles,
+                    None,
+                    false,
+                    &mut state.resources,
+                )?);
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Shape => {
                 body.push_str(&super::shapes::write(element, styles, state)?);
                 at_flow_start = false;

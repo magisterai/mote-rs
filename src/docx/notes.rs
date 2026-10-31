@@ -111,9 +111,7 @@ fn flatten_blocks(content: &[Content]) -> Vec<Content> {
     content
         .iter()
         .flat_map(|node| match node {
-            Content::Element(element)
-                if element.kind.is_block() || element.kind.is_table_part() =>
-            {
+            Content::Element(element) if element.is_block() || element.kind.is_table_part() => {
                 flatten_blocks(&element.children)
             }
             _ => vec![node.clone()],

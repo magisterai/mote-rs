@@ -20,7 +20,7 @@ pub(super) fn to_lua(lua: &Lua, value: &Value) -> mlua::Result<LuaValue> {
                 "category",
                 if element.kind.is_table_part() {
                     "table_part"
-                } else if element.kind.is_block() {
+                } else if element.is_block() {
                     "block"
                 } else {
                     "inline"
@@ -109,10 +109,19 @@ fn convert(value: LuaValue, depth: usize) -> mlua::Result<Value> {
                     let kind = ElementKind::from_name(&name).ok_or_else(|| {
                         mlua::Error::RuntimeError(format!("unsupported document element: {name}"))
                     })?;
+                    let attributes = match convert(table.raw_get("attributes")?, depth + 1)? {
+                        Value::Object(fields) => fields,
+                        _ => Properties::new(),
+                    };
                     let category: Option<String> = table.raw_get("category")?;
+                    let block = if kind == ElementKind::Math {
+                        crate::properties::text(&attributes, "display") == "block"
+                    } else {
+                        kind.is_block()
+                    };
                     let expected = if kind.is_table_part() {
                         "table_part"
-                    } else if kind.is_block() {
+                    } else if block {
                         "block"
                     } else {
                         "inline"
@@ -125,10 +134,6 @@ fn convert(value: LuaValue, depth: usize) -> mlua::Result<Value> {
                             "invalid category for {name}"
                         )));
                     }
-                    let attributes = match convert(table.raw_get("attributes")?, depth + 1)? {
-                        Value::Object(fields) => fields,
-                        _ => Properties::new(),
-                    };
                     let children = into_content(convert(table.raw_get("children")?, depth + 1)?);
                     return Ok(Value::Element(Box::new(Element {
                         source_name: None,

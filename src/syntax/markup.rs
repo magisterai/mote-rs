@@ -150,6 +150,12 @@ impl Parser<'_> {
                     self.position = start;
                 }
             }
+            if matches!(character, '$' | '\\')
+                && let Some(node) = self.parse_math()
+            {
+                nodes.push(node);
+                continue;
+            }
             if self.starts_with("![")
                 && let Some(node) = self.parse_markdown_image()
             {
@@ -302,7 +308,7 @@ impl Parser<'_> {
                         nodes.push(node);
                     } else {
                         self.advance_character();
-                        push_text(&mut nodes, character, self.span(start));
+                        push_text(&mut nodes, character, self.span(start), self.source);
                     }
                 }
                 '<' => {
@@ -315,9 +321,6 @@ impl Parser<'_> {
                 '\\' => {
                     self.advance_character();
                     match self.peek_character() {
-                        Some('[' | '(') => {
-                            return Err(self.error("mathematical notation is not supported yet"));
-                        }
                         Some('\r' | '\n') => {
                             self.consume_line_ending();
                             nodes.push(Node {
@@ -332,7 +335,7 @@ impl Parser<'_> {
                                 span: self.span(start),
                             });
                         }
-                        None => push_text(&mut nodes, '\\', self.span(start)),
+                        None => push_text(&mut nodes, '\\', self.span(start), self.source),
                     }
                 }
                 ']' if matches!(boundary, MarkupBoundary::Delimited(_)) => {
@@ -347,9 +350,16 @@ impl Parser<'_> {
                         span: self.span(start),
                     });
                 }
+                '$' if super::math::dollar_can_open(self.source, self.position) => {
+                    self.advance_character();
+                    nodes.push(Node {
+                        kind: NodeKind::Text("$".into()),
+                        span: self.span(start),
+                    });
+                }
                 _ => {
                     self.advance_character();
-                    push_text(&mut nodes, character, self.span(start));
+                    push_text(&mut nodes, character, self.span(start), self.source);
                 }
             }
         }
@@ -551,13 +561,14 @@ impl Parser<'_> {
     }
 }
 
-fn push_text(nodes: &mut Vec<Node>, character: char, span: Span) {
+fn push_text(nodes: &mut Vec<Node>, character: char, span: Span, source: &str) {
     if let Some(Node {
         kind: NodeKind::Text(text),
         span: previous,
     }) = nodes.last_mut()
         && text != "<"
         && text != "]"
+        && (text != "$" || !super::math::dollar_can_open(source, previous.start))
         && previous.end == span.start
         && previous.end - previous.start == text.len()
     {

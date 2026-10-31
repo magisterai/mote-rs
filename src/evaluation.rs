@@ -540,7 +540,7 @@ fn append_evaluated_content(
     result: &mut Vec<Content>,
     bindings: &bindings::Bindings,
 ) -> Result<(), Diagnostic> {
-    if matches!(&content, Content::Element(element) if element.kind.is_block() || element.kind.is_table_part())
+    if matches!(&content, Content::Element(element) if element.is_block() || element.kind.is_table_part())
     {
         if mode == ContentMode::Inline {
             return Err(Diagnostic::new(

@@ -113,7 +113,7 @@ impl Catalog {
             if element
                 .children
                 .iter()
-                .any(|child| matches!(child, Content::Element(element) if element.kind.is_block()))
+                .any(|child| matches!(child, Content::Element(element) if element.is_block()))
             {
                 self.scan_flow(&element.children);
             } else {

@@ -136,6 +136,21 @@ fn collect(
                     runs.push(run);
                     continue;
                 }
+                if element.kind == ElementKind::Math {
+                    let wrapper = crate::model::Element {
+                        kind: ElementKind::Span,
+                        ..element.clone()
+                    };
+                    let mut style = styles.inline(&wrapper, inherited);
+                    let (bold, _) = super::styles::emphasis(style.measurement.variant);
+                    style.measurement.variant =
+                        crate::measurement::FontVariant::from_emphasis(bold, true);
+                    runs.push(TextRun::new(
+                        crate::properties::text(&element.attributes, "source"),
+                        style,
+                    ));
+                    continue;
+                }
                 if element.kind == ElementKind::Image {
                     let label = ["alt", "src"]
                         .iter()

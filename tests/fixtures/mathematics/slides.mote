@@ -1,0 +1,10 @@
+#presentation(size="standard")
+#slide[
+#box(position={x=inch(0.5),y=inch(0.5),width=inch(9),height=inch(6)})[
+Inline $x^2 + y_1$ and \(e^{i\pi}+1=0\).
+#math("\\frac{a}{b} + \\sqrt{x} + \\sum_{i=1}^{n}i",display=true,size=pt(20))
+#math("\\overbrace{a+b}^{n} + \\underbrace{x+y}_{k}",display=true)
+#math("\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}",display=true)
+#math("<m:oMath><m:r><m:t>z</m:t></m:r></m:oMath>",format="omml")
+]
+]

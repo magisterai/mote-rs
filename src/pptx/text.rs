@@ -49,6 +49,22 @@ pub(super) fn write(
         let mut link_ids = BTreeMap::new();
         let mut at_start = true;
         for (index, run) in paragraph.runs.iter().enumerate() {
+            if let Some(element) = &run.math {
+                let equation = crate::math::convert(
+                    element,
+                    crate::math::Options {
+                        presentation: true,
+                        ..Default::default()
+                    },
+                )?;
+                if equation.xml.is_empty() {
+                    output.push_str(&run_xml(document, run, None)?);
+                } else {
+                    output.push_str(&equation.xml);
+                }
+                at_start = false;
+                continue;
+            }
             if run.text == "\n" && !run.preserve_space {
                 output.push_str("<a:br/>");
                 at_start = true;

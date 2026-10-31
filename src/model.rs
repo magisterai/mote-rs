@@ -249,6 +249,7 @@ pub enum ElementKind {
     Footnote,
     Endnote,
     PageNumber,
+    Math,
     Bookmark,
     Label,
     Reference,
@@ -296,6 +297,7 @@ impl ElementKind {
             Self::Footnote,
             Self::Endnote,
             Self::PageNumber,
+            Self::Math,
             Self::Bookmark,
             Self::Label,
             Self::Reference,
@@ -350,6 +352,7 @@ impl ElementKind {
             Self::Footnote => "footnote",
             Self::Endnote => "endnote",
             Self::PageNumber => "page_number",
+            Self::Math => "math",
             Self::LineBreak => "line_break",
             Self::Tab => "tab",
             Self::Break => "break",
@@ -387,6 +390,7 @@ impl ElementKind {
                 | Self::Footnote
                 | Self::Endnote
                 | Self::PageNumber
+                | Self::Math
                 | Self::LineBreak
                 | Self::Tab
         )
@@ -398,7 +402,7 @@ pub(crate) fn wrap_block_content(content: &[Content]) -> Vec<Content> {
     let mut result = Vec::new();
     let mut inline = Vec::new();
     for node in content {
-        if matches!(node, Content::Element(element) if element.kind.is_block()) {
+        if matches!(node, Content::Element(element) if element.is_block()) {
             if !inline.is_empty() {
                 result.push(Content::Element(Element {
                     source_name: None,
@@ -421,4 +425,15 @@ pub(crate) fn wrap_block_content(content: &[Content]) -> Vec<Content> {
         }));
     }
     result
+}
+
+impl Element {
+    /// Some content kinds select their flow category through normalized attributes.
+    pub fn is_block(&self) -> bool {
+        if self.kind == ElementKind::Math {
+            crate::properties::text(&self.attributes, "display") == "block"
+        } else {
+            self.kind.is_block()
+        }
+    }
 }

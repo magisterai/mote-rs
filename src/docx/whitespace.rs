@@ -1,5 +1,5 @@
 //! Trim ordinary paragraph line edges without changing explicitly preserved text.
-use crate::model::{Content, ElementKind, Value};
+use crate::model::{Content, ElementKind};
 
 pub(super) fn trim_line_edges(children: &[Content]) -> Vec<Content> {
     let mut result = children.to_vec();
@@ -42,27 +42,22 @@ fn trim_direction(children: &mut Vec<Content>, leading: bool, mut at_edge: bool)
                 }
                 *text = lines.join("\n");
             }
-            Content::Element(element)
-                if matches!(
-                    element.kind,
-                    ElementKind::PageNumber | ElementKind::Reference
-                ) =>
-            {
-                at_edge = false
-            }
             Content::Element(element) if element.kind == ElementKind::LineBreak => at_edge = true,
             Content::Element(element) if element.kind == ElementKind::Tab => {
                 if at_edge {
                     children[index] = Content::Text(String::new());
                 }
             }
+            Content::Element(element) if element.kind == ElementKind::Label => {}
             Content::Element(element) => {
-                if element.attributes.get("preserve_space") == Some(&Value::Boolean(true)) {
+                if crate::properties::text(&element.attributes, "preserve_space").trim() == "true" {
                     if let Some(boundary) = preserved_boundary(&element.children, leading) {
                         at_edge = boundary;
                     }
-                } else {
+                } else if whitespace_container(element.kind) {
                     at_edge = trim_direction(&mut element.children, leading, at_edge);
+                } else {
+                    at_edge = false;
                 }
             }
         }
@@ -90,13 +85,35 @@ fn preserved_boundary(children: &[Content], from_end: bool) -> Option<bool> {
                 return Some(true);
             }
             Content::Element(element) if element.kind == ElementKind::Tab => return Some(false),
-            Content::Element(element) => {
+            Content::Element(element) if element.kind == ElementKind::Label => {}
+            Content::Element(element) if whitespace_container(element.kind) => {
                 if let Some(boundary) = preserved_boundary(&element.children, from_end) {
                     return Some(boundary);
                 }
             }
+            Content::Element(_) => return Some(false),
             _ => {}
         }
     }
     None
+}
+
+fn whitespace_container(kind: ElementKind) -> bool {
+    matches!(
+        kind,
+        ElementKind::Bookmark
+            | ElementKind::Code
+            | ElementKind::Emphasis
+            | ElementKind::Highlight
+            | ElementKind::Link
+            | ElementKind::Paragraph
+            | ElementKind::Raw
+            | ElementKind::SmallCaps
+            | ElementKind::Span
+            | ElementKind::Strike
+            | ElementKind::Strong
+            | ElementKind::Subscript
+            | ElementKind::Superscript
+            | ElementKind::Underline
+    )
 }

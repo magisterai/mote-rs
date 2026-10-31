@@ -187,7 +187,7 @@ fn stable_content_inline(content: &[Content]) -> bool {
             contains_dynamic(&element.children)
         }
         Content::Element(element) => {
-            element.kind.is_block()
+            element.is_block()
                 || element.kind.is_table_part()
                 || matches!(
                     element.kind,

@@ -1,0 +1,7 @@
+Raw #math("<m:oMath><m:r><m:t>x</m:t></m:r></m:oMath>",format="omml").
+#math("<m:oMathPara><m:oMath><m:r><m:t>y</m:t></m:r></m:oMath></m:oMathPara>",format="omml",display=true)
+Invalid #math("<w:p/>",format="omml") remains visible.
+#function equation()
+return document.math({source="z^2",display=true,size=pt(15)})
+end
+#equation()
