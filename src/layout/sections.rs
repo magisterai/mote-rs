@@ -85,12 +85,11 @@ pub(super) fn plan(
     };
     for pass in 0..6 {
         let mut result = balanced_pass(document, &sections, measurer, images, &mut inputs)?;
-        if inputs.fields == result.fields
+        let stabilized = inputs.fields == result.fields
             && inputs.reference_pages == result.reference_pages
-            && inputs.total == result.plan.pages.len().max(1)
-            || pass == 5
-        {
-            if pass == 5 {
+            && inputs.total == result.plan.pages.len().max(1);
+        if stabilized || pass == 5 {
+            if !stabilized {
                 result
                     .plan
                     .warnings
