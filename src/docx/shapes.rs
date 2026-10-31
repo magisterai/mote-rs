@@ -84,7 +84,7 @@ fn text_box(
     );
     let inline = children
         .iter()
-        .all(|child| !matches!(child,Content::Element(element) if element.kind.is_block()));
+        .all(|child| !matches!(child,Content::Element(element) if element.is_block()));
     let content = if inline {
         paragraphs::write(
             &paragraph,

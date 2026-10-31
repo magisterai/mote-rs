@@ -212,7 +212,7 @@ fn write_cell_content(
 ) -> Result<String, Error> {
     if children
         .iter()
-        .any(|child| matches!(child,Content::Element(element) if element.kind.is_block()))
+        .any(|child| matches!(child,Content::Element(element) if element.is_block()))
     {
         let mut children = children.to_vec();
         for child in &mut children {

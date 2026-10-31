@@ -136,6 +136,20 @@ fn collect(
                     runs.push(run);
                     continue;
                 }
+                if element.kind == ElementKind::Checkbox {
+                    let mut style = inherited.clone();
+                    styles.apply_font(&mut style, "Helvetica");
+                    style.small_caps = false;
+                    runs.push(TextRun::new(
+                        if crate::properties::boolean(&element.attributes, "checked") {
+                            "[x]"
+                        } else {
+                            "[ ]"
+                        },
+                        style,
+                    ));
+                    continue;
+                }
                 if element.kind == ElementKind::Math {
                     let wrapper = crate::model::Element {
                         kind: ElementKind::Span,

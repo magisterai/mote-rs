@@ -105,6 +105,7 @@ impl Runtime {
             .chain(
                 [
                     "document",
+                    "metadata",
                     "presentation",
                     "layout",
                     "font",

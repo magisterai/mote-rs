@@ -77,7 +77,7 @@ fn normalize(
                 matches!(argument.value, Value::String(_)),
                 "image source must be a string",
             ),
-            ElementKind::Bookmark | ElementKind::Label => (
+            ElementKind::Field | ElementKind::Bookmark | ElementKind::Label => (
                 "name",
                 matches!(argument.value, Value::String(_)),
                 "positional name or target must be a string",
@@ -123,6 +123,7 @@ fn normalize(
 #[derive(Clone, Copy)]
 enum ArgumentType {
     String,
+    Date,
     NumberOrString,
     Length,
     Color,
@@ -152,6 +153,7 @@ impl ArgumentType {
                 Value::Boolean(_) | Value::String(_) | Value::Color(_) | Value::Object(_)
             ),
             Self::StringOrObject => matches!(value, Value::String(_) | Value::Object(_)),
+            Self::Date => matches!(value, Value::String(_) | Value::Date(_)),
             Self::String => matches!(value, Value::String(_)),
             Self::NumberOrString => matches!(value, Value::Number(_) | Value::String(_)),
             Self::Length => matches!(
@@ -173,6 +175,7 @@ impl ArgumentType {
             Self::BooleanOrColorOrObject => "boolean, color or object",
             Self::StringOrObject => "string or object",
             Self::String => "string",
+            Self::Date => "date or string",
             Self::NumberOrString => "number or string",
             Self::Length => "length",
             Self::Color => "color",
@@ -209,6 +212,22 @@ fn validate_named_argument(
                 "position" | "border" | "margin" | "text" | "shadow" => Some(ArgumentType::Object),
                 "fill" => Some(ArgumentType::Color),
                 "required" | "remove" => Some(ArgumentType::Boolean),
+                _ => None,
+            },
+            Checkbox => match name {
+                "checked" => Some(ArgumentType::Boolean),
+                "kind" => Some(ArgumentType::String),
+                "name" | "title" => Some(ArgumentType::NumberOrString),
+                _ => None,
+            },
+            Field => match name {
+                "name" | "code" => Some(ArgumentType::String),
+                _ => None,
+            },
+            Comment => match name {
+                "id" => Some(ArgumentType::NumberOrString),
+                "author" | "initials" => Some(ArgumentType::String),
+                "date" => Some(ArgumentType::Date),
                 _ => None,
             },
             Math => match name {
@@ -405,6 +424,14 @@ pub(super) fn normalize_attribute(
 ) -> Result<Value, Diagnostic> {
     use ElementKind::*;
     match kind {
+        Checkbox => match name {
+            "checked" => normalize_boolean(value, span, name),
+            "name" | "title" => Ok(Value::String(value.to_text())),
+            "kind" => normalize_enum(value, span, name, &["content_control", "legacy_form_field"]),
+            _ => Ok(value),
+        },
+        Comment if name == "date" => super::helpers::date(value, span),
+        Comment | Field => Ok(value),
         Math if name == "size" => normalize_length(value, span, name),
         Math => Ok(value),
         Chart => super::charts::normalize(name, value, span),

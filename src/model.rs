@@ -83,6 +83,8 @@ impl Unit {
 pub struct Document {
     /// Authored document arguments, with later arguments replacing earlier ones.
     pub properties: Properties,
+    /// Authored descriptive values, kept separate from layout configuration.
+    pub metadata: Properties,
     /// Normalized geometry, merged by field across document declarations.
     pub page: Properties,
     pub margin: Properties,
@@ -250,6 +252,9 @@ pub enum ElementKind {
     Endnote,
     PageNumber,
     Math,
+    Checkbox,
+    Field,
+    Comment,
     Bookmark,
     Label,
     Reference,
@@ -298,6 +303,9 @@ impl ElementKind {
             Self::Endnote,
             Self::PageNumber,
             Self::Math,
+            Self::Checkbox,
+            Self::Field,
+            Self::Comment,
             Self::Bookmark,
             Self::Label,
             Self::Reference,
@@ -353,6 +361,9 @@ impl ElementKind {
             Self::Endnote => "endnote",
             Self::PageNumber => "page_number",
             Self::Math => "math",
+            Self::Checkbox => "checkbox",
+            Self::Field => "field",
+            Self::Comment => "comment",
             Self::LineBreak => "line_break",
             Self::Tab => "tab",
             Self::Break => "break",
@@ -391,6 +402,9 @@ impl ElementKind {
                 | Self::Endnote
                 | Self::PageNumber
                 | Self::Math
+                | Self::Checkbox
+                | Self::Field
+                | Self::Comment
                 | Self::LineBreak
                 | Self::Tab
         )

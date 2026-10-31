@@ -1,0 +1,366 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "table",
+          "category": "block",
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Checked "
+                        },
+                        {
+                          "kind": "checkbox",
+                          "category": "inline",
+                          "attributes": {
+                            "checked": true
+                          }
+                        },
+                        {
+                          "kind": "text",
+                          "text": " "
+                        },
+                        {
+                          "kind": "comment",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "review"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "text",
+                          "text": "."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "field",
+                          "category": "inline",
+                          "attributes": {
+                            "name": "DATE"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "comment",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text with a note"
+                },
+                {
+                  "kind": "footnote",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Footnote inside comment"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Endnote wrapper"
+                },
+                {
+                  "kind": "endnote",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Endnote inside comment"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "font": "Courier New",
+                "small_caps": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Checkbox "
+                },
+                {
+                  "kind": "checkbox",
+                  "category": "inline",
+                  "attributes": {
+                    "checked": true
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "table",
+      "category": "block",
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Checked "
+                    },
+                    {
+                      "kind": "checkbox",
+                      "category": "inline",
+                      "attributes": {
+                        "checked": true
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "comment",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "review"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "field",
+                      "category": "inline",
+                      "attributes": {
+                        "name": "DATE"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "comment",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Text with a note"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Footnote inside comment"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "comment",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Endnote wrapper"
+            },
+            {
+              "kind": "endnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Endnote inside comment"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "font": "Courier New",
+            "small_caps": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Checkbox "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline",
+              "attributes": {
+                "checked": true
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

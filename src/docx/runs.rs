@@ -75,6 +75,27 @@ pub(super) fn write_formatted(
                     element, formatting, styles, resources,
                 )?);
             }
+            Content::Element(element) if element.kind == ElementKind::Checkbox => {
+                result.push_str(&resources.controls.write_checkbox(
+                    &element.attributes,
+                    crate::properties::boolean(&element.attributes, "checked"),
+                    styles,
+                    formatting,
+                    &mut resources.warnings,
+                )?);
+            }
+            Content::Element(element) if element.kind == ElementKind::Field => {
+                result.push_str(&super::controls::write_field(
+                    &element.attributes,
+                    formatting,
+                    styles,
+                )?);
+            }
+            Content::Element(element) if element.kind == ElementKind::Comment => {
+                result.push_str(&super::comments::write_reference(
+                    element, formatting, styles, resources,
+                )?);
+            }
             Content::Element(element) if element.kind == ElementKind::Math => {
                 result.push_str(&super::math::write(element, formatting, resources)?);
             }

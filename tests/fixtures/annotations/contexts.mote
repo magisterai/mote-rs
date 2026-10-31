@@ -1,0 +1,9 @@
+#table[
+#row[
+#cell[Checked #checkbox(checked=true) #comment[review].]
+#cell[#field("DATE")]
+]
+]
+#comment[Text with a note#footnote[Footnote inside comment].]
+#comment[Endnote wrapper#endnote[Endnote inside comment].]
+#paragraph[#span(font="Courier New",small_caps=true)[Checkbox #checkbox(checked=true).]]

@@ -1,0 +1,404 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "checkbox",
+              "category": "inline",
+              "attributes": {
+                "checked": true
+              }
+            },
+            {
+              "kind": "text",
+              "text": " after"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "field",
+              "category": "inline",
+              "attributes": {
+                "name": "PAGE"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "field",
+              "category": "inline",
+              "attributes": {
+                "name": "DATE"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " after"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": " body "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "comment",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": " body "
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " after"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "comment",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " after"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "comment",
+              "category": "inline"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Preserved "
+            },
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "checkbox",
+                  "category": "inline"
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " after"
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "x"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " before and after "
+            },
+            {
+              "kind": "math",
+              "category": "inline",
+              "attributes": {
+                "display": "inline",
+                "format": "latex",
+                "source": "y"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before "
+        },
+        {
+          "kind": "checkbox",
+          "category": "inline"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "checkbox",
+          "category": "inline",
+          "attributes": {
+            "checked": true
+          }
+        },
+        {
+          "kind": "text",
+          "text": " after"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before "
+        },
+        {
+          "kind": "field",
+          "category": "inline",
+          "attributes": {
+            "name": "PAGE"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "field",
+          "category": "inline",
+          "attributes": {
+            "name": "DATE"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " after"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before "
+        },
+        {
+          "kind": "comment",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": " body "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "comment",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": " body "
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " after"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "comment",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": " after"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before "
+        },
+        {
+          "kind": "comment",
+          "category": "inline"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Preserved "
+        },
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "checkbox",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " after"
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "x"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " before and after "
+        },
+        {
+          "kind": "math",
+          "category": "inline",
+          "attributes": {
+            "display": "inline",
+            "format": "latex",
+            "source": "y"
+          }
+        }
+      ]
+    }
+  ]
+}

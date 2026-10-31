@@ -311,7 +311,7 @@ impl BlockBuilder<'_, '_, '_> {
             paragraph.style.spacing_before = 0.0;
             paragraph.style.spacing_after = 0.0;
         }
-        if paragraph.is_empty {
+        if paragraph.is_empty && !self.in_cell {
             if paragraph.style.line_height <= 0.0 {
                 return Err(LayoutError::InvalidGeometry(
                     "blank paragraph line height must be positive",

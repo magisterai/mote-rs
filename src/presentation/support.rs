@@ -140,6 +140,12 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
     let attributes = &element.attributes;
     let mut allowed = Vec::new();
     match element.kind {
+        ElementKind::Checkbox | ElementKind::Field | ElementKind::Comment => {
+            allowed.extend([
+                "checked", "kind", "name", "title", "code", "id", "author", "initials", "date",
+            ]);
+            warnings.insert(format!("{path} retains child text without an editable presentation control, field or comment"));
+        }
         ElementKind::Math => {
             allowed.extend(["source", "format", "display", "size"]);
             match crate::math::convert(

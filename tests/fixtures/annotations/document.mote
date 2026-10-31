@@ -1,0 +1,8 @@
+#metadata(title="Review & approval",author="Ada",subject="Retained",keywords={"one","two"},company="Example")
+#metadata(title="Reviewed document")
+#paragraph[Approved #checkbox(checked=true,name="approved",title="Approval") and pending #checkbox().]
+#span(color="#123456",size=pt(14))[Legacy #checkbox(kind="legacy_form_field",checked=false,name=42,title="Retained title").]
+Fields: #field("page") and #field(name="Today",code="DATE \\@ yyyy-MM-dd").
+A #comment(author="Ada",initials="AL",date=date("2024-02-29"),id="authored")[reviewed #strong[phrase]] remains visible.
+A #comment[default author] and #comment()[].
+#comment(author="B")[Second annotation.]

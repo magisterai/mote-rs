@@ -4,6 +4,8 @@ use super::{Error, package, xml};
 pub(super) struct Resources {
     relationships: Vec<Relationship>,
     pub notes: super::notes::NoteCollection,
+    pub controls: super::controls::Controls,
+    pub comments: Vec<crate::model::Element>,
     pub anchors: crate::references::Catalog,
     pub next_bookmark: usize,
     pub caption_sequences: std::collections::BTreeMap<String, u64>,
@@ -27,6 +29,8 @@ impl Default for Resources {
         Self {
             relationships: Vec::new(),
             notes: Default::default(),
+            controls: Default::default(),
+            comments: Vec::new(),
             anchors: Default::default(),
             next_bookmark: 0,
             caption_sequences: Default::default(),

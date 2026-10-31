@@ -1,0 +1,10 @@
+#header[Header #comment(author="A")[comment] #field("page").]
+#footer[Footer #checkbox(checked=true).]
+#paragraph[Body #comment[Outer #comment[inner] and #link("https://example.com")[link]].]
+#paragraph[Note#footnote[Text #comment[inside a note].].]
+#comment(author="Blocks")[#paragraph[First block.]#paragraph[Second block.]]
+#function additional()
+document.metadata({category="Review",title="Stories"})
+return {document.checkbox({checked=true}), document.field({name="PAGE"}), document.comment({author="Lua",date=date("2024-02-29")},"Lua comment")}
+end
+#additional()

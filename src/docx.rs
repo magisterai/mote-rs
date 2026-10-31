@@ -5,6 +5,7 @@ mod block_quotes;
 mod builtin_styles;
 mod captions;
 mod charts;
+mod comments;
 mod configuration;
 mod controls;
 mod document;
@@ -103,7 +104,9 @@ pub fn emit_with_assets(
     state.resources.images = crate::media::ImageCatalog::load(document, resolver, source_name);
     let body = document::write_document(document, &styles, &mut state)?;
     notes::write_parts(&styles, &mut state)?;
+    comments::write_part(&styles, &mut state)?;
     let bytes = package::write(
+        &document.metadata,
         &body,
         &styles_xml,
         &font_table,

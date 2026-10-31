@@ -79,11 +79,12 @@ pub(super) fn write(
         }
         output.push_str("</w:pPr>");
         if let Some(checked) = checked {
-            output.push_str(&state.controls.write_checkbox(
+            output.push_str(&state.resources.controls.write_checkbox(
                 &checkbox,
                 checked,
                 styles,
                 &state.resources.active_text,
+                &mut state.resources.warnings,
             )?);
             output.push_str(&runs::write_text(
                 " ",
@@ -116,7 +117,7 @@ fn split_item_children(children: &[Content]) -> Result<(Vec<Content>, Vec<&Eleme
             _ => {
                 inline.append(&mut pending_whitespace);
                 if let Content::Element(element) = child
-                    && element.kind.is_block()
+                    && element.is_block()
                     && element.kind != ElementKind::Image
                 {
                     if element.kind != ElementKind::Paragraph {
@@ -217,11 +218,12 @@ fn write_structured_item(
                 &mut state.resources,
             )?;
             if first && let Some(checked) = checked {
-                let checkbox = state.controls.write_checkbox(
+                let checkbox = state.resources.controls.write_checkbox(
                     checkbox,
                     checked,
                     styles,
                     &state.resources.active_text,
+                    &mut state.resources.warnings,
                 )? + &runs::write_text(" ", &state.resources.active_text, styles)?;
                 let index = paragraph.find("</w:pPr>").map_or(5, |index| index + 8);
                 paragraph.insert_str(index, &checkbox);

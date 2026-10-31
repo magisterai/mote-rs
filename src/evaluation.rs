@@ -265,7 +265,7 @@ fn evaluate_nodes(
             continue;
         }
         if let NodeKind::Call(call) = &node.kind
-            && call.name == "document"
+            && matches!(call.name.as_str(), "document" | "metadata")
         {
             configuration::evaluate(call, node.span, document)?;
             skip_declaration_trivia = true;

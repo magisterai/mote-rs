@@ -22,6 +22,10 @@ pub(super) fn evaluate(
         ));
     }
     let arguments = evaluate_named_arguments(&call.arguments, document)?;
+    if call.name == "metadata" {
+        apply_metadata(arguments, document);
+        return Ok(());
+    }
     apply(arguments, document)
 }
 
@@ -146,4 +150,15 @@ pub(super) fn normalize_geometry(
             Ok((name, value))
         })
         .collect()
+}
+
+pub(super) fn apply_metadata(
+    arguments: std::collections::BTreeMap<String, super::expressions::EvaluatedArgument>,
+    document: &mut super::EvaluationState<'_>,
+) {
+    document.metadata.extend(
+        arguments
+            .into_iter()
+            .map(|(name, argument)| (name, argument.value)),
+    );
 }

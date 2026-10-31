@@ -42,6 +42,9 @@ pub(super) const ELEMENT_NAMES: &[&str] = &[
     "endnote",
     "page_number",
     "math",
+    "checkbox",
+    "field",
+    "comment",
     "bookmark",
     "label",
     "ref",
@@ -71,6 +74,7 @@ impl Signature {
     }
     pub fn primary(self) -> Option<&'static str> {
         match self.kind {
+            ElementKind::Field => Some("name"),
             ElementKind::Math => Some("source"),
             ElementKind::Heading => Some("level"),
             ElementKind::Link => Some("url"),
@@ -87,6 +91,8 @@ impl Signature {
             ElementKind::Image
                 | ElementKind::Chart
                 | ElementKind::Math
+                | ElementKind::Checkbox
+                | ElementKind::Field
                 | ElementKind::Line
                 | ElementKind::Label
                 | ElementKind::Reference
@@ -106,6 +112,7 @@ impl Signature {
     }
     pub fn body_mode(self) -> ContentMode {
         match self.kind {
+            ElementKind::Comment => ContentMode::Any,
             ElementKind::List | ElementKind::OrderedList => ContentMode::ListBody,
             ElementKind::Table | ElementKind::Row => ContentMode::Structural,
             ElementKind::Shape
@@ -231,6 +238,12 @@ impl Signature {
                 span,
                 "chart requires a named data argument",
             ));
+        }
+        if self.kind == ElementKind::Field
+            && arguments.positional.is_empty()
+            && !arguments.named.contains_key("name")
+        {
+            return Err(Diagnostic::new(span, "field requires a name"));
         }
         let mut attributes = attributes::normalize_arguments(self.kind, arguments, defaults)?;
         if self.kind == ElementKind::Math {

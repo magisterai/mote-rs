@@ -1,0 +1,400 @@
+{
+  "metadata": {
+    "author": "Ada",
+    "company": "Example",
+    "keywords": [
+      "one",
+      "two"
+    ],
+    "subject": "Retained",
+    "title": "Reviewed document"
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Approved "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline",
+              "attributes": {
+                "checked": true,
+                "name": "approved",
+                "title": "Approval"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " and pending "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "color": "#123456",
+                "size": {
+                  "text": "14pt",
+                  "unit": "pt",
+                  "value": 14
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Legacy "
+                },
+                {
+                  "kind": "checkbox",
+                  "category": "inline",
+                  "attributes": {
+                    "checked": false,
+                    "kind": "legacy_form_field",
+                    "name": "42",
+                    "title": "Retained title"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "Fields: "
+            },
+            {
+              "kind": "field",
+              "category": "inline",
+              "attributes": {
+                "name": "page"
+              }
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "field",
+              "category": "inline",
+              "attributes": {
+                "code": "DATE \\@ yyyy-MM-dd",
+                "name": "Today"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "A "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "attributes": {
+                "author": "Ada",
+                "date": "2024-02-29",
+                "id": "authored",
+                "initials": "AL"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "reviewed "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "phrase"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " remains visible."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "A "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "default author"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "comment",
+              "category": "inline"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "attributes": {
+                "author": "B"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second annotation."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Approved "
+        },
+        {
+          "kind": "checkbox",
+          "category": "inline",
+          "attributes": {
+            "checked": true,
+            "name": "approved",
+            "title": "Approval"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " and pending "
+        },
+        {
+          "kind": "checkbox",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "color": "#123456",
+            "size": {
+              "text": "14pt",
+              "unit": "pt",
+              "value": 14
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Legacy "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline",
+              "attributes": {
+                "checked": false,
+                "kind": "legacy_form_field",
+                "name": "42",
+                "title": "Retained title"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "Fields: "
+        },
+        {
+          "kind": "field",
+          "category": "inline",
+          "attributes": {
+            "name": "page"
+          }
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "field",
+          "category": "inline",
+          "attributes": {
+            "code": "DATE \\@ yyyy-MM-dd",
+            "name": "Today"
+          }
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "A "
+        },
+        {
+          "kind": "comment",
+          "category": "inline",
+          "attributes": {
+            "author": "Ada",
+            "date": "2024-02-29",
+            "id": "authored",
+            "initials": "AL"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "reviewed "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "phrase"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " remains visible."
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "text",
+          "text": "A "
+        },
+        {
+          "kind": "comment",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "default author"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " and "
+        },
+        {
+          "kind": "comment",
+          "category": "inline"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "comment",
+          "category": "inline",
+          "attributes": {
+            "author": "B"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Second annotation."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

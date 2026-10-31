@@ -28,6 +28,9 @@ pub fn to_json(document: &Document) -> Result<String, serde_json::Error> {
     ] {
         copy_nonempty_field(&mut output["margin"], &document.margin, name)?;
     }
+    if !document.metadata.is_empty() {
+        output["metadata"] = properties_as_json(&document.metadata)?;
+    }
     if !document.properties.is_empty() {
         output["document"] = properties_as_json(&document.properties)?;
     }

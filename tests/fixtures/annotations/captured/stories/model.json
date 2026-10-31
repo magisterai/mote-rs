@@ -1,0 +1,435 @@
+{
+  "metadata": {
+    "category": "Review",
+    "title": "Stories"
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Header "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "attributes": {
+                "author": "A"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "comment"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "field",
+              "category": "inline",
+              "attributes": {
+                "name": "page"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ],
+      "header_properties": {},
+      "footer": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Footer "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline",
+              "attributes": {
+                "checked": true
+              }
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        }
+      ],
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Body "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outer "
+                },
+                {
+                  "kind": "comment",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "inner"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "link",
+                  "category": "inline",
+                  "attributes": {
+                    "url": "https://example.com"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "link"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Note"
+            },
+            {
+              "kind": "footnote",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Text "
+                    },
+                    {
+                      "kind": "comment",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "inside a note"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "comment",
+              "category": "inline",
+              "attributes": {
+                "author": "Blocks"
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First block."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Second block."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "checkbox",
+              "category": "inline",
+              "attributes": {
+                "checked": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "category": "inline",
+              "attributes": {
+                "name": "PAGE"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "{}"
+                }
+              ]
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "attributes": {
+                "author": "Lua",
+                "date": "2024-02-29"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Lua comment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Body "
+        },
+        {
+          "kind": "comment",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Outer "
+            },
+            {
+              "kind": "comment",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "inner"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " and "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "link"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Note"
+        },
+        {
+          "kind": "footnote",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Text "
+                },
+                {
+                  "kind": "comment",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "inside a note"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "comment",
+          "category": "inline",
+          "attributes": {
+            "author": "Blocks"
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First block."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Second block."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "checkbox",
+          "category": "inline",
+          "attributes": {
+            "checked": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "field",
+          "category": "inline",
+          "attributes": {
+            "name": "PAGE"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "{}"
+            }
+          ]
+        },
+        {
+          "kind": "comment",
+          "category": "inline",
+          "attributes": {
+            "author": "Lua",
+            "date": "2024-02-29"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Lua comment"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

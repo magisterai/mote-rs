@@ -270,6 +270,22 @@ fn content(
             ElementKind::Slide | ElementKind::Box => {
                 warnings.insert(format!("{path} presentation output is not yet supported"));
             }
+            ElementKind::Checkbox => {
+                allowed.extend(["checked", "kind", "name", "title"]);
+                warnings.insert(format!("{path} uses a textual checkbox fallback"));
+            }
+            ElementKind::Field => {
+                allowed.extend(["name", "code"]);
+                warnings.insert(format!(
+                    "{path} general field content is omitted from native output"
+                ));
+            }
+            ElementKind::Comment => {
+                allowed.extend(["id", "author", "initials", "date"]);
+                warnings.insert(format!(
+                    "{path} retains body text without a native comment annotation"
+                ));
+            }
             ElementKind::Math => {
                 allowed.extend_from_slice(RUN);
                 allowed.extend_from_slice(PARAGRAPH);

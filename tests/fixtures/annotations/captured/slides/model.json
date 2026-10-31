@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "author": "Ada",
+    "subject": "Retained",
+    "title": "Slide annotation limits"
+  },
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4
+                  },
+                  "width": {
+                    "text": "8in",
+                    "unit": "in",
+                    "value": 8
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Standalone "
+                    },
+                    {
+                      "kind": "checkbox",
+                      "category": "inline",
+                      "attributes": {
+                        "checked": true
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "field",
+                      "category": "inline",
+                      "attributes": {
+                        "name": "PAGE"
+                      }
+                    },
+                    {
+                      "kind": "text",
+                      "text": " retain no slide control."
+                    },
+                    {
+                      "kind": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "Visible "
+                    },
+                    {
+                      "kind": "comment",
+                      "category": "inline",
+                      "attributes": {
+                        "author": "A"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "comment body"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4
+              },
+              "width": {
+                "text": "8in",
+                "unit": "in",
+                "value": 8
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Standalone "
+                },
+                {
+                  "kind": "checkbox",
+                  "category": "inline",
+                  "attributes": {
+                    "checked": true
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "field",
+                  "category": "inline",
+                  "attributes": {
+                    "name": "PAGE"
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " retain no slide control."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "Visible "
+                },
+                {
+                  "kind": "comment",
+                  "category": "inline",
+                  "attributes": {
+                    "author": "A"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "comment body"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

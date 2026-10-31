@@ -58,7 +58,14 @@ pub(super) fn call(
     }
     if matches!(
         name,
-        "document" | "presentation" | "layout" | "font" | "style" | "header" | "footer"
+        "metadata"
+            | "document"
+            | "presentation"
+            | "layout"
+            | "font"
+            | "style"
+            | "header"
+            | "footer"
     ) {
         return declaration(name, arguments, span, state);
     }
@@ -181,6 +188,8 @@ fn declaration(
         }
         if name == "presentation" {
             crate::evaluation::presentation::apply(named, state).map_err(mlua::Error::external)?;
+        } else if name == "metadata" {
+            crate::evaluation::configuration::apply_metadata(named, state);
         } else if name == "document" {
             crate::evaluation::configuration::apply(named, state).map_err(mlua::Error::external)?;
         } else {

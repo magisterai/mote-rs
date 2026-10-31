@@ -1,13 +1,12 @@
 use super::{
-    Error, block_quotes, check_attributes, controls::Controls, headings, lists,
-    numbering::Numbering, paragraphs, styles::Styles, xml,
+    Error, block_quotes, check_attributes, headings, lists, numbering::Numbering, paragraphs,
+    styles::Styles, xml,
 };
 use crate::model::{Content, Document, ElementKind, Value};
 
 #[derive(Default)]
 pub(super) struct DocumentState {
     pub numbering: Numbering,
-    pub controls: Controls,
     pub table_cell_depth: usize,
     pub figure_depth: usize,
     pub resources: super::resources::Resources,

@@ -167,7 +167,7 @@ fn child_flow(kind: ElementKind, inline: bool) -> (bool, bool) {
         }
         List | OrderedList | DefinitionList | Table | Row | Cell => (false, true),
         Strong | Emphasis | Underline | Strike | Highlight | SmallCaps | Subscript
-        | Superscript | Span | Code | Link | Bookmark => (true, inline),
+        | Superscript | Span | Code | Link | Bookmark | Comment => (true, inline),
         _ => (false, false),
     }
 }

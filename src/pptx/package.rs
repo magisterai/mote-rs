@@ -102,7 +102,14 @@ pub(super) fn write(
             include_str!("templates/core-properties.xml"),
             &[(
                 "title",
-                escape(&crate::properties::text(&document.properties, "title"))?,
+                escape(&{
+                    let title = crate::properties::text(&document.metadata, "title");
+                    if title.is_empty() {
+                        crate::properties::text(&document.properties, "title")
+                    } else {
+                        title
+                    }
+                })?,
             )],
         )?,
     );

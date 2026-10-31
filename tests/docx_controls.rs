@@ -95,11 +95,26 @@ fn task_state_presence_is_distinct_from_nested_checkbox_metadata() {
 #[test]
 fn unsupported_control_metadata_fails_explicitly() {
     for source in [
-        "#list[#item(checked=true,checkbox={kind=\"legacy_form_field\",title=\"Title\"})[Text]]",
         "#list[#item(checked=true,checkbox={custom=true})[Text]]",
         "#list[#item(checked=true,checkbox={title=\"Invalid\u{1}\"})[Text]]",
     ] {
         let document = mote::compile(source).unwrap();
         assert!(mote::docx::emit(&document).is_err(), "{source}");
     }
+}
+
+#[test]
+fn legacy_control_titles_report_their_retained_status() {
+    let document = mote::compile(
+        r#"#list[#item(checked=true,checkbox={kind="legacy_form_field",title="Title"})[Text]]"#,
+    )
+    .unwrap();
+    let resolver = mote::source::FileAssetResolver::from_current_directory().unwrap();
+    let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+    assert!(
+        generated
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("legacy checkbox title"))
+    );
 }

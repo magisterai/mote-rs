@@ -20,6 +20,7 @@ impl Controls {
         checked: bool,
         styles: &Styles<'_>,
         inherited: &RunFormatting,
+        warnings: &mut Vec<String>,
     ) -> Result<String, Error> {
         check_attributes(
             properties,
@@ -34,7 +35,7 @@ impl Controls {
             return Err(Error::Unsupported(format!("checkbox kind {kind:?}")));
         }
         if kind == "legacy_form_field" && properties.contains_key("title") {
-            return Err(Error::Unsupported("title on a legacy checkbox".into()));
+            warnings.push("DOCX legacy checkbox title is retained without an output effect".into());
         }
         let identifier = self.next_identifier;
         self.next_identifier = identifier
@@ -84,4 +85,30 @@ pub(super) fn checkbox_properties(attributes: &Properties) -> Result<Properties,
         .map(values::object)
         .transpose()
         .map(|properties| properties.cloned().unwrap_or_default())
+}
+
+pub(super) fn write_field(
+    properties: &Properties,
+    formatting: &RunFormatting,
+    styles: &Styles<'_>,
+) -> Result<String, Error> {
+    let name = crate::properties::text(properties, "name");
+    let code = crate::properties::text(properties, "code");
+    let code = if code.is_empty() {
+        crate::casing::convert(&name, true)
+    } else {
+        code
+    };
+    let fallback = if name.is_empty() { &code } else { &name };
+    let formatting = formatting.write(styles)?;
+    let formatting = if formatting.is_empty() {
+        formatting
+    } else {
+        format!("<w:rPr>{formatting}</w:rPr>")
+    };
+    Ok(format!(
+        r#"<w:fldSimple w:instr=" {} "><w:r>{formatting}<w:t>{}</w:t></w:r></w:fldSimple>"#,
+        xml::escape(&code)?,
+        xml::escape(fallback)?
+    ))
 }

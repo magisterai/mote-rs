@@ -74,6 +74,9 @@ pub(super) fn validate_content(content: &[Content]) -> Result<(), String> {
                 element.kind,
                 ElementKind::Paragraph
                     | ElementKind::Math
+                    | ElementKind::Checkbox
+                    | ElementKind::Field
+                    | ElementKind::Comment
                     | ElementKind::Heading
                     | ElementKind::Span
                     | ElementKind::Strong
