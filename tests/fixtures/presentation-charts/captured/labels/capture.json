@@ -304,12 +304,12 @@
       }
     }
   },
-  "geometry_sha256": "e0cb6f21162e463a68b70886e91bb2b191941989beb95b8001bd314344d9e032",
+  "geometry_sha256": "c54d707ec0cec3c490c8cc8a1c76d963c78e080ecaea9a54dbde422653f17839",
   "native_png_files": {
     "reference-1.png": "58e4c16562b409acaebe14e9d4158665b71a853c2b3dd59ad7fc8284ea7889b1",
     "reference-2.png": "a78f8991a66c97ed6e7c4c46ccef7230d7a2eea1f7c32f4385d30bad1d3da1d4",
     "reference-3.png": "861f9a7ca62fd782b2d7be38f92176dfaf92e34df84734044774f87fce20cb08",
-    "reference-4.png": "0895a8370e6bec6c93575b653dc8fee43f70615b0c8c9b195c971478abca6a0b"
+    "reference-4.png": "a1a5c150d5dc1de98fd2fb200dfce4aeceb25918ea650ef7c9bcc7dd4e33010b"
   },
   "native_pdf_comparison": [
     {

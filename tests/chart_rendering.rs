@@ -196,7 +196,7 @@ fn single_category_line_and_area_limits_are_explicit() {
 fn native_curve_chart_warnings_describe_retained_properties() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for (kind, labels, expected) in [
-        ("line", "{position='bottom'}", "fixed position above"),
+        ("line", "{position='bottom'}", "automatic placement around"),
         ("area", "true", "omitted from native area"),
         ("stacked_area", "true", "omitted from native area"),
         ("percent_stacked_area", "true", "omitted from native area"),
@@ -303,4 +303,102 @@ fn percentage_charts_normalize_finite_values_with_overflowing_total_magnitude() 
             .len(),
         1
     );
+}
+
+#[test]
+fn nearby_line_labels_separate_in_both_layouts_and_series_orders() {
+    use mote::layout::PageOperation;
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for presentation in [false, true] {
+        for reversed in [false, true] {
+            let series = [
+                "{name='Web',values={12,18,16,24,30}}",
+                "{name='Mobile',values={8,10,15,18,24}}",
+            ];
+            let ordered = if reversed {
+                [series[1], series[0]]
+            } else {
+                series
+            };
+            let chart = format!(
+                "#chart(kind='line',width=pt(340),height=pt(320),data={{categories={{'W1','W2','W3','W4','W5'}},series={{{},{}}}}},data_labels=true,legend='bottom')",
+                ordered[0], ordered[1]
+            );
+            let source = if presentation {
+                format!(
+                    "#presentation(width=pt(360),height=pt(340),theme={{fonts={{body='Helvetica'}}}})\n#slide[#box(position={{x=pt(10),y=pt(10),width=pt(340),height=pt(320)}})[{chart}]]"
+                )
+            } else {
+                chart
+            };
+            let planned = render::plan(&mote::compile(&source).unwrap(), &resolver, None).unwrap();
+            let page = &planned.output.pages[0];
+            let markers: Vec<_> = page
+                .operations
+                .iter()
+                .filter_map(|operation| {
+                    let PageOperation::Path(path) = operation else {
+                        return None;
+                    };
+                    if path.fill.is_none() || path.stroke.is_some() {
+                        return None;
+                    }
+                    let minimum = path
+                        .points
+                        .iter()
+                        .fold([f64::INFINITY; 2], |result, point| {
+                            [result[0].min(point[0]), result[1].min(point[1])]
+                        });
+                    let maximum = path
+                        .points
+                        .iter()
+                        .fold([f64::NEG_INFINITY; 2], |result, point| {
+                            [result[0].max(point[0]), result[1].max(point[1])]
+                        });
+                    Some([
+                        (minimum[0] + maximum[0]) / 2.0,
+                        (minimum[1] + maximum[1]) / 2.0,
+                    ])
+                })
+                .collect();
+            // Ten data markers precede the two legend keys.
+            let upper = markers[if reversed { 7 } else { 2 }];
+            let lower = markers[if reversed { 2 } else { 7 }];
+            let label = |text: &str| {
+                page.lines
+                    .iter()
+                    .find(|line| {
+                        line.line
+                            .fragments
+                            .iter()
+                            .map(|fragment| fragment.text.as_str())
+                            .collect::<String>()
+                            == text
+                            && line
+                                .line
+                                .fragments
+                                .first()
+                                .is_some_and(|fragment| (fragment.x - upper[0]).abs() < 20.0)
+                    })
+                    .unwrap()
+            };
+            let above = label("16");
+            let below = label("15");
+            assert!(above.top + above.line.height < upper[1] - 2.5);
+            assert!(below.top > lower[1] + 2.5);
+            assert!((above.line.fragments[0].x - below.line.fragments[0].x).abs() < 1e-9);
+            assert!(
+                render::paint_pdf(&planned.output)
+                    .unwrap()
+                    .starts_with(b"%PDF-")
+            );
+            assert_eq!(
+                render::paint_png(&planned.output, &Default::default())
+                    .unwrap()
+                    .output
+                    .len(),
+                1
+            );
+        }
+    }
 }

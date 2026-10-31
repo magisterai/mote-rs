@@ -4,6 +4,7 @@ mod bars;
 mod curves;
 mod geometry;
 mod legend;
+mod line_labels;
 mod paths;
 mod pie;
 mod scale;

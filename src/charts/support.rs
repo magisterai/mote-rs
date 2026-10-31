@@ -113,9 +113,9 @@ fn kind_limits(attributes: &Properties, path: &str, warnings: &mut BTreeSet<Stri
             }
         }
     }
-    if kind == "line" && labels.enabled && !labels.position.is_empty() && labels.position != "t" {
+    if kind == "line" && labels.enabled && !labels.position.is_empty() {
         warnings.insert(format!(
-            "{path}.data_labels.position uses the fixed position above native line markers"
+            "{path}.data_labels.position uses automatic placement around native line markers"
         ));
     }
     if matches!(

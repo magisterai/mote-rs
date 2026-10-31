@@ -44,7 +44,7 @@ impl Planner<'_, '_> {
             false,
         )
     }
-    fn fit_text(
+    pub(super) fn fit_text(
         &mut self,
         text: &str,
         size: f64,

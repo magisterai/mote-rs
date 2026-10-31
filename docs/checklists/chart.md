@@ -58,7 +58,11 @@ dimensions omit the chart. Native gap is clamped at zero, horizontal bars ignore
 overlap, and pie/doughnut charts use positive values for sector angles, radial labels and
 category legends. Pie label-position overrides use automatic placement with a
 warning; doughnut centers use the plot, chart or default white background. Native line and area kinds share axes,
-scales and legends; line charts include circular markers and labels above points.
+scales and legends; line charts include circular markers and automatic labels.
+Labels prefer above their points, then below or beside them to avoid nearby
+labels, series marks and plot edges. Crowded charts can still have collisions
+when none of those positions is clear. Authored label positions remain advisory
+in native line charts. See the [label placement tests](../../tests/chart_rendering.rs).
 Area charts omit data labels with a warning. Nonempty line/area series require
 at least two categories. Gap and overlap have no native line/area effect. Native charts in table cells are
 rejected; flattened running stories omit chart geometry with a warning.

@@ -16,6 +16,10 @@ manifest. Office render review remains unreviewed.
 Signed percentage stacks now normalize by total magnitude, and left legends have
 separate space beside the value-axis title. Long decimal tick text remains visible,
 as described in the [bar captures](../chart-native-bars/README.md).
+Line labels prefer above each marker, then try below or beside it when labels,
+series marks or plot edges obstruct that position. Explicit positions warn because
+native placement remains automatic. Every label is retained when dense data
+exhausts the local positions.
 Area labels are omitted with a warning. Gap and overlap have no native effect on
 these kinds. The separate `unsupported` sources retain one-category line and area
 cases: editable packages support their data, but native planning reports the

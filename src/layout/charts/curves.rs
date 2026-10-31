@@ -10,6 +10,8 @@ impl Planner<'_, '_> {
         let scale = Scale::for_chart(chart, layout.plot.height, false).validate()?;
         let foreground = self.axes(chart, layout, scale, false)?;
         let count = chart.categories.len();
+        let mut series_points = Vec::new();
+        let mut labels = Vec::new();
         if count > 0 {
             for (series_index, series) in chart.series.iter().enumerate() {
                 let points: Vec<_> = (0..count)
@@ -27,22 +29,16 @@ impl Planner<'_, '_> {
                 for (index, point) in points.iter().enumerate() {
                     self.ellipse([point[0], point[1]], [5.0, 5.0], 24, color);
                     if chart.data_labels.enabled {
-                        self.text(
-                            super::geometry::Rectangle::new(
-                                point[0] - 28.0,
-                                point[1] - 19.0,
-                                56.0,
-                                16.0,
-                            ),
-                            &super::bars::label(chart, series_index, index),
-                            10.0,
-                            "center",
-                            0.0,
-                        )?;
+                        labels.push(super::line_labels::LineLabel {
+                            point: *point,
+                            text: super::bars::label(chart, series_index, index),
+                        });
                     }
                 }
+                series_points.push(points);
             }
         }
+        self.place_line_labels(&labels, &series_points, layout.plot)?;
         self.page.operations.extend(foreground);
         Ok(())
     }
