@@ -173,10 +173,60 @@ fn nice_step(rough: f64) -> f64 {
     };
     selected * power
 }
-pub(super) fn axis_label(value: f64, percent: bool) -> String {
-    if percent {
-        format!("{value}%")
+pub(super) fn axis_label(value: f64, step: f64, percent: bool) -> String {
+    let magnitude = value.abs();
+    let step_exponent = step.log10().floor();
+    let scientific = magnitude >= 1_000_000.0 || (magnitude > 0.0 && magnitude < 0.0001);
+    let precision = if scientific {
+        (magnitude.log10().floor() - step_exponent).clamp(0.0, 15.0) as usize
     } else {
-        value.to_string()
+        (-step_exponent).clamp(0.0, 15.0) as usize
+    };
+    let formatted = if scientific {
+        format!("{value:.precision$e}")
+    } else {
+        format!("{value:.precision$}")
+    };
+    let (mantissa, exponent) = formatted.split_once('e').unwrap_or((&formatted, ""));
+    let mut label = if mantissa.contains('.') {
+        mantissa
+            .trim_end_matches('0')
+            .trim_end_matches('.')
+            .to_owned()
+    } else {
+        mantissa.to_owned()
+    };
+    if label == "-0" {
+        label = "0".into();
+    }
+    if !exponent.is_empty() {
+        label.push('e');
+        label.push_str(&exponent.parse::<i32>().unwrap().to_string());
+    }
+    if percent {
+        label.push('%');
+    }
+    label
+}
+
+#[cfg(test)]
+mod tests {
+    use super::axis_label;
+
+    #[test]
+    fn axis_precision_removes_arithmetic_noise_without_rounding_away_ticks() {
+        for (value, step, expected) in [
+            (0.6000000000000001, 0.2, "0.6"),
+            (-0.6000000000000001, 0.2, "-0.6"),
+            (-0.0, 0.2, "0"),
+            (0.00012, 0.00002, "0.00012"),
+            (0.00000012, 0.00000002, "1.2e-7"),
+            (1_200_000.0, 200_000.0, "1.2e6"),
+            (1.2e100, 2.0e99, "1.2e100"),
+            (1.2e-100, 2.0e-101, "1.2e-100"),
+        ] {
+            assert_eq!(axis_label(value, step, false), expected);
+        }
+        assert_eq!(axis_label(-40.00000000000001, 20.0, true), "-40%");
     }
 }

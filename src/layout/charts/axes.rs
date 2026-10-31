@@ -47,14 +47,30 @@ impl Planner<'_, '_> {
             }
         }
         let percent = chart.kind.contains("percent_stacked");
-        let mut value = scale.minimum;
-        for _ in 0..1000 {
-            if value > scale.maximum + scale.step / 2.0 {
-                break;
-            }
-            if value.abs() < scale.step / 1000000.0 {
-                value = 0.0;
-            }
+        let values: Vec<_> = (0..1000)
+            .map(|index| scale.minimum + index as f64 * scale.step)
+            .take_while(|value| *value <= scale.maximum + scale.step / 2.0)
+            .map(|value| {
+                if value.abs() < scale.step / 1000000.0 {
+                    0.0
+                } else {
+                    value
+                }
+            })
+            .collect();
+        let length = if horizontal { plot.width } else { plot.height };
+        let mut intervals = Vec::new();
+        for value in &values {
+            let extent = if horizontal {
+                self.text_width(&axis_label(*value, scale.step, percent), 10.0)?
+                    .min(40.0)
+            } else {
+                16.0
+            };
+            intervals.push((scale.ratio(*value) * length, extent));
+        }
+        let visible = visible_labels(&intervals, values.iter().position(|value| *value == 0.0));
+        for (index, &value) in values.iter().enumerate() {
             if chart.gridlines.major {
                 gridline(self, value);
             }
@@ -80,8 +96,15 @@ impl Planner<'_, '_> {
                     "right",
                 )
             };
-            self.text(bounds, &axis_label(value, percent), 10.0, alignment, 0.0)?;
-            value += scale.step;
+            if visible[index] {
+                self.text(
+                    bounds,
+                    &axis_label(value, scale.step, percent),
+                    10.0,
+                    alignment,
+                    0.0,
+                )?;
+            }
         }
         if horizontal {
             let zero = plot.left + plot.width * scale.ratio(0.0);
@@ -219,4 +242,27 @@ impl Planner<'_, '_> {
         self.page.operations = background;
         Ok(foreground)
     }
+}
+
+// Prefer zero and the endpoints, then retain every label with enough clear space.
+fn visible_labels(intervals: &[(f64, f64)], zero: Option<usize>) -> Vec<bool> {
+    let mut visible = vec![false; intervals.len()];
+    if intervals.is_empty() {
+        return visible;
+    }
+    let order = zero
+        .into_iter()
+        .chain([0, intervals.len() - 1])
+        .chain(0..intervals.len());
+    for index in order {
+        let (center, extent) = intervals[index];
+        if visible.iter().enumerate().any(|(other, selected)| {
+            *selected
+                && (center - intervals[other].0).abs() < (extent + intervals[other].1) / 2.0 + 4.0
+        }) {
+            continue;
+        }
+        visible[index] = true;
+    }
+    visible
 }

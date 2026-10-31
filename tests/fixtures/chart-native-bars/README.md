@@ -27,7 +27,9 @@ Observed limitations remain visible in the sources and captures:
 
 - Fitting preserves complete text, but very dense frames can require small labels;
   independent data labels can still collide.
-- Decimal tick text retains floating-point accumulation digits.
+- Numeric ticks use interval-based precision, including compact scientific
+  notation for extreme magnitudes. Colliding numeric text is omitted while all
+  gridlines remain visible.
 - Native horizontal bars ignore overlap; column overlap changes bar width without
   independently changing the inter-series offset.
 

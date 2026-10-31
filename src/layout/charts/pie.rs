@@ -1,4 +1,5 @@
 //! Pie sectors, radial labels and the doughnut's composited center.
+use super::radial_labels::{self, RadialLabel};
 use super::{
     Chart, LayoutError, Planner,
     geometry::{ChartLayout, Rectangle},
@@ -26,23 +27,13 @@ impl Planner<'_, '_> {
         let radius = ((layout.plot.width.min(layout.plot.height) / 2.0 - 1.0) * 0.87).max(1.0);
         let center = layout.plot.center();
         let mut angle = -PI / 2.0;
+        let mut labels = Vec::new();
         for (index, &value) in series.values.iter().enumerate() {
-            let sweep = 2.0 * PI * value.max(0.0) / total;
-            if !sweep.is_finite() {
-                return Err(LayoutError::Unsupported(
-                    "native pie sector angle must be finite".into(),
-                ));
-            }
-            self.path(
-                sector_points(center, radius, angle, angle + sweep),
-                true,
-                Some(chart.color(index)),
-                None,
-            );
+            let sweep = 2.0 * PI * (value.max(0.0) / total);
             if chart.data_labels.enabled {
                 let middle = angle + sweep / 2.0;
-                let label = label(chart, index, value, total);
-                let lines: Vec<_> = label.split('\n').collect();
+                let text = label(chart, index, value, total);
+                let lines: Vec<_> = text.split('\n').collect();
                 let mut width: f64 = 0.0;
                 for line in &lines {
                     width = width.max(self.text_width(line, 10.0)? + 8.0);
@@ -50,18 +41,38 @@ impl Planner<'_, '_> {
                 width = width.max(28.0).min((radius * 1.15).max(28.0));
                 let height = (lines.len() as f64 * 15.0).max(16.0);
                 let label_radius = label_radius(chart, radius, middle, width, height, lines.len());
-                self.text(
-                    Rectangle::new(
+                labels.push(RadialLabel {
+                    text,
+                    middle,
+                    sweep,
+                    bounds: Rectangle::new(
                         center[0] + middle.cos() * label_radius - width / 2.0,
                         center[1] + middle.sin() * label_radius - height / 2.0,
                         width,
                         height,
                     ),
-                    &label,
-                    10.0,
-                    "center",
-                    0.0,
-                )?;
+                    outside: false,
+                });
+            }
+            angle += sweep;
+        }
+        let radius = radial_labels::arrange(
+            &mut labels,
+            center,
+            layout.plot,
+            radius,
+            chart.kind == "doughnut",
+        );
+        angle = -PI / 2.0;
+        for (index, &value) in series.values.iter().enumerate() {
+            let sweep = 2.0 * PI * (value.max(0.0) / total);
+            if sweep > 0.0 {
+                self.path(
+                    sector_points(center, radius, angle, angle + sweep),
+                    true,
+                    Some(chart.color(index)),
+                    None,
+                );
             }
             angle += sweep;
         }
@@ -80,6 +91,46 @@ impl Planner<'_, '_> {
                 }
             }
             self.ellipse(center, [radius, radius], 72, background);
+        }
+        let leader_color = self.axis_color.clone();
+        for label in &labels {
+            if label.outside {
+                let right = label.middle.cos() >= -1e-9;
+                let edge = if right {
+                    label.bounds.left - 2.0
+                } else {
+                    label.bounds.left + label.bounds.width + 2.0
+                };
+                let start = [
+                    center[0] + label.middle.cos() * radius,
+                    center[1] + label.middle.sin() * radius,
+                ];
+                let end = [edge, label.bounds.top + label.bounds.height / 2.0];
+                // Route past the circle before changing vertical position, so
+                // a displaced label never draws its leader through a sector.
+                let bend = [
+                    center[0] + if right { radius + 4.0 } else { -radius - 4.0 },
+                    start[1],
+                ];
+                self.rule(
+                    start,
+                    bend,
+                    0.5,
+                    &leader_color,
+                    crate::layout::RuleRole::Generic,
+                );
+                self.rule(
+                    bend,
+                    end,
+                    0.5,
+                    &leader_color,
+                    crate::layout::RuleRole::Generic,
+                );
+            }
+        }
+        // Labels follow both sector fills and the composited doughnut centre.
+        for label in labels {
+            self.text(label.bounds, &label.text, 10.0, "center", 0.0)?;
         }
         Ok(())
     }

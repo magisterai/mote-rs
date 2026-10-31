@@ -56,7 +56,11 @@ percentage variants, titles, axis titles, legends, fills, borders, gridlines and
 data labels. Width fits the current column while preserving aspect ratio; zero
 dimensions omit the chart. Native gap is clamped at zero, horizontal bars ignore
 overlap, and pie/doughnut charts use positive values for sector angles, radial labels and
-category legends. Pie label-position overrides use automatic placement with a
+category legends. Radial labels retain their preferred position when it fits;
+otherwise they occupy separated side columns with leaders outside the circle.
+Labels paint after the doughnut center. Numeric axis labels follow tick precision
+and omit colliding text while retaining every gridline.
+Pie label-position overrides use automatic placement with a
 warning; doughnut centers use the plot, chart or default white background. Native line and area kinds share axes,
 scales and legends; line charts include circular markers and automatic labels.
 Labels prefer above their points, then below or beside them to avoid nearby

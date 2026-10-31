@@ -61,8 +61,8 @@ impl Planner<'_, '_> {
             let scale = Scale::for_chart(chart, 0.0, false).validate()?;
             let percent = chart.kind.contains("percent_stacked");
             let width = self
-                .text_width(&axis_label(scale.minimum, percent), 10.0)?
-                .max(self.text_width(&axis_label(scale.maximum, percent), 10.0)?);
+                .text_width(&axis_label(scale.minimum, scale.step, percent), 10.0)?
+                .max(self.text_width(&axis_label(scale.maximum, scale.step, percent), 10.0)?);
             (width - self.text_width("80", 10.0)?).max(0.0)
         };
         let mut layout = resolve(bounds, chart, category_width, legend_width, value_extra);
