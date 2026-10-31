@@ -1,9 +1,11 @@
 #[allow(dead_code)]
 #[path = "native_capture.rs"]
 mod capture;
+#[path = "text_geometry.rs"]
+mod text_geometry;
 #[allow(dead_code)]
 #[path = "../docx/support.rs"]
-mod xml_support;
+pub(crate) mod xml_support;
 use mote::{evaluation::EvaluationOptions, source::FileAssetResolver};
 use serde_json::Value;
 use sha2::{Digest, Sha256};
@@ -152,6 +154,16 @@ pub fn compare(group: &str, cases: &[&str]) {
                 "{case}: missing warning {expected}"
             );
         }
+        if let Some(geometry) = manifest.get("text_geometry") {
+            let bytes = fs::read(folder.join(geometry["path"].as_str().unwrap())).unwrap();
+            assert_eq!(format!("{:x}", Sha256::digest(&bytes)), geometry["sha256"]);
+            let expected = serde_json::from_slice(&bytes).unwrap();
+            capture::compare(
+                &text_geometry::projection(&planned.output),
+                &expected,
+                &format!("{case}: text geometry"),
+            );
+        }
         let pages = mote::render::paint_png(&planned.output, &Default::default())
             .unwrap()
             .output;
@@ -166,11 +178,12 @@ pub fn compare(group: &str, cases: &[&str]) {
             let mut sum = 0u64;
             let mut count = 0u64;
             let mut outliers = 0usize;
-            for (actual, reference) in actual
+            for (pixel_index, (actual, reference)) in actual
                 .as_chunks::<4>()
                 .0
                 .iter()
                 .zip(reference.as_chunks::<4>().0)
+                .enumerate()
             {
                 if actual[..3] == [255; 3] && reference[..3] == [255; 3] {
                     continue;
@@ -178,7 +191,19 @@ pub fn compare(group: &str, cases: &[&str]) {
                 let differences: Vec<_> = (0..3)
                     .map(|channel| actual[channel].abs_diff(reference[channel]))
                     .collect();
-                outliers += usize::from(differences.iter().any(|difference| *difference > 64));
+                if differences.iter().any(|difference| *difference > 64) {
+                    outliers += 1;
+                    if let Some(allowed) = expected["edge_outliers"].as_array() {
+                        let position = serde_json::json!([
+                            pixel_index % width as usize,
+                            pixel_index / width as usize
+                        ]);
+                        assert!(
+                            allowed.contains(&position),
+                            "{case}: unexpected edge pixel {position}"
+                        );
+                    }
+                }
                 for difference in differences {
                     maximum = maximum.max(difference);
                     sum += u64::from(difference);
