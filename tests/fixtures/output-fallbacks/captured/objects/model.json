@@ -1,0 +1,228 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "label",
+              "category": "inline",
+              "attributes": {
+                "name": "line"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "from": {
+              "x": 0,
+              "y": 0
+            },
+            "to": {
+              "x": 72,
+              "y": 72
+            }
+          }
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the omitted connector."
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "category": "block",
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "chart",
+                      "category": "block",
+                      "attributes": {
+                        "data": {
+                          "values": [
+                            1,
+                            2
+                          ]
+                        },
+                        "height": {
+                          "text": "1in",
+                          "unit": "in",
+                          "value": 1
+                        },
+                        "title": "Cell totals",
+                        "width": {
+                          "text": "1in",
+                          "unit": "in",
+                          "value": 1
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Beside the chart."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After the table."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "label",
+          "category": "inline",
+          "attributes": {
+            "name": "line"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "line",
+      "category": "block",
+      "attributes": {
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 72,
+          "y": 72
+        }
+      }
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After the omitted connector."
+        }
+      ]
+    },
+    {
+      "kind": "table",
+      "category": "block",
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "values": [
+                        1,
+                        2
+                      ]
+                    },
+                    "height": {
+                      "text": "1in",
+                      "unit": "in",
+                      "value": 1
+                    },
+                    "title": "Cell totals",
+                    "width": {
+                      "text": "1in",
+                      "unit": "in",
+                      "value": 1
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Beside the chart."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After the table."
+        }
+      ]
+    }
+  ]
+}

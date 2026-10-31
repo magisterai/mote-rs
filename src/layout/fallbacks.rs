@@ -6,6 +6,12 @@ use crate::{
 
 pub(super) fn text(element: &Element) -> String {
     let condensed = |text: String| text.split_whitespace().collect::<Vec<_>>().join(" ");
+    if element.kind == ElementKind::Chart {
+        let title = condensed(properties::text(&element.attributes, "title"));
+        if !title.is_empty() {
+            return format!("[chart: {title}]");
+        }
+    }
     let mut body = condensed(crate::references::text(&element.children));
     if element.kind == ElementKind::Math {
         let source = properties::text(&element.attributes, "source")

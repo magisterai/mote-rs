@@ -195,6 +195,20 @@ pub(super) fn prepare_content(
                 }
                 builder.flow_start = false;
             }
+            ElementKind::Line => {
+                builder.pending_anchors.clear();
+                builder.paragraph(&Element {
+                    source_name: element.source_name.clone(),
+                    kind: ElementKind::Paragraph,
+                    attributes: Properties::new(),
+                    children: vec![Content::Text(super::fallbacks::text(element))],
+                })?;
+                if let Some(Block::Paragraph(paragraph)) = builder.blocks.last_mut() {
+                    paragraph.clear_fill_before = true;
+                    paragraph.clear_fill_after = true;
+                }
+                builder.flow_start = false;
+            }
             _ => {
                 return Err(LayoutError::Unsupported(format!(
                     "native document planning cannot place a standalone {}",

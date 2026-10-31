@@ -1,0 +1,10 @@
+#label("line")
+#line(from={x=0,y=0},to={x=72,y=72})
+After the omitted connector.
+#table[
+#row[
+#cell[#chart(data={values={1,2}},title="Cell totals",width=inch(1),height=inch(1))]
+#cell[Beside the chart.]
+]
+]
+After the table.

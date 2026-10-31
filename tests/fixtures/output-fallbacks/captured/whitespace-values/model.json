@@ -1,0 +1,248 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": true
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  boolean true  "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": "true"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  text true  "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": " true "
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  trimmed text true  "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": "false"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  text false  "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": 1
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  numeric one  "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "span",
+              "category": "inline",
+              "attributes": {
+                "preserve_space": "TRUE"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "  uppercase text  "
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": true
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  boolean true  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": "true"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  text true  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": " true "
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  trimmed text true  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": "false"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  text false  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": 1
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  numeric one  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "span",
+          "category": "inline",
+          "attributes": {
+            "preserve_space": "TRUE"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "  uppercase text  "
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

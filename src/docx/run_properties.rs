@@ -31,7 +31,7 @@ impl RunFormatting {
         match element.kind {
             ElementKind::Span => {
                 let mut supported = ATTRIBUTES.to_vec();
-                supported.push("style");
+                supported.extend(["style", "preserve_space"]);
                 check_attributes(&element.attributes, &supported, "span")?;
                 if let Some(name) = element
                     .attributes
@@ -47,6 +47,7 @@ impl RunFormatting {
                         .iter()
                         .filter(|(name, value)| {
                             name.as_str() != "style"
+                                && name.as_str() != "preserve_space"
                                 && !(name.as_str() == "font" && value.to_text().is_empty())
                         })
                         .map(|(name, value)| (name.clone(), value.clone())),

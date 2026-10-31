@@ -1,0 +1,235 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 72,
+        "top": 72,
+        "height": 15.225539999999999,
+        "width": 23.232,
+        "baseline": 82.91277,
+        "fragments": [
+          {
+            "text": "[line]",
+            "x": 72,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 23.232,
+            "height": 10.175,
+            "advance": 23.232,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 95.22554,
+        "height": 15.225539999999999,
+        "width": 135.124,
+        "baseline": 106.13830999999999,
+        "fragments": [
+          {
+            "text": "After ",
+            "x": 72,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 26.29,
+            "height": 10.175,
+            "advance": 26.29,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "the ",
+            "x": 98.28999999999999,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 18.348,
+            "height": 10.175,
+            "advance": 18.348,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "omitted ",
+            "x": 116.638,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 39.127,
+            "height": 10.175,
+            "advance": 39.127,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "connector.",
+            "x": 155.765,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 51.359,
+            "height": 10.175,
+            "advance": 51.359,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 78,
+        "top": 122.45107999999999,
+        "height": 15.225539999999999,
+        "width": 84.975,
+        "baseline": 133.36384999999999,
+        "fragments": [
+          {
+            "text": "[chart: ",
+            "x": 78,
+            "baseline": 133.36384999999999,
+            "top": 125.46584999999999,
+            "width": 33.627,
+            "height": 10.175,
+            "advance": 33.627,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "Cell ",
+            "x": 111.62700000000001,
+            "baseline": 133.36384999999999,
+            "top": 125.46584999999999,
+            "width": 22,
+            "height": 10.175,
+            "advance": 22,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "totals]",
+            "x": 133.627,
+            "baseline": 133.36384999999999,
+            "top": 125.46584999999999,
+            "width": 29.348,
+            "height": 10.175,
+            "advance": 29.348,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 175,
+        "top": 122.45107999999999,
+        "height": 15.225539999999999,
+        "width": 82.544,
+        "baseline": 133.36384999999999,
+        "fragments": [
+          {
+            "text": "Beside ",
+            "x": 175,
+            "baseline": 133.36384999999999,
+            "top": 125.46584999999999,
+            "width": 36.685,
+            "height": 10.175,
+            "advance": 36.685,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "the ",
+            "x": 211.685,
+            "baseline": 133.36384999999999,
+            "top": 125.46584999999999,
+            "width": 18.348,
+            "height": 10.175,
+            "advance": 18.348,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "chart.",
+            "x": 230.03300000000002,
+            "baseline": 133.36384999999999,
+            "top": 125.46584999999999,
+            "width": 27.511,
+            "height": 10.175,
+            "advance": 27.511,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 151.17661999999999,
+        "height": 15.225539999999999,
+        "width": 71.544,
+        "baseline": 162.08938999999998,
+        "fragments": [
+          {
+            "text": "After ",
+            "x": 72,
+            "baseline": 162.08938999999998,
+            "top": 154.19138999999998,
+            "width": 26.29,
+            "height": 10.175,
+            "advance": 26.29,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "the ",
+            "x": 98.28999999999999,
+            "baseline": 162.08938999999998,
+            "top": 154.19138999999998,
+            "width": 18.348,
+            "height": 10.175,
+            "advance": 18.348,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "table.",
+            "x": 116.638,
+            "baseline": 162.08938999999998,
+            "top": 154.19138999999998,
+            "width": 26.906,
+            "height": 10.175,
+            "advance": 26.906,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

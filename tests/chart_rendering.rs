@@ -159,7 +159,6 @@ fn compare_captures(collection: &str, cases: &[&str]) {
 fn native_chart_support_boundaries_and_numeric_failures_are_explicit() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for source in [
-        "#table[#row[#cell[#chart(data={values={1}})]]]",
         "#chart(data={values={'Inf'}})",
         "#chart(kind='pie',data={values={'1e308','1e308'}})",
         "#chart(kind='stacked_column',data={series={{values={'1e308'}},{values={'1e308'}}}})",
@@ -170,6 +169,23 @@ fn native_chart_support_boundaries_and_numeric_failures_are_explicit() {
             "{source}"
         );
     }
+    let document = mote::compile("#table[#row[#cell[#chart(data={values={1}})]]]").unwrap();
+    let fallback = render::plan(&document, &resolver, None).unwrap();
+    assert!(
+        fallback
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("chart geometry"))
+    );
+    assert!(
+        fallback
+            .output
+            .pages
+            .iter()
+            .flat_map(|page| &page.lines)
+            .flat_map(|placed| &placed.line.fragments)
+            .any(|fragment| fragment.text == "[chart]")
+    );
     let document =
         mote::compile("#chart(data={values={1}},axis={value={maximum=10}},style='Retained')")
             .unwrap();

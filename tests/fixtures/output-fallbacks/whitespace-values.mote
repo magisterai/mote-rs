@@ -1,0 +1,6 @@
+#paragraph[#span(properties={preserve_space=true})[  boolean true  ]]
+#paragraph[#span(properties={preserve_space="true"})[  text true  ]]
+#paragraph[#span(properties={preserve_space=" true "})[  trimmed text true  ]]
+#paragraph[#span(properties={preserve_space="false"})[  text false  ]]
+#paragraph[#span(properties={preserve_space=1})[  numeric one  ]]
+#paragraph[#span(properties={preserve_space="TRUE"})[  uppercase text  ]]

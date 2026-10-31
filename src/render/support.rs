@@ -319,13 +319,18 @@ fn content(
                 }
             }
             ElementKind::Chart => {
+                if in_cell {
+                    warnings.insert(format!(
+                        "{path} chart geometry is omitted from native table cells"
+                    ));
+                }
                 allowed.extend_from_slice(charts::warnings(
                     attributes, &path, flattened, true, warnings,
                 ));
             }
             ElementKind::Line => {
                 warnings.insert(format!(
-                    "{path} drawing geometry is not yet supported in native output"
+                    "{path} uses a visible [line] fallback; document drawing geometry is omitted"
                 ));
             }
             ElementKind::Paragraph

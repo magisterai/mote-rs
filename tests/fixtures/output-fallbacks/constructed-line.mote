@@ -1,0 +1,5 @@
+#function connector()
+return document.line({from={x=0,y=0},to={x=72,y=72}})
+end
+#connector()
+After the connector.

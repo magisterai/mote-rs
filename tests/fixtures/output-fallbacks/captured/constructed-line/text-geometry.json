@@ -1,0 +1,91 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 72,
+        "top": 72,
+        "height": 15.225539999999999,
+        "width": 33.638,
+        "baseline": 82.91277,
+        "fragments": [
+          {
+            "text": "[line] ",
+            "x": 72,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 26.29,
+            "height": 10.175,
+            "advance": 26.29,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "{}",
+            "x": 98.28999999999999,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 7.348,
+            "height": 10.175,
+            "advance": 7.348,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 95.22554,
+        "height": 15.225539999999999,
+        "width": 95.997,
+        "baseline": 106.13830999999999,
+        "fragments": [
+          {
+            "text": "After ",
+            "x": 72,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 26.29,
+            "height": 10.175,
+            "advance": 26.29,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "the ",
+            "x": 98.28999999999999,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 18.348,
+            "height": 10.175,
+            "advance": 18.348,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "connector.",
+            "x": 116.638,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 51.359,
+            "height": 10.175,
+            "advance": 51.359,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

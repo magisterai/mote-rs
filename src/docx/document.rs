@@ -130,6 +130,24 @@ pub(super) fn write_blocks(
                 at_flow_start = false;
                 continue;
             }
+            ElementKind::Line => {
+                state
+                    .resources
+                    .warnings
+                    .push("DOCX omits standalone line geometry".into());
+                if !state.resources.pending_bookmarks.is_empty() {
+                    body.push_str(&paragraphs::write(
+                        &Default::default(),
+                        &[],
+                        styles,
+                        None,
+                        false,
+                        &mut state.resources,
+                    )?);
+                }
+                at_flow_start = false;
+                continue;
+            }
             ElementKind::Shape => {
                 body.push_str(&super::shapes::write(element, styles, state)?);
                 at_flow_start = false;

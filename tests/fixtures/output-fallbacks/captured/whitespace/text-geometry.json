@@ -1,0 +1,200 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 72,
+        "top": 72,
+        "height": 15.225539999999999,
+        "width": 92.32300000000001,
+        "baseline": 82.91277,
+        "fragments": [
+          {
+            "text": "leading ",
+            "x": 72,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 38.522,
+            "height": 10.175,
+            "advance": 38.522,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "and ",
+            "x": 110.52199999999999,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 21.406,
+            "height": 10.175,
+            "advance": 21.406,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "trailing",
+            "x": 131.928,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 32.395,
+            "height": 10.175,
+            "advance": 32.395,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 95.22554,
+        "height": 15.225539999999999,
+        "width": 39.732,
+        "baseline": 106.13830999999999,
+        "fragments": [
+          {
+            "text": "ordinary",
+            "x": 72,
+            "baseline": 106.13830999999999,
+            "top": 98.24031,
+            "width": 39.732,
+            "height": 10.175,
+            "advance": 39.732,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 118.45107999999999,
+        "height": 15.225539999999999,
+        "width": 65.428,
+        "baseline": 129.36384999999999,
+        "fragments": [
+          {
+            "text": "before",
+            "x": 72,
+            "baseline": 129.36384999999999,
+            "top": 121.46584999999999,
+            "width": 31.185,
+            "height": 10.175,
+            "advance": 31.185,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "    ",
+            "x": 103.185,
+            "baseline": 129.36384999999999,
+            "top": 121.46584999999999,
+            "width": 12.232,
+            "height": 10.175,
+            "advance": 12.232,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "after",
+            "x": 115.417,
+            "baseline": 129.36384999999999,
+            "top": 121.46584999999999,
+            "width": 22.011,
+            "height": 10.175,
+            "advance": 22.011,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 141.67661999999999,
+        "height": 15.225539999999999,
+        "width": 94.16,
+        "baseline": 152.58938999999998,
+        "fragments": [
+          {
+            "text": "before ",
+            "x": 72,
+            "baseline": 152.58938999999998,
+            "top": 144.69138999999998,
+            "width": 34.243,
+            "height": 10.175,
+            "advance": 34.243,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": " ",
+            "x": 106.243,
+            "baseline": 152.58938999999998,
+            "top": 144.69138999999998,
+            "width": 3.058,
+            "height": 10.175,
+            "advance": 3.058,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "inside ",
+            "x": 109.301,
+            "baseline": 152.58938999999998,
+            "top": 144.69138999999998,
+            "width": 31.79,
+            "height": 10.175,
+            "advance": 31.79,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": " ",
+            "x": 141.091,
+            "baseline": 152.58938999999998,
+            "top": 144.69138999999998,
+            "width": 3.058,
+            "height": 10.175,
+            "advance": 3.058,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "after",
+            "x": 144.149,
+            "baseline": 152.58938999999998,
+            "top": 144.69138999999998,
+            "width": 22.011,
+            "height": 10.175,
+            "advance": 22.011,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

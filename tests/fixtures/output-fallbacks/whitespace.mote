@@ -1,0 +1,4 @@
+#paragraph[#span(properties={preserve_space=true})[  leading and trailing  ]]
+#paragraph[#span(properties={preserve_space=false})[  ordinary  ]]
+#paragraph[#span(properties={preserve_space=true})[  before#tab()after  ]]
+#paragraph[before#span(properties={preserve_space=true})[  inside  ]after]

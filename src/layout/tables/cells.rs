@@ -108,7 +108,7 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
         }
         flush(&mut pending, &mut output, attributes);
         let mut element = original.clone();
-        if element.kind == ElementKind::Math {
+        if matches!(element.kind, ElementKind::Chart | ElementKind::Math) {
             element.kind = ElementKind::Paragraph;
             element.children = vec![Content::Text(super::super::fallbacks::text(original))];
         }
