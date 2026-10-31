@@ -1,6 +1,7 @@
 use super::{
-    Chart, LayoutError, Planner,
+    Chart, LayoutError,
     scale::{Scale, axis_label},
+    text::ChartMeasurement,
 };
 
 #[derive(Clone, Copy, Default)]
@@ -41,8 +42,8 @@ pub(super) struct ChartLayout {
     pub category_label_width: f64,
     pub legend_entries: Vec<super::legend::LegendEntry>,
 }
-impl Planner<'_, '_> {
-    pub(super) fn geometry(
+impl ChartMeasurement<'_, '_> {
+    pub(super) fn measure_layout(
         &mut self,
         chart: &Chart,
         bounds: Rectangle,

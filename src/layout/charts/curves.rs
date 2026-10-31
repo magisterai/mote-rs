@@ -1,7 +1,7 @@
 //! Line and area marks use the same axes, category centers and signed scales.
-use super::{Chart, LayoutError, Planner, geometry::ChartLayout, scale::Scale};
+use super::{Chart, ChartPlanner, LayoutError, geometry::ChartLayout, scale::Scale};
 
-impl Planner<'_, '_> {
+impl ChartPlanner<'_, '_> {
     pub(super) fn line_chart(
         &mut self,
         chart: &Chart,

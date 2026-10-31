@@ -1,12 +1,12 @@
 //! Keep line labels near their points without covering other labels or marks.
-use super::{LayoutError, Planner, geometry::Rectangle, text::text_height};
+use super::{ChartPlanner, LayoutError, geometry::Rectangle, text::text_height};
 
 pub(super) struct LineLabel {
     pub point: [f64; 2],
     pub text: String,
 }
 
-impl Planner<'_, '_> {
+impl ChartPlanner<'_, '_> {
     pub(super) fn place_line_labels(
         &mut self,
         labels: &[LineLabel],
@@ -28,7 +28,7 @@ impl Planner<'_, '_> {
             if label.text.trim().is_empty() {
                 continue;
             }
-            let plan = self.fit_text(
+            let plan = self.measurement.fit_text(
                 &label.text,
                 10.0,
                 "center",

@@ -1,9 +1,9 @@
 use super::{
-    Chart, LayoutError, Planner,
+    Chart, ChartPlanner, LayoutError,
     geometry::{ChartLayout, Rectangle},
     scale::Scale,
 };
-impl Planner<'_, '_> {
+impl ChartPlanner<'_, '_> {
     pub(super) fn bars(&mut self, chart: &Chart, layout: &ChartLayout) -> Result<(), LayoutError> {
         let horizontal = super::horizontal(chart);
         let scale = Scale::for_chart(chart, layout.plot.width.min(layout.plot.height), horizontal)

@@ -1,11 +1,11 @@
 use super::{
-    Chart, LayoutError, PageOperation, Planner,
+    Chart, ChartPlanner, LayoutError, PageOperation,
     geometry::{ChartLayout, Rectangle},
     scale::{Scale, axis_label},
 };
 use crate::layout::RuleRole;
 
-impl Planner<'_, '_> {
+impl ChartPlanner<'_, '_> {
     pub(super) fn axes(
         &mut self,
         chart: &Chart,
@@ -62,7 +62,8 @@ impl Planner<'_, '_> {
         let mut intervals = Vec::new();
         for value in &values {
             let extent = if horizontal {
-                self.text_width(&axis_label(*value, scale.step, percent), 10.0)?
+                self.measurement
+                    .text_width(&axis_label(*value, scale.step, percent), 10.0)?
                     .min(40.0)
             } else {
                 16.0

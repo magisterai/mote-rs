@@ -1,12 +1,12 @@
 //! Pie sectors, radial labels and the doughnut's composited center.
 use super::radial_labels::{self, RadialLabel};
 use super::{
-    Chart, LayoutError, Planner,
+    Chart, ChartPlanner, LayoutError,
     geometry::{ChartLayout, Rectangle},
 };
 use std::f64::consts::PI;
 
-impl Planner<'_, '_> {
+impl ChartPlanner<'_, '_> {
     pub(super) fn pie_chart(
         &mut self,
         chart: &Chart,
@@ -36,7 +36,7 @@ impl Planner<'_, '_> {
                 let lines: Vec<_> = text.split('\n').collect();
                 let mut width: f64 = 0.0;
                 for line in &lines {
-                    width = width.max(self.text_width(line, 10.0)? + 8.0);
+                    width = width.max(self.measurement.text_width(line, 10.0)? + 8.0);
                 }
                 width = width.max(28.0).min((radius * 1.15).max(28.0));
                 let height = (lines.len() as f64 * 15.0).max(16.0);

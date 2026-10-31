@@ -1,6 +1,7 @@
 use super::{
-    Chart, LayoutError, Planner,
+    Chart, ChartPlanner, LayoutError,
     geometry::{ChartLayout, Rectangle},
+    text::ChartMeasurement,
 };
 pub(super) struct LegendEntry {
     pub index: usize,
@@ -40,7 +41,7 @@ pub(super) fn labels(chart: &Chart) -> Vec<&str> {
             .collect()
     }
 }
-impl Planner<'_, '_> {
+impl ChartMeasurement<'_, '_> {
     pub(super) fn arrange_legend(
         &mut self,
         chart: &Chart,
@@ -145,6 +146,9 @@ impl Planner<'_, '_> {
         }
         Ok(())
     }
+}
+
+impl ChartPlanner<'_, '_> {
     fn legend_key(&mut self, chart: &Chart, left: f64, top: f64, color: &str) {
         if chart.kind == "line" {
             self.rule(

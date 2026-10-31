@@ -1,6 +1,6 @@
-use super::Planner;
+use super::ChartPlanner;
 
-impl Planner<'_, '_> {
+impl ChartPlanner<'_, '_> {
     pub(super) fn path(
         &mut self,
         points: Vec<[f64; 2]>,

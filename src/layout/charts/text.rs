@@ -1,11 +1,29 @@
-use super::{LayoutError, PageOperation, Planner, geometry::Rectangle};
+use super::{ChartPlanner, LayoutError, PageOperation, geometry::Rectangle};
 use crate::layout::{LineSpacing, ParagraphStyle, PlacedTextLine, TextRun, TextStyle};
 
-impl Planner<'_, '_> {
+pub(super) struct ChartMeasurement<'measurement, 'assets> {
+    font: String,
+    color: String,
+    measurer: &'measurement mut crate::measurement::TextMeasurer<'assets>,
+}
+
+impl<'measurement, 'assets> ChartMeasurement<'measurement, 'assets> {
+    pub(super) fn new(
+        font: &str,
+        color: &str,
+        measurer: &'measurement mut crate::measurement::TextMeasurer<'assets>,
+    ) -> Self {
+        Self {
+            font: font.into(),
+            color: color.into(),
+            measurer,
+        }
+    }
+
     fn text_style(&self, size: f64) -> TextStyle {
         let mut style = TextStyle::default();
         style.measurement.font = self.font.clone();
-        style.color = self.text_color.clone();
+        style.color = self.color.clone();
         style.measurement.size_points = size;
         style
     }
@@ -74,6 +92,9 @@ impl Planner<'_, '_> {
         }
         Ok(best)
     }
+}
+
+impl ChartPlanner<'_, '_> {
     pub(super) fn text(
         &mut self,
         bounds: Rectangle,
@@ -85,7 +106,7 @@ impl Planner<'_, '_> {
         if text.trim().is_empty() || bounds.width <= 0.0 || bounds.height <= 0.0 {
             return Ok(());
         }
-        let paragraph = self.fit_text(text, size, alignment, bounds)?;
+        let paragraph = self.measurement.fit_text(text, size, alignment, bounds)?;
         let height = text_height(&paragraph);
         let mut top = bounds.top + ((bounds.height - height) / 2.0).max(0.0);
         for mut line in paragraph.lines {

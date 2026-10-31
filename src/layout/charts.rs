@@ -19,6 +19,7 @@ use crate::{
     model::{Element, ElementKind, Properties},
 };
 use geometry::Rectangle;
+use text::ChartMeasurement;
 
 pub(super) struct ChartBlock {
     content: TextPage,
@@ -98,11 +99,7 @@ pub(crate) fn plan_slide(
     if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
         return Ok(TextPage::default());
     }
-    let font = if document.fonts.contains_key("Aptos") {
-        "Aptos"
-    } else {
-        &theme.body
-    };
+    let font = presentation_font(document, theme);
     plan_chart(
         &chart,
         bounds,
@@ -123,19 +120,12 @@ pub(crate) fn automatic_frame_fits(
 ) -> Result<bool, LayoutError> {
     let chart = Chart::from_element(element)
         .map_err(|error| LayoutError::Unsupported(error.to_string()))?;
-    let mut planner = Planner {
-        font: if document.fonts.contains_key("Aptos") {
-            "Aptos".into()
-        } else {
-            theme.body.clone()
-        },
-        text_color: theme.colors[0].clone(),
-        axis_color: theme.colors[0].clone(),
-        background: theme.colors[1].clone(),
+    let mut measurement = ChartMeasurement::new(
+        presentation_font(document, theme),
+        &theme.colors[0],
         measurer,
-        page: TextPage::default(),
-    };
-    let layout = planner.geometry(
+    );
+    let layout = measurement.measure_layout(
         &chart,
         Rectangle::new(0.0, 0.0, size[0] as f64 / 12700.0, size[1] as f64 / 12700.0),
     )?;
@@ -145,6 +135,18 @@ pub(crate) fn automatic_frame_fits(
         72.0
     };
     Ok(layout.plot.width >= minimum && layout.plot.height >= minimum)
+}
+
+// Automatic frame selection and native painting must measure the same typeface.
+fn presentation_font<'theme>(
+    document: &crate::model::Document,
+    theme: &'theme crate::presentation::Theme,
+) -> &'theme str {
+    if document.fonts.contains_key("Aptos") {
+        "Aptos"
+    } else {
+        &theme.body
+    }
 }
 
 fn plan_chart(
@@ -186,15 +188,13 @@ fn plan_chart(
             "native line and area charts with series require at least two categories".into(),
         ));
     }
-    let mut planner = Planner {
-        font: font.into(),
-        text_color: text_color.into(),
+    let mut planner = ChartPlanner {
+        measurement: ChartMeasurement::new(font, text_color, measurer),
         axis_color: axis_color.into(),
         background: background.into(),
-        measurer,
         page: TextPage::default(),
     };
-    let layout = planner.geometry(
+    let layout = planner.measurement.measure_layout(
         chart,
         Rectangle::new(bounds[0], bounds[1], bounds[2], bounds[3]),
     )?;
@@ -223,15 +223,13 @@ fn plan_chart(
     }
     Ok(planner.page)
 }
-struct Planner<'planner, 'assets> {
-    font: String,
-    text_color: String,
+struct ChartPlanner<'planner, 'assets> {
+    measurement: ChartMeasurement<'planner, 'assets>,
     axis_color: String,
     background: String,
-    measurer: &'planner mut TextMeasurer<'assets>,
     page: TextPage,
 }
-impl Planner<'_, '_> {
+impl ChartPlanner<'_, '_> {
     fn fill(&mut self, bounds: Rectangle, color: &str) {
         // Zero-valued bars retain their labels but have no painted area.
         if bounds.width == 0.0 || bounds.height == 0.0 {
