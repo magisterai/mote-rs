@@ -24,7 +24,7 @@ struct Note {
 pub(super) struct NoteLayout {
     footnotes: Vec<Note>,
     endnotes: Vec<Note>,
-    endnote_footer_height: f64,
+    endnote_footer_heights: Vec<f64>,
     pages: BTreeMap<usize, Vec<usize>>,
     assigned: BTreeSet<usize>,
     pub warnings: Vec<String>,
@@ -32,6 +32,7 @@ pub(super) struct NoteLayout {
 impl NoteLayout {
     pub fn prepare(
         sections: &mut [Section],
+        total: usize,
         styles: &LayoutStyleResolver<'_>,
         measurer: &mut TextMeasurer<'_>,
     ) -> Result<Self, LayoutError> {
@@ -39,12 +40,6 @@ impl NoteLayout {
         let eligible = sections.len() == 1 && sections[0].columns.count.unwrap_or(1) <= 1;
         for section in sections {
             let geometry = PageGeometry::from_section(section)?;
-            layout.endnote_footer_height = section
-                .footer
-                .properties
-                .get("height")
-                .and_then(super::style_values::points)
-                .unwrap_or(0.0);
             layout.select(
                 &mut section.content,
                 eligible,
@@ -53,6 +48,11 @@ impl NoteLayout {
                 measurer,
                 geometry,
             )?;
+            layout.endnote_footer_heights = if eligible && !layout.endnotes.is_empty() {
+                super::stories::footer_heights(section, geometry, total, styles, measurer)?
+            } else {
+                Vec::new()
+            };
             layout.select(
                 &mut section.header.content,
                 false,

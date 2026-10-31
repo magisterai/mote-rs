@@ -139,3 +139,36 @@ fn note_reservations_and_fallbacks_are_observable() {
     assert_eq!(endnotes.output.pages.len(), 3);
     assert!(endnotes.output.pages.iter().all(|page| page.operations.iter().any(|operation| matches!(operation, mote::layout::PageOperation::Rule(rule) if rule.role == mote::layout::RuleRole::NoteSeparator))));
 }
+
+#[test]
+fn endnote_continuations_reserve_visible_footer_text() {
+    for case in ["endnote-flow", "endnote-footer"] {
+        let plan = planned(case);
+        assert!(plan.output.pages.len() > 1);
+        for page in &plan.output.pages {
+            let text = |line: &mote::layout::PlacedTextLine| {
+                line.line
+                    .fragments
+                    .iter()
+                    .map(|fragment| fragment.text.as_str())
+                    .collect::<String>()
+            };
+            let footer = page
+                .lines
+                .iter()
+                .find(|line| text(line).starts_with("Page "))
+                .unwrap();
+            for line in page
+                .lines
+                .iter()
+                .filter(|line| !text(line).starts_with("Page "))
+            {
+                assert!(
+                    line.top + line.line.height <= footer.top + 1e-8,
+                    "{case}: text overlaps footer on page {}",
+                    page.page_number
+                );
+            }
+        }
+    }
+}

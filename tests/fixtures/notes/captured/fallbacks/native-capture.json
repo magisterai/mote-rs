@@ -12,7 +12,7 @@
   "pdf_changed_pixels": 0,
   "files": {
     "geometry.json": "cc0b1b239f128bd617fc8022fb2727da199f4ea170bd8a3305065d53f6ea6a2b",
-    "reference-2.png": "cdf88848fd3901838c438309df874e533855bceda7d730ab2d68e4cb60587a9d",
-    "reference-1.png": "f2ca18f0f1446d0fc3786020641608a6317d9e21705f192b97f42442d453b966"
+    "reference-1.png": "f2ca18f0f1446d0fc3786020641608a6317d9e21705f192b97f42442d453b966",
+    "reference-2.png": "cdf88848fd3901838c438309df874e533855bceda7d730ab2d68e4cb60587a9d"
   }
 }

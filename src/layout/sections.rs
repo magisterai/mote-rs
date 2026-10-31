@@ -227,7 +227,8 @@ fn plan_pass(
     let mut styles = LayoutStyleResolver::new(document);
     styles.reference_pages = inputs.reference_pages.clone();
     let mut sections = sections.to_vec();
-    let mut notes = super::notes::NoteLayout::prepare(&mut sections, &styles, measurer)?;
+    let mut notes =
+        super::notes::NoteLayout::prepare(&mut sections, inputs.total, &styles, measurer)?;
     let mut reference_pages = BTreeMap::new();
     let mut numbers = BlockNumbers::default();
     let mut pages: Vec<TextPage> = Vec::new();

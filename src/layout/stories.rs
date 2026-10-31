@@ -31,76 +31,21 @@ pub(super) fn place(
         for (header, story) in [(true, &section.header), (false, &section.footer)] {
             let name = if header { "header" } else { "footer" };
             let style_name = if header { "Header" } else { "Footer" };
-            let mut content = story.content.clone();
-            super::fields::resolve(
-                &mut content,
+            let mut lines = measure(
+                &story.content,
+                style_name,
+                geometry,
                 page.page_number,
                 total,
-                None,
-                &Default::default(),
-            );
-            let mut lines: Vec<StoryLine> = Vec::new();
-            for child in &content {
-                let mut paragraph = match child {
-                    Content::Element(element) if element.kind == ElementKind::Paragraph => {
-                        element.clone()
-                    }
-                    _ => Element {
-                        source_name: None,
-                        kind: ElementKind::Paragraph,
-                        attributes: Default::default(),
-                        children: vec![child.clone()],
-                    },
-                };
-                if crate::properties::text(&paragraph.attributes, "style").is_empty() {
-                    paragraph
-                        .attributes
-                        .insert("style".into(), Value::String(style_name.into()));
-                }
-                let mut style = styles.paragraph(&paragraph);
-                style.indent_left = 0.0;
-                style.indent_right = 0.0;
-                style.first_line = 0.0;
-                let runs = super::resolve_inline(&paragraph.children, &style.text, &styles);
-                let before = style.spacing_before;
-                let after = style.spacing_after;
-                let paragraph = super::paragraphs::plan_resolved_paragraph(
-                    style,
-                    None,
-                    &runs,
-                    geometry.content_width(),
-                    measurer,
-                    true,
-                )?;
-                let count = paragraph.lines.len();
-                for (index, line) in paragraph.lines.into_iter().enumerate() {
-                    let leading = if index == 0 { before } else { 0.0 };
-                    let trailing = if index + 1 == count { after } else { 0.0 };
-                    let leading = if let Some(previous) = lines.last() {
-                        (leading - previous.trailing).max(0.0)
-                    } else {
-                        leading
-                    };
-                    lines.push(StoryLine {
-                        line,
-                        leading,
-                        trailing,
-                    });
-                }
-            }
+                &styles,
+                measurer,
+            )?;
             let available = if header {
                 geometry.margin_top - geometry.header_space
             } else {
                 geometry.margin_bottom - geometry.footer_space
             };
-            let mut height = 0.0;
-            let count = lines
-                .iter()
-                .take_while(|line| {
-                    height += line.height();
-                    height <= available + 0.001
-                })
-                .count();
+            let count = fitting_line_count(&lines, available);
             if count < lines.len() {
                 plan.warnings.push(format!(
                     "{name} content exceeds its reserved area; trailing lines are omitted"
@@ -129,4 +74,109 @@ pub(super) fn place(
         }
     }
     Ok(())
+}
+
+fn fitting_line_count(lines: &[StoryLine], available: f64) -> usize {
+    let mut height = 0.0;
+    lines
+        .iter()
+        .take_while(|line| {
+            height += line.height();
+            height <= available + 0.001
+        })
+        .count()
+}
+
+pub(super) fn footer_heights(
+    section: &Section,
+    geometry: super::PageGeometry,
+    total: usize,
+    styles: &LayoutStyleResolver<'_>,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<Vec<f64>, LayoutError> {
+    let declared = section
+        .footer
+        .properties
+        .get("height")
+        .and_then(super::style_values::points)
+        .unwrap_or(0.0);
+    let start = crate::properties::number(&section.page_numbering, "start")
+        .unwrap_or(1.0)
+        .max(1.0) as usize;
+    (0..total.max(1))
+        .map(|index| {
+            let lines = measure(
+                &section.footer.content,
+                "Footer",
+                geometry,
+                start + index,
+                total.max(1),
+                styles,
+                measurer,
+            )?;
+            let count = fitting_line_count(&lines, geometry.margin_bottom - geometry.footer_space);
+            Ok(declared.max(lines[..count].iter().map(StoryLine::height).sum()))
+        })
+        .collect()
+}
+
+fn measure(
+    content: &[Content],
+    style_name: &str,
+    geometry: super::PageGeometry,
+    page_number: usize,
+    total: usize,
+    styles: &LayoutStyleResolver<'_>,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<Vec<StoryLine>, LayoutError> {
+    let mut content = content.to_vec();
+    super::fields::resolve(&mut content, page_number, total, None, &Default::default());
+    let mut lines: Vec<StoryLine> = Vec::new();
+    for child in &content {
+        let mut paragraph = match child {
+            Content::Element(element) if element.kind == ElementKind::Paragraph => element.clone(),
+            _ => Element {
+                source_name: None,
+                kind: ElementKind::Paragraph,
+                attributes: Default::default(),
+                children: vec![child.clone()],
+            },
+        };
+        if crate::properties::text(&paragraph.attributes, "style").is_empty() {
+            paragraph
+                .attributes
+                .insert("style".into(), Value::String(style_name.into()));
+        }
+        let mut style = styles.paragraph(&paragraph);
+        style.indent_left = 0.0;
+        style.indent_right = 0.0;
+        style.first_line = 0.0;
+        let runs = super::resolve_inline(&paragraph.children, &style.text, styles);
+        let before = style.spacing_before;
+        let after = style.spacing_after;
+        let paragraph = super::paragraphs::plan_resolved_paragraph(
+            style,
+            None,
+            &runs,
+            geometry.content_width(),
+            measurer,
+            true,
+        )?;
+        let count = paragraph.lines.len();
+        for (index, line) in paragraph.lines.into_iter().enumerate() {
+            let leading = if index == 0 { before } else { 0.0 };
+            let trailing = if index + 1 == count { after } else { 0.0 };
+            let leading = if let Some(previous) = lines.last() {
+                (leading - previous.trailing).max(0.0)
+            } else {
+                leading
+            };
+            lines.push(StoryLine {
+                line,
+                leading,
+                trailing,
+            });
+        }
+    }
+    Ok(lines)
 }

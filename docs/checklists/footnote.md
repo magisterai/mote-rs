@@ -20,7 +20,8 @@ use decimal footnote and lower-Roman endnote numbers. Table cells, running stori
 figure descendants, multiple sections, multiple columns, rich block note bodies,
 and dynamic note fields retain visible inline fallbacks with diagnostics.
 Oversized footnotes warn and may extend above the page; they are not split.
-Endnote continuation can overlap footer text when no explicit footer height is reserved.
+Endnote continuation reserves measured visible footer content as well as any
+larger declared footer height.
 Numbering, custom marks, separator authoring, positioning, and restart controls are
 not authoring attributes. See the standard inventory for unsupported properties.
 

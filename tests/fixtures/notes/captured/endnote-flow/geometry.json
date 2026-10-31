@@ -3623,155 +3623,6 @@
         {
           "fragments": [
             {
-              "advance": 10.56,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "in ",
-              "x": 36
-            },
-            {
-              "advance": 18.34,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "this ",
-              "x": 46.56
-            },
-            {
-              "advance": 43.92,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "extended ",
-              "x": 64.9
-            },
-            {
-              "advance": 32.79,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "source ",
-              "x": 108.82
-            },
-            {
-              "advance": 25.02,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "note. ",
-              "x": 141.60999999999999
-            },
-            {
-              "advance": 43.91,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "Evidence ",
-              "x": 166.63
-            },
-            {
-              "advance": 22.78,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "from ",
-              "x": 210.54
-            },
-            {
-              "advance": 16.68,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "the ",
-              "x": 233.32
-            },
-            {
-              "advance": 35.01,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "archive ",
-              "x": 250
-            },
-            {
-              "advance": 7.22,
-              "baseline": 365.378,
-              "size": 10,
-              "text": "is",
-              "x": 285.01
-            }
-          ],
-          "height": 13,
-          "top": 355.878,
-          "width": 256.23,
-          "x": 36
-        },
-        {
-          "fragments": [
-            {
-              "advance": 42.24,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "recorded ",
-              "x": 36
-            },
-            {
-              "advance": 10.56,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "in ",
-              "x": 78.24000000000001
-            },
-            {
-              "advance": 18.34,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "this ",
-              "x": 88.80000000000001
-            },
-            {
-              "advance": 43.92,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "extended ",
-              "x": 107.14
-            },
-            {
-              "advance": 32.79,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "source ",
-              "x": 151.06
-            },
-            {
-              "advance": 25.02,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "note. ",
-              "x": 183.85
-            },
-            {
-              "advance": 43.91,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "Evidence ",
-              "x": 208.87
-            },
-            {
-              "advance": 22.78,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "from ",
-              "x": 252.78
-            },
-            {
-              "advance": 13.9,
-              "baseline": 378.378,
-              "size": 10,
-              "text": "the",
-              "x": 275.56
-            }
-          ],
-          "height": 13,
-          "top": 368.878,
-          "width": 253.46,
-          "x": 36
-        },
-        {
-          "fragments": [
-            {
               "advance": 46.14,
               "baseline": 27.920699999999997,
               "size": 10,
@@ -3836,78 +3687,227 @@
         {
           "fragments": [
             {
-              "advance": 35.01,
-              "baseline": 66.378,
-              "size": 10,
-              "text": "archive ",
-              "x": 36
-            },
-            {
-              "advance": 10,
-              "baseline": 66.378,
-              "size": 10,
-              "text": "is ",
-              "x": 71.00999999999999
-            },
-            {
-              "advance": 42.24,
-              "baseline": 66.378,
-              "size": 10,
-              "text": "recorded ",
-              "x": 81.00999999999999
-            },
-            {
               "advance": 10.56,
               "baseline": 66.378,
               "size": 10,
               "text": "in ",
-              "x": 123.25
+              "x": 36
             },
             {
               "advance": 18.34,
               "baseline": 66.378,
               "size": 10,
               "text": "this ",
-              "x": 133.81
+              "x": 46.56
             },
             {
               "advance": 43.92,
               "baseline": 66.378,
               "size": 10,
               "text": "extended ",
-              "x": 152.15
+              "x": 64.9
             },
             {
               "advance": 32.79,
               "baseline": 66.378,
               "size": 10,
               "text": "source ",
-              "x": 196.07
+              "x": 108.82
             },
             {
               "advance": 25.02,
               "baseline": 66.378,
               "size": 10,
               "text": "note. ",
-              "x": 228.85999999999999
+              "x": 141.60999999999999
             },
             {
               "advance": 43.91,
               "baseline": 66.378,
               "size": 10,
               "text": "Evidence ",
+              "x": 166.63
+            },
+            {
+              "advance": 22.78,
+              "baseline": 66.378,
+              "size": 10,
+              "text": "from ",
+              "x": 210.54
+            },
+            {
+              "advance": 16.68,
+              "baseline": 66.378,
+              "size": 10,
+              "text": "the ",
+              "x": 233.32
+            },
+            {
+              "advance": 35.01,
+              "baseline": 66.378,
+              "size": 10,
+              "text": "archive ",
+              "x": 250
+            },
+            {
+              "advance": 7.22,
+              "baseline": 66.378,
+              "size": 10,
+              "text": "is",
+              "x": 285.01
+            }
+          ],
+          "height": 13,
+          "top": 56.878,
+          "width": 256.23,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 42.24,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "recorded ",
+              "x": 36
+            },
+            {
+              "advance": 10.56,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "in ",
+              "x": 78.24000000000001
+            },
+            {
+              "advance": 18.34,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "this ",
+              "x": 88.80000000000001
+            },
+            {
+              "advance": 43.92,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "extended ",
+              "x": 107.14
+            },
+            {
+              "advance": 32.79,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "source ",
+              "x": 151.06
+            },
+            {
+              "advance": 25.02,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "note. ",
+              "x": 183.85
+            },
+            {
+              "advance": 43.91,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "Evidence ",
+              "x": 208.87
+            },
+            {
+              "advance": 22.78,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "from ",
+              "x": 252.78
+            },
+            {
+              "advance": 13.9,
+              "baseline": 79.378,
+              "size": 10,
+              "text": "the",
+              "x": 275.56
+            }
+          ],
+          "height": 13,
+          "top": 69.878,
+          "width": 253.46,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 35.01,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "archive ",
+              "x": 36
+            },
+            {
+              "advance": 10,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "is ",
+              "x": 71.00999999999999
+            },
+            {
+              "advance": 42.24,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "recorded ",
+              "x": 81.00999999999999
+            },
+            {
+              "advance": 10.56,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "in ",
+              "x": 123.25
+            },
+            {
+              "advance": 18.34,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "this ",
+              "x": 133.81
+            },
+            {
+              "advance": 43.92,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "extended ",
+              "x": 152.15
+            },
+            {
+              "advance": 32.79,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "source ",
+              "x": 196.07
+            },
+            {
+              "advance": 25.02,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "note. ",
+              "x": 228.85999999999999
+            },
+            {
+              "advance": 43.91,
+              "baseline": 92.378,
+              "size": 10,
+              "text": "Evidence ",
               "x": 253.88
             },
             {
               "advance": 20,
-              "baseline": 66.378,
+              "baseline": 92.378,
               "size": 10,
               "text": "from",
               "x": 297.78999999999996
             }
           ],
           "height": 13,
-          "top": 56.878,
+          "top": 82.878,
           "width": 281.78999999999996,
           "x": 36
         },
@@ -3915,77 +3915,77 @@
           "fragments": [
             {
               "advance": 16.68,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "the ",
               "x": 36
             },
             {
               "advance": 35.01,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "archive ",
               "x": 52.68
             },
             {
               "advance": 10,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "is ",
               "x": 87.69
             },
             {
               "advance": 42.24,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "recorded ",
               "x": 97.69
             },
             {
               "advance": 10.56,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "in ",
               "x": 139.93
             },
             {
               "advance": 18.34,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "this ",
               "x": 150.49
             },
             {
               "advance": 43.92,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "extended ",
               "x": 168.83
             },
             {
               "advance": 32.79,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "source ",
               "x": 212.75
             },
             {
               "advance": 25.02,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "note. ",
               "x": 245.54
             },
             {
               "advance": 41.13,
-              "baseline": 79.378,
+              "baseline": 105.378,
               "size": 10,
               "text": "Evidence",
               "x": 270.56
             }
           ],
           "height": 13,
-          "top": 69.878,
+          "top": 95.878,
           "width": 275.69,
           "x": 36
         },
@@ -3993,77 +3993,77 @@
           "fragments": [
             {
               "advance": 22.78,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "from ",
               "x": 36
             },
             {
               "advance": 16.68,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "the ",
               "x": 58.78
             },
             {
               "advance": 35.01,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "archive ",
               "x": 75.46000000000001
             },
             {
               "advance": 10,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "is ",
               "x": 110.47
             },
             {
               "advance": 42.24,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "recorded ",
               "x": 120.47
             },
             {
               "advance": 10.56,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "in ",
               "x": 162.71
             },
             {
               "advance": 18.34,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "this ",
               "x": 173.27
             },
             {
               "advance": 43.92,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "extended ",
               "x": 191.61
             },
             {
               "advance": 32.79,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "source ",
               "x": 235.53000000000003
             },
             {
               "advance": 22.24,
-              "baseline": 92.378,
+              "baseline": 118.378,
               "size": 10,
               "text": "note.",
               "x": 268.32000000000005
             }
           ],
           "height": 13,
-          "top": 82.878,
+          "top": 108.878,
           "width": 254.56000000000003,
           "x": 36
         },
@@ -4071,77 +4071,77 @@
           "fragments": [
             {
               "advance": 43.91,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "Evidence ",
               "x": 36
             },
             {
               "advance": 22.78,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "from ",
               "x": 79.91
             },
             {
               "advance": 16.68,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "the ",
               "x": 102.69
             },
             {
               "advance": 35.01,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "archive ",
               "x": 119.37
             },
             {
               "advance": 10,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "is ",
               "x": 154.38
             },
             {
               "advance": 42.24,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "recorded ",
               "x": 164.38
             },
             {
               "advance": 10.56,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "in ",
               "x": 206.62
             },
             {
               "advance": 18.34,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "this ",
               "x": 217.18
             },
             {
               "advance": 43.92,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "extended ",
               "x": 235.52
             },
             {
               "advance": 30.01,
-              "baseline": 105.378,
+              "baseline": 131.378,
               "size": 10,
               "text": "source",
               "x": 279.44
             }
           ],
           "height": 13,
-          "top": 95.878,
+          "top": 121.878,
           "width": 273.45,
           "x": 36
         },
@@ -4149,77 +4149,77 @@
           "fragments": [
             {
               "advance": 25.02,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "note. ",
               "x": 36
             },
             {
               "advance": 43.91,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "Evidence ",
               "x": 61.019999999999996
             },
             {
               "advance": 22.78,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "from ",
               "x": 104.92999999999999
             },
             {
               "advance": 16.68,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "the ",
               "x": 127.71
             },
             {
               "advance": 35.01,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "archive ",
               "x": 144.39
             },
             {
               "advance": 10,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "is ",
               "x": 179.39999999999998
             },
             {
               "advance": 42.24,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "recorded ",
               "x": 189.39999999999998
             },
             {
               "advance": 10.56,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "in ",
               "x": 231.64
             },
             {
               "advance": 18.34,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "this ",
               "x": 242.2
             },
             {
               "advance": 41.14,
-              "baseline": 118.378,
+              "baseline": 144.378,
               "size": 10,
               "text": "extended",
               "x": 260.53999999999996
             }
           ],
           "height": 13,
-          "top": 108.878,
+          "top": 134.878,
           "width": 265.68,
           "x": 36
         },
@@ -4227,77 +4227,77 @@
           "fragments": [
             {
               "advance": 32.79,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "source ",
               "x": 36
             },
             {
               "advance": 25.02,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "note. ",
               "x": 68.78999999999999
             },
             {
               "advance": 43.91,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "Evidence ",
               "x": 93.81
             },
             {
               "advance": 22.78,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "from ",
               "x": 137.72
             },
             {
               "advance": 16.68,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "the ",
               "x": 160.5
             },
             {
               "advance": 35.01,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "archive ",
               "x": 177.18
             },
             {
               "advance": 10,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "is ",
               "x": 212.19
             },
             {
               "advance": 42.24,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "recorded ",
               "x": 222.19
             },
             {
               "advance": 10.56,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "in ",
               "x": 264.43
             },
             {
               "advance": 15.56,
-              "baseline": 131.378,
+              "baseline": 157.378,
               "size": 10,
               "text": "this",
               "x": 274.99
             }
           ],
           "height": 13,
-          "top": 121.878,
+          "top": 147.878,
           "width": 254.55,
           "x": 36
         },
@@ -4305,28 +4305,28 @@
           "fragments": [
             {
               "advance": 43.92,
-              "baseline": 144.378,
+              "baseline": 170.378,
               "size": 10,
               "text": "extended ",
               "x": 36
             },
             {
               "advance": 32.79,
-              "baseline": 144.378,
+              "baseline": 170.378,
               "size": 10,
               "text": "source ",
               "x": 79.92
             },
             {
               "advance": 22.24,
-              "baseline": 144.378,
+              "baseline": 170.378,
               "size": 10,
               "text": "note.",
               "x": 112.71000000000001
             }
           ],
           "height": 13,
-          "top": 134.878,
+          "top": 160.878,
           "width": 98.95,
           "x": 36
         },
@@ -4334,70 +4334,70 @@
           "fragments": [
             {
               "advance": 7.22,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "ii ",
               "x": 36
             },
             {
               "advance": 25.56,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "More ",
               "x": 43.22
             },
             {
               "advance": 32.79,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "source ",
               "x": 68.78
             },
             {
               "advance": 38.34,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "material ",
               "x": 101.57
             },
             {
               "advance": 33.34,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "follows ",
               "x": 139.91
             },
             {
               "advance": 43.35,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "naturally. ",
               "x": 173.25
             },
             {
               "advance": 25.56,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "More ",
               "x": 216.6
             },
             {
               "advance": 32.79,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "source ",
               "x": 242.16
             },
             {
               "advance": 35.56,
-              "baseline": 162.378,
+              "baseline": 188.378,
               "size": 10,
               "text": "material",
               "x": 274.95
             }
           ],
           "height": 13,
-          "top": 152.878,
+          "top": 178.878,
           "width": 274.51,
           "x": 36
         },
@@ -4405,383 +4405,63 @@
           "fragments": [
             {
               "advance": 33.34,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "follows ",
               "x": 36
             },
             {
               "advance": 43.35,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "naturally. ",
               "x": 69.34
             },
             {
               "advance": 25.56,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "More ",
               "x": 112.69
             },
             {
               "advance": 32.79,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "source ",
               "x": 138.25
             },
             {
               "advance": 38.34,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "material ",
               "x": 171.04
             },
             {
               "advance": 33.34,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "follows ",
               "x": 209.38
             },
             {
               "advance": 43.35,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "naturally. ",
               "x": 242.72
             },
             {
               "advance": 22.78,
-              "baseline": 175.378,
+              "baseline": 201.378,
               "size": 10,
               "text": "More",
               "x": 286.07
-            }
-          ],
-          "height": 13,
-          "top": 165.878,
-          "width": 272.85,
-          "x": 36
-        },
-        {
-          "fragments": [
-            {
-              "advance": 32.79,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "source ",
-              "x": 36
-            },
-            {
-              "advance": 38.34,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "material ",
-              "x": 68.78999999999999
-            },
-            {
-              "advance": 33.34,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "follows ",
-              "x": 107.13
-            },
-            {
-              "advance": 43.35,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "naturally. ",
-              "x": 140.47
-            },
-            {
-              "advance": 25.56,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "More ",
-              "x": 183.82
-            },
-            {
-              "advance": 32.79,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "source ",
-              "x": 209.38
-            },
-            {
-              "advance": 38.34,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "material ",
-              "x": 242.17
-            },
-            {
-              "advance": 30.56,
-              "baseline": 188.378,
-              "size": 10,
-              "text": "follows",
-              "x": 280.51
-            }
-          ],
-          "height": 13,
-          "top": 178.878,
-          "width": 275.07,
-          "x": 36
-        },
-        {
-          "fragments": [
-            {
-              "advance": 43.35,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "naturally. ",
-              "x": 36
-            },
-            {
-              "advance": 25.56,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "More ",
-              "x": 79.35
-            },
-            {
-              "advance": 32.79,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "source ",
-              "x": 104.91
-            },
-            {
-              "advance": 38.34,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "material ",
-              "x": 137.7
-            },
-            {
-              "advance": 33.34,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "follows ",
-              "x": 176.04
-            },
-            {
-              "advance": 43.35,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "naturally. ",
-              "x": 209.38
-            },
-            {
-              "advance": 25.56,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "More ",
-              "x": 252.73
-            },
-            {
-              "advance": 30.01,
-              "baseline": 201.378,
-              "size": 10,
-              "text": "source",
-              "x": 278.28999999999996
             }
           ],
           "height": 13,
           "top": 191.878,
-          "width": 272.3,
-          "x": 36
-        },
-        {
-          "fragments": [
-            {
-              "advance": 38.34,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "material ",
-              "x": 36
-            },
-            {
-              "advance": 33.34,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "follows ",
-              "x": 74.34
-            },
-            {
-              "advance": 43.35,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "naturally. ",
-              "x": 107.68
-            },
-            {
-              "advance": 25.56,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "More ",
-              "x": 151.03
-            },
-            {
-              "advance": 32.79,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "source ",
-              "x": 176.59
-            },
-            {
-              "advance": 38.34,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "material ",
-              "x": 209.38
-            },
-            {
-              "advance": 33.34,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "follows ",
-              "x": 247.72
-            },
-            {
-              "advance": 40.57,
-              "baseline": 214.378,
-              "size": 10,
-              "text": "naturally.",
-              "x": 281.06
-            }
-          ],
-          "height": 13,
-          "top": 204.878,
-          "width": 285.63,
-          "x": 36
-        },
-        {
-          "fragments": [
-            {
-              "advance": 25.56,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "More ",
-              "x": 36
-            },
-            {
-              "advance": 32.79,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "source ",
-              "x": 61.56
-            },
-            {
-              "advance": 38.34,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "material ",
-              "x": 94.35
-            },
-            {
-              "advance": 33.34,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "follows ",
-              "x": 132.69
-            },
-            {
-              "advance": 43.35,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "naturally. ",
-              "x": 166.03
-            },
-            {
-              "advance": 25.56,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "More ",
-              "x": 209.38
-            },
-            {
-              "advance": 32.79,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "source ",
-              "x": 234.94
-            },
-            {
-              "advance": 35.56,
-              "baseline": 227.378,
-              "size": 10,
-              "text": "material",
-              "x": 267.73
-            }
-          ],
-          "height": 13,
-          "top": 217.878,
-          "width": 267.28999999999996,
-          "x": 36
-        },
-        {
-          "fragments": [
-            {
-              "advance": 33.34,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "follows ",
-              "x": 36
-            },
-            {
-              "advance": 43.35,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "naturally. ",
-              "x": 69.34
-            },
-            {
-              "advance": 25.56,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "More ",
-              "x": 112.69
-            },
-            {
-              "advance": 32.79,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "source ",
-              "x": 138.25
-            },
-            {
-              "advance": 38.34,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "material ",
-              "x": 171.04
-            },
-            {
-              "advance": 33.34,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "follows ",
-              "x": 209.38
-            },
-            {
-              "advance": 43.35,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "naturally. ",
-              "x": 242.72
-            },
-            {
-              "advance": 22.78,
-              "baseline": 240.378,
-              "size": 10,
-              "text": "More",
-              "x": 286.07
-            }
-          ],
-          "height": 13,
-          "top": 230.878,
           "width": 272.85,
           "x": 36
         },
@@ -4789,63 +4469,63 @@
           "fragments": [
             {
               "advance": 32.79,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "source ",
               "x": 36
             },
             {
               "advance": 38.34,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "material ",
               "x": 68.78999999999999
             },
             {
               "advance": 33.34,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "follows ",
               "x": 107.13
             },
             {
               "advance": 43.35,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "naturally. ",
               "x": 140.47
             },
             {
               "advance": 25.56,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "More ",
               "x": 183.82
             },
             {
               "advance": 32.79,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "source ",
               "x": 209.38
             },
             {
               "advance": 38.34,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "material ",
               "x": 242.17
             },
             {
               "advance": 30.56,
-              "baseline": 253.378,
+              "baseline": 214.378,
               "size": 10,
               "text": "follows",
               "x": 280.51
             }
           ],
           "height": 13,
-          "top": 243.878,
+          "top": 204.878,
           "width": 275.07,
           "x": 36
         },
@@ -4853,63 +4533,63 @@
           "fragments": [
             {
               "advance": 43.35,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "naturally. ",
               "x": 36
             },
             {
               "advance": 25.56,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "More ",
               "x": 79.35
             },
             {
               "advance": 32.79,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "source ",
               "x": 104.91
             },
             {
               "advance": 38.34,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "material ",
               "x": 137.7
             },
             {
               "advance": 33.34,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "follows ",
               "x": 176.04
             },
             {
               "advance": 43.35,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "naturally. ",
               "x": 209.38
             },
             {
               "advance": 25.56,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "More ",
               "x": 252.73
             },
             {
               "advance": 30.01,
-              "baseline": 266.378,
+              "baseline": 227.378,
               "size": 10,
               "text": "source",
               "x": 278.28999999999996
             }
           ],
           "height": 13,
-          "top": 256.878,
+          "top": 217.878,
           "width": 272.3,
           "x": 36
         },
@@ -4917,63 +4597,63 @@
           "fragments": [
             {
               "advance": 38.34,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "material ",
               "x": 36
             },
             {
               "advance": 33.34,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "follows ",
               "x": 74.34
             },
             {
               "advance": 43.35,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "naturally. ",
               "x": 107.68
             },
             {
               "advance": 25.56,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "More ",
               "x": 151.03
             },
             {
               "advance": 32.79,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "source ",
               "x": 176.59
             },
             {
               "advance": 38.34,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "material ",
               "x": 209.38
             },
             {
               "advance": 33.34,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "follows ",
               "x": 247.72
             },
             {
               "advance": 40.57,
-              "baseline": 279.378,
+              "baseline": 240.378,
               "size": 10,
               "text": "naturally.",
               "x": 281.06
             }
           ],
           "height": 13,
-          "top": 269.878,
+          "top": 230.878,
           "width": 285.63,
           "x": 36
         },
@@ -4981,63 +4661,63 @@
           "fragments": [
             {
               "advance": 25.56,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "More ",
               "x": 36
             },
             {
               "advance": 32.79,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "source ",
               "x": 61.56
             },
             {
               "advance": 38.34,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "material ",
               "x": 94.35
             },
             {
               "advance": 33.34,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "follows ",
               "x": 132.69
             },
             {
               "advance": 43.35,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "naturally. ",
               "x": 166.03
             },
             {
               "advance": 25.56,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "More ",
               "x": 209.38
             },
             {
               "advance": 32.79,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "source ",
               "x": 234.94
             },
             {
               "advance": 35.56,
-              "baseline": 292.378,
+              "baseline": 253.378,
               "size": 10,
               "text": "material",
               "x": 267.73
             }
           ],
           "height": 13,
-          "top": 282.878,
+          "top": 243.878,
           "width": 267.28999999999996,
           "x": 36
         },
@@ -5045,63 +4725,63 @@
           "fragments": [
             {
               "advance": 33.34,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "follows ",
               "x": 36
             },
             {
               "advance": 43.35,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "naturally. ",
               "x": 69.34
             },
             {
               "advance": 25.56,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "More ",
               "x": 112.69
             },
             {
               "advance": 32.79,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "source ",
               "x": 138.25
             },
             {
               "advance": 38.34,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "material ",
               "x": 171.04
             },
             {
               "advance": 33.34,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "follows ",
               "x": 209.38
             },
             {
               "advance": 43.35,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "naturally. ",
               "x": 242.72
             },
             {
               "advance": 22.78,
-              "baseline": 305.378,
+              "baseline": 266.378,
               "size": 10,
               "text": "More",
               "x": 286.07
             }
           ],
           "height": 13,
-          "top": 295.878,
+          "top": 256.878,
           "width": 272.85,
           "x": 36
         },
@@ -5109,63 +4789,383 @@
           "fragments": [
             {
               "advance": 32.79,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "source ",
               "x": 36
             },
             {
               "advance": 38.34,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "material ",
               "x": 68.78999999999999
             },
             {
               "advance": 33.34,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "follows ",
               "x": 107.13
             },
             {
               "advance": 43.35,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "naturally. ",
               "x": 140.47
             },
             {
               "advance": 25.56,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "More ",
               "x": 183.82
             },
             {
               "advance": 32.79,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "source ",
               "x": 209.38
             },
             {
               "advance": 38.34,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "material ",
               "x": 242.17
             },
             {
               "advance": 30.56,
-              "baseline": 318.378,
+              "baseline": 279.378,
               "size": 10,
               "text": "follows",
               "x": 280.51
             }
           ],
           "height": 13,
+          "top": 269.878,
+          "width": 275.07,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 43.35,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "naturally. ",
+              "x": 36
+            },
+            {
+              "advance": 25.56,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "More ",
+              "x": 79.35
+            },
+            {
+              "advance": 32.79,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "source ",
+              "x": 104.91
+            },
+            {
+              "advance": 38.34,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "material ",
+              "x": 137.7
+            },
+            {
+              "advance": 33.34,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "follows ",
+              "x": 176.04
+            },
+            {
+              "advance": 43.35,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "naturally. ",
+              "x": 209.38
+            },
+            {
+              "advance": 25.56,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "More ",
+              "x": 252.73
+            },
+            {
+              "advance": 30.01,
+              "baseline": 292.378,
+              "size": 10,
+              "text": "source",
+              "x": 278.28999999999996
+            }
+          ],
+          "height": 13,
+          "top": 282.878,
+          "width": 272.3,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 38.34,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "material ",
+              "x": 36
+            },
+            {
+              "advance": 33.34,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "follows ",
+              "x": 74.34
+            },
+            {
+              "advance": 43.35,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "naturally. ",
+              "x": 107.68
+            },
+            {
+              "advance": 25.56,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "More ",
+              "x": 151.03
+            },
+            {
+              "advance": 32.79,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "source ",
+              "x": 176.59
+            },
+            {
+              "advance": 38.34,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "material ",
+              "x": 209.38
+            },
+            {
+              "advance": 33.34,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "follows ",
+              "x": 247.72
+            },
+            {
+              "advance": 40.57,
+              "baseline": 305.378,
+              "size": 10,
+              "text": "naturally.",
+              "x": 281.06
+            }
+          ],
+          "height": 13,
+          "top": 295.878,
+          "width": 285.63,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 25.56,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "More ",
+              "x": 36
+            },
+            {
+              "advance": 32.79,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "source ",
+              "x": 61.56
+            },
+            {
+              "advance": 38.34,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "material ",
+              "x": 94.35
+            },
+            {
+              "advance": 33.34,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "follows ",
+              "x": 132.69
+            },
+            {
+              "advance": 43.35,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "naturally. ",
+              "x": 166.03
+            },
+            {
+              "advance": 25.56,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "More ",
+              "x": 209.38
+            },
+            {
+              "advance": 32.79,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "source ",
+              "x": 234.94
+            },
+            {
+              "advance": 35.56,
+              "baseline": 318.378,
+              "size": 10,
+              "text": "material",
+              "x": 267.73
+            }
+          ],
+          "height": 13,
           "top": 308.878,
+          "width": 267.28999999999996,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 33.34,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "follows ",
+              "x": 36
+            },
+            {
+              "advance": 43.35,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "naturally. ",
+              "x": 69.34
+            },
+            {
+              "advance": 25.56,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "More ",
+              "x": 112.69
+            },
+            {
+              "advance": 32.79,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "source ",
+              "x": 138.25
+            },
+            {
+              "advance": 38.34,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "material ",
+              "x": 171.04
+            },
+            {
+              "advance": 33.34,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "follows ",
+              "x": 209.38
+            },
+            {
+              "advance": 43.35,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "naturally. ",
+              "x": 242.72
+            },
+            {
+              "advance": 22.78,
+              "baseline": 331.378,
+              "size": 10,
+              "text": "More",
+              "x": 286.07
+            }
+          ],
+          "height": 13,
+          "top": 321.878,
+          "width": 272.85,
+          "x": 36
+        },
+        {
+          "fragments": [
+            {
+              "advance": 32.79,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "source ",
+              "x": 36
+            },
+            {
+              "advance": 38.34,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "material ",
+              "x": 68.78999999999999
+            },
+            {
+              "advance": 33.34,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "follows ",
+              "x": 107.13
+            },
+            {
+              "advance": 43.35,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "naturally. ",
+              "x": 140.47
+            },
+            {
+              "advance": 25.56,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "More ",
+              "x": 183.82
+            },
+            {
+              "advance": 32.79,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "source ",
+              "x": 209.38
+            },
+            {
+              "advance": 38.34,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "material ",
+              "x": 242.17
+            },
+            {
+              "advance": 30.56,
+              "baseline": 344.378,
+              "size": 10,
+              "text": "follows",
+              "x": 280.51
+            }
+          ],
+          "height": 13,
+          "top": 334.878,
           "width": 275.07,
           "x": 36
         },
@@ -5173,14 +5173,14 @@
           "fragments": [
             {
               "advance": 40.57,
-              "baseline": 331.378,
+              "baseline": 357.378,
               "size": 10,
               "text": "naturally.",
               "x": 36
             }
           ],
           "height": 13,
-          "top": 321.878,
+          "top": 347.878,
           "width": 40.57,
           "x": 36
         },

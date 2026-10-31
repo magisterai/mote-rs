@@ -9,6 +9,17 @@ use crate::layout::{
 };
 
 impl NoteLayout {
+    fn endnote_continuation_bottom(&self, geometry: PageGeometry, page: usize) -> f64 {
+        // Pagination repeats with the discovered total, so future-page estimates
+        // are replaced by their own resolved footer measurements on the next pass.
+        let height = self
+            .endnote_footer_heights
+            .get(page - 1)
+            .or_else(|| self.endnote_footer_heights.last())
+            .copied()
+            .unwrap_or(0.0);
+        geometry.height - geometry.footer_space - height
+    }
     pub(in crate::layout) fn paint_footnotes(
         &self,
         pages: &mut [TextPage],
@@ -84,16 +95,16 @@ impl NoteLayout {
             let mut leading = if index == 0 { 0.0 } else { 5.0 };
             for line in &note.lines {
                 let ordinary_bottom = if continuation {
-                    geometry.height - geometry.footer_space - self.endnote_footer_height
+                    self.endnote_continuation_bottom(geometry, cursor.page_number)
                 } else {
                     geometry.content_bottom()
                 };
                 let bottom = pages[cursor.page_number - 1]
                     .note_body_bottom
-                    .unwrap_or(ordinary_bottom);
+                    .map_or(ordinary_bottom, |bottom| bottom.min(ordinary_bottom));
                 if cursor.y + leading + line.height > bottom {
-                    let available = geometry.height
-                        - geometry.footer_space
+                    let available = self
+                        .endnote_continuation_bottom(geometry, cursor.page_number + 1)
                         - geometry.margin_top
                         - ENDNOTE_BAND;
                     if line.height > available + 0.001 {
