@@ -1,5 +1,7 @@
 # Documentation
 
+- [Example downloads](examples/readme/README.md): progressive Markdown and Mote
+  examples with editable Word/PowerPoint files and native previews.
 - [Mote specification](specification/README.md): the source language, document
   model, and behaviour, beginning with fundamentals.
 - [Implementation](implementation.md): current Rust coverage and development checks.

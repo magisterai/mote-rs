@@ -1,5 +1,13 @@
 # Repository tools
 
+## README examples
+
+`python3 tools/render_readme_examples.py` regenerates the six README examples as
+editable DOCX/PPTX downloads and native document/slide PNGs. Build Mote first with
+`cargo build --release`, or pass `--mote PATH`. Outputs are saved under
+`docs/examples/readme/` and `docs/images/readme/`. The
+[example guide](../examples/readme/README.md) explains source composition and review.
+
 ## Attribute inventory
 
 `python3 tools/attribute_inventory.py` checks the generated support inventories

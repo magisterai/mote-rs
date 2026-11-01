@@ -1,0 +1,20 @@
+#import("defaults.mote")
+#document(page = {height = inch(6.5)})
+
+# Quarterly priorities
+
+## Learn
+
+Turn customer feedback into a clearer product roadmap.
+
+- Twelve customer interviews
+- Three research themes
+- One shared set of priorities
+
+## Deliver
+
+Make the first week simpler for every new customer.
+
+- Self-service onboarding
+- Two guided templates
+- A practical getting-started guide

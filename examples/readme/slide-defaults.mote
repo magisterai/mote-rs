@@ -1,0 +1,9 @@
+#presentation(size = "wide",
+  theme = {fonts = {heading = "Source Sans 3", body = "Source Sans 3"}}
+)
+#style "Normal" (run = {font = "Source Sans 3", size = pt(22), color = "#334155"})
+#style "Heading1" extends "Normal" (
+  run = {size = pt(36), bold = true, color = "#102a43"},
+  paragraph = {spacing = {before = pt(0), after = pt(12)}}
+)
+#style "Lead" extends "Normal" (run = {size = pt(28), color = "#0f766e"})

@@ -1,11 +1,7 @@
 {
-  "online": 216000,
-  "retail": 144000,
-  "monthly": {
-    "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    "series": [
-      {"name": "Online", "values": [24, 30, 32, 36, 44, 50]},
-      {"name": "Retail", "values": [18, 20, 22, 24, 28, 32]}
-    ]
-  }
+  "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  "series": [
+    {"name": "Online", "values": [24, 30, 32, 36, 44, 50]},
+    {"name": "Retail", "values": [18, 20, 22, 24, 28, 32]}
+  ]
 }

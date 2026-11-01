@@ -1,24 +1,14 @@
-#import("fonts.mote")
-#document(
-  default_font = "Source Sans 3", default_size = pt(12),
-  page = {width = inch(7.6), height = inch(5.5)},
-  margin = {top = inch(0.4), right = inch(0.45), bottom = inch(0.4), left = inch(0.45)}
-)
-#style "Normal" (run = {font = "Source Sans 3", size = pt(12), color = "#334155"})
-#style "Heading1" extends "Normal" (
-  run = {size = pt(28), bold = true, color = "#102a43"},
-  paragraph = {spacing = {before = pt(0), after = pt(10)}}
-)
+#import("defaults.mote")
+#document(page = {height = inch(5.5)})
 
 #let(revenue = json("revenue.json"))
-#let(total = revenue.online + revenue.retail)
 
-#heading(level = 1)[Half-year revenue]
-#paragraph[
-  Total revenue: #span(bold = true)[#format_money(total)]. Monthly values in thousands.
-]
+# Half-year revenue
+
+Monthly revenue, in thousands.
+
 #chart(
-  kind = "column", data = revenue.monthly,
+  kind = "column", data = revenue,
   width = inch(6.7), height = inch(3.1),
   colors = {"#16877b", "#6b8ce3"}, legend = "bottom",
   data_labels = {value = true, position = "outside_end"},

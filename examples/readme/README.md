@@ -1,45 +1,66 @@
 # README examples
 
-These are the complete sources for the examples in the repository
-[README](../../README.md). The README excerpts omit setup declarations; all
-visible content appears in both the excerpts and the sources.
+The [main README](../../README.md) introduces these examples in order. Each has
+an editable Word and PowerPoint download in
+[docs/examples/readme](../../docs/examples/readme/README.md). The sample business
+content and revenue figures are illustrative.
 
-| Source | Demonstrates | Editable output |
+| Example | Source | Composition |
 | --- | --- | --- |
-| [document.mote](document.mote) | Named styles, inheritance, inline formatting, Markdown lists and tables | DOCX |
-| [chart.mote](chart.mote) | JSON data, Lua arithmetic, money formatting and a column chart | DOCX |
-| [presentation.mote](presentation.mote) | A named slide layout, theme, styled boxes and speaker notes | PPTX |
+| Pure Markdown | [plain.md](plain.md) | The exact file is passed to both output formats, without any added declarations. |
+| Defaults | [defaults.mote](defaults.mote) + [plain.md](plain.md) | The defaults are prepended in memory; the original Markdown remains unchanged. |
+| Directives | [directives.mote](directives.mote) | Imports the defaults and adds a styled introduction and an inline accent. |
+| Presentation | [presentation.mote](presentation.mote) | A named slide layout with a theme and speaker notes. The [Word companion](presentation-document.mote) puts the same text into document flow. |
+| JSON chart | [chart.mote](chart.mote) + [revenue.json](revenue.json) | Static JSON loading creates an editable chart without scripting. |
+| Lua calculation | [lua.mote](lua.mote) + [revenue.json](revenue.json) | A function sums monthly values and converts thousands to dollars. This example alone requires `--lua`. |
 
-The chart requires `--lua` for its arithmetic expression. Its illustrative
-[revenue data](revenue.json) contains monthly values in thousands and channel
-totals in dollars.
+The styled document examples use compact pages for the README. Their PowerPoint
+versions use automatic layout and the separate
+[slide defaults](slide-defaults.mote) for a wide canvas and larger text. These
+are format-specific defaults applied to the same content. The explicitly
+positioned presentation uses its own slide setup instead.
 
-[fonts.mote](fonts.mote) declares Source Sans 3 using the existing
-[font fixtures](../../tests/fixtures/measurements/fonts/) and their
-[license](../../tests/fixtures/measurements/fonts/LICENSE.md). The `Aptos` alias
-also supplies declared outlines for the native chart's default font. The samples
-therefore render without depending on installed fonts. The document pages are
-deliberately compact for README previews; their source declares the dimensions.
+## Keep Markdown unchanged
 
-## Regenerate the previews
+From the repository root, after building Mote:
 
-From the repository root:
+```sh
+mkdir -p target/readme
+cd examples/readme
+cat defaults.mote plain.md | ../../target/release/mote --format docx -o ../../target/readme/defaults.docx -
+```
+
+The compiler reads the combined stream. Neither input file is edited, and there
+is no dedicated defaults CLI flag. Running in the source directory keeps imports
+and resource paths relative to these examples.
+
+## Regenerate the downloads and previews
+
+From the repository root, with Rust, Cargo and Python 3 installed:
 
 ```sh
 cargo build --release
-mkdir -p docs/images/readme
-target/release/mote --format png --dpi 144 -o docs/images/readme/document examples/readme/document.mote
-target/release/mote --lua --format png --dpi 144 -o docs/images/readme/chart examples/readme/chart.mote
-target/release/mote --format png --dpi 144 -o docs/images/readme/presentation examples/readme/presentation.mote
+python3 tools/render_readme_examples.py
 ```
 
-Each source should produce one PNG. Inspect every generated image for overflow,
-clipping and readable labels before updating the README. Keep its excerpts in
-step with the corresponding source. Images live separately in
-[docs/images/readme](../../docs/images/readme/), and the main README references
-them directly.
+The generator uses Mote for all twelve Office packages and twelve native PNG
+previews. It validates package XML, requires one page or slide per preview, and
+publishes the set after generation succeeds. Pass `--mote PATH` to select another
+Mote binary. Inspect every native image before committing an updated set.
 
-The previews are produced by Mote's native renderer. They are not Word or
-PowerPoint captures and do not establish Office visual conformance. Editable
-packages and PDFs can be generated using the commands in the main README;
-temporary outputs belong under `target/readme/`.
+Document page settings, Markdown heading markers and repeated document table
+headers can report that they have no presentation effect. The generator preserves
+these diagnostics and rejects unexpected warnings. Slide canvas dimensions come
+from the presentation setup.
+
+The full sources include the setup omitted from README excerpts.
+[fonts.mote](fonts.mote) declares Source Sans 3 using the existing
+[font fixtures](../../tests/fixtures/measurements/fonts/) and their
+[license](../../tests/fixtures/measurements/fonts/LICENSE.md). The `Aptos` alias
+supplies the native chart's default font outlines. Styled native previews use
+these declared files; Office applications need Source Sans 3 installed to use
+the same typeface. The pure Markdown example retains the engine's default fonts.
+
+Images live separately in [docs/images/readme](../../docs/images/readme/).
+They are native Mote renders, not Office captures. Word and PowerPoint visual
+review remains pending. Keep temporary artifacts under `target/readme/`.

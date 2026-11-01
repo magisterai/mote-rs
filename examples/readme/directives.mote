@@ -1,0 +1,19 @@
+#import("defaults.mote")
+
+#style "Lead" extends "Normal" (run = {size = pt(17), color = "#0f766e"})
+
+# Quarterly brief
+
+#paragraph "Lead"[A strong quarter. A focused next step.]
+#paragraph[
+  Revenue grew by #span(bold = true, color = "#0f766e")[18%],
+  with steady progress across both teams.
+]
+
+- Launch the customer research programme.
+- Expand the self-service onboarding guide.
+
+| Team | Focus | Status |
+| :--- | :--- | :--- |
+| Product | Customer research | In progress |
+| Operations | Self-service onboarding | Ready |

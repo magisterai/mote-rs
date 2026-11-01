@@ -1,0 +1,19 @@
+#import("defaults.mote")
+#document(page = {height = inch(3.5)})
+
+#let(revenue = json("revenue.json"))
+#function channel_total(values)
+  local total = 0
+  for index, amount in ipairs(values) do
+    total = total + amount
+  end
+  return total * 1000
+end
+
+# Revenue summary
+
+Six months of revenue, calculated from the monthly data.
+
+#for channel in revenue.series {
+  #paragraph[#strong[#channel.name:] #format_money(channel_total(channel.values))]
+}
