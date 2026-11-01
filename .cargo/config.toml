@@ -1,0 +1,2 @@
+[alias]
+review = "run --example render_review --"

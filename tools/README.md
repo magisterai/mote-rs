@@ -1,5 +1,19 @@
 # Repository tools
 
+## Rendering test cases
+
+`cargo review` builds the Rust review generator and renders the
+[focused cases](../tests/cases/README.md) to `target/review/`. The `concise/` tree
+groups numbered cases under `word/` and `powerpoint/`; each case contains its
+source, editable package, native PDF and one native PNG per page. The `complete/`
+tree has the same files plus manifests with hashes, warnings and review status. Use
+`cargo review --case NAME` to select a case, `--list` to list cases, or
+`--output PATH` to choose the review root. A focused refresh leaves other cases
+unchanged and refuses to replace an open Office file. No Office application is opened.
+The generator calls the library directly and adds no dependencies. Its source is
+under [examples/render_review](../examples/render_review/main.rs); the full
+command is `cargo run --example render_review -- [OPTIONS]`.
+
 ## README examples
 
 `python3 tools/render_readme_examples.py` regenerates the six README examples as

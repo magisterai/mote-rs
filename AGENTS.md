@@ -101,6 +101,18 @@ The reference collection contains complete document text and visual companions.
 Their existence does not imply that a feature is implemented or that rendered
 output conforms to Office.
 
+## Rendering review files
+
+Run `cargo review` to generate the native review catalogue, or use
+`cargo review --case NAME` for a focused refresh. See the
+[rendering case guide](tests/cases/README.md) for runnable diagnostics.
+Keep generated review cases flat under `target/review/concise/word/` or
+`target/review/concise/powerpoint/`, with matching diagnostic folders under
+`target/review/complete/`. Each numbered concise case contains its source,
+editable package, native PDF and per-page native PNGs. Keep manifests and any
+explicitly named Office reference exports in the complete tree. Native output
+must never be replaced with an Office export or presented as Office-reviewed.
+
 ## Commits
 
 Ask before committing or pushing unless the user explicitly authorizes that
