@@ -4,6 +4,9 @@
 
 ## Language and attributes
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] One required inline body; no positional arguments.
 - [x] kind: single or double; omission requests single.
 - [x] style, font, size, color, and properties.

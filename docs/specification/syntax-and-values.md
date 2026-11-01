@@ -46,7 +46,8 @@ The common call forms are:
 ```
 
 Later chapters define specialized declaration forms, including
-[named styles and inheritance](styles-and-fonts.md#2-style-declarations).
+[named styles and inheritance](styles-and-fonts.md#2-style-declarations), and
+[quoted style applications](styles-and-fonts.md#applying-a-named-style).
 
 Arguments are comma-separated. A trailing comma is allowed. Spaces, tabs, and
 line endings may surround arguments and `=`. Parentheses and braces inside

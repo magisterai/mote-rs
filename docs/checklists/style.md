@@ -34,6 +34,22 @@
 - [x] Replacement by name and document-wide availability, including forward
   references; retain declarations in the model and JSON inspection.
 
+## Application syntax
+
+- [x] A quoted name after a named-style content directive supplies its existing
+  `style` argument. Optional ordinary arguments follow, with unchanged body rules.
+- [x] Support `paragraph`, `heading`, `span`, `strong`, `emphasis`, `code`, `raw`,
+  `list`, `ordered_list`, `blockquote`, `term`, `definition`, `table`, `cell`,
+  `strike`, `highlight`, `small_caps`, `subscript`, and `superscript`.
+- [x] Restrict recognition to a quoted name and following `(` or `[` on the
+  directive's line; preserve bare references and literal text otherwise.
+- [x] Reject an explicit `style` argument alongside the header; preserve
+  `properties` overrides, positional arguments, static/Lua expressions, source
+  locations, and each directive's existing output limits.
+- [x] Exclude pattern selectors, metadata-only style hints, and custom names
+  outside the eligible list. Complete shorthand takes precedence over a
+  same-named value binding; function shadowing retains ordinary call resolution.
+
 ## Resolution
 
 - [x] Reject direct self-inheritance after final declaration replacement.
@@ -85,10 +101,13 @@ extra attributes to this directive. See the [inventory guide](attributes/README.
 [Property-contract tests](../../tests/property_contracts.rs) cover retention,
 signature checks, normalization, and declaration boundaries.
 
-[Named style parsing](../../src/syntax/declarations.rs) and
+[Named style parsing](../../src/syntax/styles.rs) and
 [style syntax tests](../../tests/style_syntax.rs) cover quoted headers, `extends`,
 both expression modes, mixed declaration forms, imports, source diagnostics,
 and equivalent models, DOCX/PPTX parts, page plans, and native PDF/PNG output.
+[Style application tests](../../tests/style_application.rs) cover every eligible
+content directive, positional arguments, ordinary-call compatibility, property
+overrides, literal content, excluded directives, and the reference boundary.
 
 [Specification](../specification/styles-and-fonts.md),
 [implementation](../../src/evaluation/declarations.rs),

@@ -336,54 +336,66 @@ fn imported_named_declarations_preserve_registration_and_error_provenance() {
 fn both_forms_generate_the_same_packages_page_plans_pdf_and_png() {
     let content = r#"#paragraph(style = "Lead")[Opening #span(style = "Accent")[text].]
 #paragraph(style = "Body")[A second paragraph with inherited formatting.]"#;
-    let resolver = FileAssetResolver::from_current_directory().unwrap();
+    let shorthand = r#"#paragraph "Lead"[Opening #span "Accent"[text].]
+#paragraph "Body"[A second paragraph with inherited formatting.]"#;
     for enable_lua in [false, true] {
-        let named = compile(&format!("{NAMED_STYLES}\n{content}"), enable_lua).unwrap();
         let call = compile(&format!("{CALL_STYLES}\n{content}"), enable_lua).unwrap();
-        compare_models(&named, &call);
-        for (named_bytes, call_bytes) in [
-            (
-                mote::docx::emit(&named).unwrap(),
-                mote::docx::emit(&call).unwrap(),
-            ),
-            (
-                mote::pptx::emit_with_fonts(&named, &resolver, None, None)
-                    .unwrap()
-                    .bytes,
-                mote::pptx::emit_with_fonts(&call, &resolver, None, None)
-                    .unwrap()
-                    .bytes,
-            ),
+        for (declarations, application) in [
+            (NAMED_STYLES, content),
+            (CALL_STYLES, shorthand),
+            (NAMED_STYLES, shorthand),
         ] {
-            let named_parts = package_support::unpack(named_bytes);
-            let call_parts = package_support::unpack(call_bytes);
-            assert_eq!(
-                named_parts.keys().collect::<Vec<_>>(),
-                call_parts.keys().collect::<Vec<_>>()
-            );
-            for (name, actual) in named_parts {
-                package_support::compare_xml(&actual, &call_parts[&name], &name);
-            }
+            let named = compile(&format!("{declarations}\n{application}"), enable_lua).unwrap();
+            compare_generated_output(&named, &call);
         }
-        for mode in [LayoutMode::Document, LayoutMode::Presentation] {
-            let named_plan =
-                render::plan_with_layout_and_fonts(&named, &resolver, None, mode, None).unwrap();
-            let call_plan =
-                render::plan_with_layout_and_fonts(&call, &resolver, None, mode, None).unwrap();
-            assert!(!named_plan.output.pages.is_empty());
-            assert_eq!(named_plan.output, call_plan.output);
-            assert_eq!(named_plan.warnings, call_plan.warnings);
-            assert_eq!(
-                render::paint_pdf(&named_plan.output).unwrap(),
-                render::paint_pdf(&call_plan.output).unwrap()
-            );
-            let named_pages = render::paint_png(&named_plan.output, &Default::default()).unwrap();
-            let call_pages = render::paint_png(&call_plan.output, &Default::default()).unwrap();
-            assert_eq!(named_pages.warnings, call_pages.warnings);
-            assert_eq!(named_pages.output.len(), call_pages.output.len());
-            for (named_page, call_page) in named_pages.output.iter().zip(&call_pages.output) {
-                assert_eq!(named_page.bytes, call_page.bytes);
-            }
+    }
+}
+
+fn compare_generated_output(named: &Document, call: &Document) {
+    let resolver = FileAssetResolver::from_current_directory().unwrap();
+    compare_models(named, call);
+    for (named_bytes, call_bytes) in [
+        (
+            mote::docx::emit(named).unwrap(),
+            mote::docx::emit(call).unwrap(),
+        ),
+        (
+            mote::pptx::emit_with_fonts(named, &resolver, None, None)
+                .unwrap()
+                .bytes,
+            mote::pptx::emit_with_fonts(call, &resolver, None, None)
+                .unwrap()
+                .bytes,
+        ),
+    ] {
+        let named_parts = package_support::unpack(named_bytes);
+        let call_parts = package_support::unpack(call_bytes);
+        assert_eq!(
+            named_parts.keys().collect::<Vec<_>>(),
+            call_parts.keys().collect::<Vec<_>>()
+        );
+        for (name, actual) in named_parts {
+            package_support::compare_xml(&actual, &call_parts[&name], &name);
+        }
+    }
+    for mode in [LayoutMode::Document, LayoutMode::Presentation] {
+        let named_plan =
+            render::plan_with_layout_and_fonts(named, &resolver, None, mode, None).unwrap();
+        let call_plan =
+            render::plan_with_layout_and_fonts(call, &resolver, None, mode, None).unwrap();
+        assert!(!named_plan.output.pages.is_empty());
+        assert_eq!(named_plan.output, call_plan.output);
+        assert_eq!(named_plan.warnings, call_plan.warnings);
+        assert_eq!(
+            render::paint_pdf(&named_plan.output).unwrap(),
+            render::paint_pdf(&call_plan.output).unwrap()
+        );
+        let named_pages = render::paint_png(&named_plan.output, &Default::default()).unwrap();
+        let call_pages = render::paint_png(&call_plan.output, &Default::default()).unwrap();
+        assert_eq!(named_pages.warnings, call_pages.warnings);
+        assert_eq!(named_pages.output.len(), call_pages.output.len());
+        for (named_page, call_page) in named_pages.output.iter().zip(&call_pages.output) {
+            assert_eq!(named_page.bytes, call_page.bytes);
         }
     }
 }

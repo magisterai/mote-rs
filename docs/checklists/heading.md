@@ -4,6 +4,9 @@
 
 ## Content and arguments
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] One required inline body, including an empty body.
 - [x] Optional positive integer level, supplied positionally as a number or by
   name as a number/integer string; reject supplying it both ways.

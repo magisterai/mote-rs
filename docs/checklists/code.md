@@ -4,6 +4,9 @@
 
 ## Content and arguments
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] Optional scalar positional text: string, number, or boolean.
 - [x] Optional evaluated inline body; reject block children and multiple bodies.
 - [x] Positional text takes precedence over an evaluated, validated body.

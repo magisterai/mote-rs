@@ -4,6 +4,9 @@
 
 ## Content and arguments
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] One required block body, including an empty body; no positional arguments.
 - [x] Ordinary text becomes paragraphs; explicit blocks and lists retain structure.
 - [x] Each Markdown quote line creates a separate quote block.

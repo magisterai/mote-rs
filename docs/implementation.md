@@ -191,6 +191,15 @@ resolver, and output paths. [Style syntax tests](../tests/style_syntax.rs) compa
 their models, inheritance, canonical DOCX/PPTX parts, document and presentation
 page plans, and native PDF/PNG output.
 
+The same [style-header parser](../src/syntax/styles.rs) lowers quoted content
+style names to ordinary `style` arguments on directives with named-style
+references. It commits only after a complete quoted string and call delimiter
+on the same line, preserving bare references followed by prose otherwise.
+Pattern selectors and metadata-only style hints retain ordinary syntax.
+[Application tests](../tests/style_application.rs) cover every eligible directive,
+positional arguments, property overrides, nested content, and the reserved
+spelling when a variable shares a directive's name.
+
 The parser supports task lists, literal fenced blocks and Markdown dividers.
 Additional Markdown forms remain deferred. Lua-enabled argument parsing retains expression source. Unsupported
 recognized Markdown forms return diagnostics; this is not a general Markdown

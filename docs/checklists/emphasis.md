@@ -4,6 +4,9 @@
 
 ## Content and arguments
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] Italic intent with one required inline body, including an empty body; no
   positional arguments.
 - [x] Single-underscore Markdown form, escaping, and nesting with strong text.

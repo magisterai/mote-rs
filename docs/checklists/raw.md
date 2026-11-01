@@ -4,6 +4,9 @@
 
 ## Language and attributes
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] Optional scalar text argument or inline body; text argument takes precedence.
 - [x] language and style: string metadata and style reference.
 - [x] preserve_space: normalized boolean; properties: shared attribute overrides.

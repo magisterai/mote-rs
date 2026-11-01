@@ -5,6 +5,9 @@
 
 ## Content and arguments
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] Bold intent with one required inline body, including an empty body; no
   positional arguments.
 - [x] Markdown strong forms and nesting with emphasis without extra whitespace.

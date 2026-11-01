@@ -4,6 +4,9 @@
 
 ## Language and attributes
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] One required content body; no positional arguments.
 - [x] style: string paragraph-style reference; properties: shared attribute overrides.
 

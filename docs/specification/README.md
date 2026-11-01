@@ -24,8 +24,8 @@ Status: initial draft.
    overrides, style/font references, paragraph geometry, borders, tabs, heading
    numbering, list/task metadata, and preserved code whitespace.
 8. [Spans](spans.md): general inline formatting, normalization, and nested intent.
-9. [Styles and fonts](styles-and-fonts.md): declarations, registration, inheritance,
-   direct precedence, font aliases, and the resolution API.
+9. [Styles and fonts](styles-and-fonts.md): declarations, quoted style applications,
+   registration, inheritance, direct precedence, font aliases, and the resolution API.
 
 10. [Document configuration](document-configuration.md): document-wide page geometry,
     margins, equal-width columns, text defaults, repeated declarations, and model inspection.

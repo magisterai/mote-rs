@@ -4,6 +4,9 @@
 
 ## Content and arguments
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] One required body containing only items and separating whitespace; empty
   bodies are allowed and positional arguments are rejected.
 - [x] Markdown unordered items, continuation, grouping, and nested lists inside

@@ -4,6 +4,9 @@
 
 [Directive index](README.md) · [Standard properties](attributes/tables.md)
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] One required body with block content; ordinary text becomes paragraphs.
 - [x] `style`: named style reference retained for native formatting and applicable table-style regions.
 - [x] `width`: nonnegative length; `colspan`, `rowspan`: positive integers.

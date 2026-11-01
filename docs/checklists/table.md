@@ -4,6 +4,9 @@
 
 [Directive index](README.md) · [Standard properties](attributes/tables.md)
 
+- [x] Quoted named-style shorthand, preserving the existing attribute and output
+  rules; see [style application syntax](style.md#application-syntax).
+
 - [x] One required body containing rows and separating whitespace; empty-table warning.
 - [x] `style`: named table style, including inherited and conditional-region defaults.
 - [x] `width`, `indent`, `cell_spacing`: nonnegative lengths.

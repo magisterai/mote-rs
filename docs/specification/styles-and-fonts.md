@@ -151,16 +151,65 @@ value rules. Flat `spacing`/`indent` objects and flat `outline_level` retain the
 authored value forms without additional validation. Their counterparts inside `paragraph`
 normalize under the paragraph rules.
 
+### Applying a named style
+
+A content directive that accepts a named style can put the quoted style name
+after the directive. This supplies its existing `style` argument:
+
+```text
+#directive "Style"[content]
+#directive "Style" (arguments)[content]
+```
+
+The directive, complete quoted name, and first `(` or `[` must be on the same
+line; spaces and tabs may separate them. Arguments and content may then span
+lines normally. Single and double quotes use the string rules above. The name
+is a literal in both static and Lua modes. Expressions that select a style use
+the ordinary `style = expression` argument instead.
+
+The shorthand supports `paragraph`, `heading`, `blockquote`, `list`,
+`ordered_list`, `span`, `strong`, `emphasis`, and `code`. It also applies to
+named-style references on [tables and cells](tables.md),
+[raw blocks, terms, and definitions](block-content.md), and the
+[semantic text directives](semantic-formatting.md) `strike`, `highlight`,
+`small_caps`, `subscript`, and `superscript`. Each directive retains its own
+style meaning and output limits. Other directives do not gain this shorthand:
+for example, `underline.style` selects a line pattern, while `figure.style`
+retains metadata.
+
+Other arguments keep their ordinary meanings, including a heading's positional
+level and code's positional text. Existing body requirements also apply: when an
+argument list is present, the content body immediately follows its closing `)`.
+An explicit `style` argument alongside a quoted style header is invalid.
+The shared `properties` override rules still apply, including `properties.style`.
+Named-style lookup, inheritance, and direct-formatting precedence do not change.
+
+The following declarations and applications use both quoted forms:
+
 ```mote
 #style "Body" (font = "Aptos", size = pt(11), paragraph = { spacing = { after = pt(6) } })
 #style "Accent" (type = "character", run = { color = "#369", bold = true })
-#paragraph(style = "Body")[Read #span(style = "Accent")[this].]
+#paragraph "Body"[Read #span "Accent"[this].]
 ```
 
 The paragraph resolves to 11-point Aptos text with six points after it. The span
 inherits that font and size, then adds the Accent color and bold request. The
 model still contains style references and declarations, without copying resolved
 properties into the paragraph's or span's authored attributes.
+
+The ordinary calls `#paragraph(style = "Body")[...]` and
+`#span(style = "Accent")[...]` remain equivalent and can be mixed with shorthand.
+
+Without a complete quoted name followed by `(` or `[` on the same line, parsing
+keeps the existing bare-reference and literal-text rules. A complete shorthand
+spelling takes precedence over a same-named variable: `#paragraph "Body"[Text]`
+is a directive even if a variable is named `paragraph`. This reserves that
+spelling, which could previously have meant a variable reference followed by
+quoted and bracketed prose. Custom names and directives outside the list above
+keep their existing parsing rules.
+Eligibility follows the directive's spelling. A function that shadows an eligible
+name receives the same `style` argument as an ordinary call, under the existing
+[function resolution rules](functions.md).
 
 ### Table declaration storage
 
@@ -243,7 +292,7 @@ and their primary names retain the precedence defined in Formatting attributes.
 ```mote
 #style "Base" (paragraph = { spacing = { before = pt(2), after = pt(6) }, keep_with_next = true }, run = { bold = true, color = "#369" })
 #style "Body" extends "Base" (paragraph = { spacing = { after = pt(0) }, keep_with_next = false }, run = { bold = false })
-#paragraph(style = "Body", spacing_before = pt(4))[Text]
+#paragraph "Body" (spacing_before = pt(4))[Text]
 ```
 
 Body inherits the color, overrides bold and keep-with-next with false, and changes
