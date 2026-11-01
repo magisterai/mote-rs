@@ -5,6 +5,7 @@ pub use crate::diagnostics::{Diagnostic, Span};
 
 mod blocks;
 mod control;
+mod declarations;
 mod expressions;
 mod links;
 mod markup;

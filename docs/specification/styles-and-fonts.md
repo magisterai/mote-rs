@@ -66,10 +66,35 @@ the declared typeface names and ignores `files`; it does not embed these assets.
 
 ## 2. Style declarations
 
-`style` also takes named arguments, no body, and a required string or numeric
-`name`. Numeric names produce the same conversion warning. Style names retain
-whitespace, including whitespace-only identities. An empty identity without a
-nonempty parent fails the self-inheritance rule below. It accepts these fields:
+`style` registers a name and reusable formatting, with no content body. The name
+can follow the directive as a quoted string. An optional `extends` clause names
+the parent style whose formatting is inherited:
+
+```text
+#style "Name" (properties)
+#style "Name" extends "Parent" (properties)
+```
+
+Here `properties` stands for comma-separated named arguments. The parentheses
+are required, even when empty. The name starts on the same line as `#style`;
+spaces and tabs may separate them. After that name, spaces, tabs, and line endings
+may separate the optional `extends` clause and the property list. Names use the
+single- or double-quoted string and escape rules in
+[Syntax and values](syntax-and-values.md#3-literal-values). Header names are
+literal strings, including when Lua expressions are enabled for properties.
+
+The function-call form remains supported: `#style(name = "Name", ...)` and
+`#style(name = "Name", based_on = "Parent", ...)` have the same behavior as these
+headers. The header name becomes `name`; `extends` becomes `based_on` in the
+stored declaration and JSON inspection. Both forms can be mixed in a document.
+A header name cannot also appear as a `name` argument. With `extends`, a
+`based_on` argument is also invalid because it would specify the parent twice.
+Without `extends`, a named header may still use a `based_on` argument.
+
+The function-call form also accepts numeric names, with the same conversion
+warning as fonts. Style names retain whitespace, including whitespace-only
+identities. An empty identity without a nonempty parent fails the self-inheritance
+rule below. Both forms accept these fields:
 
 | Attribute | Meaning |
 | --- | --- |
@@ -85,6 +110,8 @@ nonempty parent fails the self-inheritance rule below. It accepts these fields:
 `next` and `link` do not contribute inherited properties, create content, or
 change subsequent source paragraphs. Style types describe intended use; the
 resolver does not enforce type restrictions on a reference or a parent chain.
+Inheritance does not infer the declaration's type: an omitted `type` always means
+paragraph, even when the parent is a character or table style.
 Applying table styles to content and resolving conditional regions will be
 defined with the table model. Declaration storage does not provide table layout.
 
@@ -125,8 +152,8 @@ authored value forms without additional validation. Their counterparts inside `p
 normalize under the paragraph rules.
 
 ```mote
-#style(name = "Body", font = "Aptos", size = pt(11), paragraph = { spacing = { after = pt(6) } })
-#style(name = "Accent", type = "character", run = { color = "#369", bold = true })
+#style "Body" (font = "Aptos", size = pt(11), paragraph = { spacing = { after = pt(6) } })
+#style "Accent" (type = "character", run = { color = "#369", bold = true })
 #paragraph(style = "Body")[Read #span(style = "Accent")[this].]
 ```
 
@@ -175,7 +202,8 @@ that body's visible result.
 A later declaration with exactly the same name replaces the entire earlier
 declaration; it does not merge fields. Font and style names have separate
 registries. Repeated argument names use the last value, while all supplied
-expressions are evaluated. Declaration calls add no whitespace. In block content, one immediately
+expressions are evaluated; the header-name and parent conflicts described above
+are invalid instead. Declaration calls add no whitespace. In block content, one immediately
 following whitespace-only text, line-break, or paragraph-break node is skipped.
 Inline bodies retain surrounding whitespace under their ordinary content rules.
 
@@ -213,8 +241,8 @@ Other inherited spacing fields remain. Within a property map, the nested fields
 and their primary names retain the precedence defined in Formatting attributes.
 
 ```mote
-#style(name = "Base", paragraph = { spacing = { before = pt(2), after = pt(6) }, keep_with_next = true }, run = { bold = true, color = "#369" })
-#style(name = "Body", based_on = "Base", paragraph = { spacing = { after = pt(0) }, keep_with_next = false }, run = { bold = false })
+#style "Base" (paragraph = { spacing = { before = pt(2), after = pt(6) }, keep_with_next = true }, run = { bold = true, color = "#369" })
+#style "Body" extends "Base" (paragraph = { spacing = { after = pt(0) }, keep_with_next = false }, run = { bold = false })
 #paragraph(style = "Body", spacing_before = pt(4))[Text]
 ```
 

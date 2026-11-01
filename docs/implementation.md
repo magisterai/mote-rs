@@ -182,6 +182,15 @@ whitespace evaluation.
 Calls and paths are parsed without checking whether they are defined. Syntax
 success alone does not mean that a document can be evaluated or rendered.
 
+Named style headers lower directly to ordinary `style` calls: the quoted name
+supplies `name`, and an optional `extends` clause supplies `based_on`. Header
+strings retain their source ranges and stay literal in Lua mode; property
+arguments use the selected expression parser. Conflicting identity arguments
+are rejected before evaluation. Both spellings share the evaluator, style
+resolver, and output paths. [Style syntax tests](../tests/style_syntax.rs) compare
+their models, inheritance, canonical DOCX/PPTX parts, document and presentation
+page plans, and native PDF/PNG output.
+
 The parser supports task lists, literal fenced blocks and Markdown dividers.
 Additional Markdown forms remain deferred. Lua-enabled argument parsing retains expression source. Unsupported
 recognized Markdown forms return diagnostics; this is not a general Markdown

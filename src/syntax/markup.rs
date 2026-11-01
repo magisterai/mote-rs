@@ -248,11 +248,17 @@ impl Parser<'_> {
                         nodes.push(self.parse_function(start)?);
                         continue;
                     }
-                    let has_arguments = self.peek_character() == Some('(');
-                    let arguments = if has_arguments {
-                        self.parse_arguments(ArgumentListKind::Call)?
+                    let named_style_arguments = if name == "style" {
+                        self.parse_named_style_arguments()?
                     } else {
-                        Vec::new()
+                        None
+                    };
+                    let has_arguments =
+                        named_style_arguments.is_some() || self.peek_character() == Some('(');
+                    let arguments = match named_style_arguments {
+                        Some(arguments) => arguments,
+                        None if has_arguments => self.parse_arguments(ArgumentListKind::Call)?,
+                        None => Vec::new(),
                     };
                     let mut bodies = Vec::new();
                     while self.peek_character() == Some('[') {

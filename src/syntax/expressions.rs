@@ -188,7 +188,7 @@ impl Parser<'_> {
         })
     }
 
-    fn parse_string(&mut self) -> Result<String, Diagnostic> {
+    pub(super) fn parse_string(&mut self) -> Result<String, Diagnostic> {
         let quote = self
             .advance_character()
             .expect("string starts with a quote");

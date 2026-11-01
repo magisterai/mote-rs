@@ -21,9 +21,9 @@ or underscore, followed by ASCII letters, digits, or underscores. Names are
 case-sensitive. Separate words in a name with underscores rather than hyphens.
 Rules for other identifier characters are outside this chapter.
 
-A directive starts with `#` immediately followed by its name. An opening `(` or
-`[` immediately follows the name, and a content body immediately follows an
-argument list when both are present:
+A directive starts with `#` immediately followed by its name. In the common call
+form, an opening `(` or `[` immediately follows the name, and a content body
+immediately follows an argument list when both are present:
 
 ```mote
 #heading(level = 1)[Quarterly report]
@@ -44,6 +44,9 @@ The common call forms are:
 #name[content]
 #name(arguments)[content]
 ```
+
+Later chapters define specialized declaration forms, including
+[named styles and inheritance](styles-and-fonts.md#2-style-declarations).
 
 Arguments are comma-separated. A trailing comma is allowed. Spaces, tabs, and
 line endings may surround arguments and `=`. Parentheses and braces inside

@@ -12,7 +12,14 @@
   records declaration support; output limits are listed below.
 - [x] Warn on numeric name conversion; retain whitespace-only style identities
   and apply the final self-inheritance check to empty identities as well.
-- [x] Named arguments only, no body, required `name`; produce no content node.
+- [x] Function-call form: named arguments only, no body, required `name`;
+  produce no content node.
+- [x] Quoted name after `#style`, followed by a parenthesized property list;
+  optional `extends` and a quoted parent name map to `name` and `based_on`.
+- [x] Both declaration forms share normalization, type defaults, document-wide
+  registration, replacement, inheritance, and output behavior.
+- [x] Reject a repeated header name or parent in the property list, with source
+  ranges for malformed headers; retain existing function-call argument rules.
 - [x] String or numeric name; paragraph type by default, explicit `paragraph`
   and `character` types, plus the table declaration type above; keep authored
   properties alongside the effective type.
@@ -77,6 +84,11 @@ extra attributes to this directive. See the [inventory guide](attributes/README.
 
 [Property-contract tests](../../tests/property_contracts.rs) cover retention,
 signature checks, normalization, and declaration boundaries.
+
+[Named style parsing](../../src/syntax/declarations.rs) and
+[style syntax tests](../../tests/style_syntax.rs) cover quoted headers, `extends`,
+both expression modes, mixed declaration forms, imports, source diagnostics,
+and equivalent models, DOCX/PPTX parts, page plans, and native PDF/PNG output.
 
 [Specification](../specification/styles-and-fonts.md),
 [implementation](../../src/evaluation/declarations.rs),
