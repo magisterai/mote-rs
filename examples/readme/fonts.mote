@@ -1,0 +1,8 @@
+#let(font_files = {
+  regular = "../../tests/fixtures/measurements/fonts/SourceSans3-Regular.ttf",
+  bold = "../../tests/fixtures/measurements/fonts/SourceSans3-Bold.ttf",
+  italic = "../../tests/fixtures/measurements/fonts/SourceSans3-It.ttf",
+  bold_italic = "../../tests/fixtures/measurements/fonts/SourceSans3-BoldIt.ttf"
+})
+#font(name = "Source Sans 3", latin = "Source Sans 3", files = font_files)
+#font(name = "Aptos", latin = "Source Sans 3", files = font_files)
