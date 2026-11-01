@@ -1,0 +1,11 @@
+# Markdown Table Alignment
+
+This document uses only markdown-like source text.
+
+| Left | Center | Right |
+| :--- | :---: | ---: |
+| Contract | Active | $12,500.00 |
+| Invoice | Pending | $2,575.00 |
+| Credit | Applied | -$125.00 |
+
+The alignment row controls the paragraph alignment inside each generated Word table cell.

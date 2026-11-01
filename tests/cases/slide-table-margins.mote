@@ -1,0 +1,30 @@
+#presentation(width=pt(600), height=pt(420), theme={fonts={heading="Arial", body="Arial"}})
+#style(name="MarginTable", type="table", table={
+  text={font="Arial", size=pt(16)},
+  cell={margin={all=pt(5)}, fill="#f0f7f7"},
+  borders={all={width=pt(0.5), color="#8aa8a8"}}
+})
+#set table(style="MarginTable", cell={margin={all=pt(5), horizontal=pt(12), vertical=pt(8), left=pt(16), bottom=pt(10)}})
+#slide[
+  #box(position={x=pt(30), y=pt(20), width=pt(540), height=pt(40)}, text={font="Arial", size=pt(22)})[
+    Margin shorthands and explicit edges
+  ]
+  #box(position={x=pt(30), y=pt(80), width=pt(540), height=pt(240)})[
+    #table[
+      #row[
+        #cell(vertical_alignment="top")[Inherited top]
+        #cell(alignment="right", vertical_alignment="bottom")[Inherited bottom]
+        #cell(margin={all=pt(0)}, vertical_alignment="top")[Explicit zero]
+      ]
+      #row[
+        #cell(margin={all=pt(5), horizontal=pt(12), vertical=pt(8), left=pt(16), bottom=pt(10)}, vertical_alignment="top")[Direct top]
+        #cell(margin={all=pt(5), horizontal=pt(12), vertical=pt(8), left=pt(16), bottom=pt(10)}, alignment="right", vertical_alignment="bottom")[Direct bottom]
+        #cell(margin={all=pt(6), left=pt(0)}, vertical_alignment="top")[Zero left]
+      ]
+    ]
+  ]
+  #box(position={x=pt(30), y=pt(345), width=pt(540), height=pt(45)}, text={font="Arial", size=pt(14)})[
+    The first two columns use 16 pt left, 12 pt right, 8 pt top and 10 pt bottom.
+    Explicit zero values remain zero.
+  ]
+]

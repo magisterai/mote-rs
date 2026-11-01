@@ -41,7 +41,9 @@ normalizes to center. `margin` has top, right, bottom and left lengths; the olde
 name `padding` is rejected. Margin shorthands apply in order: `all`, then
 `vertical`/`horizontal`, then individual edges. `no_wrap` is boolean. `text_direction` accepts ltr,
 rtl, tb_rl or bt_lr. `style` supplies a named style for native cell formatting and applicable table-style
-regions. DOCX applies table text defaults without adding a paragraph-style
+regions. In presentation layout, an explicit cell alignment takes precedence
+over table-style paragraph alignment; an explicit paragraph alignment inside
+the cell takes precedence over the cell. DOCX applies table text defaults without adding a paragraph-style
 reference solely from this cell attribute.
 
 Table and cell `borders` objects specify physical edges: top, right, bottom and

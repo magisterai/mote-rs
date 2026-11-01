@@ -66,19 +66,13 @@ pub(super) fn place(
                     }));
             }
             let content = content_bounds(bounds, &format.cell);
-            let mut paragraphs = crate::presentation::text::resolve(
+            let paragraphs = crate::presentation::text::resolve(
                 document,
                 &cell.element.children,
-                &format.text,
+                &format.text_attributes(),
                 theme,
                 TextDefaults::Resolved,
             )?;
-            let alignment = text(&format.paragraph, "alignment");
-            if !alignment.is_empty() {
-                for paragraph in &mut paragraphs {
-                    paragraph.style.alignment = alignment.clone();
-                }
-            }
             if boolean(&format.cell, "no_wrap") {
                 warnings.push("PowerPoint always wraps table-cell text; cell.no_wrap has no presentation effect".into());
             }

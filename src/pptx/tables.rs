@@ -1,7 +1,7 @@
 //! Editable DrawingML tables backed by shared slide table resolution.
 use super::{Error, escape, package::Relationship};
 use crate::{
-    model::{Document, Element, Properties, Value},
+    model::{Document, Element, Properties},
     presentation::{
         Theme, color,
         tables::{SlideTable, option_enabled},
@@ -66,12 +66,10 @@ pub(super) fn write(
             output.push_str("><a:txBody><a:bodyPr/><a:lstStyle/>");
             if let Some(cell) = original {
                 let format = resolved.formats[row_index][column].as_ref().unwrap();
-                let mut attributes = format.text.clone();
-                attributes.insert("paragraph".into(), Value::Object(format.paragraph.clone()));
                 output.push_str(&super::text::write(
                     document,
                     &cell.element.children,
-                    &attributes,
+                    &format.text_attributes(),
                     theme,
                     relationships,
                 )?);

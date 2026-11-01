@@ -12,7 +12,8 @@
 - [x] `width`: nonnegative length; `colspan`, `rowspan`: positive integers.
 - [x] `fill`: hexadecimal color.
 - [x] `alignment`: left, center, right, justify; `vertical_alignment`: top, center/middle, bottom.
-- [x] `margin`: nonnegative top/right/bottom/left lengths.
+- [x] `margin`: nonnegative top/right/bottom/left lengths; `all`, `horizontal`,
+  and `vertical` shorthands, with explicit edges taking precedence, including zero.
 - [x] `borders`: per-edge style, size/width and color, emitted as editable cell borders.
 - [x] `text_direction`: ltr, rtl, tb_rl, bt_lr; `no_wrap`: boolean.
 - [x] `properties`: flattened overrides and retained metadata.
@@ -36,3 +37,7 @@ Positioned-slide cells have [captured coverage](../../tests/fixtures/presentatio
 for merged slots, conditional style precedence, margins, vertical text, clipping
 and shared physical edges. PowerPoint
 wraps table-cell text; `no_wrap` must report that limitation in both slide outputs.
+
+[Focused source cases](../../tests/cases/README.md) and
+[alignment tests](../../tests/table_alignment.rs) check cell/paragraph alignment
+precedence, vertical alignment with paragraph spacing, and margin shorthands.

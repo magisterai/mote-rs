@@ -1,0 +1,39 @@
+#presentation(width=pt(600), height=pt(420), theme={fonts={heading="Arial", body="Arial"}})
+#style(name="SpacedTable", type="table", table={
+  text={font="Arial", size=pt(16)},
+  paragraph={alignment="left", spacing_before=pt(4), spacing_after=pt(12)},
+  cell={margin={top=pt(10),right=pt(10),bottom=pt(10),left=pt(10)}, fill="#eff6ff"},
+  borders={all={width=pt(0.5), color="#94a3b8"}}
+})
+#slide[
+  #box(position={x=pt(30), y=pt(20), width=pt(540), height=pt(40)}, text={font="Arial", size=pt(22)})[
+    Paragraph spacing and vertical alignment
+  ]
+  #box(position={x=pt(30), y=pt(80), width=pt(540), height=pt(240)})[
+    #table(style="SpacedTable")[
+      #row[
+        #cell(vertical_alignment="top")[#paragraph[First top]#paragraph[Second top]]
+        #cell(vertical_alignment="center")[#paragraph[First middle]#paragraph[Second middle]]
+        #cell(vertical_alignment="bottom")[#paragraph[First bottom]#paragraph[Second bottom]]
+      ]
+    ]
+  ]
+  #box(position={x=pt(30), y=pt(345), width=pt(540), height=pt(45)}, text={font="Arial", size=pt(14)})[
+    Each paragraph inherits 4 pt before and 12 pt after.
+    Vertical alignment includes the complete paragraph stack.
+  ]
+]
+#slide[
+  #box(position={x=pt(30), y=pt(20), width=pt(540), height=pt(40)}, text={font="Arial", size=pt(22)})[
+    Explicit zero spacing overrides table defaults
+  ]
+  #box(position={x=pt(30), y=pt(80), width=pt(540), height=pt(240)})[
+    #table(style="SpacedTable")[
+      #row[
+        #cell(vertical_alignment="top")[#paragraph(spacing_after=pt(0))[First top]#paragraph(spacing_before=pt(0))[Second top]]
+        #cell(vertical_alignment="center")[#paragraph(spacing_after=pt(0))[First middle]#paragraph(spacing_before=pt(0))[Second middle]]
+        #cell(vertical_alignment="bottom")[#paragraph(spacing_after=pt(0))[First bottom]#paragraph(spacing_before=pt(0))[Second bottom]]
+      ]
+    ]
+  ]
+]

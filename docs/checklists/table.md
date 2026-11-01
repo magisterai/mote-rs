@@ -39,3 +39,8 @@ regions and text defaults, and physical border ownership. Editable PPTX and nati
 [positioned table captures](../../tests/fixtures/presentation-tables/README.md). Table styles may select `style_id` or
 `powerpoint_style_id`; first/last row/column and banding flags are captured.
 PowerPoint visual review remains unreviewed.
+
+The [focused table cases](../../tests/cases/README.md) and
+[alignment tests](../../tests/table_alignment.rs) also cover Markdown column
+alignment, cell and paragraph overrides, table-style paragraph spacing, and
+margin shorthands in both editable and native slide output.

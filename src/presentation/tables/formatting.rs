@@ -21,6 +21,12 @@ const CELL_FIELDS: &[&str] = &[
     "no_wrap",
 ];
 impl CellFormat {
+    pub fn text_attributes(&self) -> Properties {
+        let mut attributes = self.text.clone();
+        attributes.insert("paragraph".into(), Value::Object(self.paragraph.clone()));
+        attributes
+    }
+
     fn apply(&mut self, properties: &Properties) {
         for name in CELL_FIELDS {
             if let Some(value) = properties.get(*name) {
@@ -125,11 +131,19 @@ pub(super) fn resolve(
         }
     }
     format.apply(&cell.element.attributes);
-    if let Some(alignment) = format.cell.get("alignment") {
+    if let Some(alignment) = cell.element.attributes.get("alignment") {
+        format
+            .paragraph
+            .insert("alignment".into(), alignment.clone());
+    } else if let Some(alignment) = format.cell.get("alignment") {
         format
             .paragraph
             .entry("alignment".into())
             .or_insert_with(|| alignment.clone());
+    }
+    if let Some(margin) = object(&format.cell, "margin") {
+        let margin = crate::tables::margins(margin);
+        format.cell.insert("margin".into(), Value::Object(margin));
     }
     format
 }

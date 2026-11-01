@@ -1,0 +1,47 @@
+#presentation(width=pt(600), height=pt(420), theme={fonts={heading="Arial", body="Arial"}})
+#style(name="AlignedTable", type="table", table={
+  text={font="Arial", size=pt(16)},
+  paragraph={alignment="center"},
+  cell={margin={top=pt(8),right=pt(8),bottom=pt(8),left=pt(8)}, fill="#f0f7f7"},
+  borders={all={width=pt(0.5), color="#8aa8a8"}}
+})
+#slide[
+  #box(position={x=pt(30), y=pt(20), width=pt(540), height=pt(40)}, text={font="Arial", size=pt(22)})[
+    Cell and paragraph alignment
+  ]
+  #box(position={x=pt(30), y=pt(80), width=pt(540), height=pt(240)})[
+    #table(style="AlignedTable")[
+      #row[
+        #cell(alignment="left", vertical_alignment="top")[Left top]
+        #cell(alignment="center", vertical_alignment="top")[Center top]
+        #cell(alignment="right", vertical_alignment="top")[Right top]
+      ]
+      #row[
+        #cell(alignment="left", vertical_alignment="center")[Left middle]
+        #cell(alignment="center", vertical_alignment="center")[Center middle]
+        #cell(alignment="right", vertical_alignment="center")[Right middle]
+      ]
+      #row[
+        #cell(alignment="left", vertical_alignment="bottom")[Left bottom]
+        #cell(alignment="right", vertical_alignment="bottom")[#paragraph(alignment="center")[Paragraph center]]
+        #cell(alignment="left", vertical_alignment="bottom")[#paragraph(alignment="right")[Paragraph right]]
+      ]
+    ]
+  ]
+  #box(position={x=pt(30), y=pt(345), width=pt(540), height=pt(45)}, text={font="Arial", size=pt(14)})[
+    Columns align left, center and right. Rows align top, middle and bottom.
+    Explicit paragraph alignment overrides its cell's alignment.
+  ]
+]
+#slide[
+  #box(position={x=pt(30), y=pt(20), width=pt(540), height=pt(40)}, text={font="Arial", size=pt(22)})[
+    Markdown column alignment with a table style
+  ]
+  #box(position={x=pt(30), y=pt(80), width=pt(540), height=pt(240)})[
+    #set table(style="AlignedTable")
+    | Left | Center | Right |
+    | :--- | :---: | ---: |
+    | Contract | Active | $12,500.00 |
+    | Invoice | Pending | $2,575.00 |
+  ]
+]
