@@ -31,24 +31,11 @@ fn block_flow_and_ordered_paint_operations_match_independent_captures() {
     }
 }
 #[test]
-fn unpaintable_marker_geometry_and_excessive_counters_fail_explicitly() {
+fn excessive_list_counters_fail_explicitly() {
     let resolver = FileAssetResolver::from_current_directory().unwrap();
-    for source in [
-        "#list(indent={hanging=pt(0)})[#item[No marker slot]]",
-        "#ordered_list(format=\"upper_alpha\",start=1000000)[#item[Excessive counter]]",
-    ] {
-        let document = mote::compile(source).unwrap();
-        assert!(
-            render::plan(&document, &resolver, None).is_err(),
-            "{source}"
-        );
-        assert!(
-            render::emit_pdf(&document, &resolver, None).is_err(),
-            "{source}"
-        );
-        assert!(
-            render::emit_png(&document, &resolver, None, &Default::default()).is_err(),
-            "{source}"
-        );
-    }
+    let source = "#ordered_list(format=\"upper_alpha\",start=1000000)[#item[Excessive counter]]";
+    let document = mote::compile(source).unwrap();
+    assert!(render::plan(&document, &resolver, None).is_err());
+    assert!(render::emit_pdf(&document, &resolver, None).is_err());
+    assert!(render::emit_png(&document, &resolver, None, &Default::default()).is_err());
 }

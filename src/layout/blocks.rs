@@ -372,7 +372,7 @@ impl BlockBuilder<'_, '_, '_> {
             }
             let item_level = super::lists::level(&item.attributes, level);
             let item_geometry = geometry.item(&item.attributes, item_level);
-            if !item_geometry.hanging.is_finite() || item_geometry.hanging <= 0.0 {
+            if !item_geometry.hanging.is_finite() || item_geometry.hanging < 0.0 {
                 return Err(LayoutError::InvalidGeometry(
                     "list marker slot width must be positive and finite",
                 ));

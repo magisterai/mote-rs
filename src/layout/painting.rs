@@ -224,13 +224,16 @@ impl ParagraphPainting {
             && let Some(prepared_marker) = &prepared.marker
         {
             let mut marker = prepared_marker.marker.clone();
-            let slot_left = placement.frame.x - prepared_marker.hanging;
-            marker.slot = [
-                slot_left,
-                placement.top,
-                prepared_marker.hanging.max(0.0),
-                placement.height,
-            ];
+            let slot_width = if prepared_marker.hanging == 0.0 {
+                marker
+                    .text
+                    .as_ref()
+                    .map_or(marker.font_size, |text| text.width.max(1.0))
+            } else {
+                prepared_marker.hanging
+            };
+            let slot_left = placement.frame.x - slot_width;
+            marker.slot = [slot_left, placement.top, slot_width, placement.height];
             marker.baseline = line.baseline;
             if let Some(text) = &mut marker.text {
                 let horizontal = if marker.kind == ListMarkerKind::Bullet {

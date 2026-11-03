@@ -1,4 +1,6 @@
-use mote::{evaluation::EvaluationOptions, render, source::FileAssetResolver};
+use mote::{
+    evaluation::EvaluationOptions, layout::PageOperation, render, source::FileAssetResolver,
+};
 
 use std::io::{Cursor, Read};
 
@@ -94,6 +96,46 @@ fn nonfinite_chart_values_fail_before_any_output_package_is_returned() {
                     .unwrap()
                     .to_string()
                     .contains("finite")
+            );
+        }
+    }
+}
+
+#[test]
+fn zero_hanging_list_markers_fit_before_the_unchanged_text_origin() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for directive in ["list", "ordered_list"] {
+        for item in ["#item[Content]", "#item(checked=true)[Content]"] {
+            let source = format!("#{directive}(indent={{left=pt(36),hanging=pt(0)}})[{item}]");
+            let document = mote::compile(&source).unwrap();
+            let plan = render::plan(&document, &resolver, None).unwrap().output;
+            let marker = plan.pages[0]
+                .operations
+                .iter()
+                .find_map(|operation| match operation {
+                    PageOperation::ListMarker(marker) => Some(marker),
+                    _ => None,
+                })
+                .unwrap();
+            assert!(marker.slot[2] > 0.0);
+            let text = plan.pages[0]
+                .lines
+                .iter()
+                .find(|line| {
+                    line.line
+                        .fragments
+                        .iter()
+                        .any(|fragment| fragment.text == "Content")
+                })
+                .unwrap();
+            assert!((marker.slot[0] + marker.slot[2] - text.line.x).abs() < 1e-8);
+            assert!(!render::paint_pdf(&plan).unwrap().is_empty());
+            assert_eq!(
+                render::paint_png(&plan, &Default::default())
+                    .unwrap()
+                    .output
+                    .len(),
+                1
             );
         }
     }
