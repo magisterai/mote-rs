@@ -125,6 +125,7 @@ enum ArgumentType {
     String,
     Date,
     NumberOrString,
+    NumberOrStringOrObject,
     Length,
     Color,
     Boolean,
@@ -156,6 +157,12 @@ impl ArgumentType {
             Self::Date => matches!(value, Value::String(_) | Value::Date(_)),
             Self::String => matches!(value, Value::String(_)),
             Self::NumberOrString => matches!(value, Value::Number(_) | Value::String(_)),
+            Self::NumberOrStringOrObject => {
+                matches!(
+                    value,
+                    Value::Number(_) | Value::String(_) | Value::Object(_)
+                )
+            }
             Self::Length => matches!(
                 value,
                 Value::Number(_) | Value::String(_) | Value::Length { .. }
@@ -177,6 +184,7 @@ impl ArgumentType {
             Self::String => "string",
             Self::Date => "date or string",
             Self::NumberOrString => "number or string",
+            Self::NumberOrStringOrObject => "number, string or object",
             Self::Length => "length",
             Self::Color => "color",
             Self::Boolean => "boolean",
@@ -239,7 +247,8 @@ fn validate_named_argument(
             },
             Chart => match name {
                 "kind" | "style" => Some(ArgumentType::String),
-                "title" | "gap_width" | "overlap" => Some(ArgumentType::NumberOrString),
+                "title" => Some(ArgumentType::NumberOrStringOrObject),
+                "gap_width" | "overlap" => Some(ArgumentType::NumberOrString),
                 "data" | "axis" => Some(ArgumentType::Object),
                 "width" | "height" => Some(ArgumentType::Length),
                 "legend" => Some(ArgumentType::BooleanOrStringOrObject),

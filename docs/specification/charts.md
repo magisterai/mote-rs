@@ -55,7 +55,19 @@ and ignore values beyond the category labels.
 
 ## Dimensions and appearance
 
-`title` accepts a string or number and normalizes it to text. `width` and `height`
+`title` accepts a string or number and normalizes it to text. A title object
+instead supplies `text` together with optional formatting: `size` (a length),
+`bold` and `italic` (booleans), `color` (a hex color), and `font` (a typeface
+name). An omitted field keeps the output's default title formatting.
+
+```mote
+#chart(kind = "column",
+       title = {text = "Live coral cover", size = pt(13), bold = true, color = "#0b3b4f"},
+       data = {categories = {"North", "South"}, series = {{name = "2026", values = {26, 27}}}})
+```
+
+A chart without a title has no title area: editable output marks the automatic
+title as deleted, and native output gives the space to the plot. `width` and `height`
 use the established non-negative length rules; explicit units avoid ambiguity
 between output coordinate systems. Chart dimensions default to 6 inches by 3.5
 inches; unitless drawing dimensions use EMUs (914,400 per inch).

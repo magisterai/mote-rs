@@ -1,13 +1,49 @@
-use super::super::appearance::{Border, DataLabels, Gridlines, ShapeProperties};
+use super::super::{
+    TitleStyle,
+    appearance::{Border, DataLabels, Gridlines, ShapeProperties},
+};
 use super::{Chart, Error, Options};
 use crate::xml::escape;
 
 pub(super) fn title(text: &str) -> Result<String, Error> {
+    styled_title(text, &TitleStyle::default())
+}
+pub(super) fn chart_title(chart: &Chart) -> Result<String, Error> {
+    if chart.title.is_empty() {
+        return Ok(r#"<c:autoTitleDeleted val="1"/>"#.into());
+    }
+    styled_title(&chart.title, &chart.title_style)
+}
+fn styled_title(text: &str, style: &TitleStyle) -> Result<String, Error> {
     if text.is_empty() {
         return Ok(String::new());
     }
+    let mut attributes = String::new();
+    if let Some(size) = style.size {
+        attributes.push_str(&format!(r#" sz="{}""#, (size * 100.0).round() as i64));
+    }
+    for (name, value) in [("b", style.bold), ("i", style.italic)] {
+        if let Some(value) = value {
+            attributes.push_str(&format!(r#" {name}="{}""#, u8::from(value)));
+        }
+    }
+    let mut children = String::new();
+    if let Some(color) = &style.color {
+        children.push_str(&format!(
+            r#"<a:solidFill><a:srgbClr val="{}"/></a:solidFill>"#,
+            escape(color)?
+        ));
+    }
+    if let Some(font) = &style.font {
+        children.push_str(&format!(r#"<a:latin typeface="{}"/>"#, escape(font)?));
+    }
+    let properties = if children.is_empty() {
+        format!(r#"<a:rPr lang="en-US"{attributes}/>"#)
+    } else {
+        format!(r#"<a:rPr lang="en-US"{attributes}>{children}</a:rPr>"#)
+    };
     Ok(format!(
-        r#"<c:title><c:tx><c:rich><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US"/><a:t>{}</a:t></a:r></a:p></c:rich></c:tx><c:layout/><c:overlay val="0"/></c:title>"#,
+        r#"<c:title><c:tx><c:rich><a:bodyPr/><a:lstStyle/><a:p><a:r>{properties}<a:t>{}</a:t></a:r></a:p></c:rich></c:tx><c:layout/><c:overlay val="0"/></c:title>"#,
         escape(text)?
     ))
 }

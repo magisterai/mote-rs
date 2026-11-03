@@ -3,7 +3,7 @@ mod formatting;
 mod series;
 use super::{Chart, Error};
 use crate::xml::{HEADER, escape};
-use formatting::{data_labels, label_text, shape_properties, title};
+use formatting::{chart_title, data_labels, label_text, shape_properties};
 
 pub(crate) const CONTENT_TYPE: &str =
     "application/vnd.openxmlformats-officedocument.drawingml.chart+xml";
@@ -24,7 +24,7 @@ impl Options {
 pub(crate) fn write(chart: &Chart, options: &Options) -> Result<String, Error> {
     let mut output = format!(
         r#"{HEADER}<c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><c:date1904 val="0"/><c:lang val="en-US"/><c:roundedCorners val="0"/><c:chart>{}<c:plotArea><c:layout/>"#,
-        title(&chart.title)?
+        chart_title(chart)?
     );
     match chart.kind.as_str() {
         "pie" | "doughnut" => output.push_str(&write_pie(chart)?),

@@ -576,10 +576,14 @@
     },
     {
       "example": "charts/2",
-      "model": "charts-2"
+      "model": "chart-title-object"
     },
     {
       "example": "charts/3",
+      "model": "charts-2"
+    },
+    {
+      "example": "charts/4",
       "model": "charts-3"
     },
     {
@@ -11356,6 +11360,90 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    "chart-title-object": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "data": {
+              "categories": [
+                "North",
+                "South"
+              ],
+              "series": [
+                {
+                  "name": "2026",
+                  "values": [
+                    26.0,
+                    27.0
+                  ]
+                }
+              ]
+            },
+            "kind": "column",
+            "title": {
+              "bold": true,
+              "color": "#0b3b4f",
+              "size": {
+                "text": "13pt",
+                "unit": "pt",
+                "value": 13.0
+              },
+              "text": "Live coral cover"
+            }
+          },
+          "category": "block",
+          "kind": "chart"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "data": {
+                  "categories": [
+                    "North",
+                    "South"
+                  ],
+                  "series": [
+                    {
+                      "name": "2026",
+                      "values": [
+                        26.0,
+                        27.0
+                      ]
+                    }
+                  ]
+                },
+                "kind": "column",
+                "title": {
+                  "bold": true,
+                  "color": "#0b3b4f",
+                  "size": {
+                    "text": "13pt",
+                    "unit": "pt",
+                    "value": 13.0
+                  },
+                  "text": "Live coral cover"
+                }
+              },
+              "category": "block",
+              "kind": "chart"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
         }
       ]
     }

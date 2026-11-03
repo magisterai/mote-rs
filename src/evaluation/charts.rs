@@ -45,7 +45,7 @@ const LABEL_POSITIONS: &[(&str, &str)] = &[
 pub(super) fn normalize(name: &str, value: Value, span: Span) -> Result<Value, Diagnostic> {
     match name {
         "kind" => normalize_enum(value, span, name, KINDS),
-        "title" => normalize_identifier(value, span, name).map(Value::String),
+        "title" => title(value, span),
         "width" | "height" => normalize_length(value, span, name),
         "legend" => legend(value, span),
         "colors" => colors(value, span),
@@ -98,6 +98,33 @@ fn integer(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
     number
         .map(Value::Number)
         .ok_or_else(|| Diagnostic::new(span, format!("{name} must be an integer")))
+}
+
+fn title(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    let Value::Object(mut fields) = value else {
+        return normalize_identifier(value, span, "title").map(Value::String);
+    };
+    if let Some(value) = fields.remove("text") {
+        fields.insert(
+            "text".into(),
+            Value::String(normalize_identifier(value, span, "title.text")?),
+        );
+    }
+    if let Some(value) = fields.remove("size") {
+        fields.insert("size".into(), normalize_length(value, span, "title.size")?);
+    }
+    for name in ["bold", "italic"] {
+        if let Some(value) = fields.remove(name) {
+            fields.insert(
+                name.into(),
+                normalize_boolean(value, span, &format!("title.{name}"))?,
+            );
+        }
+    }
+    if let Some(value) = fields.remove("color") {
+        fields.insert("color".into(), normalize_color(value, span, "title.color")?);
+    }
+    Ok(Value::Object(fields))
 }
 
 fn legend(value: Value, span: Span) -> Result<Value, Diagnostic> {

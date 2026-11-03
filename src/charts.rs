@@ -52,9 +52,33 @@ pub(crate) struct Series {
     pub name: String,
     pub values: Vec<f64>,
 }
+#[derive(Default)]
+pub(crate) struct TitleStyle {
+    pub size: Option<f64>,
+    pub bold: Option<bool>,
+    pub italic: Option<bool>,
+    pub color: Option<String>,
+    pub font: Option<String>,
+}
+impl TitleStyle {
+    fn from_value(value: Option<&Value>) -> Self {
+        let Some(Value::Object(fields)) = value else {
+            return Self::default();
+        };
+        let flag = |name: &str| fields.get(name).map(|value| boolean(Some(value)));
+        Self {
+            size: drawing_units(fields.get("size")).map(|units| units as f64 / 12700.0),
+            bold: flag("bold"),
+            italic: flag("italic"),
+            color: Some(color(fields.get("color"))).filter(|color| !color.is_empty()),
+            font: Some(text(fields.get("font"))).filter(|font| !font.is_empty()),
+        }
+    }
+}
 pub(crate) struct Chart {
     pub kind: String,
     pub title: String,
+    pub title_style: TitleStyle,
     pub categories: Vec<String>,
     pub series: Vec<Series>,
     pub legend: Legend,
@@ -88,7 +112,11 @@ impl Chart {
                 .unwrap_or_default()
         };
         Ok(Self {
-            title: text(attributes.get("title")),
+            title: match attributes.get("title") {
+                Some(Value::Object(fields)) => text(fields.get("text")),
+                value => text(value),
+            },
+            title_style: TitleStyle::from_value(attributes.get("title")),
             category_title: axis_title("category"),
             value_title: axis_title("value"),
             colors: appearance::colors(attributes.get("colors")),

@@ -15,7 +15,9 @@ and [value-domain](attributes/values.md) inventories.
 - [x] `kind`: column, bar, line, pie, doughnut, stacked_column, stacked_bar,
   percent_stacked_column, percent_stacked_bar, area, stacked_area,
   percent_stacked_area. Omitted kind stays absent in the model and resolves to column.
-- [x] `title`: string or number normalized to text.
+- [x] `title`: string or number normalized to text, or an object with `text`,
+  `size`, `bold`, `italic`, `color` and `font`; an untitled chart deletes the
+  automatic title and reserves no native title space.
 - [x] `width`, `height`: non-negative length normalization.
 - [x] Width and height output defaults and coordinate interpretation.
 - [x] `data.categories`, with `labels` as an alternate key: ordered category

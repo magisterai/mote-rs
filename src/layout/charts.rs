@@ -203,7 +203,7 @@ fn plan_chart(
         "area" | "stacked_area" | "percent_stacked_area" => planner.area_chart(chart, &layout)?,
         _ => planner.bars(chart, &layout)?,
     }
-    planner.text(layout.title, &chart.title, 18.0, "center", 0.0)?;
+    planner.title(layout.title, chart)?;
     planner.legend(chart, &layout)?;
     let original_lines = std::mem::take(&mut planner.page.lines);
     for operation in &mut planner.page.operations {

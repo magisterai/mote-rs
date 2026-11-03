@@ -4,6 +4,7 @@ use crate::layout::{LineSpacing, ParagraphStyle, PlacedTextLine, TextRun, TextSt
 pub(super) struct ChartMeasurement<'measurement, 'assets> {
     font: String,
     color: String,
+    variant: crate::measurement::FontVariant,
     measurer: &'measurement mut crate::measurement::TextMeasurer<'assets>,
 }
 
@@ -16,6 +17,7 @@ impl<'measurement, 'assets> ChartMeasurement<'measurement, 'assets> {
         Self {
             font: font.into(),
             color: color.into(),
+            variant: Default::default(),
             measurer,
         }
     }
@@ -23,6 +25,7 @@ impl<'measurement, 'assets> ChartMeasurement<'measurement, 'assets> {
     fn text_style(&self, size: f64) -> TextStyle {
         let mut style = TextStyle::default();
         style.measurement.font = self.font.clone();
+        style.measurement.variant = self.variant;
         style.color = self.color.clone();
         style.measurement.size_points = size;
         style
@@ -130,6 +133,49 @@ impl ChartPlanner<'_, '_> {
             top += height;
         }
         Ok(())
+    }
+}
+
+impl ChartPlanner<'_, '_> {
+    pub(super) fn title(
+        &mut self,
+        bounds: Rectangle,
+        chart: &crate::charts::Chart,
+    ) -> Result<(), LayoutError> {
+        use crate::measurement::FontVariant;
+        let style = &chart.title_style;
+        let variant = match (style.bold.unwrap_or(false), style.italic.unwrap_or(false)) {
+            (true, true) => FontVariant::BoldItalic,
+            (true, false) => FontVariant::Bold,
+            (false, true) => FontVariant::Italic,
+            (false, false) => FontVariant::Regular,
+        };
+        let font = style
+            .font
+            .clone()
+            .unwrap_or_else(|| self.measurement.font.clone());
+        let color = style
+            .color
+            .clone()
+            .unwrap_or_else(|| self.measurement.color.clone());
+        let previous = (
+            std::mem::replace(&mut self.measurement.font, font),
+            std::mem::replace(&mut self.measurement.color, color),
+            std::mem::replace(&mut self.measurement.variant, variant),
+        );
+        let result = self.text(
+            bounds,
+            &chart.title,
+            super::geometry::title_size(chart),
+            "center",
+            0.0,
+        );
+        (
+            self.measurement.font,
+            self.measurement.color,
+            self.measurement.variant,
+        ) = previous;
+        result
     }
 }
 

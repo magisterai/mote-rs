@@ -78,7 +78,13 @@ fn resolve(
     legend_width: f64,
     value_extra: f64,
 ) -> ChartLayout {
-    let mut top = bounds.top + 40.8;
+    let title_height = title_height(chart);
+    let mut top = bounds.top
+        + if title_height > 0.0 {
+            TITLE_TOP + title_height + TITLE_GAP
+        } else {
+            UNTITLED_TOP
+        };
     let position = super::legend::position(chart);
     let mut legend_reserve = 0.0;
     let mut legend = Rectangle::default();
@@ -94,8 +100,8 @@ fn resolve(
                 );
             }
             "top" => {
+                legend = Rectangle::new(bounds.left, top - 6.8, bounds.width, 18.0);
                 top += 24.0;
-                legend = Rectangle::new(bounds.left, bounds.top + 34.0, bounds.width, 18.0);
             }
             _ => {}
         }
@@ -170,9 +176,31 @@ fn resolve(
             (bounds.width - left - right).max(1.0),
             (bottom - top).max(1.0),
         ),
-        title: Rectangle::new(bounds.left, bounds.top + 4.0, bounds.width, 28.0),
+        title: Rectangle::new(
+            bounds.left,
+            bounds.top + TITLE_TOP,
+            bounds.width,
+            title_height,
+        ),
         legend,
         category_label_width: category_width,
         legend_entries: Vec::new(),
+    }
+}
+
+const TITLE_SIZE: f64 = 18.0;
+const TITLE_TOP: f64 = 4.0;
+const TITLE_GAP: f64 = 8.8;
+const UNTITLED_TOP: f64 = 12.0;
+
+pub(super) fn title_size(chart: &Chart) -> f64 {
+    chart.title_style.size.unwrap_or(TITLE_SIZE)
+}
+
+fn title_height(chart: &Chart) -> f64 {
+    if chart.title.trim().is_empty() {
+        0.0
+    } else {
+        28.0 * title_size(chart) / TITLE_SIZE
     }
 }
