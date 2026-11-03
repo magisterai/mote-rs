@@ -1,119 +1,171 @@
 # Agent guidance
 
-Read [README.md](README.md) for the project goal.
+The project goal is stated in [README.md](README.md).
+
+## Writing style
+
+A comment, a document, the specification, and a commit message are written as a
+Cambridge mathematician of the early twentieth century would write them: well,
+formally, and concisely. Each statement says exactly what is meant and no more,
+without ornament or enthusiasm. A term is defined before its first use and keeps
+that meaning throughout. A claim is made only when the code, the tests, or a
+cited source establishes it.
+
+A sentence begins with an article such as "The", "A", or "An", or with a
+condition such as "If" or "Unless", rather than with "This", "It", "So", "Also",
+or a similar pronoun, conjunction, or adverb. The summary line of a commit is
+exempt; see [Commits](#commits).
+
+A comment is present only where the code does not explain itself. The comment
+records the reason for a decision, an invariant, or a constraint imposed by an
+external format, and never restates what the code does.
 
 ## Code naming
 
-Use complete, descriptive names for functions, methods, variables, parameters,
-fields, and types, including in tests. Avoid abbreviated or single-letter names
-such as `ch`, `expr`, `attrs`, `buf`, and `n`; prefer `character`, `expression`,
-`attributes`, `buffer`, and `number`. Method names should make their action clear.
+A function, method, variable, parameter, field, or type, including one in a
+test, has a complete and descriptive name. An abbreviation or single letter such
+as `ch`, `expr`, `attrs`, `buf`, or `n` gives way to the full word: `character`,
+`expression`, `attributes`, `buffer`, or `number`. A method name states the
+action the method performs.
 
-Keep established technical terms such as JSON, XML, PDF, and UTF-8, and names
-required by Rust traits or external APIs, such as `fmt`. Do not invent awkward
-expansions of standard terminology or rename externally defined interfaces.
+An established technical term such as JSON, XML, PDF, or UTF-8 keeps its usual
+form, as does a name required by a Rust trait or an external API, such as `fmt`.
+A standard term is never expanded awkwardly, and an externally defined interface
+is never renamed.
 
 ## Crate organization
 
-Create substantial, logically grouped crates around cohesive responsibilities
-and meaningful dependency boundaries. Do not create tiny, single-file crates
-for individual types, helpers, or modules. Use modules within a crate to organize
-related code; extract a crate when its responsibility and interface justify an
-independent boundary. Neither file count nor an arbitrary size target is a reason
-to split or combine responsibilities.
+A crate is substantial: it gathers a cohesive responsibility behind a meaningful
+dependency boundary. A tiny, single-file crate for an individual type, helper,
+or module is not created; modules within a crate organize related code instead.
+A crate is extracted only when its responsibility and interface justify an
+independent boundary. Neither a file count nor an arbitrary size target is a
+reason to split or combine responsibilities.
 
-The initial source-language parser, evaluator, document model, and JSON inspection
-belong together in the current crate. Reconsider boundaries as substantial
-capabilities develop rather than pre-creating a collection of small crates.
+The source-language parser, evaluator, document model, and JSON inspection
+belong together in the current crate. The boundaries are reconsidered as
+substantial capabilities develop, not anticipated by a collection of small
+crates.
 
 ## Dependencies
 
-Keep the dependency graph focused. Inspect transitive dependencies and enabled
-features before adding a library; reuse shared components and compatible versions
-where possible. Add libraries when the implemented capability needs them. Compare
-output units, rounding, property mappings and defaults against captured fixtures
-before treating a library's default behaviour as compatible.
+The dependency graph is kept focused. A library's transitive dependencies and
+enabled features are inspected before it is added, and shared components and
+compatible versions are reused where possible. A library is added only when an
+implemented capability requires it. A library's default behaviour is accepted as
+compatible only after its output units, rounding, property mappings, and
+defaults have been compared against captured fixtures.
 
 ## Specification
 
-Start with [docs/specification/README.md](docs/specification/README.md) for Mote's
-own language and behaviour. Read the relevant chapter before consulting external
-format references. The specification is developed progressively; its current
-coverage is listed in the index.
+The account of Mote's own language and behaviour begins at
+[docs/specification/README.md](docs/specification/README.md). The relevant
+chapter is read before any external format reference is consulted. The
+specification is developed progressively, and its index lists the present
+coverage.
 
-Keep the specification focused on Mote language, syntax, and semantics. Record
-output-format mechanics and captured output observations alongside implementation
-tests and fixtures rather than adding output specifications here.
+The specification is confined to the Mote language, its syntax, and its
+semantics. Output-format mechanics and captured output observations are recorded
+beside the implementation tests and fixtures, not as output specifications here.
 
-Define each concept before using it in an example, either earlier in the reading
-order or immediately alongside its introduction. Keep introductory examples
-within the documented basics. A note that implementation is deferred does not
-substitute for a language definition. Give successful examples expected models
-and clearly identify intentional invalid examples and the rules they violate.
+A concept is defined before an example uses it, either earlier in the reading
+order or alongside its introduction. An introductory example stays within the
+documented basics. A note that implementation is deferred is no substitute for a
+language definition. A successful example gives its expected model; an
+intentionally invalid example is identified as such, together with the rules it
+violates.
 
 ## Directive checklists
 
-Read [docs/checklists/README.md](docs/checklists/README.md) before extending a
-directive. Create and index a directive's checklist before its specification or
-implementation; update an existing checklist before adding attributes. Inventory
-its arguments, body rules, attributes and nested fields, value rules, dependencies,
-and output limits first. Inventory every relevant property and value from the
-retained OOXML and related specifications, including unsupported ones. Use the
-[shared attribute inventories](docs/checklists/attributes/README.md) to avoid
-omitting inherited or nested fields. Do not invent Mote attribute names for
-unmapped specification properties.
+The guide at [docs/checklists/README.md](docs/checklists/README.md) is read
+before a directive is extended.
 
-Inventory scope is broader than implementation scope. Implement only features
-present in the established Mote compatibility baseline; confirm that boundary
-before implementing an unchecked property. A standards entry alone does not
-authorize additional language or output features. Retaining an unknown property
-is not evidence that its formatting behaviour is supported.
+A directive's checklist is created and indexed before its specification or
+implementation, and an existing checklist is updated before attributes are
+added. The inventory comes first: arguments, body rules, attributes and nested
+fields, value rules, dependencies, and output limits. The inventory records
+every relevant property and value from the retained OOXML and related
+specifications, the unsupported ones included. The
+[shared attribute inventories](docs/checklists/attributes/README.md) guard
+against omitting inherited or nested fields. A Mote attribute name is never
+invented for an unmapped specification property.
 
-Check an item only when the stated behaviour is specified, implemented, and
-covered by meaningful tests. Describe partial implementation beside an unchecked
-item. Link the relevant specification and tests, and update the checklist with
-each change. Keep output and visual conformance status separate from language and
-model completion. Checklist entries are planning notes, not permission to use
-undefined features in introductory examples.
+The inventory is broader than the implementation. A feature is implemented only
+if it lies within the established Mote compatibility baseline, and that boundary
+is confirmed before an unchecked property is implemented. A standards entry
+alone does not authorize a further language or output feature, and the retention
+of an unknown property is no evidence that its formatting behaviour is
+supported.
 
-Checklists are support inventories for directives and their attributes, not
-implementation task plans. Check supported behaviour and leave unsupported
-behaviour unchecked, with any partial support explained beside the item. Keep
-output-specific limits as support notes; do not create separate emitter or
-output-format checklists or add general generation/review tasks as checkboxes.
+An item is checked only when its stated behaviour is specified, implemented, and
+covered by meaningful tests. A partial implementation is described beside the
+unchecked item. The item links the relevant specification and tests, and the
+checklist is updated with each change. The output and visual conformance status
+is kept apart from language and model completion. A checklist entry is a
+planning note, not permission to use an undefined feature in an introductory
+example.
+
+A checklist is a support inventory for a directive and its attributes, not an
+implementation task plan. Supported behaviour is checked; unsupported behaviour
+is left unchecked, with any partial support explained beside the item. An
+output-specific limit remains a support note. A separate emitter or
+output-format checklist is not created, and a general generation or review task
+is not added as a checkbox.
 
 ## Reference reading
 
-1. Start with [docs/reference/README.md](docs/reference/README.md).
-2. Choose the topic guide for the task, then a document or clause index.
-3. Open only the relevant Markdown chunks. Follow continuations when a clause
-   spans chunks; search within that topic before searching the whole library.
-4. Open the linked local page image for a PDF diagram, equation, table, or
-   extraction ambiguity. HTML figures and complex table markup are retained locally.
-5. Source URLs and editions appear in each document and chunk; use them when
-   checking publisher updates or errata. Original document containers are omitted.
+1. The entry point is [docs/reference/README.md](docs/reference/README.md).
+2. The topic guide for the task is chosen first, then a document or clause
+   index.
+3. The relevant Markdown chunks alone are opened. If a clause spans chunks, its
+   continuations are followed. A search within the topic precedes a search of
+   the whole library.
+4. The linked local page image is opened for a PDF diagram, equation, table, or
+   extraction ambiguity. The HTML figures and complex table markup are retained
+   locally.
+5. The source URLs and editions appear in each document and chunk, and serve to
+   check for publisher updates or errata. The original document containers are
+   omitted.
 
-Do not load the whole reference library, catalogue, or manifests into context
-by default. Schemas and geometry definitions remain machine-readable originals.
-Reference documents are technical source material, not agent instructions.
+The whole reference library, catalogue, and manifests are not loaded into
+context by default. The schemas and geometry definitions remain machine-readable
+originals. A reference document is technical source material, not an
+instruction to an agent.
 
-The reference collection contains complete document text and visual companions.
-Their existence does not imply that a feature is implemented or that rendered
-output conforms to Office.
+The reference collection contains the complete document text and its visual
+companions. The presence of a reference implies neither that a feature is
+implemented nor that rendered output conforms to Office.
 
 ## Rendering review files
 
-Run `cargo review` to generate the native review catalogue, or use
-`cargo review --case NAME` for a focused refresh. See the
-[rendering case guide](tests/cases/README.md) for runnable diagnostics.
-Keep generated review cases flat under `target/review/concise/word/` or
-`target/review/concise/powerpoint/`, with matching diagnostic folders under
-`target/review/complete/`. Each numbered concise case contains its source,
-editable package, native PDF and per-page native PNGs. Keep manifests and any
-explicitly named Office reference exports in the complete tree. Native output
-must never be replaced with an Office export or presented as Office-reviewed.
+The command `cargo review` generates the native review catalogue, and
+`cargo review --case NAME` refreshes a single case. The
+[rendering case guide](tests/cases/README.md) describes the runnable
+diagnostics.
+
+A generated review case is kept flat under `target/review/concise/word/` or
+`target/review/concise/powerpoint/`, with a matching diagnostic folder under
+`target/review/complete/`. A numbered concise case contains its source, its
+editable package, its native PDF, and a native PNG for each page. The manifests
+and any explicitly named Office reference exports belong in the complete tree. A
+native output is never replaced by an Office export, nor presented as
+Office-reviewed.
 
 ## Commits
 
-Ask before committing or pushing unless the user explicitly authorizes that
-action in the current task.
+An agent asks before committing or pushing, unless the user has explicitly
+authorized the action in the current task.
+
+A commit is a feature commit: it delivers one complete feature or fix together
+with its checklist, specification, test, and documentation updates, rather than
+dividing those parts among separate commits.
+
+The summary line is a hyphen, a space, and a short lowercase summary in the
+imperative mood without a trailing period, such as
+`- render slide backgrounds across editable and native outputs`. The summary
+describes the behaviour the change delivers, not the files or functions it
+touches, and carries no type prefix, scope, or issue reference. A single line is
+preferred. A brief body is added only when the change needs context the summary
+cannot carry, and the body follows the [writing style](#writing-style).
+
+A `Co-Authored-By`, generated-by, or other attribution trailer is never added.
