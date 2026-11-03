@@ -93,11 +93,6 @@ fn plan(
     mut deck: Deck,
     images: &mut crate::media::ImageCatalog,
 ) -> Result<DocumentTextPlan, LayoutError> {
-    if deck.empty {
-        return Err(LayoutError::Unsupported(
-            "native presentation output requires at least one slide".into(),
-        ));
-    }
     let geometry = PageGeometry {
         width: deck.width as f64 / 12700.0,
         height: deck.height as f64 / 12700.0,

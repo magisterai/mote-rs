@@ -38,6 +38,10 @@ minor font names, which may refer to the previously defined font declarations.
 Unknown theme members remain metadata; a non-table colors/fonts value is retained
 without becoming a resolved color or font mapping.
 
+In presentation output, an empty source produces one blank slide at its declared
+size, including inherited background and slide fields. An explicit empty
+`#slide[]` has the same blank-slide behavior.
+
 ## Explicit slides
 
 `slide` requires one block body and has no positional arguments. An empty body

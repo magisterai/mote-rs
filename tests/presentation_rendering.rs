@@ -243,7 +243,7 @@ fn native_layout_selection_preserves_document_mode_and_explicit_slide_boundaries
             None,
             render::LayoutMode::Presentation
         )
-        .is_err()
+        .is_ok()
     );
 }
 

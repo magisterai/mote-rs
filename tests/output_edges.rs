@@ -102,6 +102,21 @@ fn nonfinite_chart_values_fail_before_any_output_package_is_returned() {
 }
 
 #[test]
+fn empty_presentations_keep_declared_geometry_in_both_native_formats() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let document =
+        mote::compile("#presentation(width=pt(320),height=pt(200),background='#123456')").unwrap();
+    let plan = render::plan(&document, &resolver, None).unwrap().output;
+    assert_eq!(plan.pages.len(), 1);
+    assert_eq!((plan.geometry.width, plan.geometry.height), (320.0, 200.0));
+    let pages = render::paint_png(&plan, &Default::default())
+        .unwrap()
+        .output;
+    assert_eq!((pages[0].width, pages[0].height), (320, 200));
+    assert!(!render::paint_pdf(&plan).unwrap().is_empty());
+}
+
+#[test]
 fn zero_hanging_list_markers_fit_before_the_unchanged_text_origin() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for directive in ["list", "ordered_list"] {

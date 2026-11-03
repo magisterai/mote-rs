@@ -15,7 +15,6 @@ use crate::{
 
 pub(crate) struct Deck {
     pub slides: Vec<Slide>,
-    pub empty: bool,
     pub width: i64,
     pub height: i64,
     pub size_type: &'static str,
@@ -73,7 +72,6 @@ impl Deck {
             }
         }
         let mut slides = segmentation::slides(&document.content);
-        let empty = slides.is_empty();
         if slides.is_empty() {
             slides.push(Element {
                 source_name: None,
@@ -100,7 +98,6 @@ impl Deck {
         warnings.extend(support::warnings(document, &slides));
         let today = fields::current_date(document, &slides, &mut warnings);
         let deck = Self {
-            empty,
             slides: slides
                 .into_iter()
                 .map(|element| {
