@@ -452,13 +452,11 @@ fn paint_rule(
         return Ok(());
     }
     if rule.role == crate::layout::RuleRole::Divider {
-        // Retain the established raster divider profile independently of PDF geometry.
-        const DIVIDER_VERTICAL_ADJUSTMENT: f64 = -8.0;
         return fill_rectangle(
             pixels,
             &HighlightRectangle {
                 x: rule.start[0].min(rule.end[0]),
-                top: rule.start[1] + DIVIDER_VERTICAL_ADJUSTMENT,
+                top: rule.start[1] - rule.width / 2.0,
                 width: (rule.end[0] - rule.start[0]).abs(),
                 height: rule.width.max(0.5),
                 color: rule.color.clone(),
