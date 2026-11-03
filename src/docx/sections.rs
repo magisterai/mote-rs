@@ -169,6 +169,7 @@ fn write_story(
     if content.is_empty() {
         content.push(Content::Element(Element {
             source_name: None,
+            source_location: None,
             kind: ElementKind::Paragraph,
             attributes: Default::default(),
             children: Vec::new(),

@@ -88,6 +88,7 @@ pub(super) fn markdown_reference(
     };
     Ok(Content::Element(Element {
         source_name: state.source_name().map(ToOwned::to_owned),
+        source_location: None,
         kind: ElementKind::Footnote,
         attributes: Properties::from([("id".into(), Value::String(name.to_owned()))]),
         children,

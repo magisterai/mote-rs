@@ -8,6 +8,7 @@ mod charts;
 mod comments;
 mod configuration;
 mod controls;
+mod diagnostics;
 mod document;
 mod fonts;
 mod headings;
@@ -102,6 +103,7 @@ pub fn emit_with_assets(
     let font_table = fonts::write_table(document)?;
     let styles_xml = styles.write()?;
     let mut state = document::DocumentState::default();
+    state.resources.warnings = diagnostics::collect(document);
     state.resources.anchors = crate::references::Catalog::build(document);
     state.resources.images = crate::media::ImageCatalog::load(document, resolver, source_name);
     let body = document::write_document(document, &styles, &mut state)?;

@@ -93,12 +93,13 @@ impl RunFormatting {
             | ElementKind::SmallCaps
             | ElementKind::Subscript
             | ElementKind::Superscript => {
-                let allowed: &[&str] = match element.kind {
-                    ElementKind::Strike => &["kind"],
-                    ElementKind::Highlight => &["fill"],
-                    _ => &[],
-                };
-                check_attributes(&element.attributes, allowed, element.kind.as_text())?;
+                let mut allowed = vec!["style", "font", "size", "color"];
+                match element.kind {
+                    ElementKind::Strike => allowed.push("kind"),
+                    ElementKind::Highlight => allowed.push("fill"),
+                    _ => {}
+                }
+                check_attributes(&element.attributes, &allowed, element.kind.as_text())?;
                 match element.kind {
                     ElementKind::Strike => {
                         let name =

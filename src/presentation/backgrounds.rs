@@ -25,6 +25,7 @@ impl Background {
             let source = text(fields, "src");
             if !source.is_empty() {
                 result.image = Some(Element {
+                    source_location: slide.source_location.clone(),
                     source_name: if slide.attributes.contains_key("background") {
                         slide.source_name.clone()
                     } else {
@@ -49,6 +50,7 @@ impl Background {
     pub fn container(&self, width: i64, height: i64) -> Element {
         Element {
             source_name: None,
+            source_location: None,
             kind: ElementKind::Box,
             attributes: Properties::from([
                 (

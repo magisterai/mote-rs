@@ -5,7 +5,16 @@ mod language_capture;
 fn authored_content_matches_editable_packages_and_native_layout() {
     language_capture::compare(
         "authoring-content",
-        &["markdown-strike", "setext-heading", "slides"],
+        &[
+            "markdown-strike",
+            "setext-heading",
+            "slides",
+            "styled-list-paragraph",
+            "styled-quote-paragraph",
+            "quoted-list-content",
+            "nested-list-blocks",
+            "nested-markdown-blocks",
+        ],
     );
 }
 

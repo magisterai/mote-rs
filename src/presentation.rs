@@ -75,6 +75,7 @@ impl Deck {
         if slides.is_empty() {
             slides.push(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Slide,
                 attributes: Properties::new(),
                 children: Vec::new(),

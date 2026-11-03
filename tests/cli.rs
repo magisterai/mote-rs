@@ -324,3 +324,23 @@ fn native_slide_layout_is_selected_explicitly() {
     assert!(!invalid.status.success());
     assert!(String::from_utf8_lossy(&invalid.stderr).contains("applies only to PDF or PNG"));
 }
+
+#[test]
+fn docx_fallback_warnings_name_the_property_and_source_location() {
+    let path = temporary_input_path().with_extension("docx");
+    let output = run(
+        &["--format", "docx", "-o", path.to_str().unwrap(), "-"],
+        b"Before\n\n#strike(size=pt(16))[Text]",
+    );
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert!(fs::read(&path).unwrap().starts_with(b"PK"));
+    fs::remove_file(path).unwrap();
+    let warning = String::from_utf8(output.stderr).unwrap();
+    assert!(warning.contains("strike.size"));
+    assert!(warning.contains("surrounding span"));
+    assert!(warning.contains(":3:1"), "{warning}");
+}

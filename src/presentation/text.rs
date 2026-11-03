@@ -38,6 +38,7 @@ pub(crate) fn resolve(
     base = styles.inline(
         &Element {
             source_name: None,
+            source_location: None,
             kind: ElementKind::Span,
             attributes: attributes.clone(),
             children: Vec::new(),

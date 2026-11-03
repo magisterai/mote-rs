@@ -1,0 +1,399 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Helvetica",
+      "properties": {
+        "latin": "Helvetica"
+      }
+    }
+  ],
+  "styles": [
+    {
+      "name": "Normal",
+      "type": "paragraph",
+      "font": "body",
+      "properties": {
+        "font": "body"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "explicit": true,
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Intro item"
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "blockquote",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Quoted "
+                        },
+                        {
+                          "kind": "strong",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "bold"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "divider",
+                  "category": "block"
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "ordered_list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "attributes": {
+                        "marker": "1."
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Ordered child"
+                        },
+                        {
+                          "kind": "text",
+                          "text": " "
+                        },
+                        {
+                          "kind": "list",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "list_item",
+                              "category": "block",
+                              "attributes": {
+                                "marker": "-"
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Deep child with "
+                                },
+                                {
+                                  "kind": "emphasis",
+                                  "category": "inline",
+                                  "children": [
+                                    {
+                                      "kind": "text",
+                                      "text": "emphasis"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "text",
+                                  "text": " "
+                                },
+                                {
+                                  "kind": "heading",
+                                  "category": "block",
+                                  "attributes": {
+                                    "level": 3,
+                                    "marker": "#"
+                                  },
+                                  "children": [
+                                    {
+                                      "kind": "text",
+                                      "text": "Deep Heading"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "marker": "-"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Outro item"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "blockquote",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Quoted "
+                },
+                {
+                  "kind": "strong",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "bold"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "divider",
+              "category": "block"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "marker": "-"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Intro item"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "blockquote",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quoted "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "bold"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "divider",
+              "category": "block"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "ordered_list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "attributes": {
+                    "marker": "1."
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Ordered child"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "list",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "list_item",
+                          "category": "block",
+                          "attributes": {
+                            "marker": "-"
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Deep child with "
+                            },
+                            {
+                              "kind": "emphasis",
+                              "category": "inline",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "emphasis"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "text",
+                              "text": " "
+                            },
+                            {
+                              "kind": "heading",
+                              "category": "block",
+                              "attributes": {
+                                "level": 3,
+                                "marker": "#"
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Deep Heading"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "marker": "-"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "Outro item"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "blockquote",
+      "category": "block",
+      "children": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Quoted "
+            },
+            {
+              "kind": "strong",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "bold"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "divider",
+          "category": "block"
+        }
+      ]
+    }
+  ]
+}

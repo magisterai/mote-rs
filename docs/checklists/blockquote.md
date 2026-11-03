@@ -49,8 +49,7 @@ Nested `text` and `paragraph` defaults belong to the [box checklist](box.md); th
 DOCX emits one paragraph per quote, with a fallback or named style and direct
 paragraph properties. Nested paragraph, list and quote content flattens to inline
 runs without separators or numbered markers. Separate child-block formatting is
-unsupported and fails explicitly. Empty quotes remain paragraphs; an empty style
-reference suppresses the fallback reference. Formatting does not escape the quote.
+omitted with a source-located warning. Empty quotes remain paragraphs; an empty style reference suppresses the fallback reference. Formatting does not escape the quote.
 See [quote captures](../../tests/fixtures/docx/block-quotes/README.md) and
 [tests](../../tests/docx_quotes.rs). Word review remains unreviewed.
 
@@ -84,3 +83,8 @@ List item child blocks and quote child blocks flatten to inline text; nested lis
 inside list items retain their own markers. See the
 [native block captures](../../tests/fixtures/native-blocks/README.md) and
 [block tests](../../tests/native_blocks.rs). Office visual review remains unreviewed.
+
+Nested headings contribute inline text in DOCX list-item and quote content; their
+heading formatting warns rather than applying independently. Nested dividers are
+omitted with a warning. The [authored-content captures](../../tests/fixtures/authoring-content/README.md)
+cover this output boundary.

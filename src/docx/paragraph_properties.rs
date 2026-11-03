@@ -216,7 +216,7 @@ fn borders(value: &Value) -> Result<String, Error> {
     let properties = values::object(value)?;
     check_attributes(
         properties,
-        &["top", "left", "bottom", "right", "all"],
+        &["top", "left", "bottom", "right", "all", "width", "color"],
         "border",
     )?;
     let mut result = String::new();

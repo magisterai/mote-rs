@@ -16,6 +16,7 @@ pub(super) fn write(
 ) -> Result<String, Error> {
     let element = Element {
         source_name: None,
+        source_location: None,
         kind: ElementKind::Box,
         attributes: Properties::from([
             ("name".into(), Value::String("Speaker Notes".into())),

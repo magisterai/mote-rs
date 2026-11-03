@@ -21,6 +21,27 @@ pub(super) fn write_inlines(
     )
 }
 
+/// Preserve block boundaries during whitespace trimming before taking their inline text.
+pub(super) fn write_flattened_inlines(
+    children: &[Content],
+    styles: &Styles<'_>,
+    resources: &mut super::resources::Resources,
+) -> Result<String, Error> {
+    validate_controls(children)?;
+    let formatting = resources.active_text.clone();
+    let children = if formatting.fixed_tabs {
+        children.to_vec()
+    } else {
+        whitespace::trim_line_edges(children)
+    };
+    write_formatted(
+        &flatten_block_content(&children)?,
+        &formatting,
+        styles,
+        resources,
+    )
+}
+
 fn validate_controls(children: &[Content]) -> Result<(), Error> {
     for child in children {
         if let Content::Element(element) = child {
@@ -223,5 +244,42 @@ pub(super) fn write_text(
         }
     }
     result.push_str("</w:r>");
+    Ok(result)
+}
+
+fn flatten_block_content(children: &[Content]) -> Result<Vec<Content>, Error> {
+    let mut result = Vec::new();
+    for child in children {
+        if let Content::Element(element) = child
+            && element.is_block()
+            && element.kind != ElementKind::Image
+        {
+            // Nested block structure supplies inline text without independent
+            // paragraph layout or numbering.
+            let supported: &[&str] = match element.kind {
+                ElementKind::Paragraph
+                | ElementKind::Heading
+                | ElementKind::Blockquote
+                | ElementKind::Divider => {
+                    result.extend(flatten_block_content(&element.children)?);
+                    continue;
+                }
+                ElementKind::List | ElementKind::OrderedList => {
+                    &["id", "start", "restart", "format", "level"]
+                }
+                ElementKind::ListItem => &["marker", "level"],
+                _ => {
+                    return Err(Error::Unsupported(format!(
+                        "{} inside inline block content",
+                        element.kind.as_text()
+                    )));
+                }
+            };
+            check_attributes(&element.attributes, supported, "nested block content")?;
+            result.extend(flatten_block_content(&element.children)?);
+        } else {
+            result.push(child.clone());
+        }
+    }
     Ok(result)
 }

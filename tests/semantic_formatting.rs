@@ -25,9 +25,19 @@ fn formatting_contracts_reject_invalid_values_and_keep_output_limits_explicit() 
         "superscript",
     ] {
         let document = mote::compile(&format!("#{directive}(size=pt(16))[Text]")).unwrap();
+        let resolver = mote::source::FileAssetResolver::new(".").unwrap();
+        let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
         assert!(
-            mote::docx::emit(&document).is_err(),
-            "{directive}: no direct size mapping"
+            generated
+                .warnings
+                .iter()
+                .any(|warning| warning.contains(&format!("{directive}.size")))
+        );
+        assert!(
+            generated
+                .warnings
+                .iter()
+                .any(|warning| warning.contains("surrounding span"))
         );
     }
 }

@@ -9,13 +9,57 @@ pub(super) fn write(
     leading_column_break: bool,
     resources: &mut super::resources::Resources,
 ) -> Result<String, Error> {
+    write_content(
+        attributes,
+        children,
+        styles,
+        numbering_reference,
+        leading_column_break,
+        resources,
+        false,
+    )
+}
+
+pub(super) fn write_flattened(
+    attributes: &Properties,
+    children: &[Content],
+    styles: &Styles<'_>,
+    numbering_reference: Option<(usize, u8)>,
+    leading_column_break: bool,
+    resources: &mut super::resources::Resources,
+) -> Result<String, Error> {
+    write_content(
+        attributes,
+        children,
+        styles,
+        numbering_reference,
+        leading_column_break,
+        resources,
+        true,
+    )
+}
+
+fn write_content(
+    attributes: &Properties,
+    children: &[Content],
+    styles: &Styles<'_>,
+    numbering_reference: Option<(usize, u8)>,
+    leading_column_break: bool,
+    resources: &mut super::resources::Resources,
+    flatten_blocks: bool,
+) -> Result<String, Error> {
     let mut paragraph = opening(attributes, styles, numbering_reference, resources)?;
     let (bookmarks, bookmark_identifiers) = super::references::start_pending(resources)?;
     paragraph.push_str(&bookmarks);
     if leading_column_break {
         paragraph.push_str("<w:r><w:br w:type=\"column\"/></w:r>");
     }
-    paragraph.push_str(&runs::write_inlines(children, styles, resources)?);
+    let write_inlines = if flatten_blocks {
+        runs::write_flattened_inlines
+    } else {
+        runs::write_inlines
+    };
+    paragraph.push_str(&write_inlines(children, styles, resources)?);
     paragraph.push_str(&super::references::end_pending(&bookmark_identifiers));
     paragraph.push_str("</w:p>");
     Ok(paragraph)

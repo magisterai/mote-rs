@@ -1,0 +1,14 @@
+#style(name="Body",run={color="#445566"})
+#list[
+#item[
+#paragraph(style="Body")[First item.]
+#blockquote[#paragraph[Quoted **text**.]]
+#divider()
+#ordered_list[
+#item[Ordered child.
+#list[#item[Deep child.#heading(level=3)[Deep heading.]]]
+]
+]
+]
+#item[Last item.]
+]

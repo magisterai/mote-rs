@@ -1,0 +1,2 @@
+#style(name="Body",run={bold=true})
+#list[#item[#paragraph(style="Body")[First paragraph.]]]

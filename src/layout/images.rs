@@ -151,6 +151,7 @@ pub(super) fn fallback(element: &Element, error: &str) -> Element {
     }
     Element {
         source_name: None,
+        source_location: None,
         kind: crate::model::ElementKind::Paragraph,
         attributes,
         children: vec![crate::model::Content::Text(format!(

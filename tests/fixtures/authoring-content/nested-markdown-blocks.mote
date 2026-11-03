@@ -1,0 +1,13 @@
+#font(name="body",latin="Helvetica")
+#style(name="Normal",font="body")
+#section[
+  - Intro item
+    > Quoted *bold*
+    ---
+    1. Ordered child
+       - Deep child with _emphasis_
+         ### Deep Heading
+  - Outro item
+]
+
+#blockquote[Quoted *bold* #divider()]

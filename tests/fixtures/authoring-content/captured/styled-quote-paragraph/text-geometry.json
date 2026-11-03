@@ -1,0 +1,43 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 108,
+        "top": 78,
+        "height": 15.225539999999999,
+        "width": 77.638,
+        "baseline": 88.91277,
+        "fragments": [
+          {
+            "text": "First ",
+            "x": 108,
+            "baseline": 88.91277,
+            "top": 81.01477,
+            "width": 24.442,
+            "height": 10.175,
+            "advance": 24.442,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "paragraph.",
+            "x": 132.442,
+            "baseline": 88.91277,
+            "top": 81.01477,
+            "width": 53.196,
+            "height": 10.175,
+            "advance": 53.196,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

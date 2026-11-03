@@ -423,6 +423,7 @@ fn same_page(first: PageGeometry, second: PageGeometry) -> bool {
 fn boundary_style(styles: &LayoutStyleResolver<'_>) -> ParagraphStyle {
     styles.paragraph(&Element {
         source_name: None,
+        source_location: None,
         kind: ElementKind::Paragraph,
         attributes: Default::default(),
         children: Vec::new(),

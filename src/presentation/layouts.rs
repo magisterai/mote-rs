@@ -111,6 +111,7 @@ impl Layouts {
             attributes.insert("background".into(), background.clone());
         }
         Ok(Some(Element {
+            source_location: slide.source_location.clone(),
             source_name: if slide.attributes.contains_key("background")
                 || !layout.properties.contains_key("background")
             {

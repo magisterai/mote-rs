@@ -17,7 +17,8 @@ pub(super) fn write(
     check_attributes(
         &list.attributes,
         &[
-            "id", "start", "restart", "format", "level", "tight", "indent", "spacing",
+            "id", "start", "restart", "format", "level", "tight", "indent", "spacing", "marker",
+            "style",
         ],
         "list",
     )?;
@@ -51,7 +52,7 @@ pub(super) fn write(
             write_structured_item(&mut output,item,item_level,layout,StructuredMarker{identifier,checked,checkbox:&checkbox},styles,state)?;
             continue;
         }
-        let (mut inline, nested) = split_item_children(&item.children)?;
+        let (mut inline, nested) = split_item_children(&item.children);
         let bookmarks = std::mem::take(&mut state.resources.pending_bookmarks);
         inline.splice(0..0, bookmarks.into_iter().map(Content::Element));
         output.push_str("<w:p><w:pPr>");
@@ -92,7 +93,11 @@ pub(super) fn write(
                 styles,
             )?);
         }
-        output.push_str(&runs::write_inlines(&inline, styles, &mut state.resources)?);
+        output.push_str(&runs::write_flattened_inlines(
+            &inline,
+            styles,
+            &mut state.resources,
+        )?);
         output.push_str("</w:p>");
         for nested_list in nested {
             output.push_str(&write(nested_list, item_level + 1, styles, state)?);
@@ -101,7 +106,7 @@ pub(super) fn write(
     Ok(output)
 }
 
-fn split_item_children(children: &[Content]) -> Result<(Vec<Content>, Vec<&Element>), Error> {
+fn split_item_children(children: &[Content]) -> (Vec<Content>, Vec<&Element>) {
     let mut inline = Vec::new();
     let mut nested = Vec::new();
     let mut pending_whitespace = Vec::new();
@@ -116,25 +121,11 @@ fn split_item_children(children: &[Content]) -> Result<(Vec<Content>, Vec<&Eleme
             Content::Text(text) if text.trim().is_empty() => pending_whitespace.push(child.clone()),
             _ => {
                 inline.append(&mut pending_whitespace);
-                if let Content::Element(element) = child
-                    && element.is_block()
-                    && element.kind != ElementKind::Image
-                {
-                    if element.kind != ElementKind::Paragraph {
-                        return Err(Error::Unsupported(format!(
-                            "{} inside list item text",
-                            element.kind.as_text()
-                        )));
-                    }
-                    check_attributes(&element.attributes, &[], "paragraph inside list item")?;
-                    inline.extend(element.children.clone());
-                } else {
-                    inline.push(child.clone());
-                }
+                inline.push(child.clone());
             }
         }
     }
-    Ok((inline, nested))
+    (inline, nested)
 }
 
 struct StructuredMarker<'properties> {

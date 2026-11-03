@@ -52,9 +52,6 @@ fn quote_lists_supply_text_without_allocating_numbering() {
 #[test]
 fn unsupported_nested_quote_formatting_is_explicit() {
     for source in [
-        "#blockquote[#paragraph(alignment=\"right\")[Nested paragraph formatting]]",
-        "#blockquote[#blockquote(fill=\"#abc\")[Nested quote formatting]]",
-        "#blockquote[#heading[Heading]]",
         "#blockquote[#list[#item(checked=true)[Task]]]",
         "#blockquote(custom=true)[Unknown]",
     ] {

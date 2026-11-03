@@ -109,6 +109,7 @@ impl Field {
         };
         Element {
             source_name: None,
+            source_location: None,
             kind: ElementKind::Box,
             attributes: Properties::from([
                 (

@@ -147,6 +147,7 @@ pub(super) fn place_blocks(
                 if kind == "line" {
                     let style = styles.paragraph(&Element {
                         source_name: None,
+                        source_location: None,
                         kind: ElementKind::Paragraph,
                         attributes: Properties::new(),
                         children: Vec::new(),

@@ -75,6 +75,7 @@ pub(super) fn prepare(
     let default_margins = cells::margins(&defaults);
     let default_style = styles.paragraph(&Element {
         source_name: None,
+        source_location: None,
         kind: crate::model::ElementKind::Paragraph,
         attributes: defaults.clone(),
         children: Vec::new(),

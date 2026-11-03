@@ -3,6 +3,8 @@ use crate::model::{Content, Element, ElementKind, Properties, Unit, Value};
 use mlua::{Lua, Value as LuaValue};
 use std::collections::BTreeMap;
 
+impl mlua::UserData for crate::diagnostics::SourceLocation {}
+
 pub(super) fn to_lua(lua: &Lua, value: &Value) -> mlua::Result<LuaValue> {
     Ok(match value {
         Value::Nil => LuaValue::Nil,
@@ -16,6 +18,9 @@ pub(super) fn to_lua(lua: &Lua, value: &Value) -> mlua::Result<LuaValue> {
             let table = lua.create_table()?;
             table.raw_set("__mote_kind", "element")?;
             table.raw_set("name", element.kind.as_text())?;
+            if let Some(location) = &element.source_location {
+                table.raw_set("__mote_source", lua.create_userdata(location.clone())?)?;
+            }
             if let Some(source_name) = &element.source_name {
                 table.raw_set("source_name", source_name.to_string_lossy().as_ref())?;
             }
@@ -141,6 +146,14 @@ fn convert(value: LuaValue, depth: usize) -> mlua::Result<Value> {
                     let source_name: Option<String> = table.raw_get("source_name")?;
                     return Ok(Value::Element(Box::new(Element {
                         source_name: source_name.filter(|name| !name.is_empty()).map(Into::into),
+                        source_location: table
+                            .raw_get::<Option<mlua::AnyUserData>>("__mote_source")?
+                            .map(|source| {
+                                source
+                                    .borrow::<crate::diagnostics::SourceLocation>()
+                                    .map(|location| location.clone())
+                            })
+                            .transpose()?,
                         kind,
                         attributes,
                         children,

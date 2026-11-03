@@ -97,11 +97,7 @@ fn list_limits_and_unsupported_properties_are_explicit() {
         "#list[#item(level=10)[Too deep]]",
         "#list(indent={level=twip(2147483647)})[#item[Overflow]]",
         "#list(indent={left=pt(4), custom=pt(3)})[#item[Unknown]]",
-        "#list(spacing={before=pt(4)})[#item[Unsupported]]",
-        "#list(style=\"Normal\")[#item[Unsupported]]",
         "#list[#item(checkbox={custom=true})[Unsupported task property]]",
-        "#list[#item[#paragraph(alignment=\"right\")[Deferred paragraph formatting]]]",
-        "#list[#item[#heading[Deferred child block]]]",
     ] {
         let document = mote::compile(source).unwrap();
         let original = document.clone();

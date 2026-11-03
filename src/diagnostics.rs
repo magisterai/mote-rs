@@ -9,6 +9,26 @@ pub struct Span {
     pub end: usize,
 }
 
+/// The immutable source snapshot for output diagnostics, including imported content.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SourceLocation {
+    pub source: std::sync::Arc<crate::source::SourceFile>,
+    pub span: Span,
+}
+
+impl SourceLocation {
+    pub(crate) fn describe(&self) -> String {
+        let diagnostic = Diagnostic::new(self.span, "").with_source(self.source.clone());
+        let (line, column) = diagnostic.location("");
+        let name = if self.source.name.is_empty() {
+            std::borrow::Cow::Borrowed("<source>")
+        } else {
+            self.source.name.to_string_lossy()
+        };
+        format!("{name}:{line}:{column}")
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Diagnostic {
     pub message: String,

@@ -189,6 +189,7 @@ impl<'document> Styles<'document> {
             "background",
             "first_line_indent",
             "hanging_indent",
+            "table",
         ]);
         check_attributes(&declaration.properties, &accepted, "style declaration")?;
         let default = if declaration.name == "Normal" && declaration.kind == StyleKind::Paragraph {

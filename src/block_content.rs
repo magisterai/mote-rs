@@ -38,6 +38,7 @@ pub(crate) fn definition_paragraphs(list: &Element, preserve_paragraphs: bool) -
             attributes.extend(explicit);
             paragraphs.push(Element {
                 source_name: item.source_name.clone(),
+                source_location: None,
                 kind: ElementKind::Paragraph,
                 attributes,
                 children,

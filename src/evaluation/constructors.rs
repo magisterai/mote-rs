@@ -446,6 +446,10 @@ impl PreparedElement {
         }
         Ok(Element {
             source_name: state.source_name().map(ToOwned::to_owned),
+            source_location: Some(crate::diagnostics::SourceLocation {
+                source: state.source.clone(),
+                span,
+            }),
             kind,
             attributes: self.attributes,
             children,

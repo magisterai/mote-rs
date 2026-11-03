@@ -1,0 +1,61 @@
+{
+  "source_sha256": "6b582985950c7d7b37f06e938ad79a74444e5c98b87f672b2f21b7d553eafd9c",
+  "format": "docx",
+  "assets": {},
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "parts/9c11cd798adf6313996e26a6ea4260ee25bd05f2ff131f92509bfd8e8e9062f7.xml",
+      "sha256": "9c11cd798adf6313996e26a6ea4260ee25bd05f2ff131f92509bfd8e8e9062f7"
+    },
+    "_rels/.rels": {
+      "path": "parts/f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae",
+      "sha256": "f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae"
+    },
+    "docProps/app.xml": {
+      "path": "parts/5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5.xml",
+      "sha256": "5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5"
+    },
+    "docProps/core.xml": {
+      "path": "parts/69355c74ee1266eb259edcf9c002d55c3d9cf42bf6703442ed0f848b329f6f43.xml",
+      "sha256": "69355c74ee1266eb259edcf9c002d55c3d9cf42bf6703442ed0f848b329f6f43"
+    },
+    "word/_rels/document.xml.rels": {
+      "path": "parts/f33f0a7027225b1847f1aa4c34c833de90289f041d8b005c9563e16ea7298196.rels",
+      "sha256": "f33f0a7027225b1847f1aa4c34c833de90289f041d8b005c9563e16ea7298196"
+    },
+    "word/document.xml": {
+      "path": "parts/4b52a72ab491509374756ab25a0d8c2841a2ba9f1ab3792d70531f701954d72c.xml",
+      "sha256": "4b52a72ab491509374756ab25a0d8c2841a2ba9f1ab3792d70531f701954d72c"
+    },
+    "word/fontTable.xml": {
+      "path": "parts/0fb4198f04b3bf733cffa5e6a0f184d979ea1c14387128312a3a0e379ad93bc8.xml",
+      "sha256": "0fb4198f04b3bf733cffa5e6a0f184d979ea1c14387128312a3a0e379ad93bc8"
+    },
+    "word/numbering.xml": {
+      "path": "parts/307fad62c2c15c732780271064ba1a803652108e69e973a2fa544bec49562abf.xml",
+      "sha256": "307fad62c2c15c732780271064ba1a803652108e69e973a2fa544bec49562abf"
+    },
+    "word/settings.xml": {
+      "path": "parts/2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9.xml",
+      "sha256": "2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9"
+    },
+    "word/styles.xml": {
+      "path": "parts/7ae0b8169452d0b55587c3c85f645f40293d0cc24125f8efaf634c0786bff8b4.xml",
+      "sha256": "7ae0b8169452d0b55587c3c85f645f40293d0cc24125f8efaf634c0786bff8b4"
+    }
+  },
+  "pages": [
+    {
+      "path": "page-1.png",
+      "sha256": "dd38d0ae87b1046465f37f7399dbf5f10fc5ef530d3e54ba46c1c43955240e16",
+      "maximum": 47,
+      "mean": 9.3,
+      "outliers": 0
+    }
+  ],
+  "warnings": [],
+  "text_geometry": {
+    "path": "text-geometry.json",
+    "sha256": "710bd678a781489893a1c2c11448916e4873a48f12a97f3148f742c67ce2e813"
+  }
+}

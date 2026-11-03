@@ -137,6 +137,7 @@ fn measure(
             Content::Element(element) if element.kind == ElementKind::Paragraph => element.clone(),
             _ => Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Paragraph,
                 attributes: Default::default(),
                 children: vec![child.clone()],

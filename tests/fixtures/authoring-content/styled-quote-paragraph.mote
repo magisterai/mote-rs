@@ -1,0 +1,2 @@
+#style(name="Body",run={bold=true})
+#blockquote[#paragraph(style="Body")[First paragraph.]]

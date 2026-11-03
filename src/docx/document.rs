@@ -186,7 +186,7 @@ pub(super) fn write_blocks(
                     element,
                     styles,
                     leading_column_break,
-                    &mut state.resources,
+                    state,
                 )?);
                 at_flow_start = false;
                 continue;

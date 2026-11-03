@@ -177,6 +177,7 @@ pub struct StyleDeclaration {
     pub kind: StyleKind,
     pub properties: Properties,
     pub span: crate::diagnostics::Span,
+    pub source_location: Option<crate::diagnostics::SourceLocation>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -202,13 +203,24 @@ pub enum Content {
     Element(Element),
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone)]
 pub struct Element {
     /// Logical source owning resource references; omitted from authored JSON.
     pub source_name: Option<std::ffi::OsString>,
+    /// Diagnostic provenance; excluded from authored JSON and content equality.
+    pub source_location: Option<crate::diagnostics::SourceLocation>,
     pub kind: ElementKind,
     pub attributes: Properties,
     pub children: Vec<Content>,
+}
+
+impl PartialEq for Element {
+    fn eq(&self, other: &Self) -> bool {
+        self.source_name == other.source_name
+            && self.kind == other.kind
+            && self.attributes == other.attributes
+            && self.children == other.children
+    }
 }
 
 impl Content {
@@ -420,6 +432,7 @@ pub(crate) fn wrap_block_content(content: &[Content]) -> Vec<Content> {
             if !inline.is_empty() {
                 result.push(Content::Element(Element {
                     source_name: None,
+                    source_location: None,
                     kind: ElementKind::Paragraph,
                     attributes: Properties::new(),
                     children: std::mem::take(&mut inline),
@@ -433,6 +446,7 @@ pub(crate) fn wrap_block_content(content: &[Content]) -> Vec<Content> {
     if !inline.is_empty() {
         result.push(Content::Element(Element {
             source_name: None,
+            source_location: None,
             kind: ElementKind::Paragraph,
             attributes: Properties::new(),
             children: inline,

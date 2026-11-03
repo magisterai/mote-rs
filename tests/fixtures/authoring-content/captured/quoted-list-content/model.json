@@ -1,0 +1,76 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "blockquote",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Quoted content."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "blockquote",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quoted content."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -63,6 +63,7 @@ impl ChartBlock {
         )?;
         let paragraph = styles.paragraph(&Element {
             source_name: None,
+            source_location: None,
             kind: ElementKind::Paragraph,
             attributes: Properties::new(),
             children: Vec::new(),

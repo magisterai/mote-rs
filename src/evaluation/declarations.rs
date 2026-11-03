@@ -78,6 +78,10 @@ pub(super) fn apply(
             Some(Value::String(value)) if value == "table" => StyleKind::Table,
             _ => StyleKind::Paragraph,
         };
+        let source_location = Some(crate::diagnostics::SourceLocation {
+            source: document.source.clone(),
+            span,
+        });
         document.styles.insert(
             name.clone(),
             StyleDeclaration {
@@ -85,6 +89,7 @@ pub(super) fn apply(
                 kind,
                 properties,
                 span,
+                source_location,
             },
         );
     }

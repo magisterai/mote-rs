@@ -340,6 +340,7 @@ fn evaluate_nodes(
             }
             NodeKind::Divider => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Divider,
                 attributes: Properties::new(),
                 children: Vec::new(),
@@ -370,6 +371,7 @@ fn evaluate_nodes(
                 body,
             } => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Heading,
                 attributes: Properties::from([
                     ("level".into(), Value::Number(*level as f64)),
@@ -379,18 +381,21 @@ fn evaluate_nodes(
             }),
             NodeKind::Strong(body) => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Strong,
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Inline, context, document)?,
             }),
             NodeKind::Emphasis(body) => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Emphasis,
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Inline, context, document)?,
             }),
             NodeKind::CodeFence { text, language } => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Raw,
                 attributes: {
                     let mut attributes =
@@ -404,6 +409,7 @@ fn evaluate_nodes(
             }),
             NodeKind::Code(text) => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Code,
                 attributes: Properties::new(),
                 children: vec![Content::Text(text.clone())],
@@ -414,6 +420,7 @@ fn evaluate_nodes(
                 body,
             } => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::ListItem,
                 attributes: {
                     let mut attributes =
@@ -427,6 +434,7 @@ fn evaluate_nodes(
             }),
             NodeKind::Blockquote(body) => Content::Element(Element {
                 source_name: None,
+                source_location: None,
                 kind: ElementKind::Blockquote,
                 attributes: Properties::new(),
                 children: evaluate_nodes(body, ContentMode::Block, context, document)?,
@@ -457,6 +465,7 @@ fn evaluate_nodes(
                 }
                 Content::Element(Element {
                     source_name: None,
+                    source_location: None,
                     kind: ElementKind::Image,
                     attributes,
                     children: Vec::new(),
@@ -509,6 +518,14 @@ fn evaluate_nodes(
             element.attributes = document
                 .bindings
                 .element_attributes(element.kind, &element.attributes);
+        }
+        if let Content::Element(element) = &mut content
+            && element.source_location.is_none()
+        {
+            element.source_location = Some(crate::diagnostics::SourceLocation {
+                source: document.source.clone(),
+                span: node.span,
+            });
         }
         append_evaluated_content(
             content,
@@ -616,6 +633,7 @@ fn group_adjacent_list_items(content: Vec<Content>, bindings: &bindings::Binding
             current_list
                 .get_or_insert_with(|| Element {
                     source_name: None,
+                    source_location: None,
                     kind,
                     attributes: bindings.element_defaults(kind),
                     children: Vec::new(),
@@ -651,6 +669,7 @@ fn flush_paragraph(
     if !buffer.is_empty() {
         result.push(Content::Element(Element {
             source_name: None,
+            source_location: None,
             kind: ElementKind::Paragraph,
             attributes: bindings.element_defaults(ElementKind::Paragraph),
             children: std::mem::take(buffer),

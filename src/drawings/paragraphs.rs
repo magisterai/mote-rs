@@ -70,6 +70,7 @@ fn resolve_runs(
             ElementKind::Subscript | ElementKind::Superscript => {
                 let wrapper = Element {
                     source_name: None,
+                    source_location: None,
                     kind: ElementKind::Span,
                     ..element.clone()
                 };
@@ -103,6 +104,7 @@ fn resolve_runs(
                 style = styles.inline(
                     &Element {
                         source_name: None,
+                        source_location: None,
                         kind: ElementKind::Span,
                         attributes,
                         children: Vec::new(),

@@ -53,7 +53,11 @@ impl ListLayout {
         }
         if let Some(indent) = attributes.get("indent") {
             let indent = values::object(indent)?;
-            check_attributes(indent, &["left", "hanging", "level"], "list indent")?;
+            check_attributes(
+                indent,
+                &["left", "hanging", "level", "right"],
+                "list indent",
+            )?;
             for (name, target) in [
                 ("left", &mut self.left),
                 ("hanging", &mut self.hanging),
@@ -66,7 +70,7 @@ impl ListLayout {
         }
         if let Some(spacing) = attributes.get("spacing") {
             let spacing = values::object(spacing)?;
-            check_attributes(spacing, &["after"], "list spacing")?;
+            check_attributes(spacing, &["after", "before"], "list spacing")?;
             if let Some(after) = spacing.get("after") {
                 self.spacing_after = values::twips(after)?;
             }

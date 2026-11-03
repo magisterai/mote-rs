@@ -61,6 +61,7 @@ pub(super) fn evaluate_markdown(
             if row.header && !content.is_empty() {
                 content = vec![Content::Element(Element {
                     source_name: document.source_name().map(ToOwned::to_owned),
+                    source_location: None,
                     kind: ElementKind::Strong,
                     attributes: document.bindings.element_defaults(ElementKind::Strong),
                     children: content,
@@ -73,6 +74,7 @@ pub(super) fn evaluate_markdown(
             };
             cells.push(Content::Element(Element {
                 source_name: document.source_name().map(ToOwned::to_owned),
+                source_location: None,
                 kind: ElementKind::Cell,
                 attributes: document
                     .bindings
@@ -87,6 +89,7 @@ pub(super) fn evaluate_markdown(
         };
         children.push(Content::Element(Element {
             source_name: document.source_name().map(ToOwned::to_owned),
+            source_location: None,
             kind: ElementKind::Row,
             attributes: document
                 .bindings
@@ -96,6 +99,7 @@ pub(super) fn evaluate_markdown(
     }
     Ok(Content::Element(Element {
         source_name: document.source_name().map(ToOwned::to_owned),
+        source_location: None,
         kind: ElementKind::Table,
         attributes: document.bindings.element_defaults(ElementKind::Table),
         children,

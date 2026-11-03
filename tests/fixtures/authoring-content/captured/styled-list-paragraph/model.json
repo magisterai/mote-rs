@@ -1,0 +1,84 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Body",
+      "type": "paragraph",
+      "run": {
+        "bold": true
+      },
+      "properties": {
+        "run": {
+          "bold": true
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "style": "Body"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First paragraph."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "style": "Body"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First paragraph."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

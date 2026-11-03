@@ -1,0 +1,298 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "Body",
+      "type": "paragraph",
+      "run": {
+        "color": "#445566"
+      },
+      "properties": {
+        "run": {
+          "color": "#445566"
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "list",
+          "category": "block",
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "attributes": {
+                    "style": "Body"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "First item."
+                    }
+                  ]
+                },
+                {
+                  "kind": "blockquote",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Quoted "
+                        },
+                        {
+                          "kind": "strong",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "text"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "text",
+                          "text": "."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "divider",
+                  "category": "block"
+                },
+                {
+                  "kind": "ordered_list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Ordered child."
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "list",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "list_item",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "paragraph",
+                                  "category": "block",
+                                  "children": [
+                                    {
+                                      "kind": "text",
+                                      "text": "Deep child."
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "heading",
+                                  "category": "block",
+                                  "attributes": {
+                                    "level": 3
+                                  },
+                                  "children": [
+                                    {
+                                      "kind": "text",
+                                      "text": "Deep heading."
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Last item."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "list",
+      "category": "block",
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "attributes": {
+                "style": "Body"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "First item."
+                }
+              ]
+            },
+            {
+              "kind": "blockquote",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Quoted "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "divider",
+              "category": "block"
+            },
+            {
+              "kind": "ordered_list",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "list_item",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Ordered child."
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "list_item",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Deep child."
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "heading",
+                              "category": "block",
+                              "attributes": {
+                                "level": 3
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Deep heading."
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Last item."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

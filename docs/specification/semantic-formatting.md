@@ -49,8 +49,9 @@ opening delimiters remain literal text. Double strikethrough uses the directive'
 ## Output boundaries
 
 Word output supports underline patterns, color, font and size. The remaining
-semantic wrappers emit their requested effect but reject direct style, font,
-size and color attributes that have no Word mapping. Use surrounding spans for
+semantic wrappers emit their requested effect and warn about direct style, font,
+size and color attributes that have no Word mapping. Those attributes stay in the
+model and are omitted from Word formatting. Use surrounding spans for
 that formatting. Highlight `fill` and strike `kind` do have Word mappings.
 
 Native text uses reduced script sizes and baseline offsets; presentation text

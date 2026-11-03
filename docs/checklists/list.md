@@ -54,9 +54,11 @@ formatting goals here. Presentation container text/list defaults belong to the
 DOCX emits bullet definitions, list/item indentation and after-spacing, levels
 one through nine, nested lists and empty items. Equivalent definitions share
 numbering instances by identity or unnamed base level. Numeric controls do not
-turn an unordered container into numbering. Marker/style overrides and spacing
-before/line are outside the DOCX scope. Item paragraphs flatten into one paragraph;
-independently formatted continuation paragraphs remain unsupported. See the
+turn an unordered container into numbering. Marker/style overrides, right
+indentation and spacing before have no DOCX formatting effect and produce
+warnings. Line-spacing overrides remain outside
+the list attribute scope. Item paragraphs flatten into one paragraph;
+independent child-paragraph formatting is omitted with a warning. See the
 [bullet captures](../../tests/fixtures/docx/bullet-lists/README.md). Word review
 remains unreviewed.
 
@@ -94,3 +96,8 @@ inside list items retain their own markers. See the
 Native zero-hanging lists preserve the text origin and allocate measured marker
 space immediately to its left; task markers use the resolved font size.
 See the [output edge tests](../../tests/output_edges.rs).
+
+Nested headings contribute inline text in DOCX list-item and quote content; their
+heading formatting warns rather than applying independently. Nested dividers are
+omitted with a warning. The [authored-content captures](../../tests/fixtures/authoring-content/README.md)
+cover this output boundary.

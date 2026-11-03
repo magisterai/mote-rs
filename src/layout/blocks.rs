@@ -180,6 +180,7 @@ pub(super) fn prepare_content(
                     .entry("alignment".into())
                     .or_insert(Value::String("center".into()));
                 paragraph.children = vec![Content::Element(Element {
+                    source_location: element.source_location.clone(),
                     kind: ElementKind::Emphasis,
                     attributes: Properties::new(),
                     children: vec![Content::Text(crate::properties::text(
@@ -199,6 +200,7 @@ pub(super) fn prepare_content(
                 builder.pending_anchors.clear();
                 builder.paragraph(&Element {
                     source_name: element.source_name.clone(),
+                    source_location: None,
                     kind: ElementKind::Paragraph,
                     attributes: Properties::new(),
                     children: vec![Content::Text(super::fallbacks::text(element))],
@@ -374,7 +376,7 @@ impl BlockBuilder<'_, '_, '_> {
             let item_geometry = geometry.item(&item.attributes, item_level);
             if !item_geometry.hanging.is_finite() || item_geometry.hanging < 0.0 {
                 return Err(LayoutError::InvalidGeometry(
-                    "list marker slot width must be positive and finite",
+                    "list marker slot width must be non-negative and finite",
                 ));
             }
             let mut attributes = item
@@ -401,6 +403,7 @@ impl BlockBuilder<'_, '_, '_> {
                 attributes.extend(unit_attributes);
                 let element = Element {
                     source_name: None,
+                    source_location: None,
                     kind: ElementKind::Paragraph,
                     attributes,
                     children,

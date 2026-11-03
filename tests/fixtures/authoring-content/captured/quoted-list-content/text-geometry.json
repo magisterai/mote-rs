@@ -1,0 +1,43 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 108,
+        "top": 72,
+        "height": 15.225539999999999,
+        "width": 78.276,
+        "baseline": 82.91277,
+        "fragments": [
+          {
+            "text": "Quoted ",
+            "x": 108,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 39.138,
+            "height": 10.175,
+            "advance": 39.138,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "content.",
+            "x": 147.138,
+            "baseline": 82.91277,
+            "top": 75.01477,
+            "width": 39.138,
+            "height": 10.175,
+            "advance": 39.138,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]
