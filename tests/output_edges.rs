@@ -157,6 +157,34 @@ fn zero_hanging_list_markers_fit_before_the_unchanged_text_origin() {
 }
 
 #[test]
+fn underline_patterns_preserve_text_metrics_and_suppress_none() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let mut baseline = None;
+    for pattern in ["single", "none", "wave"] {
+        let document = mote::compile(&format!("#underline(style='{pattern}')[Underline]")).unwrap();
+        let plan = render::plan(&document, &resolver, None).unwrap();
+        assert!(
+            !plan
+                .warnings
+                .iter()
+                .any(|warning| warning.contains("solid underline"))
+        );
+        let line = &plan.output.pages[0].lines[0].line;
+        let geometry = (line.x, line.baseline, line.width, line.height);
+        assert_eq!(*baseline.get_or_insert(geometry), geometry);
+        assert_eq!(line.decorations.len(), usize::from(pattern != "none"));
+        if pattern == "wave" {
+            let decoration = &line.decorations[0];
+            let points = decoration.wave_points();
+            assert!(points.iter().any(|point| point[1] < decoration.y));
+            assert!(points.iter().any(|point| point[1] > decoration.y));
+        }
+        assert!(!render::paint_pdf(&plan.output).unwrap().is_empty());
+        render::paint_png(&plan.output, &Default::default()).unwrap();
+    }
+}
+
+#[test]
 fn tagged_empty_lua_content_stays_empty_while_plain_maps_remain_maps() {
     let document = mote::compile_with_options("#function identity(body) return body end\n#paragraph[Before#identity[]after]\n#function empty() return document.paragraph(document.tab(),document.span('')) end\n#empty()", EvaluationOptions { enable_lua:true,..Default::default() }).unwrap();
     assert!(

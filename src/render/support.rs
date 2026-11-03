@@ -257,14 +257,6 @@ fn content(
         }
         let list = matches!(element.kind, ElementKind::List | ElementKind::OrderedList);
         let item = element.kind == ElementKind::ListItem;
-        if element.kind == ElementKind::Underline
-            && matches!(
-                crate::properties::text(&element.attributes, "style").as_str(),
-                "none" | "wave"
-            )
-        {
-            warnings.insert("native underline styles none and wave use a solid underline".into());
-        }
         let mut allowed = Vec::new();
         match element.kind {
             ElementKind::Slide | ElementKind::Box => {

@@ -22,6 +22,7 @@ pub struct TextDecoration {
     pub width: f64,
     pub color: String,
     pub dash: Vec<f64>,
+    pub wave: bool,
 }
 
 pub(super) fn plan(
@@ -68,7 +69,7 @@ pub(super) fn plan(
             }
         }
         let color = style_values::parse_color(&style.color).unwrap_or_else(|| "111827".into());
-        if style.underline {
+        if style.underline && style.underline_style != "none" {
             let double = style.underline_style == "double";
             let width = if double {
                 (size * 0.025).max(0.35)
@@ -77,6 +78,7 @@ pub(super) fn plan(
             };
             let decoration = TextDecoration {
                 kind: DecorationKind::Underline,
+                wave: style.underline_style == "wave",
                 start: fragment.x,
                 end: fragment.x + fragment.advance,
                 y: fragment.baseline + size * if double { 0.075 } else { 0.1 },
@@ -103,6 +105,7 @@ pub(super) fn plan(
         if style.strike {
             let decoration = TextDecoration {
                 kind: DecorationKind::Strike,
+                wave: false,
                 start: fragment.x,
                 end: fragment.x + fragment.advance,
                 y: band_top + band_height * 0.55,
@@ -144,6 +147,7 @@ fn append_decoration(decorations: &mut Vec<TextDecoration>, decoration: TextDeco
         && previous.color == decoration.color
         && previous.width == decoration.width
         && previous.dash == decoration.dash
+        && previous.wave == decoration.wave
         && (previous.end - decoration.start).abs() < 0.001
         && (previous.y - decoration.y).abs() < 0.001
     {
@@ -151,4 +155,55 @@ fn append_decoration(decorations: &mut Vec<TextDecoration>, decoration: TextDeco
         return;
     }
     decorations.push(decoration);
+}
+
+impl TextDecoration {
+    /// A single band prevents overlapping short strokes from darkening raster edges.
+    pub fn wave_outline(&self, width: f64) -> super::PaintedPath {
+        let centerline = self.wave_points();
+        let mut upper = Vec::with_capacity(centerline.len());
+        let mut lower = Vec::with_capacity(centerline.len());
+        for (index, point) in centerline.iter().enumerate() {
+            let previous = centerline[index.saturating_sub(1)];
+            let next = centerline[(index + 1).min(centerline.len() - 1)];
+            let horizontal = next[0] - previous[0];
+            let vertical = next[1] - previous[1];
+            let length = horizontal.hypot(vertical);
+            let normal = [
+                -vertical / length * width / 2.0,
+                horizontal / length * width / 2.0,
+            ];
+            upper.push([point[0] + normal[0], point[1] + normal[1]]);
+            lower.push([point[0] - normal[0], point[1] - normal[1]]);
+        }
+        upper.extend(lower.into_iter().rev());
+        super::PaintedPath {
+            points: upper,
+            closed: true,
+            stroke: None,
+            fill: Some(super::PathPaint {
+                color: self.color.clone(),
+                alpha: 255,
+            }),
+        }
+    }
+
+    /// Sample a continuous wave without changing text metrics or its underline baseline.
+    pub fn wave_points(&self) -> Vec<[f64; 2]> {
+        let length = self.end - self.start;
+        if !self.wave || length <= 0.0 || self.width <= 0.0 {
+            return Vec::new();
+        }
+        let segments = (length / (self.width * 0.5)).ceil() as usize;
+        (0..=segments)
+            .map(|index| {
+                let offset = length * index as f64 / segments as f64;
+                [
+                    self.start + offset,
+                    self.y
+                        + self.width * (offset * std::f64::consts::TAU / (self.width * 6.0)).sin(),
+                ]
+            })
+            .collect()
+    }
 }

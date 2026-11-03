@@ -46,9 +46,9 @@ that formatting. Highlight `fill` and strike `kind` do have Word mappings.
 
 Native text uses reduced script sizes and baseline offsets; presentation text
 uses its own script profile while editable slides retain the authored run size.
-Native underline `wave` and `none` currently retain a solid underline; those
-requests require a diagnostic. Editable Office outputs retain their requested
-patterns. Model acceptance alone does not demonstrate matching Office rendering.
+Native underline `wave` paints a wave, while `none` suppresses the underline.
+These patterns leave text measurement and line placement unchanged. Editable
+Office outputs retain their requested patterns. Model acceptance alone does not demonstrate matching Office rendering.
 
 ## Examples
 

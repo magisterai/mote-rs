@@ -344,6 +344,15 @@ fn paint_line(
         }
     }
     for decoration in &line.decorations {
+        if decoration.wave {
+            paths::draw(
+                pixels,
+                &decoration.wave_outline(decoration.width.max(1.0 / scale)),
+                scale,
+                clip,
+            )?;
+            continue;
+        }
         if !decoration.dash.is_empty() {
             strokes::paint(
                 pixels,

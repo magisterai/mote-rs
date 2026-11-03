@@ -389,9 +389,15 @@ fn paint_line(
         content
             .set_stroke_rgb(red, green, blue)
             .set_line_width(rounded(stroke.width))
-            .move_to(rounded(stroke.start), rounded(page_height - stroke.y))
-            .line_to(rounded(stroke.end), rounded(page_height - stroke.y))
-            .stroke();
+            .move_to(rounded(stroke.start), rounded(page_height - stroke.y));
+        if stroke.wave {
+            for point in stroke.wave_points().into_iter().skip(1) {
+                content.line_to(rounded(point[0]), rounded(page_height - point[1]));
+            }
+        } else {
+            content.line_to(rounded(stroke.end), rounded(page_height - stroke.y));
+        }
+        content.stroke();
         content.set_dash_pattern([], 0.0);
     }
     Ok(())
