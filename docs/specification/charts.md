@@ -48,8 +48,10 @@ An existing series array takes precedence over this shorthand, even when empty.
 
 Numeric values remain numeric; numeric text is parsed after trimming. Other
 unparseable values become zero. Non-finite values are rejected during output.
-Arrays retain their different lengths: use one value per category when the
-editable workbook and chart cache must describe identical data.
+Arrays retain their different lengths. Editable workbook columns preserve exactly
+the supplied category and series entries, matching their chart caches; missing
+cells stay absent. Native Cartesian plots use zero for a missing category value
+and ignore values beyond the category labels.
 
 ## Dimensions and appearance
 

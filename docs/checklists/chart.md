@@ -49,9 +49,9 @@ one shared chart model during output. DOCX contains editable chart XML, cached
 values and an embedded workbook, with complete package capture tests across all
 twelve kinds. Doughnut label positions are omitted from editable XML so Office
 can choose their placement. Editable pie/doughnut charts use the first series; the
-workbook retains every series. Workbook rows follow category count, padding short
-series with zeros and omitting excess values; caches retain original lengths.
-Keep arrays aligned to avoid that editing discrepancy. Native document PDF/PNG supports column and bar kinds, including stacked and
+workbook retains every series. Workbook columns retain every supplied value and category; absent entries do not
+create numeric cells. Caches and workbook column ranges retain the same lengths.
+Shared-string counts include repeated cell references. Native document PDF/PNG supports column and bar kinds, including stacked and
 percentage variants, titles, axis titles, legends, fills, borders, gridlines and
 data labels. Width fits the current column while preserving aspect ratio; zero
 dimensions omit the chart. Native gap is clamped at zero, horizontal bars ignore

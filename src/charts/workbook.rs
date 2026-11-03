@@ -41,7 +41,14 @@ pub(crate) fn write(chart: &Chart) -> Result<Vec<u8>, Error> {
 }
 fn write_worksheet(chart: &Chart, strings: &SharedStrings<'_>) -> String {
     let columns = chart.series.len() + 1;
-    let rows = chart.categories.len() + 1;
+    let rows = chart
+        .series
+        .iter()
+        .map(|series| series.values.len())
+        .chain([chart.categories.len()])
+        .max()
+        .unwrap_or_default()
+        + 1;
     let mut output = format!(
         r#"{HEADER}<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><dimension ref="A1:{}{rows}"/><sheetViews><sheetView tabSelected="1" workbookViewId="0"/></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols><col min="1" max="1" width="10.7109375" customWidth="1"/></cols><sheetData><row r="1" spans="1:{columns}">"#,
         column_name(columns)
@@ -54,14 +61,19 @@ fn write_worksheet(chart: &Chart, strings: &SharedStrings<'_>) -> String {
         ));
     }
     output.push_str("</row>");
-    for (index, category) in chart.categories.iter().enumerate() {
+    for index in 0..rows - 1 {
         let row = index + 2;
-        output.push_str(&format!(
-            r#"<row r="{row}" spans="1:{columns}"><c r="A{row}" s="1" t="s"><v>{}</v></c>"#,
-            strings.indexes[category.as_str()]
-        ));
+        output.push_str(&format!(r#"<row r="{row}" spans="1:{columns}">"#));
+        if let Some(category) = chart.categories.get(index) {
+            output.push_str(&format!(
+                r#"<c r="A{row}" s="1" t="s"><v>{}</v></c>"#,
+                strings.indexes[category.as_str()]
+            ));
+        }
         for (series_index, series) in chart.series.iter().enumerate() {
-            let value = series.values.get(index).copied().unwrap_or_default();
+            let Some(value) = series.values.get(index) else {
+                continue;
+            };
             output.push_str(&format!(
                 r#"<c r="{}{row}" s="1"><v>{value}</v></c>"#,
                 column_name(series_index + 2)
@@ -74,12 +86,14 @@ fn write_worksheet(chart: &Chart, strings: &SharedStrings<'_>) -> String {
 }
 struct SharedStrings<'chart> {
     values: Vec<&'chart str>,
+    count: usize,
     indexes: BTreeMap<&'chart str, usize>,
 }
 impl<'chart> SharedStrings<'chart> {
     fn new(chart: &'chart Chart) -> Self {
         let mut table = Self {
             values: Vec::new(),
+            count: chart.categories.len() + chart.series.len(),
             indexes: BTreeMap::new(),
         };
         for value in chart
@@ -95,9 +109,10 @@ impl<'chart> SharedStrings<'chart> {
         table
     }
     fn write(&self) -> Result<String, Error> {
-        let count = self.values.len();
+        let count = self.count;
+        let unique_count = self.values.len();
         let mut output = format!(
-            r#"{HEADER}<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="{count}" uniqueCount="{count}">"#
+            r#"{HEADER}<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="{count}" uniqueCount="{unique_count}">"#
         );
         for value in &self.values {
             output.push_str(&format!("<si><t>{}</t></si>", escape(value)?));
