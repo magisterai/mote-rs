@@ -19,27 +19,7 @@ pub(crate) fn resolved(document: &Document, name: &str) -> Properties {
     let mut seen = BTreeSet::new();
     let mut current = name.to_owned();
     loop {
-        let normalized: String = current
-            .to_lowercase()
-            .chars()
-            .filter(char::is_ascii_alphanumeric)
-            .collect();
-        if normalized.is_empty() {
-            break;
-        }
-        let declaration = document.styles.get(&current).or_else(|| {
-            document
-                .styles
-                .iter()
-                .find(|(name, _)| {
-                    name.to_lowercase()
-                        .chars()
-                        .filter(char::is_ascii_alphanumeric)
-                        .collect::<String>()
-                        == normalized
-                })
-                .map(|(_, style)| style)
-        });
+        let declaration = document.find_style(&current).map(|(_, style)| style);
         let Some(style) = declaration else { break };
         if !seen.insert(style.name.clone()) {
             break;

@@ -1,5 +1,5 @@
 use super::{Error, headings};
-use crate::model::{Content, Document, ElementKind, Properties, Unit, Value};
+use crate::model::{Content, Document, ElementKind, Properties, Unit, Value, normalize_style_name};
 use std::collections::BTreeSet;
 
 pub(super) const NAMES: &[&str] = &[
@@ -22,19 +22,12 @@ pub(super) const NAMES: &[&str] = &[
     "Footer",
 ];
 
-pub(super) fn normalize_name(name: &str) -> String {
-    name.to_lowercase()
-        .chars()
-        .filter(char::is_ascii_alphanumeric)
-        .collect()
-}
-
 pub(crate) fn canonical_name(name: &str) -> Option<&'static str> {
-    let normalized = normalize_name(name);
+    let normalized = normalize_style_name(name);
     NAMES
         .iter()
         .copied()
-        .find(|candidate| normalize_name(candidate) == normalized)
+        .find(|candidate| normalize_style_name(candidate) == normalized)
 }
 
 pub(super) fn needed(document: &Document) -> Result<BTreeSet<String>, Error> {

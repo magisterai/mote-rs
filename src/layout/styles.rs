@@ -2,7 +2,10 @@ use super::{LineSpacing, TabAlignment, TabStop, TextStyle, style_values as value
 use crate::{
     formatting::StyleResolver,
     measurement::FontVariant,
-    model::{Document, Element, ElementKind, Properties, StyleDeclaration, StyleKind, Value},
+    model::{
+        Document, Element, ElementKind, Properties, StyleDeclaration, StyleKind, Value,
+        normalize_style_name,
+    },
 };
 
 #[derive(Debug, Clone, PartialEq)]
@@ -122,7 +125,7 @@ impl<'document> LayoutStyleResolver<'document> {
         direct(&element.attributes).or_else(|| {
             if self.find_declaration(&name).is_some() {
                 direct(&self.declarations.resolve_style(&name).paragraph)
-            } else if values::normalize_name(&name) == "horizontalrule" {
+            } else if normalize_style_name(&name) == "horizontalrule" {
                 Some("D1D5DB".into())
             } else {
                 None
@@ -140,7 +143,7 @@ impl<'document> LayoutStyleResolver<'document> {
                     .paragraph
                     .get("border"),
             );
-        } else if values::normalize_name(&name) == "horizontalrule" {
+        } else if normalize_style_name(&name) == "horizontalrule" {
             borders.bottom = Some(BorderSide {
                 width: DEFAULT_BORDER_WIDTH,
                 space: 0.0,
@@ -267,7 +270,7 @@ impl<'document> LayoutStyleResolver<'document> {
         if !name.is_empty() {
             if self.find_declaration(&name).is_some() {
                 self.apply_run(&mut style, &self.declarations.resolve_style(&name).run);
-            } else if values::normalize_name(&name) == "code" {
+            } else if normalize_style_name(&name) == "code" {
                 self.apply_named_run(&mut style, "Code");
             }
         }
@@ -275,17 +278,9 @@ impl<'document> LayoutStyleResolver<'document> {
         style
     }
     fn find_declaration(&self, name: &str) -> Option<&StyleDeclaration> {
-        self.document.styles.get(name).or_else(|| {
-            let normalized = values::normalize_name(name);
-            if normalized.is_empty() {
-                return None;
-            }
-            self.document
-                .styles
-                .iter()
-                .find(|(name, _)| values::normalize_name(name) == normalized)
-                .map(|(_, declaration)| declaration)
-        })
+        self.document
+            .find_style(name)
+            .map(|(_, declaration)| declaration)
     }
     pub(crate) fn apply_font(&self, style: &mut TextStyle, name: &str) {
         style.measurement.font = name.into();
@@ -438,7 +433,7 @@ impl<'document> LayoutStyleResolver<'document> {
         }
     }
     fn apply_fallback(&self, style: &mut ParagraphStyle, name: &str) {
-        let normalized = values::normalize_name(name);
+        let normalized = normalize_style_name(name);
         let (mut bold, mut italic) = emphasis(style.text.measurement.variant);
         let mut multiple = Some(1.15);
         match normalized.as_str() {

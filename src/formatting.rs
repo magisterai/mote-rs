@@ -220,26 +220,8 @@ impl<'document> StyleResolver<'document> {
     }
 
     fn find_style(&self, name: &str) -> Option<(&'document str, &'document StyleDeclaration)> {
-        if let Some((identity, declaration)) = self.document.styles.get_key_value(name) {
-            return Some((identity, declaration));
-        }
-        let normalized = normalize_style_name(name);
-        if normalized.is_empty() {
-            return None;
-        }
-        self.document
-            .styles
-            .iter()
-            .find(|(identity, _)| normalize_style_name(identity) == normalized)
-            .map(|(identity, declaration)| (identity.as_str(), declaration))
+        self.document.find_style(name)
     }
-}
-
-fn normalize_style_name(name: &str) -> String {
-    name.to_lowercase()
-        .chars()
-        .filter(char::is_ascii_alphanumeric)
-        .collect()
 }
 
 fn string_property<'properties>(

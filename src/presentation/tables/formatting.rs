@@ -51,18 +51,7 @@ impl CellFormat {
 }
 pub(super) fn style(document: &Document, table: &Element) -> Properties {
     let name = text(&table.attributes, "style");
-    let normalize = |name: &str| {
-        name.chars()
-            .filter(char::is_ascii_alphanumeric)
-            .flat_map(char::to_lowercase)
-            .collect::<String>()
-    };
-    let Some(style) = document.styles.get(&name).or_else(|| {
-        document
-            .styles
-            .values()
-            .find(|style| normalize(&style.name) == normalize(&name))
-    }) else {
+    let Some((_, style)) = document.find_style(&name) else {
         return Properties::new();
     };
     if text(&style.properties, "type") != "table" {

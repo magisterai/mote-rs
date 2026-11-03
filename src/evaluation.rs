@@ -144,17 +144,7 @@ fn evaluate_with_state(
 
 /// Built-in Word styles count as declared.
 fn style_is_known(document: &Document, name: &str) -> bool {
-    let normalize = |text: &str| -> String {
-        text.to_lowercase()
-            .chars()
-            .filter(char::is_ascii_alphanumeric)
-            .collect()
-    };
-    let normalized = normalize(name);
-    document
-        .styles
-        .keys()
-        .any(|declared| normalize(declared) == normalized)
+    document.find_style(name).is_some()
         || crate::docx::builtin_styles::canonical_name(name).is_some()
 }
 

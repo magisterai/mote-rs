@@ -1,13 +1,11 @@
 use super::{
-    Error,
-    builtin_styles::{self, normalize_name},
-    check_attributes, configuration, paragraph_properties,
+    Error, builtin_styles, check_attributes, configuration, paragraph_properties,
     run_properties::{self, RunFormatting},
     values, xml,
 };
 use crate::{
     formatting::{ResolutionIssue, StyleResolver},
-    model::{Document, Properties, StyleDeclaration, StyleKind, Value},
+    model::{Document, Properties, StyleDeclaration, StyleKind, Value, normalize_style_name},
 };
 use std::collections::{BTreeMap, BTreeSet};
 
@@ -39,7 +37,7 @@ impl<'document> Styles<'document> {
         for &builtin in builtin_styles::NAMES {
             if !identifiers
                 .keys()
-                .any(|name| normalize_name(name) == normalize_name(builtin))
+                .any(|name| normalize_style_name(name) == normalize_style_name(builtin))
             {
                 if !used.insert(builtin.into()) {
                     return Err(Error::InvalidValue(format!(
@@ -74,12 +72,12 @@ impl<'document> Styles<'document> {
         if let Some(identifier) = self.identifiers.get(name) {
             return Ok(identifier);
         }
-        let normalized = normalize_name(name);
+        let normalized = normalize_style_name(name);
         if !normalized.is_empty()
             && let Some((_, identifier)) = self
                 .identifiers
                 .iter()
-                .find(|(candidate, _)| normalize_name(candidate) == normalized)
+                .find(|(candidate, _)| normalize_style_name(candidate) == normalized)
         {
             return Ok(identifier);
         }
@@ -170,7 +168,7 @@ impl<'document> Styles<'document> {
         self.document
             .styles
             .keys()
-            .any(|candidate| normalize_name(candidate) == normalize_name(name))
+            .any(|candidate| normalize_style_name(candidate) == normalize_style_name(name))
     }
 
     fn write_declaration(&self, declaration: &StyleDeclaration) -> Result<String, Error> {

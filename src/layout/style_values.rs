@@ -90,9 +90,3 @@ pub(super) fn spacing(value: &Value) -> Option<LineSpacing> {
     }
     points(value).map(LineSpacing::Exact)
 }
-pub(super) fn normalize_name(name: &str) -> String {
-    name.to_lowercase()
-        .chars()
-        .filter(char::is_ascii_alphanumeric)
-        .collect()
-}

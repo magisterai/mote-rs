@@ -103,6 +103,31 @@ pub struct Document {
     pub warnings: Vec<crate::diagnostics::Diagnostic>,
 }
 
+/// Style references ignore case and every character other than an ASCII letter or digit.
+pub fn normalize_style_name(name: &str) -> String {
+    name.to_lowercase()
+        .chars()
+        .filter(char::is_ascii_alphanumeric)
+        .collect()
+}
+
+impl Document {
+    /// An exact name takes precedence over a normalized match.
+    pub fn find_style(&self, name: &str) -> Option<(&str, &StyleDeclaration)> {
+        if let Some((identity, declaration)) = self.styles.get_key_value(name) {
+            return Some((identity, declaration));
+        }
+        let normalized = normalize_style_name(name);
+        if normalized.is_empty() {
+            return None;
+        }
+        self.styles
+            .iter()
+            .find(|(identity, _)| normalize_style_name(identity) == normalized)
+            .map(|(identity, declaration)| (identity.as_str(), declaration))
+    }
+}
+
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct Presentation {
     /// Source of the current deck background, independent of later size updates.
