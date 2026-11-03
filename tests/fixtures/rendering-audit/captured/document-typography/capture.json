@@ -51,7 +51,7 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "1005f6988af9aeb0c15277c8769a5fd7ff7f623db365ccba727646d4c21b0d58",
+      "sha256": "c16d2dd8f7c735b0704add9e27993a899bd9067d9ba990ee98a69ed9f1057854",
       "maximum": 47,
       "mean": 3.832,
       "outliers": 0

@@ -25,6 +25,7 @@ const PARAGRAPH: &[&str] = &[
     "indent",
     "border",
     "fill",
+    "tabs",
     "keep_with_next",
     "keep_together",
     "page_break_before",
@@ -245,6 +246,7 @@ fn content(
         if drawing {
             for field in [
                 "border",
+                "tabs",
                 "keep_with_next",
                 "keep_together",
                 "page_break_before",
@@ -615,6 +617,13 @@ fn nested(
         };
         unknown(indent, fields, &format!("{path}.indent"), warnings);
     }
+    if let Some(tabs) = properties.get("tabs")
+        && !usable_tab_stops(tabs)
+    {
+        warnings.insert(format!(
+            "{path}.tabs is retained but has no native rendering effect"
+        ));
+    }
     if let Some(Value::Object(border)) = properties.get("border") {
         unknown(
             border,
@@ -634,6 +643,35 @@ fn nested(
         }
     }
 }
+fn usable_tab_stops(tabs: &Value) -> bool {
+    let entries: Vec<&Value> = match tabs {
+        Value::Array(entries) => entries.iter().collect(),
+        Value::Object(fields) if fields.is_empty() => return true,
+        Value::Object(_) => vec![tabs],
+        _ => return false,
+    };
+    let alignments = ["left", "start", "center", "right", "end", "decimal"];
+    entries.into_iter().all(|entry| {
+        let Value::Object(fields) = entry else {
+            return false;
+        };
+        if fields.len() == 1
+            && let Some(name) = fields.keys().next()
+            && alignments.contains(&name.as_str())
+        {
+            return true;
+        }
+        let alignment = ["alignment", "align"]
+            .iter()
+            .filter_map(|name| fields.get(*name))
+            .map(Value::to_text)
+            .find(|text| !text.is_empty())
+            .unwrap_or_default();
+        (fields.contains_key("position") || fields.contains_key("pos"))
+            && (alignment.is_empty() || alignments.contains(&alignment.as_str()))
+    })
+}
+
 fn unknown(
     properties: &Properties,
     supported: &[&str],

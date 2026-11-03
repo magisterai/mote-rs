@@ -49,8 +49,8 @@
 )
 #set table(style = "SurveyTable", width = inch(6.7))
 
-#header[#span "Brand"[HALCYON REEF OBSERVATORY]#span "Running"[  ·  Field Report No. 14]]
-#footer[#span "Running"[Survey season 2026  ·  Prepared for the board of trustees  ·  Page #page_number() of #page_number(kind = "total")]]
+#header[#paragraph(tabs = {right = inch(6.7)})[#span "Brand"[HALCYON REEF OBSERVATORY]#tab()#span "Running"[Field Report No. 14]]]
+#footer[#paragraph(tabs = {right = inch(6.7)})[#span "Running"[Survey season 2026  ·  Prepared for the board of trustees]#tab()#span "Running"[Page #page_number() of #page_number(kind = "total")]]]
 
 #let(survey = json("survey.json"))
 

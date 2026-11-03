@@ -60,6 +60,7 @@ impl<'measurement, 'assets> ChartMeasurement<'measurement, 'assets> {
             width,
             self.measurer,
             false,
+            false,
         )
     }
     pub(super) fn fit_text(

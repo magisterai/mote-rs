@@ -82,6 +82,8 @@ pub fn plan_text(
             wrapped.line_break,
             measurer,
             options.layout_kerning,
+            options.tab_stops.as_deref(),
+            options.tab_origin,
         )?;
         let mut ordinary_size = base_style.measurement.size_points;
         let natural_height = options

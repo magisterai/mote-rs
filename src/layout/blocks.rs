@@ -321,6 +321,7 @@ impl BlockBuilder<'_, '_, '_> {
             self.width,
             self.measurer,
             true,
+            true,
         )?;
         if element.kind == ElementKind::Caption && runs.is_empty() {
             paragraph.lines.clear();
@@ -464,6 +465,7 @@ impl BlockBuilder<'_, '_, '_> {
                         item_geometry.hanging.max(measured).max(1.0),
                         self.measurer,
                         true,
+                        true,
                     )?;
                     paragraph.lines.into_iter().next().map(|mut line| {
                         line.highlights.clear();
@@ -482,6 +484,7 @@ impl BlockBuilder<'_, '_, '_> {
                     &runs,
                     self.width,
                     self.measurer,
+                    true,
                     true,
                 )?;
                 self.blocks

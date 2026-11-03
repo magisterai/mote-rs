@@ -62,8 +62,9 @@ outline levels 0–9, shading, borders, tab stops and named paragraph styles.
 [Captured structural comparisons](../../tests/fixtures/docx/paragraph-formatting/README.md)
 cover these mappings; page layout and real Word review remain unreviewed.
 Native PDF/PNG implements paragraph measurement and pagination; its painting
-limits and captures are described below. Custom tab stops remain outside native
-text layout.
+limits and captures are described below. Custom tab stops, leaders and Word's
+half-inch default stops control native placement; see the
+[tab tests](../../tests/tabs.rs).
 
 ## Specification inventory
 

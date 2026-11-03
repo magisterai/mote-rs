@@ -51,6 +51,7 @@ pub fn plan_paragraph_text(
         container_width,
         measurer,
         layout_kerning,
+        true,
     )
 }
 
@@ -61,6 +62,7 @@ pub(super) fn plan_resolved_paragraph(
     container_width: f64,
     measurer: &mut TextMeasurer<'_>,
     layout_kerning: bool,
+    resolve_tabs: bool,
 ) -> Result<ParagraphText, LayoutError> {
     let width =
         (container_width - style.indent_left - style.indent_right).max(container_width.min(12.0));
@@ -84,6 +86,8 @@ pub(super) fn plan_resolved_paragraph(
             "justify" => Alignment::Justify,
             _ => Alignment::Left,
         },
+        tab_stops: resolve_tabs.then(|| style.tab_stops.clone()),
+        tab_origin: origin,
         ..Default::default()
     };
     let mut lines = plan_text(runs, &options, measurer)?;

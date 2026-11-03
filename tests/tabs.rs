@@ -65,3 +65,89 @@ fn edge_trimming_does_not_hide_unsupported_tab_metadata() {
         );
     }
 }
+
+fn native_fragments(body: &str) -> Vec<(String, f64, f64)> {
+    let source = format!(
+        "#document(page = {{size = \"letter\"}}, margin = {{left = inch(1), right = inch(1)}})\n{body}"
+    );
+    let document = compile(&source).unwrap();
+    let resolver = mote::source::FileAssetResolver::from_current_directory().unwrap();
+    let planned = mote::render::plan(&document, &resolver, None).unwrap();
+    planned
+        .output
+        .pages
+        .iter()
+        .flat_map(|page| &page.lines)
+        .flat_map(|placed| &placed.line.fragments)
+        .map(|fragment| (fragment.text.clone(), fragment.x, fragment.width))
+        .collect()
+}
+
+fn fragment(fragments: &[(String, f64, f64)], text: &str) -> (f64, f64) {
+    let (_, x, width) = fragments
+        .iter()
+        .find(|(candidate, _, _)| candidate.trim() == text)
+        .unwrap_or_else(|| panic!("{text} in {fragments:?}"));
+    (*x, *width)
+}
+
+#[test]
+fn native_tab_stops_align_text_to_authored_and_default_positions() {
+    let margin = 72.0;
+    let right = native_fragments("#paragraph(tabs = {right = inch(4)})[Left#tab()Right]");
+    let (x, width) = fragment(&right, "Right");
+    assert!((x + width - (margin + 288.0)).abs() < 0.01, "{right:?}");
+
+    let centered = native_fragments(
+        "#paragraph(tabs = {position = inch(3), alignment = \"center\"})[A#tab()Centred]",
+    );
+    let (x, width) = fragment(&centered, "Centred");
+    assert!(
+        (x + width / 2.0 - (margin + 216.0)).abs() < 0.01,
+        "{centered:?}"
+    );
+
+    let decimal = |amount: &str| {
+        let fragments = native_fragments(&format!(
+            "#paragraph(tabs = {{decimal = inch(3)}})[Fee#tab(){amount}]"
+        ));
+        fragment(&fragments, amount)
+    };
+    let (short, _) = decimal("7.5");
+    let (long, _) = decimal("17.5");
+    assert!(long < short);
+
+    let leader = native_fragments(
+        "#paragraph(tabs = {position = inch(4), alignment = \"right\", leader = \"dot\"})[Name#tab()12]",
+    );
+    let (dots_x, dots_width) = leader
+        .iter()
+        .find(|(text, _, _)| text.starts_with("...."))
+        .map(|(_, x, width)| (*x, *width))
+        .unwrap();
+    let (number_x, _) = fragment(&leader, "12");
+    assert!((dots_x + dots_width - number_x).abs() < 0.01, "{leader:?}");
+
+    let defaults = native_fragments("#paragraph[A#tab()after]");
+    assert!((fragment(&defaults, "after").0 - (margin + 36.0)).abs() < 0.01);
+}
+
+#[test]
+fn unusable_tab_stops_report_their_missing_native_effect() {
+    let document = compile("#paragraph(tabs = {stops = {position = pt(36)}})[A#tab()B]").unwrap();
+    let resolver = mote::source::FileAssetResolver::from_current_directory().unwrap();
+    let planned = mote::render::plan(&document, &resolver, None).unwrap();
+    assert!(
+        planned.warnings.iter().any(
+            |warning| warning.ends_with(".tabs is retained but has no native rendering effect")
+        )
+    );
+    let usable = compile("#paragraph(tabs = {right = pt(72)})[A#tab()B]").unwrap();
+    let planned = mote::render::plan(&usable, &resolver, None).unwrap();
+    assert!(
+        !planned
+            .warnings
+            .iter()
+            .any(|warning| warning.contains(".tabs"))
+    );
+}

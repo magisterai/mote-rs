@@ -27,7 +27,10 @@ are trimmed in DOCX; the model retains them. Output validation runs before edge
 trimming so unsupported metadata is still reported. Native layout and real Word
 visual review remain unreviewed.
 
-Native PDF/PNG expands an authored tab to four ordinary spaces. Custom tab stops
-and leaders are retained but do not control native placement; support diagnostics
-report those limits. Generated heading-number separators separately advance to
-half-inch stops. See the [block captures](../../tests/fixtures/native-blocks/README.md).
+Native PDF/PNG places a document tab at the next paragraph stop: left, centre,
+right or decimal, measured from the text column, with dot, hyphen, underscore or
+middle-dot leaders. Without a further custom stop, a tab advances to the next
+half-inch default stop, as in Word. A stop without a usable position or alignment
+produces a support diagnostic. Text in slides, shapes and charts still expands a
+tab to four spaces, since drawing-text stops are not yet specified. Generated
+heading-number separators separately advance to half-inch stops. See the [block captures](../../tests/fixtures/native-blocks/README.md).

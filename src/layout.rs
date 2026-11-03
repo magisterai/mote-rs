@@ -187,6 +187,22 @@ impl LineSpacing {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub enum TabAlignment {
+    Left,
+    Center,
+    Right,
+    Decimal,
+}
+
+/// Positions are measured from the text column, not the indented line frame.
+#[derive(Debug, Clone, PartialEq)]
+pub struct TabStop {
+    pub position: f64,
+    pub alignment: TabAlignment,
+    pub leader: Option<char>,
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct LineOptions {
     pub width: f64,
@@ -198,6 +214,10 @@ pub struct LineOptions {
     pub fallback_multiplier: f64,
     pub layout_kerning: bool,
     pub no_wrap: bool,
+    /// None keeps the fixed-width tab of drawing text.
+    pub tab_stops: Option<Vec<TabStop>>,
+    /// The left indent: the line frame's offset from the text column.
+    pub tab_origin: f64,
 }
 
 impl Default for LineOptions {
@@ -212,6 +232,8 @@ impl Default for LineOptions {
             fallback_multiplier: 1.15,
             layout_kerning: false,
             no_wrap: false,
+            tab_stops: None,
+            tab_origin: 0.0,
         }
     }
 }

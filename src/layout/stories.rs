@@ -162,6 +162,7 @@ fn measure(
             geometry.content_width(),
             measurer,
             true,
+            true,
         )?;
         let count = paragraph.lines.len();
         for (index, line) in paragraph.lines.into_iter().enumerate() {

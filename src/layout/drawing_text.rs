@@ -78,6 +78,7 @@ fn plan_paragraphs(
                 },
             measurer,
             false,
+            false,
         )?;
         for line in &mut result.lines {
             for highlight in &mut line.highlights {

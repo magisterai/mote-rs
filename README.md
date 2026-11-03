@@ -182,11 +182,12 @@ its running header this way:
 #style "Running" (type = "character", run = {size = pt(8.5), color = "#6b7f88"})
 #style "Brand" extends "Running" (type = "character", run = {bold = true, color = "#0f8a7e"})
 
-#header[#span "Brand"[HALCYON REEF OBSERVATORY]#span "Running"[  ·  Field Report No. 14]]
+#header[#paragraph(tabs = {right = inch(6.7)})[#span "Brand"[HALCYON REEF OBSERVATORY]#tab()#span "Running"[Field Report No. 14]]]
 ```
 
 The Word package receives both as native character styles, so a later edit to
-the style in Word changes every span that uses it.
+the style in Word changes every span that uses it. The right-aligned tab stop
+places the report number against the right margin.
 
 ## Compose a presentation
 

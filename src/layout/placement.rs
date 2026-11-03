@@ -1,4 +1,4 @@
-use super::{Alignment, LayoutError, LineBreak, TextRun, wrapping};
+use super::{Alignment, LayoutError, LineBreak, TabAlignment, TabStop, TextRun, wrapping};
 use crate::measurement::TextMeasurer;
 use unicode_script::{Script, UnicodeScript};
 
@@ -17,6 +17,8 @@ pub(super) fn place(
     line_break: LineBreak,
     measurer: &mut TextMeasurer<'_>,
     kerning: bool,
+    tab_stops: Option<&[TabStop]>,
+    tab_origin: f64,
 ) -> Result<(f64, f64, Vec<PlacedRun>), LayoutError> {
     let text = wrapping::join(runs);
     let mut gaps = Vec::new();
@@ -77,6 +79,12 @@ pub(super) fn place(
                 .layout_width
         });
     }
+    let (fragments, widths) = match tab_stops {
+        Some(tab_stops) => resolve_tabs(
+            fragments, widths, origin, tab_stops, tab_origin, measurer, kerning,
+        )?,
+        None => (fragments, widths),
+    };
     let natural: f64 = widths.iter().sum();
     let extra = if gaps.is_empty() {
         0.0
@@ -103,6 +111,106 @@ pub(super) fn place(
         total += advance;
     }
     Ok((origin + offset, total, placed))
+}
+
+/// Word's default stop interval.
+const DEFAULT_TAB_INTERVAL: f64 = 36.0;
+
+/// Right, centre and decimal stops align the text that follows, up to the next tab.
+fn resolve_tabs(
+    fragments: Vec<(TextRun, bool)>,
+    widths: Vec<f64>,
+    origin: f64,
+    tab_stops: &[TabStop],
+    tab_origin: f64,
+    measurer: &mut TextMeasurer<'_>,
+    kerning: bool,
+) -> Result<(Vec<(TextRun, bool)>, Vec<f64>), LayoutError> {
+    let is_tab = |run: &TextRun| {
+        run.synthetic_tab && run.fixed_advance.is_none() && run.text.trim().is_empty()
+    };
+    if !fragments.iter().any(|(run, _)| is_tab(run)) {
+        return Ok((fragments, widths));
+    }
+    let mut resolved_fragments = Vec::with_capacity(fragments.len());
+    let mut resolved_widths = Vec::with_capacity(widths.len());
+    let mut cursor = origin;
+    for index in 0..fragments.len() {
+        let (run, stretch) = &fragments[index];
+        if !is_tab(run) {
+            cursor += widths[index];
+            resolved_fragments.push((run.clone(), *stretch));
+            resolved_widths.push(widths[index]);
+            continue;
+        }
+        let column = cursor + tab_origin;
+        let stop = tab_stops
+            .iter()
+            .find(|stop| stop.position > column + 0.01)
+            .cloned()
+            .unwrap_or(TabStop {
+                position: ((column / DEFAULT_TAB_INTERVAL).floor() + 1.0) * DEFAULT_TAB_INTERVAL,
+                alignment: TabAlignment::Left,
+                leader: None,
+            });
+        let mut aligned = 0.0;
+        for (following, width) in fragments[index + 1..].iter().zip(&widths[index + 1..]) {
+            if is_tab(&following.0) {
+                break;
+            }
+            if stop.alignment == TabAlignment::Decimal
+                && let Some(point) = following.0.text.find('.')
+            {
+                aligned += measurer
+                    .measure(
+                        &following.0.style.measurement,
+                        &following.0.text[..point],
+                        kerning,
+                    )?
+                    .measurement
+                    .layout_width;
+                break;
+            }
+            aligned += width;
+        }
+        let target = stop.position - tab_origin;
+        let advance = match stop.alignment {
+            TabAlignment::Left => target - cursor,
+            TabAlignment::Right | TabAlignment::Decimal => target - aligned - cursor,
+            TabAlignment::Center => target - aligned / 2.0 - cursor,
+        }
+        .max(0.0);
+        cursor += advance;
+        let remaining = advance;
+        if let Some(leader) = stop.leader {
+            let mark = leader.to_string();
+            let mark_width = measurer
+                .measure(&run.style.measurement, &mark, kerning)?
+                .measurement
+                .layout_width;
+            let count = if mark_width > 0.0 {
+                ((advance - mark_width) / mark_width).floor().max(0.0) as usize
+            } else {
+                0
+            };
+            if count > 0 {
+                let mut spacer = run.with_text(" ");
+                spacer.fixed_advance = Some(advance - count as f64 * mark_width);
+                resolved_widths.push(spacer.fixed_advance.unwrap());
+                resolved_fragments.push((spacer, false));
+                let mut marks = run.with_text(&mark.repeat(count));
+                marks.synthetic_tab = false;
+                resolved_widths.push(count as f64 * mark_width);
+                resolved_fragments.push((marks, false));
+                continue;
+            }
+        }
+        let mut spacer = run.with_text(" ");
+        spacer.fixed_advance = Some(remaining);
+        resolved_widths.push(remaining);
+        resolved_fragments.push((spacer, false));
+    }
+    Ok((resolved_fragments, resolved_widths))
 }
 
 fn gap_allowed(runs: &[TextRun], offset: usize) -> bool {

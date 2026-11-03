@@ -1,4 +1,4 @@
-use super::{LineSpacing, TextStyle, style_values as values};
+use super::{LineSpacing, TabAlignment, TabStop, TextStyle, style_values as values};
 use crate::{
     formatting::StyleResolver,
     measurement::FontVariant,
@@ -23,6 +23,7 @@ pub struct ParagraphStyle {
     pub indent_right: f64,
     pub first_line: f64,
     pub fill: Option<String>,
+    pub tab_stops: Vec<TabStop>,
 }
 impl Default for ParagraphStyle {
     fn default() -> Self {
@@ -42,6 +43,7 @@ impl Default for ParagraphStyle {
             indent_right: 0.0,
             first_line: 0.0,
             fill: None,
+            tab_stops: Vec::new(),
         }
     }
 }
@@ -360,6 +362,9 @@ impl<'document> LayoutStyleResolver<'document> {
             }
             style.line_height = spacing.height(&style.text, style.line_multiplier);
         }
+        if let Some(tabs) = properties.get("tabs") {
+            style.tab_stops = tab_stops(tabs);
+        }
         if let Some(Value::Object(indent)) = properties.get("indent") {
             if let Some(value) = indent.get("left").and_then(values::points) {
                 style.indent_left = value;
@@ -467,4 +472,61 @@ pub(crate) fn emphasis(variant: FontVariant) -> (bool, bool) {
         FontVariant::Italic => (false, true),
         FontVariant::BoldItalic => (true, true),
     }
+}
+
+fn tab_stops(value: &Value) -> Vec<TabStop> {
+    let entries = match value {
+        Value::Array(entries) => entries.iter().collect(),
+        Value::Object(_) => vec![value],
+        _ => Vec::new(),
+    };
+    entries
+        .into_iter()
+        .filter_map(|entry| {
+            let Value::Object(fields) = entry else {
+                return None;
+            };
+            let shorthand = (fields.len() == 1)
+                .then(|| fields.iter().next())
+                .flatten()
+                .filter(|(name, _)| {
+                    matches!(name.as_str(), "left" | "center" | "right" | "decimal")
+                });
+            let (alignment, position) = match shorthand {
+                Some((name, position)) => (name.clone(), position),
+                None => {
+                    let alignment = [
+                        values::text(fields, "alignment"),
+                        values::text(fields, "align"),
+                    ]
+                    .into_iter()
+                    .find(|text| !text.is_empty())
+                    .unwrap_or_default();
+                    (
+                        alignment,
+                        fields.get("position").or_else(|| fields.get("pos"))?,
+                    )
+                }
+            };
+            let alignment = match alignment.as_str() {
+                "center" => TabAlignment::Center,
+                "right" | "end" => TabAlignment::Right,
+                "decimal" => TabAlignment::Decimal,
+                "" | "left" | "start" => TabAlignment::Left,
+                _ => return None,
+            };
+            let leader = match values::text(fields, "leader").as_str() {
+                "dot" => Some('.'),
+                "hyphen" => Some('-'),
+                "underscore" | "heavy" => Some('_'),
+                "middle_dot" | "middleDot" => Some('·'),
+                _ => None,
+            };
+            Some(TabStop {
+                position: values::points(position)?,
+                alignment,
+                leader,
+            })
+        })
+        .collect()
 }

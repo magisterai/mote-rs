@@ -77,7 +77,7 @@
         "x": 72,
         "top": 118.45107999999999,
         "height": 15.225539999999999,
-        "width": 65.428,
+        "width": 58.010999999999996,
         "baseline": 129.36384999999999,
         "fragments": [
           {
@@ -94,21 +94,8 @@
             "missing_codepoints": []
           },
           {
-            "text": "    ",
-            "x": 103.185,
-            "baseline": 129.36384999999999,
-            "top": 121.46584999999999,
-            "width": 12.232,
-            "height": 10.175,
-            "advance": 12.232,
-            "size": 11,
-            "font": "Helvetica",
-            "variant": "regular",
-            "missing_codepoints": []
-          },
-          {
             "text": "after",
-            "x": 115.417,
+            "x": 108,
             "baseline": 129.36384999999999,
             "top": 121.46584999999999,
             "width": 22.011,
