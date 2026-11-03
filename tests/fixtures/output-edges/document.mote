@@ -1,0 +1,8 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf"})
+#document(default_font="body",default_size=pt(11))
+#paragraph[Single values, empty slots, and precise decorations.]
+#paragraph[#underline(style="wave")[A wave] followed by #underline(style="none")[plain text].]
+#list(indent={left=pt(36),hanging=pt(0)})[#item[Bullet without a hanging indent.]#item(checked=true)[Task without a hanging indent.]]
+#ordered_list(indent={left=pt(36),hanging=pt(0)})[#item[Numbered without a hanging indent.]]
+#chart(kind="line",width=pt(300),height=pt(150),data={categories={"Only"},values={4}},data_labels=true)
+#chart(kind="area",width=pt(300),height=pt(150),data={categories={"Only"},values={4}})

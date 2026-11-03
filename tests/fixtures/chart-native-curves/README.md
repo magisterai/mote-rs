@@ -23,4 +23,5 @@ exhausts the local positions.
 Area labels are omitted with a warning. Gap and overlap have no native effect on
 these kinds. The historical `unsupported` directory retains the unchanged
 one-category regression sources. These now render natively: line markers remain
-visible, and an area with no interval has no filled polygon.
+visible, and an area with no interval has no filled polygon. Combined output
+coverage is retained in the [output edge captures](../output-edges/README.md).

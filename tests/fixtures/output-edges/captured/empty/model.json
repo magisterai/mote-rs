@@ -1,0 +1,45 @@
+{
+  "presentation": {
+    "properties": {
+      "background": "#dbeafe",
+      "height": {
+        "text": "200pt",
+        "unit": "pt",
+        "value": 200
+      },
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      }
+    },
+    "size": {
+      "width": {
+        "text": "320pt",
+        "unit": "pt",
+        "value": 320
+      },
+      "height": {
+        "text": "200pt",
+        "unit": "pt",
+        "value": 200
+      },
+      "properties": {
+        "height": {
+          "text": "200pt",
+          "unit": "pt",
+          "value": 200
+        },
+        "width": {
+          "text": "320pt",
+          "unit": "pt",
+          "value": 320
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "content": []
+}

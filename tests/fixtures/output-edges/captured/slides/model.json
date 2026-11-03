@@ -1,0 +1,588 @@
+{
+  "presentation": {
+    "properties": {
+      "height": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      },
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      }
+    },
+    "size": {
+      "width": {
+        "text": "640pt",
+        "unit": "pt",
+        "value": 640
+      },
+      "height": {
+        "text": "360pt",
+        "unit": "pt",
+        "value": 360
+      },
+      "properties": {
+        "height": {
+          "text": "360pt",
+          "unit": "pt",
+          "value": 360
+        },
+        "width": {
+          "text": "640pt",
+          "unit": "pt",
+          "value": 640
+        }
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "45pt",
+                    "unit": "pt",
+                    "value": 45
+                  },
+                  "width": {
+                    "text": "580pt",
+                    "unit": "pt",
+                    "value": 580
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                },
+                "text": {
+                  "font": "body",
+                  "size": {
+                    "text": "18pt",
+                    "unit": "pt",
+                    "value": 18
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "wave"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Clipped wave"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and "
+                    },
+                    {
+                      "kind": "underline",
+                      "category": "inline",
+                      "attributes": {
+                        "style": "none"
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "plain text"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "line",
+              "category": "block",
+              "attributes": {
+                "arrow": {
+                  "end": "oval",
+                  "length": "lg",
+                  "size": "sm",
+                  "start": "diamond"
+                },
+                "border": {
+                  "width": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  }
+                },
+                "cap": "flat",
+                "from": {
+                  "x": {
+                    "text": "35pt",
+                    "unit": "pt",
+                    "value": 35
+                  },
+                  "y": {
+                    "text": "95pt",
+                    "unit": "pt",
+                    "value": 95
+                  }
+                },
+                "to": {
+                  "x": {
+                    "text": "280pt",
+                    "unit": "pt",
+                    "value": 280
+                  },
+                  "y": {
+                    "text": "95pt",
+                    "unit": "pt",
+                    "value": 95
+                  }
+                }
+              }
+            },
+            {
+              "kind": "line",
+              "category": "block",
+              "attributes": {
+                "arrow": {
+                  "end": "triangle",
+                  "end_length": "lg",
+                  "end_size": "sm",
+                  "start": "stealth",
+                  "start_length": "sm",
+                  "start_size": "lg"
+                },
+                "border": {
+                  "width": {
+                    "text": "2pt",
+                    "unit": "pt",
+                    "value": 2
+                  }
+                },
+                "cap": "square",
+                "from": {
+                  "x": {
+                    "text": "350pt",
+                    "unit": "pt",
+                    "value": 350
+                  },
+                  "y": {
+                    "text": "85pt",
+                    "unit": "pt",
+                    "value": 85
+                  }
+                },
+                "to": {
+                  "x": {
+                    "text": "590pt",
+                    "unit": "pt",
+                    "value": 590
+                  },
+                  "y": {
+                    "text": "115pt",
+                    "unit": "pt",
+                    "value": 115
+                  }
+                }
+              }
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "170pt",
+                    "unit": "pt",
+                    "value": 170
+                  },
+                  "width": {
+                    "text": "280pt",
+                    "unit": "pt",
+                    "value": 280
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "160pt",
+                    "unit": "pt",
+                    "value": 160
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "values": [
+                        4
+                      ]
+                    },
+                    "data_labels": true,
+                    "kind": "line"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "170pt",
+                    "unit": "pt",
+                    "value": 170
+                  },
+                  "width": {
+                    "text": "280pt",
+                    "unit": "pt",
+                    "value": 280
+                  },
+                  "x": {
+                    "text": "330pt",
+                    "unit": "pt",
+                    "value": 330
+                  },
+                  "y": {
+                    "text": "160pt",
+                    "unit": "pt",
+                    "value": 160
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "chart",
+                  "category": "block",
+                  "attributes": {
+                    "data": {
+                      "values": [
+                        4
+                      ]
+                    },
+                    "kind": "area"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "45pt",
+                "unit": "pt",
+                "value": 45
+              },
+              "width": {
+                "text": "580pt",
+                "unit": "pt",
+                "value": 580
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            },
+            "text": {
+              "font": "body",
+              "size": {
+                "text": "18pt",
+                "unit": "pt",
+                "value": 18
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "wave"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Clipped wave"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " and "
+                },
+                {
+                  "kind": "underline",
+                  "category": "inline",
+                  "attributes": {
+                    "style": "none"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "plain text"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "oval",
+              "length": "lg",
+              "size": "sm",
+              "start": "diamond"
+            },
+            "border": {
+              "width": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              }
+            },
+            "cap": "flat",
+            "from": {
+              "x": {
+                "text": "35pt",
+                "unit": "pt",
+                "value": 35
+              },
+              "y": {
+                "text": "95pt",
+                "unit": "pt",
+                "value": 95
+              }
+            },
+            "to": {
+              "x": {
+                "text": "280pt",
+                "unit": "pt",
+                "value": 280
+              },
+              "y": {
+                "text": "95pt",
+                "unit": "pt",
+                "value": 95
+              }
+            }
+          }
+        },
+        {
+          "kind": "line",
+          "category": "block",
+          "attributes": {
+            "arrow": {
+              "end": "triangle",
+              "end_length": "lg",
+              "end_size": "sm",
+              "start": "stealth",
+              "start_length": "sm",
+              "start_size": "lg"
+            },
+            "border": {
+              "width": {
+                "text": "2pt",
+                "unit": "pt",
+                "value": 2
+              }
+            },
+            "cap": "square",
+            "from": {
+              "x": {
+                "text": "350pt",
+                "unit": "pt",
+                "value": 350
+              },
+              "y": {
+                "text": "85pt",
+                "unit": "pt",
+                "value": 85
+              }
+            },
+            "to": {
+              "x": {
+                "text": "590pt",
+                "unit": "pt",
+                "value": 590
+              },
+              "y": {
+                "text": "115pt",
+                "unit": "pt",
+                "value": 115
+              }
+            }
+          }
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "170pt",
+                "unit": "pt",
+                "value": 170
+              },
+              "width": {
+                "text": "280pt",
+                "unit": "pt",
+                "value": 280
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "160pt",
+                "unit": "pt",
+                "value": 160
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "values": [
+                    4
+                  ]
+                },
+                "data_labels": true,
+                "kind": "line"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "170pt",
+                "unit": "pt",
+                "value": 170
+              },
+              "width": {
+                "text": "280pt",
+                "unit": "pt",
+                "value": 280
+              },
+              "x": {
+                "text": "330pt",
+                "unit": "pt",
+                "value": 330
+              },
+              "y": {
+                "text": "160pt",
+                "unit": "pt",
+                "value": 160
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "chart",
+              "category": "block",
+              "attributes": {
+                "data": {
+                  "values": [
+                    4
+                  ]
+                },
+                "kind": "area"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

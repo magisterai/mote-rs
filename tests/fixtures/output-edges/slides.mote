@@ -1,0 +1,9 @@
+#font(name="body",latin="Source Sans 3",files={regular="../measurements/fonts/SourceSans3-Regular.ttf"})
+#presentation(width=pt(640),height=pt(360))
+#slide[
+#box(position={x=pt(30),y=pt(20),width=pt(580),height=pt(45)},text={font="body",size=pt(18)})[#underline(style="wave")[Clipped wave] and #underline(style="none")[plain text].]
+#line(from={x=pt(35),y=pt(95)},to={x=pt(280),y=pt(95)},border={width=pt(2)},cap="flat",arrow={start="diamond",["end"]="oval",size="small",length="large"})
+#line(from={x=pt(350),y=pt(85)},to={x=pt(590),y=pt(115)},border={width=pt(2)},cap="square",arrow={start="stealth",["end"]="triangle",start_size="large",start_length="small",end_size="small",end_length="large"})
+#box(position={x=pt(30),y=pt(160),width=pt(280),height=pt(170)})[#chart(kind="line",data={values={4}},data_labels=true)]
+#box(position={x=pt(330),y=pt(160),width=pt(280),height=pt(170)})[#chart(kind="area",data={values={4}})]
+]

@@ -1,7 +1,6 @@
 use mote::{
     evaluation::EvaluationOptions, layout::PageOperation, render, source::FileAssetResolver,
 };
-
 use std::io::{Cursor, Read};
 
 fn zip_part(bytes: &[u8], name: &str) -> Vec<u8> {
@@ -261,4 +260,12 @@ fn connector_markers_use_distinct_shapes_and_independent_dimensions() {
             );
         }
     }
+}
+
+#[path = "support/language_capture.rs"]
+mod language_capture;
+
+#[test]
+fn combined_output_edges_match_captured_models_packages_geometry_and_pixels() {
+    language_capture::compare("output-edges", &["document", "slides", "empty"]);
 }

@@ -1,0 +1,87 @@
+{
+  "source_sha256": "2b3f7b7b13e6c1c3613c8a15671da9c9d549351bc5c3f5a0b77f33b274522887",
+  "format": "pptx",
+  "assets": {
+    "../measurements/fonts/SourceSans3-Regular.ttf": "4644c81b86ec9caaa76b634889968ed3c4f4f52f054855933acc7c2b21e53b0f"
+  },
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "parts/90f1672191938a44335065b73b74586f48345e1d17cc717d8d0ef917224e84e8.xml",
+      "sha256": "90f1672191938a44335065b73b74586f48345e1d17cc717d8d0ef917224e84e8"
+    },
+    "_rels/.rels": {
+      "path": "parts/47d1c24d141674ae22dcc8a13563eab314ad805e1eb604da0e5bb57159889576",
+      "sha256": "47d1c24d141674ae22dcc8a13563eab314ad805e1eb604da0e5bb57159889576"
+    },
+    "docProps/app.xml": {
+      "path": "parts/a2d627d874043a18775292624cb6ab47b7047a95e1e7c0860d864ac34be47a0a.xml",
+      "sha256": "a2d627d874043a18775292624cb6ab47b7047a95e1e7c0860d864ac34be47a0a"
+    },
+    "docProps/core.xml": {
+      "path": "parts/be592d96550de894264d73c5ced0f877b7bcc050d7f4680267fe9c5d6abc2315.xml",
+      "sha256": "be592d96550de894264d73c5ced0f877b7bcc050d7f4680267fe9c5d6abc2315"
+    },
+    "ppt/_rels/presentation.xml.rels": {
+      "path": "parts/6c912a0111dd50b5c881dcb259f8db1372fc8e8252876d24d61c1e4555abeaf0.rels",
+      "sha256": "6c912a0111dd50b5c881dcb259f8db1372fc8e8252876d24d61c1e4555abeaf0"
+    },
+    "ppt/presProps.xml": {
+      "path": "parts/7d478b1617302bdf6b85bf7b25ba0c1e53cdfa83867afbb617b7cb6cc4e29de9.xml",
+      "sha256": "7d478b1617302bdf6b85bf7b25ba0c1e53cdfa83867afbb617b7cb6cc4e29de9"
+    },
+    "ppt/presentation.xml": {
+      "path": "parts/7731b94a7a0441f0907f16c6d1f9fb372dcc5a0aeef4fb5a2b6322a4354371e3.xml",
+      "sha256": "7731b94a7a0441f0907f16c6d1f9fb372dcc5a0aeef4fb5a2b6322a4354371e3"
+    },
+    "ppt/slideLayouts/_rels/slideLayout1.xml.rels": {
+      "path": "parts/d870e5b1929e28c09916452072c7cbe08ef6ec528c3cf95727dae087693a730a.rels",
+      "sha256": "d870e5b1929e28c09916452072c7cbe08ef6ec528c3cf95727dae087693a730a"
+    },
+    "ppt/slideLayouts/slideLayout1.xml": {
+      "path": "parts/94b319de13456b3a3a346480098e2e9a24a22e3ade75447447783436032bf895.xml",
+      "sha256": "94b319de13456b3a3a346480098e2e9a24a22e3ade75447447783436032bf895"
+    },
+    "ppt/slideMasters/_rels/slideMaster1.xml.rels": {
+      "path": "parts/d96b772ebc700dbba5facc22e41f4873e7e7a61bf06c6314a18248165ca8e140.rels",
+      "sha256": "d96b772ebc700dbba5facc22e41f4873e7e7a61bf06c6314a18248165ca8e140"
+    },
+    "ppt/slideMasters/slideMaster1.xml": {
+      "path": "parts/eb5f7670e370ae747415641ecf710525b268720d3ef1c079c97965406aaa447b.xml",
+      "sha256": "eb5f7670e370ae747415641ecf710525b268720d3ef1c079c97965406aaa447b"
+    },
+    "ppt/slides/_rels/slide1.xml.rels": {
+      "path": "parts/c7d48b1e3d2ebf07e0ca612b7d677e3e7e81769d020b0411b580e5f1cd8f268c.rels",
+      "sha256": "c7d48b1e3d2ebf07e0ca612b7d677e3e7e81769d020b0411b580e5f1cd8f268c"
+    },
+    "ppt/slides/slide1.xml": {
+      "path": "parts/d633f9390e93a8420923e3d6a89a11c01914c7d0fa90f0273e4b1a03f34559d2.xml",
+      "sha256": "d633f9390e93a8420923e3d6a89a11c01914c7d0fa90f0273e4b1a03f34559d2"
+    },
+    "ppt/tableStyles.xml": {
+      "path": "parts/eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce.xml",
+      "sha256": "eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce"
+    },
+    "ppt/theme/theme1.xml": {
+      "path": "parts/983894cb6e822917e23d3b5da9e846412f5fa5811c07ae8d403a27b06a08739d.xml",
+      "sha256": "983894cb6e822917e23d3b5da9e846412f5fa5811c07ae8d403a27b06a08739d"
+    },
+    "ppt/viewProps.xml": {
+      "path": "parts/68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7.xml",
+      "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
+    }
+  },
+  "pages": [
+    {
+      "path": "page-1.png",
+      "sha256": "b9a7a07ed91797b4e780c6443b4aed4bea0e34002eee98cd0ea74248bd246d67",
+      "maximum": 0,
+      "mean": 0,
+      "outliers": 0
+    }
+  ],
+  "warnings": [],
+  "text_geometry": {
+    "path": "text-geometry.json",
+    "sha256": "a4952ccad5b0ea32a79d961985ddcffec42683d0239a23bbc69fe155feab4e10"
+  }
+}

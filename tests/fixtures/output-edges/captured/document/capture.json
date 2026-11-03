@@ -1,0 +1,87 @@
+{
+  "source_sha256": "1769671715a76f0ae82e6311c9431498fff71d912d49a436775f5bada7ae3b21",
+  "format": "docx",
+  "assets": {
+    "../measurements/fonts/SourceSans3-Regular.ttf": "4644c81b86ec9caaa76b634889968ed3c4f4f52f054855933acc7c2b21e53b0f"
+  },
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "parts/44f90c56e185aa126fff1d81d3ac2ee345f5872a13079f1f4e16f5dfd2118580.xml",
+      "sha256": "44f90c56e185aa126fff1d81d3ac2ee345f5872a13079f1f4e16f5dfd2118580"
+    },
+    "_rels/.rels": {
+      "path": "parts/f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae",
+      "sha256": "f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae"
+    },
+    "docProps/app.xml": {
+      "path": "parts/5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5.xml",
+      "sha256": "5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5"
+    },
+    "docProps/core.xml": {
+      "path": "parts/0691df92dc1fa23654a62c51b226df5a016abf5c8c6b3895972fcb0bf2abf705.xml",
+      "sha256": "0691df92dc1fa23654a62c51b226df5a016abf5c8c6b3895972fcb0bf2abf705"
+    },
+    "word/_rels/document.xml.rels": {
+      "path": "parts/fd804cb5894e1288eb42b9badbf0ce482b20cd2b5a6f490484a33c09cb566400.rels",
+      "sha256": "fd804cb5894e1288eb42b9badbf0ce482b20cd2b5a6f490484a33c09cb566400"
+    },
+    "word/charts/_rels/chart1.xml.rels": {
+      "path": "parts/54bce5dd4465a713772d40f1f8f058f469d3c1e16e97964b0b9b3be8a2a8414e.rels",
+      "sha256": "54bce5dd4465a713772d40f1f8f058f469d3c1e16e97964b0b9b3be8a2a8414e"
+    },
+    "word/charts/_rels/chart2.xml.rels": {
+      "path": "parts/0b5edb9a20e275613e7b96c20982cc1b71a0c6c0e72f0dace3c5ce5a9b1e235e.rels",
+      "sha256": "0b5edb9a20e275613e7b96c20982cc1b71a0c6c0e72f0dace3c5ce5a9b1e235e"
+    },
+    "word/document.xml": {
+      "path": "parts/3081f6fb7248d3f89a927491f6ac610bcaac6b8a12fee54128bd8e0d4200ffe2.xml",
+      "sha256": "3081f6fb7248d3f89a927491f6ac610bcaac6b8a12fee54128bd8e0d4200ffe2"
+    },
+    "word/fontTable.xml": {
+      "path": "parts/221f0ed9bad139de36a09766bba664ad8476843d2b2e894130f5c1ebf44d7d48.xml",
+      "sha256": "221f0ed9bad139de36a09766bba664ad8476843d2b2e894130f5c1ebf44d7d48"
+    },
+    "word/numbering.xml": {
+      "path": "parts/a966d6098e617b62d1df5b52a0c82246ec0ad864ce156edf4812893360c6a1bb.xml",
+      "sha256": "a966d6098e617b62d1df5b52a0c82246ec0ad864ce156edf4812893360c6a1bb"
+    },
+    "word/settings.xml": {
+      "path": "parts/2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9.xml",
+      "sha256": "2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9"
+    },
+    "word/styles.xml": {
+      "path": "parts/772f67f7ca8143d9576b1749d6727c7219ab8bd78e78d231662a0d845b7c8939.xml",
+      "sha256": "772f67f7ca8143d9576b1749d6727c7219ab8bd78e78d231662a0d845b7c8939"
+    },
+    "word/charts/chart1.xml": {
+      "path": "parts/979a7e9db1a45219923218a479a4594fcd16e4b848c493ac1522f906df6354d6.xml",
+      "sha256": "979a7e9db1a45219923218a479a4594fcd16e4b848c493ac1522f906df6354d6"
+    },
+    "word/embeddings/chart1.xlsx": {
+      "path": "parts/1a51a986dcda57aed54003cf5a66ea302f22a831c85010198077cd9439ab2c58.xlsx",
+      "sha256": "1a51a986dcda57aed54003cf5a66ea302f22a831c85010198077cd9439ab2c58"
+    },
+    "word/charts/chart2.xml": {
+      "path": "parts/6cbe4b5eaa61a336fc549092777bc854c1f71c6a7a32616e4a53fb0f65df44c1.xml",
+      "sha256": "6cbe4b5eaa61a336fc549092777bc854c1f71c6a7a32616e4a53fb0f65df44c1"
+    },
+    "word/embeddings/chart2.xlsx": {
+      "path": "parts/08fde5946cb2460fc5c01e9cf4e12fb549e1b2df5b29847305f9202a7073bfe0.xlsx",
+      "sha256": "08fde5946cb2460fc5c01e9cf4e12fb549e1b2df5b29847305f9202a7073bfe0"
+    }
+  },
+  "pages": [
+    {
+      "path": "page-1.png",
+      "sha256": "94ac391ac0f027af2e990894fbe67f053bb79c5b6d827c703028eba7ad5e77ac",
+      "maximum": 48,
+      "mean": 6.25,
+      "outliers": 0
+    }
+  ],
+  "warnings": [],
+  "text_geometry": {
+    "path": "text-geometry.json",
+    "sha256": "cb610d3fdf407a7d613119804ca3a695591f0534568f669224d93b0a59b6001a"
+  }
+}

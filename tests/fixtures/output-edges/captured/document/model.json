@@ -1,0 +1,432 @@
+{
+  "document": {
+    "default_font": "body",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "defaults": {
+    "default_font": "body",
+    "default_size": {
+      "text": "11pt",
+      "unit": "pt",
+      "value": 11
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "fonts": [
+    {
+      "name": "body",
+      "latin": "Source Sans 3",
+      "properties": {
+        "files": {
+          "regular": "../measurements/fonts/SourceSans3-Regular.ttf"
+        },
+        "latin": "Source Sans 3"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Single values, empty slots, and precise decorations."
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "underline",
+              "category": "inline",
+              "attributes": {
+                "style": "wave"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A wave"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " followed by "
+            },
+            {
+              "kind": "underline",
+              "category": "inline",
+              "attributes": {
+                "style": "none"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "plain text"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "list",
+          "category": "block",
+          "attributes": {
+            "indent": {
+              "hanging": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "left": {
+                "text": "36pt",
+                "unit": "pt",
+                "value": 36
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Bullet without a hanging indent."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "list_item",
+              "category": "block",
+              "attributes": {
+                "checked": true
+              },
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Task without a hanging indent."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "ordered_list",
+          "category": "block",
+          "attributes": {
+            "indent": {
+              "hanging": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "left": {
+                "text": "36pt",
+                "unit": "pt",
+                "value": 36
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "list_item",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Numbered without a hanging indent."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Only"
+              ],
+              "values": [
+                4
+              ]
+            },
+            "data_labels": true,
+            "height": {
+              "text": "150pt",
+              "unit": "pt",
+              "value": 150
+            },
+            "kind": "line",
+            "width": {
+              "text": "300pt",
+              "unit": "pt",
+              "value": 300
+            }
+          }
+        },
+        {
+          "kind": "chart",
+          "category": "block",
+          "attributes": {
+            "data": {
+              "categories": [
+                "Only"
+              ],
+              "values": [
+                4
+              ]
+            },
+            "height": {
+              "text": "150pt",
+              "unit": "pt",
+              "value": 150
+            },
+            "kind": "area",
+            "width": {
+              "text": "300pt",
+              "unit": "pt",
+              "value": 300
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Single values, empty slots, and precise decorations."
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "underline",
+          "category": "inline",
+          "attributes": {
+            "style": "wave"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "A wave"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " followed by "
+        },
+        {
+          "kind": "underline",
+          "category": "inline",
+          "attributes": {
+            "style": "none"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "plain text"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "kind": "list",
+      "category": "block",
+      "attributes": {
+        "indent": {
+          "hanging": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          },
+          "left": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Bullet without a hanging indent."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "list_item",
+          "category": "block",
+          "attributes": {
+            "checked": true
+          },
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Task without a hanging indent."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ordered_list",
+      "category": "block",
+      "attributes": {
+        "indent": {
+          "hanging": {
+            "text": "0pt",
+            "unit": "pt",
+            "value": 0
+          },
+          "left": {
+            "text": "36pt",
+            "unit": "pt",
+            "value": 36
+          }
+        }
+      },
+      "children": [
+        {
+          "kind": "list_item",
+          "category": "block",
+          "children": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Numbered without a hanging indent."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Only"
+          ],
+          "values": [
+            4
+          ]
+        },
+        "data_labels": true,
+        "height": {
+          "text": "150pt",
+          "unit": "pt",
+          "value": 150
+        },
+        "kind": "line",
+        "width": {
+          "text": "300pt",
+          "unit": "pt",
+          "value": 300
+        }
+      }
+    },
+    {
+      "kind": "chart",
+      "category": "block",
+      "attributes": {
+        "data": {
+          "categories": [
+            "Only"
+          ],
+          "values": [
+            4
+          ]
+        },
+        "height": {
+          "text": "150pt",
+          "unit": "pt",
+          "value": 150
+        },
+        "kind": "area",
+        "width": {
+          "text": "300pt",
+          "unit": "pt",
+          "value": 300
+        }
+      }
+    }
+  ]
+}
