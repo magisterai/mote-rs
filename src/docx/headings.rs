@@ -21,7 +21,7 @@ pub(super) fn attributes(element: &Element, at_flow_start: bool) -> Result<Prope
     let level = level(element)?;
     attributes.remove("level");
     if let Some(marker) = attributes.remove("marker")
-        && marker.to_text() != "#"
+        && !matches!(marker.to_text().as_str(), "#" | "setext")
     {
         return Err(Error::Unsupported("custom heading markers".into()));
     }

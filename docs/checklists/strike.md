@@ -10,6 +10,8 @@
 - [x] One required inline body; no positional arguments.
 - [x] kind: single or double; omission requests single.
 - [x] style, font, size, color, and properties.
+- [x] Markdown `~~text~~` lowers to a single-strike inline body; escaped and
+  unmatched delimiters remain literal text.
 
 ## Scope and evidence
 
@@ -30,3 +32,5 @@ The full property inventories include unsupported capabilities:
 Output notes: Word maps underline attributes, highlight `fill` and strike `kind`.
 Other direct wrapper style/font/size/color attributes have no Word mapping; use
 surrounding spans. Native wave underlines use a shared sampled path; none suppresses the underline.
+
+Markdown lowering is covered by [authoring content tests](../../tests/authoring_content.rs).

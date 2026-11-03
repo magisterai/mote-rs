@@ -37,6 +37,15 @@ and `underline_color` separately from the underline flag, and boolean
 `small_caps`, `subscript`, `superscript`, `strike` and `double_strike` requests.
 Underline patterns do not trigger character-style lookup in that API.
 
+## Markdown strikethrough
+
+A matched pair of `~~` delimiters requests single strikethrough. For example,
+`Before ~~removed~~ after.` produces a paragraph with text `Before `, a `strike`
+element containing `removed`, and text ` after.`. Inline formatting may nest
+inside the delimited body. Escaped tildes, tildes inside code, and unmatched
+opening delimiters remain literal text. Double strikethrough uses the directive's
+`kind="double"` attribute.
+
 ## Output boundaries
 
 Word output supports underline patterns, color, font and size. The remaining

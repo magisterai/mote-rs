@@ -1,0 +1,68 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "strike",
+              "category": "inline",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "removed"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " after."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before "
+        },
+        {
+          "kind": "strike",
+          "category": "inline",
+          "children": [
+            {
+              "kind": "text",
+              "text": "removed"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " after."
+        }
+      ]
+    }
+  ]
+}

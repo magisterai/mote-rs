@@ -1,0 +1,340 @@
+{
+  "presentation": {
+    "properties": {
+      "size": "standard"
+    },
+    "size": {
+      "properties": {
+        "size": "standard"
+      }
+    }
+  },
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "slide",
+          "category": "block",
+          "children": [
+            {
+              "kind": "box",
+              "category": "block",
+              "attributes": {
+                "position": {
+                  "height": {
+                    "text": "450pt",
+                    "unit": "pt",
+                    "value": 450
+                  },
+                  "width": {
+                    "text": "660pt",
+                    "unit": "pt",
+                    "value": 660
+                  },
+                  "x": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  },
+                  "y": {
+                    "text": "30pt",
+                    "unit": "pt",
+                    "value": 30
+                  }
+                },
+                "text": {
+                  "size": {
+                    "text": "20pt",
+                    "unit": "pt",
+                    "value": 20
+                  }
+                }
+              },
+              "children": [
+                {
+                  "kind": "heading",
+                  "category": "block",
+                  "attributes": {
+                    "level": 1,
+                    "marker": "setext"
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Markdown heading"
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Before "
+                    },
+                    {
+                      "kind": "strike",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "removed"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " after; "
+                    },
+                    {
+                      "kind": "strike",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "nested "
+                        },
+                        {
+                          "kind": "strong",
+                          "category": "inline",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "bold"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "text",
+                          "text": " text"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "kind": "paragraph",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Escaped "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "~"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "~"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "literal"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "~"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "~"
+                    },
+                    {
+                      "kind": "text",
+                      "text": " and unmatched "
+                    },
+                    {
+                      "kind": "text",
+                      "text": "~"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "~"
+                    },
+                    {
+                      "kind": "text",
+                      "text": "text."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "slide",
+      "category": "block",
+      "children": [
+        {
+          "kind": "box",
+          "category": "block",
+          "attributes": {
+            "position": {
+              "height": {
+                "text": "450pt",
+                "unit": "pt",
+                "value": 450
+              },
+              "width": {
+                "text": "660pt",
+                "unit": "pt",
+                "value": 660
+              },
+              "x": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              },
+              "y": {
+                "text": "30pt",
+                "unit": "pt",
+                "value": 30
+              }
+            },
+            "text": {
+              "size": {
+                "text": "20pt",
+                "unit": "pt",
+                "value": 20
+              }
+            }
+          },
+          "children": [
+            {
+              "kind": "heading",
+              "category": "block",
+              "attributes": {
+                "level": 1,
+                "marker": "setext"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Markdown heading"
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Before "
+                },
+                {
+                  "kind": "strike",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "removed"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " after; "
+                },
+                {
+                  "kind": "strike",
+                  "category": "inline",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "nested "
+                    },
+                    {
+                      "kind": "strong",
+                      "category": "inline",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "text",
+                      "text": " text"
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Escaped "
+                },
+                {
+                  "kind": "text",
+                  "text": "~"
+                },
+                {
+                  "kind": "text",
+                  "text": "~"
+                },
+                {
+                  "kind": "text",
+                  "text": "literal"
+                },
+                {
+                  "kind": "text",
+                  "text": "~"
+                },
+                {
+                  "kind": "text",
+                  "text": "~"
+                },
+                {
+                  "kind": "text",
+                  "text": " and unmatched "
+                },
+                {
+                  "kind": "text",
+                  "text": "~"
+                },
+                {
+                  "kind": "text",
+                  "text": "~"
+                },
+                {
+                  "kind": "text",
+                  "text": "text."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

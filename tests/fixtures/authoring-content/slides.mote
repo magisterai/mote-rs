@@ -1,0 +1,11 @@
+#presentation(size="standard")
+#slide[
+#box(position={x=pt(30),y=pt(30),width=pt(660),height=pt(450)},text={size=pt(20)})[
+Markdown heading
+===============
+
+Before ~~removed~~ after; ~~nested **bold** text~~.
+
+Escaped \~\~literal\~\~ and unmatched ~~text.
+]
+]

@@ -305,6 +305,19 @@ impl Parser<'_> {
                         span: self.span(start),
                     });
                 }
+                '~' if self.starts_with("~~") && self.has_closing_marker("~~") => {
+                    self.position += 2;
+                    let body = self.parse_markup(MarkupBoundary::Delimited("~~"))?;
+                    nodes.push(Node {
+                        kind: NodeKind::Call(Call {
+                            from_markdown: true,
+                            name: "strike".into(),
+                            arguments: Vec::new(),
+                            bodies: vec![body],
+                        }),
+                        span: self.span(start),
+                    });
+                }
                 '`' => {
                     if let Some(node) = self.parse_code_span() {
                         nodes.push(node);
@@ -313,10 +326,10 @@ impl Parser<'_> {
                         push_text(&mut nodes, character, self.span(start), self.source);
                     }
                 }
-                '<' => {
+                '<' | '~' => {
                     self.advance_character();
                     nodes.push(Node {
-                        kind: NodeKind::Text("<".into()),
+                        kind: NodeKind::Text(character.to_string()),
                         span: self.span(start),
                     });
                 }
@@ -368,6 +381,21 @@ impl Parser<'_> {
         self.depth -= 1;
         self.closing_delimiter = previous_delimiter;
         Ok(nodes)
+    }
+
+    fn has_closing_marker(&self, marker: &str) -> bool {
+        let remaining = &self.source[self.position + marker.len()..];
+        let mut escaped = false;
+        for (offset, character) in remaining.char_indices() {
+            if escaped {
+                escaped = false;
+            } else if character == '\\' {
+                escaped = true;
+            } else if remaining[offset..].starts_with(marker) {
+                return true;
+            }
+        }
+        false
     }
 
     fn parse_heading(&mut self) -> Result<Option<Node>, Diagnostic> {
@@ -571,6 +599,7 @@ fn push_text(nodes: &mut Vec<Node>, character: char, span: Span, source: &str) {
         && text != "<"
         && text != "]"
         && (text != "$" || !super::math::dollar_can_open(source, previous.start))
+        && text != "~"
         && previous.end == span.start
         && previous.end - previous.start == text.len()
     {

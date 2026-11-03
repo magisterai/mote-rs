@@ -62,6 +62,7 @@ attribute contract. The focused capture also verifies direct fill and outline le
 
 ## Output limits
 
+Hash and underlined Markdown headings share the same DOCX heading mapping.
 DOCX emits heading styles, outline levels, direct paragraph properties and
 pagination requests. Built-in styles cover levels one through six; levels seven
 through nine need a declared style, and larger levels map to nine. Omitted style
