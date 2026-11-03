@@ -17,6 +17,10 @@ redistribution. Fully specified cell widths can determine the column grid.
 Content clips inside cell margins. PowerPoint always wraps table-cell text, so
 `no_wrap` warns. Row height rules and pagination flags have no slide effect.
 Native table paragraphs use uniform cell frames; editable paragraphs retain their
-indentation. Table-style paragraph defaults other than alignment affect editable
-text only. Physical borders prefer the upper/left declaration when specified,
+indentation. Table-style paragraph alignment and spacing apply to both outputs;
+explicit cell alignment overrides the style, and paragraph alignment overrides
+the cell. Margin shorthands expand to physical edges in both outputs. Focused
+[source cases](../../cases/README.md) and [behavior tests](../../table_alignment.rs)
+cover these rules without stored output snapshots.
+Physical borders prefer the upper/left declaration when specified,
 including explicit `none`, and omit internal segments in merged cells.
