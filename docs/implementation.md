@@ -871,3 +871,19 @@ identities, every measured text fragment and native PNGs. Geometry uses a separa
 fallbacks; supported output is generated with diagnostics instead of failing on
 those objects. Unicode closing-bracket/numeric-suffix context determines fragment
 boundaries before wrapping and pixel-origin rounding.
+
+### Authored content and output diagnostics
+
+Matched Markdown strikethrough lowers through the ordinary strike constructor;
+underlined headings retain their source marker while sharing the editable heading
+mapping. Numeric URL/path segments can break after a separator without splitting
+numeric sequences such as dates. Table-cell projections preserve quote and
+definition paragraph boundaries, and list-item before/after spacing remains
+independent of inherited cell defaults.
+
+Elements retain immutable source snapshots and byte spans for output diagnostics,
+separately from authored JSON and resource resolution. Tagged Lua elements preserve
+that provenance through content round-trips. DOCX collects warnings for known
+retained properties with no mapping, identifying the directive/property, source
+location and supported alternative. Existing fatal validation still rejects unknown
+properties, unresolved styles, invalid structure and unsupported values.

@@ -102,6 +102,19 @@ fn numeric_context_breaks(text: &str, graphemes: &BTreeSet<usize>, offsets: &mut
         if class == BreakClass::CombiningMark {
             continue;
         }
+        // A slash or decimal separator binds to following digits only when it
+        // continues a numeric sequence. A path segment such as reports/2026
+        // can wrap after the slash; the date 2026/07/24 stays together.
+        if class == BreakClass::Numeric
+            && matches!(
+                previous,
+                Some(BreakClass::Symbol | BreakClass::InfixSeparator)
+            )
+            && !numeric_sequence
+            && graphemes.contains(&offset)
+        {
+            offsets.insert(offset);
+        }
         if matches!(class, BreakClass::Prefix | BreakClass::Postfix)
             && matches!(
                 previous,
@@ -284,6 +297,32 @@ fn flush(
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn path_separators_release_numeric_segments_without_splitting_numbers() {
+        for (source, expected) in [
+            ("reports/2026/07/24/", vec!["reports/", "2026/07/24/"]),
+            (
+                "conversations/019f950f/",
+                vec!["conversations/", "019f950f/"],
+            ),
+            ("a,1", vec!["a,", "1"]),
+            ("a.1", vec!["a.", "1"]),
+            ("1,234.56", vec!["1,234.56"]),
+            ("a/\u{301}1", vec!["a/\u{301}", "1"]),
+        ] {
+            let mut start = 0;
+            let segments: Vec<_> = super::break_offsets(source)
+                .into_iter()
+                .map(|end| {
+                    let segment = &source[start..end];
+                    start = end;
+                    segment
+                })
+                .collect();
+            assert_eq!(segments, expected, "{source}");
+        }
+    }
+
     #[test]
     fn numeric_suffixes_bind_to_numbers_but_not_algebraic_brackets() {
         for (source, expected) in [

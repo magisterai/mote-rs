@@ -58,3 +58,9 @@ Microsoft Word and PowerPoint visual review remains unreviewed.
 Broader form controls, native mathematical typesetting and additional OOXML
 mappings remain outside these supported subsets. Unsupported properties stay
 visible in the standard inventories.
+
+The [authoring content captures](../tests/fixtures/authoring-content/README.md)
+cover Markdown strike/heading lowering, structured list and quote acceptance,
+recursive table-cell flow, list spacing inheritance and numeric URL segments.
+[DOCX diagnostics tests](../tests/docx_diagnostics.rs) distinguish safe omissions
+with source locations from unsupported or invalid inputs that still fail.

@@ -8,7 +8,6 @@ fn authored_content_matches_editable_packages_and_native_layout() {
         &[
             "markdown-strike",
             "setext-heading",
-            "slides",
             "styled-list-paragraph",
             "styled-quote-paragraph",
             "quoted-list-content",
@@ -18,6 +17,8 @@ fn authored_content_matches_editable_packages_and_native_layout() {
             "table-definition-paragraphs",
             "table-list-line-spacing",
             "table-authored-spacing",
+            "long-url",
+            "slides",
         ],
     );
 }

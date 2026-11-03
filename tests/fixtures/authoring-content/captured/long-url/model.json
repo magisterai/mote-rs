@@ -1,0 +1,145 @@
+{
+  "document": {
+    "margin": {
+      "left": {
+        "text": "60pt",
+        "unit": "pt",
+        "value": 60
+      },
+      "right": {
+        "text": "60pt",
+        "unit": "pt",
+        "value": 60
+      }
+    },
+    "page": {
+      "size": "letter"
+    }
+  },
+  "page": {
+    "properties": {
+      "size": "letter"
+    }
+  },
+  "margin": {
+    "right": {
+      "text": "60pt",
+      "unit": "pt",
+      "value": 60
+    },
+    "left": {
+      "text": "60pt",
+      "unit": "pt",
+      "value": 60
+    },
+    "properties": {
+      "left": {
+        "text": "60pt",
+        "unit": "pt",
+        "value": 60
+      },
+      "right": {
+        "text": "60pt",
+        "unit": "pt",
+        "value": 60
+      }
+    }
+  },
+  "columns": {},
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {
+        "properties": {
+          "size": "letter"
+        }
+      },
+      "margin": {
+        "right": {
+          "text": "60pt",
+          "unit": "pt",
+          "value": 60
+        },
+        "left": {
+          "text": "60pt",
+          "unit": "pt",
+          "value": 60
+        },
+        "properties": {
+          "left": {
+            "text": "60pt",
+            "unit": "pt",
+            "value": 60
+          },
+          "right": {
+            "text": "60pt",
+            "unit": "pt",
+            "value": 60
+          }
+        }
+      },
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Before "
+            },
+            {
+              "kind": "link",
+              "category": "inline",
+              "attributes": {
+                "url": "https://example.com/generated/reports/2026/07/24/organizations/magister-ai/conversations/019f950f66cf7f33af302a1dd8cdd5b6/artifacts/quarterly-review-with-an-intentionally-unbroken-final-segment-0123456789abcdefghijklmnopqrstuvwxyz"
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "https://example.com/generated/reports/2026/07/24/organizations/magister-ai/conversations/019f950f66cf7f33af302a1dd8cdd5b6/artifacts/quarterly-review-with-an-intentionally-unbroken-final-segment-0123456789abcdefghijklmnopqrstuvwxyz"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": " after."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "Before "
+        },
+        {
+          "kind": "link",
+          "category": "inline",
+          "attributes": {
+            "url": "https://example.com/generated/reports/2026/07/24/organizations/magister-ai/conversations/019f950f66cf7f33af302a1dd8cdd5b6/artifacts/quarterly-review-with-an-intentionally-unbroken-final-segment-0123456789abcdefghijklmnopqrstuvwxyz"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "https://example.com/generated/reports/2026/07/24/organizations/magister-ai/conversations/019f950f66cf7f33af302a1dd8cdd5b6/artifacts/quarterly-review-with-an-intentionally-unbroken-final-segment-0123456789abcdefghijklmnopqrstuvwxyz"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "text": " after."
+        }
+      ]
+    }
+  ]
+}

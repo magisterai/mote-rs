@@ -1,5 +1,9 @@
 # Conformance fixtures
 
+For small runnable rendering diagnostics, start with the
+[source cases](../cases/README.md). Their tests assert intended layout rules
+directly, and their review images are generated locally.
+
 ## Language examples
 
 `specification.json` declares an outcome for each fenced `mote` example in
@@ -56,6 +60,7 @@ fingerprints and comparison notes:
 - [Quote styles](docx/quote-styles/README.md): declared replacements and scope.
 - [Task items](docx/task-items/README.md): editable checkbox controls and numbered-list interaction.
 - [Derived built-in styles](docx/derived-builtin-styles/README.md): inherited direct-formatting precedence.
+- [Authoring content](authoring-content/README.md): Markdown strike and headings, nested blocks, table-cell flow, URL wrapping, editable packages and native output.
 
 - [Page geometry](docx/page-geometry/README.md): named paper, landscape and all margin fields.
 - [Page overrides](docx/page-overrides/README.md): repeated configuration and explicit dimensions.

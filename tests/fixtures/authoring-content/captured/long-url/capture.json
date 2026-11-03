@@ -1,0 +1,61 @@
+{
+  "source_sha256": "f43042fbe0b4deb33d4c2536803524188b0f11487bc4e4b26c8c1280b20a51df",
+  "format": "docx",
+  "assets": {},
+  "parts": {
+    "[Content_Types].xml": {
+      "path": "parts/9c11cd798adf6313996e26a6ea4260ee25bd05f2ff131f92509bfd8e8e9062f7.xml",
+      "sha256": "9c11cd798adf6313996e26a6ea4260ee25bd05f2ff131f92509bfd8e8e9062f7"
+    },
+    "_rels/.rels": {
+      "path": "parts/f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae",
+      "sha256": "f2ee5d069d316d080de4513502475fc76cbd64a7c536cf2420faad30a053aaae"
+    },
+    "docProps/app.xml": {
+      "path": "parts/5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5.xml",
+      "sha256": "5260be5b72b92ae46abd16b3ded9ca8b44bed9e2d8e95b5cff7bc41e447efce5"
+    },
+    "docProps/core.xml": {
+      "path": "parts/8dab1e92131b833349c725a417e98ea419120c257e3481ee9b976b00e6b7859d.xml",
+      "sha256": "8dab1e92131b833349c725a417e98ea419120c257e3481ee9b976b00e6b7859d"
+    },
+    "word/_rels/document.xml.rels": {
+      "path": "parts/22363516af9fb67be687d4ecedbbc679e1c14c80c07c515ff6e66b7d53f369f7.rels",
+      "sha256": "22363516af9fb67be687d4ecedbbc679e1c14c80c07c515ff6e66b7d53f369f7"
+    },
+    "word/document.xml": {
+      "path": "parts/d818d94c037c4fc8ec065e8562876b96751f08780ffd2faa98307a4087d6c44a.xml",
+      "sha256": "d818d94c037c4fc8ec065e8562876b96751f08780ffd2faa98307a4087d6c44a"
+    },
+    "word/fontTable.xml": {
+      "path": "parts/0fb4198f04b3bf733cffa5e6a0f184d979ea1c14387128312a3a0e379ad93bc8.xml",
+      "sha256": "0fb4198f04b3bf733cffa5e6a0f184d979ea1c14387128312a3a0e379ad93bc8"
+    },
+    "word/numbering.xml": {
+      "path": "parts/0788d9ed150ad0999c2fa886aa7294ffab3333ef2f6795feb8f326d448f1db10.xml",
+      "sha256": "0788d9ed150ad0999c2fa886aa7294ffab3333ef2f6795feb8f326d448f1db10"
+    },
+    "word/settings.xml": {
+      "path": "parts/2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9.xml",
+      "sha256": "2c305a2ca4e34e70b1a1ef7901f9fdf70789689683b3b5b50351fd0df905ade9"
+    },
+    "word/styles.xml": {
+      "path": "parts/26fd15979399ef6f6378641e9e038b53678432e59f5bda0b078d1612bfcabdc0.xml",
+      "sha256": "26fd15979399ef6f6378641e9e038b53678432e59f5bda0b078d1612bfcabdc0"
+    }
+  },
+  "pages": [
+    {
+      "path": "page-1.png",
+      "sha256": "87e15bc8b05896b49dfbc697d8a6819d4127c6e37f9ac3a44741d6233304893b",
+      "maximum": 52,
+      "mean": 6.55,
+      "outliers": 0
+    }
+  ],
+  "warnings": [],
+  "text_geometry": {
+    "path": "text-geometry.json",
+    "sha256": "3a38a2fde575d143a09ccb5e52a4fbee5f7fd6d92818f4af00c599c90994dc06"
+  }
+}
