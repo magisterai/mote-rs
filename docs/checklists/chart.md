@@ -67,8 +67,8 @@ Labels prefer above their points, then below or beside them to avoid nearby
 labels, series marks and plot edges. Crowded charts can still have collisions
 when none of those positions is clear. Authored label positions remain advisory
 in native line charts. See the [label placement tests](../../tests/chart_rendering.rs).
-Area charts omit data labels with a warning. Nonempty line/area series require
-at least two categories. Gap and overlap have no native line/area effect. Native
+Area charts omit data labels with a warning. A single-category line chart retains its marker and labels without a line segment.
+A single-category area chart retains its axes and legend without a filled area. Gap and overlap have no native line/area effect. Native
 table cells and flattened running stories omit chart geometry with a warning.
 A chart cell uses `[chart]`, or `[chart: title]` when a title is present, with
 ordinary paragraph spacing. Flattened running stories omit the chart.

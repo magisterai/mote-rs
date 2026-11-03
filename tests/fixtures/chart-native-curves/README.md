@@ -21,6 +21,6 @@ series marks or plot edges obstruct that position. Explicit positions warn becau
 native placement remains automatic. Every label is retained when dense data
 exhausts the local positions.
 Area labels are omitted with a warning. Gap and overlap have no native effect on
-these kinds. The separate `unsupported` sources retain one-category line and area
-cases: editable packages support their data, but native planning reports the
-minimum-category limit explicitly. Fixtures are not changed to hide differences.
+these kinds. The historical `unsupported` directory retains the unchanged
+one-category regression sources. These now render natively: line markers remain
+visible, and an area with no interval has no filled polygon.

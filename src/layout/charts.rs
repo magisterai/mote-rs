@@ -178,16 +178,6 @@ fn plan_chart(
             chart.kind
         )));
     }
-    if matches!(
-        chart.kind.as_str(),
-        "line" | "area" | "stacked_area" | "percent_stacked_area"
-    ) && chart.categories.len() == 1
-        && !chart.series.is_empty()
-    {
-        return Err(LayoutError::Unsupported(
-            "native line and area charts with series require at least two categories".into(),
-        ));
-    }
     let mut planner = ChartPlanner {
         measurement: ChartMeasurement::new(font, text_color, measurer),
         axis_color: axis_color.into(),

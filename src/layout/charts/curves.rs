@@ -25,7 +25,9 @@ impl ChartPlanner<'_, '_> {
                     })
                     .collect();
                 let color = chart.color(series_index);
-                self.path(points.clone(), false, None, Some((color, 2.0)));
+                if points.len() > 1 {
+                    self.path(points.clone(), false, None, Some((color, 2.0)));
+                }
                 for (index, point) in points.iter().enumerate() {
                     self.ellipse([point[0], point[1]], [5.0, 5.0], 24, color);
                     if chart.data_labels.enabled {
@@ -50,7 +52,7 @@ impl ChartPlanner<'_, '_> {
         let scale = Scale::for_chart(chart, layout.plot.height, false).validate()?;
         let foreground = self.axes(chart, layout, scale, false)?;
         let count = chart.categories.len();
-        if count > 0 {
+        if count > 1 {
             let stacked = chart.kind.contains("stacked");
             let percent = chart.kind == "percent_stacked_area";
             let mut positive = vec![0.0; count];

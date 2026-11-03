@@ -229,17 +229,26 @@ fn zero_size_charts_end_fill_continuity_without_consuming_flow_space() {
 }
 
 #[test]
-fn single_category_line_and_area_limits_are_explicit() {
+fn single_category_line_and_area_charts_render_without_degenerate_paths() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("tests/fixtures/chart-native-curves/unsupported");
     let resolver = FileAssetResolver::new(&root).unwrap();
     for case in ["single-line", "single-area"] {
         let source = fs::read_to_string(root.join(format!("{case}.mote"))).unwrap();
         let document = mote::compile(&source).unwrap();
-        let error = render::plan(&document, &resolver, None).err().unwrap();
-        assert!(
-            error.to_string().contains("at least two categories"),
-            "{error}"
+        let plan = render::plan(&document, &resolver, None).unwrap().output;
+        for operation in &plan.pages[0].operations {
+            if let mote::layout::PageOperation::Path(path) = operation {
+                assert!(path.points.len() >= if path.closed { 3 } else { 2 });
+            }
+        }
+        assert!(!render::paint_pdf(&plan).unwrap().is_empty());
+        assert_eq!(
+            render::paint_png(&plan, &Default::default())
+                .unwrap()
+                .output
+                .len(),
+            1
         );
         assert!(mote::docx::emit(&document).is_ok());
     }
