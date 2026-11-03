@@ -31,9 +31,8 @@ Expression support: [language](../specification/lua-expressions.md),
 [captured models/packages](../../tests/scripting_captures.rs).
 Function definitions and content returns: [language](../specification/functions.md),
 [implementation](../../src/evaluation/functions.rs), [tests](../../tests/functions.rs),
-and [captured models/packages](../../tests/function_captures.rs). Empty content and
-nested-call global behavior have explicit compatibility limits in the language
-chapter. Constructors: [language](../specification/document-constructors.md),
+and [captured models/packages](../../tests/function_captures.rs). Empty tagged content remains empty; nested-call global behavior retains the
+explicit limits in the language chapter. Constructors: [language](../specification/document-constructors.md),
 [shared validation](../../src/evaluation/constructors.rs),
 [tests](../../tests/constructors.rs), and
 [output captures](../../tests/constructor_captures.rs).

@@ -216,26 +216,14 @@
               "category": "inline",
               "attributes": {
                 "checked": true
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "text": "{}"
-                }
-              ]
+              }
             },
             {
               "kind": "field",
               "category": "inline",
               "attributes": {
                 "name": "PAGE"
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "text": "{}"
-                }
-              ]
+              }
             },
             {
               "kind": "comment",
@@ -394,26 +382,14 @@
           "category": "inline",
           "attributes": {
             "checked": true
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         },
         {
           "kind": "field",
           "category": "inline",
           "attributes": {
             "name": "PAGE"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         },
         {
           "kind": "comment",

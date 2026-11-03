@@ -145,13 +145,7 @@
                       "unit": "pt",
                       "value": 32
                     }
-                  },
-                  "children": [
-                    {
-                      "kind": "text",
-                      "text": "{}"
-                    }
-                  ]
+                  }
                 }
               ]
             },
@@ -350,13 +344,7 @@
                   "unit": "pt",
                   "value": 32
                 }
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "text": "{}"
-                }
-              ]
+              }
             }
           ]
         },

@@ -18,11 +18,10 @@ the location of their declaration. Imported diagnostics identify the file where
 the failure occurred. Resource snapshots use the same resolver and cache as
 other source-relative resources.
 
-Lua element values currently retain attributes and children but lose their source
-metadata when converted through Lua tables. Consequently an image returned by an
-imported Lua function resolves relative to the output's calling source. Use
-an absolute reference when that image must come from another
-directory. Imported font and background declarations do retain their source.
+Lua element values retain their source location through conversion, including
+nested elements. Images returned by imported functions therefore resolve relative
+to their defining source. Font and background declarations retain their own
+source locations as well.
 
 Imports do not enable Lua implicitly. An imported file containing Lua functions
 still requires Lua execution to be enabled by the caller.

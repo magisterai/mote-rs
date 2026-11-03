@@ -91,8 +91,8 @@
       "sha256": "cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c"
     },
     "ppt/media/image2.png": {
-      "path": "captured/parts/c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e.png",
-      "sha256": "c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e"
+      "path": "captured/parts/cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c.png",
+      "sha256": "cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c"
     },
     "ppt/media/image3.png": {
       "path": "captured/parts/c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e.png",
@@ -106,7 +106,7 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "69fee6b15406cde45963f0bfcfde5521c5912ecf4683d9f82fb3c7d07e4f18ed",
+      "sha256": "86d3cfe6159060395d54a6ffbeb96d74dedf73acd79f6f9a998eba1a71167d68",
       "maximum": 43,
       "mean": 0.059,
       "outliers": 0

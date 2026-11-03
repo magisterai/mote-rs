@@ -36,13 +36,7 @@
               "unit": "pt",
               "value": 120
             }
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         },
         {
           "kind": "paragraph",
@@ -54,13 +48,7 @@
             },
             {
               "kind": "line_break",
-              "category": "inline",
-              "children": [
-                {
-                  "kind": "text",
-                  "text": "{}"
-                }
-              ]
+              "category": "inline"
             },
             {
               "kind": "text",
@@ -73,13 +61,7 @@
           "category": "block",
           "attributes": {
             "type": "page"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         },
         {
           "kind": "paragraph",
@@ -119,13 +101,7 @@
           "unit": "pt",
           "value": 120
         }
-      },
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
-        }
-      ]
+      }
     },
     {
       "kind": "paragraph",
@@ -137,13 +113,7 @@
         },
         {
           "kind": "line_break",
-          "category": "inline",
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          "category": "inline"
         },
         {
           "kind": "text",
@@ -156,13 +126,7 @@
       "category": "block",
       "attributes": {
         "type": "page"
-      },
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
-        }
-      ]
+      }
     },
     {
       "kind": "paragraph",

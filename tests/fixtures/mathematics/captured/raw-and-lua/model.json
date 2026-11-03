@@ -79,13 +79,7 @@
               "value": 15
             },
             "source": "z^2"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         }
       ]
     }
@@ -158,13 +152,7 @@
           "value": 15
         },
         "source": "z^2"
-      },
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
-        }
-      ]
+      }
     }
   ]
 }

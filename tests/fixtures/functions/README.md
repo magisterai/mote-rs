@@ -16,6 +16,6 @@ difference of 12 for rasterizer antialiasing. The `scanner` case has a separate
 no PDF difference or displaced glyph. Every generated PDF page was
 visually inspected. Microsoft Word review remains unreviewed.
 
-`empty` intentionally retains the empty-body `{}` conversion. `lexical` exposes
+`empty` distinguishes empty tagged content from an ordinary empty Lua map. `lexical` exposes
 the current nested-call global environment behavior. These cases must not be
 rewritten to conceal those limits.

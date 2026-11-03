@@ -155,3 +155,30 @@ fn import_defaults_end_with_the_branch_and_repeated_imports_do_not_reexport() {
     .unwrap_err();
     assert!(error.message.contains("unknown binding"));
 }
+
+#[test]
+fn images_returned_from_imported_functions_keep_their_resource_source() {
+    let resolver = |request: AssetRequest<'_>| {
+        assert_eq!(request.reference, "library.mote");
+        Ok(ResolvedAsset {
+            name: "library/elements.mote".into(),
+            bytes: b"#function picture() return document.image({src='asset.png'}) end".to_vec(),
+        })
+    };
+    let document = mote::compile_with_options(
+        "#import('library.mote')\n#picture()",
+        EvaluationOptions {
+            enable_lua: true,
+            asset_resolver: Some(&resolver),
+            source_name: Some(std::ffi::OsStr::new("main.mote")),
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let image = element(&document.content[0]);
+    assert_eq!(
+        image.source_name.as_deref(),
+        Some(std::ffi::OsStr::new("library/elements.mote"))
+    );
+    assert_eq!(image.attributes["src"].to_text(), "asset.png");
+}

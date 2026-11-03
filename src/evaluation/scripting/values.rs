@@ -16,6 +16,9 @@ pub(super) fn to_lua(lua: &Lua, value: &Value) -> mlua::Result<LuaValue> {
             let table = lua.create_table()?;
             table.raw_set("__mote_kind", "element")?;
             table.raw_set("name", element.kind.as_text())?;
+            if let Some(source_name) = &element.source_name {
+                table.raw_set("source_name", source_name.to_string_lossy().as_ref())?;
+            }
             table.raw_set(
                 "category",
                 if element.kind.is_table_part() {
@@ -99,10 +102,10 @@ fn convert(value: LuaValue, depth: usize) -> mlua::Result<Value> {
             };
             match tag.as_deref() {
                 Some("content") => {
-                    return Ok(Value::Content(into_content(convert(
+                    return Ok(Value::Content(content_sequence(
                         table.raw_get("nodes")?,
                         depth + 1,
-                    )?)));
+                    )?));
                 }
                 Some("element") => {
                     let name: String = table.raw_get("name")?;
@@ -134,9 +137,10 @@ fn convert(value: LuaValue, depth: usize) -> mlua::Result<Value> {
                             "invalid category for {name}"
                         )));
                     }
-                    let children = into_content(convert(table.raw_get("children")?, depth + 1)?);
+                    let children = content_sequence(table.raw_get("children")?, depth + 1)?;
+                    let source_name: Option<String> = table.raw_get("source_name")?;
                     return Ok(Value::Element(Box::new(Element {
-                        source_name: None,
+                        source_name: source_name.filter(|name| !name.is_empty()).map(Into::into),
                         kind,
                         attributes,
                         children,
@@ -243,4 +247,12 @@ pub(super) fn from_function_return(value: LuaValue) -> mlua::Result<Value> {
     } else {
         value
     })
+}
+
+fn content_sequence(value: LuaValue, depth: usize) -> mlua::Result<Vec<Content>> {
+    let value = convert(value, depth)?;
+    if matches!(&value, Value::Object(fields) if fields.is_empty()) {
+        return Ok(Vec::new());
+    }
+    Ok(into_content(value))
 }

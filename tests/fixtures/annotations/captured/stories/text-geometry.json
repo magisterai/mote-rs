@@ -190,7 +190,7 @@
         "x": 72,
         "top": 118.45107999999999,
         "height": 15.225539999999999,
-        "width": 210.92499999999998,
+        "width": 203.57699999999997,
         "baseline": 129.36384999999999,
         "fragments": [
           {
@@ -233,39 +233,13 @@
             "missing_codepoints": []
           },
           {
-            "text": "[x]",
+            "text": "[x]Lua ",
             "x": 197.32299999999998,
             "baseline": 129.36384999999999,
             "top": 121.46584999999999,
-            "width": 11.616,
+            "width": 33.022,
             "height": 10.175,
-            "advance": 11.616,
-            "size": 11,
-            "font": "Helvetica",
-            "variant": "regular",
-            "missing_codepoints": []
-          },
-          {
-            "text": "{}",
-            "x": 208.93899999999996,
-            "baseline": 129.36384999999999,
-            "top": 121.46584999999999,
-            "width": 7.348,
-            "height": 10.175,
-            "advance": 7.348,
-            "size": 11,
-            "font": "Helvetica",
-            "variant": "regular",
-            "missing_codepoints": []
-          },
-          {
-            "text": "Lua ",
-            "x": 216.28699999999998,
-            "baseline": 129.36384999999999,
-            "top": 121.46584999999999,
-            "width": 21.406,
-            "height": 10.175,
-            "advance": 21.406,
+            "advance": 33.022,
             "size": 11,
             "font": "Helvetica",
             "variant": "regular",
@@ -273,7 +247,7 @@
           },
           {
             "text": "comment",
-            "x": 237.69299999999998,
+            "x": 230.34499999999997,
             "baseline": 129.36384999999999,
             "top": 121.46584999999999,
             "width": 45.232,

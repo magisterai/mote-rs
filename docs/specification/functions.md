@@ -50,9 +50,9 @@ heading inside a paragraph is an error because paragraphs accept inline content.
 Functions use the first returned Lua value; an ordinary expression with multiple
 results uses the last. Returning an ordinary object inserts its textual value.
 
-Currently, returning an empty content body produces the text `{}` because its
-empty node table follows the empty-table conversion rule. Avoid relying on an
-empty body as an empty return; return `nil` explicitly when no content is wanted.
+Returning an empty content body inserts no content. Tagged content and element
+children preserve their empty sequence identity through Lua. An ordinary empty
+Lua table remains an object and inserts `{}`; return `nil` when no value is wanted.
 
 ## Lexical definitions
 

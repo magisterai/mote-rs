@@ -143,13 +143,7 @@
             },
             {
               "kind": "page_number",
-              "category": "inline",
-              "children": [
-                {
-                  "kind": "text",
-                  "text": "{}"
-                }
-              ]
+              "category": "inline"
             }
           ]
         }

@@ -74,11 +74,9 @@ geometry. Font/style properties and header/footer body rules retain their normal
 meaning. Declaration-only functions can return nil without inserting content.
 
 Constructor aliases retained in Lua continue to work in later expressions.
-Element values use tagged Lua tables to preserve their kind, attributes, and
-children; treating these as opaque values avoids changing their structure by
-accident. The empty-table conversion limit described in [Functions](functions.md)
-also affects empty element children. Leaf elements such as tabs and labels retain
-their defined output behavior and do not render child data.
+Element values use tagged Lua tables to preserve their kind, attributes, source
+identity and children, including empty children. Treat these as opaque values.
+Leaf elements such as tabs and labels retain their defined output behavior.
 
 The same DOCX/native output support and diagnostics apply as for each source
 directive. An attribute retained in the model is not necessarily painted or

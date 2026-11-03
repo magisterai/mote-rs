@@ -22,21 +22,7 @@
             },
             {
               "kind": "text",
-              "text": "{}"
-            },
-            {
-              "kind": "text",
               "text": " after."
-            }
-          ]
-        },
-        {
-          "kind": "paragraph",
-          "category": "block",
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
             }
           ]
         },
@@ -64,21 +50,7 @@
         },
         {
           "kind": "text",
-          "text": "{}"
-        },
-        {
-          "kind": "text",
           "text": " after."
-        }
-      ]
-    },
-    {
-      "kind": "paragraph",
-      "category": "block",
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
         }
       ]
     },

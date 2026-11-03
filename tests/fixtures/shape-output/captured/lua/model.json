@@ -74,13 +74,7 @@
                 "value": 3
               }
             }
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         }
       ]
     }
@@ -148,13 +142,7 @@
             "value": 3
           }
         }
-      },
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
-        }
-      ]
+      }
     }
   ]
 }

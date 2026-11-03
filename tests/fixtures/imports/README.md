@@ -2,9 +2,8 @@
 
 Nested and duplicate declaration imports, font and style registration, captured
 JSON requests, and source-relative layout/deck backgrounds. Two distinct image
-files with the same name expose the Lua element-source limitation: returned
-images resolve from the calling source, while imported backgrounds and fonts
-retain their own source locations.
+files with the same name verify source identity: returned images, imported
+backgrounds and fonts retain their defining source locations.
 
 The frozen sources retain their evaluated models, every editable package part,
 and independent native PNG pages. Manifests pin source, dependency and artifact

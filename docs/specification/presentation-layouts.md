@@ -142,11 +142,8 @@ inherits all slots from a built-in layout:
 ]
 ```
 
-The existing empty-content Lua round-trip converts an empty box's children into
-text. Consequently, passing an empty `document.box` into `document.layout` cannot
-currently declare a slot. Declare slots with `layout`/`box` directives; Lua may
-inherit them and supply slide content. This limitation also applies when an empty
-string body is supplied.
+Empty `document.box` values retain empty children through Lua and can declare
+slots in `document.layout`, including when an empty string body is supplied.
 
 The library model retains ordered layout declarations, slots and optional
 required flags. JSON inspection currently retains slide assignments but omits

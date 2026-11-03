@@ -9,7 +9,7 @@
 - [x] Export local bindings, functions and element defaults; discard ordinary imported content.
 - [x] Import each resolved logical source once and reject active import cycles.
 - [x] Keep source provenance for deferred JSON/CSV requests, font/background declarations and diagnostics.
-- [ ] Preserve image provenance through Lua element conversion. Current Lua element values lose source metadata, so returned images resolve from the calling source.
+- [x] Preserve element source locations through Lua conversion, including empty children and images returned by imported functions.
 
 ## Scope and evidence
 

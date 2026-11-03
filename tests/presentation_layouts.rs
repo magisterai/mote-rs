@@ -246,13 +246,10 @@ fn inherited_unimplemented_properties_keep_output_diagnostics() {
 }
 
 #[test]
-fn empty_lua_box_round_trip_remains_an_explicit_declaration_limit() {
-    let error = mote::compile_with_options(
-        "#let(declared=document.layout({name='custom'},document.box({slot='title',position={width=inch(5),height=inch(1)}})))",
+fn empty_lua_boxes_can_declare_layout_slots() {
+    let document = mote::compile_with_options(
+        "#let(declared=document.layout({name='custom'},document.box({slot='title',position={width=inch(5),height=inch(1)}})))\n#slide(layout='custom')[#box(slot='title')[Title]]",
         mote::evaluation::EvaluationOptions { enable_lua: true, ..Default::default() }
-    ).unwrap_err();
-    assert!(
-        error.message.contains("must not contain content"),
-        "{error:?}"
-    );
+    ).unwrap();
+    assert!(mote::pptx::emit(&document).is_ok());
 }

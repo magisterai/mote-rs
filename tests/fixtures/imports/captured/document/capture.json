@@ -55,8 +55,8 @@
       "sha256": "7a908eec9a458ac8e76adc7f15cfd58c2529f94d6c11eb4116d1be9a20a0f2d6"
     },
     "word/media/image1.png": {
-      "path": "captured/parts/c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e.png",
-      "sha256": "c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e"
+      "path": "captured/parts/cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c.png",
+      "sha256": "cbfde37aec7e31b0edd09ca293ca9e85ffdfb2eb29bf0d1838160a8e1d7b545c"
     },
     "word/media/image2.png": {
       "path": "captured/parts/c519990a295ccff3c33e44fcad6874119d9c158408d8234471f38a2b0ca2409e.png",
@@ -66,7 +66,7 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "cbb9751cb95c1c56970afd84daf4e30679b07ee58be284940f743e060f4ba412",
+      "sha256": "1960d2718f0a2665458b279f34b1e880b7c3569875f5d4c9ef7d403eef609ea1",
       "maximum": 43,
       "mean": 3.607,
       "outliers": 0

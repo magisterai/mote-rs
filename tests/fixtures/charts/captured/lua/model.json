@@ -39,13 +39,7 @@
               "position": "t"
             },
             "title": "From JSON"
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         }
       ]
     }
@@ -78,13 +72,7 @@
           "position": "t"
         },
         "title": "From JSON"
-      },
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
-        }
-      ]
+      }
     }
   ]
 }

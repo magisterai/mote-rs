@@ -97,13 +97,7 @@
                       ]
                     },
                     "kind": "line"
-                  },
-                  "children": [
-                    {
-                      "kind": "text",
-                      "text": "{}"
-                    }
-                  ]
+                  }
                 }
               ]
             }
@@ -163,13 +157,7 @@
                   ]
                 },
                 "kind": "line"
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "text": "{}"
-                }
-              ]
+              }
             }
           ]
         }

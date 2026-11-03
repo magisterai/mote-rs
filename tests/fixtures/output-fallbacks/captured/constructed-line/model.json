@@ -24,13 +24,7 @@
               "x": 72,
               "y": 72
             }
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         },
         {
           "kind": "paragraph",
@@ -58,13 +52,7 @@
           "x": 72,
           "y": 72
         }
-      },
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
-        }
-      ]
+      }
     },
     {
       "kind": "paragraph",

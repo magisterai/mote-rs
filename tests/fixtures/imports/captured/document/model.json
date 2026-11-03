@@ -112,13 +112,7 @@
               "unit": "pt",
               "value": 32
             }
-          },
-          "children": [
-            {
-              "kind": "text",
-              "text": "{}"
-            }
-          ]
+          }
         },
         {
           "kind": "image",
@@ -205,13 +199,7 @@
           "unit": "pt",
           "value": 32
         }
-      },
-      "children": [
-        {
-          "kind": "text",
-          "text": "{}"
-        }
-      ]
+      }
     },
     {
       "kind": "image",

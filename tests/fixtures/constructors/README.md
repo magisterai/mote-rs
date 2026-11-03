@@ -10,6 +10,6 @@ hashes, and native PNG pages. All eight native PDF pages were pixel-exact at
 antialiasing; observed bounds are recorded in the manifests and enforced in tests.
 Microsoft Word review remains unreviewed.
 
-The `empty` case retains converted child data in the model while leaf controls
-keep their defined output semantics. `text` deliberately retains direct heading
+The `empty` case retains empty child sequences without inserting braces; leaf
+controls keep their defined output semantics. `text` deliberately retains direct heading
 color, which native output paints and editable output diagnoses as unsupported.
