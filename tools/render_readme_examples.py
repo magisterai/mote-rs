@@ -9,6 +9,8 @@ import tempfile
 import xml.etree.ElementTree as ElementTree
 import zipfile
 
+from validate_packages import validate_package
+
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 SOURCES = REPOSITORY / "examples/readme"
@@ -81,6 +83,9 @@ def verify_package(path, slides_expected):
             )]
             if len(slides) != slides_expected:
                 raise RuntimeError(f"Expected {slides_expected} slides in {path}, found {len(slides)}")
+    failures = validate_package(path.read_bytes(), path.name)
+    if failures:
+        raise RuntimeError("\n".join(f"{location}: {error}" for location, error in failures))
 
 
 def main():

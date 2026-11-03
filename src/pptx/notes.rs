@@ -49,7 +49,7 @@ pub(super) fn write(
 }
 pub(super) fn master() -> String {
     format!(
-        r#"{HEADER}<p:notesMaster {}><p:cSld><p:spTree>{}</p:spTree></p:cSld><p:clrMap bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/><p:notesStyle/><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr></p:notesMaster>"#,
+        r#"{HEADER}<p:notesMaster {}><p:cSld><p:spTree>{}</p:spTree></p:cSld><p:clrMap bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/><p:notesStyle/></p:notesMaster>"#,
         super::ROOT_ATTRIBUTES,
         super::GROUP
     )

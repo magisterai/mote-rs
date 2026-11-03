@@ -86,7 +86,7 @@ pub(super) fn axes(chart: &Chart, options: &Options) -> Result<String, Error> {
         title(&chart.category_title)?,
         chart.category_label_position()
     );
-    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="l"/>{}<c:numFmt formatCode="General" sourceLinked="1"/>{}<c:majorTickMark val="out"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>"#, title(&chart.value_title)?, gridlines(&chart.gridlines)?));
+    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="out"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title)?));
     Ok(output)
 }
 fn gridlines(gridlines: &Gridlines) -> Result<String, Error> {

@@ -112,8 +112,8 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     },
     "ppt/charts/chart1.xml": {
-      "path": "captured/parts/ee4314196f53b9dee3b03d02ded62f42c1a92ffbea3949e24ca680a8360a817c.xml",
-      "sha256": "ee4314196f53b9dee3b03d02ded62f42c1a92ffbea3949e24ca680a8360a817c"
+      "path": "captured/parts/eb44b1024d74e2a14662210d3997b8c4f41f0b6ba8dff8a39837b05888a7f260.xml",
+      "sha256": "eb44b1024d74e2a14662210d3997b8c4f41f0b6ba8dff8a39837b05888a7f260"
     },
     "ppt/embeddings/chart1.xlsx": {
       "parts": {
@@ -160,8 +160,8 @@
       }
     },
     "ppt/charts/chart2.xml": {
-      "path": "captured/parts/8363a9d3d5c9c6c479d6d74aa7bf39d826decf39dad50b26c28264a79bac0da8.xml",
-      "sha256": "8363a9d3d5c9c6c479d6d74aa7bf39d826decf39dad50b26c28264a79bac0da8"
+      "path": "captured/parts/672c017072b663b306ba9d40b1d0d24b67630b4fd1db784e0145eca8d15e86cb.xml",
+      "sha256": "672c017072b663b306ba9d40b1d0d24b67630b4fd1db784e0145eca8d15e86cb"
     },
     "ppt/embeddings/chart2.xlsx": {
       "parts": {
@@ -208,8 +208,8 @@
       }
     },
     "ppt/charts/chart3.xml": {
-      "path": "captured/parts/6646efd8b232f6b66680a57798826bc50640e7ad51350351023bfaa5b65620b2.xml",
-      "sha256": "6646efd8b232f6b66680a57798826bc50640e7ad51350351023bfaa5b65620b2"
+      "path": "captured/parts/0ba3567d3c1cd11a73ba8069f841e3d37a75d5b0fffb35d58f2f7fb415a2d9cc.xml",
+      "sha256": "0ba3567d3c1cd11a73ba8069f841e3d37a75d5b0fffb35d58f2f7fb415a2d9cc"
     },
     "ppt/embeddings/chart3.xlsx": {
       "parts": {
@@ -256,8 +256,8 @@
       }
     },
     "ppt/charts/chart4.xml": {
-      "path": "captured/parts/58ff6cbdeae4229147142ea9c5d60b21e92cfef77227e7f5327790f8c7ae964a.xml",
-      "sha256": "58ff6cbdeae4229147142ea9c5d60b21e92cfef77227e7f5327790f8c7ae964a"
+      "path": "captured/parts/cf74f813ec8cf46cef9181b0de58ebbdd4cdae300981136ed7155dabec8338eb.xml",
+      "sha256": "cf74f813ec8cf46cef9181b0de58ebbdd4cdae300981136ed7155dabec8338eb"
     },
     "ppt/embeddings/chart4.xlsx": {
       "parts": {

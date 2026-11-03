@@ -56,16 +56,16 @@
       "sha256": "772f67f7ca8143d9576b1749d6727c7219ab8bd78e78d231662a0d845b7c8939"
     },
     "word/charts/chart1.xml": {
-      "path": "captured/parts/32a1570cf48f90332412f6662a28bc7da32aab016baac65b1f88fdc124b5a96c.xml",
-      "sha256": "32a1570cf48f90332412f6662a28bc7da32aab016baac65b1f88fdc124b5a96c"
+      "path": "captured/parts/c3d02ad0218f23016cbec529341d90d754cda6f8bcc677701a9d04b9104f41d4.xml",
+      "sha256": "c3d02ad0218f23016cbec529341d90d754cda6f8bcc677701a9d04b9104f41d4"
     },
     "word/embeddings/chart1.xlsx": {
       "path": "captured/parts/35c4721734952a9275419a865c643811e75332a5445ae0b1df9ec6005f32d82e.xlsx",
       "sha256": "35c4721734952a9275419a865c643811e75332a5445ae0b1df9ec6005f32d82e"
     },
     "word/charts/chart2.xml": {
-      "path": "captured/parts/d83ce779477d597d9b076acf6995361483e14232cf15f11cc0b8dddc204b58b6.xml",
-      "sha256": "d83ce779477d597d9b076acf6995361483e14232cf15f11cc0b8dddc204b58b6"
+      "path": "captured/parts/f4b56ba6017362e02c2ab9672f3d61d0b737fb23bad9cb2208eb87c88e2b7164.xml",
+      "sha256": "f4b56ba6017362e02c2ab9672f3d61d0b737fb23bad9cb2208eb87c88e2b7164"
     },
     "word/embeddings/chart2.xlsx": {
       "path": "captured/parts/86d592771ae041d8a47db4ef017ded43696c8f20b59424228101f6d23f5a2dbd.xlsx",

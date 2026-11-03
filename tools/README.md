@@ -24,6 +24,16 @@ PNG previews. Mote is built first with `cargo build --release`, or selected with
 `docs/images/readme/`. The [example guide](../examples/readme/README.md) explains
 the composition of the sources and their review.
 
+## Package validation
+
+`python3 tools/validate_packages.py PACKAGE...` validates every XML part of the
+named DOCX and PPTX packages, and of their embedded workbooks, against the
+retained ECMA-376 transitional schemas with `xmllint`. Markup compatibility is
+applied first, as Office applies it. Word and PowerPoint may silently omit a
+part that violates its schema, so a package can render natively yet lose a
+chart in Office; the validator reports such parts before review. The README
+generator runs it on every package it publishes.
+
 ## Attribute inventory
 
 `python3 tools/attribute_inventory.py` checks the generated support inventories

@@ -127,17 +127,6 @@ fn properties(paragraph: &DrawingParagraph) -> Result<String, Error> {
             attributes.push_str(&format!(" {name}=\"{}\"", (value * 12700.0).round() as i64));
         }
     }
-    for (name, value) in [
-        ("spcBef", style.spacing_before),
-        ("spcAft", style.spacing_after),
-    ] {
-        if value != 0.0 {
-            children.push_str(&format!(
-                "<a:{name}><a:spcPts val=\"{}\"/></a:{name}>",
-                (value * 100.0).round() as i64
-            ));
-        }
-    }
     let line = match style.line_spacing {
         LineSpacing::Multiple(value) if value != 1.0 => Some(("spcPct", value * 100000.0)),
         LineSpacing::Exact(value) | LineSpacing::AtLeast(value) => Some(("spcPts", value * 100.0)),
@@ -148,6 +137,17 @@ fn properties(paragraph: &DrawingParagraph) -> Result<String, Error> {
             "<a:lnSpc><a:{name} val=\"{}\"/></a:lnSpc>",
             value.round() as i64
         ));
+    }
+    for (name, value) in [
+        ("spcBef", style.spacing_before),
+        ("spcAft", style.spacing_after),
+    ] {
+        if value != 0.0 {
+            children.push_str(&format!(
+                "<a:{name}><a:spcPts val=\"{}\"/></a:{name}>",
+                (value * 100.0).round() as i64
+            ));
+        }
     }
     if let Some(marker) = &paragraph.marker {
         if paragraph.task.is_some() {
@@ -259,11 +259,7 @@ fn run_xml(
     if let Some(identifier) = relationship {
         output.push_str(&format!("<a:hlinkClick r:id=\"rId{identifier}\"/>"));
     }
-    output.push_str("</a:rPr><a:t");
-    if run.preserve_space || run.text.trim() != run.text {
-        output.push_str(" xml:space=\"preserve\"");
-    }
-    output.push('>');
+    output.push_str("</a:rPr><a:t>");
     output.push_str(&escape(&run.text)?);
     output.push_str("</a:t></a:r>");
     Ok(output)
