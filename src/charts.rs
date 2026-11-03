@@ -174,16 +174,7 @@ fn boolean(value: Option<&Value>) -> bool {
     text(value) == "true"
 }
 fn color(value: Option<&Value>) -> String {
-    let text = text(value);
-    let text = text.strip_prefix('#').unwrap_or(&text);
-    let text = if text.len() == 3 && text.is_ascii() {
-        text.chars()
-            .flat_map(|character| [character, character])
-            .collect()
-    } else {
-        text.to_owned()
-    };
-    text.to_uppercase()
+    crate::properties::hex_color(&text(value)).unwrap_or_default()
 }
 fn integer(value: Option<&Value>) -> Option<i64> {
     match value? {

@@ -111,23 +111,8 @@ pub(super) fn boolean(value: &Value) -> Result<bool, Error> {
 
 pub(super) fn color(value: &Value) -> Result<String, Error> {
     let text = value.to_text();
-    let digits = text.trim().strip_prefix('#').unwrap_or(text.trim());
-    if !matches!(digits.len(), 3 | 6)
-        || !digits
-            .chars()
-            .all(|character| character.is_ascii_hexdigit())
-    {
-        return Err(Error::InvalidValue(format!("invalid DOCX color {text:?}")));
-    }
-    Ok(if digits.len() == 3 {
-        digits
-            .chars()
-            .flat_map(|character| [character, character])
-            .collect::<String>()
-    } else {
-        digits.into()
-    }
-    .to_uppercase())
+    crate::properties::hex_color(&text)
+        .ok_or_else(|| Error::InvalidValue(format!("invalid DOCX color {text:?}")))
 }
 
 pub(super) fn half_points(value: &Value) -> Result<i64, Error> {

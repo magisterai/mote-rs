@@ -149,17 +149,5 @@ fn angle(value: f64) -> Result<i64, String> {
 }
 
 fn color_value(value: &str) -> Result<String, String> {
-    let digits = value.trim().trim_start_matches('#');
-    if !matches!(digits.len(), 3 | 6) || !digits.bytes().all(|byte| byte.is_ascii_hexdigit()) {
-        return Err(format!("invalid drawing color {value:?}"));
-    }
-    Ok(if digits.len() == 3 {
-        digits
-            .chars()
-            .flat_map(|character| [character, character])
-            .collect::<String>()
-    } else {
-        digits.into()
-    }
-    .to_ascii_uppercase())
+    crate::properties::hex_color(value).ok_or_else(|| format!("invalid drawing color {value:?}"))
 }

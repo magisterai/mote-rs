@@ -15,20 +15,7 @@ pub(super) fn color(properties: &Properties, name: &str) -> Option<String> {
     parse_color(&text(properties, name))
 }
 pub(super) fn parse_color(text: &str) -> Option<String> {
-    let text = text.trim().strip_prefix('#').unwrap_or(text.trim());
-    if !matches!(text.len(), 3 | 6) || !text.bytes().all(|byte| byte.is_ascii_hexdigit()) {
-        return None;
-    }
-    Some(
-        if text.len() == 3 {
-            text.chars()
-                .flat_map(|character| [character, character])
-                .collect::<String>()
-        } else {
-            text.into()
-        }
-        .to_uppercase(),
-    )
+    crate::properties::hex_color(text)
 }
 pub(super) fn number(value: &Value) -> Option<f64> {
     let number = match value {

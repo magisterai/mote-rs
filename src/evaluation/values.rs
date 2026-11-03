@@ -124,21 +124,15 @@ pub(super) fn normalize_color(
             ));
         }
     };
-    let Some(digits) = text.strip_prefix('#').filter(|digits| {
-        matches!(digits.len(), 3 | 6) && digits.bytes().all(|digit| digit.is_ascii_hexdigit())
-    }) else {
+    let Some(digits) = text
+        .starts_with('#')
+        .then(|| crate::properties::hex_color(&text))
+        .flatten()
+    else {
         return Err(Diagnostic::new(
             span,
             format!("{property} must be a hex color like #fff or #ffffff"),
         ));
-    };
-    let digits = if digits.len() == 3 {
-        digits
-            .chars()
-            .flat_map(|character| [character, character])
-            .collect::<String>()
-    } else {
-        digits.to_owned()
     };
     Ok(Value::Color(format!("#{}", digits.to_ascii_lowercase())))
 }

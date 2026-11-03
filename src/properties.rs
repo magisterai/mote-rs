@@ -13,6 +13,23 @@ pub(crate) fn object<'value>(
         _ => None,
     }
 }
+/// Six uppercase hex digits from `rgb` or `rrggbb`, with or without a leading `#`.
+pub(crate) fn hex_color(text: &str) -> Option<String> {
+    let text = text.trim();
+    let digits = text.strip_prefix('#').unwrap_or(text);
+    if !matches!(digits.len(), 3 | 6) || !digits.bytes().all(|byte| byte.is_ascii_hexdigit()) {
+        return None;
+    }
+    let digits = if digits.len() == 3 {
+        digits
+            .chars()
+            .flat_map(|character| [character, character])
+            .collect()
+    } else {
+        digits.to_owned()
+    };
+    Some(digits.to_ascii_uppercase())
+}
 pub(crate) fn number(properties: &Properties, name: &str) -> Option<f64> {
     text(properties, name)
         .trim()

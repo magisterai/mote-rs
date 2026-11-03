@@ -142,10 +142,7 @@ pub(crate) fn units(value: Option<&Value>) -> Option<i64> {
     crate::drawings::length_in_drawing_units(value)
 }
 pub(crate) fn color(value: Option<&Value>) -> Option<String> {
-    let value = value?.to_text();
-    let value = value.trim().trim_start_matches('#');
-    (value.len() == 6 && value.bytes().all(|byte| byte.is_ascii_hexdigit()))
-        .then(|| value.to_ascii_uppercase())
+    crate::properties::hex_color(&value?.to_text())
 }
 pub(crate) fn font_name(document: &Document, name: &str) -> String {
     document
