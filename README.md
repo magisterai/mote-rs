@@ -49,7 +49,7 @@ OOXML standards.
 
 The report and the deck below share a subject, a fictional reef survey, but
 neither is a conversion of the other. The Word report is
-[86 lines of source](examples/readme/report.mote); the PowerPoint deck is
+[88 lines of source](examples/readme/report.mote); the PowerPoint deck is
 [121 lines](examples/readme/deck.mote). Both read their figures from the same
 [JSON file](examples/readme/survey.json).
 
@@ -170,6 +170,20 @@ defaults from the previous example.
 
 [Complete source](examples/readme/directives.mote) ·
 [Word download](docs/examples/readme/directives.docx)
+
+A span repeated with the same attributes is better served by a character style,
+declared with `type = "character"` and applied by name. The report above sets
+its running header this way:
+
+```mote
+#style "Running" (type = "character", run = {size = pt(8.5), color = "#6b7f88"})
+#style "Brand" extends "Running" (type = "character", run = {bold = true, color = "#0f8a7e"})
+
+#header[#span "Brand"[HALCYON REEF OBSERVATORY]#span "Running"[  ·  Field Report No. 14]]
+```
+
+The Word package receives both as native character styles, so a later edit to
+the style in Word changes every span that uses it.
 
 ## Compose a presentation
 
