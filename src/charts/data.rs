@@ -73,3 +73,30 @@ fn resolve_series(name: String, values: &[Value]) -> Result<Series, Error> {
         .collect::<Result<_, _>>()?;
     Ok(Series { name, values })
 }
+
+/// Check every chart before output, including charts in stories that may be flattened.
+pub(crate) fn validate_document(document: &crate::model::Document) -> Result<(), Error> {
+    validate_content(&document.content)?;
+    for section in &document.sections {
+        for content in [
+            &section.content,
+            &section.header.content,
+            &section.footer.content,
+        ] {
+            validate_content(content)?;
+        }
+    }
+    Ok(())
+}
+
+fn validate_content(content: &[crate::model::Content]) -> Result<(), Error> {
+    for node in content {
+        if let crate::model::Content::Element(element) = node {
+            if element.kind == crate::model::ElementKind::Chart {
+                resolve(crate::properties::object(&element.attributes, "data"))?;
+            }
+            validate_content(&element.children)?;
+        }
+    }
+    Ok(())
+}

@@ -93,6 +93,8 @@ pub fn emit_with_assets(
     resolver: &dyn crate::source::AssetResolver,
     source_name: Option<&std::ffi::OsStr>,
 ) -> Result<GeneratedPackage, Error> {
+    crate::charts::validate_document(document)
+        .map_err(|error| Error::InvalidValue(error.to_string()))?;
     if !document.presentation.properties.is_empty() {
         return Err(Error::Unsupported("presentation declarations".into()));
     }

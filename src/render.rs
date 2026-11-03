@@ -103,6 +103,8 @@ pub fn plan_with_layout_and_fonts(
     mode: LayoutMode,
     fonts: Option<&dyn FontResolver>,
 ) -> Result<Rendered<DocumentTextPlan>, RenderError> {
+    crate::charts::validate_document(document)
+        .map_err(|error| RenderError::Invalid(error.to_string()))?;
     let presentation = mode == LayoutMode::Presentation
         || (mode == LayoutMode::Automatic && !document.presentation.properties.is_empty());
     let mut measurer = TextMeasurer::new(document, resolver, source_name);

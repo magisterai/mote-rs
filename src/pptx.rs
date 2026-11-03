@@ -60,6 +60,7 @@ pub fn emit_with_fonts(
     source_name: Option<&std::ffi::OsStr>,
     fonts: Option<&dyn crate::measurement::FontResolver>,
 ) -> Result<GeneratedPackage, Error> {
+    crate::charts::validate_document(document).map_err(|error| Error(error.to_string()))?;
     let mut measurer = crate::measurement::TextMeasurer::new(document, resolver, source_name);
     if let Some(fonts) = fonts {
         measurer = measurer.with_font_resolver(fonts);

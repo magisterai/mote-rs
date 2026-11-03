@@ -1,6 +1,7 @@
 //! Resolved chart data and appearance shared by editable and native output.
 pub(crate) mod appearance;
 mod data;
+pub(crate) use data::validate_document;
 pub(crate) mod drawingml;
 pub(crate) mod support;
 pub(crate) mod workbook;

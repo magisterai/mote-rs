@@ -1,4 +1,4 @@
-use mote::evaluation::EvaluationOptions;
+use mote::{evaluation::EvaluationOptions, render, source::FileAssetResolver};
 
 use std::io::{Cursor, Read};
 
@@ -66,6 +66,37 @@ fn chart_workbooks_retain_unequal_arrays_without_inventing_numeric_cells() {
     let xml = roxmltree::Document::parse(&strings).unwrap();
     assert_eq!(xml.root_element().attribute("count"), Some("3"));
     assert_eq!(xml.root_element().attribute("uniqueCount"), Some("1"));
+}
+
+#[test]
+fn nonfinite_chart_values_fail_before_any_output_package_is_returned() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for value in ["NaN", "Inf", "-Inf", "1e400"] {
+        for wrapper in ["{}", "#header[{}]\n\nBody", "#footer[{}]\n\nBody"] {
+            let chart = format!("#chart(data={{values={{'{value}'}}}})");
+            let source = wrapper.replace("{}", &chart);
+            let document = mote::compile(&source).unwrap();
+            assert!(
+                mote::docx::emit(&document)
+                    .unwrap_err()
+                    .to_string()
+                    .contains("finite")
+            );
+            assert!(
+                mote::pptx::emit(&document)
+                    .unwrap_err()
+                    .to_string()
+                    .contains("finite")
+            );
+            assert!(
+                render::plan(&document, &resolver, None)
+                    .err()
+                    .unwrap()
+                    .to_string()
+                    .contains("finite")
+            );
+        }
+    }
 }
 
 #[test]
