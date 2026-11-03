@@ -77,7 +77,7 @@
           "children": [
             {
               "kind": "text",
-              "text": "Blocks: "
+              "text": "Blocks:"
             }
           ]
         },
@@ -221,7 +221,7 @@
       "children": [
         {
           "kind": "text",
-          "text": "Blocks: "
+          "text": "Blocks:"
         }
       ]
     },

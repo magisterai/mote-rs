@@ -19,8 +19,10 @@ level, a blank line ends an implicit paragraph. A block directive also ends any
 preceding implicit paragraph. Leading and trailing spaces, tabs, and line
 endings at the edges of an implicit paragraph are discarded.
 
-An explicit body preserves content spaces and indentation, except syntactic
-indentation before directives and block markers as defined in the syntax chapter. A blank line
+An explicit body preserves content spaces within a line. A line ending absorbs
+the indentation around it and supplies one space, or nothing at the edge of the
+body, as defined in the syntax chapter; a body may therefore be indented freely
+in the source. A blank line
 inside that body contributes two line-feed characters to its text; it does not
 create a nested paragraph. Use separate paragraph directives for separate
 paragraph blocks. [Inline text](inline-text.md) defines hard line-break syntax.

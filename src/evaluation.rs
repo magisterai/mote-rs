@@ -155,12 +155,62 @@ impl ContentMode {
     }
 }
 
+/// Source indentation is layout, not content: a soft line break absorbs the
+/// horizontal whitespace around it, and contributes nothing at either edge of a
+/// body. Preserved-space contexts keep their source text unchanged.
+fn collapse_soft_line_breaks(nodes: &[Node]) -> Vec<Node> {
+    let is_soft_break = |node: &Node| matches!(node.kind, NodeKind::LineBreak { hard: false });
+    let is_blank = |node: &Node| matches!(&node.kind, NodeKind::Text(text) if text.trim_matches([' ', '\t']).is_empty());
+    let mut collapsed: Vec<Node> = Vec::with_capacity(nodes.len());
+    let mut after_soft_break = false;
+    for node in nodes {
+        if is_soft_break(node) {
+            if let Some(Node { kind: NodeKind::Text(text), .. }) = collapsed.last_mut() {
+                text.truncate(text.trim_end_matches([' ', '\t']).len());
+            }
+            while collapsed.last().is_some_and(is_blank) {
+                collapsed.pop();
+            }
+            if !collapsed.is_empty() && !after_soft_break {
+                collapsed.push(node.clone());
+            }
+            after_soft_break = true;
+            continue;
+        }
+        if after_soft_break && let NodeKind::Text(text) = &node.kind {
+            let remainder = text.trim_start_matches([' ', '\t']);
+            if remainder.is_empty() {
+                continue;
+            }
+            collapsed.push(Node {
+                kind: NodeKind::Text(remainder.into()),
+                span: node.span,
+            });
+            after_soft_break = false;
+            continue;
+        }
+        after_soft_break = false;
+        collapsed.push(node.clone());
+    }
+    if collapsed.last().is_some_and(is_soft_break) {
+        collapsed.pop();
+    }
+    collapsed
+}
+
 fn evaluate_nodes(
     nodes: &[Node],
     mode: ContentMode,
     context: EvaluationContext<'_>,
     document: &mut EvaluationState<'_>,
 ) -> Result<Vec<Content>, Diagnostic> {
+    let normalized;
+    let nodes = if context.preserve_space {
+        nodes
+    } else {
+        normalized = collapse_soft_line_breaks(nodes);
+        &normalized[..]
+    };
     let mut result = Vec::new();
     let mut paragraph = Vec::new();
     let mut skip_declaration_trivia = false;

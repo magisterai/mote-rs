@@ -36,15 +36,7 @@
             },
             {
               "kind": "text",
-              "text": " "
-            },
-            {
-              "kind": "text",
               "text": "inner"
-            },
-            {
-              "kind": "text",
-              "text": " "
             }
           ]
         },
@@ -86,15 +78,7 @@
         },
         {
           "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "text",
           "text": "inner"
-        },
-        {
-          "kind": "text",
-          "text": " "
         }
       ]
     },

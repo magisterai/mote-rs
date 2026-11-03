@@ -354,3 +354,35 @@ fn underlined_headings_retain_marker_precedence_and_inline_content() {
     assert_eq!(content[0]["children"][1]["kind"], "strong");
     assert_eq!(content[2]["children"][0]["text"], "---");
 }
+
+#[test]
+fn indented_body_lines_collapse_to_single_spaces_unless_space_is_preserved() {
+    let model = content_model(
+        "#paragraph[\n  Revenue grew by #strong[18%],\t \n    with steady progress.\n]",
+    );
+    assert_eq!(
+        model["content"][0]["children"],
+        json!([
+            {"kind": "text", "text": "Revenue grew by "},
+            {"kind": "strong", "category": "inline", "children": [{"kind": "text", "text": "18%"}]},
+            {"kind": "text", "text": ","},
+            {"kind": "text", "text": " "},
+            {"kind": "text", "text": "with steady progress."}
+        ])
+    );
+    let preserved = content_model("#code(preserve_space = true)[\n  first\n    second\n]");
+    assert_eq!(
+        preserved["content"][0]["children"][0]["children"],
+        json!([
+            {"kind": "text", "text": "\n"},
+            {"kind": "text", "text": "  first"},
+            {"kind": "text", "text": "\n"},
+            {"kind": "text", "text": "    second"},
+            {"kind": "text", "text": "\n"}
+        ])
+    );
+    assert_eq!(
+        content_model("#paragraph[ leading and trailing spaces on one line ]")["content"][0]["children"],
+        json!([{"kind": "text", "text": " leading and trailing spaces on one line "}])
+    );
+}

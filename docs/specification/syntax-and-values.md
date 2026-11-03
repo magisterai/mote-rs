@@ -11,10 +11,13 @@ Markdown or expression grammar. Every example uses those defined forms.
 Source is UTF-8 text. LF, CRLF, and CR are line endings. Within ordinary flowing
 text, a single line ending supplies a space; a blank line separates paragraphs.
 Leading and trailing whitespace around an implicit paragraph is discarded.
-Whitespace inside an explicit content body is content, except indentation before
-a directive or block marker at the start of the body or a source line. That
-indentation belongs to the syntax and is discarded; indentation before ordinary
-text remains content.
+Whitespace inside an explicit content body is content, with two exceptions that
+make source layout independent of the text. Indentation before a directive or
+block marker at the start of the body or a source line belongs to the syntax and
+is discarded. A single line ending in flowing text, together with the spaces and
+tabs on either side of it, supplies one space; a line ending at either edge of a
+body supplies nothing. Text whose space is preserved, such as `code` or `raw`
+with `preserve_space = true`, keeps its line endings and indentation unchanged.
 
 The portable identifier form used in this chapter starts with an ASCII letter
 or underscore, followed by ASCII letters, digits, or underscores. Names are

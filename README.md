@@ -155,7 +155,10 @@ defaults from the previous example.
 # Quarterly brief
 
 #paragraph "Lead"[A strong quarter. A focused next step.]
-#paragraph[Revenue grew by #span(bold = true, color = "#0f766e")[18%], with steady progress across both teams.]
+#paragraph[
+  Revenue grew by #span(bold = true, color = "#0f766e")[18%],
+  with steady progress across both teams.
+]
 
 - Launch the customer research programme.
 - Expand the self-service onboarding guide.

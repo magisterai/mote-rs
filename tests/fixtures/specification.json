@@ -6783,11 +6783,7 @@
               "children": [
                 {
                   "kind": "text",
-                  "text": " "
-                },
-                {
-                  "kind": "text",
-                  "text": "  The result is provisional"
+                  "text": "The result is provisional"
                 },
                 {
                   "kind": "footnote",
@@ -6818,7 +6814,7 @@
                 },
                 {
                   "kind": "text",
-                  "text": "  See the archive"
+                  "text": "See the archive"
                 },
                 {
                   "kind": "endnote",
@@ -6839,10 +6835,6 @@
                 {
                   "kind": "text",
                   "text": "."
-                },
-                {
-                  "kind": "text",
-                  "text": " "
                 }
               ]
             }
@@ -6856,11 +6848,7 @@
           "children": [
             {
               "kind": "text",
-              "text": " "
-            },
-            {
-              "kind": "text",
-              "text": "  The result is provisional"
+              "text": "The result is provisional"
             },
             {
               "kind": "footnote",
@@ -6891,7 +6879,7 @@
             },
             {
               "kind": "text",
-              "text": "  See the archive"
+              "text": "See the archive"
             },
             {
               "kind": "endnote",
@@ -6912,10 +6900,6 @@
             {
               "kind": "text",
               "text": "."
-            },
-            {
-              "kind": "text",
-              "text": " "
             }
           ]
         }
@@ -10201,10 +10185,6 @@
               "category": "block",
               "children": [
                 {
-                  "kind": "text",
-                  "text": " "
-                },
-                {
                   "kind": "underline",
                   "category": "inline",
                   "attributes": {
@@ -10279,7 +10259,7 @@
                 },
                 {
                   "kind": "text",
-                  "text": "  Water is H"
+                  "text": "Water is H"
                 },
                 {
                   "kind": "subscript",
@@ -10308,10 +10288,6 @@
                 {
                   "kind": "text",
                   "text": "."
-                },
-                {
-                  "kind": "text",
-                  "text": " "
                 }
               ]
             }
@@ -10323,10 +10299,6 @@
           "kind": "paragraph",
           "category": "block",
           "children": [
-            {
-              "kind": "text",
-              "text": " "
-            },
             {
               "kind": "underline",
               "category": "inline",
@@ -10402,7 +10374,7 @@
             },
             {
               "kind": "text",
-              "text": "  Water is H"
+              "text": "Water is H"
             },
             {
               "kind": "subscript",
@@ -10431,10 +10403,6 @@
             {
               "kind": "text",
               "text": "."
-            },
-            {
-              "kind": "text",
-              "text": " "
             }
           ]
         }
@@ -11162,10 +11130,6 @@
               "children": [
                 {
                   "kind": "text",
-                  "text": " "
-                },
-                {
-                  "kind": "text",
                   "text": "CAFÉ"
                 },
                 {
@@ -11195,10 +11159,6 @@
                 {
                   "kind": "text",
                   "text": "."
-                },
-                {
-                  "kind": "text",
-                  "text": " "
                 }
               ]
             }
@@ -11217,10 +11177,6 @@
             }
           },
           "children": [
-            {
-              "kind": "text",
-              "text": " "
-            },
             {
               "kind": "text",
               "text": "CAFÉ"
@@ -11252,10 +11208,6 @@
             {
               "kind": "text",
               "text": "."
-            },
-            {
-              "kind": "text",
-              "text": " "
             }
           ]
         }
@@ -11283,10 +11235,6 @@
               "kind": "paragraph",
               "category": "block",
               "children": [
-                {
-                  "kind": "text",
-                  "text": " "
-                },
                 {
                   "kind": "text",
                   "text": "Approved "
@@ -11341,10 +11289,6 @@
                       "text": "Ready for review."
                     }
                   ]
-                },
-                {
-                  "kind": "text",
-                  "text": " "
                 }
               ]
             }
@@ -11356,10 +11300,6 @@
           "kind": "paragraph",
           "category": "block",
           "children": [
-            {
-              "kind": "text",
-              "text": " "
-            },
             {
               "kind": "text",
               "text": "Approved "
@@ -11414,10 +11354,6 @@
                   "text": "Ready for review."
                 }
               ]
-            },
-            {
-              "kind": "text",
-              "text": " "
             }
           ]
         }

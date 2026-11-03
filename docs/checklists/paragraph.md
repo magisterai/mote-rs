@@ -10,6 +10,10 @@
 - [x] One required inline body, including an empty body; no positional arguments.
 - [x] Implicit paragraphs, whitespace handling, block boundaries, and rejection of
   nested blocks in an explicit paragraph.
+- [x] Indented body lines: a line ending and its surrounding indentation supply
+  one space, and nothing at a body edge, unless space is preserved; see the
+  [syntax chapter](../specification/syntax-and-values.md) and the
+  [content tests](../../tests/content.rs).
 - [x] Omitted attributes remain absent; explicit zero spacing remains present.
 
 ## Attributes
