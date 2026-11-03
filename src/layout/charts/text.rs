@@ -55,7 +55,7 @@ impl<'measurement, 'assets> ChartMeasurement<'measurement, 'assets> {
         };
         super::super::paragraphs::plan_resolved_paragraph(
             style,
-            None,
+            Default::default(),
             &[TextRun::new(text, text_style)],
             width,
             self.measurer,

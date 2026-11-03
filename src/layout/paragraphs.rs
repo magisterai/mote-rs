@@ -1,6 +1,6 @@
 use super::{
-    Alignment, LayoutError, LayoutStyleResolver, LineOptions, ParagraphStyle, TextLine, TextRun,
-    plan_text, resolve_inline,
+    Alignment, LayoutError, LayoutStyleResolver, LineOptions, ParagraphBorders, ParagraphStyle,
+    TextLine, TextRun, plan_text, resolve_inline,
 };
 use crate::{
     measurement::TextMeasurer,
@@ -15,7 +15,7 @@ pub struct LineFrame {
 #[derive(Debug, Clone, PartialEq)]
 pub struct ParagraphText {
     pub style: ParagraphStyle,
-    pub border_color: Option<String>,
+    pub borders: ParagraphBorders,
     pub is_empty: bool,
     pub first_frame: LineFrame,
     pub continuation_frame: LineFrame,
@@ -46,7 +46,7 @@ pub fn plan_paragraph_text(
     let runs = resolve_inline(&element.children, &style.text, styles);
     plan_resolved_paragraph(
         style,
-        styles.border_color(element),
+        styles.borders(element),
         &runs,
         container_width,
         measurer,
@@ -57,7 +57,7 @@ pub fn plan_paragraph_text(
 
 pub(super) fn plan_resolved_paragraph(
     style: ParagraphStyle,
-    border_color: Option<String>,
+    borders: ParagraphBorders,
     runs: &[TextRun],
     container_width: f64,
     measurer: &mut TextMeasurer<'_>,
@@ -94,8 +94,16 @@ pub(super) fn plan_resolved_paragraph(
     for line in &mut lines {
         line.translate(origin, 0.0);
     }
+    let top = borders.top_outset();
+    if let Some(first) = lines.first_mut() {
+        first.translate(0.0, top);
+        first.height += top;
+    }
+    if let Some(last) = lines.last_mut() {
+        last.height += borders.bottom_outset();
+    }
     Ok(ParagraphText {
-        border_color,
+        borders,
         is_empty: runs.is_empty(),
         style,
         first_frame,

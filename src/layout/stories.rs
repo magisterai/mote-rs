@@ -155,9 +155,10 @@ fn measure(
         let runs = super::resolve_inline(&paragraph.children, &style.text, styles);
         let before = style.spacing_before;
         let after = style.spacing_after;
+        let borders = styles.borders(&paragraph);
         let paragraph = super::paragraphs::plan_resolved_paragraph(
             style,
-            None,
+            borders,
             &runs,
             geometry.content_width(),
             measurer,

@@ -625,20 +625,31 @@ fn nested(
         ));
     }
     if let Some(Value::Object(border)) = properties.get("border") {
-        unknown(
-            border,
-            &["all", "bottom"],
-            &format!("{path}.border"),
-            warnings,
-        );
-        for side in ["all", "bottom"] {
-            if let Some(Value::Object(properties)) = border.get(side) {
-                unknown(
-                    properties,
-                    &["color"],
-                    &format!("{path}.border.{side}"),
-                    warnings,
-                );
+        let sides = ["all", "top", "right", "bottom", "left"];
+        unknown(border, &sides, &format!("{path}.border"), warnings);
+        for side in sides {
+            let style = match border.get(side) {
+                Some(Value::Object(properties)) => {
+                    unknown(
+                        properties,
+                        &["style", "val", "size", "width", "space", "color"],
+                        &format!("{path}.border.{side}"),
+                        warnings,
+                    );
+                    ["style", "val"]
+                        .iter()
+                        .filter_map(|name| properties.get(*name))
+                        .map(Value::to_text)
+                        .find(|text| !text.is_empty())
+                        .unwrap_or_default()
+                }
+                Some(value) => value.to_text(),
+                None => continue,
+            };
+            if !matches!(style.as_str(), "" | "single" | "thick" | "none" | "nil") {
+                warnings.insert(format!(
+                    "{path}.border.{side} style {style:?} is drawn as a single line"
+                ));
             }
         }
     }

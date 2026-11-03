@@ -202,7 +202,7 @@ pub(super) fn prepare(
             for block in &mut cell.blocks {
                 if let Block::Paragraph(paragraph) = block {
                     paragraph.text.style.fill = None;
-                    paragraph.text.border_color = None;
+                    paragraph.text.borders = Default::default();
                 }
             }
             let mut previous_after: f64 = 0.0;

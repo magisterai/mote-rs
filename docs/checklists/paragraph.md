@@ -93,9 +93,12 @@ without rewriting authored metadata.
 ## Native output evidence
 
 PDF and PNG use the shared block plan, including list and heading numbering,
-quote text, and paragraph fills. Native paragraph borders currently use the
-resolved `all.color` or `bottom.color` for a 0.35-point bottom rule on each line;
-other sides, widths, and border styles are outside that painting behavior.
+quote text, and paragraph fills. Native paragraph borders paint each resolved
+side as a solid rule outside the text, offset by its `space`, with the width and
+colour defaults of the DOCX writer (0.5 points, `BFBFBF`). A top or bottom border
+and its spacing add to the paragraph's height, as in Word. Styles other than
+single and thick are drawn as a single line and reported; borders inside table
+cells are not painted. See the [native block tests](../../tests/native_blocks.rs).
 List item child blocks and quote child blocks flatten to inline text; nested lists
 inside list items retain their own markers. See the
 [native block captures](../../tests/fixtures/native-blocks/README.md) and

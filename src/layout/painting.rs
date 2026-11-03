@@ -207,16 +207,7 @@ impl ParagraphPainting {
             } else {
                 self.pending_fill = None;
             }
-            if let Some(color) = &paragraph.border_color {
-                let bottom = placement.top + placement.height;
-                page.operations.push(PageOperation::Rule(Rule {
-                    role: crate::layout::RuleRole::Generic,
-                    start: [placement.frame.x, bottom],
-                    end: [placement.frame.x + placement.frame.width, bottom],
-                    width: 0.35,
-                    color: color.clone(),
-                }));
-            }
+            paint_borders(page, paragraph, &placement, horizontal);
         } else {
             self.pending_fill = None;
         }
@@ -250,5 +241,49 @@ impl ParagraphPainting {
             top: placement.top,
             line,
         });
+    }
+}
+
+/// Side rules sit outside the text by their spacing; top and bottom rules occupy
+/// the height that paragraph planning reserved for them.
+fn paint_borders(
+    page: &mut super::TextPage,
+    paragraph: &super::paragraphs::ParagraphText,
+    placement: &super::LinePlacement,
+    horizontal: f64,
+) {
+    let borders = &paragraph.borders;
+    let first = placement.line_index == 0;
+    let last = placement.line_index + 1 == paragraph.lines.len();
+    let left = horizontal + paragraph.continuation_frame.x;
+    let right = left + paragraph.continuation_frame.width;
+    let top = placement.top;
+    let bottom = placement.top + placement.height;
+    let mut rule = |start: [f64; 2], end: [f64; 2], side: &crate::layout::BorderSide| {
+        page.operations.push(PageOperation::Rule(Rule {
+            role: crate::layout::RuleRole::Generic,
+            start,
+            end,
+            width: side.width,
+            color: side.color.clone(),
+        }));
+    };
+    let left_edge = left - borders.left.as_ref().map_or(0.0, |side| side.outset());
+    let right_edge = right + borders.right.as_ref().map_or(0.0, |side| side.outset());
+    if let Some(side) = &borders.left {
+        let x = left - side.space - side.width / 2.0;
+        rule([x, top], [x, bottom], side);
+    }
+    if let Some(side) = &borders.right {
+        let x = right + side.space + side.width / 2.0;
+        rule([x, top], [x, bottom], side);
+    }
+    if first && let Some(side) = &borders.top {
+        let y = top + side.width / 2.0;
+        rule([left_edge, y], [right_edge, y], side);
+    }
+    if last && let Some(side) = &borders.bottom {
+        let y = bottom - side.width / 2.0;
+        rule([left_edge, y], [right_edge, y], side);
     }
 }

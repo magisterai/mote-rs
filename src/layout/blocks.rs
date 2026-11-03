@@ -316,7 +316,7 @@ impl BlockBuilder<'_, '_, '_> {
         }
         let mut paragraph = plan_resolved_paragraph(
             style,
-            self.styles.border_color(&element),
+            self.styles.borders(&element),
             &runs,
             self.width,
             self.measurer,
@@ -460,7 +460,7 @@ impl BlockBuilder<'_, '_, '_> {
                         .layout_width;
                     let paragraph = plan_resolved_paragraph(
                         marker_style,
-                        None,
+                        Default::default(),
                         &[TextRun::new(marker_text, style.text.clone())],
                         item_geometry.hanging.max(measured).max(1.0),
                         self.measurer,
@@ -480,7 +480,7 @@ impl BlockBuilder<'_, '_, '_> {
                 };
                 let paragraph = plan_resolved_paragraph(
                     style,
-                    self.styles.border_color(&element),
+                    self.styles.borders(&element),
                     &runs,
                     self.width,
                     self.measurer,

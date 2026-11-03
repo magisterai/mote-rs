@@ -8175,14 +8175,14 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 16,
+                  "font_size": 16.0,
                   "height": 14.799999999999999,
                   "missing_codepoints": [],
                   "text": "1.",
                   "top": 38.940799999999996,
                   "variant": "bold",
                   "width": 13.344,
-                  "x": 24
+                  "x": 24.0
                 },
                 {
                   "advance": 41.792,
@@ -8194,14 +8194,14 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 16,
+                  "font_size": 16.0,
                   "height": 14.799999999999999,
                   "missing_codepoints": [],
                   "text": "Lists ",
                   "top": 38.940799999999996,
                   "variant": "bold",
                   "width": 41.792,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
                   "advance": 32.896,
@@ -8213,7 +8213,7 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 16,
+                  "font_size": 16.0,
                   "height": 14.799999999999999,
                   "missing_codepoints": [],
                   "text": "and ",
@@ -8232,7 +8232,7 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 16,
+                  "font_size": 16.0,
                   "height": 14.799999999999999,
                   "missing_codepoints": [],
                   "text": "paragraph ",
@@ -8251,7 +8251,7 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 16,
+                  "font_size": 16.0,
                   "height": 14.799999999999999,
                   "missing_codepoints": [],
                   "text": "paint",
@@ -8262,9 +8262,9 @@
                 }
               ],
               "height": 19.2576,
-              "top": 36,
+              "top": 36.0,
               "width": 231.6,
-              "x": 24
+              "x": 24.0
             },
             {
               "baseline": 75.16244,
@@ -8279,14 +8279,14 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "A ",
                   "top": 63.16244,
                   "variant": "regular",
                   "width": 8.9375,
-                  "x": 24
+                  "x": 24.0
                 },
                 {
                   "advance": 39.28125,
@@ -8298,7 +8298,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "shaded ",
@@ -8317,7 +8317,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "paragraph ",
@@ -8336,14 +8336,14 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "wraps ",
                   "top": 63.16244,
                   "variant": "regular",
                   "width": 32.546875,
-                  "x": 126
+                  "x": 126.0
                 },
                 {
                   "advance": 25.8125,
@@ -8355,7 +8355,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "onto ",
@@ -8374,7 +8374,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "another ",
@@ -8393,7 +8393,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "line ",
@@ -8412,7 +8412,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "with ",
@@ -8431,7 +8431,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "enough ",
@@ -8450,7 +8450,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "text ",
@@ -8469,7 +8469,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "to ",
@@ -8488,7 +8488,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "exercise",
@@ -8501,7 +8501,7 @@
               "height": 16.60968,
               "top": 63.2576,
               "width": 362.546875,
-              "x": 24
+              "x": 24.0
             },
             {
               "baseline": 91.77212,
@@ -8516,14 +8516,14 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "the ",
                   "top": 79.77212,
                   "variant": "regular",
                   "width": 18.953125,
-                  "x": 24
+                  "x": 24.0
                 },
                 {
                   "advance": 18.5625,
@@ -8535,7 +8535,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "full ",
@@ -8554,7 +8554,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "band ",
@@ -8573,7 +8573,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "width.",
@@ -8583,17 +8583,17 @@
                   "x": 89.609375
                 }
               ],
-              "height": 16.60968,
+              "height": 17.10968,
               "top": 79.86728,
               "width": 97.421875,
-              "x": 24
+              "x": 24.0
             },
             {
-              "baseline": 114.3818,
+              "baseline": 114.8818,
               "fragments": [
                 {
                   "advance": 46.328125,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8601,18 +8601,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Adjacent ",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 46.328125,
-                  "x": 44
+                  "x": 44.0
                 },
                 {
                   "advance": 42.234375,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8620,18 +8620,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "shading ",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 42.234375,
                   "x": 90.328125
                 },
                 {
                   "advance": 39.625,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8639,18 +8639,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "bridges ",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 39.625,
                   "x": 132.5625
                 },
                 {
                   "advance": 40.953125,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8658,18 +8658,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "spacing ",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 40.953125,
                   "x": 172.1875
                 },
                 {
                   "advance": 29.53125,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8677,18 +8677,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "using ",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 29.53125,
                   "x": 213.140625
                 },
                 {
                   "advance": 18.953125,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8696,18 +8696,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "the ",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 18.953125,
                   "x": 242.671875
                 },
                 {
                   "advance": 45.71875,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8715,18 +8715,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "previous ",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 45.71875,
                   "x": 261.625
                 },
                 {
                   "advance": 15.5625,
-                  "baseline": 114.3818,
+                  "baseline": 114.8818,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8734,27 +8734,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "fill.",
-                  "top": 102.3818,
+                  "top": 102.8818,
                   "variant": "regular",
                   "width": 15.5625,
                   "x": 307.34375
                 }
               ],
               "height": 16.60968,
-              "top": 102.47695999999999,
+              "top": 102.97695999999999,
               "width": 278.90625,
-              "x": 44
+              "x": 44.0
             },
             {
-              "baseline": 138.99148,
+              "baseline": 139.49148,
               "fragments": [
                 {
                   "advance": 31.984375,
-                  "baseline": 138.99148,
+                  "baseline": 139.49148,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8762,18 +8762,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Bullet ",
-                  "top": 126.99148,
+                  "top": 127.49148,
                   "variant": "regular",
                   "width": 31.984375,
-                  "x": 54
+                  "x": 54.0
                 },
                 {
                   "advance": 24.578125,
-                  "baseline": 138.99148,
+                  "baseline": 139.49148,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8781,18 +8781,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "with ",
-                  "top": 126.99148,
+                  "top": 127.49148,
                   "variant": "regular",
                   "width": 24.578125,
                   "x": 85.984375
                 },
                 {
                   "advance": 57.453125,
-                  "baseline": 138.99148,
+                  "baseline": 139.49148,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8800,18 +8800,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "underlined ",
-                  "top": 126.99148,
+                  "top": 127.49148,
                   "variant": "regular",
                   "width": 57.453125,
                   "x": 110.5625
                 },
                 {
                   "advance": 18.734375,
-                  "baseline": 138.99148,
+                  "baseline": 139.49148,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8819,18 +8819,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "text",
-                  "top": 126.99148,
+                  "top": 127.49148,
                   "variant": "regular",
                   "width": 18.734375,
                   "x": 168.015625
                 },
                 {
                   "advance": 2.984375,
-                  "baseline": 138.99148,
+                  "baseline": 139.49148,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8838,27 +8838,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": ".",
-                  "top": 126.99148,
+                  "top": 127.49148,
                   "variant": "regular",
                   "width": 2.984375,
                   "x": 186.75
                 }
               ],
               "height": 16.60968,
-              "top": 127.08663999999999,
+              "top": 127.58663999999999,
               "width": 135.734375,
-              "x": 54
+              "x": 54.0
             },
             {
-              "baseline": 157.60116,
+              "baseline": 158.10116,
               "fragments": [
                 {
                   "advance": 57.6875,
-                  "baseline": 157.60116,
+                  "baseline": 158.10116,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8866,18 +8866,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Completed ",
-                  "top": 145.60116,
+                  "top": 146.10116,
                   "variant": "regular",
                   "width": 57.6875,
-                  "x": 54
+                  "x": 54.0
                 },
                 {
                   "advance": 23.9375,
-                  "baseline": 157.60116,
+                  "baseline": 158.10116,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8885,27 +8885,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "task.",
-                  "top": 145.60116,
+                  "top": 146.10116,
                   "variant": "regular",
                   "width": 23.9375,
                   "x": 111.6875
                 }
               ],
               "height": 16.60968,
-              "top": 145.69632,
+              "top": 146.19632,
               "width": 81.625,
-              "x": 54
+              "x": 54.0
             },
             {
-              "baseline": 176.21084,
+              "baseline": 176.71084,
               "fragments": [
                 {
                   "advance": 43.5625,
-                  "baseline": 176.21084,
+                  "baseline": 176.71084,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8913,18 +8913,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Pending ",
-                  "top": 164.21084,
+                  "top": 164.71084,
                   "variant": "regular",
                   "width": 43.5625,
-                  "x": 54
+                  "x": 54.0
                 },
                 {
                   "advance": 23.9375,
-                  "baseline": 176.21084,
+                  "baseline": 176.71084,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8932,27 +8932,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "task.",
-                  "top": 164.21084,
+                  "top": 164.71084,
                   "variant": "regular",
                   "width": 23.9375,
                   "x": 97.5625
                 }
               ],
               "height": 16.60968,
-              "top": 164.30599999999998,
+              "top": 164.80599999999998,
               "width": 67.5,
-              "x": 54
+              "x": 54.0
             },
             {
-              "baseline": 194.82052,
+              "baseline": 195.32052,
               "fragments": [
                 {
                   "advance": 8.9375,
-                  "baseline": 194.82052,
+                  "baseline": 195.32052,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8960,18 +8960,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "A ",
-                  "top": 182.82052,
+                  "top": 183.32052,
                   "variant": "regular",
                   "width": 8.9375,
-                  "x": 54
+                  "x": 54.0
                 },
                 {
                   "advance": 36.09375,
-                  "baseline": 194.82052,
+                  "baseline": 195.32052,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8979,18 +8979,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "nested ",
-                  "top": 182.82052,
+                  "top": 183.32052,
                   "variant": "regular",
                   "width": 36.09375,
                   "x": 62.9375
                 },
                 {
                   "advance": 50.1875,
-                  "baseline": 194.82052,
+                  "baseline": 195.32052,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -8998,18 +8998,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "sequence ",
-                  "top": 182.82052,
+                  "top": 183.32052,
                   "variant": "regular",
                   "width": 50.1875,
                   "x": 99.03125
                 },
                 {
                   "advance": 39.046875,
-                  "baseline": 194.82052,
+                  "baseline": 195.32052,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9017,27 +9017,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "follows.",
-                  "top": 182.82052,
+                  "top": 183.32052,
                   "variant": "regular",
                   "width": 39.046875,
                   "x": 149.21875
                 }
               ],
               "height": 16.60968,
-              "top": 182.91567999999998,
+              "top": 183.41567999999998,
               "width": 134.265625,
-              "x": 54
+              "x": 54.0
             },
             {
-              "baseline": 213.43019999999999,
+              "baseline": 213.93019999999999,
               "fragments": [
                 {
                   "advance": 24.15625,
-                  "baseline": 213.43019999999999,
+                  "baseline": 213.93019999999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9045,18 +9045,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "First ",
-                  "top": 201.43019999999999,
+                  "top": 201.93019999999999,
                   "variant": "regular",
                   "width": 24.15625,
-                  "x": 78
+                  "x": 78.0
                 },
                 {
                   "advance": 28.65625,
-                  "baseline": 213.43019999999999,
+                  "baseline": 213.93019999999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9064,27 +9064,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "letter.",
-                  "top": 201.43019999999999,
+                  "top": 201.93019999999999,
                   "variant": "regular",
                   "width": 28.65625,
                   "x": 102.15625
                 }
               ],
               "height": 16.60968,
-              "top": 201.52535999999998,
+              "top": 202.02535999999998,
               "width": 52.8125,
-              "x": 78
+              "x": 78.0
             },
             {
-              "baseline": 232.03987999999998,
+              "baseline": 232.53987999999998,
               "fragments": [
                 {
                   "advance": 49.703125,
-                  "baseline": 232.03987999999998,
+                  "baseline": 232.53987999999998,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9092,18 +9092,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Repeated ",
-                  "top": 220.03987999999998,
+                  "top": 220.53987999999998,
                   "variant": "regular",
                   "width": 49.703125,
-                  "x": 78
+                  "x": 78.0
                 },
                 {
                   "advance": 28.65625,
-                  "baseline": 232.03987999999998,
+                  "baseline": 232.53987999999998,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9111,27 +9111,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "letter.",
-                  "top": 220.03987999999998,
+                  "top": 220.53987999999998,
                   "variant": "regular",
                   "width": 28.65625,
                   "x": 127.703125
                 }
               ],
               "height": 16.60968,
-              "top": 220.13503999999998,
+              "top": 220.63503999999998,
               "width": 78.359375,
-              "x": 78
+              "x": 78.0
             },
             {
-              "baseline": 250.64955999999998,
+              "baseline": 251.14955999999998,
               "fragments": [
                 {
                   "advance": 55.859375,
-                  "baseline": 250.64955999999998,
+                  "baseline": 251.14955999999998,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9139,18 +9139,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Numbered ",
-                  "top": 238.64955999999998,
+                  "top": 239.14955999999998,
                   "variant": "regular",
                   "width": 55.859375,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
-                  "advance": 24,
-                  "baseline": 250.64955999999998,
+                  "advance": 24.0,
+                  "baseline": 251.14955999999998,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9158,27 +9158,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "step.",
-                  "top": 238.64955999999998,
+                  "top": 239.14955999999998,
                   "variant": "regular",
-                  "width": 24,
+                  "width": 24.0,
                   "x": 115.859375
                 }
               ],
               "height": 16.60968,
-              "top": 238.74471999999997,
+              "top": 239.24471999999997,
               "width": 79.859375,
-              "x": 60
+              "x": 60.0
             },
             {
-              "baseline": 269.2592399999999,
+              "baseline": 269.7592399999999,
               "fragments": [
                 {
                   "advance": 8.9375,
-                  "baseline": 269.2592399999999,
+                  "baseline": 269.7592399999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9186,18 +9186,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "A ",
-                  "top": 257.2592399999999,
+                  "top": 257.7592399999999,
                   "variant": "regular",
                   "width": 8.9375,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
                   "advance": 23.15625,
-                  "baseline": 269.2592399999999,
+                  "baseline": 269.7592399999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9205,18 +9205,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "task ",
-                  "top": 257.2592399999999,
+                  "top": 257.7592399999999,
                   "variant": "regular",
                   "width": 23.15625,
                   "x": 68.9375
                 },
                 {
                   "advance": 26.546875,
-                  "baseline": 269.2592399999999,
+                  "baseline": 269.7592399999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9224,18 +9224,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "does ",
-                  "top": 257.2592399999999,
+                  "top": 257.7592399999999,
                   "variant": "regular",
                   "width": 26.546875,
                   "x": 92.09375
                 },
                 {
                   "advance": 19.265625,
-                  "baseline": 269.2592399999999,
+                  "baseline": 269.7592399999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9243,18 +9243,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "not ",
-                  "top": 257.2592399999999,
+                  "top": 257.7592399999999,
                   "variant": "regular",
                   "width": 19.265625,
                   "x": 118.640625
                 },
                 {
                   "advance": 48.078125,
-                  "baseline": 269.2592399999999,
+                  "baseline": 269.7592399999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9262,18 +9262,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "consume ",
-                  "top": 257.2592399999999,
+                  "top": 257.7592399999999,
                   "variant": "regular",
                   "width": 48.078125,
                   "x": 137.90625
                 },
                 {
                   "advance": 8.453125,
-                  "baseline": 269.2592399999999,
+                  "baseline": 269.7592399999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9281,18 +9281,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "a ",
-                  "top": 257.2592399999999,
+                  "top": 257.7592399999999,
                   "variant": "regular",
                   "width": 8.453125,
                   "x": 185.984375
                 },
                 {
                   "advance": 41.890625,
-                  "baseline": 269.2592399999999,
+                  "baseline": 269.7592399999999,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9300,27 +9300,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "number.",
-                  "top": 257.2592399999999,
+                  "top": 257.7592399999999,
                   "variant": "regular",
                   "width": 41.890625,
                   "x": 194.4375
                 }
               ],
               "height": 16.60968,
-              "top": 257.35439999999994,
+              "top": 257.85439999999994,
               "width": 176.328125,
-              "x": 60
+              "x": 60.0
             },
             {
-              "baseline": 287.86891999999995,
+              "baseline": 288.36891999999995,
               "fragments": [
                 {
                   "advance": 42.4375,
-                  "baseline": 287.86891999999995,
+                  "baseline": 288.36891999999995,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9328,18 +9328,18 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Another ",
-                  "top": 275.86891999999995,
+                  "top": 276.36891999999995,
                   "variant": "regular",
                   "width": 42.4375,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
-                  "advance": 24,
-                  "baseline": 287.86891999999995,
+                  "advance": 24.0,
+                  "baseline": 288.36891999999995,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9347,27 +9347,27 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "step.",
-                  "top": 275.86891999999995,
+                  "top": 276.36891999999995,
                   "variant": "regular",
-                  "width": 24,
+                  "width": 24.0,
                   "x": 102.4375
                 }
               ],
               "height": 16.60968,
-              "top": 275.96407999999997,
+              "top": 276.46407999999997,
               "width": 66.4375,
-              "x": 60
+              "x": 60.0
             },
             {
-              "baseline": 309.48653,
+              "baseline": 309.98653,
               "fragments": [
                 {
                   "advance": 10.395,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9375,18 +9375,18 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "A ",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "italic",
                   "width": 10.395,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
                   "advance": 30.58,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9394,18 +9394,18 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "quote ",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "italic",
                   "width": 30.58,
                   "x": 70.395
                 },
                 {
                   "advance": 22.616,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9413,18 +9413,18 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "with ",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "italic",
                   "width": 22.616,
                   "x": 100.975
                 },
                 {
                   "advance": 50.743,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9432,18 +9432,18 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "emphasis",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "bold_italic",
                   "width": 50.743,
                   "x": 123.591
                 },
                 {
                   "advance": 3.058,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9451,18 +9451,18 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": " ",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "italic",
                   "width": 3.058,
                   "x": 174.334
                 },
                 {
                   "advance": 21.406,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9470,18 +9470,18 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "and ",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "italic",
                   "width": 21.406,
                   "x": 177.392
                 },
                 {
                   "advance": 42.79,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9489,18 +9489,18 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "ordinary ",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "italic",
                   "width": 42.79,
                   "x": 198.798
                 },
                 {
                   "advance": 20.79,
-                  "baseline": 309.48653,
+                  "baseline": 309.98653,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -9508,20 +9508,20 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 11,
+                  "font_size": 11.0,
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "text.",
-                  "top": 301.58853,
+                  "top": 302.08853,
                   "variant": "italic",
                   "width": 20.79,
                   "x": 241.588
                 }
               ],
-              "height": 15.225539999999999,
-              "top": 298.57376,
+              "height": 15.725539999999999,
+              "top": 299.07376,
               "width": 202.378,
-              "x": 60
+              "x": 60.0
             }
           ],
           "operations": [
@@ -9540,14 +9540,14 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 16,
+                    "font_size": 16.0,
                     "height": 14.799999999999999,
                     "missing_codepoints": [],
                     "text": "1.",
                     "top": 38.940799999999996,
                     "variant": "bold",
                     "width": 13.344,
-                    "x": 24
+                    "x": 24.0
                   },
                   {
                     "advance": 41.792,
@@ -9559,14 +9559,14 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 16,
+                    "font_size": 16.0,
                     "height": 14.799999999999999,
                     "missing_codepoints": [],
                     "text": "Lists ",
                     "top": 38.940799999999996,
                     "variant": "bold",
                     "width": 41.792,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
                     "advance": 32.896,
@@ -9578,7 +9578,7 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 16,
+                    "font_size": 16.0,
                     "height": 14.799999999999999,
                     "missing_codepoints": [],
                     "text": "and ",
@@ -9597,7 +9597,7 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 16,
+                    "font_size": 16.0,
                     "height": 14.799999999999999,
                     "missing_codepoints": [],
                     "text": "paragraph ",
@@ -9616,7 +9616,7 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 16,
+                    "font_size": 16.0,
                     "height": 14.799999999999999,
                     "missing_codepoints": [],
                     "text": "paint",
@@ -9627,43 +9627,30 @@
                   }
                 ],
                 "height": 19.2576,
-                "top": 36,
+                "top": 36.0,
                 "width": 231.6,
-                "x": 24
+                "x": 24.0
               }
             },
             {
               "bounds": [
-                24,
+                24.0,
                 63.2576,
-                372,
+                372.0,
                 16.60968
               ],
               "color": "E0F0FF",
               "kind": "rectangle"
             },
             {
-              "color": "225588",
-              "end": [
-                396,
-                79.86728
-              ],
-              "kind": "rule",
-              "start": [
-                24,
-                79.86728
-              ],
-              "width": 0.35
-            },
-            {
+              "color": "E0F0FF",
+              "kind": "rectangle",
               "bounds": [
-                24,
+                24.0,
                 64.2576,
                 362.546875,
                 14.60968
-              ],
-              "color": "E0F0FF",
-              "kind": "rectangle"
+              ]
             },
             {
               "kind": "text",
@@ -9674,32 +9661,32 @@
                     "advance": 8.9375,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "A ",
                     "top": 63.16244,
                     "variant": "regular",
                     "width": 8.9375,
-                    "x": 24
+                    "x": 24.0
                   },
                   {
                     "advance": 39.28125,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "shaded ",
@@ -9712,13 +9699,13 @@
                     "advance": 53.78125,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "paragraph ",
@@ -9731,32 +9718,32 @@
                     "advance": 32.546875,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "wraps ",
                     "top": 63.16244,
                     "variant": "regular",
                     "width": 32.546875,
-                    "x": 126
+                    "x": 126.0
                   },
                   {
                     "advance": 25.8125,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "onto ",
@@ -9769,13 +9756,13 @@
                     "advance": 41.953125,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "another ",
@@ -9788,13 +9775,13 @@
                     "advance": 20.9375,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "line ",
@@ -9807,13 +9794,13 @@
                     "advance": 24.578125,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "with ",
@@ -9826,13 +9813,13 @@
                     "advance": 40.53125,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "enough ",
@@ -9845,13 +9832,13 @@
                     "advance": 21.140625,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "text ",
@@ -9864,13 +9851,13 @@
                     "advance": 12.75,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "to ",
@@ -9883,13 +9870,13 @@
                     "advance": 40.296875,
                     "baseline": 75.16244,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "exercise",
@@ -9902,41 +9889,41 @@
                 "height": 16.60968,
                 "top": 63.2576,
                 "width": 362.546875,
-                "x": 24
+                "x": 24.0
               }
             },
             {
+              "kind": "rectangle",
               "bounds": [
-                24,
+                24.0,
                 79.86728,
-                372,
-                16.60968
+                372.0,
+                17.10968
               ],
-              "color": "E0F0FF",
-              "kind": "rectangle"
+              "color": "E0F0FF"
             },
             {
               "color": "225588",
-              "end": [
-                396,
-                96.47695999999999
-              ],
               "kind": "rule",
-              "start": [
-                24,
-                96.47695999999999
+              "end": [
+                396.0,
+                96.72695999999999
               ],
-              "width": 0.35
+              "start": [
+                24.0,
+                96.72695999999999
+              ],
+              "width": 0.5
             },
             {
+              "color": "E0F0FF",
+              "kind": "rectangle",
               "bounds": [
-                24,
+                24.0,
                 80.86728,
                 97.421875,
                 14.60968
-              ],
-              "color": "E0F0FF",
-              "kind": "rectangle"
+              ]
             },
             {
               "kind": "text",
@@ -9947,32 +9934,32 @@
                     "advance": 18.953125,
                     "baseline": 91.77212,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "the ",
                     "top": 79.77212,
                     "variant": "regular",
                     "width": 18.953125,
-                    "x": 24
+                    "x": 24.0
                   },
                   {
                     "advance": 18.5625,
                     "baseline": 91.77212,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "full ",
@@ -9985,13 +9972,13 @@
                     "advance": 28.09375,
                     "baseline": 91.77212,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "band ",
@@ -10004,13 +9991,13 @@
                     "advance": 31.8125,
                     "baseline": 91.77212,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "width.",
@@ -10020,27 +10007,27 @@
                     "x": 89.609375
                   }
                 ],
-                "height": 16.60968,
+                "height": 17.10968,
                 "top": 79.86728,
                 "width": 97.421875,
-                "x": 24
+                "x": 24.0
               }
             },
             {
+              "kind": "rectangle",
               "bounds": [
-                24,
-                96.47695999999999,
-                372,
-                6
+                24.0,
+                96.97695999999999,
+                372.0,
+                5.9999999999999964
               ],
-              "color": "E0F0FF",
-              "kind": "rectangle"
+              "color": "E0F0FF"
             },
             {
               "bounds": [
-                44,
-                102.47695999999999,
-                352,
+                44.0,
+                102.97695999999999,
+                352.0,
                 16.60968
               ],
               "color": "FFE8D5",
@@ -10048,8 +10035,8 @@
             },
             {
               "bounds": [
-                44,
-                103.47695999999999,
+                44.0,
+                103.97695999999999,
                 278.90625,
                 14.60968
               ],
@@ -10059,178 +10046,175 @@
             {
               "kind": "text",
               "line": {
-                "baseline": 114.3818,
+                "baseline": 114.8818,
                 "fragments": [
                   {
                     "advance": 46.328125,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Adjacent ",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 46.328125,
-                    "x": 44
+                    "x": 44.0
                   },
                   {
                     "advance": 42.234375,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "shading ",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 42.234375,
                     "x": 90.328125
                   },
                   {
                     "advance": 39.625,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "bridges ",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 39.625,
                     "x": 132.5625
                   },
                   {
                     "advance": 40.953125,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "spacing ",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 40.953125,
                     "x": 172.1875
                   },
                   {
                     "advance": 29.53125,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "using ",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 29.53125,
                     "x": 213.140625
                   },
                   {
                     "advance": 18.953125,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "the ",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 18.953125,
                     "x": 242.671875
                   },
                   {
                     "advance": 45.71875,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "previous ",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 45.71875,
                     "x": 261.625
                   },
                   {
                     "advance": 15.5625,
-                    "baseline": 114.3818,
+                    "baseline": 114.8818,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "fill.",
-                    "top": 102.3818,
+                    "top": 102.8818,
                     "variant": "regular",
                     "width": 15.5625,
                     "x": 307.34375
                   }
                 ],
                 "height": 16.60968,
-                "top": 102.47695999999999,
+                "top": 102.97695999999999,
                 "width": 278.90625,
-                "x": 44
+                "x": 44.0
               }
             },
             {
-              "baseline": 138.99148,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": {
-                "baseline": 138.99148,
+                "baseline": 139.49148,
                 "fragments": [
                   {
                     "advance": 3.640625,
-                    "baseline": 138.99148,
+                    "baseline": 139.49148,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10238,37 +10222,40 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "•",
-                    "top": 126.99148,
+                    "top": 127.49148,
                     "variant": "regular",
                     "width": 3.640625,
-                    "x": 40
+                    "x": 40.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 127.08663999999999,
+                "top": 127.58663999999999,
                 "width": 3.640625,
-                "x": 40
+                "x": 40.0
               },
+              "baseline": 139.49148,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "bullet",
               "slot": [
-                40,
-                127.08663999999999,
-                14,
+                40.0,
+                127.58663999999999,
+                14.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 138.99148,
+                "baseline": 139.49148,
                 "fragments": [
                   {
                     "advance": 31.984375,
-                    "baseline": 138.99148,
+                    "baseline": 139.49148,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10276,246 +10263,243 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Bullet ",
-                    "top": 126.99148,
+                    "top": 127.49148,
                     "variant": "regular",
                     "width": 31.984375,
-                    "x": 54
+                    "x": 54.0
                   },
                   {
                     "advance": 24.578125,
-                    "baseline": 138.99148,
+                    "baseline": 139.49148,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "with ",
-                    "top": 126.99148,
+                    "top": 127.49148,
                     "variant": "regular",
                     "width": 24.578125,
                     "x": 85.984375
                   },
                   {
                     "advance": 57.453125,
-                    "baseline": 138.99148,
+                    "baseline": 139.49148,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "underlined ",
-                    "top": 126.99148,
+                    "top": 127.49148,
                     "variant": "regular",
                     "width": 57.453125,
                     "x": 110.5625
                   },
                   {
                     "advance": 18.734375,
-                    "baseline": 138.99148,
+                    "baseline": 139.49148,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "text",
-                    "top": 126.99148,
+                    "top": 127.49148,
                     "variant": "regular",
                     "width": 18.734375,
                     "x": 168.015625
                   },
                   {
                     "advance": 2.984375,
-                    "baseline": 138.99148,
+                    "baseline": 139.49148,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": ".",
-                    "top": 126.99148,
+                    "top": 127.49148,
                     "variant": "regular",
                     "width": 2.984375,
                     "x": 186.75
                   }
                 ],
                 "height": 16.60968,
-                "top": 127.08663999999999,
+                "top": 127.58663999999999,
                 "width": 135.734375,
-                "x": 54
+                "x": 54.0
               }
             },
             {
+              "kind": "decoration",
               "color": "111827",
               "decoration_kind": "underline",
               "end": 186.75,
-              "kind": "decoration",
               "start": 110.5625,
               "width": 0.6000000000000001,
-              "y": 140.19147999999998
+              "y": 140.69147999999998
             },
             {
-              "baseline": 157.60116,
-              "checked": true,
-              "font_size": 12,
               "kind": "marker",
+              "baseline": 158.10116,
+              "checked": true,
+              "font_size": 12.0,
               "line": null,
               "marker_kind": "task",
               "slot": [
-                40,
-                145.69632,
-                14,
+                40.0,
+                146.19632,
+                14.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 157.60116,
+                "baseline": 158.10116,
                 "fragments": [
                   {
                     "advance": 57.6875,
-                    "baseline": 157.60116,
+                    "baseline": 158.10116,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Completed ",
-                    "top": 145.60116,
+                    "top": 146.10116,
                     "variant": "regular",
                     "width": 57.6875,
-                    "x": 54
+                    "x": 54.0
                   },
                   {
                     "advance": 23.9375,
-                    "baseline": 157.60116,
+                    "baseline": 158.10116,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "task.",
-                    "top": 145.60116,
+                    "top": 146.10116,
                     "variant": "regular",
                     "width": 23.9375,
                     "x": 111.6875
                   }
                 ],
                 "height": 16.60968,
-                "top": 145.69632,
+                "top": 146.19632,
                 "width": 81.625,
-                "x": 54
+                "x": 54.0
               }
             },
             {
-              "baseline": 176.21084,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": null,
+              "baseline": 176.71084,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "task",
               "slot": [
-                40,
-                164.30599999999998,
-                14,
+                40.0,
+                164.80599999999998,
+                14.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 176.21084,
+                "baseline": 176.71084,
                 "fragments": [
                   {
                     "advance": 43.5625,
-                    "baseline": 176.21084,
+                    "baseline": 176.71084,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Pending ",
-                    "top": 164.21084,
+                    "top": 164.71084,
                     "variant": "regular",
                     "width": 43.5625,
-                    "x": 54
+                    "x": 54.0
                   },
                   {
                     "advance": 23.9375,
-                    "baseline": 176.21084,
+                    "baseline": 176.71084,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "task.",
-                    "top": 164.21084,
+                    "top": 164.71084,
                     "variant": "regular",
                     "width": 23.9375,
                     "x": 97.5625
                   }
                 ],
                 "height": 16.60968,
-                "top": 164.30599999999998,
+                "top": 164.80599999999998,
                 "width": 67.5,
-                "x": 54
+                "x": 54.0
               }
             },
             {
-              "baseline": 194.82052,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": {
-                "baseline": 194.82052,
+                "baseline": 195.32052,
                 "fragments": [
                   {
                     "advance": 3.640625,
-                    "baseline": 194.82052,
+                    "baseline": 195.32052,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10523,37 +10507,40 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "•",
-                    "top": 182.82052,
+                    "top": 183.32052,
                     "variant": "regular",
                     "width": 3.640625,
-                    "x": 40
+                    "x": 40.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 182.91567999999998,
+                "top": 183.41567999999998,
                 "width": 3.640625,
-                "x": 40
+                "x": 40.0
               },
+              "baseline": 195.32052,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "bullet",
               "slot": [
-                40,
-                182.91567999999998,
-                14,
+                40.0,
+                183.41567999999998,
+                14.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 194.82052,
+                "baseline": 195.32052,
                 "fragments": [
                   {
                     "advance": 8.9375,
-                    "baseline": 194.82052,
+                    "baseline": 195.32052,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10561,90 +10548,87 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "A ",
-                    "top": 182.82052,
+                    "top": 183.32052,
                     "variant": "regular",
                     "width": 8.9375,
-                    "x": 54
+                    "x": 54.0
                   },
                   {
                     "advance": 36.09375,
-                    "baseline": 194.82052,
+                    "baseline": 195.32052,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "nested ",
-                    "top": 182.82052,
+                    "top": 183.32052,
                     "variant": "regular",
                     "width": 36.09375,
                     "x": 62.9375
                   },
                   {
                     "advance": 50.1875,
-                    "baseline": 194.82052,
+                    "baseline": 195.32052,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "sequence ",
-                    "top": 182.82052,
+                    "top": 183.32052,
                     "variant": "regular",
                     "width": 50.1875,
                     "x": 99.03125
                   },
                   {
                     "advance": 39.046875,
-                    "baseline": 194.82052,
+                    "baseline": 195.32052,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "follows.",
-                    "top": 182.82052,
+                    "top": 183.32052,
                     "variant": "regular",
                     "width": 39.046875,
                     "x": 149.21875
                   }
                 ],
                 "height": 16.60968,
-                "top": 182.91567999999998,
+                "top": 183.41567999999998,
                 "width": 134.265625,
-                "x": 54
+                "x": 54.0
               }
             },
             {
-              "baseline": 213.43019999999999,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": {
-                "baseline": 213.43019999999999,
+                "baseline": 213.93019999999999,
                 "fragments": [
                   {
                     "advance": 8.078125,
-                    "baseline": 213.43019999999999,
+                    "baseline": 213.93019999999999,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10652,37 +10636,40 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "z.",
-                    "top": 201.43019999999999,
+                    "top": 201.93019999999999,
                     "variant": "regular",
                     "width": 8.078125,
-                    "x": 60
+                    "x": 60.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 201.52535999999998,
+                "top": 202.02535999999998,
                 "width": 8.078125,
-                "x": 60
+                "x": 60.0
               },
+              "baseline": 213.93019999999999,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "ordered",
               "slot": [
-                60,
-                201.52535999999998,
-                18,
+                60.0,
+                202.02535999999998,
+                18.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 213.43019999999999,
+                "baseline": 213.93019999999999,
                 "fragments": [
                   {
                     "advance": 24.15625,
-                    "baseline": 213.43019999999999,
+                    "baseline": 213.93019999999999,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10690,52 +10677,49 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "First ",
-                    "top": 201.43019999999999,
+                    "top": 201.93019999999999,
                     "variant": "regular",
                     "width": 24.15625,
-                    "x": 78
+                    "x": 78.0
                   },
                   {
                     "advance": 28.65625,
-                    "baseline": 213.43019999999999,
+                    "baseline": 213.93019999999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "letter.",
-                    "top": 201.43019999999999,
+                    "top": 201.93019999999999,
                     "variant": "regular",
                     "width": 28.65625,
                     "x": 102.15625
                   }
                 ],
                 "height": 16.60968,
-                "top": 201.52535999999998,
+                "top": 202.02535999999998,
                 "width": 52.8125,
-                "x": 78
+                "x": 78.0
               }
             },
             {
-              "baseline": 232.03987999999998,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": {
-                "baseline": 232.03987999999998,
+                "baseline": 232.53987999999998,
                 "fragments": [
                   {
                     "advance": 15.078125,
-                    "baseline": 232.03987999999998,
+                    "baseline": 232.53987999999998,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10743,37 +10727,40 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "aa.",
-                    "top": 220.03987999999998,
+                    "top": 220.53987999999998,
                     "variant": "regular",
                     "width": 15.078125,
-                    "x": 60
+                    "x": 60.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 220.13503999999998,
+                "top": 220.63503999999998,
                 "width": 15.078125,
-                "x": 60
+                "x": 60.0
               },
+              "baseline": 232.53987999999998,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "ordered",
               "slot": [
-                60,
-                220.13503999999998,
-                18,
+                60.0,
+                220.63503999999998,
+                18.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 232.03987999999998,
+                "baseline": 232.53987999999998,
                 "fragments": [
                   {
                     "advance": 49.703125,
-                    "baseline": 232.03987999999998,
+                    "baseline": 232.53987999999998,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10781,52 +10768,49 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Repeated ",
-                    "top": 220.03987999999998,
+                    "top": 220.53987999999998,
                     "variant": "regular",
                     "width": 49.703125,
-                    "x": 78
+                    "x": 78.0
                   },
                   {
                     "advance": 28.65625,
-                    "baseline": 232.03987999999998,
+                    "baseline": 232.53987999999998,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "letter.",
-                    "top": 220.03987999999998,
+                    "top": 220.53987999999998,
                     "variant": "regular",
                     "width": 28.65625,
                     "x": 127.703125
                   }
                 ],
                 "height": 16.60968,
-                "top": 220.13503999999998,
+                "top": 220.63503999999998,
                 "width": 78.359375,
-                "x": 78
+                "x": 78.0
               }
             },
             {
-              "baseline": 250.64955999999998,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": {
-                "baseline": 250.64955999999998,
+                "baseline": 251.14955999999998,
                 "fragments": [
                   {
                     "advance": 8.953125,
-                    "baseline": 250.64955999999998,
+                    "baseline": 251.14955999999998,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10834,37 +10818,40 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "8.",
-                    "top": 238.64955999999998,
+                    "top": 239.14955999999998,
                     "variant": "regular",
                     "width": 8.953125,
-                    "x": 42
+                    "x": 42.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 238.74471999999997,
+                "top": 239.24471999999997,
                 "width": 8.953125,
-                "x": 42
+                "x": 42.0
               },
+              "baseline": 251.14955999999998,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "ordered",
               "slot": [
-                42,
-                238.74471999999997,
-                18,
+                42.0,
+                239.24471999999997,
+                18.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 250.64955999999998,
+                "baseline": 251.14955999999998,
                 "fragments": [
                   {
                     "advance": 55.859375,
-                    "baseline": 250.64955999999998,
+                    "baseline": 251.14955999999998,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -10872,211 +10859,208 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Numbered ",
-                    "top": 238.64955999999998,
+                    "top": 239.14955999999998,
                     "variant": "regular",
                     "width": 55.859375,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
-                    "advance": 24,
-                    "baseline": 250.64955999999998,
+                    "advance": 24.0,
+                    "baseline": 251.14955999999998,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "step.",
-                    "top": 238.64955999999998,
+                    "top": 239.14955999999998,
                     "variant": "regular",
-                    "width": 24,
+                    "width": 24.0,
                     "x": 115.859375
                   }
                 ],
                 "height": 16.60968,
-                "top": 238.74471999999997,
+                "top": 239.24471999999997,
                 "width": 79.859375,
-                "x": 60
+                "x": 60.0
               }
             },
             {
-              "baseline": 269.2592399999999,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": null,
+              "baseline": 269.7592399999999,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "task",
               "slot": [
-                42,
-                257.35439999999994,
-                18,
+                42.0,
+                257.85439999999994,
+                18.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 269.2592399999999,
+                "baseline": 269.7592399999999,
                 "fragments": [
                   {
                     "advance": 8.9375,
-                    "baseline": 269.2592399999999,
+                    "baseline": 269.7592399999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "A ",
-                    "top": 257.2592399999999,
+                    "top": 257.7592399999999,
                     "variant": "regular",
                     "width": 8.9375,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
                     "advance": 23.15625,
-                    "baseline": 269.2592399999999,
+                    "baseline": 269.7592399999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "task ",
-                    "top": 257.2592399999999,
+                    "top": 257.7592399999999,
                     "variant": "regular",
                     "width": 23.15625,
                     "x": 68.9375
                   },
                   {
                     "advance": 26.546875,
-                    "baseline": 269.2592399999999,
+                    "baseline": 269.7592399999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "does ",
-                    "top": 257.2592399999999,
+                    "top": 257.7592399999999,
                     "variant": "regular",
                     "width": 26.546875,
                     "x": 92.09375
                   },
                   {
                     "advance": 19.265625,
-                    "baseline": 269.2592399999999,
+                    "baseline": 269.7592399999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "not ",
-                    "top": 257.2592399999999,
+                    "top": 257.7592399999999,
                     "variant": "regular",
                     "width": 19.265625,
                     "x": 118.640625
                   },
                   {
                     "advance": 48.078125,
-                    "baseline": 269.2592399999999,
+                    "baseline": 269.7592399999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "consume ",
-                    "top": 257.2592399999999,
+                    "top": 257.7592399999999,
                     "variant": "regular",
                     "width": 48.078125,
                     "x": 137.90625
                   },
                   {
                     "advance": 8.453125,
-                    "baseline": 269.2592399999999,
+                    "baseline": 269.7592399999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "a ",
-                    "top": 257.2592399999999,
+                    "top": 257.7592399999999,
                     "variant": "regular",
                     "width": 8.453125,
                     "x": 185.984375
                   },
                   {
                     "advance": 41.890625,
-                    "baseline": 269.2592399999999,
+                    "baseline": 269.7592399999999,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "number.",
-                    "top": 257.2592399999999,
+                    "top": 257.7592399999999,
                     "variant": "regular",
                     "width": 41.890625,
                     "x": 194.4375
                   }
                 ],
                 "height": 16.60968,
-                "top": 257.35439999999994,
+                "top": 257.85439999999994,
                 "width": 176.328125,
-                "x": 60
+                "x": 60.0
               }
             },
             {
-              "baseline": 287.86891999999995,
-              "checked": false,
-              "font_size": 12,
               "kind": "marker",
               "line": {
-                "baseline": 287.86891999999995,
+                "baseline": 288.36891999999995,
                 "fragments": [
                   {
                     "advance": 8.953125,
-                    "baseline": 287.86891999999995,
+                    "baseline": 288.36891999999995,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -11084,37 +11068,40 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "9.",
-                    "top": 275.86891999999995,
+                    "top": 276.36891999999995,
                     "variant": "regular",
                     "width": 8.953125,
-                    "x": 42
+                    "x": 42.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 275.96407999999997,
+                "top": 276.4640799999999,
                 "width": 8.953125,
-                "x": 42
+                "x": 42.0
               },
+              "baseline": 288.36891999999995,
+              "checked": false,
+              "font_size": 12.0,
               "marker_kind": "ordered",
               "slot": [
-                42,
-                275.96407999999997,
-                18,
+                42.0,
+                276.46407999999997,
+                18.0,
                 16.60968
               ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 287.86891999999995,
+                "baseline": 288.36891999999995,
                 "fragments": [
                   {
                     "advance": 42.4375,
-                    "baseline": 287.86891999999995,
+                    "baseline": 288.36891999999995,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -11122,236 +11109,236 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Another ",
-                    "top": 275.86891999999995,
+                    "top": 276.36891999999995,
                     "variant": "regular",
                     "width": 42.4375,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
-                    "advance": 24,
-                    "baseline": 287.86891999999995,
+                    "advance": 24.0,
+                    "baseline": 288.36891999999995,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "step.",
-                    "top": 275.86891999999995,
+                    "top": 276.36891999999995,
                     "variant": "regular",
-                    "width": 24,
+                    "width": 24.0,
                     "x": 102.4375
                   }
                 ],
                 "height": 16.60968,
-                "top": 275.96407999999997,
+                "top": 276.46407999999997,
                 "width": 66.4375,
-                "x": 60
+                "x": 60.0
               }
             },
             {
+              "kind": "rectangle",
               "bounds": [
-                60,
-                298.57376,
-                336,
-                15.225539999999999
+                60.0,
+                299.07376,
+                336.0,
+                15.725539999999999
               ],
-              "color": "EEF5E8",
-              "kind": "rectangle"
+              "color": "EEF5E8"
             },
             {
               "color": "557722",
-              "end": [
-                396,
-                313.7993
-              ],
               "kind": "rule",
-              "start": [
-                60,
-                313.7993
+              "end": [
+                396.0,
+                314.5493
               ],
-              "width": 0.35
+              "start": [
+                60.0,
+                314.5493
+              ],
+              "width": 0.5
             },
             {
+              "color": "EEF5E8",
+              "kind": "rectangle",
               "bounds": [
-                60,
-                299.57376,
+                60.0,
+                300.07376,
                 202.378,
                 13.225539999999999
-              ],
-              "color": "EEF5E8",
-              "kind": "rectangle"
+              ]
             },
             {
               "kind": "text",
               "line": {
-                "baseline": 309.48653,
+                "baseline": 309.98653,
                 "fragments": [
                   {
                     "advance": 10.395,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "A ",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "italic",
                     "width": 10.395,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
                     "advance": 30.58,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "quote ",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "italic",
                     "width": 30.58,
                     "x": 70.395
                   },
                   {
                     "advance": 22.616,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "with ",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "italic",
                     "width": 22.616,
                     "x": 100.975
                   },
                   {
                     "advance": 50.743,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "emphasis",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "bold_italic",
                     "width": 50.743,
                     "x": 123.591
                   },
                   {
                     "advance": 3.058,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": " ",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "italic",
                     "width": 3.058,
                     "x": 174.334
                   },
                   {
                     "advance": 21.406,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "and ",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "italic",
                     "width": 21.406,
                     "x": 177.392
                   },
                   {
                     "advance": 42.79,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "ordinary ",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "italic",
                     "width": 42.79,
                     "x": 198.798
                   },
                   {
                     "advance": 20.79,
-                    "baseline": 309.48653,
+                    "baseline": 309.98653,
                     "color": {
-                      "r": 17,
-                      "g": 24,
+                      "a": 255,
                       "b": 39,
-                      "a": 255
+                      "g": 24,
+                      "r": 17
                     },
                     "font": "Helvetica",
-                    "font_size": 11,
+                    "font_size": 11.0,
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "text.",
-                    "top": 301.58853,
+                    "top": 302.08853,
                     "variant": "italic",
                     "width": 20.79,
                     "x": 241.588
                   }
                 ],
-                "height": 15.225539999999999,
-                "top": 298.57376,
+                "height": 15.725539999999999,
+                "top": 299.07376,
                 "width": 202.378,
-                "x": 60
+                "x": 60.0
               }
             }
           ]
@@ -11371,14 +11358,14 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 14,
+                  "font_size": 14.0,
                   "height": 12.95,
                   "missing_codepoints": [],
                   "text": "1.1.",
                   "top": 38.5732,
                   "variant": "bold",
                   "width": 23.352,
-                  "x": 24
+                  "x": 24.0
                 },
                 {
                   "advance": 73.108,
@@ -11390,14 +11377,14 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 14,
+                  "font_size": 14.0,
                   "height": 12.95,
                   "missing_codepoints": [],
                   "text": "Continued ",
                   "top": 38.5732,
                   "variant": "bold",
                   "width": 73.108,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
                   "advance": 50.554,
@@ -11409,7 +11396,7 @@
                     "a": 255
                   },
                   "font": "Helvetica",
-                  "font_size": 14,
+                  "font_size": 14.0,
                   "height": 12.95,
                   "missing_codepoints": [],
                   "text": "content",
@@ -11420,9 +11407,9 @@
                 }
               ],
               "height": 16.8504,
-              "top": 36,
+              "top": 36.0,
               "width": 159.662,
-              "x": 24
+              "x": 24.0
             },
             {
               "baseline": 72.75524,
@@ -11437,20 +11424,20 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Continuation.",
                   "top": 60.75524,
                   "variant": "regular",
                   "width": 68.921875,
-                  "x": 60
+                  "x": 60.0
                 }
               ],
               "height": 16.60968,
               "top": 60.8504,
               "width": 68.921875,
-              "x": 60
+              "x": 60.0
             },
             {
               "baseline": 91.36492000000001,
@@ -11465,14 +11452,14 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Item ",
                   "top": 79.36492000000001,
                   "variant": "regular",
                   "width": 25.3125,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
                   "advance": 50.65625,
@@ -11484,7 +11471,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "geometry ",
@@ -11503,7 +11490,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "override ",
@@ -11522,7 +11509,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "with ",
@@ -11541,7 +11528,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "a ",
@@ -11560,7 +11547,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "longer ",
@@ -11579,7 +11566,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "line ",
@@ -11598,7 +11585,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "that ",
@@ -11617,7 +11604,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "wraps ",
@@ -11636,7 +11623,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "within ",
@@ -11655,7 +11642,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "its",
@@ -11668,7 +11655,7 @@
               "height": 16.60968,
               "top": 79.46008,
               "width": 310.046875,
-              "x": 60
+              "x": 60.0
             },
             {
               "baseline": 107.97460000000001,
@@ -11683,14 +11670,14 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "narrower ",
                   "top": 95.97460000000001,
                   "variant": "regular",
                   "width": 48.28125,
-                  "x": 72
+                  "x": 72.0
                 },
                 {
                   "advance": 32.21875,
@@ -11702,7 +11689,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "frame.",
@@ -11715,7 +11702,7 @@
               "height": 16.60968,
               "top": 96.06976,
               "width": 80.5,
-              "x": 72
+              "x": 72.0
             },
             {
               "baseline": 126.58428,
@@ -11730,20 +11717,20 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Ninth.",
                   "top": 114.58428,
                   "variant": "regular",
                   "width": 30.859375,
-                  "x": 60
+                  "x": 60.0
                 }
               ],
               "height": 16.60968,
               "top": 114.67944,
               "width": 30.859375,
-              "x": 60
+              "x": 60.0
             },
             {
               "baseline": 145.19396,
@@ -11758,20 +11745,20 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "Tenth.",
                   "top": 133.19396,
                   "variant": "regular",
                   "width": 31.5,
-                  "x": 60
+                  "x": 60.0
                 }
               ],
               "height": 16.60968,
               "top": 133.28912,
               "width": 31.5,
-              "x": 60
+              "x": 60.0
             },
             {
               "baseline": 163.80364,
@@ -11786,20 +11773,20 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": " ",
                   "top": 151.80364,
                   "variant": "regular",
                   "width": 2.40625,
-                  "x": 60
+                  "x": 60.0
                 }
               ],
               "height": 16.60968,
               "top": 151.8988,
               "width": 2.40625,
-              "x": 60
+              "x": 60.0
             },
             {
               "baseline": 182.41332,
@@ -11814,14 +11801,14 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "After ",
                   "top": 170.41332,
                   "variant": "regular",
                   "width": 26.234375,
-                  "x": 60
+                  "x": 60.0
                 },
                 {
                   "advance": 18.953125,
@@ -11833,7 +11820,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "the ",
@@ -11852,7 +11839,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "empty ",
@@ -11871,7 +11858,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "item.",
@@ -11884,7 +11871,7 @@
               "height": 16.60968,
               "top": 170.50848,
               "width": 105.25,
-              "x": 60
+              "x": 60.0
             },
             {
               "baseline": 201.023,
@@ -11899,14 +11886,14 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "A ",
                   "top": 189.023,
                   "variant": "regular",
                   "width": 8.9375,
-                  "x": 24
+                  "x": 24.0
                 },
                 {
                   "advance": 24.53125,
@@ -11918,7 +11905,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "final ",
@@ -11937,7 +11924,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "shaded ",
@@ -11956,7 +11943,7 @@
                     "a": 255
                   },
                   "font": "",
-                  "font_size": 12,
+                  "font_size": 12.0,
                   "height": 15.90625,
                   "missing_codepoints": [],
                   "text": "line.",
@@ -11969,7 +11956,7 @@
               "height": 16.60968,
               "top": 189.11816,
               "width": 94.265625,
-              "x": 24
+              "x": 24.0
             }
           ],
           "operations": [
@@ -11988,14 +11975,14 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 14,
+                    "font_size": 14.0,
                     "height": 12.95,
                     "missing_codepoints": [],
                     "text": "1.1.",
                     "top": 38.5732,
                     "variant": "bold",
                     "width": 23.352,
-                    "x": 24
+                    "x": 24.0
                   },
                   {
                     "advance": 73.108,
@@ -12007,14 +11994,14 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 14,
+                    "font_size": 14.0,
                     "height": 12.95,
                     "missing_codepoints": [],
                     "text": "Continued ",
                     "top": 38.5732,
                     "variant": "bold",
                     "width": 73.108,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
                     "advance": 50.554,
@@ -12026,7 +12013,7 @@
                       "a": 255
                     },
                     "font": "Helvetica",
-                    "font_size": 14,
+                    "font_size": 14.0,
                     "height": 12.95,
                     "missing_codepoints": [],
                     "text": "content",
@@ -12037,15 +12024,15 @@
                   }
                 ],
                 "height": 16.8504,
-                "top": 36,
+                "top": 36.0,
                 "width": 159.662,
-                "x": 24
+                "x": 24.0
               }
             },
             {
               "baseline": 72.75524,
               "checked": false,
-              "font_size": 12,
+              "font_size": 12.0,
               "kind": "marker",
               "line": {
                 "baseline": 72.75524,
@@ -12060,26 +12047,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "10.",
                     "top": 60.75524,
                     "variant": "regular",
                     "width": 14.921875,
-                    "x": 42
+                    "x": 42.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 60.8504,
                 "width": 14.921875,
-                "x": 42
+                "x": 42.0
               },
               "marker_kind": "ordered",
               "slot": [
-                42,
+                42.0,
                 60.8504,
-                18,
+                18.0,
                 16.60968
               ]
             },
@@ -12098,26 +12085,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Continuation.",
                     "top": 60.75524,
                     "variant": "regular",
                     "width": 68.921875,
-                    "x": 60
+                    "x": 60.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 60.8504,
                 "width": 68.921875,
-                "x": 60
+                "x": 60.0
               }
             },
             {
               "baseline": 91.36492000000001,
               "checked": false,
-              "font_size": 12,
+              "font_size": 12.0,
               "kind": "marker",
               "line": {
                 "baseline": 91.36492000000001,
@@ -12132,26 +12119,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "11.",
                     "top": 79.36492000000001,
                     "variant": "regular",
                     "width": 14.921875,
-                    "x": 48
+                    "x": 48.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 79.46008,
+                "top": 79.46008000000002,
                 "width": 14.921875,
-                "x": 48
+                "x": 48.0
               },
               "marker_kind": "ordered",
               "slot": [
-                48,
+                48.0,
                 79.46008,
-                12,
+                12.0,
                 16.60968
               ]
             },
@@ -12170,14 +12157,14 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Item ",
                     "top": 79.36492000000001,
                     "variant": "regular",
                     "width": 25.3125,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
                     "advance": 50.65625,
@@ -12189,7 +12176,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "geometry ",
@@ -12208,7 +12195,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "override ",
@@ -12227,7 +12214,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "with ",
@@ -12246,7 +12233,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "a ",
@@ -12265,7 +12252,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "longer ",
@@ -12284,7 +12271,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "line ",
@@ -12303,7 +12290,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "that ",
@@ -12322,7 +12309,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "wraps ",
@@ -12341,7 +12328,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "within ",
@@ -12360,7 +12347,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "its",
@@ -12373,7 +12360,7 @@
                 "height": 16.60968,
                 "top": 79.46008,
                 "width": 310.046875,
-                "x": 60
+                "x": 60.0
               }
             },
             {
@@ -12391,14 +12378,14 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "narrower ",
                     "top": 95.97460000000001,
                     "variant": "regular",
                     "width": 48.28125,
-                    "x": 72
+                    "x": 72.0
                   },
                   {
                     "advance": 32.21875,
@@ -12410,7 +12397,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "frame.",
@@ -12423,13 +12410,13 @@
                 "height": 16.60968,
                 "top": 96.06976,
                 "width": 80.5,
-                "x": 72
+                "x": 72.0
               }
             },
             {
               "baseline": 126.58428,
               "checked": false,
-              "font_size": 12,
+              "font_size": 12.0,
               "kind": "marker",
               "line": {
                 "baseline": 126.58428,
@@ -12444,26 +12431,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "IX.",
                     "top": 114.58428,
                     "variant": "regular",
                     "width": 12.296875,
-                    "x": 42
+                    "x": 42.0
                   }
                 ],
                 "height": 16.60968,
-                "top": 114.67944,
+                "top": 114.67944000000001,
                 "width": 12.296875,
-                "x": 42
+                "x": 42.0
               },
               "marker_kind": "ordered",
               "slot": [
-                42,
+                42.0,
                 114.67944,
-                18,
+                18.0,
                 16.60968
               ]
             },
@@ -12482,26 +12469,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Ninth.",
                     "top": 114.58428,
                     "variant": "regular",
                     "width": 30.859375,
-                    "x": 60
+                    "x": 60.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 114.67944,
                 "width": 30.859375,
-                "x": 60
+                "x": 60.0
               }
             },
             {
               "baseline": 145.19396,
               "checked": false,
-              "font_size": 12,
+              "font_size": 12.0,
               "kind": "marker",
               "line": {
                 "baseline": 145.19396,
@@ -12516,26 +12503,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "X.",
                     "top": 133.19396,
                     "variant": "regular",
                     "width": 9.140625,
-                    "x": 42
+                    "x": 42.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 133.28912,
                 "width": 9.140625,
-                "x": 42
+                "x": 42.0
               },
               "marker_kind": "ordered",
               "slot": [
-                42,
+                42.0,
                 133.28912,
-                18,
+                18.0,
                 16.60968
               ]
             },
@@ -12554,26 +12541,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "Tenth.",
                     "top": 133.19396,
                     "variant": "regular",
                     "width": 31.5,
-                    "x": 60
+                    "x": 60.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 133.28912,
                 "width": 31.5,
-                "x": 60
+                "x": 60.0
               }
             },
             {
               "baseline": 163.80364,
               "checked": false,
-              "font_size": 12,
+              "font_size": 12.0,
               "kind": "marker",
               "line": {
                 "baseline": 163.80364,
@@ -12588,26 +12575,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "•",
                     "top": 151.80364,
                     "variant": "regular",
                     "width": 3.640625,
-                    "x": 42
+                    "x": 42.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 151.8988,
                 "width": 3.640625,
-                "x": 42
+                "x": 42.0
               },
               "marker_kind": "bullet",
               "slot": [
-                42,
+                42.0,
                 151.8988,
-                18,
+                18.0,
                 16.60968
               ]
             },
@@ -12626,26 +12613,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": " ",
                     "top": 151.80364,
                     "variant": "regular",
                     "width": 2.40625,
-                    "x": 60
+                    "x": 60.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 151.8988,
                 "width": 2.40625,
-                "x": 60
+                "x": 60.0
               }
             },
             {
               "baseline": 182.41332,
               "checked": false,
-              "font_size": 12,
+              "font_size": 12.0,
               "kind": "marker",
               "line": {
                 "baseline": 182.41332,
@@ -12660,26 +12647,26 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "•",
                     "top": 170.41332,
                     "variant": "regular",
                     "width": 3.640625,
-                    "x": 42
+                    "x": 42.0
                   }
                 ],
                 "height": 16.60968,
                 "top": 170.50848,
                 "width": 3.640625,
-                "x": 42
+                "x": 42.0
               },
               "marker_kind": "bullet",
               "slot": [
-                42,
+                42.0,
                 170.50848,
-                18,
+                18.0,
                 16.60968
               ]
             },
@@ -12698,14 +12685,14 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "After ",
                     "top": 170.41332,
                     "variant": "regular",
                     "width": 26.234375,
-                    "x": 60
+                    "x": 60.0
                   },
                   {
                     "advance": 18.953125,
@@ -12717,7 +12704,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "the ",
@@ -12736,7 +12723,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "empty ",
@@ -12755,7 +12742,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "item.",
@@ -12768,14 +12755,14 @@
                 "height": 16.60968,
                 "top": 170.50848,
                 "width": 105.25,
-                "x": 60
+                "x": 60.0
               }
             },
             {
               "bounds": [
-                24,
+                24.0,
                 189.11816,
-                372,
+                372.0,
                 16.60968
               ],
               "color": "DDEEFF",
@@ -12783,7 +12770,7 @@
             },
             {
               "bounds": [
-                24,
+                24.0,
                 190.11816,
                 94.265625,
                 14.60968
@@ -12806,14 +12793,14 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "A ",
                     "top": 189.023,
                     "variant": "regular",
                     "width": 8.9375,
-                    "x": 24
+                    "x": 24.0
                   },
                   {
                     "advance": 24.53125,
@@ -12825,7 +12812,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "final ",
@@ -12844,7 +12831,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "shaded ",
@@ -12863,7 +12850,7 @@
                       "a": 255
                     },
                     "font": "",
-                    "font_size": 12,
+                    "font_size": 12.0,
                     "height": 15.90625,
                     "missing_codepoints": [],
                     "text": "line.",
@@ -12876,7 +12863,7 @@
                 "height": 16.60968,
                 "top": 189.11816,
                 "width": 94.265625,
-                "x": 24
+                "x": 24.0
               }
             }
           ]

@@ -5,6 +5,21 @@ use crate::{
     model::{Document, Element, ElementKind, Properties, StyleDeclaration, StyleKind, Value},
 };
 
+#[derive(Debug, Clone, PartialEq)]
+pub struct BorderSide {
+    pub width: f64,
+    pub space: f64,
+    pub color: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Default)]
+pub struct ParagraphBorders {
+    pub top: Option<BorderSide>,
+    pub right: Option<BorderSide>,
+    pub bottom: Option<BorderSide>,
+    pub left: Option<BorderSide>,
+}
+
 /// Effective native paragraph properties. Pagination requests remain unplaced.
 #[derive(Debug, Clone, PartialEq)]
 pub struct ParagraphStyle {
@@ -103,22 +118,7 @@ impl<'document> LayoutStyleResolver<'document> {
             }
             None
         }
-        let mut name = values::text(&element.attributes, "style");
-        if name.is_empty() {
-            name = if element.kind == ElementKind::Heading {
-                format!(
-                    "Heading{}",
-                    element
-                        .attributes
-                        .get("level")
-                        .and_then(values::number)
-                        .unwrap_or(1.0)
-                        .clamp(1.0, 6.0) as usize
-                )
-            } else {
-                "Normal".into()
-            };
-        }
+        let name = self.paragraph_style_name(element);
         direct(&element.attributes).or_else(|| {
             if self.find_declaration(&name).is_some() {
                 direct(&self.declarations.resolve_style(&name).paragraph)
@@ -128,6 +128,46 @@ impl<'document> LayoutStyleResolver<'document> {
                 None
             }
         })
+    }
+    pub(super) fn borders(&self, element: &Element) -> ParagraphBorders {
+        let mut borders = ParagraphBorders::default();
+        let name = self.paragraph_style_name(element);
+        if self.find_declaration(&name).is_some() {
+            apply_borders(
+                &mut borders,
+                self.declarations
+                    .resolve_style(&name)
+                    .paragraph
+                    .get("border"),
+            );
+        } else if values::normalize_name(&name) == "horizontalrule" {
+            borders.bottom = Some(BorderSide {
+                width: DEFAULT_BORDER_WIDTH,
+                space: 0.0,
+                color: "D1D5DB".into(),
+            });
+        }
+        apply_borders(&mut borders, element.attributes.get("border"));
+        borders
+    }
+    fn paragraph_style_name(&self, element: &Element) -> String {
+        let name = values::text(&element.attributes, "style");
+        if !name.is_empty() {
+            return name;
+        }
+        if element.kind == ElementKind::Heading {
+            format!(
+                "Heading{}",
+                element
+                    .attributes
+                    .get("level")
+                    .and_then(values::number)
+                    .unwrap_or(1.0)
+                    .clamp(1.0, 6.0) as usize
+            )
+        } else {
+            "Normal".into()
+        }
     }
     pub fn paragraph(&self, element: &Element) -> ParagraphStyle {
         let mut style = ParagraphStyle {
@@ -529,4 +569,79 @@ fn tab_stops(value: &Value) -> Vec<TabStop> {
             })
         })
         .collect()
+}
+
+impl ParagraphBorders {
+    /// Word adds a top or bottom border and its spacing to the paragraph's height.
+    pub fn top_outset(&self) -> f64 {
+        self.top.as_ref().map_or(0.0, BorderSide::outset)
+    }
+    pub fn bottom_outset(&self) -> f64 {
+        self.bottom.as_ref().map_or(0.0, BorderSide::outset)
+    }
+}
+
+impl BorderSide {
+    pub fn outset(&self) -> f64 {
+        self.space + self.width
+    }
+}
+
+/// Matches the DOCX writer's defaults for an authored side.
+const DEFAULT_BORDER_WIDTH: f64 = 0.5;
+const DEFAULT_BORDER_COLOR: &str = "BFBFBF";
+
+fn apply_borders(borders: &mut ParagraphBorders, value: Option<&Value>) {
+    let Some(Value::Object(border)) = value else {
+        return;
+    };
+    let all = border.get("all");
+    for (name, side) in [
+        ("top", &mut borders.top),
+        ("right", &mut borders.right),
+        ("bottom", &mut borders.bottom),
+        ("left", &mut borders.left),
+    ] {
+        if let Some(value) = border.get(name).or(all) {
+            *side = border_side(value);
+        }
+    }
+}
+
+fn border_side(value: &Value) -> Option<BorderSide> {
+    let fields = match value {
+        Value::String(style) if matches!(style.as_str(), "" | "none" | "nil") => return None,
+        Value::String(_) => None,
+        Value::Object(fields) => Some(fields),
+        _ => return None,
+    };
+    let Some(fields) = fields else {
+        return Some(BorderSide {
+            width: DEFAULT_BORDER_WIDTH,
+            space: 0.0,
+            color: DEFAULT_BORDER_COLOR.into(),
+        });
+    };
+    let style = [values::text(fields, "style"), values::text(fields, "val")]
+        .into_iter()
+        .find(|text| !text.is_empty())
+        .unwrap_or_default();
+    if matches!(style.as_str(), "none" | "nil") {
+        return None;
+    }
+    let width = match fields.get("width") {
+        Some(Value::Number(points)) => Some(*points),
+        Some(width) => values::points(width),
+        None => fields
+            .get("size")
+            .and_then(values::number)
+            .map(|eighths| eighths / 8.0),
+    };
+    Some(BorderSide {
+        width: width
+            .filter(|width| *width > 0.0)
+            .unwrap_or(DEFAULT_BORDER_WIDTH),
+        space: fields.get("space").and_then(values::number).unwrap_or(0.0),
+        color: values::color(fields, "color").unwrap_or_else(|| DEFAULT_BORDER_COLOR.into()),
+    })
 }

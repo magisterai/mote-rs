@@ -69,7 +69,7 @@ fn plan_paragraphs(
         }
         let mut result = super::paragraphs::plan_resolved_paragraph(
             style,
-            None,
+            Default::default(),
             &runs,
             width
                 + match frame {

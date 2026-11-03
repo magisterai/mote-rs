@@ -41,7 +41,7 @@ pub use widows::minimum_start_height;
 mod style_values;
 pub(crate) mod styles;
 pub use inline::resolve_inline;
-pub use styles::{LayoutStyleResolver, ParagraphStyle};
+pub use styles::{BorderSide, LayoutStyleResolver, ParagraphBorders, ParagraphStyle};
 mod painting;
 mod paragraphs;
 pub use painting::{

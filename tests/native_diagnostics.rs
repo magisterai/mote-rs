@@ -15,13 +15,13 @@ fn implemented_text_properties_do_not_produce_stale_support_warnings() {
 #[test]
 fn retained_properties_report_the_specific_native_limit() {
     let result = warnings(
-        "#document(columns={count=2,equal_width=false})\n#paragraph(tabs={stops={position=pt(36)}},border={top={color=\"#123\"},bottom={color=\"#123\",width=pt(2)}})[Text]\n#list[#item(checkbox={checked=true})[Task]]",
+        "#document(columns={count=2,equal_width=false})\n#paragraph(tabs={stops={position=pt(36)}},border={top={style=\"double\",color=\"#123\"},bottom={color=\"#123\",width=pt(2),shadow=true}})[Text]\n#list[#item(checkbox={checked=true})[Task]]",
     );
     for field in [
         "equal_width=false",
         ".tabs",
-        ".border.top",
-        ".border.bottom.width",
+        ".border.top style \"double\" is drawn as a single line",
+        ".border.bottom.shadow",
         ".checkbox",
     ] {
         assert!(
