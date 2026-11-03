@@ -45,12 +45,12 @@ their concepts before using them in examples.
 
 | Directive | Checklist | Current language coverage |
 | --- | --- | --- |
-| `upper`, `lower`, `format_money`, `length`, `date` | [Value helpers](value-helpers.md) | Typed values and formatting helpers in progress. |
-| `checkbox` | [Standalone checkboxes](checkbox.md) | Attribute contract inventoried; implementation in progress. |
-| `field` | [General fields](field.md) | Attribute contract inventoried; implementation in progress. |
-| `comment` | [Comments](comment.md) | Attribute contract inventoried; implementation in progress. |
-| `metadata` | [Document metadata](metadata.md) | Attribute contract inventoried; implementation in progress. |
-| `math` | [Mathematics](math.md) | Source expressions, display mode and editable equation structure in progress. |
+| `upper`, `lower`, `format_money`, `length`, `date` | [Value helpers](value-helpers.md) | Specified and tested; see the checklist for output limits. |
+| `checkbox` | [Standalone checkboxes](checkbox.md) | Specified and tested; see the checklist for output limits. |
+| `field` | [General fields](field.md) | Specified and tested; see the checklist for output limits. |
+| `comment` | [Comments](comment.md) | Specified and tested; see the checklist for output limits. |
+| `metadata` | [Document metadata](metadata.md) | Specified and tested; see the checklist for output limits. |
+| `math` | [Mathematics](math.md) | Specified and tested; see the checklist for output limits. |
 | `underline` | [Underline](underline.md) | Specified and tested; see the checklist for output limits. |
 | `strike` | [Strikethrough](strike.md) | Specified and tested; see the checklist for output limits. |
 | `highlight` | [Highlighted text](highlight.md) | Specified and tested; see the checklist for output limits. |
