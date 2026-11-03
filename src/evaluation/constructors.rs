@@ -339,6 +339,18 @@ impl PreparedElement {
         state: &mut EvaluationState<'_>,
     ) -> Result<Element, Diagnostic> {
         let kind = self.signature.kind;
+        if matches!(
+            kind,
+            ElementKind::Paragraph | ElementKind::Heading | ElementKind::Span | ElementKind::Table
+        ) && let Some(Value::String(name)) = self.attributes.get("style")
+            && !name.is_empty()
+        {
+            let diagnostic = state.locate(Diagnostic::new(
+                span,
+                format!("style {name:?} is not declared"),
+            ));
+            state.style_references.push((name.clone(), diagnostic));
+        }
         if self.signature.body_mode() == ContentMode::Inline && children.iter().any(|child| matches!(child,Content::Element(element) if element.is_block() || element.kind.is_table_part())) {
             return Err(Diagnostic::new(span,"inline content cannot contain a block element"));
         }

@@ -221,3 +221,33 @@ fn numeric_names_warn_at_the_declaration_and_replacement_does_not_erase_warnings
             .is_empty()
     );
 }
+
+#[test]
+fn undeclared_style_references_warn_at_the_referencing_element() {
+    let source = concat!(
+        "#paragraph \"Lead\"[Declared later.]\n",
+        "#paragraph \"Leed\"[Misspelt.]\n",
+        "#paragraph(style = \"Heading 2\")[Supplied by Word.]\n",
+        "#table(style = \"Callout\")[#row[#cell[Missing table style.]]]\n",
+        "#style \"Lead\" (run = {bold = true})\n",
+    );
+    let document = compile(source).unwrap();
+    let warnings: Vec<_> = document
+        .warnings
+        .iter()
+        .map(|warning| (warning.span.start, warning.message.clone()))
+        .collect();
+    assert_eq!(
+        warnings,
+        [
+            (
+                source.find("#paragraph \"Leed\"").unwrap(),
+                "style \"Leed\" is not declared".into()
+            ),
+            (
+                source.find("#table").unwrap(),
+                "style \"Callout\" is not declared".into()
+            ),
+        ]
+    );
+}

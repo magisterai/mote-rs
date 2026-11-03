@@ -124,6 +124,11 @@ fn evaluate_with_state(
             ));
         }
     }
+    for (name, diagnostic) in std::mem::take(&mut document.style_references) {
+        if !style_is_known(&document, &name) {
+            document.warnings.push(diagnostic);
+        }
+    }
     references::validate(&document)?;
     crate::presentation::layouts::validate(&document).map_err(|message| {
         Diagnostic::new(
@@ -135,6 +140,22 @@ fn evaluate_with_state(
         )
     })?;
     Ok(document.finish())
+}
+
+/// Built-in Word styles count as declared.
+fn style_is_known(document: &Document, name: &str) -> bool {
+    let normalize = |text: &str| -> String {
+        text.to_lowercase()
+            .chars()
+            .filter(char::is_ascii_alphanumeric)
+            .collect()
+    };
+    let normalized = normalize(name);
+    document
+        .styles
+        .keys()
+        .any(|declared| normalize(declared) == normalized)
+        || crate::docx::builtin_styles::canonical_name(name).is_some()
 }
 
 #[derive(Clone, Copy, PartialEq)]
@@ -155,9 +176,7 @@ impl ContentMode {
     }
 }
 
-/// Source indentation is layout, not content: a soft line break absorbs the
-/// horizontal whitespace around it, and contributes nothing at either edge of a
-/// body. Preserved-space contexts keep their source text unchanged.
+/// A soft break also absorbs the indentation around it and vanishes at body edges.
 fn collapse_soft_line_breaks(nodes: &[Node]) -> Vec<Node> {
     let is_soft_break = |node: &Node| matches!(node.kind, NodeKind::LineBreak { hard: false });
     let is_blank = |node: &Node| matches!(&node.kind, NodeKind::Text(text) if text.trim_matches([' ', '\t']).is_empty());
@@ -165,7 +184,11 @@ fn collapse_soft_line_breaks(nodes: &[Node]) -> Vec<Node> {
     let mut after_soft_break = false;
     for node in nodes {
         if is_soft_break(node) {
-            if let Some(Node { kind: NodeKind::Text(text), .. }) = collapsed.last_mut() {
+            if let Some(Node {
+                kind: NodeKind::Text(text),
+                ..
+            }) = collapsed.last_mut()
+            {
                 text.truncate(text.trim_end_matches([' ', '\t']).len());
             }
             while collapsed.last().is_some_and(is_blank) {

@@ -29,7 +29,7 @@ pub(super) fn normalize_name(name: &str) -> String {
         .collect()
 }
 
-pub(super) fn canonical_name(name: &str) -> Option<&'static str> {
+pub(crate) fn canonical_name(name: &str) -> Option<&'static str> {
     let normalized = normalize_name(name);
     NAMES
         .iter()

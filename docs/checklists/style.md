@@ -59,6 +59,9 @@
   and preserving explicit false/zero; handle flat/nested spacing aliases.
 - [x] Missing parents and cycles stop traversal while retaining discovered
   properties; expose these conditions in resolution results.
+- [x] A paragraph, heading, span, or table referencing an undeclared style warns
+  at its source location once the final registry is known; see
+  [declaration tests](../../tests/declarations.rs).
 - [x] Apply named styles and direct overrides to inherited formatting without
   modifying authored attributes or leaking changes into siblings.
 - [x] Resolve font aliases from the resulting run font reference.

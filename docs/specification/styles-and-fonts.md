@@ -311,6 +311,13 @@ and resolution reports the missing name or repeated identity. A wholly missing
 style supplies no properties and reports a missing-style issue; inherited and
 direct formatting still apply. These are resolution issues, not compile errors.
 
+A paragraph, heading, span, or table whose `style` names no declaration produces a
+warning at that element, such as `style "Leed" is not declared`. The check runs
+after the final declaration registry is known, so a style declared later in the
+source is not reported. Names compare as style lookup compares them, and the
+styles that every Word package supplies, such as `Normal`, `Heading1` to
+`Heading6`, `Caption`, `Header`, and `Footer`, count as declared.
+
 ## 5. Direct formatting and the inspection API
 
 The public `formatting::StyleResolver` operates on an evaluated document:

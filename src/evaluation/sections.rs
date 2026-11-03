@@ -29,6 +29,7 @@ pub(super) struct EvaluationState<'resolver> {
     pub labels: Vec<super::references::NamedLocation>,
     pub references: Vec<super::references::NamedLocation>,
     pub story_declaration: Option<usize>,
+    pub style_references: Vec<(String, Diagnostic)>,
     default_header: HeaderFooter,
     default_footer: HeaderFooter,
     captures: Vec<StoryCapture>,
@@ -48,12 +49,15 @@ impl DerefMut for EvaluationState<'_> {
 }
 impl EvaluationState<'_> {
     pub fn warn(&mut self, diagnostic: Diagnostic) {
-        let diagnostic = if self.source_name().is_some() {
+        let diagnostic = self.locate(diagnostic);
+        self.warnings.push(diagnostic);
+    }
+    pub fn locate(&self, diagnostic: Diagnostic) -> Diagnostic {
+        if self.source_name().is_some() {
             diagnostic.with_source(self.source.clone())
         } else {
             diagnostic
-        };
-        self.warnings.push(diagnostic);
+        }
     }
     pub fn source_name(&self) -> Option<&std::ffi::OsStr> {
         (!self.source.name.is_empty()).then_some(self.source.name.as_os_str())

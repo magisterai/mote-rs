@@ -2,7 +2,7 @@
 
 mod block_content;
 mod block_quotes;
-mod builtin_styles;
+pub(crate) mod builtin_styles;
 mod captions;
 mod charts;
 mod comments;
