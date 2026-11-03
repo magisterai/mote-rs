@@ -58,7 +58,9 @@ turn an unordered container into numbering. Marker/style overrides, right
 indentation and spacing before have no DOCX formatting effect and produce
 warnings. Line-spacing overrides remain outside
 the list attribute scope. Item paragraphs flatten into one paragraph;
-independent child-paragraph formatting is omitted with a warning. See the
+independent child-paragraph formatting is omitted with a warning. In table
+cells, paragraph boundaries are retained, and list-item spacing is independent
+of inherited cell paragraph before/after spacing. See the
 [bullet captures](../../tests/fixtures/docx/bullet-lists/README.md). Word review
 remains unreviewed.
 

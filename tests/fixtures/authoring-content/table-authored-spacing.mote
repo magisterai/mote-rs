@@ -1,0 +1,19 @@
+#style(name="CellStyle",type="table",table={paragraph={spacing={after=pt(0),line=pt(12)}}})
+#table(style="CellStyle",width=pt(420))[
+#row[#cell[#blockquote[
+#paragraph(spacing_before=pt(9),spacing_after=pt(3))[First quote paragraph.]
+#paragraph(spacing_before=pt(5),spacing_after=pt(7))[Second quote paragraph.]
+]]]
+#row[#cell[#definition_list[
+#term[Term]
+#definition[
+#paragraph(spacing_before=pt(11),spacing_after=pt(7))[First definition paragraph.]
+#paragraph(spacing={before=pt(3),after=pt(5)})[Second definition paragraph.]
+]
+]]]
+#row[#cell[#list[
+#item[#paragraph(spacing_before=pt(9),spacing_after=pt(7))[First item.]]
+#item[#paragraph(spacing_before=pt(3),spacing_after=pt(5))[Second item.]]
+]]]
+]
+After table.

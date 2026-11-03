@@ -1,0 +1,6 @@
+#document(default_size=pt(10.5))
+#style(name="DefaultTable",type="table",table={paragraph={spacing={after=pt(0),line=pt(12)}},text={size=pt(9.5)},cell={margin={top=pt(4),bottom=pt(4)}}})
+#table(style="DefaultTable",width=pt(420))[
+#row[#cell[#list[#item[First item.]#item[Second item.]#item[Third item.]]]]
+]
+After table.

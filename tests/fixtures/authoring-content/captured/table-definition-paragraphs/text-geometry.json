@@ -1,0 +1,126 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 78,
+        "top": 79,
+        "height": 15.225539999999999,
+        "width": 26.895,
+        "baseline": 89.91277,
+        "fragments": [
+          {
+            "text": "Term",
+            "x": 78,
+            "baseline": 89.91277,
+            "top": 82.01477,
+            "width": 26.895,
+            "height": 10.175,
+            "advance": 26.895,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "bold",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 96,
+        "top": 102.22554,
+        "height": 15.225539999999999,
+        "width": 124.71799999999999,
+        "baseline": 113.13830999999999,
+        "fragments": [
+          {
+            "text": "First ",
+            "x": 96,
+            "baseline": 113.13830999999999,
+            "top": 105.24031,
+            "width": 24.442,
+            "height": 10.175,
+            "advance": 24.442,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "definition ",
+            "x": 120.44200000000001,
+            "baseline": 113.13830999999999,
+            "top": 105.24031,
+            "width": 47.08,
+            "height": 10.175,
+            "advance": 47.08,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "paragraph.",
+            "x": 167.522,
+            "baseline": 113.13830999999999,
+            "top": 105.24031,
+            "width": 53.196,
+            "height": 10.175,
+            "advance": 53.196,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 96,
+        "top": 125.45107999999999,
+        "height": 15.225539999999999,
+        "width": 140.635,
+        "baseline": 136.36384999999999,
+        "fragments": [
+          {
+            "text": "Second ",
+            "x": 96,
+            "baseline": 136.36384999999999,
+            "top": 128.46585,
+            "width": 40.359,
+            "height": 10.175,
+            "advance": 40.359,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "definition ",
+            "x": 136.359,
+            "baseline": 136.36384999999999,
+            "top": 128.46585,
+            "width": 47.08,
+            "height": 10.175,
+            "advance": 47.08,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "paragraph.",
+            "x": 183.439,
+            "baseline": 136.36384999999999,
+            "top": 128.46585,
+            "width": 53.196,
+            "height": 10.175,
+            "advance": 53.196,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

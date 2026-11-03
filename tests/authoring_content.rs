@@ -14,6 +14,10 @@ fn authored_content_matches_editable_packages_and_native_layout() {
             "quoted-list-content",
             "nested-list-blocks",
             "nested-markdown-blocks",
+            "table-quote-paragraphs",
+            "table-definition-paragraphs",
+            "table-list-line-spacing",
+            "table-authored-spacing",
         ],
     );
 }
@@ -56,4 +60,25 @@ fn markdown_strike_preserves_escapes_literal_code_and_unmatched_delimiters() {
             .collect::<String>(),
         "Before removed bold; ~~literal~~, ~~code~~, and ~~unfinished."
     );
+}
+
+#[test]
+fn table_list_spacing_preserves_item_spacing_and_paragraph_overrides() {
+    use mote::{render, source::FileAssetResolver};
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let source = include_str!("fixtures/authoring-content/table-list-line-spacing.mote");
+    for (source, distance) in [
+        (source.to_owned(), 14.0),
+        (source.replace("#list[", "#list(tight=true)["), 12.0),
+        (
+            source.replace("#item[", "#item(spacing={after=pt(7)})["),
+            20.14933,
+        ),
+    ] {
+        let document = mote::compile(&source).unwrap();
+        let plan = render::plan(&document, &resolver, None).unwrap();
+        let lines = &plan.output.pages[0].lines;
+        assert!((lines[1].top - lines[0].top - distance).abs() < 1e-8);
+        assert!((lines[2].top - lines[1].top - distance).abs() < 1e-8);
+    }
 }

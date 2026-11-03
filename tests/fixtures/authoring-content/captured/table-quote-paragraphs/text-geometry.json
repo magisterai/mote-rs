@@ -1,0 +1,104 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 114,
+        "top": 85,
+        "height": 15.225539999999999,
+        "width": 108.21799999999999,
+        "baseline": 95.91277,
+        "fragments": [
+          {
+            "text": "First ",
+            "x": 114,
+            "baseline": 95.91277,
+            "top": 88.01477,
+            "width": 24.442,
+            "height": 10.175,
+            "advance": 24.442,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "quote ",
+            "x": 138.442,
+            "baseline": 95.91277,
+            "top": 88.01477,
+            "width": 30.58,
+            "height": 10.175,
+            "advance": 30.58,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "paragraph.",
+            "x": 169.022,
+            "baseline": 95.91277,
+            "top": 88.01477,
+            "width": 53.196,
+            "height": 10.175,
+            "advance": 53.196,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 114,
+        "top": 106.22554,
+        "height": 15.225539999999999,
+        "width": 124.13499999999999,
+        "baseline": 117.13830999999999,
+        "fragments": [
+          {
+            "text": "Second ",
+            "x": 114,
+            "baseline": 117.13830999999999,
+            "top": 109.24031,
+            "width": 40.359,
+            "height": 10.175,
+            "advance": 40.359,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "quote ",
+            "x": 154.359,
+            "baseline": 117.13830999999999,
+            "top": 109.24031,
+            "width": 30.58,
+            "height": 10.175,
+            "advance": 30.58,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          },
+          {
+            "text": "paragraph.",
+            "x": 184.93900000000002,
+            "baseline": 117.13830999999999,
+            "top": 109.24031,
+            "width": 53.196,
+            "height": 10.175,
+            "advance": 53.196,
+            "size": 11,
+            "font": "Helvetica",
+            "variant": "italic",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]

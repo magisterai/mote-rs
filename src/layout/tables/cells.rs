@@ -79,9 +79,22 @@ fn explicit_spacing(attributes: &Properties, name: &str) -> bool {
 }
 /// Apply cell inheritance only to paragraph content; embedded objects retain their own geometry.
 pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Content> {
+    content_with_spacing(children, attributes, false)
+}
+
+fn content_with_spacing(
+    children: &[Content],
+    attributes: &Properties,
+    preserve_style_spacing: bool,
+) -> Vec<Content> {
     let mut output = Vec::new();
     let mut pending = Vec::new();
-    fn flush(pending: &mut Vec<Content>, output: &mut Vec<Content>, attributes: &Properties) {
+    fn flush(
+        pending: &mut Vec<Content>,
+        output: &mut Vec<Content>,
+        attributes: &Properties,
+        preserve_style_spacing: bool,
+    ) {
         if pending
             .iter()
             .all(|node| matches!(node,Content::Text(text) if text.trim().is_empty()))
@@ -96,7 +109,11 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
             attributes: Properties::new(),
             children: std::mem::take(pending),
         };
-        output.extend(content(&[Content::Element(paragraph)], attributes));
+        output.extend(content_with_spacing(
+            &[Content::Element(paragraph)],
+            attributes,
+            preserve_style_spacing,
+        ));
     }
     for node in children {
         let Content::Element(original) = node else {
@@ -107,7 +124,12 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
             pending.push(node.clone());
             continue;
         }
-        flush(&mut pending, &mut output, attributes);
+        flush(
+            &mut pending,
+            &mut output,
+            attributes,
+            preserve_style_spacing,
+        );
         let mut element = original.clone();
         if matches!(element.kind, ElementKind::Chart | ElementKind::Math) {
             element.kind = ElementKind::Paragraph;
@@ -120,7 +142,7 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
                 inherited.remove("fill");
                 inherited.remove("width");
                 element.attributes = tables::cell_defaults(&element.attributes, &inherited, false);
-                if original.kind == ElementKind::Paragraph {
+                if original.kind == ElementKind::Paragraph && !preserve_style_spacing {
                     for name in ["before", "after"] {
                         if !explicit_spacing(&original.attributes, name) {
                             element
@@ -137,42 +159,43 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
                 }
             }
             ElementKind::List | ElementKind::OrderedList => {
-                for node in &mut element.children {
-                    if let Content::Element(item) = node {
-                        item.attributes =
-                            tables::cell_defaults(&item.attributes, attributes, false);
-                        item.attributes.remove("fill");
-                        item.attributes
-                            .insert("spacing_before".into(), Value::Number(0.0));
-                    }
-                }
+                inherit_list_items(&mut element, attributes);
             }
             ElementKind::Blockquote => {
                 let mut inherited = tables::cell_defaults(&element.attributes, attributes, false);
                 inherited
                     .entry("style".into())
                     .or_insert(Value::String("BlockQuote".into()));
-                let mut children = content(&element.children, &inherited);
-                for child in &mut children {
-                    if let Content::Element(paragraph) = child {
-                        for name in ["spacing_before", "spacing_after"] {
-                            paragraph.attributes.remove(name);
-                        }
-                    }
+                output.extend(content_with_spacing(&element.children, &inherited, true));
+                continue;
+            }
+            ElementKind::DefinitionList => {
+                for paragraph in crate::block_content::definition_paragraphs(&element, true) {
+                    output.extend(content_with_spacing(
+                        &[Content::Element(paragraph)],
+                        attributes,
+                        true,
+                    ));
                 }
-                output.extend(children);
                 continue;
             }
             _ => {}
         }
         output.push(Content::Element(element));
     }
-    flush(&mut pending, &mut output, attributes);
+    flush(
+        &mut pending,
+        &mut output,
+        attributes,
+        preserve_style_spacing,
+    );
     if output.is_empty() {
         let mut inherited = attributes.clone();
         inherited.remove("fill");
-        inherited.insert("spacing_before".into(), Value::Number(0.0));
-        inherited.insert("spacing_after".into(), Value::Number(0.0));
+        if !preserve_style_spacing {
+            inherited.insert("spacing_before".into(), Value::Number(0.0));
+            inherited.insert("spacing_after".into(), Value::Number(0.0));
+        }
         output.push(Content::Element(Element {
             source_name: None,
             source_location: None,
@@ -183,6 +206,61 @@ pub(super) fn content(children: &[Content], attributes: &Properties) -> Vec<Cont
     }
     output
 }
+fn inherit_list_items(list: &mut Element, attributes: &Properties) {
+    let geometry = super::super::lists::ListGeometry::default().apply(&list.attributes);
+    let mut inherited = attributes.clone();
+    // A list's item spacing is independent of the cell's paragraph
+    // defaults. Keep authored item/paragraph spacing overrides.
+    inherited.remove("spacing_before");
+    inherited.remove("spacing_after");
+    if let Some(Value::Object(spacing)) = inherited.get_mut("spacing") {
+        for name in ["before", "after", "spacing_before", "spacing_after"] {
+            spacing.remove(name);
+        }
+    }
+    for node in &mut list.children {
+        if let Content::Element(item) = node {
+            let item_geometry = geometry.apply(&item.attributes);
+            let paragraph_defaults = tables::cell_defaults(&item.attributes, attributes, false);
+            for child in &mut item.children {
+                if let Content::Element(paragraph) = child
+                    && paragraph.kind == ElementKind::Paragraph
+                {
+                    let authored =
+                        tables::cell_defaults(&paragraph.attributes, &item.attributes, false);
+                    paragraph.attributes =
+                        tables::cell_defaults(&paragraph.attributes, &paragraph_defaults, false);
+                    paragraph.attributes.remove("fill");
+                    paragraph.attributes.remove("width");
+                    for (name, fallback) in [("before", 0.0), ("after", item_geometry.after)] {
+                        if !explicit_spacing(&authored, name) {
+                            if let Some(Value::Object(spacing)) =
+                                paragraph.attributes.get_mut("spacing")
+                            {
+                                spacing.remove(name);
+                                spacing.remove(&format!("spacing_{name}"));
+                            }
+                            paragraph.attributes.insert(
+                                format!("spacing_{name}"),
+                                Value::Length {
+                                    value: fallback,
+                                    unit: crate::model::Unit::Point,
+                                },
+                            );
+                        }
+                    }
+                }
+            }
+            item.attributes = tables::cell_defaults(&item.attributes, &inherited, false);
+            item.attributes.remove("fill");
+            if !explicit_spacing(&item.attributes, "before") {
+                item.attributes
+                    .insert("spacing_before".into(), Value::Number(0.0));
+            }
+        }
+    }
+}
+
 pub(super) fn block_geometry(block: &Block) -> (f64, f64, f64) {
     match block {
         Block::Paragraph(paragraph) => (

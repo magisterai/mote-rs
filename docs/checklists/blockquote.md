@@ -49,7 +49,9 @@ Nested `text` and `paragraph` defaults belong to the [box checklist](box.md); th
 DOCX emits one paragraph per quote, with a fallback or named style and direct
 paragraph properties. Nested paragraph, list and quote content flattens to inline
 runs without separators or numbered markers. Separate child-block formatting is
-omitted with a source-located warning. Empty quotes remain paragraphs; an empty style reference suppresses the fallback reference. Formatting does not escape the quote.
+omitted with a source-located warning. Within table cells, directly authored
+paragraph boundaries and their supported formatting are retained. Empty quotes
+remain paragraphs; an empty style reference suppresses the fallback reference. Formatting does not escape the quote.
 See [quote captures](../../tests/fixtures/docx/block-quotes/README.md) and
 [tests](../../tests/docx_quotes.rs). Word review remains unreviewed.
 

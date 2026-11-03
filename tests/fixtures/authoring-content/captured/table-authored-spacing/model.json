@@ -1,0 +1,541 @@
+{
+  "page": {},
+  "margin": {},
+  "columns": {},
+  "styles": [
+    {
+      "name": "CellStyle",
+      "type": "table",
+      "table": {
+        "paragraph": {
+          "spacing": {
+            "after": {
+              "text": "0pt",
+              "unit": "pt",
+              "value": 0
+            },
+            "line": {
+              "text": "12pt",
+              "unit": "pt",
+              "value": 12
+            }
+          }
+        }
+      },
+      "properties": {
+        "table": {
+          "paragraph": {
+            "spacing": {
+              "after": {
+                "text": "0pt",
+                "unit": "pt",
+                "value": 0
+              },
+              "line": {
+                "text": "12pt",
+                "unit": "pt",
+                "value": 12
+              }
+            }
+          }
+        },
+        "type": "table"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "section_properties": {},
+      "page_numbering": {},
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "header_properties": {},
+      "footer_properties": {},
+      "content": [
+        {
+          "kind": "table",
+          "category": "block",
+          "attributes": {
+            "style": "CellStyle",
+            "width": {
+              "text": "420pt",
+              "unit": "pt",
+              "value": 420
+            }
+          },
+          "children": [
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "blockquote",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "attributes": {
+                            "spacing_after": {
+                              "text": "3pt",
+                              "unit": "pt",
+                              "value": 3
+                            },
+                            "spacing_before": {
+                              "text": "9pt",
+                              "unit": "pt",
+                              "value": 9
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "First quote paragraph."
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "attributes": {
+                            "spacing_after": {
+                              "text": "7pt",
+                              "unit": "pt",
+                              "value": 7
+                            },
+                            "spacing_before": {
+                              "text": "5pt",
+                              "unit": "pt",
+                              "value": 5
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Second quote paragraph."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "definition_list",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "term",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Term"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "definition",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "attributes": {
+                                "spacing_after": {
+                                  "text": "7pt",
+                                  "unit": "pt",
+                                  "value": 7
+                                },
+                                "spacing_before": {
+                                  "text": "11pt",
+                                  "unit": "pt",
+                                  "value": 11
+                                }
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "First definition paragraph."
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "attributes": {
+                                "spacing": {
+                                  "after": {
+                                    "text": "5pt",
+                                    "unit": "pt",
+                                    "value": 5
+                                  },
+                                  "before": {
+                                    "text": "3pt",
+                                    "unit": "pt",
+                                    "value": 3
+                                  }
+                                }
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Second definition paragraph."
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "row",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "cell",
+                  "category": "table_part",
+                  "children": [
+                    {
+                      "kind": "list",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "list_item",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "attributes": {
+                                "spacing_after": {
+                                  "text": "7pt",
+                                  "unit": "pt",
+                                  "value": 7
+                                },
+                                "spacing_before": {
+                                  "text": "9pt",
+                                  "unit": "pt",
+                                  "value": 9
+                                }
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "First item."
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "list_item",
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "paragraph",
+                              "category": "block",
+                              "attributes": {
+                                "spacing_after": {
+                                  "text": "5pt",
+                                  "unit": "pt",
+                                  "value": 5
+                                },
+                                "spacing_before": {
+                                  "text": "3pt",
+                                  "unit": "pt",
+                                  "value": 3
+                                }
+                              },
+                              "children": [
+                                {
+                                  "kind": "text",
+                                  "text": "Second item."
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "After table."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "kind": "table",
+      "category": "block",
+      "attributes": {
+        "style": "CellStyle",
+        "width": {
+          "text": "420pt",
+          "unit": "pt",
+          "value": 420
+        }
+      },
+      "children": [
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "blockquote",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "attributes": {
+                        "spacing_after": {
+                          "text": "3pt",
+                          "unit": "pt",
+                          "value": 3
+                        },
+                        "spacing_before": {
+                          "text": "9pt",
+                          "unit": "pt",
+                          "value": 9
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "First quote paragraph."
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "paragraph",
+                      "category": "block",
+                      "attributes": {
+                        "spacing_after": {
+                          "text": "7pt",
+                          "unit": "pt",
+                          "value": 7
+                        },
+                        "spacing_before": {
+                          "text": "5pt",
+                          "unit": "pt",
+                          "value": 5
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Second quote paragraph."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "definition_list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "term",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "Term"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "definition",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "attributes": {
+                            "spacing_after": {
+                              "text": "7pt",
+                              "unit": "pt",
+                              "value": 7
+                            },
+                            "spacing_before": {
+                              "text": "11pt",
+                              "unit": "pt",
+                              "value": 11
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "First definition paragraph."
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "attributes": {
+                            "spacing": {
+                              "after": {
+                                "text": "5pt",
+                                "unit": "pt",
+                                "value": 5
+                              },
+                              "before": {
+                                "text": "3pt",
+                                "unit": "pt",
+                                "value": 3
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Second definition paragraph."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "category": "table_part",
+          "children": [
+            {
+              "kind": "cell",
+              "category": "table_part",
+              "children": [
+                {
+                  "kind": "list",
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "attributes": {
+                            "spacing_after": {
+                              "text": "7pt",
+                              "unit": "pt",
+                              "value": 7
+                            },
+                            "spacing_before": {
+                              "text": "9pt",
+                              "unit": "pt",
+                              "value": 9
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "First item."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list_item",
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "paragraph",
+                          "category": "block",
+                          "attributes": {
+                            "spacing_after": {
+                              "text": "5pt",
+                              "unit": "pt",
+                              "value": 5
+                            },
+                            "spacing_before": {
+                              "text": "3pt",
+                              "unit": "pt",
+                              "value": 3
+                            }
+                          },
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "Second item."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "paragraph",
+      "category": "block",
+      "children": [
+        {
+          "kind": "text",
+          "text": "After table."
+        }
+      ]
+    }
+  ]
+}

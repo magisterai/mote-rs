@@ -20,3 +20,7 @@ Evidence: [language definition](../specification/block-content.md),
 
 See the full [shared attribute inventories](attributes/README.md) for paragraph,
 border, spacing, style and DrawingML text properties, including unsupported values.
+
+Within table cells, supported definition paragraph boundaries remain
+separate in editable and native output. See the [authoring content
+captures](../../tests/fixtures/authoring-content/README.md).

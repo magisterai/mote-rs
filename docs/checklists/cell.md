@@ -41,3 +41,7 @@ wraps table-cell text; `no_wrap` must report that limitation in both slide outpu
 [Focused source cases](../../tests/cases/README.md) and
 [alignment tests](../../tests/table_alignment.rs) check cell/paragraph alignment
 precedence, vertical alignment with paragraph spacing, and margin shorthands.
+
+Within table cells, supported quote and definition paragraph boundaries remain
+separate in editable and native output. See the [authoring content
+captures](../../tests/fixtures/authoring-content/README.md).

@@ -1,0 +1,148 @@
+[
+  {
+    "width": 612,
+    "height": 792,
+    "lines": [
+      {
+        "x": 114,
+        "top": 79,
+        "height": 12,
+        "width": 41.6955,
+        "baseline": 87.85,
+        "fragments": [
+          {
+            "text": "First ",
+            "x": 114,
+            "baseline": 87.85,
+            "top": 81.029,
+            "width": 21.109,
+            "height": 8.7875,
+            "advance": 21.109,
+            "size": 9.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "item.",
+            "x": 135.109,
+            "baseline": 87.85,
+            "top": 81.029,
+            "width": 20.5865,
+            "height": 8.7875,
+            "advance": 20.5865,
+            "size": 9.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 114,
+        "top": 93,
+        "height": 12,
+        "width": 55.442,
+        "baseline": 101.85,
+        "fragments": [
+          {
+            "text": "Second ",
+            "x": 114,
+            "baseline": 101.85,
+            "top": 95.029,
+            "width": 34.8555,
+            "height": 8.7875,
+            "advance": 34.8555,
+            "size": 9.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "item.",
+            "x": 148.8555,
+            "baseline": 101.85,
+            "top": 95.029,
+            "width": 20.5865,
+            "height": 8.7875,
+            "advance": 20.5865,
+            "size": 9.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 114,
+        "top": 107,
+        "height": 12,
+        "width": 44.8685,
+        "baseline": 115.85,
+        "fragments": [
+          {
+            "text": "Third ",
+            "x": 114,
+            "baseline": 115.85,
+            "top": 109.029,
+            "width": 24.282,
+            "height": 8.7875,
+            "advance": 24.282,
+            "size": 9.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "item.",
+            "x": 138.28199999999998,
+            "baseline": 115.85,
+            "top": 109.029,
+            "width": 20.5865,
+            "height": 8.7875,
+            "advance": 20.5865,
+            "size": 9.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      },
+      {
+        "x": 72,
+        "top": 126.5,
+        "height": 14.533469999999998,
+        "width": 50.778,
+        "baseline": 136.916735,
+        "fragments": [
+          {
+            "text": "After ",
+            "x": 72,
+            "baseline": 136.916735,
+            "top": 129.377735,
+            "width": 25.095,
+            "height": 9.7125,
+            "advance": 25.095,
+            "size": 10.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          },
+          {
+            "text": "table.",
+            "x": 97.095,
+            "baseline": 136.916735,
+            "top": 129.377735,
+            "width": 25.683,
+            "height": 9.7125,
+            "advance": 25.683,
+            "size": 10.5,
+            "font": "Helvetica",
+            "variant": "regular",
+            "missing_codepoints": []
+          }
+        ]
+      }
+    ]
+  }
+]
