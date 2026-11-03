@@ -27,6 +27,85 @@ fn catalogue_cases_preserve_page_counts_and_emit_well_formed_editable_packages()
     assert!(failures.is_empty(), "{}", failures.join("\n"));
 }
 
+#[test]
+fn nested_table_continuations_retain_only_visible_text() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/cases");
+    let source = root.join("word-59-nested-table-row-splitting.mote");
+    let resolver = FileAssetResolver::new(&root).unwrap();
+    let document = mote::compile(&fs::read_to_string(&source).unwrap()).unwrap();
+    let plan = render::plan(&document, &resolver, Some(source.as_os_str()))
+        .unwrap()
+        .output;
+    assert_eq!(plan.pages.len(), 2);
+    let page_lines: Vec<Vec<String>> = plan
+        .pages
+        .iter()
+        .map(|page| {
+            page.lines
+                .iter()
+                .map(|placed| {
+                    placed
+                        .line
+                        .fragments
+                        .iter()
+                        .map(|fragment| fragment.text.as_str())
+                        .collect()
+                })
+                .collect()
+        })
+        .collect();
+    for number in 1..=6 {
+        let marker = format!("NESTED-R{number:02}");
+        let appearances: Vec<_> = page_lines
+            .iter()
+            .enumerate()
+            .flat_map(|(page_index, lines)| {
+                lines
+                    .iter()
+                    .filter(|text| **text == marker)
+                    .map(move |_| page_index)
+            })
+            .collect();
+        assert_eq!(appearances, [usize::from(number > 2)], "{marker}");
+    }
+    for number in 1..=15 {
+        let marker = format!("RIGHT-CONTROL LINE {number:02}");
+        assert_eq!(
+            page_lines
+                .iter()
+                .flatten()
+                .filter(|text| **text == marker)
+                .count(),
+            1,
+            "{marker}"
+        );
+    }
+    for page in &plan.pages {
+        let mut clips = Vec::new();
+        for operation in &page.operations {
+            match operation {
+                mote::layout::PageOperation::PushClip(bounds) => clips.push(*bounds),
+                mote::layout::PageOperation::PopClip => {
+                    clips.pop().expect("balanced cell clips");
+                }
+                mote::layout::PageOperation::Text(index) => {
+                    let placed = &page.lines[*index];
+                    for bounds in &clips {
+                        assert!(
+                            placed.top + placed.line.height > bounds[1] + 0.01
+                                && placed.top < bounds[1] + bounds[3] - 0.01,
+                            "text outside an enclosing cell fragment: {:?}",
+                            placed.line.fragments
+                        );
+                    }
+                }
+                _ => {}
+            }
+        }
+        assert!(clips.is_empty(), "balanced cell clips");
+    }
+}
+
 fn check_case(
     root: &Path,
     resolver: &FileAssetResolver,

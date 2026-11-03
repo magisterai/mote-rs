@@ -9,7 +9,9 @@ required font files and expected native page count for each case.
 Sources, small input assets and assertions are versioned. Generated packages,
 PDFs and images are disposable review artifacts, not stored test expectations.
 The [catalogue test](../review_catalogue.rs) evaluates every case, checks page
-counts and parses every XML part in its editable package. The focused
+counts and parses every XML part in its editable package. It also checks that
+nested table continuations retain each row's text once and omit text outside
+the enclosing cell fragment. The focused
 [table tests](../table_alignment.rs) separately assert alignment, spacing and
 margin geometry.
 

@@ -6,6 +6,13 @@ use super::super::{
     painting::ParagraphPainting,
 };
 use super::*;
+
+struct RowPlacement {
+    origin: [f64; 2],
+    paint_rowspans: bool,
+    outer_clip: Option<[f64; 4]>,
+}
+
 pub(in crate::layout) fn place(
     table: &TablePlan,
     cursor: &mut FlowCursor,
@@ -90,14 +97,17 @@ pub(in crate::layout) fn place(
                         place_row(
                             table,
                             row,
-                            [
-                                table.left(
-                                    geometry.column_left(cursor.column_index),
-                                    geometry.column_width(),
-                                ),
-                                cursor.y,
-                            ],
-                            true,
+                            RowPlacement {
+                                origin: [
+                                    table.left(
+                                        geometry.column_left(cursor.column_index),
+                                        geometry.column_width(),
+                                    ),
+                                    cursor.y,
+                                ],
+                                paint_rowspans: true,
+                                outer_clip: None,
+                            },
                             &mut pages[cursor.page_number - 1],
                             &mut collector,
                             cursor.page_number - 1,
@@ -120,6 +130,7 @@ pub(in crate::layout) fn place(
                         cell,
                         bounds,
                         span.window,
+                        None,
                         &mut pages[cursor.page_number - 1],
                     )?;
                     collector.cell(
@@ -141,6 +152,7 @@ pub(in crate::layout) fn place(
                         cell,
                         bounds,
                         slice.cells[index],
+                        None,
                         &mut pages[cursor.page_number - 1],
                     )?;
                     collector.cell(
@@ -186,14 +198,17 @@ pub(in crate::layout) fn place(
                             place_row(
                                 table,
                                 header,
-                                [
-                                    table.left(
-                                        geometry.column_left(cursor.column_index),
-                                        geometry.column_width(),
-                                    ),
-                                    cursor.y,
-                                ],
-                                true,
+                                RowPlacement {
+                                    origin: [
+                                        table.left(
+                                            geometry.column_left(cursor.column_index),
+                                            geometry.column_width(),
+                                        ),
+                                        cursor.y,
+                                    ],
+                                    paint_rowspans: true,
+                                    outer_clip: None,
+                                },
                                 &mut pages[cursor.page_number - 1],
                                 &mut collector,
                                 cursor.page_number - 1,
@@ -218,14 +233,17 @@ pub(in crate::layout) fn place(
                 place_row(
                     table,
                     row,
-                    [
-                        table.left(
-                            geometry.column_left(cursor.column_index),
-                            geometry.column_width(),
-                        ),
-                        cursor.y,
-                    ],
-                    !degrade_rowspans,
+                    RowPlacement {
+                        origin: [
+                            table.left(
+                                geometry.column_left(cursor.column_index),
+                                geometry.column_width(),
+                            ),
+                            cursor.y,
+                        ],
+                        paint_rowspans: !degrade_rowspans,
+                        outer_clip: None,
+                    },
                     &mut pages[cursor.page_number - 1],
                     &mut collector,
                     cursor.page_number - 1,
@@ -249,19 +267,22 @@ pub(in crate::layout) fn place(
 fn place_row(
     table: &TablePlan,
     row: usize,
-    origin: [f64; 2],
-    paint_rowspans: bool,
+    placement: RowPlacement,
     page: &mut TextPage,
     collector: &mut borders::Collector,
     page_index: usize,
 ) -> Result<(), LayoutError> {
-    let [left, top] = origin;
+    let [left, top] = placement.origin;
     for cell in &table.rows[row].cells {
         let horizontal = left + table.widths[..cell.column].iter().sum::<f64>();
         let width = table.widths[cell.column..cell.column + cell.column_span]
             .iter()
             .sum();
-        let row_span = if paint_rowspans { cell.row_span } else { 1 };
+        let row_span = if placement.paint_rowspans {
+            cell.row_span
+        } else {
+            1
+        };
         let height = table.rows[row..row + row_span]
             .iter()
             .map(|row| row.height)
@@ -274,6 +295,7 @@ fn place_row(
                 alignment: height,
                 ..Default::default()
             },
+            placement.outer_clip,
             page,
         )?;
         collector.cell(
@@ -300,6 +322,7 @@ fn place_cell(
     cell: &CellPlan,
     bounds: [f64; 4],
     window: pagination::Window,
+    outer_clip: Option<[f64; 4]>,
     page: &mut TextPage,
 ) -> Result<(), LayoutError> {
     let [left, top, width, height] = bounds;
@@ -313,17 +336,26 @@ fn place_cell(
                 color,
             }));
     }
-    let clip_top = top + window.inset;
-    let clip_bottom = (clip_top + window.height).min(top + height);
-    if clip_bottom <= clip_top + 0.01 {
+    let mut clip_top = top + window.inset;
+    let mut clip_bottom = (clip_top + window.height).min(top + height);
+    let mut clip_left = left;
+    let mut clip_right = left + width;
+    if let Some([outer_left, outer_top, outer_width, outer_height]) = outer_clip {
+        clip_left = clip_left.max(outer_left);
+        clip_right = clip_right.min(outer_left + outer_width);
+        clip_top = clip_top.max(outer_top);
+        clip_bottom = clip_bottom.min(outer_top + outer_height);
+    }
+    if clip_bottom <= clip_top + 0.01 || clip_right <= clip_left {
         return Ok(());
     }
-    page.operations.push(PageOperation::PushClip([
-        left,
+    let content_clip = [
+        clip_left,
         clip_top,
-        width,
+        clip_right - clip_left,
         clip_bottom - clip_top,
-    ]));
+    ];
+    page.operations.push(PageOperation::PushClip(content_clip));
     let vertical = pagination::content_top(cell, window.alignment, window.top_aligned)
         - window.offset
         + window.inset;
@@ -380,8 +412,11 @@ fn place_cell(
                     place_row(
                         table,
                         row,
-                        [nested_left, block_top],
-                        true,
+                        RowPlacement {
+                            origin: [nested_left, block_top],
+                            paint_rowspans: true,
+                            outer_clip: Some(content_clip),
+                        },
                         page,
                         &mut borders,
                         0,
