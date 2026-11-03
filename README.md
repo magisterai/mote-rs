@@ -64,7 +64,13 @@ compact page size. To apply it, concatenate it with the original Markdown at
 render time; the original file remains unchanged. No special defaults CLI option
 is required.
 
+Document layout:
+
 ![Native document preview of the unchanged Markdown with typography and table defaults.](docs/images/readme/defaults-1.png)
+
+Presentation layout, using the slide typography defaults:
+
+![Native slide preview of the same Markdown, with text above a three-column table.](docs/images/readme/defaults-slides-1.png)
 
 [Defaults source](examples/readme/defaults.mote) ·
 [Unchanged Markdown](examples/readme/plain.md) ·
@@ -191,7 +197,17 @@ Monthly revenue, in thousands.
 )
 ```
 
-![Native chart preview showing monthly online and retail revenue.](docs/images/readme/chart-1.png)
+Document layout:
+
+![Native document chart preview showing monthly online and retail revenue.](docs/images/readme/chart-1.png)
+
+Presentation layout:
+
+![Native slide chart preview showing the text and chart in separate automatic layout frames.](docs/images/readme/chart-slides-1.png)
+
+Automatic slide layout gives the text and chart equal-height content frames,
+so this slide has more space between them than the document. Positioned boxes,
+introduced above, provide explicit control over those frames.
 
 [Complete chart source](examples/readme/chart.mote) ·
 [Word download](docs/examples/readme/chart.docx) ·
