@@ -1,0 +1,33 @@
+#metadata(title = "Mote Glyph Coverage", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+# Glyph Coverage
+
+This one-page fixture checks core text encoding, semantic checkboxes, and deterministic missing-glyph diagnostics across DOCX, PDF, and PNG.
+
+## Core Encoding Baseline
+
+ASCII: The quick brown fox jumps over 13 lazy dogs.
+
+CP1252: café, “double quotes”, ‘single quotes’, em dash —, and euro €.
+
+## Semantic Checkboxes
+
+#paragraph[
+Explicit controls: #checkbox(checked = true, name = "approved", title = "Approved") checked and #checkbox(checked = false, name = "pending", title = "Pending") unchecked.
+]
+
+- [x] Checked markdown task item.
+- [ ] Unchecked markdown task item.
+
+## Missing Glyph Diagnostic
+
+The literal checked-box glyph between these ASCII brackets is the deliberate coverage failure: [☑].
+
+DOCX should preserve it without a Mote warning. PDF and PNG should each draw one visible question-mark fallback and emit exactly one missing-glyph diagnostic.

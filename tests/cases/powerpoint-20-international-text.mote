@@ -1,0 +1,57 @@
+#presentation(
+  size = "wide",
+  background = "#ffffff",
+  footer = "Mote presentation international text",
+  date = false,
+  slide_number = true
+)
+
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+#font(
+  name = "cjk",
+  latin = "Arial Unicode MS",
+  east_asian = "Arial Unicode MS",
+  files = {
+    regular = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    bold = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    italic = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    bold_italic = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+  }
+)
+
+#slide(notes = "CJK and European scripts should wrap without escaping the authored text boxes.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[International Text And Glyph Coverage]
+  ]
+
+  #box(position = { x = inch(0.85), y = inch(1.25), width = inch(5.7), height = inch(2.15) }, fill = "#f8fafc", border = { color = "#cbd5e1", width = pt(1) }, margin = { top = pt(10), right = pt(12), bottom = pt(10), left = pt(12) }, text = { font = "cjk", size = pt(17) })[
+    天地玄黄、宇宙洪荒。日月盈昃、辰宿列张。日本語の文章でも句読点を保ちながら自然に改行します。
+  ]
+
+  #box(position = { x = inch(6.8), y = inch(1.25), width = inch(5.7), height = inch(2.15) }, fill = "#f8fafc", border = { color = "#cbd5e1", width = pt(1) }, margin = { top = pt(10), right = pt(12), bottom = pt(10), left = pt(12) }, text = { font = "body", size = pt(17) })[
+    Ελληνικά, Кириллица, français, español, português, Türkçe, tiếng Việt, and mathematical symbols: ∑ √ ∞ ≠ ≤ ≥.
+  ]
+
+  #box(position = { x = inch(0.85), y = inch(3.8), width = inch(11.65), height = inch(1.55) }, fill = "#eff6ff", border = { color = "#93c5fd", width = pt(1) }, margin = { top = pt(10), right = pt(12), bottom = pt(10), left = pt(12) }, text = { font = "cjk", size = pt(16) })[
+    Task symbols: ☐ unchecked, ☑ checked, ✓ complete, ! warning, → next. Geometric symbols: ◆ ◇ ● ○ ■ □.
+  ]
+]
+
+#slide(notes = "Unbreakable identifiers and mixed-size inline runs stress the shared line-breaking and line-box rules.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Hostile Tokens And Mixed Runs]
+  ]
+
+  #box(position = { x = inch(0.9), y = inch(1.25), width = inch(5.55), height = inch(2.25) }, fill = "#fff7ed", border = { color = "#fdba74", width = pt(1) }, margin = { top = pt(10), right = pt(12), bottom = pt(10), left = pt(12) }, text = { font = "body", size = pt(16) })[
+    `MODEL_OUTPUT_IDENTIFIER_0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz` must remain inside this box.
+  ]
+
+  #box(position = { x = inch(6.85), y = inch(1.25), width = inch(5.55), height = inch(2.25) }, fill = "#f0fdf4", border = { color = "#86efac", width = pt(1) }, margin = { top = pt(10), right = pt(12), bottom = pt(10), left = pt(12) }, text = { font = "body", size = pt(16) })[
+    `https://example.com/a/very/long/path/with?query=unbroken_identifier_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`
+  ]
+
+  #box(position = { x = inch(0.9), y = inch(4.0), width = inch(11.5), height = inch(1.5) }, fill = "#f8fafc", border = { color = "#cbd5e1", width = pt(1) }, margin = { top = pt(9), right = pt(12), bottom = pt(9), left = pt(12) }, vertical_alignment = "middle")[
+    Normal text #span(size = pt(28), bold = true, color = "#2563eb")[LARGE] returns to normal with H#subscript[2]O and x#superscript[2], then #highlight(fill = "#fef08a")[highlighted words].
+  ]
+]

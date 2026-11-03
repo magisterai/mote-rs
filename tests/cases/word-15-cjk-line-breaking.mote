@@ -1,0 +1,58 @@
+#metadata(title = "Mote CJK Line Breaking", author = "Mote")
+
+#document(
+  default_font = "cjk",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(
+  name = "cjk",
+  latin = "Arial Unicode MS",
+  east_asian = "Arial Unicode MS",
+  word_line_height = 1.7454545,
+  files = {
+    regular = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    bold = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    italic = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    bold_italic = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+  }
+)
+
+# CJK Line Breaking
+
+This fixture checks Unicode line-break opportunities for spaceless Chinese and Japanese text. PDF and PNG should stay inside each frame without placing closing punctuation at the start of a line or opening punctuation at the end.
+
+## Natural Paragraph
+
+天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。寒来暑往，秋收冬藏。閏餘成歲，律呂調陽。雲騰致雨，露結為霜。
+
+## Narrow Framed Text
+
+#table(
+  width = inch(5.75),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(7) },
+    borders = { all = { style = "single", size = 6, color = "#94a3b8" } }
+  }
+)[
+  #row[
+    #cell(width = inch(2.875), fill = "#f8fafc")[
+      **Chinese punctuation**
+
+      天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。天地（**玄黄**）宇宙《洪荒》日月「盈昃」辰宿。
+    ]
+    #cell(width = inch(2.875), fill = "#f8fafc")[
+      **Japanese punctuation**
+
+      日本語の文章では、句読点が行頭に置かれず、「**括弧**」も正しくまとまります。長い文章でも自然な位置で改行します。
+    ]
+  ]
+]
+
+## Latin Regression
+
+Ordinary Latin words remain whitespace-delimited, while exceptionallylongunbrokenidentifierstillusestheexistingemergencygraphemefallback0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz only splits when it is wider than the frame.

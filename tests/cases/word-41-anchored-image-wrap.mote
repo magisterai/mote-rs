@@ -1,0 +1,88 @@
+#metadata(title = "Mote Anchored Image Wrap", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(7),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Anchored Image Wrap
+
+This case contrasts a right-anchored image with an ordinary inline image of the
+same source and width. The anchored image must retain its aspect ratio while
+nearby text wraps around its left edge.
+
+#paragraph(fill = "#dbeafe")[
+ANCHOR START — the image belongs at the right edge beside the following prose.
+]
+
+#image(
+  "assets/mote-logo.png",
+  alt = "Right-anchored asymmetric Mote logo",
+  width = inch(1.8),
+  placement = {
+    type = "anchor",
+    wrap = "square",
+    horizontal = { relative_to = "column", alignment = "right" },
+    vertical = { relative_to = "paragraph", alignment = "top" },
+    margin = { left = pt(10), bottom = pt(6) }
+  }
+)
+
+#paragraph[
+WRAP 01 START — This sentence is deliberately long enough to occupy several
+lines. While those lines are beside the logo, their right edge must stop before
+the image and preserve the authored ten-point gap. — WRAP 01 END.
+]
+
+#paragraph[
+WRAP 02 START — Text that reaches below the anchored logo must return to the
+full body width without retaining a false right indent. The circle remains on
+the left side of the image and the striped rectangle remains on the right. —
+WRAP 02 END.
+]
+
+#paragraph(fill = "#dcfce7")[
+ANCHOR END — no wrapped text may overlap the image, disappear behind it, or
+remain narrowed after passing its bottom edge.
+]
+
+#paragraph(fill = "#fef3c7")[
+INLINE CONTROL START — the next copy is an ordinary flow image and must consume
+its own vertical space instead of allowing text beside it.
+]
+
+#image(
+  "assets/mote-logo.png",
+  alt = "Inline asymmetric Mote logo control",
+  width = inch(1.8),
+  alignment = "right",
+  spacing = { before = pt(0), after = pt(7) }
+)
+
+#paragraph[
+INLINE CONTROL END — this line must begin below the control image at the full
+body width.
+]
+
+#paragraph(fill = "#dcfce7")[
+PASS: the anchored logo is right aligned with square text wrapping and preserved
+aspect ratio; the inline control occupies an ordinary full-width flow row.
+]

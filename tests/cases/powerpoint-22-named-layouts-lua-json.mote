@@ -1,0 +1,86 @@
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#let(config = json("data/pptx_named_layouts_lua_json.json"))
+
+#presentation(
+  size = "wide",
+  background = config.deck.background,
+  footer = config.deck.footer,
+  date = false,
+  slide_number = true,
+  theme = {
+    name = "JSON Layout Review",
+    colors = {
+      background = config.deck.background,
+      text = config.deck.text,
+      accent1 = config.deck.accent
+    },
+    fonts = { heading = "display", body = "body" }
+  }
+)
+
+#function json_layout_chart()
+  local source = json("data/pptx_named_layouts_lua_json.json")
+  local categories = {}
+  local values = {}
+  for _, row in ipairs(source.slide.series) do
+    categories[#categories + 1] = row.label
+    values[#values + 1] = row.value
+  end
+  return document.chart({
+    kind = "line",
+    title = source.slide.chart_title,
+    data = {
+      categories = categories,
+      series = { { name = source.slide.series_name, values = values } }
+    },
+    colors = { source.deck.accent },
+    data_labels = { value = true, position = "top" },
+    axis = { value = { minimum = 0, maximum = 10 } }
+  })
+end
+
+#layout(
+  name = config.layout.name,
+  based_on = config.layout.based_on,
+  background = config.layout.background,
+  footer = config.layout.footer
+)[
+  #box(
+    slot = config.layout.title.name,
+    kind = config.layout.title.kind,
+    required = config.layout.title.required,
+    position = config.layout.title.position,
+    fill = config.layout.title.fill,
+    color = config.layout.title.color,
+    size = config.layout.title.size,
+    bold = true,
+    margin = config.layout.title.margin
+  )
+  #box(
+    slot = config.layout.summary.name,
+    kind = config.layout.summary.kind,
+    required = config.layout.summary.required,
+    position = config.layout.summary.position,
+    fill = config.layout.summary.fill,
+    border = { color = config.layout.summary.border, width = pt(1) },
+    margin = config.layout.summary.margin
+  )
+  #box(
+    slot = config.layout.chart.name,
+    kind = config.layout.chart.kind,
+    required = config.layout.chart.required,
+    position = config.layout.chart.position
+  )
+]
+
+#slide(layout = config.layout.name, notes = "JSON defines the layout geometry and styling; Lua reshapes the chart rows.")[
+  #box(slot = config.layout.title.name)[#config.slide.title]
+  #box(slot = config.layout.summary.name)[
+    #span(size = pt(20), bold = true, color = config.deck.accent)[#config.slide.kicker]
+    #line_break()
+    #span(size = pt(17))[#config.slide.summary]
+  ]
+  #box(slot = config.layout.chart.name)[#json_layout_chart()]
+]

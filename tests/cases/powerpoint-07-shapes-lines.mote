@@ -1,0 +1,68 @@
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote PPTX shapes and lines",
+  date = false,
+  slide_number = true
+)
+
+#font(name = "display", latin = "Aptos Display")
+
+#set shape(
+  kind = "round_rect",
+  border = { color = "#2563eb", width = pt(1) },
+  margin = { top = pt(6), right = pt(8), bottom = pt(6), left = pt(8) },
+  alignment = "center",
+  vertical_alignment = "middle",
+  text = { fit = "shrink" },
+  color = "#111827",
+  size = pt(16),
+  bold = true,
+  shadow = { color = "#000000", opacity = 18, blur = pt(3), distance = pt(1.5), angle = "45deg" }
+)
+
+#set line(
+  border = { color = "#2563eb", width = pt(2), opacity = 85 },
+  arrow = { to = "triangle", size = "medium" },
+  cap = "round"
+)
+
+#slide(notes = "This slide uses positioned boxes, shapes, and connector lines.")[
+  #box(
+    position = { x = inch(0.7), y = inch(0.35), width = inch(12), height = inch(0.6) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(22), bold = true, color = "#111827")[Process Flow]
+  ]
+
+  #shape(name = "Intake", position = { x = inch(0.9), y = inch(1.75), width = inch(2.1), height = inch(0.85) }, fill = "#dbeafe", opacity = 92)[Intake]
+  #line(from = { x = inch(3.0), y = inch(2.175) }, to = { x = inch(4.15), y = inch(2.175) })
+
+  #shape(name = "Evaluate", position = { x = inch(4.15), y = inch(1.75), width = inch(2.1), height = inch(0.85) }, fill = "#dcfce7", border = { color = "#16a34a", width = pt(1) })[Evaluate]
+  #line(from = { x = inch(6.25), y = inch(2.175) }, to = { x = inch(7.4), y = inch(2.175) }, border = { color = "#16a34a", width = pt(2) })
+
+  #shape(name = "Gate", kind = "diamond", position = { x = inch(7.25), y = inch(1.55), width = inch(1.8), height = inch(1.25) }, fill = "#fef3c7", border = { color = "#d97706", width = pt(1) }, color = "#92400e")[Gate]
+  #line(from = { x = inch(9.05), y = inch(2.175) }, to = { x = inch(10.0), y = inch(2.175) }, border = { color = "#d97706", width = pt(2) })
+
+  #shape(name = "Publish", position = { x = inch(10.0), y = inch(1.75), width = inch(2.1), height = inch(0.85) }, fill = "#e0e7ff", border = { color = "#4f46e5", width = pt(1) })[Publish]
+
+  #line(from = { x = inch(8.15), y = inch(2.8) }, to = { x = inch(8.15), y = inch(4.0) }, border = { color = "#d97706", width = pt(1.5), style = "dashed" }, arrow = { to = "stealth", size = "small" })
+  #shape(name = "Review", kind = "ellipse", position = { x = inch(6.9), y = inch(4.0), width = inch(2.5), height = inch(0.85) }, fill = "#fee2e2", border = { color = "#dc2626", width = pt(1), opacity = 80 }, color = "#991b1b")[Review]
+]
+
+#slide(notes = "This slide probes rotation, flipped lines, and different shape geometry.")[
+  #box(
+    position = { x = inch(0.7), y = inch(0.35), width = inch(12), height = inch(0.6) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(22), bold = true, color = "#111827")[Shape Geometry]
+  ]
+
+  #shape(kind = "ellipse", position = { x = inch(1.0), y = inch(1.55), width = inch(2.1), height = inch(1.1) }, fill = "#bfdbfe", border = { color = "#1d4ed8", width = pt(1) })[Ellipse]
+  #shape(kind = "triangle", position = { x = inch(3.75), y = inch(1.55), width = inch(2.1), height = inch(1.1) }, fill = "#bbf7d0", border = { color = "#15803d", width = pt(1) }, rotation = "8deg", shadow = { opacity = 10, blur = pt(2), distance = pt(1), angle = "60deg" })[Tri]
+  #shape(kind = "chevron", position = { x = inch(6.5), y = inch(1.55), width = inch(2.1), height = inch(1.1) }, fill = "#fde68a", border = { color = "#b45309", width = pt(1) })[Chev]
+  #shape(kind = "cloud", position = { x = inch(9.25), y = inch(1.55), width = inch(2.1), height = inch(1.1) }, fill = "#f5d0fe", border = { color = "#a21caf", width = pt(1) })[Cloud]
+
+  #line(from = { x = inch(2.05), y = inch(3.35) }, to = { x = inch(10.3), y = inch(3.35) }, border = { color = "#334155", width = pt(2) }, arrow = { from = "oval", to = "triangle", size = "large" }, cap = "round")
+  #line(from = { x = inch(10.3), y = inch(4.35) }, to = { x = inch(2.05), y = inch(5.3) }, border = { color = "#64748b", width = pt(1.5), style = "dotted", opacity = 70 }, arrow = { to = "stealth", to_size = "small" })
+]

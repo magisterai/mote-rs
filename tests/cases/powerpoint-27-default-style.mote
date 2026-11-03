@@ -1,0 +1,43 @@
+#import("defaults/presentation.mote")
+#metadata(title = "Quarterly delivery review", author = "Mote style sample")
+
+# Quarterly delivery review
+
+#paragraph(style = "Subtitle")[Style sample · Demonstration data]
+
+#paragraph(style = "Lead")[The same visual language, sized for a presentation.]
+
+- Give each slide one clear purpose.
+- Keep body text large enough to read at a distance.
+- Use a restrained palette and consistent alignment.
+
+---
+
+# Delivery by workstream
+
+| Workstream | Completed | Planned | On time |
+| :--- | ---: | ---: | ---: |
+| Research | 18 | 20 | 90% |
+| Design | 24 | 24 | 100% |
+| Engineering | 42 | 48 | 88% |
+| Quality | 31 | 34 | 91% |
+| Operations | 16 | 18 | 89% |
+
+#slide(layout = "chart_and_caption")[
+  #box(slot = "title")[#heading(level = 1)[Quarterly delivery trend]]
+  #box(slot = "chart")[
+    #chart(
+      kind = "column",
+      data = {
+        categories = { "Q1", "Q2", "Q3", "Q4" },
+        series = {
+          { name = "Completed", values = { 72, 86, 94, 108 } },
+          { name = "Planned", values = { 80, 90, 100, 112 } }
+        }
+      },
+      axis = { value = { title = "Items" } },
+      gridlines = { major = true, color = "#e2e8f0", width = pt(0.5) }
+    )
+  ]
+  #box(slot = "caption")[#paragraph(style = "Caption")[Illustrative figures. Mote supplies the chart palette and a legend below these two series.]]
+]

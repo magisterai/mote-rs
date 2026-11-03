@@ -1,0 +1,19 @@
+#presentation(size = "wide", background = "#ffffff")
+
+#slide(background = "#f8fafc")[
+  #box(position = { x = inch(0.7), y = inch(0.4), width = inch(12), height = inch(0.8) })[
+    Explicit Slide
+  ]
+
+  #box(position = { x = inch(0.9), y = inch(1.5), width = inch(5.8), height = inch(4.5) })[
+    - One positioned text region
+    - One object per box
+  ]
+
+  #box(position = { x = inch(6.9), y = inch(1.5), width = inch(5.5), height = inch(4.5) })[
+    | Backend | Status |
+    | --- | :---: |
+    | JSON | Working |
+    | PPTX | Starting |
+  ]
+]

@@ -1,0 +1,139 @@
+#metadata(title = "Mote Mixed-cell Table Row Splitting", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(13) }
+    }
+  }
+)
+
+#style(
+  name = "TwelveCell",
+  type = "paragraph",
+  based_on = "Normal",
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(12) }
+    }
+  }
+)
+
+#style(
+  name = "FifteenCell",
+  type = "paragraph",
+  based_on = "Normal",
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(15) }
+    }
+  }
+)
+
+#style(
+  name = "MixedSplitTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#0f766e" },
+      text = { bold = true, color = "#ffffff" }
+    },
+    banding = {
+      odd = { cell = { fill = "#f0fdfa" } },
+      even = { cell = { fill = "#ffffff" } }
+    },
+    cell = {
+      margin = { top = pt(5), right = pt(6), bottom = pt(5), left = pt(6) }
+    }
+  }
+)
+
+#heading(level = 1)[Mixed-cell Row Splitting]
+
+#paragraph(spacing = { after = pt(10) })[
+The MIXED-SPLIT row has independent 12-point and 15-point line rhythms.
+Neither cell has a fixed height, a keep, or an authored page break.
+]
+
+#table(
+  style = "MixedSplitTable",
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center"
+)[
+  #row(repeat_header = true)[
+    #cell(width = inch(3.25))[TWELVE-POINT CELL]
+    #cell(width = inch(3.25))[FIFTEEN-POINT CELL]
+  ]
+  #row[#cell[SETUP 01 LEFT] #cell[SETUP 01 RIGHT]]
+  #row[#cell[SETUP 02 LEFT] #cell[SETUP 02 RIGHT]]
+  #row[#cell[SETUP 03 LEFT] #cell[SETUP 03 RIGHT]]
+  #row[#cell[SETUP 04 LEFT] #cell[SETUP 04 RIGHT]]
+  #row[#cell[SETUP 05 LEFT] #cell[SETUP 05 RIGHT]]
+  #row[#cell[SETUP 06 LEFT] #cell[SETUP 06 RIGHT]]
+  #row[#cell[SETUP 07 LEFT] #cell[SETUP 07 RIGHT]]
+  #row[#cell[SETUP 08 LEFT] #cell[SETUP 08 RIGHT]]
+  #row[#cell[SETUP 09 LEFT] #cell[SETUP 09 RIGHT]]
+  #row[#cell[SETUP 10 LEFT] #cell[SETUP 10 RIGHT]]
+  #row[#cell[SETUP 11 LEFT] #cell[SETUP 11 RIGHT]]
+  #row[#cell[SETUP 12 LEFT] #cell[SETUP 12 RIGHT]]
+  #row[#cell[SETUP 13 LEFT] #cell[SETUP 13 RIGHT]]
+  #row[#cell[SETUP 14 LEFT] #cell[SETUP 14 RIGHT]]
+  #row[#cell[SETUP 15 LEFT] #cell[SETUP 15 RIGHT]]
+  #row[#cell[SETUP 16 LEFT] #cell[SETUP 16 RIGHT]]
+  #row[#cell[SETUP 17 LEFT] #cell[SETUP 17 RIGHT]]
+  #row[#cell[SETUP 18 LEFT] #cell[SETUP 18 RIGHT]]
+  #row[#cell[SETUP 19 LEFT] #cell[SETUP 19 RIGHT]]
+  #row[#cell[SETUP 20 LEFT] #cell[SETUP 20 RIGHT]]
+  #row[#cell[SETUP 21 LEFT] #cell[SETUP 21 RIGHT]]
+  #row[#cell[SETUP 22 LEFT] #cell[SETUP 22 RIGHT]]
+  #row[#cell[SETUP 23 LEFT] #cell[SETUP 23 RIGHT]]
+  #row[
+    #cell[
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 01]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 02]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 03]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 04]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 05]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 06]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 07]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 08]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 09]
+      #paragraph(style = "TwelveCell")[MIXED-LEFT LINE 10]
+    ]
+    #cell[
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 01]
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 02]
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 03]
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 04]
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 05]
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 06]
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 07]
+      #paragraph(style = "FifteenCell")[MIXED-RIGHT LINE 08]
+    ]
+  ]
+  #row[#cell[AFTER-SPLIT LEFT] #cell[AFTER-SPLIT RIGHT]]
+]
+
+#paragraph(spacing = { before = pt(10) }, fill = "#dcfce7")[
+REVIEW: both cells begin on page 1, resume independently below the repeated
+header on page 2, and every MIXED line appears once in order.
+]

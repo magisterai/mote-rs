@@ -1,0 +1,173 @@
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote PPTX text autofit with margins",
+  date = false,
+  slide_number = true
+)
+
+#font(name = "display", latin = "Aptos Display")
+
+#slide(notes = "This slide compares clipping, shrinking, and shape resizing text overflow modes.")[
+  #box(
+    position = { x = inch(0.7), y = inch(0.35), width = inch(12), height = inch(0.6) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(22), bold = true, color = "#111827")[Text Overflow Modes]
+  ]
+
+  #box(
+    position = { x = inch(0.9), y = inch(1.12), width = inch(3.4), height = inch(0.25) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(11), bold = true, color = "#b91c1c")[CLIP]
+  ]
+
+  #box(
+    position = { x = inch(4.95), y = inch(1.12), width = inch(3.4), height = inch(0.25) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(11), bold = true, color = "#1d4ed8")[SHRINK]
+  ]
+
+  #box(
+    position = { x = inch(9.0), y = inch(1.12), width = inch(3.4), height = inch(0.25) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(11), bold = true, color = "#15803d")[RESIZE SHAPE]
+  ]
+
+  #box(
+    position = { x = inch(0.9), y = inch(1.45), width = inch(3.4), height = inch(1.18) },
+    fill = "#fee2e2",
+    border = { color = "#dc2626", width = pt(1) },
+    text = {
+      fit = "clip",
+      margin = { top = pt(12), right = pt(14), bottom = pt(12), left = pt(14) },
+      size = pt(16),
+      color = "#111827",
+      bold = true
+    }
+  )[
+    Identical overflow probe: this fixed starting box is deliberately too short for a bold sixteen-point paragraph, so only the selected PowerPoint text-fit mode can change the visible result.
+  ]
+
+  #box(
+    position = { x = inch(4.95), y = inch(1.45), width = inch(3.4), height = inch(1.18) },
+    fill = "#dbeafe",
+    border = { color = "#2563eb", width = pt(1) },
+    text = {
+      fit = "shrink",
+      margin = { top = pt(12), right = pt(14), bottom = pt(12), left = pt(14) },
+      size = pt(16),
+      color = "#111827",
+      bold = true
+    }
+  )[
+    Identical overflow probe: this fixed starting box is deliberately too short for a bold sixteen-point paragraph, so only the selected PowerPoint text-fit mode can change the visible result.
+  ]
+
+  #box(
+    position = { x = inch(9.0), y = inch(1.45), width = inch(3.4), height = inch(1.18) },
+    fill = "#dcfce7",
+    border = { color = "#16a34a", width = pt(1) },
+    text = {
+      fit = "resize_shape",
+      margin = { top = pt(12), right = pt(14), bottom = pt(12), left = pt(14) },
+      size = pt(16),
+      color = "#111827",
+      bold = true
+    }
+  )[
+    Identical overflow probe: this fixed starting box is deliberately too short for a bold sixteen-point paragraph, so only the selected PowerPoint text-fit mode can change the visible result.
+  ]
+
+  #shape(
+    kind = "round_rect",
+    position = { x = inch(1.05), y = inch(3.9), width = inch(5.2), height = inch(1.1) },
+    fill = "#ede9fe",
+    border = { color = "#7c3aed", width = pt(1) },
+    text = { fit = "shrink", margin = { top = pt(10), right = pt(16), bottom = pt(10), left = pt(16) }, size = pt(17), color = "#111827", bold = true, alignment = "center", vertical_alignment = "middle" }
+  )[
+    Shapes use the same text autofit path as boxes.
+  ]
+
+  #shape(
+    kind = "round_rect",
+    position = { x = inch(7.1), y = inch(3.9), width = inch(4.8), height = inch(1.1) },
+    fill = "#fef3c7",
+    opacity = 88,
+    border = { color = "#d97706", width = pt(1), opacity = 75 },
+    shadow = { opacity = 20, blur = pt(4), distance = pt(2), angle = "45deg" },
+    text = { fit = "shrink", margin = { top = pt(10), right = pt(16), bottom = pt(10), left = pt(16) }, size = pt(17), color = "#92400e", bold = true, alignment = "center", vertical_alignment = "middle" }
+  )[
+    Opacity and shadow can be layered with autofit.
+  ]
+]
+
+#slide(notes = "This slide compares explicit exact-point line spacing and paragraph before/after spacing using identical text.")[
+  #box(
+    position = { x = inch(0.7), y = inch(0.35), width = inch(12), height = inch(0.6) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(22), bold = true, color = "#111827")[Paragraph Spacing Values]
+  ]
+
+  #box(
+    position = { x = inch(0.9), y = inch(1.18), width = inch(5.55), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(12), bold = true, color = "#1d4ed8")[line 18 pt | before 0 pt | after 4 pt]
+  ]
+
+  #box(
+    position = { x = inch(6.88), y = inch(1.18), width = inch(5.55), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(12), bold = true, color = "#7c3aed")[line 28 pt | before 10 pt | after 16 pt]
+  ]
+
+  #box(
+    position = { x = inch(0.9), y = inch(1.62), width = inch(5.55), height = inch(4.55) },
+    fill = "#dbeafe",
+    border = { color = "#2563eb", width = pt(1) },
+    text = {
+      fit = "clip",
+      margin = { top = pt(18), right = pt(20), bottom = pt(18), left = pt(20) },
+      size = pt(16),
+      color = "#111827"
+    }
+  )[
+    #paragraph(spacing = { before = pt(0), after = pt(4), line = pt(18) })[
+      First comparison paragraph wraps onto another line so its authored line spacing remains easy to inspect.
+    ]
+    #paragraph(spacing = { before = pt(0), after = pt(4), line = pt(18) })[
+      Second comparison paragraph uses the same words and ordering in both boxes, isolating paragraph spacing.
+    ]
+    #paragraph(spacing = { before = pt(0), after = pt(4), line = pt(18) })[
+      Third comparison paragraph makes the final after-spacing and the overall text-block height visible.
+    ]
+  ]
+
+  #box(
+    position = { x = inch(6.88), y = inch(1.62), width = inch(5.55), height = inch(4.55) },
+    fill = "#ede9fe",
+    border = { color = "#7c3aed", width = pt(1) },
+    text = {
+      fit = "clip",
+      margin = { top = pt(18), right = pt(20), bottom = pt(18), left = pt(20) },
+      size = pt(16),
+      color = "#111827"
+    }
+  )[
+    #paragraph(spacing = { before = pt(10), after = pt(16), line = pt(28) })[
+      First comparison paragraph wraps onto another line so its authored line spacing remains easy to inspect.
+    ]
+    #paragraph(spacing = { before = pt(10), after = pt(16), line = pt(28) })[
+      Second comparison paragraph uses the same words and ordering in both boxes, isolating paragraph spacing.
+    ]
+    #paragraph(spacing = { before = pt(10), after = pt(16), line = pt(28) })[
+      Third comparison paragraph makes the final after-spacing and the overall text-block height visible.
+    ]
+  ]
+]

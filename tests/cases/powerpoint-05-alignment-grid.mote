@@ -1,0 +1,96 @@
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote PPTX alignment probe",
+  date = false,
+  slide_number = true
+)
+
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#slide(notes = "Every box uses zero margin. Columns test horizontal alignment; rows test vertical alignment.")[
+  #box(
+    position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.7) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[3 x 3 Alignment Grid]
+  ]
+
+  #box(position = { x = inch(1.05), y = inch(1.12), width = inch(3.55), height = inch(0.28) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "left")[
+    #span(size = pt(8), color = "#64748b", bold = true)[left]
+  ]
+  #box(position = { x = inch(4.95), y = inch(1.12), width = inch(3.55), height = inch(0.28) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "center")[
+    #span(size = pt(8), color = "#64748b", bold = true)[center]
+  ]
+  #box(position = { x = inch(8.85), y = inch(1.12), width = inch(3.55), height = inch(0.28) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "right")[
+    #span(size = pt(8), color = "#64748b", bold = true)[right]
+  ]
+
+  #box(position = { x = inch(0.58), y = inch(1.55), width = inch(0.35), height = inch(1.35) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #span(size = pt(8), color = "#64748b", bold = true)[top]
+  ]
+  #box(position = { x = inch(0.58), y = inch(3.1), width = inch(0.35), height = inch(1.35) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "middle")[
+    #span(size = pt(8), color = "#64748b", bold = true)[mid]
+  ]
+  #box(position = { x = inch(0.58), y = inch(4.65), width = inch(0.35), height = inch(1.35) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "bottom")[
+    #span(size = pt(8), color = "#64748b", bold = true)[bot]
+  ]
+
+  #box(position = { x = inch(1.05), y = inch(1.55), width = inch(3.55), height = inch(1.35) }, fill = "#fca5a5", border = { color = "#b91c1c", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "left", vertical_alignment = "top")[
+    #span(size = pt(18), bold = true, color = "#111827")[TL]
+  ]
+  #box(position = { x = inch(4.95), y = inch(1.55), width = inch(3.55), height = inch(1.35) }, fill = "#fdba74", border = { color = "#c2410c", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "center", vertical_alignment = "top")[
+    #span(size = pt(18), bold = true, color = "#111827")[TC]
+  ]
+  #box(position = { x = inch(8.85), y = inch(1.55), width = inch(3.55), height = inch(1.35) }, fill = "#fcd34d", border = { color = "#b45309", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "right", vertical_alignment = "top")[
+    #span(size = pt(18), bold = true, color = "#111827")[TR]
+  ]
+
+  #box(position = { x = inch(1.05), y = inch(3.1), width = inch(3.55), height = inch(1.35) }, fill = "#86efac", border = { color = "#15803d", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "left", vertical_alignment = "middle")[
+    #span(size = pt(18), bold = true, color = "#111827")[ML]
+  ]
+  #box(position = { x = inch(4.95), y = inch(3.1), width = inch(3.55), height = inch(1.35) }, fill = "#93c5fd", border = { color = "#1d4ed8", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "center", vertical_alignment = "middle")[
+    #span(size = pt(18), bold = true, color = "#111827")[MC]
+  ]
+  #box(position = { x = inch(8.85), y = inch(3.1), width = inch(3.55), height = inch(1.35) }, fill = "#a5b4fc", border = { color = "#4338ca", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "right", vertical_alignment = "middle")[
+    #span(size = pt(18), bold = true, color = "#111827")[MR]
+  ]
+
+  #box(position = { x = inch(1.05), y = inch(4.65), width = inch(3.55), height = inch(1.35) }, fill = "#c084fc", border = { color = "#7e22ce", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "left", vertical_alignment = "bottom")[
+    #span(size = pt(18), bold = true, color = "#111827")[BL]
+  ]
+  #box(position = { x = inch(4.95), y = inch(4.65), width = inch(3.55), height = inch(1.35) }, fill = "#f472b6", border = { color = "#be185d", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "center", vertical_alignment = "bottom")[
+    #span(size = pt(18), bold = true, color = "#111827")[BC]
+  ]
+  #box(position = { x = inch(8.85), y = inch(4.65), width = inch(3.55), height = inch(1.35) }, fill = "#94a3b8", border = { color = "#334155", width = pt(1.5) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "right", vertical_alignment = "bottom")[
+    #span(size = pt(18), bold = true, color = "#111827")[BR]
+  ]
+]
+
+#slide(notes = "This slide compares zero inset against explicit text margins.")[
+  #box(
+    position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.7) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Margin Comparison]
+  ]
+
+  #box(position = { x = inch(0.9), y = inch(1.35), width = inch(3.6), height = inch(3.9) }, fill = "#ffffff", border = { color = "#94a3b8", width = pt(1) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, alignment = "left", vertical_alignment = "top")[
+    #span(size = pt(18), bold = true)[zero margin]
+    #line_break()
+    #span(size = pt(10), color = "#475569")[Text should sit on the text-box inset boundary.]
+  ]
+
+  #box(position = { x = inch(4.85), y = inch(1.35), width = inch(3.6), height = inch(3.9) }, fill = "#ffffff", border = { color = "#94a3b8", width = pt(1) }, margin = { top = pt(12), right = pt(12), bottom = pt(12), left = pt(12) }, alignment = "left", vertical_alignment = "top")[
+    #span(size = pt(18), bold = true)[12 pt margin]
+    #line_break()
+    #span(size = pt(10), color = "#475569")[This should be visibly inset on every side.]
+  ]
+
+  #box(position = { x = inch(8.8), y = inch(1.35), width = inch(3.6), height = inch(3.9) }, fill = "#ffffff", border = { color = "#94a3b8", width = pt(1) }, margin = { top = pt(24), right = pt(24), bottom = pt(24), left = pt(24) }, alignment = "left", vertical_alignment = "top")[
+    #span(size = pt(18), bold = true)[24 pt margin]
+    #line_break()
+    #span(size = pt(10), color = "#475569")[This should be dramatically inset.]
+  ]
+]

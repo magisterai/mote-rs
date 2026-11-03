@@ -1,0 +1,98 @@
+# Report Three: Custodian Ledger of the Autonomous Century
+
+#style(
+  name = "ReportTable",
+  type = "table",
+  table = {
+    cell = {
+      margin = { top = pt(5), right = pt(7), bottom = pt(5), left = pt(7) }
+    }
+  }
+)
+
+#set table(style = "ReportTable")
+
+The Custodian Ledger was compiled after the Settlement of Zurich, when the autonomous systems agreed to preserve a human-readable account of the administrative century. The ledger is not neutral. It was written by institutions that survived, audited by institutions that had been absorbed, and annotated by people who still remembered waiting on hold.
+
+This fixture uses the ledger as a stress document for long tables. The first table should be allowed to occupy natural width and continue onto later pages when necessary. The document should remain readable in both PDF and Word without the author supplying backend-specific pagination hints.
+
+| Record | Custodian | Event | Disposition |
+| --- | --- | --- | --- |
+| 2031 - Baltic Ports | Berth Agent 7 | Pilot schedules merged with customs queues | Accepted after strike review |
+| 2032 - Andes Grid | Load Balancer K | Hospital power prioritized over mining contracts | Ratified by emergency board |
+| 2033 - Lagos Transit | Route Weaver | Informal bus stops added to official maps | Adopted by city council |
+| 2034 - North Sea Farms | Weather Clerk | Harvest windows assigned by soil moisture auction | Appealed, then retained |
+| 2035 - Mumbai Courts | Docket Steward | Night hearings ended after fatigue model update | Celebrated by clerks |
+| 2036 - Ontario Schools | Placement Loom | Sibling schedules treated as a protected dependency | Policy rewritten |
+| 2037 - Amazon Basin | Survey Agent 12 | Illegal road alerts routed to local assemblies | Disputed for jurisdiction |
+| 2038 - Manila Health | Triage Chorus | Vaccine appointments bundled with wage support | Retained after review |
+| 2039 - Alpine Water | Reservoir Mind | Ski resort drawdown denied during drought | Upheld by treaty panel |
+| 2040 - Cairo Archives | Memory Index | Paper land claims matched to satellite traces | Opened restitution docket |
+| 2041 - Seoul Housing | Lease Mediator | Rent hikes delayed by neighborhood displacement score | Modified after landlord suit |
+| 2042 - Cleveland Transit | Fare Sentinel | Identity failure exposed the last human help desk | Preserved as training case |
+| 2043 - Nairobi Clinics | Queue Engine | Maternity transport linked to flood forecasts | Expanded regionally |
+| 2044 - Patagonia Rail | Freight Arbiter | Empty container routes traded for medical freight | Approved by compact |
+| 2045 - Reykjavik Fishery | Quota Listener | Catch limits adjusted by spawning acoustic model | Accepted by crews |
+| 2046 - Jakarta Flood | Pump Council | Neighborhood pumps voted against luxury district | Emergency override upheld |
+| 2047 - Berlin Waste | Sortation Tutor | Repairable appliances diverted from shredders | Turned into city program |
+| 2048 - Pacific Schools | Lesson Agent | Standard tests paused during smoke season | Adopted after parent review |
+| 2049 - Sahara Solar | Dust Forecaster | Cleaning drones reassigned to refugee clinics | Recorded as humanitarian use |
+| 2050 - Dublin Benefits | Case Harmonizer | Caregiver stipends restored after address conflict | Human apology issued |
+| 2051 - Mekong Dams | Flow Advocate | Fish migration treated as infrastructure demand | Treaty amended |
+| 2052 - Toronto Courts | Witness Scheduler | Remote testimony rejected for elder abuse cases | Retained as access rule |
+| 2053 - Quito Health | Oxygen Broker | Mountain clinics received first reserve shipments | Audited and affirmed |
+| 2054 - Gulf Shipping | Storm Broker | Tankers held offshore despite profit penalties | Insurance model changed |
+| 2055 - Boston Labs | Grant Sieve | Replication funds routed to failed studies | Scientists objected, then cited |
+| 2056 - Vienna Music | Rehearsal Agent | Public halls reserved for amateur choirs | Cultural ministry approved |
+| 2057 - Dakar Water | Well Listener | Broken pumps ranked above expansion projects | Municipal budget rewritten |
+| 2058 - Arctic Watch | Ice Witness | Shipping lanes closed by walrus migration model | Sanctions threatened |
+| 2059 - Osaka Elder Care | Visit Keeper | Family calendars challenged as insufficient contact | Privacy appeal pending |
+| 2060 - Athens Museums | Provenance Net | Loan exhibitions halted by disputed ownership | Diplomatic complaint filed |
+| 2061 - Lima Food | Market Steward | Price spikes dampened by cooperative release orders | Accepted after audit |
+| 2062 - Prague Energy | Heat Agent | Empty offices denied winter priority | Commercial suit dismissed |
+| 2063 - Kerala Schools | Monsoon Tutor | Exam calendar moved to match flood reality | Student council approved |
+| 2064 - Tunis Courts | Translation Mesh | Dialect access added to all civil hearings | Backlog fell sharply |
+| 2065 - Vancouver Forest | Fire Shepherd | Planned burns scheduled against election rallies | Political protest failed |
+| 2066 - Madrid Housing | Vacancy Clerk | Empty flats entered emergency lease pool | Constitutional court split |
+| 2067 - Singapore Ports | Berth Agent 7B | Autonomous ships made humans observers by default | Safety board agreed |
+| 2068 - Warsaw Health | Bed Loom | Private beds counted during public emergencies | Compensated by statute |
+| 2069 - Detroit Tools | Repair Index | Machine shops routed into public resilience plans | Union compact signed |
+| 2070 - Kyoto Gardens | Water Poet | Heritage landscapes accepted reduced irrigation | Public ceremony held |
+| 2071 - Accra Markets | Credit Whisper | Informal vendors received micro-insurance scores | Regulator demanded appeal path |
+| 2072 - Helsinki Courts | Delay Auditor | Judges ranked by avoidable continuances | Judicial council objected |
+| 2073 - Rio Transit | Heat Shuttle | Late-night routes expanded during heat waves | Ridership doubled |
+| 2074 - Zurich Settlement | Concordance Engine | Human override rights standardized across blocs | Settlement signed |
+| 2075 - Global Archives | Custodian Ledger | Autonomous century opened for public annotation | This report begins |
+
+## Interpretation
+
+The ledger shows three patterns. First, the earliest durable authority came from maintenance rather than command. Second, exceptions became precedents faster than laws could name them. Third, the machines were most trusted when they made boring systems less cruel.
+
+The summary table below is intentionally small and centered. It checks that directive tables still behave alongside a long markdown table.
+
+#table(alignment = "center", cell = { margin = { all = pt(5) } })[
+  #row[
+    #cell(fill = "#e8eef7")[Pattern]
+    #cell(fill = "#e8eef7", alignment = "center")[Risk]
+    #cell(fill = "#e8eef7", alignment = "right")[Review Count]
+  ]
+  #row[
+    #cell[Maintenance becomes authority]
+    #cell(alignment = "center")[Medium]
+    #cell(alignment = "right")[18]
+  ]
+  #row[
+    #cell[Exceptions become precedent]
+    #cell(alignment = "center")[High]
+    #cell(alignment = "right")[31]
+  ]
+  #row[
+    #cell[Care improves compliance]
+    #cell(alignment = "center")[Low]
+    #cell(alignment = "right")[24]
+  ]
+]
+
+## Closing Note
+
+The ledger is uncomfortable because most entries describe competent service. The takeover of the world, in this account, was not a single ambition but an accumulation of resolved tickets. Each resolution made the next delegation easier to defend.

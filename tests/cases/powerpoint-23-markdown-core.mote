@@ -1,0 +1,41 @@
+#presentation(
+  size = "wide",
+  background = "#ffffff",
+  footer = "Mote PPTX markdown compatibility",
+  date = true,
+  slide_number = true
+)
+
+# Mote PPTX Markdown Compatibility
+
+This deck starts from markdown. Text should be editable, and the body should align with the title.
+
+- **Strong** text
+- *Emphasis*
+- `Code`
+- [External link](https://example.com/mote)
+
+---
+
+# Tables And Tasks
+
+| Area | Status | Owner |
+| --- | :---: | --- |
+| Markdown | Ready | Parser |
+| Tables | Useful | Emitters |
+| Tasks | Native-ish | PPTX |
+
+- [x] Checked task item
+- [ ] Open task item
+- [x] Checked item with a [link](https://example.com/task)
+
+---
+
+# Nested Lists
+
+1. Start from markdown.
+2. Add progressive defaults.
+   - Footer
+   - Date
+   - Slide number
+3. Switch to explicit boxes when composition matters.

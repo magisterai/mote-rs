@@ -1,0 +1,41 @@
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote preset shape text bounds",
+  date = false,
+  slide_number = true
+)
+
+#font(name = "display", latin = "Aptos Display")
+
+#set shape(
+  border = { color = "#334155", width = pt(1) },
+  margin = { top = pt(7), right = pt(9), bottom = pt(7), left = pt(9) },
+  alignment = "center",
+  vertical_alignment = "middle",
+  text = { fit = "shrink", size = pt(16), color = "#111827" }
+)
+
+#slide(notes = "Representative text must remain inside each preset's real internal text rectangle, not merely its outer bounding box.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Preset Shape Text Bounds]
+  ]
+
+  #shape(kind = "ellipse", position = { x = inch(0.8), y = inch(1.4), width = inch(2.75), height = inch(2.1) }, fill = "#dbeafe")[Ellipse text stays clear of the curved left and right edges.]
+  #shape(kind = "triangle", position = { x = inch(3.8), y = inch(1.25), width = inch(2.75), height = inch(2.35) }, fill = "#dcfce7")[Triangle text fits below the apex and above the base.]
+  #shape(kind = "diamond", position = { x = inch(6.8), y = inch(1.25), width = inch(2.75), height = inch(2.35) }, fill = "#fef3c7")[Diamond text remains inside the narrow center region.]
+  #shape(kind = "chevron", position = { x = inch(9.8), y = inch(1.7), width = inch(2.75), height = inch(1.5) }, fill = "#f5d0fe")[Guide text stays inside.]
+
+  #shape(kind = "cloud", position = { x = inch(3.4), y = inch(4.25), width = inch(3.2), height = inch(1.55) }, fill = "#e0f2fe")[Cloud uses its asymmetric internal guide rectangle.]
+  #shape(kind = "round_rect", position = { x = inch(7.05), y = inch(4.25), width = inch(3.2), height = inch(1.55) }, fill = "#ede9fe")[Rounded rectangle is the established control.]
+]
+
+#slide(notes = "Rotation should carry shape text, margins, and alignment together without clipping.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Rotated Shape Text]
+  ]
+
+  #shape(kind = "diamond", position = { x = inch(1.15), y = inch(1.55), width = inch(3.2), height = inch(2.2) }, rotation = "-12deg", fill = "#fee2e2", vertical_alignment = "top")[Top aligned multiline text rotates with this diamond.]
+  #shape(kind = "chevron", position = { x = inch(5.05), y = inch(1.8), width = inch(3.2), height = inch(1.7) }, rotation = "9deg", fill = "#dbeafe", vertical_alignment = "middle")[Text rotates inside.]
+  #shape(kind = "ellipse", position = { x = inch(8.95), y = inch(1.55), width = inch(3.2), height = inch(2.2) }, rotation = "18deg", fill = "#dcfce7", vertical_alignment = "bottom")[Bottom aligned multiline text rotates with this ellipse.]
+]

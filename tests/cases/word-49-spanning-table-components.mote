@@ -1,0 +1,87 @@
+#metadata(title = "PDF Spanning Components", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(10.5),
+  margin = { top = pt(54), right = pt(58), bottom = pt(54), left = pt(58), header = pt(24), footer = pt(28) }
+)
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "SpanTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#e8eef7" },
+      text = { bold = true }
+    },
+    banding = {
+      odd = { cell = { fill = "#f8fafc" } }
+    },
+    cell = {
+      margin = { top = pt(4), right = pt(6), bottom = pt(4), left = pt(6) }
+    }
+  }
+)
+
+#set table(style = "SpanTable")
+
+#header(height = pt(18), distance = pt(18))[Mote Spanning Review #tab() Page #page_number() of #page_number(kind = "total")]
+#footer(height = pt(18), distance = pt(18))[Generated spanning fixture]
+
+# Page-Spanning Components
+
+This fixture is designed to overflow naturally. It should not rely on a manual page break before the long table completes. Rows should continue onto later pages without dropping style, table borders, or cell margins.
+
+## Long Markdown Table
+
+| Row | Component | Owner | Review Note |
+| ---: | --- | --- | --- |
+| 1 | Paragraphs | Parser | Plain text lowers to editable paragraph content. |
+| 2 | Headings | Parser | Markdown headings keep hierarchy. |
+| 3 | Strong text | Parser | Inline marks survive inside cells. |
+| 4 | Emphasis | Parser | Emphasis survives inside cells. |
+| 5 | Links | Parser | Link text remains visible. |
+| 6 | Tables | Parser | Markdown tables lower into neutral tables. |
+| 7 | Captions | Evaluation | Captions attach to figures and tables. |
+| 8 | Images | Emitter | Relative paths resolve from source files. |
+| 9 | Headers | Layout | Header content repeats on every page. |
+| 10 | Footers | Layout | Footer content repeats on every page. |
+| 11 | Page numbers | Layout | Page counters update after overflow. |
+| 12 | Lists | Parser | Lists keep indentation and nesting. |
+| 13 | Task lists | Parser | Checkboxes remain visible. |
+| 14 | Blockquotes | Parser | Quotes keep their own paragraph treatment. |
+| 15 | Dividers | Parser | Rules separate sections visually. |
+| 16 | Table styles | Model | First-row styling and banding apply. |
+| 17 | Cell margins | Model | Cell text should not touch borders. |
+| 18 | Alignment | Model | Numeric cells can align right. |
+| 19 | Font defaults | Model | Defaults should carry through long flow. |
+| 20 | Section defaults | Model | Later sections can still override layout. |
+| 21 | Columns | Layout | Column flow is tested in other fixtures. |
+| 22 | Page breaks | Layout | Explicit breaks remain available. |
+| 23 | Natural flow | Layout | This table should move across pages naturally. |
+| 24 | PDF output | Emitter | Visual output should remain readable. |
+| 25 | DOCX output | Emitter | Editable output should remain semantic. |
+| 26 | JSON output | Emitter | Structure should remain inspectable. |
+| 27 | PPTX output | Emitter | Slide output can ignore unsupported document flow. |
+| 28 | Warnings | Emitter | Unsupported properties should warn with location. |
+| 29 | Assets | Emitter | Missing assets warn instead of crashing. |
+| 30 | Review files | Tooling | Generated files should be easy to inspect. |
+| 31 | Render tests | Tooling | PDF pages should rasterize successfully. |
+| 32 | Regression tests | Tooling | Multi-page goldens should stay multi-page. |
+| 33 | Style defaults | Model | Defaults should be explicit and discoverable. |
+| 34 | Adjacent tables | Emitter | Table separation should match document semantics. |
+| 35 | Long rows | Emitter | Long ordinary rows may wrap inside the row. |
+| 36 | Final row | Emitter | Content after the table should continue normally. |
+
+## Content After A Spanning Table
+
+This paragraph should appear after the long table, wherever the table ends. It helps catch accidental clipping, lost pending spacing, and page-state mistakes after a multi-page table.
+
+- The following list should not inherit table alignment.
+- It should keep ordinary bullet indentation.
+- It should remain readable after the table has crossed a page boundary.
+
+#figure(kind = "image", alignment = "center", numbering = { enabled = true, label = "Figure" })[
+  #image("assets/mote-logo.png", width = pt(100), alt = "Mote logo", border = { color = "#cbd5e1", width = pt(1) })
+  #caption[Media after a long table should still resolve and number correctly.]
+]

@@ -1,0 +1,62 @@
+#metadata(title = "Nested Style Layout", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  language = "en-US",
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72), header = pt(24), footer = pt(24) },
+  columns = { count = 1 }
+)
+#font(name = "body", latin = "Aptos", east_asian = "Yu Gothic", complex_script = "Arial")
+#font(name = "mono", latin = "Courier New")
+#style(
+  name = "Normal",
+  type = "paragraph",
+  paragraph = {
+    spacing = { after = pt(8), line = pt(14) }
+  },
+  run = {
+    font = "body",
+    size = pt(11)
+  }
+)
+#style(
+  name = "Heading1",
+  type = "paragraph",
+  based_on = "Normal",
+  next = "Normal",
+  paragraph = {
+    spacing = { before = pt(12), after = pt(6), line = { rule = "multiple", value = 1.15 } },
+    keep_with_next = true,
+    outline_level = 0
+  },
+  run = {
+    font = "body",
+    size = pt(20),
+    bold = true,
+    color = "#123456"
+  }
+)
+#style(
+  name = "Code",
+  type = "character",
+  run = {
+    font = "mono",
+    size = pt(10),
+    color = "#333333"
+  }
+)
+
+#heading(level = 1, numbering = { enabled = true, id = "outline", separator = "." })[Heading Styled By Name]
+
+Body text should inherit document defaults and declared named styles.
+
+#paragraph(
+  style = "Normal",
+  spacing = { before = pt(4), after = pt(10) },
+  indent = { left = pt(18), first_line = pt(9) }
+)[Indented paragraph with #code("inline code").]
+
+#paragraph(style = "Normal")[
+  Scientific notation should support H#subscript[2]O and x#superscript[2].
+]

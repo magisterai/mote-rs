@@ -1,0 +1,960 @@
+[
+  {
+    "identifier": "word-plain-markdown-basics",
+    "application": "word",
+    "name": "01_plain_markdown_basics",
+    "source": "word-01-plain-markdown-basics.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-plain-markdown-longform",
+    "application": "word",
+    "name": "02_plain_markdown_longform",
+    "source": "word-02-plain-markdown-longform.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-nested-styles-layout",
+    "application": "word",
+    "name": "03_nested_styles_layout",
+    "source": "word-03-nested-styles-layout.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-expanded-markdown",
+    "application": "word",
+    "name": "04_expanded_markdown",
+    "source": "word-04-expanded-markdown.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-full-page-markdown-report",
+    "application": "word",
+    "name": "05_full_page_markdown_report",
+    "source": "word-05-full-page-markdown-report.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-full-page-layout-review",
+    "application": "word",
+    "name": "06_full_page_layout_review",
+    "source": "word-06-full-page-layout-review.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 5,
+    "required_fonts": [
+      "/System/Library/Fonts/Supplemental/Verdana.ttf",
+      "/System/Library/Fonts/Supplemental/Verdana Bold.ttf",
+      "/System/Library/Fonts/Supplemental/Verdana Italic.ttf",
+      "/System/Library/Fonts/Supplemental/Verdana Bold Italic.ttf"
+    ]
+  },
+  {
+    "identifier": "word-warning-authority",
+    "application": "word",
+    "name": "07_warning_authority",
+    "source": "word-07-warning-authority.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-lists",
+    "application": "word",
+    "name": "08_lists",
+    "source": "word-08-lists.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-definition-lists",
+    "application": "word",
+    "name": "09_definition_lists",
+    "source": "word-09-definition-lists.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-rich-numbering",
+    "application": "word",
+    "name": "10_rich_numbering",
+    "source": "word-10-rich-numbering.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-wrapped-nested-list-boundary",
+    "application": "word",
+    "name": "11_wrapped_nested_list_boundary",
+    "source": "word-11-wrapped-nested-list-boundary.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-unbreakable-tokens",
+    "application": "word",
+    "name": "12_unbreakable_tokens",
+    "source": "word-12-unbreakable-tokens.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-mixed-size-inline-runs",
+    "application": "word",
+    "name": "13_mixed_size_inline_runs",
+    "source": "word-13-mixed-size-inline-runs.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-glyph-coverage",
+    "application": "word",
+    "name": "14_glyph_coverage",
+    "source": "word-14-glyph-coverage.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-cjk-line-breaking",
+    "application": "word",
+    "name": "15_cjk_line_breaking",
+    "source": "word-15-cjk-line-breaking.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": [
+      "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+    ]
+  },
+  {
+    "identifier": "word-justified-text",
+    "application": "word",
+    "name": "16_justified_text",
+    "source": "word-16-justified-text.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": [
+      "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+    ]
+  },
+  {
+    "identifier": "word-inline-code-font",
+    "application": "word",
+    "name": "17_inline_code_font",
+    "source": "word-17-inline-code-font.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": [
+      "/System/Library/Fonts/Supplemental/Andale Mono.ttf"
+    ]
+  },
+  {
+    "identifier": "word-preserve-space",
+    "application": "word",
+    "name": "18_preserve_space",
+    "source": "word-18-preserve-space.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-keep-with-next",
+    "application": "word",
+    "name": "19_keep_with_next",
+    "source": "word-19-keep-with-next.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 4,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-keep-together",
+    "application": "word",
+    "name": "20_keep_together",
+    "source": "word-20-keep-together.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 4,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-page-break-before",
+    "application": "word",
+    "name": "21_page_break_before",
+    "source": "word-21-page-break-before.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 4,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-widow-control",
+    "application": "word",
+    "name": "22_widow_control",
+    "source": "word-22-widow-control.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 4,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-sections-headers-tables",
+    "application": "word",
+    "name": "23_sections_headers_tables",
+    "source": "word-23-sections-headers-tables.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-headers-footers",
+    "application": "word",
+    "name": "24_headers_footers",
+    "source": "word-24-headers-footers.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-multiline-headers-footers",
+    "application": "word",
+    "name": "25_multiline_headers_footers",
+    "source": "word-25-multiline-headers-footers.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-columns-longform",
+    "application": "word",
+    "name": "26_columns_longform",
+    "source": "word-26-columns-longform.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-columns-layout",
+    "application": "word",
+    "name": "27_columns_layout",
+    "source": "word-27-columns-layout.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": [
+      "/System/Library/Fonts/Supplemental/Verdana.ttf",
+      "/System/Library/Fonts/Supplemental/Verdana Bold.ttf",
+      "/System/Library/Fonts/Supplemental/Verdana Italic.ttf",
+      "/System/Library/Fonts/Supplemental/Verdana Bold Italic.ttf"
+    ]
+  },
+  {
+    "identifier": "word-natural-column-balancing",
+    "application": "word",
+    "name": "28_natural_column_balancing",
+    "source": "word-28-natural-column-balancing.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-section-transition",
+    "application": "word",
+    "name": "29_section_transition",
+    "source": "word-29-section-transition.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-media-references-notes",
+    "application": "word",
+    "name": "30_media_references_notes",
+    "source": "word-30-media-references-notes.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-reference-parity",
+    "application": "word",
+    "name": "31_reference_parity",
+    "source": "word-31-reference-parity.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-forward-page-reference-reflow",
+    "application": "word",
+    "name": "32_forward_page_reference_reflow",
+    "source": "word-32-forward-page-reference-reflow.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 10,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-annotation-story-placement",
+    "application": "word",
+    "name": "33_annotation_story_placement",
+    "source": "word-33-annotation-story-placement.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-notes-one-page",
+    "application": "word",
+    "name": "34_notes_one_page",
+    "source": "word-34-notes-one-page.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-notes-two-page",
+    "application": "word",
+    "name": "35_notes_two_page",
+    "source": "word-35-notes-two-page.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-footnote-page-pressure",
+    "application": "word",
+    "name": "36_footnote_page_pressure",
+    "source": "word-36-footnote-page-pressure.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-endnote-page-pressure",
+    "application": "word",
+    "name": "37_endnote_page_pressure",
+    "source": "word-37-endnote-page-pressure.mote",
+    "group": "flow",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-layout-images",
+    "application": "word",
+    "name": "38_layout_images",
+    "source": "word-38-layout-images.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-image-transforms",
+    "application": "word",
+    "name": "39_image_transforms",
+    "source": "word-39-image-transforms.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-image-horizontal-positioning",
+    "application": "word",
+    "name": "40_image_horizontal_positioning",
+    "source": "word-40-image-horizontal-positioning.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-anchored-image-wrap",
+    "application": "word",
+    "name": "41_anchored_image_wrap",
+    "source": "word-41-anchored-image-wrap.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-editable-drawingml-shapes",
+    "application": "word",
+    "name": "42_editable_drawingml_shapes",
+    "source": "word-42-editable-drawingml-shapes.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-chart-properties",
+    "application": "word",
+    "name": "43_chart_properties",
+    "source": "word-43-chart-properties.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-chart-defaults",
+    "application": "word",
+    "name": "44_chart_defaults",
+    "source": "word-44-chart-defaults.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-chart-lua-json",
+    "application": "word",
+    "name": "45_chart_lua_json",
+    "source": "word-45-chart-lua-json.mote",
+    "group": "media",
+    "evaluation": "lua",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-longform-tables",
+    "application": "word",
+    "name": "46_longform_tables",
+    "source": "word-46-longform-tables.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 4,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-feature-overview",
+    "application": "word",
+    "name": "47_table_feature_overview",
+    "source": "word-47-table-feature-overview.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-full-page-tables-and-media",
+    "application": "word",
+    "name": "48_full_page_tables_and_media",
+    "source": "word-48-full-page-tables-and-media.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-spanning-table-components",
+    "application": "word",
+    "name": "49_spanning_table_components",
+    "source": "word-49-spanning-table-components.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-column-widths",
+    "application": "word",
+    "name": "50_table_column_widths",
+    "source": "word-50-table-column-widths.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-cell-block-image",
+    "application": "word",
+    "name": "51_table_cell_block_image",
+    "source": "word-51-table-cell-block-image.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-recursive-table-cell-content",
+    "application": "word",
+    "name": "52_recursive_table_cell_content",
+    "source": "word-52-recursive-table-cell-content.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-multi-page",
+    "application": "word",
+    "name": "53_table_multi_page",
+    "source": "word-53-table-multi-page.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-row-splitting",
+    "application": "word",
+    "name": "54_table_row_splitting",
+    "source": "word-54-table-row-splitting.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-row-splitting-mixed-cells",
+    "application": "word",
+    "name": "55_table_row_splitting_mixed_cells",
+    "source": "word-55-table-row-splitting-mixed-cells.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-autofit-vs-fixed",
+    "application": "word",
+    "name": "56_table_autofit_vs_fixed",
+    "source": "word-56-table-autofit-vs-fixed.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-cross-page-spans",
+    "application": "word",
+    "name": "57_table_cross_page_spans",
+    "source": "word-57-table-cross-page-spans.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-nested-table-content",
+    "application": "word",
+    "name": "58_nested_table_content",
+    "source": "word-58-nested-table-content.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-nested-table-row-splitting",
+    "application": "word",
+    "name": "59_nested_table_row_splitting",
+    "source": "word-59-nested-table-row-splitting.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-style-effective-runs",
+    "application": "word",
+    "name": "60_table_style_effective_runs",
+    "source": "word-60-table-style-effective-runs.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-table-borders",
+    "application": "word",
+    "name": "61_table_borders",
+    "source": "word-61-table-borders.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-default-style",
+    "application": "word",
+    "name": "62_default_style",
+    "source": "word-62-default-style.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-plain-markdown-deck",
+    "application": "powerpoint",
+    "name": "01_plain_markdown_deck",
+    "source": "powerpoint-01-plain-markdown-deck.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-explicit-boxes",
+    "application": "powerpoint",
+    "name": "02_explicit_boxes",
+    "source": "powerpoint-02-explicit-boxes.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-slide-features-links",
+    "application": "powerpoint",
+    "name": "03_slide_features_links",
+    "source": "powerpoint-03-slide-features-links.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-text-box-styling",
+    "application": "powerpoint",
+    "name": "04_text_box_styling",
+    "source": "powerpoint-04-text-box-styling.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-alignment-grid",
+    "application": "powerpoint",
+    "name": "05_alignment_grid",
+    "source": "powerpoint-05-alignment-grid.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-table-fidelity",
+    "application": "powerpoint",
+    "name": "06_table_fidelity",
+    "source": "powerpoint-06-table-fidelity.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-shapes-lines",
+    "application": "powerpoint",
+    "name": "07_shapes_lines",
+    "source": "powerpoint-07-shapes-lines.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-text-autofit",
+    "application": "powerpoint",
+    "name": "08_text_autofit",
+    "source": "powerpoint-08-text-autofit.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-theme-text-tables-charts",
+    "application": "powerpoint",
+    "name": "09_theme_text_tables_charts",
+    "source": "powerpoint-09-theme-text-tables-charts.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-chart-properties",
+    "application": "powerpoint",
+    "name": "10_chart_properties",
+    "source": "powerpoint-10-chart-properties.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-chart-exhaustive",
+    "application": "powerpoint",
+    "name": "11_chart_exhaustive",
+    "source": "powerpoint-11-chart-exhaustive.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 10,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-chart-defaults",
+    "application": "powerpoint",
+    "name": "12_chart_defaults",
+    "source": "powerpoint-12-chart-defaults.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-chart-lua-json",
+    "application": "powerpoint",
+    "name": "13_chart_lua_json",
+    "source": "powerpoint-13-chart-lua-json.mote",
+    "group": "media",
+    "evaluation": "lua",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-standard-auto-layout",
+    "application": "powerpoint",
+    "name": "14_standard_auto_layout",
+    "source": "powerpoint-14-standard-auto-layout.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-image-transforms",
+    "application": "powerpoint",
+    "name": "15_image_transforms",
+    "source": "powerpoint-15-image-transforms.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-background-images",
+    "application": "powerpoint",
+    "name": "16_background_images",
+    "source": "powerpoint-16-background-images.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-table-cell-flow",
+    "application": "powerpoint",
+    "name": "17_table_cell_flow",
+    "source": "powerpoint-17-table-cell-flow.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-math-layout",
+    "application": "powerpoint",
+    "name": "18_math_layout",
+    "source": "powerpoint-18-math-layout.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-shape-text-bounds",
+    "application": "powerpoint",
+    "name": "19_shape_text_bounds",
+    "source": "powerpoint-19-shape-text-bounds.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-international-text",
+    "application": "powerpoint",
+    "name": "20_international_text",
+    "source": "powerpoint-20-international-text.mote",
+    "group": "text",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": [
+      "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+    ]
+  },
+  {
+    "identifier": "powerpoint-named-layouts",
+    "application": "powerpoint",
+    "name": "21_named_layouts",
+    "source": "powerpoint-21-named-layouts.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 9,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-named-layouts-lua-json",
+    "application": "powerpoint",
+    "name": "22_named_layouts_lua_json",
+    "source": "powerpoint-22-named-layouts-lua-json.mote",
+    "group": "media",
+    "evaluation": "lua",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-markdown-core",
+    "application": "powerpoint",
+    "name": "23_markdown_core",
+    "source": "powerpoint-23-markdown-core.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-media-charts",
+    "application": "powerpoint",
+    "name": "24_media_charts",
+    "source": "powerpoint-24-media-charts.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-slide-edges",
+    "application": "powerpoint",
+    "name": "25_slide_edges",
+    "source": "powerpoint-25-slide-edges.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-table-borders",
+    "application": "powerpoint",
+    "name": "26_table_borders",
+    "source": "powerpoint-26-table-borders.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-default-style",
+    "application": "powerpoint",
+    "name": "27_default_style",
+    "source": "powerpoint-27-default-style.mote",
+    "group": "fundamentals",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
+    "identifier": "slide-table-alignment",
+    "application": "powerpoint",
+    "name": "28_table_alignment",
+    "source": "slide-table-alignment.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "slide-table-spacing",
+    "application": "powerpoint",
+    "name": "29_table_spacing",
+    "source": "slide-table-spacing.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "slide-table-margins",
+    "application": "powerpoint",
+    "name": "30_table_margins",
+    "source": "slide-table-margins.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "markdown-table-document",
+    "application": "word",
+    "name": "63_markdown_table_alignment",
+    "source": "markdown-table-alignment.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  },
+  {
+    "identifier": "markdown-table-slides",
+    "application": "powerpoint",
+    "name": "31_markdown_table_alignment",
+    "source": "markdown-table-alignment.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
+  }
+]

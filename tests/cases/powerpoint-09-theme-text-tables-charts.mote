@@ -1,0 +1,132 @@
+#font(name = "display", latin = "Arial")
+#font(name = "body", latin = "Aptos")
+
+#presentation(
+  size = "wide",
+  footer = "Mote PPTX native polish",
+  date = false,
+  slide_number = true,
+  theme = {
+    name = "Mote Executive",
+    colors = {
+      background = "#fff7ed",
+      text = "#312e81",
+      accent1 = "#0f766e",
+      accent2 = "#c026d3",
+      accent3 = "#ca8a04",
+      accent4 = "#e11d48",
+      hyperlink = "#b45309"
+    },
+    fonts = { heading = "display", body = "body" }
+  }
+)
+
+#style(
+  name = "DefaultTable",
+  type = "table",
+  font = "body",
+  table = {
+    banding = { rows = true, even = { fill = "#f1f5f9" } },
+    cell = {
+      margin = { top = pt(4), right = pt(7), bottom = pt(4), left = pt(7) },
+      vertical_alignment = "middle"
+    },
+    text = { size = pt(9), color = "#111827" },
+    first_row = {
+      fill = "#dbeafe",
+      text = { bold = true }
+    },
+    last_row = {
+      fill = "#fff7ed",
+      text = { bold = true }
+    },
+    borders = {
+      outside = { style = "single", color = "#334155", width = pt(1) },
+      inside = { style = "single", color = "#cbd5e1", width = pt(0.5) }
+    }
+  }
+)
+
+#set table(style = "DefaultTable")
+
+#slide(notes = "This slide exercises theme colors, paragraph spacing, list indentation, table options, and chart packaging.")[
+  #box(
+    position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.55) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #heading(level = 2)[Native PowerPoint Polish]
+  ]
+
+  #box(
+    position = { x = inch(0.8), y = inch(1.15), width = inch(4.1), height = inch(2.25) },
+    text = {
+      paragraph = {
+        spacing = { after = pt(7), line = pt(16) },
+        indent = { left = pt(0) }
+      },
+      list = {
+        spacing_after = pt(3),
+        indent = { left = pt(30), hanging = pt(18) }
+      },
+      size = pt(11)
+    }
+  )[
+    #paragraph[
+      The deck-level theme controls unstyled Office text while each text box can still tune paragraph behavior.
+    ]
+
+    #ordered_list(start = 3, format = "upper_alpha")[
+      #item[Theme fonts]
+      #item[Paragraph spacing]
+      #item[Numbered list control]
+    ]
+  ]
+
+  #box(position = { x = inch(5.15), y = inch(1.15), width = inch(7.35), height = inch(2.25) })[
+    #table(width = inch(7.0), alignment = "center")[
+      #row(height = pt(26), repeat_header = true)[
+        #cell(width = inch(2.3))[Area]
+        #cell(width = inch(1.8), alignment = "center")[Status]
+        #cell(width = inch(1.4), alignment = "right")[Score]
+        #cell(width = inch(1.5), alignment = "right")[Delta]
+      ]
+      #row[
+        #cell[Theme]
+        #cell(alignment = "center")[Ready]
+        #cell(alignment = "right")[92]
+        #cell(alignment = "right")[+8]
+      ]
+      #row[
+        #cell[Tables]
+        #cell(alignment = "center")[Better]
+        #cell(alignment = "right")[86]
+        #cell(alignment = "right")[+11]
+      ]
+      #row[
+        #cell[Charts]
+        #cell(alignment = "center")[New]
+        #cell(alignment = "right")[74]
+        #cell(alignment = "right")[+74]
+      ]
+    ]
+  ]
+
+  #box(position = { x = inch(0.8), y = inch(3.85), width = inch(11.7), height = inch(2.75) })[
+    #chart(
+      kind = "column",
+      title = "Backend Coverage",
+      data = {
+        categories = { "DOCX", "PPTX", "Charts" },
+        series = {
+          { name = "Current", values = { 92, 82, 58 } },
+          { name = "Target", values = { 96, 92, 88 } }
+        }
+      },
+      axis = {
+        category = { title = "Backend" },
+        value = { title = "Coverage" }
+      },
+      legend = { position = "bottom" }
+    )
+  ]
+]

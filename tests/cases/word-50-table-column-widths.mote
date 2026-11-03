@@ -1,0 +1,88 @@
+#metadata(title = "Mote Table Column Widths", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(9),
+      line = { rule = "multiple", value = 1.12 }
+    }
+  }
+)
+
+# Table Column Widths
+
+DOCX, PDF, and PNG should place every vertical divider at the same horizontal position. A table-level width controls the overall frame; explicit cell widths control the individual columns.
+
+## Equal Columns Without Cell Widths
+
+This control table declares only a 6.5-inch table width, so its three columns should divide the frame equally.
+
+#table(
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(8) },
+    borders = { all = { style = "single", size = 6, color = "#64748b" } }
+  }
+)[
+  #row[
+    #cell(fill = "#dbeafe", alignment = "center")[**Equal A**]
+    #cell(fill = "#dcfce7", alignment = "center")[**Equal B**]
+    #cell(fill = "#fef3c7", alignment = "center")[**Equal C**]
+  ]
+]
+
+## Unequal Three-column Grid
+
+These widths total 6.5 inches. The first divider belongs 1.25 inches from the left edge and the second 3.25 inches from the left edge.
+
+#table(
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(8) },
+    borders = { all = { style = "single", size = 6, color = "#64748b" } }
+  }
+)[
+  #row[
+    #cell(width = inch(1.25), fill = "#dbeafe", alignment = "center")[**1.25 in**]
+    #cell(width = inch(2), fill = "#dcfce7", alignment = "center")[**2.00 in**]
+    #cell(width = inch(3.25), fill = "#fef3c7", alignment = "center")[**3.25 in**]
+  ]
+  #row[
+    #cell[Short]
+    #cell[Medium column]
+    #cell[The widest column remains visibly wider in every backend.]
+  ]
+]
+
+## Unequal Two-column Grid
+
+This reproduces the 1.65-inch label column and 4.85-inch content column used by the inline-code review without involving font behavior.
+
+#table(
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(8) },
+    borders = { all = { style = "single", size = 6, color = "#64748b" } }
+  }
+)[
+  #row[
+    #cell(width = inch(1.65), fill = "#ede9fe")[**1.65-inch label**]
+    #cell(width = inch(4.85), fill = "#f5f3ff")[The divider should sit just over one quarter of the way across the frame, leaving a 4.85-inch content column.]
+  ]
+]
+
+The closing paragraph confirms that following content returns to the ordinary page width.

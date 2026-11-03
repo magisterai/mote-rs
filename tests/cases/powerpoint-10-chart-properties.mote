@@ -1,0 +1,113 @@
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote chart properties",
+  date = false,
+  slide_number = true,
+  theme = {
+    name = "Mote Chart Properties",
+    colors = {
+      background = "#f8fafc",
+      text = "#111827",
+      accent1 = "#2563eb",
+      accent2 = "#059669",
+      accent3 = "#d97706",
+      accent4 = "#dc2626",
+      hyperlink = "#2563eb"
+    },
+    fonts = { heading = "display", body = "body" }
+  }
+)
+
+#slide(notes = "Styled chart with gridlines, labels, and controlled bar spacing.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Chart Properties]
+  ]
+
+  #box(position = { x = inch(0.85), y = inch(1.1), width = inch(11.5), height = inch(5.35) })[
+    #chart(
+      kind = "column",
+      title = "Quarterly Revenue",
+      data = {
+        categories = { "Q1", "Q2", "Q3", "Q4" },
+        series = {
+          { name = "Actual", values = { 12.4, 14.8, 16.1, 19.3 } },
+          { name = "Forecast", values = { 13.0, 15.2, 17.4, 20.1 } }
+        }
+      },
+      axis = {
+        category = { title = "Quarter" },
+        value = { title = "Revenue ($M)" }
+      },
+      legend = { position = "bottom" },
+      plot_area = { background = "#ffffff", border = false },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      data_labels = { value = true, position = "outside_end" },
+      gap_width = 75,
+      colors = { "#2563eb", "#059669" }
+    )
+  ]
+]
+
+#slide(notes = "Pie labels use percentages and visible slice colors.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Pie Data Labels]
+  ]
+
+  #box(position = { x = inch(2.15), y = inch(1.1), width = inch(9), height = inch(5.35) })[
+    #chart(
+      kind = "pie",
+      title = "Pipeline Mix",
+      data = {
+        categories = { "New", "Expansion", "Renewal", "Services" },
+        series = {
+          { name = "Pipeline", values = { 42, 28, 21, 9 } }
+        }
+      },
+      legend = { position = "bottom" },
+      data_labels = { percentage = true, position = "best_fit" },
+      colors = { "#2563eb", "#059669", "#d97706", "#dc2626" }
+    )
+  ]
+]
+
+#slide(notes = "Stacked and area chart variants share the same category/series model.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Stacked And Area]
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(1.1), width = inch(5.75), height = inch(5.35) })[
+    #chart(
+      kind = "stacked_bar",
+      title = "Stacked Support Load",
+      data = {
+        categories = { "Parser", "Emitter", "QA" },
+        series = {
+          { name = "Open", values = { 12, 18, 7 } },
+          { name = "Closed", values = { 20, 24, 13 } }
+        }
+      },
+      legend = { position = "bottom" },
+      colors = { "#2563eb", "#059669" }
+    )
+  ]
+
+  #box(position = { x = inch(6.75), y = inch(1.1), width = inch(5.75), height = inch(5.35) })[
+    #chart(
+      kind = "area",
+      title = "Area Trend",
+      data = {
+        categories = { "Jan", "Feb", "Mar" },
+        series = {
+          { name = "Teams", values = { 18, 26, 39 } },
+          { name = "Projects", values = { 9, 14, 23 } }
+        }
+      },
+      legend = { position = "bottom" },
+      colors = { "#93c5fd", "#86efac" }
+    )
+  ]
+]

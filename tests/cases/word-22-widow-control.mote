@@ -1,0 +1,112 @@
+#metadata(title = "Mote Widow Control", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(18) }
+    }
+  }
+)
+
+#style(
+  name = "BoundaryRuler",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(9), color = "#64748b" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(36) }
+    }
+  }
+)
+
+#style(
+  name = "WidowOn",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(12), bold = true, color = "#166534" },
+  paragraph = {
+    widow_control = true,
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(18) }
+    }
+  }
+)
+
+#style(
+  name = "WidowOff",
+  type = "paragraph",
+  based_on = "WidowOn",
+  run = { color = "#6d28d9" },
+  paragraph = {
+    widow_control = false
+  }
+)
+
+#set paragraph(style = "Normal")
+
+#paragraph(style = "BoundaryRuler")[ENABLED RULER 01 — fixed 36-point filler line.#line_break()
+ENABLED RULER 02 — fixed 36-point filler line.#line_break()
+ENABLED RULER 03 — fixed 36-point filler line.#line_break()
+ENABLED RULER 04 — fixed 36-point filler line.#line_break()
+ENABLED RULER 05 — fixed 36-point filler line.#line_break()
+ENABLED RULER 06 — fixed 36-point filler line.#line_break()
+ENABLED RULER 07 — fixed 36-point filler line.#line_break()
+ENABLED RULER 08 — fixed 36-point filler line.#line_break()
+ENABLED RULER 09 — fixed 36-point filler line.#line_break()
+ENABLED RULER 10 — fixed 36-point filler line.#line_break()
+ENABLED RULER 11 — fixed 36-point filler line.#line_break()
+ENABLED RULER 12 — fixed 36-point filler line.#line_break()
+ENABLED RULER 13 — fixed 36-point filler line.#line_break()
+ENABLED RULER 14 — fixed 36-point filler line.#line_break()
+ENABLED RULER 15 — fixed 36-point filler line.#line_break()
+ENABLED RULER 16 — fixed 36-point filler line.#line_break()
+ENABLED RULER 17 — fixed 36-point filler line.#line_break()
+ENABLED RULER 18 — exactly one 36-point slot remains.]
+
+#paragraph(style = "WidowOn", fill = "#dcfce7")[ENABLED LINE 1 — all three green lines must begin together on page 2.#line_break()
+ENABLED LINE 2 — a one-line orphan at the bottom of page 1 is forbidden.#line_break()
+ENABLED LINE 3 — the declared style enables widow control.]
+
+#paragraph[Page 2 passes when all three green lines begin together.]
+
+#break()
+
+#paragraph(style = "BoundaryRuler")[DISABLED RULER 01 — fixed 36-point filler line.#line_break()
+DISABLED RULER 02 — fixed 36-point filler line.#line_break()
+DISABLED RULER 03 — fixed 36-point filler line.#line_break()
+DISABLED RULER 04 — fixed 36-point filler line.#line_break()
+DISABLED RULER 05 — fixed 36-point filler line.#line_break()
+DISABLED RULER 06 — fixed 36-point filler line.#line_break()
+DISABLED RULER 07 — fixed 36-point filler line.#line_break()
+DISABLED RULER 08 — fixed 36-point filler line.#line_break()
+DISABLED RULER 09 — fixed 36-point filler line.#line_break()
+DISABLED RULER 10 — fixed 36-point filler line.#line_break()
+DISABLED RULER 11 — fixed 36-point filler line.#line_break()
+DISABLED RULER 12 — fixed 36-point filler line.#line_break()
+DISABLED RULER 13 — fixed 36-point filler line.#line_break()
+DISABLED RULER 14 — fixed 36-point filler line.#line_break()
+DISABLED RULER 15 — fixed 36-point filler line.#line_break()
+DISABLED RULER 16 — fixed 36-point filler line.#line_break()
+DISABLED RULER 17 — fixed 36-point filler line.#line_break()
+DISABLED RULER 18 — exactly two 18-point slots remain.]
+
+#paragraph(style = "WidowOff", fill = "#ede9fe")[DISABLED LINE 1 — this purple line must remain at the bottom of page 3.#line_break()
+DISABLED LINE 2 — this purple line must also remain at the bottom of page 3.#line_break()
+DISABLED LINE 3 — explicit false permits this single line to begin page 4.]
+
+#paragraph[PASS: exactly four pages; green is 0+3 across pages 1–2, while purple is 2+1 across pages 3–4.]

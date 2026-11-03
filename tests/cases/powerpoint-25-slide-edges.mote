@@ -1,0 +1,115 @@
+#presentation(
+  size = "wide",
+  background = "#ffffff",
+  footer = false,
+  date = false,
+  slide_number = false
+)
+
+#slide(notes = "Full-weight edge diagnostic. Every 3 point stroke centerline is inset 1.5 points, so its outer ink edge lands exactly on the 960 by 540 point canvas boundary without clipping.")[
+  #shape(
+    kind = "rect",
+    position = { x = pt(1.5), y = pt(1.5), width = pt(957), height = pt(537) },
+    border = { color = "#000000", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(1.5), y = pt(1.5), width = pt(54), height = pt(54) },
+    fill = "#ef4444",
+    border = { color = "#7f1d1d", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(904.5), y = pt(1.5), width = pt(54), height = pt(54) },
+    fill = "#3b82f6",
+    border = { color = "#1e3a8a", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(1.5), y = pt(484.5), width = pt(54), height = pt(54) },
+    fill = "#22c55e",
+    border = { color = "#14532d", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(904.5), y = pt(484.5), width = pt(54), height = pt(54) },
+    fill = "#f59e0b",
+    border = { color = "#78350f", width = pt(3) }
+  )[]
+
+  #box(
+    position = { x = pt(200), y = pt(195), width = pt(560), height = pt(150) },
+    margin = { top = pt(12), right = pt(18), bottom = pt(12), left = pt(18) },
+    alignment = "center",
+    vertical_alignment = "middle",
+    fill = "#f8fafc",
+    border = { color = "#94a3b8", width = pt(1) },
+    size = pt(18),
+    color = "#0f172a"
+  )[
+    #span(size = pt(24), bold = true)[Full-Weight Ink at the Slide Edge]
+
+    3 pt stroke; centerline inset 1.5 pt
+
+    The outer ink edge lands exactly on the canvas edge.
+    The full border weight should remain visible on every side.
+  ]
+]
+
+#slide(notes = "Clipped-centerline diagnostic. Every 3 point stroke centerline sits exactly on the 960 by 540 point canvas boundary, so the outer 1.5 points are intentionally clipped and a half-width edge is expected.")[
+  #shape(
+    kind = "rect",
+    position = { x = pt(0), y = pt(0), width = pt(960), height = pt(540) },
+    border = { color = "#000000", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(0), y = pt(0), width = pt(54), height = pt(54) },
+    fill = "#ef4444",
+    border = { color = "#7f1d1d", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(906), y = pt(0), width = pt(54), height = pt(54) },
+    fill = "#3b82f6",
+    border = { color = "#1e3a8a", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(0), y = pt(486), width = pt(54), height = pt(54) },
+    fill = "#22c55e",
+    border = { color = "#14532d", width = pt(3) }
+  )[]
+
+  #shape(
+    kind = "rect",
+    position = { x = pt(906), y = pt(486), width = pt(54), height = pt(54) },
+    fill = "#f59e0b",
+    border = { color = "#78350f", width = pt(3) }
+  )[]
+
+  #box(
+    position = { x = pt(200), y = pt(195), width = pt(560), height = pt(150) },
+    margin = { top = pt(12), right = pt(18), bottom = pt(12), left = pt(18) },
+    alignment = "center",
+    vertical_alignment = "middle",
+    fill = "#f8fafc",
+    border = { color = "#94a3b8", width = pt(1) },
+    size = pt(18),
+    color = "#0f172a"
+  )[
+    #span(size = pt(24), bold = true)[Centerline on the Slide Boundary]
+
+    3 pt stroke centered at x/y 0 and 960/540
+
+    The outer 1.5 pt is intentionally outside the canvas.
+    A clipped half-width edge is the expected result.
+  ]
+]

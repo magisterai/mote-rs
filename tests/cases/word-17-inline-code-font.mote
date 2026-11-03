@@ -1,0 +1,109 @@
+#metadata(title = "Mote Inline Code Font", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(
+  name = "mono",
+  latin = "Andale Mono",
+  files = {
+    regular = "/System/Library/Fonts/Supplemental/Andale Mono.ttf",
+    bold = "/System/Library/Fonts/Supplemental/Andale Mono.ttf",
+    italic = "/System/Library/Fonts/Supplemental/Andale Mono.ttf",
+    bold_italic = "/System/Library/Fonts/Supplemental/Andale Mono.ttf"
+  }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(9),
+      line = { rule = "multiple", value = 1.12 }
+    }
+  }
+)
+
+#style(
+  name = "CodeBase",
+  type = "character",
+  run = { font = "mono", size = pt(10.5), bold = true }
+)
+
+#style(
+  name = "Code",
+  type = "character",
+  based_on = "code base",
+  run = { color = "#7c3aed", bold = false }
+)
+
+#style(
+  name = "CodeAccent",
+  type = "character",
+  based_on = "CodeBase",
+  run = { size = pt(12), color = "#047857", bold = true }
+)
+
+# Inline Code Font
+
+DOCX, PDF, and PNG should use the declared character style and Andale Mono face for ordinary markdown code instead of silently substituting a backend-specific Courier fallback.
+
+## Implicit Inherited Code Style
+
+The four samples below must have identical glyph shapes, character widths, regular weight, size, and purple color. `Code` inherits its font and size from `CodeBase`, explicitly disables the base bold setting, and the nested outer span must not override those character-style properties.
+
+#table(
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(8) },
+    borders = { all = { style = "single", size = 6, color = "#94a3b8" } }
+  }
+)[
+  #row[
+    #cell(width = inch(1.65), fill = "#f8fafc")[**Reference span**]
+    #cell(width = inch(4.85))[#span(style = "Code")[iiii WWWW 0000 abcd 1234]]
+  ]
+  #row[
+    #cell(width = inch(1.65), fill = "#f8fafc")[**Markdown backticks**]
+    #cell(width = inch(4.85))[`iiii WWWW 0000 abcd 1234`]
+  ]
+  #row[
+    #cell(width = inch(1.65), fill = "#f8fafc")[**Code directive**]
+    #cell(width = inch(4.85))[#code(style = "Code")[iiii WWWW 0000 abcd 1234]]
+  ]
+  #row[
+    #cell(width = inch(1.65), fill = "#f8fafc")[**Nested outer span**]
+    #cell(width = inch(4.85))[#span(font = "Times", size = pt(16), color = "#dc2626")[`iiii WWWW 0000 abcd 1234`]]
+  ]
+]
+
+## Explicit Alternate Style
+
+An explicit derived character style must replace the implicit Code style instead of being overwritten afterward. These two green samples must match one another and retain the monospace face inherited from `CodeBase`.
+
+#table(
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(8) },
+    borders = { all = { style = "single", size = 6, color = "#94a3b8" } }
+  }
+)[
+  #row[
+    #cell(width = inch(1.65), fill = "#f8fafc")[**Reference span**]
+    #cell(width = inch(4.85))[#span(style = "CodeAccent")[alpha beta 42]]
+  ]
+  #row[
+    #cell(width = inch(1.65), fill = "#f8fafc")[**Styled code**]
+    #cell(width = inch(4.85))[#code(style = "CodeAccent")[alpha beta 42]]
+  ]
+]
+
+The surrounding body text remains in the normal proportional face.

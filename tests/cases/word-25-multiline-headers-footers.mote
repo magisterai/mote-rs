@@ -1,0 +1,45 @@
+#metadata(title = "Mote Multiline Headers And Footers", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(66), left = pt(72) }
+)
+
+#style(
+  name = "Header",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(9), bold = true, color = "#1e3a8a" },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = pt(11) } }
+)
+
+#style(
+  name = "Footer",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(8), color = "#475569" },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = pt(10) } }
+)
+
+#header(height = pt(54), distance = pt(12))[
+  #paragraph[HEADER LINE 1 - separate paragraph block]
+  #paragraph[HEADER LINE 2 - this deliberately continues with enough text to wrap onto another physical line without losing its trailing words in PDF or PNG.]
+]
+
+#footer(height = pt(30), distance = pt(12))[
+  #paragraph[FOOTER LINE 1 - explicit break retained#line_break()FOOTER LINE 2 - PAGE #page_number() OF #page_number(kind = "total")]
+]
+
+# Multiline Headers And Footers
+
+The header must show two authored paragraph blocks. Its longer second block may wrap, and every wrapped word must remain above the body. The footer must show both explicit lines below the body.
+
+#paragraph(fill = "#dcfce7")[PAGE 1 PASS: no header or footer line is missing, and neither reserved band overlaps this green body marker.]
+
+#break()
+
+## Repeated Page
+
+The same complete header and footer must repeat here. The footer page field must advance to page 2 while the total remains 2.
+
+#paragraph(fill = "#dcfce7")[PAGE 2 PASS: all header and footer lines repeat with the same geometry.]

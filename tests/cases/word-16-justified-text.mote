@@ -1,0 +1,87 @@
+#metadata(title = "Mote Justified Text", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(
+  name = "cjk",
+  latin = "Arial Unicode MS",
+  east_asian = "Arial Unicode MS",
+  word_line_height = 1.7454545,
+  files = {
+    regular = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    bold = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    italic = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    bold_italic = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+  }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(9),
+      line = { rule = "multiple", value = 1.12 }
+    }
+  }
+)
+
+# Justified Text
+
+PDF and PNG should match Word: automatically wrapped lines reach both margins, while the final line and any line ending at an explicit break remain ragged.
+
+## Automatic Wrapping
+
+#paragraph(style = "Normal", alignment = "justify")[
+Generated reports often contain prose assembled from several sources, and full justification must remain stable when words have very different lengths. Every automatically wrapped line in this paragraph should expand only its ordinary inter-word spaces to meet the right edge. The final line must keep its natural width.
+]
+
+## Mixed Inline Styles
+
+#paragraph(style = "Normal", alignment = "justify")[
+The same spacing must continue through **bold phrases**, _italic observations_, #highlight(fill = "#fef3c7")[highlighted words with spaces], and an #link(url = "https://example.com/justification-review")[underlined review link with several words]. Styling boundaries must not create uneven gaps, move text outside the frame, or shorten the clickable area. This last line remains ragged.
+]
+
+## Explicit Line Break
+
+#paragraph(style = "Normal", alignment = "justify")[
+This line deliberately ends at an explicit break and must remain visibly ragged.#line_break()
+The following text resumes as a separate logical line. If it wraps automatically, only those automatically wrapped lines are justified; its short final line remains natural.
+]
+
+## CJK Inter-character Spacing
+
+#paragraph(style = "Normal", alignment = "justify")[
+#span(font = "cjk")[天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。寒来暑往，秋收冬藏。日本語の文章でも句読点を正しく保ちながら、自動改行した行だけが両端まで広がります。最後の行は自然な幅のままです。]
+]
+
+## Narrow Table Cells
+
+#table(
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(7) },
+    borders = { all = { style = "single", size = 6, color = "#94a3b8" } }
+  }
+)[
+  #row[
+    #cell(width = inch(3.25), fill = "#f8fafc", alignment = "left")[
+      **Left reference**
+
+      Narrow cells make ordinary ragged alignment easy to recognize because each wrapped line stops at its natural width.
+    ]
+    #cell(width = inch(3.25), fill = "#f8fafc", alignment = "justify")[
+      **Justified result**
+
+      Narrow cells make measured justification obvious because wrapped lines should meet both edges while the final line stays ragged.
+    ]
+  ]
+]
+
+The closing paragraph confirms that table layout and following content remain in their normal positions.

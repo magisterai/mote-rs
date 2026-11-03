@@ -1,0 +1,96 @@
+#metadata(title = "Mote Endnote Page Pressure", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(60), right = pt(60), bottom = pt(60), left = pt(60) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(5),
+      line = { rule = "exact", value = pt(15) }
+    }
+  }
+)
+
+#style(
+  name = "Heading1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(19), bold = true, color = "#1e3a8a" },
+  paragraph = {
+    keep_with_next = true,
+    spacing = {
+      before = pt(0),
+      after = pt(8),
+      line = { rule = "exact", value = pt(25) }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Endnote Page Pressure
+
+#paragraph(fill = "#dbeafe")[
+  BODY START — eight references occur in the main story; their long note bodies must be deferred to one naturally flowing endnote story.
+]
+
+#paragraph[
+  BODY-EN-01 references note E-01#endnote[
+    E-01 START. This first endnote establishes the beginning of the deferred note story. It contains ordinary sentences long enough to wrap across many physical lines while remaining a single editable note paragraph. The text describes a stable review contract: its opening marker, its closing marker, and every word between them must appear exactly once after the main document body. No part of the note should be inserted beside the body reference. The endnote separator should precede the first note, the lower-Roman marker should agree with the body reference, and subsequent notes should follow in source order. Additional prose makes the geometry meaningful rather than decorative. Reviewers should be able to see whether a backend loses a line at a page boundary, repeats a line after advancing, or overlays one note on another. The sentence lengths vary naturally so wrapping is not determined by a single artificial token. E-01 END.
+  ] and then continues in the main story.
+]
+
+#paragraph[
+  BODY-EN-02 references note E-02#endnote[
+    E-02 START. This second endnote continues the same deferred sequence with enough text to contribute material vertical pressure. It must follow E-01 without entering the main story and without restarting numbering. The prose deliberately uses visible phrases near both ends of the paragraph, allowing a reviewer to identify clipping even if text extraction still reports the note as present. Word may place this note wholly on one page or allow it to cross a page boundary according to its natural pagination rules. PDF and PNG should make the same decision once line metrics and available page height agree. Nothing in the source requests a page break, a fixed height, or a keep constraint. The case therefore exposes the renderer’s default endnote flow instead of prescribing the answer. Every continuation line must retain the ordinary note indentation and must remain below any separator or continuation separator used by Word. E-02 END.
+  ] and then continues in the main story.
+]
+
+#paragraph[
+  BODY-EN-03 references note E-03#endnote[
+    E-03 START. This third endnote adds another substantial paragraph to the end-of-document story. The content remains intentionally plain so that pagination, numbering, indentation, and continuation are the only variables under review. A correct renderer keeps the body reference compact, defers this complete paragraph, and places it after the preceding two notes. When the accumulated story reaches a physical page boundary, no sentence may disappear into the bottom margin and no fragment may be painted above the top margin of the following page. The page transition should reserve the same usable geometry as an ordinary document page while respecting Word’s endnote separator conventions. Stable markers make visual inspection and extracted-text comparison straightforward. The final clause is intentionally short, ensuring that the closing marker cannot be mistaken for part of the next note. E-03 END.
+  ] and then continues in the main story.
+]
+
+#paragraph[
+  BODY-EN-04 references note E-04#endnote[
+    E-04 START. This fourth endnote is positioned near the middle of the authored note sequence, although its exact physical page is deliberately not forced. Natural line measurement alone should determine where it begins and ends. Its sentences exercise normal spaces, commas, and punctuation, avoiding unsupported typography that could distract from the pagination question. Word should continue lower-Roman numbering and should not create a second endnote heading or separator merely because a new physical page is required. Native renderers should preserve the same visible text, marker order, and paragraph width. If the paragraph crosses a page boundary, both halves must share consistent indentation and line spacing. If it remains intact, the following note must begin after the expected inter-note spacing. Either outcome becomes authoritative only after capture in real Microsoft Word. E-04 END.
+  ] and then continues in the main story.
+]
+
+#paragraph[
+  BODY-EN-05 references note E-05#endnote[
+    E-05 START. This fifth endnote continues to increase the deferred story height while retaining a simple semantic structure. It is one note paragraph associated with one body reference, not a collection of manual line breaks. The source gives the layout engine no boundary hints, so any transition to the next physical page must result from measured content and remaining space. Review should confirm that the note number is visible, the first line aligns correctly after that number, and wrapped lines use the expected hanging indentation. It should also confirm that the end of the paragraph is not crowded into a footer band. The note’s wording is intentionally distinct from its neighbours, making accidental duplication or reordering visible in both a screenshot and extracted text. All renderers should keep this material out of the body story. E-05 END.
+  ] and then continues in the main story.
+]
+
+#paragraph[
+  BODY-EN-06 references note E-06#endnote[
+    E-06 START. This sixth endnote supplies additional natural flow after the likely first continuation boundary. A renderer must carry forward the page geometry, note typography, and numbering state without treating the new page as a new document section. The prose remains long enough to wrap repeatedly and contains no embedded directive that could explain a surprising break. Reviewers can therefore attribute line or page differences to endnote layout itself. The opening and closing markers should be separated by a complete sequence of readable sentences, with no overlap from another note and no unexplained vertical gap. The associated reference stays in BODY-EN-06 near the beginning of the document, while this entire body remains in the deferred story. Continued notes should retain the same margins on every page. E-06 END.
+  ] and then continues in the main story.
+]
+
+#paragraph[
+  BODY-EN-07 references note E-07#endnote[
+    E-07 START. This seventh endnote approaches the end of the sequence but must still obey the same ordinary pagination rules as every earlier note. Its purpose is to make the final endnote page substantial enough that an omitted or prematurely terminated page is immediately visible. The renderer should not collapse the text into the body, skip the note because its reference appeared much earlier, or restart its marker at one. Consistent wrapping matters because a few lines of cumulative measurement error can move the final marker to a different page from Word. The test does not tune its text around a known boundary; the source must remain frozen after the first authoritative Word observation. This paragraph closes with an explicit marker that should remain adjacent to the preceding sentence. E-07 END.
+  ] and then continues in the main story.
+]
+
+#paragraph[
+  BODY-EN-08 references note E-08#endnote[
+    E-08 START. This eighth and final endnote provides the terminal marker for the complete deferred story. It must follow E-07, carry the lower-Roman sequence through its eighth value, and remain fully visible before the document ends. The paragraph is intentionally long enough that the final page cannot be mistaken for a nearly empty artifact caused only by a separator. Word decides its physical placement from the accumulated height of all prior notes. PDF and PNG should converge on the same page count and boundaries without an authored break. A reviewer should inspect the first line, several wrapped middle lines, and the closing marker for consistent indentation, spacing, and clipping. Once this paragraph ends, no duplicate note text, unexplained continuation rule, or body-story PASS paragraph should follow it. E-08 END.
+  ] and then continues in the main story.
+]
+
+#paragraph(fill = "#dcfce7")[
+  BODY END — the main story ends here; E-01 through E-08 follow afterward in one ordered endnote story that naturally occupies multiple pages.
+]

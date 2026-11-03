@@ -1,0 +1,138 @@
+#metadata(title = "Mote Multi-page Table", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(57.55), right = pt(72), bottom = pt(57.55), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(14) }
+    }
+  }
+)
+
+#style(
+  name = "CaseTitle",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(18), bold = true, color = "#172554" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(12),
+      line = { rule = "exact", value = pt(24) }
+    },
+    keep_with_next = true
+  }
+)
+
+#style(
+  name = "Lead",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(10), color = "#334155" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(17),
+      line = { rule = "exact", value = pt(16) }
+    },
+    keep_with_next = true
+  }
+)
+
+#style(
+  name = "Result",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(10), bold = true, color = "#166534" },
+  paragraph = {
+    spacing = {
+      before = pt(12),
+      after = pt(0),
+      line = { rule = "exact", value = pt(16) }
+    }
+  }
+)
+
+#style(
+  name = "PageTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#1e3a8a" },
+      text = { bold = true, color = "#ffffff" }
+    },
+    banding = {
+      odd = { cell = { fill = "#eff6ff" } },
+      even = { cell = { fill = "#ffffff" } }
+    },
+    cell = {
+      margin = { top = pt(11), right = pt(6), bottom = pt(11), left = pt(6) }
+    }
+  }
+)
+
+#heading(level = 1, style = "CaseTitle")[Multi-page Table]
+
+#paragraph(style = "Lead")[
+Page 1 begins the table below this six-line setup.#line_break()
+Page 2 contains only the continued table.#line_break()
+Page 3 ends the table near its midpoint.#line_break()
+The header repeats at each page top.#line_break()
+Rows use one, two, and three lines of wrapped text.#line_break()
+The closing control follows the final row.
+]
+
+#table(
+  style = "PageTable",
+  width = inch(6.5),
+  alignment = "center"
+)[
+  #row(repeat_header = true)[
+    #cell(width = inch(0.75), alignment = "center")[ROW]
+    #cell(width = inch(5.75))[CONTINUOUS TABLE CONTENT]
+  ]
+  #row[#cell(alignment = "right")[01] #cell[One-line control row 01 stays intentionally compact.]]
+  #row[#cell(alignment = "right")[02] #cell[Two-line sample row 02 carries enough descriptive text to wrap once while preserving alignment, padding, and row identity.]]
+  #row[#cell(alignment = "right")[03] #cell[Three-line sample row 03 deliberately contains a longer description that wraps twice, increases the row height, and provides a regular long-row sample for natural pagination.]]
+  #row[#cell(alignment = "right")[04] #cell[One-line control row 04 remains compact for comparison.]]
+  #row[#cell(alignment = "right")[05] #cell[Two-line sample row 05 adds sufficient narrative text to wrap once while its row number remains aligned with the complete cell.]]
+  #row[#cell(alignment = "right")[06] #cell[Three-line sample row 06 uses an extended explanation that should wrap twice, exercise the taller cell geometry, and compare line wrapping and vertical placement across the three output formats.]]
+  #row[#cell(alignment = "right")[07] #cell[One-line control row 07 provides another compact baseline.]]
+  #row[#cell(alignment = "right")[08] #cell[Two-line sample row 08 continues across a second visual line so the renderers must agree on the resulting row height.]]
+  #row[#cell(alignment = "right")[09] #cell[Three-line sample row 09 includes enough continuous prose to wrap twice, make the alternating row band visibly taller, and expose any disagreement about where the next row begins or where the page ends.]]
+  #row[#cell(alignment = "right")[10] #cell[One-line control row 10 remains intentionally compact.]]
+  #row[#cell(alignment = "right")[11] #cell[Two-line sample row 11 carries enough descriptive text to wrap once while preserving the expected cell padding and ordered row identity.]]
+  #row[#cell(alignment = "right")[12] #cell[Three-line sample row 12 contains a longer description that wraps twice, increases the row height, and continues the regular short, medium, and long sequence without a pagination hint.]]
+  #row[#cell(alignment = "right")[13] #cell[One-line control row 13 marks a compact transition point.]]
+  #row[#cell(alignment = "right")[14] #cell[Two-line sample row 14 contains enough words for one wrap and a clearly visible increase over the compact control rows.]]
+  #row[#cell(alignment = "right")[15] #cell[Three-line sample row 15 carries a deliberately extended explanation that wraps twice, tests the vertical placement of the row number, and confirms that borders and banding grow with the text.]]
+  #row[#cell(alignment = "right")[16] #cell[One-line control row 16 remains deliberately concise.]]
+  #row[#cell(alignment = "right")[17] #cell[Two-line sample row 17 wraps once so continued-table pagination must account for a variable body-row height.]]
+  #row[#cell(alignment = "right")[18] #cell[Three-line sample row 18 supplies enough prose to wrap twice, exercise line spacing inside the table cell, and make any clipping, overlap, or differing page-boundary behavior visible during review.]]
+  #row[#cell(alignment = "right")[19] #cell[One-line control row 19 offers a final compact baseline.]]
+  #row[#cell(alignment = "right")[20] #cell[Two-line sample row 20 expands to a second line while retaining the same margins, borders, and column widths.]]
+  #row[#cell(alignment = "right")[21] #cell[Three-line sample row 21 uses longer continuous text that wraps twice, produces a visibly taller band, and checks that the repeated header and following rows remain correctly positioned after pagination.]]
+  #row[#cell(alignment = "right")[22] #cell[One-line control row 22 remains intentionally compact.]]
+  #row[#cell(alignment = "right")[23] #cell[Two-line sample row 23 carries enough descriptive text to wrap once while preserving the expected cell margins, alternating fill, and border alignment.]]
+  #row[#cell(alignment = "right")[24] #cell[Three-line sample row 24 deliberately carries enough text to wrap twice, continues the regular long-row pattern, and demonstrates that later rows retain their complete text, padding, and borders.]]
+  #row[#cell(alignment = "right")[25] #cell[One-line control row 25 is the last compact comparison.]]
+  #row[#cell(alignment = "right")[26] #cell[Two-line sample row 26 occupies a second line before the final variable-height row and closing control.]]
+  #row[#cell(alignment = "right")[27] #cell[Three-line sample row 27 finishes with extended prose that wraps twice, confirms the table can end cleanly after a taller row, and leaves the green control immediately below the completed table.]]
+]
+
+#paragraph(style = "Result")[
+PASS: the repeated header appears on all three pages, rows 01 through 27 appear once in order with naturally wrapped one-, two-, and three-line text, and this control follows the table on page 3.
+]

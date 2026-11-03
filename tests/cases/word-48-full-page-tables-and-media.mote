@@ -1,0 +1,84 @@
+#metadata(title = "Full Page Tables And Media Review", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(10.5),
+  margin = { top = pt(54), right = pt(58), bottom = pt(54), left = pt(58), header = pt(24), footer = pt(28) }
+)
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "ReviewTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#e8eef7" },
+      text = { bold = true }
+    },
+    banding = {
+      odd = { cell = { fill = "#f8fafc" } }
+    },
+    cell = {
+      margin = { top = pt(4), right = pt(6), bottom = pt(4), left = pt(6) }
+    }
+  }
+)
+
+#set table(style = "ReviewTable")
+
+# Tables And Media Review
+
+This page compares markdown tables, directive tables, captions, figures, and relative image loading. The markdown tables should use natural content width unless a width is explicitly supplied.
+
+## Markdown Table
+
+| Phase | Owner | Status | Budget |
+| --- | --- | :---: | ---: |
+| Parser fixtures | Engineering | Complete | $4,200 |
+| PDF emitter | Engineering | In review | $6,800 |
+| Visual QA | Design | Scheduled | $1,450 |
+| Documentation | Product | Drafting | $950 |
+
+## Explicit Wide Table
+
+#table(width = pt(450), alignment = "center")[
+  #row[
+    #cell[Area]
+    #cell[PDF]
+    #cell[Word]
+  ]
+  #row[
+    #cell[Divider]
+    #cell[Drawn full text width]
+    #cell[Styled paragraph border]
+  ]
+  #row[
+    #cell[Markdown table]
+    #cell[Natural width by default]
+    #cell[Natural width by default]
+  ]
+]
+
+#figure(kind = "image", alignment = "center", numbering = { enabled = true, label = "Figure" })[
+  #image("assets/mote-logo.png", width = pt(120), alt = "Mote logo", border = { color = "#cbd5e1", width = pt(1) })
+  #caption[Relative images should resolve from the source file in both backends.]
+]
+
+#break()
+
+## Continuation Page
+
+The second page provides more table rows to test page flow around table-heavy content. A single tall cell does not need to split perfectly yet, but ordinary rows should continue cleanly.
+
+| Item | Owner | Notes |
+| --- | --- | --- |
+| Markdown heading | Parser | Lowers to a heading element. |
+| Markdown paragraph | Parser | Lowers to a paragraph element. |
+| Markdown divider | Parser | Lowers to a divider element. |
+| Markdown table | Parser | Lowers to table, row, and cell elements. |
+| Image directive | Emitter | Uses asset loading and relative path resolution. |
+| Caption directive | Emitter | Uses local sequence counters where supported. |
+| Header directive | Layout | Repeats page-level content. |
+| Footer directive | Layout | Repeats page-level content. |
+| Columns directive | Layout | Changes section-local text flow. |
+
+The continuation page should look like a normal page, not a special case. The image on the first page should not disturb the table flow that follows.

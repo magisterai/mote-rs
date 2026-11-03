@@ -1,0 +1,125 @@
+#metadata(title = "Mote Table AutoFit Versus Fixed Layout", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(7),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#style(
+  name = "SizingTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#dbeafe" },
+      text = { bold = true, color = "#172554" }
+    },
+    cell = {
+      margin = { top = pt(6), right = pt(7), bottom = pt(6), left = pt(7) },
+      borders = { all = { color = "#64748b" } }
+    }
+  }
+)
+
+#heading(level = 1)[Table AutoFit Versus Fixed Layout]
+
+#paragraph[
+The three tables contain the same asymmetric content. Their divider positions
+must follow Word's unsized automatic, width-constrained AutoFit, and fixed-grid
+rules rather than converging on one native sizing algorithm.
+]
+
+#heading(level = 2)[A — Unsized Automatic Table]
+
+#table(
+  style = "SizingTable",
+  layout = "auto",
+  alignment = "left"
+)[
+  #row[
+    #cell[ID]
+    #cell[OWNER]
+    #cell[REVIEW DESCRIPTION]
+  ]
+  #row[
+    #cell[A-17]
+    #cell[International Compliance]
+    #cell[Short control.]
+  ]
+  #row[
+    #cell[A-2048]
+    #cell[QA]
+    #cell[This deliberately longer description asks Word to infer a useful content-driven grid without a declared table or cell width.]
+  ]
+]
+
+#heading(level = 2)[B — Width-constrained AutoFit Table]
+
+#table(
+  style = "SizingTable",
+  width = inch(6.5),
+  layout = "autofit",
+  alignment = "center"
+)[
+  #row[
+    #cell[ID]
+    #cell[OWNER]
+    #cell[REVIEW DESCRIPTION]
+  ]
+  #row[
+    #cell[B-17]
+    #cell[International Compliance]
+    #cell[Short control.]
+  ]
+  #row[
+    #cell[B-2048]
+    #cell[QA]
+    #cell[This deliberately longer description asks Word to distribute a constrained six-and-a-half-inch frame according to its AutoFit rules.]
+  ]
+]
+
+#heading(level = 2)[C — Fixed Explicit Grid]
+
+#table(
+  style = "SizingTable",
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center"
+)[
+  #row[
+    #cell(width = inch(0.85))[ID]
+    #cell(width = inch(1.85))[OWNER]
+    #cell(width = inch(3.8))[REVIEW DESCRIPTION]
+  ]
+  #row[
+    #cell[C-17]
+    #cell[International Compliance]
+    #cell[Short control.]
+  ]
+  #row[
+    #cell[C-2048]
+    #cell[QA]
+    #cell[This deliberately longer description must wrap inside the authored 3.8-inch final column without changing either fixed divider.]
+  ]
+]
+
+#paragraph(fill = "#dcfce7")[
+REVIEW: A is content-driven, B fills the constrained frame using AutoFit, and C
+keeps dividers at 0.85 and 2.70 inches from the table's left edge.
+]

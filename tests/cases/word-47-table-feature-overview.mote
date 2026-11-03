@@ -1,0 +1,81 @@
+#metadata(title = "Tables And Nested Content", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(10.5),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(54), bottom = pt(54), left = pt(54), header = pt(24), footer = pt(24) }
+)
+#font(name = "body", latin = "Aptos")
+#style(name = "Normal", type = "paragraph", run = { font = "body", size = pt(10.5) }, paragraph = { spacing = { after = pt(6), line = pt(13) } })
+#style(name = "Caption", type = "paragraph", based_on = "Normal", run = { font = "body", size = pt(9), italic = true }, paragraph = { spacing = { before = pt(4), after = pt(8) } })
+
+# Table Coverage
+
+This fixture exercises table geometry, repeated header rows, cell margins, nested block content, markdown tables, and captions without relying on backend-specific raw XML.
+
+#figure(kind = "table", alignment = "center", numbering = { enabled = true })[
+  #table(
+    width = inch(6.4),
+    layout = "fixed",
+    alignment = "center",
+    cell = {
+      margin = { top = pt(4), right = pt(6), bottom = pt(4), left = pt(6) },
+      vertical_alignment = "center"
+    },
+    borders = {
+      outside = { style = "single", size = 6, color = "#808080" },
+      inside = { style = "single", size = 4, color = "#d9d9d9" }
+    }
+  )[
+    #row(repeat_header = true, height = pt(24), height_rule = "at_least", cant_split = true)[
+      #cell(width = inch(1.4), fill = "#f2f2f2")[Area]
+      #cell(width = inch(3.2), fill = "#f2f2f2")[Evidence]
+      #cell(width = inch(1.8), fill = "#f2f2f2", alignment = "center")[Status]
+    ]
+    #row(cant_split = true)[
+      #cell(rowspan = 2)[Parser]
+      #cell[
+        - Headings and paragraphs
+        - Nested lists
+        - Markdown links and images
+      ]
+      #cell(alignment = "center")[Ready]
+    ]
+    #row(cant_split = true)[
+      #cell[
+        #paragraph[Rowspans synthesize Word vertical-merge continuation cells.]
+      ]
+      #cell(alignment = "center")[Ready]
+    ]
+    #row(cant_split = true)[
+      #cell[Evaluation]
+      #cell[
+        #paragraph[Native functions produce neutral elements.]
+        #paragraph[Static expressions work without Lua.]
+      ]
+      #cell(alignment = "center")[Ready]
+    ]
+    #row(cant_split = true)[
+      #cell(colspan = 2, fill = "#fff2cc")[DOCX warnings remain an emitter concern.]
+      #cell(alignment = "center", fill = "#fff2cc")[Tracked]
+    ]
+  ]
+  #caption(alignment = "center")[A directive table with nested content and repeated header rows.]
+]
+
+## Markdown Table
+
+| Element | Purpose | Alignment |
+| --- | :---: | ---: |
+| `#table` | Structured rows and cells | right |
+| Markdown table | Fast authoring path | right |
+| Cell margin | Word-native padding equivalent | right |
+
+## Definition List
+
+#definition_list[
+  #term[Cell margin]
+  #definition[The Word table-cell margin concept used to keep cell text away from borders.]
+  #term[Table style]
+  #definition[A named table style can own table defaults so the emitter does not invent them.]
+]

@@ -1,0 +1,148 @@
+#metadata(title = "Full Page Layout Review", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(10.5),
+  page = { size = "letter" },
+  margin = { top = pt(58), right = pt(62), bottom = pt(58), left = pt(62), header = pt(28), footer = pt(30) }
+)
+#font(
+  name = "body",
+  latin = "Verdana",
+  files = {
+    regular = "/System/Library/Fonts/Supplemental/Verdana.ttf",
+    bold = "/System/Library/Fonts/Supplemental/Verdana Bold.ttf",
+    italic = "/System/Library/Fonts/Supplemental/Verdana Italic.ttf",
+    bold_italic = "/System/Library/Fonts/Supplemental/Verdana Bold Italic.ttf"
+  }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(10.5) },
+  paragraph = { spacing = { after = pt(8), line = { rule = "multiple", value = 1.15 } } }
+)
+#style(
+  name = "Heading1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "body", size = pt(16), bold = true },
+  paragraph = { spacing = { before = pt(8), after = pt(8), line = { rule = "multiple", value = 1.18 } } }
+)
+#style(
+  name = "Heading2",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "body", size = pt(12.5), bold = true },
+  paragraph = { spacing = { before = pt(6), after = pt(8), line = { rule = "multiple", value = 1.18 } } }
+)
+#style(
+  name = "Heading3",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "body", size = pt(11.5), bold = true },
+  paragraph = { spacing = { before = pt(6), after = pt(8), line = { rule = "multiple", value = 1.18 } } }
+)
+#set paragraph(style = "Normal")
+
+#header(height = pt(18), distance = pt(18))[Full Page Layout Review #tab() Page #page_number() of #page_number(kind = "total")]
+#footer(height = pt(18), distance = pt(18))[Mote PDF/DOCX comparison #tab() Draft]
+
+# Full Page Layout Review
+
+This document exercises page-level features that should compare reasonably between PDF and Word: margins, headers, footers, page numbers, explicit page breaks, and a two-column section.
+
+## Page One
+
+The first page uses document-level header and footer defaults. Body text should begin below the header, and the footer should stay outside the normal content flow.
+
+| Region | Expected Behavior |
+| --- | --- |
+| Header | Left label plus right page count |
+| Footer | Left comparison text plus right status |
+| Body | Normal markdown flow |
+
+The body should remain visually calm. Line lengths should be comfortable, and the table should use its natural width instead of stretching across the full text area when no width is requested.
+
+#break()
+
+## Page Two
+
+The second page confirms that page numbers advance and that document-level headers and footers continue after an explicit break.
+
+Paragraphs on this page are deliberately long enough to exercise line wrapping. The PDF backend should produce readable final output, while the DOCX backend should preserve editable paragraphs, tables, and styles.
+
+- Header remains visible.
+- Footer remains visible.
+- Page number increments.
+- Markdown content is still just markdown.
+
+#section(
+  properties = { start = "next_page" },
+  columns = { count = 2, gap = pt(30), separator = true }
+)[
+  ## Left Column
+
+  This section starts on a new page and changes only the local section layout. The source body remains markdown-like, with directives carrying only the section-level intent.
+
+  The left column contains prose and a nested list. The flow should remain readable, with nested items indented enough to show hierarchy without wasting space.
+
+  - First topic
+    - Supporting point
+    - Supporting point with **strong text**
+  - Second topic
+  - Third topic
+
+  #break(type = "column")
+
+  ## Right Column
+
+  The right column starts after a column break. This should make the column behavior obvious in both PDF and Word desktop rendering.
+
+  > Column-local blockquotes should keep their shape without leaking into the other column.
+
+  A short closing paragraph finishes the section and lets us see whether the next generated page returns to a normal one-column context when requested.
+]
+
+#section(
+  properties = { start = "next_page" },
+  columns = { count = 2, gap = pt(30), separator = true }
+)[
+  ## Column Fill Review
+
+  This page uses the same local section layout without an explicit column break. The text should begin in the left column, continue downward, and then flow naturally into the right column once the first column is full enough. The purpose is to make automatic column fill easy to compare across PDF and Word.
+
+  The content is ordinary markdown. It should not require a table, a positioned text box, or any backend-specific hint. A reader should see a normal report page that happens to use two columns for denser policy-style text.
+
+  ### Review Notes
+
+  Paragraphs in this section are intentionally compact but not cramped. We want enough body copy to exercise wrapping, paragraph spacing, list indentation, and the column separator without making the fixture feel artificial.
+
+  Mote should keep each paragraph editable in Word and visually stable in PDF. The exact line breaks may differ because the renderers use different text engines, but the overall density and rhythm should stay close enough that layout differences are meaningful.
+
+  A two-column page is a useful stress case because small spacing decisions become visible quickly. Heading spacing, paragraph leading, list indentation, and blockquote margins all compound when a column is narrow.
+
+  - Column content should start at the same vertical position as the section body.
+  - Nested list items should remain readable.
+  - The separator should span the occupied content area.
+  - Overflow should advance to the next column before creating a new page.
+
+  ### Operating Detail
+
+  The renderer should avoid inserting empty paragraphs around a column break or section boundary. Blank source lines are just source structure; they should not become visible vertical gaps when adjacent to layout control directives.
+
+  This page also checks that header and footer content remain outside the normal body flow. The page count should remain correct even when a section changes column count locally.
+
+  A second group of paragraphs continues the fill test. Progressive authoring means the source can begin as markdown, then add a font, header, footer, section, or table only when the document needs it. The author should not have to rewrite ordinary body text just because a later output format is added.
+
+  When the flow reaches the right column, the first visible line in that column should align with the top of the content area, not with an accidental blank paragraph. The column should feel like a continuation of the page, not like a separately positioned object.
+
+  The final paragraphs provide enough material to make page fill visible on typical letter-sized output. They are deliberately plain so the fixture isolates column mechanics rather than testing every element at once.
+]
+
+#section(properties = { start = "next_page" }, columns = { count = 1 })[
+  # Final One Column Page
+
+  This final section returns to one column. The header and footer still apply, and the content should not inherit the previous section's column count.
+
+  The point of this fixture is not perfect pagination parity. The goal is to make layout differences obvious enough that we can decide which differences are acceptable and which ones are backend bugs.
+]

@@ -1,0 +1,22 @@
+#metadata(title = "Mote Unbreakable Token Wrapping", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(60), bottom = pt(54), left = pt(60) }
+)
+
+# Unbreakable Token Wrapping
+
+Each token below is deliberately wider than the text frame. PDF and PNG should split it only as a last resort, keep every character, and stay inside the right margin. Word provides the reference rendering.
+
+## Long URL
+
+Before https://example.com/generated/reports/2026/07/24/organizations/magister-ai/conversations/019f950f66cf7f33af302a1dd8cdd5b6/artifacts/quarterly-review-with-an-intentionally-unbroken-final-segment-0123456789abcdefghijklmnopqrstuvwxyz after.
+
+## Content Hash
+
+Before sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef after.
+
+## Generated Identifier
+
+Before customerExportReconciliationBatch20260724019f950f66cf7f33af302a1dd8cdd5b6Attempt000001Part000004FinalizedWithoutDelimiters after.

@@ -1,0 +1,51 @@
+#metadata(title = "Mote Definition Lists", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(8),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#style(
+  name = "AccentDefinition",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(11), italic = true, color = "#1d4ed8" },
+  paragraph = {
+    indent = { left = pt(18) },
+    spacing = {
+      before = pt(0),
+      after = pt(10),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Definition Lists
+
+Terms use the built-in bold definition-term style. Definitions use an 18-point left indent, including every wrapped line.
+
+#definition_list[
+  #term[Fallback term]
+  #definition[This deliberately long fallback definition must wrap onto more than one line while every line remains visibly indented from the term above it. Inline **bold text**, *emphasis*, and `code` must survive in all three outputs.]
+  #term[Explicit definition style]
+  #definition(style = "AccentDefinition")[This definition owns an explicit blue italic paragraph style and retains the same deliberate 18-point indent.]
+  #term[Final term]
+  #definition[The final definition proves that all term-and-definition pairs render in source order with ordinary paragraph spacing.]
+]
+
+#paragraph(fill = "#dcfce7")[PASS: three bold terms, three indented definitions, one wrapped fallback definition, and one blue italic explicit-style definition.]

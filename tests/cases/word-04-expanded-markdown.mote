@@ -1,0 +1,19 @@
+Expanded Markdown
+=================
+
+Soft line
+continues as prose, while two trailing spaces  
+create a hard break and a trailing backslash\
+does the same.
+
+- [x] Setext headings
+- [ ] Task lists
+- [x] Strikethrough with ~~removed text~~
+
+Autolinks include <https://example.com/docs> and https://openai.com.
+
+Escaped \*stars\* remain literal.
+
+Footnote references work from markdown syntax[^note].
+
+[^note]: Footnote definitions may include *inline emphasis*.

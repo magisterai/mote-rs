@@ -1,115 +1,31 @@
 //! Generate the native review catalogue directly through the Mote library.
+mod catalogue;
+mod inputs;
 mod publication;
 mod rendering;
 
-use mote::render::LayoutMode;
+use catalogue::{Application, ReviewCase};
 use std::{env, error::Error, path::PathBuf, process::ExitCode};
 
 type ReviewResult<T> = Result<T, Box<dyn Error>>;
 
-#[derive(Clone, Copy)]
-enum Application {
-    Word,
-    PowerPoint,
-}
-
-impl Application {
-    fn directory(self) -> &'static str {
-        match self {
-            Self::Word => "word",
-            Self::PowerPoint => "powerpoint",
-        }
-    }
-
-    fn package_format(self) -> &'static str {
-        match self {
-            Self::Word => "docx",
-            Self::PowerPoint => "pptx",
-        }
-    }
-
-    fn layout(self) -> LayoutMode {
-        match self {
-            Self::Word => LayoutMode::Document,
-            Self::PowerPoint => LayoutMode::Presentation,
-        }
-    }
-
-    fn layout_name(self) -> &'static str {
-        match self {
-            Self::Word => "document",
-            Self::PowerPoint => "presentation",
-        }
-    }
-
-    fn review_status(self) -> &'static str {
-        match self {
-            Self::Word => "word_status",
-            Self::PowerPoint => "powerpoint_reference_status",
-        }
-    }
-}
-
-struct ReviewCase {
-    identifier: &'static str,
-    application: Application,
-    name: &'static str,
-    source_name: &'static str,
-    page_count: usize,
-}
-
-const CASES: &[ReviewCase] = &[
-    ReviewCase {
-        identifier: "markdown-table-document",
-        application: Application::Word,
-        name: "01_markdown_table_alignment",
-        source_name: "markdown-table-alignment",
-        page_count: 1,
-    },
-    ReviewCase {
-        identifier: "markdown-table-slides",
-        application: Application::PowerPoint,
-        name: "01_markdown_table_alignment",
-        source_name: "markdown-table-alignment",
-        page_count: 1,
-    },
-    ReviewCase {
-        identifier: "slide-table-alignment",
-        application: Application::PowerPoint,
-        name: "02_table_alignment",
-        source_name: "slide-table-alignment",
-        page_count: 2,
-    },
-    ReviewCase {
-        identifier: "slide-table-spacing",
-        application: Application::PowerPoint,
-        name: "03_table_spacing",
-        source_name: "slide-table-spacing",
-        page_count: 2,
-    },
-    ReviewCase {
-        identifier: "slide-table-margins",
-        application: Application::PowerPoint,
-        name: "04_table_margins",
-        source_name: "slide-table-margins",
-        page_count: 1,
-    },
-];
-
-const HELP: &str = "Usage: cargo review [--case NAME] [--output PATH] [--list]
+const HELP: &str = "Usage: cargo review [--case NAME] [--group NAME] [--output PATH] [--list]
 
 Generate editable DOCX/PPTX, native PDF and native PNG pages at 144 DPI.
 The default output root is target/review/, with concise/ and complete/ trees.
 --case NAME selects one case; repeat it to select several. Omit for all cases.
+--group NAME selects fundamentals, text, tables, flow or media.
 --output PATH selects another review root.
 --list lists the available case names without generating files.
 No Office application is opened. Office visual review remains separate.
 ";
 
 fn run() -> ReviewResult<()> {
+    let cases = catalogue::load()?;
     let repository = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let mut output = repository.join("target/review");
     let mut selected = Vec::new();
+    let mut groups = Vec::new();
     let mut arguments = env::args_os().skip(1);
     while let Some(argument) = arguments.next() {
         match argument.to_str() {
@@ -118,27 +34,36 @@ fn run() -> ReviewResult<()> {
                 return Ok(());
             }
             Some("--list") => {
-                for case in CASES {
+                for case in &cases {
                     println!(
-                        "{}: {}/{}",
+                        "{}: {}/{} [{}]",
                         case.identifier,
                         case.application.directory(),
-                        case.name
+                        case.name,
+                        case.group
                     );
                 }
                 return Ok(());
             }
             Some("--case") => {
                 let identifier = arguments.next().ok_or("--case requires a case name")?;
-                let case = CASES
+                let case = cases
                     .iter()
-                    .find(|case| identifier == case.identifier)
+                    .find(|case| identifier == case.identifier.as_str())
                     .ok_or_else(|| {
                         format!("unknown case: {}; use --list", identifier.to_string_lossy())
                     })?;
                 if !selected.contains(&case.identifier) {
-                    selected.push(case.identifier);
+                    selected.push(case.identifier.clone());
                 }
+            }
+            Some("--group") => {
+                let group = arguments.next().ok_or("--group requires a name")?;
+                let group = group
+                    .to_str()
+                    .filter(|group| catalogue::GROUPS.contains(group))
+                    .ok_or("unknown group; use fundamentals, text, tables, flow or media")?;
+                groups.push(group.to_owned());
             }
             Some("--output") => output = arguments.next().ok_or("--output requires a path")?.into(),
             _ => {
@@ -148,20 +73,50 @@ fn run() -> ReviewResult<()> {
             }
         }
     }
-    for case in CASES
-        .iter()
-        .filter(|case| selected.is_empty() || selected.contains(&case.identifier))
-    {
-        publication::assert_case_closed(&output, case)?;
-        let artifacts = rendering::generate(&repository, case)?;
-        publication::publish(&output, case, &artifacts)?;
-        println!(
-            "{}/{}: {} pages, {}, native PDF and PNG",
-            case.application.directory(),
-            case.name,
-            case.page_count,
-            case.application.package_format().to_uppercase()
-        );
+    let mut failures = Vec::new();
+    let mut summaries = Vec::new();
+    for case in cases.iter().filter(|case| {
+        (selected.is_empty() || selected.contains(&case.identifier))
+            && (groups.is_empty() || groups.contains(&case.group))
+    }) {
+        let result = publication::assert_case_closed(&output, case)
+            .and_then(|()| rendering::generate(&repository, case))
+            .and_then(|artifacts| publication::publish(&output, case, &artifacts));
+        match result {
+            Ok(()) => {
+                println!(
+                    "{}/{}: {} pages, {}, native PDF and PNG",
+                    case.application.directory(),
+                    case.name,
+                    case.page_count,
+                    case.application.package_format().to_uppercase()
+                );
+                summaries.push(serde_json::json!({"case":case.identifier,"status":"generated","pages":case.page_count}));
+            }
+            Err(error) => {
+                eprintln!("{}: {error}", case.identifier);
+                summaries.push(serde_json::json!({"case":case.identifier,"status":"failed","error":error.to_string()}));
+                failures.push(case.identifier.clone());
+            }
+        }
+    }
+    if summaries.is_empty() {
+        return Err("no cases match the selected filters".into());
+    }
+    std::fs::create_dir_all(output.join("complete"))?;
+    std::fs::write(
+        output.join("complete/last-run.json"),
+        serde_json::to_vec_pretty(
+            &serde_json::json!({"office_review":"unreviewed","cases":summaries}),
+        )?,
+    )?;
+    if !failures.is_empty() {
+        return Err(format!(
+            "{} review cases failed: {}",
+            failures.len(),
+            failures.join(", ")
+        )
+        .into());
     }
     println!("Review files: {}", output.join("concise").display());
     println!("Diagnostics: {}", output.join("complete").display());

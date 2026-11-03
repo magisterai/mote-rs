@@ -1,0 +1,100 @@
+#metadata(title = "Mote Forward Page Reference Reflow", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(7),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Forward Page Reference Reflow
+
+The two narrow paragraphs below are identical except for their resolved target
+page. The extra digit in page 10 must participate in normal line measurement
+instead of being painted over adjacent text after pagination.
+
+#paragraph[ONE-DIGIT CONTROL — target page 9]
+#paragraph(
+  indent = { right = pt(405) },
+  fill = "#dcfce7"
+)[PAGE #ref(target = "page-nine-target", display = "page", fallback = "9") END]
+
+#paragraph[TWO-DIGIT REFLOW — target page 10]
+#paragraph(
+  indent = { right = pt(405) },
+  fill = "#fef3c7"
+)[PAGE #ref(target = "page-ten-target", display = "page", fallback = "10") END]
+
+#paragraph(fill = "#dbeafe")[
+PAGE 1 CHECK — both references must resolve, remain inside their narrow
+paragraphs, and retain the trailing END marker. PAGE 9 END fits one line; the
+wider PAGE 10 value forces END onto the next line without colliding with it.
+]
+
+#break(type = "page")
+
+#paragraph[PAGE 2 SPACER — explicit pagination isolates reference-width behavior.]
+
+#break(type = "page")
+
+#paragraph[PAGE 3 SPACER — explicit pagination isolates reference-width behavior.]
+
+#break(type = "page")
+
+#paragraph[PAGE 4 SPACER — explicit pagination isolates reference-width behavior.]
+
+#break(type = "page")
+
+#paragraph[PAGE 5 SPACER — explicit pagination isolates reference-width behavior.]
+
+#break(type = "page")
+
+#paragraph[PAGE 6 SPACER — explicit pagination isolates reference-width behavior.]
+
+#break(type = "page")
+
+#paragraph[PAGE 7 SPACER — explicit pagination isolates reference-width behavior.]
+
+#break(type = "page")
+
+#paragraph[PAGE 8 SPACER — explicit pagination isolates reference-width behavior.]
+
+#break(type = "page")
+
+#label("page-nine-target")
+## PAGE 9 TARGET
+
+#paragraph(fill = "#dcfce7")[
+PAGE 9 CONFIRMATION — the one-digit forward reference on page 1 must display 9.
+]
+
+#break(type = "page")
+
+#label("page-ten-target")
+## PAGE 10 TARGET
+
+#paragraph(fill = "#fef3c7")[
+PAGE 10 CONFIRMATION — the two-digit forward reference on page 1 must display
+10, and that wider value must be included in line wrapping.
+]
+
+#paragraph(fill = "#dcfce7")[
+PASS: exactly ten pages; page 1 displays PAGE 9 END and PAGE 10 END without
+overlap, clipping, stale fallback text, or an incorrect target page.
+]

@@ -1,0 +1,84 @@
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote presentation table cell flow",
+  date = false,
+  slide_number = true
+)
+
+#font(name = "display", latin = "Aptos Display")
+
+#style(
+  name = "FlowTable",
+  type = "table",
+  table = {
+    cell = { margin = { top = pt(5), right = pt(7), bottom = pt(5), left = pt(7) }, vertical_alignment = "top" },
+    text = { size = pt(11), color = "#111827" },
+    first_row = { fill = "#dbeafe", text = { bold = true } },
+    borders = {
+      outside = { color = "#334155", width = pt(1) },
+      inside = { color = "#94a3b8", width = pt(0.6) }
+    }
+  }
+)
+
+#set table(style = "FlowTable")
+
+#slide(notes = "Multiline wrapping, explicit heights, and three vertical alignments should agree across PowerPoint and native output.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Multiline Table Cell Flow]
+  ]
+
+  #box(position = { x = inch(0.8), y = inch(1.2), width = inch(11.75), height = inch(4.9) })[
+    #table(width = inch(11.2), alignment = "center")[
+      #row(height = pt(34))[
+        #cell(width = inch(2.8))[Top]
+        #cell(width = inch(2.8))[Middle]
+        #cell(width = inch(2.8))[Bottom]
+        #cell(width = inch(2.8))[No wrap]
+      ]
+      #row(height = pt(92), height_rule = "exact")[
+        #cell(vertical_alignment = "top")[One line.
+Second line explains the top edge.]
+        #cell(vertical_alignment = "middle")[One line.
+Second line explains the middle.]
+        #cell(vertical_alignment = "bottom")[One line.
+Second line explains the bottom edge.]
+        #cell(no_wrap = true)[MODEL_OUTPUT_IDENTIFIER_0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZ]
+      ]
+      #row(height = pt(78), height_rule = "at_least")[
+        #cell(colspan = 2)[A merged cell contains enough prose to wrap naturally onto two or three lines without changing the neighboring column widths.]
+        #cell(rowspan = 2, vertical_alignment = "middle", fill = "#ecfdf5")[Rowspan remains vertically centered across both rows.]
+        #cell(alignment = "right")[Right aligned]
+      ]
+      #row(height = pt(56))[
+        #cell[Lower left]
+        #cell[Lower middle]
+        #cell(alignment = "center")[Centered]
+      ]
+    ]
+  ]
+]
+
+#slide(notes = "PowerPoint vertical text directions must either match natively or produce an explicit native warning.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.6) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Table Text Direction]
+  ]
+
+  #box(position = { x = inch(1.25), y = inch(1.25), width = inch(10.8), height = inch(4.8) })[
+    #table(width = inch(9.7), alignment = "center")[
+      #row(height = pt(36))[
+        #cell(width = inch(2.0))[Direction]
+        #cell(width = inch(2.55))[Top to bottom]
+        #cell(width = inch(2.55))[Bottom to top]
+        #cell(width = inch(2.6))[Horizontal control]
+      ]
+      #row(height = pt(230), height_rule = "exact")[
+        #cell(vertical_alignment = "middle", alignment = "center")[Visible orientation]
+        #cell(text_direction = "tb_rl", vertical_alignment = "middle", alignment = "center")[TOP TO BOTTOM]
+        #cell(text_direction = "bt_lr", vertical_alignment = "middle", alignment = "center")[BOTTOM TO TOP]
+        #cell(vertical_alignment = "middle", alignment = "center")[Horizontal text remains ordinary.]
+      ]
+    ]
+  ]
+]

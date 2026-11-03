@@ -1,0 +1,91 @@
+#metadata(title = "Mote Mixed-Size Inline Runs", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(8),
+      line = { rule = "multiple", value = 1.15 }
+    }
+  }
+)
+
+# Mixed-Size Inline Runs
+
+PDF and PNG should match Word: runs on the same line share a baseline, and only a line containing larger text grows taller.
+
+## Forced Line Boundaries
+
+#paragraph(style = "Normal", spacing = { after = pt(8), line = { rule = "multiple", value = 1.15 } })[
+Eleven-point line before.#line_break()
+Eleven-point lead, #span(size = pt(24), bold = true, color = "#1d4ed8")[twenty-four point inline], eleven-point tail.#line_break()
+Eleven-point line after with no overlap.
+]
+
+## Natural Wrapping
+
+#paragraph(style = "Normal", spacing = { after = pt(8), line = { rule = "multiple", value = 1.15 } })[
+This paragraph wraps normally before and after a #span(size = pt(24), bold = true, color = "#047857")[large inline segment that establishes its line height] while the surrounding wrapped lines remain at the ordinary eleven-point height.
+]
+
+The final paragraph must begin below the wrapped paragraph without collision.
+
+## Pagination Flow
+
+The remaining probes deliberately continue onto a second page without a forced page break. A mixed-size line may move as a unit when its measured height does not fit the remaining frame.
+
+#paragraph(style = "Normal", spacing = { after = pt(8), line = { rule = "multiple", value = 1.15 } })[
+Flow probe one begins at eleven points, introduces #span(size = pt(22), bold = true, color = "#b45309")[a twenty-two point inline run that controls only its own line], and returns to ordinary text for the following wrapped line.
+]
+
+#paragraph(style = "Normal", spacing = { after = pt(8), line = { rule = "multiple", value = 1.15 } })[
+Flow probe two aligns small text with #span(size = pt(26), bold = true, color = "#be123c")[a twenty-six point segment wrapping across two lines] before returning to an ordinary eleven-point tail.
+]
+
+## Boundary Table Cell
+
+#table(width = inch(6.5), layout = "fixed", alignment = "center")[
+  #row[
+    #cell(
+      width = inch(6.5),
+      fill = "#f8fafc",
+      margin = { all = pt(6) },
+      borders = { all = { style = "single", size = 6, color = "#94a3b8" } }
+    )[
+      #paragraph(style = "Normal", spacing = { after = pt(0), line = { rule = "multiple", value = 1.15 } })[
+Eleven-point line before.#line_break()
+Eleven-point lead, #span(size = pt(24), bold = true, color = "#7c3aed")[twenty-four point inline], eleven-point tail.#line_break()
+Eleven-point line after with no border collision.
+      ]
+    ]
+  ]
+]
+
+#paragraph(style = "Normal", spacing = { after = pt(24), line = { rule = "multiple", value = 1.15 } })[
+Boundary check: the complete table stays on page one.
+]
+
+#paragraph(style = "Normal", spacing = { after = pt(8), line = { rule = "multiple", value = 1.15 } })[
+Flow probe three provides a compact lead, #span(size = pt(20), bold = true, color = "#0369a1")[twenty-point text in the middle], and enough trailing text to prove that the next wrapped line returns to the normal line height.
+]
+
+#paragraph(style = "Normal", spacing = { after = pt(8), line = { rule = "multiple", value = 1.15 } })[
+Flow probe four places #span(size = pt(28), bold = true, color = "#6d28d9")[the tallest twenty-eight point inline run near the page boundary] so PDF and PNG must reserve the complete measured line before continuing.
+]
+
+## List Flow
+
+- Eleven-point bullet lead with #span(size = pt(22), bold = true, color = "#0f766e")[twenty-two point item text on the same baseline] and an ordinary wrapped tail below it.
+- A second bullet begins normally, reaches #span(size = pt(24), bold = true, color = "#1d4ed8")[a twenty-four point inline checkpoint], then finishes without colliding with the next marker.
+
+1. Ordered marker alignment is checked beside #span(size = pt(22), bold = true, color = "#b45309")[a twenty-two point first line] and its ordinary continuation.
+2. The final item contains #span(size = pt(24), bold = true, color = "#7c3aed")[one last twenty-four point run] before the closing paragraph.
+
+The closing eleven-point paragraph must remain below every mixed-size list item, with no overlap at the bottom of the second page.

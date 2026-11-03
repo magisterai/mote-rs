@@ -1,0 +1,47 @@
+#metadata(title = "Mote Preserve Space", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "WhitespaceProbe",
+  type = "paragraph",
+  run = { font = "Courier", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(3),
+      after = pt(6),
+      line = pt(13)
+    }
+  }
+)
+
+# Preserve Space
+
+The vertical bars are fixed rulers. Leading spaces, literal tabs expanded to four spaces, the empty interior line, and the two underlined spaces at the end of the labelled line must survive in every backend.
+
+#raw(style = "WhitespaceProbe", preserve_space = true)[+------------------------------------------+
+|no indent                                 |
+|  two-space indent                        |
+|    four-space indent                     |
+	|one leading tab                          |
+|left	middle	right                         |
+|                                          |
+|after the intentional blank line          |
+TRAILING SPACES ->#underline[  ]
++------------------------------------------+
+]
+
+The fenced block below is also preformatted without requiring an explicit attribute.
+
+```text
+  fenced two-space indent
+
+    fenced line after a blank line
+```
+
+#paragraph(fill = "#dcfce7")[PASS: indentation and blank lines remain visible; the raw box is not flattened into ordinary prose.]

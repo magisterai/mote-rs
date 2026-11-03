@@ -1,0 +1,52 @@
+#metadata(title = "Sections Headers Tables")
+#document(
+  default_font = "body",
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(54), bottom = pt(54), left = pt(54), header = pt(24), footer = pt(24) }
+)
+#font(name = "body", latin = "Aptos")
+#style(name = "Normal", type = "paragraph", run = { font = "body", size = pt(11) })
+
+#header(distance = pt(18))[
+  Acme Corp #tab() Page #page_number() of #page_number(kind = "total")
+]
+#footer(distance = pt(18))[
+  Confidential
+]
+
+# Document Section
+
+#table(
+  width = inch(6),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { top = pt(4), right = pt(6), bottom = pt(4), left = pt(6) },
+    vertical_alignment = "center"
+  },
+  borders = { outside = "single", inside = "single" }
+)[
+  #row(repeat_header = true)[
+    #cell(width = inch(3))[Item]
+    #cell(width = inch(3), alignment = "right")[Amount]
+  ]
+  #row[
+    #cell[Retainer]
+    #cell(alignment = "right")[$2,500.00]
+  ]
+]
+
+#section(
+  properties = { start = "next_page", vertical_alignment = "top" },
+  page = { orientation = "landscape" },
+  columns = { count = 2, gap = pt(36), separator = true },
+  page_numbering = { restart = true, start = 1 }
+)[
+  #header(distance = pt(18))[Landscape Section #tab() #page_number()]
+
+  ## Two Column Terms
+
+  - Parser supports progressive markdown.
+  - Directives layer on top.
+  - Emitter warnings remain target-specific.
+]

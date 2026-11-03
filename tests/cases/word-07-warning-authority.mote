@@ -1,0 +1,66 @@
+#metadata(title = "Mote Warning Authority", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(42), right = pt(54), bottom = pt(42), left = pt(54) }
+)
+
+#style(
+  name = "LegacyBody",
+  type = "paragraph",
+  font = "Helvetica",
+  size = pt(10),
+  color = "#1f2937",
+  spacing_after = pt(6)
+)
+
+#style(
+  name = "LegacyAccent",
+  type = "paragraph",
+  based_on = "LegacyBody",
+  bold = true,
+  color = "#1d4ed8",
+  spacing_before = pt(3),
+  spacing_after = pt(7)
+)
+
+#set paragraph(style = "LegacyBody")
+
+#label("warning-authority", kind = "heading", title = "Warning Authority")
+# Warning Authority
+
+#paragraph(style = "LegacyAccent")[Legacy flat paragraph styles are intentional: inherited font and size, direct bold and colour, and flat spacing must not warn.]
+
+Reference fallback: #ref(target = "warning-authority", display = "title", fallback = "Warning Authority"). Inline math source: #math("x^2 + y^2 = z^2", size = pt(10)).
+
+Notes remain readable in native page outputs: footnote#footnote[Footnote content for Word.], endnote#endnote[Endnote content for Word.], and #comment(author = "QA", initials = "QA")[commented text].
+
+#paragraph(style = "LegacyAccent")[The asymmetric logo requests crop, rotation, horizontal flip, and vertical flip. Word applies them; native page outputs warn once per property until transform support lands.]
+
+#image(
+  "assets/mote-logo.png",
+  alt = "Asymmetric Mote logo",
+  width = inch(1.7),
+  alignment = "center",
+  crop = { top = 4, right = 14, bottom = 8, left = 2 },
+  rotation = "12deg",
+  flip_horizontal = true,
+  flip_vertical = true
+)
+
+#chart(
+  kind = "column",
+  title = "Native DOCX Chart",
+  width = inch(3.2),
+  height = inch(1.45),
+  data = {
+    categories = { "A", "B", "C" },
+    series = { { name = "Value", values = { 2, 5, 3 } } }
+  },
+  legend = false,
+  colors = { "#2563eb" }
+)
+
+#paragraph(fill = "#dcfce7")[PASS: DOCX has native semantics; PDF and PNG remain visually readable and report each deliberate degradation exactly once.]

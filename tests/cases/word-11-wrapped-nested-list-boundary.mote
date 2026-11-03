@@ -1,0 +1,143 @@
+#metadata(title = "Mote Wrapped Nested List Boundary", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(6),
+      line = { rule = "multiple", value = 1.08 }
+    },
+    widow_control = true
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Wrapped Nested List Boundary
+
+This list starts at 8 and flows across pages without explicit breaks. The outer
+marker visibly widens from 9 to 10, and item 10 contains a lower-alpha nested
+sequence. Every parent and child has unique start and end markers so missing,
+duplicated, or misplaced continuation text is immediately visible.
+
+#paragraph(fill = "#dbeafe")[
+FLOW START — wrapped continuation lines align with their item text, while every
+list marker remains in the hanging-indent area to the left.
+]
+
+#paragraph[SETUP 01 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 02 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 03 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 04 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 05 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 06 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 07 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 08 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 09 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 10 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 11 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 12 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 13 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 14 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 15 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 16 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 17 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 18 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 19 — ordinary flow positions the numbered probe naturally.]
+#paragraph[SETUP 20 — item 8 follows without an authored page or column break.]
+
+#ordered_list(start = 8)[
+  #item[
+    #paragraph[
+PARENT 08 START — Verify the intake record, the responsible reviewer, the
+effective date, and the supporting evidence before advancing the request to the
+next stage. — PARENT 08 END.
+    ]
+    #list[
+      #item[
+CHILD 08A START — Confirm that every source identifier remains readable after
+wrapping and that the continuation aligns beneath Confirm rather than beneath
+the bullet marker. — CHILD 08A END.
+      ]
+      #item[
+CHILD 08B START — Record unresolved questions in ordinary language so a later
+reader can understand both the decision and the exact evidence still required.
+— CHILD 08B END.
+      ]
+    ]
+  ]
+  #item[
+    #paragraph[
+PARENT 09 START — Compare the proposed change with the current policy and keep
+the explanation long enough to wrap naturally without adding manual line or
+page breaks. — PARENT 09 END.
+    ]
+    #list[
+      #item[
+CHILD 09A START — Preserve the first-line hanging indent when this sentence
+wraps through several clauses about ownership, timing, review, and approval. —
+CHILD 09A END.
+      ]
+      #item[
+CHILD 09B START — Keep this sibling marker aligned with CHILD 09A even though
+the visible prose has a different length and reaches a different final word. —
+CHILD 09B END.
+      ]
+    ]
+  ]
+  #item[
+    #paragraph[
+PARENT 10 START — Assess the operational impact, identify reversible steps,
+and distinguish immediate safeguards from improvements that can wait for the
+next release. — PARENT 10 END.
+    ]
+    #ordered_list(start = 1, format = "lower_alpha")[
+      #item[
+CHILD 10A START — A page boundary may occur within this region, but source
+order, bullet ownership, and wrapped indentation must remain unchanged on both
+sides of that boundary. — CHILD 10A END.
+      ]
+      #item[
+CHILD 10B START — No backend may repeat the marker, omit the final phrase, or
+reset the surrounding ordered sequence merely because pagination interrupted
+the nested list. — CHILD 10B END.
+      ]
+    ]
+  ]
+  #item[
+    #paragraph[
+PARENT 11 START — Summarize the review outcome with enough context for someone
+who did not attend the meeting and cannot infer meaning from a short status
+code alone. — PARENT 11 END.
+    ]
+    #list[
+      #item[
+CHILD 11A START — Wrapped lines should begin at a stable text position that is
+deeper than the parent text and visibly separate from the nested bullet. —
+CHILD 11A END.
+      ]
+      #item[
+CHILD 11B START — The final line of this child remains part of the same item
+even when it is short, and the following parent must return to the outer
+indentation level. — CHILD 11B END.
+      ]
+    ]
+  ]
+]
+
+#paragraph(fill = "#dcfce7")[
+FLOW END — outer markers 8 through 11, nested lower-alpha markers a and b under
+item 10, and the other six nested bullets appear once in source order with
+stable hanging indents and natural page flow.
+]

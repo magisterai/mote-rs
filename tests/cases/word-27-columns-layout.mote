@@ -1,0 +1,58 @@
+#metadata(title = "PDF Columns Review", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(54), right = pt(60), bottom = pt(54), left = pt(60), header = pt(24), footer = pt(28) }
+)
+#font(
+  name = "body",
+  latin = "Verdana",
+  files = {
+    regular = "/System/Library/Fonts/Supplemental/Verdana.ttf",
+    bold = "/System/Library/Fonts/Supplemental/Verdana Bold.ttf",
+    italic = "/System/Library/Fonts/Supplemental/Verdana Italic.ttf",
+    bold_italic = "/System/Library/Fonts/Supplemental/Verdana Bold Italic.ttf"
+  }
+)
+
+#header(distance = pt(18), height = pt(18))[Mote Columns Review #tab() Page #page_number()]
+#footer(distance = pt(18))[Generated comparison fixture]
+
+# PDF And DOCX Column Flow
+
+This opening content is ordinary single-column markdown. It confirms the document can start naturally and only opt into columns for the part that needs them.
+
+#section(
+  properties = { start = "next_page", vertical_alignment = "top" },
+  columns = { count = 2, gap = pt(30), separator = true },
+  page_numbering = { restart = true, start = 1 }
+)[
+  ## Left Column
+
+  Mote sections can carry page-level layout without forcing the entire document to become verbose. This section contains enough text to exercise wrapping inside the current column.
+
+  The parser should accept ordinary paragraphs, nested inline marks, and list syntax inside the section body. The emitter should keep these as editable Word paragraphs and readable PDF text.
+
+  - Plain markdown remains the starting point.
+  - Directives add layout only where the author needs them.
+    - Nested list items keep their hierarchy.
+    - Inline `code`, **strong text**, and _emphasis_ stay inside the item.
+  - A column break can move following content to the next column.
+
+  #break(type = "column")
+
+  ## Right Column
+
+  The second column starts after an explicit column break. This is useful for policies, brochures, contract terms, and other documents where columns are a local section-level choice.
+
+  Keep this text readable. Keep the section properties local. Keep the source simple enough that an LLM can generate it without needing hidden schema details.
+
+  > A blockquote inside a two-column section should still behave like normal content.
+]
+
+#section(properties = { start = "next_page" }, columns = { count = 1 })[
+  # Back To One Column
+
+  This final section returns to one column. That is the progressive path we want: markdown first, then layout directives only where they carry useful intent.
+]

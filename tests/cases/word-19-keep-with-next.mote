@@ -1,0 +1,133 @@
+#metadata(title = "Mote Keep With Next", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(16) }
+    }
+  }
+)
+
+#style(
+  name = "BoundaryRuler",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(9), color = "#64748b" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(36) }
+    }
+  }
+)
+
+#style(
+  name = "KeepHeading",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(18), bold = true, color = "#1d4ed8" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(6),
+      line = { rule = "exact", value = pt(24) }
+    },
+    keep_with_next = true
+  }
+)
+
+#style(
+  name = "DirectKeepLabel",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(15), bold = true, color = "#7c3aed" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(6),
+      line = { rule = "exact", value = pt(24) }
+    }
+  }
+)
+
+#paragraph(style = "BoundaryRuler")[STYLE PROBE 01 — fixed 36-point filler line.#line_break()
+STYLE PROBE 02 — fixed 36-point filler line.#line_break()
+STYLE PROBE 03 — fixed 36-point filler line.#line_break()
+STYLE PROBE 04 — fixed 36-point filler line.#line_break()
+STYLE PROBE 05 — fixed 36-point filler line.#line_break()
+STYLE PROBE 06 — fixed 36-point filler line.#line_break()
+STYLE PROBE 07 — fixed 36-point filler line.#line_break()
+STYLE PROBE 08 — fixed 36-point filler line.#line_break()
+STYLE PROBE 09 — fixed 36-point filler line.#line_break()
+STYLE PROBE 10 — fixed 36-point filler line.#line_break()
+STYLE PROBE 11 — fixed 36-point filler line.#line_break()
+STYLE PROBE 12 — fixed 36-point filler line.#line_break()
+STYLE PROBE 13 — fixed 36-point filler line.#line_break()
+STYLE PROBE 14 — fixed 36-point filler line.#line_break()
+STYLE PROBE 15 — fixed 36-point filler line.#line_break()
+STYLE PROBE 16 — fixed 36-point filler line.#line_break()
+STYLE PROBE 17 — fixed 36-point filler line.#line_break()
+STYLE PROBE 18 — fixed 36-point filler line.]
+
+#heading(level = 2, style = "KeepHeading")[STYLE KEEP — this heading must begin page two]
+
+#paragraph(
+  style = "Normal",
+  fill = "#dcfce7",
+  spacing = {
+    before = pt(0),
+    after = pt(0),
+    line = { rule = "exact", value = pt(24) }
+  }
+)[PAIR TARGET — the green paragraph must stay with the blue heading.]
+
+#paragraph(style = "Normal")[Page two passes when the blue heading and green target begin together.]
+
+#break()
+
+#paragraph(style = "BoundaryRuler")[DIRECT PROBE 01 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 02 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 03 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 04 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 05 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 06 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 07 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 08 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 09 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 10 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 11 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 12 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 13 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 14 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 15 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 16 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 17 — fixed 36-point filler line.#line_break()
+DIRECT PROBE 18 — fixed 36-point filler line.]
+
+#paragraph(
+  style = "DirectKeepLabel",
+  keep_with_next = true
+)[DIRECT KEEP — this label must begin page four]
+
+#paragraph(
+  style = "Normal",
+  fill = "#ede9fe",
+  spacing = {
+    before = pt(0),
+    after = pt(0),
+    line = { rule = "exact", value = pt(24) }
+  }
+)[PAIR TARGET — the purple paragraph must stay with the direct keep label.]
+
+#paragraph(style = "Normal")[Page four passes when the purple label and target begin together.]

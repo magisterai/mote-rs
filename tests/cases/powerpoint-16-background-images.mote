@@ -1,0 +1,57 @@
+#presentation(
+  size = "wide",
+  background = {
+    color = "#0f172a",
+    src = "assets/hero_neural.png",
+    fit = "cover"
+  },
+  footer = "Mote presentation background parity",
+  date = false,
+  slide_number = true
+)
+
+#font(name = "display", latin = "Aptos Display")
+
+#slide(notes = "The deck-level image background must appear behind every ordinary slide object in all three outputs.")[
+  #box(
+    position = { x = inch(0.8), y = inch(0.7), width = inch(6.2), height = inch(1.7) },
+    fill = "#ffffff",
+    opacity = 92,
+    border = { color = "#93c5fd", width = pt(1) },
+    margin = { top = pt(12), right = pt(16), bottom = pt(12), left = pt(16) },
+    vertical_alignment = "middle"
+  )[
+    #span(font = "display", size = pt(26), bold = true, color = "#111827")[Deck Background Image]
+    #line_break()
+    #span(size = pt(14), color = "#334155")[The neural image should cover the complete 16:9 canvas.]
+  ]
+]
+
+#slide(
+  background = {
+    color = "#111827",
+    src = "assets/evidence_stack.png",
+    fit = "contain"
+  },
+  notes = "A slide-level image replaces the deck default while retaining the footer and slide number."
+)[
+  #box(
+    position = { x = inch(6.15), y = inch(0.65), width = inch(6.0), height = inch(1.7) },
+    fill = "#ffffff",
+    opacity = 92,
+    border = { color = "#c4b5fd", width = pt(1) },
+    margin = { top = pt(12), right = pt(16), bottom = pt(12), left = pt(16) },
+    alignment = "right",
+    vertical_alignment = "middle"
+  )[
+    #span(font = "display", size = pt(26), bold = true, color = "#111827")[Slide Background Override]
+    #line_break()
+    #span(size = pt(14), color = "#334155")[This slide contains a different asymmetric image without distortion.]
+  ]
+]
+
+#slide(background = "#f8fafc", notes = "A color-only override proves the inherited image can be suppressed.")[
+  #box(position = { x = inch(1.1), y = inch(1.5), width = inch(11.1), height = inch(3.5) }, alignment = "center", vertical_alignment = "middle")[
+    #span(font = "display", size = pt(30), bold = true, color = "#111827")[Color Override Suppresses The Image]
+  ]
+]

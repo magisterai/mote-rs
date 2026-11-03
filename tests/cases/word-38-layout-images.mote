@@ -1,0 +1,48 @@
+#document(
+  default_font = "body",
+  margin = { top = pt(54), right = pt(54), bottom = pt(54), left = pt(54), header = pt(24), footer = pt(28) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#header(height = pt(16), distance = pt(18))[Mote PDF Review #tab() Page #page_number() of #page_number(kind = "total")]
+#footer(distance = pt(18))[Generated PDF backend fixture]
+
+# PDF Layout And Images
+
+This opening section uses the default single-column flow.
+
+#figure(kind = "image", alignment = "center", numbering = { enabled = true, label = "Figure" })[
+  #image("assets/mote-logo.png", width = pt(120), alt = "Mote logo", border = { color = "#cbd5e1", width = pt(1) })
+  #caption[Relative image paths resolve from the source file.]
+]
+
+#section(properties = { start = "continuous" }, columns = { count = 2, gap = pt(24) })[
+  ## Two Column Section
+
+  The first column contains normal markdown text. It should wrap inside the current column and continue naturally.
+
+  #break(type = "column")
+
+  The second column begins after an explicit column break. Headers and footers should still render on the page.
+]
+
+#break()
+
+## Second Page Layout
+
+This page keeps the layout and image fixture multi-page. The header and footer should still render, and a second figure should use the same caption style as the first.
+
+#figure(kind = "image", alignment = "center", numbering = { enabled = true, label = "Figure" })[
+  #image("assets/mote-logo.png", width = pt(96), alt = "Mote logo", border = { color = "#cbd5e1", width = pt(1) })
+  #caption[A smaller repeated image should keep caption numbering and style.]
+]
+
+| Feature | Expected |
+| --- | --- |
+| Header | Repeats on page two |
+| Footer | Repeats on page two |
+| Figure counter | Advances to Figure 2 |
+| Relative image path | Resolves from the source file |
+
+The closing paragraph makes sure normal content resumes below media and tables without inheriting centered alignment from the figure.

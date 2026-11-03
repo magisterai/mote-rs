@@ -1,0 +1,78 @@
+#metadata(title = "Mote Reference Parity", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(7),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Reference Parity
+
+This case checks that DOCX, PDF, and PNG resolve the same label metadata even when the references appear before their targets.
+
+Forward title: #ref(target = "later-heading", display = "title").
+
+Forward page: #ref(target = "later-heading", display = "page", fallback = "2").
+
+Forward figure number: #ref(target = "comparison-table", display = "number").
+
+Styled internal link: [**jump to the later heading**](#later-heading).
+
+#label("manual-anchor", title = "Manual target", number = "Exhibit 7")
+#paragraph[Explicit metadata target.]
+
+Explicit title: #ref(target = "manual-anchor", display = "title"). Explicit number: #ref(target = "manual-anchor", display = "number").
+
+#break(type = "page")
+
+#label("later-heading")
+## Later Heading
+
+The forward title above must read “Later Heading,” and its page reference must read “2.” In PDF the title and styled Markdown text are clickable internal links; PNG preserves the same visible text.
+
+#figure(
+  kind = "table",
+  numbering = { enabled = true, id = "reference-tables", label = "Table" }
+)[
+  #label("comparison-table")
+  #table(
+    width = inch(5.75),
+    layout = "fixed",
+    alignment = "center",
+    cell = {
+      margin = { all = pt(6) },
+      borders = { all = { style = "single", size = 6, color = "#64748b" } }
+    }
+  )[
+    #row[
+      #cell(width = inch(2.0), fill = "#dbeafe")[Target]
+      #cell(width = inch(3.75), fill = "#eff6ff")[Expected visible reference]
+    ]
+    #row[
+      #cell[Heading]
+      #cell[Later Heading; page 2]
+    ]
+    #row[
+      #cell[Figure]
+      #cell[Table 1]
+    ]
+  ]
+  #caption[Reference comparison]
+]
+
+Back references: #ref(target = "later-heading", display = "title"), #ref(target = "comparison-table", display = "title"), and #ref(target = "comparison-table", display = "number").
+
+PASS: every backend shows the same titles, explicit number, page number, and generated table number without fallback placeholders.

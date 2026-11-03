@@ -1,9 +1,9 @@
-use super::{Application, ReviewCase, ReviewResult};
+use super::{Application, ReviewCase, ReviewResult, inputs::ReviewInputs};
 use mote::{
     diagnostics::Diagnostic,
     evaluation::EvaluationOptions,
     render::{self, PngOptions},
-    source::{CachingAssetResolver, FileAssetResolver},
+    source::CachingAssetResolver,
 };
 use sha2::{Digest, Sha256};
 use std::{collections::BTreeMap, fs, path::Path};
@@ -11,6 +11,7 @@ use std::{collections::BTreeMap, fs, path::Path};
 pub(super) struct ReviewArtifacts {
     pub native_files: BTreeMap<String, Vec<u8>>,
     pub manifest: Vec<u8>,
+    pub diagnostics: BTreeMap<String, Vec<u8>>,
 }
 
 pub(super) fn fingerprint(bytes: &[u8]) -> String {
@@ -31,17 +32,23 @@ fn diagnostic_message(diagnostic: &Diagnostic, source: &str, path: &Path) -> Str
 }
 
 pub(super) fn generate(repository: &Path, case: &ReviewCase) -> ReviewResult<ReviewArtifacts> {
-    let relative_source = format!("tests/cases/{}.mote", case.source_name);
+    let relative_source = format!("tests/cases/{}", case.source);
     let path = repository.join(&relative_source);
     let source_bytes = fs::read(&path)?;
     let source = std::str::from_utf8(&source_bytes)?;
-    let files = FileAssetResolver::new(repository)?;
+    for font in &case.required_fonts {
+        if !Path::new(font).is_file() {
+            return Err(format!("required font file is unavailable: {font}").into());
+        }
+    }
+    let files = ReviewInputs::new(repository)?;
     let resolver = CachingAssetResolver::new(&files);
     let document = mote::compile_with_options(
         source,
         EvaluationOptions {
             asset_resolver: Some(&resolver),
             source_name: Some(path.as_os_str()),
+            enable_lua: case.enable_lua,
             ..Default::default()
         },
     )
@@ -110,9 +117,23 @@ pub(super) fn generate(repository: &Path, case: &ReviewCase) -> ReviewResult<Rev
     for page in raster.output {
         native_files.insert(format!("{}-{}.png", case.name, page.number), page.bytes);
     }
+    let inputs = files.collect(
+        &repository.join("tests/cases").canonicalize()?,
+        &mut native_files,
+    )?;
+    let diagnostics = BTreeMap::from([(
+        format!("{}-model.json", case.name),
+        mote::json::to_json(&document)?.into_bytes(),
+    )]);
     let mut manifest = BTreeMap::from([
         ("status".into(), "complete".into()),
-        ("case".into(), case.name.into()),
+        ("case".into(), case.name.clone()),
+        ("group".into(), case.group.clone()),
+        (
+            "evaluation".into(),
+            if case.enable_lua { "lua" } else { "static" }.into(),
+        ),
+        ("inputs".into(), serde_json::to_string(&inputs)?),
         ("application".into(), case.application.directory().into()),
         ("source".into(), relative_source),
         ("fixture".into(), format!("{}.mote", case.name)),
@@ -142,7 +163,7 @@ pub(super) fn generate(repository: &Path, case: &ReviewCase) -> ReviewResult<Rev
             serde_json::to_string(&warnings)?,
         );
     }
-    for (name, bytes) in &native_files {
+    for (name, bytes) in native_files.iter().chain(&diagnostics) {
         manifest.insert(format!("{name}_sha256"), fingerprint(bytes));
     }
     let manifest: String = manifest
@@ -152,5 +173,6 @@ pub(super) fn generate(repository: &Path, case: &ReviewCase) -> ReviewResult<Rev
     Ok(ReviewArtifacts {
         native_files,
         manifest: manifest.into_bytes(),
+        diagnostics,
     })
 }

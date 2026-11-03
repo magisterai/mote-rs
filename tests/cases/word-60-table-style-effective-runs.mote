@@ -1,0 +1,109 @@
+#metadata(title = "Mote Effective Table Run Styling", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+#font(name = "mono", latin = "Courier")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(6),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#style(
+  name = "Code",
+  type = "character",
+  run = { font = "mono", size = pt(9), color = "#fbbf24", bold = false }
+)
+
+#style(
+  name = "EffectiveRunTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#172554" },
+      text = { bold = true, color = "#ffffff" }
+    },
+    cell = {
+      margin = { top = pt(7), right = pt(7), bottom = pt(7), left = pt(7) },
+      vertical_alignment = "top",
+      borders = { all = { color = "#93c5fd" } }
+    }
+  }
+)
+
+#heading(level = 1)[Effective Table Run Styling]
+
+#paragraph[
+The dark first row applies white bold text only when a more specific inline
+style does not override it. The pale body row verifies that conditional
+first-row formatting does not leak.
+]
+
+#table(
+  style = "EffectiveRunTable",
+  width = inch(6.5),
+  alignment = "center"
+)[
+  #row[
+    #cell(width = inch(2.15))[
+      #paragraph[
+        DEFAULT WHITE BOLD#line_break()
+        #span(color = "#facc15", bold = false)[EXPLICIT YELLOW PLAIN]
+      ]
+    ]
+    #cell(width = inch(2.15))[
+      #paragraph[
+        [HEADER LINK](https://example.com/table-style)#line_break()
+        #code(style = "Code")[header_code_42]
+      ]
+    ]
+    #cell(width = inch(2.2))[
+      #list[
+        #item[HEADER BULLET]
+      ]
+      #paragraph[PAGE FIELD #page_number()]
+      #paragraph[INLINE MATH #math("x^2 + y^2", size = pt(10))]
+    ]
+  ]
+  #row[
+    #cell(fill = "#f8fafc")[
+      #paragraph[
+        BODY BLACK REGULAR#line_break()
+        #span(color = "#dc2626", bold = true)[BODY RED BOLD]
+      ]
+    ]
+    #cell(fill = "#f8fafc")[
+      #paragraph[
+        [BODY LINK](https://example.com/table-style-control)#line_break()
+        #code(style = "Code")[body_code_42]
+      ]
+    ]
+    #cell(fill = "#f8fafc")[
+      #list[
+        #item[BODY BULLET]
+      ]
+      #paragraph[PAGE FIELD #page_number()]
+      #paragraph[INLINE MATH #math("x^2 + y^2", size = pt(10))]
+    ]
+  ]
+]
+
+#paragraph(fill = "#dcfce7")[
+REVIEW: default header runs are white and bold; explicit yellow, hyperlink,
+code, field, list-marker, and math formatting follow Word's effective-style
+precedence; the body row remains independent.
+]

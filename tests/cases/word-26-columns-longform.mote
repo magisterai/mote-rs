@@ -1,0 +1,52 @@
+#metadata(title = "Longform Columns", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(54), right = pt(60), bottom = pt(54), left = pt(60), header = pt(24), footer = pt(24) }
+)
+#font(name = "body", latin = "Aptos")
+#style(name = "Normal", type = "paragraph", run = { font = "body", size = pt(11) }, paragraph = { spacing = { after = pt(7), line = pt(14) } })
+#style(name = "Heading1", type = "paragraph", based_on = "Normal", run = { font = "body", size = pt(22), bold = true }, paragraph = { spacing = { before = pt(10), after = pt(8), line = { rule = "multiple", value = 1.15 } }, keep_with_next = true })
+#style(name = "Heading2", type = "paragraph", based_on = "Normal", run = { font = "body", size = pt(16), bold = true }, paragraph = { spacing = { before = pt(10), after = pt(6), line = { rule = "multiple", value = 1.15 } }, keep_with_next = true })
+
+#header(distance = pt(18), height = pt(18))[Mote Column Fixture #tab() Page #page_number()]
+#footer(distance = pt(18))[Generated golden document]
+
+# Intro
+
+The opening material belongs to the implicit one-column section. It exists to make sure a document can begin naturally with markdown and still transition into a more explicit office layout.
+
+#section(
+  properties = { start = "next_page", vertical_alignment = "top" },
+  columns = { count = 2, gap = pt(30), separator = true },
+  page_numbering = { restart = true, start = 1 }
+)[
+  ## Left Column
+
+  Mote sections can carry page-level layout without forcing the rest of the document to become verbose. This section intentionally contains enough text to exercise column flow in Word print layout.
+
+  The parser should accept ordinary paragraphs, nested inline marks, and list syntax inside the section body. The emitter should leave these as editable Word paragraphs rather than drawing a fixed layout.
+
+  - Plain markdown remains the starting point.
+  - Directives add layout only where the author needs them.
+    - Nested list items keep their hierarchy.
+    - Inline `code`, **strong text**, and _emphasis_ stay inside the item.
+  - A column break can move the following content to the next column.
+
+  #break(type = "column")
+
+  ## Right Column
+
+  The second column starts after a real Word column break. This is useful for policies, brochures, contract terms, and other documents where columns are a section-level choice rather than a document-wide rule.
+
+  Keep this text editable. Keep the section properties local. Keep the source readable enough that an LLM can generate it without needing to memorize hidden schema details.
+
+  > A blockquote inside a two-column section should still behave like normal content.
+]
+
+#section(properties = { start = "next_page" }, columns = { count = 1 })[
+  # Final Single Column Section
+
+  The following section returns to one column without changing document defaults. This is the expected progressive path: markdown first, then layout directives only where they are useful.
+]

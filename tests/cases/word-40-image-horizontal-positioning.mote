@@ -1,0 +1,70 @@
+#metadata(title = "Mote Image Horizontal Positioning", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(7),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Image Horizontal Positioning
+
+Each logo is an ordinary flow image. It must occupy its own vertical band, keep
+its aspect ratio, and align against the same text column in Word, PDF, and PNG.
+No text wrapping or floating placement is requested by this case.
+
+#paragraph(fill = "#dbeafe")[LEFT — the next logo begins at the left edge of the text column.]
+
+#image(
+  "assets/mote-logo.png",
+  alt = "Left-aligned asymmetric Mote logo",
+  width = inch(1.8),
+  alignment = "left",
+  spacing = { before = pt(0), after = pt(7) }
+)
+
+#paragraph(fill = "#dcfce7")[LEFT END — this full-width line begins below the complete logo.]
+
+#paragraph(fill = "#dbeafe")[CENTER — the next logo is centred within the text column.]
+
+#image(
+  "assets/mote-logo.png",
+  alt = "Centered asymmetric Mote logo",
+  width = inch(1.8),
+  placement = { align = "center" },
+  spacing = { before = pt(0), after = pt(7) }
+)
+
+#paragraph(fill = "#dcfce7")[CENTER END — this full-width line begins below the complete logo.]
+
+#paragraph(fill = "#dbeafe")[RIGHT — the next logo ends at the right edge of the text column.]
+
+#image(
+  "assets/mote-logo.png",
+  alt = "Right-aligned asymmetric Mote logo",
+  width = inch(1.8),
+  placement = {
+    horizontal = { relative_to = "column", alignment = "right" }
+  },
+  spacing = { before = pt(0), after = pt(7) }
+)
+
+#paragraph(fill = "#dcfce7")[RIGHT END — this full-width line begins below the complete logo.]
+
+#paragraph(fill = "#fef3c7")[PASS: all three logos retain the same size and ratio, use the requested left, centre, and right positions, and leave following text at full width.]

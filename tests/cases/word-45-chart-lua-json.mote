@@ -1,0 +1,60 @@
+#metadata(title = "Mote Word Lua JSON Chart", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10.5),
+  page = { size = "letter" },
+  margin = { top = pt(60), right = pt(66), bottom = pt(60), left = pt(66) }
+)
+
+#font(name = "body", latin = "Aptos")
+#font(name = "heading", latin = "Aptos Display")
+
+#style(name = "Normal", type = "paragraph", font = "body", size = pt(10.5), spacing_after = pt(7))
+#style(name = "Heading1", type = "paragraph", based_on = "Normal", font = "heading", size = pt(22), bold = true, spacing_after = pt(8), keep_with_next = true)
+#style(name = "Caption", type = "paragraph", based_on = "Normal", size = pt(9), italic = true, color = "#64748b", spacing_before = pt(4), spacing_after = pt(6))
+
+#function monthly_chart()
+  local source = json("data/chart_lua_json.json")
+  local categories = {}
+  local actual = {}
+  local plan = {}
+  local stretch = {}
+  for _, row in ipairs(source.monthly) do
+    categories[#categories + 1] = row.month
+    actual[#actual + 1] = row.actual
+    plan[#plan + 1] = row.plan
+    stretch[#stretch + 1] = row.stretch
+  end
+  return document.chart({
+    kind = "line",
+    title = "Monthly JSON Output",
+    width = "6.2in",
+    height = "3.5in",
+    data = {
+      categories = categories,
+      series = {
+        { name = "Actual", values = actual },
+        { name = "Plan", values = plan },
+        { name = "Stretch", values = stretch }
+      }
+    },
+    axis = {
+      category = { title = "Month" },
+      value = { title = "Units" }
+    },
+    gridlines = true,
+    colors = { "#0f766e", "#7c3aed", "#ea580c" },
+    legend = { position = "bottom" }
+  })
+end
+
+# Word Chart From Lua And JSON
+
+Lua loads row-oriented JSON and reshapes it into chart categories and series.
+This case explicitly authors colors and legend placement so it remains
+independent from the chart-defaults diagnostic.
+
+#monthly_chart()
+
+#paragraph(style = "Caption")[Expected: five months and three editable series sourced from `chart_lua_json.json`, using teal, violet, and orange with a bottom legend.]

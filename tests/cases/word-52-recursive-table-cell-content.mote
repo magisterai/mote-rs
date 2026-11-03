@@ -1,0 +1,57 @@
+#metadata(title = "Mote Recursive Table Cell Content", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#heading(level = 1, numbering = { enabled = true, id = "outline" })[
+Outside heading
+]
+
+#ordered_list(id = "shared", start = 3, format = "upper_alpha")[
+  #item[Outside ordered item]
+]
+
+#table(width = pt(420))[
+  #row[
+    #cell[
+      #heading(level = 1, numbering = { enabled = true, id = "outline" })[
+      Inside heading
+      ]
+
+      #ordered_list(id = "shared", format = "upper_alpha")[
+        #item[
+          #paragraph[First paragraph in ordered item.]
+          #list[
+            #item[Nested unordered item between parent paragraphs.]
+          ]
+          #paragraph[Second paragraph in the same item.]
+        ]
+      ]
+
+      #blockquote[
+        #paragraph[First quote paragraph.]
+        #paragraph[Second quote paragraph.]
+      ]
+
+      #definition_list[
+        #term[Term]
+        #definition[
+          #paragraph[First definition paragraph.]
+          #paragraph[Second definition paragraph.]
+        ]
+      ]
+    ]
+  ]
+]
+
+#paragraph[
+PASS: the table contains heading 2, ordered item D, one nested bullet, one
+unmarked continuation paragraph, two quote paragraphs, one term, and two
+definition paragraphs.
+]

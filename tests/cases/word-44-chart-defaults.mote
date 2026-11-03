@@ -1,0 +1,112 @@
+#metadata(title = "Mote Word Chart Defaults", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10.5),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(66), bottom = pt(54), left = pt(66) }
+)
+
+#font(name = "body", latin = "Aptos")
+#font(name = "heading", latin = "Aptos Display")
+
+#style(name = "Normal", type = "paragraph", font = "body", size = pt(10.5), spacing_after = pt(6))
+#style(name = "Heading1", type = "paragraph", based_on = "Normal", font = "heading", size = pt(22), bold = true, spacing_after = pt(8), keep_with_next = true)
+#style(name = "Heading2", type = "paragraph", based_on = "Normal", font = "heading", size = pt(14), bold = true, spacing_before = pt(8), spacing_after = pt(4), keep_with_next = true)
+#style(name = "Caption", type = "paragraph", based_on = "Normal", size = pt(9), italic = true, color = "#64748b", spacing_after = pt(6))
+
+# Word Chart Defaults
+
+No chart in this fixture authors `colors` or `legend`.
+
+## Multi-Series Column: Bottom Legend
+
+#chart(
+  kind = "column",
+  title = "Monthly Output",
+  width = inch(6.2),
+  height = inch(2.65),
+  data = {
+    categories = { "Jan", "Feb", "Mar", "Apr", "May" },
+    series = {
+      { name = "Actual", values = { 18, 24, 31, 39, 47 } },
+      { name = "Plan", values = { 16, 23, 29, 36, 44 } },
+      { name = "Stretch", values = { 21, 28, 35, 43, 52 } }
+    }
+  },
+  axis = {
+    category = { title = "Month" },
+    value = { title = "Units" }
+  },
+  gridlines = true
+)
+
+#paragraph(style = "Caption")[Expected: blue, green, and amber series with the legend below the plot.]
+
+## Multi-Series Line: Top Legend
+
+#chart(
+  kind = "line",
+  title = "Monthly Trend",
+  width = inch(6.2),
+  height = inch(2.65),
+  data = {
+    categories = { "Jan", "Feb", "Mar", "Apr", "May" },
+    series = {
+      { name = "Actual", values = { 18, 24, 31, 39, 47 } },
+      { name = "Plan", values = { 16, 23, 29, 36, 44 } },
+      { name = "Stretch", values = { 21, 28, 35, 43, 52 } }
+    }
+  },
+  axis = {
+    category = { title = "Month" },
+    value = { title = "Units" }
+  },
+  gridlines = true
+)
+
+#paragraph(style = "Caption")[Expected: the same series colors with the legend above the plot.]
+
+#break()
+
+# Single-Series And Category Legends
+
+## Single-Series Column: No Legend
+
+#chart(
+  kind = "column",
+  title = "Actual Output",
+  width = inch(6.2),
+  height = inch(2.65),
+  data = {
+    categories = { "Jan", "Feb", "Mar", "Apr", "May" },
+    series = {
+      { name = "Actual", values = { 18, 24, 31, 39, 47 } }
+    }
+  },
+  axis = {
+    category = { title = "Month" },
+    value = { title = "Units" }
+  },
+  gridlines = true
+)
+
+#paragraph(style = "Caption")[Expected: a blue series with no redundant legend.]
+
+## Pie: Bottom Category Legend
+
+#chart(
+  kind = "pie",
+  title = "Revenue Mix",
+  width = inch(6.2),
+  height = inch(2.65),
+  data = {
+    categories = { "Product", "Services", "Partners", "Other" },
+    series = {
+      { name = "Share", values = { 46, 27, 17, 10 } }
+    }
+  },
+  data_labels = { percentage = true, position = "best_fit" }
+)
+
+#paragraph(style = "Caption")[Expected: blue, green, amber, and red slices with the category legend below the plot.]

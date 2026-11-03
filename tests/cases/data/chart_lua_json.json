@@ -1,0 +1,15 @@
+{
+  "monthly": [
+    { "month": "Jan", "actual": 18, "plan": 16, "stretch": 21 },
+    { "month": "Feb", "actual": 24, "plan": 23, "stretch": 28 },
+    { "month": "Mar", "actual": 31, "plan": 29, "stretch": 35 },
+    { "month": "Apr", "actual": 39, "plan": 36, "stretch": 43 },
+    { "month": "May", "actual": 47, "plan": 44, "stretch": 52 }
+  ],
+  "mix": [
+    { "name": "Product", "value": 46 },
+    { "name": "Services", "value": 27 },
+    { "name": "Partners", "value": 17 },
+    { "name": "Other", "value": 10 }
+  ]
+}

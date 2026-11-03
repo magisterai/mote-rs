@@ -1,0 +1,27 @@
+#presentation(
+  size = "standard",
+  background = "#ffffff",
+  footer = "Mote standard-slide geometry",
+  date = false,
+  slide_number = true
+)
+
+# Standard Slides Keep Automatic Content Inside The Canvas
+
+Automatic Markdown layout should use the 10 by 7.5 inch slide rather than the wide-screen constants. This deliberately long sentence must wrap before the right edge.
+
+| Workstream | Current state | Next decision |
+| --- | --- | --- |
+| Document layout | Stable | Preserve parity |
+| Presentation layout | Expanding | Verify 4:3 geometry |
+| Review catalogue | Automated | Inspect meaningful differences |
+
+---
+
+# Mixed Automatic Content Uses The Available Height
+
+- Titles, prose, lists, and media remain inside the standard slide.
+- Footer and slide-number fields remain visible at the bottom.
+- Content groups share the available height without overlap.
+
+![Mote reference mark](assets/mote-logo.png)

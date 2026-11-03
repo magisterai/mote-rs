@@ -1,0 +1,22 @@
+#metadata(title = "Mote Notes One Page", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(66), right = pt(66), bottom = pt(60), left = pt(66) }
+)
+
+# Notes - One Page
+
+#paragraph[
+  BODY A REFERENCES: F-A#footnote[ONE-FN-A: first page-bottom footnote body.] | E-A#endnote[ONE-EN-A: first end-of-document endnote body.] | BODY A CONTINUES.
+]
+
+#paragraph[
+  BODY B REFERENCES: F-B#footnote[ONE-FN-B: second page-bottom footnote body.] | E-B#endnote[ONE-EN-B: second end-of-document endnote body.] | BODY B CONTINUES.
+]
+
+#paragraph(fill = "#dcfce7")[
+  PASS: one page; decimal footnote markers 1-2 and lower-Roman endnote markers i-ii; no note body appears inline.
+]

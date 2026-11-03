@@ -1,0 +1,87 @@
+#presentation(
+  size = "wide",
+  background = "#ffffff",
+  footer = "Mote math notation",
+  date = true,
+  slide_number = true,
+  theme = {
+    colors = {
+      background = "#ffffff",
+      text = "#111827",
+      accent1 = "#2563eb",
+      accent2 = "#0f766e",
+      hyperlink = "#2563eb"
+    }
+  }
+)
+
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#set box(text = { font = "body", size = pt(17), color = "#1f2937", paragraph = { spacing = { after = pt(6), line = pt(22) } } })
+
+#slide[
+  #box(
+    position = { x = inch(0.65), y = inch(0.45), width = inch(12), height = inch(0.75) },
+    text = { font = "display", size = pt(30), bold = true, color = "#111827" }
+  )[
+    Math Notation In PowerPoint
+  ]
+
+  #box(position = { x = inch(0.8), y = inch(1.55), width = inch(5.8), height = inch(2.1) })[
+    Inline math lives inside text:
+    \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)
+  ]
+
+  #box(position = { x = inch(6.8), y = inch(1.55), width = inch(5.6), height = inch(2.1) })[
+    Euler's identity:
+    \( e^{i\pi} + 1 = 0 \)
+  ]
+
+  #box(
+    position = { x = inch(1.2), y = inch(4.05), width = inch(10.8), height = inch(1.4) },
+    fill = "#f8fafc",
+    border = { color = "#dbe3ef", width = pt(1) },
+    margin = { top = pt(12), right = pt(14), bottom = pt(12), left = pt(14) },
+    vertical_alignment = "middle",
+    alignment = "center"
+  )[
+    \[
+    \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
+    \]
+  ]
+]
+
+#slide[
+  #box(
+    position = { x = inch(0.65), y = inch(0.45), width = inch(12), height = inch(0.75) },
+    text = { font = "display", size = pt(28), bold = true, color = "#111827" }
+  )[
+    Matrices, Series, And Cases
+  ]
+
+  #box(position = { x = inch(0.9), y = inch(1.45), width = inch(5.9), height = inch(2) })[
+    \[
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} ax + by \\ cx + dy \end{pmatrix}
+    \]
+  ]
+
+  #box(position = { x = inch(7), y = inch(1.45), width = inch(5.1), height = inch(2) })[
+    \[
+    \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+    \]
+  ]
+
+  #box(
+    position = { x = inch(1.1), y = inch(4.1), width = inch(10.8), height = inch(1.5) },
+    fill = "#f0fdf4",
+    border = { color = "#bbf7d0", width = pt(1) },
+    margin = { top = pt(12), right = pt(14), bottom = pt(12), left = pt(14) },
+    vertical_alignment = "middle",
+    alignment = "center"
+  )[
+    \[
+    |x| = \begin{cases} x & \text{if } x \geq 0 \\ -x & \text{if } x < 0 \end{cases}
+    \]
+  ]
+]

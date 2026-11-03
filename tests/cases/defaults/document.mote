@@ -1,0 +1,135 @@
+#let(
+  mote_type = {
+    body = pt(11), title = pt(30), subtitle = pt(12), lead = pt(13),
+    h1 = pt(24), h2 = pt(18), h3 = pt(14), h4 = pt(12), h5 = pt(11), h6 = pt(11),
+    table = pt(11), caption = pt(9.5), code = pt(10),
+    leading = 1.15, after = pt(8), small_gap = pt(4), section_gap = pt(16),
+    heading_before = pt(12), heading_after = pt(6),
+    cell_x = pt(8), cell_y = pt(6)
+  }
+)
+
+#let(
+  mote_color = {
+    heading = "#000000",
+    text = "#262626",
+    secondary = "#666666",
+    accent = "#2563eb",
+    table_header = "#e7e6e6",
+    stripe = "#f5f5f5",
+    border = "#d9d9d9"
+  }
+)
+
+#font(name = "body", latin = "Aptos")
+#font(name = "heading", latin = "Aptos Display")
+#font(name = "mono", latin = "Courier New")
+
+#style(
+  name = "Normal", type = "paragraph",
+  run = { font = "body", size = mote_type.body, color = mote_color.text },
+  paragraph = {
+    alignment = "left",
+    spacing = { before = pt(0), after = mote_type.after, line = { rule = "multiple", value = mote_type.leading } }
+  }
+)
+
+#style(
+  name = "Title", type = "paragraph", based_on = "Normal",
+  run = { font = "heading", size = mote_type.title, bold = true, color = mote_color.heading },
+  paragraph = { spacing = { before = pt(0), after = mote_type.after, line = { rule = "multiple", value = 1.05 } } }
+)
+#style(
+  name = "Subtitle", type = "paragraph", based_on = "Normal",
+  run = { size = mote_type.subtitle, color = mote_color.secondary },
+  paragraph = { spacing = { after = mote_type.section_gap } }
+)
+#style(
+  name = "Lead", type = "paragraph", based_on = "Normal",
+  run = { size = mote_type.lead },
+  paragraph = { spacing = { after = mote_type.section_gap } }
+)
+
+#style(
+  name = "Heading1", type = "paragraph", based_on = "Normal",
+  run = { font = "heading", size = mote_type.h1, bold = true, color = mote_color.heading },
+  paragraph = { spacing = { before = mote_type.heading_before, after = mote_type.heading_after, line = { rule = "multiple", value = 1.05 } } }
+)
+#style(
+  name = "Heading2", type = "paragraph", based_on = "Normal",
+  run = { font = "heading", size = mote_type.h2, bold = true, color = mote_color.heading },
+  paragraph = { spacing = { before = mote_type.heading_before, after = mote_type.heading_after, line = { rule = "multiple", value = 1.1 } } }
+)
+#style(
+  name = "Heading3", type = "paragraph", based_on = "Normal",
+  run = { size = mote_type.h3, bold = true, color = mote_color.heading },
+  paragraph = { spacing = { before = mote_type.heading_before, after = mote_type.heading_after } }
+)
+#style(
+  name = "Heading4", type = "paragraph", based_on = "Normal",
+  run = { size = mote_type.h4, bold = true, color = mote_color.heading },
+  paragraph = { spacing = { before = mote_type.heading_before, after = mote_type.heading_after } }
+)
+#style(
+  name = "Heading5", type = "paragraph", based_on = "Normal",
+  run = { size = mote_type.h5, bold = true, color = mote_color.heading },
+  paragraph = { spacing = { before = mote_type.heading_before, after = mote_type.heading_after } }
+)
+#style(
+  name = "Heading6", type = "paragraph", based_on = "Normal",
+  run = { size = mote_type.h6, bold = true, italic = true, color = mote_color.heading },
+  paragraph = { spacing = { before = mote_type.heading_before, after = mote_type.heading_after } }
+)
+
+#style(
+  name = "Caption", type = "paragraph", based_on = "Normal",
+  run = { size = mote_type.caption, color = mote_color.secondary },
+  paragraph = { spacing = { before = mote_type.small_gap, after = mote_type.after } }
+)
+#style(
+  name = "BlockQuote", type = "paragraph", based_on = "Normal",
+  run = { color = mote_color.secondary },
+  paragraph = { indent = { left = pt(14) }, spacing = { before = mote_type.small_gap, after = mote_type.after } }
+)
+#style(
+  name = "CodeBlock", type = "paragraph", based_on = "Normal",
+  run = { font = "mono", size = mote_type.code, color = mote_color.text },
+  paragraph = { spacing = { after = mote_type.after, line = { rule = "multiple", value = 1.1 } } }
+)
+#style(name = "Code", type = "character", run = { font = "mono", size = mote_type.code, color = mote_color.text })
+#style(name = "Hyperlink", type = "character", run = { color = mote_color.accent, underline = true })
+
+#style(
+  name = "DefaultTable", type = "table", font = "body",
+  table = {
+    cell = {
+      margin = { top = mote_type.cell_y, right = mote_type.cell_x, bottom = mote_type.cell_y, left = mote_type.cell_x },
+      vertical_alignment = "center"
+    },
+    text = { font = "body", size = mote_type.table },
+    first_row = { fill = mote_color.table_header, text = { bold = true, color = mote_color.text } },
+    banding = {
+      odd = { fill = "#ffffff", text = { color = mote_color.text } },
+      even = { fill = mote_color.stripe, text = { color = mote_color.text } }
+    },
+    borders = {
+      outside = { style = "single", color = mote_color.border, width = pt(0.5) },
+      inside = { style = "single", color = mote_color.border, width = pt(0.5) }
+    }
+  }
+)
+
+#set table(style = "DefaultTable")
+
+#document(
+  default_font = "body", default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = inch(1), right = inch(1), bottom = inch(1), left = inch(1) }
+)
+
+#set heading(keep_with_next = true)
+#set paragraph(widow_control = true)
+#set table(style = "DefaultTable", layout = "fixed", width = inch(6.5), alignment = "left")
+
+#style(name = "Header", type = "paragraph", based_on = "Normal", run = { size = pt(9), color = mote_color.secondary })
+#style(name = "Footer", type = "paragraph", based_on = "Normal", run = { size = pt(9), color = mote_color.secondary })

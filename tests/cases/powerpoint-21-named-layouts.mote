@@ -1,0 +1,201 @@
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote named-layout conformance",
+  date = false,
+  slide_number = true,
+  theme = {
+    name = "Named Layout Review",
+    colors = {
+      background = "#f8fafc",
+      text = "#172033",
+      accent1 = "#2563eb",
+      accent2 = "#0f766e",
+      accent3 = "#d97706"
+    },
+    fonts = { heading = "display", body = "body" }
+  }
+)
+
+#layout(
+  name = "evidence_pair",
+  based_on = "two_column",
+  background = "#ecfeff",
+  footer = "Custom layout inheritance"
+)[
+  #box(
+    slot = "title",
+    kind = "text",
+    required = true,
+    fill = "#164e63",
+    color = "#ffffff",
+    size = pt(30),
+    bold = true,
+    margin = { top = pt(8), right = pt(14), bottom = pt(8), left = pt(14) }
+  )
+  #box(
+    slot = "left",
+    kind = "content",
+    required = true,
+    fill = "#ffffff",
+    border = { color = "#67e8f9", width = pt(1) },
+    margin = { top = pt(14), right = pt(16), bottom = pt(14), left = pt(16) }
+  )
+  #box(slot = "right", remove = true)
+  #box(
+    slot = "evidence",
+    kind = "chart",
+    required = true,
+    position = { x = inch(6.83), y = inch(1.35), width = inch(5.85), height = inch(5.55) }
+  )
+]
+
+#slide(layout = "blank", notes = "The blank layout has no slots and accepts ordinary positioned objects.")[
+  #box(
+    position = { x = inch(1.05), y = inch(1.15), width = inch(11.23), height = inch(4.75) },
+    fill = "#172033",
+    border = { color = "#60a5fa", width = pt(1) },
+    alignment = "center",
+    vertical_alignment = "middle"
+  )[
+    #span(font = "display", size = pt(44), bold = true, color = "#ffffff")[Blank]
+    #line_break()
+    #span(size = pt(20), color = "#bfdbfe")[Ordinary positioned objects remain fully authored.]
+  ]
+]
+
+#slide(layout = "title_slide", notes = "Both built-in title-slide slots use page-relative geometry.")[
+  #box(slot = "title", alignment = "center", vertical_alignment = "middle")[
+    #span(font = "display", size = pt(44), bold = true)[Named layouts establish reusable geometry]
+  ]
+  #box(slot = "subtitle", alignment = "center", vertical_alignment = "middle")[
+    #span(size = pt(22), color = "#475569")[The slide supplies content by slot name, without repeating positions.]
+  ]
+]
+
+#slide(layout = "title_and_content", notes = "The title and content slots should align to the ordinary automatic-layout margins.")[
+  #box(slot = "title", margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(34), bold = true)[Title And Content]
+  ]
+  #box(
+    slot = "content",
+    fill = "#ffffff",
+    border = { color = "#cbd5e1", width = pt(1) },
+    margin = { top = pt(16), right = pt(18), bottom = pt(16), left = pt(18) }
+  )[
+    - Slot geometry is shared by editable PPTX and native PDF/PNG.
+    - Slide-authored styling overrides the layout defaults.
+    - Content remains editable rather than being flattened into an image.
+  ]
+]
+
+#slide(layout = "section_header", background = "#172033", footer = false, slide_number = false, notes = "Slide metadata overrides the deck defaults on a layout-backed slide.")[
+  #box(slot = "title", alignment = "center", vertical_alignment = "middle")[
+    #span(font = "display", size = pt(42), bold = true, color = "#ffffff")[A deliberate section transition]
+  ]
+  #box(slot = "subtitle", alignment = "center", vertical_alignment = "middle")[
+    #span(size = pt(20), color = "#93c5fd")[Background, footer, and numbering still obey slide precedence.]
+  ]
+]
+
+#slide(layout = "two_column", notes = "Both columns have identical inherited dimensions and top alignment.")[
+  #box(slot = "title")[
+    #span(font = "display", size = pt(34), bold = true)[Two Column]
+  ]
+  #box(
+    slot = "left",
+    fill = "#eff6ff",
+    border = { color = "#93c5fd", width = pt(1) },
+    margin = { top = pt(14), right = pt(16), bottom = pt(14), left = pt(16) }
+  )[
+    #span(size = pt(20), bold = true, color = "#1d4ed8")[Evidence]
+    #line_break()
+    #span(size = pt(17))[A concise narrative occupies the full left content area.]
+  ]
+  #box(
+    slot = "right",
+    fill = "#ecfdf5",
+    border = { color = "#6ee7b7", width = pt(1) },
+    margin = { top = pt(14), right = pt(16), bottom = pt(14), left = pt(16) }
+  )[
+    #span(size = pt(20), bold = true, color = "#047857")[Implication]
+    #line_break()
+    #span(size = pt(17))[The paired region begins at the same vertical coordinate.]
+  ]
+]
+
+#slide(layout = "comparison", notes = "Comparison headers and bodies should form two aligned vertical stacks.")[
+  #box(slot = "title")[
+    #span(font = "display", size = pt(34), bold = true)[Comparison]
+  ]
+  #box(slot = "left_title", fill = "#dbeafe", alignment = "center", vertical_alignment = "middle")[
+    #span(size = pt(19), bold = true, color = "#1d4ed8")[Before]
+  ]
+  #box(slot = "left", fill = "#eff6ff", margin = { top = pt(14), right = pt(16), bottom = pt(14), left = pt(16) })[
+    Manual coordinates repeated on every slide.
+  ]
+  #box(slot = "right_title", fill = "#d1fae5", alignment = "center", vertical_alignment = "middle")[
+    #span(size = pt(19), bold = true, color = "#047857")[After]
+  ]
+  #box(slot = "right", fill = "#ecfdf5", margin = { top = pt(14), right = pt(16), bottom = pt(14), left = pt(16) })[
+    Named slots carry shared geometry and remain explicitly overridable.
+  ]
+]
+
+#slide(layout = "image_and_caption", notes = "The image slot requires image content and uses the shared contain geometry.")[
+  #box(slot = "title")[
+    #span(font = "display", size = pt(34), bold = true)[Image And Caption]
+  ]
+  #box(slot = "image", fit = "contain", fill = "#e2e8f0")[
+    #image(src = "assets/mote-logo.png", alt = "Mote reference mark")
+  ]
+  #box(slot = "caption", alignment = "center", vertical_alignment = "middle")[
+    #span(size = pt(16), italic = true, color = "#475569")[The complete image stays centered above a separate editable caption.]
+  ]
+]
+
+#slide(layout = "chart_and_caption", notes = "The chart remains editable in PPTX and is painted natively in PDF and PNG.")[
+  #box(slot = "title")[
+    #span(font = "display", size = pt(34), bold = true)[Chart And Caption]
+  ]
+  #box(slot = "chart")[
+    #chart(
+      kind = "column",
+      title = "Layout Adoption",
+      data = {
+        categories = { "Draft", "Review", "Published" },
+        series = { { name = "Slides", values = { 3, 7, 11 } } }
+      },
+      colors = { "#2563eb" },
+      data_labels = { value = true, position = "outside_end" }
+    )
+  ]
+  #box(slot = "caption", alignment = "center", vertical_alignment = "middle")[
+    #span(size = pt(16), italic = true, color = "#475569")[One slot owns chart geometry; another owns the editable explanatory line.]
+  ]
+]
+
+#slide(layout = "evidence_pair", notes = "This custom layout inherits title and left slots, removes right, adds a typed chart slot, and supplies slide-level metadata.")[
+  #box(slot = "title")[Derived Layout: Evidence Pair]
+  #box(slot = "left")[
+    #span(size = pt(20), bold = true, color = "#0e7490")[Inherited and refined]
+    #line_break()
+    #span(size = pt(17))[The title and narrative retain the built-in two-column geometry. The layout supplies styling, a background, and a different footer.]
+  ]
+  #box(slot = "evidence")[
+    #chart(
+      kind = "line",
+      title = "Shared Resolution",
+      data = {
+        categories = { "PPTX", "PDF", "PNG" },
+        series = { { name = "Objects", values = { 9, 9, 9 } } }
+      },
+      axis = { value = { minimum = 0, maximum = 10 } },
+      colors = { "#0e7490" },
+      data_labels = { value = true, position = "top" }
+    )
+  ]
+]

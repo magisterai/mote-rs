@@ -1,0 +1,22 @@
+# Plain Markdown
+
+This document has no directives. It should still produce a useful Word document.
+
+## Inline Sugar
+
+Use **common bold**, __alternate bold__, `inline code`, [a link](https://example.com), and regular text.
+
+- First item
+  - Nested item
+  - Another nested item
+- Second item
+
+| Item | Owner | Amount |
+| --- | :---: | ---: |
+| Retainer | Sales | $2,500.00 |
+| Hosting | Ops | $75.00 |
+
+```lua
+local subtotal = 2500
+local total = subtotal + 75
+```

@@ -1,0 +1,397 @@
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote presentation table border diagnostics",
+  date = false,
+  slide_number = true
+)
+
+#style(
+  name = "BorderDiagnostic",
+  type = "table",
+  table = {
+    cell = {
+      margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+      vertical_alignment = "middle"
+    },
+    text = { font = "body", size = pt(11), color = "#111827" },
+    first_row = {
+      fill = "#dbeafe",
+      text = { bold = true },
+      paragraph = { alignment = "center" }
+    },
+    banding = { rows = true, even = { fill = "#f1f5f9" } },
+    borders = {
+      outside = { style = "single", color = "#475569", width = pt(1.5) },
+      inside = { style = "single", color = "#94a3b8", width = pt(0.75) }
+    }
+  }
+)
+
+#style(
+  name = "ConflictDiagnostic",
+  type = "table",
+  table = {
+    cell = {
+      margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+      vertical_alignment = "middle"
+    },
+    text = { font = "body", size = pt(10), color = "#111827" },
+    borders = {
+      outside = { style = "single", color = "#334155", width = pt(1.5) },
+      inside = { style = "single", color = "#cbd5e1", width = pt(0.75) }
+    }
+  }
+)
+
+#set table(style = "BorderDiagnostic")
+
+#slide(notes = "Baseline table-level outside and inside borders with no direct-cell conflicts. Review edge weight, continuity, corners, and alignment across PowerPoint, PDF, and PNG.")[
+  #box(
+    position = { x = inch(0.65), y = inch(0.3), width = inch(12), height = inch(0.6) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Table Border Baseline]
+  ]
+
+  #box(
+    position = { x = inch(0.8), y = inch(0.92), width = inch(11.75), height = inch(0.45) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(11), color = "#475569")[Outside edges are 1.5 pt; shared inside edges are 0.75 pt and must not double, disappear, or shift between rows.]
+  ]
+
+  #box(position = { x = inch(0.75), y = inch(1.45), width = inch(11.85), height = inch(4.9) })[
+    #table(width = inch(10.9), alignment = "center")[
+      #row(height = pt(40))[
+        #cell(width = inch(2.725))[Row]
+        #cell(width = inch(2.725))[Left]
+        #cell(width = inch(2.725))[Centre]
+        #cell(width = inch(2.725))[Right]
+      ]
+      #row(height = pt(52))[
+        #cell[Explicit fill]
+        #cell[Vertical edges]
+        #cell(alignment = "center")[Horizontal edges]
+        #cell(alignment = "right")[Outside edge]
+      ]
+      #row(height = pt(52))[
+        #cell[Theme fill]
+        #cell[Shared horizontal edge]
+        #cell(alignment = "center")[One continuous rule]
+        #cell(alignment = "right")[No doubled side]
+      ]
+      #row(height = pt(52))[
+        #cell(fill = "#ecfdf5")[Direct fill]
+        #cell(fill = "#ecfdf5")[Filled cells retain clean boundaries]
+        #cell(fill = "#ecfdf5", alignment = "center")[Same geometry]
+        #cell(fill = "#ecfdf5", alignment = "right")[Same weight]
+      ]
+      #row(height = pt(52))[
+        #cell[Final row]
+        #cell[Bottom outside edge]
+        #cell(alignment = "center")[1.5 pt]
+        #cell(alignment = "right")[Continuous corner]
+      ]
+    ]
+  ]
+]
+
+#set table(style = "ConflictDiagnostic")
+
+#slide(notes = "Each mini-table authors two competing values on one shared edge. The labels describe inputs only; compare the resolved result across PowerPoint, PDF, and PNG without assuming precedence.")[
+  #box(
+    position = { x = inch(0.65), y = inch(0.3), width = inch(12), height = inch(0.6) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Adjacent Edge Conflicts]
+  ]
+
+  #box(
+    position = { x = inch(0.8), y = inch(0.92), width = inch(11.75), height = inch(0.45) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(11), color = "#475569")[Mirrored weak/strong pairs, equal-width color conflicts, and explicit none isolate the resolver without encoding an expected winner.]
+  ]
+
+  #box(
+    position = { x = inch(0.7), y = inch(1.45), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Vertical: weak right vs strong left]
+  ]
+  #box(position = { x = inch(0.7), y = inch(1.8), width = inch(3.75), height = inch(1.4) })[
+    #table(width = inch(3.35), alignment = "center")[
+      #row(height = pt(72), height_rule = "exact")[
+        #cell(
+          width = inch(1.675),
+          fill = "#ecfdf5",
+          borders = {
+            right = { style = "single", color = "#15803d", width = pt(0.5) }
+          }
+        )[0.5 pt green right]
+        #cell(
+          width = inch(1.675),
+          fill = "#fff7ed",
+          borders = {
+            left = { style = "single", color = "#ea580c", width = pt(3) }
+          }
+        )[3 pt orange left]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(4.8), y = inch(1.45), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Vertical: strong right vs weak left]
+  ]
+  #box(position = { x = inch(4.8), y = inch(1.8), width = inch(3.75), height = inch(1.4) })[
+    #table(width = inch(3.35), alignment = "center")[
+      #row(height = pt(72), height_rule = "exact")[
+        #cell(
+          width = inch(1.675),
+          fill = "#faf5ff",
+          borders = {
+            right = { style = "single", color = "#7c3aed", width = pt(3) }
+          }
+        )[3 pt violet right]
+        #cell(
+          width = inch(1.675),
+          fill = "#eff6ff",
+          borders = {
+            left = { style = "single", color = "#2563eb", width = pt(0.5) }
+          }
+        )[0.5 pt blue left]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(8.9), y = inch(1.45), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Vertical: equal width, different color]
+  ]
+  #box(position = { x = inch(8.9), y = inch(1.8), width = inch(3.75), height = inch(1.4) })[
+    #table(width = inch(3.35), alignment = "center")[
+      #row(height = pt(72), height_rule = "exact")[
+        #cell(
+          width = inch(1.675),
+          fill = "#fef2f2",
+          borders = {
+            right = { style = "single", color = "#dc2626", width = pt(2) }
+          }
+        )[2 pt red right]
+        #cell(
+          width = inch(1.675),
+          fill = "#eff6ff",
+          borders = {
+            left = { style = "single", color = "#2563eb", width = pt(2) }
+          }
+        )[2 pt blue left]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(0.7), y = inch(3.9), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Horizontal: weak bottom vs strong top]
+  ]
+  #box(position = { x = inch(0.7), y = inch(4.25), width = inch(3.75), height = inch(2.0) })[
+    #table(width = inch(3.35), alignment = "center")[
+      #row(height = pt(42), height_rule = "exact")[
+        #cell(
+          fill = "#fef2f2",
+          borders = {
+            bottom = { style = "single", color = "#dc2626", width = pt(0.5) }
+          }
+        )[0.5 pt red bottom]
+      ]
+      #row(height = pt(42), height_rule = "exact")[
+        #cell(
+          fill = "#eff6ff",
+          borders = {
+            top = { style = "single", color = "#2563eb", width = pt(3) }
+          }
+        )[3 pt blue top]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(4.8), y = inch(3.9), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Horizontal: strong bottom vs weak top]
+  ]
+  #box(position = { x = inch(4.8), y = inch(4.25), width = inch(3.75), height = inch(2.0) })[
+    #table(width = inch(3.35), alignment = "center")[
+      #row(height = pt(42), height_rule = "exact")[
+        #cell(
+          fill = "#fff7ed",
+          borders = {
+            bottom = { style = "single", color = "#ea580c", width = pt(3) }
+          }
+        )[3 pt orange bottom]
+      ]
+      #row(height = pt(42), height_rule = "exact")[
+        #cell(
+          fill = "#ecfdf5",
+          borders = {
+            top = { style = "single", color = "#15803d", width = pt(0.5) }
+          }
+        )[0.5 pt green top]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(8.9), y = inch(3.9), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Horizontal: explicit none vs present]
+  ]
+  #box(position = { x = inch(8.9), y = inch(4.25), width = inch(3.75), height = inch(2.0) })[
+    #table(width = inch(3.35), alignment = "center")[
+      #row(height = pt(42), height_rule = "exact")[
+        #cell(
+          fill = "#f8fafc",
+          borders = {
+            bottom = { style = "none" }
+          }
+        )[No bottom border]
+      ]
+      #row(height = pt(42), height_rule = "exact")[
+        #cell(
+          fill = "#faf5ff",
+          borders = {
+            top = { style = "single", color = "#7c3aed", width = pt(2) }
+          }
+        )[2 pt violet top]
+      ]
+    ]
+  ]
+]
+
+#slide(notes = "Three controls isolate absent, outside-only, and inside-only borders. The merged table separately checks that spans do not introduce duplicate, missing, or shifted edge segments.")[
+  #box(
+    position = { x = inch(0.65), y = inch(0.3), width = inch(12), height = inch(0.6) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Border Controls And Spans]
+  ]
+
+  #box(
+    position = { x = inch(0.8), y = inch(0.92), width = inch(11.75), height = inch(0.45) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(11), color = "#475569")[Controls make missing or accidental rules obvious; merged cells expose discontinuities at rowspan and colspan boundaries.]
+  ]
+
+  #box(
+    position = { x = inch(0.7), y = inch(1.4), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Borderless control]
+  ]
+  #box(position = { x = inch(0.7), y = inch(1.75), width = inch(3.75), height = inch(1.75) })[
+    #table(
+      width = inch(3.35),
+      alignment = "center",
+      borders = {
+        outside = { style = "none" },
+        inside = { style = "none" }
+      }
+    )[
+      #row(height = pt(45), height_rule = "exact")[
+        #cell(width = inch(1.675), fill = "#dbeafe", alignment = "center")[A1]
+        #cell(width = inch(1.675), fill = "#ecfdf5", alignment = "center")[A2]
+      ]
+      #row(height = pt(45), height_rule = "exact")[
+        #cell(fill = "#fff7ed", alignment = "center")[B1]
+        #cell(fill = "#faf5ff", alignment = "center")[B2]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(4.8), y = inch(1.4), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Outside-only control]
+  ]
+  #box(position = { x = inch(4.8), y = inch(1.75), width = inch(3.75), height = inch(1.75) })[
+    #table(
+      width = inch(3.35),
+      alignment = "center",
+      borders = {
+        outside = { style = "single", color = "#334155", width = pt(1.5) },
+        inside = { style = "none" }
+      }
+    )[
+      #row(height = pt(45), height_rule = "exact")[
+        #cell(width = inch(1.675), fill = "#dbeafe", alignment = "center")[A1]
+        #cell(width = inch(1.675), fill = "#ecfdf5", alignment = "center")[A2]
+      ]
+      #row(height = pt(45), height_rule = "exact")[
+        #cell(fill = "#fff7ed", alignment = "center")[B1]
+        #cell(fill = "#faf5ff", alignment = "center")[B2]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(8.9), y = inch(1.4), width = inch(3.75), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Inside-only 0.75 pt control]
+  ]
+  #box(position = { x = inch(8.9), y = inch(1.75), width = inch(3.75), height = inch(1.75) })[
+    #table(
+      width = inch(3.35),
+      alignment = "center",
+      borders = {
+        outside = { style = "none" },
+        inside = { style = "single", color = "#0f766e", width = pt(0.75) }
+      }
+    )[
+      #row(height = pt(45), height_rule = "exact")[
+        #cell(width = inch(1.675), fill = "#dbeafe", alignment = "center")[A1]
+        #cell(width = inch(1.675), fill = "#ecfdf5", alignment = "center")[A2]
+      ]
+      #row(height = pt(45), height_rule = "exact")[
+        #cell(fill = "#fff7ed", alignment = "center")[B1]
+        #cell(fill = "#faf5ff", alignment = "center")[B2]
+      ]
+    ]
+  ]
+
+  #box(
+    position = { x = inch(1.15), y = inch(4.0), width = inch(11.0), height = inch(0.35) },
+    margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }
+  )[
+    #span(size = pt(10), bold = true, color = "#334155")[Merged-cell continuity]
+  ]
+  #box(position = { x = inch(1.15), y = inch(4.35), width = inch(11.0), height = inch(2.35) })[
+    #table(width = inch(10.1), alignment = "center")[
+      #row(height = pt(38))[
+        #cell(colspan = 3, fill = "#dbeafe", alignment = "center")[Three-column merged header]
+      ]
+      #row(height = pt(58))[
+        #cell(width = inch(3.35), rowspan = 2, fill = "#f1f5f9", vertical_alignment = "middle")[Rowspan]
+        #cell(width = inch(3.35))[Upper centre]
+        #cell(width = inch(3.4))[Upper right]
+      ]
+      #row(height = pt(58))[
+        #cell(colspan = 2, fill = "#ecfdf5", alignment = "center")[Colspan lower edge]
+      ]
+    ]
+  ]
+]

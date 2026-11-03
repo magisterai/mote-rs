@@ -1,0 +1,386 @@
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote exhaustive chart check",
+  date = false,
+  slide_number = true,
+  theme = {
+    name = "Mote Exhaustive Charts",
+    colors = {
+      background = "#f8fafc",
+      text = "#111827",
+      accent1 = "#2563eb",
+      accent2 = "#059669",
+      accent3 = "#d97706",
+      accent4 = "#dc2626",
+      accent5 = "#7c3aed",
+      accent6 = "#0891b2",
+      hyperlink = "#2563eb"
+    },
+    fonts = { heading = "display", body = "body" }
+  }
+)
+
+#let(
+  revenue_data = json("data/chart_revenue.json"),
+  support_data = {
+    categories = { "Platform", "Docs", "Integrations", "Design" },
+    series = {
+      { name = "Open", values = { 34, 21, 18, 9 } },
+      { name = "Closed", values = { 46, 38, 24, 19 } }
+    }
+  },
+  segment_data = {
+    categories = { "Enterprise", "Midmarket", "SMB", "Partner" },
+    series = {
+      { name = "Current", values = { 78, 64, 55, 42 } },
+      { name = "Target", values = { 86, 74, 63, 58 } }
+    }
+  }
+)
+
+#slide(notes = "Baseline column chart: JSON data, axes, labels, plot-area styling, gridlines, gap width, and chart-area styling.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Column Chart: JSON, Labels, Styling]
+  ]
+
+  #box(position = { x = inch(0.85), y = inch(1.1), width = inch(11.65), height = inch(5.35) })[
+    #chart(
+      kind = "column",
+      title = "Quarterly Revenue",
+      data = revenue_data,
+      axis = {
+        category = { title = "Quarter" },
+        value = { title = "Revenue ($M)" }
+      },
+      legend = { position = "bottom" },
+      background = "#f8fafc",
+      border = { color = "#cbd5e1", width = pt(0.75) },
+      plot_area = { background = "#ffffff", border = false },
+      gridlines = { major = true, minor = true, color = "#e5e7eb", width = pt(0.5) },
+      data_labels = { value = true, position = "outside_end" },
+      gap_width = 70,
+      overlap = 0,
+      colors = { "#2563eb", "#059669" }
+    )
+  ]
+]
+
+#slide(notes = "Line chart with three series, top legend, gridlines, no labels, and marker/line visibility.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Line Chart: Series And Markers]
+  ]
+
+  #box(position = { x = inch(0.85), y = inch(1.1), width = inch(11.65), height = inch(5.35) })[
+    #chart(
+      kind = "line",
+      title = "Adoption Trend",
+      data = {
+        categories = { "Jan", "Feb", "Mar", "Apr", "May", "Jun" },
+        series = {
+          { name = "Teams", values = { 18, 26, 39, 51, 64, 78 } },
+          { name = "Projects", values = { 9, 14, 23, 32, 43, 58 } },
+          { name = "Automations", values = { 3, 7, 15, 24, 34, 49 } }
+        }
+      },
+      axis = {
+        category = { title = "Month" },
+        value = { title = "Count" }
+      },
+      legend = { position = "top" },
+      gridlines = { major = true, color = "#e2e8f0", width = pt(0.5) },
+      data_labels = false,
+      colors = { "#7c3aed", "#d97706", "#0891b2" }
+    )
+  ]
+]
+
+#slide(notes = "Horizontal bar chart from a literal category and series data set.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Bar Chart: Literal Data]
+  ]
+
+  #box(position = { x = inch(0.85), y = inch(1.1), width = inch(11.65), height = inch(5.35) })[
+    #chart(
+      kind = "bar",
+      title = "Support Load By Team",
+      data = support_data,
+      axis = {
+        category = { title = "Team" },
+        value = { title = "Tickets" }
+      },
+      legend = { position = "left" },
+      plot_area = { background = "#ffffff" },
+      gridlines = true,
+      data_labels = { value = true, position = "outside_end" },
+      gap_width = 65,
+      overlap = 0,
+      colors = { "#dc2626", "#16a34a" }
+    )
+  ]
+]
+
+#slide(notes = "Second literal data set, with a right-side legend.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Column Chart: Second Data Set]
+  ]
+
+  #box(position = { x = inch(0.85), y = inch(1.1), width = inch(11.65), height = inch(5.35) })[
+    #chart(
+      kind = "column",
+      title = "Segment Scorecard",
+      data = segment_data,
+      axis = {
+        category = { title = "Segment" },
+        value = { title = "Score" }
+      },
+      legend = { position = "right" },
+      plot_area = { background = "#ffffff" },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      data_labels = { value = true, position = "outside_end" },
+      gap_width = 85,
+      colors = { "#0f6c7a", "#f59e0b" }
+    )
+  ]
+]
+
+#slide(notes = "Stacked and area variants exercise the common additional Office chart families.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Stacked And Area Variants]
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "stacked_column",
+      title = "Stacked Segment Scorecard",
+      data = segment_data,
+      axis = {
+        category = { title = "Segment" },
+        value = { title = "Score" }
+      },
+      legend = { position = "bottom" },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      colors = { "#2563eb", "#059669" }
+    )
+  ]
+
+  #box(position = { x = inch(6.85), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "area",
+      title = "Area Adoption Trend",
+      data = {
+        categories = { "Jan", "Feb", "Mar", "Apr" },
+        series = {
+          { name = "Teams", values = { 18, 26, 39, 51 } },
+          { name = "Projects", values = { 9, 14, 23, 32 } }
+        }
+      },
+      legend = { position = "bottom" },
+      colors = { "#93c5fd", "#86efac" }
+    )
+  ]
+]
+
+#slide(notes = "Pie and doughnut charts share one slide. The doughnut chart intentionally requests a label position that PPTX suppresses for compatibility.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Pie And Doughnut]
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(1.15), width = inch(5.9), height = inch(5.05) })[
+    #chart(
+      kind = "pie",
+      title = "Pipeline Mix",
+      data = {
+        categories = { "New", "Expansion", "Renewal", "Services" },
+        series = {
+          { name = "Pipeline", values = { 42, 28, 21, 9 } }
+        }
+      },
+      legend = { position = "bottom" },
+      data_labels = { category = true, percentage = true, position = "best_fit" },
+      colors = { "#2563eb", "#059669", "#d97706", "#dc2626" }
+    )
+  ]
+
+  #box(position = { x = inch(6.85), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "doughnut",
+      title = "Work Allocation",
+      data = {
+        categories = { "Build", "Review", "QA", "Docs" },
+        series = {
+          { name = "Hours", values = { 38, 22, 26, 14 } }
+        }
+      },
+      legend = { position = "bottom" },
+      data_labels = { percentage = true, position = "best_fit" },
+      colors = { "#7c3aed", "#0891b2", "#f59e0b", "#ef4444" }
+    )
+  ]
+]
+
+#slide(notes = "Four compact charts on one slide exercise multiple chart parts and label-position variants.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Compact Label Matrix]
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(1.1), width = inch(5.75), height = inch(2.45) })[
+    #chart(kind = "column", title = "Center Labels", data = { categories = { "A", "B", "C" }, series = { { name = "Value", values = { 12, 18, 15 } } } }, legend = false, data_labels = { value = true, position = "center" }, colors = { "#2563eb" })
+  ]
+
+  #box(position = { x = inch(6.75), y = inch(1.1), width = inch(5.75), height = inch(2.45) })[
+    #chart(kind = "bar", title = "Inside-End Labels", data = { categories = { "A", "B", "C" }, series = { { name = "Value", values = { 12, 18, 15 } } } }, legend = false, data_labels = { value = true, position = "inside_end" }, colors = { "#059669" })
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(3.85), width = inch(5.75), height = inch(2.45) })[
+    #chart(kind = "pie", title = "Pie Percent", data = { categories = { "A", "B", "C" }, series = { { name = "Share", values = { 30, 45, 25 } } } }, legend = false, data_labels = { percentage = true, position = "best_fit" }, colors = { "#7c3aed", "#0891b2", "#f59e0b" })
+  ]
+
+  #box(position = { x = inch(6.75), y = inch(3.85), width = inch(5.75), height = inch(2.45) })[
+    #chart(kind = "doughnut", title = "Doughnut Percent", data = { categories = { "A", "B", "C" }, series = { { name = "Share", values = { 30, 45, 25 } } } }, legend = false, data_labels = { percentage = true, position = "center" }, colors = { "#ef4444", "#0f6c7a", "#f59e0b" })
+  ]
+]
+
+#slide(notes = "Signed column and line charts verify zero-crossing axes, negative geometry, labels, and editable workbook values.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Signed Values And Zero Axes]
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "column",
+      title = "Quarterly Variance",
+      data = {
+        categories = { "Q1", "Q2", "Q3", "Q4" },
+        series = { { name = "Variance", values = { -12, 8, -5, 16 } } }
+      },
+      axis = {
+        category = { title = "Quarter" },
+        value = { title = "Variance" }
+      },
+      legend = false,
+      data_labels = { value = true, position = "outside_end" },
+      colors = { "#dc2626" }
+    )
+  ]
+
+  #box(position = { x = inch(6.85), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "line",
+      title = "Net Change",
+      data = {
+        categories = { "Jan", "Feb", "Mar", "Apr", "May" },
+        series = {
+          { name = "Actual", values = { -10, -2, 6, 3, 12 } },
+          { name = "Plan", values = { 4, 4, 4, 4, 4 } }
+        }
+      },
+      axis = {
+        category = { title = "Month" },
+        value = { title = "Change" }
+      },
+      legend = { position = "bottom" },
+      colors = { "#2563eb", "#059669" }
+    )
+  ]
+]
+
+#slide(notes = "Percent-stacked columns and bars cover both orientations. The horizontal chart also pressures long category labels and a three-series legend in a compact frame.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Percent-Stacked Columns And Bars]
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "percent_stacked_column",
+      title = "Pipeline Mix By Quarter",
+      data = {
+        categories = { "Q1", "Q2", "Q3", "Q4" },
+        series = {
+          { name = "New", values = { 35, 40, 32, 45 } },
+          { name = "Expansion", values = { 25, 28, 34, 30 } },
+          { name = "Renewal", values = { 40, 32, 34, 25 } }
+        }
+      },
+      axis = {
+        category = { title = "Quarter" },
+        value = { title = "Share (%)" }
+      },
+      legend = { position = "bottom" },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      colors = { "#2563eb", "#059669", "#d97706" }
+    )
+  ]
+
+  #box(position = { x = inch(6.85), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "percent_stacked_bar",
+      title = "Team Allocation Pressure",
+      data = {
+        categories = { "Platform Engineering", "Customer Success", "Enterprise Integrations" },
+        series = {
+          { name = "Core", values = { 52, 36, 42 } },
+          { name = "Growth", values = { 30, 44, 33 } },
+          { name = "Services", values = { 18, 20, 25 } }
+        }
+      },
+      axis = { value = { title = "Allocation (%)" } },
+      legend = { position = "bottom" },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      colors = { "#7c3aed", "#0891b2", "#f59e0b" }
+    )
+  ]
+]
+
+#slide(notes = "Stacked and percent-stacked area charts complete the supported area family with multiple series, legends, axes, and editable workbook data.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.65) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(24), bold = true, color = "#111827")[Stacked Area Variants]
+  ]
+
+  #box(position = { x = inch(0.7), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "stacked_area",
+      title = "Cumulative Adoption",
+      data = {
+        categories = { "Jan", "Feb", "Mar", "Apr", "May" },
+        series = {
+          { name = "Teams", values = { 18, 24, 31, 39, 48 } },
+          { name = "Projects", values = { 9, 13, 18, 24, 31 } },
+          { name = "Automations", values = { 3, 6, 10, 15, 21 } }
+        }
+      },
+      axis = {
+        category = { title = "Month" },
+        value = { title = "Adoption" }
+      },
+      legend = { position = "bottom" },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      colors = { "#93c5fd", "#86efac", "#fcd34d" }
+    )
+  ]
+
+  #box(position = { x = inch(6.85), y = inch(1.15), width = inch(5.8), height = inch(5.05) })[
+    #chart(
+      kind = "percent_stacked_area",
+      title = "Channel Share",
+      data = {
+        categories = { "Q1", "Q2", "Q3", "Q4", "Q5" },
+        series = {
+          { name = "Direct", values = { 48, 45, 42, 40, 38 } },
+          { name = "Partner", values = { 32, 34, 35, 36, 37 } },
+          { name = "Digital", values = { 20, 21, 23, 24, 25 } }
+        }
+      },
+      axis = {
+        category = { title = "Quarter" },
+        value = { title = "Share (%)" }
+      },
+      legend = { position = "bottom" },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      colors = { "#2563eb", "#7c3aed", "#0891b2" }
+    )
+  ]
+]

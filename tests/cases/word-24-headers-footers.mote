@@ -1,0 +1,67 @@
+#metadata(title = "PDF Header Footer Review", author = "Mote")
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(60), right = pt(60), bottom = pt(60), left = pt(60), header = pt(28), footer = pt(30) }
+)
+#font(name = "body", latin = "Helvetica")
+
+#header(height = pt(20), distance = pt(18))[
+  Mote Header Footer Review #tab() Page #page_number() of #page_number(kind = "total")
+]
+#footer(height = pt(18), distance = pt(18))[
+  Default footer #tab() Confidential
+]
+
+# Header And Footer Defaults
+
+The first page uses document-level header and footer defaults. The right side of the header should show the current page and total page count.
+
+| Area | Expected Result |
+| --- | --- |
+| Header left | Mote Header Footer Review |
+| Header right | Page number and total |
+| Footer left | Default footer |
+| Footer right | Confidential |
+
+#break()
+
+## Second Page With Same Defaults
+
+This page is intentionally created with a page break. It should keep the same top-level header and footer.
+
+- Page numbers should advance.
+- The footer should remain stable.
+- Ordinary markdown should still render normally.
+
+#section(properties = { start = "next_page" })[
+  #header(height = pt(20), distance = pt(18))[
+    Section Header #tab() Page #page_number()
+  ]
+  #footer(height = pt(18), distance = pt(18))[
+    Section footer override
+  ]
+
+  ## Section-Local Header And Footer
+
+  This explicit section has its own header and footer. It should not affect earlier pages. Future implicit sections should continue to use document defaults unless another section override is declared.
+
+  #table(alignment = "center", cell = { margin = { top = pt(4), right = pt(6), bottom = pt(4), left = pt(6) } })[
+    #row[
+      #cell(fill = "#e8eef7")[Scope]
+      #cell(fill = "#e8eef7")[Header]
+      #cell(fill = "#e8eef7")[Footer]
+    ]
+    #row[
+      #cell[Document default]
+      #cell[Mote Header Footer Review]
+      #cell[Default footer]
+    ]
+    #row[
+      #cell[Explicit section]
+      #cell[Section Header]
+      #cell[Section footer override]
+    ]
+  ]
+]

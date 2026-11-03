@@ -1,0 +1,136 @@
+#metadata(title = "Mote Table Row Splitting", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(13) }
+    }
+  }
+)
+
+#style(
+  name = "SplitTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#1e3a8a" },
+      text = { bold = true, color = "#ffffff" }
+    },
+    banding = {
+      odd = { cell = { fill = "#eff6ff" } },
+      even = { cell = { fill = "#ffffff" } }
+    },
+    cell = {
+      margin = { top = pt(5), right = pt(6), bottom = pt(5), left = pt(6) }
+    }
+  }
+)
+
+#heading(level = 1)[Table Row Splitting]
+
+#paragraph(spacing = { after = pt(10) })[
+The D-SPLIT row uses Word's default row-flow behavior. The later C-KEEP row
+contains equivalent content and is the only row marked `cant_split`.
+]
+
+#table(
+  style = "SplitTable",
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center"
+)[
+  #row(repeat_header = true)[
+    #cell(width = inch(0.9), alignment = "center")[MARKER]
+    #cell(width = inch(5.6))[ROW CONTENT]
+  ]
+  #row[#cell(alignment = "center")[D01] #cell[Default-flow setup row 01.]]
+  #row[#cell(alignment = "center")[D02] #cell[Default-flow setup row 02.]]
+  #row[#cell(alignment = "center")[D03] #cell[Default-flow setup row 03.]]
+  #row[#cell(alignment = "center")[D04] #cell[Default-flow setup row 04.]]
+  #row[#cell(alignment = "center")[D05] #cell[Default-flow setup row 05.]]
+  #row[#cell(alignment = "center")[D06] #cell[Default-flow setup row 06.]]
+  #row[#cell(alignment = "center")[D07] #cell[Default-flow setup row 07.]]
+  #row[#cell(alignment = "center")[D08] #cell[Default-flow setup row 08.]]
+  #row[#cell(alignment = "center")[D09] #cell[Default-flow setup row 09.]]
+  #row[#cell(alignment = "center")[D10] #cell[Default-flow setup row 10.]]
+  #row[#cell(alignment = "center")[D11] #cell[Default-flow setup row 11.]]
+  #row[#cell(alignment = "center")[D12] #cell[Default-flow setup row 12.]]
+  #row[#cell(alignment = "center")[D13] #cell[Default-flow setup row 13.]]
+  #row[#cell(alignment = "center")[D14] #cell[Default-flow setup row 14.]]
+  #row[#cell(alignment = "center")[D15] #cell[Default-flow setup row 15.]]
+  #row[#cell(alignment = "center")[D16] #cell[Default-flow setup row 16.]]
+  #row[#cell(alignment = "center")[D17] #cell[Default-flow setup row 17.]]
+  #row[#cell(alignment = "center")[D18] #cell[Default-flow setup row 18.]]
+  #row[#cell(alignment = "center")[D19] #cell[Default-flow setup row 19.]]
+  #row[#cell(alignment = "center")[D20] #cell[Default-flow setup row 20.]]
+  #row[
+    #cell(alignment = "center")[D-SPLIT]
+    #cell[
+      #paragraph[DEFAULT ROW LINE 01 — the row may divide naturally at a page boundary.]
+      #paragraph[DEFAULT ROW LINE 02 — every line remains inside the same logical row.]
+      #paragraph[DEFAULT ROW LINE 03 — borders and fill continue with the row.]
+      #paragraph[DEFAULT ROW LINE 04 — the marker cell belongs to the complete row.]
+      #paragraph[DEFAULT ROW LINE 05 — no explicit height controls this content.]
+      #paragraph[DEFAULT ROW LINE 06 — no manual page break precedes this content.]
+      #paragraph[DEFAULT ROW LINE 07 — Word determines the available page space.]
+      #paragraph[DEFAULT ROW LINE 08 — native outputs should follow that pagination.]
+      #paragraph[DEFAULT ROW LINE 09 — all text remains visible and in order.]
+      #paragraph[DEFAULT ROW LINE 10 — repeated headers remain above continuations.]
+      #paragraph[DEFAULT ROW LINE 11 — the lower border closes after the final line.]
+      #paragraph[DEFAULT ROW LINE 12 — this is the default-flow row terminator.]
+    ]
+  ]
+  #row[#cell(alignment = "center")[D-AFTER] #cell[The first ordinary row after D-SPLIT.]]
+  #row[#cell(alignment = "center")[C01] #cell[Keep-control setup row 01.]]
+  #row[#cell(alignment = "center")[C02] #cell[Keep-control setup row 02.]]
+  #row[#cell(alignment = "center")[C03] #cell[Keep-control setup row 03.]]
+  #row[#cell(alignment = "center")[C04] #cell[Keep-control setup row 04.]]
+  #row[#cell(alignment = "center")[C05] #cell[Keep-control setup row 05.]]
+  #row[#cell(alignment = "center")[C06] #cell[Keep-control setup row 06.]]
+  #row[#cell(alignment = "center")[C07] #cell[Keep-control setup row 07.]]
+  #row[#cell(alignment = "center")[C08] #cell[Keep-control setup row 08.]]
+  #row[#cell(alignment = "center")[C09] #cell[Keep-control setup row 09.]]
+  #row[#cell(alignment = "center")[C10] #cell[Keep-control setup row 10.]]
+  #row[#cell(alignment = "center")[C11] #cell[Keep-control setup row 11.]]
+  #row[#cell(alignment = "center")[C12] #cell[Keep-control setup row 12.]]
+  #row[#cell(alignment = "center")[C13] #cell[Keep-control setup row 13.]]
+  #row[#cell(alignment = "center")[C14] #cell[Keep-control setup row 14.]]
+  #row[#cell(alignment = "center")[C15] #cell[Keep-control setup row 15.]]
+  #row(cant_split = true)[
+    #cell(alignment = "center")[C-KEEP]
+    #cell[
+      #paragraph[CONTROL ROW LINE 01 — this complete row must remain together.]
+      #paragraph[CONTROL ROW LINE 02 — every line stays in the same logical row.]
+      #paragraph[CONTROL ROW LINE 03 — borders and fill move with the row.]
+      #paragraph[CONTROL ROW LINE 04 — the marker cell moves with the content.]
+      #paragraph[CONTROL ROW LINE 05 — no explicit height controls this content.]
+      #paragraph[CONTROL ROW LINE 06 — no manual page break precedes this content.]
+      #paragraph[CONTROL ROW LINE 07 — `cant_split` is the only flow override.]
+      #paragraph[CONTROL ROW LINE 08 — native outputs should preserve the keep.]
+      #paragraph[CONTROL ROW LINE 09 — all text remains visible and in order.]
+      #paragraph[CONTROL ROW LINE 10 — repeated headers remain above the row.]
+      #paragraph[CONTROL ROW LINE 11 — the lower border follows the final line.]
+      #paragraph[CONTROL ROW LINE 12 — this is the kept-row terminator.]
+    ]
+  ]
+  #row[#cell(alignment = "center")[C-AFTER] #cell[The first ordinary row after C-KEEP.]]
+]
+
+#paragraph(spacing = { before = pt(10) }, fill = "#dcfce7")[
+REVIEW: compare where D-SPLIT divides with where the C-KEEP control begins;
+all markers and lines must appear once and in order.
+]

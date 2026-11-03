@@ -1,0 +1,80 @@
+#font(name = "display", latin = "Aptos Display")
+#font(name = "body", latin = "Aptos")
+
+#presentation(
+  size = "wide",
+  background = "#f8fafc",
+  footer = "Mote PPTX media and chart compatibility",
+  date = false,
+  slide_number = true,
+  theme = {
+    name = "Mote Compatibility",
+    colors = {
+      background = "#f8fafc",
+      text = "#111827",
+      accent1 = "#2563eb",
+      accent2 = "#059669",
+      accent3 = "#d97706",
+      hyperlink = "#2563eb"
+    },
+    fonts = { heading = "display", body = "body" }
+  }
+)
+
+#style(
+  name = "DefaultTable",
+  type = "table",
+  table = {
+    cell = { margin = { top = pt(4), right = pt(7), bottom = pt(4), left = pt(7) }, vertical_alignment = "middle" },
+    text = { font = "body", size = pt(9.5), color = "#111827" },
+    first_row = { fill = "#dbeafe", text = { bold = true }, paragraph = { alignment = "center" } },
+    banding = { rows = true, even = { fill = "#f1f5f9" } },
+    borders = {
+      outside = { style = "single", color = "#94a3b8", width = pt(0.75) },
+      inside = { style = "single", color = "#cbd5e1", width = pt(0.5) }
+    }
+  }
+)
+
+#set table(style = "DefaultTable")
+
+#slide(notes = "This slide checks image packaging, table rendering, and chart workbooks.")[
+  #box(position = { x = inch(0.65), y = inch(0.35), width = inch(12), height = inch(0.55) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) })[
+    #span(font = "display", size = pt(22), bold = true, color = "#111827")[Media, Tables, And Charts]
+  ]
+
+  #box(position = { x = inch(0.8), y = inch(1.2), width = inch(2.1), height = inch(1.4) }, fit = "contain")[
+    #image(src = "assets/mote-logo.png", alt = "Mote logo")
+  ]
+
+  #shape(kind = "round_rect", position = { x = inch(3.15), y = inch(1.15), width = inch(3.4), height = inch(1.5) }, fill = "#dbeafe", border = { color = "#2563eb", width = pt(1) }, margin = { top = pt(8), right = pt(10), bottom = pt(8), left = pt(10) }, vertical_alignment = "middle", alignment = "center", color = "#1e3a8a", bold = true)[Editable shape text]
+
+  #box(position = { x = inch(6.8), y = inch(1.05), width = inch(5.7), height = inch(1.85) })[
+    | Backend | Status | Score |
+    | --- | :---: | ---: |
+    | DOCX | Ready | 86 |
+    | PPTX | Active | 74 |
+    | Charts | New | 68 |
+  ]
+
+  #box(position = { x = inch(0.8), y = inch(3.25), width = inch(11.7), height = inch(3.05) })[
+    #chart(
+      kind = "line",
+      title = "Backend Coverage",
+      data = {
+        categories = { "Q1", "Q2", "Q3", "Q4" },
+        series = {
+          { name = "DOCX", values = { 68, 74, 82, 86 } },
+          { name = "PPTX", values = { 38, 54, 67, 74 } }
+        }
+      },
+      axis = {
+        category = { title = "Quarter" },
+        value = { title = "Coverage" }
+      },
+      legend = { position = "bottom" },
+      gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+      colors = { "#2563eb", "#059669" }
+    )
+  ]
+]

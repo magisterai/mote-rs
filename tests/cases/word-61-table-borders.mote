@@ -1,0 +1,175 @@
+#metadata(title = "Mote Table Borders", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(45), right = pt(72), bottom = pt(45), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(5),
+      line = { rule = "multiple", value = 1.05 }
+    }
+  }
+)
+
+#set table(
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { top = pt(5), right = pt(7), bottom = pt(5), left = pt(7) },
+    vertical_alignment = "center"
+  }
+)
+
+#heading(level = 1)[Table Borders]
+
+#paragraph[
+Word is authoritative for the shared physical edge when adjacent cells or the
+table itself offer competing border values. Native PDF and PNG should preserve
+the same weight, color, continuity, and absence of rules.
+]
+
+#heading(level = 2)[Outside And Inside Baseline]
+
+#table(
+  width = inch(6.5),
+  borders = {
+    outside = { style = "single", width = pt(1.5), color = "#475569" },
+    inside = { style = "single", width = pt(0.75), color = "#94a3b8" }
+  }
+)[
+  #row[
+    #cell(width = inch(1.625), fill = "#dbeafe", alignment = "center")[**1.5 pt frame**]
+    #cell(width = inch(1.625), fill = "#dcfce7", alignment = "center")[**0.75 pt inside**]
+    #cell(width = inch(1.625), fill = "#fef3c7", alignment = "center")[**Single owner**]
+    #cell(width = inch(1.625), fill = "#ede9fe", alignment = "center")[**Clean corners**]
+  ]
+  #row[
+    #cell[One]
+    #cell[Two]
+    #cell[Three]
+    #cell[Four]
+  ]
+  #row[
+    #cell(fill = "#f8fafc")[Filled]
+    #cell(fill = "#f8fafc")[cells]
+    #cell(fill = "#f8fafc")[do not]
+    #cell(fill = "#f8fafc")[cover rules]
+  ]
+]
+
+#heading(level = 2)[Borderless Control]
+
+#table(
+  width = inch(3.2),
+  borders = {
+    outside = { style = "none" },
+    inside = { style = "none" }
+  }
+)[
+  #row[
+    #cell(width = inch(1.6), fill = "#dbeafe", alignment = "center")[A1]
+    #cell(width = inch(1.6), fill = "#dcfce7", alignment = "center")[A2]
+  ]
+  #row[
+    #cell(fill = "#fff7ed", alignment = "center")[B1]
+    #cell(fill = "#faf5ff", alignment = "center")[B2]
+  ]
+]
+
+#heading(level = 2)[Adjacent Cell Conflicts]
+
+#paragraph[The first pair reverses the weak and strong authors; both shared edges should resolve consistently by strength.]
+
+#table(
+  width = inch(6.5),
+  borders = {
+    outside = { style = "single", width = pt(1), color = "#334155" },
+    inside = { style = "none" }
+  }
+)[
+  #row[
+    #cell(
+      width = inch(1.625),
+      fill = "#ecfdf5",
+      borders = { right = { style = "single", width = pt(0.5), color = "#15803d" } }
+    )[0.5 pt green right]
+    #cell(
+      width = inch(1.625),
+      fill = "#fff7ed",
+      borders = { left = { style = "single", width = pt(3), color = "#ea580c" } }
+    )[3 pt orange left]
+    #cell(
+      width = inch(1.625),
+      fill = "#faf5ff",
+      borders = { right = { style = "single", width = pt(3), color = "#7c3aed" } }
+    )[3 pt violet right]
+    #cell(
+      width = inch(1.625),
+      fill = "#eff6ff",
+      borders = { left = { style = "single", width = pt(0.5), color = "#2563eb" } }
+    )[0.5 pt blue left]
+  ]
+]
+
+#paragraph[The horizontal pair checks that an explicit none does not erase the neighboring visible edge.]
+
+#table(
+  width = inch(3.2),
+  borders = {
+    outside = { style = "single", width = pt(1), color = "#334155" },
+    inside = { style = "none" }
+  }
+)[
+  #row[
+    #cell(
+      fill = "#f8fafc",
+      borders = { bottom = { style = "none" } }
+    )[No bottom border authored here]
+  ]
+  #row[
+    #cell(
+      fill = "#faf5ff",
+      borders = { top = { style = "single", width = pt(2), color = "#7c3aed" } }
+    )[2 pt violet top remains visible]
+  ]
+]
+
+#heading(level = 2)[Merged-cell Continuity]
+
+#table(
+  width = inch(6.5),
+  borders = {
+    outside = { style = "single", width = pt(1.5), color = "#475569" },
+    inside = { style = "single", width = pt(0.75), color = "#0f766e" }
+  }
+)[
+  #row[
+    #cell(colspan = 3, fill = "#dbeafe", alignment = "center")[**Three-column merged header**]
+  ]
+  #row[
+    #cell(width = inch(2.15), rowspan = 2, fill = "#f1f5f9", vertical_alignment = "center")[Rowspan edge stays continuous]
+    #cell(width = inch(2.15))[Upper centre]
+    #cell(width = inch(2.2))[Upper right]
+  ]
+  #row[
+    #cell(colspan = 2, fill = "#ecfdf5", alignment = "center")[Colspan lower edge stays continuous]
+  ]
+]
+
+#paragraph(fill = "#dcfce7")[
+PASS: the baseline has one clean 1.5 pt frame and 0.75 pt interior grid;
+the control has no rules; the stronger adjacent borders win in either authoring
+direction; the visible violet rule survives its none neighbor; and merged-cell
+edges contain no gaps or doubled segments.
+]

@@ -1,0 +1,119 @@
+#document(
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = inch(0.75), right = inch(0.75), bottom = inch(0.75), left = inch(0.75) }
+)
+
+#shape(
+  name = "Rounded rectangle",
+  kind = "round_rect",
+  position = { x = inch(0.75), y = inch(1), width = inch(3.25), height = inch(1.25) },
+  fill = "#DBEAFE",
+  border = { color = "#2563EB", width = pt(1.5) },
+  shadow = { color = "#0F172A", opacity = 18, blur = pt(4), distance = pt(2), angle = "45deg" },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    color = "#111827",
+    bold = true,
+    alignment = "center",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+    fit = "shrink"
+  }
+)[Rounded rectangle]
+
+#shape(
+  name = "Cloud",
+  kind = "cloud",
+  position = { x = inch(4.5), y = inch(1), width = inch(3.25), height = inch(1.25) },
+  fill = "#DCFCE7",
+  border = { color = "#15803D", width = pt(1.5) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    color = "#14532D",
+    bold = true,
+    alignment = "center",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+    fit = "shrink"
+  }
+)[Cloud]
+
+#shape(
+  name = "Ellipse",
+  kind = "ellipse",
+  position = { x = inch(0.75), y = inch(2.8), width = inch(3.25), height = inch(1.25) },
+  fill = "#FCE7F3",
+  opacity = 92,
+  border = { color = "#BE185D", width = pt(1.5), style = "dashed" },
+  rotation = "-4deg",
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    color = "#831843",
+    bold = true,
+    alignment = "center",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+    fit = "shrink"
+  }
+)[Ellipse]
+
+#shape(
+  name = "Diamond",
+  kind = "diamond",
+  position = { x = inch(4.5), y = inch(2.8), width = inch(3.25), height = inch(1.25) },
+  fill = "#FEF3C7",
+  border = { color = "#B45309", width = pt(1.5) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    color = "#78350F",
+    bold = true,
+    alignment = "center",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+    fit = "shrink"
+  }
+)[Diamond]
+
+#shape(
+  name = "Chevron",
+  kind = "chevron",
+  position = { x = inch(0.75), y = inch(4.6), width = inch(3.25), height = inch(1.25) },
+  fill = "#EDE9FE",
+  border = { color = "#7C3AED", width = pt(1.5) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    color = "#4C1D95",
+    bold = true,
+    alignment = "center",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+    fit = "shrink"
+  }
+)[Chevron]
+
+#shape(
+  name = "Hexagon",
+  kind = "hexagon",
+  position = { x = inch(4.5), y = inch(4.6), width = inch(3.25), height = inch(1.25) },
+  fill = "#CFFAFE",
+  border = { color = "#0E7490", width = pt(1.5) },
+  flip_horizontal = true,
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    color = "#164E63",
+    bold = true,
+    alignment = "center",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) },
+    fit = "shrink"
+  }
+)[Hexagon]
+
+#paragraph(spacing_before = inch(6), alignment = "center")[PASS: shapes remain editable DrawingML in Word and PowerPoint; native PDF and PNG paint the same preset geometry.]

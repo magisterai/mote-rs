@@ -1,0 +1,150 @@
+#metadata(title = "Mote Cross-page Table Spans", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(13) }
+    }
+  }
+)
+
+#style(
+  name = "SpanTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#334155" },
+      text = { bold = true, color = "#ffffff" }
+    },
+    banding = {
+      odd = { cell = { fill = "#f8fafc" } },
+      even = { cell = { fill = "#e2e8f0" } }
+    },
+    cell = {
+      margin = { top = pt(5), right = pt(6), bottom = pt(5), left = pt(6) },
+      vertical_alignment = "center"
+    }
+  }
+)
+
+#heading(level = 1)[Cross-page Table Spans]
+
+#paragraph(spacing = { after = pt(10) })[
+This natural-flow table places a three-row vertical merge and a later
+multi-paragraph horizontal merge near page boundaries. It has no fixed row
+heights, no row keeps, and no manual page breaks.
+]
+
+#table(
+  style = "SpanTable",
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center"
+)[
+  #row(repeat_header = true)[
+    #cell(width = inch(1.0))[GROUP]
+    #cell(width = inch(0.7), alignment = "center")[ROW]
+    #cell(width = inch(3.7))[DESCRIPTION]
+    #cell(width = inch(1.1), alignment = "center")[STATE]
+  ]
+  #row[#cell[PREFACE] #cell(alignment = "center")[01] #cell[Ordinary preface row 01.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[02] #cell[Ordinary preface row 02.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[03] #cell[Ordinary preface row 03.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[04] #cell[Ordinary preface row 04.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[05] #cell[Ordinary preface row 05.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[06] #cell[Ordinary preface row 06.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[07] #cell[Ordinary preface row 07.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[08] #cell[Ordinary preface row 08.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[09] #cell[Ordinary preface row 09.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[10] #cell[Ordinary preface row 10.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[11] #cell[Ordinary preface row 11.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[12] #cell[Ordinary preface row 12.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[13] #cell[Ordinary preface row 13.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[14] #cell[Ordinary preface row 14.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[15] #cell[Ordinary preface row 15.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[16] #cell[Ordinary preface row 16.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[17] #cell[Ordinary preface row 17.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[18] #cell[Ordinary preface row 18.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[19] #cell[Ordinary preface row 19.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[20] #cell[Ordinary preface row 20.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[21] #cell[Ordinary preface row 21.] #cell(alignment = "center")[READY]]
+  #row[#cell[PREFACE] #cell(alignment = "center")[22] #cell[Ordinary preface row 22.] #cell(alignment = "center")[READY]]
+  #row[
+    #cell(rowspan = 3, fill = "#bfdbfe", vertical_alignment = "center")[SPAN-A]
+    #cell(alignment = "center")[A1]
+    #cell[
+      #paragraph[SPAN-A ROW 1 LINE 1 — vertical merge begins.]
+      #paragraph[SPAN-A ROW 1 LINE 2 — content remains independently visible.]
+    ]
+    #cell(alignment = "center")[OPEN]
+  ]
+  #row[
+    #cell(alignment = "center")[A2]
+    #cell[
+      #paragraph[SPAN-A ROW 2 LINE 1 — vertical merge continues.]
+      #paragraph[SPAN-A ROW 2 LINE 2 — page flow must preserve the grid.]
+    ]
+    #cell(alignment = "center")[OPEN]
+  ]
+  #row[
+    #cell(alignment = "center")[A3]
+    #cell[
+      #paragraph[SPAN-A ROW 3 LINE 1 — vertical merge concludes.]
+      #paragraph[SPAN-A ROW 3 LINE 2 — the lower border closes the merge.]
+    ]
+    #cell(alignment = "center")[DONE]
+  ]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[01] #cell[Ordinary post-span row 01.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[02] #cell[Ordinary post-span row 02.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[03] #cell[Ordinary post-span row 03.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[04] #cell[Ordinary post-span row 04.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[05] #cell[Ordinary post-span row 05.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[06] #cell[Ordinary post-span row 06.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[07] #cell[Ordinary post-span row 07.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[08] #cell[Ordinary post-span row 08.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[09] #cell[Ordinary post-span row 09.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[10] #cell[Ordinary post-span row 10.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[11] #cell[Ordinary post-span row 11.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[12] #cell[Ordinary post-span row 12.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[13] #cell[Ordinary post-span row 13.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[14] #cell[Ordinary post-span row 14.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[15] #cell[Ordinary post-span row 15.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[16] #cell[Ordinary post-span row 16.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[17] #cell[Ordinary post-span row 17.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[18] #cell[Ordinary post-span row 18.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[19] #cell[Ordinary post-span row 19.] #cell(alignment = "center")[READY]]
+  #row[#cell[AFTER-A] #cell(alignment = "center")[20] #cell[Ordinary post-span row 20.] #cell(alignment = "center")[READY]]
+  #row[
+    #cell(colspan = 3, fill = "#fef3c7")[
+      #paragraph[SPAN-B LINE 01 — this cell crosses the first three grid columns.]
+      #paragraph[SPAN-B LINE 02 — its content remains inside one merged frame.]
+      #paragraph[SPAN-B LINE 03 — no row height or page break is authored.]
+      #paragraph[SPAN-B LINE 04 — Word determines whether the row divides.]
+      #paragraph[SPAN-B LINE 05 — a continuation retains the merged width.]
+      #paragraph[SPAN-B LINE 06 — borders remain aligned with the fourth column.]
+      #paragraph[SPAN-B LINE 07 — all text appears exactly once.]
+      #paragraph[SPAN-B LINE 08 — this is the horizontal-span terminator.]
+    ]
+    #cell(alignment = "center")[SPAN-B]
+  ]
+  #row[#cell[FINAL] #cell(alignment = "center")[01] #cell[The ordinary row following both span controls.] #cell(alignment = "center")[DONE]]
+]
+
+#paragraph(spacing = { before = pt(10) }, fill = "#dcfce7")[
+REVIEW: SPAN-A remains one continuous vertical merge and SPAN-B retains one
+three-column frame wherever Word's natural pagination places them.
+]

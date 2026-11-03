@@ -1,0 +1,89 @@
+#metadata(title = "Mote Image Transforms", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(9),
+  page = { size = "letter" },
+  margin = { top = pt(42), right = pt(66), bottom = pt(42), left = pt(66) }
+)
+
+#style(
+  name = "TransformProbe",
+  type = "paragraph",
+  run = { size = pt(9), bold = true, color = "#1e3a8a" },
+  paragraph = {
+    spacing = {
+      before = pt(3),
+      after = pt(1),
+      line = { rule = "multiple", value = 1.0 }
+    }
+  }
+)
+
+# Image Transforms
+
+The circle, striped rectangle, dark background, and diagonal stripe direction make every transform visible. Each native page output must match Word without clipping rotated corners.
+
+#paragraph(style = "TransformProbe")[A. Original control — circle left, stripes right]
+#image(
+  "assets/mote-logo.png",
+  alt = "Original asymmetric Mote logo",
+  width = inch(1.65),
+  alignment = "center",
+  spacing = { before = pt(0), after = pt(2) }
+)
+
+#paragraph(style = "TransformProbe")[B. Crop only — 10% top, 25% right, 15% bottom, 5% left]
+#image(
+  "assets/mote-logo.png",
+  alt = "Cropped asymmetric Mote logo",
+  width = inch(1.65),
+  alignment = "center",
+  spacing = { before = pt(0), after = pt(2) },
+  crop = { top = 10, right = 25, bottom = 15, left = 5 }
+)
+
+#paragraph(style = "TransformProbe")[C. Horizontal flip — circle right, stripes left]
+#image(
+  "assets/mote-logo.png",
+  alt = "Horizontally flipped asymmetric Mote logo",
+  width = inch(1.65),
+  alignment = "center",
+  spacing = { before = pt(0), after = pt(2) },
+  flip_horizontal = true
+)
+
+#paragraph(style = "TransformProbe")[D. Vertical flip — circle stays left, stripe direction reverses]
+#image(
+  "assets/mote-logo.png",
+  alt = "Vertically flipped asymmetric Mote logo",
+  width = inch(1.65),
+  alignment = "center",
+  spacing = { before = pt(0), after = pt(2) },
+  flip_vertical = true
+)
+
+#paragraph(style = "TransformProbe")[E. 18-degree rotation — every corner remains visible]
+#image(
+  "assets/mote-logo.png",
+  alt = "Rotated asymmetric Mote logo",
+  width = inch(1.65),
+  alignment = "center",
+  spacing = { before = pt(0), after = pt(2) },
+  rotation = "18deg"
+)
+
+#paragraph(style = "TransformProbe")[F. Combined — crop, both flips, then 12-degree rotation]
+#image(
+  "assets/mote-logo.png",
+  alt = "Cropped, flipped, and rotated asymmetric Mote logo",
+  width = inch(1.65),
+  alignment = "center",
+  spacing = { before = pt(0), after = pt(2) },
+  crop = { top = 4, right = 14, bottom = 8, left = 2 },
+  rotation = "12deg",
+  flip_horizontal = true,
+  flip_vertical = true
+)
+
+#paragraph(fill = "#dcfce7", spacing = { before = pt(4), after = pt(0) })[PASS: all six probes preserve their authored centre line, crop fills the original box, flips occur before rotation, and no rotated corner is clipped.]

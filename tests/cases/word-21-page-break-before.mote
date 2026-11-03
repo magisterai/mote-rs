@@ -1,0 +1,85 @@
+#metadata(title = "Mote Page Break Before", author = "Mote")
+
+#document(
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(8),
+      line = { rule = "exact", value = pt(18) }
+    }
+  }
+)
+
+#style(
+  name = "NewPage",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(15), bold = true, color = "#166534" },
+  paragraph = {
+    page_break_before = true,
+    spacing = {
+      before = pt(0),
+      after = pt(12),
+      line = { rule = "exact", value = pt(24) }
+    }
+  }
+)
+
+#style(
+  name = "InheritedNewPage",
+  type = "paragraph",
+  based_on = "NewPage",
+  run = { size = pt(12), color = "#9f1239" }
+)
+
+#style(
+  name = "DirectBreak",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(15), bold = true, color = "#6d28d9" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(12),
+      line = { rule = "exact", value = pt(24) }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+#paragraph(fill = "#fee2e2")[PAGE 1 — this red anchor must be the only numbered-page probe above the green block.]
+
+#paragraph[The next paragraph owns page_break_before through its declared style. It must begin page 2.]
+
+#paragraph(style = "NewPage", fill = "#dcfce7")[PAGE 2 — STYLE BREAK. This green block must start at the top of page 2.]
+
+#paragraph(
+  style = "InheritedNewPage",
+  page_break_before = false,
+  fill = "#ffe4e6"
+)[PAGE 2 — EXPLICIT FALSE. This rose block inherits a page break but disables it directly, so it must stay on page 2.]
+
+#paragraph[An explicit break follows. The next style-based break is deliberately already at the top of a new physical page.]
+
+#break()
+
+#paragraph(style = "NewPage", fill = "#dbeafe")[PAGE 3 — TOP-OF-PAGE SUPPRESSION. This blue block must remain on page 3, with no blank page inserted.]
+
+#paragraph[This ordinary text creates content on page 3 before the direct page-break probe.]
+
+#paragraph(
+  style = "DirectBreak",
+  page_break_before = true,
+  fill = "#ede9fe"
+)[PAGE 4 — DIRECT BREAK. This purple block must start at the top of page 4.]
+
+#paragraph[PASS: exactly four pages. Page 2 contains both the green and rose blocks; page 3 begins with blue; page 4 begins with purple.]

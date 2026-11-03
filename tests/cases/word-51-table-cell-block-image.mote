@@ -1,0 +1,53 @@
+#metadata(title = "Mote Table Cell Block Image", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+# Table Cell Block Image
+
+The native block image inside the left table cell must render in Word, PDF, and PNG with the same authored size, aspect ratio, and centered placement.
+
+#table(
+  width = inch(6.5),
+  layout = "fixed",
+  alignment = "center",
+  cell = {
+    margin = { all = pt(8) },
+    vertical_alignment = "center",
+    borders = { all = { style = "single", size = 8, color = "#64748b" } }
+  }
+)[
+  #row[
+    #cell(width = inch(3.25), fill = "#eff6ff")[
+      #paragraph[BLOCK IMAGE INSIDE CELL]
+      #image(
+        "assets/mote-logo.png",
+        alt = "[Mote logo block image]",
+        width = inch(1.35),
+        alignment = "center"
+      )
+      #paragraph[Word/PDF/PNG: native image#line_break()with identical size, ratio, and centered placement.]
+    ]
+    #cell(width = inch(3.25), fill = "#f8fafc")[
+      #paragraph[CONTROL CELL]
+      #paragraph[This ordinary nested cell content remains native in every backend.]
+    ]
+  ]
+]
+
+## Outside-Table Control
+
+The same block image below remains native and warning-free in all three outputs.
+
+#image(
+  "assets/mote-logo.png",
+  alt = "Mote logo outside table",
+  width = inch(1.35),
+  alignment = "center"
+)
+
+#paragraph(fill = "#dcfce7")[PASS: the cell and outside-table controls both render natively at the authored size and aspect ratio.]

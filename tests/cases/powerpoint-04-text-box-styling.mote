@@ -1,0 +1,21 @@
+#font(name = "display", latin = "Aptos Display")
+
+#slide[
+  #box(
+    position = { x = inch(1), y = inch(1), width = inch(8), height = inch(2.5) },
+    fill = "#f8fafc",
+    border = { color = "#94a3b8", width = pt(1), style = "dashed" },
+    margin = { top = pt(10), right = pt(12), bottom = pt(10), left = pt(14) },
+    alignment = "center",
+    vertical_alignment = "middle"
+  )[
+    #span(font = "display", size = pt(18), color = "#111827", bold = true, italic = true)[Quarterly Review]
+    #line_break()
+    #underline(style = "double", color = "#c00000")[Total]
+    #strike(kind = "double")[Removed]
+    H#subscript[2]O x#superscript[2]
+    #highlight(fill = "#fff2cc")[Review]
+    #small_caps[Notice]
+    #span(underline = true, strike = true, small_caps = true, highlight = "#dbeafe")[Span styles]
+  ]
+]

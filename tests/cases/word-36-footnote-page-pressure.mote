@@ -1,0 +1,95 @@
+#metadata(title = "Mote Footnote Page Pressure", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(60), right = pt(60), bottom = pt(60), left = pt(60) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(10), color = "#111827" },
+  paragraph = {
+    widow_control = true,
+    spacing = {
+      before = pt(0),
+      after = pt(2),
+      line = { rule = "exact", value = pt(15) }
+    }
+  }
+)
+
+#style(
+  name = "Heading1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(19), bold = true, color = "#1e3a8a" },
+  paragraph = {
+    keep_with_next = true,
+    spacing = {
+      before = pt(0),
+      after = pt(8),
+      line = { rule = "exact", value = pt(25) }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Footnote Page Pressure
+
+#paragraph(fill = "#dbeafe")[
+  BODY START — all page movement in this case must result from ordinary paragraph and footnote flow; there is no authored page break.
+]
+
+#paragraph[BODY-FN-01 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-02 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-03 — natural-flow line before the note reference.]
+#paragraph[
+  BODY-FN-04 — short control note#footnote[SHORT-FN-01: this compact control note remains at the bottom of the page containing its reference.] before the pressure sequence.
+]
+#paragraph[BODY-FN-05 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-06 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-07 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-08 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-09 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-10 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-11 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-12 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-13 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-14 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-15 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-16 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-17 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-18 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-19 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-20 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-21 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-22 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-23 — natural-flow line before the note reference.]
+#paragraph[BODY-FN-24 — final natural-flow line before the long note.]
+
+#paragraph(fill = "#fef3c7")[
+  LONG-REFERENCE — the long footnote begins here#footnote[
+    LONG-FN-02 START. This deliberately extended footnote supplies enough ordinary prose to reserve a substantial page-bottom note area. Its sentences are continuous and editable rather than separated by manual line or page breaks. Word should keep the reference associated with this note, place the note below its separator, and move as much main-story text as necessary so the two stories never overlap. The note contains stable opening and closing markers so a reviewer can detect truncation, duplication, or accidental inline fallback text. It also includes several sentences of varied length to exercise natural wrapping without relying on one unusually long token. Native PDF and PNG should preserve the same reference order, the same body-story pagination pressure, and a readable page-bottom note area. LONG-FN-02 END.
+  ] and the main story continues after its marker.
+]
+
+#paragraph[BODY-FN-25 — first natural-flow line after the long note reference.]
+#paragraph[BODY-FN-26 — second natural-flow line after the long note reference.]
+#paragraph[BODY-FN-27 — third natural-flow line after the long note reference.]
+#paragraph[BODY-FN-28 — fourth natural-flow line after the long note reference.]
+#paragraph[BODY-FN-29 — fifth natural-flow line after the long note reference.]
+#paragraph[BODY-FN-30 — sixth natural-flow line after the long note reference.]
+#paragraph[BODY-FN-31 — seventh natural-flow line after the long note reference.]
+#paragraph[BODY-FN-32 — eighth natural-flow line after the long note reference.]
+#paragraph[BODY-FN-33 — ninth natural-flow line after the long note reference.]
+#paragraph[BODY-FN-34 — tenth natural-flow line after the long note reference.]
+#paragraph[BODY-FN-35 — eleventh natural-flow line after the long note reference.]
+#paragraph[BODY-FN-36 — final natural-flow line after the long note reference.]
+
+#paragraph(fill = "#dcfce7")[
+  BODY END — both footnote bodies remain in page-bottom note stories, all BODY-FN markers remain in order, and no main-story line overlaps a footnote.
+]

@@ -1,0 +1,57 @@
+#metadata(title = "Mote Annotation Story Placement", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(66), right = pt(66), bottom = pt(60), left = pt(66) }
+)
+
+#header(height = pt(28), distance = pt(12))[
+  #paragraph[
+    HEADER FALLBACKS:
+    #footnote[header footnote]
+    #endnote[header endnote]
+    #comment(author = "Header")[header comment]
+  ]
+]
+
+#footer(height = pt(24), distance = pt(12))[
+  #paragraph[
+    FOOTER FALLBACKS:
+    #footnote[footer footnote]
+    #endnote[footer endnote]
+    #comment(author = "Footer")[footer comment]
+  ]
+]
+
+# Annotation Story Placement
+
+Main-story native controls:
+footnote#footnote[main footnote],
+endnote#endnote[main endnote],
+and #comment(author = "Main")[main comment].
+
+#paragraph[
+  Comment-story fallbacks:
+  #comment(author = "Outer")[
+    outer text
+    #footnote[comment footnote]
+    #endnote[comment endnote]
+    #comment(author = "Inner")[inner comment]
+  ]
+]
+
+#paragraph[
+  Note-story comment fallbacks:
+  footnote#footnote[
+    #paragraph[footnote before #comment(author = "Footnote")[footnote comment] after]
+  ]
+  and endnote#endnote[
+    #paragraph[endnote before #comment(author = "Endnote")[endnote comment] after]
+  ].
+]
+
+#paragraph(fill = "#dcfce7")[
+  PASS: every fallback phrase remains visible, while native annotation semantics are confined to the main document story.
+]

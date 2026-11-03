@@ -1,0 +1,163 @@
+#metadata(title = "Mote Section Transition", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter", orientation = "portrait" },
+  margin = {
+    top = pt(60),
+    right = pt(60),
+    bottom = pt(60),
+    left = pt(60),
+    header = pt(24),
+    footer = pt(24)
+  }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(4),
+      line = { rule = "exact", value = pt(15) }
+    }
+  }
+)
+
+#style(
+  name = "Heading1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(19), bold = true, color = "#1e3a8a" },
+  paragraph = {
+    keep_with_next = true,
+    spacing = {
+      before = pt(0),
+      after = pt(8),
+      line = { rule = "exact", value = pt(25) }
+    }
+  }
+)
+
+#style(
+  name = "Header",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(8), bold = true, color = "#475569" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(10) }
+    }
+  }
+)
+
+#style(
+  name = "Footer",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(8), color = "#475569" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(10) }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+#header(height = pt(16), distance = pt(12))[
+  #paragraph(style = "Header")[DEFAULT PORTRAIT HEADER]
+]
+
+#footer(height = pt(16), distance = pt(12))[
+  #paragraph(style = "Footer", alignment = "center")[DEFAULT PORTRAIT FOOTER — DISPLAYED PAGE #page_number()]
+]
+
+# Section Transition
+
+#paragraph(fill = "#dbeafe")[
+  SECTION A — PORTRAIT SINGLE COLUMN — default header and footer — displayed page 1.
+]
+
+#paragraph[
+  A-01 remains in the initial implicit portrait section.
+]
+
+#section(
+  properties = { start = "continuous" },
+  page = { size = "letter", orientation = "portrait" },
+  columns = { count = 2, gap = pt(24), separator = true }
+)[
+  #paragraph(fill = "#fef3c7")[
+    SECTION B — CONTINUOUS PORTRAIT TWO COLUMNS — begins on the same physical page and retains the default header and footer.
+  ]
+  #paragraph[B-01 — first narrow-column marker.]
+  #paragraph[B-02 — second narrow-column marker.]
+  #paragraph[B-03 — third narrow-column marker.]
+  #paragraph[B-04 — fourth narrow-column marker.]
+  #paragraph[B-05 — fifth narrow-column marker.]
+  #paragraph[B-06 — sixth narrow-column marker.]
+]
+
+#section(
+  properties = { start = "next_page" },
+  page = { size = "letter", orientation = "landscape" },
+  margin = {
+    top = pt(48),
+    right = pt(54),
+    bottom = pt(48),
+    left = pt(54),
+    header = pt(20),
+    footer = pt(20)
+  },
+  columns = { count = 2, gap = pt(30), separator = true },
+  page_numbering = { restart = true, start = 1 }
+)[
+  #header(height = pt(16), distance = pt(10))[
+    #paragraph(style = "Header")[LOCAL LANDSCAPE HEADER]
+  ]
+  #footer(height = pt(16), distance = pt(10))[
+    #paragraph(style = "Footer", alignment = "center")[LOCAL LANDSCAPE FOOTER — DISPLAYED PAGE #page_number()]
+  ]
+
+  #paragraph(fill = "#ede9fe")[
+    SECTION C — NEXT-PAGE LANDSCAPE TWO COLUMNS — local header and footer — numbering restarts at displayed page 1.
+  ]
+  #paragraph[C-01 — landscape flow marker.]
+  #paragraph[C-02 — landscape flow marker.]
+  #paragraph[C-03 — landscape flow marker.]
+  #paragraph[C-04 — landscape flow marker.]
+  #paragraph[C-05 — landscape flow marker.]
+  #paragraph[C-06 — landscape flow marker.]
+  #paragraph[
+    C-END — the next section requests a new physical page and restores portrait single-column geometry.
+  ]
+]
+
+#section(
+  properties = { start = "next_page" },
+  page = { size = "letter", orientation = "portrait" },
+  margin = {
+    top = pt(60),
+    right = pt(60),
+    bottom = pt(60),
+    left = pt(60),
+    header = pt(24),
+    footer = pt(24)
+  },
+  columns = { count = 1 }
+)[
+  #paragraph(fill = "#dcfce7")[
+    SECTION D — NEXT-PAGE PORTRAIT SINGLE COLUMN — default header and footer restored — displayed page 2 after the landscape restart.
+  ]
+  #paragraph[
+    PASS: physical pages are portrait, landscape, portrait; section B begins continuously on page 1; section C replaces the header and footer; section D restores the defaults; numbering restarts only for section C.
+  ]
+]

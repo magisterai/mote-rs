@@ -1,0 +1,30 @@
+#metadata(title = "Mote Notes Two Pages", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(66), right = pt(66), bottom = pt(60), left = pt(66) }
+)
+
+# Notes - Two Pages
+
+#paragraph[
+  PAGE 1 REFERENCES: F-P1#footnote[TWO-FN-P1: page-one footnote body.] | E-P1#endnote[TWO-EN-P1: first document endnote body.] | END PAGE 1.
+]
+
+#paragraph(fill = "#dcfce7")[
+  PASS P1: the first page-local footnote is below the rule; its endnote remains deferred to the document end.
+]
+
+#break()
+
+## Page 2
+
+#paragraph[
+  PAGE 2 REFERENCES: F-P2#footnote[TWO-FN-P2: page-two footnote body.] | E-P2#endnote[TWO-EN-P2: second document endnote body.] | END PAGE 2.
+]
+
+#paragraph(fill = "#dcfce7")[
+  PASS P2: the second page-local footnote is below the rule; both endnotes follow this paragraph in source order.
+]

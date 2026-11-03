@@ -1,0 +1,37 @@
+#metadata(title = "Media References Notes")
+#document(default_font = "body", page = { size = "letter" })
+#font(name = "body", latin = "Aptos")
+
+#label("overview", kind = "heading", title = "Overview")
+# Overview
+
+See [the overview](#overview) and #ref(target = "overview", fallback = "the overview").
+
+#figure(kind = "image", alignment = "center", numbering = { enabled = true, id = "figures", label = "Figure" })[
+  #label("mote-logo")
+  ![Mote Logo](assets/mote-logo.png "Mote")
+  #caption[The Mote reference logo.]
+]
+
+The first figure is #ref(target = "mote-logo", display = "number", fallback = "Figure 1") on page #ref(target = "mote-logo", display = "page", fallback = "1").
+
+#figure(kind = "image", alignment = "left", numbering = { enabled = true, id = "figures", label = "Figure" })[
+  #image(
+    src = "assets/mote-logo.png",
+    name = "Linked Mote Logo",
+    description = "Linked logo with visual controls",
+    alt = "Linked Mote logo",
+    link = "https://example.com",
+    crop = { top = 2, right = 2, bottom = 2, left = 2 },
+    border = { color = "#336699", width = pt(1), style = "dashed" }
+  )
+  #caption[Linked image with crop and a dashed border.]
+]
+
+#paragraph[
+  Footnote support#footnote[This is a footnote.] and endnote support#endnote[This is an endnote.] are both emitted.
+]
+
+#paragraph[
+  #comment(author = "Reviewer", initials = "RV", date = date("2026-05-24"))[Commented text] remains visible with a Word comment range.
+]

@@ -1,0 +1,34 @@
+#import("defaults/document.mote")
+#metadata(title = "Quarterly delivery review", author = "Mote style sample")
+
+#paragraph(style = "Title")[Quarterly delivery review]
+#paragraph(style = "Subtitle")[Style sample · Demonstration data]
+
+#paragraph(style = "Lead")[A readable report starts with a clear summary, a small number of useful headings, and tables that make comparisons easy.]
+
+## Delivery summary
+
+This sample applies the document preset to ordinary Mote content. The page uses a comfortable text width, dark body text, and consistent spacing. **Important findings** can be emphasized without changing the overall style.
+
+The figures below are illustrative. Text columns are left aligned; numeric columns are right aligned. The table fills the text area without setting a width in the content file.
+
+| Workstream | Completed | Planned | On time |
+| :--- | ---: | ---: | ---: |
+| Research | 18 | 20 | 90% |
+| Design | 24 | 24 | 100% |
+| Engineering | 42 | 48 | 88% |
+| Quality | 31 | 34 | 91% |
+| Operations | 16 | 18 | 89% |
+| Support | 27 | 30 | 90% |
+
+#paragraph(style = "Caption")[Table 1. Illustrative delivery figures. Alternating rows help the reader follow each workstream across the page.]
+
+### Priorities for the next cycle
+
+- Finish the remaining engineering work before adding new scope.
+- Review quality checks with the delivery team.
+- Keep status reporting short enough to scan before each meeting.
+
+### Authoring notes
+
+Use `#import("defaults/document.mote")` before the content, with a path relative to your file. Markdown headings, lists, and tables inherit the preset.

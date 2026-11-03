@@ -1,0 +1,101 @@
+#metadata(title = "Mote Nested Table Content", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(6),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#style(
+  name = "OuterGrid",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#eff6ff" }
+    },
+    cell = {
+      margin = { top = pt(8), right = pt(8), bottom = pt(8), left = pt(8) },
+      vertical_alignment = "top",
+      borders = { all = { color = "#1e3a8a" } }
+    }
+  }
+)
+
+#style(
+  name = "InnerGrid",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#fef3c7" },
+      text = { bold = true, color = "#78350f" }
+    },
+    cell = {
+      margin = { top = pt(5), right = pt(5), bottom = pt(5), left = pt(5) },
+      borders = { all = { color = "#d97706" } }
+    }
+  }
+)
+
+#heading(level = 1)[Nested Table Content]
+
+#paragraph[
+The left outer cell contains ordinary paragraphs before and after a genuine
+two-by-two nested table. The right outer cell is a plain-content control.
+]
+
+#table(
+  style = "OuterGrid",
+  width = inch(6.5),
+  alignment = "center"
+)[
+  #row[
+    #cell(width = inch(3.25))[
+      #paragraph[OUTER-LEFT-BEFORE — paragraph before the nested table.]
+      #table(
+        style = "InnerGrid",
+        width = inch(2.75),
+        alignment = "center"
+      )[
+        #row[
+          #cell(width = inch(1.375))[INNER-A1]
+          #cell(width = inch(1.375))[INNER-B1]
+        ]
+        #row[
+          #cell[INNER-A2]
+          #cell[INNER-B2]
+        ]
+      ]
+      #paragraph[OUTER-LEFT-AFTER — paragraph after the nested table.]
+    ]
+    #cell(width = inch(3.25), fill = "#f8fafc")[
+      #paragraph[OUTER-RIGHT-CONTROL]
+      #paragraph[This cell contains two ordinary paragraphs and no nested structure.]
+    ]
+  ]
+  #row[
+    #cell(colspan = 2, fill = "#ffffff")[
+      OUTER-FINAL — this full-width row follows the complete nested cell.
+    ]
+  ]
+]
+
+#paragraph(fill = "#dcfce7")[
+REVIEW: INNER-A1, INNER-B1, INNER-A2, and INNER-B2 form a native 2×2 grid
+between the two outer-left paragraphs; no nested marker is flattened or lost.
+]

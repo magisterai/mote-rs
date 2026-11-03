@@ -1,0 +1,51 @@
+{
+  "deck": {
+    "background": "#f8fafc",
+    "text": "#172033",
+    "accent": "#7c3aed",
+    "footer": "Mote Lua + JSON named-layout conformance"
+  },
+  "layout": {
+    "name": "json_evidence",
+    "based_on": "blank",
+    "background": "#faf5ff",
+    "footer": "Layout metadata loaded from JSON",
+    "title": {
+      "name": "title",
+      "kind": "text",
+      "required": true,
+      "position": { "x": "0.7in", "y": "0.35in", "width": "11.93in", "height": "0.72in" },
+      "fill": "#581c87",
+      "color": "#ffffff",
+      "size": "30pt",
+      "margin": { "top": "8pt", "right": "14pt", "bottom": "8pt", "left": "14pt" }
+    },
+    "summary": {
+      "name": "summary",
+      "kind": "text",
+      "required": true,
+      "position": { "x": "0.82in", "y": "1.45in", "width": "4.15in", "height": "4.95in" },
+      "fill": "#ffffff",
+      "border": "#d8b4fe",
+      "margin": { "top": "16pt", "right": "18pt", "bottom": "16pt", "left": "18pt" }
+    },
+    "chart": {
+      "name": "chart",
+      "kind": "chart",
+      "required": true,
+      "position": { "x": "5.35in", "y": "1.3in", "width": "7.25in", "height": "5.25in" }
+    }
+  },
+  "slide": {
+    "title": "Lua And JSON Drive A Typed Layout",
+    "kicker": "One source, three independent outputs",
+    "summary": "JSON supplies slot names, types, geometry, colors, margins, and layout-level metadata. Lua reshapes row-oriented values into an editable chart while native PDF and PNG paint the same resolved slide.",
+    "chart_title": "Resolved Objects By Output",
+    "series_name": "Objects",
+    "series": [
+      { "label": "PPTX", "value": 8 },
+      { "label": "PDF", "value": 8 },
+      { "label": "PNG", "value": 8 }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+#metadata(title = "Mote Rich Numbering", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(10),
+  page = { size = "letter" },
+  margin = { top = pt(54), right = pt(72), bottom = pt(54), left = pt(72) }
+)
+
+#font(name = "body", latin = "Helvetica")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(10), color = "#111827" },
+  paragraph = {
+    spacing = {
+      after = pt(7),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+# Rich Numbering
+
+Every ordered-list marker, generated caption number, and generated reference
+must use the authored numbering format in DOCX, PDF, and PNG.
+
+## Alphabetic Lists
+
+#ordered_list(start = 25, format = "lower_alpha")[
+  #item[Lower-alpha item 25 must be y.]
+  #item[Lower-alpha item 26 must be z.]
+  #item[Lower-alpha item 27 must be aa.]
+]
+
+#ordered_list(start = 27, format = "upper_alpha")[
+  #item[Upper-alpha item 27 must be AA.]
+  #item[Upper-alpha item 28 must be BB.]
+]
+
+## Roman Lists
+
+#ordered_list(start = 4, format = "lower_roman")[
+  #item[Lower-Roman item 4 must be iv.]
+  #item[Lower-Roman item 5 must be v.]
+]
+
+#ordered_list(start = 9, format = "upper_roman")[
+  #item[Upper-Roman item 9 must be IX.]
+  #item[Upper-Roman item 10 must be X.]
+]
+
+## Continued And Restarted Lists
+
+#ordered_list(id = "approval-steps", start = 3, format = "upper_alpha")[
+  #item[Initial sequence item 3 must be C.]
+  #item[Initial sequence item 4 must be D.]
+]
+
+This paragraph interrupts the numbered sequence.
+
+#ordered_list(id = "approval-steps", start = 20, format = "upper_alpha")[
+  #item[The matching id continues at E; the later start is ignored.]
+]
+
+#ordered_list(id = "approval-steps", restart = true, start = 1, format = "upper_alpha")[
+  #item[The explicit restart returns to A.]
+]
+
+#ordered_list(id = "approval-steps", format = "upper_alpha")[
+  #item[The restarted sequence then continues at B.]
+]
+
+Forward generated number: #ref(target = "numbered-exhibit", display = "number").
+
+#figure(
+  kind = "table",
+  numbering = {
+    enabled = true,
+    id = "exhibits",
+    label = "Exhibit",
+    format = "upper_roman",
+    separator = " — ",
+    restart = true,
+    start = 4
+  }
+)[
+  #label("numbered-exhibit")
+  #table(
+    width = inch(5.5),
+    alignment = "center",
+    cell = {
+      margin = { all = pt(5) },
+      borders = { all = { color = "#64748b" } }
+    }
+  )[
+    #row[
+      #cell(width = inch(2.0), fill = "#dbeafe")[Number]
+      #cell(width = inch(3.5), fill = "#eff6ff")[Expected]
+    ]
+    #row[
+      #cell[First exhibit]
+      #cell[Exhibit IV — Revenue comparison]
+    ]
+  ]
+  #caption[Revenue comparison]
+]
+
+#figure(
+  kind = "table",
+  numbering = {
+    enabled = true,
+    id = "exhibits",
+    label = "Exhibit",
+    format = "upper_roman",
+    separator = ": "
+  }
+)[
+  #table(
+    width = inch(5.5),
+    alignment = "center",
+    cell = {
+      margin = { all = pt(5) },
+      borders = { all = { color = "#64748b" } }
+    }
+  )[
+    #row[
+      #cell[Second exhibit]
+      #cell[The shared sequence continues at V.]
+    ]
+  ]
+  #caption[Continuation check]
+]
+
+#paragraph(fill = "#dcfce7")[
+  PASS: list markers include y, z, aa, AA, BB, iv, v, IX, X and the continued
+  C, D, E, A, B sequence; the forward reference reads Exhibit IV; captions
+  begin “Exhibit IV —” and “Exhibit V:”.
+]

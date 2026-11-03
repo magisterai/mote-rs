@@ -1,0 +1,90 @@
+#metadata(title = "DOCX Chart Properties Golden", author = "Mote")
+
+#document(default_font = "body", margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+#font(name = "body", latin = "Aptos")
+#font(name = "heading", latin = "Aptos Display")
+#style(name = "Normal", type = "paragraph", font = "body", size = pt(11), spacing_after = pt(8))
+#style(name = "Heading1", type = "paragraph", based_on = "Normal", font = "heading", size = pt(22), bold = true, spacing_after = pt(10))
+#style(name = "Heading2", type = "paragraph", based_on = "Normal", font = "heading", size = pt(15), bold = true, spacing_before = pt(12), spacing_after = pt(6))
+
+# Chart Properties
+
+This fixture exercises chart plot area styling, gridlines, data labels, and bar spacing.
+
+## Styled Column Chart
+
+#chart(
+  kind = "column",
+  title = "Quarterly Revenue",
+  width = inch(6.25),
+  height = inch(3.25),
+  data = {
+    categories = { "Q1", "Q2", "Q3", "Q4" },
+    series = {
+      { name = "Actual", values = { 12.4, 14.8, 16.1, 19.3 } },
+      { name = "Forecast", values = { 13.0, 15.2, 17.4, 20.1 } }
+    }
+  },
+  axis = {
+    category = { title = "Quarter" },
+    value = { title = "Revenue ($M)" }
+  },
+  legend = { position = "bottom" },
+  plot_area = { background = "#ffffff", border = false },
+  gridlines = { major = true, color = "#e5e7eb", width = pt(0.5) },
+  data_labels = { value = true, position = "outside_end" },
+  gap_width = 75,
+  colors = { "#2563eb", "#059669" }
+)
+
+## Pie Data Labels
+
+#chart(
+  kind = "pie",
+  title = "Pipeline Mix",
+  width = inch(5.75),
+  height = inch(3.1),
+  data = {
+    categories = { "New", "Expansion", "Renewal", "Services" },
+    series = {
+      { name = "Pipeline", values = { 42, 28, 21, 9 } }
+    }
+  },
+  legend = { position = "right" },
+  data_labels = { percentage = true, position = "best_fit" },
+  colors = { "#2563eb", "#059669", "#d97706", "#dc2626" }
+)
+
+## Stacked And Area Charts
+
+#chart(
+  kind = "stacked_bar",
+  title = "Stacked Support Load",
+  width = inch(5.75),
+  height = inch(3.1),
+  data = {
+    categories = { "Parser", "Emitter", "QA" },
+    series = {
+      { name = "Open", values = { 12, 18, 7 } },
+      { name = "Closed", values = { 20, 24, 13 } }
+    }
+  },
+  legend = { position = "bottom" },
+  colors = { "#2563eb", "#059669" }
+)
+
+#chart(
+  kind = "area",
+  title = "Area Trend",
+  width = inch(5.75),
+  height = inch(3.1),
+  data = {
+    categories = { "Jan", "Feb", "Mar" },
+    series = {
+      { name = "Teams", values = { 18, 26, 39 } },
+      { name = "Projects", values = { 9, 14, 23 } }
+    }
+  },
+  legend = { position = "bottom" },
+  colors = { "#93c5fd", "#86efac" }
+)

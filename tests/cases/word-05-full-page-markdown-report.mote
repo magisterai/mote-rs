@@ -1,0 +1,67 @@
+#document(default_font = "body")
+#font(name = "body", latin = "Helvetica")
+
+# Full Page Markdown Report
+
+This fixture is intentionally ordinary markdown. It exists to compare PDF and DOCX pagination when the author has not supplied layout directives.
+
+## Executive Summary
+
+Mote should make a readable document from headings, paragraphs, lists, blockquotes, rules, and tables. The visual result does not need identical line breaks across PDF and Word, but the structure, spacing, and relative proportions should feel close.
+
+The first page contains enough body copy to exercise wrapping. The second page starts naturally when the content flows beyond the available page height.
+
+> A blockquote should be visually distinct, but it should not dominate the page. It is ordinary document content, not a callout box.
+
+## Findings
+
+1. Markdown is the default authoring surface.
+2. Directives add semantic document structure only when needed.
+3. Tables should use their natural content width unless the author asks for a wider layout.
+4. Lists should keep consistent indentation across output formats.
+
+---
+
+## Operating Notes
+
+The following paragraphs are repeated on purpose. They give us a full page without relying on PDF-specific directives or artificial page breaks.
+
+Progressive authoring means a user can start with a plain markdown memo, add a default font later, then add a header, footer, section, or table style only when the document needs it. The backend should preserve that path. A PDF output is visual and final, but it should still reflect the same neutral document model used by the editable Word backend.
+
+The paragraph spacing should be comfortable but not airy. Headings should be visibly stronger than body text. A horizontal rule should span the available text area and separate sections without looking like a row of typed characters.
+
+Nested lists are common in notes and lightweight reports:
+
+- Parser behavior
+  - Markdown headings
+  - Markdown tables
+  - Inline formatting
+- Emitter behavior
+  - Page flow
+  - Table measurement
+  - Divider rendering
+- Review behavior
+  - Compare PDF pages
+  - Compare Word-rendered pages
+
+## Small Budget Table
+
+| Item | Owner | Amount |
+| --- | :---: | ---: |
+| Retainer | Sales | $2,500.00 |
+| Hosting | Ops | $75.00 |
+| Review | Product | $450.00 |
+
+## Detail
+
+Progressive authoring means a user can start with a plain markdown memo, add a default font later, then add a default font, header, footer, section, or table style only when the document needs it. The backend should preserve that path. A PDF output is visual and final, but it should still reflect the same neutral document model used by the editable Word backend.
+
+The paragraph spacing should be comfortable but not airy. Headings should be visibly stronger than body text. A horizontal rule should span the available text area and separate sections without looking like a row of typed characters.
+
+Progressive authoring means a user can start with a plain markdown memo, add a default font later, then add a header, footer, section, or table style only when the document needs it. The backend should preserve that path. A PDF output is visual and final, but it should still reflect the same neutral document model used by the editable Word backend.
+
+The paragraph spacing should be comfortable but not airy. Headings should be visibly stronger than body text. A horizontal rule should span the available text area and separate sections without looking like a row of typed characters.
+
+## Closing Notes
+
+The final section should land on a later page in both outputs. The exact line endings may differ, but tables, rules, headings, list indentation, and body text density should be comparable.

@@ -1,0 +1,23 @@
+#presentation(
+  size = "wide",
+  background = "#ffffff",
+  footer = "Internal review",
+  date = true,
+  slide_number = true
+)
+
+#slide(notes = "The owner should click through to the live dashboard.")[
+  # Linked Slide
+
+  Review the [dashboard](https://example.com/dashboard) before the meeting.
+
+  | Owner | Status |
+  | --- | :---: |
+  | Product | Ready |
+]
+
+#slide(background = "#f8fafc", footer = false, date = "May 2026")[
+  # Slide Overrides
+
+  The footer is suppressed here while the fixed date remains visible.
+]
