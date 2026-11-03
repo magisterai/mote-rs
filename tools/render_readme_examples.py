@@ -12,48 +12,55 @@ import zipfile
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 SOURCES = REPOSITORY / "examples/readme"
-SAMPLES = ("plain", "defaults", "directives", "presentation", "chart", "lua")
+
+# Each sample names its outputs and its expected native page count. Pure Markdown
+# alone is rendered in both layouts, to show one source serving both formats.
+SAMPLES = {
+    "plain": {"formats": ("docx", "pptx"), "previews": {"document": 1, "presentation": 1}},
+    "defaults": {"formats": ("docx",), "previews": {"document": 1}},
+    "directives": {"formats": ("docx",), "previews": {"document": 1}},
+    "chart": {"formats": ("docx",), "previews": {"document": 1}},
+    "lua": {"formats": ("docx",), "previews": {"document": 1}},
+    "report": {"formats": ("docx", "pdf"), "previews": {"document": 1}},
+    "deck": {"formats": ("pptx", "pdf"), "previews": {"presentation": 4}},
+}
 
 
-def source_for(sample, presentation):
+def source_for(sample):
     if sample == "plain":
         return (SOURCES / "plain.md").read_text()
     if sample == "defaults":
-        source = (SOURCES / "defaults.mote").read_text() + "\n"
-        source += (SOURCES / "plain.md").read_text()
-    else:
-        name = "presentation-document" if sample == "presentation" and not presentation else sample
-        source = (SOURCES / (name + ".mote")).read_text()
-    if presentation and sample != "presentation":
-        source += "\n" + (SOURCES / "slide-defaults.mote").read_text()
-    return source
+        return (SOURCES / "defaults.mote").read_text() + "\n" + (SOURCES / "plain.md").read_text()
+    return (SOURCES / (sample + ".mote")).read_text()
 
 
 def expected_warning(sample, warning):
-    if sample == "plain" and ("fallback" in warning or "substituted" in warning):
-        return True
-    metadata = (
-        "heading.marker", "row.repeat_header", "document.default_size",
-        "document.margin", "document.page",
-    )
-    return any(warning.endswith(
-        f"{property_name} is retained without a presentation output effect"
-    ) for property_name in metadata)
+    # Pure Markdown deliberately uses the engine's fallback font outlines, and
+    # Markdown heading markers and repeated table headers have no slide appearance.
+    if sample == "plain":
+        return (
+            "fallback" in warning or "substituted" in warning
+            or warning.endswith((
+                "heading.marker is retained without a presentation output effect",
+                "row.repeat_header is retained without a presentation output effect",
+            ))
+        )
+    return False
 
 
-def generate(executable, sample, output_format, source, destination, presentation):
+def generate(executable, sample, output_format, source, destination, layout=None):
     arguments = [str(executable), "--format", output_format, "-o", str(destination)]
     if sample == "lua":
         arguments.append("--lua")
     if output_format == "png":
-        arguments.extend(["--dpi", "144", "--layout", "presentation" if presentation else "document"])
+        arguments.extend(["--dpi", "144"])
+    if layout:
+        arguments.extend(["--layout", layout])
     result = subprocess.run(
         arguments + ["-"], input=source, text=True, capture_output=True, cwd=SOURCES
     )
     if result.returncode:
         raise RuntimeError(f"{sample} {output_format}: {result.stderr.strip()}")
-    # Markdown markers and repeating document headers have no slide appearance.
-    # Pure Markdown also deliberately uses the engine's fallback font outlines.
     warnings = result.stderr.strip().splitlines()
     unexpected = [warning for warning in warnings if not expected_warning(sample, warning)]
     if unexpected:
@@ -61,7 +68,7 @@ def generate(executable, sample, output_format, source, destination, presentatio
     return warnings
 
 
-def verify_package(path):
+def verify_package(path, slides_expected):
     with zipfile.ZipFile(path) as package:
         if package.testzip() is not None:
             raise RuntimeError(f"Invalid archive: {path}")
@@ -72,8 +79,8 @@ def verify_package(path):
             slides = [name for name in package.namelist() if (
                 name.startswith("ppt/slides/slide") and name.endswith(".xml")
             )]
-            if len(slides) != 1:
-                raise RuntimeError(f"Expected one slide in {path}, found {len(slides)}")
+            if len(slides) != slides_expected:
+                raise RuntimeError(f"Expected {slides_expected} slides in {path}, found {len(slides)}")
 
 
 def main():
@@ -91,22 +98,26 @@ def main():
     warnings = set()
     with tempfile.TemporaryDirectory(prefix="generation-", dir=temporary_root) as temporary:
         staging = Path(temporary)
-        for sample in SAMPLES:
-            for presentation, output_format in ((False, "docx"), (True, "pptx")):
-                source = source_for(sample, presentation)
+        for sample, outputs in SAMPLES.items():
+            source = source_for(sample)
+            previews = outputs["previews"]
+            for output_format in outputs["formats"]:
+                layout = next(iter(previews)) if output_format == "pdf" else None
                 package = staging / (sample + "." + output_format)
-                warnings.update(generate(executable, sample, output_format, source, package, presentation))
-                verify_package(package)
+                warnings.update(generate(executable, sample, output_format, source, package, layout))
+                if output_format != "pdf":
+                    verify_package(package, previews.get("presentation", 1))
                 publications.append((package, downloads / package.name))
-                primary = presentation == (sample == "presentation")
-                suffix = "" if primary else "-slides" if presentation else "-document"
+            for layout, page_count in previews.items():
+                primary = layout == next(iter(previews))
+                suffix = "" if primary else "-slides"
                 prefix = staging / (sample + suffix)
-                warnings.update(generate(executable, sample, "png", source, prefix, presentation))
-                pages = list(staging.glob(prefix.name + "-[0-9]*.png"))
-                if len(pages) != 1:
-                    raise RuntimeError(f"Expected one preview for {prefix.name}, found {len(pages)}")
-                publications.append((pages[0], images / pages[0].name))
-            print(f"{sample}: generated DOCX, PPTX and both native previews")
+                warnings.update(generate(executable, sample, "png", source, prefix, layout))
+                pages = sorted(staging.glob(prefix.name + "-[0-9]*.png"))
+                if len(pages) != page_count:
+                    raise RuntimeError(f"Expected {page_count} previews for {prefix.name}, found {len(pages)}")
+                publications.extend((page, images / page.name) for page in pages)
+            print(f"{sample}: generated {', '.join(outputs['formats']).upper()} and native previews")
         for source, destination in publications:
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, destination)

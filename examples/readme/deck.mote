@@ -1,0 +1,121 @@
+#import("fonts.mote")
+#presentation(
+  size = "wide", background = "#f6f3ee",
+  theme = {
+    fonts = {heading = "Source Serif 4", body = "Source Sans 3"},
+    colors = {text = "#1f3540", accent1 = "#0f8a7e", accent2 = "#e0902f"}
+  }
+)
+
+#let(survey = json("survey.json"))
+#let(flush = {top = pt(0), right = pt(0), bottom = pt(0), left = pt(0)})
+
+#set shape(
+  border = {style = "none"}, margin = flush,
+  alignment = "center", vertical_alignment = "middle"
+)
+
+#slide(
+  background = "#0b2a3c",
+  notes = "Open with the headline: recovery is real, but uneven. Then hand over to the site results."
+)[
+  #shape(kind = "ellipse", fill = "#0f8a7e", opacity = 22,
+         position = {x = inch(8.9), y = inch(0), width = inch(5.4), height = inch(5.4)})[]
+  #shape(kind = "ellipse", fill = "#5fd0c0", opacity = 14,
+         position = {x = inch(10.6), y = inch(4.1), width = inch(3.2), height = inch(3.2)})[]
+  #box(position = {x = inch(0.9), y = inch(1.55), width = inch(9), height = inch(0.4)}, margin = flush,
+       text = {size = pt(14), bold = true, color = "#5fd0c0"})[
+    HALCYON REEF OBSERVATORY · 2026 FIELD SEASON
+  ]
+  #box(position = {x = inch(0.9), y = inch(2.1), width = inch(9.5), height = inch(2.6)}, margin = flush,
+       text = {font = "Source Serif 4", size = pt(60), bold = true, color = "#ffffff"})[
+    The reef is recovering, unevenly
+  ]
+  #box(position = {x = inch(0.9), y = inch(5.0), width = inch(10), height = inch(0.9)}, margin = flush,
+       text = {size = pt(20), color = "#b9d3dc"})[
+    Results of 212 survey dives across five monitored sites, March to September
+  ]
+]
+
+#slide(notes = "Three numbers to remember. Pause on the third: one site has not recovered at all.")[
+  #box(position = {x = inch(0.9), y = inch(0.7), width = inch(11.5), height = inch(1.1)}, margin = flush,
+       text = {font = "Source Serif 4", size = pt(36), bold = true, color = "#0b3b4f"})[
+    The season in three numbers
+  ]
+  #shape(kind = "round_rect", fill = "#0b3b4f",
+         position = {x = inch(0.9), y = inch(2.2), width = inch(3.65), height = inch(4.2)})[
+    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#5fd0c0")[+5.2]]
+    #paragraph[#span(size = pt(19), color = "#ffffff")[points of live coral cover, on average]]
+  ]
+  #shape(kind = "round_rect", fill = "#0f8a7e",
+         position = {x = inch(4.84), y = inch(2.2), width = inch(3.65), height = inch(4.2)})[
+    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#ffffff")[4 of 5]]
+    #paragraph[#span(size = pt(19), color = "#e6f5f3")[monitored sites are recovering]]
+  ]
+  #shape(kind = "round_rect", fill = "#ffffff", border = {style = "single", color = "#e0902f", width = pt(2.5)},
+         position = {x = inch(8.78), y = inch(2.2), width = inch(3.65), height = inch(4.2)})[
+    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#e0902f")[+1]]
+    #paragraph[#span(size = pt(19), color = "#1f3540")[point at the Eastern Wall, which has stalled]]
+  ]
+]
+
+#slide(notes = "The cooler 2026 season explains most of the difference between sites.")[
+  #box(position = {x = inch(0.9), y = inch(0.7), width = inch(4), height = inch(1.8)}, margin = flush,
+       text = {font = "Source Serif 4", size = pt(34), bold = true, color = "#0b3b4f"})[
+    Cooler water, faster recovery
+  ]
+  #box(position = {x = inch(0.9), y = inch(2.75), width = inch(3.8), height = inch(3.6)}, margin = flush,
+       text = {size = pt(17), color = "#3d5561", paragraph = {spacing = {after = pt(12)}}})[
+    #paragraph[Sea-surface temperature stayed within one degree of the long-term mean for all of 2026.]
+    #paragraph[In 2024 it exceeded that threshold for five consecutive months, which triggered the bleaching event.]
+  ]
+  #box(position = {x = inch(5.3), y = inch(0.8), width = inch(7.3), height = inch(5.9)}, margin = flush)[
+    #chart(
+      kind = "line", data = survey.temperature,
+      title = "Temperature anomaly, °C above the long-term mean",
+      colors = {"#e0902f", "#0f8a7e"}, legend = "bottom",
+      gridlines = {major = true, color = "#e3ecee"}
+    )
+  ]
+]
+
+#set line(border = {color = "#9fb3bb", width = pt(2)}, arrow = {to = "triangle", size = "medium"})
+
+#slide(notes = "Close on the plan and the budget request for the Eastern Wall.")[
+  #box(position = {x = inch(0.9), y = inch(0.7), width = inch(11.5), height = inch(1.1)}, margin = flush,
+       text = {font = "Source Serif 4", size = pt(36), bold = true, color = "#0b3b4f"})[
+    The plan for 2027
+  ]
+  #shape(kind = "round_rect", fill = "#0b3b4f",
+         position = {x = inch(0.9), y = inch(2.3), width = inch(2.55), height = inch(1.5)})[
+    #span(size = pt(22), bold = true, color = "#ffffff")[Survey]
+  ]
+  #line(from = {x = inch(3.5), y = inch(3.05)}, to = {x = inch(3.95), y = inch(3.05)})
+  #shape(kind = "round_rect", fill = "#0f8a7e",
+         position = {x = inch(4.0), y = inch(2.3), width = inch(2.55), height = inch(1.5)})[
+    #span(size = pt(22), bold = true, color = "#ffffff")[Restore]
+  ]
+  #line(from = {x = inch(6.6), y = inch(3.05)}, to = {x = inch(7.05), y = inch(3.05)})
+  #shape(kind = "round_rect", fill = "#e0902f",
+         position = {x = inch(7.1), y = inch(2.3), width = inch(2.55), height = inch(1.5)})[
+    #span(size = pt(22), bold = true, color = "#ffffff")[Monitor]
+  ]
+  #line(from = {x = inch(9.7), y = inch(3.05)}, to = {x = inch(10.15), y = inch(3.05)})
+  #shape(kind = "round_rect", fill = "#ffffff", border = {style = "single", color = "#0b3b4f", width = pt(2)},
+         position = {x = inch(10.2), y = inch(2.3), width = inch(2.25), height = inch(1.5)})[
+    #span(size = pt(22), bold = true, color = "#0b3b4f")[Report]
+  ]
+  #box(position = {x = inch(0.9), y = inch(4.1), width = inch(2.55), height = inch(1.8)}, margin = flush,
+       text = {size = pt(16), color = "#3d5561"})[Repeat all five transects each spring and autumn.]
+  #box(position = {x = inch(4.0), y = inch(4.1), width = inch(2.55), height = inch(1.8)}, margin = flush,
+       text = {size = pt(16), color = "#3d5561"})[Outplant 6,000 nursery fragments on the Eastern Wall.]
+  #box(position = {x = inch(7.1), y = inch(4.1), width = inch(2.55), height = inch(1.8)}, margin = flush,
+       text = {size = pt(16), color = "#3d5561"})[Log temperature hourly on the boundary current.]
+  #box(position = {x = inch(10.2), y = inch(4.1), width = inch(2.25), height = inch(1.8)}, margin = flush,
+       text = {size = pt(16), color = "#3d5561"})[Brief the trustees each quarter.]
+  #shape(kind = "rectangle", fill = "#0b3b4f",
+         margin = {top = pt(0), right = pt(0), bottom = pt(0), left = pt(36)}, alignment = "left",
+         position = {x = inch(0), y = inch(6.1), width = inch(13.333), height = inch(1.4)})[
+    #span(size = pt(20), color = "#b9d3dc")[Budget request  ]#span(font = "Source Serif 4", size = pt(30), bold = true, color = "#ffffff")[$480,000]#span(size = pt(20), color = "#b9d3dc")[  for Eastern Wall restoration]
+  ]
+]

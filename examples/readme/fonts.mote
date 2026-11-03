@@ -6,3 +6,10 @@
 })
 #font(name = "Source Sans 3", latin = "Source Sans 3", files = font_files)
 #font(name = "Aptos", latin = "Source Sans 3", files = font_files)
+#let(serif_files = {
+  regular = "fonts/SourceSerif4-Regular.ttf",
+  bold = "fonts/SourceSerif4-Semibold.ttf",
+  italic = "fonts/SourceSerif4-It.ttf",
+  bold_italic = "fonts/SourceSerif4-SemiboldIt.ttf"
+})
+#font(name = "Source Serif 4", latin = "Source Serif 4", files = serif_files)

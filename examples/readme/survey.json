@@ -1,0 +1,16 @@
+{
+  "cover": {
+    "categories": ["North Spur", "Lagoon Gate", "Coral Garden", "Eastern Wall", "Outer Shelf"],
+    "series": [
+      {"name": "2024", "values": [18, 24, 31, 15, 22]},
+      {"name": "2026", "values": [26, 27, 38, 16, 29]}
+    ]
+  },
+  "temperature": {
+    "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    "series": [
+      {"name": "2024", "values": [0.6, 0.9, 1.4, 1.8, 1.6, 1.1, 0.8, 0.7, 0.9, 1.0]},
+      {"name": "2026", "values": [0.4, 0.5, 0.7, 0.9, 0.8, 0.6, 0.5, 0.4, 0.5, 0.6]}
+    ]
+  }
+}
