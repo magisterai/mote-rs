@@ -184,3 +184,53 @@ fn tagged_empty_lua_content_stays_empty_while_plain_maps_remain_maps() {
         "{}"
     );
 }
+
+#[test]
+fn connector_markers_use_distinct_shapes_and_independent_dimensions() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for kind in ["triangle", "stealth", "oval", "diamond"] {
+        for (start, end) in [
+            ("x=pt(20),y=pt(30)", "x=pt(100),y=pt(30)"),
+            ("x=pt(30),y=pt(20)", "x=pt(30),y=pt(100)"),
+        ] {
+            let source = format!(
+                "#presentation()#slide[#line(from={{{start}}},to={{{end}}},border={{width=pt(2)}},cap='flat',arrow={{end='{kind}',end_size='small',end_length='large'}})]"
+            );
+            let plan = render::plan_with_layout(
+                &mote::compile(&source).unwrap(),
+                &resolver,
+                None,
+                render::LayoutMode::Presentation,
+            )
+            .unwrap()
+            .output;
+            let marker = plan.pages[0]
+                .operations
+                .iter()
+                .find_map(|operation| match operation {
+                    PageOperation::Path(path) if path.fill.is_some() => Some(path),
+                    _ => None,
+                })
+                .unwrap();
+            assert!(marker.closed);
+            if kind == "diamond" {
+                assert_eq!(marker.points.len(), 4);
+            }
+            let axis = usize::from(start.contains("x=pt(30)"));
+            let minimum = marker
+                .points
+                .iter()
+                .map(|point| point[axis])
+                .fold(f64::INFINITY, f64::min);
+            let maximum = marker
+                .points
+                .iter()
+                .map(|point| point[axis])
+                .fold(f64::NEG_INFINITY, f64::max);
+            assert!(
+                (maximum - minimum - 10.0).abs() < 1e-8,
+                "{kind}: {minimum}..{maximum}"
+            );
+        }
+    }
+}

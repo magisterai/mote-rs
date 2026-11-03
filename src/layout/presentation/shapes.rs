@@ -89,21 +89,25 @@ pub(super) fn connector(attributes: &Properties) -> Vec<PageOperation> {
     })];
     if let Some(arrow) = object(attributes, "arrow") {
         for (prefix, tip, other) in [("end", end, start), ("start", start, end)] {
-            let size = text(arrow, &format!("{prefix}_size"));
-            let size = if size.is_empty() {
-                text(arrow, "size")
-            } else {
-                size
-            };
-            let size = (stroke.width
-                * if matches!(size.as_str(), "large" | "lg") {
-                    5.0
-                } else {
-                    3.0
-                })
-            .max(3.0);
-            if let Some(path) = marker(tip, other, &text(arrow, prefix), size, stroke.paint.clone())
-            {
+            let width = marker_dimension(arrow, &[&format!("{prefix}_size"), "size"], stroke.width);
+            let length = marker_dimension(
+                arrow,
+                &[
+                    &format!("{prefix}_length"),
+                    "length",
+                    &format!("{prefix}_size"),
+                    "size",
+                ],
+                stroke.width,
+            );
+            if let Some(path) = marker(
+                tip,
+                other,
+                &text(arrow, prefix),
+                width,
+                length,
+                stroke.paint.clone(),
+            ) {
                 output.push(PageOperation::Path(path));
             }
         }
@@ -114,7 +118,8 @@ fn marker(
     tip: [f64; 2],
     other: [f64; 2],
     kind: &str,
-    size: f64,
+    width: f64,
+    marker_length: f64,
     paint: PathPaint,
 ) -> Option<PaintedPath> {
     if kind.is_empty() || kind == "none" {
@@ -122,8 +127,11 @@ fn marker(
     }
     let length = (tip[0] - other[0]).hypot(tip[1] - other[1]);
     let direction = [(tip[0] - other[0]) / length, (tip[1] - other[1]) / length];
-    let base = [tip[0] - direction[0] * size, tip[1] - direction[1] * size];
-    let half_width = size * 0.55;
+    let base = [
+        tip[0] - direction[0] * marker_length,
+        tip[1] - direction[1] * marker_length,
+    ];
+    let half_width = width * 0.55;
     let first = [
         base[0] - direction[1] * half_width,
         base[1] + direction[0] * half_width,
@@ -136,18 +144,45 @@ fn marker(
         "oval" => (0..24)
             .map(|index| {
                 let angle = index as f64 * std::f64::consts::TAU / 24.0;
+                if width == marker_length {
+                    return [
+                        tip[0] + angle.cos() * width / 2.0,
+                        tip[1] + angle.sin() * width / 2.0,
+                    ];
+                }
                 [
-                    tip[0] + angle.cos() * size / 2.0,
-                    tip[1] + angle.sin() * size / 2.0,
+                    tip[0] + direction[0] * angle.cos() * marker_length / 2.0
+                        - direction[1] * angle.sin() * width / 2.0,
+                    tip[1]
+                        + direction[1] * angle.cos() * marker_length / 2.0
+                        + direction[0] * angle.sin() * width / 2.0,
                 ]
             })
             .collect(),
+        "diamond" => vec![
+            [
+                tip[0] + direction[0] * marker_length / 2.0,
+                tip[1] + direction[1] * marker_length / 2.0,
+            ],
+            [
+                tip[0] - direction[1] * width / 2.0,
+                tip[1] + direction[0] * width / 2.0,
+            ],
+            [
+                tip[0] - direction[0] * marker_length / 2.0,
+                tip[1] - direction[1] * marker_length / 2.0,
+            ],
+            [
+                tip[0] + direction[1] * width / 2.0,
+                tip[1] - direction[0] * width / 2.0,
+            ],
+        ],
         "stealth" => vec![
             tip,
             first,
             [
-                tip[0] - direction[0] * size * 0.62,
-                tip[1] - direction[1] * size * 0.62,
+                tip[0] - direction[0] * marker_length * 0.62,
+                tip[1] - direction[1] * marker_length * 0.62,
             ],
             last,
         ],
@@ -159,4 +194,18 @@ fn marker(
         fill: Some(paint),
         stroke: None,
     })
+}
+
+fn marker_dimension(attributes: &Properties, names: &[&str], stroke_width: f64) -> f64 {
+    let value = names
+        .iter()
+        .map(|name| text(attributes, name))
+        .find(|value| !value.is_empty())
+        .unwrap_or_default();
+    let factor = match value.as_str() {
+        "small" | "sm" => 2.0,
+        "large" | "lg" => 5.0,
+        _ => 3.0,
+    };
+    (stroke_width * factor).max(3.0)
 }

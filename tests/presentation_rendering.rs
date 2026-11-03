@@ -395,6 +395,7 @@ fn drawing_geometry_and_native_rasters_match_captured_output() {
             ("transforms", 88, 0.16, 4),
             ("fitting", 48, 0.35, 0),
             ("connectors", 64, 1.0, 0),
+            ("connector-caps", 64, 1.0, 0),
         ],
     );
 }

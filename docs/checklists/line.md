@@ -5,7 +5,7 @@
 The [language model](../specification/drawings.md) is covered by
 [normalization and capture tests](../../tests/drawings.rs). Editable PPTX and native PDF/PNG have
 [captured coverage](../../tests/fixtures/presentation-shapes/README.md).
- All DrawingML line properties, marker ends,
+All DrawingML line properties, marker ends,
 transform records, connection metadata and value domains remain in the shared
 inventory, including properties without an authoring mapping.
 
@@ -33,7 +33,8 @@ supported drawing property and must not be confused with line directives.
 Positioned-slide output covers the existing drawing vocabulary: geometry,
 transforms, fills, stroke patterns and opacity, names and text defaults. Shapes
 also require preset text bounds, fitting and shadows; connectors require endpoint
-geometry, caps and start/end marker kinds and sizes. Editable and native slide coverage is captured. Native diamond markers use a
-triangle fallback, separate marker lengths affect editable output only, and
-native PNG cap painting retains the common rounded raster treatment.
+geometry, caps and start/end marker kinds and sizes. Editable and native slide
+coverage is captured. Native diamond markers use four vertices; marker width and
+length resolve independently, including per-end overrides. Native PNG cap painting retains the
+common rounded raster treatment.
 PowerPoint visual review remains unreviewed independently of model support.
