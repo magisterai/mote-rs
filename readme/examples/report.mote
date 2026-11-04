@@ -1,88 +1,135 @@
 #import("fonts.mote")
-#metadata(title = "Halcyon Reef Observatory: 2026 Field Report", author = "Halcyon Reef Observatory")
+#metadata(title = "A temperate sub-Neptune transiting the M dwarf MTS-0412", author = "Meridian Transit Survey")
 #document(
-  default_font = "Source Sans 3", default_size = pt(10.5),
+  default_font = "Source Serif 4", default_size = pt(9.5),
   page = {size = "letter"},
   margin = {
-    top = inch(0.85), right = inch(0.9), bottom = inch(0.8), left = inch(0.9),
+    top = inch(0.8), right = inch(0.75), bottom = inch(0.75), left = inch(0.75),
     header = inch(0.4), footer = inch(0.4)
   }
 )
 
 #style "Normal" (
-  run = {font = "Source Sans 3", size = pt(10.5), color = "#2b3a42"},
-  paragraph = {spacing = {after = pt(7), line = pt(14.5)}}
+  run = {font = "Source Serif 4", size = pt(9.5), color = "#1f2633"},
+  paragraph = {spacing = {after = pt(5), line = pt(13)}, alignment = "left"}
 )
 #style "Title" extends "Normal" (
-  run = {font = "Source Serif 4", size = pt(30), bold = true, color = "#0b3b4f"},
-  paragraph = {spacing = {before = pt(2), after = pt(8), line = pt(34)}}
+  run = {font = "Source Serif 4", size = pt(25), bold = true, color = "#14213d"},
+  paragraph = {alignment = "left", spacing = {before = pt(4), after = pt(8), line = pt(29)}}
 )
-#style "Running" (type = "character", run = {size = pt(8.5), color = "#6b7f88"})
-#style "Brand" extends "Running" (type = "character", run = {bold = true, color = "#0f8a7e"})
 #style "Kicker" extends "Normal" (
-  run = {size = pt(9), bold = true, color = "#0f8a7e"},
-  paragraph = {spacing = {after = pt(2)}}
+  run = {font = "Source Sans 3", size = pt(8.5), bold = true, color = "#c2581d"},
+  paragraph = {alignment = "left", spacing = {after = pt(2)}}
 )
-#style "Lead" extends "Normal" (
-  run = {font = "Source Serif 4", size = pt(13.5), italic = true, color = "#3d5561"},
-  paragraph = {spacing = {after = pt(12), line = pt(19)}}
+#style "Authors" extends "Normal" (
+  run = {font = "Source Sans 3", size = pt(10), color = "#3b4a63"},
+  paragraph = {alignment = "left", spacing = {after = pt(12)}}
+)
+#style "Abstract" extends "Normal" (
+  run = {size = pt(9.5), italic = true, color = "#2b3a55"},
+  paragraph = {spacing = {after = pt(0), line = pt(13.5)}}
 )
 #style "Heading2" extends "Normal" (
-  run = {font = "Source Serif 4", size = pt(14), bold = true, color = "#0b3b4f"},
-  paragraph = {spacing = {before = pt(10), after = pt(5)}, keep_with_next = true}
+  run = {font = "Source Sans 3", size = pt(10.5), bold = true, color = "#14213d"},
+  paragraph = {alignment = "left", spacing = {before = pt(8), after = pt(3)}, keep_with_next = true}
 )
+#style "Caption" extends "Normal" (
+  run = {font = "Source Sans 3", size = pt(8), color = "#4a5872"},
+  paragraph = {alignment = "left", spacing = {before = pt(3), after = pt(9), line = pt(10.5)}}
+)
+#style "Running" (type = "character", run = {font = "Source Sans 3", size = pt(8), color = "#6b7891"})
+#style "Brand" extends "Running" (type = "character", run = {bold = true, color = "#14213d"})
 #style(
-  name = "SurveyTable", type = "table",
+  name = "Candidates", type = "table",
   table = {
-    cell = {margin = {top = pt(4), right = pt(8), bottom = pt(4), left = pt(8)}},
-    first_row = {cell = {fill = "#0b3b4f"}, text = {bold = true, color = "#ffffff"}},
-    banding = {odd = {cell = {fill = "#eef6f5"}}},
-    borders = {all = {style = "none"}, bottom = {style = "single", width = pt(1), color = "#0b3b4f"}}
+    cell = {margin = {top = pt(2.5), right = pt(4), bottom = pt(2.5), left = pt(4)}},
+    text = {font = "Source Sans 3", size = pt(8)},
+    first_row = {text = {bold = true, color = "#14213d"}, borders = {bottom = {style = "single", width = pt(0.75), color = "#14213d"}}},
+    banding = {odd = {cell = {fill = "#f1f3f8"}}},
+    borders = {all = {style = "none"}, top = {style = "single", width = pt(1), color = "#14213d"}, bottom = {style = "single", width = pt(1), color = "#14213d"}}
   }
 )
 #style(
-  name = "Callout", type = "table",
+  name = "AbstractBox", type = "table",
   table = {
-    cell = {fill = "#fff6e5", margin = {top = pt(9), right = pt(12), bottom = pt(9), left = pt(14)}},
-    borders = {all = {style = "none"}, left = {style = "single", width = pt(3), color = "#e0902f"}}
+    cell = {fill = "#f1f3f8", margin = {top = pt(9), right = pt(12), bottom = pt(9), left = pt(12)}},
+    borders = {all = {style = "none"}, left = {style = "single", width = pt(3), color = "#c2581d"}}
   }
 )
-#set table(style = "SurveyTable", width = inch(6.7))
 
-#header[#paragraph(tabs = {right = inch(6.7)})[#span "Brand"[HALCYON REEF OBSERVATORY]#tab()#span "Running"[Field Report No. 14]]]
-#footer[#paragraph(tabs = {right = inch(6.7)})[#span "Running"[Survey season 2026  ·  Prepared for the board of trustees]#tab()#span "Running"[Page #page_number() of #page_number(kind = "total")]]]
+#header[#paragraph(alignment = "left", tabs = {right = inch(7)})[#span "Brand"[MERIDIAN TRANSIT SURVEY]#tab()#span "Running"[Research Note 7 · November 2026]]]
+#footer[#paragraph(alignment = "left", tabs = {right = inch(7)})[#span "Running"[Preprint · not peer reviewed]#tab()#span "Running"[#page_number() / #page_number(kind = "total")]]]
 
-#let(survey = json("survey.json"))
+#let(transit = json("transit.json"))
 
-#paragraph "Kicker"[#small_caps[Field report · November 2026]]
-#paragraph "Title"[The reef is recovering, unevenly]
-#paragraph "Lead"[Two years after the 2024 bleaching event, live coral cover has risen at four of our five monitored sites. The gains are real, but they are concentrated where the water stayed coolest.]
+#paragraph "Kicker"[#small_caps[Exoplanets · Discovery]]
+#paragraph "Title"[A temperate sub-Neptune transiting the nearby M dwarf MTS-0412]
+#paragraph "Authors"[A. Okafor, L. Brandt, S. Ishikawa and the Meridian Transit Survey team]
 
-Across 212 survey dives between March and September, divers recorded an average
-gain of **5.2 percentage points** in live coral cover. The Coral Garden, sheltered
-by the northern headland, recovered fastest; the Eastern Wall, exposed to the
-warm boundary current, has barely moved.[^method]
-
-## Live coral cover by site
-
-#chart(
-  kind = "column", data = survey.cover,
-  width = inch(6.7), height = inch(2.5),
-  colors = {"#9fc9c4", "#0f8a7e"}, legend = "bottom",
-  data_labels = {value = true, position = "outside_end"},
-  gridlines = {major = true, color = "#e3ecee"}, gap_width = "60"
-)
-
-| Site | Depth | 2024 | 2026 | Change |
-| :--- | :--- | ---: | ---: | ---: |
-| North Spur | 6–9 m | 18% | 26% | +8 |
-| Lagoon Gate | 3–5 m | 24% | 27% | +3 |
-| Coral Garden | 4–7 m | 31% | 38% | +7 |
-| Eastern Wall | 10–14 m | 15% | 16% | +1 |
-| Outer Shelf | 8–12 m | 22% | 29% | +7 |
-
-#table(style = "Callout", width = inch(6.7))[
-#row[#cell[#strong[Recommendation.] Concentrate the 2027 restoration budget on the Eastern Wall, where natural recovery has stalled, and extend temperature logging to the boundary current so that the next warm spell is seen weeks in advance.]]
+#table(style = "AbstractBox", width = inch(7))[
+#row[#cell[#paragraph "Abstract"[#strong[Abstract.] We report a transiting planet candidate, MTS-0412 b, found in 118 nights of photometry from the Meridian southern array. Nine transits of depth 2,400 ± 60 ppm recur every 11.82 days. For the host's radius of 0.41 solar radii the depth implies a planet of 2.2 Earth radii, which receives roughly 1.3 times the flux the Earth receives from the Sun. A second, shallower signal at 4.07 days remains below our detection threshold.]]]
 ]
 
-[^method]: Cover is estimated from 50-metre photo transects at fixed stations, with each image scored at 100 random points.
+#figure(kind = "figure")[
+  #chart(
+    kind = "line", data = transit.light_curve,
+    width = inch(7), height = inch(1.8),
+    colors = {"#9aa7bf", "#c2581d"}, legend = "right",
+    gridlines = {major = true, color = "#e4e8f0"}
+  )
+  #caption[#strong[Figure 1.] Nine transits of MTS-0412 b, folded on the 11.82-day period and binned to 15 minutes. The flux change, in parts per million, is plotted against hours from mid-transit; the model is a limb-darkened transit of depth 2,400 ppm.]
+]
+
+#section(properties = {start = "continuous"}, columns = {count = 2, gap = pt(20)})[
+## 1 Introduction
+
+Small planets around M dwarfs offer the most favourable transit geometry for
+atmospheric study: the star is small, so a planet of a few Earth radii blocks a
+measurable fraction of its light. The Meridian survey monitors 3,200 such stars
+south of declination −30° with a cadence of two minutes.
+
+## 2 Observations
+
+MTS-0412 was observed on 118 nights between February and September 2026. Each
+night's frames were calibrated, aligned and measured by differential aperture
+photometry against eight comparison stars of similar colour, using version 3.4
+of the survey pipeline. The combined light curve has a scatter of 410 ppm per
+two-minute point.
+
+## 3 Results
+
+A box least-squares search of the detrended light curve recovers a period of
+11.8204 ± 0.0007 days. The transit lasts 1.7 hours and is flat-bottomed, which
+excludes a grazing eclipsing binary. Table 1 lists every candidate above a
+signal-to-noise ratio of seven.
+
+#break(type = "column")
+
+#figure(kind = "table")[
+  #table(style = "Candidates", width = inch(3.4))[
+    #row[#cell[Star]#cell[Period]#cell[Depth]#cell[Radius]#cell[Status]]
+    #row[#cell[MTS-0412 b]#cell[11.820]#cell[2,400]#cell[2.2]#cell[Candidate]]
+    #row[#cell[MTS-1187 b]#cell[3.514]#cell[5,900]#cell[3.1]#cell[Confirmed]]
+    #row[#cell[MTS-0903 b]#cell[7.266]#cell[1,150]#cell[1.4]#cell[Candidate]]
+    #row[#cell[MTS-2240 b]#cell[1.902]#cell[14,300]#cell[9.6]#cell[Binary]]
+    #row[#cell[MTS-0412 c]#cell[4.070]#cell[610]#cell[1.1]#cell[Marginal]]
+  ]
+  #caption[#strong[Table 1.] Candidates above a signal-to-noise ratio of seven: period in days, depth in ppm, radius in Earth radii.]
+]
+
+#figure(kind = "figure")[
+  #chart(
+    kind = "column", data = transit.radii,
+    width = inch(3.4), height = inch(1.3),
+    colors = {"#14213d"}, gap_width = "45",
+    data_labels = {value = true, position = "outside_end"},
+    gridlines = {major = true, color = "#e4e8f0"}
+  )
+  #caption[#strong[Figure 2.] All 48 survey candidates by radius, in Earth radii.]
+]
+
+## 4 Discussion
+
+MTS-0412 b lies above the radius valley and is most likely a sub-Neptune with
+a hydrogen envelope. Radial velocities in 2027 should settle its mass.
+]

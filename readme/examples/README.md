@@ -2,19 +2,19 @@
 
 The [main README](../../README.md) presents these examples. The editable and PDF
 downloads are in [readme/downloads](../downloads/README.md). The
-reef survey, the business content and all figures are illustrative.
+survey, the planets, the business content and all figures are illustrative.
 
 | Example | Source | Composition |
 | --- | --- | --- |
-| Field report | [report.mote](report.mote) + [survey.json](survey.json) | A one-page Word report with a title block, a chart from JSON, a styled table, a callout table, a footnote, and running headers and footers. |
-| Board deck | [deck.mote](deck.mote) + [survey.json](survey.json) | A four-slide PowerPoint deck with a theme, positioned text, shapes, connectors, a line chart and speaker notes. |
+| Research note | [report.mote](report.mote) + [transit.json](transit.json) | A one-page Word research note with a title block, an abstract, a full-width figure, a two-column section, a numbered table, two charts from JSON, and running headers and footers. |
+| Briefing deck | [deck.mote](deck.mote) + [transit.json](transit.json) | A four-slide PowerPoint deck with a theme, a starfield drawn by a loop, positioned text, shapes, connectors, line and doughnut charts, and speaker notes. |
 | Pure Markdown | [plain.md](plain.md) | The exact file is passed to both output formats, without any added declarations. |
 | Defaults | [defaults.mote](defaults.mote) + [plain.md](plain.md) | The defaults are prepended in memory; the original Markdown remains unchanged. |
 | Directives | [directives.mote](directives.mote) | The source imports the defaults and adds a styled introduction and an inline accent. |
 | JSON chart | [chart.mote](chart.mote) + [revenue.json](revenue.json) | Static JSON loading creates an editable chart without scripting. |
 | Lua calculation | [lua.mote](lua.mote) + [revenue.json](revenue.json) | A function sums monthly values and converts thousands to dollars. The example alone requires `--lua`. |
 
-The report and the deck are written for their own formats rather than converted
+The research note and the deck are written for their own formats rather than converted
 from one another. The pure Markdown example alone is rendered in both formats,
 since its purpose is to show one unchanged source serving both. The styled
 tutorial examples use compact pages for the README.

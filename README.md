@@ -42,53 +42,46 @@ on the work in Word or PowerPoint. Mote lays out and draws the PDF and PNG pages
 itself, without starting a separate application, so a model can render what it
 has just written, look at it, and correct the source in a single loop.
 
-Mote is Word, PowerPoint and Acrobat for language models. It writes the same
-files and draws the same pages, but from a source a model can write in a few
-dozen lines, check in a fraction of a second and revise one line at a time. That
-means fewer tokens, no office suite, no program to debug, and a document that the
-person who receives it can still open, edit and own.
+Mote is Word, PowerPoint and Acrobat for language models.
 
-The implementation comprises some 41,000 lines of Rust and nearly 500 tests. A
-catalogue of 95 rendering cases, 64 for documents and 31 for presentations,
-exercises the native output. The language is described in 36 specification
-chapters, and the support for each of 64 directives is inventoried against the
-OOXML standards.
+## Report
 
-## Two finished examples
+A research note for Word, written in
+[135 lines of source](readme/examples/report.mote) that read their figures from a
+[JSON file](readme/examples/transit.json). The note has a title block, an
+abstract, a full-width figure, a two-column body, a numbered table and a second
+chart, with running headers and footers. Both charts are native Word charts
+with their data in an embedded workbook.
 
-The report and the deck below share a subject, a fictional reef survey, but
-neither is a conversion of the other. The Word report is
-[88 lines of source](readme/examples/report.mote); the PowerPoint deck is
-[121 lines](readme/examples/deck.mote). Both read their figures from the same
-[JSON file](readme/examples/survey.json).
+![Native preview of a one-page research note titled "A temperate sub-Neptune transiting the nearby M dwarf MTS-0412", with a transit light curve, a two-column body, a candidates table and a radius histogram.](readme/images/report-1.png)
 
-**A field report for Word.** A title block, a lead paragraph, a chart built from
-JSON, a styled data table, a callout, a footnote, and running headers and footers.
-
-![Native preview of a one-page field report titled "The reef is recovering, unevenly", with a column chart, a site table and a recommendation callout.](readme/images/report-1.png)
-
-[Report source](readme/examples/report.mote) ·
+[Source](readme/examples/report.mote) ·
 [Word download](readme/downloads/report.docx) ·
 [PDF download](readme/downloads/report.pdf)
 
-**A board deck for PowerPoint.** Four slides with a theme, positioned text,
-editable shapes and connectors, a line chart, and speaker notes on every slide.
+## Deck
+
+A briefing on the same discovery for PowerPoint, in
+[125 lines](readme/examples/deck.mote). The deck has a theme, a starfield drawn
+by a loop, positioned text, editable shapes and connectors, a line chart and a
+doughnut chart, and speaker notes on every slide. The deck is written for its
+format, not converted from the note.
 
 <p>
-<img src="readme/images/deck-1.png" width="49%" alt="Title slide on a dark ocean background: The reef is recovering, unevenly.">
-<img src="readme/images/deck-2.png" width="49%" alt="Slide with three cards: +5.2 points of coral cover, 4 of 5 sites recovering, +1 point at the Eastern Wall.">
-<img src="readme/images/deck-3.png" width="49%" alt="Slide pairing a short argument with a line chart of temperature anomalies in 2024 and 2026.">
-<img src="readme/images/deck-4.png" width="49%" alt="Slide with a four-step plan and a budget request band.">
+<img src="readme/images/deck-1.png" width="49%" alt="Title slide: a star with a transiting planet beside the title A temperate sub-Neptune around a nearby red dwarf.">
+<img src="readme/images/deck-2.png" width="49%" alt="Slide with three cards: 2.2 times the radius of the Earth, 11.8 days to complete one orbit, 1.3 times the sunlight that reaches the Earth.">
+<img src="readme/images/deck-3.png" width="49%" alt="Slide pairing a short explanation with the transit light curve.">
+<img src="readme/images/deck-4.png" width="49%" alt="Slide with a doughnut chart of 48 candidates and a three-step plan.">
 </p>
 
-[Deck source](readme/examples/deck.mote) ·
+[Source](readme/examples/deck.mote) ·
 [PowerPoint download](readme/downloads/deck.pptx) ·
 [PDF download](readme/downloads/deck.pdf)
 
 The sections that follow introduce the language step by step, from plain
 Markdown to these finished pieces.
 
-## Start with pure Markdown
+## Markdown
 
 Headings, emphasis, lists and tables require no Mote directives:
 
@@ -116,7 +109,7 @@ The same source produces both editable formats. The PowerPoint output uses
 automatic slide layout; the native PDF and PNG output may use either document
 or presentation layout.
 
-## Apply defaults without rewriting the content
+## Defaults
 
 The Markdown above stays intact; a separate defaults file precedes it. A style
 sets the base typography, and `#set` supplies properties to the elements that
@@ -150,7 +143,7 @@ special command-line option is required.
 [Unchanged Markdown](readme/examples/plain.md) ·
 [Word download](readme/downloads/defaults.docx)
 
-## Add directives where they help
+## Directives
 
 A directive takes the form `#name(arguments)[content]`. The named arguments set
 properties, and the bracketed body supplies content. A quoted name applies a
@@ -184,21 +177,21 @@ defaults from the previous example.
 [Word download](readme/downloads/directives.docx)
 
 A span repeated with the same attributes is better served by a character style,
-declared with `type = "character"` and applied by name. The report above sets
-its running header this way:
+declared with `type = "character"` and applied by name. The research note
+above sets its running header this way:
 
 ```mote
-#style "Running" (type = "character", run = {size = pt(8.5), color = "#6b7f88"})
-#style "Brand" extends "Running" (type = "character", run = {bold = true, color = "#0f8a7e"})
+#style "Running" (type = "character", run = {font = "Source Sans 3", size = pt(8), color = "#6b7891"})
+#style "Brand" extends "Running" (type = "character", run = {bold = true, color = "#14213d"})
 
-#header[#paragraph(tabs = {right = inch(6.7)})[#span "Brand"[HALCYON REEF OBSERVATORY]#tab()#span "Running"[Field Report No. 14]]]
+#header[#paragraph(tabs = {right = inch(7)})[#span "Brand"[MERIDIAN TRANSIT SURVEY]#tab()#span "Running"[Research Note 7 · November 2026]]]
 ```
 
 The Word package receives both as native character styles, so a later edit to
 the style in Word changes every span that uses it. The right-aligned tab stop
-places the report number against the right margin.
+places the note number against the right margin.
 
-## Compose a presentation
+## Slides
 
 The `presentation` directive sets the canvas and the theme. A slide contains
 either loose content, which Mote arranges in automatic frames, or positioned
@@ -206,41 +199,42 @@ objects: a `box` holds text, a `shape` draws an editable shape that may hold tex
 of its own, and a `line` draws a connector. Each object takes a `position` on the
 slide, and the `notes` argument supplies the speaker notes. The second slide of
 the deck above reads as follows, with `flush` bound earlier to a table of zero
-margins:
+margins and a `#set shape(...)` default centring the text in each shape:
 
 ```mote
 #presentation(
-  size = "wide", background = "#f6f3ee",
+  size = "wide", background = "#0b1226",
   theme = {
     fonts = {heading = "Source Serif 4", body = "Source Sans 3"},
-    colors = {text = "#1f3540", accent1 = "#0f8a7e", accent2 = "#e0902f"}
+    colors = {text = "#e8ecf6", accent1 = "#f08a3c", accent2 = "#7f9cff"}
   }
 )
 
-#slide(notes = "Three numbers to remember. Pause on the third: one site has not recovered at all.")[
+#slide(notes = "Three numbers. The third is why the planet is called temperate.")[
   #box(position = {x = inch(0.9), y = inch(0.7), width = inch(11.5), height = inch(1.1)}, margin = flush,
-       text = {font = "Source Serif 4", size = pt(36), bold = true, color = "#0b3b4f"})[
-    The season in three numbers
+       text = {font = "Source Serif 4", size = pt(36), bold = true, color = "#ffffff"})[
+    MTS-0412 b in three numbers
   ]
-  #shape(kind = "round_rect", fill = "#0b3b4f",
+  #shape(kind = "round_rect", fill = "#16204a",
          position = {x = inch(0.9), y = inch(2.2), width = inch(3.65), height = inch(4.2)})[
-    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#5fd0c0")[+5.2]]
-    #paragraph[#span(size = pt(19), color = "#ffffff")[points of live coral cover, on average]]
+    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#f08a3c")[2.2]]
+    #paragraph[#span(size = pt(19), color = "#d5dcef")[times the radius of the Earth]]
   ]
-  #shape(kind = "round_rect", fill = "#0f8a7e",
+  #shape(kind = "round_rect", fill = "#16204a",
          position = {x = inch(4.84), y = inch(2.2), width = inch(3.65), height = inch(4.2)})[
-    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#ffffff")[4 of 5]]
-    #paragraph[#span(size = pt(19), color = "#e6f5f3")[monitored sites are recovering]]
+    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#7f9cff")[11.8]]
+    #paragraph[#span(size = pt(19), color = "#d5dcef")[days to complete one orbit]]
   ]
-  #shape(kind = "round_rect", fill = "#ffffff", border = {style = "single", color = "#e0902f", width = pt(2.5)},
+  #shape(kind = "round_rect", fill = "#f08a3c",
          position = {x = inch(8.78), y = inch(2.2), width = inch(3.65), height = inch(4.2)})[
-    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#e0902f")[+1]]
-    #paragraph[#span(size = pt(19), color = "#1f3540")[point at the Eastern Wall, which has stalled]]
+    #paragraph[#span(font = "Source Serif 4", size = pt(80), bold = true, color = "#0b1226")[1.3×]]
+    #paragraph[#span(size = pt(19), color = "#0b1226")[the sunlight that reaches the Earth]]
   ]
 ]
+
 ```
 
-![Native slide preview with three cards: +5.2 points of coral cover, 4 of 5 sites recovering, and +1 point at the Eastern Wall.](readme/images/deck-2.png)
+![Native slide preview with three cards: 2.2 times the radius of the Earth, 11.8 days to complete one orbit, and 1.3 times the sunlight that reaches the Earth.](readme/images/deck-2.png)
 
 A slide may also use a named layout, such as the built-in `two_column`, in which
 each `box(slot = ...)` fills one named region; a custom layout may inherit from
@@ -249,7 +243,7 @@ an existing one.
 [Complete deck source](readme/examples/deck.mote) ·
 [PowerPoint download](readme/downloads/deck.pptx)
 
-## Build a chart from JSON
+## Charts
 
 The `json(...)` helper loads data relative to the source file, and `let` gives
 the data a name. Static evaluation suffices; no scripting is required. The file
@@ -293,7 +287,7 @@ The Word download contains an editable chart and its embedded workbook. The
 supported kinds are column, bar, line, area, pie and doughnut charts, with
 stacked variants, axes, legends and data labels.
 
-## Add Lua when computation is needed
+## Lua
 
 Lua is optional and must be enabled with `--lua`. A `#function ... end`
 definition contains Lua statements and returns a value or document content. In
@@ -325,43 +319,56 @@ Six months of revenue, calculated from the monthly data.
 [Complete source](readme/examples/lua.mote) ·
 [Word download](readme/downloads/lua.docx)
 
-## Capabilities at a glance
+## CLI
 
-| Area | Coverage |
-| --- | --- |
-| Typography | Inline formatting, named styles and inheritance, scoped defaults, declared fonts, lists, links and code. |
-| Document layout | Page sizes, margins, sections, equal-width columns, pagination, headers and footers, page numbers, footnotes and endnotes. |
-| Tables and media | Merged cells, repeated headers, fills and borders; image sizing, cropping and transforms; figures and captions. |
-| Drawings and slides | Editable shapes, connectors and charts; automatic and positioned slide layout, themes, backgrounds, named layouts and speaker notes. |
-| Structure and data | References, bookmarks, editable equations, comments, checkboxes and metadata; bindings, conditions, loops, imports, JSON, CSV and opt-in Lua. |
-
-The DOCX and PPTX output retains editable content. The PDF and PNG output uses
-Mote's own layout and painters. The JSON output exposes the evaluated content
-for inspection. The support differs by output format; the
-[rendering coverage](docs/rendering-coverage.md) gives the details.
-
-## Run the examples
-
-With Rust and Cargo installed, build from the repository root:
+Build the executable with Rust and Cargo from the repository root:
 
 ```sh
 cargo build --release
-mkdir -p target/readme
-target/release/mote --format docx -o target/readme/brief.docx readme/examples/plain.md
-target/release/mote --format pptx -o target/readme/brief.pptx readme/examples/plain.md
-target/release/mote --lua --format pdf -o target/readme/summary.pdf readme/examples/lua.mote
 ```
 
-The option `--format png --dpi 144 -o PREFIX` writes numbered page images. An
-explicit `#presentation(...)` selects slide layout for the native PDF and PNG
-output; `--layout presentation` does the same for a bare Markdown deck.
+The executable is `target/release/mote`; `cargo install --path .` places it on
+the `PATH`. A single invocation compiles one source:
 
-The [downloads and previews](readme/downloads/README.md) are checked in
-under `readme/`. The [example guide](readme/examples/README.md) explains the
-separate defaults, the format-specific presentation setup and the regeneration
-command.
+```text
+mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [OPTIONS] [SOURCE|-]
+```
 
-## Review the output
+| Option | Effect |
+| --- | --- |
+| `--format FORMAT` | `json` (the default), `docx`, `pptx`, `pdf` or `png`. |
+| `-o`, `--output PATH` | The output file. Required for every format except JSON, which is written to standard output when no path is given. |
+| `--dpi N` | The PNG resolution, from 1 to 9600; the default is 72. PNG only. |
+| `--layout document\|presentation` | The native layout for PDF and PNG. Without it, a source that declares `#presentation(...)` is laid out as slides and any other source as pages. |
+| `--lua` | Enables Lua expressions and `#function` definitions, which are otherwise rejected. |
+| `--lua-timeout DURATION` | The time budget shared by all Lua in one run, such as `500ms`, `10s`, `2m` or `1h`. The default is `10s`; a negative value removes the limit. |
+| `--` | Treats every later argument as a file name. |
+| `-h`, `--help` | Prints the usage summary. |
+
+Mote reads the source from the named file, or from standard input when the name
+is `-` or absent. Imports, JSON and CSV data, images and font files resolve
+relative to the source file. PNG output writes one image per page: `-o
+pages/note` produces `pages/note-1.png`, `pages/note-2.png` and so on, and a
+directory path produces `page-1.png` within it.
+
+```sh
+mote report.mote                                          # evaluated model as JSON
+mote --format docx -o report.docx report.mote             # editable Word document
+mote --format pptx -o deck.pptx deck.mote                 # editable PowerPoint deck
+mote --format pdf -o report.pdf report.mote               # native PDF
+mote --format png --dpi 144 -o pages/deck deck.mote       # pages/deck-1.png, ...
+mote --format png --layout presentation -o slides/ notes.md
+cat defaults.mote notes.md | mote --format docx -o notes.docx -
+mote --lua --lua-timeout 2s --format docx -o summary.docx lua.mote
+```
+
+A warning is written to standard error as `file:line:column: warning: message`
+and does not stop the output. An error is written as `file:line:column: message`;
+Mote then exits with status 1 and writes no output file. The
+[example guide](readme/examples/README.md) explains how the downloads and
+previews above are regenerated.
+
+## Review
 
 The command `cargo review` renders the whole rendering catalogue without opening
 an Office application. Each case yields its source, its editable package, a
@@ -369,9 +376,8 @@ native PDF and a PNG for each page; `cargo review --case NAME` refreshes a
 single case. The [rendering case guide](tests/cases/README.md) describes the
 catalogue and its diagnostics.
 
-The same facilities serve an agent reviewing its own work. A warning or error
-appears on standard error as `file:line:column: warning:` or
-`file:line:column: error:`, and an error leaves no partial output. The PNG pages
+The same facilities serve an agent reviewing its own work. Each warning and
+error names its file, line and column, and an error leaves no partial output. The PNG pages
 show what the agent has produced, and the JSON output shows how the source was
 understood.
 
@@ -381,10 +387,13 @@ command `cargo xtask validate PACKAGE...` therefore checks every
 XML part of the editable output, including embedded workbooks, against the
 ECMA-376 schemas retained in the repository. All 95 catalogue cases validate.
 
-## Status and documentation
+## Status
 
 Mote is under active development, and its support is tracked for each attribute
-and output format. Native mathematical typesetting and complex-script shaping
+and output format. The implementation comprises some 41,000 lines of Rust and
+nearly 500 tests; the language is described in 36 specification chapters, and
+the support for each of 64 directives is inventoried against the OOXML
+standards. Native mathematical typesetting and complex-script shaping
 are not yet implemented; equations fall back to their source text in PDF and
 PNG. The previews above are native Mote output. A visual review in Microsoft
 Word and PowerPoint remains outstanding.

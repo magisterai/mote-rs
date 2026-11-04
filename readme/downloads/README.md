@@ -5,8 +5,8 @@ Mote generates every file from the linked [sources](../examples/README.md).
 
 | Example | Downloads | Native preview |
 | --- | --- | --- |
-| Field report | [DOCX](report.docx) · [PDF](report.pdf) | [Page](../images/report-1.png) |
-| Board deck | [PPTX](deck.pptx) · [PDF](deck.pdf) | Slides [1](../images/deck-1.png), [2](../images/deck-2.png), [3](../images/deck-3.png), [4](../images/deck-4.png) |
+| Research note | [DOCX](report.docx) · [PDF](report.pdf) | [Page](../images/report-1.png) |
+| Briefing deck | [PPTX](deck.pptx) · [PDF](deck.pdf) | Slides [1](../images/deck-1.png), [2](../images/deck-2.png), [3](../images/deck-3.png), [4](../images/deck-4.png) |
 | Pure Markdown | [DOCX](plain.docx) · [PPTX](plain.pptx) | [Document](../images/plain-1.png) · [Slide](../images/plain-slides-1.png) |
 | Defaults with unchanged Markdown | [DOCX](defaults.docx) | [Document](../images/defaults-1.png) |
 | Additional directives | [DOCX](directives.docx) | [Document](../images/directives-1.png) |
