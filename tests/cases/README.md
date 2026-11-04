@@ -40,9 +40,9 @@ error if any case fails; `complete/last-run.json` records every selected result.
 An older successful output may remain when a refresh fails, so consult that run
 report before treating existing files as fresh.
 
-The full command is
-`cargo run --example render_review -- [OPTIONS]`; `cargo review` is its repository
-alias. Generator regression tests run with `cargo test --example render_review`.
+The generator is the `review` command of the [repository tasks](../../xtask/README.md);
+`cargo review` is its alias for `cargo xtask review [OPTIONS]`. Generator
+regression tests run with `cargo test -p xtask review`.
 
 Source cases stay in `tests/cases/`; generated review artifacts live in
 `target/review/`, alongside other disposable build output. The review tree

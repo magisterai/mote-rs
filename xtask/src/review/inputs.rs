@@ -67,7 +67,7 @@ impl AssetResolver for ReviewInputs {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::publication::StagingDirectory;
+    use crate::review::publication::StagingDirectory;
 
     #[test]
     fn dependencies_are_bundled_and_mutations_are_rejected() {

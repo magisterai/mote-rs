@@ -111,7 +111,7 @@ pub(super) fn publish(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::{catalogue, rendering};
+    use crate::review::{catalogue, rendering};
     use std::collections::BTreeMap;
 
     #[test]
@@ -122,7 +122,7 @@ mod tests {
             .iter()
             .find(|case| case.identifier == "slide-table-alignment")
             .unwrap();
-        let artifacts = rendering::generate(Path::new(env!("CARGO_MANIFEST_DIR")), case).unwrap();
+        let artifacts = rendering::generate(&crate::repository(), case).unwrap();
         publish(&root.0, case, &artifacts).unwrap();
         let [complete, concise] = destinations(&root.0, case);
         let manifest = String::from_utf8(artifacts.manifest.clone()).unwrap();
@@ -187,8 +187,7 @@ mod tests {
                 .iter()
                 .find(|case| case.identifier == identifier)
                 .unwrap();
-            let artifacts =
-                rendering::generate(Path::new(env!("CARGO_MANIFEST_DIR")), case).unwrap();
+            let artifacts = rendering::generate(&crate::repository(), case).unwrap();
             publish(&root.0, case, &artifacts).unwrap();
             let [_, concise] = destinations(&root.0, case);
             let source_path = concise.join(format!("{}.mote", case.name));

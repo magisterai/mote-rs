@@ -60,7 +60,7 @@ pub(super) struct ReviewCase {
 pub(super) const GROUPS: &[&str] = &["fundamentals", "text", "tables", "flow", "media"];
 
 pub(super) fn load() -> ReviewResult<Vec<ReviewCase>> {
-    parse(include_str!("../../tests/cases/catalogue.json"))
+    parse(include_str!("../../../tests/cases/catalogue.json"))
 }
 
 fn string<'value>(value: &'value Value, field: &str) -> ReviewResult<&'value str> {
@@ -154,7 +154,7 @@ mod tests {
     #[test]
     fn catalogue_has_unique_cases_existing_sources_and_explicit_evaluation() {
         let cases = load().unwrap();
-        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/cases");
+        let root = crate::repository().join("tests/cases");
         assert_eq!(
             cases
                 .iter()
@@ -178,7 +178,7 @@ mod tests {
     #[test]
     fn catalogue_rejects_path_escape_duplicate_destinations_and_unknown_modes() {
         let original: Value =
-            serde_json::from_str(include_str!("../../tests/cases/catalogue.json")).unwrap();
+            serde_json::from_str(include_str!("../../../tests/cases/catalogue.json")).unwrap();
         for (field, replacement) in [
             ("source", "../outside.mote"),
             ("name", "../../outside"),

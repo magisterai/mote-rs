@@ -4,8 +4,9 @@ mod inputs;
 mod publication;
 mod rendering;
 
+use crate::{Outcome, arguments::Arguments};
 use catalogue::{Application, ReviewCase};
-use std::{env, error::Error, path::PathBuf, process::ExitCode};
+use std::{error::Error, path::PathBuf, process::ExitCode};
 
 type ReviewResult<T> = Result<T, Box<dyn Error>>;
 
@@ -20,15 +21,15 @@ The default output root is target/review/, with concise/ and complete/ trees.
 No Office application is opened. Office visual review remains separate.
 ";
 
-fn run() -> ReviewResult<()> {
+fn generate(arguments: Arguments) -> ReviewResult<()> {
     let cases = catalogue::load()?;
-    let repository = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let repository = crate::repository();
     let mut output = repository.join("target/review");
     let mut selected = Vec::new();
     let mut groups = Vec::new();
-    let mut arguments = env::args_os().skip(1);
+    let mut arguments = arguments;
     while let Some(argument) = arguments.next() {
-        match argument.to_str() {
+        match Some(argument.as_str()) {
             Some("--help" | "-h") => {
                 print!("{HELP}");
                 return Ok(());
@@ -50,26 +51,25 @@ fn run() -> ReviewResult<()> {
                 let case = cases
                     .iter()
                     .find(|case| identifier == case.identifier.as_str())
-                    .ok_or_else(|| {
-                        format!("unknown case: {}; use --list", identifier.to_string_lossy())
-                    })?;
+                    .ok_or_else(|| format!("unknown case: {identifier}; use --list"))?;
                 if !selected.contains(&case.identifier) {
                     selected.push(case.identifier.clone());
                 }
             }
             Some("--group") => {
                 let group = arguments.next().ok_or("--group requires a name")?;
-                let group = group
-                    .to_str()
-                    .filter(|group| catalogue::GROUPS.contains(group))
-                    .ok_or("unknown group; use fundamentals, text, tables, flow or media")?;
-                groups.push(group.to_owned());
+                if !catalogue::GROUPS.contains(&group.as_str()) {
+                    return Err(
+                        "unknown group; use fundamentals, text, tables, flow or media".into(),
+                    );
+                }
+                groups.push(group);
             }
-            Some("--output") => output = arguments.next().ok_or("--output requires a path")?.into(),
+            Some("--output") => {
+                output = PathBuf::from(arguments.next().ok_or("--output requires a path")?)
+            }
             _ => {
-                return Err(
-                    format!("unknown option: {}; use --help", argument.to_string_lossy()).into(),
-                );
+                return Err(format!("unknown option: {argument}; use --help").into());
             }
         }
     }
@@ -123,12 +123,8 @@ fn run() -> ReviewResult<()> {
     Ok(())
 }
 
-fn main() -> ExitCode {
-    match run() {
-        Ok(()) => ExitCode::SUCCESS,
-        Err(error) => {
-            eprintln!("{error}");
-            ExitCode::FAILURE
-        }
-    }
+pub(crate) fn run(arguments: Arguments) -> Outcome {
+    generate(arguments)
+        .map(|()| ExitCode::SUCCESS)
+        .map_err(|error| error.to_string())
 }

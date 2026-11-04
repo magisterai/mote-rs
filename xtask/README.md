@@ -16,9 +16,9 @@ tree has the same files plus evaluated models and manifests with hashes, warning
 `--list` to list cases, or
 `--output PATH` to choose the review root. A focused refresh leaves other cases
 unchanged and refuses to replace an open Office file. No Office application is opened.
-The generator calls the library directly and adds no dependencies. Its source is
-under [examples/render_review](../examples/render_review/main.rs); the full
-command is `cargo run --example render_review -- [OPTIONS]`.
+The generator calls the library directly. Its source is
+[src/review.rs](src/review.rs); `cargo review` is the alias of
+`cargo xtask review [OPTIONS]`.
 
 ## README examples
 
