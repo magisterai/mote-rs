@@ -72,7 +72,7 @@ loose content is laid out automatically, and a leading heading becomes its title
 ```mote
 #presentation(size = "wide")
 #slide[
-  #heading(level = 1)[Quarterly review]
+  # Quarterly review
 
   - Revenue rose by 12%.
   - Two new markets.

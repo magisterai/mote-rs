@@ -286,6 +286,28 @@ fn presentation_output_reports_unsupported_retained_properties_and_structures() 
 }
 
 #[test]
+fn markdown_heading_syntax_on_a_slide_is_not_an_unsupported_property() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let markdown =
+        mote::compile("#slide[\n# Title\n\nUnderlined\n==========\n\nBody text.\n]").unwrap();
+    let custom = mote::compile("#slide[#heading(level=1, marker=\"custom\")[Title]]").unwrap();
+    for (document, warned) in [(markdown, false), (custom, true)] {
+        for warnings in [
+            render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+                .unwrap()
+                .warnings,
+            mote::pptx::emit_with_warnings(&document).unwrap().warnings,
+        ] {
+            assert_eq!(
+                warnings.iter().any(|warning| warning.contains("marker")),
+                warned,
+                "{warnings:?}"
+            );
+        }
+    }
+}
+
+#[test]
 fn slide_layout_does_not_load_document_header_assets() {
     let document =
         mote::compile("#header[#image(src='unused.png')]#presentation(size='wide')#slide[]")

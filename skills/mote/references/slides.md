@@ -99,7 +99,5 @@ box on a slide may override any of the slot's properties.
 ## Limits
 
 - A slide holds loose content or positioned objects, never both.
-- A Markdown `#` heading inside `#slide[...]` renders as the title but produces a
-  warning; `#heading(level = 1)[...]` produces none.
 - Layouts become ordinary positioned objects in the PPTX, not PowerPoint
   placeholders or slide masters.

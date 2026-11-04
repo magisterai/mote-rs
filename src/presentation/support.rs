@@ -291,7 +291,14 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
                 allowed.extend_from_slice(LIST);
             }
             match element.kind {
-                ElementKind::Heading => allowed.push("level"),
+                ElementKind::Heading => {
+                    allowed.push("level");
+                    // A Markdown heading records its source syntax, which has no
+                    // output to affect; only an authored custom marker is unsupported.
+                    if matches!(text(attributes, "marker").as_str(), "#" | "setext") {
+                        allowed.push("marker");
+                    }
+                }
                 ElementKind::Strike => allowed.push("kind"),
                 ElementKind::Link => allowed.push("url"),
                 ElementKind::Code | ElementKind::Raw => allowed.push("preserve_space"),
