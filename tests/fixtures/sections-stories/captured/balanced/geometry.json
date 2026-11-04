@@ -828,49 +828,49 @@
           "fragments": [
             {
               "advance": 21.384,
-              "baseline": 97.3680590836,
+              "baseline": 89.36805908355711,
               "size": 11,
               "text": "Full-",
               "x": 24
             },
             {
               "advance": 28.732,
-              "baseline": 97.3680590836,
+              "baseline": 89.36805908355711,
               "size": 11,
               "text": "width ",
               "x": 45.384
             },
             {
               "advance": 55.022,
-              "baseline": 97.3680590836,
+              "baseline": 89.36805908355711,
               "size": 11,
               "text": "conclusion ",
               "x": 74.116
             },
             {
               "advance": 25.069,
-              "baseline": 97.3680590836,
+              "baseline": 89.36805908355711,
               "size": 11,
               "text": "after ",
               "x": 129.138
             },
             {
               "advance": 18.348,
-              "baseline": 97.3680590836,
+              "baseline": 89.36805908355711,
               "size": 11,
               "text": "the ",
               "x": 154.207
             },
             {
               "advance": 44.011,
-              "baseline": 97.3680590836,
+              "baseline": 89.36805908355711,
               "size": 11,
               "text": "columns.",
               "x": 172.555
             }
           ],
           "height": 15.22554,
-          "top": 86.4552890836,
+          "top": 78.45528908355712,
           "width": 192.566,
           "x": 24
         },

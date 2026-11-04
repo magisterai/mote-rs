@@ -334,11 +334,14 @@ fn plan_pass(
             {
                 // Word gives the paragraph that carries a continuous section break
                 // no height, so the next section begins at the previous content and
-                // inherits its pending paragraph spacing.
+                // inherits its pending paragraph spacing. A balanced column height
+                // already includes that spacing.
                 if let Some(boundary) = boundary
                     && boundary.page == cursor.page_number
                 {
-                    cursor.y = cursor.y.max(boundary.bottom);
+                    let bottom = cursor.y.max(boundary.bottom);
+                    pending_spacing = (cursor.y + pending_spacing - bottom).max(0.0);
+                    cursor.y = bottom;
                 }
                 balance_end = cursor;
             } else {
