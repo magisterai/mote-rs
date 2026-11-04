@@ -80,7 +80,7 @@ geometry. Any intentional behavior change needs separate review.
 Verify fixture integrity without a renderer or installed fonts:
 
 ```sh
-python3 tools/compare_measurements.py --fixture tests/fixtures/measurements
+cargo xtask compare-measurements --fixture tests/fixtures/measurements
 ```
 
 Produce and compare candidate measurements:
@@ -88,7 +88,7 @@ Produce and compare candidate measurements:
 ```sh
 cargo run --example measure_fonts -- \
   tests/fixtures/measurements target/measurements-candidate.json
-python3 tools/compare_measurements.py \
+cargo xtask compare-measurements \
   --fixture tests/fixtures/measurements \
   --actual target/measurements-candidate.json \
   --output target/measurements/review-001

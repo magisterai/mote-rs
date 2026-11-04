@@ -1,2 +1,3 @@
 [alias]
 review = "run --example render_review --"
+xtask = "run --quiet --package xtask --"

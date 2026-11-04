@@ -35,18 +35,17 @@ keeps imports and resource paths relative to these examples.
 
 ## Regenerate the downloads and previews
 
-From the repository root, with Rust, Cargo and Python 3 installed:
+From the repository root, with Rust, Cargo and `xmllint` installed:
 
 ```sh
-cargo build --release
-python3 tools/render_readme_examples.py
+cargo xtask readme
 ```
 
-The generator uses Mote for every Office package, PDF and native PNG preview. It
-validates the package XML, checks the number of slides and preview pages, and
-publishes the set only after generation succeeds. The option `--mote PATH`
-selects another Mote binary. Every native image is inspected before an updated
-set is committed.
+The generator calls the Mote library directly for every Office package, PDF and
+native PNG preview. It checks that each package part is well-formed XML,
+validates every part against the ECMA-376 schemas, checks the number of slides
+and preview pages, and publishes the set only after generation succeeds. Every
+native image is inspected before an updated set is committed.
 
 Markdown heading markers and repeated table headers in the pure Markdown deck
 report that they have no presentation effect. The generator accepts those

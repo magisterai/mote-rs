@@ -1,5 +1,10 @@
 # Repository tools
 
+The repository tasks are a Rust crate in this directory, run as
+`cargo xtask COMMAND`; `cargo xtask --help` lists the commands. The crate
+depends on the Mote library and on no library that Mote does not already use.
+`cargo test --workspace` runs its tests with those of the library.
+
 ## Rendering test cases
 
 `cargo review` builds the Rust review generator and renders the
@@ -17,38 +22,44 @@ command is `cargo run --example render_review -- [OPTIONS]`.
 
 ## README examples
 
-`python3 tools/render_readme_examples.py` regenerates the seven README examples as
-editable DOCX and PPTX downloads, PDF downloads of the report and deck, and native
-PNG previews. Mote is built first with `cargo build --release`, or selected with
-`--mote PATH`. The outputs are saved under `docs/examples/readme/` and
+`cargo xtask readme` regenerates the seven README examples as editable DOCX and
+PPTX downloads, PDF downloads of the report and deck, and native PNG previews.
+The task calls the Mote library directly, so no separately built executable is
+required. The outputs are saved under `docs/examples/readme/` and
 `docs/images/readme/`. The [example guide](../examples/readme/README.md) explains
 the composition of the sources and their review.
 
 ## Package validation
 
-`python3 tools/validate_packages.py PACKAGE...` validates every XML part of the
-named DOCX and PPTX packages, and of their embedded workbooks, against the
-retained ECMA-376 transitional schemas with `xmllint`. Markup compatibility is
-applied first, as Office applies it. Word and PowerPoint may silently omit a
-part that violates its schema, so a package can render natively yet lose a
-chart in Office; the validator reports such parts before review. The README
-generator runs it on every package it publishes.
+`cargo xtask validate PACKAGE...` validates every XML part of the named DOCX and
+PPTX packages, and of their embedded workbooks, against the retained ECMA-376
+transitional schemas with `xmllint`. Markup compatibility is applied first, as
+Office applies it. Word and PowerPoint may silently omit a part that violates
+its schema, so a package can render natively yet lose a chart in Office; the
+validator reports such parts before review. The README task runs it on every
+package it publishes.
+
+The retained schemas import the XML namespace without a location, and `xmllint`
+then fails to compile them and reports no validity errors at all. The validator
+therefore loads each schema through a wrapper, written under
+`target/xtask/schemas/`, that supplies [xml.xsd](schemas/xml.xsd), and treats a
+schema that fails to compile as an error rather than a pass.
 
 ## Attribute inventory
 
-`python3 tools/attribute_inventory.py` checks the generated support inventories
-against retained local schemas. Use `--write` after changing `scope.json` or
-`support.json`. The tool does not retrieve sources from the network.
+`cargo xtask inventory` checks the generated support inventories against
+retained local schemas. Use `--write` after changing `scope.json` or
+`support.json`. The task does not retrieve sources from the network.
 
 ## Output comparison
 
-`compare_outputs.py` runs two explicitly selected Mote executables over the same
+`cargo xtask compare-outputs` runs two explicitly selected Mote executables over the same
 source cases and compares their JSON models and every DOCX package part. Build the
 candidate first so the comparison uses the intended code:
 
 ```sh
 cargo build
-python3 tools/compare_outputs.py \
+cargo xtask compare-outputs \
   --reference /path/to/reference-emitter \
   --candidate target/debug/mote \
   --sources tests/fixtures/docx \
@@ -90,22 +101,19 @@ intentional support boundaries explicit rather than labelling all differences as
 passes. The permanent fixture comparison tests also require each advisory-marker
 omission to be inventoried in its capture metadata.
 
-Run the comparison tool's regression checks with:
-
-```sh
-python3 -m unittest discover -s tools -p 'test_compare_outputs.py'
-```
+Run the comparison task's regression checks with
+`cargo test -p xtask compare_outputs`.
 
 ## Font measurement comparison
 
-`compare_measurements.py` validates the self-contained
+`cargo xtask compare-measurements` validates the self-contained
 [measurement fixtures](../tests/fixtures/measurements/README.md) and compares
-candidate measurements against the frozen expectations. It uses only Python's
-standard library and does not run a renderer or locate installed fonts.
+candidate measurements against the frozen expectations. It does not run a
+renderer or locate installed fonts.
 
 ```sh
-python3 tools/compare_measurements.py --fixture tests/fixtures/measurements
-python3 tools/compare_measurements.py \
+cargo xtask compare-measurements --fixture tests/fixtures/measurements
+cargo xtask compare-measurements \
   --fixture tests/fixtures/measurements \
   --actual target/measurements/candidate.json \
   --output target/measurements/review-001
@@ -118,23 +126,23 @@ must match. Cases and categorical fields compare exactly; metric tolerance is
 fixed at one billionth of a point. Missing cases, mismatches and invalid inputs
 return nonzero. The command never updates the baseline or claims Word review.
 
-Run all comparison tool regression checks with:
-
-```sh
-python3 -m unittest discover -s tools -p 'test_compare_*.py'
-```
+Run the measurement task's regression checks with
+`cargo test -p xtask compare_measurements`. Metric differences are computed in
+exact decimal arithmetic, so a tolerance of one billionth of a point is neither
+widened nor narrowed by binary rounding.
 
 ## Native layout captures
 
-Verify the seven frozen layout collections, including file fingerprints and exact
+Verify the nine frozen layout collections, including file fingerprints and exact
 case coverage, without running a renderer:
 
 ```sh
-python3 tools/verify_layout_fixtures.py
+cargo xtask verify-layout
 ```
 
-This checks 1,542 cases across lines, styles, paragraph text, page geometry,
-paragraph flow, document text and inline decoration. It rejects changed bytes,
+This checks 1,599 cases across lines, styles, paragraph text, page geometry,
+paragraph flow, document text, inline decoration, native blocks and native
+columns. It rejects changed bytes,
 duplicate JSON fields/case identities, non-finite numbers and missing cases.
 `fixture_verified` confirms capture integrity, not candidate output agreement.
 `cargo test` compares the Rust implementation with these frozen expectations.
@@ -155,4 +163,4 @@ separate outcomes. This projection does not serialize PDF/PNG or claim that all
 painted properties are represented. The fixture regression test compares this
 same export format with captured expectations.
 
-Run all tool checks with `python3 -m unittest discover -s tools -p 'test_*.py'`.
+Run all task checks with `cargo test -p xtask`.

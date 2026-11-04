@@ -133,8 +133,8 @@ page is maintained separately against its linked clauses.
 From the repository root:
 
 ```sh
-python3 tools/attribute_inventory.py
-python3 tools/attribute_inventory.py --write
+cargo xtask inventory
+cargo xtask inventory --write
 ```
 
 The first command checks for missing/stale fields, nested types, values, and

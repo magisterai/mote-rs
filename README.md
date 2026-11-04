@@ -368,7 +368,7 @@ understood.
 
 A package that renders natively may still be rejected in part by Office: Word
 omits a chart whose markup violates its schema without reporting an error. The
-command `python3 tools/validate_packages.py PACKAGE...` therefore checks every
+command `cargo xtask validate PACKAGE...` therefore checks every
 XML part of the editable output, including embedded workbooks, against the
 ECMA-376 schemas retained in the repository. All 94 catalogue cases validate.
 

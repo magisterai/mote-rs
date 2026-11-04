@@ -471,7 +471,7 @@ normalized style names resolve to the actual declared identifier. This prevents
 dangling references; reference captures with omitted declarations are not treated
 as structurally identical output.
 
-The [output comparison command](../tools/README.md#output-comparison) can rerun
+The [output comparison command](../xtask/README.md#output-comparison) can rerun
 JSON and DOCX comparisons against an explicitly selected reference executable.
 It retains source snapshots, both outputs and diagnostics, with input fingerprints
 and a machine-readable report. It reports known differences and unsupported cases
@@ -482,7 +482,7 @@ separately from matches, and never claims a Word visual review.
 The [font measurement fixtures](../tests/fixtures/measurements/README.md) retain
 960 frozen cases with bundled, licensed font files. They record text preparation,
 layout and painting advances, font extents, variants and rounding behavior.
-The [measurement comparison tool](../tools/README.md#font-measurement-comparison)
+The [measurement comparison tool](../xtask/README.md#font-measurement-comparison)
 checks fixture integrity offline and compares independently generated result JSON
 without modifying the expectations. Its metric tolerance is too small to hide a
 different 1/64-point rounding policy.

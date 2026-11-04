@@ -126,7 +126,7 @@ pub(super) fn normalize_color(
     };
     let Some(digits) = text
         .starts_with('#')
-        .then(|| crate::properties::hex_color(&text))
+        .then(|| crate::properties::hex_color(text))
         .flatten()
     else {
         return Err(Diagnostic::new(
