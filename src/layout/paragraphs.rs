@@ -88,6 +88,7 @@ pub(super) fn plan_resolved_paragraph(
         },
         tab_stops: resolve_tabs.then(|| style.tab_stops.clone()),
         tab_origin: origin,
+        word_exact_baseline: style.word_exact_baseline,
         ..Default::default()
     };
     let mut lines = plan_text(runs, &options, measurer)?;

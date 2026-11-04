@@ -113,7 +113,13 @@ pub fn plan_text(
             height = base_style.measurement.size_points * 1.18 * 1.15 * 1.02;
             base_height = height;
         }
-        let baseline = 0.5 * height + 0.3 * ordinary_size;
+        let word_exact =
+            options.word_exact_baseline && matches!(options.spacing, LineSpacing::Exact(_));
+        let baseline = if word_exact {
+            0.8 * height
+        } else {
+            0.5 * height + 0.3 * ordinary_size
+        };
         if !height.is_finite() || !baseline.is_finite() {
             return Err(LayoutError::InvalidGeometry("line dimensions overflowed"));
         }
@@ -139,7 +145,9 @@ pub fn plan_text(
                         baseline += style.measurement.size_points * 0.26;
                     }
                 } else {
-                    baseline += 0.3 * (style.measurement.size_points - ordinary_size);
+                    if !word_exact {
+                        baseline += 0.3 * (style.measurement.size_points - ordinary_size);
+                    }
                     if style.superscript {
                         baseline -= base_height * 0.22;
                     }

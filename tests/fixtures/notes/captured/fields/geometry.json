@@ -7,49 +7,49 @@
           "fragments": [
             {
               "advance": 65.02,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "DynamicPage ",
               "x": 36
             },
             {
               "advance": 5.56,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "1",
               "x": 101.02
             },
             {
               "advance": 2.78,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": " ",
               "x": 106.58
             },
             {
               "advance": 19.46,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "and ",
               "x": 109.36
             },
             {
               "advance": 30.57,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "anchor",
               "x": 128.82
             },
             {
               "advance": 4.17,
-              "baseline": 41.89,
+              "baseline": 43.54,
               "size": 7.5,
               "text": "1",
               "x": 159.39
             },
             {
               "advance": 2.78,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": ".",
               "x": 163.56
@@ -64,14 +64,14 @@
           "fragments": [
             {
               "advance": 54.47,
-              "baseline": 61.5,
+              "baseline": 62.4,
               "size": 10,
               "text": "Referenced ",
               "x": 36
             },
             {
               "advance": 24.46,
-              "baseline": 61.5,
+              "baseline": 62.4,
               "size": 10,
               "text": "body.",
               "x": 90.47
@@ -86,28 +86,28 @@
           "fragments": [
             {
               "advance": 66.7,
-              "baseline": 77.5,
+              "baseline": 78.4,
               "size": 10,
               "text": "ReferenceSee ",
               "x": 36
             },
             {
               "advance": 54.47,
-              "baseline": 77.5,
+              "baseline": 78.4,
               "size": 10,
               "text": "Referenced ",
               "x": 102.7
             },
             {
               "advance": 24.46,
-              "baseline": 77.5,
+              "baseline": 78.4,
               "size": 10,
               "text": "body.",
               "x": 157.17000000000002
             },
             {
               "advance": 2.78,
-              "baseline": 77.5,
+              "baseline": 78.4,
               "size": 10,
               "text": ".",
               "x": 181.63
@@ -122,21 +122,21 @@
           "fragments": [
             {
               "advance": 8.34,
-              "baseline": 359.3,
+              "baseline": 360.2,
               "size": 10,
               "text": "1 ",
               "x": 36
             },
             {
               "advance": 23.9,
-              "baseline": 359.3,
+              "baseline": 360.2,
               "size": 10,
               "text": "Note ",
               "x": 44.34
             },
             {
               "advance": 16.12,
-              "baseline": 359.3,
+              "baseline": 360.2,
               "size": 10,
               "text": "text",
               "x": 68.24

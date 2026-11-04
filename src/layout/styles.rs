@@ -42,6 +42,8 @@ pub struct ParagraphStyle {
     pub first_line: f64,
     pub fill: Option<String>,
     pub tab_stops: Vec<TabStop>,
+    /// Word places the baseline of an exact line at four fifths of its height.
+    pub word_exact_baseline: bool,
 }
 impl Default for ParagraphStyle {
     fn default() -> Self {
@@ -62,6 +64,7 @@ impl Default for ParagraphStyle {
             first_line: 0.0,
             fill: None,
             tab_stops: Vec::new(),
+            word_exact_baseline: false,
         }
     }
 }
@@ -175,6 +178,7 @@ impl<'document> LayoutStyleResolver<'document> {
     pub fn paragraph(&self, element: &Element) -> ParagraphStyle {
         let mut style = ParagraphStyle {
             text: self.default_text(),
+            word_exact_baseline: self.use_document_line_heights,
             ..Default::default()
         };
         let explicit = values::text(&element.attributes, "style");

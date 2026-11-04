@@ -12,8 +12,8 @@
       "bytes": 20704
     },
     "expected.json": {
-      "sha256": "127ee2007f0a3722549e5583ba14fdae3b9f1ce7bccdc4123ae498203e4742a0",
-      "bytes": 940784
+      "sha256": "674e14e01cdc08b8541e56493e7a162b5b7d832f87799d2a0dd190db5bafb46f",
+      "bytes": 940775
     }
   }
 }

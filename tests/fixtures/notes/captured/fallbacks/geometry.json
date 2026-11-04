@@ -7,14 +7,14 @@
           "fragments": [
             {
               "advance": 37.23,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "Column ",
               "x": 36
             },
             {
               "advance": 76.69,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "referenceColumn",
               "x": 73.22999999999999
@@ -29,7 +29,7 @@
           "fragments": [
             {
               "advance": 36.68,
-              "baseline": 58.5,
+              "baseline": 59.4,
               "size": 10,
               "text": "fallback.",
               "x": 36
@@ -50,21 +50,21 @@
           "fragments": [
             {
               "advance": 36.13,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "Section ",
               "x": 36
             },
             {
               "advance": 78.37,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "referenceSection ",
               "x": 72.13
             },
             {
               "advance": 36.68,
-              "baseline": 45.5,
+              "baseline": 46.4,
               "size": 10,
               "text": "fallback.",
               "x": 150.5
@@ -79,14 +79,14 @@
           "fragments": [
             {
               "advance": 37.22,
-              "baseline": 65.5,
+              "baseline": 66.4,
               "size": 10,
               "text": "CellCell ",
               "x": 42
             },
             {
               "advance": 33.9,
-              "baseline": 65.5,
+              "baseline": 66.4,
               "size": 10,
               "text": "fallback",
               "x": 79.22
@@ -101,14 +101,14 @@
           "fragments": [
             {
               "advance": 59.46,
-              "baseline": 84,
+              "baseline": 84.9,
               "size": 10,
               "text": "FigureFigure ",
               "x": 36
             },
             {
               "advance": 33.9,
-              "baseline": 84,
+              "baseline": 84.9,
               "size": 10,
               "text": "fallback",
               "x": 95.46000000000001

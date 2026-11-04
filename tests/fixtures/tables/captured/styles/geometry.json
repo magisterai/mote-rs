@@ -7,7 +7,7 @@
           "fragments": [
             {
               "advance": 27.23,
-              "baseline": 47.025,
+              "baseline": 44.04,
               "size": 10,
               "text": "Name",
               "x": 31
@@ -22,7 +22,7 @@
           "fragments": [
             {
               "advance": 26.68,
-              "baseline": 47.025,
+              "baseline": 44.04,
               "size": 10,
               "text": "Value",
               "x": 177
@@ -37,7 +37,7 @@
           "fragments": [
             {
               "advance": 25.57,
-              "baseline": 57.574999999999996,
+              "baseline": 54.589999999999996,
               "size": 10,
               "text": "Alpha",
               "x": 31
@@ -52,7 +52,7 @@
           "fragments": [
             {
               "advance": 18.9,
-              "baseline": 57.574999999999996,
+              "baseline": 54.589999999999996,
               "size": 10,
               "text": "One",
               "x": 177
@@ -67,7 +67,7 @@
           "fragments": [
             {
               "advance": 20.57,
-              "baseline": 68.125,
+              "baseline": 65.14,
               "size": 10,
               "text": "Beta",
               "x": 31
@@ -82,7 +82,7 @@
           "fragments": [
             {
               "advance": 18.89,
-              "baseline": 68.125,
+              "baseline": 65.14,
               "size": 10,
               "text": "Two",
               "x": 177
@@ -97,7 +97,7 @@
           "fragments": [
             {
               "advance": 22.23,
-              "baseline": 78.675,
+              "baseline": 75.69,
               "size": 10,
               "text": "Total",
               "x": 31
@@ -112,7 +112,7 @@
           "fragments": [
             {
               "advance": 26.12,
-              "baseline": 78.675,
+              "baseline": 75.69,
               "size": 10,
               "text": "Three",
               "x": 177

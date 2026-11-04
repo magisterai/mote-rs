@@ -258,6 +258,7 @@ fn measure(
         spacing: style.line_spacing,
         fallback_multiplier: style.line_multiplier,
         layout_kerning: true,
+        word_exact_baseline: style.word_exact_baseline,
         ..Default::default()
     };
     let mut lines = super::plan_text(&runs, &options, measurer)?;

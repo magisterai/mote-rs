@@ -218,6 +218,8 @@ pub struct LineOptions {
     pub tab_stops: Option<Vec<TabStop>>,
     /// The left indent: the line frame's offset from the text column.
     pub tab_origin: f64,
+    /// Places an exact line's baseline as Word does rather than as PowerPoint does.
+    pub word_exact_baseline: bool,
 }
 
 impl Default for LineOptions {
@@ -234,6 +236,7 @@ impl Default for LineOptions {
             no_wrap: false,
             tab_stops: None,
             tab_origin: 0.0,
+            word_exact_baseline: false,
         }
     }
 }
