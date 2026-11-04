@@ -56,8 +56,8 @@ with their data in an embedded workbook.
 ![Native preview of a one-page research note titled "A temperate sub-Neptune transiting the nearby M dwarf MTS-0412", with a transit light curve, a two-column body, a candidates table and a radius histogram.](readme/images/report-1.png)
 
 [Source](readme/examples/report.mote) ·
-[Word download](readme/downloads/report.docx) ·
-[PDF download](readme/downloads/report.pdf)
+[Word](readme/downloads/report.docx) ·
+[PDF](readme/downloads/report.pdf)
 
 ## Deck
 
@@ -75,8 +75,8 @@ format, not converted from the note.
 </p>
 
 [Source](readme/examples/deck.mote) ·
-[PowerPoint download](readme/downloads/deck.pptx) ·
-[PDF download](readme/downloads/deck.pdf)
+[PowerPoint](readme/downloads/deck.pptx) ·
+[PDF](readme/downloads/deck.pdf)
 
 The sections that follow introduce the language step by step, from plain
 Markdown to these finished pieces.
@@ -86,22 +86,22 @@ Markdown to these finished pieces.
 Headings, emphasis, lists and tables require no Mote directives:
 
 ```markdown
-# Quarterly brief
+# Observing run summary
 
-Revenue grew by **18%**, with steady progress across both teams.
+The southern array recorded **118 clear nights**, with nine transits of MTS-0412 b.
 
-- Launch the customer research programme.
-- Expand the self-service onboarding guide.
+- Schedule radial-velocity follow-up for spring 2027.
+- Extend monitoring to the shallower 4.07-day signal.
 
-| Team | Focus | Status |
+| Target | Period | Status |
 | :--- | :--- | :--- |
-| Product | Customer research | In progress |
-| Operations | Self-service onboarding | Ready |
+| MTS-0412 b | 11.82 days | Candidate |
+| MTS-1187 b | 3.51 days | Confirmed |
 ```
 
-[Markdown source](readme/examples/plain.md) ·
-[Word download](readme/downloads/plain.docx) ·
-[PowerPoint download](readme/downloads/plain.pptx) ·
+[Source](readme/examples/plain.md) ·
+[Word](readme/downloads/plain.docx) ·
+[PowerPoint](readme/downloads/plain.pptx) ·
 [Document preview](readme/images/plain-1.png) ·
 [Slide preview](readme/images/plain-slides-1.png)
 
@@ -118,16 +118,16 @@ follow, including those created by Markdown. The helpers `pt(...)` and
 styles level-one headings, and `extends` inherits from another style.
 
 ```mote
-#style "Normal" (run = {font = "Source Sans 3", size = pt(12), color = "#334155"})
+#style "Normal" (run = {font = "Source Sans 3", size = pt(12), color = "#1f2633"})
 #style "Heading1" extends "Normal" (
-  run = {size = pt(28), bold = true, color = "#102a43"},
+  run = {font = "Source Serif 4", size = pt(28), bold = true, color = "#14213d"},
   paragraph = {spacing = {before = pt(0), after = pt(12)}}
 )
 #set paragraph(spacing = {after = pt(10)})
 #set table(
   width = inch(6.7),
-  cell = {margin = {vertical = pt(7), horizontal = pt(10)}, fill = "#f0f7f7"},
-  borders = {all = {style = "none"}, inside_h = {width = pt(0.5), color = "#c4dcdb"}}
+  cell = {margin = {vertical = pt(7), horizontal = pt(10)}, fill = "#f1f3f8"},
+  borders = {all = {style = "none"}, inside_h = {width = pt(0.5), color = "#d5dbe8"}}
 )
 ```
 
@@ -139,9 +139,9 @@ special command-line option is required.
 
 ![Native document preview of the unchanged Markdown with typography and table defaults.](readme/images/defaults-1.png)
 
-[Defaults source](readme/examples/defaults.mote) ·
+[Source](readme/examples/defaults.mote) ·
 [Unchanged Markdown](readme/examples/plain.md) ·
-[Word download](readme/downloads/defaults.docx)
+[Word](readme/downloads/defaults.docx)
 
 ## Directives
 
@@ -152,29 +152,29 @@ formatting; the heading, list and table remain Markdown. The source imports the
 defaults from the previous example.
 
 ```mote
-#style "Lead" extends "Normal" (run = {size = pt(17), color = "#0f766e"})
+#style "Lead" extends "Normal" (run = {font = "Source Serif 4", size = pt(17), italic = true, color = "#c2581d"})
 
-# Quarterly brief
+# Observing run summary
 
-#paragraph "Lead"[A strong quarter. A focused next step.]
+#paragraph "Lead"[One clear signal. A planet worth weighing.]
 #paragraph[
-  Revenue grew by #span(bold = true, color = "#0f766e")[18%],
-  with steady progress across both teams.
+  The southern array recorded #span(bold = true, color = "#c2581d")[118 clear nights],
+  with nine transits of MTS-0412 b.
 ]
 
-- Launch the customer research programme.
-- Expand the self-service onboarding guide.
+- Schedule radial-velocity follow-up for spring 2027.
+- Extend monitoring to the shallower 4.07-day signal.
 
-| Team | Focus | Status |
+| Target | Period | Status |
 | :--- | :--- | :--- |
-| Product | Customer research | In progress |
-| Operations | Self-service onboarding | Ready |
+| MTS-0412 b | 11.82 days | Candidate |
+| MTS-1187 b | 3.51 days | Confirmed |
 ```
 
-![Native document preview with a teal introduction and emphasized revenue figure.](readme/images/directives-1.png)
+![Native document preview with an orange italic introduction and an emphasized count of clear nights.](readme/images/directives-1.png)
 
-[Complete source](readme/examples/directives.mote) ·
-[Word download](readme/downloads/directives.docx)
+[Source](readme/examples/directives.mote) ·
+[Word](readme/downloads/directives.docx)
 
 A span repeated with the same attributes is better served by a character style,
 declared with `type = "character"` and applied by name. The research note
@@ -240,22 +240,22 @@ A slide may also use a named layout, such as the built-in `two_column`, in which
 each `box(slot = ...)` fills one named region; a custom layout may inherit from
 an existing one.
 
-[Complete deck source](readme/examples/deck.mote) ·
-[PowerPoint download](readme/downloads/deck.pptx)
+[Source](readme/examples/deck.mote) ·
+[PowerPoint](readme/downloads/deck.pptx)
 
 ## Charts
 
 The `json(...)` helper loads data relative to the source file, and `let` gives
 the data a name. Static evaluation suffices; no scripting is required. The file
-[revenue.json](readme/examples/revenue.json) contains monthly values in
-thousands:
+[observing.json](readme/examples/observing.json) contains the clear hours of each
+month at two telescopes:
 
 ```json
 {
-  "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  "categories": ["Mar", "Apr", "May", "Jun", "Jul", "Aug"],
   "series": [
-    {"name": "Online", "values": [24, 30, 32, 36, 44, 50]},
-    {"name": "Retail", "values": [18, 20, 22, 24, 28, 32]}
+    {"name": "North dome", "values": [98, 82, 118, 136, 142, 131]},
+    {"name": "South dome", "values": [88, 101, 110, 124, 134, 123]}
   ]
 }
 ```
@@ -263,25 +263,25 @@ thousands:
 The chart receives the data together with its size, colors and labels:
 
 ```mote
-#let(revenue = json("revenue.json"))
+#let(observing = json("observing.json"))
 
-# Half-year revenue
+# Clear skies
 
-Monthly revenue, in thousands.
+Clear hours per month at each telescope of the southern array.
 
 #chart(
-  kind = "column", data = revenue,
+  kind = "column", data = observing,
   width = inch(6.7), height = inch(3.1),
-  colors = {"#16877b", "#6b8ce3"}, legend = "bottom",
+  colors = {"#14213d", "#c2581d"}, legend = "bottom",
   data_labels = {value = true, position = "outside_end"},
-  gridlines = {major = true, color = "#dfe7ed"}
+  gridlines = {major = true, color = "#e4e8f0"}
 )
 ```
 
-![Native document chart preview showing monthly online and retail revenue.](readme/images/chart-1.png)
+![Native document chart preview showing monthly clear hours at the north and south domes.](readme/images/chart-1.png)
 
-[Complete chart source](readme/examples/chart.mote) ·
-[Word download](readme/downloads/chart.docx)
+[Source](readme/examples/chart.mote) ·
+[Word](readme/downloads/chart.docx)
 
 The Word download contains an editable chart and its embedded workbook. The
 supported kinds are column, bar, line, area, pie and doughnut charts, with
@@ -291,33 +291,34 @@ stacked variants, axes, legends and data labels.
 
 Lua is optional and must be enabled with `--lua`. A `#function ... end`
 definition contains Lua statements and returns a value or document content. In
-the example, a function sums the monthly values of each channel and converts
-thousands to dollars. The Mote `#for` loop repeats a paragraph for each channel,
-and `format_money(...)` formats the result.
+the example, a function sums the monthly clear hours at each telescope and
+converts them to observing nights. The Mote `#for` loop repeats a paragraph for
+each telescope.
 
 ```mote
-#let(revenue = json("revenue.json"))
-#function channel_total(values)
+#let(observing = json("observing.json"))
+#function season_summary(hours)
   local total = 0
-  for index, amount in ipairs(values) do
+  for index, amount in ipairs(hours) do
     total = total + amount
   end
-  return total * 1000
+  local nights = (total + 4 - (total + 4) % 9) / 9
+  return total .. " clear hours, or about " .. nights .. " nights of nine hours"
 end
 
-# Revenue summary
+# Season totals
 
-Six months of revenue, calculated from the monthly data.
+Six months of clear skies, calculated from the monthly data.
 
-#for channel in revenue.series {
-  #paragraph[#strong[#channel.name:] #format_money(channel_total(channel.values))]
+#for telescope in observing.series {
+  #paragraph[#strong[#telescope.name:] #season_summary(telescope.values)]
 }
 ```
 
-![Native document preview showing calculated online revenue of 216000 dollars and retail revenue of 144000 dollars.](readme/images/lua-1.png)
+![Native document preview showing 707 clear hours, about 79 nights, at the north dome and 680 clear hours, about 76 nights, at the south dome.](readme/images/lua-1.png)
 
-[Complete source](readme/examples/lua.mote) ·
-[Word download](readme/downloads/lua.docx)
+[Source](readme/examples/lua.mote) ·
+[Word](readme/downloads/lua.docx)
 
 ## CLI
 

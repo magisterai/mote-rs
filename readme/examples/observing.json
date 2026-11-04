@@ -1,0 +1,7 @@
+{
+  "categories": ["Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+  "series": [
+    {"name": "North dome", "values": [98, 82, 118, 136, 142, 131]},
+    {"name": "South dome", "values": [88, 101, 110, 124, 134, 123]}
+  ]
+}

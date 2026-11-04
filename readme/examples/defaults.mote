@@ -4,14 +4,14 @@
   page = {width = inch(7.6), height = inch(5)},
   margin = {top = inch(0.4), right = inch(0.45), bottom = inch(0.4), left = inch(0.45)}
 )
-#style "Normal" (run = {font = "Source Sans 3", size = pt(12), color = "#334155"})
+#style "Normal" (run = {font = "Source Sans 3", size = pt(12), color = "#1f2633"})
 #style "Heading1" extends "Normal" (
-  run = {size = pt(28), bold = true, color = "#102a43"},
+  run = {font = "Source Serif 4", size = pt(28), bold = true, color = "#14213d"},
   paragraph = {spacing = {before = pt(0), after = pt(12)}}
 )
 #set paragraph(spacing = {after = pt(10)})
 #set table(
   width = inch(6.7),
-  cell = {margin = {vertical = pt(7), horizontal = pt(10)}, fill = "#f0f7f7"},
-  borders = {all = {style = "none"}, inside_h = {width = pt(0.5), color = "#c4dcdb"}}
+  cell = {margin = {vertical = pt(7), horizontal = pt(10)}, fill = "#f1f3f8"},
+  borders = {all = {style = "none"}, inside_h = {width = pt(0.5), color = "#d5dbe8"}}
 )

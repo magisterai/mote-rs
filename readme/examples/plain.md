@@ -1,11 +1,11 @@
-# Quarterly brief
+# Observing run summary
 
-Revenue grew by **18%**, with steady progress across both teams.
+The southern array recorded **118 clear nights**, with nine transits of MTS-0412 b.
 
-- Launch the customer research programme.
-- Expand the self-service onboarding guide.
+- Schedule radial-velocity follow-up for spring 2027.
+- Extend monitoring to the shallower 4.07-day signal.
 
-| Team | Focus | Status |
+| Target | Period | Status |
 | :--- | :--- | :--- |
-| Product | Customer research | In progress |
-| Operations | Self-service onboarding | Ready |
+| MTS-0412 b | 11.82 days | Candidate |
+| MTS-1187 b | 3.51 days | Confirmed |

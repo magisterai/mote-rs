@@ -2,7 +2,7 @@
 
 The [main README](../../README.md) presents these examples. The editable and PDF
 downloads are in [readme/downloads](../downloads/README.md). The
-survey, the planets, the business content and all figures are illustrative.
+survey, the observatory, the planets and all figures are illustrative.
 
 | Example | Source | Composition |
 | --- | --- | --- |
@@ -11,8 +11,8 @@ survey, the planets, the business content and all figures are illustrative.
 | Pure Markdown | [plain.md](plain.md) | The exact file is passed to both output formats, without any added declarations. |
 | Defaults | [defaults.mote](defaults.mote) + [plain.md](plain.md) | The defaults are prepended in memory; the original Markdown remains unchanged. |
 | Directives | [directives.mote](directives.mote) | The source imports the defaults and adds a styled introduction and an inline accent. |
-| JSON chart | [chart.mote](chart.mote) + [revenue.json](revenue.json) | Static JSON loading creates an editable chart without scripting. |
-| Lua calculation | [lua.mote](lua.mote) + [revenue.json](revenue.json) | A function sums monthly values and converts thousands to dollars. The example alone requires `--lua`. |
+| JSON chart | [chart.mote](chart.mote) + [observing.json](observing.json) | Static JSON loading creates an editable chart without scripting. |
+| Lua calculation | [lua.mote](lua.mote) + [observing.json](observing.json) | A function sums the monthly clear hours and converts them to observing nights. The example alone requires `--lua`. |
 
 The research note and the deck are written for their own formats rather than converted
 from one another. The pure Markdown example alone is rendered in both formats,

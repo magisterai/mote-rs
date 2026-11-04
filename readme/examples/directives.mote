@@ -1,19 +1,19 @@
 #import("defaults.mote")
 
-#style "Lead" extends "Normal" (run = {size = pt(17), color = "#0f766e"})
+#style "Lead" extends "Normal" (run = {font = "Source Serif 4", size = pt(17), italic = true, color = "#c2581d"})
 
-# Quarterly brief
+# Observing run summary
 
-#paragraph "Lead"[A strong quarter. A focused next step.]
+#paragraph "Lead"[One clear signal. A planet worth weighing.]
 #paragraph[
-  Revenue grew by #span(bold = true, color = "#0f766e")[18%],
-  with steady progress across both teams.
+  The southern array recorded #span(bold = true, color = "#c2581d")[118 clear nights],
+  with nine transits of MTS-0412 b.
 ]
 
-- Launch the customer research programme.
-- Expand the self-service onboarding guide.
+- Schedule radial-velocity follow-up for spring 2027.
+- Extend monitoring to the shallower 4.07-day signal.
 
-| Team | Focus | Status |
+| Target | Period | Status |
 | :--- | :--- | :--- |
-| Product | Customer research | In progress |
-| Operations | Self-service onboarding | Ready |
+| MTS-0412 b | 11.82 days | Candidate |
+| MTS-1187 b | 3.51 days | Confirmed |

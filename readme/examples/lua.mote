@@ -1,19 +1,20 @@
 #import("defaults.mote")
 #document(page = {height = inch(3.5)})
 
-#let(revenue = json("revenue.json"))
-#function channel_total(values)
+#let(observing = json("observing.json"))
+#function season_summary(hours)
   local total = 0
-  for index, amount in ipairs(values) do
+  for index, amount in ipairs(hours) do
     total = total + amount
   end
-  return total * 1000
+  local nights = (total + 4 - (total + 4) % 9) / 9
+  return total .. " clear hours, or about " .. nights .. " nights of nine hours"
 end
 
-# Revenue summary
+# Season totals
 
-Six months of revenue, calculated from the monthly data.
+Six months of clear skies, calculated from the monthly data.
 
-#for channel in revenue.series {
-  #paragraph[#strong[#channel.name:] #format_money(channel_total(channel.values))]
+#for telescope in observing.series {
+  #paragraph[#strong[#telescope.name:] #season_summary(telescope.values)]
 }

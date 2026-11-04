@@ -1,16 +1,16 @@
 #import("defaults.mote")
 #document(page = {height = inch(5.5)})
 
-#let(revenue = json("revenue.json"))
+#let(observing = json("observing.json"))
 
-# Half-year revenue
+# Clear skies
 
-Monthly revenue, in thousands.
+Clear hours per month at each telescope of the southern array.
 
 #chart(
-  kind = "column", data = revenue,
+  kind = "column", data = observing,
   width = inch(6.7), height = inch(3.1),
-  colors = {"#16877b", "#6b8ce3"}, legend = "bottom",
+  colors = {"#14213d", "#c2581d"}, legend = "bottom",
   data_labels = {value = true, position = "outside_end"},
-  gridlines = {major = true, color = "#dfe7ed"}
+  gridlines = {major = true, color = "#e4e8f0"}
 )
