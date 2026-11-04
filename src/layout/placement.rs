@@ -9,17 +9,35 @@ pub(super) struct PlacedRun {
     pub advance: f64,
 }
 
+/// The horizontal frame of one wrapped line: its measure, its start and the
+/// rules that distribute the runs within it.
+pub(super) struct LineFrame<'a> {
+    pub width: f64,
+    pub origin: f64,
+    pub alignment: Alignment,
+    pub line_break: LineBreak,
+    pub kerning: bool,
+    pub tab_stops: Option<&'a [TabStop]>,
+    pub tab_origin: f64,
+}
+
+/// Fragments of runs, each marked when justification may stretch the gap after it.
+type Fragments = Vec<(TextRun, bool)>;
+
 pub(super) fn place(
     runs: &[TextRun],
-    width: f64,
-    origin: f64,
-    alignment: Alignment,
-    line_break: LineBreak,
+    frame: &LineFrame<'_>,
     measurer: &mut TextMeasurer<'_>,
-    kerning: bool,
-    tab_stops: Option<&[TabStop]>,
-    tab_origin: f64,
 ) -> Result<(f64, f64, Vec<PlacedRun>), LayoutError> {
+    let &LineFrame {
+        width,
+        origin,
+        alignment,
+        line_break,
+        kerning,
+        tab_stops,
+        ..
+    } = frame;
     let text = wrapping::join(runs);
     let mut gaps = Vec::new();
     if alignment == Alignment::Justify && line_break == LineBreak::Soft {
@@ -51,7 +69,7 @@ pub(super) fn place(
         }
     }
     let mut position = 0;
-    let mut fragments = Vec::new();
+    let mut fragments: Fragments = Vec::new();
     for run in runs {
         let mut start = 0;
         for end in gaps
@@ -80,9 +98,7 @@ pub(super) fn place(
         });
     }
     let (fragments, widths) = match tab_stops {
-        Some(tab_stops) => resolve_tabs(
-            fragments, widths, origin, tab_stops, tab_origin, measurer, kerning,
-        )?,
+        Some(tab_stops) => resolve_tabs(fragments, widths, frame, tab_stops, measurer)?,
         None => (fragments, widths),
     };
     let natural: f64 = widths.iter().sum();
@@ -118,14 +134,18 @@ const DEFAULT_TAB_INTERVAL: f64 = 36.0;
 
 /// Right, centre and decimal stops align the text that follows, up to the next tab.
 fn resolve_tabs(
-    fragments: Vec<(TextRun, bool)>,
+    fragments: Fragments,
     widths: Vec<f64>,
-    origin: f64,
+    frame: &LineFrame<'_>,
     tab_stops: &[TabStop],
-    tab_origin: f64,
     measurer: &mut TextMeasurer<'_>,
-    kerning: bool,
-) -> Result<(Vec<(TextRun, bool)>, Vec<f64>), LayoutError> {
+) -> Result<(Fragments, Vec<f64>), LayoutError> {
+    let &LineFrame {
+        origin,
+        kerning,
+        tab_origin,
+        ..
+    } = frame;
     let is_tab = |run: &TextRun| {
         run.synthetic_tab && run.fixed_advance.is_none() && run.text.trim().is_empty()
     };

@@ -74,17 +74,16 @@ pub fn plan_text(
             0.0
         };
         let width = (options.width - origin).max(1.0);
-        let (x, width, placed) = placement::place(
-            &wrapped.runs,
+        let frame = placement::LineFrame {
             width,
             origin,
-            options.alignment,
-            wrapped.line_break,
-            measurer,
-            options.layout_kerning,
-            options.tab_stops.as_deref(),
-            options.tab_origin,
-        )?;
+            alignment: options.alignment,
+            line_break: wrapped.line_break,
+            kerning: options.layout_kerning,
+            tab_stops: options.tab_stops.as_deref(),
+            tab_origin: options.tab_origin,
+        };
+        let (x, width, placed) = placement::place(&wrapped.runs, &frame, measurer)?;
         let mut ordinary_size = base_style.measurement.size_points;
         let natural_height = options
             .spacing
