@@ -59,6 +59,12 @@ replaced part is listed, so that the refresh can be reviewed before it is
 committed. The tests of the task require every manifest to be rewritten without
 change and every stored part file to be referenced.
 
+Native geometry and raster captures are refreshed by their own test harnesses.
+After an intended layout change, `MOTE_REFRESH_CAPTURES=1 cargo test --test NAME`
+writes the current output in place of each capture that fails its tolerance, and
+updates the recorded digests, in the harnesses that support refresh: the section
+captures and the combined rendering-audit cases.
+
 ## Attribute inventory
 
 `cargo xtask inventory` checks the generated support inventories against

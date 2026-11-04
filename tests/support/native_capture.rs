@@ -65,29 +65,81 @@ pub fn projection(plan: &DocumentTextPlan) -> Value {
     json!({ "pages": pages })
 }
 
+/// Unless `MOTE_REFRESH_CAPTURES` is set, a harness compares its output with the
+/// stored capture. When it is set after an intended layout change, a harness that
+/// supports refresh writes its current output in place of the capture instead, so
+/// that the change is reviewed in the resulting diff.
+#[allow(dead_code)]
+pub fn refreshing() -> bool {
+    std::env::var_os("MOTE_REFRESH_CAPTURES").is_some()
+}
+
+/// Captures were first written with integral values as integers and other values
+/// as short decimals, so a refreshed capture keeps that form, rounded far inside
+/// the geometry tolerance, and differs only where a value changes.
+#[allow(dead_code)]
+pub fn write_json(path: &std::path::Path, value: &Value) {
+    fn integral(value: &Value) -> Value {
+        match value {
+            Value::Number(number) => match number.as_f64() {
+                Some(float) if number.is_f64() => {
+                    let rounded = (float * 1e10).round() / 1e10;
+                    if rounded.fract() == 0.0 && rounded.abs() < 1e15 {
+                        json!(rounded as i64)
+                    } else {
+                        json!(rounded)
+                    }
+                }
+                _ => value.clone(),
+            },
+            Value::Array(values) => Value::Array(values.iter().map(integral).collect()),
+            Value::Object(fields) => Value::Object(
+                fields
+                    .iter()
+                    .map(|(name, value)| (name.clone(), integral(value)))
+                    .collect(),
+            ),
+            _ => value.clone(),
+        }
+    }
+    let text = serde_json::to_string_pretty(&integral(value)).unwrap() + "\n";
+    std::fs::write(path, text).unwrap();
+}
+
 pub fn compare(actual: &Value, expected: &Value, path: &str) {
+    if let Some(difference) = mismatch(actual, expected, path) {
+        panic!("{difference}");
+    }
+}
+
+/// The first difference beyond the geometry tolerance, located by its path.
+pub fn mismatch(actual: &Value, expected: &Value, path: &str) -> Option<String> {
     match (actual, expected) {
-        (Value::Number(actual), Value::Number(expected)) => assert!(
-            (actual.as_f64().unwrap() - expected.as_f64().unwrap()).abs() <= 1e-8,
-            "{path}: {actual} != {expected}"
-        ),
+        (Value::Number(actual), Value::Number(expected)) => {
+            ((actual.as_f64().unwrap() - expected.as_f64().unwrap()).abs() > 1e-8)
+                .then(|| format!("{path}: {actual} != {expected}"))
+        }
         (Value::Array(actual), Value::Array(expected)) => {
-            assert_eq!(actual.len(), expected.len(), "{path}: array length");
-            for (index, (actual, expected)) in actual.iter().zip(expected).enumerate() {
-                compare(actual, expected, &format!("{path}[{index}]"));
+            if actual.len() != expected.len() {
+                return Some(format!("{path}: array length"));
             }
+            actual
+                .iter()
+                .zip(expected)
+                .enumerate()
+                .find_map(|(index, (actual, expected))| {
+                    mismatch(actual, expected, &format!("{path}[{index}]"))
+                })
         }
         (Value::Object(actual), Value::Object(expected)) => {
-            assert_eq!(
-                actual.keys().collect::<Vec<_>>(),
-                expected.keys().collect::<Vec<_>>(),
-                "{path}: fields"
-            );
-            for (key, actual) in actual {
-                compare(actual, &expected[key], &format!("{path}.{key}"));
+            if !actual.keys().eq(expected.keys()) {
+                return Some(format!("{path}: fields"));
             }
+            actual.iter().find_map(|(key, actual)| {
+                mismatch(actual, &expected[key], &format!("{path}.{key}"))
+            })
         }
-        _ => assert_eq!(actual, expected, "{path}"),
+        _ => (actual != expected).then(|| format!("{path}: {actual} != {expected}")),
     }
 }
 pub fn pixels(bytes: &[u8]) -> (u32, u32, Vec<u8>) {

@@ -154,9 +154,24 @@ pub fn compare(group: &str, cases: &[&str]) {
                 "{case}: missing warning {expected}"
             );
         }
+        let mut refreshed_digests = Vec::new();
         if let Some(geometry) = manifest.get("text_geometry") {
-            let bytes = fs::read(folder.join(geometry["path"].as_str().unwrap())).unwrap();
-            assert_eq!(format!("{:x}", Sha256::digest(&bytes)), geometry["sha256"]);
+            let geometry_path = folder.join(geometry["path"].as_str().unwrap());
+            let actual = text_geometry::projection(&planned.output);
+            if capture::refreshing() {
+                let stored: Value =
+                    serde_json::from_slice(&fs::read(&geometry_path).unwrap()).unwrap();
+                if capture::mismatch(&actual, &stored, case).is_some() {
+                    capture::write_json(&geometry_path, &actual);
+                    let digest = format!("{:x}", Sha256::digest(fs::read(&geometry_path).unwrap()));
+                    refreshed_digests
+                        .push((geometry["sha256"].as_str().unwrap().to_owned(), digest));
+                }
+            }
+            let bytes = fs::read(&geometry_path).unwrap();
+            if !capture::refreshing() {
+                assert_eq!(format!("{:x}", Sha256::digest(&bytes)), geometry["sha256"]);
+            }
             let expected = serde_json::from_slice(&bytes).unwrap();
             capture::compare(
                 &text_geometry::projection(&planned.output),
@@ -169,10 +184,20 @@ pub fn compare(group: &str, cases: &[&str]) {
             .output;
         assert_eq!(pages.len(), manifest["pages"].as_array().unwrap().len());
         for (page, expected) in pages.iter().zip(manifest["pages"].as_array().unwrap()) {
+            let page_path = folder.join(expected["path"].as_str().unwrap());
+            let mut replace_page = || {
+                fs::write(&page_path, &page.bytes).unwrap();
+                let digest = format!("{:x}", Sha256::digest(&page.bytes));
+                refreshed_digests.push((expected["sha256"].as_str().unwrap().to_owned(), digest));
+            };
             let bytes = fs::read(folder.join(expected["path"].as_str().unwrap())).unwrap();
             assert_eq!(format!("{:x}", Sha256::digest(&bytes)), expected["sha256"]);
             let (width, height, reference) = capture::pixels(&bytes);
             let (actual_width, actual_height, actual) = capture::pixels(&page.bytes);
+            if capture::refreshing() && (actual_width, actual_height) != (width, height) {
+                replace_page();
+                continue;
+            }
             assert_eq!((actual_width, actual_height), (width, height));
             let mut maximum = 0u8;
             let mut sum = 0u64;
@@ -210,6 +235,16 @@ pub fn compare(group: &str, cases: &[&str]) {
                     count += 1;
                 }
             }
+            let mean = sum as f64 / count.max(1) as f64;
+            let within = u64::from(maximum) <= expected["maximum"].as_u64().unwrap()
+                && mean <= expected["mean"].as_f64().unwrap()
+                && outliers <= expected["outliers"].as_u64().unwrap() as usize;
+            if capture::refreshing() {
+                if !within {
+                    replace_page();
+                }
+                continue;
+            }
             assert!(
                 u64::from(maximum) <= expected["maximum"].as_u64().unwrap(),
                 "{case}: {maximum}"
@@ -222,6 +257,14 @@ pub fn compare(group: &str, cases: &[&str]) {
                 outliers <= expected["outliers"].as_u64().unwrap() as usize,
                 "{case}: {outliers}"
             );
+        }
+        if !refreshed_digests.is_empty() {
+            let manifest_path = folder.join("capture.json");
+            let mut text = fs::read_to_string(&manifest_path).unwrap();
+            for (stored, current) in refreshed_digests {
+                text = text.replace(&stored, &current);
+            }
+            fs::write(manifest_path, text).unwrap();
         }
         assert_eq!(document, original);
     }

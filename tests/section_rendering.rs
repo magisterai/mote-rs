@@ -1,6 +1,6 @@
 #[path = "support/native_capture.rs"]
 mod capture;
-use capture::{compare, pixels, projection};
+use capture::{compare, mismatch, pixels, projection, refreshing, write_json};
 use mote::{
     layout::DocumentTextPlan,
     render::{self, PngOptions},
@@ -52,11 +52,16 @@ const CASES: &[&str] = &[
 #[test]
 fn section_stories_and_fields_match_frozen_geometry() {
     for case in CASES {
-        let expected: Value = serde_json::from_slice(
-            &fs::read(fixtures().join("captured").join(case).join("geometry.json")).unwrap(),
-        )
-        .unwrap();
-        compare(&projection(&planned(case).output), &expected, case);
+        let path = fixtures().join("captured").join(case).join("geometry.json");
+        let actual = projection(&planned(case).output);
+        let expected: Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+        if refreshing() {
+            if mismatch(&actual, &expected, case).is_some() {
+                write_json(&path, &actual);
+            }
+            continue;
+        }
+        compare(&actual, &expected, case);
     }
 }
 #[test]
@@ -72,9 +77,13 @@ fn section_rasters_match_frozen_pages() {
             manifest["pages"].as_u64().unwrap() as usize
         );
         for page in actual.output {
-            let (width, height, expected) =
-                pixels(&fs::read(folder.join(format!("reference-{}.png", page.number))).unwrap());
+            let reference = folder.join(format!("reference-{}.png", page.number));
+            let (width, height, expected) = pixels(&fs::read(&reference).unwrap());
             let (actual_width, actual_height, actual) = pixels(&page.bytes);
+            if refreshing() && (actual_width, actual_height) != (width, height) {
+                fs::write(&reference, &page.bytes).unwrap();
+                continue;
+            }
             assert_eq!((actual_width, actual_height), (width, height));
             let mut maximum = 0u8;
             let mut sum = 0u64;
@@ -96,6 +105,12 @@ fn section_rasters_match_frozen_pages() {
                 }
             }
             let mean = sum as f64 / count.max(1) as f64;
+            if refreshing() {
+                if maximum > 56 || mean > 11.0 {
+                    fs::write(&reference, &page.bytes).unwrap();
+                }
+                continue;
+            }
             assert!(
                 maximum <= 56 && mean <= 11.0,
                 "{case} page {}: maximum {maximum}, mean {mean}",
