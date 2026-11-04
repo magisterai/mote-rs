@@ -49,32 +49,32 @@ OOXML standards.
 
 The report and the deck below share a subject, a fictional reef survey, but
 neither is a conversion of the other. The Word report is
-[88 lines of source](examples/readme/report.mote); the PowerPoint deck is
-[121 lines](examples/readme/deck.mote). Both read their figures from the same
-[JSON file](examples/readme/survey.json).
+[88 lines of source](readme/examples/report.mote); the PowerPoint deck is
+[121 lines](readme/examples/deck.mote). Both read their figures from the same
+[JSON file](readme/examples/survey.json).
 
 **A field report for Word.** A title block, a lead paragraph, a chart built from
 JSON, a styled data table, a callout, a footnote, and running headers and footers.
 
-![Native preview of a one-page field report titled "The reef is recovering, unevenly", with a column chart, a site table and a recommendation callout.](docs/images/readme/report-1.png)
+![Native preview of a one-page field report titled "The reef is recovering, unevenly", with a column chart, a site table and a recommendation callout.](readme/images/report-1.png)
 
-[Report source](examples/readme/report.mote) ·
-[Word download](docs/examples/readme/report.docx) ·
-[PDF download](docs/examples/readme/report.pdf)
+[Report source](readme/examples/report.mote) ·
+[Word download](readme/downloads/report.docx) ·
+[PDF download](readme/downloads/report.pdf)
 
 **A board deck for PowerPoint.** Four slides with a theme, positioned text,
 editable shapes and connectors, a line chart, and speaker notes on every slide.
 
 <p>
-<img src="docs/images/readme/deck-1.png" width="49%" alt="Title slide on a dark ocean background: The reef is recovering, unevenly.">
-<img src="docs/images/readme/deck-2.png" width="49%" alt="Slide with three cards: +5.2 points of coral cover, 4 of 5 sites recovering, +1 point at the Eastern Wall.">
-<img src="docs/images/readme/deck-3.png" width="49%" alt="Slide pairing a short argument with a line chart of temperature anomalies in 2024 and 2026.">
-<img src="docs/images/readme/deck-4.png" width="49%" alt="Slide with a four-step plan and a budget request band.">
+<img src="readme/images/deck-1.png" width="49%" alt="Title slide on a dark ocean background: The reef is recovering, unevenly.">
+<img src="readme/images/deck-2.png" width="49%" alt="Slide with three cards: +5.2 points of coral cover, 4 of 5 sites recovering, +1 point at the Eastern Wall.">
+<img src="readme/images/deck-3.png" width="49%" alt="Slide pairing a short argument with a line chart of temperature anomalies in 2024 and 2026.">
+<img src="readme/images/deck-4.png" width="49%" alt="Slide with a four-step plan and a budget request band.">
 </p>
 
-[Deck source](examples/readme/deck.mote) ·
-[PowerPoint download](docs/examples/readme/deck.pptx) ·
-[PDF download](docs/examples/readme/deck.pdf)
+[Deck source](readme/examples/deck.mote) ·
+[PowerPoint download](readme/downloads/deck.pptx) ·
+[PDF download](readme/downloads/deck.pdf)
 
 The sections that follow introduce the language step by step, from plain
 Markdown to these finished pieces.
@@ -97,11 +97,11 @@ Revenue grew by **18%**, with steady progress across both teams.
 | Operations | Self-service onboarding | Ready |
 ```
 
-[Markdown source](examples/readme/plain.md) ·
-[Word download](docs/examples/readme/plain.docx) ·
-[PowerPoint download](docs/examples/readme/plain.pptx) ·
-[Document preview](docs/images/readme/plain-1.png) ·
-[Slide preview](docs/images/readme/plain-slides-1.png)
+[Markdown source](readme/examples/plain.md) ·
+[Word download](readme/downloads/plain.docx) ·
+[PowerPoint download](readme/downloads/plain.pptx) ·
+[Document preview](readme/images/plain-1.png) ·
+[Slide preview](readme/images/plain-slides-1.png)
 
 The same source produces both editable formats. The PowerPoint output uses
 automatic slide layout; the native PDF and PNG output may use either document
@@ -130,16 +130,16 @@ styles level-one headings, and `extends` inherits from another style.
 ```
 
 The excerpt sets the typography, paragraph spacing and table appearance. The
-full [defaults file](examples/readme/defaults.mote) also declares the font files
+full [defaults file](readme/examples/defaults.mote) also declares the font files
 and a compact page size. The defaults are applied by concatenating them with the
 original Markdown at render time; the original file is left unchanged, and no
 special command-line option is required.
 
-![Native document preview of the unchanged Markdown with typography and table defaults.](docs/images/readme/defaults-1.png)
+![Native document preview of the unchanged Markdown with typography and table defaults.](readme/images/defaults-1.png)
 
-[Defaults source](examples/readme/defaults.mote) ·
-[Unchanged Markdown](examples/readme/plain.md) ·
-[Word download](docs/examples/readme/defaults.docx)
+[Defaults source](readme/examples/defaults.mote) ·
+[Unchanged Markdown](readme/examples/plain.md) ·
+[Word download](readme/downloads/defaults.docx)
 
 ## Add directives where they help
 
@@ -169,10 +169,10 @@ defaults from the previous example.
 | Operations | Self-service onboarding | Ready |
 ```
 
-![Native document preview with a teal introduction and emphasized revenue figure.](docs/images/readme/directives-1.png)
+![Native document preview with a teal introduction and emphasized revenue figure.](readme/images/directives-1.png)
 
-[Complete source](examples/readme/directives.mote) ·
-[Word download](docs/examples/readme/directives.docx)
+[Complete source](readme/examples/directives.mote) ·
+[Word download](readme/downloads/directives.docx)
 
 A span repeated with the same attributes is better served by a character style,
 declared with `type = "character"` and applied by name. The report above sets
@@ -231,20 +231,20 @@ margins:
 ]
 ```
 
-![Native slide preview with three cards: +5.2 points of coral cover, 4 of 5 sites recovering, and +1 point at the Eastern Wall.](docs/images/readme/deck-2.png)
+![Native slide preview with three cards: +5.2 points of coral cover, 4 of 5 sites recovering, and +1 point at the Eastern Wall.](readme/images/deck-2.png)
 
 A slide may also use a named layout, such as the built-in `two_column`, in which
 each `box(slot = ...)` fills one named region; a custom layout may inherit from
 an existing one.
 
-[Complete deck source](examples/readme/deck.mote) ·
-[PowerPoint download](docs/examples/readme/deck.pptx)
+[Complete deck source](readme/examples/deck.mote) ·
+[PowerPoint download](readme/downloads/deck.pptx)
 
 ## Build a chart from JSON
 
 The `json(...)` helper loads data relative to the source file, and `let` gives
 the data a name. Static evaluation suffices; no scripting is required. The file
-[revenue.json](examples/readme/revenue.json) contains monthly values in
+[revenue.json](readme/examples/revenue.json) contains monthly values in
 thousands:
 
 ```json
@@ -275,10 +275,10 @@ Monthly revenue, in thousands.
 )
 ```
 
-![Native document chart preview showing monthly online and retail revenue.](docs/images/readme/chart-1.png)
+![Native document chart preview showing monthly online and retail revenue.](readme/images/chart-1.png)
 
-[Complete chart source](examples/readme/chart.mote) ·
-[Word download](docs/examples/readme/chart.docx)
+[Complete chart source](readme/examples/chart.mote) ·
+[Word download](readme/downloads/chart.docx)
 
 The Word download contains an editable chart and its embedded workbook. The
 supported kinds are column, bar, line, area, pie and doughnut charts, with
@@ -311,10 +311,10 @@ Six months of revenue, calculated from the monthly data.
 }
 ```
 
-![Native document preview showing calculated online revenue of 216000 dollars and retail revenue of 144000 dollars.](docs/images/readme/lua-1.png)
+![Native document preview showing calculated online revenue of 216000 dollars and retail revenue of 144000 dollars.](readme/images/lua-1.png)
 
-[Complete source](examples/readme/lua.mote) ·
-[Word download](docs/examples/readme/lua.docx)
+[Complete source](readme/examples/lua.mote) ·
+[Word download](readme/downloads/lua.docx)
 
 ## Capabilities at a glance
 
@@ -338,17 +338,17 @@ With Rust and Cargo installed, build from the repository root:
 ```sh
 cargo build --release
 mkdir -p target/readme
-target/release/mote --format docx -o target/readme/brief.docx examples/readme/plain.md
-target/release/mote --format pptx -o target/readme/brief.pptx examples/readme/plain.md
-target/release/mote --lua --format pdf -o target/readme/summary.pdf examples/readme/lua.mote
+target/release/mote --format docx -o target/readme/brief.docx readme/examples/plain.md
+target/release/mote --format pptx -o target/readme/brief.pptx readme/examples/plain.md
+target/release/mote --lua --format pdf -o target/readme/summary.pdf readme/examples/lua.mote
 ```
 
 The option `--format png --dpi 144 -o PREFIX` writes numbered page images. An
 explicit `#presentation(...)` selects slide layout for the native PDF and PNG
 output; `--layout presentation` does the same for a bare Markdown deck.
 
-The [downloads and previews](docs/examples/readme/README.md) are checked in
-under `docs`. The [example guide](examples/readme/README.md) explains the
+The [downloads and previews](readme/downloads/README.md) are checked in
+under `readme/`. The [example guide](readme/examples/README.md) explains the
 separate defaults, the format-specific presentation setup and the regeneration
 command.
 

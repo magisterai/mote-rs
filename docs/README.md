@@ -1,6 +1,6 @@
 # Documentation
 
-- [Example downloads](examples/readme/README.md): progressive Markdown and Mote
+- [Example downloads](../readme/downloads/README.md): progressive Markdown and Mote
   examples with editable Word/PowerPoint files and native previews.
 - [Mote specification](specification/README.md): the source language, document
   model, and behaviour, beginning with fundamentals.

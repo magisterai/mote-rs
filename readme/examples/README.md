@@ -1,7 +1,7 @@
 # README examples
 
 The [main README](../../README.md) presents these examples. The editable and PDF
-downloads are in [docs/examples/readme](../../docs/examples/readme/README.md). The
+downloads are in [readme/downloads](../downloads/README.md). The
 reef survey, the business content and all figures are illustrative.
 
 | Example | Source | Composition |
@@ -25,7 +25,7 @@ From the repository root, after building Mote:
 
 ```sh
 mkdir -p target/readme
-cd examples/readme
+cd readme/examples
 cat defaults.mote plain.md | ../../target/release/mote --format docx -o ../../target/readme/defaults.docx -
 ```
 
@@ -64,6 +64,6 @@ chart's default font outlines. The native previews use these declared files; an
 Office application needs both typefaces installed to show the same design. The
 pure Markdown example retains the engine's default fonts.
 
-The images in [docs/images/readme](../../docs/images/readme/) are native Mote
+The images in [readme/images](../images/) are native Mote
 renders, not Office captures. A visual review in Word and PowerPoint remains
 outstanding. Temporary artifacts belong under `target/readme/`.

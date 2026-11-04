@@ -25,8 +25,8 @@ command is `cargo run --example render_review -- [OPTIONS]`.
 `cargo xtask readme` regenerates the seven README examples as editable DOCX and
 PPTX downloads, PDF downloads of the report and deck, and native PNG previews.
 The task calls the Mote library directly, so no separately built executable is
-required. The outputs are saved under `docs/examples/readme/` and
-`docs/images/readme/`. The [example guide](../examples/readme/README.md) explains
+required. The outputs are saved under `readme/downloads/` and
+`readme/images/`. The [example guide](../readme/examples/README.md) explains
 the composition of the sources and their review.
 
 ## Package validation

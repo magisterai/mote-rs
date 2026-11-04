@@ -23,7 +23,7 @@ const HELP: &str = "Usage: cargo xtask readme
 Regenerate the README examples as editable DOCX and PPTX downloads, PDF downloads
 of the report and deck, and native PNG previews at 144 DPI. Every package is
 validated against the ECMA-376 schemas before anything is published to
-docs/examples/readme/ and docs/images/readme/.
+readme/downloads/ and readme/images/.
 ";
 
 #[derive(Clone, Copy, PartialEq)]
@@ -263,9 +263,9 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
         Some(option) => return Err(unknown(option)),
     }
     let repository = repository();
-    let sources = repository.join("examples/readme");
-    let downloads = repository.join("docs/examples/readme");
-    let images = repository.join("docs/images/readme");
+    let sources = repository.join("readme/examples");
+    let downloads = repository.join("readme/downloads");
+    let images = repository.join("readme/images");
     let files = FileAssetResolver::new(&sources).map_err(|error| error.to_string())?;
     let resolver = CachingAssetResolver::new(&files);
     let mut publications: Vec<(PathBuf, Vec<u8>)> = Vec::new();
