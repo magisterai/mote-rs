@@ -136,6 +136,16 @@ The reference collection contains the complete document text and its visual
 companions. The presence of a reference implies neither that a feature is
 implemented nor that rendered output conforms to Office.
 
+## Agent skill
+
+The [skills/mote](skills/mote/SKILL.md) directory holds the documentation for a
+model that writes Mote: a short entry page and a flat index of short reference
+pages, in the open Agent Skills layout that Claude Code, Codex and other agents
+read. Each page is self-contained, brief, and written in the style above. A
+language or output change updates the pages it affects in the same commit. A
+Mote example in the skill must compile and render without warnings, as
+[the skill test](tests/skill.rs) checks.
+
 ## Rendering review files
 
 The command `cargo review` generates the native review catalogue, and

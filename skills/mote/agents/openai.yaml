@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mote"
+  short_description: "Mote source for Word, PowerPoint, PDF and PNG output"
+  default_prompt: "Write a Mote document that"
