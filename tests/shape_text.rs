@@ -2,7 +2,7 @@
 #[path = "support/native_capture.rs"]
 mod capture;
 use mote::{
-    layout::{DocumentTextPlan, PageOperation, TaskMark},
+    layout::{DocumentTextPlan, PageOperation},
     render,
     source::FileAssetResolver,
 };
@@ -26,7 +26,6 @@ fn effects(plan: &DocumentTextPlan) -> Value {
                     "slot": marker.slot,
                     "baseline": marker.baseline,
                     "font_size": marker.font_size,
-                    "task_mark": match marker.task_mark { TaskMark::Check => "check", TaskMark::Cross => "cross" },
                 })),
                 _ => {}
             }

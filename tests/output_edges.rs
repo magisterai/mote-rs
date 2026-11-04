@@ -116,7 +116,7 @@ fn empty_presentations_keep_declared_geometry_in_both_native_formats() {
 }
 
 #[test]
-fn zero_hanging_list_markers_fit_before_the_unchanged_text_origin() {
+fn zero_hanging_list_markers_fit_before_the_text_and_checkboxes_begin_the_line() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for directive in ["list", "ordered_list"] {
         for item in ["#item[Content]", "#item(checked=true)[Content]"] {
@@ -142,7 +142,18 @@ fn zero_hanging_list_markers_fit_before_the_unchanged_text_origin() {
                         .any(|fragment| fragment.text == "Content")
                 })
                 .unwrap();
-            assert!((marker.slot[0] + marker.slot[2] - text.line.x).abs() < 1e-8);
+            if item.contains("checked") {
+                let content = text
+                    .line
+                    .fragments
+                    .iter()
+                    .find(|fragment| fragment.text == "Content")
+                    .unwrap();
+                assert!((marker.slot[0] - text.line.x).abs() < 1e-8);
+                assert!(content.x >= marker.slot[0] + marker.slot[2]);
+            } else {
+                assert!((marker.slot[0] + marker.slot[2] - text.line.x).abs() < 1e-8);
+            }
             assert!(!render::paint_pdf(&plan).unwrap().is_empty());
             assert_eq!(
                 render::paint_png(&plan, &Default::default())

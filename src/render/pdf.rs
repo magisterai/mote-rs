@@ -482,41 +482,16 @@ fn paint_marker(
             circle(content, center_x, page_height - center_y, radius);
         }
         ListMarkerKind::Task => {
-            let size = marker.font_size * 7.5 / 12.0;
-            let horizontal = left + ((width - size) / 2.0).max(0.0);
-            let vertical = top + (height - size) / 2.0 + marker.font_size * 0.5 / 12.0;
-            content
-                .set_stroke_rgb(0.067, 0.094, 0.153)
-                .set_line_width(rounded(marker.font_size * 0.75 / 12.0))
-                .rect(
-                    rounded(horizontal),
-                    rounded(page_height - vertical),
-                    rounded(size),
-                    -rounded(size),
-                )
-                .stroke();
-            if marker.checked {
-                let segments = if marker.task_mark == crate::layout::TaskMark::Cross {
-                    [([0.18, 0.18], [0.82, 0.82]), ([0.82, 0.18], [0.18, 0.82])]
-                } else {
-                    [
-                        ([1.4 / 7.5, 4.2 / 7.5], [3.2 / 7.5, 6.0 / 7.5]),
-                        ([3.2 / 7.5, 6.0 / 7.5], [6.5 / 7.5, 1.4 / 7.5]),
-                    ]
-                };
-                for (start, end) in segments {
-                    content
-                        .move_to(
-                            rounded(horizontal + size * start[0]),
-                            rounded(page_height - vertical - size * start[1]),
-                        )
-                        .line_to(
-                            rounded(horizontal + size * end[0]),
-                            rounded(page_height - vertical - size * end[1]),
-                        )
-                        .stroke();
+            content.set_fill_rgb(0.067, 0.094, 0.153);
+            for contour in marker.task_contours() {
+                let [x, y] = contour[0];
+                content.move_to(rounded(x), rounded(page_height - y));
+                for [x, y] in &contour[1..] {
+                    content.line_to(rounded(*x), rounded(page_height - y));
                 }
+                content.close_path();
             }
+            content.fill_even_odd();
         }
     }
     Ok(())

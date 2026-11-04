@@ -2,7 +2,7 @@ use super::*;
 use crate::{
     layout::{
         HighlightRectangle, LineOptions, ListMarker, ListMarkerKind, PaintedPath, PathPaint,
-        PositionedImage, Rule, RuleRole, TaskMark, TextRun, TextStyle, plan_text,
+        PositionedImage, Rule, RuleRole, TextRun, TextStyle, plan_text,
     },
     measurement::TextMeasurer,
     media::{PreparedImage, RasterImage},
@@ -98,7 +98,6 @@ fn prepared_content() -> TextPage {
         PageOperation::ListMarker(Box::new(ListMarker {
             kind: ListMarkerKind::Ordered,
             checked: false,
-            task_mark: TaskMark::Check,
             slot: [20.0, 20.0, 50.0, 20.0],
             baseline: line.baseline,
             font_size: 11.0,

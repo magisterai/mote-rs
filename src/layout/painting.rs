@@ -128,22 +128,73 @@ pub enum ListMarkerKind {
     Task,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
-pub enum TaskMark {
-    #[default]
-    Check,
-    Cross,
-}
-
 #[derive(Debug, Clone, PartialEq)]
 pub struct ListMarker {
     pub kind: ListMarkerKind,
     pub checked: bool,
-    pub task_mark: TaskMark,
     pub slot: [f64; 4],
     pub baseline: f64,
     pub font_size: f64,
     pub text: Option<TextLine>,
+}
+
+/// The MS Gothic ballot box glyphs, U+2610 and U+2612, that Word and PowerPoint
+/// draw for a task marker, in thousandths of an em from the glyph origin with y
+/// upward. The glyph advance is one em.
+const UNCHECKED_TASK: &[&[[f64; 2]]] = &[
+    &[[132.8125, 0.0], [132.8125, 734.375], [871.09375, 734.375], [871.09375, 0.0]],
+    &[[171.875, 46.875], [828.125, 46.875], [828.125, 687.5], [171.875, 687.5]],
+];
+const CHECKED_TASK: &[&[[f64; 2]]] = &[
+    &[
+        [132.8125, -11.71875],
+        [132.8125, 722.65625],
+        [867.1875, 722.65625],
+        [867.1875, -11.71875],
+    ],
+    &[
+        [171.875, 35.15625],
+        [824.21875, 35.15625],
+        [824.21875, 675.78125],
+        [171.875, 675.78125],
+    ],
+    &[
+        [769.53125, 652.34375],
+        [800.78125, 621.09375],
+        [535.15625, 351.5625],
+        [800.78125, 85.9375],
+        [769.53125, 54.6875],
+        [500.0, 320.3125],
+        [234.375, 54.6875],
+        [203.125, 85.9375],
+        [468.75, 351.5625],
+        [203.125, 621.09375],
+        [234.375, 652.34375],
+        [500.0, 386.71875],
+    ],
+];
+
+impl ListMarker {
+    /// Returns the closed contours of a task marker's glyph in page coordinates,
+    /// to be filled with the even-odd rule. The glyph origin is the left edge of
+    /// the slot on the marker's baseline.
+    pub fn task_contours(&self) -> Vec<Vec<[f64; 2]>> {
+        let scale = self.font_size / 1000.0;
+        let glyph = if self.checked {
+            CHECKED_TASK
+        } else {
+            UNCHECKED_TASK
+        };
+        glyph
+            .iter()
+            .map(|contour| {
+                contour
+                    .iter()
+                    .map(|[x, y]| [self.slot[0] + x * scale, self.baseline - y * scale])
+                    .collect()
+            })
+            .collect()
+    }
 }
 
 #[derive(Default)]
@@ -224,7 +275,11 @@ impl ParagraphPainting {
                 prepared_marker.hanging
             };
             let slot_left = placement.frame.x - slot_width;
-            marker.slot = [slot_left, placement.top, slot_width, placement.height];
+            marker.slot = if marker.kind == ListMarkerKind::Task {
+                [line.x, placement.top, marker.font_size, placement.height]
+            } else {
+                [slot_left, placement.top, slot_width, placement.height]
+            };
             marker.baseline = line.baseline;
             if let Some(text) = &mut marker.text {
                 let horizontal = if marker.kind == ListMarkerKind::Bullet {

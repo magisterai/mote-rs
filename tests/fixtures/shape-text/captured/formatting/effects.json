@@ -19,8 +19,7 @@
           16.8504
         ],
         "baseline": 216.80800000000002,
-        "font_size": 14,
-        "task_mark": "cross"
+        "font_size": 14
       },
       {
         "checked": false,
@@ -31,8 +30,7 @@
           16.8504
         ],
         "baseline": 236.65840000000003,
-        "font_size": 14,
-        "task_mark": "cross"
+        "font_size": 14
       }
     ]
   }

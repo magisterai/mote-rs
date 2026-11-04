@@ -539,53 +539,23 @@ fn paint_marker(
         }
         return Ok(());
     }
-    let [left, top, width, height] = marker.slot;
-    let size = marker.font_size * 8.25 / 12.0;
-    let horizontal = left + ((width - size) / 2.0).max(0.0);
-    let vertical = top - 6.0 + (height - size) / 2.0 + marker.font_size * 0.25 / 12.0;
-    let stroke = (marker.font_size * 0.8 / 12.0).max(1.0 / scale);
-    for [left, top, width, height] in [
-        [horizontal, vertical, size, stroke],
-        [horizontal, vertical + size - stroke, size, stroke],
-        [horizontal, vertical, stroke, size],
-        [horizontal + size - stroke, vertical, stroke, size],
-    ] {
-        fill_rectangle(
-            pixels,
-            &HighlightRectangle {
-                x: left,
-                top,
-                width,
-                height,
-                color: "111827".into(),
-            },
-            scale,
-            clip,
-        )?;
-    }
-    if marker.checked {
-        let segments = if marker.task_mark == crate::layout::TaskMark::Cross {
-            [([0.18, 0.18], [0.82, 0.82]), ([0.82, 0.18], [0.18, 0.82])]
-        } else {
-            [
-                ([2.1 / 8.25, 4.8 / 8.25], [4.2 / 8.25, 5.4 / 8.25]),
-                ([4.2 / 8.25, 5.4 / 8.25], [6.4 / 8.25, 2.3 / 8.25]),
-            ]
-        };
-        for (start, end) in segments {
-            paint_rule(
-                pixels,
-                &Rule {
-                    role: crate::layout::RuleRole::Generic,
-                    start: [horizontal + size * start[0], vertical + size * start[1]],
-                    end: [horizontal + size * end[0], vertical + size * end[1]],
-                    width: marker.font_size * 0.8 / 12.0,
-                    color: "111827".into(),
-                },
-                scale,
-                clip,
-            )?;
+    let mut path = PathBuilder::new();
+    for contour in marker.task_contours() {
+        let [x, y] = contour[0];
+        path.move_to((x * scale) as f32, (y * scale) as f32);
+        for [x, y] in &contour[1..] {
+            path.line_to((x * scale) as f32, (y * scale) as f32);
         }
+        path.close();
+    }
+    if let Some(path) = path.finish() {
+        pixels.fill_path(
+            &path,
+            &paint("111827", true)?,
+            FillRule::EvenOdd,
+            Transform::identity(),
+            clip,
+        );
     }
     Ok(())
 }

@@ -213,7 +213,6 @@ pub(crate) fn fit_with_frame(
             page.operations
                 .push(PageOperation::ListMarker(Box::new(ListMarker {
                     kind: ListMarkerKind::Task,
-                    task_mark: crate::layout::TaskMark::Cross,
                     checked,
                     slot: [
                         content[0] + paragraph.first_frame.x,

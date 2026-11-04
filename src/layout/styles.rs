@@ -302,10 +302,7 @@ impl<'document> LayoutStyleResolver<'document> {
         } else {
             family = name.into();
         }
-        style.word_line_height = match family.trim().to_lowercase().as_str() {
-            "mono" | "courier" | "courier new" | "couriernewpsmt" => Some(1.137391304347826),
-            _ => None,
-        };
+        style.word_line_height = builtin_word_line_height(&family);
     }
     pub(super) fn apply_run(&self, style: &mut TextStyle, properties: &Properties) {
         let font = values::text(properties, "font");
@@ -643,4 +640,15 @@ fn border_side(value: &Value) -> Option<BorderSide> {
         space: fields.get("space").and_then(values::number).unwrap_or(0.0),
         color: values::color(fields, "color").unwrap_or_else(|| DEFAULT_BORDER_COLOR.into()),
     })
+}
+
+/// Returns the line height that Word gives a family, as a multiple of the font
+/// size, where Word measured it differently from the font's own metrics. The MS
+/// Gothic value was measured in Word at 11 and 22 points.
+pub(super) fn builtin_word_line_height(family: &str) -> Option<f64> {
+    match family.trim().to_lowercase().as_str() {
+        "mono" | "courier" | "courier new" | "couriernewpsmt" => Some(1.137391304347826),
+        "ms gothic" => Some(1.2964),
+        _ => None,
+    }
 }

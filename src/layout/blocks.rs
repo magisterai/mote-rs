@@ -431,6 +431,23 @@ impl BlockBuilder<'_, '_, '_> {
                     runs[0].preserve_space = true;
                 }
                 let task = item.attributes.contains_key("checked");
+                if task && unit_index == 0 {
+                    // Word and PowerPoint write the checkbox as an MS Gothic ballot box
+                    // and a space at the start of the item's hanging first line.
+                    style.first_line = -item_geometry.hanging;
+                    let space = self
+                        .measurer
+                        .measure(&style.text.measurement, " ", true)?
+                        .measurement
+                        .layout_width;
+                    let mut checkbox = TextRun::new(" ", style.text.clone());
+                    let size = style.text.measurement.size_points;
+                    checkbox.fixed_advance = Some(if size > 0.0 { size } else { 11.0 } + space);
+                    checkbox.preserve_space = true;
+                    checkbox.style.word_line_height =
+                        super::styles::builtin_word_line_height("MS Gothic");
+                    runs.insert(0, checkbox);
+                }
                 let kind = if task {
                     ListMarkerKind::Task
                 } else if ordered {
@@ -499,7 +516,6 @@ impl BlockBuilder<'_, '_, '_> {
                             level: item_level,
                             hanging: item_geometry.hanging,
                             marker: ListMarker {
-                                task_mark: Default::default(),
                                 kind,
                                 checked: values::boolean(&item.attributes, "checked"),
                                 slot: [0.0; 4],
