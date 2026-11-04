@@ -1,6 +1,6 @@
 #[path = "support/native_capture.rs"]
 mod capture;
-use capture::{compare, pixels, projection};
+use capture::{compare, pixels, projection, refreshing};
 use mote::{
     layout::DocumentTextPlan,
     render::{self, PngOptions},
@@ -92,8 +92,19 @@ fn caption_rasters_match_frozen_pages() {
                 }
             }
             let mean = sum as f64 / count.max(1) as f64;
+            let within = maximum <= 56 && mean <= 11.0;
+            if refreshing() {
+                if !within {
+                    capture::replace(
+                        &folder,
+                        &format!("reference-{}.png", page.number),
+                        &page.bytes,
+                    );
+                }
+                continue;
+            }
             assert!(
-                maximum <= 56 && mean <= 11.0,
+                within,
                 "{case} page {}: maximum {maximum}, mean {mean}",
                 page.number
             );

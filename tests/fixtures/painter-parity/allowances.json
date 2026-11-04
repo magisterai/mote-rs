@@ -54,7 +54,7 @@
   "word/15_cjk_line_breaking": 0.001,
   "word/16_justified_text": 0.002,
   "word/17_inline_code_font": 0.002,
-  "word/18_preserve_space": 0.002,
+  "word/18_preserve_space": 0.001,
   "word/19_keep_with_next": 0.001,
   "word/20_keep_together": 0.0,
   "word/21_page_break_before": 0.002,

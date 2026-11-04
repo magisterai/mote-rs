@@ -262,11 +262,9 @@ fn crisp_axis_aligned(
     let across = 1 - along;
     let first = start[along].min(end[along]);
     let last = start[along].max(end[along]);
-    let steps = (last - first).ceil();
-    if steps <= 0.0 {
+    if last <= first {
         return;
     }
-    let step_width = (last - first) / steps;
     let radius = (width / 2.0).max(0.5);
     let dimensions = [f64::from(pixels.width()), f64::from(pixels.height())];
     let first_along = (first - radius).floor().max(0.0) as u32;
@@ -278,8 +276,9 @@ fn crisp_axis_aligned(
         let cross_distance = f64::from(cross_position) + 0.5 - start[across];
         for position in first_along..last_along {
             let center = f64::from(position) + 0.5;
-            let closest = ((center - first) / step_width).round().clamp(0.0, steps);
-            let distance = center - (first + closest * step_width);
+            // The distance to the segment itself; sampling points along it would
+            // drift against the pixel grid and leave gaps in a one-pixel line.
+            let distance = (first - center).max(center - last).max(0.0);
             if distance * distance + cross_distance * cross_distance <= radius * radius {
                 let (column, row) = if horizontal {
                     (position, cross_position)
