@@ -1,7 +1,6 @@
 {
   "source": "../../merges.mote",
   "source_sha256": "0a5ae90e12ce0699602ede47f223d3222ad9f89fcb62cc118861f41b4b24a379",
-  "captured_docx_sha256": "b7e06503e07db387e82c47aa743e5c2aaf136c60802abf7e6f94191b27d108cb",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

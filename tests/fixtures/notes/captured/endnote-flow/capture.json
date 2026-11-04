@@ -1,7 +1,6 @@
 {
   "source": "../../endnote-flow.mote",
   "source_sha256": "1ffd2c62b15a81b01e2996137b83d250f46309228d12e4cf7ef78db65e54551c",
-  "captured_docx_sha256": "88dd0c35920e9acf8e0967a6f67471ddc56b674ea185ee44e403082314bfa24c",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

@@ -14,7 +14,6 @@
     "word/styles.xml"
   ],
   "source_sha256": "eaca5510279ad17cdaa966b8ad6a41ad01a1587e90c66d9629922c4c685a6203",
-  "captured_docx_sha256": "4a242e18bba8af18bac7fce1315518d3331fa14bd008637aa284236e5ab04e6f",
   "captured_at_utc": "2026-10-29T03:55:09.068748+00:00",
   "word_review_status": "unreviewed",
   "normalization": "XML pretty-printing only; namespaces, attributes, element order, and text values retained."

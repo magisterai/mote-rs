@@ -1,7 +1,6 @@
 {
   "source": "../../column-flow.mote",
   "source_sha256": "598584947e88e666a169c4219264758ea694adc9a7624680df628a43316e8ea5",
-  "captured_docx_sha256": "2cf8f6d00e055c3a03efe85ede2424c14603bca3ae93cd3ff874d8bda00eed54",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

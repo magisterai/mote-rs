@@ -1,7 +1,6 @@
 {
   "source": "../../columns.mote",
   "source_sha256": "bfc36f18beefec8c01b102753f7ad363ffc6a2ad6435fd639c89f029a8531a67",
-  "captured_docx_sha256": "166547895ac2cf6a6a3e4a1380b7633e4424f17c9934bca4db412e3fb96dcdf2",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

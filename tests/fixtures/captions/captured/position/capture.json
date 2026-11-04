@@ -1,7 +1,6 @@
 {
   "source": "../../position.mote",
   "source_sha256": "953f3195868b06a4f20a08e739cda2c4fd12099573efd71a73f4697cfeef1216",
-  "captured_docx_sha256": "19cea5adabf818db862968b6d7fd76629137f756073df2e02fa0c31d16d1812b",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

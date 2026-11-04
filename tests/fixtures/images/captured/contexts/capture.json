@@ -1,7 +1,6 @@
 {
   "source": "../../contexts.mote",
   "source_sha256": "5ee2558ea6db03271858fbea2939e21cb16dcc5f387221e137a865e8b64a0dcf",
-  "captured_docx_sha256": "b0310bfb320c3f694e7bfa9ad69d39791658db8caf54e08e07bf5c2bdc5d3dfb",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

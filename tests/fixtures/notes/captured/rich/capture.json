@@ -1,7 +1,6 @@
 {
   "source": "../../rich.mote",
   "source_sha256": "5b269b72bf3d47a74771d54578b70aee96365666600ddb124d0521ef8d65d4bd",
-  "captured_docx_sha256": "b30231188dde63530786506a3e8bf37881de36a82a574d2c6cbd979fb5cb70d2",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

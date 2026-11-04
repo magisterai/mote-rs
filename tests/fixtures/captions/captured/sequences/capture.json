@@ -1,7 +1,6 @@
 {
   "source": "../../sequences.mote",
   "source_sha256": "8c36a1fa63fb3e15d8faedd7b220f76352366bb6622bc004392dd1b2ff2bb0d1",
-  "captured_docx_sha256": "a14cba1e5f59219f6271a1a054a873d4c9491c7c2422605b73d6686fa0cb0c40",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

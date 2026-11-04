@@ -1,7 +1,6 @@
 {
   "source": "../../geometry.mote",
   "source_sha256": "cf9a44dadcf7ea96149c2aa6859178e5e21a4594aa08830bfc9b41bdda95efb9",
-  "captured_docx_sha256": "54a476d2e3f5be20f2d167928f909340777c417207aab17248b378d57759f46c",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

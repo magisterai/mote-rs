@@ -1,7 +1,6 @@
 {
   "source": "../../subframe.mote",
   "source_sha256": "10cce54fd2c0d687ea850ce5240edb476cc9627bc2c84c51ee84793749d42ae8",
-  "captured_docx_sha256": "8192b10d570c9f5563a9955dee90081f393635c563884036066838da91d16e43",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

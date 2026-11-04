@@ -1,7 +1,6 @@
 {
   "source": "../../local-stories.mote",
   "source_sha256": "d9f425429548605652e90a160e2b214699cf992e3289eb33a466a20419bbfc2c",
-  "captured_docx_sha256": "1f74e8ee58de480cbee5fea457f13a577c45f15c19d0fc603e4c52ecd3f5e108",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

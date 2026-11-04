@@ -1,7 +1,6 @@
 {
   "source": "../../continuous.mote",
   "source_sha256": "c42b8acbc824727fbedce24732e8a415b18a0241cfe2d0719410b4b8a5115bdb",
-  "captured_docx_sha256": "a96dc2cb6e5e01bc5f06039b8798721e9825af93205c2752445f5865f174385a",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

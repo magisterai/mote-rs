@@ -1,7 +1,6 @@
 {
   "source": "../../field-flow.mote",
   "source_sha256": "f6a66d903c8716e8e127655e2448ef637fdcc164b6f69b5d80f17d2ccf71a824",
-  "captured_docx_sha256": "ba4485abac9a0337a1407a9e1a3a370a7ba31af15de6beaac8198d3de3569110",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

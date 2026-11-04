@@ -1,7 +1,6 @@
 {
   "source": "../../borders.mote",
   "source_sha256": "fbc4cb4775a0e6f395c0e816594d53e529e77f04948faa32f95d3710d536e2c1",
-  "captured_docx_sha256": "7a3a8454ab0107106c75bae4d070f7fc55769890c28ebb3d708cb7392adebabd",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

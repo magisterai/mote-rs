@@ -1,7 +1,6 @@
 {
   "source": "../../flow.mote",
   "source_sha256": "c0e47e04e99d74b16f1c3981c89d1b17ad62898991487ccfd07cb632ca957cbd",
-  "captured_docx_sha256": "43af0b8395564eb868bc23aaa3a6527e3d330b8010d6c4134252a6b43d9da674",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

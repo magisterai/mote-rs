@@ -1,7 +1,6 @@
 {
   "source": "../../missing.mote",
   "source_sha256": "422fa1e3d8ba7dd25e33cc72c8f2bdd834673f319fced4502fff6ef15e3340fa",
-  "captured_docx_sha256": "7c197cf2bae2b36152d6326c7e68ea064e51bc2b21379f8657f977d3edccc87b",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

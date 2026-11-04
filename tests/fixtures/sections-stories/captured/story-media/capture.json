@@ -1,7 +1,6 @@
 {
   "source": "../../story-media.mote",
   "source_sha256": "4fe24bdb32f7bdf71570fe8dcfdb1adf6e1cdf3da253b43c7c34787275ca6f93",
-  "captured_docx_sha256": "fcb6f44f55734efbfcf5380d0933c06a663c60301c4c718051850a7ff9331eb5",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

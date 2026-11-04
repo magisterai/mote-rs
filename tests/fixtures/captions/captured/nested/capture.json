@@ -1,7 +1,6 @@
 {
   "source": "../../nested.mote",
   "source_sha256": "bc37e26dac38461d6def211445ade8876c77effba11ea82236f369c7f5648023",
-  "captured_docx_sha256": "d9c20d440a366dbb0ff46b75527d5ff1ec1927c3f3c90f35c30016d39ac7bfb0",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

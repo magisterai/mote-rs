@@ -1,7 +1,6 @@
 {
   "source": "../../overflow.mote",
   "source_sha256": "27ca294a7e8a4dd6fa0c6b51870a74e6165cfc7f1ce945e9813988e4c583dc0d",
-  "captured_docx_sha256": "1d655e968b9cba530e3ba89af4da0a2e3721ede4e7d05d8e09114d9cc6e5676f",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

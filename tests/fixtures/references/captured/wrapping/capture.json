@@ -1,7 +1,6 @@
 {
   "source": "../../wrapping.mote",
   "source_sha256": "b65970db9e963c2fc31cec4bd6068baf876e8eb65c3924c378908767926253bc",
-  "captured_docx_sha256": "884cd4bb039290cf213783a215fd83b2cebf9e36463d89c597217cfd02f0f690",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

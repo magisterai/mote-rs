@@ -1,7 +1,6 @@
 {
   "source": "../../fallbacks.mote",
   "source_sha256": "ad4f0f3fff53649cf7036a70538fa7138c2b9b2e8cba714ce07d2cebcd1bc8f9",
-  "captured_docx_sha256": "7da9851036f7065c99e956f83af5721ff3d53d04cdae9ef4558f35d3153735f6",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

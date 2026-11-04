@@ -1,7 +1,6 @@
 {
   "source": "../../placement.mote",
   "source_sha256": "c418b621e4c71deb0ad5630b6e8666841999ff1ab2876525c6f727223c447a93",
-  "captured_docx_sha256": "851d61ec8db13a5f06b0465d12c8e431cce91f97debd60b1227810b7368da166",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

@@ -1,7 +1,6 @@
 {
   "source": "../../basic.mote",
   "source_sha256": "75ecb75e97b25f631eef2c3f44d56ef6368606c0215dbe91de2f90565c51188f",
-  "captured_docx_sha256": "c2ef4e3589fb5853a73dcd110cf2e674bf1cdffadabe7f89b6ca5cf4abe0d52e",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

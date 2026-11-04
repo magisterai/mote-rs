@@ -1,7 +1,6 @@
 {
   "source": "../../formatting.mote",
   "source_sha256": "0aaca7cc7ab74fafdb81f5ee2a4fcf0ff3a8414289cc80fac59f204a845c5b8b",
-  "captured_docx_sha256": "fa70f45bd2e124004754b61a89beb2d44a84917abd6d713451ef9f34a026d401",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

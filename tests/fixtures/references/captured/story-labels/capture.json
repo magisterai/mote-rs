@@ -1,7 +1,6 @@
 {
   "source": "../../story-labels.mote",
   "source_sha256": "47d987d3cd0127586b1db4ca5dafe2d6201fe39b5eda1705121e712de9f6569c",
-  "captured_docx_sha256": "69b4aba2a4ec5add605adb732c49416521c86771d00a24c6de5864218a1c46f7",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

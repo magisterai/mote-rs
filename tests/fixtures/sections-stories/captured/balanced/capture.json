@@ -1,7 +1,6 @@
 {
   "source": "../../balanced.mote",
   "source_sha256": "ad7e32d7af9a051d7ec158435ac18fd40f10e289a9b9f5f00d9b07274b01ffd4",
-  "captured_docx_sha256": "7edac3c3fe2dae20aca0062457e8b89cc8b78bbce4b908ffb125294266847b26",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",

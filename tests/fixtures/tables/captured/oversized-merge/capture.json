@@ -1,7 +1,6 @@
 {
   "source": "../../oversized-merge.mote",
   "source_sha256": "83f9cbb88d57667000fba762fede5155e983683903889f51fe5fdad703e813ee",
-  "captured_docx_sha256": "df8ecabb1dbdd0a26d3edfb114bf4e21fedb12fe00288057927c31258abcdbcc",
   "parts": [
     "[Content_Types].xml",
     "_rels/.rels",
