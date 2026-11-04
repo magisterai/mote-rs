@@ -948,6 +948,16 @@
     "required_fonts": []
   },
   {
+    "identifier": "word-drawings-charts-flow",
+    "application": "word",
+    "name": "64_drawings_and_charts_in_flow",
+    "source": "word-64-drawings-charts-flow.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
     "identifier": "markdown-table-slides",
     "application": "powerpoint",
     "name": "31_markdown_table_alignment",

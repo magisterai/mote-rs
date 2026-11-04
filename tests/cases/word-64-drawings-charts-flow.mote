@@ -1,0 +1,211 @@
+#metadata(title = "Mote Drawings And Charts In Flow", author = "Mote")
+
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(18) }
+    }
+  }
+)
+
+#style(
+  name = "Column",
+  type = "paragraph",
+  based_on = "Normal",
+  paragraph = { indent = { right = pt(198) } }
+)
+
+#style(
+  name = "Heading1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { size = pt(20), bold = true, color = "#1e3a8a" },
+  paragraph = {
+    keep_with_next = true,
+    spacing = {
+      before = pt(0),
+      after = pt(0),
+      line = { rule = "exact", value = pt(36) }
+    }
+  }
+)
+
+#set paragraph(style = "Column")
+
+# Drawings And Charts In Flow
+
+The text column holds one 18-point line per marker.
+
+#paragraph[LINE 01 — alpha flow marker.]
+#paragraph[LINE 02 — bravo flow marker.]
+#paragraph[LINE 03 — charlie: box top edge.]
+
+#shape(
+  name = "Lines 03 to 05",
+  kind = "rect",
+  position = { x = pt(360), y = pt(162), width = pt(180), height = pt(54) },
+  fill = "#dbeafe",
+  border = { color = "#2563eb", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    indent = { right = pt(0) },
+    size = pt(10),
+    color = "#1e3a8a",
+    alignment = "center",
+    vertical_alignment = "middle",
+    margin = { top = pt(0), right = pt(4), bottom = pt(0), left = pt(4) }
+  }
+)[LINES 03–05: the box spans exactly these three lines.]
+
+#paragraph[LINE 04 — delta: inside the box.]
+#paragraph[LINE 05 — echo: box bottom edge.]
+#paragraph[LINE 06 — foxtrot flow marker.]
+#paragraph[LINE 07 — golf flow marker.]
+#paragraph[LINE 08 — hotel: inside the band.]
+
+#shape(
+  name = "Line 08 band",
+  kind = "rect",
+  position = { x = pt(72), y = pt(252), width = pt(270), height = pt(18) },
+  fill = "#fde68a",
+  opacity = 35,
+  border = { color = "#d97706", width = pt(0.5) }
+)
+
+#chart(
+  kind = "column",
+  title = "Column chart",
+  width = pt(270),
+  height = pt(162),
+  data = {
+    categories = { "Q1", "Q2", "Q3", "Q4" },
+    series = {
+      { name = "Actual", values = { 12, 15, 16, 19 } }
+    }
+  },
+  legend = false,
+  colors = { "#2563eb" }
+)
+
+#paragraph[LINE 09 — india: first line after the chart.]
+#paragraph[LINE 10 — juliet flow marker.]
+
+#shape(
+  name = "Rounded note",
+  kind = "round_rect",
+  position = { x = pt(360), y = pt(288), width = pt(180), height = pt(108) },
+  fill = "#dcfce7",
+  border = { color = "#15803d", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    indent = { right = pt(0) },
+    size = pt(10),
+    color = "#14532d",
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(6), right = pt(8), bottom = pt(6), left = pt(8) }
+  }
+)[Page-anchored note beside the chart. Its position is fixed to the page, so it stays put while the text and chart flow on the left.]
+
+#paragraph[LINE 11 — kilo flow marker.]
+#paragraph[LINE 12 — lima flow marker.]
+#paragraph[LINE 13 — mike flow marker.]
+#paragraph[LINE 14 — november: last line on page 1.]
+
+#break()
+
+#paragraph[LINE 15 — oscar: inside the page 2 band.]
+
+#shape(
+  name = "Line 15 band",
+  kind = "rect",
+  position = { x = pt(72), y = pt(72), width = pt(270), height = pt(18) },
+  fill = "#fde68a",
+  opacity = 35,
+  border = { color = "#d97706", width = pt(0.5) }
+)
+
+#paragraph[LINE 16 — papa flow marker.]
+#paragraph[LINE 17 — quebec: ellipse top edge.]
+
+#shape(
+  name = "Lines 17 to 19",
+  kind = "ellipse",
+  position = { x = pt(360), y = pt(108), width = pt(180), height = pt(54) },
+  fill = "#fce7f3",
+  border = { color = "#be185d", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    indent = { right = pt(0) },
+    size = pt(10),
+    color = "#831843",
+    alignment = "center",
+    vertical_alignment = "middle"
+  }
+)[LINES 17–19]
+
+#paragraph[LINE 18 — romeo: inside the ellipse.]
+#paragraph[LINE 19 — sierra: ellipse bottom edge.]
+#paragraph[LINE 20 — tango: last line before the pie.]
+
+#chart(
+  kind = "pie",
+  title = "Pie chart",
+  width = pt(270),
+  height = pt(180),
+  data = {
+    categories = { "New", "Expansion", "Renewal" },
+    series = {
+      { name = "Pipeline", values = { 45, 35, 20 } }
+    }
+  },
+  legend = { position = "right" },
+  colors = { "#2563eb", "#059669", "#d97706" }
+)
+
+#paragraph[LINE 21 — uniform: first line after the pie.]
+
+#shape(
+  name = "Diamond",
+  kind = "diamond",
+  position = { x = pt(360), y = pt(216), width = pt(180), height = pt(90) },
+  fill = "#fef3c7",
+  border = { color = "#b45309", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    indent = { right = pt(0) },
+    size = pt(10),
+    color = "#78350f",
+    bold = true,
+    alignment = "center",
+    vertical_alignment = "middle"
+  }
+)[Beside the pie]
+
+#paragraph[LINE 22 — victor flow marker.]
+#paragraph[LINE 23 — whiskey flow marker.]
+#paragraph[LINE 24 — x-ray flow marker.]
+#paragraph[LINE 25 — yankee flow marker.]
+#paragraph[LINE 26 — zulu flow marker.]
+#paragraph[LINE 27 — alpha two flow marker.]
+#paragraph[LINE 28 — bravo two flow marker.]
+#paragraph[LINE 29 — charlie two flow marker.]
+#paragraph[LINE 30 — delta two flow marker.]
+#paragraph[LINE 31 — echo two flow marker.]
+#paragraph[LINE 32 — foxtrot two flow marker.]
+
+#paragraph[
+  PASS: the box, ellipse and bands align with the lines they name; the text after each chart starts below the whole chart; both pages match Word.
+]

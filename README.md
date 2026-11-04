@@ -49,7 +49,7 @@ means fewer tokens, no office suite, no program to debug, and a document that th
 person who receives it can still open, edit and own.
 
 The implementation comprises some 41,000 lines of Rust and nearly 500 tests. A
-catalogue of 94 rendering cases, 63 for documents and 31 for presentations,
+catalogue of 95 rendering cases, 64 for documents and 31 for presentations,
 exercises the native output. The language is described in 36 specification
 chapters, and the support for each of 64 directives is inventoried against the
 OOXML standards.
@@ -379,7 +379,7 @@ A package that renders natively may still be rejected in part by Office: Word
 omits a chart whose markup violates its schema without reporting an error. The
 command `cargo xtask validate PACKAGE...` therefore checks every
 XML part of the editable output, including embedded workbooks, against the
-ECMA-376 schemas retained in the repository. All 94 catalogue cases validate.
+ECMA-376 schemas retained in the repository. All 95 catalogue cases validate.
 
 ## Status and documentation
 
