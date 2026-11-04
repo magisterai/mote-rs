@@ -6,8 +6,12 @@ use super::{
 impl ChartPlanner<'_, '_> {
     pub(super) fn bars(&mut self, chart: &Chart, layout: &ChartLayout) -> Result<(), LayoutError> {
         let horizontal = super::horizontal(chart);
-        let scale = Scale::for_chart(chart, layout.plot.width.min(layout.plot.height), horizontal)
-            .validate()?;
+        let length = if horizontal {
+            layout.plot.width.min(layout.plot.height)
+        } else {
+            layout.plot.height
+        };
+        let scale = Scale::for_chart(chart, length, horizontal).validate()?;
         let foreground = self.axes(chart, layout, scale, horizontal)?;
         if !chart.categories.is_empty() && !chart.series.is_empty() {
             self.bar_marks(chart, layout.plot, scale, horizontal)?;

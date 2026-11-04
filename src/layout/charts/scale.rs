@@ -45,6 +45,9 @@ impl Scale {
                 },
             };
         }
+        if !horizontal {
+            return vertical_scale(minimum, maximum, length);
+        }
         if minimum >= 0.0 {
             let (maximum, step) = positive_scale(maximum, length);
             return Self {
@@ -116,6 +119,42 @@ fn extents(chart: &Chart, stacked: bool) -> (f64, f64) {
         }
     }
     (minimum, maximum)
+}
+/// Office pads each nonzero end of the data by a twentieth of its range, then
+/// takes the finest step of one, two or five times a power of ten that divides
+/// the padded span into no more parts than the plot height allows. The limit on
+/// the parts lies midway in the range that Word's chart-value-axis probe admits.
+fn vertical_scale(minimum: f64, maximum: f64, length: f64) -> Scale {
+    let margin = (maximum - minimum) / 20.0;
+    let top = if maximum > 0.0 { maximum + margin } else { 0.0 };
+    let bottom = if minimum < 0.0 { minimum - margin } else { 0.0 };
+    if top - bottom <= 0.0 {
+        return Scale {
+            minimum: 0.0,
+            maximum: 1.0,
+            step: 0.2,
+        };
+    }
+    let parts = if length > 0.0 {
+        ((length - 16.0) * 0.085).clamp(1.0, 10.0)
+    } else {
+        10.0
+    };
+    let step = step_at_least((top - bottom) / parts);
+    Scale {
+        minimum: (bottom / step).floor() * step,
+        maximum: (top / step).ceil() * step,
+        step,
+    }
+}
+fn step_at_least(rough: f64) -> f64 {
+    let power = 10.0_f64.powf(rough.log10().floor());
+    let normalized = rough / power;
+    let selected = [1.0, 2.0, 5.0]
+        .into_iter()
+        .find(|candidate| normalized <= candidate * (1.0 + 1e-9))
+        .unwrap_or(10.0);
+    selected * power
 }
 fn positive_scale(maximum: f64, length: f64) -> (f64, f64) {
     if maximum <= 0.0 || !maximum.is_finite() {

@@ -87,11 +87,20 @@ fn compare_captures(collection: &str, cases: &[&str]) {
             format!("{:x}", Sha256::digest(&geometry)),
             manifest["geometry_sha256"]
         );
-        capture::compare(
-            &charts::projection(&plan.output),
-            &serde_json::from_slice(&geometry).unwrap(),
-            case,
-        );
+        let projection = charts::projection(&plan.output);
+        let expected: Value = serde_json::from_slice(&geometry).unwrap();
+        if capture::refreshing() {
+            if capture::mismatch(&projection, &expected, case).is_some() {
+                capture::replace_json_recorded(
+                    &folder,
+                    "capture.json",
+                    "geometry.json",
+                    &projection,
+                );
+            }
+        } else {
+            capture::compare(&projection, &expected, case);
+        }
         let pages = render::paint_png(&plan.output, &Default::default())
             .unwrap()
             .output;
@@ -147,8 +156,15 @@ fn compare_captures(collection: &str, cases: &[&str]) {
                 ("chart-native-pie", _) => (48, 1.0, 0),
                 _ => (64, 2.0, 0),
             };
+            let within = maximum <= maximum_limit && mean <= mean_limit && edges <= edge_limit;
+            if capture::refreshing() {
+                if !within {
+                    capture::replace_recorded(&folder, "capture.json", &name, &page.bytes);
+                }
+                continue;
+            }
             assert!(
-                maximum <= maximum_limit && mean <= mean_limit && edges <= edge_limit,
+                within,
                 "{case}/{name}: maximum {maximum}, mean {mean}, edges {edges}"
             );
         }

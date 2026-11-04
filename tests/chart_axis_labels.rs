@@ -29,10 +29,18 @@ fn narrow_chart_axes_keep_zero_and_separate_numeric_labels() {
             .collect();
         assert!(labels.iter().any(|(value, _)| *value == 0.0));
         let gridlines = page.operations.iter().filter(|operation| matches!(operation,PageOperation::Rule(rule) if rule.role == RuleRole::ChartGridline)).count();
-        assert!(
-            labels.len() < gridlines,
-            "dense axes should retain gridlines while omitting colliding text"
-        );
+        if kind == "bar" {
+            assert!(
+                labels.len() < gridlines,
+                "dense axes should retain gridlines while omitting colliding text"
+            );
+        } else {
+            assert_eq!(
+                labels.len(),
+                gridlines,
+                "a vertical value axis labels every major gridline, as Office does"
+            );
+        }
         for (index, (_, first)) in labels.iter().enumerate() {
             for (_, second) in labels.iter().skip(index + 1) {
                 if kind == "bar" {

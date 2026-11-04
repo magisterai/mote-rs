@@ -58,19 +58,21 @@ impl ChartPlanner<'_, '_> {
                 }
             })
             .collect();
-        let length = if horizontal { plot.width } else { plot.height };
-        let mut intervals = Vec::new();
-        for value in &values {
-            let extent = if horizontal {
-                self.measurement
+        // Office labels every major tick of a vertical value axis, having chosen
+        // the step from the plot height; only wide horizontal labels may collide.
+        let visible = if horizontal {
+            let mut intervals = Vec::new();
+            for value in &values {
+                let width = self
+                    .measurement
                     .text_width(&axis_label(*value, scale.step, percent), 10.0)?
-                    .min(40.0)
-            } else {
-                16.0
-            };
-            intervals.push((scale.ratio(*value) * length, extent));
-        }
-        let visible = visible_labels(&intervals, values.iter().position(|value| *value == 0.0));
+                    .min(40.0);
+                intervals.push((scale.ratio(*value) * plot.width, width));
+            }
+            visible_labels(&intervals, values.iter().position(|value| *value == 0.0))
+        } else {
+            vec![true; values.len()]
+        };
         for (index, &value) in values.iter().enumerate() {
             if chart.gridlines.major {
                 gridline(self, value);

@@ -60,8 +60,11 @@ dimensions omit the chart. Native gap is clamped at zero, horizontal bars ignore
 overlap, and pie/doughnut charts use positive values for sector angles, radial labels and
 category legends. Radial labels retain their preferred position when it fits;
 otherwise they occupy separated side columns with leaders outside the circle.
-Labels paint after the doughnut center. Numeric axis labels follow tick precision
-and omit colliding text while retaining every gridline.
+Labels paint after the doughnut center. Numeric axis labels follow tick precision.
+A vertical value axis pads each nonzero end of the data by a twentieth of its
+range and takes the finest step of one, two or five times a power of ten that
+the plot height admits, and labels every major tick, as Word does; a horizontal
+value axis omits colliding text while retaining every gridline.
 Pie label-position overrides use automatic placement with a
 warning; doughnut centers use the plot, chart or default white background. Native line and area kinds share axes,
 scales and legends; line charts include circular markers and automatic labels.

@@ -46,6 +46,7 @@ follows.
 | [exact-line-baseline](probes/exact-line-baseline.mote) | An exact line's baseline lies at four fifths of its height. | Matches Word exactly. |
 | [paragraph-spacing](probes/paragraph-spacing.mote) | The gap between paragraphs follows from the first one's spacing after and the second one's spacing before. | Within 0.3 point of Word. |
 | [east-asian-line-height](probes/east-asian-line-height.mote) | A line holding an MS Gothic glyph takes the height Word gives that font. | Within 0.9 point of Word. |
+| [chart-value-axis](probes/chart-value-axis.mote) | A vertical value axis pads the data by a twentieth of its range and labels every major tick at a step chosen from the data and the plot height. | Every label of all forty charts matches Word. |
 | [automatic-line-height](probes/automatic-line-height.mote) | A single line follows from the font metrics, scaled by the multiple. | Drifts by up to 0.1 point a line. Georgia and Times New Roman are substituted natively although installed, and four lines move to another page. |
 | [footnote-spacing](probes/footnote-spacing.mote) | Footnotes stack at the foot of the page with Word's separator and spacing. | The notes lie 19 points from Word's position. |
 | [table-row-height](probes/table-row-height.mote) | A row is at least its at-least height, or exactly its exact height. | Native layout ignores row heights; following rows lie up to 27 points away. |

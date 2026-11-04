@@ -59,7 +59,7 @@
     "horizontal": 4.7,
     "median": 0.2,
     "page_moves": 0,
-    "unmatched": 9,
+    "unmatched": 8,
     "vertical": 4.9
   },
   "powerpoint/10_chart_properties": {
@@ -164,7 +164,7 @@
     "horizontal": 4.2,
     "median": 0.5,
     "page_moves": 0,
-    "unmatched": 5,
+    "unmatched": 3,
     "vertical": 2.3
   },
   "powerpoint/25_slide_edges": {
@@ -222,6 +222,13 @@
     "page_moves": 4,
     "unmatched": 0,
     "vertical": 53.0
+  },
+  "probes/chart-value-axis": {
+    "horizontal": 5.7,
+    "median": 0.7,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 1.0
   },
   "probes/east-asian-line-height": {
     "horizontal": 0.0,
@@ -302,9 +309,9 @@
   },
   "word/07_warning_authority": {
     "horizontal": 4.0,
-    "median": 0.9,
+    "median": 1.1,
     "page_moves": 0,
-    "unmatched": 3,
+    "unmatched": 0,
     "vertical": 7.2
   },
   "word/08_lists": {
@@ -556,14 +563,14 @@
     "horizontal": 85.8,
     "median": 0.9,
     "page_moves": 0,
-    "unmatched": 15,
+    "unmatched": 10,
     "vertical": 13.7
   },
   "word/44_chart_defaults": {
     "horizontal": 61.2,
     "median": 1.5,
     "page_moves": 0,
-    "unmatched": 4,
+    "unmatched": 0,
     "vertical": 13.8
   },
   "word/45_chart_lua_json": {
