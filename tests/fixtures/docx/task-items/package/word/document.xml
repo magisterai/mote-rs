@@ -8,9 +8,9 @@
       </w:pPr>
       <w:sdt>
         <w:sdtPr>
-          <w:id w:val="1000"/>
           <w:alias w:val="Done &lt;today&gt;"/>
           <w:tag w:val="done &amp; archived"/>
+          <w:id w:val="1000"/>
           <w14:checkbox>
             <w14:checked w14:val="1"/>
             <w14:checkedState w14:val="2612" w14:font="MS Gothic"/>

@@ -14,6 +14,18 @@ pub(super) struct StoryPart {
     pub relationships: Option<String>,
 }
 
+/// Word ends every story with a paragraph and inserts one in the style's spacing
+/// after a final table, which native layout does not. The inserted paragraph is
+/// therefore written explicitly, collapsed to a negligible height, so that it
+/// cannot carry the document onto a further page.
+const CLOSING_PARAGRAPH: &str = r#"<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/><w:szCs w:val="2"/></w:rPr></w:pPr></w:p>"#;
+
+fn close_final_table(body: &mut String) {
+    if body.ends_with("</w:tbl>") {
+        body.push_str(CLOSING_PARAGRAPH);
+    }
+}
+
 pub(super) fn write(
     document: &Document,
     styles: &Styles<'_>,
@@ -21,6 +33,7 @@ pub(super) fn write(
 ) -> Result<String, Error> {
     if document.sections.is_empty() {
         let mut body = write_blocks(&document.content, styles, state)?;
+        close_final_table(&mut body);
         body.push_str(&configuration::section_properties(document)?);
         return Ok(body);
     }
@@ -68,6 +81,7 @@ pub(super) fn write(
         };
         let properties = configuration::section_geometry(&geometry, &prefix, &numbering, &suffix)?;
         if index + 1 == document.sections.len() {
+            close_final_table(&mut body);
             body.push_str(&properties);
         } else {
             body.push_str(&format!("<w:p><w:pPr>{properties}</w:pPr></w:p>"));

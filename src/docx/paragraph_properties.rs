@@ -33,23 +33,19 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
         supported.extend_from_slice(&["background", "first_line_indent", "hanging_indent"]);
     }
     check_attributes(properties, &supported, "paragraph")?;
-    let mut result = if declaration {
-        String::new()
-    } else {
-        pagination(properties)?
-    };
-    if declaration {
-        for name in ["fill", "background"] {
-            if let Some(fill) = properties.get(name) {
-                result.push_str(&shading(fill)?);
-            }
-        }
-    }
+    let mut result = pagination(properties)?;
     if let Some(border) = properties.get("border") {
         result.push_str(&borders(border)?);
     }
-    if !declaration && let Some(fill) = properties.get("fill") {
-        result.push_str(&shading(fill)?);
+    let fills: &[&str] = if declaration {
+        &["fill", "background"]
+    } else {
+        &["fill"]
+    };
+    for name in fills {
+        if let Some(fill) = properties.get(*name) {
+            result.push_str(&shading(fill)?);
+        }
     }
     if let Some(stops) = properties.get("tabs") {
         result.push_str(&tabs(stops)?);
@@ -112,9 +108,6 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
         };
         result.push_str(&format!("<w:jc w:val=\"{word_alignment}\"/>"));
     }
-    if declaration {
-        result.push_str(&pagination(properties)?);
-    }
     if let Some(level) = properties.get("outline_level") {
         let level = values::number(level)?;
         if level.fract() != 0.0 || !(0.0..=9.0).contains(&level) {
@@ -125,6 +118,30 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
         result.push_str(&format!("<w:outlineLvl w:val=\"{level}\"/>"));
     }
     Ok(result)
+}
+
+/// Word clips an inline drawing to an exact line height inherited from the
+/// paragraph style, whereas native layout grows the line to the drawing. A
+/// paragraph that holds a block drawing therefore uses single automatic spacing
+/// unless the paragraph states its own line spacing.
+pub(super) fn fit_drawing(properties: &mut Properties) {
+    if properties.contains_key("line_spacing") {
+        return;
+    }
+    if let Value::Object(spacing) = properties
+        .entry("spacing".into())
+        .or_insert_with(|| Value::Object(Properties::new()))
+        && !spacing.contains_key("line")
+        && !spacing.contains_key("line_spacing")
+    {
+        spacing.insert(
+            "line".into(),
+            Value::Object(Properties::from([
+                ("rule".into(), Value::String("multiple".into())),
+                ("value".into(), Value::Number(1.0)),
+            ])),
+        );
+    }
 }
 
 pub(super) fn pagination(properties: &Properties) -> Result<String, Error> {

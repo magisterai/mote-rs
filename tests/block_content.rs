@@ -70,7 +70,12 @@ fn definition_lists_validate_children_and_keep_each_table_cell_paragraph() {
             node.has_tag_name((
                 "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
                 "p",
-            ))
+            )) && node.ancestors().any(|ancestor| {
+                ancestor.has_tag_name((
+                    "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
+                    "tc",
+                ))
+            })
         })
         .collect();
     assert_eq!(paragraphs.len(), 3);
@@ -158,4 +163,55 @@ fn raw_run_properties_are_native_and_slide_controls_with_word_limits() {
             .size_points,
         18.0
     );
+}
+
+#[test]
+fn word_drawings_and_final_tables_keep_the_native_page_geometry() {
+    let source = "#style \"Normal\" (paragraph = {spacing = {line = pt(14)}})\n#chart(data={categories={'A','B'},values={1,2}})\n\n#table[#row[#cell[Last]]]";
+    let bytes = mote::docx::emit(&mote::compile(source).unwrap()).unwrap();
+    let mut archive = zip::ZipArchive::new(std::io::Cursor::new(bytes)).unwrap();
+    let mut xml = String::new();
+    use std::io::Read;
+    archive
+        .by_name("word/document.xml")
+        .unwrap()
+        .read_to_string(&mut xml)
+        .unwrap();
+    let namespace = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+    let tree = roxmltree::Document::parse(&xml).unwrap();
+    let spacing = |paragraph: roxmltree::Node| {
+        let spacing = paragraph
+            .descendants()
+            .find(|node| node.has_tag_name((namespace, "spacing")))
+            .unwrap();
+        (
+            spacing.attribute((namespace, "line")).unwrap().to_owned(),
+            spacing
+                .attribute((namespace, "lineRule"))
+                .unwrap()
+                .to_owned(),
+        )
+    };
+    let chart = tree
+        .descendants()
+        .find(|node| {
+            node.has_tag_name((namespace, "p"))
+                && node
+                    .descendants()
+                    .any(|child| child.has_tag_name((namespace, "drawing")))
+        })
+        .unwrap();
+    assert_eq!(spacing(chart), ("240".into(), "auto".into()));
+    let body = tree
+        .descendants()
+        .find(|node| node.has_tag_name((namespace, "body")))
+        .unwrap();
+    let blocks: Vec<_> = body
+        .children()
+        .filter(roxmltree::Node::is_element)
+        .collect();
+    let closing = blocks[blocks.len() - 2];
+    assert!(blocks[blocks.len() - 3].has_tag_name((namespace, "tbl")));
+    assert!(closing.has_tag_name((namespace, "p")));
+    assert_eq!(spacing(closing), ("20".into(), "exact".into()));
 }

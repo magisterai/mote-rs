@@ -46,20 +46,20 @@
     <w:name w:val="Body"/>
     <w:qFormat/>
     <w:pPr>
-      <w:shd w:val="clear" w:color="auto" w:fill="DDEEFF"/>
+      <w:keepNext w:val="0"/>
+      <w:keepLines/>
+      <w:pageBreakBefore w:val="0"/>
+      <w:widowControl/>
       <w:pBdr>
         <w:bottom w:val="single" w:sz="8" w:space="0" w:color="112233"/>
       </w:pBdr>
+      <w:shd w:val="clear" w:color="auto" w:fill="DDEEFF"/>
       <w:tabs>
         <w:tab w:val="right" w:pos="1440"/>
       </w:tabs>
       <w:spacing w:before="40" w:after="60" w:line="264" w:lineRule="auto"/>
       <w:ind w:left="240" w:right="120" w:firstLine="60"/>
       <w:jc w:val="center"/>
-      <w:keepNext w:val="0"/>
-      <w:keepLines/>
-      <w:pageBreakBefore w:val="0"/>
-      <w:widowControl/>
       <w:outlineLvl w:val="1"/>
     </w:pPr>
     <w:rPr>

@@ -35,7 +35,9 @@ pub(super) fn write(element: &Element, resources: &mut Resources) -> Result<Stri
     let identifier = resources.next_drawing();
     let name = super::values::first_text(&element.attributes, &["name"])
         .unwrap_or_else(|| format!("Chart {identifier}"));
-    let paragraph = super::paragraph_properties::write(&Default::default())?;
+    let mut paragraph = Default::default();
+    super::paragraph_properties::fit_drawing(&mut paragraph);
+    let paragraph = super::paragraph_properties::write(&paragraph)?;
     let paragraph = if paragraph.is_empty() {
         paragraph
     } else {

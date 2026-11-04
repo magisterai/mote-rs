@@ -7,7 +7,7 @@ use crate::{
 pub(super) fn margins(name: &str, properties: &Properties) -> Result<String, Error> {
     let properties = tables::margins(properties);
     let mut contents = String::new();
-    for side in ["top", "right", "bottom", "left"] {
+    for side in ["top", "left", "bottom", "right"] {
         if let Some(value) = properties.get(side) {
             contents.push_str(&format!(
                 "<w:{side} w:w=\"{}\" w:type=\"dxa\"/>",

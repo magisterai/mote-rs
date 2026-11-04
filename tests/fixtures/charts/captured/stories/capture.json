@@ -83,8 +83,8 @@
       "sha256": "fbcb5529ae36ddbf8f64c4ff32548982c308431e2da43ce62d1e6ece876797ff"
     },
     "word/document.xml": {
-      "path": "parts/d0b5701fb73e5ee78c3366b9031fd10aa950d54ab55ba14e741e1971271c1127.xml",
-      "sha256": "d0b5701fb73e5ee78c3366b9031fd10aa950d54ab55ba14e741e1971271c1127"
+      "path": "parts/e7cab52ff1da70ece38aaa7d7bdd9a5e698582861f568172d5cf143b879476b5.xml",
+      "sha256": "e7cab52ff1da70ece38aaa7d7bdd9a5e698582861f568172d5cf143b879476b5"
     },
     "word/embeddings/chart1.xlsx": {
       "parts": {
@@ -355,16 +355,16 @@
       "sha256": "0fb4198f04b3bf733cffa5e6a0f184d979ea1c14387128312a3a0e379ad93bc8"
     },
     "word/footer1.xml": {
-      "path": "parts/e60cf9542ef7f5aea2d378c21d9f14938c11f2bc501180866db8102f67368f03.xml",
-      "sha256": "e60cf9542ef7f5aea2d378c21d9f14938c11f2bc501180866db8102f67368f03"
+      "path": "parts/4b37a81128792f4ce0713f369a7eed8d78a12ad4d77f064d18add49f1a6eb7a7.xml",
+      "sha256": "4b37a81128792f4ce0713f369a7eed8d78a12ad4d77f064d18add49f1a6eb7a7"
     },
     "word/footnotes.xml": {
-      "path": "parts/c3aa69182d930e4933967b3b25a0b0d19405ab997a3b07330ec2fca7455ed03a.xml",
-      "sha256": "c3aa69182d930e4933967b3b25a0b0d19405ab997a3b07330ec2fca7455ed03a"
+      "path": "parts/83593add515936bb3d86c9b6b5bd4bc7021cc64ba0f3091b30cbddb0f32e9c5a.xml",
+      "sha256": "83593add515936bb3d86c9b6b5bd4bc7021cc64ba0f3091b30cbddb0f32e9c5a"
     },
     "word/header1.xml": {
-      "path": "parts/f9224ae846ce56b6f27b9a9aeef39c3d30a927991bfdfba7b842e1ace22b180b.xml",
-      "sha256": "f9224ae846ce56b6f27b9a9aeef39c3d30a927991bfdfba7b842e1ace22b180b"
+      "path": "parts/e0548a1a77c5e65da026fd9e3ff72dc68987f1414a40790ee964b47c5e6527e1.xml",
+      "sha256": "e0548a1a77c5e65da026fd9e3ff72dc68987f1414a40790ee964b47c5e6527e1"
     },
     "word/numbering.xml": {
       "path": "parts/0788d9ed150ad0999c2fa886aa7294ffab3333ef2f6795feb8f326d448f1db10.xml",

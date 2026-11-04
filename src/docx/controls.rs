@@ -58,7 +58,7 @@ impl Controls {
                 xml::escape(&name)?
             ));
         }
-        let mut content = format!("<w:sdt><w:sdtPr><w:id w:val=\"{identifier}\"/>");
+        let mut content = String::from("<w:sdt><w:sdtPr>");
         let title = properties
             .get("title")
             .map(Value::to_text)
@@ -69,6 +69,7 @@ impl Controls {
         if !name.is_empty() {
             content.push_str(&format!("<w:tag w:val=\"{}\"/>", xml::escape(&name)?));
         }
+        content.push_str(&format!("<w:id w:val=\"{identifier}\"/>"));
         let mut formatting = inherited.clone();
         formatting
             .properties

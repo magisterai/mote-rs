@@ -32,6 +32,7 @@ pub(super) fn write(
             );
         }
     };
+    super::paragraph_properties::fit_drawing(&mut paragraph);
     let paragraph_properties = super::paragraph_properties::write(&paragraph)?;
     let mut output = String::from("<w:p>");
     if !paragraph_properties.is_empty() {

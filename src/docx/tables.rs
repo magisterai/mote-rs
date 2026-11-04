@@ -46,7 +46,6 @@ pub(super) fn write(
             xml::escape(styles.identifier(&style)?)?
         ));
     }
-    output.push_str(&self::styles::look(&table_style));
     if let Some(width) = attributes.get("width") {
         output.push_str(&format!(
             "<w:tblW w:w=\"{}\" w:type=\"dxa\"/>",
@@ -104,14 +103,13 @@ pub(super) fn write(
             }
         });
     output.push_str(&properties::margins("tblCellMar", &margins)?);
+    output.push_str(&self::styles::look(&table_style));
     output.push_str("</w:tblPr>");
-    if !widths.is_empty() {
-        output.push_str("<w:tblGrid>");
-        for width in &widths {
-            output.push_str(&format!("<w:gridCol w:w=\"{width}\"/>"));
-        }
-        output.push_str("</w:tblGrid>");
+    output.push_str("<w:tblGrid>");
+    for width in &widths {
+        output.push_str(&format!("<w:gridCol w:w=\"{width}\"/>"));
     }
+    output.push_str("</w:tblGrid>");
     for (row, slots) in tables::rows(table).iter().zip(&grid.rows) {
         output.push_str("<w:tr>");
         output.push_str(&properties::row(&row.attributes)?);
