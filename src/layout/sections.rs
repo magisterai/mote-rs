@@ -254,9 +254,12 @@ fn plan_pass(
             };
             pending_spacing = 0.0;
         } else {
+            // Word begins every column of a continuous section below the spacing
+            // after the preceding paragraph.
             cursor.column_index = 0;
-            cursor.current_top = cursor.y.max(geometry.margin_top);
+            cursor.current_top = (cursor.y + pending_spacing).max(geometry.margin_top);
             cursor.y = cursor.current_top;
+            pending_spacing = 0.0;
         }
         let start = cursor;
         let boundary = inputs.targets.get(&section_index).and_then(|target| {

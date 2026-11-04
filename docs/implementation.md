@@ -688,7 +688,8 @@ DOCX writes section properties and independently related header/footer parts.
 
 Native layout owns geometry and story selection per physical page. Continuous
 sections share a page where their page size permits it. As in Word, the paragraph
-that carries a continuous section break occupies no height, and a multi-column
+that carries a continuous section break occupies no height, every column of the
+next section begins below that paragraph's spacing after, and a multi-column
 section balances its final area only where a continuous section break ends it. Current/total page fields and page references
 use bounded pagination passes; authored models remain unchanged. Running text uses
 full-width header/footer bands, and overflow removes complete trailing lines with
