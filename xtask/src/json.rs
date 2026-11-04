@@ -185,8 +185,67 @@ impl Serialize for Json {
     }
 }
 
+/// Indented JSON in the form Python's `json.dumps(indent=2, ensure_ascii=False)`
+/// writes, in which the frozen fixture manifests were first recorded, so that a
+/// rewritten manifest differs only where its values differ.
 pub(crate) fn pretty(value: &Json) -> String {
-    serde_json::to_string_pretty(value).expect("strict JSON values serialize")
+    let mut output = String::new();
+    write_pretty(value, 0, &mut output);
+    output
+}
+
+fn write_pretty(value: &Json, depth: usize, output: &mut String) {
+    let indent = |depth: usize| "  ".repeat(depth);
+    match value {
+        Json::Decimal(number) => output.push_str(&python_decimal(*number)),
+        Json::Array(values) if !values.is_empty() => {
+            output.push('[');
+            for (index, value) in values.iter().enumerate() {
+                output.push_str(if index == 0 { "\n" } else { ",\n" });
+                output.push_str(&indent(depth + 1));
+                write_pretty(value, depth + 1, output);
+            }
+            output.push('\n');
+            output.push_str(&indent(depth));
+            output.push(']');
+        }
+        Json::Object(fields) if !fields.is_empty() => {
+            output.push('{');
+            for (index, (name, value)) in fields.iter().enumerate() {
+                output.push_str(if index == 0 { "\n" } else { ",\n" });
+                output.push_str(&indent(depth + 1));
+                output.push_str(&compact(&Json::String(name.clone())));
+                output.push_str(": ");
+                write_pretty(value, depth + 1, output);
+            }
+            output.push('\n');
+            output.push_str(&indent(depth));
+            output.push('}');
+        }
+        scalar => output.push_str(&compact(scalar)),
+    }
+}
+
+/// Python's `repr` of a float: the shortest round-trip digits, positional for
+/// decimal exponents from -4 to 15, otherwise scientific with a signed exponent
+/// of at least two digits.
+fn python_decimal(number: f64) -> String {
+    let scientific = format!("{number:e}");
+    let (mantissa, exponent) = scientific
+        .split_once('e')
+        .expect("scientific form has an exponent");
+    let exponent: i32 = exponent.parse().expect("the exponent is an integer");
+    if (-4..16).contains(&exponent) {
+        let positional = number.to_string();
+        if positional.contains('.') {
+            positional
+        } else {
+            positional + ".0"
+        }
+    } else {
+        let sign = if exponent < 0 { '-' } else { '+' };
+        format!("{mantissa}e{sign}{:02}", exponent.abs())
+    }
 }
 
 pub(crate) fn compact(value: &Json) -> String {
@@ -206,6 +265,25 @@ mod tests {
         );
         assert!(Json::parse(r#"{"a": NaN}"#).is_err());
         assert!(Json::parse("1e999").is_err());
+    }
+
+    #[test]
+    fn decimals_are_written_as_python_writes_them() {
+        for (number, text) in [
+            (2e-5, "2e-05"),
+            (0.0001, "0.0001"),
+            (1.0, "1.0"),
+            (12.5, "12.5"),
+            (1e16, "1e+16"),
+            (-3.25e-7, "-3.25e-07"),
+        ] {
+            assert_eq!(super::python_decimal(number), text);
+        }
+        let value = Json::parse(r#"{"a": [], "b": {}, "c": [1, 2.5, "é"]}"#).unwrap();
+        assert_eq!(
+            super::pretty(&value),
+            "{\n  \"a\": [],\n  \"b\": {},\n  \"c\": [\n    1,\n    2.5,\n    \"é\"\n  ]\n}"
+        );
     }
 
     #[test]

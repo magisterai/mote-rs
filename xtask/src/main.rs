@@ -1,6 +1,7 @@
 //! Repository tasks: the review catalogue, README generation, package validation, fixture verification,
 //! output comparison and the specification attribute inventory.
 mod arguments;
+mod captures;
 mod compare_measurements;
 mod compare_outputs;
 mod digest;
@@ -28,6 +29,7 @@ Commands:
   validate PACKAGE...    Validate DOCX and PPTX parts against ECMA-376.
   inventory [--write]    Check or refresh the attribute inventory.
   verify-layout          Verify the frozen native layout captures.
+  refresh-captures       Refresh captured packages whose canonical XML changed.
   compare-outputs        Compare the models and packages of two executables.
   compare-measurements   Verify measurement fixtures and compare candidates.
 
@@ -53,6 +55,7 @@ fn main() -> ExitCode {
         Some("validate") => validate::run(arguments),
         Some("inventory") => inventory::run(arguments),
         Some("verify-layout") => layout_fixtures::run(arguments),
+        Some("refresh-captures") => captures::run(arguments),
         Some("compare-outputs") => compare_outputs::run(arguments),
         Some("compare-measurements") => compare_measurements::run(arguments),
         None | Some("--help" | "-h" | "help") => {

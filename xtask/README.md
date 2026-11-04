@@ -45,6 +45,20 @@ therefore loads each schema through a wrapper, written under
 `target/xtask/schemas/`, that supplies [xml.xsd](schemas/xml.xsd), and treats a
 schema that fails to compile as an error rather than a pass.
 
+## Test captures
+
+`cargo xtask refresh-captures` regenerates every captured DOCX and PPTX under
+`tests/fixtures` after an intended output change and replaces each stored part
+whose canonical XML differs. Formatting whitespace, generation timestamps and
+advisory page-break markers never cause a replacement. Each source is rendered as
+its test renders it: from its own directory, and with Lua where the group's test
+harness enables it. Content-addressed part files that no manifest names any
+longer are removed. `--group NAME` limits the refresh to one fixture group, and
+`--check` reports the parts that would change without writing them. Every
+replaced part is listed, so that the refresh can be reviewed before it is
+committed. The tests of the task require every manifest to be rewritten without
+change and every stored part file to be referenced.
+
 ## Attribute inventory
 
 `cargo xtask inventory` checks the generated support inventories against
