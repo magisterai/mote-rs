@@ -1,43 +1,52 @@
 # Mote
 
-**Microsoft Office Typesetting Engine**
+Documents are how work reaches other people. A student hands in a thesis. A job
+seeker sends a résumé. A team presents a plan; a company reports to its board.
+Each travels as a file, usually a .docx, a .pptx or a PDF, and each is opened,
+edited, commented on, shared and kept long after it was written. As language
+models take on more of that writing, more of what they produce has to arrive the
+same way: as a file someone else can open in Word or PowerPoint, change, and own.
 
-Mote turns Markdown, and a small typesetting language built upon it, into
-editable Word documents, editable PowerPoint presentations, and native PDF and
-PNG pages. A single plain-text source serves every format. The engine is written
-in Rust and draws its inspiration from Typst; its purpose is to make the
-authoring of office documents tractable for language models and agents, as well
-as for people.
+The tools have not kept pace. Asked for such a file, a model writes a program
+instead. That program runs to hundreds of lines and builds the document one
+paragraph, table and shape at a time. The program must then be run, in an
+environment with the right libraries installed, and it fails or misbehaves at
+run time in ways the model must diagnose before any document exists.
 
-## Why Mote
+To see the result, the model needs a full office suite. Without one it has no
+way to check its work. Even with a tool such as LibreOffice, the page it sees is
+only that suite's version of the document: line breaks, spacing, fonts and chart
+layout can all differ from what the recipient will see in Word or PowerPoint.
+Every check costs time, too: the suite must start, convert the file and export
+the pages. Every revision costs tokens, as the model rewrites or patches a long
+program to change a single heading.
 
-An agent asked for a report or a slide deck has, at present, two unsatisfactory
-courses open to it. The first is to drive a general-purpose Office library,
-writing a long procedural program whose result the agent cannot see. The second
-is to produce a PDF or an image, which appears finished but cannot be edited by
-the person who receives it. In either case the agent reviews its work blind, or
-only after a round trip through Microsoft Office.
+"This will begin to make things right."
 
-Mote addresses both generation and review.
+Mote is a document engine built for the way models already write. Any Markdown
+file is already a Mote document, and it produces a finished file as it stands. A
+separate set of defaults can then give it a typeface, a page size, spacing and a
+table style without touching the original text. Where one passage needs more,
+such as a styled introduction, a chart built from data or a positioned slide, a
+short directive is added at that point and the rest of the document is left as
+it was. A few dozen lines take the place of a program, and changing a heading
+means changing one line. Mote is a single executable with nothing else to
+install, and an invalid source produces no output, only an error that names its
+file, line and column.
 
-- **A source that models already write.** The input is ordinary Markdown,
-  extended where necessary by directives for styles, page layout, tables,
-  slides, charts and equations. A few dozen lines of source take the place of a
-  program, and the same lines yield DOCX, PPTX and PDF.
-- **Output that remains editable.** The Office packages contain native
-  structures rather than pictures of them: named styles, numbered lists, slide
-  masters and themes, speaker notes, editable equations, and charts with their
-  embedded workbooks. The recipient may continue the work in Word or PowerPoint.
-- **Review without Office.** Mote lays out and paints PDF and PNG pages with
-  its own engine. An agent may therefore render the pages it has just written,
-  examine them, and correct the source within a single loop.
-- **Precise feedback.** A diagnostic names its file, line and column. An
-  invalid source produces no partial output. A construct that an output format
-  cannot represent is reported at its source location rather than silently
-  dropped. The JSON output exposes the evaluated document for inspection.
-- **Computation under control.** Bindings, loops, imports, JSON and CSV data
-  are part of the language. Lua is available for further computation, but only
-  when enabled explicitly, and then within a time budget.
+From that one source, Mote produces an editable Word document, an editable
+PowerPoint presentation, and PDF and PNG pages. The Office files contain real
+structures rather than pictures of them: named styles, numbered lists, slide
+masters, speaker notes, and charts with their workbooks. The recipient can carry
+on the work in Word or PowerPoint. Mote lays out and draws the PDF and PNG pages
+itself, without starting a separate application, so a model can render what it
+has just written, look at it, and correct the source in a single loop.
+
+Mote is Word, PowerPoint and Acrobat for language models. It writes the same
+files and draws the same pages, but from a source a model can write in a few
+dozen lines, check in a fraction of a second and revise one line at a time. That
+means fewer tokens, no office suite, no program to debug, and a document that the
+person who receives it can still open, edit and own.
 
 The implementation comprises some 41,000 lines of Rust and nearly 500 tests. A
 catalogue of 94 rendering cases, 63 for documents and 31 for presentations,
