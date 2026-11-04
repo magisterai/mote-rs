@@ -83,6 +83,18 @@ not be showing a modal dialog. `--allow` replaces the selected subjects'
 allowances with their present results. A test holds every subject within its
 allowance on any platform without Office.
 
+## Painter parity
+
+`cargo xtask painter-parity` rasterizes each subject's native PDF with the hayro
+PDF interpreter, compares every page with the PNG painter's page at 144 dots per
+inch, and reports the share of inked two-by-two blocks that differ. A block
+differs only when its luminance lies outside the range of the other image's
+blocks around it, so that sub-pixel rounding is no difference while a moved or
+reshaped mark is. `--images DIRECTORY` writes both pictures and a map of the
+differing blocks, and `--allow` records the present shares in the
+[painter parity allowances](../tests/fixtures/painter-parity/README.md). A test
+holds every subject within its allowance.
+
 ## Attribute inventory
 
 `cargo xtask inventory` checks the generated support inventories against

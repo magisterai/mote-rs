@@ -10,6 +10,7 @@ mod json;
 mod layout_fixtures;
 mod office;
 mod package;
+mod parity;
 mod readme;
 mod review;
 #[cfg(test)]
@@ -34,6 +35,7 @@ Commands:
   compare-outputs        Compare the models and packages of two executables.
   compare-measurements   Verify measurement fixtures and compare candidates.
   office-compare         Compare native layout with recorded Word and PowerPoint lines.
+  painter-parity         Compare the native PDF and PNG painters page by page.
 
 Use cargo xtask COMMAND --help for the options of a command.
 ";
@@ -61,6 +63,7 @@ fn main() -> ExitCode {
         Some("compare-outputs") => compare_outputs::run(arguments),
         Some("compare-measurements") => compare_measurements::run(arguments),
         Some("office-compare") => office::run(arguments),
+        Some("painter-parity") => parity::run(arguments),
         None | Some("--help" | "-h" | "help") => {
             print!("{HELP}");
             Ok(ExitCode::SUCCESS)
