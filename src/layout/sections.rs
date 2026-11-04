@@ -120,11 +120,12 @@ fn balanced_pass(
 ) -> Result<PassResult, LayoutError> {
     inputs.targets.clear();
     let mut best = plan_pass(document, sections, measurer, images, inputs)?;
-    let styles = LayoutStyleResolver::new(document);
-    let boundary_style = boundary_style(&styles);
     let mut searches = BTreeMap::new();
     for (index, flow) in best.flows.iter().enumerate() {
-        if index + 1 == sections.len()
+        // Word balances columns only where a continuous section break ends them.
+        if sections
+            .get(index + 1)
+            .is_none_or(|next| next.start != "continuous")
             || flow.geometry.column_count < 2
             || has_column_break(&sections[index].content)
             || sections[index]
@@ -142,10 +143,7 @@ fn balanced_pass(
             flow.geometry.margin_top
         };
         let maximum = flow.geometry.content_bottom() - top;
-        let end_height = flow.end.y - top
-            + flow.trailing.max(boundary_style.spacing_before)
-            + boundary_style.line_height
-            + boundary_style.spacing_after;
+        let end_height = flow.end.y - top + flow.trailing;
         let height = (flow.end.column_index as f64 * maximum + end_height)
             / flow.geometry.column_count as f64;
         if height <= 0.0 || height >= maximum - 0.01 {
@@ -329,26 +327,19 @@ fn plan_pass(
         let trailing = pending_spacing;
         let mut balance_end = end;
         if let Some(next) = sections.get(section_index + 1) {
-            let style = boundary_style(&styles);
             if next.start == "continuous" && same_page(geometry, PageGeometry::from_section(next)?)
             {
-                advance_boundary(
-                    &mut cursor,
-                    &mut pages,
-                    &mut columns,
-                    geometry,
-                    boundary,
-                    pending_spacing,
-                    &style,
-                );
+                // Word gives the paragraph that carries a continuous section break
+                // no height, so the next section begins at the previous content and
+                // inherits its pending paragraph spacing.
                 if let Some(boundary) = boundary
                     && boundary.page == cursor.page_number
                 {
                     cursor.y = cursor.y.max(boundary.bottom);
                 }
                 balance_end = cursor;
-                pending_spacing = 0.0;
             } else {
+                let style = boundary_style(&styles);
                 let mut virtual_pages = vec![TextPage::default(); pages.len()];
                 advance_boundary(
                     &mut balance_end,
