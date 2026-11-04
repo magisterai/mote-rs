@@ -5,12 +5,23 @@ use crate::{
     model::{Unit, Value},
 };
 
+/// The helpers that format or type a single value, evaluated alike in static
+/// and Lua calls.
+pub(super) const SCALAR_HELPERS: &[&str] = &[
+    "upper",
+    "lower",
+    "format_money",
+    "format_number",
+    "length",
+    "date",
+];
+
 pub(super) fn evaluate(
     name: &str,
     mut arguments: EvaluatedArguments,
     span: Span,
 ) -> Result<Value, Diagnostic> {
-    let maximum = if matches!(name, "length" | "format_money") {
+    let maximum = if matches!(name, "length" | "format_money" | "format_number") {
         2
     } else {
         1
@@ -21,15 +32,19 @@ pub(super) fn evaluate(
             format!("{name} requires one positional argument"),
         ));
     }
+    // The second positional argument may instead be named.
+    let (second, named): (&str, &[&str]) = match name {
+        "format_money" => ("currency", &["currency"]),
+        "format_number" => ("decimals", &["decimals", "grouping"]),
+        _ => ("", &[]),
+    };
     if arguments.positional.is_empty()
         || arguments.positional.len() > maximum
-        || name == "format_money"
-            && arguments.positional.len() == 2
-            && arguments.named.contains_key("currency")
+        || arguments.positional.len() == 2 && arguments.named.contains_key(second)
         || arguments
             .named
             .keys()
-            .any(|key| name != "format_money" || key != "currency")
+            .any(|key| !named.contains(&key.as_str()))
     {
         return Err(Diagnostic::new(
             span,
@@ -84,13 +99,7 @@ pub(super) fn evaluate(
             let currency = crate::casing::convert(&currency, true);
             let formatted = format!("{:.2}", if amount < 0.0 { -amount } else { amount });
             let (whole, decimal) = formatted.split_once('.').unwrap();
-            let mut grouped = String::new();
-            for (index, character) in whole.chars().enumerate() {
-                if index > 0 && (whole.len() - index).is_multiple_of(3) {
-                    grouped.push(',');
-                }
-                grouped.push(character);
-            }
+            let grouped = group(whole);
             let sign = if amount < 0.0 { "-" } else { "" };
             Ok(Value::String(if currency == "USD" {
                 format!("{sign}${grouped}.{decimal}")
@@ -98,8 +107,74 @@ pub(super) fn evaluate(
                 format!("{sign}{currency} {grouped}.{decimal}")
             }))
         }
+        "format_number" => {
+            let value = number(&first.value).ok_or_else(|| {
+                Diagnostic::new(first.span, "format_number value must be a finite number")
+            })?;
+            let decimals = match arguments
+                .named
+                .get("decimals")
+                .or_else(|| arguments.positional.first())
+            {
+                None => 0,
+                Some(argument) => match argument.value {
+                    Value::Number(decimals)
+                        if decimals.fract() == 0.0 && (0.0..=15.0).contains(&decimals) =>
+                    {
+                        decimals as usize
+                    }
+                    _ => {
+                        return Err(Diagnostic::new(
+                            argument.span,
+                            "format_number decimals must be a whole number from 0 to 15",
+                        ));
+                    }
+                },
+            };
+            let grouping = match arguments.named.get("grouping") {
+                None => false,
+                Some(argument) => match argument.value {
+                    Value::Boolean(grouping) => grouping,
+                    _ => {
+                        return Err(Diagnostic::new(
+                            argument.span,
+                            "format_number grouping must be a boolean",
+                        ));
+                    }
+                },
+            };
+            let formatted = format!("{:.decimals$}", value.abs());
+            let (whole, decimal) = formatted
+                .split_once('.')
+                .unwrap_or((formatted.as_str(), ""));
+            let mut text = if grouping {
+                group(whole)
+            } else {
+                whole.to_owned()
+            };
+            if !decimal.is_empty() {
+                text.push('.');
+                text.push_str(decimal);
+            }
+            // A value that rounds to zero has no sign.
+            if value < 0.0 && formatted.bytes().any(|byte| matches!(byte, b'1'..=b'9')) {
+                text.insert(0, '-');
+            }
+            Ok(Value::String(text))
+        }
         _ => Err(Diagnostic::new(span, format!("unsupported helper: {name}"))),
     }
+}
+/// Separates the thousands of a run of digits with commas.
+fn group(digits: &str) -> String {
+    let mut grouped = String::new();
+    for (index, character) in digits.chars().enumerate() {
+        if index > 0 && (digits.len() - index).is_multiple_of(3) {
+            grouped.push(',');
+        }
+        grouped.push(character);
+    }
+    grouped
 }
 fn number(value: &Value) -> Option<f64> {
     if !matches!(value, Value::String(_) | Value::Number(_)) {

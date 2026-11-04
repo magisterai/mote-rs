@@ -534,6 +534,11 @@
       "lua": true
     },
     {
+      "example": "lua-expressions/2",
+      "model": "lua-expressions-2",
+      "lua": true
+    },
+    {
       "example": "functions/1",
       "model": "functions-1",
       "lua": true
@@ -11108,71 +11113,9 @@
       ]
     },
     "value-helpers-1": {
-      "page": {},
-      "margin": {},
       "columns": {},
-      "sections": [
-        {
-          "section_properties": {},
-          "page_numbering": {},
-          "page": {},
-          "margin": {},
-          "columns": {},
-          "header_properties": {},
-          "footer_properties": {},
-          "content": [
-            {
-              "kind": "paragraph",
-              "category": "block",
-              "attributes": {
-                "spacing_after": {
-                  "text": "12pt",
-                  "unit": "pt",
-                  "value": 12.0
-                }
-              },
-              "children": [
-                {
-                  "kind": "text",
-                  "text": "CAFÉ"
-                },
-                {
-                  "kind": "text",
-                  "text": " costs "
-                },
-                {
-                  "kind": "text",
-                  "text": "EUR 1,234.50"
-                },
-                {
-                  "kind": "text",
-                  "text": "."
-                },
-                {
-                  "kind": "text",
-                  "text": " "
-                },
-                {
-                  "kind": "text",
-                  "text": "Reviewed "
-                },
-                {
-                  "kind": "text",
-                  "text": "2024-02-29"
-                },
-                {
-                  "kind": "text",
-                  "text": "."
-                }
-              ]
-            }
-          ]
-        }
-      ],
       "content": [
         {
-          "kind": "paragraph",
-          "category": "block",
           "attributes": {
             "spacing_after": {
               "text": "12pt",
@@ -11180,6 +11123,7 @@
               "value": 12.0
             }
           },
+          "category": "block",
           "children": [
             {
               "kind": "text",
@@ -11195,7 +11139,19 @@
             },
             {
               "kind": "text",
-              "text": "."
+              "text": " for"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "1,234.5"
+            },
+            {
+              "kind": "text",
+              "text": " units."
             },
             {
               "kind": "text",
@@ -11213,7 +11169,80 @@
               "kind": "text",
               "text": "."
             }
-          ]
+          ],
+          "kind": "paragraph"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "spacing_after": {
+                  "text": "12pt",
+                  "unit": "pt",
+                  "value": 12.0
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "CAFÉ"
+                },
+                {
+                  "kind": "text",
+                  "text": " costs "
+                },
+                {
+                  "kind": "text",
+                  "text": "EUR 1,234.50"
+                },
+                {
+                  "kind": "text",
+                  "text": " for"
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "1,234.5"
+                },
+                {
+                  "kind": "text",
+                  "text": " units."
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "Reviewed "
+                },
+                {
+                  "kind": "text",
+                  "text": "2024-02-29"
+                },
+                {
+                  "kind": "text",
+                  "text": "."
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
         }
       ]
     },
@@ -11436,6 +11465,46 @@
               },
               "category": "block",
               "kind": "chart"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "lua-expressions-2": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Revenue       171.5"
+            }
+          ],
+          "kind": "paragraph"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Revenue       171.5"
+                }
+              ],
+              "kind": "paragraph"
             }
           ],
           "footer_properties": {},

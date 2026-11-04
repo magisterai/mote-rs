@@ -1,5 +1,6 @@
 //! Opt-in Lua execution with a compilation-wide clock and scoped host callbacks.
 mod constructors;
+mod library;
 mod values;
 use super::{
     EvaluationState,
@@ -18,6 +19,9 @@ use std::{
     time::{Duration, Instant},
 };
 
+/// The memory a compilation's Lua state may allocate, in bytes.
+const MEMORY_LIMIT: usize = 256 * 1024 * 1024;
+
 const HELPERS: &[&str] = &[
     "json",
     "csv",
@@ -25,6 +29,7 @@ const HELPERS: &[&str] = &[
     "upper",
     "lower",
     "format_money",
+    "format_number",
     "length",
     "date",
     "color",
@@ -37,6 +42,9 @@ const HELPERS: &[&str] = &[
 
 pub(super) struct Runtime {
     lua: Lua,
+    /// The globals before any binding was exposed, restored when a binding that
+    /// shadowed one of them leaves scope.
+    initial_globals: mlua::Table,
     deadline: Option<Instant>,
     exposed_values: RefCell<BTreeSet<String>>,
     exposed_functions: RefCell<BTreeSet<String>>,
@@ -44,7 +52,8 @@ pub(super) struct Runtime {
 }
 impl Runtime {
     fn new(timeout: Option<Duration>) -> mlua::Result<Self> {
-        let lua = Lua::new_with(StdLib::NONE, LuaOptions::default())?;
+        let lua = Lua::new_with(StdLib::STRING | StdLib::MATH, LuaOptions::default())?;
+        lua.set_memory_limit(MEMORY_LIMIT)?;
         for name in [
             "_printregs",
             "collectgarbage",
@@ -59,6 +68,12 @@ impl Runtime {
         ] {
             lua.globals().set(name, mlua::Nil)?;
         }
+        library::install(&lua)?;
+        let initial_globals = lua.create_table()?;
+        for pair in lua.globals().pairs::<mlua::Value, mlua::Value>() {
+            let (name, value) = pair?;
+            initial_globals.raw_set(name, value)?;
+        }
         let deadline = timeout.and_then(|duration| Instant::now().checked_add(duration));
         lua.set_hook(
             HookTriggers::new().every_nth_instruction(1000),
@@ -69,6 +84,7 @@ impl Runtime {
         )?;
         Ok(Self {
             lua,
+            initial_globals,
             deadline,
             exposed_values: RefCell::new(BTreeSet::new()),
             exposed_functions: RefCell::new(BTreeSet::new()),
@@ -82,7 +98,8 @@ impl Runtime {
         let visible = state.bindings.visible_values();
         for previous in self.exposed_values.borrow().iter() {
             if !visible.contains_key(previous) {
-                globals.set(previous.as_str(), mlua::Nil)?;
+                let initial: mlua::Value = self.initial_globals.raw_get(previous.as_str())?;
+                globals.set(previous.as_str(), initial)?;
             }
         }
         for (name, value) in &visible {
@@ -146,7 +163,8 @@ impl Runtime {
         }
         for previous in self.exposed_functions.borrow().iter() {
             if !functions.contains_key(previous) {
-                globals.set(previous.as_str(), mlua::Nil)?;
+                let initial: mlua::Value = self.initial_globals.raw_get(previous.as_str())?;
+                globals.set(previous.as_str(), initial)?;
             }
         }
         *self.exposed_functions.borrow_mut() = functions.into_keys().collect();

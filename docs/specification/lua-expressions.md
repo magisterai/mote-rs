@@ -37,8 +37,30 @@ The existing `json`, `upper`, `color`, `pt`, `inch`, `cm`, `mm`, and `twip` help
 are available in Lua. Length and color values retain their types through tagged
 Lua tables. JSON uses the same source-relative resolver and resource snapshot.
 Basic Lua functions such as `type`, `tostring`, `tonumber`, `pairs`, and `ipairs`
-are available. Additional standard libraries and filesystem/module loaders are
-not exposed. Additional formatting helpers are defined in [value helpers](value-helpers.md).
+are available. Additional formatting helpers are defined in [value helpers](value-helpers.md).
+
+A deterministic subset of the string and math libraries is available. The string
+functions are `byte`, `char`, `format`, `len`, `lower`, `rep`, `reverse`, `sub`, and
+`upper`, and strings accept them as methods, as in `("total"):upper()`. The
+pattern functions `find`, `match`, `gmatch`, and `gsub` are not exposed, since a
+pattern search cannot be interrupted by the time budget, and neither is
+`string.dump`. The math library is complete except for `random` and
+`randomseed`, so that a document evaluates alike on every run.
+
+`string.format` supports the conversions `d`, `i`, `x`, `X`, `e`, `E`, `f`, `g`,
+`G`, `s`, and `%%`, with the flags `-`, `0`, `+`, and space, and widths and
+precisions of at most two digits. Its numbers match the C library on every
+platform; `%s` widths and precisions count characters rather than bytes. Other
+conversions are errors. `string.rep` refuses a result longer than 16 MiB.
+
+```mote
+#let(row=string.format("%-10s %8.1f", "Revenue", 171.456))
+#paragraph[#row]
+```
+
+The standard libraries `table`, `os`, `io`, `debug`, and `coroutine`, and the
+filesystem and module loaders, are not exposed. A compilation's Lua state may
+allocate at most 256 MiB.
 
 A bare content reference can resolve a Lua base global when no Mote binding
 matches. An unknown Lua name evaluates to nil and produces no content. With

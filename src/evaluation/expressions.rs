@@ -134,7 +134,7 @@ fn evaluate_helper_arguments(
         let arguments = evaluate_arguments(arguments, state)?;
         return super::data::evaluate(name, arguments, span, state);
     }
-    if matches!(name, "upper" | "lower" | "format_money" | "length" | "date") {
+    if super::helpers::SCALAR_HELPERS.contains(&name) {
         let mut evaluated = EvaluatedArguments::default();
         for argument in arguments {
             let value = if static_arguments {

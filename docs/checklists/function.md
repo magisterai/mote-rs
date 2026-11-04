@@ -12,7 +12,12 @@ content follows the inventories of its receiving directives.
 - [x] Definition-time lexical snapshots; function names and value names remain distinct.
 - [x] Scalar, typed length/color, object, array and content return conversions.
 - [x] Lua expressions and one-based indexing are explicitly enabled; disabled by default.
-- [x] Only supported pure base globals and registered Mote helpers are available.
+- [x] Only supported pure base globals, registered Mote helpers and the
+  deterministic subset of the string and math libraries are available: no
+  pattern functions, `string.dump` or `math.random`; `string.format` and
+  `string.rep` are reimplemented with bounded widths and results.
+- [x] A memory limit of 256 MiB per compilation, and globals restored when a
+  binding that shadowed them leaves scope.
 - [x] Existing document constructors are available through the `document` namespace.
   Inventory: all current text/list, table, media, note, field, anchor, caption and
   figure directives; document/font/style/header/footer declarations; registered

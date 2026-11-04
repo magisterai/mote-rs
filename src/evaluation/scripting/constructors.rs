@@ -43,7 +43,7 @@ pub(super) fn call(
         return crate::evaluation::data::evaluate(name, arguments, span, state)
             .map_err(mlua::Error::external);
     }
-    if matches!(name, "upper" | "lower" | "format_money" | "length" | "date") {
+    if crate::evaluation::helpers::SCALAR_HELPERS.contains(&name) {
         return scalar_helper(name, arguments, span, true);
     }
     if super::HELPERS.contains(&name) || name == "in" {
@@ -207,7 +207,7 @@ pub(super) fn helper(
     span: Span,
     state: &mut EvaluationState<'_>,
 ) -> mlua::Result<Value> {
-    if matches!(name, "upper" | "lower" | "format_money" | "length" | "date") {
+    if crate::evaluation::helpers::SCALAR_HELPERS.contains(&name) {
         return scalar_helper(name, arguments, span, false);
     }
     if matches!(name, "csv" | "import") {
@@ -243,7 +243,7 @@ fn scalar_helper(
         .peekable();
     let mut arguments = EvaluatedArguments::default();
     if document_namespace
-        && name == "format_money"
+        && matches!(name, "format_money" | "format_number")
         && matches!(values.peek(), Some(Value::Object(_)))
     {
         let Some(Value::Object(properties)) = values.next() else {

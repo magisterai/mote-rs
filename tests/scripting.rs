@@ -52,8 +52,18 @@ fn only_the_supported_lua_environment_is_exposed() {
         "io.open('x')",
         "os.execute('x')",
         "debug.getinfo(1)",
-        "string.upper('x')",
         "table.insert({},1)",
+        "string.find('x','x')",
+        "string.match('x','x')",
+        "string.gmatch('x','x')",
+        "string.gsub('x','x','y')",
+        "string.dump(type)",
+        "('x'):find('x')",
+        "math.random()",
+        "math.randomseed(1)",
+        "string.rep('x', 100000000)",
+        "string.format('%q', 'x')",
+        "(function() local parts = {} for index = 1, 100000000 do parts[index] = index end return 1 end)()",
     ] {
         assert!(
             compile(&format!("#let(value={expression})")).is_err(),
@@ -74,6 +84,50 @@ fn only_the_supported_lua_environment_is_exposed() {
             "{expression}"
         );
     }
+}
+
+#[test]
+fn deterministic_string_and_math_functions_are_available() {
+    for (expression, expected) in [
+        (
+            "string.format('%-6s|%6.1f|%03d|%x', 'Item', 171.456, 7, 255)",
+            "Item  | 171.5|007|ff",
+        ),
+        ("string.format('%.2f%%', 12.345)", "12.35%"),
+        (
+            "string.format('%g %e', 0.0001, 12345.678)",
+            "0.0001 1.234568e+04",
+        ),
+        (
+            "('Mote'):upper() .. string.lower('ABC') .. ('x'):rep(3)",
+            "MOTEabcxxx",
+        ),
+        (
+            "string.sub('document', 1, 3) .. string.len('abc') .. string.reverse('ab')",
+            "doc3ba",
+        ),
+        ("string.byte('A') .. string.char(66)", "65B"),
+        ("math.floor(2.7) + math.max(1, 5) + math.abs(-3)", "10"),
+        ("math.sqrt(16) + math.fmod(7, 3)", "5"),
+    ] {
+        assert_eq!(
+            compile(&format!("#let(value={expression})#value")).unwrap(),
+            mote::compile(&format!("#paragraph[{expected}]"))
+                .or_else(|_| mote::compile(expected))
+                .unwrap(),
+            "{expression}"
+        );
+    }
+}
+
+#[test]
+fn bindings_that_shadow_lua_globals_restore_them_when_they_leave_scope() {
+    let source =
+        "#paragraph[#let(math=1, type=2)#math #type]#let(value=math.floor(2.5) .. type(1))#value";
+    assert_eq!(
+        compile(source).unwrap().content[1],
+        mote::compile("2number").unwrap().content[0]
+    );
 }
 
 #[test]

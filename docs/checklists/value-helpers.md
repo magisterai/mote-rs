@@ -10,6 +10,9 @@ dates can supply annotation properties.
   value's textual representation, without locale-specific or multi-letter expansion.
 - [x] `format_money(amount, currency)` or named `currency`: numeric/string amount,
   default USD; two decimals, comma grouping, minus sign and uppercase currency.
+- [x] `format_number(value, decimals)` or named `decimals`: numeric/string value,
+  0 to 15 decimals, default 0; named `grouping` adds comma thousands separators;
+  no sign on a value that rounds to zero.
 - [x] `length(value, unit)`: numeric/string magnitude, default `pt`; units
   `pt`, `in`, `cm`, `mm`, `twip`. Existing unit helpers remain equivalent.
 - [x] `date(value)`: a valid ISO calendar date string or existing date value;
