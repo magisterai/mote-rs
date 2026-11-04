@@ -1,0 +1,255 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.8,
+          "text": "ENABLED RULER 01 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 118.8,
+          "text": "ENABLED RULER 02 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.8,
+          "text": "ENABLED RULER 03 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.8,
+          "text": "ENABLED RULER 04 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.8,
+          "text": "ENABLED RULER 05 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 262.8,
+          "text": "ENABLED RULER 06 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 298.8,
+          "text": "ENABLED RULER 07 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 334.8,
+          "text": "ENABLED RULER 08 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 370.8,
+          "text": "ENABLED RULER 09 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "ENABLED RULER 10 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "ENABLED RULER 11 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 478.8,
+          "text": "ENABLED RULER 12 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 514.8,
+          "text": "ENABLED RULER 13 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 550.8,
+          "text": "ENABLED RULER 14 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.8,
+          "text": "ENABLED RULER 15 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 622.8,
+          "text": "ENABLED RULER 16 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 658.8,
+          "text": "ENABLED RULER 17 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 694.8,
+          "text": "ENABLED RULER 18 — exactly one 36-point slot remains.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 68.4,
+          "text": "ENABLED LINE 1 — all three green lines must begin together on page 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 86.4,
+          "text": "ENABLED LINE 2 — a one-line orphan at the bottom of page 1 is forbidden.",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.4,
+          "text": "ENABLED LINE 3 — the declared style enables widow control.",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.4,
+          "text": "Page 2 passes when all three green lines begin together.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.8,
+          "text": "DISABLED RULER 01 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 118.8,
+          "text": "DISABLED RULER 02 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.8,
+          "text": "DISABLED RULER 03 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.8,
+          "text": "DISABLED RULER 04 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.8,
+          "text": "DISABLED RULER 05 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 262.8,
+          "text": "DISABLED RULER 06 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 298.8,
+          "text": "DISABLED RULER 07 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 334.8,
+          "text": "DISABLED RULER 08 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 370.8,
+          "text": "DISABLED RULER 09 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "DISABLED RULER 10 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "DISABLED RULER 11 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 478.8,
+          "text": "DISABLED RULER 12 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 514.8,
+          "text": "DISABLED RULER 13 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 550.8,
+          "text": "DISABLED RULER 14 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.8,
+          "text": "DISABLED RULER 15 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 622.8,
+          "text": "DISABLED RULER 16 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 658.8,
+          "text": "DISABLED RULER 17 — fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 694.8,
+          "text": "DISABLED RULER 18 — exactly two 18-point slots remain.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.4,
+          "text": "DISABLED LINE 1 — this purple line must remain at the bottom of page 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 734.4,
+          "text": "DISABLED LINE 2 — this purple line must also remain at the bottom of page 3.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 68.4,
+          "text": "DISABLED LINE 3 — explicit false permits this single line to begin page 4.",
+          "x": 72.0
+        },
+        {
+          "baseline": 86.4,
+          "text": "PASS: exactly four pages; green is 0+3 across pages 1–2, while purple is 2+1 across pages 3–",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.4,
+          "text": "4.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "b07a7968c786321d103492cf5c331585dc14f99f2a6b5dc6cfa5331e497c8e4d"
+}

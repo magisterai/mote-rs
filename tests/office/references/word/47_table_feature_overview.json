@@ -1,0 +1,207 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.12,
+          "text": "Table Coverage",
+          "x": 54.0
+        },
+        {
+          "baseline": 91.92,
+          "text": "This fixture exercises table geometry, repeated header rows, cell margins, nested block content, markdown",
+          "x": 54.0
+        },
+        {
+          "baseline": 104.88,
+          "text": "tables, and captions without relying on backend-specific raw XML.",
+          "x": 54.0
+        },
+        {
+          "baseline": 134.16,
+          "text": "Area",
+          "x": 81.6
+        },
+        {
+          "baseline": 134.16,
+          "text": "Evidence",
+          "x": 182.4
+        },
+        {
+          "baseline": 134.16,
+          "text": "Status",
+          "x": 456.96
+        },
+        {
+          "baseline": 161.28,
+          "text": "• Headings and paragraphs",
+          "x": 218.4
+        },
+        {
+          "baseline": 176.4,
+          "text": "• Nested lists",
+          "x": 218.4
+        },
+        {
+          "baseline": 177.12,
+          "text": "Ready",
+          "x": 457.55
+        },
+        {
+          "baseline": 191.28,
+          "text": "• Markdown links and images",
+          "x": 218.4
+        },
+        {
+          "baseline": 194.4,
+          "text": "Parser",
+          "x": 81.6
+        },
+        {
+          "baseline": 214.56,
+          "text": "Rowspans synthesize Word vertical-merge",
+          "x": 182.4
+        },
+        {
+          "baseline": 221.04,
+          "text": "Ready",
+          "x": 457.55
+        },
+        {
+          "baseline": 227.52,
+          "text": "continuation cells.",
+          "x": 182.4
+        },
+        {
+          "baseline": 249.12,
+          "text": "Native functions produce neutral elements.",
+          "x": 182.4
+        },
+        {
+          "baseline": 255.6,
+          "text": "Evaluation",
+          "x": 81.6
+        },
+        {
+          "baseline": 255.6,
+          "text": "Ready",
+          "x": 457.55
+        },
+        {
+          "baseline": 262.08,
+          "text": "Static expressions work without Lua.",
+          "x": 182.4
+        },
+        {
+          "baseline": 283.68,
+          "text": "DOCX warnings remain an emitter concern.",
+          "x": 81.6
+        },
+        {
+          "baseline": 283.68,
+          "text": "Tracked",
+          "x": 453.52
+        },
+        {
+          "baseline": 305.52,
+          "text": "Table 1. A directive table with nested content and repeated header rows.",
+          "x": 165.82
+        },
+        {
+          "baseline": 329.52,
+          "text": "Markdown Table",
+          "x": 54.0
+        },
+        {
+          "baseline": 355.92,
+          "text": "Element",
+          "x": 60.24
+        },
+        {
+          "baseline": 355.92,
+          "text": "Purpose",
+          "x": 197.15
+        },
+        {
+          "baseline": 355.92,
+          "text": "Alignment",
+          "x": 301.23
+        },
+        {
+          "baseline": 377.52,
+          "text": "#table",
+          "x": 60.24
+        },
+        {
+          "baseline": 377.52,
+          "text": "Structured rows and cells",
+          "x": 159.21
+        },
+        {
+          "baseline": 377.52,
+          "text": "right",
+          "x": 329.81
+        },
+        {
+          "baseline": 398.88,
+          "text": "Markdown table",
+          "x": 60.24
+        },
+        {
+          "baseline": 398.88,
+          "text": "Fast authoring path",
+          "x": 173.13
+        },
+        {
+          "baseline": 398.88,
+          "text": "right",
+          "x": 329.81
+        },
+        {
+          "baseline": 420.48,
+          "text": "Cell margin",
+          "x": 60.24
+        },
+        {
+          "baseline": 420.48,
+          "text": "Word-native padding equivalent",
+          "x": 144.97
+        },
+        {
+          "baseline": 420.48,
+          "text": "right",
+          "x": 329.81
+        },
+        {
+          "baseline": 449.04,
+          "text": "Definition List",
+          "x": 54.0
+        },
+        {
+          "baseline": 471.36,
+          "text": "Cell margin",
+          "x": 54.0
+        },
+        {
+          "baseline": 494.4,
+          "text": "The W ord table-cell margin concept used to keep cell text away from borders.",
+          "x": 72.0
+        },
+        {
+          "baseline": 517.68,
+          "text": "Table style",
+          "x": 54.0
+        },
+        {
+          "baseline": 540.72,
+          "text": "A named table style can own table defaults so the emitter does not invent them.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "f941428e168fab9ffb110741e919509f8976e773a10ac2794dc21e0eb10aff5b"
+}

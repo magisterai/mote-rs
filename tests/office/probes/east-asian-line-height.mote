@@ -1,0 +1,41 @@
+#font(name = "gothic", latin = "MS Gothic")
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#set paragraph(style = "Normal")
+
+EAST ASIAN LINE HEIGHT: a line holding an MS Gothic glyph takes the height Word gives that font.
+
+#paragraph[Mixed 11 line 1 #span(font = "gothic", size = pt(11))[☒] after the glyph.]
+
+#paragraph[Mixed 11 line 2 #span(font = "gothic", size = pt(11))[☒] after the glyph.]
+
+#paragraph[Mixed 11 line 3 #span(font = "gothic", size = pt(11))[☒] after the glyph.]
+
+#paragraph[Mixed 11 line 4 #span(font = "gothic", size = pt(11))[☒] after the glyph.]
+
+#paragraph[Mixed 22 line 1 #span(font = "gothic", size = pt(22))[☒] after the glyph.]
+
+#paragraph[Mixed 22 line 2 #span(font = "gothic", size = pt(22))[☒] after the glyph.]
+
+#paragraph[Mixed 22 line 3 #span(font = "gothic", size = pt(22))[☒] after the glyph.]
+
+#paragraph[Mixed 22 line 4 #span(font = "gothic", size = pt(22))[☒] after the glyph.]
+
+#paragraph[Plain line 1 without the glyph.]
+
+#paragraph[Plain line 2 without the glyph.]
+
+#paragraph[Plain line 3 without the glyph.]
+
+#paragraph[Plain line 4 without the glyph.]

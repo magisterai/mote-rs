@@ -1,0 +1,77 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "1. Outside heading",
+          "x": 108.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "C. Outside ordered item",
+          "x": 108.0
+        },
+        {
+          "baseline": 126.72,
+          "text": "2. Inside heading",
+          "x": 114.24
+        },
+        {
+          "baseline": 148.56,
+          "text": "D. First paragraph in ordered item.",
+          "x": 114.24
+        },
+        {
+          "baseline": 165.84,
+          "text": "• Nested unordered item between parent paragraphs.",
+          "x": 132.24
+        },
+        {
+          "baseline": 183.12,
+          "text": "Second paragraph in the same item.",
+          "x": 114.24
+        },
+        {
+          "baseline": 204.24,
+          "text": "First quote paragraph.",
+          "x": 114.24
+        },
+        {
+          "baseline": 225.36,
+          "text": "Second quote paragraph.",
+          "x": 114.24
+        },
+        {
+          "baseline": 246.72,
+          "text": "Term",
+          "x": 78.24
+        },
+        {
+          "baseline": 269.76,
+          "text": "First definition paragraph.",
+          "x": 96.24
+        },
+        {
+          "baseline": 293.04,
+          "text": "Second definition paragraph.",
+          "x": 96.24
+        },
+        {
+          "baseline": 320.64,
+          "text": "PASS: the table contains heading 2, ordered item D, one nested bullet, one unmarked",
+          "x": 72.0
+        },
+        {
+          "baseline": 335.76,
+          "text": "continuation paragraph, two quote paragraphs, one term, and two definition paragraphs.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "dccec468c3e8f9dd90b745ccf33cbbb2e2fd0c2872f4c97e2234ce95934b8a35"
+}

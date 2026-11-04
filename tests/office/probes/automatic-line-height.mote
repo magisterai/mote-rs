@@ -1,0 +1,436 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#set paragraph(style = "Normal")
+
+AUTOMATIC LINE HEIGHT: Word derives a single line from the font metrics and scales it by the multiple.
+
+#style(
+  name = "Helvetica9x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Helvetica9x10")[Helvetica 9 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Helvetica9x10")[Helvetica 9 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Helvetica9x10")[Helvetica 9 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Helvetica9x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Helvetica9x115")[Helvetica 9 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Helvetica9x115")[Helvetica 9 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Helvetica9x115")[Helvetica 9 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Helvetica11x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Helvetica11x10")[Helvetica 11 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Helvetica11x10")[Helvetica 11 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Helvetica11x10")[Helvetica 11 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Helvetica11x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Helvetica11x115")[Helvetica 11 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Helvetica11x115")[Helvetica 11 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Helvetica11x115")[Helvetica 11 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Helvetica16x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Helvetica16x10")[Helvetica 16 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Helvetica16x10")[Helvetica 16 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Helvetica16x10")[Helvetica 16 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Helvetica16x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Helvetica16x115")[Helvetica 16 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Helvetica16x115")[Helvetica 16 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Helvetica16x115")[Helvetica 16 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Arial9x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Arial9x10")[Arial 9 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Arial9x10")[Arial 9 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Arial9x10")[Arial 9 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Arial9x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Arial9x115")[Arial 9 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Arial9x115")[Arial 9 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Arial9x115")[Arial 9 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Arial11x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Arial11x10")[Arial 11 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Arial11x10")[Arial 11 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Arial11x10")[Arial 11 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Arial11x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Arial11x115")[Arial 11 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Arial11x115")[Arial 11 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Arial11x115")[Arial 11 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Arial16x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Arial16x10")[Arial 16 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Arial16x10")[Arial 16 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Arial16x10")[Arial 16 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Arial16x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Arial16x115")[Arial 16 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Arial16x115")[Arial 16 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Arial16x115")[Arial 16 points at 1.15 lines, line 3.]
+
+#style(
+  name = "TimesNewRoman9x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "TimesNewRoman9x10")[Times New Roman 9 points at 1.0 lines, line 1.]
+
+#paragraph(style = "TimesNewRoman9x10")[Times New Roman 9 points at 1.0 lines, line 2.]
+
+#paragraph(style = "TimesNewRoman9x10")[Times New Roman 9 points at 1.0 lines, line 3.]
+
+#style(
+  name = "TimesNewRoman9x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "TimesNewRoman9x115")[Times New Roman 9 points at 1.15 lines, line 1.]
+
+#paragraph(style = "TimesNewRoman9x115")[Times New Roman 9 points at 1.15 lines, line 2.]
+
+#paragraph(style = "TimesNewRoman9x115")[Times New Roman 9 points at 1.15 lines, line 3.]
+
+#style(
+  name = "TimesNewRoman11x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "TimesNewRoman11x10")[Times New Roman 11 points at 1.0 lines, line 1.]
+
+#paragraph(style = "TimesNewRoman11x10")[Times New Roman 11 points at 1.0 lines, line 2.]
+
+#paragraph(style = "TimesNewRoman11x10")[Times New Roman 11 points at 1.0 lines, line 3.]
+
+#style(
+  name = "TimesNewRoman11x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "TimesNewRoman11x115")[Times New Roman 11 points at 1.15 lines, line 1.]
+
+#paragraph(style = "TimesNewRoman11x115")[Times New Roman 11 points at 1.15 lines, line 2.]
+
+#paragraph(style = "TimesNewRoman11x115")[Times New Roman 11 points at 1.15 lines, line 3.]
+
+#style(
+  name = "TimesNewRoman16x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "TimesNewRoman16x10")[Times New Roman 16 points at 1.0 lines, line 1.]
+
+#paragraph(style = "TimesNewRoman16x10")[Times New Roman 16 points at 1.0 lines, line 2.]
+
+#paragraph(style = "TimesNewRoman16x10")[Times New Roman 16 points at 1.0 lines, line 3.]
+
+#style(
+  name = "TimesNewRoman16x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "TimesNewRoman16x115")[Times New Roman 16 points at 1.15 lines, line 1.]
+
+#paragraph(style = "TimesNewRoman16x115")[Times New Roman 16 points at 1.15 lines, line 2.]
+
+#paragraph(style = "TimesNewRoman16x115")[Times New Roman 16 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Georgia9x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Georgia9x10")[Georgia 9 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Georgia9x10")[Georgia 9 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Georgia9x10")[Georgia 9 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Georgia9x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Georgia9x115")[Georgia 9 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Georgia9x115")[Georgia 9 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Georgia9x115")[Georgia 9 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Georgia11x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Georgia11x10")[Georgia 11 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Georgia11x10")[Georgia 11 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Georgia11x10")[Georgia 11 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Georgia11x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Georgia11x115")[Georgia 11 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Georgia11x115")[Georgia 11 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Georgia11x115")[Georgia 11 points at 1.15 lines, line 3.]
+
+#style(
+  name = "Georgia16x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "Georgia16x10")[Georgia 16 points at 1.0 lines, line 1.]
+
+#paragraph(style = "Georgia16x10")[Georgia 16 points at 1.0 lines, line 2.]
+
+#paragraph(style = "Georgia16x10")[Georgia 16 points at 1.0 lines, line 3.]
+
+#style(
+  name = "Georgia16x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "Georgia16x115")[Georgia 16 points at 1.15 lines, line 1.]
+
+#paragraph(style = "Georgia16x115")[Georgia 16 points at 1.15 lines, line 2.]
+
+#paragraph(style = "Georgia16x115")[Georgia 16 points at 1.15 lines, line 3.]
+
+#style(
+  name = "CourierNew9x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "CourierNew9x10")[Courier New 9 points at 1.0 lines, line 1.]
+
+#paragraph(style = "CourierNew9x10")[Courier New 9 points at 1.0 lines, line 2.]
+
+#paragraph(style = "CourierNew9x10")[Courier New 9 points at 1.0 lines, line 3.]
+
+#style(
+  name = "CourierNew9x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "CourierNew9x115")[Courier New 9 points at 1.15 lines, line 1.]
+
+#paragraph(style = "CourierNew9x115")[Courier New 9 points at 1.15 lines, line 2.]
+
+#paragraph(style = "CourierNew9x115")[Courier New 9 points at 1.15 lines, line 3.]
+
+#style(
+  name = "CourierNew11x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "CourierNew11x10")[Courier New 11 points at 1.0 lines, line 1.]
+
+#paragraph(style = "CourierNew11x10")[Courier New 11 points at 1.0 lines, line 2.]
+
+#paragraph(style = "CourierNew11x10")[Courier New 11 points at 1.0 lines, line 3.]
+
+#style(
+  name = "CourierNew11x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "CourierNew11x115")[Courier New 11 points at 1.15 lines, line 1.]
+
+#paragraph(style = "CourierNew11x115")[Courier New 11 points at 1.15 lines, line 2.]
+
+#paragraph(style = "CourierNew11x115")[Courier New 11 points at 1.15 lines, line 3.]
+
+#style(
+  name = "CourierNew16x10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "CourierNew16x10")[Courier New 16 points at 1.0 lines, line 1.]
+
+#paragraph(style = "CourierNew16x10")[Courier New 16 points at 1.0 lines, line 2.]
+
+#paragraph(style = "CourierNew16x10")[Courier New 16 points at 1.0 lines, line 3.]
+
+#style(
+  name = "CourierNew16x115",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(style = "CourierNew16x115")[Courier New 16 points at 1.15 lines, line 1.]
+
+#paragraph(style = "CourierNew16x115")[Courier New 16 points at 1.15 lines, line 2.]
+
+#paragraph(style = "CourierNew16x115")[Courier New 16 points at 1.15 lines, line 3.]

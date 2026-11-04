@@ -1,5 +1,5 @@
 //! Repository tasks: the review catalogue, README generation, package validation, fixture verification,
-//! output comparison and the specification attribute inventory.
+//! output and Office comparison and the specification attribute inventory.
 mod arguments;
 mod captures;
 mod compare_measurements;
@@ -8,6 +8,7 @@ mod digest;
 mod inventory;
 mod json;
 mod layout_fixtures;
+mod office;
 mod package;
 mod readme;
 mod review;
@@ -32,6 +33,7 @@ Commands:
   refresh-captures       Refresh captured packages whose canonical XML changed.
   compare-outputs        Compare the models and packages of two executables.
   compare-measurements   Verify measurement fixtures and compare candidates.
+  office-compare         Compare native layout with recorded Word and PowerPoint lines.
 
 Use cargo xtask COMMAND --help for the options of a command.
 ";
@@ -58,6 +60,7 @@ fn main() -> ExitCode {
         Some("refresh-captures") => captures::run(arguments),
         Some("compare-outputs") => compare_outputs::run(arguments),
         Some("compare-measurements") => compare_measurements::run(arguments),
+        Some("office-compare") => office::run(arguments),
         None | Some("--help" | "-h" | "help") => {
             print!("{HELP}");
             Ok(ExitCode::SUCCESS)

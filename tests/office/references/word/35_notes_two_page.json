@@ -1,0 +1,93 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.6,
+          "text": "Notes - Two Pages",
+          "x": 66.0
+        },
+        {
+          "baseline": 100.32,
+          "text": "1",
+          "x": 200.4
+        },
+        {
+          "baseline": 100.32,
+          "text": "i",
+          "x": 234.48
+        },
+        {
+          "baseline": 102.72,
+          "text": "PAGE 1 REFERENCES: F-P1 | E-P1 | END PAGE 1.",
+          "x": 66.0
+        },
+        {
+          "baseline": 124.56,
+          "text": "PASS P1: the first page-local footnote is below the rule; its endnote remains deferred to the document end.",
+          "x": 66.0
+        },
+        {
+          "baseline": 719.76,
+          "text": "1 TW O-FN-P1: page-one footnote body.",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 79.68,
+          "text": "Page 2",
+          "x": 66.0
+        },
+        {
+          "baseline": 97.92,
+          "text": "2",
+          "x": 200.4
+        },
+        {
+          "baseline": 97.92,
+          "text": "ii",
+          "x": 234.48
+        },
+        {
+          "baseline": 100.32,
+          "text": "PAGE 2 REFERENCES: F-P2 | E-P2 | END PAGE 2.",
+          "x": 66.0
+        },
+        {
+          "baseline": 122.16,
+          "text": "PASS P2: the second page-local footnote is below the rule; both endnotes follow this paragraph in source",
+          "x": 66.0
+        },
+        {
+          "baseline": 136.08,
+          "text": "order.",
+          "x": 66.0
+        },
+        {
+          "baseline": 179.76,
+          "text": "i TW O-EN-P1: first document endnote body.",
+          "x": 66.0
+        },
+        {
+          "baseline": 201.36,
+          "text": "ii TW O-EN-P2: second document endnote body.",
+          "x": 66.0
+        },
+        {
+          "baseline": 719.76,
+          "text": "2 TW O-FN-P2: page-two footnote body.",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "341cac3fac0ff6832eeb56de5f6c0235b041835fc566bdcd9d9920db49639e99"
+}

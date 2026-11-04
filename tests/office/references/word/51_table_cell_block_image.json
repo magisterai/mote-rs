@@ -1,0 +1,77 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Table Cell Block Image",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "The native block image inside the left table cell must render in W ord, PDF, and PNG with the same",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "authored size, aspect ratio, and centered placement.",
+          "x": 72.0
+        },
+        {
+          "baseline": 135.36,
+          "text": "BLOCK IMAGE INSIDE CELL",
+          "x": 79.92
+        },
+        {
+          "baseline": 164.64,
+          "text": "CONTROL CELL",
+          "x": 313.92
+        },
+        {
+          "baseline": 178.32,
+          "text": "This ordinary nested cell content remains native",
+          "x": 313.92
+        },
+        {
+          "baseline": 193.68,
+          "text": "W ord/PDF/PNG: native image",
+          "x": 79.92
+        },
+        {
+          "baseline": 192.24,
+          "text": "in every backend.",
+          "x": 313.92
+        },
+        {
+          "baseline": 207.6,
+          "text": "with identical size, ratio, and centered",
+          "x": 79.92
+        },
+        {
+          "baseline": 221.28,
+          "text": "placement.",
+          "x": 79.92
+        },
+        {
+          "baseline": 256.32,
+          "text": "Outside-Table Control",
+          "x": 72.0
+        },
+        {
+          "baseline": 276.96,
+          "text": "The same block image below remains native and warning-free in all three outputs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 343.2,
+          "text": "PASS: the cell and outside-table controls both render natively at the authored size and aspect ratio.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "4271ba6b100c0d886b6ffe673503b7b7d7ae7015c5c6b35f10c70d2112b0c2ce"
+}

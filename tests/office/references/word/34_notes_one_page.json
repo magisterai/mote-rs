@@ -1,0 +1,77 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.6,
+          "text": "Notes - One Page",
+          "x": 66.0
+        },
+        {
+          "baseline": 100.32,
+          "text": "1",
+          "x": 196.56
+        },
+        {
+          "baseline": 100.32,
+          "text": "i",
+          "x": 225.12
+        },
+        {
+          "baseline": 102.72,
+          "text": "BODY A REFERENCES: F-A | E-A | BODY A CONTINUES.",
+          "x": 66.0
+        },
+        {
+          "baseline": 122.16,
+          "text": "2",
+          "x": 196.56
+        },
+        {
+          "baseline": 122.16,
+          "text": "ii",
+          "x": 225.12
+        },
+        {
+          "baseline": 124.56,
+          "text": "BODY B REFERENCES: F-B | E-B | BODY B CONTINUES.",
+          "x": 66.0
+        },
+        {
+          "baseline": 146.4,
+          "text": "PASS: one page; decimal footnote markers 1-2 and lower-Roman endnote markers i-ii; no note body",
+          "x": 66.0
+        },
+        {
+          "baseline": 160.32,
+          "text": "appears inline.",
+          "x": 66.0
+        },
+        {
+          "baseline": 203.76,
+          "text": "i ONE-EN-A: first end-of-document endnote body.",
+          "x": 66.0
+        },
+        {
+          "baseline": 225.6,
+          "text": "ii ONE-EN-B: second end-of-document endnote body.",
+          "x": 66.0
+        },
+        {
+          "baseline": 697.92,
+          "text": "1 ONE-FN-A: first page-bottom footnote body.",
+          "x": 66.0
+        },
+        {
+          "baseline": 719.76,
+          "text": "2 ONE-FN-B: second page-bottom footnote body.",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "ca7f77dbee542fd6e0a16835bbfdd98159c73998d5e3a884c9e37606c54bb373"
+}

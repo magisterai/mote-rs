@@ -1,0 +1,128 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "International Text And Glyph Coverage",
+          "x": 46.8
+        },
+        {
+          "baseline": 115.92,
+          "text": "天 地 玄 黄 、 宇 宙 洪 荒 。 日 月 盈 昃 、 辰 宿 列 张 。 日 本",
+          "x": 73.2
+        },
+        {
+          "baseline": 115.92,
+          "text": "Ελληνικά, Кириллица, français, español, português,",
+          "x": 501.6
+        },
+        {
+          "baseline": 137.04,
+          "text": "語 の 文 章 で も 句 読 点 を 保 ち な が ら 自 然 に 改 行 し ま",
+          "x": 73.2
+        },
+        {
+          "baseline": 136.08,
+          "text": "Türkçe, tiếng Việt, and mathematical symbols: ∑ √ ∞",
+          "x": 501.6
+        },
+        {
+          "baseline": 156.96,
+          "text": "す 。",
+          "x": 73.2
+        },
+        {
+          "baseline": 156.0,
+          "text": "≠ ≤ ≥.",
+          "x": 514.22
+        },
+        {
+          "baseline": 298.56,
+          "text": "Task symbols: ☐ unchecked, ☑ checked, ✓ complete, ! warning, → next. Geometric symbols: ◆ ◇ ● ○ ■ □.",
+          "x": 73.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation international text",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Hostile Tokens And Mixed Runs",
+          "x": 46.8
+        },
+        {
+          "baseline": 114.0,
+          "text": "MODEL_OUTPUT_IDENTIFIER_0123456789_ABCD",
+          "x": 76.8
+        },
+        {
+          "baseline": 114.0,
+          "text": "https://example.com/a/very/long/path/wi",
+          "x": 505.2
+        },
+        {
+          "baseline": 132.96,
+          "text": "EFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnop",
+          "x": 76.8
+        },
+        {
+          "baseline": 132.96,
+          "text": "th?query=unbroken_identifier_0123456789",
+          "x": 505.2
+        },
+        {
+          "baseline": 152.88,
+          "text": "qrstuvwxyz must remain inside this box.",
+          "x": 76.8
+        },
+        {
+          "baseline": 152.88,
+          "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+          "x": 505.2
+        },
+        {
+          "baseline": 346.08,
+          "text": "2",
+          "x": 511.86
+        },
+        {
+          "baseline": 351.12,
+          "text": "Normal text LARGE returns to normal with H O and x, then highlighted words.",
+          "x": 76.8
+        },
+        {
+          "baseline": 354.24,
+          "text": "2",
+          "x": 447.48
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation international text",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "4791590772d04e18cefb75763dd551e9946628d483fe5921cf25ccf570b04a26"
+}

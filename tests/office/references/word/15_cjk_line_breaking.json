@@ -1,0 +1,112 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 74.18,
+          "text": "CJK Line Breaking",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "This fixture checks Unicode line-break opportunities for spaceless Chinese and Japanese text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 125.76,
+          "text": "PDF and PNG should stay inside each frame without placing closing punctuation at the start of",
+          "x": 72.0
+        },
+        {
+          "baseline": 147.84,
+          "text": "a line or opening punctuation at the end.",
+          "x": 72.0
+        },
+        {
+          "baseline": 181.48,
+          "text": "Natural Paragraph",
+          "x": 72.0
+        },
+        {
+          "baseline": 210.24,
+          "text": "天 地 玄 黄 ， 宇 宙 洪 荒 。 日 月 盈 昃 ， 辰 宿 列 张 。 寒 来 暑 往 ， 秋 收 冬 藏 。 閏 餘 成 歲 ， 律 呂 調 陽 。 雲 騰",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.32,
+          "text": "致 雨 ， 露 結 為 霜 。",
+          "x": 72.0
+        },
+        {
+          "baseline": 265.96,
+          "text": "Narrow Framed Text",
+          "x": 72.0
+        },
+        {
+          "baseline": 302.24,
+          "text": "Chinese punctuation",
+          "x": 106.08
+        },
+        {
+          "baseline": 302.24,
+          "text": "Japanese punctuation",
+          "x": 312.96
+        },
+        {
+          "baseline": 324.48,
+          "text": "天 地 玄 黄 ， 宇 宙 洪 荒 。 日 月 盈 昃 ， 辰 宿 日 本 語 の 文 章 で は 、 句 読 点 が 行 頭 に 置",
+          "x": 106.08
+        },
+        {
+          "baseline": 346.54,
+          "text": "列 张 。 天 地 （ 玄 黄 ） 宇 宙 《 洪 荒 》 日 月 か れ ず 、 「 括 弧 」 も 正 し く ま と ま り ま",
+          "x": 106.08
+        },
+        {
+          "baseline": 368.64,
+          "text": "「 盈 昃 」 辰 宿 。",
+          "x": 117.08
+        },
+        {
+          "baseline": 368.64,
+          "text": "す 。 長 い 文 章 で も 自 然 な 位 置 で 改 行 し",
+          "x": 312.96
+        },
+        {
+          "baseline": 390.72,
+          "text": "ま す 。",
+          "x": 312.96
+        },
+        {
+          "baseline": 432.04,
+          "text": "Latin Regression",
+          "x": 72.0
+        },
+        {
+          "baseline": 460.8,
+          "text": "Ordinary Latin words remain whitespace-delimited, while",
+          "x": 72.0
+        },
+        {
+          "baseline": 482.88,
+          "text": "exceptionallylongunbrokenidentifierstillusestheexistingemergencygraphemefallback0123456789",
+          "x": 72.0
+        },
+        {
+          "baseline": 504.96,
+          "text": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW XYZ0123456789abcdefghijklm",
+          "x": 72.0
+        },
+        {
+          "baseline": 527.04,
+          "text": "nopqrstuvwxyz only splits when it is wider than the frame.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "f171610ec05e20596842d3a0bb88cdc7afcbf2f62e3d2245609941af86ab01ff"
+}

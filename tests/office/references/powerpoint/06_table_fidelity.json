@@ -1,0 +1,228 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.12,
+          "text": "Markdown Table W ith Defaults",
+          "x": 50.4
+        },
+        {
+          "baseline": 99.84,
+          "text": "Category",
+          "x": 169.34
+        },
+        {
+          "baseline": 99.84,
+          "text": "Owner",
+          "x": 367.5
+        },
+        {
+          "baseline": 99.84,
+          "text": "Status",
+          "x": 484.8
+        },
+        {
+          "baseline": 99.84,
+          "text": "Budget",
+          "x": 825.78
+        },
+        {
+          "baseline": 132.72,
+          "text": "Parser",
+          "x": 175.09
+        },
+        {
+          "baseline": 132.72,
+          "text": "Engineering",
+          "x": 357.31
+        },
+        {
+          "baseline": 132.72,
+          "text": "Complete",
+          "x": 484.8
+        },
+        {
+          "baseline": 132.72,
+          "text": "$4,200",
+          "x": 828.15
+        },
+        {
+          "baseline": 170.4,
+          "text": "Emitter",
+          "x": 173.15
+        },
+        {
+          "baseline": 170.4,
+          "text": "Engineering",
+          "x": 357.31
+        },
+        {
+          "baseline": 170.4,
+          "text": "In review",
+          "x": 484.8
+        },
+        {
+          "baseline": 170.4,
+          "text": "$6,800",
+          "x": 828.15
+        },
+        {
+          "baseline": 208.32,
+          "text": "Total",
+          "x": 178.53
+        },
+        {
+          "baseline": 208.32,
+          "text": "$11,000",
+          "x": 822.65
+        },
+        {
+          "baseline": 294.24,
+          "text": "Plain Markdown Table",
+          "x": 50.4
+        },
+        {
+          "baseline": 343.2,
+          "text": "Area",
+          "x": 187.5
+        },
+        {
+          "baseline": 343.2,
+          "text": "Status",
+          "x": 464.05
+        },
+        {
+          "baseline": 343.2,
+          "text": "Owner",
+          "x": 863.95
+        },
+        {
+          "baseline": 382.8,
+          "text": "Markdown headings",
+          "x": 152.44
+        },
+        {
+          "baseline": 382.8,
+          "text": "Ready",
+          "x": 465.43
+        },
+        {
+          "baseline": 382.8,
+          "text": "Parser",
+          "x": 865.95
+        },
+        {
+          "baseline": 422.4,
+          "text": "Markdown tables",
+          "x": 158.81
+        },
+        {
+          "baseline": 422.4,
+          "text": "Styled",
+          "x": 464.43
+        },
+        {
+          "baseline": 422.4,
+          "text": "Emitter",
+          "x": 860.45
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX table fidelity",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.12,
+          "text": "Merged Table Cells",
+          "x": 50.4
+        },
+        {
+          "baseline": 101.76,
+          "text": "Merged header across four columns",
+          "x": 397.18
+        },
+        {
+          "baseline": 152.4,
+          "text": "Task",
+          "x": 372.56
+        },
+        {
+          "baseline": 152.4,
+          "text": "Status",
+          "x": 561.1
+        },
+        {
+          "baseline": 152.4,
+          "text": "Budget",
+          "x": 827.28
+        },
+        {
+          "baseline": 186.96,
+          "text": "Rowspan owner",
+          "x": 153.71
+        },
+        {
+          "baseline": 221.52,
+          "text": "Parser and emitter coverage",
+          "x": 418.24
+        },
+        {
+          "baseline": 221.52,
+          "text": "$11,000",
+          "x": 822.78
+        },
+        {
+          "baseline": 290.64,
+          "text": "Right A",
+          "x": 560.16
+        },
+        {
+          "baseline": 290.64,
+          "text": "Right B",
+          "x": 752.7
+        },
+        {
+          "baseline": 325.2,
+          "text": "Combined row and column span",
+          "x": 212.89
+        },
+        {
+          "baseline": 359.76,
+          "text": "Lower A",
+          "x": 557.1
+        },
+        {
+          "baseline": 359.76,
+          "text": "Lower B",
+          "x": 749.7
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX table fidelity",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "a1dbe9f1ed32f1a0dfbff96e1a81067f66a11a568df1b85ca777428f88ea252d"
+}

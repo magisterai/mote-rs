@@ -62,11 +62,26 @@ change and every stored part file to be referenced.
 Native geometry and raster captures are refreshed by their own test harnesses.
 After an intended layout change, `MOTE_REFRESH_CAPTURES=1 cargo test --test NAME`
 writes the current output in place of each capture that fails its tolerance, and
-updates the recorded digests, in the harnesses that support refresh: the section,
-note and table captures, the authored-content and combined rendering-audit
-cases, and the document-text, paragraph-text and text-decoration collections. A
-refreshed JSON capture keeps its stored text and changes only the values that
-moved. A refresh is made only for a change that Office evidence supports.
+updates the recorded digests, in every native capture harness. A refreshed JSON
+capture keeps its stored text and changes only the values that moved. A refresh
+is made only for a change that Office evidence supports.
+
+## Office comparison
+
+`cargo xtask office-compare` compares the native layout of every review case and
+probe with its Word or PowerPoint reference and reports, for each, the lines that
+moved to another page, the lines without a partner, and the largest and median
+vertical offsets and largest horizontal offset of matched lines. The
+[Office comparison guide](../tests/office/README.md) describes the references,
+the allowances and the probes. `--case NAME` and `--probe NAME` select subjects,
+and `--detail` lists every unmatched line and every line more than half a point
+from Office.
+
+`--record` exports the selected subjects through Microsoft Word or PowerPoint on
+macOS and replaces their references; the applications must be installed and may
+not be showing a modal dialog. `--allow` replaces the selected subjects'
+allowances with their present results. A test holds every subject within its
+allowance on any platform without Office.
 
 ## Attribute inventory
 

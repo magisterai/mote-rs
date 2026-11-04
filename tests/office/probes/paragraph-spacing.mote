@@ -1,0 +1,44 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(16) } } }
+)
+
+#set paragraph(style = "Normal")
+
+PARAGRAPH SPACING: the gap between two paragraphs follows from the first one's spacing after and the second one's spacing before.
+
+#paragraph(spacing_after = pt(0))[First paragraph with 0 points after.]
+
+#paragraph(spacing_before = pt(0))[Second paragraph with 0 points before.]
+
+#paragraph(spacing_after = pt(12))[First paragraph with 12 points after.]
+
+#paragraph(spacing_before = pt(0))[Second paragraph with 0 points before.]
+
+#paragraph(spacing_after = pt(0))[First paragraph with 0 points after.]
+
+#paragraph(spacing_before = pt(12))[Second paragraph with 12 points before.]
+
+#paragraph(spacing_after = pt(12))[First paragraph with 12 points after.]
+
+#paragraph(spacing_before = pt(12))[Second paragraph with 12 points before.]
+
+#paragraph(spacing_after = pt(6))[First paragraph with 6 points after.]
+
+#paragraph(spacing_before = pt(18))[Second paragraph with 18 points before.]
+
+#paragraph(spacing_after = pt(18))[First paragraph with 18 points after.]
+
+#paragraph(spacing_before = pt(6))[Second paragraph with 6 points before.]
+
+#paragraph(spacing_after = pt(24))[First paragraph with 24 points after.]
+
+#paragraph(spacing_before = pt(12))[Second paragraph with 12 points before.]

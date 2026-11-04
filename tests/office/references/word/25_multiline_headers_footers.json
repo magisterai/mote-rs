@@ -1,0 +1,113 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 20.88,
+          "text": "HEADER LINE 1 - separate paragraph block",
+          "x": 72.0
+        },
+        {
+          "baseline": 31.92,
+          "text": "HEADER LINE 2 - this deliberately continues with enough text to wrap onto another physical line without",
+          "x": 72.0
+        },
+        {
+          "baseline": 42.96,
+          "text": "losing its trailing words in PDF or PNG.",
+          "x": 72.0
+        },
+        {
+          "baseline": 87.6,
+          "text": "Multiline Headers And Footers",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.72,
+          "text": "The header must show two authored paragraph blocks. Its longer second block may wrap, and every",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.64,
+          "text": "wrapped word must remain above the body. The footer must show both explicit lines below the body.",
+          "x": 72.0
+        },
+        {
+          "baseline": 144.48,
+          "text": "PAGE 1 PASS: no header or footer line is missing, and neither reserved band overlaps this green body",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.16,
+          "text": "marker.",
+          "x": 72.0
+        },
+        {
+          "baseline": 768.0,
+          "text": "FOOTER LINE 1 - explicit break retained",
+          "x": 72.0
+        },
+        {
+          "baseline": 778.08,
+          "text": "FOOTER LINE 2 - PAGE 1 OF 2",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 20.88,
+          "text": "HEADER LINE 1 - separate paragraph block",
+          "x": 72.0
+        },
+        {
+          "baseline": 31.92,
+          "text": "HEADER LINE 2 - this deliberately continues with enough text to wrap onto another physical line without",
+          "x": 72.0
+        },
+        {
+          "baseline": 42.96,
+          "text": "losing its trailing words in PDF or PNG.",
+          "x": 72.0
+        },
+        {
+          "baseline": 85.68,
+          "text": "Repeated Page",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.32,
+          "text": "The same complete header and footer must repeat here. The footer page field must advance to page 2",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.24,
+          "text": "while the total remains 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 142.08,
+          "text": "PAGE 2 PASS: all header and footer lines repeat with the same geometry.",
+          "x": 72.0
+        },
+        {
+          "baseline": 768.0,
+          "text": "FOOTER LINE 1 - explicit break retained",
+          "x": 72.0
+        },
+        {
+          "baseline": 778.08,
+          "text": "FOOTER LINE 2 - PAGE 2 OF 2",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "55d7ab53d43eb8cbaef1740cc704eed2a5cb4da5dcbab2b4bcc29a6a1b4d5098"
+}

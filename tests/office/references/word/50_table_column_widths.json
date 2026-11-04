@@ -1,0 +1,142 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Table Column W idths",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "DOCX, PDF, and PNG should place every vertical divider at the same horizontal position. A",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.56,
+          "text": "table-level width controls the overall frame; explicit cell widths control the individual columns.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.44,
+          "text": "Equal Columns W ithout Cell W idths",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.28,
+          "text": "This control table declares only a 6.5-inch table width, so its three columns should divide the",
+          "x": 72.0
+        },
+        {
+          "baseline": 169.92,
+          "text": "frame equally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 202.56,
+          "text": "Equal A",
+          "x": 129.45
+        },
+        {
+          "baseline": 202.56,
+          "text": "Equal B",
+          "x": 285.45
+        },
+        {
+          "baseline": 202.56,
+          "text": "Equal C",
+          "x": 441.45
+        },
+        {
+          "baseline": 237.36,
+          "text": "Unequal Three-column Grid",
+          "x": 72.0
+        },
+        {
+          "baseline": 258.96,
+          "text": "These widths total 6.5 inches. The first divider belongs 1.25 inches from the left edge and the",
+          "x": 72.0
+        },
+        {
+          "baseline": 273.6,
+          "text": "second 3.25 inches from the left edge.",
+          "x": 72.0
+        },
+        {
+          "baseline": 306.24,
+          "text": "1.25 in",
+          "x": 99.8
+        },
+        {
+          "baseline": 306.24,
+          "text": "2.00 in",
+          "x": 216.8
+        },
+        {
+          "baseline": 306.24,
+          "text": "3.25 in",
+          "x": 405.8
+        },
+        {
+          "baseline": 337.92,
+          "text": "Short",
+          "x": 79.92
+        },
+        {
+          "baseline": 337.92,
+          "text": "Medium column",
+          "x": 169.92
+        },
+        {
+          "baseline": 337.92,
+          "text": "The widest column remains visibly wider in",
+          "x": 313.92
+        },
+        {
+          "baseline": 352.56,
+          "text": "every backend.",
+          "x": 313.92
+        },
+        {
+          "baseline": 387.36,
+          "text": "Unequal Two-column Grid",
+          "x": 72.0
+        },
+        {
+          "baseline": 408.96,
+          "text": "This reproduces the 1.65-inch label column and 4.85-inch content column used by the inline-",
+          "x": 72.0
+        },
+        {
+          "baseline": 423.84,
+          "text": "code review without involving font behavior.",
+          "x": 72.0
+        },
+        {
+          "baseline": 456.24,
+          "text": "1.65-inch label",
+          "x": 79.92
+        },
+        {
+          "baseline": 456.24,
+          "text": "The divider should sit just over one quarter of the way across the",
+          "x": 198.72
+        },
+        {
+          "baseline": 471.12,
+          "text": "frame, leaving a 4.85-inch content column.",
+          "x": 198.72
+        },
+        {
+          "baseline": 494.64,
+          "text": "The closing paragraph confirms that following content returns to the ordinary page width.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "9b964cdb0de1d91e8e6380e825330ebe5c4ae22fc9dff6777eb402f4172a52b0"
+}

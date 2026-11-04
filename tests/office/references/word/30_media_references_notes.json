@@ -1,0 +1,67 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Overview",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "See the overview and the overview.",
+          "x": 72.0
+        },
+        {
+          "baseline": 231.36,
+          "text": "Figure 1. The Mote reference logo.",
+          "x": 225.0
+        },
+        {
+          "baseline": 254.64,
+          "text": "The first figure is Figure 1 on page 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 376.08,
+          "text": "Figure 2. Linked image with crop and a dashed border.",
+          "x": 72.0
+        },
+        {
+          "baseline": 395.52,
+          "text": "1",
+          "x": 154.32
+        },
+        {
+          "baseline": 395.52,
+          "text": "i",
+          "x": 259.2
+        },
+        {
+          "baseline": 399.6,
+          "text": "Footnote support and endnote support are both emitted.",
+          "x": 72.0
+        },
+        {
+          "baseline": 423.12,
+          "text": "Commented text remains visible with a Word comment range.",
+          "x": 72.0
+        },
+        {
+          "baseline": 469.92,
+          "text": "i This is an endnote.",
+          "x": 72.0
+        },
+        {
+          "baseline": 706.8,
+          "text": "1 This is a footnote.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "80343a751c5e722760532ba5ec5e9693790eee7594becba9c263798ff74fe96e"
+}

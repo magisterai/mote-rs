@@ -1,0 +1,393 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Mixed-cell Row Splitting",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.44,
+          "text": "The MIXED-SPLIT row has independent 12-point and 15-point line rhythms. Neither cell has a fixed",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "height, a keep, or an authored page break.",
+          "x": 72.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "TW ELVE-POINT CELL",
+          "x": 78.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "FIFTEEN-POINT CELL",
+          "x": 312.0
+        },
+        {
+          "baseline": 156.48,
+          "text": "SETUP 01 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 156.48,
+          "text": "SETUP 01 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 180.0,
+          "text": "SETUP 02 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 180.0,
+          "text": "SETUP 02 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 203.52,
+          "text": "SETUP 03 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 203.52,
+          "text": "SETUP 03 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 227.04,
+          "text": "SETUP 04 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 227.04,
+          "text": "SETUP 04 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 250.56,
+          "text": "SETUP 05 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 250.56,
+          "text": "SETUP 05 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 274.08,
+          "text": "SETUP 06 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 274.08,
+          "text": "SETUP 06 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 297.6,
+          "text": "SETUP 07 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 297.6,
+          "text": "SETUP 07 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 321.12,
+          "text": "SETUP 08 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 321.12,
+          "text": "SETUP 08 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 344.64,
+          "text": "SETUP 09 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 344.64,
+          "text": "SETUP 09 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 367.92,
+          "text": "SETUP 10 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 367.92,
+          "text": "SETUP 10 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 391.44,
+          "text": "SETUP 11 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 391.44,
+          "text": "SETUP 11 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "SETUP 12 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "SETUP 12 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 438.48,
+          "text": "SETUP 13 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 438.48,
+          "text": "SETUP 13 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 462.0,
+          "text": "SETUP 14 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 462.0,
+          "text": "SETUP 14 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 485.52,
+          "text": "SETUP 15 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 485.52,
+          "text": "SETUP 15 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 509.04,
+          "text": "SETUP 16 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 509.04,
+          "text": "SETUP 16 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 532.56,
+          "text": "SETUP 17 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 532.56,
+          "text": "SETUP 17 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 556.08,
+          "text": "SETUP 18 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 556.08,
+          "text": "SETUP 18 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 579.6,
+          "text": "SETUP 19 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 579.6,
+          "text": "SETUP 19 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 603.12,
+          "text": "SETUP 20 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 603.12,
+          "text": "SETUP 20 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 626.64,
+          "text": "SETUP 21 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 626.64,
+          "text": "SETUP 21 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 649.92,
+          "text": "SETUP 22 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 649.92,
+          "text": "SETUP 22 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 673.44,
+          "text": "SETUP 23 LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 673.44,
+          "text": "SETUP 23 RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 696.24,
+          "text": "MIXED-LEFT LINE 01",
+          "x": 78.0
+        },
+        {
+          "baseline": 698.64,
+          "text": "MIXED-RIGHT LINE 01",
+          "x": 312.0
+        },
+        {
+          "baseline": 708.24,
+          "text": "MIXED-LEFT LINE 02",
+          "x": 78.0
+        },
+        {
+          "baseline": 713.52,
+          "text": "MIXED-RIGHT LINE 02",
+          "x": 312.0
+        },
+        {
+          "baseline": 720.24,
+          "text": "MIXED-LEFT LINE 03",
+          "x": 78.0
+        },
+        {
+          "baseline": 728.64,
+          "text": "MIXED-RIGHT LINE 03",
+          "x": 312.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.84,
+          "text": "TW ELVE-POINT CELL",
+          "x": 78.0
+        },
+        {
+          "baseline": 69.84,
+          "text": "FIFTEEN-POINT CELL",
+          "x": 312.0
+        },
+        {
+          "baseline": 92.64,
+          "text": "MIXED-LEFT LINE 04",
+          "x": 78.0
+        },
+        {
+          "baseline": 94.8,
+          "text": "MIXED-RIGHT LINE 04",
+          "x": 312.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "MIXED-LEFT LINE 05",
+          "x": 78.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "MIXED-RIGHT LINE 05",
+          "x": 312.0
+        },
+        {
+          "baseline": 116.64,
+          "text": "MIXED-LEFT LINE 06",
+          "x": 78.0
+        },
+        {
+          "baseline": 124.8,
+          "text": "MIXED-RIGHT LINE 06",
+          "x": 312.0
+        },
+        {
+          "baseline": 128.64,
+          "text": "MIXED-LEFT LINE 07",
+          "x": 78.0
+        },
+        {
+          "baseline": 140.64,
+          "text": "MIXED-LEFT LINE 08",
+          "x": 78.0
+        },
+        {
+          "baseline": 139.92,
+          "text": "MIXED-RIGHT LINE 07",
+          "x": 312.0
+        },
+        {
+          "baseline": 152.64,
+          "text": "MIXED-LEFT LINE 09",
+          "x": 78.0
+        },
+        {
+          "baseline": 154.8,
+          "text": "MIXED-RIGHT LINE 08",
+          "x": 312.0
+        },
+        {
+          "baseline": 164.64,
+          "text": "MIXED-LEFT LINE 10",
+          "x": 78.0
+        },
+        {
+          "baseline": 187.92,
+          "text": "AFTER-SPLIT LEFT",
+          "x": 78.0
+        },
+        {
+          "baseline": 187.92,
+          "text": "AFTER-SPLIT RIGHT",
+          "x": 312.0
+        },
+        {
+          "baseline": 216.48,
+          "text": "REVIEW : both cells begin on page 1, resume independently below the repeated header on page 2, and",
+          "x": 72.0
+        },
+        {
+          "baseline": 229.44,
+          "text": "every MIXED line appears once in order.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "e0c5d9ade9a3cbc640b191d3c99ed3fe35f10f508d416544214452e0ee568d31"
+}

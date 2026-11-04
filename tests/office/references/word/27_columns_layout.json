@@ -1,0 +1,274 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 35.04,
+          "text": "Mote Colum ns Review",
+          "x": 60.0
+        },
+        {
+          "baseline": 35.04,
+          "text": "Page 1",
+          "x": 207.87
+        },
+        {
+          "baseline": 70.08,
+          "text": "PDF And DOCX Colum n Flow",
+          "x": 60.0
+        },
+        {
+          "baseline": 92.4,
+          "text": "This opening content is ordinary single-colum n m arkdown. It confirm s the docum ent",
+          "x": 60.0
+        },
+        {
+          "baseline": 107.76,
+          "text": "can start naturally and only opt into colum ns for the part that needs them .",
+          "x": 60.0
+        },
+        {
+          "baseline": 759.6,
+          "text": "Generated com parison fixture",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 35.04,
+          "text": "Mote Colum ns Review",
+          "x": 60.0
+        },
+        {
+          "baseline": 35.04,
+          "text": "Page 1",
+          "x": 207.87
+        },
+        {
+          "baseline": 68.16,
+          "text": "Left Colum n",
+          "x": 60.0
+        },
+        {
+          "baseline": 68.16,
+          "text": "Right Colum n",
+          "x": 321.12
+        },
+        {
+          "baseline": 90.0,
+          "text": "Mote sections can carry page-level layout",
+          "x": 60.0
+        },
+        {
+          "baseline": 90.0,
+          "text": "The second colum n starts after an",
+          "x": 321.12
+        },
+        {
+          "baseline": 105.36,
+          "text": "without forcing the entire docum ent to",
+          "x": 60.0
+        },
+        {
+          "baseline": 105.36,
+          "text": "explicit colum n break. This is useful for",
+          "x": 321.12
+        },
+        {
+          "baseline": 120.72,
+          "text": "becom e verbose. This section contains",
+          "x": 60.0
+        },
+        {
+          "baseline": 120.72,
+          "text": "policies, brochures, contract term s, and",
+          "x": 321.12
+        },
+        {
+          "baseline": 136.08,
+          "text": "enough text to exercise wrapping inside",
+          "x": 60.0
+        },
+        {
+          "baseline": 136.08,
+          "text": "other docum ents where colum ns are a",
+          "x": 321.12
+        },
+        {
+          "baseline": 151.44,
+          "text": "the current colum n.",
+          "x": 60.0
+        },
+        {
+          "baseline": 151.44,
+          "text": "local section-level choice.",
+          "x": 321.12
+        },
+        {
+          "baseline": 174.96,
+          "text": "The parser should accept ordinary",
+          "x": 60.0
+        },
+        {
+          "baseline": 174.96,
+          "text": "Keep this text readable. Keep the section",
+          "x": 321.12
+        },
+        {
+          "baseline": 190.32,
+          "text": "paragraphs, nested inline m arks, and list",
+          "x": 60.0
+        },
+        {
+          "baseline": 190.32,
+          "text": "properties local. Keep the source sim ple",
+          "x": 321.12
+        },
+        {
+          "baseline": 205.68,
+          "text": "syntax inside the section body. The",
+          "x": 60.0
+        },
+        {
+          "baseline": 205.68,
+          "text": "enough that an LLM can generate it",
+          "x": 321.12
+        },
+        {
+          "baseline": 221.04,
+          "text": "em itter should keep these as editable",
+          "x": 60.0
+        },
+        {
+          "baseline": 221.04,
+          "text": "without needing hidden schem a details.",
+          "x": 321.12
+        },
+        {
+          "baseline": 236.4,
+          "text": "W ord paragraphs and readable PDF text.",
+          "x": 60.0
+        },
+        {
+          "baseline": 243.84,
+          "text": "A blockquote inside a two-column",
+          "x": 357.12
+        },
+        {
+          "baseline": 259.68,
+          "text": "• Plain m arkdown rem ains the",
+          "x": 96.0
+        },
+        {
+          "baseline": 259.2,
+          "text": "section should still behave like normal",
+          "x": 357.12
+        },
+        {
+          "baseline": 275.28,
+          "text": "starting point.",
+          "x": 96.0
+        },
+        {
+          "baseline": 274.32,
+          "text": "content.",
+          "x": 357.12
+        },
+        {
+          "baseline": 292.56,
+          "text": "• Directives add layout only where",
+          "x": 96.0
+        },
+        {
+          "baseline": 307.92,
+          "text": "the author needs them .",
+          "x": 96.0
+        },
+        {
+          "baseline": 325.2,
+          "text": "• Nested list item s keep their",
+          "x": 114.0
+        },
+        {
+          "baseline": 340.56,
+          "text": "hierarchy.",
+          "x": 114.0
+        },
+        {
+          "baseline": 358.08,
+          "text": "• Inline code, strong text, and",
+          "x": 114.0
+        },
+        {
+          "baseline": 374.16,
+          "text": "em phasis stay inside the item .",
+          "x": 114.0
+        },
+        {
+          "baseline": 391.44,
+          "text": "• A colum n break can m ove",
+          "x": 96.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "following content to the next",
+          "x": 96.0
+        },
+        {
+          "baseline": 422.16,
+          "text": "colum n.",
+          "x": 96.0
+        },
+        {
+          "baseline": 759.6,
+          "text": "Generated com parison fixture",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 35.04,
+          "text": "Mote Colum ns Review",
+          "x": 60.0
+        },
+        {
+          "baseline": 35.04,
+          "text": "Page 2",
+          "x": 207.87
+        },
+        {
+          "baseline": 70.08,
+          "text": "Back To One Colum n",
+          "x": 60.0
+        },
+        {
+          "baseline": 92.4,
+          "text": "This final section returns to one colum n. That is the progressive path we want:",
+          "x": 60.0
+        },
+        {
+          "baseline": 107.76,
+          "text": "m arkdown first, then layout directives only where they carry useful intent.",
+          "x": 60.0
+        },
+        {
+          "baseline": 759.6,
+          "text": "Generated com parison fixture",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "62c3e00b6104ee26543247417c9f9c755c1c5456d630fdab2af0f8a9023f57d5"
+}

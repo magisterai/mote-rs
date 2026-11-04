@@ -1,0 +1,460 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 256.32,
+          "text": "Blank",
+          "x": 426.63
+        },
+        {
+          "baseline": 286.32,
+          "text": "Ordinary positioned objects remain fully authored.",
+          "x": 263.62
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote named-layout conformance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 157.68,
+          "text": "Named layouts establish reusable geometry",
+          "x": 69.89
+        },
+        {
+          "baseline": 276.72,
+          "text": "The slide supplies content by slot name, without repeating positions.",
+          "x": 155.95
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote named-layout conformance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 59.76,
+          "text": "Title And Content",
+          "x": 50.4
+        },
+        {
+          "baseline": 133.68,
+          "text": "•Slot geometry is shared by editable PPTX and native PDF/PNG.",
+          "x": 81.9
+        },
+        {
+          "baseline": 154.8,
+          "text": "•Slide-authored styling overrides the layout defaults.",
+          "x": 81.9
+        },
+        {
+          "baseline": 176.88,
+          "text": "•Content remains editable rather than being flattened into an image.",
+          "x": 81.9
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote named-layout conformance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "3",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 224.4,
+          "text": "A deliberate section transition",
+          "x": 213.51
+        },
+        {
+          "baseline": 302.88,
+          "text": "Background, footer, and numbering still obey slide precedence.",
+          "x": 208.88
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 59.76,
+          "text": "Two Column",
+          "x": 50.4
+        },
+        {
+          "baseline": 132.72,
+          "text": "Evidence",
+          "x": 66.4
+        },
+        {
+          "baseline": 132.72,
+          "text": "Implication",
+          "x": 508.0
+        },
+        {
+          "baseline": 154.8,
+          "text": "A concise narrative occupies the full left content",
+          "x": 66.4
+        },
+        {
+          "baseline": 154.8,
+          "text": "The paired region begins at the same vertical",
+          "x": 508.0
+        },
+        {
+          "baseline": 174.72,
+          "text": "area.",
+          "x": 66.4
+        },
+        {
+          "baseline": 174.72,
+          "text": "coordinate.",
+          "x": 508.0
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote named-layout conformance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "5",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 59.76,
+          "text": "Comparison",
+          "x": 50.4
+        },
+        {
+          "baseline": 129.6,
+          "text": "Before",
+          "x": 230.76
+        },
+        {
+          "baseline": 129.6,
+          "text": "After",
+          "x": 679.52
+        },
+        {
+          "baseline": 186.96,
+          "text": "Manual coordinates repeated on every slide.",
+          "x": 66.4
+        },
+        {
+          "baseline": 186.96,
+          "text": "Named slots carry shared geometry and remain",
+          "x": 508.0
+        },
+        {
+          "baseline": 207.84,
+          "text": "explicitly overridable.",
+          "x": 508.0
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote named-layout conformance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "6",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 59.76,
+          "text": "Image And Caption",
+          "x": 50.4
+        },
+        {
+          "baseline": 478.56,
+          "text": "The complete image stays centered above a separate editable caption.",
+          "x": 237.75
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote named-layout conformance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "7",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 59.76,
+          "text": "Chart And Caption",
+          "x": 50.4
+        },
+        {
+          "baseline": 125.28,
+          "text": "Layout Adoption",
+          "x": 414.95
+        },
+        {
+          "baseline": 143.76,
+          "text": "12",
+          "x": 56.9
+        },
+        {
+          "baseline": 156.0,
+          "text": "11",
+          "x": 756.29
+        },
+        {
+          "baseline": 187.92,
+          "text": "10",
+          "x": 56.9
+        },
+        {
+          "baseline": 232.08,
+          "text": "8",
+          "x": 62.24
+        },
+        {
+          "baseline": 244.32,
+          "text": "7",
+          "x": 485.03
+        },
+        {
+          "baseline": 276.24,
+          "text": "6",
+          "x": 62.24
+        },
+        {
+          "baseline": 320.4,
+          "text": "4",
+          "x": 62.24
+        },
+        {
+          "baseline": 332.64,
+          "text": "3",
+          "x": 211.1
+        },
+        {
+          "baseline": 364.56,
+          "text": "2",
+          "x": 62.24
+        },
+        {
+          "baseline": 408.72,
+          "text": "0",
+          "x": 62.24
+        },
+        {
+          "baseline": 421.68,
+          "text": "Draft",
+          "x": 202.89
+        },
+        {
+          "baseline": 421.68,
+          "text": "Review",
+          "x": 472.35
+        },
+        {
+          "baseline": 421.68,
+          "text": "Published",
+          "x": 740.03
+        },
+        {
+          "baseline": 478.56,
+          "text": "One slot owns chart geometry; another owns the editable explanatory line.",
+          "x": 225.35
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote named-layout conformance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "8",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 64.8,
+          "text": "Derived Layout: Evidence Pair",
+          "x": 64.4
+        },
+        {
+          "baseline": 121.68,
+          "text": "Shared Resolution",
+          "x": 628.31
+        },
+        {
+          "baseline": 132.72,
+          "text": "Inherited and refined",
+          "x": 66.4
+        },
+        {
+          "baseline": 140.16,
+          "text": "10",
+          "x": 498.26
+        },
+        {
+          "baseline": 154.8,
+          "text": "The title and narrative retain the built-in two-column",
+          "x": 66.4
+        },
+        {
+          "baseline": 161.28,
+          "text": "9",
+          "x": 579.46
+        },
+        {
+          "baseline": 161.28,
+          "text": "9",
+          "x": 707.39
+        },
+        {
+          "baseline": 161.28,
+          "text": "9",
+          "x": 835.32
+        },
+        {
+          "baseline": 174.72,
+          "text": "geometry. The layout supplies styling, a background,",
+          "x": 66.4
+        },
+        {
+          "baseline": 173.52,
+          "text": "9",
+          "x": 503.6
+        },
+        {
+          "baseline": 194.88,
+          "text": "and a different footer.",
+          "x": 66.4
+        },
+        {
+          "baseline": 206.88,
+          "text": "8",
+          "x": 503.6
+        },
+        {
+          "baseline": 240.24,
+          "text": "7",
+          "x": 503.6
+        },
+        {
+          "baseline": 273.84,
+          "text": "6",
+          "x": 503.6
+        },
+        {
+          "baseline": 307.2,
+          "text": "5",
+          "x": 503.6
+        },
+        {
+          "baseline": 340.56,
+          "text": "4",
+          "x": 503.6
+        },
+        {
+          "baseline": 373.92,
+          "text": "3",
+          "x": 503.6
+        },
+        {
+          "baseline": 407.28,
+          "text": "2",
+          "x": 503.6
+        },
+        {
+          "baseline": 440.64,
+          "text": "1",
+          "x": 503.6
+        },
+        {
+          "baseline": 474.0,
+          "text": "0",
+          "x": 503.6
+        },
+        {
+          "baseline": 487.2,
+          "text": "PPTX",
+          "x": 571.21
+        },
+        {
+          "baseline": 487.2,
+          "text": "PDF",
+          "x": 701.13
+        },
+        {
+          "baseline": 487.2,
+          "text": "PNG",
+          "x": 828.04
+        },
+        {
+          "baseline": 518.88,
+          "text": "Custom layout inheritance",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "9",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "3cd81daaed2b2c0dff01693d29c64104685209d57d28ca6fe7cef0100630d8d5"
+}

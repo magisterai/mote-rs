@@ -1,0 +1,379 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 43.68,
+          "text": "Table Border Baseline",
+          "x": 46.8
+        },
+        {
+          "baseline": 76.32,
+          "text": "Outside edges are 1.5 pt; shared inside edges are 0.75 pt and must not double, disappear, or shift between rows.",
+          "x": 57.6
+        },
+        {
+          "baseline": 127.68,
+          "text": "Row",
+          "x": 175.49
+        },
+        {
+          "baseline": 127.68,
+          "text": "Left",
+          "x": 372.87
+        },
+        {
+          "baseline": 127.68,
+          "text": "Centre",
+          "x": 561.58
+        },
+        {
+          "baseline": 127.68,
+          "text": "Right",
+          "x": 761.96
+        },
+        {
+          "baseline": 173.76,
+          "text": "Explicit fill",
+          "x": 96.2
+        },
+        {
+          "baseline": 173.76,
+          "text": "Vertical edges",
+          "x": 292.4
+        },
+        {
+          "baseline": 173.76,
+          "text": "Horizontal edges",
+          "x": 538.64
+        },
+        {
+          "baseline": 173.76,
+          "text": "Outside edge",
+          "x": 802.18
+        },
+        {
+          "baseline": 225.84,
+          "text": "Theme fill",
+          "x": 96.2
+        },
+        {
+          "baseline": 225.84,
+          "text": "Shared horizontal edge",
+          "x": 292.4
+        },
+        {
+          "baseline": 225.84,
+          "text": "One continuous rule",
+          "x": 530.32
+        },
+        {
+          "baseline": 225.84,
+          "text": "No doubled side",
+          "x": 787.43
+        },
+        {
+          "baseline": 277.68,
+          "text": "Direct fill",
+          "x": 96.2
+        },
+        {
+          "baseline": 277.68,
+          "text": "Filled cells retain clean boundaries",
+          "x": 292.4
+        },
+        {
+          "baseline": 277.68,
+          "text": "Same geometry",
+          "x": 541.7
+        },
+        {
+          "baseline": 277.68,
+          "text": "Same weight",
+          "x": 804.18
+        },
+        {
+          "baseline": 329.76,
+          "text": "Final row",
+          "x": 96.2
+        },
+        {
+          "baseline": 329.76,
+          "text": "Bottom outside edge",
+          "x": 292.4
+        },
+        {
+          "baseline": 329.76,
+          "text": "1.5 pt",
+          "x": 565.33
+        },
+        {
+          "baseline": 329.76,
+          "text": "Continuous corner",
+          "x": 775.8
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation table border diagnostics",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 43.68,
+          "text": "Adjacent Edge Conflicts",
+          "x": 46.8
+        },
+        {
+          "baseline": 76.32,
+          "text": "Mirrored weak/strong pairs, equal-width color conflicts, and explicit none isolate the resolver without encoding an expected winner.",
+          "x": 57.6
+        },
+        {
+          "baseline": 113.28,
+          "text": "Vertical: weak right vs strong left",
+          "x": 50.4
+        },
+        {
+          "baseline": 113.28,
+          "text": "Vertical: strong right vs weak left",
+          "x": 345.6
+        },
+        {
+          "baseline": 113.28,
+          "text": "Vertical: equal width, different color",
+          "x": 640.8
+        },
+        {
+          "baseline": 168.48,
+          "text": "0.5 pt green right",
+          "x": 72.8
+        },
+        {
+          "baseline": 168.48,
+          "text": "3 pt orange left",
+          "x": 193.4
+        },
+        {
+          "baseline": 168.48,
+          "text": "3 pt violet right",
+          "x": 368.0
+        },
+        {
+          "baseline": 168.48,
+          "text": "0.5 pt blue left",
+          "x": 488.6
+        },
+        {
+          "baseline": 168.48,
+          "text": "2 pt red right",
+          "x": 663.2
+        },
+        {
+          "baseline": 168.48,
+          "text": "2 pt blue left",
+          "x": 783.8
+        },
+        {
+          "baseline": 289.68,
+          "text": "Horizontal: weak bottom vs strong top",
+          "x": 50.4
+        },
+        {
+          "baseline": 289.68,
+          "text": "Horizontal: strong bottom vs weak top",
+          "x": 345.6
+        },
+        {
+          "baseline": 289.68,
+          "text": "Horizontal: explicit none vs present",
+          "x": 640.8
+        },
+        {
+          "baseline": 330.0,
+          "text": "0.5 pt red bottom",
+          "x": 72.8
+        },
+        {
+          "baseline": 330.0,
+          "text": "3 pt orange bottom",
+          "x": 368.0
+        },
+        {
+          "baseline": 330.0,
+          "text": "No bottom border",
+          "x": 663.2
+        },
+        {
+          "baseline": 372.0,
+          "text": "3 pt blue top",
+          "x": 72.8
+        },
+        {
+          "baseline": 372.0,
+          "text": "0.5 pt green top",
+          "x": 368.0
+        },
+        {
+          "baseline": 372.0,
+          "text": "2 pt violet top",
+          "x": 663.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation table border diagnostics",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 43.68,
+          "text": "Border Controls And Spans",
+          "x": 46.8
+        },
+        {
+          "baseline": 76.32,
+          "text": "Controls make missing or accidental rules obvious; merged cells expose discontinuities at rowspan and colspan boundaries.",
+          "x": 57.6
+        },
+        {
+          "baseline": 109.68,
+          "text": "Borderless control",
+          "x": 50.4
+        },
+        {
+          "baseline": 109.68,
+          "text": "Outside-only control",
+          "x": 345.6
+        },
+        {
+          "baseline": 109.68,
+          "text": "Inside-only 0.75 pt control",
+          "x": 640.8
+        },
+        {
+          "baseline": 151.44,
+          "text": "A1",
+          "x": 119.48
+        },
+        {
+          "baseline": 151.44,
+          "text": "A2",
+          "x": 240.08
+        },
+        {
+          "baseline": 151.44,
+          "text": "A1",
+          "x": 414.68
+        },
+        {
+          "baseline": 151.44,
+          "text": "A2",
+          "x": 535.27
+        },
+        {
+          "baseline": 151.44,
+          "text": "A1",
+          "x": 709.87
+        },
+        {
+          "baseline": 151.44,
+          "text": "A2",
+          "x": 830.47
+        },
+        {
+          "baseline": 196.56,
+          "text": "B1",
+          "x": 119.41
+        },
+        {
+          "baseline": 196.56,
+          "text": "B2",
+          "x": 240.01
+        },
+        {
+          "baseline": 196.56,
+          "text": "B1",
+          "x": 414.61
+        },
+        {
+          "baseline": 196.56,
+          "text": "B2",
+          "x": 535.21
+        },
+        {
+          "baseline": 196.56,
+          "text": "B1",
+          "x": 709.81
+        },
+        {
+          "baseline": 196.56,
+          "text": "B2",
+          "x": 830.41
+        },
+        {
+          "baseline": 296.88,
+          "text": "Merged-cell continuity",
+          "x": 82.8
+        },
+        {
+          "baseline": 335.28,
+          "text": "Three-column merged header",
+          "x": 414.93
+        },
+        {
+          "baseline": 383.28,
+          "text": "Upper centre",
+          "x": 364.4
+        },
+        {
+          "baseline": 383.28,
+          "text": "Upper right",
+          "x": 605.6
+        },
+        {
+          "baseline": 412.08,
+          "text": "Rowspan",
+          "x": 123.2
+        },
+        {
+          "baseline": 441.12,
+          "text": "Colspan lower edge",
+          "x": 556.71
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation table border diagnostics",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "3",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "e5c286c802a73cd951b428bfb983626dc931cd35dbedf8b86d0381af59fb282d"
+}

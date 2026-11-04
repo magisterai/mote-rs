@@ -1,0 +1,463 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.16,
+          "text": "Endnote Page Pressure",
+          "x": 60.0
+        },
+        {
+          "baseline": 104.88,
+          "text": "BODY START — eight references occur in the main story; their long note bodies must be deferred to one",
+          "x": 60.0
+        },
+        {
+          "baseline": 120.0,
+          "text": "naturally flowing endnote story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 137.52,
+          "text": "i",
+          "x": 216.24
+        },
+        {
+          "baseline": 139.92,
+          "text": "BODY-EN-01 references note E-01 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 157.68,
+          "text": "ii",
+          "x": 216.24
+        },
+        {
+          "baseline": 160.08,
+          "text": "BODY-EN-02 references note E-02 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 177.6,
+          "text": "iii",
+          "x": 216.24
+        },
+        {
+          "baseline": 180.0,
+          "text": "BODY-EN-03 references note E-03 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 197.52,
+          "text": "iv",
+          "x": 216.24
+        },
+        {
+          "baseline": 199.92,
+          "text": "BODY-EN-04 references note E-04 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 217.68,
+          "text": "v",
+          "x": 216.24
+        },
+        {
+          "baseline": 220.08,
+          "text": "BODY-EN-05 references note E-05 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 237.6,
+          "text": "vi",
+          "x": 216.24
+        },
+        {
+          "baseline": 240.0,
+          "text": "BODY-EN-06 references note E-06 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 257.52,
+          "text": "vii",
+          "x": 216.24
+        },
+        {
+          "baseline": 259.92,
+          "text": "BODY-EN-07 references note E-07 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 277.68,
+          "text": "viii",
+          "x": 216.24
+        },
+        {
+          "baseline": 280.08,
+          "text": "BODY-EN-08 references note E-08 and then continues in the main story.",
+          "x": 60.0
+        },
+        {
+          "baseline": 300.0,
+          "text": "BODY END — the main story ends here; E-01 through E-08 follow afterward in one ordered endnote story that",
+          "x": 60.0
+        },
+        {
+          "baseline": 315.12,
+          "text": "naturally occupies multiple pages.",
+          "x": 60.0
+        },
+        {
+          "baseline": 354.96,
+          "text": "i E-01 START. This first endnote establishes the beginning of the deferred note story. It contains ordinary",
+          "x": 60.0
+        },
+        {
+          "baseline": 369.84,
+          "text": "sentences long enough to wrap across many physical lines while remaining a single editable note paragraph.",
+          "x": 60.0
+        },
+        {
+          "baseline": 384.96,
+          "text": "The text describes a stable review contract: its opening marker, its closing marker, and every word between",
+          "x": 60.0
+        },
+        {
+          "baseline": 399.84,
+          "text": "them must appear exactly once after the main document body. No part of the note should be inserted beside",
+          "x": 60.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "the body reference. The endnote separator should precede the first note, the lower-Roman marker should",
+          "x": 60.0
+        },
+        {
+          "baseline": 429.84,
+          "text": "agree with the body reference, and subsequent notes should follow in source order. Additional prose makes",
+          "x": 60.0
+        },
+        {
+          "baseline": 444.96,
+          "text": "the geometry meaningful rather than decorative. Reviewers should be able to see whether a backend loses a",
+          "x": 60.0
+        },
+        {
+          "baseline": 459.84,
+          "text": "line at a page boundary, repeats a line after advancing, or overlays one note on another. The sentence lengths",
+          "x": 60.0
+        },
+        {
+          "baseline": 474.96,
+          "text": "vary naturally so wrapping is not determined by a single artificial token. E-01 END.",
+          "x": 60.0
+        },
+        {
+          "baseline": 494.88,
+          "text": "ii E-02 START. This second endnote continues the same deferred sequence with enough text to contribute",
+          "x": 60.0
+        },
+        {
+          "baseline": 510.0,
+          "text": "material vertical pressure. It must follow E-01 without entering the main story and without restarting numbering.",
+          "x": 60.0
+        },
+        {
+          "baseline": 524.88,
+          "text": "The prose deliberately uses visible phrases near both ends of the paragraph, allowing a reviewer to identify",
+          "x": 60.0
+        },
+        {
+          "baseline": 540.0,
+          "text": "clipping even if text extraction still reports the note as present. W ord may place this note wholly on one page or",
+          "x": 60.0
+        },
+        {
+          "baseline": 554.88,
+          "text": "allow it to cross a page boundary according to its natural pagination rules. PDF and PNG should make the",
+          "x": 60.0
+        },
+        {
+          "baseline": 570.0,
+          "text": "same decision once line metrics and available page height agree. Nothing in the source requests a page break,",
+          "x": 60.0
+        },
+        {
+          "baseline": 584.88,
+          "text": "a fixed height, or a keep constraint. The case therefore exposes the renderer’s default endnote flow instead of",
+          "x": 60.0
+        },
+        {
+          "baseline": 600.0,
+          "text": "prescribing the answer. Every continuation line must retain the ordinary note indentation and must remain",
+          "x": 60.0
+        },
+        {
+          "baseline": 615.12,
+          "text": "below any separator or continuation separator used by W ord. E-02 END.",
+          "x": 60.0
+        },
+        {
+          "baseline": 634.8,
+          "text": "iii E-03 START. This third endnote adds another substantial paragraph to the end-of-document story. The",
+          "x": 60.0
+        },
+        {
+          "baseline": 649.92,
+          "text": "content remains intentionally plain so that pagination, numbering, indentation, and continuation are the only",
+          "x": 60.0
+        },
+        {
+          "baseline": 664.8,
+          "text": "variables under review. A correct renderer keeps the body reference compact, defers this complete paragraph,",
+          "x": 60.0
+        },
+        {
+          "baseline": 679.92,
+          "text": "and places it after the preceding two notes. W hen the accumulated story reaches a physical page boundary, no",
+          "x": 60.0
+        },
+        {
+          "baseline": 694.8,
+          "text": "sentence may disappear into the bottom margin and no fragment may be painted above the top margin of the",
+          "x": 60.0
+        },
+        {
+          "baseline": 709.92,
+          "text": "following page. The page transition should reserve the same usable geometry as an ordinary document page",
+          "x": 60.0
+        },
+        {
+          "baseline": 724.8,
+          "text": "while respecting W ord’s endnote separator conventions. Stable markers make visual inspection and extracted-",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 91.92,
+          "text": "text comparison straightforward. The final clause is intentionally short, ensuring that the closing marker cannot",
+          "x": 60.0
+        },
+        {
+          "baseline": 107.04,
+          "text": "be mistaken for part of the next note. E-03 END.",
+          "x": 60.0
+        },
+        {
+          "baseline": 126.96,
+          "text": "iv E-04 START. This fourth endnote is positioned near the middle of the authored note sequence, although its",
+          "x": 60.0
+        },
+        {
+          "baseline": 141.84,
+          "text": "exact physical page is deliberately not forced. Natural line measurement alone should determine where it",
+          "x": 60.0
+        },
+        {
+          "baseline": 156.96,
+          "text": "begins and ends. Its sentences exercise normal spaces, commas, and punctuation, avoiding unsupported",
+          "x": 60.0
+        },
+        {
+          "baseline": 171.84,
+          "text": "typography that could distract from the pagination question. W ord should continue lower-Roman numbering",
+          "x": 60.0
+        },
+        {
+          "baseline": 186.96,
+          "text": "and should not create a second endnote heading or separator merely because a new physical page is",
+          "x": 60.0
+        },
+        {
+          "baseline": 201.84,
+          "text": "required. Native renderers should preserve the same visible text, marker order, and paragraph width. If the",
+          "x": 60.0
+        },
+        {
+          "baseline": 216.96,
+          "text": "paragraph crosses a page boundary, both halves must share consistent indentation and line spacing. If it",
+          "x": 60.0
+        },
+        {
+          "baseline": 231.84,
+          "text": "remains intact, the following note must begin after the expected inter-note spacing. Either outcome becomes",
+          "x": 60.0
+        },
+        {
+          "baseline": 246.96,
+          "text": "authoritative only after capture in real Microsoft W ord. E-04 END.",
+          "x": 60.0
+        },
+        {
+          "baseline": 266.88,
+          "text": "v E-05 START. This fifth endnote continues to increase the deferred story height while retaining a simple",
+          "x": 60.0
+        },
+        {
+          "baseline": 282.0,
+          "text": "semantic structure. It is one note paragraph associated with one body reference, not a collection of manual line",
+          "x": 60.0
+        },
+        {
+          "baseline": 296.88,
+          "text": "breaks. The source gives the layout engine no boundary hints, so any transition to the next physical page must",
+          "x": 60.0
+        },
+        {
+          "baseline": 312.0,
+          "text": "result from measured content and remaining space. Review should confirm that the note number is visible, the",
+          "x": 60.0
+        },
+        {
+          "baseline": 326.88,
+          "text": "first line aligns correctly after that number, and wrapped lines use the expected hanging indentation. It should",
+          "x": 60.0
+        },
+        {
+          "baseline": 342.0,
+          "text": "also confirm that the end of the paragraph is not crowded into a footer band. The note’s wording is intentionally",
+          "x": 60.0
+        },
+        {
+          "baseline": 356.88,
+          "text": "distinct from its neighbours, making accidental duplication or reordering visible in both a screenshot and",
+          "x": 60.0
+        },
+        {
+          "baseline": 372.0,
+          "text": "extracted text. All renderers should keep this material out of the body story. E-05 END.",
+          "x": 60.0
+        },
+        {
+          "baseline": 391.92,
+          "text": "vi E-06 START. This sixth endnote supplies additional natural flow after the likely first continuation boundary. A",
+          "x": 60.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "renderer must carry forward the page geometry, note typography, and numbering state without treating the new",
+          "x": 60.0
+        },
+        {
+          "baseline": 421.92,
+          "text": "page as a new document section. The prose remains long enough to wrap repeatedly and contains no",
+          "x": 60.0
+        },
+        {
+          "baseline": 436.8,
+          "text": "embedded directive that could explain a surprising break. Reviewers can therefore attribute line or page",
+          "x": 60.0
+        },
+        {
+          "baseline": 451.92,
+          "text": "differences to endnote layout itself. The opening and closing markers should be separated by a complete",
+          "x": 60.0
+        },
+        {
+          "baseline": 466.8,
+          "text": "sequence of readable sentences, with no overlap from another note and no unexplained vertical gap. The",
+          "x": 60.0
+        },
+        {
+          "baseline": 481.92,
+          "text": "associated reference stays in BODY-EN-06 near the beginning of the document, while this entire body remains",
+          "x": 60.0
+        },
+        {
+          "baseline": 497.04,
+          "text": "in the deferred story. Continued notes should retain the same margins on every page. E-06 END.",
+          "x": 60.0
+        },
+        {
+          "baseline": 516.96,
+          "text": "vii E-07 START. This seventh endnote approaches the end of the sequence but must still obey the same",
+          "x": 60.0
+        },
+        {
+          "baseline": 531.84,
+          "text": "ordinary pagination rules as every earlier note. Its purpose is to make the final endnote page substantial",
+          "x": 60.0
+        },
+        {
+          "baseline": 546.96,
+          "text": "enough that an omitted or prematurely terminated page is immediately visible. The renderer should not",
+          "x": 60.0
+        },
+        {
+          "baseline": 561.84,
+          "text": "collapse the text into the body, skip the note because its reference appeared much earlier, or restart its marker",
+          "x": 60.0
+        },
+        {
+          "baseline": 576.96,
+          "text": "at one. Consistent wrapping matters because a few lines of cumulative measurement error can move the final",
+          "x": 60.0
+        },
+        {
+          "baseline": 591.84,
+          "text": "marker to a different page from W ord. The test does not tune its text around a known boundary; the source",
+          "x": 60.0
+        },
+        {
+          "baseline": 606.96,
+          "text": "must remain frozen after the first authoritative W ord observation. This paragraph closes with an explicit marker",
+          "x": 60.0
+        },
+        {
+          "baseline": 622.08,
+          "text": "that should remain adjacent to the preceding sentence. E-07 END.",
+          "x": 60.0
+        },
+        {
+          "baseline": 642.0,
+          "text": "viii E-08 START. This eighth and final endnote provides the terminal marker for the complete deferred story. It",
+          "x": 60.0
+        },
+        {
+          "baseline": 656.88,
+          "text": "must follow E-07, carry the lower-Roman sequence through its eighth value, and remain fully visible before the",
+          "x": 60.0
+        },
+        {
+          "baseline": 672.0,
+          "text": "document ends. The paragraph is intentionally long enough that the final page cannot be mistaken for a nearly",
+          "x": 60.0
+        },
+        {
+          "baseline": 686.88,
+          "text": "empty artifact caused only by a separator. W ord decides its physical placement from the accumulated height of",
+          "x": 60.0
+        },
+        {
+          "baseline": 702.0,
+          "text": "all prior notes. PDF and PNG should converge on the same page count and boundaries without an authored",
+          "x": 60.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "break. A reviewer should inspect the first line, several wrapped middle lines, and the closing marker for",
+          "x": 60.0
+        },
+        {
+          "baseline": 732.0,
+          "text": "consistent indentation, spacing, and clipping. Once this paragraph ends, no duplicate note text, unexplained",
+          "x": 60.0
+        },
+        {
+          "baseline": 747.12,
+          "text": "continuation rule, or body-story PASS paragraph should follow it. E-08 END.",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "347b750da2b9a1fde864279b891f5a3c62bfbc96206c7bd29f84b9b058ef09da"
+}

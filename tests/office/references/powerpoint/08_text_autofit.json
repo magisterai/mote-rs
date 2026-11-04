@@ -1,0 +1,233 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.12,
+          "text": "Text Overflow Modes",
+          "x": 50.4
+        },
+        {
+          "baseline": 90.72,
+          "text": "CLIP",
+          "x": 64.8
+        },
+        {
+          "baseline": 90.72,
+          "text": "SHRINK",
+          "x": 356.4
+        },
+        {
+          "baseline": 90.72,
+          "text": "RESIZE SHAPE",
+          "x": 648.0
+        },
+        {
+          "baseline": 125.28,
+          "text": "Identical overflow probe: this fixed starting box",
+          "x": 370.4
+        },
+        {
+          "baseline": 131.28,
+          "text": "Identical overflow probe: this",
+          "x": 78.8
+        },
+        {
+          "baseline": 131.28,
+          "text": "Identical overflow probe: this",
+          "x": 662.0
+        },
+        {
+          "baseline": 137.28,
+          "text": "is deliberately too short for a bold sixteen-point",
+          "x": 370.4
+        },
+        {
+          "baseline": 150.48,
+          "text": "fixed starting box is",
+          "x": 78.8
+        },
+        {
+          "baseline": 149.28,
+          "text": "paragraph, so only the selected PowerPoint",
+          "x": 370.4
+        },
+        {
+          "baseline": 150.48,
+          "text": "fixed starting box is",
+          "x": 662.0
+        },
+        {
+          "baseline": 161.28,
+          "text": "text-fit mode can change the visible result.",
+          "x": 370.4
+        },
+        {
+          "baseline": 169.44,
+          "text": "deliberately too short for a",
+          "x": 78.8
+        },
+        {
+          "baseline": 169.44,
+          "text": "deliberately too short for a",
+          "x": 662.0
+        },
+        {
+          "baseline": 188.4,
+          "text": "bold sixteen-point paragraph,",
+          "x": 662.0
+        },
+        {
+          "baseline": 208.32,
+          "text": "so only the selected",
+          "x": 662.0
+        },
+        {
+          "baseline": 227.28,
+          "text": "PowerPoint text-fit mode can",
+          "x": 662.0
+        },
+        {
+          "baseline": 246.48,
+          "text": "change the visible result.",
+          "x": 662.0
+        },
+        {
+          "baseline": 316.08,
+          "text": "Shapes use the same text autofit path as",
+          "x": 106.63
+        },
+        {
+          "baseline": 316.08,
+          "text": "Opacity and shadow can be layered",
+          "x": 547.49
+        },
+        {
+          "baseline": 336.0,
+          "text": "boxes.",
+          "x": 237.46
+        },
+        {
+          "baseline": 336.0,
+          "text": "with autofit.",
+          "x": 637.42
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX text autofit with margins",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.12,
+          "text": "Paragraph Spacing Values",
+          "x": 50.4
+        },
+        {
+          "baseline": 96.0,
+          "text": "line 18 pt | before 0 pt | after 4 pt",
+          "x": 64.8
+        },
+        {
+          "baseline": 96.0,
+          "text": "line 28 pt | before 10 pt | after 16 pt",
+          "x": 495.36
+        },
+        {
+          "baseline": 148.56,
+          "text": "First comparison paragraph wraps onto another line",
+          "x": 84.8
+        },
+        {
+          "baseline": 155.52,
+          "text": "First comparison paragraph wraps onto another line",
+          "x": 515.36
+        },
+        {
+          "baseline": 166.56,
+          "text": "so its authored line spacing remains easy to inspect.",
+          "x": 84.8
+        },
+        {
+          "baseline": 183.6,
+          "text": "so its authored line spacing remains easy to inspect.",
+          "x": 515.36
+        },
+        {
+          "baseline": 188.64,
+          "text": "Second comparison paragraph uses the same",
+          "x": 84.8
+        },
+        {
+          "baseline": 206.64,
+          "text": "words and ordering in both boxes, isolating",
+          "x": 84.8
+        },
+        {
+          "baseline": 224.64,
+          "text": "paragraph spacing.",
+          "x": 84.8
+        },
+        {
+          "baseline": 237.6,
+          "text": "Second comparison paragraph uses the same",
+          "x": 515.36
+        },
+        {
+          "baseline": 246.72,
+          "text": "Third comparison paragraph makes the final after-",
+          "x": 84.8
+        },
+        {
+          "baseline": 264.72,
+          "text": "spacing and the overall text-block height visible.",
+          "x": 84.8
+        },
+        {
+          "baseline": 265.68,
+          "text": "words and ordering in both boxes, isolating",
+          "x": 515.36
+        },
+        {
+          "baseline": 293.52,
+          "text": "paragraph spacing.",
+          "x": 515.36
+        },
+        {
+          "baseline": 347.52,
+          "text": "Third comparison paragraph makes the final after-",
+          "x": 515.36
+        },
+        {
+          "baseline": 375.6,
+          "text": "spacing and the overall text-block height visible.",
+          "x": 515.36
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX text autofit with margins",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "11c72f0da3693d9bdfe71452873ac42e73b4829edbf6e3641735ac0e784519b9"
+}

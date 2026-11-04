@@ -1,0 +1,214 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Mote PPTX Markdown Compatibility",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "This deck starts from markdown. Text should be editable, and the body should align with the title.",
+          "x": 50.4
+        },
+        {
+          "baseline": 138.72,
+          "text": "•Strong text",
+          "x": 63.9
+        },
+        {
+          "baseline": 160.8,
+          "text": "•Emphasis",
+          "x": 63.9
+        },
+        {
+          "baseline": 177.84,
+          "text": "• Code",
+          "x": 77.4
+        },
+        {
+          "baseline": 198.72,
+          "text": "•External link",
+          "x": 63.9
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX markdown compatibility",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "November 4, 2026",
+          "x": 440.63
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Tables And Tasks",
+          "x": 50.4
+        },
+        {
+          "baseline": 121.44,
+          "text": "Area",
+          "x": 57.6
+        },
+        {
+          "baseline": 121.44,
+          "text": "Status",
+          "x": 453.51
+        },
+        {
+          "baseline": 121.44,
+          "text": "Owner",
+          "x": 630.4
+        },
+        {
+          "baseline": 169.92,
+          "text": "Markdown",
+          "x": 57.6
+        },
+        {
+          "baseline": 169.92,
+          "text": "Ready",
+          "x": 455.88
+        },
+        {
+          "baseline": 169.92,
+          "text": "Parser",
+          "x": 630.4
+        },
+        {
+          "baseline": 218.64,
+          "text": "Tables",
+          "x": 57.6
+        },
+        {
+          "baseline": 218.64,
+          "text": "Useful",
+          "x": 454.76
+        },
+        {
+          "baseline": 218.64,
+          "text": "Emitters",
+          "x": 630.4
+        },
+        {
+          "baseline": 267.12,
+          "text": "Tasks",
+          "x": 57.6
+        },
+        {
+          "baseline": 267.12,
+          "text": "Native-ish",
+          "x": 440.61
+        },
+        {
+          "baseline": 267.12,
+          "text": "PPTX",
+          "x": 630.4
+        },
+        {
+          "baseline": 326.64,
+          "text": "☒ Checked task item",
+          "x": 85.53
+        },
+        {
+          "baseline": 348.48,
+          "text": "☐ Open task item",
+          "x": 85.53
+        },
+        {
+          "baseline": 369.6,
+          "text": "☒ Checked item with a link",
+          "x": 85.53
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX markdown compatibility",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "November 4, 2026",
+          "x": 440.63
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Nested Lists",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "1.Start from markdown.",
+          "x": 58.4
+        },
+        {
+          "baseline": 138.72,
+          "text": "2.Add progressive defaults.",
+          "x": 58.4
+        },
+        {
+          "baseline": 160.8,
+          "text": "•Footer",
+          "x": 90.9
+        },
+        {
+          "baseline": 181.68,
+          "text": "•Date",
+          "x": 90.9
+        },
+        {
+          "baseline": 203.76,
+          "text": "•Slide number",
+          "x": 90.9
+        },
+        {
+          "baseline": 225.84,
+          "text": "3.Switch to explicit boxes when composition matters.",
+          "x": 58.4
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX markdown compatibility",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "November 4, 2026",
+          "x": 440.63
+        },
+        {
+          "baseline": 518.88,
+          "text": "3",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "d228e3ff96b62c3a2c16ed282f1f49bf0686a3afde6fc97114be8df499b32000"
+}

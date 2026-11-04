@@ -1,5 +1,5 @@
 //! Generate the native review catalogue directly through the Mote library.
-mod catalogue;
+pub(crate) mod catalogue;
 mod inputs;
 mod publication;
 mod rendering;
@@ -8,7 +8,7 @@ use crate::{Outcome, arguments::Arguments};
 use catalogue::{Application, ReviewCase};
 use std::{error::Error, path::PathBuf, process::ExitCode};
 
-type ReviewResult<T> = Result<T, Box<dyn Error>>;
+pub(crate) type ReviewResult<T> = Result<T, Box<dyn Error>>;
 
 const HELP: &str = "Usage: cargo review [--case NAME] [--group NAME] [--output PATH] [--list]
 

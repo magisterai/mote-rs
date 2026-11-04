@@ -1,0 +1,153 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "3 x 3 Alignment Grid",
+          "x": 46.8
+        },
+        {
+          "baseline": 87.6,
+          "text": "left",
+          "x": 75.6
+        },
+        {
+          "baseline": 87.6,
+          "text": "center",
+          "x": 472.26
+        },
+        {
+          "baseline": 87.6,
+          "text": "right",
+          "x": 875.95
+        },
+        {
+          "baseline": 118.56,
+          "text": "top",
+          "x": 41.76
+        },
+        {
+          "baseline": 128.64,
+          "text": "TL",
+          "x": 75.6
+        },
+        {
+          "baseline": 128.64,
+          "text": "TC",
+          "x": 473.47
+        },
+        {
+          "baseline": 128.64,
+          "text": "TR",
+          "x": 872.2
+        },
+        {
+          "baseline": 274.08,
+          "text": "mid",
+          "x": 41.76
+        },
+        {
+          "baseline": 277.92,
+          "text": "ML",
+          "x": 75.6
+        },
+        {
+          "baseline": 277.92,
+          "text": "MC",
+          "x": 470.45
+        },
+        {
+          "baseline": 277.92,
+          "text": "MR",
+          "x": 866.58
+        },
+        {
+          "baseline": 427.44,
+          "text": "BL",
+          "x": 75.6
+        },
+        {
+          "baseline": 427.44,
+          "text": "BC",
+          "x": 472.26
+        },
+        {
+          "baseline": 427.44,
+          "text": "BR",
+          "x": 870.2
+        },
+        {
+          "baseline": 429.36,
+          "text": "bot",
+          "x": 41.76
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX alignment probe",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Margin Comparison",
+          "x": 46.8
+        },
+        {
+          "baseline": 114.24,
+          "text": "zero margin",
+          "x": 64.8
+        },
+        {
+          "baseline": 126.24,
+          "text": "12 pt margin",
+          "x": 361.2
+        },
+        {
+          "baseline": 128.16,
+          "text": "Text should sit on the text-box inset boundary.",
+          "x": 64.8
+        },
+        {
+          "baseline": 138.24,
+          "text": "24 pt margin",
+          "x": 657.6
+        },
+        {
+          "baseline": 140.16,
+          "text": "This should be visibly inset on every side.",
+          "x": 361.2
+        },
+        {
+          "baseline": 152.16,
+          "text": "This should be dramatically inset.",
+          "x": 657.6
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX alignment probe",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "a15907fee1a6363014bc2962d802a6d7825c224b4320aa20b26436ee81ebc63c"
+}

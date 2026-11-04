@@ -1,0 +1,92 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Unbreakable Token W rapping",
+          "x": 60.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "Each token below is deliberately wider than the text frame. PDF and PNG should split it only as a last",
+          "x": 60.0
+        },
+        {
+          "baseline": 107.04,
+          "text": "resort, keep every character, and stay inside the right margin. W ord provides the reference",
+          "x": 60.0
+        },
+        {
+          "baseline": 122.16,
+          "text": "rendering.",
+          "x": 60.0
+        },
+        {
+          "baseline": 148.56,
+          "text": "Long URL",
+          "x": 60.0
+        },
+        {
+          "baseline": 170.16,
+          "text": "Before https://example.com/generated/reports/2026/07/24/organizations/magister-",
+          "x": 60.0
+        },
+        {
+          "baseline": 185.28,
+          "text": "ai/conversations/019f950f66cf7f33af302a1dd8cdd5b6/artifacts/quarterly-review-with-an-intentionally-",
+          "x": 60.0
+        },
+        {
+          "baseline": 200.64,
+          "text": "unbroken-final-segment-0123456789abcdefghijklmnopqrstuvwxyz after.",
+          "x": 60.0
+        },
+        {
+          "baseline": 226.8,
+          "text": "Content Hash",
+          "x": 60.0
+        },
+        {
+          "baseline": 248.64,
+          "text": "Before",
+          "x": 60.0
+        },
+        {
+          "baseline": 263.76,
+          "text": "sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789ab",
+          "x": 60.0
+        },
+        {
+          "baseline": 278.88,
+          "text": "cdef0123456789abcdef0123456789abcdef0123456789abcdef after.",
+          "x": 60.0
+        },
+        {
+          "baseline": 305.28,
+          "text": "Generated Identifier",
+          "x": 60.0
+        },
+        {
+          "baseline": 326.88,
+          "text": "Before",
+          "x": 60.0
+        },
+        {
+          "baseline": 342.0,
+          "text": "customerExportReconciliationBatch20260724019f950f66cf7f33af302a1dd8cdd5b6Attempt000001Pa",
+          "x": 60.0
+        },
+        {
+          "baseline": 357.36,
+          "text": "rt000004FinalizedW ithoutDelimiters after.",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "5d3ecf6fc04cfa3d859a8b1b9327a5f7622060c48c190dfb4bf921096712fdca"
+}

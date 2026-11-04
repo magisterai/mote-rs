@@ -1,0 +1,107 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 21.6,
+          "text": "HEADER FALLBACKS: header footnote header endnote header comment",
+          "x": 66.0
+        },
+        {
+          "baseline": 81.6,
+          "text": "Annotation Story Placement",
+          "x": 66.0
+        },
+        {
+          "baseline": 100.32,
+          "text": "1",
+          "x": 221.52
+        },
+        {
+          "baseline": 100.32,
+          "text": "i",
+          "x": 266.88
+        },
+        {
+          "baseline": 102.72,
+          "text": "Main-story native controls: footnote , endnote, and main comment.",
+          "x": 66.0
+        },
+        {
+          "baseline": 122.16,
+          "text": "2 ii",
+          "x": 226.08
+        },
+        {
+          "baseline": 124.56,
+          "text": "Comment-story fallbacks: outer text   inner comment",
+          "x": 66.0
+        },
+        {
+          "baseline": 144.0,
+          "text": "3",
+          "x": 239.52
+        },
+        {
+          "baseline": 144.0,
+          "text": "iii",
+          "x": 301.44
+        },
+        {
+          "baseline": 146.4,
+          "text": "Note-story comment fallbacks: footnote and endnote .",
+          "x": 66.0
+        },
+        {
+          "baseline": 168.24,
+          "text": "PASS: every fallback phrase remains visible, while native annotation semantics are confined to the main",
+          "x": 66.0
+        },
+        {
+          "baseline": 182.16,
+          "text": "document story.",
+          "x": 66.0
+        },
+        {
+          "baseline": 225.6,
+          "text": "i main endnote",
+          "x": 66.0
+        },
+        {
+          "baseline": 247.44,
+          "text": "ii comment endnote",
+          "x": 66.0
+        },
+        {
+          "baseline": 269.28,
+          "text": "iii endnote before endnote comment after",
+          "x": 66.0
+        },
+        {
+          "baseline": 676.08,
+          "text": "1 main footnote",
+          "x": 66.0
+        },
+        {
+          "baseline": 697.92,
+          "text": "2 comment footnote",
+          "x": 66.0
+        },
+        {
+          "baseline": 719.76,
+          "text": "3 footnote before footnote comment after",
+          "x": 66.0
+        },
+        {
+          "baseline": 775.68,
+          "text": "FOOTER FALLBACKS: footer footnote footer endnote footer comment",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "e5f1f38f1cbc792d97934dd71cf1c946e32d3dc981c9b6611ebb17263ebbe964"
+}

@@ -1,0 +1,167 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Justified Text",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "PDF and PNG should match W ord: automatically wrapped lines reach both margins, while the",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.56,
+          "text": "final line and any line ending at an explicit break remain ragged.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.44,
+          "text": "Automatic W rapping",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.28,
+          "text": "Generated reports often contain prose assembled from several sources, and full justification must",
+          "x": 72.0
+        },
+        {
+          "baseline": 169.92,
+          "text": "remain stable when words have very different lengths. Every automatically wrapped line in this",
+          "x": 72.0
+        },
+        {
+          "baseline": 184.8,
+          "text": "paragraph should expand only its ordinary inter-word spaces to meet the right edge. The final line",
+          "x": 72.0
+        },
+        {
+          "baseline": 199.68,
+          "text": "must keep its natural width.",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.56,
+          "text": "Mixed Inline Styles",
+          "x": 72.0
+        },
+        {
+          "baseline": 248.16,
+          "text": "The same spacing must continue through bold phrases, italic observations, highlighted words",
+          "x": 72.0
+        },
+        {
+          "baseline": 263.04,
+          "text": "with spaces, and an underlined review link with several words. Styling boundaries must not create",
+          "x": 72.0
+        },
+        {
+          "baseline": 277.92,
+          "text": "uneven gaps, move text outside the frame, or shorten the clickable area. This last line remains",
+          "x": 72.0
+        },
+        {
+          "baseline": 292.56,
+          "text": "ragged.",
+          "x": 72.0
+        },
+        {
+          "baseline": 319.44,
+          "text": "Explicit Line Break",
+          "x": 72.0
+        },
+        {
+          "baseline": 341.28,
+          "text": "This line deliberately ends at an explicit break and must remain visibly ragged.",
+          "x": 72.0
+        },
+        {
+          "baseline": 355.92,
+          "text": "The following text resumes as a separate logical line. If it wraps automatically, only those",
+          "x": 72.0
+        },
+        {
+          "baseline": 370.8,
+          "text": "automatically wrapped lines are justified; its short final line remains natural.",
+          "x": 72.0
+        },
+        {
+          "baseline": 397.68,
+          "text": "CJK Inter-character Spacing",
+          "x": 72.0
+        },
+        {
+          "baseline": 422.88,
+          "text": "天 地 玄 黄 ， 宇 宙 洪 荒 。 日 月 盈 昃 ， 辰 宿 列 张 。 寒 来 暑 往 ， 秋 收 冬 藏 。 日 本 語 の 文 章 で も 句 読 点 を",
+          "x": 72.0
+        },
+        {
+          "baseline": 444.24,
+          "text": "正 し く 保 ち な が ら 、 自 動 改 行 し た 行 だ け が 両 端 ま で 広 が り ま す 。 最 後 の 行 は 自 然 な 幅 の ま ま で",
+          "x": 72.0
+        },
+        {
+          "baseline": 465.84,
+          "text": "す 。",
+          "x": 72.0
+        },
+        {
+          "baseline": 496.08,
+          "text": "Narrow Table Cells",
+          "x": 72.0
+        },
+        {
+          "baseline": 525.36,
+          "text": "Left reference",
+          "x": 78.96
+        },
+        {
+          "baseline": 525.36,
+          "text": "Justified result",
+          "x": 312.96
+        },
+        {
+          "baseline": 540.24,
+          "text": "Narrow cells make ordinary ragged",
+          "x": 78.96
+        },
+        {
+          "baseline": 540.24,
+          "text": "Narrow cells make measured justification",
+          "x": 312.96
+        },
+        {
+          "baseline": 555.12,
+          "text": "alignment easy to recognize because each obvious because wrapped lines should meet",
+          "x": 78.96
+        },
+        {
+          "baseline": 569.76,
+          "text": "wrapped line stops at its natural width.",
+          "x": 78.96
+        },
+        {
+          "baseline": 569.76,
+          "text": "both edges while the final line stays ragged.",
+          "x": 312.96
+        },
+        {
+          "baseline": 592.32,
+          "text": "The closing paragraph confirms that table layout and following content remain in their normal",
+          "x": 72.0
+        },
+        {
+          "baseline": 607.2,
+          "text": "positions.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "32c33bad29cd844903f78063cbff0d54c3560413d7dad3db81cba29f1eca3600"
+}

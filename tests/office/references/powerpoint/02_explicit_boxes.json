@@ -1,0 +1,57 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.84,
+          "text": "Explicit Slide",
+          "x": 50.4
+        },
+        {
+          "baseline": 125.04,
+          "text": "•One positioned text region",
+          "x": 78.3
+        },
+        {
+          "baseline": 128.64,
+          "text": "Backend",
+          "x": 504.0
+        },
+        {
+          "baseline": 128.64,
+          "text": "Status",
+          "x": 767.31
+        },
+        {
+          "baseline": 145.92,
+          "text": "•One object per box",
+          "x": 78.3
+        },
+        {
+          "baseline": 236.64,
+          "text": "JSON",
+          "x": 504.0
+        },
+        {
+          "baseline": 236.64,
+          "text": "Working",
+          "x": 762.28
+        },
+        {
+          "baseline": 344.64,
+          "text": "PPTX",
+          "x": 504.0
+        },
+        {
+          "baseline": 344.64,
+          "text": "Starting",
+          "x": 763.65
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "7c084902813ccb86b84442594756347be3a1a389c0e0d38a104348725406c993"
+}

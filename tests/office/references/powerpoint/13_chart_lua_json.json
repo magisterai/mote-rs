@@ -1,0 +1,182 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Lua Reshapes JSON Into Editable Charts",
+          "x": 46.8
+        },
+        {
+          "baseline": 107.28,
+          "text": "Monthly JSON Output",
+          "x": 171.67
+        },
+        {
+          "baseline": 107.28,
+          "text": "JSON Revenue Mix",
+          "x": 622.97
+        },
+        {
+          "baseline": 125.76,
+          "text": "60",
+          "x": 86.6
+        },
+        {
+          "baseline": 166.56,
+          "text": "50",
+          "x": 86.6
+        },
+        {
+          "baseline": 165.36,
+          "text": "10%",
+          "x": 625.2
+        },
+        {
+          "baseline": 207.12,
+          "text": "40",
+          "x": 86.6
+        },
+        {
+          "baseline": 234.14,
+          "text": "s",
+          "x": 79.9
+        },
+        {
+          "baseline": 236.64,
+          "text": "17%",
+          "x": 550.95
+        },
+        {
+          "baseline": 239.15,
+          "text": "t",
+          "x": 79.9
+        },
+        {
+          "baseline": 243.15,
+          "text": "i",
+          "x": 79.9
+        },
+        {
+          "baseline": 247.92,
+          "text": "30",
+          "x": 86.6
+        },
+        {
+          "baseline": 253.16,
+          "text": "n",
+          "x": 79.9
+        },
+        {
+          "baseline": 254.64,
+          "text": "Product",
+          "x": 864.02
+        },
+        {
+          "baseline": 262.08,
+          "text": "46%",
+          "x": 779.7
+        },
+        {
+          "baseline": 266.16,
+          "text": "U",
+          "x": 79.9
+        },
+        {
+          "baseline": 272.64,
+          "text": "Services",
+          "x": 864.02
+        },
+        {
+          "baseline": 288.48,
+          "text": "20",
+          "x": 86.6
+        },
+        {
+          "baseline": 290.64,
+          "text": "Partners",
+          "x": 864.02
+        },
+        {
+          "baseline": 308.88,
+          "text": "Other",
+          "x": 864.02
+        },
+        {
+          "baseline": 329.28,
+          "text": "10",
+          "x": 86.6
+        },
+        {
+          "baseline": 369.84,
+          "text": "0",
+          "x": 91.94
+        },
+        {
+          "baseline": 379.68,
+          "text": "27%",
+          "x": 592.95
+        },
+        {
+          "baseline": 383.04,
+          "text": "Jan",
+          "x": 134.49
+        },
+        {
+          "baseline": 383.04,
+          "text": "Feb",
+          "x": 203.59
+        },
+        {
+          "baseline": 383.04,
+          "text": "Mar",
+          "x": 273.47
+        },
+        {
+          "baseline": 383.04,
+          "text": "Apr",
+          "x": 344.43
+        },
+        {
+          "baseline": 383.04,
+          "text": "May",
+          "x": 413.08
+        },
+        {
+          "baseline": 406.08,
+          "text": "Month",
+          "x": 256.74
+        },
+        {
+          "baseline": 433.44,
+          "text": "Actual",
+          "x": 200.75
+        },
+        {
+          "baseline": 433.44,
+          "text": "Plan",
+          "x": 260.16
+        },
+        {
+          "baseline": 433.44,
+          "text": "Stretch",
+          "x": 310.9
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote charts — Lua + JSON",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "af5465b4d812a9112c0ec60eb4a63e88e158a263c65885b0ca36fc29eb251b68"
+}

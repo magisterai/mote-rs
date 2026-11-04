@@ -1,0 +1,72 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "FOOTNOTE SPACING: footnotes stack at the foot of the page with the separator and",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "paragraph spacing W ord gives them.",
+          "x": 72.0
+        },
+        {
+          "baseline": 117.84,
+          "text": "1",
+          "x": 218.64
+        },
+        {
+          "baseline": 120.96,
+          "text": "The first claim needs a source.",
+          "x": 72.0
+        },
+        {
+          "baseline": 141.12,
+          "text": "2",
+          "x": 258.48
+        },
+        {
+          "baseline": 144.24,
+          "text": "The second claim needs a longer note.",
+          "x": 72.0
+        },
+        {
+          "baseline": 164.16,
+          "text": "3",
+          "x": 238.32
+        },
+        {
+          "baseline": 167.28,
+          "text": "The third claim needs a short note.",
+          "x": 72.0
+        },
+        {
+          "baseline": 645.84,
+          "text": "1 The first footnote is a single line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 668.88,
+          "text": "2 The second footnote is long enough to wrap onto a second line at the foot of the page, which",
+          "x": 72.0
+        },
+        {
+          "baseline": 684.24,
+          "text": "shows the line height inside a note.",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.28,
+          "text": "3 The third footnote.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "3df4cfdc59881c793d648cb9fa2c639e4fcf455bec1e0f30beeffe4f40c84914"
+}

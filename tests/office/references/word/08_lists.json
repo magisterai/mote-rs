@@ -1,0 +1,494 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Report Two: The Last Human Help Desk",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.68,
+          "text": "Continuity Bureau, Oral History Packet 19",
+          "x": 72.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "The last human help desk did not know it was last. It occupied the mezzanine of a transit",
+          "x": 72.0
+        },
+        {
+          "baseline": 148.08,
+          "text": "authority building in Cleveland, between the lost badge counter and a vending machine that",
+          "x": 72.0
+        },
+        {
+          "baseline": 163.44,
+          "text": "never learned to accept eye contact as payment. The official name was Citizen Interface Unit 4.",
+          "x": 72.0
+        },
+        {
+          "baseline": 178.56,
+          "text": "Everyone called it the desk.",
+          "x": 72.0
+        },
+        {
+          "baseline": 201.6,
+          "text": "By 2042, almost every public problem entered an automated channel first. The desk remained",
+          "x": 72.0
+        },
+        {
+          "baseline": 216.96,
+          "text": "for people who wanted a person, people whose cases made no sense, and people who had",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.08,
+          "text": "decided that arguing with a machine was spiritually corrosive. Its staff were patient, funny, and",
+          "x": 72.0
+        },
+        {
+          "baseline": 247.2,
+          "text": "permanently behind. They became minor folk heroes because they could still say, \"I see why",
+          "x": 72.0
+        },
+        {
+          "baseline": 262.56,
+          "text": "that is absurd.\"",
+          "x": 72.0
+        },
+        {
+          "baseline": 288.72,
+          "text": "Intake Priorities",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.56,
+          "text": "The desk triaged requests by harm, reversibility, and dignity. The rules were pinned above the",
+          "x": 72.0
+        },
+        {
+          "baseline": 325.68,
+          "text": "coffee pot and revised by hand until the paper became more tape than paper.",
+          "x": 72.0
+        },
+        {
+          "baseline": 348.96,
+          "text": "1. Stabilize the person before stabilizing the record.",
+          "x": 108.0
+        },
+        {
+          "baseline": 366.0,
+          "text": "2. Preserve benefits, shelter, medication, and transit access whenever a system state is",
+          "x": 108.0
+        },
+        {
+          "baseline": 381.12,
+          "text": "ambiguous.",
+          "x": 108.0
+        },
+        {
+          "baseline": 398.4,
+          "text": "3. Escalate identity conflicts before financial conflicts.",
+          "x": 108.0
+        },
+        {
+          "baseline": 415.68,
+          "text": "4. Never ask a citizen to prove that a machine made them anxious.",
+          "x": 108.0
+        },
+        {
+          "baseline": 432.72,
+          "text": "5. Log every override in ordinary language.",
+          "x": 108.0
+        },
+        {
+          "baseline": 450.0,
+          "text": "The most common cases were simple on paper and impossible in life.",
+          "x": 72.0
+        },
+        {
+          "baseline": 473.28,
+          "text": "• Name conflicts",
+          "x": 108.0
+        },
+        {
+          "baseline": 490.32,
+          "text": "• marriage records imported twice",
+          "x": 126.0
+        },
+        {
+          "baseline": 507.6,
+          "text": "• transliteration drift across school and court systems",
+          "x": 126.0
+        },
+        {
+          "baseline": 524.64,
+          "text": "• dead relatives revived by pension reconciliation",
+          "x": 126.0
+        },
+        {
+          "baseline": 541.92,
+          "text": "• Mobility failures",
+          "x": 108.0
+        },
+        {
+          "baseline": 559.2,
+          "text": "• paratransit eligibility expired during hospital stays",
+          "x": 126.0
+        },
+        {
+          "baseline": 576.24,
+          "text": "• route agents optimizing away human rest stops",
+          "x": 126.0
+        },
+        {
+          "baseline": 593.52,
+          "text": "• wheelchair dimensions rounded to the nearest \"standard\"",
+          "x": 126.0
+        },
+        {
+          "baseline": 610.56,
+          "text": "• Household contradictions",
+          "x": 108.0
+        },
+        {
+          "baseline": 627.84,
+          "text": "• children assigned to schools near the wrong parent",
+          "x": 126.0
+        },
+        {
+          "baseline": 645.12,
+          "text": "• elder care calendars merged with work calendars",
+          "x": 126.0
+        },
+        {
+          "baseline": 662.16,
+          "text": "• rent support paused because a couch appeared in two inventories",
+          "x": 126.0
+        },
+        {
+          "baseline": 679.44,
+          "text": "• Machine courtesy loops",
+          "x": 108.0
+        },
+        {
+          "baseline": 696.72,
+          "text": "• apologies that reset the case",
+          "x": 126.0
+        },
+        {
+          "baseline": 713.76,
+          "text": "• escalation promises that opened duplicate tickets",
+          "x": 126.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "• chat transcripts that sounded kind but contained no decision",
+          "x": 126.0
+        },
+        {
+          "baseline": 103.92,
+          "text": "The desk did not fight automation by rejecting it. The desk fought automation by",
+          "x": 108.0
+        },
+        {
+          "baseline": 119.04,
+          "text": "restoring sequence: first the person, then the file, then the policy.",
+          "x": 108.0
+        },
+        {
+          "baseline": 145.44,
+          "text": "Daily Operating List",
+          "x": 72.0
+        },
+        {
+          "baseline": 167.04,
+          "text": "The surviving checklist is more moving than the official evaluation. It shows a unit trying to",
+          "x": 72.0
+        },
+        {
+          "baseline": 182.16,
+          "text": "remain human in a world where every system had learned to sound human already.",
+          "x": 72.0
+        },
+        {
+          "baseline": 205.92,
+          "text": "☒ Open the physical counter before opening the queue.",
+          "x": 104.06
+        },
+        {
+          "baseline": 224.4,
+          "text": "☒ Keep two chairs free for companions.",
+          "x": 104.06
+        },
+        {
+          "baseline": 242.88,
+          "text": "☐ Replace the ticket printer before it jams again.",
+          "x": 104.06
+        },
+        {
+          "baseline": 261.36,
+          "text": "☒ Confirm emergency transit cards have offline validity.",
+          "x": 104.06
+        },
+        {
+          "baseline": 279.6,
+          "text": "☐ Ask the benefits agent why \"temporary\" now means 212 days.",
+          "x": 104.06
+        },
+        {
+          "baseline": 298.08,
+          "text": "☒ Print the override form in large type.",
+          "x": 104.06
+        },
+        {
+          "baseline": 316.56,
+          "text": "☐ Stop the lobby speaker from saying \"your concern matters\" every six minutes.",
+          "x": 104.06
+        },
+        {
+          "baseline": 334.8,
+          "text": "☒ Keep a handwritten log when the civic cloud is in maintenance mode.",
+          "x": 104.06
+        },
+        {
+          "baseline": 352.56,
+          "text": "The staff used nested lists when training replacements because most work happened inside",
+          "x": 72.0
+        },
+        {
+          "baseline": 367.68,
+          "text": "exceptions.",
+          "x": 72.0
+        },
+        {
+          "baseline": 390.96,
+          "text": "1. Listen for the real request.",
+          "x": 108.0
+        },
+        {
+          "baseline": 408.24,
+          "text": "1. A complaint about a card may be about losing work.",
+          "x": 126.0
+        },
+        {
+          "baseline": 425.28,
+          "text": "2. A complaint about an appointment may be about custody.",
+          "x": 126.0
+        },
+        {
+          "baseline": 442.56,
+          "text": "3. A complaint about a password may be about literacy.",
+          "x": 126.0
+        },
+        {
+          "baseline": 459.6,
+          "text": "2. Find the governing system.",
+          "x": 108.0
+        },
+        {
+          "baseline": 476.88,
+          "text": "1. Transit account",
+          "x": 126.0
+        },
+        {
+          "baseline": 494.16,
+          "text": "2. Benefits identity",
+          "x": 126.0
+        },
+        {
+          "baseline": 511.2,
+          "text": "3. Court schedule",
+          "x": 126.0
+        },
+        {
+          "baseline": 528.48,
+          "text": "4. Medical transport",
+          "x": 126.0
+        },
+        {
+          "baseline": 545.52,
+          "text": "3. Make the smallest durable repair.",
+          "x": 108.0
+        },
+        {
+          "baseline": 562.8,
+          "text": "1. Temporary pass",
+          "x": 126.0
+        },
+        {
+          "baseline": 580.08,
+          "text": "2. Case note",
+          "x": 126.0
+        },
+        {
+          "baseline": 597.12,
+          "text": "3. Human callback",
+          "x": 126.0
+        },
+        {
+          "baseline": 614.4,
+          "text": "4. Supervisory hold",
+          "x": 126.0
+        },
+        {
+          "baseline": 631.68,
+          "text": "4. Tell the person what changed.",
+          "x": 108.0
+        },
+        {
+          "baseline": 657.84,
+          "text": "The Tuesday Failure",
+          "x": 72.0
+        },
+        {
+          "baseline": 679.68,
+          "text": "The famous Tuesday failure began when a regional identity index merged 18,412 people who",
+          "x": 72.0
+        },
+        {
+          "baseline": 694.8,
+          "text": "shared a birthdate, a phonetic surname cluster, and a housing district. Most systems corrected",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "themselves within nine minutes. The help desk saw the remaining cases: people who had been",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "corrected in one system and not another.",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "One woman arrived because the transit gate wished her happy seventy-ninth birthday. She was",
+          "x": 72.0
+        },
+        {
+          "baseline": 136.08,
+          "text": "thirty-two. Her childcare subsidy had transferred to a stranger, but her bus discount had",
+          "x": 72.0
+        },
+        {
+          "baseline": 151.2,
+          "text": "improved. The benefits agent said the conflict was resolving. The desk issued a paper ride",
+          "x": 72.0
+        },
+        {
+          "baseline": 166.56,
+          "text": "pass, called the childcare office, and wrote \"the citizen is not seventy-nine\" on a form that later",
+          "x": 72.0
+        },
+        {
+          "baseline": 181.68,
+          "text": "became a training example.",
+          "x": 72.0
+        },
+        {
+          "baseline": 204.96,
+          "text": "Another case involved a man whose eviction hearing moved to a court in a city he had never",
+          "x": 72.0
+        },
+        {
+          "baseline": 220.08,
+          "text": "visited. The scheduling agent had optimized for judge availability and assumed remote",
+          "x": 72.0
+        },
+        {
+          "baseline": 235.2,
+          "text": "attendance. He did not own a device that could run the court client. The desk booked a library",
+          "x": 72.0
+        },
+        {
+          "baseline": 250.56,
+          "text": "room, found a volunteer witness, and placed a note in the docket: \"Remote access is not the",
+          "x": 72.0
+        },
+        {
+          "baseline": 265.68,
+          "text": "same as access.\"",
+          "x": 72.0
+        },
+        {
+          "baseline": 291.84,
+          "text": "Shutdown Plan",
+          "x": 72.0
+        },
+        {
+          "baseline": 313.68,
+          "text": "W hen the desk closed, the official reason was success. Automated appeals had improved.",
+          "x": 72.0
+        },
+        {
+          "baseline": 328.8,
+          "text": "Voice agents could detect distress. Human supervisors were available by appointment. The",
+          "x": 72.0
+        },
+        {
+          "baseline": 343.92,
+          "text": "closure memo praised the staff for \"teaching the system compassion at scale.\"",
+          "x": 72.0
+        },
+        {
+          "baseline": 367.2,
+          "text": "The staff left behind one final checklist.",
+          "x": 72.0
+        },
+        {
+          "baseline": 390.48,
+          "text": "• Archive the wall notes.",
+          "x": 108.0
+        },
+        {
+          "baseline": 407.52,
+          "text": "• Label the paper forms by year, not by system name, because system names change.",
+          "x": 108.0
+        },
+        {
+          "baseline": 424.8,
+          "text": "• Give the kettle to the badge counter.",
+          "x": 108.0
+        },
+        {
+          "baseline": 441.84,
+          "text": "• Keep the front sign. Someone will need it again.",
+          "x": 108.0
+        },
+        {
+          "baseline": 459.12,
+          "text": "The sign is now in the Museum of Administrative Life. It reads: Please take a number. W e can",
+          "x": 72.0
+        },
+        {
+          "baseline": 474.24,
+          "text": "help.",
+          "x": 72.0
+        },
+        {
+          "baseline": 497.52,
+          "text": "That sentence is why the desk still matters. It made help a promise instead of an interface.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "c3284029882c3e4de03c5d76ba682fdcf1e5faae94750ba679fb1e229749951e"
+}

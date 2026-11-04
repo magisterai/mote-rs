@@ -1,0 +1,196 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Forward Page Reference Reflow",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "The two narrow paragraphs below are identical except for their resolved target page. The extra digit in",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "page 10 must participate in normal line measurement instead of being painted over adjacent text after",
+          "x": 72.0
+        },
+        {
+          "baseline": 116.64,
+          "text": "pagination.",
+          "x": 72.0
+        },
+        {
+          "baseline": 136.8,
+          "text": "ONE-DIGIT CONTROL — target page 9",
+          "x": 72.0
+        },
+        {
+          "baseline": 156.72,
+          "text": "PAGE 9 END",
+          "x": 72.0
+        },
+        {
+          "baseline": 176.64,
+          "text": "TW O-DIGIT REFLOW — target page 10",
+          "x": 72.0
+        },
+        {
+          "baseline": 196.56,
+          "text": "PAGE 10",
+          "x": 72.0
+        },
+        {
+          "baseline": 209.52,
+          "text": "END",
+          "x": 72.0
+        },
+        {
+          "baseline": 229.44,
+          "text": "PAGE 1 CHECK — both references must resolve, remain inside their narrow paragraphs, and retain the",
+          "x": 72.0
+        },
+        {
+          "baseline": 242.4,
+          "text": "trailing END marker. PAGE 9 END fits one line; the wider PAGE 10 value forces END onto the next line",
+          "x": 72.0
+        },
+        {
+          "baseline": 255.36,
+          "text": "without colliding with it.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "PAGE 2 SPACER — explicit pagination isolates reference-width behavior.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "PAGE 3 SPACER — explicit pagination isolates reference-width behavior.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "PAGE 4 SPACER — explicit pagination isolates reference-width behavior.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "PAGE 5 SPACER — explicit pagination isolates reference-width behavior.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "PAGE 6 SPACER — explicit pagination isolates reference-width behavior.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "PAGE 7 SPACER — explicit pagination isolates reference-width behavior.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "PAGE 8 SPACER — explicit pagination isolates reference-width behavior.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 67.92,
+          "text": "PAGE 9 TARGET",
+          "x": 72.0
+        },
+        {
+          "baseline": 88.32,
+          "text": "PAGE 9 CONFIRMATION — the one-digit forward reference on page 1 must display 9.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 67.92,
+          "text": "PAGE 10 TARGET",
+          "x": 72.0
+        },
+        {
+          "baseline": 88.32,
+          "text": "PAGE 10 CONFIRMATION — the two-digit forward reference on page 1 must display 10, and that wider",
+          "x": 72.0
+        },
+        {
+          "baseline": 101.28,
+          "text": "value must be included in line wrapping.",
+          "x": 72.0
+        },
+        {
+          "baseline": 121.44,
+          "text": "PASS: exactly ten pages; page 1 displays PAGE 9 END and PAGE 10 END without overlap, clipping,",
+          "x": 72.0
+        },
+        {
+          "baseline": 134.4,
+          "text": "stale fallback text, or an incorrect target page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "c104e0a3d0e39483e12c061d9d52eeda080d978244aba3c6a820c01fc64371c4"
+}

@@ -1,0 +1,77 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 84.96,
+          "text": "ROW HEIGHT: a row's height is the larger of its content and an at-least height, or exactly an",
+          "x": 72.0
+        },
+        {
+          "baseline": 100.8,
+          "text": "exact height.",
+          "x": 72.0
+        },
+        {
+          "baseline": 121.44,
+          "text": "Header at least 24 Second header cell",
+          "x": 78.24
+        },
+        {
+          "baseline": 153.84,
+          "text": "Automatic row",
+          "x": 78.24
+        },
+        {
+          "baseline": 153.84,
+          "text": "Content height",
+          "x": 185.76
+        },
+        {
+          "baseline": 178.32,
+          "text": "At least 30",
+          "x": 78.24
+        },
+        {
+          "baseline": 178.32,
+          "text": "Taller than content",
+          "x": 185.76
+        },
+        {
+          "baseline": 216.96,
+          "text": "At least 10",
+          "x": 78.24
+        },
+        {
+          "baseline": 216.96,
+          "text": "Content wins",
+          "x": 185.76
+        },
+        {
+          "baseline": 241.44,
+          "text": "Exactly 28",
+          "x": 78.24
+        },
+        {
+          "baseline": 241.44,
+          "text": "Fixed height",
+          "x": 185.76
+        },
+        {
+          "baseline": 273.36,
+          "text": "Final automatic row Content height",
+          "x": 78.24
+        },
+        {
+          "baseline": 294.0,
+          "text": "The line after the table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "8fc7178e800051fc089e32677100a94962f10b8981c45b1fbfcc0e1e193d5b41"
+}

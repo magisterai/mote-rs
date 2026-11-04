@@ -1,0 +1,288 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Multiline Table Cell Flow",
+          "x": 46.8
+        },
+        {
+          "baseline": 101.28,
+          "text": "Top",
+          "x": 84.4
+        },
+        {
+          "baseline": 101.28,
+          "text": "Middle",
+          "x": 286.0
+        },
+        {
+          "baseline": 101.28,
+          "text": "Bottom",
+          "x": 487.6
+        },
+        {
+          "baseline": 101.28,
+          "text": "No wrap",
+          "x": 689.2
+        },
+        {
+          "baseline": 135.36,
+          "text": "One line. Second line explains the top",
+          "x": 84.4
+        },
+        {
+          "baseline": 135.36,
+          "text": "MODELOUTPUTIDENTIFIER012345678",
+          "x": 689.2
+        },
+        {
+          "baseline": 148.32,
+          "text": "edge.",
+          "x": 84.4
+        },
+        {
+          "baseline": 148.32,
+          "text": "9ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+          "x": 689.2
+        },
+        {
+          "baseline": 163.2,
+          "text": "One line. Second line explains the",
+          "x": 286.0
+        },
+        {
+          "baseline": 176.16,
+          "text": "middle.",
+          "x": 286.0
+        },
+        {
+          "baseline": 191.04,
+          "text": "One line. Second line explains the",
+          "x": 487.6
+        },
+        {
+          "baseline": 204.0,
+          "text": "bottom edge.",
+          "x": 487.6
+        },
+        {
+          "baseline": 227.28,
+          "text": "A merged cell contains enough prose to wrap naturally onto two or three lines",
+          "x": 84.4
+        },
+        {
+          "baseline": 227.28,
+          "text": "Right aligned",
+          "x": 815.45
+        },
+        {
+          "baseline": 240.48,
+          "text": "without changing the neighboring column widths.",
+          "x": 84.4
+        },
+        {
+          "baseline": 276.24,
+          "text": "Rowspan remains vertically centered",
+          "x": 487.6
+        },
+        {
+          "baseline": 289.2,
+          "text": "across both rows.",
+          "x": 487.6
+        },
+        {
+          "baseline": 305.28,
+          "text": "Lower left",
+          "x": 84.4
+        },
+        {
+          "baseline": 305.28,
+          "text": "Lower middle",
+          "x": 286.0
+        },
+        {
+          "baseline": 305.28,
+          "text": "Centered",
+          "x": 760.87
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation table cell flow",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Table Text Direction",
+          "x": 46.8
+        },
+        {
+          "baseline": 104.88,
+          "text": "Direction",
+          "x": 136.6
+        },
+        {
+          "baseline": 104.88,
+          "text": "Top to bottom",
+          "x": 280.6
+        },
+        {
+          "baseline": 104.88,
+          "text": "Bottom to top",
+          "x": 464.2
+        },
+        {
+          "baseline": 104.88,
+          "text": "Horizontal control",
+          "x": 647.8
+        },
+        {
+          "baseline": 201.36,
+          "text": "B",
+          "x": 545.6
+        },
+        {
+          "baseline": 207.99,
+          "text": "O",
+          "x": 545.6
+        },
+        {
+          "baseline": 210.07,
+          "text": "M",
+          "x": 368.8
+        },
+        {
+          "baseline": 215.99,
+          "text": "T",
+          "x": 545.6
+        },
+        {
+          "baseline": 218.07,
+          "text": "O",
+          "x": 368.8
+        },
+        {
+          "baseline": 221.24,
+          "text": "T",
+          "x": 545.6
+        },
+        {
+          "baseline": 223.32,
+          "text": "T",
+          "x": 368.8
+        },
+        {
+          "baseline": 226.49,
+          "text": "O",
+          "x": 545.6
+        },
+        {
+          "baseline": 228.57,
+          "text": "T",
+          "x": 368.8
+        },
+        {
+          "baseline": 234.49,
+          "text": "M",
+          "x": 545.6
+        },
+        {
+          "baseline": 236.57,
+          "text": "O",
+          "x": 368.8
+        },
+        {
+          "baseline": 244.32,
+          "text": "Visible orientation",
+          "x": 158.54
+        },
+        {
+          "baseline": 243.21,
+          "text": "B",
+          "x": 368.8
+        },
+        {
+          "baseline": 244.32,
+          "text": "Horizontal text remains ordinary.",
+          "x": 656.96
+        },
+        {
+          "baseline": 245.46,
+          "text": "T",
+          "x": 545.6
+        },
+        {
+          "baseline": 250.73,
+          "text": "O",
+          "x": 545.6
+        },
+        {
+          "baseline": 253.44,
+          "text": "O",
+          "x": 368.8
+        },
+        {
+          "baseline": 258.71,
+          "text": "T",
+          "x": 368.8
+        },
+        {
+          "baseline": 260.96,
+          "text": "T",
+          "x": 545.6
+        },
+        {
+          "baseline": 267.31,
+          "text": "P",
+          "x": 368.8
+        },
+        {
+          "baseline": 266.23,
+          "text": "O",
+          "x": 545.6
+        },
+        {
+          "baseline": 275.31,
+          "text": "O",
+          "x": 368.8
+        },
+        {
+          "baseline": 274.23,
+          "text": "P",
+          "x": 545.6
+        },
+        {
+          "baseline": 280.56,
+          "text": "T",
+          "x": 368.8
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation table cell flow",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "b6fdc4dae719fb8e2f9dbe40fe5e90bb69ad08edfc26e09e03045c07b48f538f"
+}

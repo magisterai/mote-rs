@@ -1,0 +1,254 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.32,
+          "text": "Mote Column Fixture   Page 1",
+          "x": 60.0
+        },
+        {
+          "baseline": 74.64,
+          "text": "Intro",
+          "x": 60.0
+        },
+        {
+          "baseline": 104.16,
+          "text": "The opening material belongs to the implicit one-column section. It exists to make sure a document can",
+          "x": 60.0
+        },
+        {
+          "baseline": 118.08,
+          "text": "begin naturally with markdown and still transition into a more explicit office layout.",
+          "x": 60.0
+        },
+        {
+          "baseline": 762.96,
+          "text": "Generated golden document",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.32,
+          "text": "Mote Column Fixture   Page 1",
+          "x": 60.0
+        },
+        {
+          "baseline": 69.12,
+          "text": "Left Column",
+          "x": 60.0
+        },
+        {
+          "baseline": 69.12,
+          "text": "Right Column",
+          "x": 321.12
+        },
+        {
+          "baseline": 93.84,
+          "text": "Mote sections can carry page-level layout",
+          "x": 60.0
+        },
+        {
+          "baseline": 93.84,
+          "text": "The second column starts after a real Word",
+          "x": 321.12
+        },
+        {
+          "baseline": 107.76,
+          "text": "without forcing the rest of the document to",
+          "x": 60.0
+        },
+        {
+          "baseline": 107.76,
+          "text": "column break. This is useful for policies,",
+          "x": 321.12
+        },
+        {
+          "baseline": 121.68,
+          "text": "become verbose. This section intentionally",
+          "x": 60.0
+        },
+        {
+          "baseline": 121.68,
+          "text": "brochures, contract terms, and other",
+          "x": 321.12
+        },
+        {
+          "baseline": 135.84,
+          "text": "contains enough text to exercise column flow in",
+          "x": 60.0
+        },
+        {
+          "baseline": 135.84,
+          "text": "documents where columns are a section-level",
+          "x": 321.12
+        },
+        {
+          "baseline": 149.76,
+          "text": "Word print layout.",
+          "x": 60.0
+        },
+        {
+          "baseline": 149.76,
+          "text": "choice rather than a document-wide rule.",
+          "x": 321.12
+        },
+        {
+          "baseline": 170.64,
+          "text": "The parser should accept ordinary paragraphs,",
+          "x": 60.0
+        },
+        {
+          "baseline": 170.64,
+          "text": "Keep this text editable. Keep the section",
+          "x": 321.12
+        },
+        {
+          "baseline": 184.8,
+          "text": "nested inline marks, and list syntax inside the",
+          "x": 60.0
+        },
+        {
+          "baseline": 184.8,
+          "text": "properties local. Keep the source readable",
+          "x": 321.12
+        },
+        {
+          "baseline": 198.72,
+          "text": "section body. The emitter should leave these as",
+          "x": 60.0
+        },
+        {
+          "baseline": 198.72,
+          "text": "enough that an LLM can generate it without",
+          "x": 321.12
+        },
+        {
+          "baseline": 212.64,
+          "text": "editable Word paragraphs rather than drawing a",
+          "x": 60.0
+        },
+        {
+          "baseline": 212.64,
+          "text": "needing to memorize hidden schema details.",
+          "x": 321.12
+        },
+        {
+          "baseline": 226.8,
+          "text": "fixed layout.",
+          "x": 60.0
+        },
+        {
+          "baseline": 233.04,
+          "text": "A blockquote inside a two-column",
+          "x": 357.12
+        },
+        {
+          "baseline": 247.68,
+          "text": "• Plain markdown remains the starting",
+          "x": 96.0
+        },
+        {
+          "baseline": 248.16,
+          "text": "section should still behave like normal",
+          "x": 357.12
+        },
+        {
+          "baseline": 261.84,
+          "text": "point.",
+          "x": 96.0
+        },
+        {
+          "baseline": 263.28,
+          "text": "content.",
+          "x": 357.12
+        },
+        {
+          "baseline": 277.68,
+          "text": "• Directives add layout only where the",
+          "x": 96.0
+        },
+        {
+          "baseline": 291.84,
+          "text": "author needs them.",
+          "x": 96.0
+        },
+        {
+          "baseline": 307.68,
+          "text": "• Nested list items keep their",
+          "x": 114.0
+        },
+        {
+          "baseline": 321.84,
+          "text": "hierarchy.",
+          "x": 114.0
+        },
+        {
+          "baseline": 337.68,
+          "text": "• Inline code, strong text, and",
+          "x": 114.0
+        },
+        {
+          "baseline": 351.84,
+          "text": "emphasis stay inside the item.",
+          "x": 114.0
+        },
+        {
+          "baseline": 367.68,
+          "text": "• A column break can move the following",
+          "x": 96.0
+        },
+        {
+          "baseline": 381.84,
+          "text": "content to the next column.",
+          "x": 96.0
+        },
+        {
+          "baseline": 762.96,
+          "text": "Generated golden document",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.32,
+          "text": "Mote Column Fixture   Page 2",
+          "x": 60.0
+        },
+        {
+          "baseline": 74.64,
+          "text": "Final Single Column Section",
+          "x": 60.0
+        },
+        {
+          "baseline": 104.16,
+          "text": "The following section returns to one column without changing document defaults. This is the expected",
+          "x": 60.0
+        },
+        {
+          "baseline": 118.08,
+          "text": "progressive path: markdown first, then layout directives only where they are useful.",
+          "x": 60.0
+        },
+        {
+          "baseline": 762.96,
+          "text": "Generated golden document",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "dc2d90f4fa21be7dd5e032e0ed61d583a707d83599d0b522e929029367b10978"
+}

@@ -1,0 +1,37 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 72.96,
+          "text": "1. Heading Styled By Name",
+          "x": 108.0
+        },
+        {
+          "baseline": 99.36,
+          "text": "Body text should inherit document defaults and declared named styles.",
+          "x": 72.0
+        },
+        {
+          "baseline": 121.44,
+          "text": "Indented paragraph with inline code.",
+          "x": 99.0
+        },
+        {
+          "baseline": 141.36,
+          "text": "2",
+          "x": 281.67
+        },
+        {
+          "baseline": 145.46,
+          "text": "Scientific notation should support H2O and x.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "ab0bd0b90c5e4085320a6edb06903498954c953681099873895b2b3b06fa55d3"
+}

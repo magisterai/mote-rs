@@ -1,0 +1,98 @@
+{
+  "pages": [
+    {
+      "height": 420.0,
+      "lines": [
+        {
+          "baseline": 41.04,
+          "text": "Paragraph spacing and vertical alignment",
+          "x": 30.0
+        },
+        {
+          "baseline": 106.08,
+          "text": "First top",
+          "x": 40.0
+        },
+        {
+          "baseline": 140.88,
+          "text": "Second top",
+          "x": 40.0
+        },
+        {
+          "baseline": 188.88,
+          "text": "First middle",
+          "x": 220.0
+        },
+        {
+          "baseline": 223.68,
+          "text": "Second middle",
+          "x": 220.0
+        },
+        {
+          "baseline": 271.68,
+          "text": "First bottom",
+          "x": 400.0
+        },
+        {
+          "baseline": 306.48,
+          "text": "Second bottom",
+          "x": 400.0
+        },
+        {
+          "baseline": 359.04,
+          "text": "Each paragraph inherits 4 pt before and 12 pt after. Vertical alignment includes the",
+          "x": 30.0
+        },
+        {
+          "baseline": 374.88,
+          "text": "complete paragraph stack.",
+          "x": 30.0
+        }
+      ],
+      "width": 600.0
+    },
+    {
+      "height": 420.0,
+      "lines": [
+        {
+          "baseline": 41.04,
+          "text": "Explicit zero spacing overrides table defaults",
+          "x": 30.0
+        },
+        {
+          "baseline": 106.08,
+          "text": "First top",
+          "x": 40.0
+        },
+        {
+          "baseline": 125.04,
+          "text": "Second top",
+          "x": 40.0
+        },
+        {
+          "baseline": 196.8,
+          "text": "First middle",
+          "x": 220.0
+        },
+        {
+          "baseline": 215.76,
+          "text": "Second middle",
+          "x": 220.0
+        },
+        {
+          "baseline": 287.52,
+          "text": "First bottom",
+          "x": 400.0
+        },
+        {
+          "baseline": 306.48,
+          "text": "Second bottom",
+          "x": 400.0
+        }
+      ],
+      "width": 600.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "07ac9e18b2bf35206edd3397b5929796dbfc96b2af417925012705734ed0063a"
+}

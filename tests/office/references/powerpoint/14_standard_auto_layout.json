@@ -1,0 +1,143 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 50.88,
+          "text": "Standard Slides Keep Automatic Content Inside The Canvas",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "Automatic Markdown layout should use the 10 by 7.5 inch slide rather than the",
+          "x": 50.4
+        },
+        {
+          "baseline": 138.72,
+          "text": "wide-screen constants. This deliberately long sentence must wrap before the",
+          "x": 50.4
+        },
+        {
+          "baseline": 160.8,
+          "text": "right edge.",
+          "x": 50.4
+        },
+        {
+          "baseline": 330.24,
+          "text": "W orkstream",
+          "x": 57.6
+        },
+        {
+          "baseline": 330.24,
+          "text": "Current state",
+          "x": 264.0
+        },
+        {
+          "baseline": 330.24,
+          "text": "Next decision",
+          "x": 470.4
+        },
+        {
+          "baseline": 378.72,
+          "text": "Document layout",
+          "x": 57.6
+        },
+        {
+          "baseline": 378.72,
+          "text": "Stable",
+          "x": 264.0
+        },
+        {
+          "baseline": 378.72,
+          "text": "Preserve parity",
+          "x": 470.4
+        },
+        {
+          "baseline": 427.44,
+          "text": "Presentation layout",
+          "x": 57.6
+        },
+        {
+          "baseline": 427.44,
+          "text": "Expanding",
+          "x": 264.0
+        },
+        {
+          "baseline": 427.44,
+          "text": "Verify 4:3 geometry",
+          "x": 470.4
+        },
+        {
+          "baseline": 475.92,
+          "text": "Review catalogue",
+          "x": 57.6
+        },
+        {
+          "baseline": 475.92,
+          "text": "Automated",
+          "x": 264.0
+        },
+        {
+          "baseline": 475.92,
+          "text": "Inspect meaningful",
+          "x": 470.4
+        },
+        {
+          "baseline": 497.04,
+          "text": "differences",
+          "x": 470.4
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote standard-slide geometry",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 671.35
+        }
+      ],
+      "width": 720.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 54.72,
+          "text": "Mixed Automatic Content Uses The Available Height",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "•Titles, prose, lists, and media remain inside the standard slide.",
+          "x": 63.9
+        },
+        {
+          "baseline": 138.72,
+          "text": "•Footer and slide-number fields remain visible at the bottom.",
+          "x": 63.9
+        },
+        {
+          "baseline": 160.8,
+          "text": "•Content groups share the available height without overlap.",
+          "x": 63.9
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote standard-slide geometry",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 671.35
+        }
+      ],
+      "width": 720.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "503e70f7eb505afda46081c3fae59101edb8337945e74a045256509a9f8bd45e"
+}

@@ -1,0 +1,333 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Full Page Markdown Report",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.68,
+          "text": "This fixture is intentionally ordinary markdown. It exists to compare PDF and DOCX pagination",
+          "x": 72.0
+        },
+        {
+          "baseline": 125.04,
+          "text": "when the author has not supplied layout directives.",
+          "x": 72.0
+        },
+        {
+          "baseline": 151.2,
+          "text": "Executive Summary",
+          "x": 72.0
+        },
+        {
+          "baseline": 173.04,
+          "text": "Mote should make a readable document from headings, paragraphs, lists, blockquotes, rules,",
+          "x": 72.0
+        },
+        {
+          "baseline": 188.16,
+          "text": "and tables. The visual result does not need identical line breaks across PDF and W ord, but the",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.28,
+          "text": "structure, spacing, and relative proportions should feel close.",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.56,
+          "text": "The first page contains enough body copy to exercise wrapping. The second page starts",
+          "x": 72.0
+        },
+        {
+          "baseline": 241.68,
+          "text": "naturally when the content flows beyond the available page height.",
+          "x": 72.0
+        },
+        {
+          "baseline": 264.96,
+          "text": "A blockquote should be visually distinct, but it should not dominate the page. It is",
+          "x": 108.0
+        },
+        {
+          "baseline": 280.08,
+          "text": "ordinary document content, not a callout box.",
+          "x": 108.0
+        },
+        {
+          "baseline": 306.48,
+          "text": "Findings",
+          "x": 72.0
+        },
+        {
+          "baseline": 328.08,
+          "text": "1. Markdown is the default authoring surface.",
+          "x": 108.0
+        },
+        {
+          "baseline": 345.36,
+          "text": "2. Directives add semantic document structure only when needed.",
+          "x": 108.0
+        },
+        {
+          "baseline": 362.4,
+          "text": "3. Tables should use their natural content width unless the author asks for a wider layout.",
+          "x": 108.0
+        },
+        {
+          "baseline": 379.68,
+          "text": "4. Lists should keep consistent indentation across output formats.",
+          "x": 108.0
+        },
+        {
+          "baseline": 413.52,
+          "text": "Operating Notes",
+          "x": 72.0
+        },
+        {
+          "baseline": 435.12,
+          "text": "The following paragraphs are repeated on purpose. They give us a full page without relying on",
+          "x": 72.0
+        },
+        {
+          "baseline": 450.24,
+          "text": "PDF-specific directives or artificial page breaks.",
+          "x": 72.0
+        },
+        {
+          "baseline": 473.52,
+          "text": "Progressive authoring means a user can start with a plain markdown memo, add a default font",
+          "x": 72.0
+        },
+        {
+          "baseline": 488.64,
+          "text": "later, then add a header, footer, section, or table style only when the document needs it. The",
+          "x": 72.0
+        },
+        {
+          "baseline": 504.0,
+          "text": "backend should preserve that path. A PDF output is visual and final, but it should still reflect the",
+          "x": 72.0
+        },
+        {
+          "baseline": 519.12,
+          "text": "same neutral document model used by the editable W ord backend.",
+          "x": 72.0
+        },
+        {
+          "baseline": 542.4,
+          "text": "The paragraph spacing should be comfortable but not airy. Headings should be visibly stronger",
+          "x": 72.0
+        },
+        {
+          "baseline": 557.52,
+          "text": "than body text. A horizontal rule should span the available text area and separate sections",
+          "x": 72.0
+        },
+        {
+          "baseline": 572.64,
+          "text": "without looking like a row of typed characters.",
+          "x": 72.0
+        },
+        {
+          "baseline": 595.92,
+          "text": "Nested lists are common in notes and lightweight reports:",
+          "x": 72.0
+        },
+        {
+          "baseline": 618.96,
+          "text": "• Parser behavior",
+          "x": 108.0
+        },
+        {
+          "baseline": 636.24,
+          "text": "• Markdown headings",
+          "x": 126.0
+        },
+        {
+          "baseline": 653.52,
+          "text": "• Markdown tables",
+          "x": 126.0
+        },
+        {
+          "baseline": 670.56,
+          "text": "• Inline formatting",
+          "x": 126.0
+        },
+        {
+          "baseline": 687.84,
+          "text": "• Emitter behavior",
+          "x": 108.0
+        },
+        {
+          "baseline": 704.88,
+          "text": "• Page flow",
+          "x": 126.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "• Table measurement",
+          "x": 126.0
+        },
+        {
+          "baseline": 99.84,
+          "text": "• Divider rendering",
+          "x": 126.0
+        },
+        {
+          "baseline": 116.88,
+          "text": "• Review behavior",
+          "x": 108.0
+        },
+        {
+          "baseline": 134.16,
+          "text": "• Compare PDF pages",
+          "x": 126.0
+        },
+        {
+          "baseline": 151.2,
+          "text": "• Compare W ord-rendered pages",
+          "x": 126.0
+        },
+        {
+          "baseline": 177.6,
+          "text": "Small Budget Table",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.76,
+          "text": "Item",
+          "x": 78.24
+        },
+        {
+          "baseline": 203.76,
+          "text": "Owner Amount",
+          "x": 133.62
+        },
+        {
+          "baseline": 227.52,
+          "text": "Retainer Sales $2,500.00",
+          "x": 78.24
+        },
+        {
+          "baseline": 251.28,
+          "text": "Hosting Ops",
+          "x": 78.24
+        },
+        {
+          "baseline": 251.28,
+          "text": "$75.00",
+          "x": 197.23
+        },
+        {
+          "baseline": 274.8,
+          "text": "Review Product $450.00",
+          "x": 78.24
+        },
+        {
+          "baseline": 305.76,
+          "text": "Detail",
+          "x": 72.0
+        },
+        {
+          "baseline": 327.36,
+          "text": "Progressive authoring means a user can start with a plain markdown memo, add a default font",
+          "x": 72.0
+        },
+        {
+          "baseline": 342.48,
+          "text": "later, then add a default font, header, footer, section, or table style only when the document",
+          "x": 72.0
+        },
+        {
+          "baseline": 357.84,
+          "text": "needs it. The backend should preserve that path. A PDF output is visual and final, but it should",
+          "x": 72.0
+        },
+        {
+          "baseline": 372.96,
+          "text": "still reflect the same neutral document model used by the editable W ord backend.",
+          "x": 72.0
+        },
+        {
+          "baseline": 396.24,
+          "text": "The paragraph spacing should be comfortable but not airy. Headings should be visibly stronger",
+          "x": 72.0
+        },
+        {
+          "baseline": 411.36,
+          "text": "than body text. A horizontal rule should span the available text area and separate sections",
+          "x": 72.0
+        },
+        {
+          "baseline": 426.48,
+          "text": "without looking like a row of typed characters.",
+          "x": 72.0
+        },
+        {
+          "baseline": 449.76,
+          "text": "Progressive authoring means a user can start with a plain markdown memo, add a default font",
+          "x": 72.0
+        },
+        {
+          "baseline": 464.88,
+          "text": "later, then add a header, footer, section, or table style only when the document needs it. The",
+          "x": 72.0
+        },
+        {
+          "baseline": 480.0,
+          "text": "backend should preserve that path. A PDF output is visual and final, but it should still reflect the",
+          "x": 72.0
+        },
+        {
+          "baseline": 495.36,
+          "text": "same neutral document model used by the editable W ord backend.",
+          "x": 72.0
+        },
+        {
+          "baseline": 518.4,
+          "text": "The paragraph spacing should be comfortable but not airy. Headings should be visibly stronger",
+          "x": 72.0
+        },
+        {
+          "baseline": 533.76,
+          "text": "than body text. A horizontal rule should span the available text area and separate sections",
+          "x": 72.0
+        },
+        {
+          "baseline": 548.88,
+          "text": "without looking like a row of typed characters.",
+          "x": 72.0
+        },
+        {
+          "baseline": 575.04,
+          "text": "Closing Notes",
+          "x": 72.0
+        },
+        {
+          "baseline": 596.88,
+          "text": "The final section should land on a later page in both outputs. The exact line endings may differ,",
+          "x": 72.0
+        },
+        {
+          "baseline": 612.0,
+          "text": "but tables, rules, headings, list indentation, and body text density should be comparable.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "67ad18b1a2286cbabe2e115a733fd04a31537554972b328529dbce16ea970c20"
+}

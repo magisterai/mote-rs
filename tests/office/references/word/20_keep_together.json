@@ -1,0 +1,250 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.8,
+          "text": "STYLE PROBE 01 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 118.8,
+          "text": "STYLE PROBE 02 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.8,
+          "text": "STYLE PROBE 03 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.8,
+          "text": "STYLE PROBE 04 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.8,
+          "text": "STYLE PROBE 05 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 262.8,
+          "text": "STYLE PROBE 06 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 298.8,
+          "text": "STYLE PROBE 07 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 334.8,
+          "text": "STYLE PROBE 08 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 370.8,
+          "text": "STYLE PROBE 09 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "STYLE PROBE 10 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "STYLE PROBE 11 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 478.8,
+          "text": "STYLE PROBE 12 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 514.8,
+          "text": "STYLE PROBE 13 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 550.8,
+          "text": "STYLE PROBE 14 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.8,
+          "text": "STYLE PROBE 15 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 622.8,
+          "text": "STYLE PROBE 16 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 658.8,
+          "text": "STYLE PROBE 17 - fixed 36-point filler line.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 73.2,
+          "text": "STYLE KEEP LINE 1 - all four green lines must begin page two.",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.2,
+          "text": "STYLE KEEP LINE 2 - no two-and-two split is allowed.",
+          "x": 72.0
+        },
+        {
+          "baseline": 121.2,
+          "text": "STYLE KEEP LINE 3 - the declared style owns the keep setting.",
+          "x": 72.0
+        },
+        {
+          "baseline": 145.2,
+          "text": "STYLE KEEP LINE 4 - this is the final line of the kept paragraph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 162.96,
+          "text": "Page two passes when all four green lines begin together.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.8,
+          "text": "DIRECT PROBE 01 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 118.8,
+          "text": "DIRECT PROBE 02 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.8,
+          "text": "DIRECT PROBE 03 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.8,
+          "text": "DIRECT PROBE 04 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.8,
+          "text": "DIRECT PROBE 05 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 262.8,
+          "text": "DIRECT PROBE 06 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 298.8,
+          "text": "DIRECT PROBE 07 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 334.8,
+          "text": "DIRECT PROBE 08 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 370.8,
+          "text": "DIRECT PROBE 09 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "DIRECT PROBE 10 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "DIRECT PROBE 11 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 478.8,
+          "text": "DIRECT PROBE 12 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 514.8,
+          "text": "DIRECT PROBE 13 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 550.8,
+          "text": "DIRECT PROBE 14 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.8,
+          "text": "DIRECT PROBE 15 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 622.8,
+          "text": "DIRECT PROBE 16 - fixed 36-point filler line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 658.8,
+          "text": "DIRECT PROBE 17 - fixed 36-point filler line.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 73.2,
+          "text": "DIRECT KEEP LINE 1 - all four purple lines must begin page four.",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.2,
+          "text": "DIRECT KEEP LINE 2 - no two-and-two split is allowed.",
+          "x": 72.0
+        },
+        {
+          "baseline": 121.2,
+          "text": "DIRECT KEEP LINE 3 - the paragraph owns the keep setting directly.",
+          "x": 72.0
+        },
+        {
+          "baseline": 145.2,
+          "text": "DIRECT KEEP LINE 4 - this is the final line of the kept paragraph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 162.96,
+          "text": "Page four passes when all four purple lines begin together.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "9df96e8dab0300a1069d1b4868b3504331d8dcfe11d8b2a4eb90ff4dc0e9d139"
+}

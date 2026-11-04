@@ -1,0 +1,83 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.32,
+          "text": "Acme Corp   Page 1 of 2",
+          "x": 54.0
+        },
+        {
+          "baseline": 69.12,
+          "text": "Document Section",
+          "x": 54.0
+        },
+        {
+          "baseline": 96.24,
+          "text": "Item",
+          "x": 96.0
+        },
+        {
+          "baseline": 96.24,
+          "text": "Amount",
+          "x": 478.3
+        },
+        {
+          "baseline": 120.24,
+          "text": "Retainer",
+          "x": 96.0
+        },
+        {
+          "baseline": 120.24,
+          "text": "$2,500.00",
+          "x": 468.58
+        },
+        {
+          "baseline": 762.96,
+          "text": "Confidential",
+          "x": 54.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 612.0,
+      "lines": [
+        {
+          "baseline": 34.32,
+          "text": "Landscape Section   1",
+          "x": 54.0
+        },
+        {
+          "baseline": 67.44,
+          "text": "Two Column Terms",
+          "x": 54.0
+        },
+        {
+          "baseline": 89.52,
+          "text": "• Parser supports progressive markdown.",
+          "x": 90.0
+        },
+        {
+          "baseline": 106.8,
+          "text": "• Directives layer on top.",
+          "x": 90.0
+        },
+        {
+          "baseline": 124.32,
+          "text": "• Emitter warnings remain target-specific.",
+          "x": 90.0
+        },
+        {
+          "baseline": 582.96,
+          "text": "Confidential",
+          "x": 54.0
+        }
+      ],
+      "width": 792.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "9df8bc9a80fc90c4bd6215b586ccdfa553e55756ea2e86c01e88d6beabe3b944"
+}

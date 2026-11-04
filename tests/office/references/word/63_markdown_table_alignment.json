@@ -1,0 +1,57 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Markdown Table Alignment",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.68,
+          "text": "This document uses only markdown-like source text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 137.52,
+          "text": "Left",
+          "x": 78.24
+        },
+        {
+          "baseline": 137.52,
+          "text": "Center",
+          "x": 134.54
+        },
+        {
+          "baseline": 137.52,
+          "text": "Right",
+          "x": 211.32
+        },
+        {
+          "baseline": 161.04,
+          "text": "Contract Active $12,500.00",
+          "x": 78.24
+        },
+        {
+          "baseline": 184.8,
+          "text": "Invoice Pending $2,575.00",
+          "x": 78.24
+        },
+        {
+          "baseline": 208.56,
+          "text": "Credit Applied -$125.00",
+          "x": 78.24
+        },
+        {
+          "baseline": 228.24,
+          "text": "The alignment row controls the paragraph alignment inside each generated W ord table cell.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "70b2d26ac2179a233e96bc738b16151873e5a0498fa90f65fc2d4861a2581889"
+}

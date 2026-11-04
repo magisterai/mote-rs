@@ -1,0 +1,82 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "EAST ASIAN LINE HEIGHT: a line holding an MS Gothic glyph takes the height W ord gives that",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "font.",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.52,
+          "text": "Mixed 11 line 1 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 129.84,
+          "text": "Mixed 11 line 2 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 146.16,
+          "text": "Mixed 11 line 3 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 162.72,
+          "text": "Mixed 11 line 4 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.32,
+          "text": "Mixed 22 line 1 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 223.2,
+          "text": "Mixed 22 line 2 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 255.84,
+          "text": "Mixed 22 line 3 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 288.72,
+          "text": "Mixed 22 line 4 ☒ after the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 309.84,
+          "text": "Plain line 1 without the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 324.96,
+          "text": "Plain line 2 without the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 340.08,
+          "text": "Plain line 3 without the glyph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 355.44,
+          "text": "Plain line 4 without the glyph.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "7a744832427950463ed151c96f74a7597d4897bdbe0010a3d06a65523011b9a2"
+}

@@ -1,0 +1,133 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(18) } } }
+)
+#style(
+  name = "Exact9in12",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(12) } } }
+)
+#style(
+  name = "Exact9in18",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(18) } } }
+)
+#style(
+  name = "Exact9in36",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(36) } } }
+)
+#style(
+  name = "Exact11in12",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(12) } } }
+)
+#style(
+  name = "Exact11in18",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(18) } } }
+)
+#style(
+  name = "Exact11in36",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(36) } } }
+)
+#style(
+  name = "Exact20in12",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(12) } } }
+)
+#style(
+  name = "Exact20in18",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(18) } } }
+)
+#style(
+  name = "Exact20in36",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(36) } } }
+)
+
+#set paragraph(style = "Normal")
+
+EXACT LINE BASELINE: Word places an exact line's baseline at four fifths of its height.
+
+#paragraph(style = "Exact9in12")[9-POINT TEXT IN 12-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact9in12")[9-POINT TEXT IN 12-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact9in12")[9-POINT TEXT IN 12-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact9in18")[9-POINT TEXT IN 18-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact9in18")[9-POINT TEXT IN 18-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact9in18")[9-POINT TEXT IN 18-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact9in36")[9-POINT TEXT IN 36-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact9in36")[9-POINT TEXT IN 36-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact9in36")[9-POINT TEXT IN 36-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact11in12")[11-POINT TEXT IN 12-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact11in12")[11-POINT TEXT IN 12-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact11in12")[11-POINT TEXT IN 12-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact11in18")[11-POINT TEXT IN 18-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact11in18")[11-POINT TEXT IN 18-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact11in18")[11-POINT TEXT IN 18-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact11in36")[11-POINT TEXT IN 36-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact11in36")[11-POINT TEXT IN 36-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact11in36")[11-POINT TEXT IN 36-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact20in12")[20-POINT TEXT IN 12-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact20in12")[20-POINT TEXT IN 12-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact20in12")[20-POINT TEXT IN 12-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact20in18")[20-POINT TEXT IN 18-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact20in18")[20-POINT TEXT IN 18-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact20in18")[20-POINT TEXT IN 18-POINT EXACT LINES, line 3.]
+
+#paragraph(style = "Exact20in36")[20-POINT TEXT IN 36-POINT EXACT LINES, line 1.]
+
+#paragraph(style = "Exact20in36")[20-POINT TEXT IN 36-POINT EXACT LINES, line 2.]
+
+#paragraph(style = "Exact20in36")[20-POINT TEXT IN 36-POINT EXACT LINES, line 3.]

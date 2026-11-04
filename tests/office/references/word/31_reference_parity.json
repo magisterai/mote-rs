@@ -1,0 +1,128 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Reference Parity",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "This case checks that DOCX, PDF, and PNG resolve the same label metadata even when the references",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "appear before their targets.",
+          "x": 72.0
+        },
+        {
+          "baseline": 123.84,
+          "text": "Forward title: Later Heading.",
+          "x": 72.0
+        },
+        {
+          "baseline": 143.76,
+          "text": "Forward page: 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 163.68,
+          "text": "Forward figure number: Table 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 183.6,
+          "text": "Styled internal link: jump to the later heading.",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.52,
+          "text": "Explicit metadata target.",
+          "x": 72.0
+        },
+        {
+          "baseline": 223.44,
+          "text": "Explicit title: Manual target. Explicit number: Exhibit 7.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 67.92,
+          "text": "Later Heading",
+          "x": 72.0
+        },
+        {
+          "baseline": 88.32,
+          "text": "The forward title above must read “Later Heading,” and its page reference must read “2.” In PDF the title",
+          "x": 72.0
+        },
+        {
+          "baseline": 101.28,
+          "text": "and styled Markdown text are clickable internal links; PNG preserves the same visible text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "Target",
+          "x": 105.12
+        },
+        {
+          "baseline": 128.16,
+          "text": "Expected visible reference",
+          "x": 249.12
+        },
+        {
+          "baseline": 153.84,
+          "text": "Heading",
+          "x": 105.12
+        },
+        {
+          "baseline": 153.84,
+          "text": "Later Heading; page 2",
+          "x": 249.12
+        },
+        {
+          "baseline": 179.52,
+          "text": "Figure",
+          "x": 105.12
+        },
+        {
+          "baseline": 179.52,
+          "text": "Table 1",
+          "x": 249.12
+        },
+        {
+          "baseline": 199.2,
+          "text": "Table 1. Reference comparison",
+          "x": 72.0
+        },
+        {
+          "baseline": 221.04,
+          "text": "Back references: Later Heading, Reference comparison, and Table 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 240.96,
+          "text": "PASS: every backend shows the same titles, explicit number, page number, and generated table number",
+          "x": 72.0
+        },
+        {
+          "baseline": 253.92,
+          "text": "without fallback placeholders.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "3560d3c16e2f967d3e7e579de752be40a6613a9794ced0fd36ecc9449720203e"
+}

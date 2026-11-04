@@ -1,0 +1,593 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Preset Shape Text Bounds",
+          "x": 46.8
+        },
+        {
+          "baseline": 152.88,
+          "text": "Ellipse text stays",
+          "x": 99.52
+        },
+        {
+          "baseline": 156.72,
+          "text": "Diamond text",
+          "x": 553.91
+        },
+        {
+          "baseline": 162.48,
+          "text": "Guide text",
+          "x": 769.45
+        },
+        {
+          "baseline": 172.08,
+          "text": "clear of the",
+          "x": 117.91
+        },
+        {
+          "baseline": 170.88,
+          "text": "remains inside",
+          "x": 550.56
+        },
+        {
+          "baseline": 181.68,
+          "text": "stays",
+          "x": 786.55
+        },
+        {
+          "baseline": 185.76,
+          "text": "the narrow",
+          "x": 560.93
+        },
+        {
+          "baseline": 191.04,
+          "text": "curved left and",
+          "x": 105.14
+        },
+        {
+          "baseline": 199.2,
+          "text": "Triangle text fits",
+          "x": 332.2
+        },
+        {
+          "baseline": 199.68,
+          "text": "center region.",
+          "x": 552.84
+        },
+        {
+          "baseline": 200.64,
+          "text": "inside.",
+          "x": 781.66
+        },
+        {
+          "baseline": 210.0,
+          "text": "right edges.",
+          "x": 116.71
+        },
+        {
+          "baseline": 213.12,
+          "text": "below the apex",
+          "x": 333.69
+        },
+        {
+          "baseline": 228.0,
+          "text": "and above the",
+          "x": 336.15
+        },
+        {
+          "baseline": 242.16,
+          "text": "base.",
+          "x": 358.41
+        },
+        {
+          "baseline": 346.32,
+          "text": "Cloud uses its",
+          "x": 305.96
+        },
+        {
+          "baseline": 357.6,
+          "text": "Rounded rectangle is the",
+          "x": 537.19
+        },
+        {
+          "baseline": 364.32,
+          "text": "asymmetric internal",
+          "x": 287.19
+        },
+        {
+          "baseline": 376.56,
+          "text": "established control.",
+          "x": 553.87
+        },
+        {
+          "baseline": 382.32,
+          "text": "guide rectangle.",
+          "x": 300.35
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote preset shape text bounds",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Rotated Shape Text",
+          "x": 46.8
+        },
+        {
+          "baseline": 166.23,
+          "text": "ed",
+          "x": 210.75
+        },
+        {
+          "baseline": 169.07,
+          "text": "gn",
+          "x": 197.67
+        },
+        {
+          "baseline": 170.72,
+          "text": "li",
+          "x": 191.31
+        },
+        {
+          "baseline": 172.78,
+          "text": "a",
+          "x": 184.59
+        },
+        {
+          "baseline": 175.3,
+          "text": "op",
+          "x": 167.96
+        },
+        {
+          "baseline": 177.12,
+          "text": "T",
+          "x": 162.86
+        },
+        {
+          "baseline": 179.16,
+          "text": "t",
+          "x": 228.65
+        },
+        {
+          "baseline": 180.8,
+          "text": "x",
+          "x": 223.03
+        },
+        {
+          "baseline": 180.98,
+          "text": "Te",
+          "x": 440.64
+        },
+        {
+          "baseline": 180.72,
+          "text": "B",
+          "x": 707.73
+        },
+        {
+          "baseline": 182.95,
+          "text": "te",
+          "x": 212.4
+        },
+        {
+          "baseline": 182.75,
+          "text": "x",
+          "x": 454.95
+        },
+        {
+          "baseline": 185.03,
+          "text": "e",
+          "x": 203.11
+        },
+        {
+          "baseline": 184.57,
+          "text": "t r",
+          "x": 461.99
+        },
+        {
+          "baseline": 183.69,
+          "text": "o",
+          "x": 716.88
+        },
+        {
+          "baseline": 186.84,
+          "text": "in",
+          "x": 193.08
+        },
+        {
+          "baseline": 186.67,
+          "text": "ot",
+          "x": 475.37
+        },
+        {
+          "baseline": 186.44,
+          "text": "t",
+          "x": 725.32
+        },
+        {
+          "baseline": 188.19,
+          "text": "il",
+          "x": 186.72
+        },
+        {
+          "baseline": 188.16,
+          "text": "a",
+          "x": 489.14
+        },
+        {
+          "baseline": 188.02,
+          "text": "t",
+          "x": 730.2
+        },
+        {
+          "baseline": 189.75,
+          "text": "lt",
+          "x": 179.26
+        },
+        {
+          "baseline": 189.86,
+          "text": "te",
+          "x": 497.4
+        },
+        {
+          "baseline": 189.58,
+          "text": "o",
+          "x": 735.0
+        },
+        {
+          "baseline": 191.61,
+          "text": "u",
+          "x": 172.17
+        },
+        {
+          "baseline": 192.25,
+          "text": "s",
+          "x": 237.78
+        },
+        {
+          "baseline": 192.18,
+          "text": "s",
+          "x": 510.66
+        },
+        {
+          "baseline": 192.32,
+          "text": "m",
+          "x": 743.44
+        },
+        {
+          "baseline": 193.92,
+          "text": "m",
+          "x": 161.29
+        },
+        {
+          "baseline": 193.57,
+          "text": "i",
+          "x": 234.72
+        },
+        {
+          "baseline": 193.2,
+          "text": "m",
+          "x": 684.44
+        },
+        {
+          "baseline": 196.0,
+          "text": "th",
+          "x": 223.6
+        },
+        {
+          "baseline": 198.4,
+          "text": "th",
+          "x": 209.92
+        },
+        {
+          "baseline": 197.41,
+          "text": "u",
+          "x": 697.4
+        },
+        {
+          "baseline": 197.54,
+          "text": "a",
+          "x": 759.5
+        },
+        {
+          "baseline": 199.49,
+          "text": "i",
+          "x": 206.86
+        },
+        {
+          "baseline": 200.19,
+          "text": "l",
+          "x": 705.96
+        },
+        {
+          "baseline": 200.17,
+          "text": "l",
+          "x": 767.59
+        },
+        {
+          "baseline": 201.71,
+          "text": "w",
+          "x": 197.68
+        },
+        {
+          "baseline": 202.14,
+          "text": "in",
+          "x": 453.82
+        },
+        {
+          "baseline": 201.47,
+          "text": "t",
+          "x": 709.88
+        },
+        {
+          "baseline": 202.04,
+          "text": "ig",
+          "x": 771.51
+        },
+        {
+          "baseline": 203.31,
+          "text": "s",
+          "x": 188.88
+        },
+        {
+          "baseline": 203.84,
+          "text": "s",
+          "x": 466.42
+        },
+        {
+          "baseline": 203.65,
+          "text": "il",
+          "x": 714.76
+        },
+        {
+          "baseline": 205.18,
+          "text": "te",
+          "x": 178.06
+        },
+        {
+          "baseline": 205.35,
+          "text": "id",
+          "x": 474.08
+        },
+        {
+          "baseline": 205.52,
+          "text": "i",
+          "x": 722.37
+        },
+        {
+          "baseline": 205.04,
+          "text": "n",
+          "x": 782.57
+        },
+        {
+          "baseline": 207.45,
+          "text": "ta",
+          "x": 167.35
+        },
+        {
+          "baseline": 207.06,
+          "text": "e",
+          "x": 486.79
+        },
+        {
+          "baseline": 206.72,
+          "text": "n",
+          "x": 726.06
+        },
+        {
+          "baseline": 207.78,
+          "text": "e",
+          "x": 791.01
+        },
+        {
+          "baseline": 209.37,
+          "text": "o",
+          "x": 160.39
+        },
+        {
+          "baseline": 208.3,
+          "text": ".",
+          "x": 494.58
+        },
+        {
+          "baseline": 209.47,
+          "text": "e",
+          "x": 734.5
+        },
+        {
+          "baseline": 210.24,
+          "text": "r",
+          "x": 156.29
+        },
+        {
+          "baseline": 210.37,
+          "text": "d",
+          "x": 798.98
+        },
+        {
+          "baseline": 211.96,
+          "text": ".",
+          "x": 226.04
+        },
+        {
+          "baseline": 213.11,
+          "text": "t",
+          "x": 745.57
+        },
+        {
+          "baseline": 214.12,
+          "text": "nd",
+          "x": 211.98
+        },
+        {
+          "baseline": 214.62,
+          "text": "e",
+          "x": 750.37
+        },
+        {
+          "baseline": 216.34,
+          "text": "o",
+          "x": 205.02
+        },
+        {
+          "baseline": 215.76,
+          "text": "w",
+          "x": 692.97
+        },
+        {
+          "baseline": 217.14,
+          "text": "x",
+          "x": 758.11
+        },
+        {
+          "baseline": 219.37,
+          "text": "am",
+          "x": 187.41
+        },
+        {
+          "baseline": 219.31,
+          "text": "i",
+          "x": 703.91
+        },
+        {
+          "baseline": 219.34,
+          "text": "t",
+          "x": 764.89
+        },
+        {
+          "baseline": 220.73,
+          "text": "i",
+          "x": 184.35
+        },
+        {
+          "baseline": 220.72,
+          "text": "t",
+          "x": 707.6
+        },
+        {
+          "baseline": 221.93,
+          "text": "r",
+          "x": 772.86
+        },
+        {
+          "baseline": 222.24,
+          "text": "d",
+          "x": 177.26
+        },
+        {
+          "baseline": 222.1,
+          "text": "h",
+          "x": 712.48
+        },
+        {
+          "baseline": 223.53,
+          "text": "o",
+          "x": 777.77
+        },
+        {
+          "baseline": 225.34,
+          "text": "t",
+          "x": 724.01
+        },
+        {
+          "baseline": 226.27,
+          "text": "t",
+          "x": 786.21
+        },
+        {
+          "baseline": 227.43,
+          "text": "h",
+          "x": 728.89
+        },
+        {
+          "baseline": 227.83,
+          "text": "a",
+          "x": 791.03
+        },
+        {
+          "baseline": 230.77,
+          "text": "is",
+          "x": 737.33
+        },
+        {
+          "baseline": 230.42,
+          "text": "t",
+          "x": 798.98
+        },
+        {
+          "baseline": 231.98,
+          "text": "e",
+          "x": 803.79
+        },
+        {
+          "baseline": 234.27,
+          "text": "e",
+          "x": 751.48
+        },
+        {
+          "baseline": 234.57,
+          "text": "s",
+          "x": 811.75
+        },
+        {
+          "baseline": 237.16,
+          "text": "l",
+          "x": 759.45
+        },
+        {
+          "baseline": 239.27,
+          "text": "li",
+          "x": 763.37
+        },
+        {
+          "baseline": 241.11,
+          "text": "p",
+          "x": 770.99
+        },
+        {
+          "baseline": 243.89,
+          "text": "s",
+          "x": 779.55
+        },
+        {
+          "baseline": 246.29,
+          "text": "e",
+          "x": 786.92
+        },
+        {
+          "baseline": 248.72,
+          "text": ".",
+          "x": 794.42
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote preset shape text bounds",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "a0c8fe56b7874d88977befb2d50db6c67dc084153dea2f09e463c433c040da39"
+}

@@ -1,0 +1,67 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 57.6,
+          "text": "Image Transforms",
+          "x": 66.0
+        },
+        {
+          "baseline": 77.76,
+          "text": "The circle, striped rectangle, dark background, and diagonal stripe direction make every transform visible. Each native",
+          "x": 66.0
+        },
+        {
+          "baseline": 90.24,
+          "text": "page output must match W ord without clipping rotated corners.",
+          "x": 66.0
+        },
+        {
+          "baseline": 110.64,
+          "text": "A. Original control — circle left, stripes right",
+          "x": 77.51
+        },
+        {
+          "baseline": 169.92,
+          "text": "B. Crop only — 10% top, 25% right, 15% bottom, 5% left",
+          "x": 77.51
+        },
+        {
+          "baseline": 229.44,
+          "text": "C. Horizontal flip — circle right, stripes left",
+          "x": 77.51
+        },
+        {
+          "baseline": 288.72,
+          "text": "D. Vertical flip — circle stays left, stripe direction reverses",
+          "x": 77.51
+        },
+        {
+          "baseline": 348.0,
+          "text": "E. 18-degree rotation — every corner remains visible",
+          "x": 77.0
+        },
+        {
+          "baseline": 407.52,
+          "text": "F. Combined — crop, both flips, then 12-degree rotation",
+          "x": 76.49
+        },
+        {
+          "baseline": 467.76,
+          "text": "PASS: all six probes preserve their authored centre line, crop fills the original box, flips occur before rotation, and no",
+          "x": 66.0
+        },
+        {
+          "baseline": 480.24,
+          "text": "rotated corner is clipped.",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "fdb0733d2749d362202d44e219c4784bae08cc1eb89231295c51871d2eee7e28"
+}

@@ -1,0 +1,62 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 118.8,
+          "text": "Cloud",
+          "x": 410.77
+        },
+        {
+          "baseline": 120.96,
+          "text": "Rounded rectangle",
+          "x": 102.0
+        },
+        {
+          "baseline": 249.42,
+          "text": "se",
+          "x": 178.82
+        },
+        {
+          "baseline": 251.11,
+          "text": "llip",
+          "x": 155.6
+        },
+        {
+          "baseline": 250.56,
+          "text": "Diamond",
+          "x": 407.72
+        },
+        {
+          "baseline": 252.24,
+          "text": "E",
+          "x": 146.5
+        },
+        {
+          "baseline": 380.16,
+          "text": "Chevron",
+          "x": 140.15
+        },
+        {
+          "baseline": 380.16,
+          "text": "Hexagon",
+          "x": 408.96
+        },
+        {
+          "baseline": 502.56,
+          "text": "PASS: shapes remain editable DrawingML in W ord and PowerPoint; native PDF and PNG paint the",
+          "x": 64.18
+        },
+        {
+          "baseline": 517.68,
+          "text": "same preset geometry.",
+          "x": 249.75
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "4817427ad6f35dba39d215230db3663d85c9b91c79f990d28e769081372d6294"
+}

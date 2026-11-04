@@ -1,0 +1,598 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.08,
+          "text": "Mote Spanning Review",
+          "x": 58.08
+        },
+        {
+          "baseline": 34.08,
+          "text": "Page 1 of 2",
+          "x": 205.0
+        },
+        {
+          "baseline": 69.6,
+          "text": "Page-Spanning Components",
+          "x": 58.08
+        },
+        {
+          "baseline": 91.2,
+          "text": "This fixture is designed to overflow naturally. It should not rely on a manual page break before the long",
+          "x": 58.08
+        },
+        {
+          "baseline": 105.84,
+          "text": "table completes. Rows should continue onto later pages without dropping style, table borders, or cell",
+          "x": 58.08
+        },
+        {
+          "baseline": 120.48,
+          "text": "margins.",
+          "x": 58.08
+        },
+        {
+          "baseline": 146.4,
+          "text": "Long Markdown Table",
+          "x": 58.08
+        },
+        {
+          "baseline": 172.08,
+          "text": "Row Component",
+          "x": 64.36
+        },
+        {
+          "baseline": 172.08,
+          "text": "Owner",
+          "x": 188.64
+        },
+        {
+          "baseline": 172.08,
+          "text": "Review Note",
+          "x": 249.84
+        },
+        {
+          "baseline": 195.12,
+          "text": "1 Paragraphs",
+          "x": 80.68
+        },
+        {
+          "baseline": 195.12,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 195.12,
+          "text": "Plain text lowers to editable paragraph content.",
+          "x": 249.84
+        },
+        {
+          "baseline": 218.16,
+          "text": "2 Headings",
+          "x": 80.68
+        },
+        {
+          "baseline": 218.16,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 218.16,
+          "text": "Markdown headings keep hierarchy.",
+          "x": 249.84
+        },
+        {
+          "baseline": 241.2,
+          "text": "3 Strong text",
+          "x": 80.68
+        },
+        {
+          "baseline": 241.2,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 241.2,
+          "text": "Inline marks survive inside cells.",
+          "x": 249.84
+        },
+        {
+          "baseline": 264.0,
+          "text": "4 Emphasis",
+          "x": 80.68
+        },
+        {
+          "baseline": 264.0,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 264.0,
+          "text": "Emphasis survives inside cells.",
+          "x": 249.84
+        },
+        {
+          "baseline": 287.04,
+          "text": "5 Links",
+          "x": 80.68
+        },
+        {
+          "baseline": 287.04,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 287.04,
+          "text": "Link text remains visible.",
+          "x": 249.84
+        },
+        {
+          "baseline": 310.08,
+          "text": "6 Tables",
+          "x": 80.68
+        },
+        {
+          "baseline": 310.08,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 310.08,
+          "text": "Markdown tables lower into neutral tables.",
+          "x": 249.84
+        },
+        {
+          "baseline": 333.12,
+          "text": "7 Captions",
+          "x": 80.68
+        },
+        {
+          "baseline": 333.12,
+          "text": "Evaluation Captions attach to figures and tables.",
+          "x": 188.64
+        },
+        {
+          "baseline": 356.16,
+          "text": "8 Images",
+          "x": 80.68
+        },
+        {
+          "baseline": 356.16,
+          "text": "Emitter Relative paths resolve from source files.",
+          "x": 188.64
+        },
+        {
+          "baseline": 379.2,
+          "text": "9 Headers",
+          "x": 80.68
+        },
+        {
+          "baseline": 379.2,
+          "text": "Layout",
+          "x": 188.64
+        },
+        {
+          "baseline": 379.2,
+          "text": "Header content repeats on every page.",
+          "x": 249.84
+        },
+        {
+          "baseline": 402.0,
+          "text": "10 Footers",
+          "x": 74.84
+        },
+        {
+          "baseline": 402.0,
+          "text": "Layout",
+          "x": 188.64
+        },
+        {
+          "baseline": 402.0,
+          "text": "Footer content repeats on every page.",
+          "x": 249.84
+        },
+        {
+          "baseline": 425.04,
+          "text": "11 Page numbers Layout",
+          "x": 74.84
+        },
+        {
+          "baseline": 425.04,
+          "text": "Page counters update after overflow.",
+          "x": 249.84
+        },
+        {
+          "baseline": 448.08,
+          "text": "12 Lists",
+          "x": 74.84
+        },
+        {
+          "baseline": 448.08,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 448.08,
+          "text": "Lists keep indentation and nesting.",
+          "x": 249.84
+        },
+        {
+          "baseline": 471.12,
+          "text": "13 Task lists",
+          "x": 74.84
+        },
+        {
+          "baseline": 471.12,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 471.12,
+          "text": "Checkboxes remain visible.",
+          "x": 249.84
+        },
+        {
+          "baseline": 494.16,
+          "text": "14 Blockquotes",
+          "x": 74.84
+        },
+        {
+          "baseline": 494.16,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 494.16,
+          "text": "Quotes keep their own paragraph treatment.",
+          "x": 249.84
+        },
+        {
+          "baseline": 516.96,
+          "text": "15 Dividers",
+          "x": 74.84
+        },
+        {
+          "baseline": 516.96,
+          "text": "Parser",
+          "x": 188.64
+        },
+        {
+          "baseline": 516.96,
+          "text": "Rules separate sections visually.",
+          "x": 249.84
+        },
+        {
+          "baseline": 540.0,
+          "text": "16 Table styles",
+          "x": 74.84
+        },
+        {
+          "baseline": 540.0,
+          "text": "Model",
+          "x": 188.64
+        },
+        {
+          "baseline": 540.0,
+          "text": "First-row styling and banding apply.",
+          "x": 249.84
+        },
+        {
+          "baseline": 563.04,
+          "text": "17 Cell margins",
+          "x": 74.84
+        },
+        {
+          "baseline": 563.04,
+          "text": "Model",
+          "x": 188.64
+        },
+        {
+          "baseline": 563.04,
+          "text": "Cell text should not touch borders.",
+          "x": 249.84
+        },
+        {
+          "baseline": 586.08,
+          "text": "18 Alignment",
+          "x": 74.84
+        },
+        {
+          "baseline": 586.08,
+          "text": "Model",
+          "x": 188.64
+        },
+        {
+          "baseline": 586.08,
+          "text": "Numeric cells can align right.",
+          "x": 249.84
+        },
+        {
+          "baseline": 609.12,
+          "text": "19 Font defaults",
+          "x": 74.84
+        },
+        {
+          "baseline": 609.12,
+          "text": "Model",
+          "x": 188.64
+        },
+        {
+          "baseline": 609.12,
+          "text": "Defaults should carry through long flow.",
+          "x": 249.84
+        },
+        {
+          "baseline": 632.16,
+          "text": "20 Section defaults Model",
+          "x": 74.84
+        },
+        {
+          "baseline": 632.16,
+          "text": "Later sections can still override layout.",
+          "x": 249.84
+        },
+        {
+          "baseline": 654.96,
+          "text": "21 Columns",
+          "x": 74.84
+        },
+        {
+          "baseline": 654.96,
+          "text": "Layout",
+          "x": 188.64
+        },
+        {
+          "baseline": 654.96,
+          "text": "Column flow is tested in other fixtures.",
+          "x": 249.84
+        },
+        {
+          "baseline": 678.0,
+          "text": "22 Page breaks",
+          "x": 74.84
+        },
+        {
+          "baseline": 678.0,
+          "text": "Layout",
+          "x": 188.64
+        },
+        {
+          "baseline": 678.0,
+          "text": "Explicit breaks remain available.",
+          "x": 249.84
+        },
+        {
+          "baseline": 701.04,
+          "text": "23 Natural flow",
+          "x": 74.84
+        },
+        {
+          "baseline": 701.04,
+          "text": "Layout",
+          "x": 188.64
+        },
+        {
+          "baseline": 701.04,
+          "text": "This table should move across pages naturally.",
+          "x": 249.84
+        },
+        {
+          "baseline": 724.08,
+          "text": "24 PDF output",
+          "x": 74.84
+        },
+        {
+          "baseline": 724.08,
+          "text": "Emitter Visual output should remain readable.",
+          "x": 188.64
+        },
+        {
+          "baseline": 759.6,
+          "text": "Generated spanning fixture",
+          "x": 58.08
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.08,
+          "text": "Mote Spanning Review",
+          "x": 58.08
+        },
+        {
+          "baseline": 34.08,
+          "text": "Page 2 of 2",
+          "x": 205.0
+        },
+        {
+          "baseline": 68.64,
+          "text": "Row Component",
+          "x": 64.36
+        },
+        {
+          "baseline": 68.64,
+          "text": "Owner",
+          "x": 188.64
+        },
+        {
+          "baseline": 68.64,
+          "text": "Review Note",
+          "x": 249.84
+        },
+        {
+          "baseline": 91.68,
+          "text": "25 DOCX output Emitter Editable output should remain semantic.",
+          "x": 74.84
+        },
+        {
+          "baseline": 114.48,
+          "text": "26 JSON output",
+          "x": 74.84
+        },
+        {
+          "baseline": 114.48,
+          "text": "Emitter Structure should remain inspectable.",
+          "x": 188.64
+        },
+        {
+          "baseline": 137.52,
+          "text": "27 PPTX output",
+          "x": 74.84
+        },
+        {
+          "baseline": 137.52,
+          "text": "Emitter Slide output can ignore unsupported document flow.",
+          "x": 188.64
+        },
+        {
+          "baseline": 160.56,
+          "text": "28 W arnings",
+          "x": 74.84
+        },
+        {
+          "baseline": 160.56,
+          "text": "Emitter Unsupported properties should warn with location.",
+          "x": 188.64
+        },
+        {
+          "baseline": 183.6,
+          "text": "29 Assets",
+          "x": 74.84
+        },
+        {
+          "baseline": 183.6,
+          "text": "Emitter Missing assets warn instead of crashing.",
+          "x": 188.64
+        },
+        {
+          "baseline": 206.64,
+          "text": "30 Review files",
+          "x": 74.84
+        },
+        {
+          "baseline": 206.64,
+          "text": "Tooling",
+          "x": 188.64
+        },
+        {
+          "baseline": 206.64,
+          "text": "Generated files should be easy to inspect.",
+          "x": 249.84
+        },
+        {
+          "baseline": 229.68,
+          "text": "31 Render tests",
+          "x": 74.84
+        },
+        {
+          "baseline": 229.68,
+          "text": "Tooling",
+          "x": 188.64
+        },
+        {
+          "baseline": 229.68,
+          "text": "PDF pages should rasterize successfully.",
+          "x": 249.84
+        },
+        {
+          "baseline": 252.48,
+          "text": "32 Regression tests Tooling",
+          "x": 74.84
+        },
+        {
+          "baseline": 252.48,
+          "text": "Multi-page goldens should stay multi-page.",
+          "x": 249.84
+        },
+        {
+          "baseline": 275.52,
+          "text": "33 Style defaults",
+          "x": 74.84
+        },
+        {
+          "baseline": 275.52,
+          "text": "Model",
+          "x": 188.64
+        },
+        {
+          "baseline": 275.52,
+          "text": "Defaults should be explicit and discoverable.",
+          "x": 249.84
+        },
+        {
+          "baseline": 298.56,
+          "text": "34 Adjacent tables Emitter Table separation should match document semantics.",
+          "x": 74.84
+        },
+        {
+          "baseline": 321.6,
+          "text": "35 Long rows",
+          "x": 74.84
+        },
+        {
+          "baseline": 321.6,
+          "text": "Emitter Long ordinary rows may wrap inside the row.",
+          "x": 188.64
+        },
+        {
+          "baseline": 344.64,
+          "text": "36 Final row",
+          "x": 74.84
+        },
+        {
+          "baseline": 344.64,
+          "text": "Emitter Content after the table should continue normally.",
+          "x": 188.64
+        },
+        {
+          "baseline": 375.36,
+          "text": "Content After A Spanning Table",
+          "x": 58.08
+        },
+        {
+          "baseline": 396.48,
+          "text": "This paragraph should appear after the long table, wherever the table ends. It helps catch accidental",
+          "x": 58.08
+        },
+        {
+          "baseline": 411.12,
+          "text": "clipping, lost pending spacing, and page-state mistakes after a multi-page table.",
+          "x": 58.08
+        },
+        {
+          "baseline": 433.68,
+          "text": "• The following list should not inherit table alignment.",
+          "x": 94.08
+        },
+        {
+          "baseline": 450.0,
+          "text": "• It should keep ordinary bullet indentation.",
+          "x": 94.08
+        },
+        {
+          "baseline": 466.56,
+          "text": "• It should remain readable after the table has crossed a page boundary.",
+          "x": 94.08
+        },
+        {
+          "baseline": 528.48,
+          "text": "Figure 1. Media after a long table should still resolve and number correctly.",
+          "x": 131.29
+        },
+        {
+          "baseline": 759.6,
+          "text": "Generated spanning fixture",
+          "x": 58.08
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "4e8d565bddf9caea3f3cc3fad6c30645805657b79c736f943852052c569ff823"
+}

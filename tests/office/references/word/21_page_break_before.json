@@ -1,0 +1,105 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 68.4,
+          "text": "PAGE 1 — this red anchor must be the only numbered-page probe above the green block.",
+          "x": 72.0
+        },
+        {
+          "baseline": 94.32,
+          "text": "The next paragraph owns pagebreakbefore through its declared style. It must begin page 2.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 73.2,
+          "text": "PAGE 2 — STYLE BREAK. This green block must start at the top",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.2,
+          "text": "of page 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.2,
+          "text": "PAGE 2 — EXPLICIT FALSE. This rose block inherits a page break but disables it",
+          "x": 72.0
+        },
+        {
+          "baseline": 157.2,
+          "text": "directly, so it must stay on page 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 188.4,
+          "text": "An explicit break follows. The next style-based break is deliberately already at the top of a new",
+          "x": 72.0
+        },
+        {
+          "baseline": 206.4,
+          "text": "physical page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 73.2,
+          "text": "PAGE 3 — TOP-OF-PAGE SUPPRESSION. This blue block must",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.2,
+          "text": "remain on page 3, with no blank page inserted.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.4,
+          "text": "This ordinary text creates content on page 3 before the direct page-break probe.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 73.2,
+          "text": "PAGE 4 — DIRECT BREAK. This purple block must start at the",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.2,
+          "text": "top of page 4.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.4,
+          "text": "PASS: exactly four pages. Page 2 contains both the green and rose blocks; page 3 begins with",
+          "x": 72.0
+        },
+        {
+          "baseline": 146.4,
+          "text": "blue; page 4 begins with purple.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "8b322cb882b361e6f8b1046706e46ae73fc4cdfee94fcce4a6140388c6541f3f"
+}

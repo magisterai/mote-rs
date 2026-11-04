@@ -1,0 +1,92 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Nested Table Content",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "The left outer cell contains ordinary paragraphs before and after a genuine two-by-two nested table. The",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "right outer cell is a plain-content control.",
+          "x": 72.0
+        },
+        {
+          "baseline": 131.28,
+          "text": "OUTER-LEFT-BEFORE — paragraph before the OUTER-RIGHT-CONTROL",
+          "x": 79.92
+        },
+        {
+          "baseline": 144.24,
+          "text": "nested table.",
+          "x": 79.92
+        },
+        {
+          "baseline": 144.24,
+          "text": "This cell contains two ordinary paragraphs and",
+          "x": 313.92
+        },
+        {
+          "baseline": 157.2,
+          "text": "no nested structure.",
+          "x": 313.92
+        },
+        {
+          "baseline": 162.72,
+          "text": "INNER-A1",
+          "x": 95.04
+        },
+        {
+          "baseline": 162.72,
+          "text": "INNER-B1",
+          "x": 193.92
+        },
+        {
+          "baseline": 186.0,
+          "text": "INNER-A2",
+          "x": 95.04
+        },
+        {
+          "baseline": 186.0,
+          "text": "INNER-B2",
+          "x": 193.92
+        },
+        {
+          "baseline": 204.48,
+          "text": "OUTER-LEFT-AFTER — paragraph after the",
+          "x": 79.92
+        },
+        {
+          "baseline": 217.44,
+          "text": "nested table.",
+          "x": 79.92
+        },
+        {
+          "baseline": 246.96,
+          "text": "OUTER-FINAL — this full-width row follows the complete nested cell.",
+          "x": 79.92
+        },
+        {
+          "baseline": 268.32,
+          "text": "REVIEW : INNER-A1, INNER-B1, INNER-A2, and INNER-B2 form a native 2×2 grid between the two",
+          "x": 72.0
+        },
+        {
+          "baseline": 281.28,
+          "text": "outer-left paragraphs; no nested marker is flattened or lost.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "ec07cf366f183674fd1e89e5a3b0a94ed8a68e203ab162ce40c55e8934090c62"
+}

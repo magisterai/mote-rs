@@ -1,0 +1,313 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "W rapped Nested List Boundary",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "This list starts at 8 and flows across pages without explicit breaks. The outer marker visibly widens from 9",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "to 10, and item 10 contains a lower-alpha nested sequence. Every parent and child has unique start and",
+          "x": 72.0
+        },
+        {
+          "baseline": 116.64,
+          "text": "end markers so missing, duplicated, or misplaced continuation text is immediately visible.",
+          "x": 72.0
+        },
+        {
+          "baseline": 135.6,
+          "text": "FLOW START — wrapped continuation lines align with their item text, while every list marker remains in",
+          "x": 72.0
+        },
+        {
+          "baseline": 148.56,
+          "text": "the hanging-indent area to the left.",
+          "x": 72.0
+        },
+        {
+          "baseline": 167.52,
+          "text": "SETUP 01 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 186.48,
+          "text": "SETUP 02 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 205.44,
+          "text": "SETUP 03 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 224.4,
+          "text": "SETUP 04 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 243.36,
+          "text": "SETUP 05 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 262.32,
+          "text": "SETUP 06 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 281.28,
+          "text": "SETUP 07 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 300.24,
+          "text": "SETUP 08 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 319.2,
+          "text": "SETUP 09 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 338.16,
+          "text": "SETUP 10 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 357.12,
+          "text": "SETUP 11 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 376.08,
+          "text": "SETUP 12 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 395.04,
+          "text": "SETUP 13 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 414.0,
+          "text": "SETUP 14 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 432.96,
+          "text": "SETUP 15 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 451.92,
+          "text": "SETUP 16 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 470.88,
+          "text": "SETUP 17 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 489.84,
+          "text": "SETUP 18 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 508.8,
+          "text": "SETUP 19 — ordinary flow positions the numbered probe naturally.",
+          "x": 72.0
+        },
+        {
+          "baseline": 527.76,
+          "text": "SETUP 20 — item 8 follows without an authored page or column break.",
+          "x": 72.0
+        },
+        {
+          "baseline": 546.72,
+          "text": "8. PARENT 08 START — Verify the intake record, the responsible reviewer, the effective date, and",
+          "x": 108.0
+        },
+        {
+          "baseline": 559.68,
+          "text": "the supporting evidence before advancing the request to the next stage. — PARENT 08 END.",
+          "x": 108.0
+        },
+        {
+          "baseline": 574.56,
+          "text": "• CHILD 08A START — Confirm that every source identifier remains readable after wrapping",
+          "x": 126.0
+        },
+        {
+          "baseline": 587.52,
+          "text": "and that the continuation aligns beneath Confirm rather than beneath the bullet marker. —",
+          "x": 126.0
+        },
+        {
+          "baseline": 600.48,
+          "text": "CHILD 08A END.",
+          "x": 126.0
+        },
+        {
+          "baseline": 615.6,
+          "text": "• CHILD 08B START — Record unresolved questions in ordinary language so a later reader",
+          "x": 126.0
+        },
+        {
+          "baseline": 628.56,
+          "text": "can understand both the decision and the exact evidence still required. — CHILD 08B END.",
+          "x": 126.0
+        },
+        {
+          "baseline": 643.44,
+          "text": "9. PARENT 09 START — Compare the proposed change with the current policy and keep the",
+          "x": 108.0
+        },
+        {
+          "baseline": 656.4,
+          "text": "explanation long enough to wrap naturally without adding manual line or page breaks. —",
+          "x": 108.0
+        },
+        {
+          "baseline": 669.36,
+          "text": "PARENT 09 END.",
+          "x": 108.0
+        },
+        {
+          "baseline": 684.24,
+          "text": "• CHILD 09A START — Preserve the first-line hanging indent when this sentence wraps",
+          "x": 126.0
+        },
+        {
+          "baseline": 697.2,
+          "text": "through several clauses about ownership, timing, review, and approval. — CHILD 09A END.",
+          "x": 126.0
+        },
+        {
+          "baseline": 712.32,
+          "text": "• CHILD 09B START — Keep this sibling marker aligned with CHILD 09A even though the",
+          "x": 126.0
+        },
+        {
+          "baseline": 725.28,
+          "text": "visible prose has a different length and reaches a different final word. — CHILD 09B END.",
+          "x": 126.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 63.6,
+          "text": "10. PARENT 10 START — Assess the operational impact, identify reversible steps, and distinguish",
+          "x": 108.0
+        },
+        {
+          "baseline": 76.56,
+          "text": "immediate safeguards from improvements that can wait for the next release. — PARENT 10",
+          "x": 108.0
+        },
+        {
+          "baseline": 89.52,
+          "text": "END.",
+          "x": 108.0
+        },
+        {
+          "baseline": 104.4,
+          "text": "a. CHILD 10A START — A page boundary may occur within this region, but source order, bullet",
+          "x": 126.0
+        },
+        {
+          "baseline": 117.36,
+          "text": "ownership, and wrapped indentation must remain unchanged on both sides of that boundary.",
+          "x": 126.0
+        },
+        {
+          "baseline": 130.32,
+          "text": "— CHILD 10A END.",
+          "x": 138.78
+        },
+        {
+          "baseline": 145.44,
+          "text": "b. CHILD 10B START — No backend may repeat the marker, omit the final phrase, or reset the",
+          "x": 126.0
+        },
+        {
+          "baseline": 158.4,
+          "text": "surrounding ordered sequence merely because pagination interrupted the nested list. —",
+          "x": 126.0
+        },
+        {
+          "baseline": 171.36,
+          "text": "CHILD 10B END.",
+          "x": 126.0
+        },
+        {
+          "baseline": 186.24,
+          "text": "11. PARENT 11 START — Summarize the review outcome with enough context for someone who",
+          "x": 108.0
+        },
+        {
+          "baseline": 199.2,
+          "text": "did not attend the meeting and cannot infer meaning from a short status code alone. — PARENT",
+          "x": 108.0
+        },
+        {
+          "baseline": 212.16,
+          "text": "11 END.",
+          "x": 108.0
+        },
+        {
+          "baseline": 227.04,
+          "text": "• CHILD 11A START — W rapped lines should begin at a stable text position that is deeper",
+          "x": 126.0
+        },
+        {
+          "baseline": 240.0,
+          "text": "than the parent text and visibly separate from the nested bullet. — CHILD 11A END.",
+          "x": 126.0
+        },
+        {
+          "baseline": 255.12,
+          "text": "• CHILD 11B START — The final line of this child remains part of the same item even when it",
+          "x": 126.0
+        },
+        {
+          "baseline": 267.84,
+          "text": "is short, and the following parent must return to the outer indentation level. — CHILD 11B",
+          "x": 126.0
+        },
+        {
+          "baseline": 280.8,
+          "text": "END.",
+          "x": 126.0
+        },
+        {
+          "baseline": 295.92,
+          "text": "FLOW END — outer markers 8 through 11, nested lower-alpha markers a and b under item 10, and the",
+          "x": 72.0
+        },
+        {
+          "baseline": 308.88,
+          "text": "other six nested bullets appear once in source order with stable hanging indents and natural page flow.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "1ac98fe35ea60a8a92f382a7037970b1317f3590e66f31fd2bf843a7ea8e8dd7"
+}

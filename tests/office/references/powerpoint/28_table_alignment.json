@@ -1,0 +1,128 @@
+{
+  "pages": [
+    {
+      "height": 420.0,
+      "lines": [
+        {
+          "baseline": 41.04,
+          "text": "Cell and paragraph alignment",
+          "x": 30.0
+        },
+        {
+          "baseline": 103.92,
+          "text": "Left top",
+          "x": 38.0
+        },
+        {
+          "baseline": 103.92,
+          "text": "Center top",
+          "x": 262.62
+        },
+        {
+          "baseline": 103.92,
+          "text": "Right top",
+          "x": 498.0
+        },
+        {
+          "baseline": 206.4,
+          "text": "Left middle",
+          "x": 38.0
+        },
+        {
+          "baseline": 206.4,
+          "text": "Center middle",
+          "x": 250.25
+        },
+        {
+          "baseline": 206.4,
+          "text": "Right middle",
+          "x": 473.25
+        },
+        {
+          "baseline": 308.88,
+          "text": "Left bottom",
+          "x": 38.0
+        },
+        {
+          "baseline": 308.88,
+          "text": "Paragraph center",
+          "x": 238.19
+        },
+        {
+          "baseline": 308.88,
+          "text": "Paragraph right",
+          "x": 451.75
+        },
+        {
+          "baseline": 359.04,
+          "text": "Columns align left, center and right. Rows align top, middle and bottom. Explicit",
+          "x": 30.0
+        },
+        {
+          "baseline": 374.88,
+          "text": "paragraph alignment overrides its cell's alignment.",
+          "x": 30.0
+        }
+      ],
+      "width": 600.0
+    },
+    {
+      "height": 420.0,
+      "lines": [
+        {
+          "baseline": 41.04,
+          "text": "Markdown column alignment with a table style",
+          "x": 30.0
+        },
+        {
+          "baseline": 103.92,
+          "text": "Left",
+          "x": 38.0
+        },
+        {
+          "baseline": 103.92,
+          "text": "Center",
+          "x": 274.69
+        },
+        {
+          "baseline": 103.92,
+          "text": "Right",
+          "x": 521.13
+        },
+        {
+          "baseline": 184.08,
+          "text": "Contract",
+          "x": 38.0
+        },
+        {
+          "baseline": 184.08,
+          "text": "Active",
+          "x": 278.25
+        },
+        {
+          "baseline": 184.08,
+          "text": "$12,500.00",
+          "x": 482.0
+        },
+        {
+          "baseline": 264.0,
+          "text": "Invoice",
+          "x": 38.0
+        },
+        {
+          "baseline": 264.0,
+          "text": "Pending",
+          "x": 270.75
+        },
+        {
+          "baseline": 264.0,
+          "text": "$2,575.00",
+          "x": 490.88
+        }
+      ],
+      "width": 600.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "7ca0cfd4ec1dbb9d4e097203e0b34fee02e59e9185ee627c77fb518e770d6a55"
+}

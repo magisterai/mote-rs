@@ -1,0 +1,179 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Mote Header Footer Review   Page 1 of 3",
+          "x": 60.0
+        },
+        {
+          "baseline": 75.6,
+          "text": "Header And Footer Defaults",
+          "x": 60.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "The first page uses document-level header and footer defaults. The right side of the header should",
+          "x": 60.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "show the current page and total page count.",
+          "x": 60.0
+        },
+        {
+          "baseline": 140.64,
+          "text": "Area",
+          "x": 66.24
+        },
+        {
+          "baseline": 140.64,
+          "text": "Expected Result",
+          "x": 138.72
+        },
+        {
+          "baseline": 164.4,
+          "text": "Header left Mote Header Footer Review",
+          "x": 66.24
+        },
+        {
+          "baseline": 187.92,
+          "text": "Header right Page number and total",
+          "x": 66.24
+        },
+        {
+          "baseline": 211.68,
+          "text": "Footer left Default footer",
+          "x": 66.24
+        },
+        {
+          "baseline": 235.44,
+          "text": "Footer right Confidential",
+          "x": 66.24
+        },
+        {
+          "baseline": 757.44,
+          "text": "Default footer   Confidential",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Mote Header Footer Review   Page 2 of 3",
+          "x": 60.0
+        },
+        {
+          "baseline": 73.68,
+          "text": "Second Page W ith Same Defaults",
+          "x": 60.0
+        },
+        {
+          "baseline": 95.28,
+          "text": "This page is intentionally created with a page break. It should keep the same top-level header and",
+          "x": 60.0
+        },
+        {
+          "baseline": 110.64,
+          "text": "footer.",
+          "x": 60.0
+        },
+        {
+          "baseline": 133.68,
+          "text": "• Page numbers should advance.",
+          "x": 96.0
+        },
+        {
+          "baseline": 150.96,
+          "text": "• The footer should remain stable.",
+          "x": 96.0
+        },
+        {
+          "baseline": 168.24,
+          "text": "• Ordinary markdown should still render normally.",
+          "x": 96.0
+        },
+        {
+          "baseline": 757.44,
+          "text": "Default footer   Confidential",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Section Header",
+          "x": 60.0
+        },
+        {
+          "baseline": 38.64,
+          "text": "Page 3",
+          "x": 171.06
+        },
+        {
+          "baseline": 73.68,
+          "text": "Section-Local Header And Footer",
+          "x": 60.0
+        },
+        {
+          "baseline": 95.28,
+          "text": "This explicit section has its own header and footer. It should not affect earlier pages. Future implicit",
+          "x": 60.0
+        },
+        {
+          "baseline": 110.64,
+          "text": "sections should continue to use document defaults unless another section override is declared.",
+          "x": 60.0
+        },
+        {
+          "baseline": 138.24,
+          "text": "Scope",
+          "x": 126.72
+        },
+        {
+          "baseline": 138.24,
+          "text": "Header",
+          "x": 224.88
+        },
+        {
+          "baseline": 138.24,
+          "text": "Footer",
+          "x": 374.64
+        },
+        {
+          "baseline": 162.0,
+          "text": "Document default Mote Header Footer Review Default footer",
+          "x": 126.72
+        },
+        {
+          "baseline": 185.52,
+          "text": "Explicit section Section Header",
+          "x": 126.72
+        },
+        {
+          "baseline": 185.52,
+          "text": "Section footer override",
+          "x": 374.64
+        },
+        {
+          "baseline": 757.44,
+          "text": "Section footer override",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "f4ec985210dede2873df6fc902c38463a2b9d839ec99f31d685517c9f4e34477"
+}

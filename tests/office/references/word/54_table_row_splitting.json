@@ -1,0 +1,539 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Table Row Splitting",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.44,
+          "text": "The D-SPLIT row uses W ord's default row-flow behavior. The later C-KEEP row contains equivalent",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "content and is the only row marked cant_split.",
+          "x": 72.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "MARKER ROW CONTENT",
+          "x": 82.46
+        },
+        {
+          "baseline": 156.48,
+          "text": "D01",
+          "x": 95.23
+        },
+        {
+          "baseline": 156.48,
+          "text": "Default-flow setup row 01.",
+          "x": 142.8
+        },
+        {
+          "baseline": 180.0,
+          "text": "D02",
+          "x": 95.23
+        },
+        {
+          "baseline": 180.0,
+          "text": "Default-flow setup row 02.",
+          "x": 142.8
+        },
+        {
+          "baseline": 203.52,
+          "text": "D03",
+          "x": 95.23
+        },
+        {
+          "baseline": 203.52,
+          "text": "Default-flow setup row 03.",
+          "x": 142.8
+        },
+        {
+          "baseline": 227.04,
+          "text": "D04",
+          "x": 95.23
+        },
+        {
+          "baseline": 227.04,
+          "text": "Default-flow setup row 04.",
+          "x": 142.8
+        },
+        {
+          "baseline": 250.56,
+          "text": "D05",
+          "x": 95.23
+        },
+        {
+          "baseline": 250.56,
+          "text": "Default-flow setup row 05.",
+          "x": 142.8
+        },
+        {
+          "baseline": 274.08,
+          "text": "D06",
+          "x": 95.23
+        },
+        {
+          "baseline": 274.08,
+          "text": "Default-flow setup row 06.",
+          "x": 142.8
+        },
+        {
+          "baseline": 297.6,
+          "text": "D07",
+          "x": 95.23
+        },
+        {
+          "baseline": 297.6,
+          "text": "Default-flow setup row 07.",
+          "x": 142.8
+        },
+        {
+          "baseline": 321.12,
+          "text": "D08",
+          "x": 95.23
+        },
+        {
+          "baseline": 321.12,
+          "text": "Default-flow setup row 08.",
+          "x": 142.8
+        },
+        {
+          "baseline": 344.64,
+          "text": "D09",
+          "x": 95.23
+        },
+        {
+          "baseline": 344.64,
+          "text": "Default-flow setup row 09.",
+          "x": 142.8
+        },
+        {
+          "baseline": 367.92,
+          "text": "D10",
+          "x": 95.23
+        },
+        {
+          "baseline": 367.92,
+          "text": "Default-flow setup row 10.",
+          "x": 142.8
+        },
+        {
+          "baseline": 391.44,
+          "text": "D11",
+          "x": 95.23
+        },
+        {
+          "baseline": 391.44,
+          "text": "Default-flow setup row 11.",
+          "x": 142.8
+        },
+        {
+          "baseline": 414.96,
+          "text": "D12",
+          "x": 95.23
+        },
+        {
+          "baseline": 414.96,
+          "text": "Default-flow setup row 12.",
+          "x": 142.8
+        },
+        {
+          "baseline": 438.48,
+          "text": "D13",
+          "x": 95.23
+        },
+        {
+          "baseline": 438.48,
+          "text": "Default-flow setup row 13.",
+          "x": 142.8
+        },
+        {
+          "baseline": 462.0,
+          "text": "D14",
+          "x": 95.23
+        },
+        {
+          "baseline": 462.0,
+          "text": "Default-flow setup row 14.",
+          "x": 142.8
+        },
+        {
+          "baseline": 485.52,
+          "text": "D15",
+          "x": 95.23
+        },
+        {
+          "baseline": 485.52,
+          "text": "Default-flow setup row 15.",
+          "x": 142.8
+        },
+        {
+          "baseline": 509.04,
+          "text": "D16",
+          "x": 95.23
+        },
+        {
+          "baseline": 509.04,
+          "text": "Default-flow setup row 16.",
+          "x": 142.8
+        },
+        {
+          "baseline": 532.56,
+          "text": "D17",
+          "x": 95.23
+        },
+        {
+          "baseline": 532.56,
+          "text": "Default-flow setup row 17.",
+          "x": 142.8
+        },
+        {
+          "baseline": 556.08,
+          "text": "D18",
+          "x": 95.23
+        },
+        {
+          "baseline": 556.08,
+          "text": "Default-flow setup row 18.",
+          "x": 142.8
+        },
+        {
+          "baseline": 579.6,
+          "text": "D19",
+          "x": 95.23
+        },
+        {
+          "baseline": 579.6,
+          "text": "Default-flow setup row 19.",
+          "x": 142.8
+        },
+        {
+          "baseline": 603.12,
+          "text": "D20",
+          "x": 95.23
+        },
+        {
+          "baseline": 603.12,
+          "text": "Default-flow setup row 20.",
+          "x": 142.8
+        },
+        {
+          "baseline": 626.64,
+          "text": "D-SPLIT DEFAULT ROW LINE 01 — the row may divide naturally at a page boundary.",
+          "x": 85.23
+        },
+        {
+          "baseline": 639.6,
+          "text": "DEFAULT ROW LINE 02 — every line remains inside the same logical row.",
+          "x": 142.8
+        },
+        {
+          "baseline": 652.56,
+          "text": "DEFAULT ROW LINE 03 — borders and fill continue with the row.",
+          "x": 142.8
+        },
+        {
+          "baseline": 665.52,
+          "text": "DEFAULT ROW LINE 04 — the marker cell belongs to the complete row.",
+          "x": 142.8
+        },
+        {
+          "baseline": 678.48,
+          "text": "DEFAULT ROW LINE 05 — no explicit height controls this content.",
+          "x": 142.8
+        },
+        {
+          "baseline": 691.44,
+          "text": "DEFAULT ROW LINE 06 — no manual page break precedes this content.",
+          "x": 142.8
+        },
+        {
+          "baseline": 704.64,
+          "text": "DEFAULT ROW LINE 07 — W ord determines the available page space.",
+          "x": 142.8
+        },
+        {
+          "baseline": 717.6,
+          "text": "DEFAULT ROW LINE 08 — native outputs should follow that pagination.",
+          "x": 142.8
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.84,
+          "text": "MARKER ROW CONTENT",
+          "x": 82.46
+        },
+        {
+          "baseline": 93.36,
+          "text": "DEFAULT ROW LINE 09 — all text remains visible and in order.",
+          "x": 142.8
+        },
+        {
+          "baseline": 106.32,
+          "text": "DEFAULT ROW LINE 10 — repeated headers remain above continuations.",
+          "x": 142.8
+        },
+        {
+          "baseline": 119.28,
+          "text": "DEFAULT ROW LINE 11 — the lower border closes after the final line.",
+          "x": 142.8
+        },
+        {
+          "baseline": 132.24,
+          "text": "DEFAULT ROW LINE 12 — this is the default-flow row terminator.",
+          "x": 142.8
+        },
+        {
+          "baseline": 155.76,
+          "text": "D-AFTER The first ordinary row after D-SPLIT.",
+          "x": 82.73
+        },
+        {
+          "baseline": 179.28,
+          "text": "C01",
+          "x": 95.23
+        },
+        {
+          "baseline": 179.28,
+          "text": "Keep-control setup row 01.",
+          "x": 142.8
+        },
+        {
+          "baseline": 202.8,
+          "text": "C02",
+          "x": 95.23
+        },
+        {
+          "baseline": 202.8,
+          "text": "Keep-control setup row 02.",
+          "x": 142.8
+        },
+        {
+          "baseline": 226.32,
+          "text": "C03",
+          "x": 95.23
+        },
+        {
+          "baseline": 226.32,
+          "text": "Keep-control setup row 03.",
+          "x": 142.8
+        },
+        {
+          "baseline": 249.84,
+          "text": "C04",
+          "x": 95.23
+        },
+        {
+          "baseline": 249.84,
+          "text": "Keep-control setup row 04.",
+          "x": 142.8
+        },
+        {
+          "baseline": 273.36,
+          "text": "C05",
+          "x": 95.23
+        },
+        {
+          "baseline": 273.36,
+          "text": "Keep-control setup row 05.",
+          "x": 142.8
+        },
+        {
+          "baseline": 296.88,
+          "text": "C06",
+          "x": 95.23
+        },
+        {
+          "baseline": 296.88,
+          "text": "Keep-control setup row 06.",
+          "x": 142.8
+        },
+        {
+          "baseline": 320.4,
+          "text": "C07",
+          "x": 95.23
+        },
+        {
+          "baseline": 320.4,
+          "text": "Keep-control setup row 07.",
+          "x": 142.8
+        },
+        {
+          "baseline": 343.92,
+          "text": "C08",
+          "x": 95.23
+        },
+        {
+          "baseline": 343.92,
+          "text": "Keep-control setup row 08.",
+          "x": 142.8
+        },
+        {
+          "baseline": 367.44,
+          "text": "C09",
+          "x": 95.23
+        },
+        {
+          "baseline": 367.44,
+          "text": "Keep-control setup row 09.",
+          "x": 142.8
+        },
+        {
+          "baseline": 390.72,
+          "text": "C10",
+          "x": 95.23
+        },
+        {
+          "baseline": 390.72,
+          "text": "Keep-control setup row 10.",
+          "x": 142.8
+        },
+        {
+          "baseline": 414.24,
+          "text": "C11",
+          "x": 95.23
+        },
+        {
+          "baseline": 414.24,
+          "text": "Keep-control setup row 11.",
+          "x": 142.8
+        },
+        {
+          "baseline": 437.76,
+          "text": "C12",
+          "x": 95.23
+        },
+        {
+          "baseline": 437.76,
+          "text": "Keep-control setup row 12.",
+          "x": 142.8
+        },
+        {
+          "baseline": 461.28,
+          "text": "C13",
+          "x": 95.23
+        },
+        {
+          "baseline": 461.28,
+          "text": "Keep-control setup row 13.",
+          "x": 142.8
+        },
+        {
+          "baseline": 484.8,
+          "text": "C14",
+          "x": 95.23
+        },
+        {
+          "baseline": 484.8,
+          "text": "Keep-control setup row 14.",
+          "x": 142.8
+        },
+        {
+          "baseline": 508.32,
+          "text": "C15",
+          "x": 95.23
+        },
+        {
+          "baseline": 508.32,
+          "text": "Keep-control setup row 15.",
+          "x": 142.8
+        },
+        {
+          "baseline": 531.84,
+          "text": "C-KEEP CONTROL ROW LINE 01 — this complete row must remain together.",
+          "x": 85.78
+        },
+        {
+          "baseline": 544.8,
+          "text": "CONTROL ROW LINE 02 — every line stays in the same logical row.",
+          "x": 142.8
+        },
+        {
+          "baseline": 557.76,
+          "text": "CONTROL ROW LINE 03 — borders and fill move with the row.",
+          "x": 142.8
+        },
+        {
+          "baseline": 570.72,
+          "text": "CONTROL ROW LINE 04 — the marker cell moves with the content.",
+          "x": 142.8
+        },
+        {
+          "baseline": 583.92,
+          "text": "CONTROL ROW LINE 05 — no explicit height controls this content.",
+          "x": 142.8
+        },
+        {
+          "baseline": 596.88,
+          "text": "CONTROL ROW LINE 06 — no manual page break precedes this content.",
+          "x": 142.8
+        },
+        {
+          "baseline": 609.84,
+          "text": "CONTROL ROW LINE 07 — cant_split is the only flow override.",
+          "x": 142.8
+        },
+        {
+          "baseline": 622.8,
+          "text": "CONTROL ROW LINE 08 — native outputs should preserve the keep.",
+          "x": 142.8
+        },
+        {
+          "baseline": 635.76,
+          "text": "CONTROL ROW LINE 09 — all text remains visible and in order.",
+          "x": 142.8
+        },
+        {
+          "baseline": 648.72,
+          "text": "CONTROL ROW LINE 10 — repeated headers remain above the row.",
+          "x": 142.8
+        },
+        {
+          "baseline": 661.92,
+          "text": "CONTROL ROW LINE 11 — the lower border follows the final line.",
+          "x": 142.8
+        },
+        {
+          "baseline": 674.88,
+          "text": "CONTROL ROW LINE 12 — this is the kept-row terminator.",
+          "x": 142.8
+        },
+        {
+          "baseline": 698.4,
+          "text": "C-AFTER The first ordinary row after C-KEEP.",
+          "x": 82.73
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 64.32,
+          "text": "REVIEW : compare where D-SPLIT divides with where the C-KEEP control begins; all markers and lines",
+          "x": 72.0
+        },
+        {
+          "baseline": 77.28,
+          "text": "must appear once and in order.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "b913f1e68a8fe19dfac4dd6546cec6728644f4f43e655a53d9e80f7997a78fd2"
+}

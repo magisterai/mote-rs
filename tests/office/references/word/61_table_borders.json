@@ -1,0 +1,222 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 60.72,
+          "text": "Table Borders",
+          "x": 72.0
+        },
+        {
+          "baseline": 81.84,
+          "text": "W ord is authoritative for the shared physical edge when adjacent cells or the table itself offer competing",
+          "x": 72.0
+        },
+        {
+          "baseline": 94.32,
+          "text": "border values. Native PDF and PNG should preserve the same weight, color, continuity, and absence of",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.04,
+          "text": "rules.",
+          "x": 72.0
+        },
+        {
+          "baseline": 131.76,
+          "text": "Outside And Inside Baseline",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.88,
+          "text": "1.5 pt frame",
+          "x": 102.39
+        },
+        {
+          "baseline": 158.88,
+          "text": "0.75 pt inside",
+          "x": 215.9
+        },
+        {
+          "baseline": 158.88,
+          "text": "Single owner",
+          "x": 333.34
+        },
+        {
+          "baseline": 158.88,
+          "text": "Clean corners",
+          "x": 448.23
+        },
+        {
+          "baseline": 182.4,
+          "text": "One",
+          "x": 78.96
+        },
+        {
+          "baseline": 182.4,
+          "text": "Two",
+          "x": 196.08
+        },
+        {
+          "baseline": 182.4,
+          "text": "Three",
+          "x": 312.96
+        },
+        {
+          "baseline": 182.4,
+          "text": "Four",
+          "x": 430.08
+        },
+        {
+          "baseline": 205.68,
+          "text": "Filled",
+          "x": 78.96
+        },
+        {
+          "baseline": 205.68,
+          "text": "cells",
+          "x": 196.08
+        },
+        {
+          "baseline": 205.68,
+          "text": "do not",
+          "x": 312.96
+        },
+        {
+          "baseline": 205.68,
+          "text": "cover rules",
+          "x": 430.08
+        },
+        {
+          "baseline": 237.12,
+          "text": "Borderless Control",
+          "x": 72.0
+        },
+        {
+          "baseline": 262.56,
+          "text": "A1",
+          "x": 242.24
+        },
+        {
+          "baseline": 262.56,
+          "text": "A2",
+          "x": 357.44
+        },
+        {
+          "baseline": 285.12,
+          "text": "B1",
+          "x": 242.24
+        },
+        {
+          "baseline": 285.12,
+          "text": "B2",
+          "x": 357.44
+        },
+        {
+          "baseline": 315.12,
+          "text": "Adjacent Cell Conflicts",
+          "x": 72.0
+        },
+        {
+          "baseline": 335.52,
+          "text": "The first pair reverses the weak and strong authors; both shared edges should resolve consistently by",
+          "x": 72.0
+        },
+        {
+          "baseline": 348.24,
+          "text": "strength.",
+          "x": 72.0
+        },
+        {
+          "baseline": 371.76,
+          "text": "0.5 pt green right",
+          "x": 78.96
+        },
+        {
+          "baseline": 371.76,
+          "text": "3 pt orange left",
+          "x": 196.08
+        },
+        {
+          "baseline": 371.76,
+          "text": "3 pt violet right",
+          "x": 312.96
+        },
+        {
+          "baseline": 371.76,
+          "text": "0.5 pt blue left",
+          "x": 430.08
+        },
+        {
+          "baseline": 390.48,
+          "text": "The horizontal pair checks that an explicit none does not erase the neighboring visible edge.",
+          "x": 72.0
+        },
+        {
+          "baseline": 414.0,
+          "text": "No bottom border authored here",
+          "x": 197.76
+        },
+        {
+          "baseline": 438.72,
+          "text": "2 pt violet top remains visible",
+          "x": 197.76
+        },
+        {
+          "baseline": 469.44,
+          "text": "Merged-cell Continuity",
+          "x": 72.0
+        },
+        {
+          "baseline": 496.56,
+          "text": "Three-column merged header",
+          "x": 235.66
+        },
+        {
+          "baseline": 519.84,
+          "text": "Upper centre",
+          "x": 233.76
+        },
+        {
+          "baseline": 519.84,
+          "text": "Upper right",
+          "x": 388.56
+        },
+        {
+          "baseline": 525.36,
+          "text": "Rowspan edge stays",
+          "x": 78.96
+        },
+        {
+          "baseline": 537.84,
+          "text": "continuous",
+          "x": 78.96
+        },
+        {
+          "baseline": 543.36,
+          "text": "Colspan lower edge stays continuous",
+          "x": 300.53
+        },
+        {
+          "baseline": 562.32,
+          "text": "PASS: the baseline has one clean 1.5 pt frame and 0.75 pt interior grid; the control has no rules; the",
+          "x": 72.0
+        },
+        {
+          "baseline": 575.04,
+          "text": "stronger adjacent borders win in either authoring direction; the visible violet rule survives its none",
+          "x": 72.0
+        },
+        {
+          "baseline": 587.52,
+          "text": "neighbor; and merged-cell edges contain no gaps or doubled segments.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "bed8e39d9ca05fe64b92a0bfdee7ef7a37e84506b5fda960a02685890390bec0"
+}

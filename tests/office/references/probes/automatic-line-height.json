@@ -1,0 +1,484 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "AUTOMATIC LINE HEIGHT: W ord derives a single line from the font metrics and scales it by",
+          "x": 72.0
+        },
+        {
+          "baseline": 95.76,
+          "text": "the multiple.",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.04,
+          "text": "Helvetica 9 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 117.84,
+          "text": "Helvetica 9 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.64,
+          "text": "Helvetica 9 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 139.44,
+          "text": "Helvetica 9 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 151.92,
+          "text": "Helvetica 9 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 164.4,
+          "text": "Helvetica 9 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 178.56,
+          "text": "Helvetica 11 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 192.0,
+          "text": "Helvetica 11 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 205.2,
+          "text": "Helvetica 11 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 218.4,
+          "text": "Helvetica 11 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 233.52,
+          "text": "Helvetica 11 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 248.64,
+          "text": "Helvetica 11 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 268.8,
+          "text": "Helvetica 16 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 288.0,
+          "text": "Helvetica 16 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 307.44,
+          "text": "Helvetica 16 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 326.64,
+          "text": "Helvetica 16 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 348.72,
+          "text": "Helvetica 16 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 370.8,
+          "text": "Helvetica 16 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 385.68,
+          "text": "Arial 9 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 396.0,
+          "text": "Arial 9 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.32,
+          "text": "Arial 9 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 416.88,
+          "text": "Arial 9 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 428.88,
+          "text": "Arial 9 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 440.64,
+          "text": "Arial 9 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 454.32,
+          "text": "Arial 11 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 466.8,
+          "text": "Arial 11 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 479.52,
+          "text": "Arial 11 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 492.24,
+          "text": "Arial 11 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 506.88,
+          "text": "Arial 11 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 521.28,
+          "text": "Arial 11 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 540.48,
+          "text": "Arial 16 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 558.96,
+          "text": "Arial 16 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 577.44,
+          "text": "Arial 16 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 595.92,
+          "text": "Arial 16 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 617.04,
+          "text": "Arial 16 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 638.16,
+          "text": "Arial 16 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 652.56,
+          "text": "Times New Roman 9 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 662.88,
+          "text": "Times New Roman 9 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 673.2,
+          "text": "Times New Roman 9 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 684.0,
+          "text": "Times New Roman 9 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 695.76,
+          "text": "Times New Roman 9 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.76,
+          "text": "Times New Roman 9 points at 1.15 lines, line 3.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Times New Roman 11 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 94.8,
+          "text": "Times New Roman 11 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.52,
+          "text": "Times New Roman 11 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.24,
+          "text": "Times New Roman 11 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 134.88,
+          "text": "Times New Roman 11 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 149.28,
+          "text": "Times New Roman 11 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 168.72,
+          "text": "Times New Roman 16 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 186.96,
+          "text": "Times New Roman 16 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 205.44,
+          "text": "Times New Roman 16 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 223.92,
+          "text": "Times New Roman 16 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 245.04,
+          "text": "Times New Roman 16 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 266.16,
+          "text": "Times New Roman 16 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 280.56,
+          "text": "Georgia 9 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 290.88,
+          "text": "Georgia 9 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 300.96,
+          "text": "Georgia 9 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 311.28,
+          "text": "Georgia 9 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 323.04,
+          "text": "Georgia 9 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 334.8,
+          "text": "Georgia 9 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 348.24,
+          "text": "Georgia 11 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 360.72,
+          "text": "Georgia 11 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 373.2,
+          "text": "Georgia 11 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 385.68,
+          "text": "Georgia 11 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 400.08,
+          "text": "Georgia 11 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 414.48,
+          "text": "Georgia 11 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 433.44,
+          "text": "Georgia 16 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 451.68,
+          "text": "Georgia 16 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 469.68,
+          "text": "Georgia 16 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 487.92,
+          "text": "Georgia 16 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 508.8,
+          "text": "Georgia 16 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 529.92,
+          "text": "Georgia 16 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 543.6,
+          "text": "Courier New 9 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 553.68,
+          "text": "Courier New 9 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 564.0,
+          "text": "Courier New 9 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 574.32,
+          "text": "Courier New 9 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.08,
+          "text": "Courier New 9 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 597.84,
+          "text": "Courier New 9 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 611.04,
+          "text": "Courier New 11 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 623.52,
+          "text": "Courier New 11 points at 1.0 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 635.76,
+          "text": "Courier New 11 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 648.24,
+          "text": "Courier New 11 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 662.64,
+          "text": "Courier New 11 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 677.04,
+          "text": "Courier New 11 points at 1.15 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 695.52,
+          "text": "Courier New 16 points at 1.0 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 713.76,
+          "text": "Courier New 16 points at 1.0 lines, line 2.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.44,
+          "text": "Courier New 16 points at 1.0 lines, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "Courier New 16 points at 1.15 lines, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 124.32,
+          "text": "Courier New 16 points at 1.15 lines, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 145.2,
+          "text": "Courier New 16 points at 1.15 lines, line 3.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "3eae9c7961be137a7ee52322e9c6e477089be608c772d125d97c21c81938d67c"
+}

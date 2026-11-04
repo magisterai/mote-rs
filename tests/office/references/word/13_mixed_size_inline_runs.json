@@ -1,0 +1,243 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Mixed-Size Inline Runs",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "PDF and PNG should match W ord: runs on the same line share a baseline, and only a line",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.04,
+          "text": "containing larger text grows taller.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.2,
+          "text": "Forced Line Boundaries",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.04,
+          "text": "Eleven-point line before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 182.88,
+          "text": "Eleven-point lead, twenty-four point inline, eleven-point tail.",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.28,
+          "text": "Eleven-point line after with no overlap.",
+          "x": 72.0
+        },
+        {
+          "baseline": 229.68,
+          "text": "Natural W rapping",
+          "x": 72.0
+        },
+        {
+          "baseline": 264.0,
+          "text": "This paragraph wraps normally before and after a large inline",
+          "x": 72.0
+        },
+        {
+          "baseline": 297.12,
+          "text": "segment that establishes its line height",
+          "x": 72.0
+        },
+        {
+          "baseline": 317.52,
+          "text": "while the surrounding wrapped lines remain at the ordinary eleven-point height.",
+          "x": 72.0
+        },
+        {
+          "baseline": 340.8,
+          "text": "The final paragraph must begin below the wrapped paragraph without collision.",
+          "x": 72.0
+        },
+        {
+          "baseline": 366.96,
+          "text": "Pagination Flow",
+          "x": 72.0
+        },
+        {
+          "baseline": 388.8,
+          "text": "The remaining probes deliberately continue onto a second page without a forced page break. A",
+          "x": 72.0
+        },
+        {
+          "baseline": 403.92,
+          "text": "mixed-size line may move as a unit when its measured height does not fit the remaining frame.",
+          "x": 72.0
+        },
+        {
+          "baseline": 438.0,
+          "text": "Flow probe one begins at eleven points, introduces a twenty-two point",
+          "x": 72.0
+        },
+        {
+          "baseline": 468.24,
+          "text": "inline run that controls only its own line, and",
+          "x": 72.0
+        },
+        {
+          "baseline": 487.92,
+          "text": "returns to ordinary text for the following wrapped line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 525.6,
+          "text": "Flow probe two aligns small text with a twenty-six point",
+          "x": 72.0
+        },
+        {
+          "baseline": 561.6,
+          "text": "segment wrapping across two lines",
+          "x": 72.0
+        },
+        {
+          "baseline": 582.96,
+          "text": "before returning to an ordinary eleven-point tail.",
+          "x": 72.0
+        },
+        {
+          "baseline": 609.12,
+          "text": "Boundary Table Cell",
+          "x": 72.0
+        },
+        {
+          "baseline": 637.68,
+          "text": "Eleven-point line before.",
+          "x": 78.0
+        },
+        {
+          "baseline": 665.52,
+          "text": "Eleven-point lead, twenty-four point inline, eleven-point tail.",
+          "x": 78.0
+        },
+        {
+          "baseline": 685.92,
+          "text": "Eleven-point line after with no border collision.",
+          "x": 78.0
+        },
+        {
+          "baseline": 708.0,
+          "text": "Boundary check: the complete table stays on page one.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 73.44,
+          "text": "Flow probe three provides a compact lead, twenty-point text in the",
+          "x": 72.0
+        },
+        {
+          "baseline": 101.04,
+          "text": "middle, and enough trailing text to prove that the next wrapped line returns to the normal",
+          "x": 72.0
+        },
+        {
+          "baseline": 119.76,
+          "text": "line height.",
+          "x": 72.0
+        },
+        {
+          "baseline": 159.6,
+          "text": "Flow probe four places the tallest twenty-eight",
+          "x": 72.0
+        },
+        {
+          "baseline": 198.24,
+          "text": "point inline run near the page",
+          "x": 72.0
+        },
+        {
+          "baseline": 236.88,
+          "text": "boundary so PDF and PNG must reserve the complete measured line before",
+          "x": 72.0
+        },
+        {
+          "baseline": 258.96,
+          "text": "continuing.",
+          "x": 72.0
+        },
+        {
+          "baseline": 285.36,
+          "text": "List Flow",
+          "x": 72.0
+        },
+        {
+          "baseline": 317.76,
+          "text": "• Eleven-point bullet lead with twenty-two point item text",
+          "x": 108.0
+        },
+        {
+          "baseline": 348.24,
+          "text": "on the same baseline and an ordinary wrapped tail below it.",
+          "x": 108.0
+        },
+        {
+          "baseline": 382.32,
+          "text": "• A second bullet begins normally, reaches a twenty-four point",
+          "x": 108.0
+        },
+        {
+          "baseline": 415.68,
+          "text": "inline checkpoint, then finishes without colliding with the next",
+          "x": 108.0
+        },
+        {
+          "baseline": 436.08,
+          "text": "marker.",
+          "x": 108.0
+        },
+        {
+          "baseline": 463.92,
+          "text": "1. Ordered marker alignment is checked beside a twenty-two point",
+          "x": 108.0
+        },
+        {
+          "baseline": 494.4,
+          "text": "first line and its ordinary continuation.",
+          "x": 108.0
+        },
+        {
+          "baseline": 528.72,
+          "text": "2. The final item contains one last twenty-four point",
+          "x": 108.0
+        },
+        {
+          "baseline": 561.84,
+          "text": "run before the closing paragraph.",
+          "x": 108.0
+        },
+        {
+          "baseline": 584.16,
+          "text": "The closing eleven-point paragraph must remain below every mixed-size list item, with no",
+          "x": 72.0
+        },
+        {
+          "baseline": 599.52,
+          "text": "overlap at the bottom of the second page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "d5cc6de3fe3449a323acd4fa7f956b2254e45ce0c3d1a0cc13f4c68e80d0adfb"
+}

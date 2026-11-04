@@ -8,7 +8,7 @@ use std::{
 };
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub(super) enum Application {
+pub(crate) enum Application {
     Word,
     PowerPoint,
 }
@@ -46,7 +46,7 @@ impl Application {
     }
 }
 
-pub(super) struct ReviewCase {
+pub(crate) struct ReviewCase {
     pub identifier: String,
     pub application: Application,
     pub name: String,
@@ -59,7 +59,7 @@ pub(super) struct ReviewCase {
 
 pub(super) const GROUPS: &[&str] = &["fundamentals", "text", "tables", "flow", "media"];
 
-pub(super) fn load() -> ReviewResult<Vec<ReviewCase>> {
+pub(crate) fn load() -> ReviewResult<Vec<ReviewCase>> {
     parse(include_str!("../../../tests/cases/catalogue.json"))
 }
 

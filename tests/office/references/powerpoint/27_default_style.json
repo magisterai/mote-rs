@@ -1,0 +1,269 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 54.72,
+          "text": "Quarterly delivery review",
+          "x": 50.4
+        },
+        {
+          "baseline": 123.84,
+          "text": "Style sample · Demonstration data",
+          "x": 50.4
+        },
+        {
+          "baseline": 174.72,
+          "text": "The same visual language, sized for a presentation.",
+          "x": 50.4
+        },
+        {
+          "baseline": 217.68,
+          "text": "•Give each slide one clear purpose.",
+          "x": 63.9
+        },
+        {
+          "baseline": 239.76,
+          "text": "•Keep body text large enough to read at a distance.",
+          "x": 63.9
+        },
+        {
+          "baseline": 261.84,
+          "text": "•Use a restrained palette and consistent alignment.",
+          "x": 63.9
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 54.72,
+          "text": "Delivery by workstream",
+          "x": 50.4
+        },
+        {
+          "baseline": 140.64,
+          "text": "W orkstream",
+          "x": 60.4
+        },
+        {
+          "baseline": 140.64,
+          "text": "Completed",
+          "x": 378.17
+        },
+        {
+          "baseline": 140.64,
+          "text": "Planned",
+          "x": 617.38
+        },
+        {
+          "baseline": 140.64,
+          "text": "On time",
+          "x": 835.05
+        },
+        {
+          "baseline": 207.84,
+          "text": "Research",
+          "x": 60.4
+        },
+        {
+          "baseline": 207.84,
+          "text": "18",
+          "x": 450.7
+        },
+        {
+          "baseline": 207.84,
+          "text": "20",
+          "x": 665.5
+        },
+        {
+          "baseline": 207.84,
+          "text": "90%",
+          "x": 865.43
+        },
+        {
+          "baseline": 275.04,
+          "text": "Design",
+          "x": 60.4
+        },
+        {
+          "baseline": 275.04,
+          "text": "24",
+          "x": 450.7
+        },
+        {
+          "baseline": 275.04,
+          "text": "24",
+          "x": 665.5
+        },
+        {
+          "baseline": 275.04,
+          "text": "100%",
+          "x": 855.8
+        },
+        {
+          "baseline": 342.24,
+          "text": "Engineering",
+          "x": 60.4
+        },
+        {
+          "baseline": 342.24,
+          "text": "42",
+          "x": 450.7
+        },
+        {
+          "baseline": 342.24,
+          "text": "48",
+          "x": 665.5
+        },
+        {
+          "baseline": 342.24,
+          "text": "88%",
+          "x": 865.43
+        },
+        {
+          "baseline": 409.44,
+          "text": "Quality",
+          "x": 60.4
+        },
+        {
+          "baseline": 409.44,
+          "text": "31",
+          "x": 450.7
+        },
+        {
+          "baseline": 409.44,
+          "text": "34",
+          "x": 665.5
+        },
+        {
+          "baseline": 409.44,
+          "text": "91%",
+          "x": 865.43
+        },
+        {
+          "baseline": 476.64,
+          "text": "Operations",
+          "x": 60.4
+        },
+        {
+          "baseline": 476.64,
+          "text": "16",
+          "x": 450.7
+        },
+        {
+          "baseline": 476.64,
+          "text": "18",
+          "x": 665.5
+        },
+        {
+          "baseline": 476.64,
+          "text": "89%",
+          "x": 865.43
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 54.72,
+          "text": "Quarterly delivery trend",
+          "x": 50.4
+        },
+        {
+          "baseline": 114.0,
+          "text": "120",
+          "x": 86.6
+        },
+        {
+          "baseline": 159.12,
+          "text": "100",
+          "x": 86.6
+        },
+        {
+          "baseline": 204.24,
+          "text": "80",
+          "x": 91.94
+        },
+        {
+          "baseline": 234.04,
+          "text": "s",
+          "x": 79.9
+        },
+        {
+          "baseline": 249.25,
+          "text": "m60",
+          "x": 79.9
+        },
+        {
+          "baseline": 259.04,
+          "text": "e",
+          "x": 79.9
+        },
+        {
+          "baseline": 264.04,
+          "text": "t",
+          "x": 79.9
+        },
+        {
+          "baseline": 269.04,
+          "text": "I",
+          "x": 79.9
+        },
+        {
+          "baseline": 294.48,
+          "text": "40",
+          "x": 91.94
+        },
+        {
+          "baseline": 339.6,
+          "text": "20",
+          "x": 91.94
+        },
+        {
+          "baseline": 384.48,
+          "text": "0",
+          "x": 97.28
+        },
+        {
+          "baseline": 397.68,
+          "text": "Q1",
+          "x": 203.86
+        },
+        {
+          "baseline": 397.68,
+          "text": "Q2",
+          "x": 400.55
+        },
+        {
+          "baseline": 397.68,
+          "text": "Q3",
+          "x": 597.24
+        },
+        {
+          "baseline": 397.68,
+          "text": "Q4",
+          "x": 793.92
+        },
+        {
+          "baseline": 418.56,
+          "text": "Com pleted Planned",
+          "x": 434.76
+        },
+        {
+          "baseline": 460.32,
+          "text": "Illustrative figures. Mote supplies the chart palette and a legend below these two series.",
+          "x": 50.4
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "01e0a7ed94fafd65ce17ad7e474078b66e8cc529340fc3558ebde6eea7ee79d0"
+}

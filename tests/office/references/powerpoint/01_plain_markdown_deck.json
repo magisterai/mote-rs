@@ -1,0 +1,68 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Quarterly Review",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "•ARR grew 18%",
+          "x": 63.9
+        },
+        {
+          "baseline": 138.72,
+          "text": "•Churn declined",
+          "x": 63.9
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Roadmap",
+          "x": 50.4
+        },
+        {
+          "baseline": 121.44,
+          "text": "Area",
+          "x": 57.6
+        },
+        {
+          "baseline": 121.44,
+          "text": "Status",
+          "x": 668.31
+        },
+        {
+          "baseline": 255.84,
+          "text": "DOCX",
+          "x": 57.6
+        },
+        {
+          "baseline": 255.84,
+          "text": "Working",
+          "x": 663.28
+        },
+        {
+          "baseline": 390.24,
+          "text": "PPTX",
+          "x": 57.6
+        },
+        {
+          "baseline": 390.24,
+          "text": "Starting",
+          "x": 664.65
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "873eb2ccd3b771b48b4380fcce86334abfeda52847130ed3d8149554930c8388"
+}

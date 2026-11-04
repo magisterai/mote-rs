@@ -1,0 +1,184 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 32.16,
+          "text": "DEFAULT PORTRAIT HEADER",
+          "x": 60.0
+        },
+        {
+          "baseline": 80.16,
+          "text": "Section Transition",
+          "x": 60.0
+        },
+        {
+          "baseline": 105.12,
+          "text": "SECTION A — PORTRAIT SINGLE COLUMN — default header and footer — displayed page 1.",
+          "x": 60.0
+        },
+        {
+          "baseline": 124.08,
+          "text": "A-01 remains in the initial implicit portrait section.",
+          "x": 60.0
+        },
+        {
+          "baseline": 142.8,
+          "text": "SECTION B — CONTINUOUS PORTRAIT TW O",
+          "x": 60.0
+        },
+        {
+          "baseline": 157.92,
+          "text": "COLUMNS — begins on the same physical page",
+          "x": 60.0
+        },
+        {
+          "baseline": 173.04,
+          "text": "and retains the default header and footer.",
+          "x": 60.0
+        },
+        {
+          "baseline": 192.0,
+          "text": "B-01 — first narrow-column marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 210.96,
+          "text": "B-02 — second narrow-column marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 229.92,
+          "text": "B-03 — third narrow-column marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 249.12,
+          "text": "B-04 — fourth narrow-column marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 268.08,
+          "text": "B-05 — fifth narrow-column marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 287.04,
+          "text": "B-06 — sixth narrow-column marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 766.08,
+          "text": "DEFAULT PORTRAIT FOOTER — DISPLAYED PAGE 1",
+          "x": 204.43
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 612.0,
+      "lines": [
+        {
+          "baseline": 28.08,
+          "text": "LOCAL LANDSCAPE HEADER",
+          "x": 54.0
+        },
+        {
+          "baseline": 60.0,
+          "text": "SECTION C — NEXT-PAGE LANDSCAPE TW O COLUMNS — local",
+          "x": 54.0
+        },
+        {
+          "baseline": 75.12,
+          "text": "header and footer — numbering restarts at displayed page 1.",
+          "x": 54.0
+        },
+        {
+          "baseline": 94.08,
+          "text": "C-01 — landscape flow marker.",
+          "x": 54.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "C-02 — landscape flow marker.",
+          "x": 54.0
+        },
+        {
+          "baseline": 132.0,
+          "text": "C-03 — landscape flow marker.",
+          "x": 54.0
+        },
+        {
+          "baseline": 150.96,
+          "text": "C-04 — landscape flow marker.",
+          "x": 54.0
+        },
+        {
+          "baseline": 169.92,
+          "text": "C-05 — landscape flow marker.",
+          "x": 54.0
+        },
+        {
+          "baseline": 189.12,
+          "text": "C-06 — landscape flow marker.",
+          "x": 54.0
+        },
+        {
+          "baseline": 207.84,
+          "text": "C-END — the next section requests a new physical page and restores",
+          "x": 54.0
+        },
+        {
+          "baseline": 222.96,
+          "text": "portrait single-column geometry.",
+          "x": 54.0
+        },
+        {
+          "baseline": 590.16,
+          "text": "LOCAL LANDSCAPE FOOTER — DISPLAYED PAGE 1",
+          "x": 295.53
+        }
+      ],
+      "width": 792.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 32.16,
+          "text": "DEFAULT PORTRAIT HEADER",
+          "x": 60.0
+        },
+        {
+          "baseline": 72.0,
+          "text": "SECTION D — NEXT-PAGE PORTRAIT SINGLE COLUMN — default header and footer restored — displayed",
+          "x": 60.0
+        },
+        {
+          "baseline": 87.12,
+          "text": "page 2 after the landscape restart.",
+          "x": 60.0
+        },
+        {
+          "baseline": 105.84,
+          "text": "PASS: physical pages are portrait, landscape, portrait; section B begins continuously on page 1; section C",
+          "x": 60.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "replaces the header and footer; section D restores the defaults; numbering restarts only for section C.",
+          "x": 60.0
+        },
+        {
+          "baseline": 766.08,
+          "text": "DEFAULT PORTRAIT FOOTER — DISPLAYED PAGE 2",
+          "x": 204.43
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "7cd2f43b317665095228eebbaa2be8a9c9bbdbaade1103a07581ba3cf40690c9"
+}

@@ -1,0 +1,127 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 57.6,
+          "text": "W arning Authority",
+          "x": 54.0
+        },
+        {
+          "baseline": 78.72,
+          "text": "Legacy flat paragraph styles are intentional: inherited font and size, direct bold and colour, and flat",
+          "x": 54.0
+        },
+        {
+          "baseline": 92.64,
+          "text": "spacing must not warn.",
+          "x": 54.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "!",
+          "x": 320.55
+        },
+        {
+          "baseline": 109.92,
+          "text": "!",
+          "x": 343.01
+        },
+        {
+          "baseline": 109.92,
+          "text": "!",
+          "x": 365.83
+        },
+        {
+          "baseline": 113.52,
+          "text": "Reference fallback: W arning Authority. Inline math source: 𝑥 + 𝑦 = 𝑧 .",
+          "x": 54.0
+        },
+        {
+          "baseline": 130.8,
+          "text": "1",
+          "x": 297.6
+        },
+        {
+          "baseline": 130.8,
+          "text": "i",
+          "x": 342.72
+        },
+        {
+          "baseline": 133.2,
+          "text": "Notes remain readable in native page outputs: footnote , endnote, and commented text.",
+          "x": 54.0
+        },
+        {
+          "baseline": 153.12,
+          "text": "The asymmetric logo requests crop, rotation, horizontal flip, and vertical flip. W ord applies them; native",
+          "x": 54.0
+        },
+        {
+          "baseline": 166.8,
+          "text": "page outputs warn once per property until transform support lands.",
+          "x": 54.0
+        },
+        {
+          "baseline": 256.32,
+          "text": "Native DOCX Chart",
+          "x": 90.68
+        },
+        {
+          "baseline": 276.0,
+          "text": "10",
+          "x": 60.5
+        },
+        {
+          "baseline": 295.44,
+          "text": "5",
+          "x": 64.06
+        },
+        {
+          "baseline": 314.64,
+          "text": "0",
+          "x": 64.06
+        },
+        {
+          "baseline": 327.84,
+          "text": "A",
+          "x": 107.65
+        },
+        {
+          "baseline": 327.84,
+          "text": "B",
+          "x": 173.11
+        },
+        {
+          "baseline": 327.84,
+          "text": "C",
+          "x": 238.33
+        },
+        {
+          "baseline": 354.0,
+          "text": "PASS: DOCX has native semantics; PDF and PNG remain visually readable and report each deliberate",
+          "x": 54.0
+        },
+        {
+          "baseline": 367.68,
+          "text": "degradation exactly once.",
+          "x": 54.0
+        },
+        {
+          "baseline": 409.44,
+          "text": "i Endnote content for W ord.",
+          "x": 54.0
+        },
+        {
+          "baseline": 737.76,
+          "text": "1 Footnote content for W ord.",
+          "x": 54.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "a54dfa312161aed76948ef9daa948e0c00c2dba74a303b1fda8aba3cbc93cc0a"
+}

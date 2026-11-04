@@ -1,0 +1,32 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 157.44,
+          "text": "Quarterly Review",
+          "x": 294.93
+        },
+        {
+          "baseline": 173.28,
+          "text": "2",
+          "x": 336.78
+        },
+        {
+          "baseline": 178.32,
+          "text": "Total Removed H O x Review NOTICESPAN STYLES",
+          "x": 175.52
+        },
+        {
+          "baseline": 181.44,
+          "text": "2",
+          "x": 305.66
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "5be7c47b5fc1c80ab29abbd62d228c632733ce52b1dd1049f44f7d2fc6569540"
+}

@@ -1,0 +1,132 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Inline Code Font",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "DOCX, PDF, and PNG should use the declared character style and Andale Mono face for",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.56,
+          "text": "ordinary markdown code instead of silently substituting a backend-specific Courier fallback.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.44,
+          "text": "Implicit Inherited Code Style",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.28,
+          "text": "The four samples below must have identical glyph shapes, character widths, regular weight,",
+          "x": 72.0
+        },
+        {
+          "baseline": 169.92,
+          "text": "size, and purple color. Code inherits its font and size from CodeBase, explicitly disables the",
+          "x": 72.0
+        },
+        {
+          "baseline": 184.8,
+          "text": "base bold setting, and the nested outer span must not override those character-style properties.",
+          "x": 72.0
+        },
+        {
+          "baseline": 217.44,
+          "text": "Reference span",
+          "x": 79.92
+        },
+        {
+          "baseline": 216.48,
+          "text": "iiii WWWW 0000 abcd 1234",
+          "x": 198.72
+        },
+        {
+          "baseline": 248.88,
+          "text": "Markdown",
+          "x": 79.92
+        },
+        {
+          "baseline": 247.92,
+          "text": "iiii WWWW 0000 abcd 1234",
+          "x": 198.72
+        },
+        {
+          "baseline": 263.76,
+          "text": "backticks",
+          "x": 79.92
+        },
+        {
+          "baseline": 295.2,
+          "text": "Code directive",
+          "x": 79.92
+        },
+        {
+          "baseline": 294.24,
+          "text": "iiii WWWW 0000 abcd 1234",
+          "x": 198.72
+        },
+        {
+          "baseline": 326.32,
+          "text": "Nested outer span iiii WWWW 0000 abcd 1234",
+          "x": 79.92
+        },
+        {
+          "baseline": 361.68,
+          "text": "Explicit Alternate Style",
+          "x": 72.0
+        },
+        {
+          "baseline": 383.28,
+          "text": "An explicit derived character style must replace the implicit Code style instead of being",
+          "x": 72.0
+        },
+        {
+          "baseline": 397.92,
+          "text": "overwritten afterward. These two green samples must match one another and retain the",
+          "x": 72.0
+        },
+        {
+          "baseline": 412.8,
+          "text": "monospace face inherited from CodeBase.",
+          "x": 72.0
+        },
+        {
+          "baseline": 445.44,
+          "text": "Reference span",
+          "x": 79.92
+        },
+        {
+          "baseline": 445.52,
+          "text": "alpha beta 42",
+          "x": 198.72
+        },
+        {
+          "baseline": 477.12,
+          "text": "Styled code",
+          "x": 79.92
+        },
+        {
+          "baseline": 477.2,
+          "text": "alpha beta 42",
+          "x": 198.72
+        },
+        {
+          "baseline": 501.12,
+          "text": "The surrounding body text remains in the normal proportional face.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "501d19c2ffa67993b2dc73cbb5ea8313a992303e31c7eef7f78ee1f284b9cc48"
+}

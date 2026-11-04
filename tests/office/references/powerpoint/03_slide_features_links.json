@@ -1,0 +1,83 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Linked Slide",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "Review the dashboard before the meeting.",
+          "x": 50.4
+        },
+        {
+          "baseline": 330.24,
+          "text": "Owner",
+          "x": 57.6
+        },
+        {
+          "baseline": 330.24,
+          "text": "Status",
+          "x": 668.31
+        },
+        {
+          "baseline": 427.44,
+          "text": "Product",
+          "x": 57.6
+        },
+        {
+          "baseline": 427.44,
+          "text": "Ready",
+          "x": 670.67
+        },
+        {
+          "baseline": 518.88,
+          "text": "Internal review",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "November 4, 2026",
+          "x": 440.63
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Slide Overrides",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "The footer is suppressed here while the fixed date remains visible.",
+          "x": 50.4
+        },
+        {
+          "baseline": 518.88,
+          "text": "May 2026",
+          "x": 459.38
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "6a84f5ce66dd7a441db2e71a3a3968a86d6e01806ae9181e58cc4ef9bdf45bb4"
+}

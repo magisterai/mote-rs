@@ -1,0 +1,152 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 86.4,
+          "text": "EXACT LINE BASELINE: W ord places an exact line's baseline at four fifths of its height.",
+          "x": 72.0
+        },
+        {
+          "baseline": 99.6,
+          "text": "9-POINT TEXT IN 12-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 111.6,
+          "text": "9-POINT TEXT IN 12-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 123.6,
+          "text": "9-POINT TEXT IN 12-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.4,
+          "text": "9-POINT TEXT IN 18-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.4,
+          "text": "9-POINT TEXT IN 18-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 176.4,
+          "text": "9-POINT TEXT IN 18-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 208.8,
+          "text": "9-POINT TEXT IN 36-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 244.8,
+          "text": "9-POINT TEXT IN 36-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 280.8,
+          "text": "9-POINT TEXT IN 36-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 297.6,
+          "text": "11-POINT TEXT IN 12-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 309.6,
+          "text": "11-POINT TEXT IN 12-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 321.6,
+          "text": "11-POINT TEXT IN 12-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 338.4,
+          "text": "11-POINT TEXT IN 18-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 356.4,
+          "text": "11-POINT TEXT IN 18-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 374.4,
+          "text": "11-POINT TEXT IN 18-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "11-POINT TEXT IN 36-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "11-POINT TEXT IN 36-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 478.8,
+          "text": "11-POINT TEXT IN 36-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 495.6,
+          "text": "20-POINT TEXT IN 12-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 507.6,
+          "text": "20-POINT TEXT IN 12-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 519.6,
+          "text": "20-POINT TEXT IN 12-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 536.4,
+          "text": "20-POINT TEXT IN 18-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 554.4,
+          "text": "20-POINT TEXT IN 18-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 572.4,
+          "text": "20-POINT TEXT IN 18-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 604.8,
+          "text": "20-POINT TEXT IN 36-POINT EXACT LINES, line 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 640.8,
+          "text": "20-POINT TEXT IN 36-POINT EXACT LINES, line 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.8,
+          "text": "20-POINT TEXT IN 36-POINT EXACT LINES, line 3.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "77b76ff6891466a16902111bba1ad6866ccf547dceef2f18ce95ca39a488fd7d"
+}

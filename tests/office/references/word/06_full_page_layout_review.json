@@ -1,0 +1,801 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Full Page Layout Review   Page 1 of 5",
+          "x": 61.92
+        },
+        {
+          "baseline": 74.16,
+          "text": "Full Page Layout Review",
+          "x": 61.92
+        },
+        {
+          "baseline": 99.6,
+          "text": "This docum ent exercises page-level features that should com pare reasonably between PDF",
+          "x": 61.92
+        },
+        {
+          "baseline": 114.24,
+          "text": "and W ord: m argins, headers, footers, page num bers, explicit page breaks, and a two-",
+          "x": 61.92
+        },
+        {
+          "baseline": 128.88,
+          "text": "colum n section.",
+          "x": 61.92
+        },
+        {
+          "baseline": 153.36,
+          "text": "Page One",
+          "x": 61.92
+        },
+        {
+          "baseline": 177.36,
+          "text": "The first page uses docum ent-level header and footer defaults. Body text should begin",
+          "x": 61.92
+        },
+        {
+          "baseline": 192.0,
+          "text": "below the header, and the footer should stay outside the norm al content flow.",
+          "x": 61.92
+        },
+        {
+          "baseline": 219.36,
+          "text": "Region Expected Behavior",
+          "x": 68.16
+        },
+        {
+          "baseline": 242.4,
+          "text": "Header Left label plus right page count",
+          "x": 68.16
+        },
+        {
+          "baseline": 265.68,
+          "text": "Footer Left com parison text plus right status",
+          "x": 68.16
+        },
+        {
+          "baseline": 288.72,
+          "text": "Body",
+          "x": 68.16
+        },
+        {
+          "baseline": 288.72,
+          "text": "Norm al m arkdown flow",
+          "x": 121.2
+        },
+        {
+          "baseline": 307.92,
+          "text": "The body should rem ain visually calm . Line lengths should be com fortable, and the table",
+          "x": 61.92
+        },
+        {
+          "baseline": 322.56,
+          "text": "should use its natural width instead of stretching across the full text area when no width is",
+          "x": 61.92
+        },
+        {
+          "baseline": 337.44,
+          "text": "requested.",
+          "x": 61.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Mote PDF/DOCX com parison",
+          "x": 61.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Draft",
+          "x": 245.61
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Full Page Layout Review   Page 2 of 5",
+          "x": 61.92
+        },
+        {
+          "baseline": 70.56,
+          "text": "Page Tw o",
+          "x": 61.92
+        },
+        {
+          "baseline": 94.56,
+          "text": "The second page confirm s that page num bers advance and that docum ent-level headers",
+          "x": 61.92
+        },
+        {
+          "baseline": 109.2,
+          "text": "and footers continue after an explicit break.",
+          "x": 61.92
+        },
+        {
+          "baseline": 131.76,
+          "text": "Paragraphs on this page are deliberately long enough to exercise line wrapping. The PDF",
+          "x": 61.92
+        },
+        {
+          "baseline": 146.4,
+          "text": "backend should produce readable final output, while the DOCX backend should preserve",
+          "x": 61.92
+        },
+        {
+          "baseline": 161.28,
+          "text": "editable paragraphs, tables, and styles.",
+          "x": 61.92
+        },
+        {
+          "baseline": 183.84,
+          "text": "• Header rem ains visible.",
+          "x": 97.92
+        },
+        {
+          "baseline": 200.64,
+          "text": "• Footer rem ains visible.",
+          "x": 97.92
+        },
+        {
+          "baseline": 217.2,
+          "text": "• Page num ber increm ents.",
+          "x": 97.92
+        },
+        {
+          "baseline": 233.76,
+          "text": "• Markdown content is still just m arkdown.",
+          "x": 97.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Mote PDF/DOCX com parison",
+          "x": 61.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Draft",
+          "x": 245.61
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Full Page Layout Review   Page 3 of 5",
+          "x": 61.92
+        },
+        {
+          "baseline": 70.56,
+          "text": "Left Colum n",
+          "x": 61.92
+        },
+        {
+          "baseline": 70.56,
+          "text": "Right Colum n",
+          "x": 321.12
+        },
+        {
+          "baseline": 94.56,
+          "text": "This section starts on a new page and",
+          "x": 61.92
+        },
+        {
+          "baseline": 94.56,
+          "text": "The right colum n starts after a colum n",
+          "x": 321.12
+        },
+        {
+          "baseline": 109.2,
+          "text": "changes only the local section layout. The",
+          "x": 61.92
+        },
+        {
+          "baseline": 109.2,
+          "text": "break. This should m ake the colum n",
+          "x": 321.12
+        },
+        {
+          "baseline": 123.84,
+          "text": "source body rem ains m arkdown-like, with",
+          "x": 61.92
+        },
+        {
+          "baseline": 123.84,
+          "text": "behavior obvious in both PDF and W ord",
+          "x": 321.12
+        },
+        {
+          "baseline": 138.48,
+          "text": "directives carrying only the section-level",
+          "x": 61.92
+        },
+        {
+          "baseline": 138.48,
+          "text": "desktop rendering.",
+          "x": 321.12
+        },
+        {
+          "baseline": 153.12,
+          "text": "intent.",
+          "x": 61.92
+        },
+        {
+          "baseline": 161.28,
+          "text": "Column-local blockquotes should keep",
+          "x": 357.12
+        },
+        {
+          "baseline": 175.92,
+          "text": "The left colum n contains prose and a",
+          "x": 61.92
+        },
+        {
+          "baseline": 176.4,
+          "text": "their shape without leaking into the",
+          "x": 357.12
+        },
+        {
+          "baseline": 190.56,
+          "text": "nested list. The flow should rem ain",
+          "x": 61.92
+        },
+        {
+          "baseline": 191.52,
+          "text": "other column.",
+          "x": 357.12
+        },
+        {
+          "baseline": 205.2,
+          "text": "readable, with nested item s indented",
+          "x": 61.92
+        },
+        {
+          "baseline": 212.64,
+          "text": "A short closing paragraph finishes the",
+          "x": 321.12
+        },
+        {
+          "baseline": 219.84,
+          "text": "enough to show hierarchy without wasting",
+          "x": 61.92
+        },
+        {
+          "baseline": 227.52,
+          "text": "section and lets us see whether the next",
+          "x": 321.12
+        },
+        {
+          "baseline": 234.48,
+          "text": "space.",
+          "x": 61.92
+        },
+        {
+          "baseline": 242.16,
+          "text": "generated page returns to a norm al one-",
+          "x": 321.12
+        },
+        {
+          "baseline": 257.28,
+          "text": "• First topic",
+          "x": 97.92
+        },
+        {
+          "baseline": 256.8,
+          "text": "colum n context when requested.",
+          "x": 321.12
+        },
+        {
+          "baseline": 273.84,
+          "text": "• Supporting point",
+          "x": 115.92
+        },
+        {
+          "baseline": 290.64,
+          "text": "• Supporting point with strong",
+          "x": 115.92
+        },
+        {
+          "baseline": 305.28,
+          "text": "text",
+          "x": 115.92
+        },
+        {
+          "baseline": 321.84,
+          "text": "• Second topic",
+          "x": 97.92
+        },
+        {
+          "baseline": 338.64,
+          "text": "• Third topic",
+          "x": 97.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Mote PDF/DOCX com parison",
+          "x": 61.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Draft",
+          "x": 245.61
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Full Page Layout Review   Page 4 of 5",
+          "x": 61.92
+        },
+        {
+          "baseline": 68.64,
+          "text": "• The separator should span the",
+          "x": 357.12
+        },
+        {
+          "baseline": 70.56,
+          "text": "Colum n Fill Review",
+          "x": 61.92
+        },
+        {
+          "baseline": 83.28,
+          "text": "occupied content area.",
+          "x": 357.12
+        },
+        {
+          "baseline": 94.56,
+          "text": "This page uses the sam e local section",
+          "x": 61.92
+        },
+        {
+          "baseline": 99.84,
+          "text": "• Overflow should advance to the",
+          "x": 357.12
+        },
+        {
+          "baseline": 109.2,
+          "text": "layout without an explicit colum n break.",
+          "x": 61.92
+        },
+        {
+          "baseline": 114.48,
+          "text": "next colum n before creating a new",
+          "x": 357.12
+        },
+        {
+          "baseline": 123.84,
+          "text": "The text should begin in the left colum n,",
+          "x": 61.92
+        },
+        {
+          "baseline": 129.36,
+          "text": "page.",
+          "x": 357.12
+        },
+        {
+          "baseline": 138.48,
+          "text": "continue downward, and then flow",
+          "x": 61.92
+        },
+        {
+          "baseline": 150.96,
+          "text": "Operating Detail",
+          "x": 321.12
+        },
+        {
+          "baseline": 153.12,
+          "text": "naturally into the right colum n once the",
+          "x": 61.92
+        },
+        {
+          "baseline": 167.76,
+          "text": "first colum n is full enough. The purpose is",
+          "x": 61.92
+        },
+        {
+          "baseline": 174.48,
+          "text": "The renderer should avoid inserting em pty",
+          "x": 321.12
+        },
+        {
+          "baseline": 182.64,
+          "text": "to m ake autom atic colum n fill easy to",
+          "x": 61.92
+        },
+        {
+          "baseline": 189.12,
+          "text": "paragraphs around a colum n break or",
+          "x": 321.12
+        },
+        {
+          "baseline": 197.28,
+          "text": "com pare across PDF and W ord.",
+          "x": 61.92
+        },
+        {
+          "baseline": 203.76,
+          "text": "section boundary. Blank source lines are",
+          "x": 321.12
+        },
+        {
+          "baseline": 219.84,
+          "text": "The content is ordinary m arkdown. It",
+          "x": 61.92
+        },
+        {
+          "baseline": 218.4,
+          "text": "just source structure; they should not",
+          "x": 321.12
+        },
+        {
+          "baseline": 234.48,
+          "text": "should not require a table, a positioned",
+          "x": 61.92
+        },
+        {
+          "baseline": 233.04,
+          "text": "becom e visible vertical gaps when",
+          "x": 321.12
+        },
+        {
+          "baseline": 249.12,
+          "text": "text box, or any backend-specific hint. A",
+          "x": 61.92
+        },
+        {
+          "baseline": 247.68,
+          "text": "adjacent to layout control directives.",
+          "x": 321.12
+        },
+        {
+          "baseline": 264.0,
+          "text": "reader should see a norm al report page",
+          "x": 61.92
+        },
+        {
+          "baseline": 270.48,
+          "text": "This page also checks that header and",
+          "x": 321.12
+        },
+        {
+          "baseline": 278.64,
+          "text": "that happens to use two colum ns for",
+          "x": 61.92
+        },
+        {
+          "baseline": 285.12,
+          "text": "footer content rem ain outside the norm al",
+          "x": 321.12
+        },
+        {
+          "baseline": 293.28,
+          "text": "denser policy-style text.",
+          "x": 61.92
+        },
+        {
+          "baseline": 299.76,
+          "text": "body flow. The page count should rem ain",
+          "x": 321.12
+        },
+        {
+          "baseline": 314.4,
+          "text": "correct even when a section changes",
+          "x": 321.12
+        },
+        {
+          "baseline": 316.8,
+          "text": "Review Notes",
+          "x": 61.92
+        },
+        {
+          "baseline": 329.28,
+          "text": "colum n count locally.",
+          "x": 321.12
+        },
+        {
+          "baseline": 340.32,
+          "text": "Paragraphs in this section are intentionally",
+          "x": 61.92
+        },
+        {
+          "baseline": 351.84,
+          "text": "A second group of paragraphs continues",
+          "x": 321.12
+        },
+        {
+          "baseline": 354.96,
+          "text": "com pact but not cram ped. W e want",
+          "x": 61.92
+        },
+        {
+          "baseline": 366.48,
+          "text": "the fill test. Progressive authoring m eans",
+          "x": 321.12
+        },
+        {
+          "baseline": 369.84,
+          "text": "enough body copy to exercise wrapping,",
+          "x": 61.92
+        },
+        {
+          "baseline": 381.12,
+          "text": "the source can begin as m arkdown, then",
+          "x": 321.12
+        },
+        {
+          "baseline": 384.48,
+          "text": "paragraph spacing, list indentation, and",
+          "x": 61.92
+        },
+        {
+          "baseline": 395.76,
+          "text": "add a font, header, footer, section, or",
+          "x": 321.12
+        },
+        {
+          "baseline": 399.12,
+          "text": "the colum n separator without m aking the",
+          "x": 61.92
+        },
+        {
+          "baseline": 410.64,
+          "text": "table only when the docum ent needs it.",
+          "x": 321.12
+        },
+        {
+          "baseline": 413.76,
+          "text": "fixture feel artificial.",
+          "x": 61.92
+        },
+        {
+          "baseline": 425.28,
+          "text": "The author should not have to rewrite",
+          "x": 321.12
+        },
+        {
+          "baseline": 436.56,
+          "text": "Mote should keep each paragraph editable",
+          "x": 61.92
+        },
+        {
+          "baseline": 439.92,
+          "text": "ordinary body text just because a later",
+          "x": 321.12
+        },
+        {
+          "baseline": 451.2,
+          "text": "in W ord and visually stable in PDF. The",
+          "x": 61.92
+        },
+        {
+          "baseline": 454.56,
+          "text": "output form at is added.",
+          "x": 321.12
+        },
+        {
+          "baseline": 465.84,
+          "text": "exact line breaks m ay differ because the",
+          "x": 61.92
+        },
+        {
+          "baseline": 477.36,
+          "text": "W hen the flow reaches the right colum n,",
+          "x": 321.12
+        },
+        {
+          "baseline": 480.48,
+          "text": "renderers use different text engines, but",
+          "x": 61.92
+        },
+        {
+          "baseline": 492.0,
+          "text": "the first visible line in that colum n should",
+          "x": 321.12
+        },
+        {
+          "baseline": 495.12,
+          "text": "the overall density and rhythm should stay",
+          "x": 61.92
+        },
+        {
+          "baseline": 506.64,
+          "text": "align with the top of the content area, not",
+          "x": 321.12
+        },
+        {
+          "baseline": 509.76,
+          "text": "close enough that layout differences are",
+          "x": 61.92
+        },
+        {
+          "baseline": 521.28,
+          "text": "with an accidental blank paragraph. The",
+          "x": 321.12
+        },
+        {
+          "baseline": 524.4,
+          "text": "m eaningful.",
+          "x": 61.92
+        },
+        {
+          "baseline": 535.92,
+          "text": "colum n should feel like a continuation of",
+          "x": 321.12
+        },
+        {
+          "baseline": 547.2,
+          "text": "A two-colum n page is a useful stress case",
+          "x": 61.92
+        },
+        {
+          "baseline": 550.56,
+          "text": "the page, not like a separately positioned",
+          "x": 321.12
+        },
+        {
+          "baseline": 561.84,
+          "text": "because sm all spacing decisions becom e",
+          "x": 61.92
+        },
+        {
+          "baseline": 565.2,
+          "text": "object.",
+          "x": 321.12
+        },
+        {
+          "baseline": 576.48,
+          "text": "visible quickly. Heading spacing,",
+          "x": 61.92
+        },
+        {
+          "baseline": 588.0,
+          "text": "The final paragraphs provide enough",
+          "x": 321.12
+        },
+        {
+          "baseline": 591.12,
+          "text": "paragraph leading, list indentation, and",
+          "x": 61.92
+        },
+        {
+          "baseline": 602.64,
+          "text": "m aterial to m ake page fill visible on typical",
+          "x": 321.12
+        },
+        {
+          "baseline": 606.0,
+          "text": "blockquote m argins all com pound when a",
+          "x": 61.92
+        },
+        {
+          "baseline": 617.28,
+          "text": "letter-sized output. They are deliberately",
+          "x": 321.12
+        },
+        {
+          "baseline": 620.64,
+          "text": "colum n is narrow.",
+          "x": 61.92
+        },
+        {
+          "baseline": 631.92,
+          "text": "plain so the fixture isolates colum n",
+          "x": 321.12
+        },
+        {
+          "baseline": 643.2,
+          "text": "• Colum n content should start at the",
+          "x": 97.92
+        },
+        {
+          "baseline": 646.56,
+          "text": "m echanics rather than testing every",
+          "x": 321.12
+        },
+        {
+          "baseline": 657.84,
+          "text": "sam e vertical position as the section",
+          "x": 97.92
+        },
+        {
+          "baseline": 661.44,
+          "text": "elem ent at once.",
+          "x": 321.12
+        },
+        {
+          "baseline": 672.48,
+          "text": "body.",
+          "x": 97.92
+        },
+        {
+          "baseline": 689.28,
+          "text": "• Nested list item s should rem ain",
+          "x": 97.92
+        },
+        {
+          "baseline": 703.92,
+          "text": "readable.",
+          "x": 97.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Mote PDF/DOCX com parison",
+          "x": 61.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Draft",
+          "x": 245.61
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 38.64,
+          "text": "Full Page Layout Review   Page 5 of 5",
+          "x": 61.92
+        },
+        {
+          "baseline": 74.16,
+          "text": "Final One Colum n Page",
+          "x": 61.92
+        },
+        {
+          "baseline": 99.6,
+          "text": "This final section returns to one colum n. The header and footer still apply, and the content",
+          "x": 61.92
+        },
+        {
+          "baseline": 114.24,
+          "text": "should not inherit the previous section's colum n count.",
+          "x": 61.92
+        },
+        {
+          "baseline": 136.8,
+          "text": "The point of this fixture is not perfect pagination parity. The goal is to m ake layout",
+          "x": 61.92
+        },
+        {
+          "baseline": 151.44,
+          "text": "differences obvious enough that we can decide which differences are acceptable and which",
+          "x": 61.92
+        },
+        {
+          "baseline": 166.08,
+          "text": "ones are backend bugs.",
+          "x": 61.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Mote PDF/DOCX com parison",
+          "x": 61.92
+        },
+        {
+          "baseline": 750.0,
+          "text": "Draft",
+          "x": 245.61
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "544c09a66fba7a6361704dac7d2773b6e2b1c3fef02e02217ae0e312e38fd36b"
+}

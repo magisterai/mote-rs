@@ -1,0 +1,368 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 74.64,
+          "text": "W ord Chart Defaults",
+          "x": 66.0
+        },
+        {
+          "baseline": 102.72,
+          "text": "No chart in this fixture authors colors or legend.",
+          "x": 66.0
+        },
+        {
+          "baseline": 129.12,
+          "text": "Multi-Series Column: Bottom Legend",
+          "x": 66.0
+        },
+        {
+          "baseline": 163.68,
+          "text": "Monthly Output",
+          "x": 228.17
+        },
+        {
+          "baseline": 183.36,
+          "text": "60",
+          "x": 102.2
+        },
+        {
+          "baseline": 204.14,
+          "text": "s",
+          "x": 95.3
+        },
+        {
+          "baseline": 207.12,
+          "text": "40",
+          "x": 102.2
+        },
+        {
+          "baseline": 209.15,
+          "text": "t",
+          "x": 95.3
+        },
+        {
+          "baseline": 213.15,
+          "text": "i",
+          "x": 95.3
+        },
+        {
+          "baseline": 223.16,
+          "text": "n",
+          "x": 95.3
+        },
+        {
+          "baseline": 230.88,
+          "text": "20",
+          "x": 102.2
+        },
+        {
+          "baseline": 236.16,
+          "text": "U",
+          "x": 95.3
+        },
+        {
+          "baseline": 254.64,
+          "text": "0",
+          "x": 105.76
+        },
+        {
+          "baseline": 267.6,
+          "text": "Jan",
+          "x": 152.13
+        },
+        {
+          "baseline": 267.6,
+          "text": "Feb",
+          "x": 228.03
+        },
+        {
+          "baseline": 267.6,
+          "text": "Mar",
+          "x": 304.46
+        },
+        {
+          "baseline": 267.6,
+          "text": "Apr",
+          "x": 381.6
+        },
+        {
+          "baseline": 267.6,
+          "text": "May",
+          "x": 457.21
+        },
+        {
+          "baseline": 289.68,
+          "text": "Month",
+          "x": 284.96
+        },
+        {
+          "baseline": 318.24,
+          "text": "Actual Plan Stretch",
+          "x": 253.63
+        },
+        {
+          "baseline": 344.64,
+          "text": "Expected: blue, green, and amber series with the legend below the plot.",
+          "x": 66.0
+        },
+        {
+          "baseline": 370.08,
+          "text": "Multi-Series Line: Top Legend",
+          "x": 66.0
+        },
+        {
+          "baseline": 404.64,
+          "text": "Monthly Trend",
+          "x": 231.68
+        },
+        {
+          "baseline": 428.4,
+          "text": "Actual",
+          "x": 245.17
+        },
+        {
+          "baseline": 428.4,
+          "text": "Plan",
+          "x": 293.97
+        },
+        {
+          "baseline": 428.4,
+          "text": "Stretch",
+          "x": 336.99
+        },
+        {
+          "baseline": 448.56,
+          "text": "60",
+          "x": 102.2
+        },
+        {
+          "baseline": 469.34,
+          "text": "s",
+          "x": 95.3
+        },
+        {
+          "baseline": 472.32,
+          "text": "40",
+          "x": 102.2
+        },
+        {
+          "baseline": 474.35,
+          "text": "t",
+          "x": 95.3
+        },
+        {
+          "baseline": 478.35,
+          "text": "i",
+          "x": 95.3
+        },
+        {
+          "baseline": 488.36,
+          "text": "n",
+          "x": 95.3
+        },
+        {
+          "baseline": 496.08,
+          "text": "20",
+          "x": 102.2
+        },
+        {
+          "baseline": 501.36,
+          "text": "U",
+          "x": 95.3
+        },
+        {
+          "baseline": 519.84,
+          "text": "0",
+          "x": 105.76
+        },
+        {
+          "baseline": 532.8,
+          "text": "Jan",
+          "x": 152.13
+        },
+        {
+          "baseline": 532.8,
+          "text": "Feb",
+          "x": 228.03
+        },
+        {
+          "baseline": 532.8,
+          "text": "Mar",
+          "x": 304.46
+        },
+        {
+          "baseline": 532.8,
+          "text": "Apr",
+          "x": 381.6
+        },
+        {
+          "baseline": 532.8,
+          "text": "May",
+          "x": 457.21
+        },
+        {
+          "baseline": 554.88,
+          "text": "Month",
+          "x": 284.96
+        },
+        {
+          "baseline": 585.6,
+          "text": "Expected: the same series colors with the legend above the plot.",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 74.64,
+          "text": "Single-Series And Category Legends",
+          "x": 66.0
+        },
+        {
+          "baseline": 106.32,
+          "text": "Single-Series Column: No Legend",
+          "x": 66.0
+        },
+        {
+          "baseline": 140.88,
+          "text": "Actual Output",
+          "x": 234.67
+        },
+        {
+          "baseline": 160.56,
+          "text": "50",
+          "x": 102.2
+        },
+        {
+          "baseline": 179.76,
+          "text": "40",
+          "x": 102.2
+        },
+        {
+          "baseline": 193.58,
+          "text": "s",
+          "x": 95.3
+        },
+        {
+          "baseline": 198.68,
+          "text": "t30",
+          "x": 95.3
+        },
+        {
+          "baseline": 202.59,
+          "text": "i",
+          "x": 95.3
+        },
+        {
+          "baseline": 212.6,
+          "text": "n",
+          "x": 95.3
+        },
+        {
+          "baseline": 217.68,
+          "text": "20",
+          "x": 102.2
+        },
+        {
+          "baseline": 225.6,
+          "text": "U",
+          "x": 95.3
+        },
+        {
+          "baseline": 236.88,
+          "text": "10",
+          "x": 102.2
+        },
+        {
+          "baseline": 255.84,
+          "text": "0",
+          "x": 105.76
+        },
+        {
+          "baseline": 269.04,
+          "text": "Jan",
+          "x": 152.13
+        },
+        {
+          "baseline": 269.04,
+          "text": "Feb",
+          "x": 228.03
+        },
+        {
+          "baseline": 269.04,
+          "text": "Mar",
+          "x": 304.46
+        },
+        {
+          "baseline": 269.04,
+          "text": "Apr",
+          "x": 381.6
+        },
+        {
+          "baseline": 269.04,
+          "text": "May",
+          "x": 457.21
+        },
+        {
+          "baseline": 290.88,
+          "text": "Month",
+          "x": 284.96
+        },
+        {
+          "baseline": 321.84,
+          "text": "Expected: a blue series with no redundant legend.",
+          "x": 66.0
+        },
+        {
+          "baseline": 347.28,
+          "text": "Pie: Bottom Category Legend",
+          "x": 66.0
+        },
+        {
+          "baseline": 381.84,
+          "text": "Revenue Mix",
+          "x": 236.68
+        },
+        {
+          "baseline": 424.8,
+          "text": "10%",
+          "x": 269.25
+        },
+        {
+          "baseline": 448.08,
+          "text": "17%",
+          "x": 247.5
+        },
+        {
+          "baseline": 450.24,
+          "text": "46%",
+          "x": 311.25
+        },
+        {
+          "baseline": 485.52,
+          "text": "27%",
+          "x": 258.0
+        },
+        {
+          "baseline": 536.64,
+          "text": "Product Services Partners Other",
+          "x": 226.62
+        },
+        {
+          "baseline": 562.8,
+          "text": "Expected: blue, green, amber, and red slices with the category legend below the plot.",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "efb998c05d53caefb6caaea53183ddd2f3e740328c6e2d4bf9603a9f384885c0"
+}

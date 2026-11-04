@@ -1,0 +1,87 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Plain Markdown",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.68,
+          "text": "This document has no directives. It should still produce a useful W ord document.",
+          "x": 72.0
+        },
+        {
+          "baseline": 136.08,
+          "text": "Inline Sugar",
+          "x": 72.0
+        },
+        {
+          "baseline": 157.68,
+          "text": "Use common bold, alternate bold, inline code, a link, and regular text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 181.44,
+          "text": "• First item",
+          "x": 108.0
+        },
+        {
+          "baseline": 198.72,
+          "text": "• Nested item",
+          "x": 126.0
+        },
+        {
+          "baseline": 215.76,
+          "text": "• Another nested item",
+          "x": 126.0
+        },
+        {
+          "baseline": 233.04,
+          "text": "• Second item",
+          "x": 108.0
+        },
+        {
+          "baseline": 254.64,
+          "text": "Item",
+          "x": 78.24
+        },
+        {
+          "baseline": 254.64,
+          "text": "Owner Amount",
+          "x": 131.77
+        },
+        {
+          "baseline": 278.4,
+          "text": "Retainer Sales $2,500.00",
+          "x": 78.24
+        },
+        {
+          "baseline": 302.16,
+          "text": "Hosting Ops",
+          "x": 78.24
+        },
+        {
+          "baseline": 302.16,
+          "text": "$75.00",
+          "x": 193.39
+        },
+        {
+          "baseline": 319.68,
+          "text": "local subtotal = 2500",
+          "x": 72.0
+        },
+        {
+          "baseline": 332.64,
+          "text": "local total = subtotal + 75",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "19d282bc0d3d870e6d558c4c3011da9b0fa45f906bbefb54d9ace9da43b64ddb"
+}

@@ -1,0 +1,409 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Chart Properties",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Quarterly Revenue",
+          "x": 399.66
+        },
+        {
+          "baseline": 122.16,
+          "text": "25",
+          "x": 97.4
+        },
+        {
+          "baseline": 164.4,
+          "text": "20.1",
+          "x": 808.24
+        },
+        {
+          "baseline": 172.8,
+          "text": "19.3",
+          "x": 739.07
+        },
+        {
+          "baseline": 175.44,
+          "text": "20",
+          "x": 97.4
+        },
+        {
+          "baseline": 192.96,
+          "text": "17.4",
+          "x": 618.01
+        },
+        {
+          "baseline": 201.79,
+          "text": ")",
+          "x": 90.7
+        },
+        {
+          "baseline": 206.88,
+          "text": "16.1",
+          "x": 548.84
+        },
+        {
+          "baseline": 216.79,
+          "text": "M",
+          "x": 90.7
+        },
+        {
+          "baseline": 216.48,
+          "text": "15.2",
+          "x": 427.79
+        },
+        {
+          "baseline": 220.8,
+          "text": "14.8",
+          "x": 358.62
+        },
+        {
+          "baseline": 226.8,
+          "text": "$",
+          "x": 90.7
+        },
+        {
+          "baseline": 228.48,
+          "text": "15",
+          "x": 97.4
+        },
+        {
+          "baseline": 232.79,
+          "text": "(",
+          "x": 90.7
+        },
+        {
+          "baseline": 239.76,
+          "text": "13",
+          "x": 241.67
+        },
+        {
+          "baseline": 246.24,
+          "text": "12.4",
+          "x": 168.4
+        },
+        {
+          "baseline": 247.8,
+          "text": "e",
+          "x": 90.7
+        },
+        {
+          "baseline": 257.81,
+          "text": "u",
+          "x": 90.7
+        },
+        {
+          "baseline": 267.82,
+          "text": "n",
+          "x": 90.7
+        },
+        {
+          "baseline": 277.83,
+          "text": "e",
+          "x": 90.7
+        },
+        {
+          "baseline": 281.52,
+          "text": "10",
+          "x": 97.4
+        },
+        {
+          "baseline": 286.83,
+          "text": "v",
+          "x": 90.7
+        },
+        {
+          "baseline": 296.84,
+          "text": "e",
+          "x": 90.7
+        },
+        {
+          "baseline": 309.84,
+          "text": "R",
+          "x": 90.7
+        },
+        {
+          "baseline": 334.8,
+          "text": "5",
+          "x": 102.74
+        },
+        {
+          "baseline": 387.84,
+          "text": "0",
+          "x": 102.74
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q1",
+          "x": 206.09
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q2",
+          "x": 396.31
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q3",
+          "x": 586.53
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q4",
+          "x": 776.76
+        },
+        {
+          "baseline": 424.08,
+          "text": "Quarter",
+          "x": 467.24
+        },
+        {
+          "baseline": 451.44,
+          "text": "Actual Forecast",
+          "x": 439.69
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote chart properties",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Pie Data Labels",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Pipeline Mix",
+          "x": 430.28
+        },
+        {
+          "baseline": 159.36,
+          "text": "9%",
+          "x": 438.3
+        },
+        {
+          "baseline": 238.08,
+          "text": "21%",
+          "x": 356.55
+        },
+        {
+          "baseline": 244.08,
+          "text": "42%",
+          "x": 583.05
+        },
+        {
+          "baseline": 387.36,
+          "text": "28%",
+          "x": 423.3
+        },
+        {
+          "baseline": 451.44,
+          "text": "New Expansion Renewal Services",
+          "x": 388.25
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote chart properties",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Stacked And Area",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Stacked Support Load",
+          "x": 168.34
+        },
+        {
+          "baseline": 103.68,
+          "text": "Area Trend",
+          "x": 647.98
+        },
+        {
+          "baseline": 122.16,
+          "text": "45",
+          "x": 492.5
+        },
+        {
+          "baseline": 155.04,
+          "text": "40",
+          "x": 492.5
+        },
+        {
+          "baseline": 171.36,
+          "text": "QA",
+          "x": 75.23
+        },
+        {
+          "baseline": 187.92,
+          "text": "35",
+          "x": 492.5
+        },
+        {
+          "baseline": 220.56,
+          "text": "30",
+          "x": 492.5
+        },
+        {
+          "baseline": 253.44,
+          "text": "25",
+          "x": 492.5
+        },
+        {
+          "baseline": 269.76,
+          "text": "Emitter",
+          "x": 56.9
+        },
+        {
+          "baseline": 286.32,
+          "text": "20",
+          "x": 492.5
+        },
+        {
+          "baseline": 319.2,
+          "text": "15",
+          "x": 492.5
+        },
+        {
+          "baseline": 351.84,
+          "text": "10",
+          "x": 492.5
+        },
+        {
+          "baseline": 368.4,
+          "text": "Parser",
+          "x": 60.55
+        },
+        {
+          "baseline": 384.72,
+          "text": "5",
+          "x": 497.84
+        },
+        {
+          "baseline": 417.6,
+          "text": "0",
+          "x": 497.84
+        },
+        {
+          "baseline": 430.56,
+          "text": "0",
+          "x": 95.01
+        },
+        {
+          "baseline": 430.56,
+          "text": "5",
+          "x": 133.94
+        },
+        {
+          "baseline": 430.56,
+          "text": "10",
+          "x": 170.2
+        },
+        {
+          "baseline": 430.56,
+          "text": "15",
+          "x": 209.14
+        },
+        {
+          "baseline": 430.56,
+          "text": "20",
+          "x": 248.07
+        },
+        {
+          "baseline": 430.56,
+          "text": "25",
+          "x": 287.0
+        },
+        {
+          "baseline": 430.56,
+          "text": "30",
+          "x": 325.93
+        },
+        {
+          "baseline": 430.56,
+          "text": "35",
+          "x": 364.86
+        },
+        {
+          "baseline": 430.56,
+          "text": "40",
+          "x": 403.79
+        },
+        {
+          "baseline": 430.56,
+          "text": "45",
+          "x": 442.72
+        },
+        {
+          "baseline": 430.56,
+          "text": "Jan",
+          "x": 568.1
+        },
+        {
+          "baseline": 430.56,
+          "text": "Feb",
+          "x": 692.64
+        },
+        {
+          "baseline": 430.56,
+          "text": "Mar",
+          "x": 817.95
+        },
+        {
+          "baseline": 451.44,
+          "text": "Open Closed",
+          "x": 227.97
+        },
+        {
+          "baseline": 451.44,
+          "text": "Team s Projects",
+          "x": 658.3
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote chart properties",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "3",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "fb4ea11e27cc4c156a03c0adac4f5e7751824c1dd58b17f3972163570202f67e"
+}

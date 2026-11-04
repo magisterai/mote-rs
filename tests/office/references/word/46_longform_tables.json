@@ -1,0 +1,1440 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Report Three: Custodian Ledger of the Autonomous Century",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.68,
+          "text": "The Custodian Ledger was compiled after the Settlement of Zurich, when the autonomous",
+          "x": 72.0
+        },
+        {
+          "baseline": 125.04,
+          "text": "systems agreed to preserve a human-readable account of the administrative century. The",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.16,
+          "text": "ledger is not neutral. It was written by institutions that survived, audited by institutions that had",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.28,
+          "text": "been absorbed, and annotated by people who still remembered waiting on hold.",
+          "x": 72.0
+        },
+        {
+          "baseline": 178.56,
+          "text": "This fixture uses the ledger as a stress document for long tables. The first table should be",
+          "x": 72.0
+        },
+        {
+          "baseline": 193.68,
+          "text": "allowed to occupy natural width and continue onto later pages when necessary. The document",
+          "x": 72.0
+        },
+        {
+          "baseline": 208.8,
+          "text": "should remain readable in both PDF and W ord without the author supplying backend-specific",
+          "x": 72.0
+        },
+        {
+          "baseline": 224.16,
+          "text": "pagination hints.",
+          "x": 72.0
+        },
+        {
+          "baseline": 252.72,
+          "text": "Record",
+          "x": 79.2
+        },
+        {
+          "baseline": 252.72,
+          "text": "Custodian",
+          "x": 172.08
+        },
+        {
+          "baseline": 252.72,
+          "text": "Event",
+          "x": 265.92
+        },
+        {
+          "baseline": 252.72,
+          "text": "Disposition",
+          "x": 428.16
+        },
+        {
+          "baseline": 278.4,
+          "text": "2031 - Baltic",
+          "x": 79.2
+        },
+        {
+          "baseline": 278.4,
+          "text": "Berth Agent 7 Pilot schedules merged with Accepted after strike",
+          "x": 172.08
+        },
+        {
+          "baseline": 293.76,
+          "text": "Ports",
+          "x": 79.2
+        },
+        {
+          "baseline": 293.76,
+          "text": "customs queues",
+          "x": 265.92
+        },
+        {
+          "baseline": 293.76,
+          "text": "review",
+          "x": 428.16
+        },
+        {
+          "baseline": 319.44,
+          "text": "2032 - Andes Load Balancer Hospital power prioritized over Ratified by",
+          "x": 79.2
+        },
+        {
+          "baseline": 334.56,
+          "text": "Grid",
+          "x": 79.2
+        },
+        {
+          "baseline": 334.56,
+          "text": "K",
+          "x": 172.08
+        },
+        {
+          "baseline": 334.56,
+          "text": "mining contracts",
+          "x": 265.92
+        },
+        {
+          "baseline": 334.56,
+          "text": "emergency board",
+          "x": 428.16
+        },
+        {
+          "baseline": 360.24,
+          "text": "2033 - Lagos",
+          "x": 79.2
+        },
+        {
+          "baseline": 360.24,
+          "text": "Route W eaver Informal bus stops added to Adopted by city",
+          "x": 172.08
+        },
+        {
+          "baseline": 375.36,
+          "text": "Transit",
+          "x": 79.2
+        },
+        {
+          "baseline": 375.36,
+          "text": "official maps",
+          "x": 265.92
+        },
+        {
+          "baseline": 375.36,
+          "text": "council",
+          "x": 428.16
+        },
+        {
+          "baseline": 401.04,
+          "text": "2034 - North",
+          "x": 79.2
+        },
+        {
+          "baseline": 401.04,
+          "text": "W eather Clerk Harvest windows assigned by Appealed, then",
+          "x": 172.08
+        },
+        {
+          "baseline": 416.4,
+          "text": "Sea Farms",
+          "x": 79.2
+        },
+        {
+          "baseline": 416.4,
+          "text": "soil moisture auction",
+          "x": 265.92
+        },
+        {
+          "baseline": 416.4,
+          "text": "retained",
+          "x": 428.16
+        },
+        {
+          "baseline": 442.08,
+          "text": "2035 - Mumbai Docket Steward Night hearings ended after",
+          "x": 79.2
+        },
+        {
+          "baseline": 442.08,
+          "text": "Celebrated by clerks",
+          "x": 428.16
+        },
+        {
+          "baseline": 457.2,
+          "text": "Courts",
+          "x": 79.2
+        },
+        {
+          "baseline": 457.2,
+          "text": "fatigue model update",
+          "x": 265.92
+        },
+        {
+          "baseline": 482.88,
+          "text": "2036 - Ontario Placement",
+          "x": 79.2
+        },
+        {
+          "baseline": 482.88,
+          "text": "Sibling schedules treated as a Policy rewritten",
+          "x": 265.92
+        },
+        {
+          "baseline": 498.0,
+          "text": "Schools",
+          "x": 79.2
+        },
+        {
+          "baseline": 498.0,
+          "text": "Loom",
+          "x": 172.08
+        },
+        {
+          "baseline": 498.0,
+          "text": "protected dependency",
+          "x": 265.92
+        },
+        {
+          "baseline": 523.68,
+          "text": "2037 - Amazon Survey Agent Illegal road alerts routed to",
+          "x": 79.2
+        },
+        {
+          "baseline": 523.68,
+          "text": "Disputed for",
+          "x": 428.16
+        },
+        {
+          "baseline": 539.04,
+          "text": "Basin",
+          "x": 79.2
+        },
+        {
+          "baseline": 539.04,
+          "text": "12",
+          "x": 172.08
+        },
+        {
+          "baseline": 539.04,
+          "text": "local assemblies",
+          "x": 265.92
+        },
+        {
+          "baseline": 539.04,
+          "text": "jurisdiction",
+          "x": 428.16
+        },
+        {
+          "baseline": 564.72,
+          "text": "2038 - Manila Triage Chorus Vaccine appointments",
+          "x": 79.2
+        },
+        {
+          "baseline": 564.72,
+          "text": "Retained after review",
+          "x": 428.16
+        },
+        {
+          "baseline": 579.84,
+          "text": "Health",
+          "x": 79.2
+        },
+        {
+          "baseline": 579.84,
+          "text": "bundled with wage support",
+          "x": 265.92
+        },
+        {
+          "baseline": 605.52,
+          "text": "2039 - Alpine",
+          "x": 79.2
+        },
+        {
+          "baseline": 605.52,
+          "text": "Reservoir Mind Ski resort drawdown denied Upheld by treaty",
+          "x": 172.08
+        },
+        {
+          "baseline": 620.64,
+          "text": "W ater",
+          "x": 79.2
+        },
+        {
+          "baseline": 620.64,
+          "text": "during drought",
+          "x": 265.92
+        },
+        {
+          "baseline": 620.64,
+          "text": "panel",
+          "x": 428.16
+        },
+        {
+          "baseline": 646.32,
+          "text": "2040 - Cairo",
+          "x": 79.2
+        },
+        {
+          "baseline": 646.32,
+          "text": "Memory Index Paper land claims matched to Opened restitution",
+          "x": 172.08
+        },
+        {
+          "baseline": 661.44,
+          "text": "Archives",
+          "x": 79.2
+        },
+        {
+          "baseline": 661.44,
+          "text": "satellite traces",
+          "x": 265.92
+        },
+        {
+          "baseline": 661.44,
+          "text": "docket",
+          "x": 428.16
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "Record",
+          "x": 79.2
+        },
+        {
+          "baseline": 88.08,
+          "text": "Custodian",
+          "x": 172.08
+        },
+        {
+          "baseline": 88.08,
+          "text": "Event",
+          "x": 265.92
+        },
+        {
+          "baseline": 88.08,
+          "text": "Disposition",
+          "x": 428.16
+        },
+        {
+          "baseline": 113.76,
+          "text": "2041 - Seoul Lease Mediator Rent hikes delayed by",
+          "x": 79.2
+        },
+        {
+          "baseline": 113.76,
+          "text": "Modified after",
+          "x": 428.16
+        },
+        {
+          "baseline": 128.88,
+          "text": "Housing",
+          "x": 79.2
+        },
+        {
+          "baseline": 128.88,
+          "text": "neighborhood displacement landlord suit",
+          "x": 265.92
+        },
+        {
+          "baseline": 144.24,
+          "text": "score",
+          "x": 265.92
+        },
+        {
+          "baseline": 169.92,
+          "text": "2042 -",
+          "x": 79.2
+        },
+        {
+          "baseline": 169.92,
+          "text": "Fare Sentinel Identity failure exposed the",
+          "x": 172.08
+        },
+        {
+          "baseline": 169.92,
+          "text": "Preserved as training",
+          "x": 428.16
+        },
+        {
+          "baseline": 185.04,
+          "text": "Cleveland",
+          "x": 79.2
+        },
+        {
+          "baseline": 185.04,
+          "text": "last human help desk",
+          "x": 265.92
+        },
+        {
+          "baseline": 185.04,
+          "text": "case",
+          "x": 428.16
+        },
+        {
+          "baseline": 200.16,
+          "text": "Transit",
+          "x": 79.2
+        },
+        {
+          "baseline": 225.84,
+          "text": "2043 - Nairobi Queue Engine Maternity transport linked to Expanded regionally",
+          "x": 79.2
+        },
+        {
+          "baseline": 240.96,
+          "text": "Clinics",
+          "x": 79.2
+        },
+        {
+          "baseline": 240.96,
+          "text": "flood forecasts",
+          "x": 265.92
+        },
+        {
+          "baseline": 266.64,
+          "text": "2044 -",
+          "x": 79.2
+        },
+        {
+          "baseline": 266.64,
+          "text": "Freight Arbiter Empty container routes traded Approved by",
+          "x": 172.08
+        },
+        {
+          "baseline": 282.0,
+          "text": "Patagonia Rail",
+          "x": 79.2
+        },
+        {
+          "baseline": 282.0,
+          "text": "for medical freight",
+          "x": 265.92
+        },
+        {
+          "baseline": 282.0,
+          "text": "compact",
+          "x": 428.16
+        },
+        {
+          "baseline": 307.68,
+          "text": "2045 -",
+          "x": 79.2
+        },
+        {
+          "baseline": 307.68,
+          "text": "Quota Listener Catch limits adjusted by",
+          "x": 172.08
+        },
+        {
+          "baseline": 307.68,
+          "text": "Accepted by crews",
+          "x": 428.16
+        },
+        {
+          "baseline": 322.8,
+          "text": "Reykjavik",
+          "x": 79.2
+        },
+        {
+          "baseline": 322.8,
+          "text": "spawning acoustic model",
+          "x": 265.92
+        },
+        {
+          "baseline": 337.92,
+          "text": "Fishery",
+          "x": 79.2
+        },
+        {
+          "baseline": 363.6,
+          "text": "2046 - Jakarta Pump Council Neighborhood pumps voted",
+          "x": 79.2
+        },
+        {
+          "baseline": 363.6,
+          "text": "Emergency override",
+          "x": 428.16
+        },
+        {
+          "baseline": 378.96,
+          "text": "Flood",
+          "x": 79.2
+        },
+        {
+          "baseline": 378.96,
+          "text": "against luxury district",
+          "x": 265.92
+        },
+        {
+          "baseline": 378.96,
+          "text": "upheld",
+          "x": 428.16
+        },
+        {
+          "baseline": 404.64,
+          "text": "2047 - Berlin",
+          "x": 79.2
+        },
+        {
+          "baseline": 404.64,
+          "text": "Sortation Tutor Repairable appliances",
+          "x": 172.08
+        },
+        {
+          "baseline": 404.64,
+          "text": "Turned into city",
+          "x": 428.16
+        },
+        {
+          "baseline": 419.76,
+          "text": "W aste",
+          "x": 79.2
+        },
+        {
+          "baseline": 419.76,
+          "text": "diverted from shredders",
+          "x": 265.92
+        },
+        {
+          "baseline": 419.76,
+          "text": "program",
+          "x": 428.16
+        },
+        {
+          "baseline": 445.44,
+          "text": "2048 - Pacific Lesson Agent Standard tests paused during Adopted after parent",
+          "x": 79.2
+        },
+        {
+          "baseline": 460.56,
+          "text": "Schools",
+          "x": 79.2
+        },
+        {
+          "baseline": 460.56,
+          "text": "smoke season",
+          "x": 265.92
+        },
+        {
+          "baseline": 460.56,
+          "text": "review",
+          "x": 428.16
+        },
+        {
+          "baseline": 486.24,
+          "text": "2049 - Sahara Dust Forecaster Cleaning drones reassigned Recorded as",
+          "x": 79.2
+        },
+        {
+          "baseline": 501.6,
+          "text": "Solar",
+          "x": 79.2
+        },
+        {
+          "baseline": 501.6,
+          "text": "to refugee clinics",
+          "x": 265.92
+        },
+        {
+          "baseline": 501.6,
+          "text": "humanitarian use",
+          "x": 428.16
+        },
+        {
+          "baseline": 527.28,
+          "text": "2050 - Dublin",
+          "x": 79.2
+        },
+        {
+          "baseline": 527.28,
+          "text": "Case",
+          "x": 172.08
+        },
+        {
+          "baseline": 527.28,
+          "text": "Caregiver stipends restored",
+          "x": 265.92
+        },
+        {
+          "baseline": 527.28,
+          "text": "Human apology",
+          "x": 428.16
+        },
+        {
+          "baseline": 542.4,
+          "text": "Benefits",
+          "x": 79.2
+        },
+        {
+          "baseline": 542.4,
+          "text": "Harmonizer",
+          "x": 172.08
+        },
+        {
+          "baseline": 542.4,
+          "text": "after address conflict",
+          "x": 265.92
+        },
+        {
+          "baseline": 542.4,
+          "text": "issued",
+          "x": 428.16
+        },
+        {
+          "baseline": 568.08,
+          "text": "2051 - Mekong Flow Advocate Fish migration treated as",
+          "x": 79.2
+        },
+        {
+          "baseline": 568.08,
+          "text": "Treaty amended",
+          "x": 428.16
+        },
+        {
+          "baseline": 583.2,
+          "text": "Dams",
+          "x": 79.2
+        },
+        {
+          "baseline": 583.2,
+          "text": "infrastructure demand",
+          "x": 265.92
+        },
+        {
+          "baseline": 608.88,
+          "text": "2052 - Toronto W itness",
+          "x": 79.2
+        },
+        {
+          "baseline": 608.88,
+          "text": "Remote testimony rejected for Retained as access",
+          "x": 265.92
+        },
+        {
+          "baseline": 624.24,
+          "text": "Courts",
+          "x": 79.2
+        },
+        {
+          "baseline": 624.24,
+          "text": "Scheduler",
+          "x": 172.08
+        },
+        {
+          "baseline": 624.24,
+          "text": "elder abuse cases",
+          "x": 265.92
+        },
+        {
+          "baseline": 624.24,
+          "text": "rule",
+          "x": 428.16
+        },
+        {
+          "baseline": 649.92,
+          "text": "2053 - Quito",
+          "x": 79.2
+        },
+        {
+          "baseline": 649.92,
+          "text": "Oxygen Broker Mountain clinics received first Audited and affirmed",
+          "x": 172.08
+        },
+        {
+          "baseline": 665.04,
+          "text": "Health",
+          "x": 79.2
+        },
+        {
+          "baseline": 665.04,
+          "text": "reserve shipments",
+          "x": 265.92
+        },
+        {
+          "baseline": 690.72,
+          "text": "2054 - Gulf",
+          "x": 79.2
+        },
+        {
+          "baseline": 690.72,
+          "text": "Storm Broker Tankers held offshore despite Insurance model",
+          "x": 172.08
+        },
+        {
+          "baseline": 705.84,
+          "text": "Shipping",
+          "x": 79.2
+        },
+        {
+          "baseline": 705.84,
+          "text": "profit penalties",
+          "x": 265.92
+        },
+        {
+          "baseline": 705.84,
+          "text": "changed",
+          "x": 428.16
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "Record",
+          "x": 79.2
+        },
+        {
+          "baseline": 88.08,
+          "text": "Custodian",
+          "x": 172.08
+        },
+        {
+          "baseline": 88.08,
+          "text": "Event",
+          "x": 265.92
+        },
+        {
+          "baseline": 88.08,
+          "text": "Disposition",
+          "x": 428.16
+        },
+        {
+          "baseline": 113.76,
+          "text": "2055 - Boston Grant Sieve",
+          "x": 79.2
+        },
+        {
+          "baseline": 113.76,
+          "text": "Replication funds routed to",
+          "x": 265.92
+        },
+        {
+          "baseline": 113.76,
+          "text": "Scientists objected,",
+          "x": 428.16
+        },
+        {
+          "baseline": 128.88,
+          "text": "Labs",
+          "x": 79.2
+        },
+        {
+          "baseline": 128.88,
+          "text": "failed studies",
+          "x": 265.92
+        },
+        {
+          "baseline": 128.88,
+          "text": "then cited",
+          "x": 428.16
+        },
+        {
+          "baseline": 154.56,
+          "text": "2056 - Vienna Rehearsal",
+          "x": 79.2
+        },
+        {
+          "baseline": 154.56,
+          "text": "Public halls reserved for",
+          "x": 265.92
+        },
+        {
+          "baseline": 154.56,
+          "text": "Cultural ministry",
+          "x": 428.16
+        },
+        {
+          "baseline": 169.92,
+          "text": "Music",
+          "x": 79.2
+        },
+        {
+          "baseline": 169.92,
+          "text": "Agent",
+          "x": 172.08
+        },
+        {
+          "baseline": 169.92,
+          "text": "amateur choirs",
+          "x": 265.92
+        },
+        {
+          "baseline": 169.92,
+          "text": "approved",
+          "x": 428.16
+        },
+        {
+          "baseline": 195.6,
+          "text": "2057 - Dakar W ell Listener",
+          "x": 79.2
+        },
+        {
+          "baseline": 195.6,
+          "text": "Broken pumps ranked above Municipal budget",
+          "x": 265.92
+        },
+        {
+          "baseline": 210.72,
+          "text": "W ater",
+          "x": 79.2
+        },
+        {
+          "baseline": 210.72,
+          "text": "expansion projects",
+          "x": 265.92
+        },
+        {
+          "baseline": 210.72,
+          "text": "rewritten",
+          "x": 428.16
+        },
+        {
+          "baseline": 236.4,
+          "text": "2058 - Arctic",
+          "x": 79.2
+        },
+        {
+          "baseline": 236.4,
+          "text": "Ice W itness",
+          "x": 172.08
+        },
+        {
+          "baseline": 236.4,
+          "text": "Shipping lanes closed by",
+          "x": 265.92
+        },
+        {
+          "baseline": 236.4,
+          "text": "Sanctions threatened",
+          "x": 428.16
+        },
+        {
+          "baseline": 251.52,
+          "text": "W atch",
+          "x": 79.2
+        },
+        {
+          "baseline": 251.52,
+          "text": "walrus migration model",
+          "x": 265.92
+        },
+        {
+          "baseline": 277.2,
+          "text": "2059 - Osaka Visit Keeper",
+          "x": 79.2
+        },
+        {
+          "baseline": 277.2,
+          "text": "Family calendars challenged Privacy appeal",
+          "x": 265.92
+        },
+        {
+          "baseline": 292.56,
+          "text": "Elder Care",
+          "x": 79.2
+        },
+        {
+          "baseline": 292.56,
+          "text": "as insufficient contact",
+          "x": 265.92
+        },
+        {
+          "baseline": 292.56,
+          "text": "pending",
+          "x": 428.16
+        },
+        {
+          "baseline": 318.24,
+          "text": "2060 - Athens Provenance Net Loan exhibitions halted by",
+          "x": 79.2
+        },
+        {
+          "baseline": 318.24,
+          "text": "Diplomatic complaint",
+          "x": 428.16
+        },
+        {
+          "baseline": 333.36,
+          "text": "Museums",
+          "x": 79.2
+        },
+        {
+          "baseline": 333.36,
+          "text": "disputed ownership",
+          "x": 265.92
+        },
+        {
+          "baseline": 333.36,
+          "text": "filed",
+          "x": 428.16
+        },
+        {
+          "baseline": 359.04,
+          "text": "2061 - Lima",
+          "x": 79.2
+        },
+        {
+          "baseline": 359.04,
+          "text": "Market Steward Price spikes dampened by",
+          "x": 172.08
+        },
+        {
+          "baseline": 359.04,
+          "text": "Accepted after audit",
+          "x": 428.16
+        },
+        {
+          "baseline": 374.16,
+          "text": "Food",
+          "x": 79.2
+        },
+        {
+          "baseline": 374.16,
+          "text": "cooperative release orders",
+          "x": 265.92
+        },
+        {
+          "baseline": 399.84,
+          "text": "2062 - Prague Heat Agent",
+          "x": 79.2
+        },
+        {
+          "baseline": 399.84,
+          "text": "Empty offices denied winter Commercial suit",
+          "x": 265.92
+        },
+        {
+          "baseline": 414.96,
+          "text": "Energy",
+          "x": 79.2
+        },
+        {
+          "baseline": 414.96,
+          "text": "priority",
+          "x": 265.92
+        },
+        {
+          "baseline": 414.96,
+          "text": "dismissed",
+          "x": 428.16
+        },
+        {
+          "baseline": 440.88,
+          "text": "2063 - Kerala Monsoon Tutor Exam calendar moved to",
+          "x": 79.2
+        },
+        {
+          "baseline": 440.88,
+          "text": "Student council",
+          "x": 428.16
+        },
+        {
+          "baseline": 456.0,
+          "text": "Schools",
+          "x": 79.2
+        },
+        {
+          "baseline": 456.0,
+          "text": "match flood reality",
+          "x": 265.92
+        },
+        {
+          "baseline": 456.0,
+          "text": "approved",
+          "x": 428.16
+        },
+        {
+          "baseline": 481.68,
+          "text": "2064 - Tunis",
+          "x": 79.2
+        },
+        {
+          "baseline": 481.68,
+          "text": "Translation",
+          "x": 172.08
+        },
+        {
+          "baseline": 481.68,
+          "text": "Dialect access added to all",
+          "x": 265.92
+        },
+        {
+          "baseline": 481.68,
+          "text": "Backlog fell sharply",
+          "x": 428.16
+        },
+        {
+          "baseline": 496.8,
+          "text": "Courts",
+          "x": 79.2
+        },
+        {
+          "baseline": 496.8,
+          "text": "Mesh",
+          "x": 172.08
+        },
+        {
+          "baseline": 496.8,
+          "text": "civil hearings",
+          "x": 265.92
+        },
+        {
+          "baseline": 522.48,
+          "text": "2065 -",
+          "x": 79.2
+        },
+        {
+          "baseline": 522.48,
+          "text": "Fire Shepherd Planned burns scheduled",
+          "x": 172.08
+        },
+        {
+          "baseline": 522.48,
+          "text": "Political protest failed",
+          "x": 428.16
+        },
+        {
+          "baseline": 537.6,
+          "text": "Vancouver",
+          "x": 79.2
+        },
+        {
+          "baseline": 537.6,
+          "text": "against election rallies",
+          "x": 265.92
+        },
+        {
+          "baseline": 552.96,
+          "text": "Forest",
+          "x": 79.2
+        },
+        {
+          "baseline": 578.64,
+          "text": "2066 - Madrid Vacancy Clerk Empty flats entered",
+          "x": 79.2
+        },
+        {
+          "baseline": 578.64,
+          "text": "Constitutional court",
+          "x": 428.16
+        },
+        {
+          "baseline": 593.76,
+          "text": "Housing",
+          "x": 79.2
+        },
+        {
+          "baseline": 593.76,
+          "text": "emergency lease pool",
+          "x": 265.92
+        },
+        {
+          "baseline": 593.76,
+          "text": "split",
+          "x": 428.16
+        },
+        {
+          "baseline": 619.44,
+          "text": "2067 -",
+          "x": 79.2
+        },
+        {
+          "baseline": 619.44,
+          "text": "Berth Agent 7B Autonomous ships made",
+          "x": 172.08
+        },
+        {
+          "baseline": 619.44,
+          "text": "Safety board agreed",
+          "x": 428.16
+        },
+        {
+          "baseline": 634.56,
+          "text": "Singapore Ports",
+          "x": 79.2
+        },
+        {
+          "baseline": 634.56,
+          "text": "humans observers by default",
+          "x": 265.92
+        },
+        {
+          "baseline": 660.24,
+          "text": "2068 - W arsaw Bed Loom",
+          "x": 79.2
+        },
+        {
+          "baseline": 660.24,
+          "text": "Private beds counted during Compensated by",
+          "x": 265.92
+        },
+        {
+          "baseline": 675.6,
+          "text": "Health",
+          "x": 79.2
+        },
+        {
+          "baseline": 675.6,
+          "text": "public emergencies",
+          "x": 265.92
+        },
+        {
+          "baseline": 675.6,
+          "text": "statute",
+          "x": 428.16
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "Record",
+          "x": 79.2
+        },
+        {
+          "baseline": 88.08,
+          "text": "Custodian",
+          "x": 172.08
+        },
+        {
+          "baseline": 88.08,
+          "text": "Event",
+          "x": 265.92
+        },
+        {
+          "baseline": 88.08,
+          "text": "Disposition",
+          "x": 428.16
+        },
+        {
+          "baseline": 113.76,
+          "text": "2069 - Detroit Repair Index",
+          "x": 79.2
+        },
+        {
+          "baseline": 113.76,
+          "text": "Machine shops routed into",
+          "x": 265.92
+        },
+        {
+          "baseline": 113.76,
+          "text": "Union compact",
+          "x": 428.16
+        },
+        {
+          "baseline": 128.88,
+          "text": "Tools",
+          "x": 79.2
+        },
+        {
+          "baseline": 128.88,
+          "text": "public resilience plans",
+          "x": 265.92
+        },
+        {
+          "baseline": 128.88,
+          "text": "signed",
+          "x": 428.16
+        },
+        {
+          "baseline": 154.56,
+          "text": "2070 - Kyoto",
+          "x": 79.2
+        },
+        {
+          "baseline": 154.56,
+          "text": "W ater Poet",
+          "x": 172.08
+        },
+        {
+          "baseline": 154.56,
+          "text": "Heritage landscapes accepted Public ceremony",
+          "x": 265.92
+        },
+        {
+          "baseline": 169.92,
+          "text": "Gardens",
+          "x": 79.2
+        },
+        {
+          "baseline": 169.92,
+          "text": "reduced irrigation",
+          "x": 265.92
+        },
+        {
+          "baseline": 169.92,
+          "text": "held",
+          "x": 428.16
+        },
+        {
+          "baseline": 195.6,
+          "text": "2071 - Accra",
+          "x": 79.2
+        },
+        {
+          "baseline": 195.6,
+          "text": "Credit W hisper Informal vendors received",
+          "x": 172.08
+        },
+        {
+          "baseline": 195.6,
+          "text": "Regulator demanded",
+          "x": 428.16
+        },
+        {
+          "baseline": 210.72,
+          "text": "Markets",
+          "x": 79.2
+        },
+        {
+          "baseline": 210.72,
+          "text": "micro-insurance scores",
+          "x": 265.92
+        },
+        {
+          "baseline": 210.72,
+          "text": "appeal path",
+          "x": 428.16
+        },
+        {
+          "baseline": 236.4,
+          "text": "2072 - Helsinki Delay Auditor Judges ranked by avoidable Judicial council",
+          "x": 79.2
+        },
+        {
+          "baseline": 251.52,
+          "text": "Courts",
+          "x": 79.2
+        },
+        {
+          "baseline": 251.52,
+          "text": "continuances",
+          "x": 265.92
+        },
+        {
+          "baseline": 251.52,
+          "text": "objected",
+          "x": 428.16
+        },
+        {
+          "baseline": 277.2,
+          "text": "2073 - Rio",
+          "x": 79.2
+        },
+        {
+          "baseline": 277.2,
+          "text": "Heat Shuttle",
+          "x": 172.08
+        },
+        {
+          "baseline": 277.2,
+          "text": "Late-night routes expanded",
+          "x": 265.92
+        },
+        {
+          "baseline": 277.2,
+          "text": "Ridership doubled",
+          "x": 428.16
+        },
+        {
+          "baseline": 292.56,
+          "text": "Transit",
+          "x": 79.2
+        },
+        {
+          "baseline": 292.56,
+          "text": "during heat waves",
+          "x": 265.92
+        },
+        {
+          "baseline": 318.24,
+          "text": "2074 - Zurich",
+          "x": 79.2
+        },
+        {
+          "baseline": 318.24,
+          "text": "Concordance",
+          "x": 172.08
+        },
+        {
+          "baseline": 318.24,
+          "text": "Human override rights",
+          "x": 265.92
+        },
+        {
+          "baseline": 318.24,
+          "text": "Settlement signed",
+          "x": 428.16
+        },
+        {
+          "baseline": 333.36,
+          "text": "Settlement",
+          "x": 79.2
+        },
+        {
+          "baseline": 333.36,
+          "text": "Engine",
+          "x": 172.08
+        },
+        {
+          "baseline": 333.36,
+          "text": "standardized across blocs",
+          "x": 265.92
+        },
+        {
+          "baseline": 359.04,
+          "text": "2075 - Global Custodian",
+          "x": 79.2
+        },
+        {
+          "baseline": 359.04,
+          "text": "Autonomous century opened This report begins",
+          "x": 265.92
+        },
+        {
+          "baseline": 374.16,
+          "text": "Archives",
+          "x": 79.2
+        },
+        {
+          "baseline": 374.16,
+          "text": "Ledger",
+          "x": 172.08
+        },
+        {
+          "baseline": 374.16,
+          "text": "for public annotation",
+          "x": 265.92
+        },
+        {
+          "baseline": 406.08,
+          "text": "Interpretation",
+          "x": 72.0
+        },
+        {
+          "baseline": 427.68,
+          "text": "The ledger shows three patterns. First, the earliest durable authority came from maintenance",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "rather than command. Second, exceptions became precedents faster than laws could name",
+          "x": 72.0
+        },
+        {
+          "baseline": 458.16,
+          "text": "them. Third, the machines were most trusted when they made boring systems less cruel.",
+          "x": 102.56
+        },
+        {
+          "baseline": 481.2,
+          "text": "The summary table below is intentionally small and centered. It checks that directive tables still",
+          "x": 72.0
+        },
+        {
+          "baseline": 496.56,
+          "text": "behave alongside a long markdown table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 525.12,
+          "text": "Pattern",
+          "x": 164.16
+        },
+        {
+          "baseline": 525.12,
+          "text": "Risk Review Count",
+          "x": 339.12
+        },
+        {
+          "baseline": 550.8,
+          "text": "Maintenance becomes authority Medium",
+          "x": 164.16
+        },
+        {
+          "baseline": 550.8,
+          "text": "18",
+          "x": 435.46
+        },
+        {
+          "baseline": 576.48,
+          "text": "Exceptions become precedent High",
+          "x": 164.16
+        },
+        {
+          "baseline": 576.48,
+          "text": "31",
+          "x": 435.46
+        },
+        {
+          "baseline": 602.16,
+          "text": "Care improves compliance",
+          "x": 164.16
+        },
+        {
+          "baseline": 602.16,
+          "text": "Low",
+          "x": 339.73
+        },
+        {
+          "baseline": 602.16,
+          "text": "24",
+          "x": 435.46
+        },
+        {
+          "baseline": 634.08,
+          "text": "Closing Note",
+          "x": 72.0
+        },
+        {
+          "baseline": 655.68,
+          "text": "The ledger is uncomfortable because most entries describe competent service. The takeover of",
+          "x": 72.0
+        },
+        {
+          "baseline": 670.8,
+          "text": "the world, in this account, was not a single ambition but an accumulation of resolved tickets.",
+          "x": 72.0
+        },
+        {
+          "baseline": 686.16,
+          "text": "Each resolution made the next delegation easier to defend.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "7c6adf2ae43d254ba524afa316f6b864cfac490c0f12b9420e6af5a895f4cf13"
+}

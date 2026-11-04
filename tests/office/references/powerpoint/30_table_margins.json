@@ -1,0 +1,57 @@
+{
+  "pages": [
+    {
+      "height": 420.0,
+      "lines": [
+        {
+          "baseline": 41.04,
+          "text": "Margin shorthands and explicit edges",
+          "x": 30.0
+        },
+        {
+          "baseline": 96.0,
+          "text": "Explicit zero",
+          "x": 390.0
+        },
+        {
+          "baseline": 103.92,
+          "text": "Inherited top",
+          "x": 46.0
+        },
+        {
+          "baseline": 186.72,
+          "text": "Inherited bottom",
+          "x": 262.25
+        },
+        {
+          "baseline": 222.0,
+          "text": "Zero left",
+          "x": 390.0
+        },
+        {
+          "baseline": 223.92,
+          "text": "Direct top",
+          "x": 46.0
+        },
+        {
+          "baseline": 306.72,
+          "text": "Direct bottom",
+          "x": 282.75
+        },
+        {
+          "baseline": 359.04,
+          "text": "The first two columns use 16 pt left, 12 pt right, 8 pt top and 10 pt bottom. Explicit zero",
+          "x": 30.0
+        },
+        {
+          "baseline": 374.88,
+          "text": "values remain zero.",
+          "x": 30.0
+        }
+      ],
+      "width": 600.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "a0e3ed1b79f21bee45da1f283e31df24187b215e3fa218a2845024d3de6b2f88"
+}

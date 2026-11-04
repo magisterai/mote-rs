@@ -1,0 +1,127 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Effective Table Run Styling",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "The dark first row applies white bold text only when a more specific inline style does not override it. The",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "pale body row verifies that conditional first-row formatting does not leak.",
+          "x": 72.0
+        },
+        {
+          "baseline": 130.32,
+          "text": "DEFAULT W HITE BOLD",
+          "x": 78.96
+        },
+        {
+          "baseline": 130.32,
+          "text": "HEADER LINK",
+          "x": 233.76
+        },
+        {
+          "baseline": 130.32,
+          "text": "• HEADER BULLET",
+          "x": 424.56
+        },
+        {
+          "baseline": 141.36,
+          "text": "headercode42",
+          "x": 233.76
+        },
+        {
+          "baseline": 143.28,
+          "text": "EXPLICIT YELLOW PLAIN",
+          "x": 78.96
+        },
+        {
+          "baseline": 145.2,
+          "text": "PAGE FIELD 1",
+          "x": 388.56
+        },
+        {
+          "baseline": 154.56,
+          "text": "!",
+          "x": 461.65
+        },
+        {
+          "baseline": 154.56,
+          "text": "!",
+          "x": 484.11
+        },
+        {
+          "baseline": 158.16,
+          "text": "INLINE MATH 𝑥 + 𝑦",
+          "x": 388.56
+        },
+        {
+          "baseline": 185.52,
+          "text": "BODY BLACK REGULAR",
+          "x": 78.96
+        },
+        {
+          "baseline": 185.52,
+          "text": "BODY LINK",
+          "x": 233.76
+        },
+        {
+          "baseline": 185.52,
+          "text": "• BODY BULLET",
+          "x": 424.56
+        },
+        {
+          "baseline": 196.56,
+          "text": "bodycode42",
+          "x": 233.76
+        },
+        {
+          "baseline": 198.48,
+          "text": "BODY RED BOLD",
+          "x": 78.96
+        },
+        {
+          "baseline": 200.64,
+          "text": "PAGE FIELD 1",
+          "x": 388.56
+        },
+        {
+          "baseline": 210.0,
+          "text": "!",
+          "x": 460.55
+        },
+        {
+          "baseline": 210.0,
+          "text": "!",
+          "x": 483.01
+        },
+        {
+          "baseline": 213.6,
+          "text": "INLINE MATH 𝑥 + 𝑦",
+          "x": 388.56
+        },
+        {
+          "baseline": 234.0,
+          "text": "REVIEW : default header runs are white and bold; explicit yellow, hyperlink, code, field, list-marker, and",
+          "x": 72.0
+        },
+        {
+          "baseline": 246.96,
+          "text": "math formatting follow W ord's effective-style precedence; the body row remains independent.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "5c8f45aaaf4ca09d47986928392de569b4b0ddb90244815376446c809d4eff55"
+}

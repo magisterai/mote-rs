@@ -1,0 +1,1891 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Column Chart: JSON, Labels, Styling",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Quarterly Revenue",
+          "x": 405.06
+        },
+        {
+          "baseline": 122.16,
+          "text": "25",
+          "x": 97.4
+        },
+        {
+          "baseline": 164.4,
+          "text": "20.1",
+          "x": 818.83
+        },
+        {
+          "baseline": 172.8,
+          "text": "19.3",
+          "x": 747.37
+        },
+        {
+          "baseline": 175.44,
+          "text": "20",
+          "x": 97.4
+        },
+        {
+          "baseline": 192.96,
+          "text": "17.4",
+          "x": 625.9
+        },
+        {
+          "baseline": 201.79,
+          "text": ")",
+          "x": 90.7
+        },
+        {
+          "baseline": 206.88,
+          "text": "16.1",
+          "x": 554.45
+        },
+        {
+          "baseline": 216.79,
+          "text": "M",
+          "x": 90.7
+        },
+        {
+          "baseline": 216.48,
+          "text": "15.2",
+          "x": 432.98
+        },
+        {
+          "baseline": 220.8,
+          "text": "14.8",
+          "x": 361.53
+        },
+        {
+          "baseline": 226.8,
+          "text": "$",
+          "x": 90.7
+        },
+        {
+          "baseline": 228.48,
+          "text": "15",
+          "x": 97.4
+        },
+        {
+          "baseline": 232.79,
+          "text": "(",
+          "x": 90.7
+        },
+        {
+          "baseline": 239.76,
+          "text": "13",
+          "x": 244.16
+        },
+        {
+          "baseline": 246.24,
+          "text": "12.4",
+          "x": 168.61
+        },
+        {
+          "baseline": 247.8,
+          "text": "e",
+          "x": 90.7
+        },
+        {
+          "baseline": 257.81,
+          "text": "u",
+          "x": 90.7
+        },
+        {
+          "baseline": 267.82,
+          "text": "n",
+          "x": 90.7
+        },
+        {
+          "baseline": 277.83,
+          "text": "e",
+          "x": 90.7
+        },
+        {
+          "baseline": 281.52,
+          "text": "10",
+          "x": 97.4
+        },
+        {
+          "baseline": 286.83,
+          "text": "v",
+          "x": 90.7
+        },
+        {
+          "baseline": 296.84,
+          "text": "e",
+          "x": 90.7
+        },
+        {
+          "baseline": 309.84,
+          "text": "R",
+          "x": 90.7
+        },
+        {
+          "baseline": 334.8,
+          "text": "5",
+          "x": 102.74
+        },
+        {
+          "baseline": 387.84,
+          "text": "0",
+          "x": 102.74
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q1",
+          "x": 207.44
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q2",
+          "x": 400.36
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q3",
+          "x": 593.28
+        },
+        {
+          "baseline": 401.04,
+          "text": "Q4",
+          "x": 786.21
+        },
+        {
+          "baseline": 424.08,
+          "text": "Quarter",
+          "x": 472.64
+        },
+        {
+          "baseline": 451.44,
+          "text": "Actual Forecast",
+          "x": 445.09
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Line Chart: Series And Markers",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Adoption Trend",
+          "x": 419.06
+        },
+        {
+          "baseline": 126.24,
+          "text": "Team s",
+          "x": 399.38
+        },
+        {
+          "baseline": 126.24,
+          "text": "Projects",
+          "x": 461.74
+        },
+        {
+          "baseline": 126.24,
+          "text": "Automations",
+          "x": 530.98
+        },
+        {
+          "baseline": 146.16,
+          "text": "90",
+          "x": 97.4
+        },
+        {
+          "baseline": 175.68,
+          "text": "80",
+          "x": 97.4
+        },
+        {
+          "baseline": 205.2,
+          "text": "70",
+          "x": 97.4
+        },
+        {
+          "baseline": 234.72,
+          "text": "60",
+          "x": 97.4
+        },
+        {
+          "baseline": 257.93,
+          "text": "t",
+          "x": 90.7
+        },
+        {
+          "baseline": 264.24,
+          "text": "50",
+          "x": 97.4
+        },
+        {
+          "baseline": 267.94,
+          "text": "n",
+          "x": 90.7
+        },
+        {
+          "baseline": 277.95,
+          "text": "u",
+          "x": 90.7
+        },
+        {
+          "baseline": 287.96,
+          "text": "o",
+          "x": 90.7
+        },
+        {
+          "baseline": 293.76,
+          "text": "40",
+          "x": 97.4
+        },
+        {
+          "baseline": 300.96,
+          "text": "C",
+          "x": 90.7
+        },
+        {
+          "baseline": 323.28,
+          "text": "30",
+          "x": 97.4
+        },
+        {
+          "baseline": 352.8,
+          "text": "20",
+          "x": 97.4
+        },
+        {
+          "baseline": 382.32,
+          "text": "10",
+          "x": 97.4
+        },
+        {
+          "baseline": 411.84,
+          "text": "0",
+          "x": 102.74
+        },
+        {
+          "baseline": 425.04,
+          "text": "Jan",
+          "x": 174.55
+        },
+        {
+          "baseline": 425.04,
+          "text": "Feb",
+          "x": 302.17
+        },
+        {
+          "baseline": 425.04,
+          "text": "Mar",
+          "x": 430.57
+        },
+        {
+          "baseline": 425.04,
+          "text": "Apr",
+          "x": 560.04
+        },
+        {
+          "baseline": 425.04,
+          "text": "May",
+          "x": 687.21
+        },
+        {
+          "baseline": 425.04,
+          "text": "Jun",
+          "x": 817.49
+        },
+        {
+          "baseline": 448.08,
+          "text": "Month",
+          "x": 478.14
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Bar Chart: Literal Data",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Support Load By Team",
+          "x": 388.05
+        },
+        {
+          "baseline": 145.44,
+          "text": "19",
+          "x": 473.25
+        },
+        {
+          "baseline": 158.4,
+          "text": "Design",
+          "x": 173.07
+        },
+        {
+          "baseline": 172.8,
+          "text": "9",
+          "x": 338.93
+        },
+        {
+          "baseline": 217.92,
+          "text": "24",
+          "x": 540.41
+        },
+        {
+          "baseline": 230.88,
+          "text": "Integrations",
+          "x": 151.17
+        },
+        {
+          "baseline": 245.28,
+          "text": "18",
+          "x": 459.82
+        },
+        {
+          "baseline": 256.76,
+          "text": "m",
+          "x": 144.47
+        },
+        {
+          "baseline": 266.76,
+          "text": "a",
+          "x": 144.47
+        },
+        {
+          "baseline": 276.77,
+          "text": "e",
+          "x": 144.47
+        },
+        {
+          "baseline": 279.84,
+          "text": "Closed",
+          "x": 80.05
+        },
+        {
+          "baseline": 287.76,
+          "text": "T",
+          "x": 144.47
+        },
+        {
+          "baseline": 290.4,
+          "text": "38",
+          "x": 728.47
+        },
+        {
+          "baseline": 297.84,
+          "text": "Open",
+          "x": 80.05
+        },
+        {
+          "baseline": 303.36,
+          "text": "Docs",
+          "x": 180.32
+        },
+        {
+          "baseline": 317.52,
+          "text": "21",
+          "x": 500.12
+        },
+        {
+          "baseline": 362.64,
+          "text": "46",
+          "x": 835.93
+        },
+        {
+          "baseline": 375.6,
+          "text": "Platform",
+          "x": 165.48
+        },
+        {
+          "baseline": 390.0,
+          "text": "34",
+          "x": 674.74
+        },
+        {
+          "baseline": 425.04,
+          "text": "0",
+          "x": 209.36
+        },
+        {
+          "baseline": 425.04,
+          "text": "5",
+          "x": 276.53
+        },
+        {
+          "baseline": 425.04,
+          "text": "10",
+          "x": 341.02
+        },
+        {
+          "baseline": 425.04,
+          "text": "15",
+          "x": 408.18
+        },
+        {
+          "baseline": 425.04,
+          "text": "20",
+          "x": 475.34
+        },
+        {
+          "baseline": 425.04,
+          "text": "25",
+          "x": 542.51
+        },
+        {
+          "baseline": 425.04,
+          "text": "30",
+          "x": 609.67
+        },
+        {
+          "baseline": 425.04,
+          "text": "35",
+          "x": 676.83
+        },
+        {
+          "baseline": 425.04,
+          "text": "40",
+          "x": 743.99
+        },
+        {
+          "baseline": 425.04,
+          "text": "45",
+          "x": 811.16
+        },
+        {
+          "baseline": 425.04,
+          "text": "50",
+          "x": 878.32
+        },
+        {
+          "baseline": 448.08,
+          "text": "Tickets",
+          "x": 519.34
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "3",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Column Chart: Second Data Set",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Segment Scorecard",
+          "x": 401.06
+        },
+        {
+          "baseline": 122.16,
+          "text": "100",
+          "x": 97.4
+        },
+        {
+          "baseline": 151.2,
+          "text": "90",
+          "x": 102.74
+        },
+        {
+          "baseline": 152.88,
+          "text": "86",
+          "x": 237.23
+        },
+        {
+          "baseline": 176.16,
+          "text": "78",
+          "x": 174.93
+        },
+        {
+          "baseline": 180.24,
+          "text": "80",
+          "x": 102.74
+        },
+        {
+          "baseline": 187.68,
+          "text": "74",
+          "x": 414.76
+        },
+        {
+          "baseline": 209.04,
+          "text": "70",
+          "x": 102.74
+        },
+        {
+          "baseline": 216.72,
+          "text": "64",
+          "x": 352.47
+        },
+        {
+          "baseline": 219.6,
+          "text": "63",
+          "x": 592.3
+        },
+        {
+          "baseline": 234.0,
+          "text": "58",
+          "x": 769.84
+        },
+        {
+          "baseline": 238.08,
+          "text": "60",
+          "x": 102.74
+        },
+        {
+          "baseline": 242.64,
+          "text": "55",
+          "x": 530.01
+        },
+        {
+          "baseline": 251.47,
+          "text": "e",
+          "x": 90.7
+        },
+        {
+          "baseline": 257.47,
+          "text": "r",
+          "x": 90.7
+        },
+        {
+          "baseline": 267.24,
+          "text": "o50",
+          "x": 90.7
+        },
+        {
+          "baseline": 276.48,
+          "text": "c",
+          "x": 90.7
+        },
+        {
+          "baseline": 280.32,
+          "text": "42",
+          "x": 707.55
+        },
+        {
+          "baseline": 279.84,
+          "text": "Current",
+          "x": 856.66
+        },
+        {
+          "baseline": 288.48,
+          "text": "S",
+          "x": 90.7
+        },
+        {
+          "baseline": 296.16,
+          "text": "40",
+          "x": 102.74
+        },
+        {
+          "baseline": 297.84,
+          "text": "Target",
+          "x": 856.66
+        },
+        {
+          "baseline": 324.96,
+          "text": "30",
+          "x": 102.74
+        },
+        {
+          "baseline": 354.0,
+          "text": "20",
+          "x": 102.74
+        },
+        {
+          "baseline": 383.04,
+          "text": "10",
+          "x": 102.74
+        },
+        {
+          "baseline": 411.84,
+          "text": "0",
+          "x": 108.08
+        },
+        {
+          "baseline": 425.04,
+          "text": "Enterprise",
+          "x": 189.22
+        },
+        {
+          "baseline": 425.04,
+          "text": "Midmarket",
+          "x": 365.73
+        },
+        {
+          "baseline": 425.04,
+          "text": "SMB",
+          "x": 556.7
+        },
+        {
+          "baseline": 425.04,
+          "text": "Partner",
+          "x": 728.14
+        },
+        {
+          "baseline": 448.08,
+          "text": "Segment",
+          "x": 441.71
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "4",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Stacked And Area Variants",
+          "x": 46.8
+        },
+        {
+          "baseline": 107.28,
+          "text": "Stacked Segment Scorecard",
+          "x": 144.64
+        },
+        {
+          "baseline": 107.28,
+          "text": "Area Adoption Trend",
+          "x": 618.95
+        },
+        {
+          "baseline": 125.76,
+          "text": "180",
+          "x": 86.6
+        },
+        {
+          "baseline": 125.76,
+          "text": "60",
+          "x": 499.7
+        },
+        {
+          "baseline": 152.88,
+          "text": "160",
+          "x": 86.6
+        },
+        {
+          "baseline": 171.36,
+          "text": "50",
+          "x": 499.7
+        },
+        {
+          "baseline": 180.0,
+          "text": "140",
+          "x": 86.6
+        },
+        {
+          "baseline": 207.12,
+          "text": "120",
+          "x": 86.6
+        },
+        {
+          "baseline": 216.96,
+          "text": "40",
+          "x": 499.7
+        },
+        {
+          "baseline": 232.03,
+          "text": "e",
+          "x": 79.9
+        },
+        {
+          "baseline": 234.24,
+          "text": "100",
+          "x": 86.6
+        },
+        {
+          "baseline": 238.03,
+          "text": "r",
+          "x": 79.9
+        },
+        {
+          "baseline": 248.04,
+          "text": "o",
+          "x": 79.9
+        },
+        {
+          "baseline": 257.04,
+          "text": "c",
+          "x": 79.9
+        },
+        {
+          "baseline": 261.36,
+          "text": "80",
+          "x": 91.94
+        },
+        {
+          "baseline": 262.56,
+          "text": "30",
+          "x": 499.7
+        },
+        {
+          "baseline": 269.04,
+          "text": "S",
+          "x": 79.9
+        },
+        {
+          "baseline": 288.48,
+          "text": "60",
+          "x": 91.94
+        },
+        {
+          "baseline": 308.4,
+          "text": "20",
+          "x": 499.7
+        },
+        {
+          "baseline": 315.6,
+          "text": "40",
+          "x": 91.94
+        },
+        {
+          "baseline": 342.72,
+          "text": "20",
+          "x": 91.94
+        },
+        {
+          "baseline": 354.0,
+          "text": "10",
+          "x": 499.7
+        },
+        {
+          "baseline": 369.84,
+          "text": "0",
+          "x": 97.28
+        },
+        {
+          "baseline": 383.04,
+          "text": "Enterprise",
+          "x": 132.79
+        },
+        {
+          "baseline": 383.04,
+          "text": "Midmarket",
+          "x": 218.05
+        },
+        {
+          "baseline": 383.04,
+          "text": "SMB",
+          "x": 317.77
+        },
+        {
+          "baseline": 383.04,
+          "text": "Partner",
+          "x": 397.96
+        },
+        {
+          "baseline": 399.6,
+          "text": "0",
+          "x": 505.04
+        },
+        {
+          "baseline": 406.08,
+          "text": "Segment",
+          "x": 248.4
+        },
+        {
+          "baseline": 412.56,
+          "text": "Jan",
+          "x": 560.06
+        },
+        {
+          "baseline": 412.56,
+          "text": "Feb",
+          "x": 654.12
+        },
+        {
+          "baseline": 412.56,
+          "text": "Mar",
+          "x": 748.95
+        },
+        {
+          "baseline": 412.56,
+          "text": "Apr",
+          "x": 844.85
+        },
+        {
+          "baseline": 433.44,
+          "text": "Current Target",
+          "x": 226.84
+        },
+        {
+          "baseline": 433.44,
+          "text": "Team s Projects",
+          "x": 667.3
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "5",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Pie And Doughnut",
+          "x": 46.8
+        },
+        {
+          "baseline": 107.28,
+          "text": "Pipeline Mix",
+          "x": 214.28
+        },
+        {
+          "baseline": 107.28,
+          "text": "W ork Allocation",
+          "x": 639.48
+        },
+        {
+          "baseline": 166.08,
+          "text": "Services",
+          "x": 213.9
+        },
+        {
+          "baseline": 179.04,
+          "text": "9%",
+          "x": 225.39
+        },
+        {
+          "baseline": 185.76,
+          "text": "14%",
+          "x": 652.76
+        },
+        {
+          "baseline": 229.68,
+          "text": "New",
+          "x": 349.65
+        },
+        {
+          "baseline": 234.96,
+          "text": "Renewal",
+          "x": 148.65
+        },
+        {
+          "baseline": 235.92,
+          "text": "38%",
+          "x": 779.38
+        },
+        {
+          "baseline": 242.88,
+          "text": "42%",
+          "x": 349.95
+        },
+        {
+          "baseline": 248.16,
+          "text": "21%",
+          "x": 157.8
+        },
+        {
+          "baseline": 282.0,
+          "text": "26%",
+          "x": 599.86
+        },
+        {
+          "baseline": 359.52,
+          "text": "Expansion",
+          "x": 196.65
+        },
+        {
+          "baseline": 363.6,
+          "text": "22%",
+          "x": 698.4
+        },
+        {
+          "baseline": 372.48,
+          "text": "28%",
+          "x": 209.54
+        },
+        {
+          "baseline": 433.44,
+          "text": "New Expansion Renewal Services",
+          "x": 172.25
+        },
+        {
+          "baseline": 433.44,
+          "text": "Build Review QA Docs",
+          "x": 639.12
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "6",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Compact Label Matrix",
+          "x": 46.8
+        },
+        {
+          "baseline": 103.68,
+          "text": "Center Labels",
+          "x": 201.37
+        },
+        {
+          "baseline": 103.68,
+          "text": "Inside-End Labels",
+          "x": 620.95
+        },
+        {
+          "baseline": 122.16,
+          "text": "20",
+          "x": 56.9
+        },
+        {
+          "baseline": 140.64,
+          "text": "C",
+          "x": 492.5
+        },
+        {
+          "baseline": 141.36,
+          "text": "15",
+          "x": 773.23
+        },
+        {
+          "baseline": 149.76,
+          "text": "15",
+          "x": 56.9
+        },
+        {
+          "baseline": 177.6,
+          "text": "10",
+          "x": 56.9
+        },
+        {
+          "baseline": 177.36,
+          "text": "B",
+          "x": 493.39
+        },
+        {
+          "baseline": 178.08,
+          "text": "18",
+          "x": 829.48
+        },
+        {
+          "baseline": 183.84,
+          "text": "18",
+          "x": 259.76
+        },
+        {
+          "baseline": 192.0,
+          "text": "15",
+          "x": 385.29
+        },
+        {
+          "baseline": 200.4,
+          "text": "12",
+          "x": 134.23
+        },
+        {
+          "baseline": 205.2,
+          "text": "5",
+          "x": 62.24
+        },
+        {
+          "baseline": 214.32,
+          "text": "A",
+          "x": 493.53
+        },
+        {
+          "baseline": 215.04,
+          "text": "12",
+          "x": 716.98
+        },
+        {
+          "baseline": 232.8,
+          "text": "0",
+          "x": 62.24
+        },
+        {
+          "baseline": 246.0,
+          "text": "A",
+          "x": 136.63
+        },
+        {
+          "baseline": 246.0,
+          "text": "B",
+          "x": 262.08
+        },
+        {
+          "baseline": 246.0,
+          "text": "C",
+          "x": 387.17
+        },
+        {
+          "baseline": 246.0,
+          "text": "0",
+          "x": 505.98
+        },
+        {
+          "baseline": 246.0,
+          "text": "5",
+          "x": 599.74
+        },
+        {
+          "baseline": 246.0,
+          "text": "10",
+          "x": 690.82
+        },
+        {
+          "baseline": 246.0,
+          "text": "15",
+          "x": 784.57
+        },
+        {
+          "baseline": 246.0,
+          "text": "20",
+          "x": 878.32
+        },
+        {
+          "baseline": 301.68,
+          "text": "Pie Percent",
+          "x": 210.88
+        },
+        {
+          "baseline": 301.68,
+          "text": "Doughnut Percent",
+          "x": 620.45
+        },
+        {
+          "baseline": 354.96,
+          "text": "25%",
+          "x": 655.33
+        },
+        {
+          "baseline": 358.08,
+          "text": "25%",
+          "x": 219.15
+        },
+        {
+          "baseline": 361.2,
+          "text": "30%",
+          "x": 279.15
+        },
+        {
+          "baseline": 359.76,
+          "text": "30%",
+          "x": 715.8
+        },
+        {
+          "baseline": 415.92,
+          "text": "45%",
+          "x": 234.15
+        },
+        {
+          "baseline": 422.64,
+          "text": "45%",
+          "x": 677.29
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "7",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Signed Values And Zero Axes",
+          "x": 46.8
+        },
+        {
+          "baseline": 107.28,
+          "text": "Quarterly Variance",
+          "x": 184.17
+        },
+        {
+          "baseline": 107.28,
+          "text": "Net Change",
+          "x": 653.97
+        },
+        {
+          "baseline": 125.76,
+          "text": "20",
+          "x": 90.01
+        },
+        {
+          "baseline": 125.76,
+          "text": "15",
+          "x": 532.8
+        },
+        {
+          "baseline": 146.64,
+          "text": "16",
+          "x": 408.27
+        },
+        {
+          "baseline": 164.16,
+          "text": "15",
+          "x": 90.01
+        },
+        {
+          "baseline": 166.56,
+          "text": "10",
+          "x": 532.8
+        },
+        {
+          "baseline": 202.32,
+          "text": "10",
+          "x": 90.01
+        },
+        {
+          "baseline": 207.84,
+          "text": "8",
+          "x": 237.4
+        },
+        {
+          "baseline": 207.12,
+          "text": "5",
+          "x": 538.15
+        },
+        {
+          "baseline": 224.15,
+          "text": "e",
+          "x": 522.7
+        },
+        {
+          "baseline": 232.25,
+          "text": "e",
+          "x": 79.9
+        },
+        {
+          "baseline": 234.17,
+          "text": "g",
+          "x": 522.7
+        },
+        {
+          "baseline": 240.99,
+          "text": "c5",
+          "x": 79.9
+        },
+        {
+          "baseline": 244.18,
+          "text": "n",
+          "x": 522.7
+        },
+        {
+          "baseline": 247.92,
+          "text": "0",
+          "x": 538.15
+        },
+        {
+          "baseline": 251.26,
+          "text": "n",
+          "x": 79.9
+        },
+        {
+          "baseline": 254.19,
+          "text": "a",
+          "x": 522.7
+        },
+        {
+          "baseline": 261.27,
+          "text": "a",
+          "x": 79.9
+        },
+        {
+          "baseline": 265.27,
+          "text": "i",
+          "x": 79.9
+        },
+        {
+          "baseline": 264.2,
+          "text": "h",
+          "x": 522.7
+        },
+        {
+          "baseline": 271.27,
+          "text": "r",
+          "x": 79.9
+        },
+        {
+          "baseline": 277.2,
+          "text": "C",
+          "x": 522.7
+        },
+        {
+          "baseline": 279.12,
+          "text": "0",
+          "x": 95.35
+        },
+        {
+          "baseline": 281.28,
+          "text": "a",
+          "x": 79.9
+        },
+        {
+          "baseline": 288.48,
+          "text": "-5",
+          "x": 534.74
+        },
+        {
+          "baseline": 293.28,
+          "text": "V",
+          "x": 79.9
+        },
+        {
+          "baseline": 317.28,
+          "text": "-5",
+          "x": 91.94
+        },
+        {
+          "baseline": 328.56,
+          "text": "-5",
+          "x": 322.47
+        },
+        {
+          "baseline": 329.28,
+          "text": "-10",
+          "x": 529.4
+        },
+        {
+          "baseline": 355.68,
+          "text": "-10",
+          "x": 86.6
+        },
+        {
+          "baseline": 369.84,
+          "text": "-15",
+          "x": 529.4
+        },
+        {
+          "baseline": 382.32,
+          "text": "-12",
+          "x": 146.26
+        },
+        {
+          "baseline": 383.04,
+          "text": "Jan",
+          "x": 580.35
+        },
+        {
+          "baseline": 383.04,
+          "text": "Feb",
+          "x": 648.78
+        },
+        {
+          "baseline": 383.04,
+          "text": "Mar",
+          "x": 717.98
+        },
+        {
+          "baseline": 383.04,
+          "text": "Apr",
+          "x": 788.25
+        },
+        {
+          "baseline": 383.04,
+          "text": "May",
+          "x": 856.22
+        },
+        {
+          "baseline": 393.84,
+          "text": "-15",
+          "x": 86.6
+        },
+        {
+          "baseline": 407.04,
+          "text": "Q1",
+          "x": 146.97
+        },
+        {
+          "baseline": 407.04,
+          "text": "Q2",
+          "x": 233.74
+        },
+        {
+          "baseline": 407.04,
+          "text": "Q3",
+          "x": 320.51
+        },
+        {
+          "baseline": 407.04,
+          "text": "Q4",
+          "x": 407.28
+        },
+        {
+          "baseline": 406.08,
+          "text": "Month",
+          "x": 701.24
+        },
+        {
+          "baseline": 430.08,
+          "text": "Quarter",
+          "x": 252.95
+        },
+        {
+          "baseline": 433.44,
+          "text": "Actual",
+          "x": 675.66
+        },
+        {
+          "baseline": 433.44,
+          "text": "Plan",
+          "x": 733.88
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "8",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Percent-Stacked Columns And Bars",
+          "x": 46.8
+        },
+        {
+          "baseline": 107.28,
+          "text": "Pipeline Mix By Quarter",
+          "x": 164.67
+        },
+        {
+          "baseline": 107.28,
+          "text": "Team Allocation Pressure",
+          "x": 598.96
+        },
+        {
+          "baseline": 125.76,
+          "text": "100%",
+          "x": 86.6
+        },
+        {
+          "baseline": 150.24,
+          "text": "90%",
+          "x": 91.94
+        },
+        {
+          "baseline": 166.32,
+          "text": "Enterprise Integrations",
+          "x": 499.7
+        },
+        {
+          "baseline": 174.72,
+          "text": "80%",
+          "x": 91.94
+        },
+        {
+          "baseline": 198.96,
+          "text": "70%",
+          "x": 91.94
+        },
+        {
+          "baseline": 211.07,
+          "text": ")",
+          "x": 79.9
+        },
+        {
+          "baseline": 223.44,
+          "text": "60%",
+          "x": 91.94
+        },
+        {
+          "baseline": 227.07,
+          "text": "%",
+          "x": 79.9
+        },
+        {
+          "baseline": 233.06,
+          "text": "(",
+          "x": 79.9
+        },
+        {
+          "baseline": 247.96,
+          "text": "e50%",
+          "x": 79.9
+        },
+        {
+          "baseline": 247.68,
+          "text": "Custom er Success",
+          "x": 515.74
+        },
+        {
+          "baseline": 254.06,
+          "text": "r",
+          "x": 79.9
+        },
+        {
+          "baseline": 264.07,
+          "text": "a",
+          "x": 79.9
+        },
+        {
+          "baseline": 272.16,
+          "text": "40%",
+          "x": 91.94
+        },
+        {
+          "baseline": 274.08,
+          "text": "h",
+          "x": 79.9
+        },
+        {
+          "baseline": 286.08,
+          "text": "S",
+          "x": 79.9
+        },
+        {
+          "baseline": 296.64,
+          "text": "30%",
+          "x": 91.94
+        },
+        {
+          "baseline": 321.12,
+          "text": "20%",
+          "x": 91.94
+        },
+        {
+          "baseline": 329.28,
+          "text": "Platform Engineering",
+          "x": 507.94
+        },
+        {
+          "baseline": 345.36,
+          "text": "10%",
+          "x": 91.94
+        },
+        {
+          "baseline": 369.84,
+          "text": "0%",
+          "x": 97.28
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q1",
+          "x": 155.89
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q2",
+          "x": 240.11
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q3",
+          "x": 324.33
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q4",
+          "x": 408.56
+        },
+        {
+          "baseline": 383.04,
+          "text": "0%",
+          "x": 600.19
+        },
+        {
+          "baseline": 383.04,
+          "text": "20%",
+          "x": 653.66
+        },
+        {
+          "baseline": 383.04,
+          "text": "40%",
+          "x": 709.79
+        },
+        {
+          "baseline": 383.04,
+          "text": "60%",
+          "x": 765.92
+        },
+        {
+          "baseline": 383.04,
+          "text": "80%",
+          "x": 822.06
+        },
+        {
+          "baseline": 383.04,
+          "text": "100%",
+          "x": 875.52
+        },
+        {
+          "baseline": 406.08,
+          "text": "Quarter",
+          "x": 258.04
+        },
+        {
+          "baseline": 406.08,
+          "text": "Allocation (%)",
+          "x": 691.81
+        },
+        {
+          "baseline": 433.44,
+          "text": "New Expansion Renewal",
+          "x": 196.62
+        },
+        {
+          "baseline": 433.44,
+          "text": "Core Growth Services",
+          "x": 646.0
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "9",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Stacked Area Variants",
+          "x": 46.8
+        },
+        {
+          "baseline": 107.28,
+          "text": "Cumulative Adoption",
+          "x": 176.15
+        },
+        {
+          "baseline": 107.28,
+          "text": "Channel Share",
+          "x": 641.96
+        },
+        {
+          "baseline": 125.76,
+          "text": "120",
+          "x": 86.6
+        },
+        {
+          "baseline": 125.76,
+          "text": "100%",
+          "x": 529.4
+        },
+        {
+          "baseline": 150.24,
+          "text": "90%",
+          "x": 534.74
+        },
+        {
+          "baseline": 166.56,
+          "text": "100",
+          "x": 86.6
+        },
+        {
+          "baseline": 174.72,
+          "text": "80%",
+          "x": 534.74
+        },
+        {
+          "baseline": 198.96,
+          "text": "70%",
+          "x": 534.74
+        },
+        {
+          "baseline": 207.12,
+          "text": "80",
+          "x": 91.94
+        },
+        {
+          "baseline": 211.07,
+          "text": ")",
+          "x": 522.7
+        },
+        {
+          "baseline": 220.25,
+          "text": "n",
+          "x": 79.9
+        },
+        {
+          "baseline": 223.44,
+          "text": "60%",
+          "x": 534.74
+        },
+        {
+          "baseline": 227.07,
+          "text": "%",
+          "x": 522.7
+        },
+        {
+          "baseline": 230.26,
+          "text": "o",
+          "x": 79.9
+        },
+        {
+          "baseline": 234.26,
+          "text": "i",
+          "x": 79.9
+        },
+        {
+          "baseline": 233.06,
+          "text": "(",
+          "x": 522.7
+        },
+        {
+          "baseline": 238.66,
+          "text": "t",
+          "x": 79.9
+        },
+        {
+          "baseline": 248.37,
+          "text": "p60",
+          "x": 79.9
+        },
+        {
+          "baseline": 247.96,
+          "text": "e50%",
+          "x": 522.7
+        },
+        {
+          "baseline": 254.06,
+          "text": "r",
+          "x": 522.7
+        },
+        {
+          "baseline": 259.27,
+          "text": "o",
+          "x": 79.9
+        },
+        {
+          "baseline": 264.07,
+          "text": "a",
+          "x": 522.7
+        },
+        {
+          "baseline": 269.28,
+          "text": "d",
+          "x": 79.9
+        },
+        {
+          "baseline": 272.16,
+          "text": "40%",
+          "x": 534.74
+        },
+        {
+          "baseline": 274.08,
+          "text": "h",
+          "x": 522.7
+        },
+        {
+          "baseline": 281.28,
+          "text": "A",
+          "x": 79.9
+        },
+        {
+          "baseline": 286.08,
+          "text": "S",
+          "x": 522.7
+        },
+        {
+          "baseline": 288.48,
+          "text": "40",
+          "x": 91.94
+        },
+        {
+          "baseline": 296.64,
+          "text": "30%",
+          "x": 534.74
+        },
+        {
+          "baseline": 321.12,
+          "text": "20%",
+          "x": 534.74
+        },
+        {
+          "baseline": 329.28,
+          "text": "20",
+          "x": 91.94
+        },
+        {
+          "baseline": 345.36,
+          "text": "10%",
+          "x": 534.74
+        },
+        {
+          "baseline": 369.84,
+          "text": "0",
+          "x": 97.28
+        },
+        {
+          "baseline": 369.84,
+          "text": "0%",
+          "x": 540.08
+        },
+        {
+          "baseline": 383.04,
+          "text": "Jan",
+          "x": 139.29
+        },
+        {
+          "baseline": 383.04,
+          "text": "Feb",
+          "x": 207.33
+        },
+        {
+          "baseline": 383.04,
+          "text": "Mar",
+          "x": 276.14
+        },
+        {
+          "baseline": 383.04,
+          "text": "Apr",
+          "x": 346.03
+        },
+        {
+          "baseline": 383.04,
+          "text": "May",
+          "x": 413.62
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q1",
+          "x": 590.26
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q2",
+          "x": 657.64
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q3",
+          "x": 725.02
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q4",
+          "x": 792.4
+        },
+        {
+          "baseline": 383.04,
+          "text": "Q5",
+          "x": 859.78
+        },
+        {
+          "baseline": 406.08,
+          "text": "Month",
+          "x": 259.41
+        },
+        {
+          "baseline": 406.08,
+          "text": "Quarter",
+          "x": 700.84
+        },
+        {
+          "baseline": 433.44,
+          "text": "Team s Projects Automations",
+          "x": 186.45
+        },
+        {
+          "baseline": 433.44,
+          "text": "Direct Partner Digital",
+          "x": 648.06
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote exhaustive chart check",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "10",
+          "x": 905.98
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "178a58eb6b656cd51b0026ad6d2eb797f5d430a024156614c6b7f6f73c9a2195"
+}

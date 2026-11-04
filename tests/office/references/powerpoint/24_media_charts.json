@@ -1,0 +1,192 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.12,
+          "text": "Media, Tables, And Charts",
+          "x": 46.8
+        },
+        {
+          "baseline": 95.52,
+          "text": "Backend",
+          "x": 539.06
+        },
+        {
+          "baseline": 95.52,
+          "text": "Status",
+          "x": 680.8
+        },
+        {
+          "baseline": 95.52,
+          "text": "Score",
+          "x": 867.83
+        },
+        {
+          "baseline": 128.88,
+          "text": "DOCX",
+          "x": 496.6
+        },
+        {
+          "baseline": 128.88,
+          "text": "Ready",
+          "x": 682.11
+        },
+        {
+          "baseline": 128.88,
+          "text": "86",
+          "x": 882.7
+        },
+        {
+          "baseline": 143.04,
+          "text": "Editable shape text",
+          "x": 271.02
+        },
+        {
+          "baseline": 162.24,
+          "text": "PPTX",
+          "x": 496.6
+        },
+        {
+          "baseline": 162.24,
+          "text": "Active",
+          "x": 682.18
+        },
+        {
+          "baseline": 162.24,
+          "text": "74",
+          "x": 882.7
+        },
+        {
+          "baseline": 195.36,
+          "text": "Charts",
+          "x": 496.6
+        },
+        {
+          "baseline": 195.36,
+          "text": "New",
+          "x": 685.49
+        },
+        {
+          "baseline": 195.36,
+          "text": "68",
+          "x": 882.7
+        },
+        {
+          "baseline": 258.48,
+          "text": "Backend Coverage",
+          "x": 402.25
+        },
+        {
+          "baseline": 276.96,
+          "text": "100",
+          "x": 93.8
+        },
+        {
+          "baseline": 296.68,
+          "text": "e80",
+          "x": 87.1
+        },
+        {
+          "baseline": 305.82,
+          "text": "g",
+          "x": 87.1
+        },
+        {
+          "baseline": 316.64,
+          "text": "a60",
+          "x": 87.1
+        },
+        {
+          "baseline": 321.82,
+          "text": "r",
+          "x": 87.1
+        },
+        {
+          "baseline": 331.83,
+          "text": "e",
+          "x": 87.1
+        },
+        {
+          "baseline": 336.96,
+          "text": "40",
+          "x": 99.14
+        },
+        {
+          "baseline": 340.83,
+          "text": "v",
+          "x": 87.1
+        },
+        {
+          "baseline": 350.84,
+          "text": "o",
+          "x": 87.1
+        },
+        {
+          "baseline": 357.12,
+          "text": "20",
+          "x": 99.14
+        },
+        {
+          "baseline": 363.84,
+          "text": "C",
+          "x": 87.1
+        },
+        {
+          "baseline": 377.04,
+          "text": "0",
+          "x": 104.48
+        },
+        {
+          "baseline": 390.24,
+          "text": "Q1",
+          "x": 208.96
+        },
+        {
+          "baseline": 390.24,
+          "text": "Q2",
+          "x": 401.45
+        },
+        {
+          "baseline": 390.24,
+          "text": "Q3",
+          "x": 593.94
+        },
+        {
+          "baseline": 390.24,
+          "text": "Q4",
+          "x": 786.42
+        },
+        {
+          "baseline": 413.28,
+          "text": "Quarter",
+          "x": 473.51
+        },
+        {
+          "baseline": 440.64,
+          "text": "DOCX",
+          "x": 451.72
+        },
+        {
+          "baseline": 440.64,
+          "text": "PPTX",
+          "x": 508.78
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX media and chart compatibility",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "0378712341ee3d7070a936114697571d012a3a21e06832c708e00de871189e7d"
+}

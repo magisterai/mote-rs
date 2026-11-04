@@ -1,0 +1,152 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 74.16,
+          "text": "Natural Column Balancing",
+          "x": 60.0
+        },
+        {
+          "baseline": 98.88,
+          "text": "SINGLE-COLUMN START — this full-width marker precedes a continuous two-column section on the same",
+          "x": 60.0
+        },
+        {
+          "baseline": 114.0,
+          "text": "physical page.",
+          "x": 60.0
+        },
+        {
+          "baseline": 132.0,
+          "text": "BALANCE START — no authored column break",
+          "x": 60.0
+        },
+        {
+          "baseline": 132.0,
+          "text": "BALANCE 10 — juliet flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 147.12,
+          "text": "follows.",
+          "x": 60.0
+        },
+        {
+          "baseline": 150.0,
+          "text": "BALANCE 11 — kilo flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 165.12,
+          "text": "BALANCE 01 — alpha flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 168.0,
+          "text": "BALANCE 12 — lima flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 183.12,
+          "text": "BALANCE 02 — bravo flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 186.0,
+          "text": "BALANCE 13 — mike flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 201.12,
+          "text": "BALANCE 03 — charlie flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 204.0,
+          "text": "BALANCE 14 — november flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 219.12,
+          "text": "BALANCE 04 — delta flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 222.0,
+          "text": "BALANCE 15 — oscar flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 237.12,
+          "text": "BALANCE 05 — echo flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 240.0,
+          "text": "BALANCE 16 — papa flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 255.12,
+          "text": "BALANCE 06 — foxtrot flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 258.0,
+          "text": "BALANCE 17 — quebec flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 273.12,
+          "text": "BALANCE 07 — golf flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 276.0,
+          "text": "BALANCE 18 — romeo flow marker.",
+          "x": 318.0
+        },
+        {
+          "baseline": 291.12,
+          "text": "BALANCE 08 — hotel flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 294.0,
+          "text": "BALANCE END — both column bottoms should",
+          "x": 318.0
+        },
+        {
+          "baseline": 309.12,
+          "text": "BALANCE 09 — midpoint flow marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 309.12,
+          "text": "finish at approximately the same height.",
+          "x": 318.0
+        },
+        {
+          "baseline": 327.12,
+          "text": "SINGLE-COLUMN RESUME — this full-width marker begins below the naturally balanced two-column section.",
+          "x": 60.0
+        },
+        {
+          "baseline": 344.88,
+          "text": "PASS: exactly one page; no explicit page or column break; markers remain in source order; the two column",
+          "x": 60.0
+        },
+        {
+          "baseline": 360.0,
+          "text": "bottoms align before the full-width closing marker.",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "4b7378a9e5dc055809465b453d5c6f0aaf2fd722f22d3a86d220b40cfc7573ed"
+}

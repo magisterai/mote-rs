@@ -1,0 +1,87 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Definition Lists",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "Terms use the built-in bold definition-term style. Definitions use an 18-point left indent, including",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.08,
+          "text": "every wrapped line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "Fallback term",
+          "x": 72.0
+        },
+        {
+          "baseline": 151.44,
+          "text": "This deliberately long fallback definition must wrap onto more than one line while every line",
+          "x": 90.0
+        },
+        {
+          "baseline": 166.56,
+          "text": "remains visibly indented from the term above it. Inline bold text, emphasis, and code must",
+          "x": 90.0
+        },
+        {
+          "baseline": 182.4,
+          "text": "survive in all three outputs.",
+          "x": 90.0
+        },
+        {
+          "baseline": 205.44,
+          "text": "Explicit definition style",
+          "x": 72.0
+        },
+        {
+          "baseline": 228.72,
+          "text": "This definition owns an explicit blue italic paragraph style and retains the same deliberate",
+          "x": 90.0
+        },
+        {
+          "baseline": 242.88,
+          "text": "18-point indent.",
+          "x": 90.0
+        },
+        {
+          "baseline": 267.12,
+          "text": "Final term",
+          "x": 72.0
+        },
+        {
+          "baseline": 290.4,
+          "text": "The final definition proves that all term-and-definition pairs render in source order with",
+          "x": 90.0
+        },
+        {
+          "baseline": 305.52,
+          "text": "ordinary paragraph spacing.",
+          "x": 90.0
+        },
+        {
+          "baseline": 328.8,
+          "text": "PASS: three bold terms, three indented definitions, one wrapped fallback definition, and one",
+          "x": 72.0
+        },
+        {
+          "baseline": 342.96,
+          "text": "blue italic explicit-style definition.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "fd70a5a858ca13eab0688351dc144d0601286d568b1f1b1a18f1ba925d1857f7"
+}

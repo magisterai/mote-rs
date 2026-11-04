@@ -1,0 +1,227 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 51.12,
+          "text": "Native PowerPoint Polish",
+          "x": 46.8
+        },
+        {
+          "baseline": 94.8,
+          "text": "The deck-level theme controls unstyled Office text while each",
+          "x": 57.6
+        },
+        {
+          "baseline": 98.4,
+          "text": "Area",
+          "x": 390.4
+        },
+        {
+          "baseline": 98.4,
+          "text": "Status",
+          "x": 600.42
+        },
+        {
+          "baseline": 98.4,
+          "text": "Score",
+          "x": 748.48
+        },
+        {
+          "baseline": 98.4,
+          "text": "Delta",
+          "x": 858.15
+        },
+        {
+          "baseline": 110.88,
+          "text": "text box can still tune paragraph behavior.",
+          "x": 57.6
+        },
+        {
+          "baseline": 131.76,
+          "text": "C. Theme fonts",
+          "x": 87.6
+        },
+        {
+          "baseline": 131.76,
+          "text": "Theme",
+          "x": 390.4
+        },
+        {
+          "baseline": 131.76,
+          "text": "Ready",
+          "x": 601.74
+        },
+        {
+          "baseline": 131.76,
+          "text": "92",
+          "x": 762.85
+        },
+        {
+          "baseline": 131.76,
+          "text": "+8",
+          "x": 870.9
+        },
+        {
+          "baseline": 147.84,
+          "text": "D. Paragraph spacing",
+          "x": 87.6
+        },
+        {
+          "baseline": 164.88,
+          "text": "E. Numbered list control",
+          "x": 87.6
+        },
+        {
+          "baseline": 172.08,
+          "text": "Tables",
+          "x": 390.4
+        },
+        {
+          "baseline": 172.08,
+          "text": "Better",
+          "x": 601.99
+        },
+        {
+          "baseline": 172.08,
+          "text": "86",
+          "x": 762.85
+        },
+        {
+          "baseline": 172.08,
+          "text": "+11",
+          "x": 866.15
+        },
+        {
+          "baseline": 212.64,
+          "text": "Charts",
+          "x": 390.4
+        },
+        {
+          "baseline": 212.64,
+          "text": "New",
+          "x": 604.61
+        },
+        {
+          "baseline": 212.64,
+          "text": "74",
+          "x": 762.85
+        },
+        {
+          "baseline": 212.64,
+          "text": "+74",
+          "x": 866.15
+        },
+        {
+          "baseline": 301.68,
+          "text": "Backend Coverage",
+          "x": 402.25
+        },
+        {
+          "baseline": 320.16,
+          "text": "120",
+          "x": 93.8
+        },
+        {
+          "baseline": 331.09,
+          "text": "e",
+          "x": 87.1
+        },
+        {
+          "baseline": 333.36,
+          "text": "100",
+          "x": 93.8
+        },
+        {
+          "baseline": 341.1,
+          "text": "g",
+          "x": 87.1
+        },
+        {
+          "baseline": 346.32,
+          "text": "80",
+          "x": 99.14
+        },
+        {
+          "baseline": 351.11,
+          "text": "a",
+          "x": 87.1
+        },
+        {
+          "baseline": 357.1,
+          "text": "r",
+          "x": 87.1
+        },
+        {
+          "baseline": 359.52,
+          "text": "60",
+          "x": 99.14
+        },
+        {
+          "baseline": 367.11,
+          "text": "e",
+          "x": 87.1
+        },
+        {
+          "baseline": 372.48,
+          "text": "40",
+          "x": 99.14
+        },
+        {
+          "baseline": 376.11,
+          "text": "v",
+          "x": 87.1
+        },
+        {
+          "baseline": 385.83,
+          "text": "o20",
+          "x": 87.1
+        },
+        {
+          "baseline": 398.88,
+          "text": "C 0",
+          "x": 87.1
+        },
+        {
+          "baseline": 411.84,
+          "text": "DOCX",
+          "x": 234.06
+        },
+        {
+          "baseline": 411.84,
+          "text": "PPTX",
+          "x": 493.1
+        },
+        {
+          "baseline": 411.84,
+          "text": "Charts",
+          "x": 746.08
+        },
+        {
+          "baseline": 434.88,
+          "text": "Backend",
+          "x": 469.0
+        },
+        {
+          "baseline": 462.24,
+          "text": "Current Target",
+          "x": 446.44
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX native polish",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "7911eca6e6dfdce824b94e6bad2c9ed630961f12073acee230538d3f04f40df3"
+}

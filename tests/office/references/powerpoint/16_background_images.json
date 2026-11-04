@@ -1,0 +1,84 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 111.6,
+          "text": "Deck Background Image",
+          "x": 73.6
+        },
+        {
+          "baseline": 131.52,
+          "text": "The neural image should cover the complete 16:9 canvas.",
+          "x": 73.6
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation background parity",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 99.6,
+          "text": "Slide Background Override",
+          "x": 566.09
+        },
+        {
+          "baseline": 119.52,
+          "text": "This slide contains a different asymmetric image without",
+          "x": 519.38
+        },
+        {
+          "baseline": 136.56,
+          "text": "distortion.",
+          "x": 796.7
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation background parity",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 244.08,
+          "text": "Color Override Suppresses The Image",
+          "x": 239.69
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation background parity",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "3",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "d804003e6d11105f4bd3ffe309aa1c02ed384320974e203e3d8832069f1adf61"
+}

@@ -1,0 +1,463 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Nested Table Row Splitting",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.44,
+          "text": "The NESTED-SPLIT outer row begins late on page 1 and uses default W ord row flow. Its nested row",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "boundaries, not a fixed height or authored page break, determine where the left cell resumes.",
+          "x": 72.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "OUTER LEFT CONTENT",
+          "x": 78.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "RIGHT-CELL CONTROL",
+          "x": 394.8
+        },
+        {
+          "baseline": 156.48,
+          "text": "SETUP 01 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 156.48,
+          "text": "CONTROL SETUP 01",
+          "x": 394.8
+        },
+        {
+          "baseline": 180.0,
+          "text": "SETUP 02 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 180.0,
+          "text": "CONTROL SETUP 02",
+          "x": 394.8
+        },
+        {
+          "baseline": 203.52,
+          "text": "SETUP 03 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 203.52,
+          "text": "CONTROL SETUP 03",
+          "x": 394.8
+        },
+        {
+          "baseline": 227.04,
+          "text": "SETUP 04 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 227.04,
+          "text": "CONTROL SETUP 04",
+          "x": 394.8
+        },
+        {
+          "baseline": 250.56,
+          "text": "SETUP 05 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 250.56,
+          "text": "CONTROL SETUP 05",
+          "x": 394.8
+        },
+        {
+          "baseline": 274.08,
+          "text": "SETUP 06 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 274.08,
+          "text": "CONTROL SETUP 06",
+          "x": 394.8
+        },
+        {
+          "baseline": 297.6,
+          "text": "SETUP 07 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 297.6,
+          "text": "CONTROL SETUP 07",
+          "x": 394.8
+        },
+        {
+          "baseline": 321.12,
+          "text": "SETUP 08 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 321.12,
+          "text": "CONTROL SETUP 08",
+          "x": 394.8
+        },
+        {
+          "baseline": 344.64,
+          "text": "SETUP 09 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 344.64,
+          "text": "CONTROL SETUP 09",
+          "x": 394.8
+        },
+        {
+          "baseline": 367.92,
+          "text": "SETUP 10 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 367.92,
+          "text": "CONTROL SETUP 10",
+          "x": 394.8
+        },
+        {
+          "baseline": 391.44,
+          "text": "SETUP 11 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 391.44,
+          "text": "CONTROL SETUP 11",
+          "x": 394.8
+        },
+        {
+          "baseline": 414.96,
+          "text": "SETUP 12 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "CONTROL SETUP 12",
+          "x": 394.8
+        },
+        {
+          "baseline": 438.48,
+          "text": "SETUP 13 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 438.48,
+          "text": "CONTROL SETUP 13",
+          "x": 394.8
+        },
+        {
+          "baseline": 462.0,
+          "text": "SETUP 14 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 462.0,
+          "text": "CONTROL SETUP 14",
+          "x": 394.8
+        },
+        {
+          "baseline": 485.52,
+          "text": "SETUP 15 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 485.52,
+          "text": "CONTROL SETUP 15",
+          "x": 394.8
+        },
+        {
+          "baseline": 509.04,
+          "text": "SETUP 16 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 509.04,
+          "text": "CONTROL SETUP 16",
+          "x": 394.8
+        },
+        {
+          "baseline": 532.56,
+          "text": "SETUP 17 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 532.56,
+          "text": "CONTROL SETUP 17",
+          "x": 394.8
+        },
+        {
+          "baseline": 556.08,
+          "text": "SETUP 18 — ordinary row before the nested split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 556.08,
+          "text": "CONTROL SETUP 18",
+          "x": 394.8
+        },
+        {
+          "baseline": 579.6,
+          "text": "NESTED-LEFT-BEFORE — visible before the complete nested grid. RIGHT-CONTROL LINE 01",
+          "x": 78.0
+        },
+        {
+          "baseline": 592.56,
+          "text": "RIGHT-CONTROL LINE 02",
+          "x": 394.8
+        },
+        {
+          "baseline": 598.08,
+          "text": "INNER ROW INNER CONTENT",
+          "x": 91.44
+        },
+        {
+          "baseline": 605.52,
+          "text": "RIGHT-CONTROL LINE 03",
+          "x": 394.8
+        },
+        {
+          "baseline": 618.48,
+          "text": "RIGHT-CONTROL LINE 04",
+          "x": 394.8
+        },
+        {
+          "baseline": 621.6,
+          "text": "NESTED-R01 NESTED-R01 LINE A — first nested row",
+          "x": 91.44
+        },
+        {
+          "baseline": 631.44,
+          "text": "RIGHT-CONTROL LINE 05",
+          "x": 394.8
+        },
+        {
+          "baseline": 634.56,
+          "text": "begins.",
+          "x": 167.04
+        },
+        {
+          "baseline": 644.64,
+          "text": "RIGHT-CONTROL LINE 06",
+          "x": 394.8
+        },
+        {
+          "baseline": 647.52,
+          "text": "NESTED-R01 LINE B — first nested row",
+          "x": 167.04
+        },
+        {
+          "baseline": 657.6,
+          "text": "RIGHT-CONTROL LINE 07",
+          "x": 394.8
+        },
+        {
+          "baseline": 660.48,
+          "text": "ends.",
+          "x": 167.04
+        },
+        {
+          "baseline": 670.56,
+          "text": "RIGHT-CONTROL LINE 08",
+          "x": 394.8
+        },
+        {
+          "baseline": 684.0,
+          "text": "NESTED-R02 NESTED-R02 LINE A — second nested row",
+          "x": 91.44
+        },
+        {
+          "baseline": 683.52,
+          "text": "RIGHT-CONTROL LINE 09",
+          "x": 394.8
+        },
+        {
+          "baseline": 696.96,
+          "text": "begins.",
+          "x": 167.04
+        },
+        {
+          "baseline": 696.48,
+          "text": "RIGHT-CONTROL LINE 10",
+          "x": 394.8
+        },
+        {
+          "baseline": 709.92,
+          "text": "NESTED-R02 LINE B — second nested row",
+          "x": 167.04
+        },
+        {
+          "baseline": 709.44,
+          "text": "RIGHT-CONTROL LINE 11",
+          "x": 394.8
+        },
+        {
+          "baseline": 723.12,
+          "text": "ends.",
+          "x": 167.04
+        },
+        {
+          "baseline": 722.64,
+          "text": "RIGHT-CONTROL LINE 12",
+          "x": 394.8
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.84,
+          "text": "OUTER LEFT CONTENT",
+          "x": 78.0
+        },
+        {
+          "baseline": 69.84,
+          "text": "RIGHT-CELL CONTROL",
+          "x": 394.8
+        },
+        {
+          "baseline": 93.36,
+          "text": "RIGHT-CONTROL LINE 13",
+          "x": 394.8
+        },
+        {
+          "baseline": 98.88,
+          "text": "NESTED-R03 NESTED-R03 LINE A — third nested row",
+          "x": 91.44
+        },
+        {
+          "baseline": 106.32,
+          "text": "RIGHT-CONTROL LINE 14",
+          "x": 394.8
+        },
+        {
+          "baseline": 111.84,
+          "text": "begins.",
+          "x": 167.04
+        },
+        {
+          "baseline": 119.28,
+          "text": "RIGHT-CONTROL LINE 15",
+          "x": 394.8
+        },
+        {
+          "baseline": 124.8,
+          "text": "NESTED-R03 LINE B — third nested row",
+          "x": 167.04
+        },
+        {
+          "baseline": 137.76,
+          "text": "ends.",
+          "x": 167.04
+        },
+        {
+          "baseline": 161.28,
+          "text": "NESTED-R04 NESTED-R04 LINE A — fourth nested row",
+          "x": 91.44
+        },
+        {
+          "baseline": 174.24,
+          "text": "begins.",
+          "x": 167.04
+        },
+        {
+          "baseline": 187.44,
+          "text": "NESTED-R04 LINE B — fourth nested row",
+          "x": 167.04
+        },
+        {
+          "baseline": 200.4,
+          "text": "ends.",
+          "x": 167.04
+        },
+        {
+          "baseline": 223.92,
+          "text": "NESTED-R05 NESTED-R05 LINE A — fifth nested row",
+          "x": 91.44
+        },
+        {
+          "baseline": 236.88,
+          "text": "begins.",
+          "x": 167.04
+        },
+        {
+          "baseline": 249.84,
+          "text": "NESTED-R05 LINE B — fifth nested row",
+          "x": 167.04
+        },
+        {
+          "baseline": 262.8,
+          "text": "ends.",
+          "x": 167.04
+        },
+        {
+          "baseline": 286.32,
+          "text": "NESTED-R06 NESTED-R06 LINE A — sixth nested row",
+          "x": 91.44
+        },
+        {
+          "baseline": 299.28,
+          "text": "begins.",
+          "x": 167.04
+        },
+        {
+          "baseline": 312.24,
+          "text": "NESTED-R06 LINE B — sixth nested row",
+          "x": 167.04
+        },
+        {
+          "baseline": 325.44,
+          "text": "ends.",
+          "x": 167.04
+        },
+        {
+          "baseline": 343.92,
+          "text": "NESTED-LEFT-AFTER — visible after the complete nested grid.",
+          "x": 78.0
+        },
+        {
+          "baseline": 367.44,
+          "text": "NESTED-OUTER-AFTER — ordinary row after the split.",
+          "x": 78.0
+        },
+        {
+          "baseline": 367.44,
+          "text": "CONTROL AFTER",
+          "x": 394.8
+        },
+        {
+          "baseline": 395.76,
+          "text": "REVIEW : the repeated outer header begins page 2; each NESTED-R01 through NESTED-R06 row",
+          "x": 72.0
+        },
+        {
+          "baseline": 408.72,
+          "text": "remains intact and appears once; NESTED-LEFT-AFTER follows the inner grid; and every RIGHT-",
+          "x": 72.0
+        },
+        {
+          "baseline": 421.92,
+          "text": "CONTROL line appears once in order.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "03f123c63358e0b725ff4c0956c8a128678bb83b6352a765162f757ab16ecb57"
+}

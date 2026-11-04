@@ -1,0 +1,172 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Rich Numbering",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "Every ordered-list marker, generated caption number, and generated reference must use the authored",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "numbering format in DOCX, PDF, and PNG.",
+          "x": 72.0
+        },
+        {
+          "baseline": 129.12,
+          "text": "Alphabetic Lists",
+          "x": 72.0
+        },
+        {
+          "baseline": 149.52,
+          "text": "y. Lower-alpha item 25 must be y.",
+          "x": 108.0
+        },
+        {
+          "baseline": 164.4,
+          "text": "z. Lower-alpha item 26 must be z.",
+          "x": 108.0
+        },
+        {
+          "baseline": 179.52,
+          "text": "aa. Lower-alpha item 27 must be aa.",
+          "x": 108.0
+        },
+        {
+          "baseline": 194.4,
+          "text": "AA. Upper-alpha item 27 must be AA.",
+          "x": 108.0
+        },
+        {
+          "baseline": 209.28,
+          "text": "BB. Upper-alpha item 28 must be BB.",
+          "x": 108.0
+        },
+        {
+          "baseline": 234.48,
+          "text": "Roman Lists",
+          "x": 72.0
+        },
+        {
+          "baseline": 255.12,
+          "text": "iv. Lower-Roman item 4 must be iv.",
+          "x": 108.0
+        },
+        {
+          "baseline": 270.0,
+          "text": "v. Lower-Roman item 5 must be v.",
+          "x": 108.0
+        },
+        {
+          "baseline": 285.12,
+          "text": "IX. Upper-Roman item 9 must be IX.",
+          "x": 108.0
+        },
+        {
+          "baseline": 300.0,
+          "text": "X. Upper-Roman item 10 must be X.",
+          "x": 108.0
+        },
+        {
+          "baseline": 324.96,
+          "text": "Continued And Restarted Lists",
+          "x": 72.0
+        },
+        {
+          "baseline": 345.84,
+          "text": "C. Initial sequence item 3 must be C.",
+          "x": 108.0
+        },
+        {
+          "baseline": 360.72,
+          "text": "D. Initial sequence item 4 must be D.",
+          "x": 108.0
+        },
+        {
+          "baseline": 375.6,
+          "text": "This paragraph interrupts the numbered sequence.",
+          "x": 72.0
+        },
+        {
+          "baseline": 395.76,
+          "text": "E. The matching id continues at E; the later start is ignored.",
+          "x": 108.0
+        },
+        {
+          "baseline": 410.64,
+          "text": "A. The explicit restart returns to A.",
+          "x": 108.0
+        },
+        {
+          "baseline": 425.52,
+          "text": "B. The restarted sequence then continues at B.",
+          "x": 108.0
+        },
+        {
+          "baseline": 440.4,
+          "text": "Forward generated number: Exhibit IV.",
+          "x": 72.0
+        },
+        {
+          "baseline": 466.08,
+          "text": "Number",
+          "x": 113.04
+        },
+        {
+          "baseline": 466.08,
+          "text": "Expected",
+          "x": 257.04
+        },
+        {
+          "baseline": 489.36,
+          "text": "First exhibit",
+          "x": 113.04
+        },
+        {
+          "baseline": 489.36,
+          "text": "Exhibit IV — Revenue comparison",
+          "x": 257.04
+        },
+        {
+          "baseline": 507.84,
+          "text": "Exhibit IV — Revenue comparison",
+          "x": 72.0
+        },
+        {
+          "baseline": 535.2,
+          "text": "Second exhibit",
+          "x": 113.04
+        },
+        {
+          "baseline": 535.2,
+          "text": "The shared sequence continues at V.",
+          "x": 311.04
+        },
+        {
+          "baseline": 553.68,
+          "text": "Exhibit V: Continuation check",
+          "x": 72.0
+        },
+        {
+          "baseline": 575.52,
+          "text": "PASS: list markers include y, z, aa, AA, BB, iv, v, IX, X and the continued C, D, E, A, B sequence; the",
+          "x": 72.0
+        },
+        {
+          "baseline": 588.48,
+          "text": "forward reference reads Exhibit IV; captions begin “Exhibit IV — ” and “Exhibit V:”.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "faf699c64fcd418ddb495cd2aba519490960a65cc88fbe151645d149ba653ca6"
+}

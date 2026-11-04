@@ -1,0 +1,98 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.12,
+          "text": "Process Flow",
+          "x": 50.4
+        },
+        {
+          "baseline": 162.0,
+          "text": "Intake",
+          "x": 117.59
+        },
+        {
+          "baseline": 162.0,
+          "text": "Evaluate",
+          "x": 342.83
+        },
+        {
+          "baseline": 162.0,
+          "text": "Gate",
+          "x": 569.39
+        },
+        {
+          "baseline": 162.0,
+          "text": "Publish",
+          "x": 768.33
+        },
+        {
+          "baseline": 324.0,
+          "text": "Review",
+          "x": 560.79
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX shapes and lines",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 45.12,
+          "text": "Shape Geometry",
+          "x": 50.4
+        },
+        {
+          "baseline": 154.8,
+          "text": "Cloud",
+          "x": 714.35
+        },
+        {
+          "baseline": 156.48,
+          "text": "Ellipse",
+          "x": 122.91
+        },
+        {
+          "baseline": 156.48,
+          "text": "Chev",
+          "x": 525.0
+        },
+        {
+          "baseline": 175.48,
+          "text": "Tr",
+          "x": 333.41
+        },
+        {
+          "baseline": 176.81,
+          "text": "i",
+          "x": 346.56
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote PPTX shapes and lines",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "1cbc19847b48c07adfef7448bb857f8f4d7bbf15c334cb530e911ce25571525d"
+}

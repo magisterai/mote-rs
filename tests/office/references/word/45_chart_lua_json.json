@@ -1,0 +1,147 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.64,
+          "text": "W ord Chart From Lua And JSON",
+          "x": 66.0
+        },
+        {
+          "baseline": 108.72,
+          "text": "Lua loads row-oriented JSON and reshapes it into chart categories and series. This case explicitly authors",
+          "x": 66.0
+        },
+        {
+          "baseline": 123.6,
+          "text": "colors and legend placement so it remains independent from the chart-defaults diagnostic.",
+          "x": 66.0
+        },
+        {
+          "baseline": 159.6,
+          "text": "Monthly JSON Output",
+          "x": 201.67
+        },
+        {
+          "baseline": 179.52,
+          "text": "60",
+          "x": 102.2
+        },
+        {
+          "baseline": 201.6,
+          "text": "50",
+          "x": 102.2
+        },
+        {
+          "baseline": 223.68,
+          "text": "40",
+          "x": 102.2
+        },
+        {
+          "baseline": 230.78,
+          "text": "s",
+          "x": 95.3
+        },
+        {
+          "baseline": 235.79,
+          "text": "t",
+          "x": 95.3
+        },
+        {
+          "baseline": 239.79,
+          "text": "i",
+          "x": 95.3
+        },
+        {
+          "baseline": 245.76,
+          "text": "30",
+          "x": 102.2
+        },
+        {
+          "baseline": 249.8,
+          "text": "n",
+          "x": 95.3
+        },
+        {
+          "baseline": 262.8,
+          "text": "U",
+          "x": 95.3
+        },
+        {
+          "baseline": 267.84,
+          "text": "20",
+          "x": 102.2
+        },
+        {
+          "baseline": 289.68,
+          "text": "10",
+          "x": 102.2
+        },
+        {
+          "baseline": 311.76,
+          "text": "0",
+          "x": 105.76
+        },
+        {
+          "baseline": 324.96,
+          "text": "Jan",
+          "x": 152.13
+        },
+        {
+          "baseline": 324.96,
+          "text": "Feb",
+          "x": 228.03
+        },
+        {
+          "baseline": 324.96,
+          "text": "Mar",
+          "x": 304.46
+        },
+        {
+          "baseline": 324.96,
+          "text": "Apr",
+          "x": 381.6
+        },
+        {
+          "baseline": 324.96,
+          "text": "May",
+          "x": 457.21
+        },
+        {
+          "baseline": 346.8,
+          "text": "Month",
+          "x": 284.96
+        },
+        {
+          "baseline": 375.6,
+          "text": "Actual",
+          "x": 245.17
+        },
+        {
+          "baseline": 375.6,
+          "text": "Plan",
+          "x": 293.97
+        },
+        {
+          "baseline": 375.6,
+          "text": "Stretch",
+          "x": 336.99
+        },
+        {
+          "baseline": 402.72,
+          "text": "Expected: five months and three editable series sourced from chart_lua_json.json, using teal, violet, and orange",
+          "x": 66.0
+        },
+        {
+          "baseline": 415.92,
+          "text": "with a bottom legend.",
+          "x": 66.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "5f9b5e997cb424b1fc8eea1f614822ccf5702d8d5cd3c2a70cccf4cb97db2afe"
+}

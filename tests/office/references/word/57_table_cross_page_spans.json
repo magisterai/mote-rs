@@ -1,0 +1,1079 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Cross-page Table Spans",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.44,
+          "text": "This natural-flow table places a three-row vertical merge and a later multi-paragraph horizontal merge",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "near page boundaries. It has no fixed row heights, no row keeps, and no manual page breaks.",
+          "x": 72.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "GROUP",
+          "x": 78.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "ROW DESCRIPTION",
+          "x": 156.98
+        },
+        {
+          "baseline": 132.96,
+          "text": "STATE",
+          "x": 484.01
+        },
+        {
+          "baseline": 156.48,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 156.48,
+          "text": "01",
+          "x": 163.64
+        },
+        {
+          "baseline": 156.48,
+          "text": "Ordinary preface row 01.",
+          "x": 200.4
+        },
+        {
+          "baseline": 156.48,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 180.0,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 180.0,
+          "text": "02",
+          "x": 163.64
+        },
+        {
+          "baseline": 180.0,
+          "text": "Ordinary preface row 02.",
+          "x": 200.4
+        },
+        {
+          "baseline": 180.0,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 203.52,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 203.52,
+          "text": "03",
+          "x": 163.64
+        },
+        {
+          "baseline": 203.52,
+          "text": "Ordinary preface row 03.",
+          "x": 200.4
+        },
+        {
+          "baseline": 203.52,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 227.04,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 227.04,
+          "text": "04",
+          "x": 163.64
+        },
+        {
+          "baseline": 227.04,
+          "text": "Ordinary preface row 04.",
+          "x": 200.4
+        },
+        {
+          "baseline": 227.04,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 250.56,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 250.56,
+          "text": "05",
+          "x": 163.64
+        },
+        {
+          "baseline": 250.56,
+          "text": "Ordinary preface row 05.",
+          "x": 200.4
+        },
+        {
+          "baseline": 250.56,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 274.08,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 274.08,
+          "text": "06",
+          "x": 163.64
+        },
+        {
+          "baseline": 274.08,
+          "text": "Ordinary preface row 06.",
+          "x": 200.4
+        },
+        {
+          "baseline": 274.08,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 297.6,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 297.6,
+          "text": "07",
+          "x": 163.64
+        },
+        {
+          "baseline": 297.6,
+          "text": "Ordinary preface row 07.",
+          "x": 200.4
+        },
+        {
+          "baseline": 297.6,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 321.12,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 321.12,
+          "text": "08",
+          "x": 163.64
+        },
+        {
+          "baseline": 321.12,
+          "text": "Ordinary preface row 08.",
+          "x": 200.4
+        },
+        {
+          "baseline": 321.12,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 344.64,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 344.64,
+          "text": "09",
+          "x": 163.64
+        },
+        {
+          "baseline": 344.64,
+          "text": "Ordinary preface row 09.",
+          "x": 200.4
+        },
+        {
+          "baseline": 344.64,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 367.92,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 367.92,
+          "text": "10",
+          "x": 163.64
+        },
+        {
+          "baseline": 367.92,
+          "text": "Ordinary preface row 10.",
+          "x": 200.4
+        },
+        {
+          "baseline": 367.92,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 391.44,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 391.44,
+          "text": "11",
+          "x": 163.64
+        },
+        {
+          "baseline": 391.44,
+          "text": "Ordinary preface row 11.",
+          "x": 200.4
+        },
+        {
+          "baseline": 391.44,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 414.96,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "12",
+          "x": 163.64
+        },
+        {
+          "baseline": 414.96,
+          "text": "Ordinary preface row 12.",
+          "x": 200.4
+        },
+        {
+          "baseline": 414.96,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 438.48,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 438.48,
+          "text": "13",
+          "x": 163.64
+        },
+        {
+          "baseline": 438.48,
+          "text": "Ordinary preface row 13.",
+          "x": 200.4
+        },
+        {
+          "baseline": 438.48,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 462.0,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 462.0,
+          "text": "14",
+          "x": 163.64
+        },
+        {
+          "baseline": 462.0,
+          "text": "Ordinary preface row 14.",
+          "x": 200.4
+        },
+        {
+          "baseline": 462.0,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 485.52,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 485.52,
+          "text": "15",
+          "x": 163.64
+        },
+        {
+          "baseline": 485.52,
+          "text": "Ordinary preface row 15.",
+          "x": 200.4
+        },
+        {
+          "baseline": 485.52,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 509.04,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 509.04,
+          "text": "16",
+          "x": 163.64
+        },
+        {
+          "baseline": 509.04,
+          "text": "Ordinary preface row 16.",
+          "x": 200.4
+        },
+        {
+          "baseline": 509.04,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 532.56,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 532.56,
+          "text": "17",
+          "x": 163.64
+        },
+        {
+          "baseline": 532.56,
+          "text": "Ordinary preface row 17.",
+          "x": 200.4
+        },
+        {
+          "baseline": 532.56,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 556.08,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 556.08,
+          "text": "18",
+          "x": 163.64
+        },
+        {
+          "baseline": 556.08,
+          "text": "Ordinary preface row 18.",
+          "x": 200.4
+        },
+        {
+          "baseline": 556.08,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 579.6,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 579.6,
+          "text": "19",
+          "x": 163.64
+        },
+        {
+          "baseline": 579.6,
+          "text": "Ordinary preface row 19.",
+          "x": 200.4
+        },
+        {
+          "baseline": 579.6,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 603.12,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 603.12,
+          "text": "20",
+          "x": 163.64
+        },
+        {
+          "baseline": 603.12,
+          "text": "Ordinary preface row 20.",
+          "x": 200.4
+        },
+        {
+          "baseline": 603.12,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 626.64,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 626.64,
+          "text": "21",
+          "x": 163.64
+        },
+        {
+          "baseline": 626.64,
+          "text": "Ordinary preface row 21.",
+          "x": 200.4
+        },
+        {
+          "baseline": 626.64,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 649.92,
+          "text": "PREFACE",
+          "x": 78.0
+        },
+        {
+          "baseline": 649.92,
+          "text": "22",
+          "x": 163.64
+        },
+        {
+          "baseline": 649.92,
+          "text": "Ordinary preface row 22.",
+          "x": 200.4
+        },
+        {
+          "baseline": 649.92,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 673.44,
+          "text": "SPAN-A ROW 1 LINE 1 — vertical merge begins.",
+          "x": 200.4
+        },
+        {
+          "baseline": 686.64,
+          "text": "A1",
+          "x": 163.08
+        },
+        {
+          "baseline": 686.64,
+          "text": "SPAN-A ROW 1 LINE 2 — content remains",
+          "x": 200.4
+        },
+        {
+          "baseline": 686.64,
+          "text": "OPEN",
+          "x": 486.23
+        },
+        {
+          "baseline": 698.4,
+          "text": "SPAN-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 699.6,
+          "text": "independently visible.",
+          "x": 200.4
+        },
+        {
+          "baseline": 723.12,
+          "text": "A2",
+          "x": 163.08
+        },
+        {
+          "baseline": 723.12,
+          "text": "SPAN-A ROW 2 LINE 1 — vertical merge continues.",
+          "x": 200.4
+        },
+        {
+          "baseline": 723.12,
+          "text": "OPEN",
+          "x": 486.23
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.84,
+          "text": "GROUP",
+          "x": 78.0
+        },
+        {
+          "baseline": 69.84,
+          "text": "ROW DESCRIPTION",
+          "x": 156.98
+        },
+        {
+          "baseline": 69.84,
+          "text": "STATE",
+          "x": 484.01
+        },
+        {
+          "baseline": 93.36,
+          "text": "SPAN-A ROW 2 LINE 2 — page flow must preserve the",
+          "x": 200.4
+        },
+        {
+          "baseline": 106.32,
+          "text": "grid.",
+          "x": 200.4
+        },
+        {
+          "baseline": 129.84,
+          "text": "SPAN-A ROW 3 LINE 1 — vertical merge concludes.",
+          "x": 200.4
+        },
+        {
+          "baseline": 142.8,
+          "text": "A3",
+          "x": 163.08
+        },
+        {
+          "baseline": 142.8,
+          "text": "SPAN-A ROW 3 LINE 2 — the lower border closes the",
+          "x": 200.4
+        },
+        {
+          "baseline": 142.8,
+          "text": "DONE",
+          "x": 485.95
+        },
+        {
+          "baseline": 155.76,
+          "text": "merge.",
+          "x": 200.4
+        },
+        {
+          "baseline": 179.28,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 179.28,
+          "text": "01",
+          "x": 163.64
+        },
+        {
+          "baseline": 179.28,
+          "text": "Ordinary post-span row 01.",
+          "x": 200.4
+        },
+        {
+          "baseline": 179.28,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 202.8,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 202.8,
+          "text": "02",
+          "x": 163.64
+        },
+        {
+          "baseline": 202.8,
+          "text": "Ordinary post-span row 02.",
+          "x": 200.4
+        },
+        {
+          "baseline": 202.8,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 226.32,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 226.32,
+          "text": "03",
+          "x": 163.64
+        },
+        {
+          "baseline": 226.32,
+          "text": "Ordinary post-span row 03.",
+          "x": 200.4
+        },
+        {
+          "baseline": 226.32,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 249.84,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 249.84,
+          "text": "04",
+          "x": 163.64
+        },
+        {
+          "baseline": 249.84,
+          "text": "Ordinary post-span row 04.",
+          "x": 200.4
+        },
+        {
+          "baseline": 249.84,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 273.36,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 273.36,
+          "text": "05",
+          "x": 163.64
+        },
+        {
+          "baseline": 273.36,
+          "text": "Ordinary post-span row 05.",
+          "x": 200.4
+        },
+        {
+          "baseline": 273.36,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 296.88,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 296.88,
+          "text": "06",
+          "x": 163.64
+        },
+        {
+          "baseline": 296.88,
+          "text": "Ordinary post-span row 06.",
+          "x": 200.4
+        },
+        {
+          "baseline": 296.88,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 320.4,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 320.4,
+          "text": "07",
+          "x": 163.64
+        },
+        {
+          "baseline": 320.4,
+          "text": "Ordinary post-span row 07.",
+          "x": 200.4
+        },
+        {
+          "baseline": 320.4,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 343.92,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 343.92,
+          "text": "08",
+          "x": 163.64
+        },
+        {
+          "baseline": 343.92,
+          "text": "Ordinary post-span row 08.",
+          "x": 200.4
+        },
+        {
+          "baseline": 343.92,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 367.44,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 367.44,
+          "text": "09",
+          "x": 163.64
+        },
+        {
+          "baseline": 367.44,
+          "text": "Ordinary post-span row 09.",
+          "x": 200.4
+        },
+        {
+          "baseline": 367.44,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 390.72,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 390.72,
+          "text": "10",
+          "x": 163.64
+        },
+        {
+          "baseline": 390.72,
+          "text": "Ordinary post-span row 10.",
+          "x": 200.4
+        },
+        {
+          "baseline": 390.72,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 414.24,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 414.24,
+          "text": "11",
+          "x": 163.64
+        },
+        {
+          "baseline": 414.24,
+          "text": "Ordinary post-span row 11.",
+          "x": 200.4
+        },
+        {
+          "baseline": 414.24,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 437.76,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 437.76,
+          "text": "12",
+          "x": 163.64
+        },
+        {
+          "baseline": 437.76,
+          "text": "Ordinary post-span row 12.",
+          "x": 200.4
+        },
+        {
+          "baseline": 437.76,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 461.28,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 461.28,
+          "text": "13",
+          "x": 163.64
+        },
+        {
+          "baseline": 461.28,
+          "text": "Ordinary post-span row 13.",
+          "x": 200.4
+        },
+        {
+          "baseline": 461.28,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 484.8,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 484.8,
+          "text": "14",
+          "x": 163.64
+        },
+        {
+          "baseline": 484.8,
+          "text": "Ordinary post-span row 14.",
+          "x": 200.4
+        },
+        {
+          "baseline": 484.8,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 508.32,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 508.32,
+          "text": "15",
+          "x": 163.64
+        },
+        {
+          "baseline": 508.32,
+          "text": "Ordinary post-span row 15.",
+          "x": 200.4
+        },
+        {
+          "baseline": 508.32,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 531.84,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 531.84,
+          "text": "16",
+          "x": 163.64
+        },
+        {
+          "baseline": 531.84,
+          "text": "Ordinary post-span row 16.",
+          "x": 200.4
+        },
+        {
+          "baseline": 531.84,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 555.36,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 555.36,
+          "text": "17",
+          "x": 163.64
+        },
+        {
+          "baseline": 555.36,
+          "text": "Ordinary post-span row 17.",
+          "x": 200.4
+        },
+        {
+          "baseline": 555.36,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 578.88,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 578.88,
+          "text": "18",
+          "x": 163.64
+        },
+        {
+          "baseline": 578.88,
+          "text": "Ordinary post-span row 18.",
+          "x": 200.4
+        },
+        {
+          "baseline": 578.88,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 602.4,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 602.4,
+          "text": "19",
+          "x": 163.64
+        },
+        {
+          "baseline": 602.4,
+          "text": "Ordinary post-span row 19.",
+          "x": 200.4
+        },
+        {
+          "baseline": 602.4,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 625.92,
+          "text": "AFTER-A",
+          "x": 78.0
+        },
+        {
+          "baseline": 625.92,
+          "text": "20",
+          "x": 163.64
+        },
+        {
+          "baseline": 625.92,
+          "text": "Ordinary post-span row 20.",
+          "x": 200.4
+        },
+        {
+          "baseline": 625.92,
+          "text": "READY",
+          "x": 483.17
+        },
+        {
+          "baseline": 649.44,
+          "text": "SPAN-B LINE 01 — this cell crosses the first three grid columns.",
+          "x": 78.0
+        },
+        {
+          "baseline": 662.4,
+          "text": "SPAN-B LINE 02 — its content remains inside one merged frame.",
+          "x": 78.0
+        },
+        {
+          "baseline": 675.36,
+          "text": "SPAN-B LINE 03 — no row height or page break is authored.",
+          "x": 78.0
+        },
+        {
+          "baseline": 688.32,
+          "text": "SPAN-B LINE 04 — W ord determines whether the row divides.",
+          "x": 78.0
+        },
+        {
+          "baseline": 688.32,
+          "text": "SPAN-B",
+          "x": 481.78
+        },
+        {
+          "baseline": 701.28,
+          "text": "SPAN-B LINE 05 — a continuation retains the merged width.",
+          "x": 78.0
+        },
+        {
+          "baseline": 714.24,
+          "text": "SPAN-B LINE 06 — borders remain aligned with the fourth column.",
+          "x": 78.0
+        },
+        {
+          "baseline": 727.44,
+          "text": "SPAN-B LINE 07 — all text appears exactly once.",
+          "x": 78.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.84,
+          "text": "GROUP",
+          "x": 78.0
+        },
+        {
+          "baseline": 69.84,
+          "text": "ROW DESCRIPTION",
+          "x": 156.98
+        },
+        {
+          "baseline": 69.84,
+          "text": "STATE",
+          "x": 484.01
+        },
+        {
+          "baseline": 93.36,
+          "text": "SPAN-B LINE 08 — this is the horizontal-span terminator.",
+          "x": 78.0
+        },
+        {
+          "baseline": 116.88,
+          "text": "FINAL",
+          "x": 78.0
+        },
+        {
+          "baseline": 116.88,
+          "text": "01",
+          "x": 163.64
+        },
+        {
+          "baseline": 116.88,
+          "text": "The ordinary row following both span controls.",
+          "x": 200.4
+        },
+        {
+          "baseline": 116.88,
+          "text": "DONE",
+          "x": 485.95
+        },
+        {
+          "baseline": 145.44,
+          "text": "REVIEW : SPAN-A remains one continuous vertical merge and SPAN-B retains one three-column frame",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.4,
+          "text": "wherever W ord's natural pagination places them.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "7a153201753381570130a46ee09173d5fa88bed3601f521642af6536189b09c4"
+}

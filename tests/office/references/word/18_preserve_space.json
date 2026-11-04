@@ -1,0 +1,132 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Preserve Space",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "The vertical bars are fixed rulers. Leading spaces, literal tabs expanded to four spaces, the empty interior",
+          "x": 72.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "line, and the two underlined spaces at the end of the labelled line must survive in every backend.",
+          "x": 72.0
+        },
+        {
+          "baseline": 127.2,
+          "text": "+------------------------------------------+",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.16,
+          "text": "|no indent",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.16,
+          "text": "|",
+          "x": 330.03
+        },
+        {
+          "baseline": 153.12,
+          "text": "|  two-space indent",
+          "x": 90.0
+        },
+        {
+          "baseline": 153.12,
+          "text": "|",
+          "x": 330.03
+        },
+        {
+          "baseline": 166.08,
+          "text": "|    four-space indent",
+          "x": 102.0
+        },
+        {
+          "baseline": 166.08,
+          "text": "|",
+          "x": 330.03
+        },
+        {
+          "baseline": 179.04,
+          "text": "|one leading tab",
+          "x": 96.0
+        },
+        {
+          "baseline": 179.04,
+          "text": "|",
+          "x": 348.03
+        },
+        {
+          "baseline": 192.24,
+          "text": "|left    middle    right",
+          "x": 72.0
+        },
+        {
+          "baseline": 192.24,
+          "text": "|",
+          "x": 366.03
+        },
+        {
+          "baseline": 205.2,
+          "text": "|",
+          "x": 72.0
+        },
+        {
+          "baseline": 205.2,
+          "text": "|",
+          "x": 330.03
+        },
+        {
+          "baseline": 218.16,
+          "text": "|after the intentional blank line",
+          "x": 72.0
+        },
+        {
+          "baseline": 218.16,
+          "text": "|",
+          "x": 330.03
+        },
+        {
+          "baseline": 231.12,
+          "text": "TRAILING SPACES ->",
+          "x": 72.0
+        },
+        {
+          "baseline": 244.08,
+          "text": "+------------------------------------------+",
+          "x": 72.0
+        },
+        {
+          "baseline": 275.52,
+          "text": "The fenced block below is also preformatted without requiring an explicit attribute.",
+          "x": 72.0
+        },
+        {
+          "baseline": 295.92,
+          "text": "fenced two-space indent",
+          "x": 84.0
+        },
+        {
+          "baseline": 322.08,
+          "text": "fenced line after a blank line",
+          "x": 96.0
+        },
+        {
+          "baseline": 357.36,
+          "text": "PASS: indentation and blank lines remain visible; the raw box is not flattened into ordinary prose.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "2f8fc26c5e5dd0ef48592f527301c55e9cb65f1bfb2409bdaf8dd159af2d5c35"
+}

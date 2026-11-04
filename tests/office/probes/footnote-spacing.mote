@@ -1,0 +1,23 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(8), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#set paragraph(style = "Normal")
+
+FOOTNOTE SPACING: footnotes stack at the foot of the page with the separator and paragraph spacing Word gives them.
+
+The first claim needs a source#footnote[The first footnote is a single line.].
+
+The second claim needs a longer note#footnote[The second footnote is long enough to wrap onto a second line at the foot of the page, which shows the line height inside a note.].
+
+The third claim needs a short note#footnote[The third footnote.].

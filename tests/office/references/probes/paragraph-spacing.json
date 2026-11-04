@@ -1,0 +1,92 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 84.96,
+          "text": "PARAGRAPH SPACING: the gap between two paragraphs follows from the first one's spacing",
+          "x": 72.0
+        },
+        {
+          "baseline": 100.8,
+          "text": "after and the second one's spacing before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 116.88,
+          "text": "First paragraph with 0 points after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "Second paragraph with 0 points before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 149.04,
+          "text": "First paragraph with 12 points after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 176.88,
+          "text": "Second paragraph with 0 points before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 192.96,
+          "text": "First paragraph with 0 points after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 220.8,
+          "text": "Second paragraph with 12 points before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 236.88,
+          "text": "First paragraph with 12 points after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 264.96,
+          "text": "Second paragraph with 12 points before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 281.04,
+          "text": "First paragraph with 6 points after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 314.88,
+          "text": "Second paragraph with 18 points before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 330.96,
+          "text": "First paragraph with 18 points after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 364.8,
+          "text": "Second paragraph with 6 points before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 380.88,
+          "text": "First paragraph with 24 points after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 420.96,
+          "text": "Second paragraph with 12 points before.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "814917673d52875d32d847a5c9bb753aad0d15e75e169535a3818b7beb5cdb21"
+}

@@ -1,0 +1,72 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Image Horizontal Positioning",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "Each logo is an ordinary flow image. It must occupy its own vertical band, keep its aspect ratio, and align",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "against the same text column in W ord, PDF, and PNG. No text wrapping or floating placement is",
+          "x": 72.0
+        },
+        {
+          "baseline": 116.64,
+          "text": "requested by this case.",
+          "x": 72.0
+        },
+        {
+          "baseline": 136.8,
+          "text": "LEFT — the next logo begins at the left edge of the text column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 212.16,
+          "text": "LEFT END — this full-width line begins below the complete logo.",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.08,
+          "text": "CENTER — the next logo is centred within the text column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 307.68,
+          "text": "CENTER END — this full-width line begins below the complete logo.",
+          "x": 72.0
+        },
+        {
+          "baseline": 327.6,
+          "text": "RIGHT — the next logo ends at the right edge of the text column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 403.2,
+          "text": "RIGHT END — this full-width line begins below the complete logo.",
+          "x": 72.0
+        },
+        {
+          "baseline": 423.12,
+          "text": "PASS: all three logos retain the same size and ratio, use the requested left, centre, and right positions,",
+          "x": 72.0
+        },
+        {
+          "baseline": 436.08,
+          "text": "and leave following text at full width.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "123024e340fae17194f6da37654e18231b6518d5f19280e492b93884394ca2de"
+}

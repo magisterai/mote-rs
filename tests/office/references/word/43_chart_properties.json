@@ -1,0 +1,388 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 92.64,
+          "text": "Chart Properties",
+          "x": 72.0
+        },
+        {
+          "baseline": 123.12,
+          "text": "This fixture exercises chart plot area styling, gridlines, data labels, and bar spacing.",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.56,
+          "text": "Styled Column Chart",
+          "x": 72.0
+        },
+        {
+          "baseline": 191.76,
+          "text": "Quarterly Revenue",
+          "x": 221.46
+        },
+        {
+          "baseline": 211.44,
+          "text": "25",
+          "x": 108.2
+        },
+        {
+          "baseline": 217.15,
+          "text": ")",
+          "x": 101.3
+        },
+        {
+          "baseline": 223.2,
+          "text": "20.1",
+          "x": 470.82
+        },
+        {
+          "baseline": 227.04,
+          "text": "19.3",
+          "x": 435.69
+        },
+        {
+          "baseline": 232.15,
+          "text": "M",
+          "x": 101.3
+        },
+        {
+          "baseline": 234.24,
+          "text": "20",
+          "x": 108.2
+        },
+        {
+          "baseline": 235.68,
+          "text": "17.4",
+          "x": 374.21
+        },
+        {
+          "baseline": 242.16,
+          "text": "$",
+          "x": 101.3
+        },
+        {
+          "baseline": 241.68,
+          "text": "16.1",
+          "x": 339.08
+        },
+        {
+          "baseline": 245.76,
+          "text": "15.2",
+          "x": 277.6
+        },
+        {
+          "baseline": 248.15,
+          "text": "(",
+          "x": 101.3
+        },
+        {
+          "baseline": 247.44,
+          "text": "14.8",
+          "x": 242.47
+        },
+        {
+          "baseline": 257.28,
+          "text": "15",
+          "x": 108.2
+        },
+        {
+          "baseline": 255.84,
+          "text": "13",
+          "x": 185.08
+        },
+        {
+          "baseline": 258.48,
+          "text": "12.4",
+          "x": 145.86
+        },
+        {
+          "baseline": 263.16,
+          "text": "e",
+          "x": 101.3
+        },
+        {
+          "baseline": 273.17,
+          "text": "u",
+          "x": 101.3
+        },
+        {
+          "baseline": 280.08,
+          "text": "10",
+          "x": 108.2
+        },
+        {
+          "baseline": 283.18,
+          "text": "n",
+          "x": 101.3
+        },
+        {
+          "baseline": 293.19,
+          "text": "e",
+          "x": 101.3
+        },
+        {
+          "baseline": 302.66,
+          "text": "v5",
+          "x": 101.3
+        },
+        {
+          "baseline": 312.2,
+          "text": "e",
+          "x": 101.3
+        },
+        {
+          "baseline": 325.56,
+          "text": "R0",
+          "x": 101.3
+        },
+        {
+          "baseline": 338.88,
+          "text": "Q1",
+          "x": 168.64
+        },
+        {
+          "baseline": 338.88,
+          "text": "Q2",
+          "x": 265.25
+        },
+        {
+          "baseline": 338.88,
+          "text": "Q3",
+          "x": 361.86
+        },
+        {
+          "baseline": 338.88,
+          "text": "Q4",
+          "x": 458.47
+        },
+        {
+          "baseline": 360.96,
+          "text": "Quarter",
+          "x": 287.27
+        },
+        {
+          "baseline": 389.52,
+          "text": "Actual Forecast",
+          "x": 273.21
+        },
+        {
+          "baseline": 427.68,
+          "text": "Pie Data Labels",
+          "x": 72.0
+        },
+        {
+          "baseline": 464.64,
+          "text": "Pipeline Mix",
+          "x": 230.48
+        },
+        {
+          "baseline": 510.48,
+          "text": "9%",
+          "x": 229.5
+        },
+        {
+          "baseline": 543.12,
+          "text": "New",
+          "x": 446.09
+        },
+        {
+          "baseline": 551.76,
+          "text": "21%",
+          "x": 186.75
+        },
+        {
+          "baseline": 552.48,
+          "text": "42%",
+          "x": 297.75
+        },
+        {
+          "baseline": 561.12,
+          "text": "Expansion",
+          "x": 446.09
+        },
+        {
+          "baseline": 579.12,
+          "text": "Renewal",
+          "x": 446.09
+        },
+        {
+          "baseline": 597.36,
+          "text": "Services",
+          "x": 446.09
+        },
+        {
+          "baseline": 624.48,
+          "text": "28%",
+          "x": 219.0
+        },
+        {
+          "baseline": 689.76,
+          "text": "Stacked And Area Charts",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 96.24,
+          "text": "Stacked Support Load",
+          "x": 189.94
+        },
+        {
+          "baseline": 138.24,
+          "text": "QA",
+          "x": 90.72
+        },
+        {
+          "baseline": 182.64,
+          "text": "Emitter",
+          "x": 78.5
+        },
+        {
+          "baseline": 227.28,
+          "text": "Parser",
+          "x": 80.94
+        },
+        {
+          "baseline": 262.56,
+          "text": "0",
+          "x": 106.98
+        },
+        {
+          "baseline": 262.56,
+          "text": "5",
+          "x": 147.08
+        },
+        {
+          "baseline": 262.56,
+          "text": "10",
+          "x": 185.4
+        },
+        {
+          "baseline": 262.56,
+          "text": "15",
+          "x": 225.5
+        },
+        {
+          "baseline": 262.56,
+          "text": "20",
+          "x": 265.6
+        },
+        {
+          "baseline": 262.56,
+          "text": "25",
+          "x": 305.7
+        },
+        {
+          "baseline": 262.56,
+          "text": "30",
+          "x": 345.8
+        },
+        {
+          "baseline": 262.56,
+          "text": "35",
+          "x": 385.9
+        },
+        {
+          "baseline": 262.56,
+          "text": "40",
+          "x": 426.0
+        },
+        {
+          "baseline": 262.56,
+          "text": "45",
+          "x": 466.1
+        },
+        {
+          "baseline": 283.44,
+          "text": "Open Closed",
+          "x": 259.27
+        },
+        {
+          "baseline": 327.6,
+          "text": "Area Trend",
+          "x": 233.98
+        },
+        {
+          "baseline": 347.28,
+          "text": "45",
+          "x": 78.5
+        },
+        {
+          "baseline": 362.16,
+          "text": "40",
+          "x": 78.5
+        },
+        {
+          "baseline": 376.8,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 391.68,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 406.56,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 421.44,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 436.08,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 450.96,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 465.84,
+          "text": "5",
+          "x": 82.06
+        },
+        {
+          "baseline": 480.72,
+          "text": "0",
+          "x": 82.06
+        },
+        {
+          "baseline": 493.68,
+          "text": "Jan",
+          "x": 153.5
+        },
+        {
+          "baseline": 493.68,
+          "text": "Feb",
+          "x": 279.55
+        },
+        {
+          "baseline": 493.68,
+          "text": "Mar",
+          "x": 406.12
+        },
+        {
+          "baseline": 514.56,
+          "text": "Teams Projects",
+          "x": 255.76
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "ad6a34aab99f807445dc47b4c58f90d12360070658426e553c824363aa83e7da"
+}

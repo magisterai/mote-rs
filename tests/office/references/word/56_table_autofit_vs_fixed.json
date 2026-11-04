@@ -1,0 +1,227 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Table AutoFit Versus Fixed Layout",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "The three tables contain the same asymmetric content. Their divider positions must follow W ord's unsized",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "automatic, width-constrained AutoFit, and fixed-grid rules rather than converging on one native sizing",
+          "x": 72.0
+        },
+        {
+          "baseline": 116.64,
+          "text": "algorithm.",
+          "x": 72.0
+        },
+        {
+          "baseline": 142.08,
+          "text": "A — Unsized Automatic Table",
+          "x": 72.0
+        },
+        {
+          "baseline": 168.96,
+          "text": "ID",
+          "x": 79.2
+        },
+        {
+          "baseline": 168.96,
+          "text": "OW NER",
+          "x": 120.96
+        },
+        {
+          "baseline": 168.96,
+          "text": "REVIEW DESCRIPTION",
+          "x": 219.6
+        },
+        {
+          "baseline": 194.4,
+          "text": "A-17 International",
+          "x": 79.2
+        },
+        {
+          "baseline": 194.4,
+          "text": "Short control.",
+          "x": 219.6
+        },
+        {
+          "baseline": 207.36,
+          "text": "Compliance",
+          "x": 120.96
+        },
+        {
+          "baseline": 232.8,
+          "text": "A-",
+          "x": 79.2
+        },
+        {
+          "baseline": 232.8,
+          "text": "QA",
+          "x": 120.96
+        },
+        {
+          "baseline": 232.8,
+          "text": "This deliberately longer description asks W ord to infer a useful",
+          "x": 219.6
+        },
+        {
+          "baseline": 245.76,
+          "text": "2048",
+          "x": 79.2
+        },
+        {
+          "baseline": 245.76,
+          "text": "content-driven grid without a declared table or cell width.",
+          "x": 219.6
+        },
+        {
+          "baseline": 277.44,
+          "text": "B — W idth-constrained AutoFit Table",
+          "x": 72.0
+        },
+        {
+          "baseline": 304.56,
+          "text": "ID",
+          "x": 78.96
+        },
+        {
+          "baseline": 304.56,
+          "text": "OW NER",
+          "x": 234.96
+        },
+        {
+          "baseline": 304.56,
+          "text": "REVIEW DESCRIPTION",
+          "x": 390.96
+        },
+        {
+          "baseline": 330.0,
+          "text": "B-17",
+          "x": 78.96
+        },
+        {
+          "baseline": 330.0,
+          "text": "International Compliance",
+          "x": 234.96
+        },
+        {
+          "baseline": 330.0,
+          "text": "Short control.",
+          "x": 390.96
+        },
+        {
+          "baseline": 355.44,
+          "text": "B-2048",
+          "x": 78.96
+        },
+        {
+          "baseline": 355.44,
+          "text": "QA",
+          "x": 234.96
+        },
+        {
+          "baseline": 355.44,
+          "text": "This deliberately longer",
+          "x": 390.96
+        },
+        {
+          "baseline": 368.4,
+          "text": "description asks W ord to",
+          "x": 390.96
+        },
+        {
+          "baseline": 381.36,
+          "text": "distribute a constrained six-and-",
+          "x": 390.96
+        },
+        {
+          "baseline": 394.32,
+          "text": "a-half-inch frame according to",
+          "x": 390.96
+        },
+        {
+          "baseline": 407.28,
+          "text": "its AutoFit rules.",
+          "x": 390.96
+        },
+        {
+          "baseline": 438.96,
+          "text": "C — Fixed Explicit Grid",
+          "x": 72.0
+        },
+        {
+          "baseline": 466.08,
+          "text": "ID",
+          "x": 78.96
+        },
+        {
+          "baseline": 466.08,
+          "text": "OW NER",
+          "x": 140.16
+        },
+        {
+          "baseline": 466.08,
+          "text": "REVIEW DESCRIPTION",
+          "x": 273.36
+        },
+        {
+          "baseline": 491.52,
+          "text": "C-17",
+          "x": 78.96
+        },
+        {
+          "baseline": 491.52,
+          "text": "International Compliance Short control.",
+          "x": 140.16
+        },
+        {
+          "baseline": 516.96,
+          "text": "C-2048",
+          "x": 78.96
+        },
+        {
+          "baseline": 516.96,
+          "text": "QA",
+          "x": 140.16
+        },
+        {
+          "baseline": 516.96,
+          "text": "This deliberately longer description must wrap inside the",
+          "x": 273.36
+        },
+        {
+          "baseline": 529.92,
+          "text": "authored 3.8-inch final column without changing either",
+          "x": 273.36
+        },
+        {
+          "baseline": 542.88,
+          "text": "fixed divider.",
+          "x": 273.36
+        },
+        {
+          "baseline": 562.32,
+          "text": "REVIEW : A is content-driven, B fills the constrained frame using AutoFit, and C keeps dividers at 0.85",
+          "x": 72.0
+        },
+        {
+          "baseline": 575.28,
+          "text": "and 2.70 inches from the table's left edge.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "5f706a7e12c0fb5ea9a388ad5a93f27a9b6e7fbda321a0db9c3d8dba3c3453fa"
+}

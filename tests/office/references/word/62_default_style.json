@@ -1,0 +1,242 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 100.32,
+          "text": "Quarterly delivery review",
+          "x": 72.0
+        },
+        {
+          "baseline": 129.84,
+          "text": "Style sample · Demonstration data",
+          "x": 72.0
+        },
+        {
+          "baseline": 163.44,
+          "text": "A readable report starts with a clear summary, a small number of useful headings,",
+          "x": 72.0
+        },
+        {
+          "baseline": 181.68,
+          "text": "and tables that make comparisons easy.",
+          "x": 72.0
+        },
+        {
+          "baseline": 220.8,
+          "text": "Delivery summary",
+          "x": 72.0
+        },
+        {
+          "baseline": 244.32,
+          "text": "This sample applies the document preset to ordinary Mote content. The page uses a comfortable",
+          "x": 72.0
+        },
+        {
+          "baseline": 259.68,
+          "text": "text width, dark body text, and consistent spacing. Important findings can be emphasized without",
+          "x": 72.0
+        },
+        {
+          "baseline": 275.28,
+          "text": "changing the overall style.",
+          "x": 72.0
+        },
+        {
+          "baseline": 298.56,
+          "text": "The figures below are illustrative. Text columns are left aligned; numeric columns are right aligned.",
+          "x": 72.0
+        },
+        {
+          "baseline": 314.16,
+          "text": "The table fills the text area without setting a width in the content file.",
+          "x": 72.0
+        },
+        {
+          "baseline": 343.92,
+          "text": "W orkstream",
+          "x": 80.16
+        },
+        {
+          "baseline": 343.92,
+          "text": "Completed",
+          "x": 242.13
+        },
+        {
+          "baseline": 343.92,
+          "text": "Planned",
+          "x": 373.87
+        },
+        {
+          "baseline": 343.92,
+          "text": "On time",
+          "x": 492.81
+        },
+        {
+          "baseline": 372.0,
+          "text": "Research",
+          "x": 80.16
+        },
+        {
+          "baseline": 372.0,
+          "text": "18",
+          "x": 286.53
+        },
+        {
+          "baseline": 372.0,
+          "text": "20",
+          "x": 403.41
+        },
+        {
+          "baseline": 372.0,
+          "text": "90%",
+          "x": 511.44
+        },
+        {
+          "baseline": 399.84,
+          "text": "Design",
+          "x": 80.16
+        },
+        {
+          "baseline": 399.84,
+          "text": "24",
+          "x": 286.53
+        },
+        {
+          "baseline": 399.84,
+          "text": "24",
+          "x": 403.41
+        },
+        {
+          "baseline": 399.84,
+          "text": "100%",
+          "x": 505.56
+        },
+        {
+          "baseline": 427.92,
+          "text": "Engineering",
+          "x": 80.16
+        },
+        {
+          "baseline": 427.92,
+          "text": "42",
+          "x": 286.53
+        },
+        {
+          "baseline": 427.92,
+          "text": "48",
+          "x": 403.41
+        },
+        {
+          "baseline": 427.92,
+          "text": "88%",
+          "x": 511.44
+        },
+        {
+          "baseline": 455.76,
+          "text": "Quality",
+          "x": 80.16
+        },
+        {
+          "baseline": 455.76,
+          "text": "31",
+          "x": 286.53
+        },
+        {
+          "baseline": 455.76,
+          "text": "34",
+          "x": 403.41
+        },
+        {
+          "baseline": 455.76,
+          "text": "91%",
+          "x": 511.44
+        },
+        {
+          "baseline": 483.6,
+          "text": "Operations",
+          "x": 80.16
+        },
+        {
+          "baseline": 483.6,
+          "text": "16",
+          "x": 286.53
+        },
+        {
+          "baseline": 483.6,
+          "text": "18",
+          "x": 403.41
+        },
+        {
+          "baseline": 483.6,
+          "text": "89%",
+          "x": 511.44
+        },
+        {
+          "baseline": 511.68,
+          "text": "Support",
+          "x": 80.16
+        },
+        {
+          "baseline": 511.68,
+          "text": "27",
+          "x": 286.53
+        },
+        {
+          "baseline": 511.68,
+          "text": "30",
+          "x": 403.41
+        },
+        {
+          "baseline": 511.68,
+          "text": "90%",
+          "x": 511.44
+        },
+        {
+          "baseline": 536.16,
+          "text": "Table 1. Illustrative delivery figures. Alternating rows help the reader follow each workstream across the page.",
+          "x": 72.0
+        },
+        {
+          "baseline": 565.92,
+          "text": "Priorities for the next cycle",
+          "x": 72.0
+        },
+        {
+          "baseline": 588.48,
+          "text": "• Finish the remaining engineering work before adding new scope.",
+          "x": 108.0
+        },
+        {
+          "baseline": 606.0,
+          "text": "• Review quality checks with the delivery team.",
+          "x": 108.0
+        },
+        {
+          "baseline": 623.52,
+          "text": "• Keep status reporting short enough to scan before each meeting.",
+          "x": 108.0
+        },
+        {
+          "baseline": 653.76,
+          "text": "Authoring notes",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.56,
+          "text": "Use #import(\"defaults/document.mote\") before the content, with a path relative to your file.",
+          "x": 72.0
+        },
+        {
+          "baseline": 691.92,
+          "text": "Markdown headings, lists, and tables inherit the preset.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "3e075ee974e466c28761bfcef8b8e100ec60a4a944d10601becf666542f728d2"
+}

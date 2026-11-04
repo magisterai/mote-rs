@@ -1,0 +1,97 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Anchored Image W rap",
+          "x": 72.0
+        },
+        {
+          "baseline": 90.72,
+          "text": "This case contrasts a right-anchored image with an ordinary inline image of the same source and width.",
+          "x": 72.0
+        },
+        {
+          "baseline": 103.68,
+          "text": "The anchored image must retain its aspect ratio while nearby text wraps around its left edge.",
+          "x": 72.0
+        },
+        {
+          "baseline": 123.84,
+          "text": "ANCHOR START — the image belongs at the right edge beside the following prose.",
+          "x": 72.0
+        },
+        {
+          "baseline": 199.2,
+          "text": "W RAP 01 START — This sentence is deliberately long enough to occupy several lines. W hile those lines",
+          "x": 72.0
+        },
+        {
+          "baseline": 212.16,
+          "text": "are beside the logo, their right edge must stop before the image and preserve the authored ten-point gap.",
+          "x": 72.0
+        },
+        {
+          "baseline": 225.12,
+          "text": "— W RAP 01 END.",
+          "x": 84.78
+        },
+        {
+          "baseline": 245.04,
+          "text": "W RAP 02 START — Text that reaches below the anchored logo must return to the full body width without",
+          "x": 72.0
+        },
+        {
+          "baseline": 258.0,
+          "text": "retaining a false right indent. The circle remains on the left side of the image and the striped rectangle",
+          "x": 72.0
+        },
+        {
+          "baseline": 270.96,
+          "text": "remains on the right. — W RAP 02 END.",
+          "x": 72.0
+        },
+        {
+          "baseline": 291.12,
+          "text": "ANCHOR END — no wrapped text may overlap the image, disappear behind it, or remain narrowed after",
+          "x": 72.0
+        },
+        {
+          "baseline": 304.08,
+          "text": "passing its bottom edge.",
+          "x": 72.0
+        },
+        {
+          "baseline": 324.0,
+          "text": "INLINE CONTROL START — the next copy is an ordinary flow image and must consume its own vertical",
+          "x": 72.0
+        },
+        {
+          "baseline": 336.96,
+          "text": "space instead of allowing text beside it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 412.56,
+          "text": "INLINE CONTROL END — this line must begin below the control image at the full body width.",
+          "x": 72.0
+        },
+        {
+          "baseline": 432.48,
+          "text": "PASS: the anchored logo is right aligned with square text wrapping and preserved aspect ratio; the inline",
+          "x": 72.0
+        },
+        {
+          "baseline": 445.44,
+          "text": "control occupies an ordinary full-width flow row.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "a8f2665ce89fee4134c36ce193a38e0c047bfa4aedd773da3a0da3dc8e0091a8"
+}

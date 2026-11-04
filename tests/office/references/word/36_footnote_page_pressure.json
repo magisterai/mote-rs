@@ -1,0 +1,283 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.16,
+          "text": "Footnote Page Pressure",
+          "x": 60.0
+        },
+        {
+          "baseline": 104.88,
+          "text": "BODY START — all page movement in this case must result from ordinary paragraph and footnote flow; there",
+          "x": 60.0
+        },
+        {
+          "baseline": 120.0,
+          "text": "is no authored page break.",
+          "x": 60.0
+        },
+        {
+          "baseline": 137.04,
+          "text": "BODY-FN-01 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 154.08,
+          "text": "BODY-FN-02 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 171.12,
+          "text": "BODY-FN-03 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 185.52,
+          "text": "1",
+          "x": 212.16
+        },
+        {
+          "baseline": 187.92,
+          "text": "BODY-FN-04 — short control note before the pressure sequence.",
+          "x": 60.0
+        },
+        {
+          "baseline": 204.96,
+          "text": "BODY-FN-05 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 222.0,
+          "text": "BODY-FN-06 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 239.04,
+          "text": "BODY-FN-07 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 256.08,
+          "text": "BODY-FN-08 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 273.12,
+          "text": "BODY-FN-09 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 289.92,
+          "text": "BODY-FN-10 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 306.96,
+          "text": "BODY-FN-11 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 324.0,
+          "text": "BODY-FN-12 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 341.04,
+          "text": "BODY-FN-13 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 358.08,
+          "text": "BODY-FN-14 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 375.12,
+          "text": "BODY-FN-15 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 391.92,
+          "text": "BODY-FN-16 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 408.96,
+          "text": "BODY-FN-17 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 426.0,
+          "text": "BODY-FN-18 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 443.04,
+          "text": "BODY-FN-19 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 460.08,
+          "text": "BODY-FN-20 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 477.12,
+          "text": "BODY-FN-21 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 493.92,
+          "text": "BODY-FN-22 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 510.96,
+          "text": "BODY-FN-23 — natural-flow line before the note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 528.0,
+          "text": "BODY-FN-24 — final natural-flow line before the long note.",
+          "x": 60.0
+        },
+        {
+          "baseline": 542.64,
+          "text": "2",
+          "x": 298.56
+        },
+        {
+          "baseline": 545.04,
+          "text": "LONG-REFERENCE — the long footnote begins here and the main story continues after its marker.",
+          "x": 60.0
+        },
+        {
+          "baseline": 562.08,
+          "text": "BODY-FN-25 — first natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 605.04,
+          "text": "1 SHORT-FN-01: this compact control note remains at the bottom of the page containing its reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 621.84,
+          "text": "2 LONG-FN-02 START. This deliberately extended footnote supplies enough ordinary prose to reserve a",
+          "x": 60.0
+        },
+        {
+          "baseline": 636.96,
+          "text": "substantial page-bottom note area. Its sentences are continuous and editable rather than separated by manual",
+          "x": 60.0
+        },
+        {
+          "baseline": 651.84,
+          "text": "line or page breaks. W ord should keep the reference associated with this note, place the note below its",
+          "x": 60.0
+        },
+        {
+          "baseline": 666.96,
+          "text": "separator, and move as much main-story text as necessary so the two stories never overlap. The note contains",
+          "x": 60.0
+        },
+        {
+          "baseline": 681.84,
+          "text": "stable opening and closing markers so a reviewer can detect truncation, duplication, or accidental inline",
+          "x": 60.0
+        },
+        {
+          "baseline": 696.96,
+          "text": "fallback text. It also includes several sentences of varied length to exercise natural wrapping without relying on",
+          "x": 60.0
+        },
+        {
+          "baseline": 711.84,
+          "text": "one unusually long token. Native PDF and PNG should preserve the same reference order, the same body-",
+          "x": 60.0
+        },
+        {
+          "baseline": 726.96,
+          "text": "story pagination pressure, and a readable page-bottom note area. LONG-FN-02 END.",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 72.0,
+          "text": "BODY-FN-26 — second natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 89.04,
+          "text": "BODY-FN-27 — third natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 106.08,
+          "text": "BODY-FN-28 — fourth natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 123.12,
+          "text": "BODY-FN-29 — fifth natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 139.92,
+          "text": "BODY-FN-30 — sixth natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 156.96,
+          "text": "BODY-FN-31 — seventh natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 174.0,
+          "text": "BODY-FN-32 — eighth natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 191.04,
+          "text": "BODY-FN-33 — ninth natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 208.08,
+          "text": "BODY-FN-34 — tenth natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 225.12,
+          "text": "BODY-FN-35 — eleventh natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 241.92,
+          "text": "BODY-FN-36 — final natural-flow line after the long note reference.",
+          "x": 60.0
+        },
+        {
+          "baseline": 258.96,
+          "text": "BODY END — both footnote bodies remain in page-bottom note stories, all BODY-FN markers remain in order,",
+          "x": 60.0
+        },
+        {
+          "baseline": 274.08,
+          "text": "and no main-story line overlaps a footnote.",
+          "x": 60.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "41263d031cfe160c956b0234c7f93880a9d4c04fb6fe27cd2578fa90812f4170"
+}

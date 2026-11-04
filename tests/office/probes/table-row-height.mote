@@ -1,0 +1,28 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(16) } } }
+)
+
+#set paragraph(style = "Normal")
+
+ROW HEIGHT: a row's height is the larger of its content and an at-least height, or exactly an exact height.
+
+#table[
+  #row(repeat_header = true, height = pt(24), height_rule = "at_least")[#cell[Header at least 24]#cell[Second header cell]]
+  #row[#cell[Automatic row]#cell[Content height]]
+  #row(height = pt(30), height_rule = "at_least")[#cell[At least 30]#cell[Taller than content]]
+  #row(height = pt(10), height_rule = "at_least")[#cell[At least 10]#cell[Content wins]]
+  #row(height = pt(28), height_rule = "exact")[#cell[Exactly 28]#cell[Fixed height]]
+  #row[#cell[Final automatic row]#cell[Content height]]
+]
+
+The line after the table.

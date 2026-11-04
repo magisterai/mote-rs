@@ -1,0 +1,87 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Glyph Coverage",
+          "x": 72.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "This one-page fixture checks core text encoding, semantic checkboxes, and deterministic",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.04,
+          "text": "missing-glyph diagnostics across DOCX, PDF, and PNG.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.2,
+          "text": "Core Encoding Baseline",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.04,
+          "text": "ASCII: The quick brown fox jumps over 13 lazy dogs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 178.08,
+          "text": "CP1252: café, “double quotes”, ‘single quotes’, em dash — , and euro €.",
+          "x": 72.0
+        },
+        {
+          "baseline": 204.48,
+          "text": "Semantic Checkboxes",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.8,
+          "text": "Explicit controls: ☒ checked and ☐ unchecked.",
+          "x": 72.0
+        },
+        {
+          "baseline": 251.28,
+          "text": "☒ Checked markdown task item.",
+          "x": 104.06
+        },
+        {
+          "baseline": 269.76,
+          "text": "☐ Unchecked markdown task item.",
+          "x": 104.06
+        },
+        {
+          "baseline": 296.4,
+          "text": "Missing Glyph Diagnostic",
+          "x": 72.0
+        },
+        {
+          "baseline": 318.24,
+          "text": "The literal checked-box glyph between these ASCII brackets is the deliberate coverage failure:",
+          "x": 72.0
+        },
+        {
+          "baseline": 334.08,
+          "text": "[☑ ].",
+          "x": 86.06
+        },
+        {
+          "baseline": 358.08,
+          "text": "DOCX should preserve it without a Mote warning. PDF and PNG should each draw one visible",
+          "x": 72.0
+        },
+        {
+          "baseline": 373.2,
+          "text": "question-mark fallback and emit exactly one missing-glyph diagnostic.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "52a1f723d60e6cac6ec6ed8410d78306bbd3d0c4c90296186bdd5fbc52c63e08"
+}

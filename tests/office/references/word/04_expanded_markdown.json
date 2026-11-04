@@ -1,0 +1,72 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Expanded Markdown",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.68,
+          "text": "Soft line continues as prose, while two trailing spaces",
+          "x": 72.0
+        },
+        {
+          "baseline": 125.04,
+          "text": "create a hard break and a trailing backslash",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.16,
+          "text": "does the same.",
+          "x": 72.0
+        },
+        {
+          "baseline": 164.16,
+          "text": "☒ Setext headings",
+          "x": 104.06
+        },
+        {
+          "baseline": 182.4,
+          "text": "☐ Task lists",
+          "x": 104.06
+        },
+        {
+          "baseline": 200.88,
+          "text": "☒ Strikethrough with removed text",
+          "x": 104.06
+        },
+        {
+          "baseline": 218.64,
+          "text": "Autolinks include https://example.com/docs and https://openai.com.",
+          "x": 72.0
+        },
+        {
+          "baseline": 241.68,
+          "text": "Escaped *stars* remain literal.",
+          "x": 72.0
+        },
+        {
+          "baseline": 261.84,
+          "text": "1",
+          "x": 310.32
+        },
+        {
+          "baseline": 264.96,
+          "text": "Footnote references work from markdown syntax.",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.28,
+          "text": "1 Footnote definitions may include inline emphasis.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "8eafbc1ca982e0b130530b88d133f7fa93f768abfe118dd76680004c8a9caab8"
+}

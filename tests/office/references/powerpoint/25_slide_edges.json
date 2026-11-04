@@ -1,0 +1,58 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 245.28,
+          "text": "Full-W eight Ink at the Slide Edge",
+          "x": 305.68
+        },
+        {
+          "baseline": 268.08,
+          "text": "3 pt stroke; centerline inset 1.5 pt",
+          "x": 351.24
+        },
+        {
+          "baseline": 290.16,
+          "text": "The outer ink edge lands exactly on the canvas edge. The full border",
+          "x": 221.14
+        },
+        {
+          "baseline": 312.24,
+          "text": "weight should remain visible on every side.",
+          "x": 315.82
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 245.28,
+          "text": "Centerline on the Slide Boundary",
+          "x": 300.56
+        },
+        {
+          "baseline": 268.08,
+          "text": "3 pt stroke centered at x/y 0 and 960/540",
+          "x": 323.66
+        },
+        {
+          "baseline": 290.16,
+          "text": "The outer 1.5 pt is intentionally outside the canvas. A clipped half-",
+          "x": 226.69
+        },
+        {
+          "baseline": 312.24,
+          "text": "width edge is the expected result.",
+          "x": 350.68
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "80ef0a3232f653c185f4f56e70c3fc695163f482b247b9936d2beeb1bcb86893"
+}

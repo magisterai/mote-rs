@@ -1,0 +1,263 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 69.6,
+          "text": "Tables And Media Review",
+          "x": 58.08
+        },
+        {
+          "baseline": 91.2,
+          "text": "This page compares markdown tables, directive tables, captions, figures, and relative image loading. The",
+          "x": 58.08
+        },
+        {
+          "baseline": 106.08,
+          "text": "markdown tables should use natural content width unless a width is explicitly supplied.",
+          "x": 58.08
+        },
+        {
+          "baseline": 132.0,
+          "text": "Markdown Table",
+          "x": 58.08
+        },
+        {
+          "baseline": 157.68,
+          "text": "Phase",
+          "x": 64.32
+        },
+        {
+          "baseline": 157.68,
+          "text": "Owner",
+          "x": 146.88
+        },
+        {
+          "baseline": 157.68,
+          "text": "Status Budget",
+          "x": 223.82
+        },
+        {
+          "baseline": 180.48,
+          "text": "Parser fixtures Engineering Complete $4,200",
+          "x": 64.32
+        },
+        {
+          "baseline": 203.52,
+          "text": "PDF emitter Engineering In review $6,800",
+          "x": 64.32
+        },
+        {
+          "baseline": 226.56,
+          "text": "Visual QA",
+          "x": 64.32
+        },
+        {
+          "baseline": 226.56,
+          "text": "Design",
+          "x": 146.88
+        },
+        {
+          "baseline": 226.56,
+          "text": "Scheduled $1,450",
+          "x": 215.05
+        },
+        {
+          "baseline": 249.6,
+          "text": "Documentation Product",
+          "x": 64.32
+        },
+        {
+          "baseline": 249.6,
+          "text": "Drafting",
+          "x": 221.48
+        },
+        {
+          "baseline": 249.6,
+          "text": "$950",
+          "x": 289.56
+        },
+        {
+          "baseline": 280.32,
+          "text": "Explicit W ide Table",
+          "x": 58.08
+        },
+        {
+          "baseline": 306.0,
+          "text": "Area",
+          "x": 87.12
+        },
+        {
+          "baseline": 306.0,
+          "text": "PDF",
+          "x": 237.12
+        },
+        {
+          "baseline": 306.0,
+          "text": "W ord",
+          "x": 387.12
+        },
+        {
+          "baseline": 328.8,
+          "text": "Divider",
+          "x": 87.12
+        },
+        {
+          "baseline": 328.8,
+          "text": "Drawn full text width",
+          "x": 237.12
+        },
+        {
+          "baseline": 328.8,
+          "text": "Styled paragraph border",
+          "x": 387.12
+        },
+        {
+          "baseline": 351.84,
+          "text": "Markdown table",
+          "x": 87.12
+        },
+        {
+          "baseline": 351.84,
+          "text": "Natural width by default",
+          "x": 237.12
+        },
+        {
+          "baseline": 351.84,
+          "text": "Natural width by default",
+          "x": 387.12
+        },
+        {
+          "baseline": 424.08,
+          "text": "Figure 1. Relative images should resolve from the source file in both backends.",
+          "x": 121.37
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 67.68,
+          "text": "Continuation Page",
+          "x": 58.08
+        },
+        {
+          "baseline": 88.8,
+          "text": "The second page provides more table rows to test page flow around table-heavy content. A single tall cell",
+          "x": 58.08
+        },
+        {
+          "baseline": 103.68,
+          "text": "does not need to split perfectly yet, but ordinary rows should continue cleanly.",
+          "x": 58.08
+        },
+        {
+          "baseline": 130.32,
+          "text": "Item",
+          "x": 64.32
+        },
+        {
+          "baseline": 130.32,
+          "text": "Owner Notes",
+          "x": 175.44
+        },
+        {
+          "baseline": 153.36,
+          "text": "Markdown heading Parser Lowers to a heading element.",
+          "x": 64.32
+        },
+        {
+          "baseline": 176.4,
+          "text": "Markdown paragraph Parser Lowers to a paragraph element.",
+          "x": 64.32
+        },
+        {
+          "baseline": 199.44,
+          "text": "Markdown divider",
+          "x": 64.32
+        },
+        {
+          "baseline": 199.44,
+          "text": "Parser Lowers to a divider element.",
+          "x": 175.44
+        },
+        {
+          "baseline": 222.48,
+          "text": "Markdown table",
+          "x": 64.32
+        },
+        {
+          "baseline": 222.48,
+          "text": "Parser Lowers to table, row, and cell elements.",
+          "x": 175.44
+        },
+        {
+          "baseline": 245.28,
+          "text": "Image directive",
+          "x": 64.32
+        },
+        {
+          "baseline": 245.28,
+          "text": "Emitter Uses asset loading and relative path resolution.",
+          "x": 175.44
+        },
+        {
+          "baseline": 268.32,
+          "text": "Caption directive",
+          "x": 64.32
+        },
+        {
+          "baseline": 268.32,
+          "text": "Emitter Uses local sequence counters where supported.",
+          "x": 175.44
+        },
+        {
+          "baseline": 291.36,
+          "text": "Header directive",
+          "x": 64.32
+        },
+        {
+          "baseline": 291.36,
+          "text": "Layout Repeats page-level content.",
+          "x": 175.44
+        },
+        {
+          "baseline": 314.4,
+          "text": "Footer directive",
+          "x": 64.32
+        },
+        {
+          "baseline": 314.4,
+          "text": "Layout Repeats page-level content.",
+          "x": 175.44
+        },
+        {
+          "baseline": 337.44,
+          "text": "Columns directive",
+          "x": 64.32
+        },
+        {
+          "baseline": 337.44,
+          "text": "Layout Changes section-local text flow.",
+          "x": 175.44
+        },
+        {
+          "baseline": 356.4,
+          "text": "The continuation page should look like a normal page, not a special case. The image on the first page",
+          "x": 58.08
+        },
+        {
+          "baseline": 371.04,
+          "text": "should not disturb the table flow that follows.",
+          "x": 58.08
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "c773495cfb9f0d1ca5e89ff0f13722ae32951248ec6c4827f1945580c7d9a4c1"
+}

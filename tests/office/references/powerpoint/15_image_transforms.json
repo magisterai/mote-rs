@@ -1,0 +1,48 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Image Fit, Crop, And Flip",
+          "x": 46.8
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation image geometry",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 47.28,
+          "text": "Rotation, Effects, And Link Geometry",
+          "x": 46.8
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote presentation image geometry",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "cfdfede2131fbf15cce2b03ccf2e03b06f2dba176d60711f970a21fcef54b152"
+}

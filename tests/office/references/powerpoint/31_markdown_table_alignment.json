@@ -1,0 +1,87 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.68,
+          "text": "Markdown Table Alignment",
+          "x": 50.4
+        },
+        {
+          "baseline": 117.84,
+          "text": "This document uses only markdown-like source text.",
+          "x": 50.4
+        },
+        {
+          "baseline": 260.64,
+          "text": "Left",
+          "x": 57.6
+        },
+        {
+          "baseline": 260.64,
+          "text": "Center",
+          "x": 451.98
+        },
+        {
+          "baseline": 260.64,
+          "text": "Right",
+          "x": 860.15
+        },
+        {
+          "baseline": 291.84,
+          "text": "Contract",
+          "x": 57.6
+        },
+        {
+          "baseline": 291.84,
+          "text": "Active",
+          "x": 456.15
+        },
+        {
+          "baseline": 291.84,
+          "text": "$12,500.00",
+          "x": 815.15
+        },
+        {
+          "baseline": 323.04,
+          "text": "Invoice",
+          "x": 57.6
+        },
+        {
+          "baseline": 323.04,
+          "text": "Pending",
+          "x": 448.96
+        },
+        {
+          "baseline": 323.04,
+          "text": "$2,575.00",
+          "x": 824.78
+        },
+        {
+          "baseline": 354.24,
+          "text": "Credit",
+          "x": 57.6
+        },
+        {
+          "baseline": 354.24,
+          "text": "Applied",
+          "x": 450.31
+        },
+        {
+          "baseline": 354.24,
+          "text": "-$125.00",
+          "x": 833.4
+        },
+        {
+          "baseline": 396.24,
+          "text": "The alignment row controls the paragraph alignment inside each generated Word table cell.",
+          "x": 50.4
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "70b2d26ac2179a233e96bc738b16151873e5a0498fa90f65fc2d4861a2581889"
+}

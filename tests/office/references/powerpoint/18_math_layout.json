@@ -1,0 +1,198 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 49.44,
+          "text": "Math Notation In PowerPoint",
+          "x": 46.8
+        },
+        {
+          "baseline": 113.04,
+          "text": "!",
+          "x": 341.2
+        },
+        {
+          "baseline": 117.12,
+          "text": "!\"± \" !$%&",
+          "x": 332.97
+        },
+        {
+          "baseline": 121.92,
+          "text": "()",
+          "x": 615.35
+        },
+        {
+          "baseline": 127.68,
+          "text": "Inline math lives inside text: 𝑥=",
+          "x": 57.6
+        },
+        {
+          "baseline": 128.64,
+          "text": "Euler's identity: 𝑒 + 1= 0",
+          "x": 489.6
+        },
+        {
+          "baseline": 136.56,
+          "text": "’%",
+          "x": 330.54
+        },
+        {
+          "baseline": 318.48,
+          "text": "*",
+          "x": 416.53
+        },
+        {
+          "baseline": 327.6,
+          "text": "!",
+          "x": 466.22
+        },
+        {
+          "baseline": 332.4,
+          "text": "!+",
+          "x": 448.36
+        },
+        {
+          "baseline": 338.88,
+          "text": "’\t𝑒\t𝑑𝑥= 𝜋",
+          "x": 438.52
+        },
+        {
+          "baseline": 355.92,
+          "text": "!*",
+          "x": 409.9
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote math notation",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "November 4, 2026",
+          "x": 440.63
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 49.44,
+          "text": "Matrices, Series, And Cases",
+          "x": 46.8
+        },
+        {
+          "baseline": 85.68,
+          "text": "*",
+          "x": 643.45
+        },
+        {
+          "baseline": 92.16,
+          "text": "’",
+          "x": 726.62
+        },
+        {
+          "baseline": 98.88,
+          "text": "1 𝜋",
+          "x": 676.96
+        },
+        {
+          "baseline": 105.36,
+          "text": "𝑥 𝑎𝑥+ 𝑏𝑦",
+          "x": 248.75
+        },
+        {
+          "baseline": 108.0,
+          "text": "𝑎 𝑏",
+          "x": 188.58
+        },
+        {
+          "baseline": 112.32,
+          "text": "/",
+          "x": 637.58
+        },
+        {
+          "baseline": 112.32,
+          "text": "=",
+          "x": 696.49
+        },
+        {
+          "baseline": 117.36,
+          "text": "=",
+          "x": 272.88
+        },
+        {
+          "baseline": 119.04,
+          "text": "’",
+          "x": 683.12
+        },
+        {
+          "baseline": 125.28,
+          "text": "𝑦",
+          "x": 248.62
+        },
+        {
+          "baseline": 124.32,
+          "text": "𝑛 6",
+          "x": 672.44
+        },
+        {
+          "baseline": 129.12,
+          "text": "𝑐 𝑑",
+          "x": 189.39
+        },
+        {
+          "baseline": 127.68,
+          "text": "𝑐𝑥+ 𝑑𝑦",
+          "x": 300.83
+        },
+        {
+          "baseline": 135.36,
+          "text": ",-.",
+          "x": 636.59
+        },
+        {
+          "baseline": 339.6,
+          "text": "𝑥 if\t𝑥≥ 0",
+          "x": 445.0
+        },
+        {
+          "baseline": 349.2,
+          "text": "|𝑥|=",
+          "x": 385.45
+        },
+        {
+          "baseline": 360.72,
+          "text": "−𝑥 if\t𝑥< 0",
+          "x": 438.25
+        },
+        {
+          "baseline": 518.88,
+          "text": "Mote math notation",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "November 4, 2026",
+          "x": 440.63
+        },
+        {
+          "baseline": 518.88,
+          "text": "2",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "e5b56e4aba02292290d58103c69aa3581e65fa9ba162c8cba87190a02c73c1c0"
+}

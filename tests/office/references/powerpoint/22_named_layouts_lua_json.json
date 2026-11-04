@@ -1,0 +1,157 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 61.2,
+          "text": "Lua And JSON Drive A Typed Layout",
+          "x": 64.4
+        },
+        {
+          "baseline": 118.08,
+          "text": "Resolved Objects By Output",
+          "x": 533.15
+        },
+        {
+          "baseline": 136.56,
+          "text": "9",
+          "x": 391.7
+        },
+        {
+          "baseline": 138.48,
+          "text": "One source, three",
+          "x": 77.04
+        },
+        {
+          "baseline": 158.88,
+          "text": "8",
+          "x": 485.25
+        },
+        {
+          "baseline": 158.88,
+          "text": "8",
+          "x": 648.56
+        },
+        {
+          "baseline": 158.88,
+          "text": "8",
+          "x": 811.87
+        },
+        {
+          "baseline": 162.48,
+          "text": "independent outputs",
+          "x": 77.04
+        },
+        {
+          "baseline": 171.36,
+          "text": "8",
+          "x": 391.7
+        },
+        {
+          "baseline": 184.32,
+          "text": "JSON supplies slot names, types,",
+          "x": 77.04
+        },
+        {
+          "baseline": 204.48,
+          "text": "geometry, colors, margins, and",
+          "x": 77.04
+        },
+        {
+          "baseline": 205.92,
+          "text": "7",
+          "x": 391.7
+        },
+        {
+          "baseline": 224.4,
+          "text": "layout-level metadata. Lua",
+          "x": 77.04
+        },
+        {
+          "baseline": 240.72,
+          "text": "6",
+          "x": 391.7
+        },
+        {
+          "baseline": 245.28,
+          "text": "reshapes row-oriented values into",
+          "x": 77.04
+        },
+        {
+          "baseline": 265.44,
+          "text": "an editable chart while native PDF",
+          "x": 77.04
+        },
+        {
+          "baseline": 275.28,
+          "text": "5",
+          "x": 391.7
+        },
+        {
+          "baseline": 286.32,
+          "text": "and PNG paint the same resolved",
+          "x": 77.04
+        },
+        {
+          "baseline": 306.48,
+          "text": "slide.",
+          "x": 77.04
+        },
+        {
+          "baseline": 310.08,
+          "text": "4",
+          "x": 391.7
+        },
+        {
+          "baseline": 344.64,
+          "text": "3",
+          "x": 391.7
+        },
+        {
+          "baseline": 379.44,
+          "text": "2",
+          "x": 391.7
+        },
+        {
+          "baseline": 414.24,
+          "text": "1",
+          "x": 391.7
+        },
+        {
+          "baseline": 448.8,
+          "text": "0",
+          "x": 391.7
+        },
+        {
+          "baseline": 462.0,
+          "text": "PPTX",
+          "x": 477.0
+        },
+        {
+          "baseline": 462.0,
+          "text": "PDF",
+          "x": 642.3
+        },
+        {
+          "baseline": 462.0,
+          "text": "PNG",
+          "x": 804.59
+        },
+        {
+          "baseline": 518.88,
+          "text": "Layout metadata loaded from JSON",
+          "x": 43.2
+        },
+        {
+          "baseline": 518.88,
+          "text": "1",
+          "x": 911.35
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "712c5d4f01e6842a64e85d596241eef2ec1c186166e1a88afeb8803a0de41d52"
+}

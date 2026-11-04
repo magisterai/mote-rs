@@ -1,0 +1,349 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 76.8,
+          "text": "Multi-page Table",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.32,
+          "text": "Page 1 begins the table below this six-line setup.",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.4,
+          "text": "Page 2 contains only the continued table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 138.48,
+          "text": "Page 3 ends the table near its midpoint.",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.32,
+          "text": "The header repeats at each page top.",
+          "x": 72.0
+        },
+        {
+          "baseline": 170.4,
+          "text": "Rows use one, two, and three lines of wrapped text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 186.48,
+          "text": "The closing control follows the final row.",
+          "x": 72.0
+        },
+        {
+          "baseline": 229.44,
+          "text": "ROW CONTINUOUS TABLE CONTENT",
+          "x": 86.78
+        },
+        {
+          "baseline": 265.92,
+          "text": "01 One-line control row 01 stays intentionally compact.",
+          "x": 108.88
+        },
+        {
+          "baseline": 302.4,
+          "text": "02 Two-line sample row 02 carries enough descriptive text to wrap once while preserving",
+          "x": 108.88
+        },
+        {
+          "baseline": 316.32,
+          "text": "alignment, padding, and row identity.",
+          "x": 132.0
+        },
+        {
+          "baseline": 352.8,
+          "text": "03 Three-line sample row 03 deliberately contains a longer description that wraps twice,",
+          "x": 108.88
+        },
+        {
+          "baseline": 366.72,
+          "text": "increases the row height, and provides a regular long-row sample for natural pagination.",
+          "x": 132.0
+        },
+        {
+          "baseline": 403.44,
+          "text": "04 One-line control row 04 remains compact for comparison.",
+          "x": 108.88
+        },
+        {
+          "baseline": 439.92,
+          "text": "05 Two-line sample row 05 adds sufficient narrative text to wrap once while its row number",
+          "x": 108.88
+        },
+        {
+          "baseline": 453.84,
+          "text": "remains aligned with the complete cell.",
+          "x": 132.0
+        },
+        {
+          "baseline": 490.32,
+          "text": "06 Three-line sample row 06 uses an extended explanation that should wrap twice, exercise",
+          "x": 108.88
+        },
+        {
+          "baseline": 504.24,
+          "text": "the taller cell geometry, and compare line wrapping and vertical placement across the",
+          "x": 132.0
+        },
+        {
+          "baseline": 518.4,
+          "text": "three output formats.",
+          "x": 132.0
+        },
+        {
+          "baseline": 554.88,
+          "text": "07 One-line control row 07 provides another compact baseline.",
+          "x": 108.88
+        },
+        {
+          "baseline": 591.36,
+          "text": "08 Two-line sample row 08 continues across a second visual line so the renderers must agree",
+          "x": 108.88
+        },
+        {
+          "baseline": 605.28,
+          "text": "on the resulting row height.",
+          "x": 132.0
+        },
+        {
+          "baseline": 641.76,
+          "text": "09 Three-line sample row 09 includes enough continuous prose to wrap twice, make the",
+          "x": 108.88
+        },
+        {
+          "baseline": 655.92,
+          "text": "alternating row band visibly taller, and expose any disagreement about where the next row",
+          "x": 132.0
+        },
+        {
+          "baseline": 669.84,
+          "text": "begins or where the page ends.",
+          "x": 132.0
+        },
+        {
+          "baseline": 706.32,
+          "text": "10 One-line control row 10 remains intentionally compact.",
+          "x": 108.88
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.4,
+          "text": "ROW CONTINUOUS TABLE CONTENT",
+          "x": 86.78
+        },
+        {
+          "baseline": 116.88,
+          "text": "11 Two-line sample row 11 carries enough descriptive text to wrap once while preserving the",
+          "x": 108.88
+        },
+        {
+          "baseline": 130.8,
+          "text": "expected cell padding and ordered row identity.",
+          "x": 132.0
+        },
+        {
+          "baseline": 167.28,
+          "text": "12 Three-line sample row 12 contains a longer description that wraps twice, increases the row",
+          "x": 108.88
+        },
+        {
+          "baseline": 181.44,
+          "text": "height, and continues the regular short, medium, and long sequence without a pagination",
+          "x": 132.0
+        },
+        {
+          "baseline": 195.36,
+          "text": "hint.",
+          "x": 132.0
+        },
+        {
+          "baseline": 231.84,
+          "text": "13 One-line control row 13 marks a compact transition point.",
+          "x": 108.88
+        },
+        {
+          "baseline": 268.32,
+          "text": "14 Two-line sample row 14 contains enough words for one wrap and a clearly visible increase",
+          "x": 108.88
+        },
+        {
+          "baseline": 282.24,
+          "text": "over the compact control rows.",
+          "x": 132.0
+        },
+        {
+          "baseline": 318.72,
+          "text": "15 Three-line sample row 15 carries a deliberately extended explanation that wraps twice,",
+          "x": 108.88
+        },
+        {
+          "baseline": 332.88,
+          "text": "tests the vertical placement of the row number, and confirms that borders and banding",
+          "x": 132.0
+        },
+        {
+          "baseline": 346.8,
+          "text": "grow with the text.",
+          "x": 132.0
+        },
+        {
+          "baseline": 383.28,
+          "text": "16 One-line control row 16 remains deliberately concise.",
+          "x": 108.88
+        },
+        {
+          "baseline": 419.76,
+          "text": "17 Two-line sample row 17 wraps once so continued-table pagination must account for a",
+          "x": 108.88
+        },
+        {
+          "baseline": 433.92,
+          "text": "variable body-row height.",
+          "x": 132.0
+        },
+        {
+          "baseline": 470.4,
+          "text": "18 Three-line sample row 18 supplies enough prose to wrap twice, exercise line spacing",
+          "x": 108.88
+        },
+        {
+          "baseline": 484.32,
+          "text": "inside the table cell, and make any clipping, overlap, or differing page-boundary behavior",
+          "x": 132.0
+        },
+        {
+          "baseline": 498.24,
+          "text": "visible during review.",
+          "x": 132.0
+        },
+        {
+          "baseline": 534.72,
+          "text": "19 One-line control row 19 offers a final compact baseline.",
+          "x": 108.88
+        },
+        {
+          "baseline": 571.44,
+          "text": "20 Two-line sample row 20 expands to a second line while retaining the same margins,",
+          "x": 108.88
+        },
+        {
+          "baseline": 585.36,
+          "text": "borders, and column widths.",
+          "x": 132.0
+        },
+        {
+          "baseline": 621.84,
+          "text": "21 Three-line sample row 21 uses longer continuous text that wraps twice, produces a visibly",
+          "x": 108.88
+        },
+        {
+          "baseline": 635.76,
+          "text": "taller band, and checks that the repeated header and following rows remain correctly",
+          "x": 132.0
+        },
+        {
+          "baseline": 649.92,
+          "text": "positioned after pagination.",
+          "x": 132.0
+        },
+        {
+          "baseline": 686.4,
+          "text": "22 One-line control row 22 remains intentionally compact.",
+          "x": 108.88
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.4,
+          "text": "ROW CONTINUOUS TABLE CONTENT",
+          "x": 86.78
+        },
+        {
+          "baseline": 116.88,
+          "text": "23 Two-line sample row 23 carries enough descriptive text to wrap once while preserving the",
+          "x": 108.88
+        },
+        {
+          "baseline": 130.8,
+          "text": "expected cell margins, alternating fill, and border alignment.",
+          "x": 132.0
+        },
+        {
+          "baseline": 167.28,
+          "text": "24 Three-line sample row 24 deliberately carries enough text to wrap twice, continues the",
+          "x": 108.88
+        },
+        {
+          "baseline": 181.44,
+          "text": "regular long-row pattern, and demonstrates that later rows retain their complete text,",
+          "x": 132.0
+        },
+        {
+          "baseline": 195.36,
+          "text": "padding, and borders.",
+          "x": 132.0
+        },
+        {
+          "baseline": 231.84,
+          "text": "25 One-line control row 25 is the last compact comparison.",
+          "x": 108.88
+        },
+        {
+          "baseline": 268.32,
+          "text": "26 Two-line sample row 26 occupies a second line before the final variable-height row and",
+          "x": 108.88
+        },
+        {
+          "baseline": 282.24,
+          "text": "closing control.",
+          "x": 132.0
+        },
+        {
+          "baseline": 318.72,
+          "text": "27 Three-line sample row 27 finishes with extended prose that wraps twice, confirms the table",
+          "x": 108.88
+        },
+        {
+          "baseline": 332.88,
+          "text": "can end cleanly after a taller row, and leaves the green control immediately below the",
+          "x": 132.0
+        },
+        {
+          "baseline": 346.8,
+          "text": "completed table.",
+          "x": 132.0
+        },
+        {
+          "baseline": 385.92,
+          "text": "PASS: the repeated header appears on all three pages, rows 01 through 27 appear once in order",
+          "x": 72.0
+        },
+        {
+          "baseline": 402.0,
+          "text": "with naturally wrapped one-, two-, and three-line text, and this control follows the table on page 3.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "da233ceab7ed420f2f884de78713a28e740c3af18ee39523425592d0e719acb3"
+}

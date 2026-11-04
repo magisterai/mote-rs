@@ -1,0 +1,163 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.56,
+          "text": "Mote PDF Review   Page 1 of 2",
+          "x": 54.0
+        },
+        {
+          "baseline": 69.6,
+          "text": "PDF Layout And Images",
+          "x": 54.0
+        },
+        {
+          "baseline": 91.68,
+          "text": "This opening section uses the default single-column flow.",
+          "x": 54.0
+        },
+        {
+          "baseline": 168.0,
+          "text": "Figure 1. Relative image paths resolve from the source file.",
+          "x": 161.11
+        },
+        {
+          "baseline": 191.04,
+          "text": "The second column begins after an explicit",
+          "x": 318.0
+        },
+        {
+          "baseline": 194.16,
+          "text": "Two Column Section",
+          "x": 54.0
+        },
+        {
+          "baseline": 206.4,
+          "text": "column break. Headers and footers should still",
+          "x": 318.0
+        },
+        {
+          "baseline": 216.0,
+          "text": "The first column contains normal markdown text.",
+          "x": 54.0
+        },
+        {
+          "baseline": 221.52,
+          "text": "render on the page.",
+          "x": 318.0
+        },
+        {
+          "baseline": 231.12,
+          "text": "It should wrap inside the current column and",
+          "x": 54.0
+        },
+        {
+          "baseline": 246.24,
+          "text": "continue naturally.",
+          "x": 54.0
+        },
+        {
+          "baseline": 759.36,
+          "text": "Generated PDF backend fixture",
+          "x": 54.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 34.56,
+          "text": "Mote PDF Review   Page 2 of 2",
+          "x": 54.0
+        },
+        {
+          "baseline": 67.68,
+          "text": "Second Page Layout",
+          "x": 54.0
+        },
+        {
+          "baseline": 89.28,
+          "text": "This page keeps the layout and image fixture multi-page. The header and footer should still render, and",
+          "x": 54.0
+        },
+        {
+          "baseline": 104.64,
+          "text": "a second figure should use the same caption style as the first.",
+          "x": 54.0
+        },
+        {
+          "baseline": 171.84,
+          "text": "Figure 2. A smaller repeated image should keep caption numbering and style.",
+          "x": 115.84
+        },
+        {
+          "baseline": 199.44,
+          "text": "Feature",
+          "x": 60.24
+        },
+        {
+          "baseline": 199.44,
+          "text": "Expected",
+          "x": 169.44
+        },
+        {
+          "baseline": 223.2,
+          "text": "Header",
+          "x": 60.24
+        },
+        {
+          "baseline": 223.2,
+          "text": "Repeats on page two",
+          "x": 169.44
+        },
+        {
+          "baseline": 246.72,
+          "text": "Footer",
+          "x": 60.24
+        },
+        {
+          "baseline": 246.72,
+          "text": "Repeats on page two",
+          "x": 169.44
+        },
+        {
+          "baseline": 270.48,
+          "text": "Figure counter",
+          "x": 60.24
+        },
+        {
+          "baseline": 270.48,
+          "text": "Advances to Figure 2",
+          "x": 169.44
+        },
+        {
+          "baseline": 294.24,
+          "text": "Relative image path Resolves from the source file",
+          "x": 60.24
+        },
+        {
+          "baseline": 313.92,
+          "text": "The closing paragraph makes sure normal content resumes below media and tables without inheriting",
+          "x": 54.0
+        },
+        {
+          "baseline": 329.04,
+          "text": "centered alignment from the figure.",
+          "x": 54.0
+        },
+        {
+          "baseline": 759.36,
+          "text": "Generated PDF backend fixture",
+          "x": 54.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "2e4df1b305aa424cfae68802d612a144d770177b36355bb032d1c099fa1ef1e0"
+}
