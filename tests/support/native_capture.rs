@@ -105,12 +105,7 @@ pub fn replace_json(folder: &std::path::Path, name: &str, actual: &Value) {
 
 /// Rewrites a captured JSON file and its fingerprint in the named manifest.
 #[allow(dead_code)]
-pub fn replace_json_recorded(
-    folder: &std::path::Path,
-    manifest: &str,
-    name: &str,
-    actual: &Value,
-) {
+pub fn replace_json_recorded(folder: &std::path::Path, manifest: &str, name: &str, actual: &Value) {
     let stored = std::fs::read_to_string(folder.join(name)).unwrap();
     let text = json_compare::rewrite(&stored, actual);
     replace_recorded(folder, manifest, name, text.as_bytes());

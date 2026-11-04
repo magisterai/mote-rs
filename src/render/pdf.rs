@@ -459,7 +459,6 @@ fn paint_marker(
     page_height: f64,
     fonts: &fonts::Fonts,
 ) -> Result<(), RenderError> {
-    let [left, top, width, height] = marker.slot;
     match marker.kind {
         ListMarkerKind::Ordered => {
             if let Some(line) = &marker.text {
@@ -467,9 +466,7 @@ fn paint_marker(
             }
         }
         ListMarkerKind::Bullet => {
-            let radius = marker.font_size * 1.7 / 12.0;
-            let center_x = left + (radius * 2.0).min(width) / 2.0;
-            let center_y = top + height * 0.56;
+            let ([center_x, center_y], radius) = marker.bullet_disc();
             let color_value = marker
                 .text
                 .as_ref()

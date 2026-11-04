@@ -145,11 +145,15 @@ fn function_sources_and_native_pages_match_frozen_captures() {
                 }
             }
             let mean = sum as f64 / count.max(1) as f64;
-            assert!(
-                maximum <= if case == "scanner" { 104 } else { 56 }
-                    && mean <= if case == "scanner" { 15.0 } else { 12.0 },
-                "{case}: maximum {maximum}, mean {mean}"
-            );
+            let within = maximum <= if case == "scanner" { 104 } else { 56 }
+                && mean <= if case == "scanner" { 15.0 } else { 12.0 };
+            if capture::refreshing() {
+                if !within {
+                    capture::replace_recorded(&folder, "capture.json", &name, &page.bytes);
+                }
+                continue;
+            }
+            assert!(within, "{case}: maximum {maximum}, mean {mean}");
         }
     }
 }

@@ -142,8 +142,18 @@ pub struct ListMarker {
 /// draw for a task marker, in thousandths of an em from the glyph origin with y
 /// upward. The glyph advance is one em.
 const UNCHECKED_TASK: &[&[[f64; 2]]] = &[
-    &[[132.8125, 0.0], [132.8125, 734.375], [871.09375, 734.375], [871.09375, 0.0]],
-    &[[171.875, 46.875], [828.125, 46.875], [828.125, 687.5], [171.875, 687.5]],
+    &[
+        [132.8125, 0.0],
+        [132.8125, 734.375],
+        [871.09375, 734.375],
+        [871.09375, 0.0],
+    ],
+    &[
+        [171.875, 46.875],
+        [828.125, 46.875],
+        [828.125, 687.5],
+        [171.875, 687.5],
+    ],
 ];
 const CHECKED_TASK: &[&[[f64; 2]]] = &[
     &[
@@ -175,6 +185,18 @@ const CHECKED_TASK: &[&[[f64; 2]]] = &[
 ];
 
 impl ListMarker {
+    /// Returns the centre and radius of a bullet in page coordinates. Word draws
+    /// the U+2022 bullet of a list with the ArialMT glyph, a disc of radius 0.1238
+    /// em centred 0.177 em after the glyph origin and 0.3503 em above the baseline;
+    /// the glyph origin is the left edge of the marker's slot.
+    pub fn bullet_disc(&self) -> ([f64; 2], f64) {
+        let size = self.font_size;
+        (
+            [self.slot[0] + 0.177 * size, self.baseline - 0.3503 * size],
+            0.1238 * size,
+        )
+    }
+
     /// Returns the closed contours of a task marker's glyph in page coordinates,
     /// to be filled with the even-odd rule. The glyph origin is the left edge of
     /// the slot on the marker's baseline.

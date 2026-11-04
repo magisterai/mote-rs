@@ -1,4 +1,7 @@
 #[allow(dead_code)]
+#[path = "support/native_capture.rs"]
+mod capture;
+#[allow(dead_code)]
 #[path = "docx/support.rs"]
 mod xml_support;
 use mote::{
@@ -161,8 +164,8 @@ fn image_models_packages_and_native_pages_match_captures() {
         }
         let painted = render::paint_png(&plan.output, &PngOptions::default()).unwrap();
         for page in painted.output {
-            let expected =
-                pixels(&fs::read(capture.join(format!("reference-{}.png", page.number))).unwrap());
+            let reference = format!("reference-{}.png", page.number);
+            let expected = pixels(&fs::read(capture.join(&reference)).unwrap());
             let actual = pixels(&page.bytes);
             assert_eq!((actual.0, actual.1), (expected.0, expected.1));
             let mut difference_total = 0_u64;
@@ -186,8 +189,16 @@ fn image_models_packages_and_native_pages_match_captures() {
                 assert_eq!(actual[3], 255);
             }
             let mean = difference_total as f64 / foreground_channels.max(1) as f64;
+            let within =
+                maximum_difference <= 48 && mean < if case == "contexts" { 10.0 } else { 2.0 };
+            if capture::refreshing() {
+                if !within {
+                    capture::replace_recorded(&capture, "capture.json", &reference, &page.bytes);
+                }
+                continue;
+            }
             assert!(
-                maximum_difference <= 48 && mean < if case == "contexts" { 10.0 } else { 2.0 },
+                within,
                 "{case}/{}: maximum {maximum_difference}, foreground mean {mean}",
                 page.number
             );

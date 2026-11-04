@@ -1,6 +1,6 @@
 #[path = "support/native_capture.rs"]
 mod capture;
-use capture::{compare, pixels, projection};
+use capture::{compare, pixels, projection, refreshing};
 use mote::{
     layout::DocumentTextPlan,
     render::{self, PngOptions},
@@ -65,8 +65,8 @@ fn reference_rasters_match_frozen_pages() {
             manifest["pages"].as_u64().unwrap() as usize
         );
         for page in actual.output {
-            let (width, height, expected) =
-                pixels(&fs::read(folder.join(format!("reference-{}.png", page.number))).unwrap());
+            let reference = format!("reference-{}.png", page.number);
+            let (width, height, expected) = pixels(&fs::read(folder.join(&reference)).unwrap());
             let (actual_width, actual_height, actual) = pixels(&page.bytes);
             assert_eq!((actual_width, actual_height), (width, height));
             let mut maximum = 0u8;
@@ -89,6 +89,12 @@ fn reference_rasters_match_frozen_pages() {
                 }
             }
             let mean = sum as f64 / count.max(1) as f64;
+            if refreshing() {
+                if maximum > 56 || mean > 11.0 {
+                    capture::replace(&folder, &reference, &page.bytes);
+                }
+                continue;
+            }
             assert!(
                 maximum <= 56 && mean <= 11.0,
                 "{case} page {}: maximum {maximum}, mean {mean}",

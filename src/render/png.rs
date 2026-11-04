@@ -470,7 +470,7 @@ fn paint_rule(
             pixels,
             &HighlightRectangle {
                 x: rule.start[0].min(rule.end[0]),
-                top: rule.start[1],
+                top: rule.start[1] - rule.width.max(1.0 / scale) / 2.0,
                 width: (rule.end[0] - rule.start[0]).abs(),
                 height: rule.width.max(1.0 / scale),
                 color: rule.color.clone(),
@@ -483,7 +483,7 @@ fn paint_rule(
         return fill_rectangle(
             pixels,
             &HighlightRectangle {
-                x: rule.start[0],
+                x: rule.start[0] - rule.width / 2.0,
                 top: rule.start[1].min(rule.end[1]),
                 width: rule.width,
                 height: (rule.end[1] - rule.start[1]).abs(),
@@ -533,11 +533,36 @@ fn paint_marker(
     warnings: &mut BTreeSet<String>,
     clip: Option<&tiny_skia::Mask>,
 ) -> Result<(), RenderError> {
-    if marker.kind != ListMarkerKind::Task {
-        if let Some(line) = &marker.text {
-            paint_line(pixels, line, scale, fonts, warnings, clip)?;
+    match marker.kind {
+        ListMarkerKind::Ordered => {
+            if let Some(line) = &marker.text {
+                paint_line(pixels, line, scale, fonts, warnings, clip)?;
+            }
+            return Ok(());
         }
-        return Ok(());
+        ListMarkerKind::Bullet => {
+            let ([center_x, center_y], radius) = marker.bullet_disc();
+            let color = marker
+                .text
+                .as_ref()
+                .and_then(|line| line.fragments.first())
+                .map_or("111827", |fragment| fragment.style.color.as_str());
+            if let Some(path) = PathBuilder::from_circle(
+                (center_x * scale) as f32,
+                (center_y * scale) as f32,
+                (radius * scale) as f32,
+            ) {
+                pixels.fill_path(
+                    &path,
+                    &paint(color, true)?,
+                    FillRule::Winding,
+                    Transform::identity(),
+                    clip,
+                );
+            }
+            return Ok(());
+        }
+        ListMarkerKind::Task => {}
     }
     let mut path = PathBuilder::new();
     for contour in marker.task_contours() {

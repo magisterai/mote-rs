@@ -467,7 +467,10 @@ mod tests {
                 let path = entry.unwrap().path();
                 if path.is_dir() {
                     manifests(&path, found);
-                } else if path.file_name().is_some_and(|name| name == "native-capture.json") {
+                } else if path
+                    .file_name()
+                    .is_some_and(|name| name == "native-capture.json")
+                {
                     found.push(path);
                 }
             }
@@ -483,7 +486,11 @@ mod tests {
                 let Some(digest) = digest.as_str() else {
                     continue;
                 };
-                if crate::digest::fingerprint(&folder.join(name)).ok().as_deref() != Some(digest) {
+                if crate::digest::fingerprint(&folder.join(name))
+                    .ok()
+                    .as_deref()
+                    != Some(digest)
+                {
                     stale.push(folder.join(name));
                 }
             }

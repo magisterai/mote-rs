@@ -99,7 +99,8 @@ Native zero-hanging lists preserve the text origin and allocate measured marker
 space immediately to its left. A native task item, like its Word and PowerPoint
 outputs, begins its hanging first line with the MS Gothic ballot box glyph, one
 em wide at the resolved font size, and a space; the line takes the height Word
-gives that glyph.
+gives that glyph. A native bullet is the disc of the ArialMT U+2022 glyph, which
+Word draws for a bullet level, at the resolved font size in both painters.
 See the [output edge tests](../../tests/output_edges.rs).
 
 Nested headings contribute inline text in DOCX list-item and quote content; their

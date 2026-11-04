@@ -11,27 +11,32 @@ use sha2::{Digest, Sha256};
 use std::{fs, path::Path};
 
 fn effects(plan: &DocumentTextPlan) -> Value {
-    Value::Array(plan.pages.iter().map(|page| {
-        let mut clips = Vec::new();
-        let mut rotations = Vec::new();
-        let mut markers = Vec::new();
-        for operation in &page.operations {
-            match operation {
-                PageOperation::PushClip(bounds) => clips.push(json!(bounds)),
-                PageOperation::PushRotation { degrees, center } => {
-                    rotations.push(json!({"degrees": degrees, "center": center}));
+    Value::Array(
+        plan.pages
+            .iter()
+            .map(|page| {
+                let mut clips = Vec::new();
+                let mut rotations = Vec::new();
+                let mut markers = Vec::new();
+                for operation in &page.operations {
+                    match operation {
+                        PageOperation::PushClip(bounds) => clips.push(json!(bounds)),
+                        PageOperation::PushRotation { degrees, center } => {
+                            rotations.push(json!({"degrees": degrees, "center": center}));
+                        }
+                        PageOperation::ListMarker(marker) => markers.push(json!({
+                            "checked": marker.checked,
+                            "slot": marker.slot,
+                            "baseline": marker.baseline,
+                            "font_size": marker.font_size,
+                        })),
+                        _ => {}
+                    }
                 }
-                PageOperation::ListMarker(marker) => markers.push(json!({
-                    "checked": marker.checked,
-                    "slot": marker.slot,
-                    "baseline": marker.baseline,
-                    "font_size": marker.font_size,
-                })),
-                _ => {}
-            }
-        }
-        json!({"clips": clips, "rotations": rotations, "markers": markers})
-    }).collect())
+                json!({"clips": clips, "rotations": rotations, "markers": markers})
+            })
+            .collect(),
+    )
 }
 
 #[test]
