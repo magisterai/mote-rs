@@ -21,12 +21,17 @@ fn pages() -> Vec<PathBuf> {
     pages
 }
 
-/// Returns the targets of the page's relative Markdown links.
-fn links(markdown: &str) -> Vec<&str> {
-    markdown
+/// Returns the targets of the page's relative Markdown links, outside code.
+fn links(markdown: &str) -> Vec<String> {
+    let prose: String = markdown
+        .split("```")
+        .step_by(2)
+        .flat_map(|text| text.split('`').step_by(2))
+        .collect();
+    prose
         .split("](")
         .skip(1)
-        .filter_map(|rest| rest.split_once(')').map(|(target, _)| target))
+        .filter_map(|rest| rest.split_once(')').map(|(target, _)| target.to_owned()))
         .filter(|target| !target.contains("://"))
         .collect()
 }
@@ -56,10 +61,7 @@ fn the_index_lists_every_page_and_every_link_resolves() {
     let listed = links(&index);
     for page in pages().iter().skip(1) {
         let relative = format!("references/{}", page.file_name().unwrap().to_str().unwrap());
-        assert!(
-            listed.contains(&relative.as_str()),
-            "{relative} is not in the index"
-        );
+        assert!(listed.contains(&relative), "{relative} is not in the index");
     }
     for page in pages() {
         let text = fs::read_to_string(&page).unwrap();
@@ -76,7 +78,9 @@ fn the_index_lists_every_page_and_every_link_resolves() {
 
 #[test]
 fn every_example_compiles_and_renders_without_warnings() {
-    let resolver = FileAssetResolver::new(skill()).unwrap();
+    let resolver =
+        FileAssetResolver::new(Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/skill"))
+            .unwrap();
     let mut count = 0;
     for page in pages() {
         let text = fs::read_to_string(&page).unwrap();
@@ -89,6 +93,7 @@ fn every_example_compiles_and_renders_without_warnings() {
                 source,
                 EvaluationOptions {
                     enable_lua: info.trim() == "lua",
+                    asset_resolver: Some(&resolver),
                     ..Default::default()
                 },
             )

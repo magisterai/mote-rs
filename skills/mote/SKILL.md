@@ -112,12 +112,26 @@ requires each of the corresponding pages.
 
 - [Text and paragraphs](references/text.md): headings, paragraph spacing,
   indents, borders, inline formatting, line breaks, tabs and page breaks.
+- [Styles and fonts](references/styles-and-fonts.md): paragraph and character
+  styles, inheritance, font declarations and font files.
+- [Page setup and sections](references/page-setup.md): page size, orientation,
+  margins, columns, sections and breaks.
+- [Headers and footers](references/headers-and-footers.md): running text, page
+  numbers, and sections that change them.
 - [Lists](references/lists.md): bulleted, numbered, nested and task lists.
 - [Tables](references/tables.md): Markdown and directive tables, merged cells,
   borders, fills, repeated headers and table defaults.
-- [Headers and footers](references/headers-and-footers.md): running text, page
-  numbers, and sections that change them.
+- [Images and figures](references/images.md): images, their size and
+  transforms, figures with numbered captions.
+- [Notes, links and references](references/notes-and-references.md): footnotes,
+  endnotes, hyperlinks, labels and cross-references to titles, numbers and pages.
 - [Charts](references/charts.md): column, bar, line, area, pie and doughnut charts,
   with their data, colors, legends, labels and axes.
 - [Shapes](references/shapes.md): positioned rectangles, ellipses and other
   geometry with fills, borders and text, and lines and arrows on slides.
+- [Slides](references/slides.md): deck settings, themes, speaker notes,
+  positioned boxes, built-in and custom slide layouts.
+- [Data, conditions and loops](references/data.md): bindings, JSON and CSV files,
+  imports, conditions, loops, and number, money and date formatting.
+- [Lua](references/lua.md): arithmetic, comparisons, string formatting and
+  functions, with the `--lua` option.

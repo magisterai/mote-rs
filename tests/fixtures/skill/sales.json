@@ -1,0 +1,14 @@
+{
+  "title": "Revenue by quarter",
+  "chart": {
+    "categories": ["Q1", "Q2", "Q3", "Q4"],
+    "series": [
+      { "name": "North", "values": [12, 15, 16, 19] },
+      { "name": "South", "values": [9, 11, 14, 13] }
+    ]
+  },
+  "regions": [
+    { "name": "North", "revenue": 62, "paid": true },
+    { "name": "South", "revenue": 47, "paid": false }
+  ]
+}

@@ -65,7 +65,7 @@ the stops, each with a `position`, an `alignment` of `left`, `center`, `right` o
 #paragraph[First line#line_break()Second line]
 ```
 
-The directive `#break()` begins a new page, and `#break(kind = "column")` a new
+The directive `#break()` begins a new page, and `#break(type = "column")` a new
 column.
 
 ## Limits
