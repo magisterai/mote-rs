@@ -1,6 +1,6 @@
 #[path = "support/native_capture.rs"]
 mod capture;
-use capture::{compare, mismatch, pixels, projection, refreshing, write_json};
+use capture::{compare, mismatch, pixels, projection, refreshing};
 use mote::{
     layout::DocumentTextPlan,
     render::{self, PngOptions},
@@ -52,12 +52,13 @@ const CASES: &[&str] = &[
 #[test]
 fn section_stories_and_fields_match_frozen_geometry() {
     for case in CASES {
-        let path = fixtures().join("captured").join(case).join("geometry.json");
+        let folder = fixtures().join("captured").join(case);
         let actual = projection(&planned(case).output);
-        let expected: Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+        let expected: Value =
+            serde_json::from_slice(&fs::read(folder.join("geometry.json")).unwrap()).unwrap();
         if refreshing() {
             if mismatch(&actual, &expected, case).is_some() {
-                write_json(&path, &actual);
+                capture::replace_json(&folder, "geometry.json", &actual);
             }
             continue;
         }
@@ -77,11 +78,11 @@ fn section_rasters_match_frozen_pages() {
             manifest["pages"].as_u64().unwrap() as usize
         );
         for page in actual.output {
-            let reference = folder.join(format!("reference-{}.png", page.number));
-            let (width, height, expected) = pixels(&fs::read(&reference).unwrap());
+            let reference = format!("reference-{}.png", page.number);
+            let (width, height, expected) = pixels(&fs::read(folder.join(&reference)).unwrap());
             let (actual_width, actual_height, actual) = pixels(&page.bytes);
             if refreshing() && (actual_width, actual_height) != (width, height) {
-                fs::write(&reference, &page.bytes).unwrap();
+                capture::replace(&folder, &reference, &page.bytes);
                 continue;
             }
             assert_eq!((actual_width, actual_height), (width, height));
@@ -107,7 +108,7 @@ fn section_rasters_match_frozen_pages() {
             let mean = sum as f64 / count.max(1) as f64;
             if refreshing() {
                 if maximum > 56 || mean > 11.0 {
-                    fs::write(&reference, &page.bytes).unwrap();
+                    capture::replace(&folder, &reference, &page.bytes);
                 }
                 continue;
             }

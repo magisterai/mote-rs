@@ -135,6 +135,10 @@ fn constructor_sources_and_native_pages_match_frozen_captures() {
             );
             let (width, height, expected) = capture::pixels(&bytes);
             let (actual_width, actual_height, actual) = capture::pixels(&page.bytes);
+            if capture::refreshing() && (actual_width, actual_height) != (width, height) {
+                capture::replace_recorded(&folder, "capture.json", &name, &page.bytes);
+                continue;
+            }
             assert_eq!((actual_width, actual_height), (width, height));
             let mut maximum = 0u8;
             let mut sum = 0u64;
@@ -156,6 +160,12 @@ fn constructor_sources_and_native_pages_match_frozen_captures() {
                 }
             }
             let mean = sum as f64 / count.max(1) as f64;
+            if capture::refreshing() {
+                if maximum > 56 || mean > 12.0 {
+                    capture::replace_recorded(&folder, "capture.json", &name, &page.bytes);
+                }
+                continue;
+            }
             assert!(
                 maximum <= 56 && mean <= 12.0,
                 "{case}: maximum {maximum}, mean {mean}"

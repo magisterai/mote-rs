@@ -40,6 +40,9 @@ fn source_to_paragraph_lines_matches_all_captured_widths() {
     let actual = json!({"schema_version":1,"cases":cases});
     let mut differences = Vec::new();
     json_compare::compare(&expected, &actual, "root", &mut differences);
+    if !differences.is_empty() && json_compare::refresh(&root.join("paragraph-text"), &actual) {
+        return;
+    }
     assert!(
         differences.is_empty(),
         "{} differences:\n{}",

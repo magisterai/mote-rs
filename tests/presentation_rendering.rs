@@ -141,11 +141,15 @@ fn compare_captured_slides(directory: &str, cases: &[(&str, u8, f64, usize)]) {
         )
         .unwrap();
         assert_eq!(document, original);
-        capture::compare(
-            &presentation_capture::projection(&plan.output),
-            &read("geometry.json"),
-            case,
-        );
+        let geometry = presentation_capture::projection(&plan.output);
+        if capture::refreshing() {
+            if capture::mismatch(&geometry, &read("geometry.json"), case).is_some() {
+                capture::replace_json_recorded(&folder, "capture.json", "geometry.json", &geometry);
+            }
+        } else {
+            capture::compare(&geometry, &read("geometry.json"), case);
+        }
+        let manifest = read("capture.json");
         assert_eq!(
             format!(
                 "{:x}",
@@ -174,6 +178,10 @@ fn compare_captured_slides(directory: &str, cases: &[(&str, u8, f64, usize)]) {
             );
             let (width, height, expected) = capture::pixels(&expected);
             let (actual_width, actual_height, actual) = capture::pixels(&page.bytes);
+            if capture::refreshing() && (width, height) != (actual_width, actual_height) {
+                capture::replace_recorded(&folder, "capture.json", &name, &page.bytes);
+                continue;
+            }
             assert_eq!((width, height), (actual_width, actual_height));
             let mut maximum = 0u8;
             let mut sum = 0u64;
@@ -199,6 +207,12 @@ fn compare_captured_slides(directory: &str, cases: &[(&str, u8, f64, usize)]) {
                 }
             }
             let mean = sum as f64 / count.max(1) as f64;
+            if capture::refreshing() {
+                if maximum > maximum_limit || mean > mean_limit || edge_pixels > edge_limit {
+                    capture::replace_recorded(&folder, "capture.json", &name, &page.bytes);
+                }
+                continue;
+            }
             assert!(maximum <= maximum_limit, "{case}: maximum {maximum}");
             assert!(mean <= mean_limit, "{case}: mean {mean}");
             assert!(

@@ -38,6 +38,9 @@ fn text_decoration_geometry_matches_captured_operations() {
     let actual = json!({"schema_version":1,"cases":cases});
     let mut differences = Vec::new();
     json_compare::compare(&expected, &actual, "root", &mut differences);
+    if !differences.is_empty() && json_compare::refresh(&root, &actual) {
+        return;
+    }
     assert!(
         differences.is_empty(),
         "{} differences:\n{}",

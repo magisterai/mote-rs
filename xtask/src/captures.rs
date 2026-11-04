@@ -461,6 +461,37 @@ mod tests {
     }
 
     #[test]
+    fn every_native_capture_manifest_fingerprints_its_files() {
+        fn manifests(folder: &std::path::Path, found: &mut Vec<std::path::PathBuf>) {
+            for entry in std::fs::read_dir(folder).unwrap() {
+                let path = entry.unwrap().path();
+                if path.is_dir() {
+                    manifests(&path, found);
+                } else if path.file_name().is_some_and(|name| name == "native-capture.json") {
+                    found.push(path);
+                }
+            }
+        }
+        let mut found = Vec::new();
+        manifests(&repository().join("tests/fixtures"), &mut found);
+        assert!(!found.is_empty());
+        let mut stale = Vec::new();
+        for manifest in found {
+            let folder = manifest.parent().unwrap();
+            let files = Json::read(&manifest).unwrap();
+            for (name, digest) in files.get("files").and_then(Json::as_object).unwrap_or(&[]) {
+                let Some(digest) = digest.as_str() else {
+                    continue;
+                };
+                if crate::digest::fingerprint(&folder.join(name)).ok().as_deref() != Some(digest) {
+                    stale.push(folder.join(name));
+                }
+            }
+        }
+        assert!(stale.is_empty(), "{stale:?}");
+    }
+
+    #[test]
     fn every_captured_part_file_is_referenced() {
         let orphans = unreferenced_parts(&repository().join("tests/fixtures")).unwrap();
         assert!(orphans.is_empty(), "{orphans:?}");

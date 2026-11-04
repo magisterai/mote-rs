@@ -62,8 +62,11 @@ change and every stored part file to be referenced.
 Native geometry and raster captures are refreshed by their own test harnesses.
 After an intended layout change, `MOTE_REFRESH_CAPTURES=1 cargo test --test NAME`
 writes the current output in place of each capture that fails its tolerance, and
-updates the recorded digests, in the harnesses that support refresh: the section
-captures and the combined rendering-audit cases.
+updates the recorded digests, in the harnesses that support refresh: the section,
+note and table captures, the authored-content and combined rendering-audit
+cases, and the document-text, paragraph-text and text-decoration collections. A
+refreshed JSON capture keeps its stored text and changes only the values that
+moved. A refresh is made only for a change that Office evidence supports.
 
 ## Attribute inventory
 

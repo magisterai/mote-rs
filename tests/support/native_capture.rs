@@ -1,3 +1,6 @@
+#[allow(dead_code)]
+#[path = "json_compare.rs"]
+mod json_compare;
 use mote::layout::{DocumentTextPlan, PageOperation};
 use serde_json::{Value, json};
 use std::io::Cursor;
@@ -74,36 +77,50 @@ pub fn refreshing() -> bool {
     std::env::var_os("MOTE_REFRESH_CAPTURES").is_some()
 }
 
-/// Captures were first written with integral values as integers and other values
-/// as short decimals, so a refreshed capture keeps that form, rounded far inside
-/// the geometry tolerance, and differs only where a value changes.
+/// Writes a refreshed capture file and its fingerprint in `native-capture.json`.
 #[allow(dead_code)]
-pub fn write_json(path: &std::path::Path, value: &Value) {
-    fn integral(value: &Value) -> Value {
-        match value {
-            Value::Number(number) => match number.as_f64() {
-                Some(float) if number.is_f64() => {
-                    let rounded = (float * 1e10).round() / 1e10;
-                    if rounded.fract() == 0.0 && rounded.abs() < 1e15 {
-                        json!(rounded as i64)
-                    } else {
-                        json!(rounded)
-                    }
-                }
-                _ => value.clone(),
-            },
-            Value::Array(values) => Value::Array(values.iter().map(integral).collect()),
-            Value::Object(fields) => Value::Object(
-                fields
-                    .iter()
-                    .map(|(name, value)| (name.clone(), integral(value)))
-                    .collect(),
-            ),
-            _ => value.clone(),
-        }
-    }
-    let text = serde_json::to_string_pretty(&integral(value)).unwrap() + "\n";
-    std::fs::write(path, text).unwrap();
+pub fn replace(folder: &std::path::Path, name: &str, bytes: &[u8]) {
+    replace_recorded(folder, "native-capture.json", name, bytes);
+}
+
+/// Writes a refreshed capture file and its fingerprint in the named manifest.
+#[allow(dead_code)]
+pub fn replace_recorded(folder: &std::path::Path, manifest: &str, name: &str, bytes: &[u8]) {
+    use sha2::{Digest, Sha256};
+    let path = folder.join(name);
+    let previous = format!("{:x}", Sha256::digest(std::fs::read(&path).unwrap()));
+    std::fs::write(&path, bytes).unwrap();
+    let manifest_path = folder.join(manifest);
+    let manifest = std::fs::read_to_string(&manifest_path).unwrap();
+    let current = format!("{:x}", Sha256::digest(bytes));
+    std::fs::write(manifest_path, manifest.replace(&previous, &current)).unwrap();
+}
+
+/// Rewrites a captured JSON file and its fingerprint in `native-capture.json`,
+/// changing only the values that moved.
+#[allow(dead_code)]
+pub fn replace_json(folder: &std::path::Path, name: &str, actual: &Value) {
+    replace_json_recorded(folder, "native-capture.json", name, actual);
+}
+
+/// Rewrites a captured JSON file and its fingerprint in the named manifest.
+#[allow(dead_code)]
+pub fn replace_json_recorded(
+    folder: &std::path::Path,
+    manifest: &str,
+    name: &str,
+    actual: &Value,
+) {
+    let stored = std::fs::read_to_string(folder.join(name)).unwrap();
+    let text = json_compare::rewrite(&stored, actual);
+    replace_recorded(folder, manifest, name, text.as_bytes());
+}
+
+/// Rewrites a captured JSON file in place, changing only the values that moved.
+#[allow(dead_code)]
+pub fn rewrite_json(path: &std::path::Path, actual: &Value) {
+    let stored = std::fs::read_to_string(path).unwrap();
+    std::fs::write(path, json_compare::rewrite(&stored, actual)).unwrap();
 }
 
 pub fn compare(actual: &Value, expected: &Value, path: &str) {

@@ -162,7 +162,7 @@ pub fn compare(group: &str, cases: &[&str]) {
                 let stored: Value =
                     serde_json::from_slice(&fs::read(&geometry_path).unwrap()).unwrap();
                 if capture::mismatch(&actual, &stored, case).is_some() {
-                    capture::write_json(&geometry_path, &actual);
+                    capture::rewrite_json(&geometry_path, &actual);
                     let digest = format!("{:x}", Sha256::digest(fs::read(&geometry_path).unwrap()));
                     refreshed_digests
                         .push((geometry["sha256"].as_str().unwrap().to_owned(), digest));

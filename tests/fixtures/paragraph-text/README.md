@@ -8,7 +8,8 @@ fragments. [Capture metadata](capture.json) fingerprints the sources and results
 `cargo test --test paragraph_text` compiles each source, resolves its styles and
 inline runs, measures fonts and plans lines. It compares every numeric field
 within 0.000000001 point and every other field exactly. The sources and expected
-results remain unchanged during tests.
+results remain unchanged during tests, except under the refresh mode in the
+[xtask guide](../../../xtask/README.md#test-captures).
 
 The narrow cases expose frame clamping, hanging indents and oversized graphemes.
 The source cases include zero font sizes: the effective style retains zero, while

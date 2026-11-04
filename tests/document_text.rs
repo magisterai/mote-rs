@@ -14,6 +14,9 @@ fn complete_sources_match_captured_page_text_geometry() {
     let actual = document_capture::capture_sources(&requests).unwrap();
     let mut differences = Vec::new();
     json_compare::compare(&expected, &actual, "root", &mut differences);
+    if !differences.is_empty() && json_compare::refresh(&root, &actual) {
+        return;
+    }
     assert!(
         differences.is_empty(),
         "{} differences:\n{}",

@@ -9,7 +9,8 @@ indentation, justification, mixed font sizes, code, tabs and empty lines.
 Run `cargo test --test document_text`. The test compiles complete sources and
 compares page counts plus every text fragment's absolute position, font, size,
 color, width, advance and missing codepoints. [Capture metadata](capture.json)
-records fingerprints and tolerance. It never rewrites inputs or expectations.
+records fingerprints and tolerance. It never rewrites inputs or expectations, except under the refresh mode
+in the [xtask guide](../../../xtask/README.md#test-captures).
 
 Blank paragraphs and empty hard-break lines have distinct geometry. A zero-height
 blank paragraph, including one under a zero default font size, is a rejected native

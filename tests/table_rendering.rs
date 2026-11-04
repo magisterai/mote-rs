@@ -1,3 +1,6 @@
+#[allow(dead_code)]
+#[path = "support/native_capture.rs"]
+mod capture;
 use mote::{
     layout::{DocumentTextPlan, PageOperation},
     render::{self, PngOptions},
@@ -150,11 +153,17 @@ fn table_text_edges_images_and_pagination_match_frozen_geometry() {
         "styles",
         "widths",
     ] {
-        let expected: Value = serde_json::from_slice(
-            &fs::read(fixtures().join("captured").join(case).join("geometry.json")).unwrap(),
-        )
-        .unwrap();
-        compare(&projection(&planned(case).output), &expected, case);
+        let folder = fixtures().join("captured").join(case);
+        let actual = projection(&planned(case).output);
+        let expected: Value =
+            serde_json::from_slice(&fs::read(folder.join("geometry.json")).unwrap()).unwrap();
+        if capture::refreshing() {
+            if capture::mismatch(&actual, &expected, case).is_some() {
+                capture::replace_json(&folder, "geometry.json", &actual);
+            }
+            continue;
+        }
+        compare(&actual, &expected, case);
     }
 }
 #[test]
@@ -209,9 +218,13 @@ fn native_table_pages_match_frozen_rasters_with_bounded_font_edge_tolerance() {
         let painted = painted.output;
         assert_eq!(painted.len(), manifest["pages"].as_u64().unwrap() as usize);
         for page in painted {
+            let reference = format!("reference-{}.png", page.number);
             let actual = pixels(&page.bytes);
-            let expected =
-                pixels(&fs::read(capture.join(format!("reference-{}.png", page.number))).unwrap());
+            let expected = pixels(&fs::read(capture.join(&reference)).unwrap());
+            if capture::refreshing() && (actual.0, actual.1) != (expected.0, expected.1) {
+                capture::replace(&capture, &reference, &page.bytes);
+                continue;
+            }
             assert_eq!((actual.0, actual.1), (expected.0, expected.1));
             let mut total = 0_u64;
             let mut channels = 0_u64;
@@ -234,9 +247,17 @@ fn native_table_pages_match_frozen_rasters_with_bounded_font_edge_tolerance() {
                 }
             }
             let mean = total as f64 / channels.max(1) as f64;
+            let within = maximum
+                <= manifest["png_maximum_channel_difference"].as_u64().unwrap() as u8
+                && mean <= manifest["png_mean_foreground_difference"].as_f64().unwrap();
+            if capture::refreshing() {
+                if !within {
+                    capture::replace(&capture, &reference, &page.bytes);
+                }
+                continue;
+            }
             assert!(
-                maximum <= manifest["png_maximum_channel_difference"].as_u64().unwrap() as u8
-                    && mean <= manifest["png_mean_foreground_difference"].as_f64().unwrap(),
+                within,
                 "{case}/{}: maximum {maximum}, foreground mean {mean}",
                 page.number
             );
