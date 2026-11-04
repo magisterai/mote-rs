@@ -27,14 +27,36 @@ pub(super) fn prepare(
         },
         &base,
     );
-    let paragraphs = paragraphs::resolve(
+    // Word writes the shape's text formatting on every run of the text box, so it
+    // overrides the paragraph style rather than being overridden by it.
+    let mut defaults = paragraphs::paragraph_defaults(&attributes);
+    for name in [
+        "font",
+        "size",
+        "color",
+        "highlight",
+        "bold",
+        "italic",
+        "underline",
+        "small_caps",
+        "strike",
+        "double_strike",
+    ] {
+        if let Some(value) = attributes.get(name) {
+            defaults.entry(name.into()).or_insert_with(|| value.clone());
+        }
+    }
+    let mut paragraphs = paragraphs::resolve(
         &element.children,
         &base,
-        &paragraphs::paragraph_defaults(&attributes),
+        &defaults,
         (text(&attributes, "font").is_empty() && text(&attributes, "style").is_empty())
             .then_some("Aptos"),
         &styles,
     );
+    for paragraph in &mut paragraphs {
+        paragraph.style.word_exact_baseline = true;
+    }
     let mut bounds = geometry::text_rectangle(
         &text(&element.attributes, "kind"),
         geometry::rectangle(&element.attributes),
