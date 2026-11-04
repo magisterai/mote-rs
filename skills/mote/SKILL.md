@@ -110,6 +110,11 @@ The `--lua` option enables Lua expressions, which are disabled by default.
 Each page is short and self-contained. A task that touches several features
 requires each of the corresponding pages.
 
+- [Text and paragraphs](references/text.md): headings, paragraph spacing,
+  indents, borders, inline formatting, line breaks, tabs and page breaks.
+- [Lists](references/lists.md): bulleted, numbered, nested and task lists.
+- [Tables](references/tables.md): Markdown and directive tables, merged cells,
+  borders, fills, repeated headers and table defaults.
 - [Headers and footers](references/headers-and-footers.md): running text, page
   numbers, and sections that change them.
 - [Charts](references/charts.md): column, bar, line, area, pie and doughnut charts,
