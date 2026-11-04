@@ -44,14 +44,16 @@ has just written, look at it, and correct the source in a single loop.
 
 Mote is Word, PowerPoint and Acrobat for language models.
 
-## Report
+## Word
 
-A research note for Word, written in
-[135 lines of source](readme/examples/report.mote) that read their figures from a
-[JSON file](readme/examples/transit.json). The note has a title block, an
-abstract, a full-width figure, a two-column body, a numbered table and a second
-chart, with running headers and footers. Both charts are native Word charts
-with their data in an embedded workbook.
+The output is a Word document in every respect, not a picture of one. The
+research note below has a two-column body beneath a full-width figure, a table
+style with a ruled header and banded rows, captioned figures, and running headers
+and footers with page fields, all built on named paragraph and character styles.
+Both charts are native Word charts that keep their data in an embedded workbook,
+so a reader can restyle a chart or correct a figure in Word. The same source
+language also provides numbered lists, footnotes and endnotes, images,
+cross-references, comments and editable equations.
 
 ![Native preview of a one-page research note titled "A temperate sub-Neptune transiting the nearby M dwarf MTS-0412", with a transit light curve, a two-column body, a candidates table and a radius histogram.](readme/images/report-1.png)
 
@@ -59,13 +61,16 @@ with their data in an embedded workbook.
 [Word](readme/downloads/report.docx) ·
 [PDF](readme/downloads/report.pdf)
 
-## Deck
+## PowerPoint
 
-A briefing on the same discovery for PowerPoint, in
-[125 lines](readme/examples/deck.mote). The deck has a theme, a starfield drawn
-by a loop, positioned text, editable shapes and connectors, a line chart and a
-doughnut chart, and speaker notes on every slide. The deck is written for its
-format, not converted from the note.
+The briefing deck tells the same story in PowerPoint, and every object on its
+slides is native DrawingML. A theme supplies the fonts and colours. The star and
+its transiting planet are layered translucent ellipses, the starfield is placed
+by a loop over a list of coordinates, and the cards, arrows and plan are editable
+shapes and connectors. The light curve and the doughnut are PowerPoint charts
+with embedded workbooks, and every slide carries speaker notes. Slides may also
+hold images with cropping, rotation, borders and transparency, tables, picture
+backgrounds and named layouts.
 
 <p>
 <img src="readme/images/deck-1.png" width="49%" alt="Title slide: a star with a transiting planet beside the title A temperate sub-Neptune around a nearby red dwarf.">
