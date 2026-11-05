@@ -103,6 +103,16 @@ pub struct Document {
     pub warnings: Vec<crate::diagnostics::Diagnostic>,
 }
 
+/// A link's screen tip is its `tooltip`, or else its `title`, as a Markdown link
+/// title is in HTML.
+pub fn link_tooltip(attributes: &Properties) -> Option<String> {
+    ["tooltip", "title"]
+        .into_iter()
+        .filter_map(|name| attributes.get(name))
+        .map(Value::to_text)
+        .find(|text| !text.trim().is_empty())
+}
+
 /// Style references ignore case and every character other than an ASCII letter or digit.
 pub fn normalize_style_name(name: &str) -> String {
     name.to_lowercase()

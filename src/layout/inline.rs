@@ -20,6 +20,7 @@ pub fn resolve_inline(
             && run.anchors.is_empty()
             && previous.internal_target == run.internal_target
             && previous.link == run.link
+            && previous.tooltip == run.tooltip
             && previous.style == run.style
             && previous.preserve_space == run.preserve_space
             && previous.synthetic_tab == run.synthetic_tab
@@ -196,8 +197,10 @@ fn collect(
                         .map(crate::model::Value::to_text)
                         .unwrap_or_default();
                     if !url.is_empty() {
+                        let tooltip = crate::model::link_tooltip(&element.attributes);
                         for run in &mut runs[start..] {
                             run.link = Some(url.clone());
+                            run.tooltip = tooltip.clone();
                         }
                     }
                     continue;

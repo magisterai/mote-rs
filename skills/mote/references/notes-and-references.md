@@ -24,15 +24,15 @@ separately.
 ## Links
 
 ```mote
-See [the survey site](https://example.com/survey), write to
+See [the survey site](https://example.com/survey "Survey results"), write to
 <reader@example.com>, or visit #link("https://example.com")[#span(bold = true)[the archive]].
 ```
 
 Markdown links, addresses in angle brackets and bare `https://` addresses all
 become links; `#link(url)[text]` takes formatted text. Links are blue and
-underlined unless their text is formatted otherwise. A link title, as in
-`[text](url "Title")`, is retained in the model but has no effect in PDF and PNG
-output, which report it with a warning.
+underlined unless their text is formatted otherwise. A title, as in
+`[text](url "Title")`, or the `tooltip` argument of `#link`, becomes the screen
+tip shown when a pointer rests on the link in Word, PowerPoint and PDF viewers.
 
 ## Labels and references
 

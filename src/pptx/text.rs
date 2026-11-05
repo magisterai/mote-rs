@@ -257,7 +257,13 @@ fn run_xml(
         ));
     }
     if let Some(identifier) = relationship {
-        output.push_str(&format!("<a:hlinkClick r:id=\"rId{identifier}\"/>"));
+        let tooltip = match &run.tooltip {
+            Some(tooltip) => format!(" tooltip=\"{}\"", escape(tooltip)?),
+            None => String::new(),
+        };
+        output.push_str(&format!(
+            "<a:hlinkClick r:id=\"rId{identifier}\"{tooltip}/>"
+        ));
     }
     output.push_str("</a:rPr><a:t>");
     output.push_str(&escape(&run.text)?);

@@ -400,7 +400,7 @@ fn content(
                 "link",
                 "placement",
             ]),
-            ElementKind::Link => allowed.push("url"),
+            ElementKind::Link => allowed.extend(["url", "title", "tooltip"]),
             ElementKind::Break => allowed.push("type"),
             ElementKind::Figure | ElementKind::Caption => {
                 allowed.extend(["kind", "position", "alignment", "numbering"]);

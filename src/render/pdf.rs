@@ -212,6 +212,9 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
                                 rounded(geometry.height - placed.top),
                             ))
                             .border(0.0, 0.0, 0.0, None);
+                        if let Some(tooltip) = &fragment.tooltip {
+                            annotation.contents(pdf_writer::TextStr(tooltip));
+                        }
                         if fragment.internal_target.is_some() {
                             if let Some((destination_page, position)) = destinations.get(target) {
                                 let destination_height = plan.pages[*destination_page]

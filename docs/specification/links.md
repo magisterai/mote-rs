@@ -11,9 +11,11 @@ invalid in a link body.
 The URL is a required string supplied positionally or as `url`. Supplying both forms is invalid. A positional value overrides `properties.url`. More than
 one positional argument is invalid. An empty URL is invalid; other URL strings are retained as authored. Mote does not fetch a link destination during generation.
 
-`title`, `tooltip`, and `target` are optional string metadata. They are retained
-in the model; they do not currently change rendered appearance, screen tips, or
-which window opens. `properties` follows the existing attribute override rules.
+`title`, `tooltip`, and `target` are optional strings. A link's **screen tip** is
+its nonblank `tooltip`, or else its nonblank `title`: the text shown when a pointer
+rests on the link and read by assistive software. A screen tip has no printed
+appearance. `target` is retained metadata and does not change which window opens.
+`properties` follows the existing attribute override rules.
 Use nested spans to format link text. Internal bookmarks and cross references
 are not defined by this chapter; a fragment in a complete URL is part of that external URL. Markdown destinations
 starting with `#` request an internal reference and are rejected until that

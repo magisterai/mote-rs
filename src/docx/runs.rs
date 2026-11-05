@@ -184,8 +184,15 @@ pub(super) fn write_formatted(
                     let relationship = resources.hyperlink(&url);
                     let mut linked = formatting.clone();
                     linked.apply_character_style("Hyperlink", styles)?;
+                    let tooltip = crate::model::link_tooltip(&element.attributes)
+                        .map(|tooltip| {
+                            super::xml::escape(&tooltip)
+                                .map(|tooltip| format!(" w:tooltip=\"{tooltip}\""))
+                        })
+                        .transpose()?
+                        .unwrap_or_default();
                     result.push_str(&format!(
-                        "<w:hyperlink r:id=\"{relationship}\" w:history=\"1\">"
+                        "<w:hyperlink r:id=\"{relationship}\"{tooltip} w:history=\"1\">"
                     ));
                     result.push_str(&write_formatted(
                         &element.children,

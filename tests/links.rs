@@ -69,11 +69,19 @@ fn wrapped_links_retain_targets_in_pdf_and_visual_text_in_png() {
     assert!(serialized.contains("/Rect [35.39 248.77 67.19 264]"));
     let png = render::paint_png(&planned.output, &Default::default()).unwrap();
     assert_eq!(png.output.len(), 1);
+    assert!(serialized.contains("/Contents (Title)"));
+    assert!(serialized.contains("/Contents (Tip)"));
     assert!(
         planned
             .warnings
             .iter()
-            .any(|warning| warning.contains("tooltip"))
+            .any(|warning| warning.contains("target"))
+    );
+    assert!(
+        !planned
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("tooltip") || warning.contains("title"))
     );
 }
 #[test]

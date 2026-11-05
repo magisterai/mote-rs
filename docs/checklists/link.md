@@ -6,7 +6,10 @@
 
 - [x] `url`: required string, positional or named; supplying both is invalid; positional value overrides `properties.url`.
 - [x] One required inline body; nested text formatting remains available.
-- [x] `title`, `tooltip`, `target`: string metadata, retained without output behavior.
+- [x] `title`, `tooltip`: string screen tip, the tooltip taking precedence; DOCX
+  `w:tooltip`, PPTX `hlinkClick` `tooltip`, and the PDF link annotation's
+  `/Contents`. PNG output has no interactive destination.
+- [x] `target`: string metadata, retained without output behavior; native output warns.
 - [x] `properties`: standard flattened property overrides.
 - [x] Markdown inline links with optional title, angle URL/email links, and bare HTTP(S) links.
 - [x] External destinations in DOCX and PDF; link text in native PNG.

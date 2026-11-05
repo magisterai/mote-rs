@@ -138,6 +138,7 @@ fn resolve_runs(
                 run.style.color = "2563EB".into();
                 run.style.underline = true;
                 run.link = Some(text(&element.attributes, "url"));
+                run.tooltip = crate::model::link_tooltip(&element.attributes);
             }
         }
         output.extend(children);

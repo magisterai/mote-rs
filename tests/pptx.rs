@@ -168,6 +168,34 @@ fn text_box_shadows_use_editable_drawing_effects() {
     assert!(slide.descendants().any(|node| node.text() == Some("Text")));
 }
 #[test]
+fn link_titles_and_tooltips_become_editable_screen_tips() {
+    let document = mote::compile(
+        r##"#slide[#box(position={width=inch(4),height=inch(1)})[See [the site](https://example.com "Survey") and #link("https://example.com/b", title="Title", tooltip="Tip")[this].]]"##,
+    )
+    .unwrap();
+    let package = mote::pptx::emit_with_warnings(&document).unwrap();
+    assert!(package.warnings.is_empty(), "{:?}", package.warnings);
+    let mut archive = zip::ZipArchive::new(Cursor::new(package.bytes)).unwrap();
+    let mut source = String::new();
+    archive
+        .by_name("ppt/slides/slide1.xml")
+        .unwrap()
+        .read_to_string(&mut source)
+        .unwrap();
+    let slide = roxmltree::Document::parse(&source).unwrap();
+    let tooltips: Vec<_> = slide
+        .descendants()
+        .filter(|node| {
+            node.has_tag_name((
+                "http://schemas.openxmlformats.org/drawingml/2006/main",
+                "hlinkClick",
+            ))
+        })
+        .map(|node| node.attribute("tooltip"))
+        .collect();
+    assert_eq!(tooltips, [Some("Survey"), Some("Tip")]);
+}
+#[test]
 fn invalid_physical_slide_dimensions_cannot_create_a_package() {
     for source in [
         r##"#presentation(width=pt(0),height=pt(10))"##,

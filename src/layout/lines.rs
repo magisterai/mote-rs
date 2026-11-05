@@ -158,6 +158,7 @@ pub fn plan_text(
             }
             fragments.push(TextFragment {
                 link: placed.run.link,
+                tooltip: placed.run.tooltip,
                 internal_target: placed.run.internal_target,
                 anchors: placed.run.anchors,
                 current_page_field: placed.run.current_page_field,
