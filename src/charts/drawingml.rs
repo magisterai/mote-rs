@@ -12,6 +12,7 @@ pub(crate) const GRAPHIC_DATA_URI: &str = "http://schemas.openxmlformats.org/dra
 pub(crate) struct Options {
     pub part_number: usize,
     pub label_baseline: i32,
+    pub axis_label_color: String,
 }
 impl Options {
     fn category_axis(&self) -> usize {
@@ -38,7 +39,7 @@ pub(crate) fn write(chart: &Chart, options: &Options) -> Result<String, Error> {
         output.push_str(&format!(
             r#"<c:legend><c:legendPos val="{}"/><c:layout/><c:overlay val="0"/>{}</c:legend>"#,
             escape(&chart.legend.position)?,
-            label_text(options.label_baseline)
+            label_text(options.label_baseline, "")?
         ));
     }
     output.push_str(r#"<c:plotVisOnly val="1"/><c:dispBlanksAs val="gap"/><c:showDLblsOverMax val="0"/></c:chart>"#);

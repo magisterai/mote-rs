@@ -155,3 +155,68 @@ fn non_finite_chart_data_cannot_create_an_editable_package() {
         assert!(error.contains("must be finite"), "{number}: {error}");
     }
 }
+
+fn chart_part(package: &[u8], name: &str) -> String {
+    let mut archive = zip::ZipArchive::new(Cursor::new(package)).unwrap();
+    let mut content = String::new();
+    archive
+        .by_name(name)
+        .unwrap()
+        .read_to_string(&mut content)
+        .unwrap();
+    content
+}
+
+#[test]
+fn unstyled_chart_rules_follow_the_office_default_chart_style() {
+    let rule = |width: i64, color: &str| {
+        format!(
+            r#"<a:ln w="{width}" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:srgbClr val="{color}"/></a:solidFill><a:round/></a:ln>"#
+        )
+    };
+    let label_fill =
+        |color: &str| format!(r#"<a:solidFill><a:srgbClr val="{color}"/></a:solidFill>"#);
+    let chart = "#chart(data={categories={'A','B'},values={1,2}})";
+    let document = mote::compile(chart).unwrap();
+    let xml = chart_part(
+        &mote::docx::emit(&document).unwrap(),
+        "word/charts/chart1.xml",
+    );
+    let gridlines = format!(
+        "<c:majorGridlines><c:spPr>{}</c:spPr></c:majorGridlines>",
+        rule(9525, "D9D9D9")
+    );
+    assert!(xml.contains(&gridlines), "{xml}");
+    assert!(xml.contains(&format!(
+        "<c:spPr><a:noFill/>{}</c:spPr>",
+        rule(9525, "D9D9D9")
+    )));
+    assert!(xml.contains("<c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>"));
+    assert_eq!(xml.matches(r#"<c:majorTickMark val="none"/>"#).count(), 2);
+    assert_eq!(xml.matches(&label_fill("595959")).count(), 2);
+
+    let styled = "#chart(data={values={1,2}},gridlines={minor=true,color='#FF0000',width=pt(2)})";
+    let xml = chart_part(
+        &mote::docx::emit(&mote::compile(styled).unwrap()).unwrap(),
+        "word/charts/chart1.xml",
+    );
+    for name in ["majorGridlines", "minorGridlines"] {
+        let expected = format!(
+            "<c:{name}><c:spPr>{}</c:spPr></c:{name}>",
+            rule(25400, "FF0000")
+        );
+        assert!(xml.contains(&expected), "{name}: {xml}");
+    }
+
+    for (text, label) in [("#000000", "595959"), ("#FF0000", "FF5959")] {
+        let source = format!(
+            "#presentation(theme={{colors={{text='{text}'}}}})\n#slide[#box(position={{x=pt(10),y=pt(10),width=pt(300),height=pt(200)}})[{chart}]]"
+        );
+        let xml = chart_part(
+            &mote::pptx::emit(&mote::compile(&source).unwrap()).unwrap(),
+            "ppt/charts/chart1.xml",
+        );
+        assert!(xml.contains(&gridlines), "{xml}");
+        assert_eq!(xml.matches(&label_fill(label)).count(), 2, "{text}");
+    }
+}

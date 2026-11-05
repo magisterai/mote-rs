@@ -137,6 +137,18 @@ impl ChartPlanner<'_, '_> {
 }
 
 impl ChartPlanner<'_, '_> {
+    pub(super) fn axis_label(
+        &mut self,
+        bounds: Rectangle,
+        text: &str,
+        alignment: &str,
+    ) -> Result<(), LayoutError> {
+        let previous =
+            std::mem::replace(&mut self.measurement.color, self.axis_label_color.clone());
+        let result = self.text(bounds, text, 10.0, alignment, 0.0);
+        self.measurement.color = previous;
+        result
+    }
     pub(super) fn title(
         &mut self,
         bounds: Rectangle,

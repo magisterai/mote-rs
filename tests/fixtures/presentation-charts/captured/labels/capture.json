@@ -112,8 +112,8 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     },
     "ppt/charts/chart1.xml": {
-      "path": "captured/parts/3e0e9328e3629b238371ab38c53c644f291bcf7101efe54a7530250d41960c26.xml",
-      "sha256": "3e0e9328e3629b238371ab38c53c644f291bcf7101efe54a7530250d41960c26"
+      "path": "captured/parts/a5beffa8a0c1b5fe486fcdcff473ea5bd511b79ee1cf1ddc9b11b94e5f80f1de.xml",
+      "sha256": "a5beffa8a0c1b5fe486fcdcff473ea5bd511b79ee1cf1ddc9b11b94e5f80f1de"
     },
     "ppt/embeddings/chart1.xlsx": {
       "parts": {
@@ -160,8 +160,8 @@
       }
     },
     "ppt/charts/chart2.xml": {
-      "path": "captured/parts/ba6689dc326a9c1f3fd9b0ddc7b1c25cbc5c76867f4408dbb78a16f791c1c708.xml",
-      "sha256": "ba6689dc326a9c1f3fd9b0ddc7b1c25cbc5c76867f4408dbb78a16f791c1c708"
+      "path": "captured/parts/7f74938e3f1ae463e4840866bc910ef0eb6bb0af961936d689777503db32968d.xml",
+      "sha256": "7f74938e3f1ae463e4840866bc910ef0eb6bb0af961936d689777503db32968d"
     },
     "ppt/embeddings/chart2.xlsx": {
       "parts": {
@@ -256,8 +256,8 @@
       }
     },
     "ppt/charts/chart4.xml": {
-      "path": "captured/parts/1941d921a39efc11da716dea7df3a22ef1813efde41ee34ea0265f8356a4a0eb.xml",
-      "sha256": "1941d921a39efc11da716dea7df3a22ef1813efde41ee34ea0265f8356a4a0eb"
+      "path": "captured/parts/88782ba3414a62cf66349652c7fce6dea380c137bddab88f58c7103532517ecf.xml",
+      "sha256": "88782ba3414a62cf66349652c7fce6dea380c137bddab88f58c7103532517ecf"
     },
     "ppt/embeddings/chart4.xlsx": {
       "parts": {
@@ -304,12 +304,12 @@
       }
     }
   },
-  "geometry_sha256": "9431b22f2a3a1a3d6396dc2c3152c230216db5c7ddff0bfd0a52c56d80118849",
+  "geometry_sha256": "de4ebd52fc314bd21b3ad56a0108c522897b1feedcc0c7ebc08bc10dbc3e008d",
   "native_png_files": {
-    "reference-1.png": "58e4c16562b409acaebe14e9d4158665b71a853c2b3dd59ad7fc8284ea7889b1",
-    "reference-2.png": "a78f8991a66c97ed6e7c4c46ccef7230d7a2eea1f7c32f4385d30bad1d3da1d4",
+    "reference-1.png": "1d3379cef846bbef32330547baa40061498be3f4c7f65e6aba3e755527a5714f",
+    "reference-2.png": "c5000f2abab23e06b619ff370a02529656978cf2e644e6ce0031a72b97a2924a",
     "reference-3.png": "861f9a7ca62fd782b2d7be38f92176dfaf92e34df84734044774f87fce20cb08",
-    "reference-4.png": "a1a5c150d5dc1de98fd2fb200dfce4aeceb25918ea650ef7c9bcc7dd4e33010b"
+    "reference-4.png": "9bb2edd2f200c6366afbbfec5e65d27b07c34483510d6abb49dfa353fa0eba1d"
   },
   "native_pdf_comparison": [
     {

@@ -157,6 +157,56 @@ impl Chart {
         }
     }
 }
+/// The colour and width of an unstyled gridline or category axis line in Office's
+/// default chart style, which tints black text to 15% luminance offset by 85%.
+pub(crate) const RULE_COLOR: &str = "D9D9D9";
+pub(crate) const RULE_WIDTH: i64 = 9525;
+/// A Word chart takes its text colour from the default Office theme, whose dark
+/// text colour is black.
+pub(crate) const WORD_TEXT_COLOR: &str = "000000";
+
+/// Office's default chart style draws axis labels in the text colour with its HSL
+/// luminance scaled by 65% and offset by 35%, as `lumMod` and `lumOff` define.
+pub(crate) fn axis_label_color(text_color: &str) -> String {
+    let color = crate::properties::hex_color(text_color).unwrap_or(WORD_TEXT_COLOR.into());
+    let [red, green, blue] = [0, 2, 4].map(|start| {
+        f64::from(u8::from_str_radix(&color[start..start + 2], 16).unwrap_or_default()) / 255.0
+    });
+    let maximum = red.max(green).max(blue);
+    let minimum = red.min(green).min(blue);
+    let lightness = (maximum + minimum) / 2.0;
+    let delta = maximum - minimum;
+    let saturation = if delta == 0.0 {
+        0.0
+    } else {
+        delta / (1.0 - (2.0 * lightness - 1.0).abs())
+    };
+    let hue = if delta == 0.0 {
+        0.0
+    } else if maximum == red {
+        ((green - blue) / delta).rem_euclid(6.0)
+    } else if maximum == green {
+        (blue - red) / delta + 2.0
+    } else {
+        (red - green) / delta + 4.0
+    };
+    let lightness = (lightness * 0.65 + 0.35).clamp(0.0, 1.0);
+    let chroma = (1.0 - (2.0 * lightness - 1.0).abs()) * saturation;
+    let secondary = chroma * (1.0 - (hue.rem_euclid(2.0) - 1.0).abs());
+    let (red, green, blue) = match hue as u8 {
+        0 => (chroma, secondary, 0.0),
+        1 => (secondary, chroma, 0.0),
+        2 => (0.0, chroma, secondary),
+        3 => (0.0, secondary, chroma),
+        4 => (secondary, 0.0, chroma),
+        _ => (chroma, 0.0, secondary),
+    };
+    let offset = lightness - chroma / 2.0;
+    [red, green, blue]
+        .map(|channel| format!("{:02X}", ((channel + offset) * 255.0).round() as u8))
+        .concat()
+}
+
 fn text(value: Option<&Value>) -> String {
     value
         .map(|value| value.to_text().trim().to_owned())

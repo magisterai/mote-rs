@@ -1,5 +1,5 @@
 use super::super::{
-    TitleStyle,
+    RULE_COLOR, RULE_WIDTH, TitleStyle,
     appearance::{Border, DataLabels, Gridlines, ShapeProperties},
 };
 use super::{Chart, Error, Options};
@@ -80,13 +80,26 @@ fn border_line(border: &Border) -> Result<String, Error> {
         escape(color)?
     ))
 }
-pub(super) fn label_text(baseline: i32) -> String {
-    if baseline == 0 {
-        return String::new();
+pub(super) fn label_text(baseline: i32, color: &str) -> Result<String, Error> {
+    if baseline == 0 && color.is_empty() {
+        return Ok(String::new());
     }
-    format!(
-        r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr baseline="{baseline}"/></a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#
-    )
+    let baseline = if baseline == 0 {
+        String::new()
+    } else {
+        format!(r#" baseline="{baseline}""#)
+    };
+    let properties = if color.is_empty() {
+        format!("<a:defRPr{baseline}/>")
+    } else {
+        format!(
+            r#"<a:defRPr{baseline}><a:solidFill><a:srgbClr val="{}"/></a:solidFill></a:defRPr>"#,
+            escape(color)?
+        )
+    };
+    Ok(format!(
+        r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr>{properties}</a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#
+    ))
 }
 pub(super) fn data_labels(labels: &DataLabels, kind: &str) -> Result<String, Error> {
     if !labels.enabled {
@@ -116,37 +129,43 @@ pub(super) fn data_labels(labels: &DataLabels, kind: &str) -> Result<String, Err
 pub(super) fn axes(chart: &Chart, options: &Options) -> Result<String, Error> {
     let category = options.category_axis();
     let value = options.value_axis();
-    let labels = label_text(options.label_baseline);
+    let labels = label_text(options.label_baseline, &options.axis_label_color)?;
+    let category_line = rule_line(RULE_WIDTH, RULE_COLOR)?;
     let mut output = format!(
-        r#"<c:catAx><c:axId val="{category}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="b"/>{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="out"/><c:minorTickMark val="none"/><c:tickLblPos val="{}"/>{labels}<c:crossAx val="{value}"/><c:crosses val="autoZero"/><c:auto val="1"/><c:lblAlgn val="ctr"/><c:lblOffset val="100"/><c:noMultiLvlLbl val="0"/></c:catAx>"#,
+        r#"<c:catAx><c:axId val="{category}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="b"/>{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="{}"/><c:spPr><a:noFill/>{category_line}</c:spPr>{labels}<c:crossAx val="{value}"/><c:crosses val="autoZero"/><c:auto val="1"/><c:lblAlgn val="ctr"/><c:lblOffset val="100"/><c:noMultiLvlLbl val="0"/></c:catAx>"#,
         title(&chart.category_title)?,
         chart.category_label_position()
     );
-    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="out"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title)?));
+    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title)?));
     Ok(output)
 }
 fn gridlines(gridlines: &Gridlines) -> Result<String, Error> {
+    let width = if gridlines.width > 0 {
+        gridlines.width
+    } else {
+        RULE_WIDTH
+    };
+    let color = if gridlines.color.is_empty() {
+        RULE_COLOR
+    } else {
+        &gridlines.color
+    };
+    let line = rule_line(width, color)?;
     let mut output = String::new();
     for (name, enabled) in [
         ("majorGridlines", gridlines.major),
         ("minorGridlines", gridlines.minor),
     ] {
-        if !enabled {
-            continue;
-        }
-        if gridlines.color.is_empty() && gridlines.width <= 0 {
-            output.push_str(&format!("<c:{name}/>"));
-        } else {
-            let border = Border {
-                enabled: true,
-                color: gridlines.color.clone(),
-                width: gridlines.width,
-            };
-            output.push_str(&format!(
-                "<c:{name}><c:spPr>{}</c:spPr></c:{name}>",
-                border_line(&border)?
-            ));
+        if enabled {
+            output.push_str(&format!("<c:{name}><c:spPr>{line}</c:spPr></c:{name}>"));
         }
     }
     Ok(output)
+}
+// Office writes the default chart style's rules with these explicit line attributes.
+fn rule_line(width: i64, color: &str) -> Result<String, Error> {
+    Ok(format!(
+        r#"<a:ln w="{width}" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:srgbClr val="{}"/></a:solidFill><a:round/></a:ln>"#,
+        escape(color)?
+    ))
 }

@@ -88,8 +88,8 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     },
     "ppt/charts/chart1.xml": {
-      "path": "captured/parts/04287e1ee6a6ff15daf07ec2ac595bd512714646f2de05c77a93e54646bca0f3.xml",
-      "sha256": "04287e1ee6a6ff15daf07ec2ac595bd512714646f2de05c77a93e54646bca0f3"
+      "path": "captured/parts/212bdba2698a53a085d9e96fe416f2dfb10ca58edc53c6b89793a9b243626b9b.xml",
+      "sha256": "212bdba2698a53a085d9e96fe416f2dfb10ca58edc53c6b89793a9b243626b9b"
     },
     "ppt/embeddings/chart1.xlsx": {
       "path": "captured/parts/9e9f42d558a481563eef71480b52cb471538554a2252f5410cd4617b2e4c5fad.xlsx",
@@ -104,16 +104,16 @@
       "sha256": "1c61396ad2441e64f0b1648a6cd2cd5c7ec5bd4fcde01cf636d4815596b2796c"
     },
     "ppt/charts/chart3.xml": {
-      "path": "captured/parts/ec6f141c3845c9bb45a9ae74b48fcb533ee550cfedc1fc6138a43410ab59faf6.xml",
-      "sha256": "ec6f141c3845c9bb45a9ae74b48fcb533ee550cfedc1fc6138a43410ab59faf6"
+      "path": "captured/parts/ec5beeef5f1a231d509ef7495f4d3b5a6b0d21f8ff55e1755bc7358675916deb.xml",
+      "sha256": "ec5beeef5f1a231d509ef7495f4d3b5a6b0d21f8ff55e1755bc7358675916deb"
     },
     "ppt/embeddings/chart3.xlsx": {
       "path": "captured/parts/a31e9c6d435face32d4019b06ad56319efe52fe20c7083b4171c0d810242d444.xlsx",
       "sha256": "a31e9c6d435face32d4019b06ad56319efe52fe20c7083b4171c0d810242d444"
     },
     "ppt/charts/chart4.xml": {
-      "path": "captured/parts/588642e8a6dfd28696f73f41401807722ff0c3215589968aafb024d9b3cc6609.xml",
-      "sha256": "588642e8a6dfd28696f73f41401807722ff0c3215589968aafb024d9b3cc6609"
+      "path": "captured/parts/ce6e189223c3c708f922e91dacaeef1af0747954baae9082140c6a3bc577f2eb.xml",
+      "sha256": "ce6e189223c3c708f922e91dacaeef1af0747954baae9082140c6a3bc577f2eb"
     },
     "ppt/embeddings/chart4.xlsx": {
       "path": "captured/parts/2bc4e7f910eb29ecd63fa83356be9929501707c11812c5f1d619b9807fe8d941.xlsx",
@@ -123,7 +123,7 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "9f00b5323b146caec851d124bbcd7ce9f92441f0f5b5f3d8d0d02460667c546e",
+      "sha256": "d81d2ccd8c8a1c5c790717b897490968bf842367bae54cff21cdbfd79347d239",
       "maximum": 232,
       "mean": 0.273,
       "outliers": 4

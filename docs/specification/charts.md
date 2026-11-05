@@ -112,6 +112,15 @@ The model retains typed dimensions, normalized colors, the nested property table
 and numeric gap/overlap values. Additional nested metadata is retained without an
 implied formatting effect.
 
+The lines of a chart follow the default style of an Office chart. A gridline
+without an authored color or width is drawn in `#D9D9D9` at three quarters of a
+point; an authored color or width replaces the corresponding default. The
+category axis is a line of the same color and width, the value axis has no line,
+and neither axis has tick marks. An axis label takes the chart's text color with
+its luminance scaled to 65% and raised by 35%, which is `#595959` for black text;
+a document chart uses black text, and a slide chart uses the deck's `text` theme
+color.
+
 ## Legend and labels
 
 `legend` accepts a boolean, the strings `true` or `false`, a position string, or a

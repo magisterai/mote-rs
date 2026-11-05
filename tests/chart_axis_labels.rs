@@ -72,3 +72,57 @@ fn narrow_chart_axes_keep_zero_and_separate_numeric_labels() {
         );
     }
 }
+
+#[test]
+fn unstyled_axes_follow_the_office_default_chart_style() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for (kind, gridlines, grid_color, grid_width) in [
+        ("column", "true", "D9D9D9", 0.75),
+        ("bar", "true", "D9D9D9", 0.75),
+        ("line", "{color='#FF0000',width=pt(2)}", "FF0000", 2.0),
+    ] {
+        let source = format!(
+            "#chart(kind='{kind}',legend=false,title='Totals',gridlines={gridlines},data={{categories={{'A','B'}},values={{1,2}}}})"
+        );
+        let document = mote::compile(&source).unwrap();
+        let planned = render::plan(&document, &resolver, None).unwrap();
+        let page = &planned.output.pages[0];
+        let rules: Vec<_> = page
+            .operations
+            .iter()
+            .filter_map(|operation| match operation {
+                PageOperation::Rule(rule) => Some(rule),
+                _ => None,
+            })
+            .collect();
+        let axes: Vec<_> = rules
+            .iter()
+            .filter(|rule| rule.role == RuleRole::ChartAxis)
+            .collect();
+        assert_eq!(axes.len(), 1, "{kind}: only the category axis is drawn");
+        assert_eq!((axes[0].color.as_str(), axes[0].width), ("D9D9D9", 0.75));
+        let category_axis_is_vertical = axes[0].start[0] == axes[0].end[0];
+        assert_eq!(category_axis_is_vertical, kind == "bar", "{kind}");
+        assert!(
+            rules
+                .iter()
+                .any(|rule| rule.role == RuleRole::ChartGridline)
+        );
+        for rule in rules
+            .iter()
+            .filter(|rule| rule.role == RuleRole::ChartGridline)
+        {
+            assert_eq!((rule.color.as_str(), rule.width), (grid_color, grid_width));
+        }
+        for placed in &page.lines {
+            for fragment in &placed.line.fragments {
+                let expected = if fragment.text == "Totals" {
+                    "111827"
+                } else {
+                    "595959"
+                };
+                assert_eq!(fragment.style.color, expected, "{kind}: {}", fragment.text);
+            }
+        }
+    }
+}

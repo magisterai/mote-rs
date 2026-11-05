@@ -57,7 +57,7 @@ impl ChartBlock {
             [0.0, 0.0, round_coordinate(width), round_coordinate(height)],
             "Aptos",
             "111827",
-            "111827",
+            &crate::charts::axis_label_color(crate::charts::WORD_TEXT_COLOR),
             "FFFFFF",
             measurer,
         )?;
@@ -106,7 +106,7 @@ pub(crate) fn plan_slide(
         bounds,
         font,
         &theme.colors[0],
-        &theme.colors[0],
+        &crate::charts::axis_label_color(&theme.colors[0]),
         &theme.colors[1],
         measurer,
     )
@@ -155,7 +155,7 @@ fn plan_chart(
     bounds: [f64; 4],
     font: &str,
     text_color: &str,
-    axis_color: &str,
+    axis_label_color: &str,
     background: &str,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<TextPage, LayoutError> {
@@ -181,7 +181,8 @@ fn plan_chart(
     }
     let mut planner = ChartPlanner {
         measurement: ChartMeasurement::new(font, text_color, measurer),
-        axis_color: axis_color.into(),
+        leader_color: text_color.into(),
+        axis_label_color: axis_label_color.into(),
         background: background.into(),
         page: TextPage::default(),
     };
@@ -216,7 +217,8 @@ fn plan_chart(
 }
 struct ChartPlanner<'planner, 'assets> {
     measurement: ChartMeasurement<'planner, 'assets>,
-    axis_color: String,
+    leader_color: String,
+    axis_label_color: String,
     background: String,
     page: TextPage,
 }

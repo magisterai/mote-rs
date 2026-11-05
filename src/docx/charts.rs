@@ -19,6 +19,7 @@ pub(super) fn write(element: &Element, resources: &mut Resources) -> Result<Stri
     let options = charts::drawingml::Options {
         part_number: number,
         label_baseline: -10000,
+        axis_label_color: charts::axis_label_color(charts::WORD_TEXT_COLOR),
     };
     let part = ChartPart {
         content: charts::drawingml::write(&chart, &options)?,

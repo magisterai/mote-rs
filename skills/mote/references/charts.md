@@ -74,6 +74,9 @@ arguments require units.
 - The `gap_width` argument is the space between groups of bars, and `overlap` the
   overlap of bars within a group, each as a percentage of a bar's width.
 - A chart without a `title` has no title area.
+- The lines follow Office's default chart style: light grey (`#D9D9D9`) gridlines and
+  category axis at 0.75 pt, no value axis line and no tick marks. The `gridlines`
+  table's `color` and `width` replace the gridline defaults.
 
 ## The value axis
 

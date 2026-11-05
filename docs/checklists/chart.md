@@ -37,6 +37,16 @@ and [value-domain](attributes/values.md) inventories.
 - [x] `plot_area`: boolean or property table; background/fill/color normalization
   and nested border properties.
 - [x] `gridlines`: boolean or property table with major, minor, color and width.
+  An unstyled gridline defaults to `#D9D9D9` at 0.75 pt in editable and native
+  output.
+- [x] Office default axis styling: a `#D9D9D9` 0.75 pt category axis line, no
+  value axis line, no tick marks, and axis labels in the text color tinted by
+  `lumMod` 65% and `lumOff` 35%; see the
+  [specification](../specification/charts.md#dimensions-and-appearance), the
+  [package test](../../tests/charts.rs) and the
+  [native test](../../tests/chart_axis_labels.rs). An attribute for axis lines or
+  tick marks is not defined. The Office default axis label size of 9 pt is not
+  applied; labels remain 10 pt.
 - [x] `data_labels`: boolean or property table with enabled, value, category,
   series, percent/percentage and position. Position aliases: center/ctr,
   inside_base/inBase, inside_end/inEnd, outside_end/outEnd, best_fit/bestFit,

@@ -96,7 +96,7 @@ impl ChartPlanner<'_, '_> {
             }
             self.ellipse(center, [radius, radius], 72, background);
         }
-        let leader_color = self.axis_color.clone();
+        let leader_color = self.leader_color.clone();
         for label in &labels {
             if label.outside {
                 let right = label.middle.cos() >= -1e-9;

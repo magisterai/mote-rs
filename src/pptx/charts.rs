@@ -31,6 +31,7 @@ pub(super) fn write(
         &charts::drawingml::Options {
             part_number: number,
             label_baseline: 0,
+            axis_label_color: charts::axis_label_color(&theme.colors[0]),
         },
     )
     .map_err(|error| Error(error.to_string()))?;

@@ -3,7 +3,10 @@ use super::{
     geometry::{ChartLayout, Rectangle},
     scale::{Scale, axis_label},
 };
-use crate::layout::RuleRole;
+use crate::{
+    charts::{RULE_COLOR, RULE_WIDTH},
+    layout::RuleRole,
+};
 
 impl ChartPlanner<'_, '_> {
     pub(super) fn axes(
@@ -14,12 +17,11 @@ impl ChartPlanner<'_, '_> {
         horizontal: bool,
     ) -> Result<Vec<PageOperation>, LayoutError> {
         let plot = layout.plot;
-        let axis_color = self.axis_color.clone();
-        let grid_color = super::valid_color(&chart.gridlines.color).unwrap_or(&axis_color);
+        let grid_color = super::valid_color(&chart.gridlines.color).unwrap_or(RULE_COLOR);
         let grid_width = if chart.gridlines.width > 0 {
             chart.gridlines.width as f64 / 12700.0
         } else {
-            0.75
+            RULE_WIDTH as f64 / 12700.0
         };
         let gridline = |planner: &mut Self, value: f64| {
             let ratio = scale.ratio(value);
@@ -100,48 +102,23 @@ impl ChartPlanner<'_, '_> {
                 )
             };
             if visible[index] {
-                self.text(
-                    bounds,
-                    &axis_label(value, scale.step, percent),
-                    10.0,
-                    alignment,
-                    0.0,
-                )?;
+                self.axis_label(bounds, &axis_label(value, scale.step, percent), alignment)?;
             }
         }
-        if horizontal {
+        let category_axis = if horizontal {
             let zero = plot.left + plot.width * scale.ratio(0.0);
-            self.rule(
-                [zero, plot.top],
-                [zero, plot.top + plot.height],
-                0.75,
-                &axis_color,
-                RuleRole::ChartAxis,
-            );
-            self.rule(
-                [plot.left, plot.top + plot.height],
-                [plot.left + plot.width, plot.top + plot.height],
-                0.75,
-                &axis_color,
-                RuleRole::ChartAxis,
-            );
+            [[zero, plot.top], [zero, plot.top + plot.height]]
         } else {
             let zero = plot.top + plot.height * (1.0 - scale.ratio(0.0));
-            self.rule(
-                [plot.left, plot.top],
-                [plot.left, plot.top + plot.height],
-                0.75,
-                &axis_color,
-                RuleRole::ChartAxis,
-            );
-            self.rule(
-                [plot.left, zero],
-                [plot.left + plot.width, zero],
-                0.75,
-                &axis_color,
-                RuleRole::ChartAxis,
-            );
-        }
+            [[plot.left, zero], [plot.left + plot.width, zero]]
+        };
+        self.rule(
+            category_axis[0],
+            category_axis[1],
+            RULE_WIDTH as f64 / 12700.0,
+            RULE_COLOR,
+            RuleRole::ChartAxis,
+        );
         let count = chart.categories.len();
         let category_top = plot.top
             + if chart.category_label_position() == "low" {
@@ -173,7 +150,7 @@ impl ChartPlanner<'_, '_> {
                     "center",
                 )
             };
-            self.text(bounds, category, 10.0, alignment, 0.0)?;
+            self.axis_label(bounds, category, alignment)?;
         }
         if horizontal {
             self.text(

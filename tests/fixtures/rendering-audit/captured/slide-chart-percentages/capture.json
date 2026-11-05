@@ -100,24 +100,24 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     },
     "ppt/charts/chart1.xml": {
-      "path": "captured/parts/819988d0df6930d0e01f268b75b17c0d1ab5c25a675b57639d6ec995e98cde3e.xml",
-      "sha256": "819988d0df6930d0e01f268b75b17c0d1ab5c25a675b57639d6ec995e98cde3e"
+      "path": "captured/parts/54f7bdcf67d501856ada3afd552c6d284628e53e009148284b170c4d453bf11c.xml",
+      "sha256": "54f7bdcf67d501856ada3afd552c6d284628e53e009148284b170c4d453bf11c"
     },
     "ppt/embeddings/chart1.xlsx": {
       "path": "captured/parts/19579e740e82fe8f10018c1f4cf108364c2526f4795a84e954cc6a485b778c26.xlsx",
       "sha256": "19579e740e82fe8f10018c1f4cf108364c2526f4795a84e954cc6a485b778c26"
     },
     "ppt/charts/chart2.xml": {
-      "path": "captured/parts/3868413bb84d00a5473ac805314ffeb9afecfda9cb7afd06cdf3b37d25d411a8.xml",
-      "sha256": "3868413bb84d00a5473ac805314ffeb9afecfda9cb7afd06cdf3b37d25d411a8"
+      "path": "captured/parts/a7506e8a271420250f56df487323df62fee7b528f221e68da6c495c4d3b356e4.xml",
+      "sha256": "a7506e8a271420250f56df487323df62fee7b528f221e68da6c495c4d3b356e4"
     },
     "ppt/embeddings/chart2.xlsx": {
       "path": "captured/parts/da760b7cbc9dc09e5a07f290ad5ab414a57757457eb770897659e19ea93da3ed.xlsx",
       "sha256": "da760b7cbc9dc09e5a07f290ad5ab414a57757457eb770897659e19ea93da3ed"
     },
     "ppt/charts/chart3.xml": {
-      "path": "captured/parts/fe906d87d459f859da1e98c940ebf6da3c5c630f6c6ed2a1c5c3b41e6d0fec9a.xml",
-      "sha256": "fe906d87d459f859da1e98c940ebf6da3c5c630f6c6ed2a1c5c3b41e6d0fec9a"
+      "path": "captured/parts/96f62a92c9909953a4de2eb8a6de386b1f436a203bfca73b69a348caeeffbe7b.xml",
+      "sha256": "96f62a92c9909953a4de2eb8a6de386b1f436a203bfca73b69a348caeeffbe7b"
     },
     "ppt/embeddings/chart3.xlsx": {
       "path": "captured/parts/b97142d6bd65c0ddb867e491810f48a4cf921d4a71fef32949d6ba0997a7cfac.xlsx",
@@ -127,21 +127,21 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "4870515881a8f1eaaa99f894554127989265fa515ee44286d12b31ab605ea2cf",
+      "sha256": "3586a53a4dbec6f953815b07f632cdfbe9087ebe91cdcbd17c5fa60c50efcb7d",
       "maximum": 47,
       "mean": 1.095,
       "outliers": 0
     },
     {
       "path": "reference-2.png",
-      "sha256": "62f2642b450f48495e533188590a883036af5bf2da50156bfaaa40f213ce32e8",
+      "sha256": "73fc339e943b810c6fdae905f6b331c59c6ff297b2f7d70ea8178c49a2c3e4ab",
       "maximum": 49,
       "mean": 1.185,
       "outliers": 0
     },
     {
       "path": "reference-3.png",
-      "sha256": "4e31689379835ff1b982f62fc6c496b45aeda4ceaaeebd6f2aeace1043a7bbf7",
+      "sha256": "afc883ad3fea1cdc1825f72aaa786a106cdcd874f105e05519659a5d476977e7",
       "maximum": 47,
       "mean": 0.935,
       "outliers": 0

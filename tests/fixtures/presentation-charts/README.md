@@ -15,7 +15,7 @@ All native slides were inspected. PowerPoint visual review remains unreviewed.
 
 Chart sizing follows the containing box. Document chart rendering continues to
 fit its flow column. Both layouts share chart geometry and painters; slide
-layout supplies the deck's palette, text and axis colors, font and doughnut
+layout supplies the deck's palette, text and axis-label colors, font and doughnut
 background. Editable charts retain embedded workbooks and distinct axis IDs.
 The existing native chart limits recorded with document chart captures remain
 in effect, including radial label placement and omission of area labels.
