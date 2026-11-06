@@ -52,8 +52,8 @@
       "sha256": "c7d48b1e3d2ebf07e0ca612b7d677e3e7e81769d020b0411b580e5f1cd8f268c"
     },
     "ppt/slides/slide1.xml": {
-      "path": "parts/128d7e37ff4eab9a8fdadcfcb01ee61d8c62913bbc1843ca056e2b4855fc6dae.xml",
-      "sha256": "128d7e37ff4eab9a8fdadcfcb01ee61d8c62913bbc1843ca056e2b4855fc6dae"
+      "path": "parts/4f1ab5ef7a77fc25d93cda05bb8d79bc9b8e7fdf48d3731a9b95649bc077406f.xml",
+      "sha256": "4f1ab5ef7a77fc25d93cda05bb8d79bc9b8e7fdf48d3731a9b95649bc077406f"
     },
     "ppt/tableStyles.xml": {
       "path": "parts/eeab2b2783c9f2d1cb550147000113548dcf41147afd9c795ab5e566159eefce.xml",
@@ -71,31 +71,17 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "d7f39fe454f5bdb92f1ef5acdee1ac7ddd5b52df7b12b17baa8e5384467776bd",
+      "sha256": "d4dd252a8a34e78969277558e3828803ad0398f233e244496b383e33e05550a1",
       "maximum": 96,
       "mean": 12,
-      "outliers": 3,
-      "edge_outliers": [
-        [
-          226,
-          116
-        ],
-        [
-          264,
-          138
-        ],
-        [
-          80,
-          225
-        ]
-      ]
+      "outliers": 3
     }
   ],
   "warnings": [
-    "mathematical typesetting is deferred"
+    "incomplete math delimiters"
   ],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "bf0f308a2e1abd5b13d9bd33e0756375a90ea4e674460423eae91253a87d9f4f"
+    "sha256": "56b27773890ae21d6040dea767671a6299fec97263fc095289c4d475804d1a4d"
   }
 }

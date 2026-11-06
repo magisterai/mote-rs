@@ -5,7 +5,7 @@ use crate::{
 };
 use std::{
     cell::RefCell,
-    collections::BTreeMap,
+    collections::{BTreeMap, BTreeSet},
     ffi::{OsStr, OsString},
     sync::Arc,
 };
@@ -60,6 +60,8 @@ pub struct TextMeasurer<'source> {
     font_resolver: Option<&'source dyn FontResolver>,
     font_data: RefCell<BTreeMap<OsString, Arc<[u8]>>>,
     selections: BTreeMap<(String, FontVariant), FontSelection>,
+    math_font: Option<Option<FontSelection>>,
+    warnings: BTreeSet<String>,
 }
 
 impl<'source> TextMeasurer<'source> {
@@ -75,6 +77,8 @@ impl<'source> TextMeasurer<'source> {
             selections: BTreeMap::new(),
             font_resolver: None,
             font_data: RefCell::new(BTreeMap::new()),
+            math_font: None,
+            warnings: BTreeSet::new(),
         }
     }
 
@@ -82,7 +86,37 @@ impl<'source> TextMeasurer<'source> {
     pub fn with_font_resolver(mut self, resolver: &'source dyn FontResolver) -> Self {
         self.font_resolver = Some(resolver);
         self.selections.clear();
+        self.math_font = None;
         self
+    }
+
+    /// Returns the first available font with an OpenType MATH table: Cambria
+    /// Math, which Word and PowerPoint use for equations, or else STIX Two Math.
+    pub fn math_font(&mut self) -> Option<FontSelection> {
+        if self.math_font.is_none() {
+            let found = ["Cambria Math", "STIX Two Math"]
+                .into_iter()
+                .find_map(|name| {
+                    let selection = self.resolve(name, FontVariant::Regular);
+                    let bytes = selection.bytes.as_ref()?;
+                    ttf_parser::Face::parse(bytes, 0)
+                        .ok()?
+                        .tables()
+                        .math?
+                        .constants?;
+                    Some(selection)
+                });
+            self.math_font = Some(found);
+        }
+        self.math_font.clone().flatten()
+    }
+
+    pub fn warn(&mut self, warning: impl Into<String>) {
+        self.warnings.insert(warning.into());
+    }
+
+    pub fn take_warnings(&mut self) -> BTreeSet<String> {
+        std::mem::take(&mut self.warnings)
     }
 
     pub fn resolve(&mut self, name: &str, variant: FontVariant) -> FontSelection {

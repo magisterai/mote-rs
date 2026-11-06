@@ -119,11 +119,11 @@
     "vertical": 0.5
   },
   "powerpoint/18_math_layout": {
-    "horizontal": 0.9,
-    "median": 0.2,
+    "horizontal": 7.3,
+    "median": 0.7,
     "page_moves": 0,
-    "unmatched": 15,
-    "vertical": 11.7
+    "unmatched": 11,
+    "vertical": 3.4
   },
   "powerpoint/19_shape_text_bounds": {
     "horizontal": 274.5,
@@ -309,9 +309,9 @@
   },
   "word/07_warning_authority": {
     "horizontal": 4.0,
-    "median": 1.1,
+    "median": 1.2,
     "page_moves": 0,
-    "unmatched": 0,
+    "unmatched": 3,
     "vertical": 7.2
   },
   "word/08_lists": {
@@ -680,9 +680,9 @@
   },
   "word/60_table_style_effective_runs": {
     "horizontal": 0.1,
-    "median": 0.5,
+    "median": 0.3,
     "page_moves": 0,
-    "unmatched": 4,
+    "unmatched": 8,
     "vertical": 1.2
   },
   "word/61_table_borders": {
@@ -712,5 +712,26 @@
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 1.1
+  },
+  "word/65_display_equations": {
+    "horizontal": 108.3,
+    "median": 6.9,
+    "page_moves": 0,
+    "unmatched": 38,
+    "vertical": 22.8
+  },
+  "word/66_inline_equations_flow": {
+    "horizontal": 9.9,
+    "median": 1.2,
+    "page_moves": 0,
+    "unmatched": 103,
+    "vertical": 16.0
+  },
+  "word/67_equation_page_breaks": {
+    "horizontal": 60.8,
+    "median": 15.2,
+    "page_moves": 1,
+    "unmatched": 13,
+    "vertical": 36.6
   }
 }

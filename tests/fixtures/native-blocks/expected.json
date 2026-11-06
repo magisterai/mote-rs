@@ -216,11 +216,11 @@
         {
           "lines": [
             {
-              "baseline": 88.7635,
+              "baseline": 87.9198,
               "fragments": [
                 {
                   "advance": 21.395,
-                  "baseline": 88.7635,
+                  "baseline": 87.9198,
                   "color": {
                     "r": 17,
                     "g": 24,
@@ -232,13 +232,13 @@
                   "height": 10.175,
                   "missing_codepoints": [],
                   "text": "Text",
-                  "top": 80.8655,
+                  "top": 80.0218,
                   "variant": "italic",
                   "width": 21.395,
                   "x": 108
                 }
               ],
-              "height": 14.926999999999998,
+              "height": 13.2396,
               "top": 78,
               "width": 21.395,
               "x": 108
@@ -248,11 +248,11 @@
             {
               "kind": "text",
               "line": {
-                "baseline": 88.7635,
+                "baseline": 87.9198,
                 "fragments": [
                   {
                     "advance": 21.395,
-                    "baseline": 88.7635,
+                    "baseline": 87.9198,
                     "color": {
                       "r": 17,
                       "g": 24,
@@ -264,13 +264,13 @@
                     "height": 10.175,
                     "missing_codepoints": [],
                     "text": "Text",
-                    "top": 80.8655,
+                    "top": 80.0218,
                     "variant": "italic",
                     "width": 21.395,
                     "x": 108
                   }
                 ],
-                "height": 14.926999999999998,
+                "height": 13.2396,
                 "top": 78,
                 "width": 21.395,
                 "x": 108

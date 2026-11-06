@@ -1,0 +1,134 @@
+#metadata(title = "Mote Equation Page Breaks", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#font(name = "body", latin = "Aptos")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(6),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#heading(level = 1)[Equation Page Breaks]
+
+#paragraph[
+The equations below fill the first page, so that the position of the page break
+depends on the height of every equation above it. The tall system of equations
+at the foot of the first page does not fit there and moves whole to the second
+page, and the remaining equations flow on after it.
+]
+
+A sum of squares:
+
+\[
+\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
+\]
+
+A geometric series:
+
+\[
+\sum_{k=0}^{\infty} r^{k} = \frac{1}{1 - r}, \qquad |r| < 1
+\]
+
+The binomial coefficient:
+
+\[
+\binom{n}{k} = \frac{n!}{k!\,(n-k)!}
+\]
+
+Stirling's approximation:
+
+\[
+n! \sim \sqrt{2\pi n} \left( \frac{n}{e} \right)^{n}
+\]
+
+The Basel problem:
+
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+\]
+
+A Wallis product:
+
+\[
+\frac{\pi}{2} = \prod_{n=1}^{\infty} \frac{4n^2}{4n^2 - 1}
+\]
+
+The Gamma function:
+
+\[
+\Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} \, dt
+\]
+
+A Taylor series:
+
+\[
+e^{x} = \sum_{n=0}^{\infty} \frac{x^{n}}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\]
+
+A continued fraction for the golden ratio:
+
+\[
+\varphi = 1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \cdots}}}
+\]
+
+A system of four equations in matrix form:
+
+\[
+\begin{pmatrix} a_{11} & a_{12} & a_{13} & a_{14} \\ a_{21} & a_{22} & a_{23} & a_{24} \\ a_{31} & a_{32} & a_{33} & a_{34} \\ a_{41} & a_{42} & a_{43} & a_{44} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}
+\]
+
+The arithmetic and geometric means:
+
+\[
+\frac{x_1 + x_2 + \cdots + x_n}{n} \ge \sqrt[n]{x_1 x_2 \cdots x_n}
+\]
+
+A Fourier series:
+
+\[
+f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos\frac{n\pi x}{L} + b_n \sin\frac{n\pi x}{L} \right)
+\]
+
+The Gaussian integral in two dimensions:
+
+\[
+\iint_{\mathbb{R}^2} e^{-(x^2 + y^2)} \, dx \, dy = \pi
+\]
+
+The divergence theorem:
+
+\[
+\iiint_{V} \nabla \cdot \vec{F} \, dV = \oint_{\partial V} \vec{F} \cdot d\vec{S}
+\]
+
+A piecewise function:
+
+\[
+\operatorname{sgn}(x) = \begin{cases} -1 & \text{if } x < 0 \\ 0 & \text{if } x = 0 \\ 1 & \text{if } x > 0 \end{cases}
+\]
+
+The Riemann zeta function:
+
+\[
+\zeta(s) = \frac{1}{\Gamma(s)} \int_{0}^{\infty} \frac{x^{s-1}}{e^{x} - 1} \, dx
+\]
+
+#paragraph(fill = "#dcfce7")[
+REVIEW: the matrix system lies wholly at the top of the second page in both
+outputs, and its introductory line stays at the foot of the first page as in
+Word. No equation is divided between two pages.
+]

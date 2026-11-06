@@ -51,6 +51,7 @@ pub use painting::{
 mod placement;
 mod wrapping;
 
+pub use crate::math::typesetting::{Formula, FormulaGlyph, FormulaRule};
 use crate::measurement::{FontSelection, FontVariant, MeasurementError, MeasurementStyle};
 pub use lines::plan_text;
 pub use paragraphs::{LineFrame, ParagraphText, plan_paragraph_text};
@@ -119,8 +120,10 @@ pub struct TextRun {
     pub anchors: Vec<String>,
     pub current_page_field: Option<CurrentPageField>,
     pub footnote_number: Option<usize>,
-    /// Retains editable mathematics while native painters measure its source text.
+    /// Retains editable mathematics; line layout typesets it when a math font
+    /// is available, and otherwise measures its source text.
     pub math: Option<Box<crate::model::Element>>,
+    pub formula: Option<std::sync::Arc<Formula>>,
 }
 
 impl TextRun {
@@ -138,6 +141,7 @@ impl TextRun {
             current_page_field: None,
             footnote_number: None,
             math: None,
+            formula: None,
         }
     }
     fn with_text(&self, text: &str) -> Self {
@@ -171,7 +175,7 @@ impl Default for LineSpacing {
 }
 
 impl LineSpacing {
-    pub(crate) fn height(self, style: &TextStyle, fallback_multiplier: f64) -> f64 {
+    pub(crate) fn height(self, style: &TextStyle) -> f64 {
         let size = style.measurement.size_points;
         match self {
             Self::Multiple(multiple) => match style.word_line_height {
@@ -179,13 +183,7 @@ impl LineSpacing {
                 _ => size * 1.18 * multiple * 1.02,
             },
             Self::Exact(points) => points,
-            Self::AtLeast(points) => points.max(
-                size * style
-                    .word_line_height
-                    .filter(|scale| *scale > 0.0)
-                    .unwrap_or(1.18)
-                    * fallback_multiplier,
-            ),
+            Self::AtLeast(points) => points.max(Self::Multiple(1.0).height(style)),
         }
     }
 }
@@ -214,7 +212,6 @@ pub struct LineOptions {
     pub base_style: TextStyle,
     pub base_line_height: Option<f64>,
     pub spacing: LineSpacing,
-    pub fallback_multiplier: f64,
     pub layout_kerning: bool,
     pub no_wrap: bool,
     /// None keeps the fixed-width tab of drawing text.
@@ -234,7 +231,6 @@ impl Default for LineOptions {
             base_style: TextStyle::default(),
             base_line_height: None,
             spacing: LineSpacing::default(),
-            fallback_multiplier: 1.15,
             layout_kerning: false,
             no_wrap: false,
             tab_stops: None,
@@ -269,6 +265,9 @@ pub struct TextFragment {
     pub anchors: Vec<String>,
     pub current_page_field: Option<CurrentPageField>,
     pub footnote_number: Option<usize>,
+    /// A typeset equation, painted in place of the fragment's text, which
+    /// holds the equation's characters for text extraction.
+    pub formula: Option<std::sync::Arc<Formula>>,
 }
 
 #[derive(Debug, Clone, PartialEq)]

@@ -78,7 +78,6 @@ pub(super) fn plan_resolved_paragraph(
         base_style: style.text.clone(),
         base_line_height: Some(style.line_height),
         spacing: style.line_spacing,
-        fallback_multiplier: style.line_multiplier,
         layout_kerning,
         alignment: match style.alignment.as_str() {
             "center" => Alignment::Center,

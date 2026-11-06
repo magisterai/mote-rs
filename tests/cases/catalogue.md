@@ -112,6 +112,9 @@ Cases may deliberately exercise unsupported values; inspect their warning manife
 | `word-chart-defaults` | Document | 2 | [chart defaults](word-44-chart-defaults.mote) |
 | `word-chart-lua-json` | Document · Lua | 1 | [chart lua json](word-45-chart-lua-json.mote) |
 | `word-drawings-charts-flow` | Document | 2 | [drawings and charts in flow](word-64-drawings-charts-flow.mote) |
+| `word-display-equations` | Document | 2 | [display equations](word-65-display-equations.mote) |
+| `word-inline-equations-flow` | Document | 2 | [inline equations in flow](word-66-inline-equations-flow.mote) |
+| `word-equation-page-breaks` | Document | 2 | [equation page breaks](word-67-equation-page-breaks.mote) |
 | `powerpoint-shapes-lines` | Presentation | 2 | [shapes lines](powerpoint-07-shapes-lines.mote) |
 | `powerpoint-theme-text-tables-charts` | Presentation | 1 | [theme text tables charts](powerpoint-09-theme-text-tables-charts.mote) |
 | `powerpoint-chart-properties` | Presentation | 3 | [chart properties](powerpoint-10-chart-properties.mote) |

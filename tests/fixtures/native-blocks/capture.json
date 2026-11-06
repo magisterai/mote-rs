@@ -9,8 +9,8 @@
       "bytes": 12862
     },
     "expected.json": {
-      "sha256": "9f835a42d50257a5ebba03e1dfa90676edc688de2c8d4e2866d77dfd1a194efc",
-      "bytes": 481038
+      "sha256": "d2ee73f350d81ee68764c8c712f5d6b5fc02486ee1a7ba3a70b6c966e6629692",
+      "bytes": 481016
     }
   },
   "units": "points",

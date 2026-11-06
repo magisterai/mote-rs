@@ -179,16 +179,7 @@ pub(super) fn prepare_content(
                     .attributes
                     .entry("alignment".into())
                     .or_insert(Value::String("center".into()));
-                paragraph.children = vec![Content::Element(Element {
-                    source_location: element.source_location.clone(),
-                    kind: ElementKind::Emphasis,
-                    attributes: Properties::new(),
-                    children: vec![Content::Text(crate::properties::text(
-                        &element.attributes,
-                        "source",
-                    ))],
-                    source_name: element.source_name.clone(),
-                })];
+                paragraph.children = vec![Content::Element(element.clone())];
                 builder.paragraph(&paragraph)?;
                 if let Some(Block::Paragraph(paragraph)) = builder.blocks.last_mut() {
                     paragraph.clear_fill_before = true;
@@ -253,6 +244,9 @@ impl BlockBuilder<'_, '_, '_> {
             element
                 .attributes
                 .insert("spacing_before".into(), Value::Number(0.0));
+        }
+        if element.kind == ElementKind::Paragraph {
+            display_lone_equation(&mut element);
         }
         let style = self.styles.paragraph(&element);
         let mut runs = resolve_inline(&element.children, &style.text, self.styles);
@@ -543,6 +537,28 @@ impl BlockBuilder<'_, '_, '_> {
         Ok(())
     }
 }
+/// Word displays an equation that stands alone in its paragraph, centred and
+/// in display style.
+fn display_lone_equation(paragraph: &mut Element) {
+    let mut contents = paragraph
+        .children
+        .iter_mut()
+        .filter(|content| !matches!(content, Content::Text(text) if text.trim().is_empty()));
+    let (Some(Content::Element(equation)), None) = (contents.next(), contents.next()) else {
+        return;
+    };
+    if equation.kind != ElementKind::Math {
+        return;
+    }
+    equation
+        .attributes
+        .insert("display".into(), Value::String("block".into()));
+    paragraph
+        .attributes
+        .entry("alignment".into())
+        .or_insert(Value::String("center".into()));
+}
+
 fn explicit_before(properties: &Properties) -> bool {
     properties.contains_key("spacing_before")
         || matches!(properties.get("spacing"),Some(Value::Object(spacing))if spacing.contains_key("before")||spacing.contains_key("spacing_before"))

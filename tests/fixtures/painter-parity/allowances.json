@@ -100,5 +100,8 @@
   "word/61_table_borders": 0.001,
   "word/62_default_style": 0.002,
   "word/63_markdown_table_alignment": 0.001,
-  "word/64_drawings_and_charts_in_flow": 0.006
+  "word/64_drawings_and_charts_in_flow": 0.006,
+  "word/65_display_equations": 0.016,
+  "word/66_inline_equations_flow": 0.008,
+  "word/67_equation_page_breaks": 0.015
 }

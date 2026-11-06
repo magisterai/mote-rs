@@ -958,6 +958,36 @@
     "required_fonts": []
   },
   {
+    "identifier": "word-display-equations",
+    "application": "word",
+    "name": "65_display_equations",
+    "source": "word-65-display-equations.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-inline-equations-flow",
+    "application": "word",
+    "name": "66_inline_equations_flow",
+    "source": "word-66-inline-equations-flow.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
+    "identifier": "word-equation-page-breaks",
+    "application": "word",
+    "name": "67_equation_page_breaks",
+    "source": "word-67-equation-page-breaks.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
     "identifier": "markdown-table-slides",
     "application": "powerpoint",
     "name": "31_markdown_table_alignment",

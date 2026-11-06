@@ -62,7 +62,15 @@ pub(super) fn intrinsic(
                             .fragments
                             .iter()
                             .map(|fragment| {
-                                super::super::TextRun::new(&fragment.text, fragment.style.clone())
+                                let mut run = super::super::TextRun::new(
+                                    &fragment.text,
+                                    fragment.style.clone(),
+                                );
+                                if fragment.formula.is_some() {
+                                    run.text = "\u{FFFC}".into();
+                                    run.fixed_advance = Some(fragment.width);
+                                }
+                                run
                             })
                             .collect();
                         let mut line_width = 0.0;

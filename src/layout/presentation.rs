@@ -106,12 +106,6 @@ fn plan(
         column_gap: 0.0,
         column_separator: false,
     };
-    for slide in &deck.slides {
-        deck.warnings
-            .extend(crate::presentation::support::native_text_warnings(
-                &slide.element.children,
-            ));
-    }
     let mut pages = Vec::new();
     for (index, slide) in deck.slides.iter().enumerate() {
         let mut page = TextPage {

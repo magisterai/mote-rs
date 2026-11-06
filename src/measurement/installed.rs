@@ -78,6 +78,12 @@ impl SystemFontResolver {
                     ][variant_index],
                 ),
             ),
+            "cambria math" if variant == FontVariant::Regular => ("Cambria.ttc", None),
+            "stix two math" if variant == FontVariant::Regular => {
+                return vec![PathBuf::from(
+                    "/System/Library/Fonts/Supplemental/STIXTwoMath.otf",
+                )];
+            }
             "aptos display" => return self.cloud_candidates(),
             _ => return Vec::new(),
         };
@@ -124,9 +130,15 @@ impl FontResolver for SystemFontResolver {
             if !path.is_file() {
                 continue;
             }
-            let Ok(bytes) = fs::read(&path) else {
+            let Ok(mut bytes) = fs::read(&path) else {
                 continue;
             };
+            if bytes.starts_with(b"ttcf") {
+                match collection_face(&bytes, &family, variant) {
+                    Some(face) => bytes = face,
+                    None => continue,
+                }
+            }
             if let Err(error) = validate_embedding(&bytes) {
                 reason.get_or_insert(error);
                 continue;
@@ -155,9 +167,9 @@ fn normalize_family(family: &str) -> String {
         .to_lowercase()
 }
 fn matches_face(bytes: &[u8], family: &str, variant: FontVariant) -> bool {
-    let Ok(face) = ttf_parser::Face::parse(bytes, 0) else {
-        return false;
-    };
+    ttf_parser::Face::parse(bytes, 0).is_ok_and(|face| face_matches(&face, family, variant))
+}
+fn face_matches(face: &ttf_parser::Face<'_>, family: &str, variant: FontVariant) -> bool {
     let mut family_matches = false;
     let mut variant_matches = false;
     for name in face.names() {
@@ -172,6 +184,39 @@ fn matches_face(bytes: &[u8], family: &str, variant: FontVariant) -> bool {
         }
     }
     family_matches && variant_matches
+}
+/// Copies the matching face of a font collection into a standalone font, since
+/// measurement and embedding read the first face of a font file.
+fn collection_face(bytes: &[u8], family: &str, variant: FontVariant) -> Option<Vec<u8>> {
+    let count = ttf_parser::fonts_in_collection(bytes)?;
+    let index = (0..count).find(|index| {
+        ttf_parser::Face::parse(bytes, *index)
+            .is_ok_and(|face| face_matches(&face, family, variant))
+    })?;
+    let read = |offset: usize| -> Option<u32> {
+        Some(u32::from_be_bytes(
+            bytes.get(offset..offset + 4)?.try_into().ok()?,
+        ))
+    };
+    let start = read(12 + 4 * index as usize)? as usize;
+    let header = bytes.get(start..start + 12)?;
+    let table_count = usize::from(u16::from_be_bytes([header[4], header[5]]));
+    let records = bytes.get(start + 12..start + 12 + 16 * table_count)?;
+    let mut output = header.to_vec();
+    let mut data = Vec::new();
+    let mut offset = 12 + 16 * table_count;
+    for record in records.as_chunks::<16>().0 {
+        let source = u32::from_be_bytes(record[8..12].try_into().ok()?) as usize;
+        let length = u32::from_be_bytes(record[12..16].try_into().ok()?) as usize;
+        data.extend_from_slice(bytes.get(source..source.checked_add(length)?)?);
+        data.resize(data.len().next_multiple_of(4), 0);
+        output.extend_from_slice(&record[..8]);
+        output.extend_from_slice(&(offset as u32).to_be_bytes());
+        output.extend_from_slice(&record[12..16]);
+        offset = 12 + 16 * table_count + data.len();
+    }
+    output.extend(data);
+    Some(output)
 }
 fn exact_variant(name: &str) -> Option<FontVariant> {
     let mut bold = false;

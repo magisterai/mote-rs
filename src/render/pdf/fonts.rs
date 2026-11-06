@@ -13,8 +13,14 @@ pub(super) struct Font {
     pub resource: String,
     pub reference: Ref,
     codes: BTreeMap<char, u16>,
+    glyph_codes: BTreeMap<u16, u16>,
 }
 impl Font {
+    pub fn glyph_code(&self, glyph: u16) -> Result<u16, RenderError> {
+        self.glyph_codes.get(&glyph).copied().ok_or_else(|| {
+            RenderError::Invalid(format!("missing PDF mapping for math glyph {glyph}"))
+        })
+    }
     pub fn code(&self, character: char) -> Result<u16, RenderError> {
         self.codes.get(&character).copied().ok_or_else(|| {
             RenderError::Invalid(format!(
@@ -22,6 +28,19 @@ impl Font {
                 character as u32
             ))
         })
+    }
+}
+fn selection<'a>(selections: &'a mut Vec<Selection>, font: &FontSelection) -> &'a mut Selection {
+    match selections.iter().position(|entry| entry.selection == *font) {
+        Some(index) => &mut selections[index],
+        None => {
+            selections.push(Selection {
+                selection: font.clone(),
+                characters: BTreeSet::new(),
+                glyphs: BTreeMap::new(),
+            });
+            selections.last_mut().expect("a selection was pushed")
+        }
     }
 }
 pub(super) struct Fonts {
@@ -39,52 +58,69 @@ impl Fonts {
         document: &mut Pdf,
         objects: &mut Objects,
     ) -> Result<Self, RenderError> {
-        let mut selections: Vec<(FontSelection, BTreeSet<char>)> = Vec::new();
+        let mut selections: Vec<Selection> = Vec::new();
         for fragment in plan
             .pages
             .iter()
             .flat_map(|page| page.text_lines())
             .flat_map(|line| &line.fragments)
         {
-            if let Some((_, characters)) = selections
-                .iter_mut()
-                .find(|(selection, _)| *selection == fragment.font)
-            {
-                characters.extend(fragment.text.chars());
-            } else {
-                selections.push((fragment.font.clone(), fragment.text.chars().collect()));
+            let entry = selection(&mut selections, &fragment.font);
+            match &fragment.formula {
+                Some(formula) => {
+                    for glyph in &formula.glyphs {
+                        let entry = match (&formula.text_font, glyph.in_text_font) {
+                            (Some(text_font), true) => selection(&mut selections, text_font),
+                            _ => selection(&mut selections, &formula.font),
+                        };
+                        let text = entry.glyphs.entry(glyph.glyph).or_default();
+                        if text.is_empty() {
+                            text.clone_from(&glyph.text);
+                        }
+                    }
+                }
+                None => entry.characters.extend(fragment.text.chars()),
             }
         }
         let mut entries = Vec::new();
-        for (index, (selection, characters)) in selections.into_iter().enumerate() {
+        for (index, entry) in selections.into_iter().enumerate() {
             let reference = objects.allocate();
-            let codes = if let Some(bytes) = &selection.bytes {
-                embed_font(document, objects, reference, bytes, &characters, index)?
+            let (codes, glyph_codes) = if let Some(bytes) = &entry.selection.bytes {
+                embed_font(document, objects, reference, bytes, &entry, index)?
             } else {
                 document
                     .type1_font(reference)
-                    .base_font(Name(core_pdf_name(&selection)?.as_bytes()))
+                    .base_font(Name(core_pdf_name(&entry.selection)?.as_bytes()))
                     .encoding_predefined(Name(b"WinAnsiEncoding"));
-                BTreeMap::new()
+                Default::default()
             };
             entries.push(Font {
-                selection,
+                selection: entry.selection,
                 resource: format!("F{}", index + 1),
                 reference,
                 codes,
+                glyph_codes,
             });
         }
         Ok(Self { entries })
     }
 }
+/// The characters of a font's text and the glyphs its equations address.
+struct Selection {
+    selection: FontSelection,
+    characters: BTreeSet<char>,
+    glyphs: BTreeMap<u16, String>,
+}
+type Codes = (BTreeMap<char, u16>, BTreeMap<u16, u16>);
 fn embed_font(
     document: &mut Pdf,
     objects: &mut Objects,
     reference: Ref,
     bytes: &[u8],
-    characters: &BTreeSet<char>,
+    entry: &Selection,
     index: usize,
-) -> Result<BTreeMap<char, u16>, RenderError> {
+) -> Result<Codes, RenderError> {
+    let characters = &entry.characters;
     let face =
         Face::parse(bytes, 0).map_err(|_| RenderError::Invalid("invalid PDF font".into()))?;
     let mut remapper = GlyphRemapper::new();
@@ -95,6 +131,11 @@ fn embed_font(
             .ok_or_else(|| RenderError::Invalid("unprepared embedded-font text".into()))?;
         codes.insert(*character, remapper.remap(glyph.0));
     }
+    let glyph_codes: BTreeMap<u16, u16> = entry
+        .glyphs
+        .keys()
+        .map(|glyph| (*glyph, remapper.remap(*glyph)))
+        .collect();
     let subset = subsetter::subset(bytes, 0, &remapper)
         .map_err(|error| RenderError::Invalid(format!("font subsetting failed: {error:?}")))?;
     let compact = face.tables().cff.is_some();
@@ -142,6 +183,16 @@ fn embed_font(
         widths.insert(
             codes[character],
             (f64::from(face.glyph_hor_advance(glyph).unwrap_or(0)) * scale).round() as f32,
+        );
+    }
+    for (glyph, code) in &glyph_codes {
+        widths.insert(
+            *code,
+            (f64::from(
+                face.glyph_hor_advance(ttf_parser::GlyphId(*glyph))
+                    .unwrap_or(0),
+            ) * scale)
+                .round() as f32,
         );
     }
     {
@@ -197,7 +248,13 @@ fn embed_font(
             mapping.pair(*code, *character);
         }
     }
+    for (glyph, code) in &glyph_codes {
+        let text = &entry.glyphs[glyph];
+        if !text.is_empty() && mapped.insert(*code) {
+            mapping.pair_with_multiple(*code, text.chars());
+        }
+    }
     let encoded = mapping.finish();
     document.cmap(unicode, &encoded);
-    Ok(codes)
+    Ok((codes, glyph_codes))
 }

@@ -203,9 +203,7 @@ impl<'document> LayoutStyleResolver<'document> {
             style.fill = Some(fill);
         }
         if style.line_height == 0.0 {
-            style.line_height = style
-                .line_spacing
-                .height(&style.text, style.line_multiplier);
+            style.line_height = style.line_spacing.height(&style.text);
         }
         style
     }
@@ -231,9 +229,7 @@ impl<'document> LayoutStyleResolver<'document> {
         self.apply_run(&mut style.text, properties);
         self.apply_paragraph(&mut style, properties);
         if style.line_height == 0.0 {
-            style.line_height = style
-                .line_spacing
-                .height(&style.text, style.line_multiplier);
+            style.line_height = style.line_spacing.height(&style.text);
         }
         style
     }
@@ -396,7 +392,7 @@ impl<'document> LayoutStyleResolver<'document> {
             if let LineSpacing::Multiple(value) = spacing {
                 style.line_multiplier = value;
             }
-            style.line_height = spacing.height(&style.text, style.line_multiplier);
+            style.line_height = spacing.height(&style.text);
         }
         if let Some(tabs) = properties.get("tabs") {
             style.tab_stops = tab_stops(tabs);

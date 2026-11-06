@@ -204,7 +204,23 @@ pub(crate) fn fit_with_frame(
             _ => 0.0,
         };
     let mut page = TextPage::default();
-    page.operations.push(PageOperation::PushClip(content));
+    // PowerPoint clips overflowing text at the bottom of its box but draws a
+    // line that rises above the top, as a tall equation in exact spacing may.
+    let mut clip = content;
+    if !paragraphs
+        .iter()
+        .any(|paragraph| paragraph.style.word_exact_baseline)
+    {
+        let overflow = planned
+            .iter()
+            .flat_map(|paragraph| &paragraph.lines)
+            .flat_map(|line| &line.fragments)
+            .filter_map(|fragment| fragment.formula.as_ref().map(|_| -fragment.top))
+            .fold(0.0, f64::max);
+        clip[1] -= overflow;
+        clip[3] += overflow;
+    }
+    page.operations.push(PageOperation::PushClip(clip));
     for (paragraph, original) in planned.into_iter().zip(paragraphs) {
         top += paragraph.style.spacing_before;
         if let Some(checked) = original.task

@@ -49,7 +49,24 @@ must not be treated as arbitrary LaTeX execution.
 Lua `document.math` accepts the same attributes and returns an element. Its
 normalized `display` determines whether it contributes inline or block content.
 
-Office output retains editable math structure. Native PDF/PNG uses visible
-italic source text and warns that mathematical typesetting is deferred. Raw
-OMML must be a single `m:oMath` root, or `m:oMathPara` for display math, in the
-Office Math namespace. Invalid raw XML is emitted as visible text with a warning.
+Office output retains editable math structure. Native PDF/PNG typesets each
+equation with the OpenType MATH table of Cambria Math, the font Word and
+PowerPoint use, or else STIX Two Math. A declared font named `Cambria Math`
+takes precedence over both. A display equation is set in display style, with
+enlarged operators and limits above and below. An inline equation that stands
+alone in its paragraph is displayed, as Word displays it. Display style extends
+to the bases of scripts and the cells of matrices, and every fraction of a
+display equation keeps the full size, however deeply it is nested; only the
+outermost fraction takes the display spacing. An equation is an unbreakable
+object within its line. The equation is measured against the single-spaced
+line: once it comes within 0.06 em of either edge, as in Word, or 0.13 em of
+the top in PowerPoint, the line grows by the excess whatever the line spacing.
+A minimum line height absorbs that growth until the line outgrows it. An exact
+height in Word is kept unchanged; PowerPoint keeps the height but raises the
+line by the growth below less half the growth above. Text in `text` is set
+upright in the paragraph font, as in Word and PowerPoint, unless that font is a
+core PDF font, when it falls back to the math font. If no math font is
+available, or the equation is raw OMML, native output shows italic source text
+with a warning. Raw OMML must be a single `m:oMath` root, or `m:oMathPara` for
+display math, in the Office Math namespace. Invalid raw XML is emitted as
+visible text with a warning.

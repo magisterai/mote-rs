@@ -168,9 +168,7 @@ fn paragraph(
         && run.style.measurement.size_points < style.text.measurement.size_points
     {
         style.text = run.style.clone();
-        style.line_height = style
-            .line_spacing
-            .height(&style.text, style.line_multiplier);
+        style.line_height = style.line_spacing.height(&style.text);
     }
     DrawingParagraph {
         style,

@@ -65,9 +65,36 @@ pub(super) fn escape(text: &str) -> String {
     crate::xml::escape(text).expect("equation characters were validated before parsing")
 }
 const PRESENTATION_PROPERTIES: &str = r#"<a:rPr lang="en-US" b="0" i="1" smtClean="0"><a:latin typeface="Cambria Math" panose="02040503050406030204" pitchFamily="18" charset="0"/></a:rPr>"#;
+const PRESENTATION_UPRIGHT_PROPERTIES: &str = r#"<a:rPr lang="en-US" b="0" i="0" smtClean="0"><a:latin typeface="Cambria Math" panose="02040503050406030204" pitchFamily="18" charset="0"/></a:rPr>"#;
+/// PowerPoint ignores `m:nor` and takes the style of normal text from these
+/// properties, which leave its font to the paragraph as Word does.
+const PRESENTATION_NORMAL_PROPERTIES: &str = r#"<a:rPr lang="en-US" b="0" i="0" smtClean="0"/>"#;
 impl Node {
     pub fn text(text: impl Into<String>) -> Self {
         Self::Text(text.into(), TextKind::Ordinary)
+    }
+    /// The columns of `cases` align left; Word centres matrix columns unless
+    /// told otherwise.
+    fn matrix_xml(rows: &[Vec<Node>], left: bool, options: &Options) -> String {
+        let properties = if left {
+            let columns = rows.iter().map(Vec::len).max().unwrap_or(0);
+            format!(
+                r#"<m:mPr><m:mcs><m:mc><m:mcPr><m:count m:val="{columns}"/><m:mcJc m:val="left"/></m:mcPr></m:mc></m:mcs></m:mPr>"#
+            )
+        } else {
+            String::new()
+        };
+        let rows: String = rows
+            .iter()
+            .map(|row| {
+                let cells: String = row
+                    .iter()
+                    .map(|cell| format!("<m:e>{}</m:e>", cell.xml(options)))
+                    .collect();
+                format!("<m:mr>{cells}</m:mr>")
+            })
+            .collect();
+        format!("<m:m>{properties}{rows}</m:m>")
     }
     pub fn xml(&self, options: &Options) -> String {
         let part = |name: &str, node: &Node| format!("<m:{name}>{}</m:{name}>", node.xml(options));
@@ -106,7 +133,11 @@ impl Node {
                     properties.push_str(&format!("<w:rPr>{word}</w:rPr>"));
                 }
                 if options.presentation {
-                    properties.push_str(PRESENTATION_PROPERTIES);
+                    properties.push_str(match kind {
+                        TextKind::Ordinary => PRESENTATION_PROPERTIES,
+                        TextKind::Normal => PRESENTATION_NORMAL_PROPERTIES,
+                        TextKind::Roman => PRESENTATION_UPRIGHT_PROPERTIES,
+                    });
                 }
                 format!(
                     r#"<m:r>{properties}<m:t xml:space="preserve">{}</m:t></m:r>"#,
@@ -162,11 +193,15 @@ impl Node {
             Self::Delimiter { begin, end, body } => {
                 let mut properties = String::new();
                 for (name, value) in [("begChr", begin), ("endChr", end)] {
-                    if !value.is_empty() {
-                        properties.push_str(&format!(r#"<m:{name} m:val="{}"/>"#, escape(value)));
-                    }
+                    properties.push_str(&format!(r#"<m:{name} m:val="{}"/>"#, escape(value)));
                 }
-                format!("<m:d><m:dPr>{properties}</m:dPr>{}</m:d>", part("e", body))
+                let body = match body.as_ref() {
+                    Self::Matrix(rows) if begin == "{" && end.is_empty() => {
+                        format!("<m:e>{}</m:e>", Self::matrix_xml(rows, true, options))
+                    }
+                    body => part("e", body),
+                };
+                format!("<m:d><m:dPr>{properties}</m:dPr>{body}</m:d>")
             }
             Self::Accent { character, body } => format!(
                 r#"<m:acc><m:accPr><m:chr m:val="{}"/></m:accPr>{}</m:acc>"#,
@@ -232,15 +267,7 @@ impl Node {
                 part("e", &Self::text(" "))
             ),
             Self::LimitOperator(name) => Self::Text(name.clone(), TextKind::Roman).xml(options),
-            Self::Matrix(rows) => format!(
-                "<m:m>{}</m:m>",
-                rows.iter()
-                    .map(|row| format!(
-                        "<m:mr>{}</m:mr>",
-                        row.iter().map(|cell| part("e", cell)).collect::<String>()
-                    ))
-                    .collect::<String>()
-            ),
+            Self::Matrix(rows) => Self::matrix_xml(rows, false, options),
             Self::EquationArray(rows) => format!(
                 "<m:eqArr>{}</m:eqArr>",
                 rows.iter().map(|row| part("e", row)).collect::<String>()

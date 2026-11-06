@@ -856,8 +856,12 @@ inline versus block content. `math` owns a bounded source parser, typed expressi
 nodes and shared Office Math serialization; document and presentation writers
 supply their formatting context. Raw OMML is parsed and its root validated with
 `roxmltree`, reused from the existing dependency graph. Invalid XML stays visible
-with a diagnostic instead of entering an Office part. Native layout uses italic
-source text and explicitly reports that mathematical typesetting is deferred.
+with a diagnostic instead of entering an Office part. Native layout typesets the
+same expression nodes in `math::typesetting`, following the OpenType MATH table
+and TeX's atom spacing, into positioned glyphs and rules. A line treats the
+result as one unbreakable object, PDF output addresses the glyphs by number with
+a ToUnicode entry for each, and PNG output draws their outlines. Without a math
+font, native layout uses italic source text and warns.
 
 Standalone checkboxes reuse DOCX control allocation with task lists. General
 fields retain their instruction and cached name. Comments use an independent

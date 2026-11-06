@@ -24,6 +24,8 @@ pub fn resolve_inline(
             && previous.style == run.style
             && previous.preserve_space == run.preserve_space
             && previous.synthetic_tab == run.synthetic_tab
+            && previous.math.is_none()
+            && run.math.is_none()
         {
             previous.text.push_str(&run.text);
         } else {
@@ -160,10 +162,12 @@ fn collect(
                     let (bold, _) = super::styles::emphasis(style.measurement.variant);
                     style.measurement.variant =
                         crate::measurement::FontVariant::from_emphasis(bold, true);
-                    runs.push(TextRun::new(
+                    let mut run = TextRun::new(
                         crate::properties::text(&element.attributes, "source"),
                         style,
-                    ));
+                    );
+                    run.math = Some(Box::new(element.clone()));
+                    runs.push(run);
                     continue;
                 }
                 if element.kind == ElementKind::Image {

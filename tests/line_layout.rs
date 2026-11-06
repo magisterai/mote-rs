@@ -54,10 +54,6 @@ fn invalid_geometry_fails_even_without_visible_runs() {
             spacing: LineSpacing::Multiple(f64::MAX),
             ..Default::default()
         },
-        LineOptions {
-            fallback_multiplier: 0.0,
-            ..Default::default()
-        },
     ];
     for options in invalid {
         assert!(plan_text(&[], &options, &mut measurer).is_err());

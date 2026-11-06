@@ -1,0 +1,813 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Inline Equations In Flow",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "Inline equations sit within wrapped prose. A tall equation enlarges only its own line, so the lines",
+          "x": 72.0
+        },
+        {
+          "baseline": 124.32,
+          "text": "around it keep their ordinary spacing.",
+          "x": 72.0
+        },
+        {
+          "baseline": 150.0,
+          "text": "Line spacing",
+          "x": 72.0
+        },
+        {
+          "baseline": 167.28,
+          "text": "!",
+          "x": 273.38
+        },
+        {
+          "baseline": 170.16,
+          "text": "$ %",
+          "x": 267.93
+        },
+        {
+          "baseline": 170.16,
+          "text": "$",
+          "x": 487.74
+        },
+        {
+          "baseline": 172.32,
+          "text": "!",
+          "x": 222.2
+        },
+        {
+          "baseline": 172.32,
+          "text": "!",
+          "x": 465.52
+        },
+        {
+          "baseline": 176.63,
+          "text": "With single spacing the series ∑",
+          "x": 72.0
+        },
+        {
+          "baseline": 176.63,
+          "text": "= converges, while the harmonic series ∑",
+          "x": 279.81
+        },
+        {
+          "baseline": 176.64,
+          "text": "diverges.",
+          "x": 494.96
+        },
+        {
+          "baseline": 179.22,
+          "text": "\"#$ !",
+          "x": 249.4
+        },
+        {
+          "baseline": 179.04,
+          "text": "\"#$",
+          "x": 465.52
+        },
+        {
+          "baseline": 182.16,
+          "text": "\"",
+          "x": 244.07
+        },
+        {
+          "baseline": 182.16,
+          "text": "&",
+          "x": 270.44
+        },
+        {
+          "baseline": 182.16,
+          "text": "\"",
+          "x": 487.39
+        },
+        {
+          "baseline": 187.68,
+          "text": "\"",
+          "x": 265.63
+        },
+        {
+          "baseline": 194.16,
+          "text": "’()",
+          "x": 122.02
+        },
+        {
+          "baseline": 196.32,
+          "text": "#",
+          "x": 265.5
+        },
+        {
+          "baseline": 200.64,
+          "text": "The ratio",
+          "x": 72.0
+        },
+        {
+          "baseline": 200.64,
+          "text": "and the nested fraction  each enlarge their line, and the plain continuation after",
+          "x": 146.93
+        },
+        {
+          "baseline": 202.56,
+          "text": "\"",
+          "x": 270.85
+        },
+        {
+          "baseline": 204.24,
+          "text": "! !",
+          "x": 140.49
+        },
+        {
+          "baseline": 206.58,
+          "text": "√+ (,",
+          "x": 129.31
+        },
+        {
+          "baseline": 207.12,
+          "text": "$(",
+          "x": 260.1
+        },
+        {
+          "baseline": 211.2,
+          "text": "$",
+          "x": 270.55
+        },
+        {
+          "baseline": 222.96,
+          "text": "them keeps the single height.",
+          "x": 72.0
+        },
+        {
+          "baseline": 243.36,
+          "text": "𝑎 𝑏",
+          "x": 259.78
+        },
+        {
+          "baseline": 249.12,
+          "text": "With one and a half spacing the matrix $ ) has determinant 𝑎𝑑− 𝑏𝑐, and the bound",
+          "x": 72.0
+        },
+        {
+          "baseline": 256.32,
+          "text": "𝑐 𝑑",
+          "x": 260.27
+        },
+        {
+          "baseline": 270.0,
+          "text": ")",
+          "x": 81.98
+        },
+        {
+          "baseline": 270.0,
+          "text": ")",
+          "x": 152.24
+        },
+        {
+          "baseline": 270.24,
+          "text": "012\t-",
+          "x": 401.32
+        },
+        {
+          "baseline": 276.73,
+          "text": "+∫\t𝑓(𝑥)\t𝑑𝑥+≤ ∫\t|𝑓(𝑥)|\t𝑑𝑥 holds for every integrable 𝑓. The limit lim = 1 needs a little more",
+          "x": 91.24
+        },
+        {
+          "baseline": 281.28,
+          "text": "’",
+          "x": 79.75
+        },
+        {
+          "baseline": 281.28,
+          "text": "’",
+          "x": 150.01
+        },
+        {
+          "baseline": 282.24,
+          "text": "-",
+          "x": 407.96
+        },
+        {
+          "baseline": 283.44,
+          "text": "-→/",
+          "x": 383.21
+        },
+        {
+          "baseline": 300.48,
+          "text": "room than its line provides.",
+          "x": 72.0
+        },
+        {
+          "baseline": 323.76,
+          "text": "!",
+          "x": 201.13
+        },
+        {
+          "baseline": 326.64,
+          "text": "4 5",
+          "x": 195.99
+        },
+        {
+          "baseline": 329.04,
+          "text": "7 7",
+          "x": 230.59
+        },
+        {
+          "baseline": 333.12,
+          "text": "With double spacing even = 𝑐 𝛻 𝑢 fits within the spacing above the line, though the binomial",
+          "x": 72.0
+        },
+        {
+          "baseline": 336.24,
+          "text": "!",
+          "x": 205.8
+        },
+        {
+          "baseline": 338.64,
+          "text": "46",
+          "x": 196.66
+        },
+        {
+          "baseline": 359.04,
+          "text": "$",
+          "x": 171.85
+        },
+        {
+          "baseline": 359.28,
+          "text": "$",
+          "x": 229.7
+        },
+        {
+          "baseline": 360.72,
+          "text": "\"",
+          "x": 76.94
+        },
+        {
+          "baseline": 361.68,
+          "text": "\"",
+          "x": 189.02
+        },
+        {
+          "baseline": 365.77,
+          "text": "9 : and the integral ∫\t𝑥\t𝑑𝑥= still reach below it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 369.84,
+          "text": "8",
+          "x": 77.07
+        },
+        {
+          "baseline": 370.32,
+          "text": "/",
+          "x": 169.62
+        },
+        {
+          "baseline": 371.28,
+          "text": "\"($",
+          "x": 224.12
+        },
+        {
+          "baseline": 399.84,
+          "text": "-",
+          "x": 295.52
+        },
+        {
+          "baseline": 399.84,
+          "text": "\"(\"($)",
+          "x": 427.51
+        },
+        {
+          "baseline": 401.76,
+          "text": "\"",
+          "x": 389.73
+        },
+        {
+          "baseline": 406.31,
+          "text": "With a minimum of fourteen points the fraction  fits, but the sum ∑\t𝑖=",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.32,
+          "text": "and the root",
+          "x": 457.5
+        },
+        {
+          "baseline": 408.96,
+          "text": ":#$",
+          "x": 389.73
+        },
+        {
+          "baseline": 411.84,
+          "text": "9",
+          "x": 295.36
+        },
+        {
+          "baseline": 411.84,
+          "text": "7",
+          "x": 439.07
+        },
+        {
+          "baseline": 425.04,
+          "text": "$",
+          "x": 80.61
+        },
+        {
+          "baseline": 427.44,
+          "text": "\"",
+          "x": 95.21
+        },
+        {
+          "baseline": 428.16,
+          "text": "7",
+          "x": 152.54
+        },
+        {
+          "baseline": 431.51,
+          "text": "< ∑\t(𝑥 − 𝑥) outgrow the minimum and lengthen their lines.",
+          "x": 87.36
+        },
+        {
+          "baseline": 434.4,
+          "text": ":#$ :",
+          "x": 125.14
+        },
+        {
+          "baseline": 437.04,
+          "text": "\"",
+          "x": 80.26
+        },
+        {
+          "baseline": 454.56,
+          "text": "’()",
+          "x": 420.1
+        },
+        {
+          "baseline": 461.04,
+          "text": "With an exact height of sixteen points the line never grows, so the fraction  and the sum",
+          "x": 72.0
+        },
+        {
+          "baseline": 466.56,
+          "text": "+(,",
+          "x": 420.36
+        },
+        {
+          "baseline": 472.8,
+          "text": "\"",
+          "x": 79.79
+        },
+        {
+          "baseline": 473.04,
+          "text": "7",
+          "x": 108.01
+        },
+        {
+          "baseline": 477.11,
+          "text": "∑\t𝑘 may overlap the lines next to them, as they do in Word.",
+          "x": 101.41
+        },
+        {
+          "baseline": 479.76,
+          "text": "8#$",
+          "x": 79.79
+        },
+        {
+          "baseline": 501.6,
+          "text": "Lists",
+          "x": 72.0
+        },
+        {
+          "baseline": 520.08,
+          "text": "$",
+          "x": 187.75
+        },
+        {
+          "baseline": 522.0,
+          "text": "\"",
+          "x": 202.36
+        },
+        {
+          "baseline": 526.54,
+          "text": "• The mean is 𝑥= ∑\t𝑥.",
+          "x": 108.0
+        },
+        {
+          "baseline": 529.08,
+          "text": ":#$ :",
+          "x": 227.72
+        },
+        {
+          "baseline": 532.08,
+          "text": "\"",
+          "x": 187.4
+        },
+        {
+          "baseline": 541.68,
+          "text": "$",
+          "x": 210.99
+        },
+        {
+          "baseline": 544.08,
+          "text": "7",
+          "x": 186.0
+        },
+        {
+          "baseline": 543.6,
+          "text": "\"",
+          "x": 230.82
+        },
+        {
+          "baseline": 544.08,
+          "text": "7",
+          "x": 288.14
+        },
+        {
+          "baseline": 548.14,
+          "text": "• The variance is 𝑠 = ∑\t(𝑥 − 𝑥).",
+          "x": 108.0
+        },
+        {
+          "baseline": 550.68,
+          "text": ":#$ :",
+          "x": 260.75
+        },
+        {
+          "baseline": 553.68,
+          "text": "\"=$",
+          "x": 205.41
+        },
+        {
+          "baseline": 564.72,
+          "text": "∑(- =-)(9 =9)",
+          "x": 238.11
+        },
+        {
+          "baseline": 566.4,
+          "text": "%",
+          "x": 235.34
+        },
+        {
+          "baseline": 566.4,
+          "text": "%",
+          "x": 260.58
+        },
+        {
+          "baseline": 571.2,
+          "text": "• The correlation is 𝑟=",
+          "x": 108.0
+        },
+        {
+          "baseline": 571.2,
+          "text": ".",
+          "x": 287.75
+        },
+        {
+          "baseline": 575.04,
+          "text": "!",
+          "x": 248.13
+        },
+        {
+          "baseline": 575.04,
+          "text": "!",
+          "x": 283.56
+        },
+        {
+          "baseline": 577.44,
+          "text": "?∑(- =-) ∑(9 =9)",
+          "x": 234.05
+        },
+        {
+          "baseline": 579.12,
+          "text": "%",
+          "x": 231.27
+        },
+        {
+          "baseline": 579.12,
+          "text": "%",
+          "x": 266.38
+        },
+        {
+          "baseline": 602.16,
+          "text": "Tables",
+          "x": 72.0
+        },
+        {
+          "baseline": 629.52,
+          "text": "Quantity",
+          "x": 78.0
+        },
+        {
+          "baseline": 629.52,
+          "text": "Formula",
+          "x": 193.2
+        },
+        {
+          "baseline": 629.52,
+          "text": "Note",
+          "x": 387.6
+        },
+        {
+          "baseline": 654.48,
+          "text": "Kinetic energy",
+          "x": 78.0
+        },
+        {
+          "baseline": 653.04,
+          "text": "1",
+          "x": 282.95
+        },
+        {
+          "baseline": 654.48,
+          "text": "Classical limit.",
+          "x": 387.6
+        },
+        {
+          "baseline": 657.36,
+          "text": "7",
+          "x": 306.91
+        },
+        {
+          "baseline": 661.44,
+          "text": "𝐸 = 𝑚𝑣",
+          "x": 256.81
+        },
+        {
+          "baseline": 663.6,
+          "text": "8",
+          "x": 263.09
+        },
+        {
+          "baseline": 668.88,
+          "text": "2",
+          "x": 282.95
+        },
+        {
+          "baseline": 690.72,
+          "text": "Entropy",
+          "x": 78.0
+        },
+        {
+          "baseline": 690.96,
+          "text": "Summed over microstates 𝑖.",
+          "x": 387.6
+        },
+        {
+          "baseline": 695.76,
+          "text": "𝑆= −𝑘 E\t𝑝ln\t𝑝",
+          "x": 237.68
+        },
+        {
+          "baseline": 697.92,
+          "text": "@",
+          "x": 272.33
+        },
+        {
+          "baseline": 697.92,
+          "text": ": :",
+          "x": 327.59
+        },
+        {
+          "baseline": 709.68,
+          "text": ":",
+          "x": 286.01
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.84,
+          "text": "Lorentz factor",
+          "x": 78.0
+        },
+        {
+          "baseline": 86.64,
+          "text": "1",
+          "x": 291.56
+        },
+        {
+          "baseline": 88.08,
+          "text": "Tends to 1 as 𝑣→ 0.",
+          "x": 387.6
+        },
+        {
+          "baseline": 95.04,
+          "text": "𝛾=",
+          "x": 254.62
+        },
+        {
+          "baseline": 101.76,
+          "text": "7",
+          "x": 309.1
+        },
+        {
+          "baseline": 105.12,
+          "text": "𝑣",
+          "x": 302.47
+        },
+        {
+          "baseline": 111.12,
+          "text": "<1−",
+          "x": 275.04
+        },
+        {
+          "baseline": 114.48,
+          "text": "7",
+          "x": 308.58
+        },
+        {
+          "baseline": 117.84,
+          "text": "𝑐",
+          "x": 302.99
+        },
+        {
+          "baseline": 140.64,
+          "text": "Inverse",
+          "x": 78.0
+        },
+        {
+          "baseline": 139.44,
+          "text": "1",
+          "x": 271.58
+        },
+        {
+          "baseline": 140.88,
+          "text": "Defined when det\t𝐴 ≠ 0.",
+          "x": 387.6
+        },
+        {
+          "baseline": 142.08,
+          "text": "𝑑 −𝑏",
+          "x": 303.96
+        },
+        {
+          "baseline": 143.76,
+          "text": "=$",
+          "x": 230.75
+        },
+        {
+          "baseline": 147.84,
+          "text": "𝐴 =",
+          "x": 223.89
+        },
+        {
+          "baseline": 147.84,
+          "text": "$",
+          "x": 295.2
+        },
+        {
+          "baseline": 147.84,
+          "text": ")",
+          "x": 339.6
+        },
+        {
+          "baseline": 155.19,
+          "text": "𝑎𝑑− 𝑏𝑐 −𝑐 𝑎",
+          "x": 255.98
+        },
+        {
+          "baseline": 182.88,
+          "text": "Display equations within a page",
+          "x": 72.0
+        },
+        {
+          "baseline": 204.96,
+          "text": "The display equations below follow the table, so that any difference in the height of the rows above",
+          "x": 72.0
+        },
+        {
+          "baseline": 219.36,
+          "text": "moves them visibly.",
+          "x": 72.0
+        },
+        {
+          "baseline": 238.98,
+          "text": "∞ 𝑠−1",
+          "x": 272.0
+        },
+        {
+          "baseline": 242.88,
+          "text": "𝑥",
+          "x": 265.61
+        },
+        {
+          "baseline": 251.28,
+          "text": "P",
+          "x": 240.24
+        },
+        {
+          "baseline": 251.28,
+          "text": "𝑑𝑥= 𝛤(𝑠)\t𝜁(𝑠)",
+          "x": 296.71
+        },
+        {
+          "baseline": 255.36,
+          "text": "𝑥",
+          "x": 266.76
+        },
+        {
+          "baseline": 258.72,
+          "text": "𝑒 − 1",
+          "x": 260.81
+        },
+        {
+          "baseline": 261.6,
+          "text": "0",
+          "x": 245.05
+        },
+        {
+          "baseline": 277.92,
+          "text": "2",
+          "x": 277.2
+        },
+        {
+          "baseline": 279.6,
+          "text": "𝑛",
+          "x": 230.43
+        },
+        {
+          "baseline": 279.6,
+          "text": "𝑛",
+          "x": 309.61
+        },
+        {
+          "baseline": 279.6,
+          "text": "𝑛",
+          "x": 358.75
+        },
+        {
+          "baseline": 291.36,
+          "text": "2",
+          "x": 332.91
+        },
+        {
+          "baseline": 289.92,
+          "text": "2",
+          "x": 381.84
+        },
+        {
+          "baseline": 295.92,
+          "text": "QE\t𝑎 𝑏 R ≤ QE\t𝑎 RQE\t𝑏 R",
+          "x": 218.4
+        },
+        {
+          "baseline": 298.08,
+          "text": "𝑘 𝑘",
+          "x": 253.74
+        },
+        {
+          "baseline": 298.8,
+          "text": "𝑘",
+          "x": 332.91
+        },
+        {
+          "baseline": 298.08,
+          "text": "𝑘",
+          "x": 381.84
+        },
+        {
+          "baseline": 309.84,
+          "text": "𝑘=1",
+          "x": 225.0
+        },
+        {
+          "baseline": 309.84,
+          "text": "𝑘=1",
+          "x": 304.17
+        },
+        {
+          "baseline": 309.84,
+          "text": "𝑘=1",
+          "x": 353.31
+        },
+        {
+          "baseline": 329.52,
+          "text": "REVIEW: inline equations enlarge only their own lines under single, multiple and minimum spacing,",
+          "x": 72.0
+        },
+        {
+          "baseline": 344.16,
+          "text": "and leave exact lines unchanged. Table rows with tall equations grow as Word's rows do, and the",
+          "x": 72.0
+        },
+        {
+          "baseline": 358.56,
+          "text": "content after the table starts at the same position in both outputs.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "64f6e77faed9c6d55dbe6d91afea5d7d00a4b4d14cad40d06be1e5382d1127f0"
+}

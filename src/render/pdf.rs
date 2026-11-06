@@ -310,6 +310,10 @@ fn paint_line(
             .actual_text(TextStr(&actual_text));
     }
     for fragment in &line.fragments {
+        if let Some(formula) = &fragment.formula {
+            paint_formula(content, fragment, formula, page_height, fonts)?;
+            continue;
+        }
         if fragment.text.is_empty() {
             continue;
         }
@@ -402,6 +406,55 @@ fn paint_line(
         }
         content.stroke();
         content.set_dash_pattern([], 0.0);
+    }
+    Ok(())
+}
+fn paint_formula(
+    content: &mut Content,
+    fragment: &crate::layout::TextFragment,
+    formula: &crate::layout::Formula,
+    page_height: f64,
+    fonts: &fonts::Fonts,
+) -> Result<(), RenderError> {
+    let font = fonts.find(&formula.font)?;
+    let text_font = formula
+        .text_font
+        .as_ref()
+        .map(|text_font| fonts.find(text_font))
+        .transpose()?;
+    let [red, green, blue] = color(&fragment.style.color)?
+        .map(|channel| ((f64::from(channel) / 255.0 * 1000.0).round() / 1000.0) as f32);
+    content.set_fill_rgb(red, green, blue);
+    if !formula.glyphs.is_empty() {
+        content.begin_text();
+        for glyph in &formula.glyphs {
+            let font = match text_font {
+                Some(text_font) if glyph.in_text_font => text_font,
+                _ => font,
+            };
+            content
+                .set_font(Name(font.resource.as_bytes()), glyph.size as f32)
+                .set_text_matrix([
+                    1.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    (fragment.x + glyph.x) as f32,
+                    (page_height - fragment.baseline + glyph.rise) as f32,
+                ])
+                .show(Str(&font.glyph_code(glyph.glyph)?.to_be_bytes()));
+        }
+        content.end_text();
+    }
+    for rule in &formula.rules {
+        content
+            .rect(
+                (fragment.x + rule.x) as f32,
+                (page_height - fragment.baseline + rule.rise) as f32,
+                rule.width as f32,
+                rule.height as f32,
+            )
+            .fill_nonzero();
     }
     Ok(())
 }

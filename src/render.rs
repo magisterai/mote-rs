@@ -135,6 +135,7 @@ pub fn plan_with_layout_and_fonts(
         (output, warnings)
     };
     warnings.extend(output.warnings.iter().cloned());
+    warnings.extend(measurer.take_warnings());
     for fragment in output
         .pages
         .iter()

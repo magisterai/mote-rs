@@ -1,0 +1,763 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Equation Page Breaks",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "The equations below fill the first page, so that the position of the page break depends on the height",
+          "x": 72.0
+        },
+        {
+          "baseline": 124.32,
+          "text": "of every equation above it. The tall system of equations at the foot of the first page does not fit there",
+          "x": 72.0
+        },
+        {
+          "baseline": 138.72,
+          "text": "and moves whole to the second page, and the remaining equations flow on after it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 159.36,
+          "text": "A sum of squares:",
+          "x": 72.0
+        },
+        {
+          "baseline": 175.2,
+          "text": "𝑛",
+          "x": 242.87
+        },
+        {
+          "baseline": 183.12,
+          "text": "𝑛(𝑛+ 1)(2𝑛+ 1)",
+          "x": 286.35
+        },
+        {
+          "baseline": 185.52,
+          "text": "2",
+          "x": 266.11
+        },
+        {
+          "baseline": 191.52,
+          "text": "!\t𝑘 =",
+          "x": 259.49
+        },
+        {
+          "baseline": 198.96,
+          "text": "6",
+          "x": 327.14
+        },
+        {
+          "baseline": 205.44,
+          "text": "𝑘=1",
+          "x": 237.43
+        },
+        {
+          "baseline": 222.96,
+          "text": "A geometric series:",
+          "x": 72.0
+        },
+        {
+          "baseline": 238.8,
+          "text": "∞",
+          "x": 242.49
+        },
+        {
+          "baseline": 246.72,
+          "text": "1",
+          "x": 296.0
+        },
+        {
+          "baseline": 251.04,
+          "text": "𝑘",
+          "x": 266.0
+        },
+        {
+          "baseline": 255.12,
+          "text": "!\t𝑟 =",
+          "x": 260.29
+        },
+        {
+          "baseline": 255.12,
+          "text": ", |𝑟|< 1",
+          "x": 338.72
+        },
+        {
+          "baseline": 262.56,
+          "text": "1− 𝑟",
+          "x": 286.22
+        },
+        {
+          "baseline": 269.04,
+          "text": "𝑘=0",
+          "x": 238.24
+        },
+        {
+          "baseline": 286.56,
+          "text": "The binomial coefficient:",
+          "x": 72.0
+        },
+        {
+          "baseline": 306.48,
+          "text": "𝑛",
+          "x": 267.38
+        },
+        {
+          "baseline": 306.48,
+          "text": "𝑛!",
+          "x": 317.22
+        },
+        {
+          "baseline": 314.88,
+          "text": "\" #=",
+          "x": 274.32
+        },
+        {
+          "baseline": 322.32,
+          "text": "𝑘 𝑘!\t(𝑛− 𝑘)!",
+          "x": 267.51
+        },
+        {
+          "baseline": 342.0,
+          "text": "Stirling's approximation:",
+          "x": 72.0
+        },
+        {
+          "baseline": 358.32,
+          "text": "(",
+          "x": 340.58
+        },
+        {
+          "baseline": 361.2,
+          "text": "𝑛",
+          "x": 327.6
+        },
+        {
+          "baseline": 370.34,
+          "text": "𝑛!∼ √2𝜋𝑛4 6",
+          "x": 265.26
+        },
+        {
+          "baseline": 378.24,
+          "text": "𝑒",
+          "x": 328.04
+        },
+        {
+          "baseline": 396.0,
+          "text": "The Basel problem:",
+          "x": 72.0
+        },
+        {
+          "baseline": 411.84,
+          "text": "∞",
+          "x": 279.53
+        },
+        {
+          "baseline": 415.92,
+          "text": "2",
+          "x": 331.66
+        },
+        {
+          "baseline": 419.76,
+          "text": "1 𝜋",
+          "x": 300.12
+        },
+        {
+          "baseline": 428.16,
+          "text": "!",
+          "x": 275.76
+        },
+        {
+          "baseline": 428.16,
+          "text": "=",
+          "x": 312.52
+        },
+        {
+          "baseline": 432.48,
+          "text": "2",
+          "x": 304.31
+        },
+        {
+          "baseline": 435.72,
+          "text": "𝑛 6",
+          "x": 297.42
+        },
+        {
+          "baseline": 442.08,
+          "text": "𝑛=1",
+          "x": 275.18
+        },
+        {
+          "baseline": 459.6,
+          "text": "A Wallis product:",
+          "x": 72.0
+        },
+        {
+          "baseline": 475.44,
+          "text": "∞",
+          "x": 290.73
+        },
+        {
+          "baseline": 479.52,
+          "text": "2",
+          "x": 332.73
+        },
+        {
+          "baseline": 483.36,
+          "text": "𝜋",
+          "x": 263.86
+        },
+        {
+          "baseline": 483.36,
+          "text": "4𝑛",
+          "x": 319.2
+        },
+        {
+          "baseline": 491.76,
+          "text": "= $",
+          "x": 286.08
+        },
+        {
+          "baseline": 496.08,
+          "text": "2",
+          "x": 322.48
+        },
+        {
+          "baseline": 499.2,
+          "text": "2",
+          "x": 264.09
+        },
+        {
+          "baseline": 499.44,
+          "text": "4𝑛 − 1",
+          "x": 308.95
+        },
+        {
+          "baseline": 505.68,
+          "text": "𝑛=1",
+          "x": 286.38
+        },
+        {
+          "baseline": 523.2,
+          "text": "The Gamma function:",
+          "x": 72.0
+        },
+        {
+          "baseline": 539.28,
+          "text": ")",
+          "x": 297.44
+        },
+        {
+          "baseline": 548.64,
+          "text": "+,- ,.",
+          "x": 338.21
+        },
+        {
+          "baseline": 552.96,
+          "text": "𝛤(𝑧)= :\t𝑡 𝑒\t𝑑𝑡",
+          "x": 248.51
+        },
+        {
+          "baseline": 564.24,
+          "text": "*",
+          "x": 293.01
+        },
+        {
+          "baseline": 581.76,
+          "text": "A Taylor series:",
+          "x": 72.0
+        },
+        {
+          "baseline": 597.84,
+          "text": "∞",
+          "x": 247.93
+        },
+        {
+          "baseline": 601.92,
+          "text": "𝑛",
+          "x": 272.2
+        },
+        {
+          "baseline": 601.92,
+          "text": "2",
+          "x": 339.74
+        },
+        {
+          "baseline": 601.92,
+          "text": "3",
+          "x": 365.14
+        },
+        {
+          "baseline": 605.76,
+          "text": "𝑥",
+          "x": 265.82
+        },
+        {
+          "baseline": 605.76,
+          "text": "𝑥 𝑥",
+          "x": 333.35
+        },
+        {
+          "baseline": 610.08,
+          "text": "𝑥",
+          "x": 223.52
+        },
+        {
+          "baseline": 614.16,
+          "text": "𝑒 = !",
+          "x": 217.56
+        },
+        {
+          "baseline": 614.16,
+          "text": "= 1+ 𝑥+ + + ⋯",
+          "x": 292.61
+        },
+        {
+          "baseline": 621.6,
+          "text": "𝑛!",
+          "x": 266.52
+        },
+        {
+          "baseline": 621.6,
+          "text": "2! 3!",
+          "x": 334.09
+        },
+        {
+          "baseline": 628.08,
+          "text": "𝑛=0",
+          "x": 243.57
+        },
+        {
+          "baseline": 645.6,
+          "text": "A continued fraction for the golden ratio:",
+          "x": 72.0
+        },
+        {
+          "baseline": 665.52,
+          "text": "1",
+          "x": 325.16
+        },
+        {
+          "baseline": 674.64,
+          "text": "𝜑 = 1+",
+          "x": 246.97
+        },
+        {
+          "baseline": 681.12,
+          "text": "1",
+          "x": 335.63
+        },
+        {
+          "baseline": 688.32,
+          "text": "1+",
+          "x": 291.93
+        },
+        {
+          "baseline": 694.08,
+          "text": "1",
+          "x": 346.1
+        },
+        {
+          "baseline": 701.04,
+          "text": "1+",
+          "x": 312.87
+        },
+        {
+          "baseline": 707.04,
+          "text": "1+ ⋯",
+          "x": 333.81
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "A system of four equations in matrix form:",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.77,
+          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
+          "x": 219.94
+        },
+        {
+          "baseline": 102.24,
+          "text": "𝑏",
+          "x": 380.16
+        },
+        {
+          "baseline": 105.12,
+          "text": "11 12 13 14",
+          "x": 226.62
+        },
+        {
+          "baseline": 105.12,
+          "text": "1",
+          "x": 343.51
+        },
+        {
+          "baseline": 104.64,
+          "text": "1",
+          "x": 386.63
+        },
+        {
+          "baseline": 115.68,
+          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
+          "x": 219.94
+        },
+        {
+          "baseline": 116.4,
+          "text": "𝑏",
+          "x": 380.16
+        },
+        {
+          "baseline": 117.84,
+          "text": "21 22 23 24",
+          "x": 226.62
+        },
+        {
+          "baseline": 118.08,
+          "text": "2",
+          "x": 343.51
+        },
+        {
+          "baseline": 118.56,
+          "text": "2",
+          "x": 386.63
+        },
+        {
+          "baseline": 121.2,
+          "text": "⎛ ⎞",
+          "x": 391.68
+        },
+        {
+          "baseline": 123.84,
+          "text": "%",
+          "x": 211.92
+        },
+        {
+          "baseline": 123.74,
+          "text": "&% & =",
+          "x": 348.72
+        },
+        {
+          "baseline": 128.64,
+          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
+          "x": 219.94
+        },
+        {
+          "baseline": 130.8,
+          "text": "31 32 33 34",
+          "x": 226.62
+        },
+        {
+          "baseline": 130.8,
+          "text": "3",
+          "x": 343.51
+        },
+        {
+          "baseline": 130.56,
+          "text": "𝑏",
+          "x": 380.16
+        },
+        {
+          "baseline": 132.72,
+          "text": "3",
+          "x": 386.63
+        },
+        {
+          "baseline": 141.6,
+          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
+          "x": 219.94
+        },
+        {
+          "baseline": 143.76,
+          "text": "41 42 43 44",
+          "x": 226.62
+        },
+        {
+          "baseline": 144.6,
+          "text": "4 ⎝𝑏 ⎠",
+          "x": 343.51
+        },
+        {
+          "baseline": 147.12,
+          "text": "4",
+          "x": 386.63
+        },
+        {
+          "baseline": 164.64,
+          "text": "The arithmetic and geometric means:",
+          "x": 72.0
+        },
+        {
+          "baseline": 183.6,
+          "text": "𝑥 + 𝑥 + ⋯ + 𝑥",
+          "x": 226.31
+        },
+        {
+          "baseline": 186.0,
+          "text": "1",
+          "x": 232.7
+        },
+        {
+          "baseline": 186.0,
+          "text": "2",
+          "x": 258.1
+        },
+        {
+          "baseline": 186.48,
+          "text": "𝑛 𝑛",
+          "x": 307.03
+        },
+        {
+          "baseline": 192.1,
+          "text": "≥ +𝑥 𝑥 ⋯ 𝑥",
+          "x": 328.8
+        },
+        {
+          "baseline": 194.16,
+          "text": "1 2",
+          "x": 343.31
+        },
+        {
+          "baseline": 194.16,
+          "text": "𝑛",
+          "x": 380.35
+        },
+        {
+          "baseline": 199.44,
+          "text": "𝑛",
+          "x": 265.89
+        },
+        {
+          "baseline": 216.72,
+          "text": "A Fourier series:",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.8,
+          "text": ")",
+          "x": 267.27
+        },
+        {
+          "baseline": 241.44,
+          "text": "𝑎",
+          "x": 236.41
+        },
+        {
+          "baseline": 241.44,
+          "text": "𝑛𝜋𝑥",
+          "x": 323.77
+        },
+        {
+          "baseline": 241.44,
+          "text": "𝑛𝜋𝑥",
+          "x": 388.25
+        },
+        {
+          "baseline": 243.84,
+          "text": "*",
+          "x": 243.09
+        },
+        {
+          "baseline": 250.56,
+          "text": "𝑓(𝑥)= + E\t4𝑎 cos + 𝑏 sin 6",
+          "x": 197.12
+        },
+        {
+          "baseline": 252.96,
+          "text": "(",
+          "x": 298.79
+        },
+        {
+          "baseline": 252.96,
+          "text": "(",
+          "x": 364.9
+        },
+        {
+          "baseline": 258.48,
+          "text": "2",
+          "x": 239.14
+        },
+        {
+          "baseline": 258.48,
+          "text": "𝐿",
+          "x": 330.83
+        },
+        {
+          "baseline": 258.48,
+          "text": "𝐿",
+          "x": 395.31
+        },
+        {
+          "baseline": 265.92,
+          "text": "(2-",
+          "x": 262.81
+        },
+        {
+          "baseline": 283.44,
+          "text": "The Gaussian integral in two dimensions:",
+          "x": 72.0
+        },
+        {
+          "baseline": 303.36,
+          "text": "2 2",
+          "x": 289.28
+        },
+        {
+          "baseline": 306.24,
+          "text": "−(𝑥 +𝑦 )",
+          "x": 274.88
+        },
+        {
+          "baseline": 310.32,
+          "text": ",\t𝑒",
+          "x": 268.93
+        },
+        {
+          "baseline": 310.32,
+          "text": "𝑑𝑥\t𝑑𝑦= 𝜋",
+          "x": 315.43
+        },
+        {
+          "baseline": 316.8,
+          "text": "2",
+          "x": 260.24
+        },
+        {
+          "baseline": 320.64,
+          "text": "ℝ",
+          "x": 253.91
+        },
+        {
+          "baseline": 337.92,
+          "text": "The divergence theorem:",
+          "x": 72.0
+        },
+        {
+          "baseline": 361.68,
+          "text": "..⃗",
+          "x": 281.52
+        },
+        {
+          "baseline": 361.68,
+          "text": "..⃗ ..⃗",
+          "x": 363.12
+        },
+        {
+          "baseline": 364.56,
+          "text": "-\t𝛻⋅𝐹\t𝑑𝑉= 0\t𝐹⋅𝑑𝑆",
+          "x": 265.98
+        },
+        {
+          "baseline": 374.88,
+          "text": "𝑉",
+          "x": 256.19
+        },
+        {
+          "baseline": 374.88,
+          "text": "𝜕𝑉",
+          "x": 325.94
+        },
+        {
+          "baseline": 392.4,
+          "text": "A piecewise function:",
+          "x": 72.0
+        },
+        {
+          "baseline": 412.56,
+          "text": "−1 if 𝑥< 0",
+          "x": 300.65
+        },
+        {
+          "baseline": 426.21,
+          "text": "sgn(𝑥)= S0 if 𝑥= 0",
+          "x": 245.77
+        },
+        {
+          "baseline": 440.64,
+          "text": "1 if 𝑥> 0",
+          "x": 300.65
+        },
+        {
+          "baseline": 458.16,
+          "text": "The Riemann zeta function:",
+          "x": 72.0
+        },
+        {
+          "baseline": 475.62,
+          "text": ") ;,-",
+          "x": 335.1
+        },
+        {
+          "baseline": 480.0,
+          "text": "1",
+          "x": 283.54
+        },
+        {
+          "baseline": 480.0,
+          "text": "𝑥",
+          "x": 327.78
+        },
+        {
+          "baseline": 489.12,
+          "text": "𝜁(𝑠)=",
+          "x": 237.62
+        },
+        {
+          "baseline": 489.12,
+          "text": ":",
+          "x": 300.48
+        },
+        {
+          "baseline": 489.12,
+          "text": "𝑑𝑥",
+          "x": 360.67
+        },
+        {
+          "baseline": 493.44,
+          "text": "<",
+          "x": 329.34
+        },
+        {
+          "baseline": 497.04,
+          "text": "𝛤(𝑠) 𝑒 − 1",
+          "x": 275.17
+        },
+        {
+          "baseline": 500.4,
+          "text": "*",
+          "x": 305.82
+        },
+        {
+          "baseline": 517.92,
+          "text": "REVIEW: the matrix system lies wholly at the top of the second page in both outputs, and its",
+          "x": 72.0
+        },
+        {
+          "baseline": 532.32,
+          "text": "introductory line stays at the foot of the first page as in Word. No equation is divided between two",
+          "x": 72.0
+        },
+        {
+          "baseline": 546.72,
+          "text": "pages.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "7392101ba2d148dd1dfc2f6224186508ee6e230465a19ee44d2ff94235a9d9a6"
+}

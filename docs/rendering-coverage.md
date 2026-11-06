@@ -51,7 +51,7 @@ Microsoft Word and PowerPoint visual review remains unreviewed.
 
 | Contracts | Output evidence | Current boundary |
 | --- | --- | --- |
-| [Math](checklists/math.md) | [Math captures and validation](../tests/mathematics.rs) | Editable OMML in DOCX/PPTX; native italic source-text fallback with warnings. Raw XML is validated before package insertion. |
+| [Math](checklists/math.md) | [Math captures and validation](../tests/mathematics.rs) | Editable OMML in DOCX/PPTX; native typesetting with the OpenType MATH table, or italic source text with a warning when no math font is available. Raw XML is validated before package insertion. |
 | [Checkbox](checklists/checkbox.md), [field](checklists/field.md), [comment](checklists/comment.md) | [Annotation captures](../tests/annotations.rs) | DOCX controls, instructions and comment stories; native textual document checkboxes, omitted general fields and visible comment bodies. Slides omit standalone controls and fields. |
 | [Metadata](checklists/metadata.md), [value helpers](checklists/value-helpers.md) | [Annotations](../tests/annotations.rs), [helpers](../tests/value_helpers.rs) | DOCX title/author and PPTX title mappings; other metadata retained. Formatting helpers feed ordinary text and existing layout properties. |
 

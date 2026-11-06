@@ -256,7 +256,6 @@ fn measure(
         base_style: style.text,
         base_line_height: Some(style.line_height),
         spacing: style.line_spacing,
-        fallback_multiplier: style.line_multiplier,
         layout_kerning: true,
         word_exact_baseline: style.word_exact_baseline,
         ..Default::default()

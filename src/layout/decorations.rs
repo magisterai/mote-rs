@@ -41,7 +41,7 @@ pub(super) fn plan(
         let band_height = match options.spacing {
             LineSpacing::Exact(_) => base_height,
             _ if style.subscript || style.superscript => base_height,
-            _ => options.spacing.height(style, options.fallback_multiplier),
+            _ => options.spacing.height(style),
         }
         .min(height);
         let band_top = fragment.baseline - 0.5 * band_height - 0.3 * size;

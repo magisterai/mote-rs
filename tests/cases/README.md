@@ -1,6 +1,6 @@
 # Rendering test cases
 
-The [catalogue](catalogue.md) contains 95 editable cases: 64 document cases and
+The [catalogue](catalogue.md) contains 98 editable cases: 67 document cases and
 31 presentation cases. They cover ordinary Markdown, typography, tables,
 pagination, running content, drawings, charts, layouts and evaluated data.
 The [catalogue data](catalogue.json) records the source, evaluation mode, group,
@@ -55,7 +55,8 @@ target/review/
       01_plain_markdown_basics/
       ...
       63_markdown_table_alignment/
-      64_drawings_and_charts_in_flow/
+      ...
+      67_equation_page_breaks/
     powerpoint/
       01_plain_markdown_deck/
       ...

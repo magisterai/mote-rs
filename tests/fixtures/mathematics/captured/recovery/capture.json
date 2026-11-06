@@ -47,17 +47,17 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "487fb24ad1a174a68b02124561d8cb6caabe43b406bd7583538b090dd723a62c",
+      "sha256": "6afe29afaeb12017df866641d317b11d31b6b7aba0ba9ac8807541fc9f287b5c",
       "maximum": 64,
       "mean": 12,
       "outliers": 0
     }
   ],
   "warnings": [
-    "mathematical typesetting is deferred"
+    "incomplete math delimiters"
   ],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "32885c4508e7e94cbab1829812e74709de3105a33d3f7ee3678c4a0608e68b3c"
+    "sha256": "b9a0a14efcd53e820e4fe5b350cc9be0995d76a7ff6a0b8bdcd0d7e7a26bb26d"
   }
 }

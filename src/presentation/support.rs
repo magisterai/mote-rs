@@ -310,17 +310,3 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
     formatting(attributes, path, warnings);
     content(&element.children, path, warnings);
 }
-
-/// Native text warnings describe content that cannot be typeset yet.
-pub(crate) fn native_text_warnings(content: &[Content]) -> BTreeSet<String> {
-    let mut warnings = BTreeSet::new();
-    for node in content {
-        if let Content::Element(element) = node {
-            if element.kind == ElementKind::Math {
-                warnings.insert("native slides use italic math source text; mathematical typesetting is deferred".into());
-            }
-            warnings.extend(native_text_warnings(&element.children));
-        }
-    }
-    warnings
-}

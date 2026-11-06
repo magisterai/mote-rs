@@ -9,11 +9,7 @@ pub fn plan_text(
     options: &LineOptions,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<Vec<TextLine>, LayoutError> {
-    if !options.width.is_finite()
-        || !options.first_indent.is_finite()
-        || !options.fallback_multiplier.is_finite()
-        || options.fallback_multiplier <= 0.0
-    {
+    if !options.width.is_finite() || !options.first_indent.is_finite() {
         return Err(LayoutError::InvalidGeometry(
             "line frames and spacing must be finite",
         ));
@@ -59,12 +55,14 @@ pub fn plan_text(
     if base_style.measurement.size_points <= 0.0 {
         base_style.measurement.size_points = 11.0;
     }
-    let mut runs = small_caps(runs);
+    let mut runs = runs.to_vec();
     for run in &mut runs {
         if run.style.measurement.size_points <= 0.0 {
             run.style.measurement.size_points = 11.0;
         }
+        typeset(run, measurer);
     }
+    let runs = small_caps(&runs);
     let wrapped = wrapping::wrap(&runs, options, measurer)?;
     let mut lines = Vec::new();
     for (index, wrapped) in wrapped.into_iter().enumerate() {
@@ -85,9 +83,7 @@ pub fn plan_text(
         };
         let (x, width, placed) = placement::place(&wrapped.runs, &frame, measurer)?;
         let mut ordinary_size = base_style.measurement.size_points;
-        let natural_height = options
-            .spacing
-            .height(&base_style, options.fallback_multiplier);
+        let natural_height = options.spacing.height(&base_style);
         let mut height = options
             .base_line_height
             .filter(|height| *height > 0.0)
@@ -102,11 +98,7 @@ pub fn plan_text(
             }
             ordinary_size = ordinary_size.max(run.style.measurement.size_points);
             if !matches!(options.spacing, LineSpacing::Exact(_)) {
-                height = height.max(
-                    options
-                        .spacing
-                        .height(&run.style, options.fallback_multiplier),
-                );
+                height = height.max(options.spacing.height(&run.style));
             }
         }
         if height <= 0.0 {
@@ -115,16 +107,97 @@ pub fn plan_text(
         }
         let word_exact =
             options.word_exact_baseline && matches!(options.spacing, LineSpacing::Exact(_));
-        let baseline = if word_exact {
+        let mut baseline = if word_exact {
             0.8 * height
         } else {
             0.5 * height + 0.3 * ordinary_size
         };
+        let formulas: Vec<_> = wrapped
+            .runs
+            .iter()
+            .filter_map(|run| run.formula.as_ref())
+            .collect();
+        if !formulas.is_empty() {
+            // Office measures an equation against the single-spaced line and
+            // enlarges it once the equation comes within a clearance of an
+            // edge, whatever the line spacing. PowerPoint keeps more room
+            // above an equation than Word does.
+            let above = if options.word_exact_baseline {
+                0.06
+            } else {
+                0.13
+            } * ordinary_size;
+            let below = 0.06 * ordinary_size;
+            let single = std::iter::once(&base_style)
+                .chain(
+                    wrapped
+                        .runs
+                        .iter()
+                        .filter(|run| !run.style.superscript && !run.style.subscript)
+                        .map(|run| &run.style),
+                )
+                .map(|style| LineSpacing::Multiple(1.0).height(style))
+                .fold(0.0, f64::max);
+            let single_baseline = 0.5 * single + 0.3 * ordinary_size;
+            let ascent = formulas
+                .iter()
+                .map(|formula| formula.ascent)
+                .fold(0.0, f64::max);
+            let descent = formulas
+                .iter()
+                .map(|formula| formula.descent)
+                .fold(0.0, f64::max);
+            let raise = (ascent + above - single_baseline).max(0.0);
+            let growth = (descent + below - (single - single_baseline)).max(0.0);
+            match options.spacing {
+                // PowerPoint keeps an exact height but lifts a line whose
+                // equation reaches further below than half its rise above.
+                LineSpacing::Exact(_) if !options.word_exact_baseline => {
+                    baseline -= (growth - raise / 2.0).max(0.0);
+                }
+                LineSpacing::Exact(_) => {}
+                LineSpacing::AtLeast(_) => {
+                    // The minimum absorbs the enlargement until the line
+                    // outgrows it.
+                    let natural = single + raise + growth;
+                    if natural > height {
+                        height = natural;
+                        baseline = single_baseline + raise;
+                    }
+                }
+                LineSpacing::Multiple(_) => {
+                    baseline += raise;
+                    height += raise + growth;
+                }
+            }
+        }
         if !height.is_finite() || !baseline.is_finite() {
             return Err(LayoutError::InvalidGeometry("line dimensions overflowed"));
         }
         let mut fragments = Vec::new();
         for placed in placed {
+            if let Some(formula) = &placed.run.formula {
+                fragments.push(TextFragment {
+                    text: formula.text(),
+                    x: placed.x,
+                    baseline,
+                    top: baseline - formula.ascent,
+                    height: formula.ascent + formula.descent,
+                    width: placed.width,
+                    advance: placed.advance,
+                    font: formula.font.clone(),
+                    missing_codepoints: Vec::new(),
+                    link: placed.run.link,
+                    tooltip: placed.run.tooltip,
+                    internal_target: placed.run.internal_target,
+                    anchors: placed.run.anchors,
+                    current_page_field: None,
+                    footnote_number: None,
+                    formula: placed.run.formula.clone(),
+                    style: placed.run.style,
+                });
+                continue;
+            }
             if placed.run.fixed_advance.is_some() {
                 continue;
             }
@@ -163,6 +236,7 @@ pub fn plan_text(
                 anchors: placed.run.anchors,
                 current_page_field: placed.run.current_page_field,
                 footnote_number: placed.run.footnote_number,
+                formula: None,
                 text: measurement.prepared_text,
                 x: placed.x,
                 baseline,
@@ -189,6 +263,50 @@ pub fn plan_text(
         });
     }
     Ok(lines)
+}
+
+/// Replaces an equation by its typeset formula, which wraps as one object, or
+/// leaves its source text when no math font is available.
+fn typeset(run: &mut TextRun, measurer: &mut TextMeasurer<'_>) {
+    let Some(element) = &run.math else {
+        return;
+    };
+    if run.formula.is_some() {
+        return;
+    }
+    let attributes = &element.attributes;
+    if crate::properties::text(attributes, "format") == "omml" {
+        measurer.warn("raw Office Math is shown as its source text in native output");
+        return;
+    }
+    let Some(font) = measurer.math_font() else {
+        measurer.warn(
+            "no math font (Cambria Math or STIX Two Math) is available; equations are shown as italic source text",
+        );
+        return;
+    };
+    let mut upright = run.style.measurement.clone();
+    let (bold, _) = super::styles::emphasis(upright.variant);
+    upright.variant = crate::measurement::FontVariant::from_emphasis(bold, false);
+    let text_font = measurer
+        .measure(&upright, "", false)
+        .ok()
+        .map(|measured| measured.font);
+    let Some((formula, warnings)) = crate::math::typesetting::typeset(
+        &crate::properties::text(attributes, "source"),
+        crate::properties::text(attributes, "display") == "block",
+        run.style.measurement.size_points,
+        &font,
+        text_font.as_ref(),
+    ) else {
+        return;
+    };
+    for warning in warnings {
+        measurer.warn(warning);
+    }
+    run.text = "\u{FFFC}".into();
+    run.fixed_advance = Some(formula.width);
+    run.formula = Some(std::sync::Arc::new(formula));
 }
 
 fn small_caps(runs: &[TextRun]) -> Vec<TextRun> {

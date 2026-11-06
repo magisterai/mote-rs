@@ -209,16 +209,90 @@ fn bounded_parser_warns_for_unknown_commands_and_deep_groups() {
     }
 }
 
+/// Plans a document whose math font is the STIX Two Math fixture, without the
+/// installed fonts, so that the layout does not depend on the machine.
+fn plan_with_fixture_font(content: &str) -> mote::render::Rendered<mote::layout::DocumentTextPlan> {
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/mathematics");
+    let resolver = mote::source::FileAssetResolver::new(&root).unwrap();
+    let source = format!(
+        "#font(name = \"Cambria Math\", files = {{ regular = \"fonts/STIXTwoMath.otf\" }})\n{content}"
+    );
+    let name = root.join("fixture.mote");
+    let document = mote::compile(&source).unwrap();
+    mote::render::plan_with_layout_and_fonts(
+        &document,
+        &resolver,
+        Some(name.as_os_str()),
+        mote::render::LayoutMode::Document,
+        None,
+    )
+    .unwrap()
+}
+
+fn formulas(plan: &mote::layout::DocumentTextPlan) -> Vec<&mote::layout::Formula> {
+    plan.pages
+        .iter()
+        .flat_map(|page| &page.lines)
+        .flat_map(|line| &line.line.fragments)
+        .filter_map(|fragment| fragment.formula.as_deref())
+        .collect()
+}
+
 #[test]
-fn native_equations_use_explicit_source_fallbacks() {
+fn native_equations_are_typeset_with_the_math_font() {
+    let planned = plan_with_fixture_font(r"Inline $x^2 + \frac{a}{b}$.\n\[\sqrt{a+b}\]");
+    assert!(
+        planned
+            .warnings
+            .iter()
+            .all(|warning| !warning.contains("math")),
+        "{:?}",
+        planned.warnings
+    );
+    let formulas = formulas(&planned.output);
+    assert_eq!(formulas.len(), 2);
+    let [inline, display] = [formulas[0], formulas[1]];
+    assert_eq!(inline.font.family, "Cambria Math");
+    assert!(inline.glyphs.iter().any(|glyph| glyph.text == "𝑥"));
+    assert!(
+        inline
+            .glyphs
+            .iter()
+            .any(|glyph| glyph.text == "2" && glyph.rise > 0.0)
+    );
+    assert_eq!(inline.rules.len(), 1, "the fraction bar");
+    assert_eq!(display.rules.len(), 1, "the radical's overbar");
+    assert!(display.glyphs.iter().any(|glyph| glyph.text == "√"));
+    let pdf = mote::render::paint_pdf(&planned.output).unwrap();
+    assert!(pdf.windows(9).any(|window| window == b"ToUnicode"));
+    mote::render::paint_png(&planned.output, &Default::default()).unwrap();
+}
+
+#[test]
+fn display_operators_are_larger_than_inline_operators() {
+    let planned = plan_with_fixture_font(r"$\sum_{i=1}^n i$\n\[\sum_{i=1}^n i\]");
+    let formulas = formulas(&planned.output);
+    let height = |formula: &mote::layout::Formula| formula.ascent + formula.descent;
+    assert!(height(formulas[1]) > 1.5 * height(formulas[0]));
+}
+
+#[test]
+fn native_equations_without_a_math_font_use_italic_source_text() {
     let document = mote::compile(r"Inline $x^2$.\n\[a+b\]").unwrap();
     let resolver = mote::source::FileAssetResolver::from_current_directory().unwrap();
-    let generated = mote::render::plan(&document, &resolver, None).unwrap();
+    let generated = mote::render::plan_with_layout_and_fonts(
+        &document,
+        &resolver,
+        None,
+        mote::render::LayoutMode::Document,
+        None,
+    )
+    .unwrap();
     assert!(
         generated
             .warnings
             .iter()
-            .any(|warning| warning.contains("mathematical typesetting is deferred"))
+            .any(|warning| warning.contains("no math font"))
     );
     assert!(
         generated
@@ -228,6 +302,7 @@ fn native_equations_use_explicit_source_fallbacks() {
             .flat_map(|page| &page.lines)
             .flat_map(|line| &line.line.fragments)
             .any(|fragment| fragment.text == "x^2"
+                && fragment.formula.is_none()
                 && fragment.font.variant == mote::measurement::FontVariant::Italic)
     );
 }

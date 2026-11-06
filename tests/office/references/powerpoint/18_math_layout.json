@@ -70,7 +70,7 @@
         },
         {
           "baseline": 518.88,
-          "text": "November 4, 2026",
+          "text": "November 6, 2026",
           "x": 440.63
         },
         {
@@ -160,19 +160,19 @@
           "x": 636.59
         },
         {
-          "baseline": 339.6,
-          "text": "𝑥 if\t𝑥≥ 0",
-          "x": 445.0
+          "baseline": 336.48,
+          "text": "𝑥 if 𝑥≥ 0",
+          "x": 450.71
         },
         {
-          "baseline": 349.2,
-          "text": "|𝑥|=",
-          "x": 385.45
+          "baseline": 346.13,
+          "text": "|𝑥|= 3",
+          "x": 389.82
         },
         {
-          "baseline": 360.72,
-          "text": "−𝑥 if\t𝑥< 0",
-          "x": 438.25
+          "baseline": 357.6,
+          "text": "−𝑥 if 𝑥< 0",
+          "x": 443.96
         },
         {
           "baseline": 518.88,
@@ -181,7 +181,7 @@
         },
         {
           "baseline": 518.88,
-          "text": "November 4, 2026",
+          "text": "November 6, 2026",
           "x": 440.63
         },
         {

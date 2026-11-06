@@ -348,25 +348,25 @@
         "x": 72,
         "top": 281.02986,
         "height": 15.225539999999999,
-        "width": 94.776,
+        "width": 95.785765625,
         "baseline": 291.94263,
         "fragments": [
           {
-            "text": "x",
+            "text": "𝑥",
             "x": 72,
             "baseline": 291.94263,
-            "top": 284.04463,
-            "width": 5.5,
-            "height": 10.175,
-            "advance": 5.5,
+            "top": 286.71655578125,
+            "width": 5.8544921875,
+            "height": 5.31201171875,
+            "advance": 5.8544921875,
             "size": 11,
-            "font": "Helvetica",
-            "variant": "italic",
+            "font": "ca2a527ab14967b1c7170a97329ed29f38af51b71c8c2073d89d1c055de22de1",
+            "variant": "regular",
             "missing_codepoints": []
           },
           {
             "text": " ",
-            "x": 77.5,
+            "x": 77.8544921875,
             "baseline": 291.94263,
             "top": 284.04463,
             "width": 3.058,
@@ -379,7 +379,7 @@
           },
           {
             "text": "before ",
-            "x": 80.55799999999999,
+            "x": 80.91249218749999,
             "baseline": 291.94263,
             "top": 284.04463,
             "width": 34.243,
@@ -392,7 +392,7 @@
           },
           {
             "text": "and ",
-            "x": 114.801,
+            "x": 115.1554921875,
             "baseline": 291.94263,
             "top": 284.04463,
             "width": 21.406,
@@ -405,7 +405,7 @@
           },
           {
             "text": "after ",
-            "x": 136.207,
+            "x": 136.5614921875,
             "baseline": 291.94263,
             "top": 284.04463,
             "width": 25.069,
@@ -417,16 +417,16 @@
             "missing_codepoints": []
           },
           {
-            "text": "y",
-            "x": 161.276,
+            "text": "𝑦",
+            "x": 161.6304921875,
             "baseline": 291.94263,
-            "top": 284.04463,
-            "width": 5.5,
-            "height": 10.175,
-            "advance": 5.5,
+            "top": 286.721926875,
+            "width": 6.1552734375,
+            "height": 7.5625,
+            "advance": 6.1552734375,
             "size": 11,
-            "font": "Helvetica",
-            "variant": "italic",
+            "font": "ca2a527ab14967b1c7170a97329ed29f38af51b71c8c2073d89d1c055de22de1",
+            "variant": "regular",
             "missing_codepoints": []
           }
         ]

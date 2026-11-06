@@ -308,6 +308,10 @@ fn paint_line(
         fill_rectangle(pixels, rectangle, scale, clip)?;
     }
     for fragment in &line.fragments {
+        if let Some(formula) = &fragment.formula {
+            paint_formula(pixels, fragment, formula, scale, fonts, clip)?;
+            continue;
+        }
         let selected = fonts.resolve(&fragment.font)?;
         if selected.fallback {
             warnings.insert(format!(
@@ -375,6 +379,67 @@ fn paint_line(
             [decoration.end * scale, decoration.y * scale],
             decoration.width * scale,
             color(&decoration.color)?,
+            clip,
+        );
+    }
+    Ok(())
+}
+
+fn paint_formula(
+    pixels: &mut Pixmap,
+    fragment: &crate::layout::TextFragment,
+    formula: &crate::layout::Formula,
+    scale: f64,
+    fonts: &mut RasterFonts,
+    clip: Option<&tiny_skia::Mask>,
+) -> Result<(), RenderError> {
+    let math = fonts.resolve(&formula.font)?;
+    let math = (math.bytes.clone(), math.face_index);
+    let text = match &formula.text_font {
+        Some(text_font) => {
+            let text = fonts.resolve(text_font)?;
+            Some((text.bytes.clone(), text.face_index))
+        }
+        None => None,
+    };
+    let invalid = |_| RenderError::Invalid("invalid PNG font".into());
+    let math_face = Face::parse(&math.0, math.1).map_err(invalid)?;
+    let text_face = text
+        .as_ref()
+        .map(|(bytes, index)| Face::parse(bytes, *index))
+        .transpose()
+        .map_err(invalid)?;
+    let brush = paint(&fragment.style.color, true)?;
+    for glyph in &formula.glyphs {
+        let face = match &text_face {
+            Some(text_face) if glyph.in_text_font => text_face,
+            _ => &math_face,
+        };
+        let mut outline = Outline {
+            path: PathBuilder::new(),
+            scale: glyph.size * scale / f64::from(face.units_per_em()),
+            origin: (fragment.x + glyph.x) * scale,
+            baseline: (fragment.baseline - glyph.rise) * scale,
+        };
+        face.outline_glyph(ttf_parser::GlyphId(glyph.glyph), &mut outline);
+        if let Some(path) = outline.path.finish() {
+            pixels.fill_path(
+                &path,
+                &brush,
+                FillRule::Winding,
+                Transform::identity(),
+                clip,
+            );
+        }
+    }
+    for rule in &formula.rules {
+        let middle = (fragment.baseline - rule.rise - rule.height / 2.0) * scale;
+        crisp_axis_aligned(
+            pixels,
+            [(fragment.x + rule.x) * scale, middle],
+            [(fragment.x + rule.x + rule.width) * scale, middle],
+            rule.height * scale,
+            color(&fragment.style.color)?,
             clip,
         );
     }

@@ -2,6 +2,7 @@
 mod nodes;
 mod parser;
 mod symbols;
+pub(crate) mod typesetting;
 use crate::model::{Element, Properties};
 use crate::properties;
 

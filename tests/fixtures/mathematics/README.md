@@ -13,8 +13,10 @@ implementation or executable.
 `expressions`, `edges`, `matrices`, `raw-and-lua`, `stories` and `recovery` are
 DOCX cases; `slides` and `recovery-slides` are PPTX. All eight PDF rasters matched
 their capture inputs pixel for pixel at 144 DPI.
-Native math intentionally displays italic source text, with warnings; these pages
-are not mathematical typesetting evidence. Complete editable math XML is checked
+Native math is typeset with the installed Cambria Math. The `expressions` and
+`edges` pages were compared with Word's PDF export of the same packages: the
+baselines of `edges` lie within 5.2 points of Word's over the page, and both
+outputs break before its final paragraph. Complete editable math XML is checked
 separately. `edges` also covers unmatched delimiters, brace-adjacent operators,
 explicit spacing, and whitespace beside inline math. The raw-input negative tests
 also require valid enclosing package XML and a visible fallback when a math root

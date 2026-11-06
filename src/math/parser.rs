@@ -235,8 +235,8 @@ impl<'a> Parser<'a> {
                     "prod" => ("∏", "undOvr"),
                     "sum" => ("∑", "undOvr"),
                     "int" => ("∫", "subSup"),
-                    "iint" => ("∫∫", "subSup"),
-                    "iiint" => ("∫∫∫", "subSup"),
+                    "iint" => ("∬", "subSup"),
+                    "iiint" => ("∭", "subSup"),
                     _ => ("∮", "subSup"),
                 };
                 Node::NaryOperator { symbol, location }

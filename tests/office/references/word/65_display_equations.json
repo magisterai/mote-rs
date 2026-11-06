@@ -1,0 +1,743 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Display Equations",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "Each display equation below stands in its own paragraph between two lines of prose, so that the",
+          "x": 72.0
+        },
+        {
+          "baseline": 124.32,
+          "text": "height Word gives the equation shows in the position of the following line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 150.0,
+          "text": "Fractions and radicals",
+          "x": 72.0
+        },
+        {
+          "baseline": 171.84,
+          "text": "The roots of a quadratic follow from completing the square:",
+          "x": 72.0
+        },
+        {
+          "baseline": 193.92,
+          "text": "!",
+          "x": 320.08
+        },
+        {
+          "baseline": 197.52,
+          "text": "−𝑏± √𝑏 − 4𝑎𝑐",
+          "x": 275.35
+        },
+        {
+          "baseline": 206.64,
+          "text": "𝑥=",
+          "x": 252.97
+        },
+        {
+          "baseline": 214.56,
+          "text": "2𝑎",
+          "x": 310.38
+        },
+        {
+          "baseline": 234.24,
+          "text": "A continued fraction nests a fraction in every denominator:",
+          "x": 72.0
+        },
+        {
+          "baseline": 256.08,
+          "text": "1",
+          "x": 327.87
+        },
+        {
+          "baseline": 264.32,
+          "text": "!2= 1+",
+          "x": 245.04
+        },
+        {
+          "baseline": 271.2,
+          "text": "1",
+          "x": 338.12
+        },
+        {
+          "baseline": 277.68,
+          "text": "2+",
+          "x": 295.31
+        },
+        {
+          "baseline": 283.68,
+          "text": "1",
+          "x": 348.37
+        },
+        {
+          "baseline": 290.16,
+          "text": "2+",
+          "x": 315.81
+        },
+        {
+          "baseline": 296.16,
+          "text": "2+ ⋯",
+          "x": 336.3
+        },
+        {
+          "baseline": 315.84,
+          "text": "Nested radicals and a root degree stack in the other direction:",
+          "x": 72.0
+        },
+        {
+          "baseline": 347.28,
+          "text": "3",
+          "x": 222.51
+        },
+        {
+          "baseline": 347.28,
+          "text": "3",
+          "x": 313.64
+        },
+        {
+          "baseline": 349.92,
+          "text": "2",
+          "x": 266.77
+        },
+        {
+          "baseline": 349.92,
+          "text": "3",
+          "x": 293.19
+        },
+        {
+          "baseline": 349.92,
+          "text": "2",
+          "x": 357.89
+        },
+        {
+          "baseline": 349.92,
+          "text": "3",
+          "x": 384.32
+        },
+        {
+          "baseline": 353.04,
+          "text": "𝑞 𝑞 𝑝",
+          "x": 231.49
+        },
+        {
+          "baseline": 353.04,
+          "text": "𝑞 𝑞 𝑝",
+          "x": 322.61
+        },
+        {
+          "baseline": 359.04,
+          "text": "\" #",
+          "x": 252.0
+        },
+        {
+          "baseline": 359.04,
+          "text": "\" #",
+          "x": 342.96
+        },
+        {
+          "baseline": 361.44,
+          "text": "+ + + − +",
+          "x": 274.37
+        },
+        {
+          "baseline": 368.88,
+          "text": "2 4 27 2 4 27",
+          "x": 231.4
+        },
+        {
+          "baseline": 401.76,
+          "text": "Large operators",
+          "x": 72.0
+        },
+        {
+          "baseline": 423.84,
+          "text": "A sum with limits above and below sets the height of its line:",
+          "x": 72.0
+        },
+        {
+          "baseline": 441.6,
+          "text": "𝑛",
+          "x": 244.68
+        },
+        {
+          "baseline": 449.52,
+          "text": "𝑛",
+          "x": 266.7
+        },
+        {
+          "baseline": 451.92,
+          "text": "𝑛",
+          "x": 367.42
+        },
+        {
+          "baseline": 453.84,
+          "text": "𝑘 𝑛−𝑘",
+          "x": 287.19
+        },
+        {
+          "baseline": 457.92,
+          "text": "$\t% &𝑥 𝑦 = (𝑥+ 𝑦)",
+          "x": 261.36
+        },
+        {
+          "baseline": 465.36,
+          "text": "𝑘",
+          "x": 266.83
+        },
+        {
+          "baseline": 471.84,
+          "text": "𝑘=0",
+          "x": 239.25
+        },
+        {
+          "baseline": 491.28,
+          "text": "The Gaussian integral and a product formula:",
+          "x": 72.0
+        },
+        {
+          "baseline": 509.28,
+          "text": "∞",
+          "x": 394.28
+        },
+        {
+          "baseline": 513.12,
+          "text": "∞",
+          "x": 197.43
+        },
+        {
+          "baseline": 518.64,
+          "text": "2",
+          "x": 228.26
+        },
+        {
+          "baseline": 517.2,
+          "text": "1",
+          "x": 352.57
+        },
+        {
+          "baseline": 517.2,
+          "text": "1",
+          "x": 414.48
+        },
+        {
+          "baseline": 521.52,
+          "text": "−𝑥",
+          "x": 217.39
+        },
+        {
+          "baseline": 525.66,
+          "text": "’\t𝑒\t𝑑𝑥= √𝜋, )",
+          "x": 211.43
+        },
+        {
+          "baseline": 525.6,
+          "text": "= $",
+          "x": 390.72
+        },
+        {
+          "baseline": 529.68,
+          "text": "−𝑠",
+          "x": 364.12
+        },
+        {
+          "baseline": 529.68,
+          "text": "𝑠",
+          "x": 419.06
+        },
+        {
+          "baseline": 533.04,
+          "text": "1− 𝑝",
+          "x": 336.93
+        },
+        {
+          "baseline": 533.04,
+          "text": "𝑛",
+          "x": 412.17
+        },
+        {
+          "baseline": 535.92,
+          "text": "−∞",
+          "x": 193.38
+        },
+        {
+          "baseline": 539.52,
+          "text": "𝑝 prime",
+          "x": 302.78
+        },
+        {
+          "baseline": 539.52,
+          "text": "𝑛=1",
+          "x": 389.93
+        },
+        {
+          "baseline": 560.64,
+          "text": "A limit with a fraction inside large brackets:",
+          "x": 72.0
+        },
+        {
+          "baseline": 578.88,
+          "text": ".",
+          "x": 345.11
+        },
+        {
+          "baseline": 584.16,
+          "text": "1",
+          "x": 332.31
+        },
+        {
+          "baseline": 593.28,
+          "text": "𝑒= lim >1+ ?",
+          "x": 260.73
+        },
+        {
+          "baseline": 600.48,
+          "text": ".→0",
+          "x": 282.58
+        },
+        {
+          "baseline": 601.2,
+          "text": "𝑛",
+          "x": 332.09
+        },
+        {
+          "baseline": 621.36,
+          "text": "The Cauchy integral formula uses a contour integral:",
+          "x": 72.0
+        },
+        {
+          "baseline": 643.68,
+          "text": "1 𝑓(𝑧)",
+          "x": 291.41
+        },
+        {
+          "baseline": 652.8,
+          "text": "𝑓(𝑎)= B",
+          "x": 246.24
+        },
+        {
+          "baseline": 652.8,
+          "text": "𝑑𝑧",
+          "x": 352.8
+        },
+        {
+          "baseline": 660.72,
+          "text": "2𝜋𝑖 𝑧− 𝑎",
+          "x": 285.76
+        },
+        {
+          "baseline": 664.08,
+          "text": "1",
+          "x": 310.96
+        },
+        {
+          "baseline": 688.32,
+          "text": "Matrices and cases",
+          "x": 72.0
+        },
+        {
+          "baseline": 710.16,
+          "text": "A determinant of a three by three matrix:",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 78.96,
+          "text": "3",
+          "x": 377.81
+        },
+        {
+          "baseline": 81.12,
+          "text": "𝑎 𝑎 𝑎",
+          "x": 213.04
+        },
+        {
+          "baseline": 83.52,
+          "text": "22 2! 23",
+          "x": 219.45
+        },
+        {
+          "baseline": 95.04,
+          "text": "𝑎 𝑎 𝑎",
+          "x": 212.9
+        },
+        {
+          "baseline": 97.13,
+          "text": "det\tG!2 !! !3G= H\tsgn(𝜎)M\t𝑎",
+          "x": 187.71
+        },
+        {
+          "baseline": 99.36,
+          "text": "7,4(7)",
+          "x": 402.65
+        },
+        {
+          "baseline": 109.2,
+          "text": "𝑎 𝑎 𝑎",
+          "x": 212.9
+        },
+        {
+          "baseline": 111.84,
+          "text": "32 3! 33 4∈6",
+          "x": 219.59
+        },
+        {
+          "baseline": 112.32,
+          "text": "782",
+          "x": 373.08
+        },
+        {
+          "baseline": 114.0,
+          "text": "#",
+          "x": 323.0
+        },
+        {
+          "baseline": 133.44,
+          "text": "A rotation applied to a vector:",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.8,
+          "text": "𝑥",
+          "x": 357.09
+        },
+        {
+          "baseline": 157.07,
+          "text": "𝑥′ cos𝜃 −sin𝜃",
+          "x": 248.68
+        },
+        {
+          "baseline": 162.72,
+          "text": "* += ,",
+          "x": 258.24
+        },
+        {
+          "baseline": 162.72,
+          "text": "-, -",
+          "x": 363.6
+        },
+        {
+          "baseline": 167.52,
+          "text": "𝑦",
+          "x": 356.92
+        },
+        {
+          "baseline": 170.02,
+          "text": "𝑦′ sin𝜃 cos𝜃",
+          "x": 248.51
+        },
+        {
+          "baseline": 191.28,
+          "text": "A function defined by cases:",
+          "x": 72.0
+        },
+        {
+          "baseline": 210.72,
+          "text": "!",
+          "x": 293.39
+        },
+        {
+          "baseline": 215.04,
+          "text": "𝑥 − 1",
+          "x": 286.35
+        },
+        {
+          "baseline": 224.16,
+          "text": "if 𝑥≠ 1",
+          "x": 331.75
+        },
+        {
+          "baseline": 228.24,
+          "text": "𝑓(𝑥)= R",
+          "x": 242.3
+        },
+        {
+          "baseline": 232.08,
+          "text": "𝑥− 1",
+          "x": 289.21
+        },
+        {
+          "baseline": 244.32,
+          "text": "2",
+          "x": 286.35
+        },
+        {
+          "baseline": 244.32,
+          "text": "if 𝑥= 1",
+          "x": 331.75
+        },
+        {
+          "baseline": 266.88,
+          "text": "Aligned derivations",
+          "x": 72.0
+        },
+        {
+          "baseline": 288.72,
+          "text": "A derivation aligned at its relations:",
+          "x": 72.0
+        },
+        {
+          "baseline": 308.16,
+          "text": "2",
+          "x": 268.69
+        },
+        {
+          "baseline": 314.16,
+          "text": "(𝑎+ 𝑏) = (𝑎+ 𝑏)(𝑎+ 𝑏)",
+          "x": 231.72
+        },
+        {
+          "baseline": 326.16,
+          "text": "2",
+          "x": 375.12
+        },
+        {
+          "baseline": 328.2,
+          "text": "2",
+          "x": 295.61
+        },
+        {
+          "baseline": 331.92,
+          "text": "= 𝑎 + 𝑎𝑏+ 𝑏𝑎+ 𝑏",
+          "x": 288.93
+        },
+        {
+          "baseline": 341.52,
+          "text": "2",
+          "x": 354.75
+        },
+        {
+          "baseline": 343.44,
+          "text": "2",
+          "x": 295.61
+        },
+        {
+          "baseline": 347.52,
+          "text": "= 𝑎 + 2𝑎𝑏+ 𝑏",
+          "x": 288.93
+        },
+        {
+          "baseline": 367.2,
+          "text": "The normal density and Bayes' theorem:",
+          "x": 72.0
+        },
+        {
+          "baseline": 386.64,
+          "text": "!",
+          "x": 300.38
+        },
+        {
+          "baseline": 390.96,
+          "text": "1",
+          "x": 204.37
+        },
+        {
+          "baseline": 390.96,
+          "text": "(𝑥− 𝜇)",
+          "x": 262.47
+        },
+        {
+          "baseline": 390.96,
+          "text": "𝑃(𝐵|𝐴)\t𝑃(𝐴)",
+          "x": 394.18
+        },
+        {
+          "baseline": 400.08,
+          "text": "𝜑(𝑥)=",
+          "x": 152.36
+        },
+        {
+          "baseline": 400.08,
+          "text": "expW−",
+          "x": 224.29
+        },
+        {
+          "baseline": 400.08,
+          "text": "Y, 𝑃(𝐴|𝐵)=",
+          "x": 305.76
+        },
+        {
+          "baseline": 404.4,
+          "text": "!",
+          "x": 288.61
+        },
+        {
+          "baseline": 408.0,
+          "text": "2𝜎",
+          "x": 274.24
+        },
+        {
+          "baseline": 408.0,
+          "text": "𝑃(𝐵)",
+          "x": 413.97
+        },
+        {
+          "baseline": 410.04,
+          "text": "𝜎√2𝜋",
+          "x": 193.08
+        },
+        {
+          "baseline": 434.4,
+          "text": "Braces and accents",
+          "x": 72.0
+        },
+        {
+          "baseline": 456.48,
+          "text": "Braces above and below an expression:",
+          "x": 72.0
+        },
+        {
+          "baseline": 474.96,
+          "text": "𝑛 terms",
+          "x": 262.32
+        },
+        {
+          "baseline": 481.68,
+          "text": "𝑛(𝑛+ 1)",
+          "x": 327.12
+        },
+        {
+          "baseline": 486.96,
+          "text": ".////0////1",
+          "x": 240.72
+        },
+        {
+          "baseline": 490.08,
+          "text": "1+ 2+ ⋯ + 𝑛=",
+          "x": 240.65
+        },
+        {
+          "baseline": 496.47,
+          "text": "23342335",
+          "x": 327.12
+        },
+        {
+          "baseline": 508.32,
+          "text": "triangular",
+          "x": 331.61
+        },
+        {
+          "baseline": 529.2,
+          "text": "Accents over vectors and derivatives:",
+          "x": 72.0
+        },
+        {
+          "baseline": 552.48,
+          "text": "a⃗",
+          "x": 264.24
+        },
+        {
+          "baseline": 554.88,
+          "text": "𝜕𝐵",
+          "x": 256.05
+        },
+        {
+          "baseline": 559.44,
+          "text": "!",
+          "x": 377.69
+        },
+        {
+          "baseline": 561.6,
+          "text": "a⃗",
+          "x": 223.2
+        },
+        {
+          "baseline": 564.0,
+          "text": "𝛻× 𝐸 = − , 𝑥̈+ 2𝜁𝜔 𝑥̇+ 𝜔 𝑥= 0",
+          "x": 221.49
+        },
+        {
+          "baseline": 566.4,
+          "text": "<",
+          "x": 342.25
+        },
+        {
+          "baseline": 566.64,
+          "text": "<",
+          "x": 377.42
+        },
+        {
+          "baseline": 571.92,
+          "text": "𝜕𝑡",
+          "x": 257.79
+        },
+        {
+          "baseline": 591.6,
+          "text": "A Fourier transform pair closes the page:",
+          "x": 72.0
+        },
+        {
+          "baseline": 609.6,
+          "text": "∞",
+          "x": 207.85
+        },
+        {
+          "baseline": 609.6,
+          "text": "∞",
+          "x": 368.6
+        },
+        {
+          "baseline": 618.96,
+          "text": "6",
+          "x": 161.76
+        },
+        {
+          "baseline": 618.0,
+          "text": "−2𝜋𝑖𝑥𝜉",
+          "x": 253.4
+        },
+        {
+          "baseline": 618.16,
+          "text": "6 2𝜋𝑖𝑥𝜉",
+          "x": 382.8
+        },
+        {
+          "baseline": 622.08,
+          "text": "𝑓(𝜉)= ’\t𝑓(𝑥)\t𝑒",
+          "x": 161.56
+        },
+        {
+          "baseline": 622.08,
+          "text": "𝑑𝑥, 𝑓(𝑥)= ’\t𝑓(𝜉)\t𝑒\t𝑑𝜉",
+          "x": 283.9
+        },
+        {
+          "baseline": 632.4,
+          "text": "−∞",
+          "x": 203.8
+        },
+        {
+          "baseline": 632.4,
+          "text": "−∞",
+          "x": 364.55
+        },
+        {
+          "baseline": 651.84,
+          "text": "REVIEW: every display equation is centred on its own line, and the prose after each one starts",
+          "x": 72.0
+        },
+        {
+          "baseline": 666.24,
+          "text": "where Word starts it. The last section lands on the same page in both outputs.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "3a31ab4ae1116e22ad17f33e22e664504b74285277037ab9a8785cb2ddb31dad"
+}

@@ -1,0 +1,146 @@
+#metadata(title = "Mote Inline Equations In Flow", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#font(name = "body", latin = "Aptos")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(8),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#style(
+  name = "MathTable",
+  type = "table",
+  table = {
+    first_row = {
+      cell = { fill = "#1e3a8a" },
+      text = { bold = true, color = "#ffffff" }
+    },
+    cell = {
+      margin = { top = pt(5), right = pt(6), bottom = pt(5), left = pt(6) },
+      vertical_alignment = "top",
+      borders = { all = { color = "#93c5fd" } }
+    }
+  }
+)
+
+#heading(level = 1)[Inline Equations In Flow]
+
+#paragraph[
+Inline equations sit within wrapped prose. A tall equation enlarges only its
+own line, so the lines around it keep their ordinary spacing.
+]
+
+#heading(level = 2)[Line spacing]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.0 } })[
+With single spacing the series $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$
+converges, while the harmonic series $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges.
+The ratio $\frac{a + b}{\sqrt{c^2 + d^2}}$ and the nested fraction
+$\frac{\frac{1}{x}}{1 + \frac{1}{y}}$ each enlarge their line, and the plain
+continuation after them keeps the single height.
+]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.5 } })[
+With one and a half spacing the matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
+has determinant $ad - bc$, and the bound $\left| \int_a^b f(x) \, dx \right| \le \int_a^b |f(x)| \, dx$
+holds for every integrable $f$. The limit $\lim_{x \to 0} \frac{\sin x}{x} = 1$
+needs a little more room than its line provides.
+]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 2.0 } })[
+With double spacing even $\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u$
+fits within the spacing above the line, though the binomial $\binom{n}{k}$
+and the integral $\int_0^1 x^{n} \, dx = \frac{1}{n + 1}$ still reach below it.
+]
+
+#paragraph(spacing = { line = { rule = "at_least", value = pt(14) } })[
+With a minimum of fourteen points the fraction $\frac{x}{y}$ fits, but the
+sum $\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}$ and the root
+$\sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2}$ outgrow the minimum
+and lengthen their lines.
+]
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(16) } })[
+With an exact height of sixteen points the line never grows, so the fraction
+$\frac{a + b}{c + d}$ and the sum $\sum_{k=1}^{n} k^2$ may overlap the lines
+next to them, as they do in Word.
+]
+
+#heading(level = 2)[Lists]
+
+#list[
+  #item[The mean is $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$.]
+  #item[The variance is $s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})^2$.]
+  #item[The correlation is $r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$.]
+]
+
+#heading(level = 2)[Tables]
+
+#table(
+  style = "MathTable",
+  width = inch(6.5),
+  alignment = "center"
+)[
+  #row[
+    #cell(width = inch(1.6))[#paragraph[Quantity]]
+    #cell(width = inch(2.7))[#paragraph[Formula]]
+    #cell(width = inch(2.2))[#paragraph[Note]]
+  ]
+  #row[
+    #cell[#paragraph[Kinetic energy]]
+    #cell[#paragraph[$E_k = \frac{1}{2} m v^2$]]
+    #cell[#paragraph[Classical limit.]]
+  ]
+  #row[
+    #cell[#paragraph[Entropy]]
+    #cell[#paragraph[$S = -k_B \sum_{i} p_i \ln p_i$]]
+    #cell[#paragraph[Summed over microstates $i$.]]
+  ]
+  #row[
+    #cell[#paragraph[Lorentz factor]]
+    #cell[#paragraph[$\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}$]]
+    #cell[#paragraph[Tends to \(1\) as $v \to 0$.]]
+  ]
+  #row[
+    #cell[#paragraph[Inverse]]
+    #cell[#paragraph[$A^{-1} = \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$]]
+    #cell[#paragraph[Defined when $\det A \neq 0$.]]
+  ]
+]
+
+#heading(level = 2)[Display equations within a page]
+
+#paragraph[
+The display equations below follow the table, so that any difference in the
+height of the rows above moves them visibly.
+]
+
+\[
+\int_{0}^{\infty} \frac{x^{s-1}}{e^{x} - 1} \, dx = \Gamma(s) \, \zeta(s)
+\]
+
+\[
+\left( \sum_{k=1}^{n} a_k b_k \right)^2 \le \left( \sum_{k=1}^{n} a_k^2 \right) \left( \sum_{k=1}^{n} b_k^2 \right)
+\]
+
+#paragraph(fill = "#dcfce7")[
+REVIEW: inline equations enlarge only their own lines under single, multiple
+and minimum spacing, and leave exact lines unchanged. Table rows with tall
+equations grow as Word's rows do, and the content after the table starts at
+the same position in both outputs.
+]

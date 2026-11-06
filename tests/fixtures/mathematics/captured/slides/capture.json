@@ -71,29 +71,15 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "00d50c2f8d0ee41d5db7fa200b3b0edf8a89affd127fb930fcc9c05b3806b3b2",
+      "sha256": "f85c80c84774b3c7ba058c59d48ac99195678a1f6b382971f200084883f4a56d",
       "maximum": 80,
       "mean": 12,
-      "outliers": 3,
-      "edge_outliers": [
-        [
-          470,
-          93
-        ],
-        [
-          501,
-          115
-        ],
-        [
-          328,
-          135
-        ]
-      ]
+      "outliers": 3
     }
   ],
   "warnings": [],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "7017587e7602f46a747e312b59d11e50dd752aeb98d9d4a910b0b137c81a5174"
+    "sha256": "1c9edf39bb38f76fdf9121ca9048ee2fbe68759783d93bbb77d498e8febf31d1"
   }
 }
