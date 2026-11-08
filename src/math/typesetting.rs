@@ -568,11 +568,16 @@ impl Typesetter<'_> {
         match kind {
             TextKind::Ordinary => {
                 for character in text.chars() {
-                    if character == ' ' {
+                    if character == ' ' || character == '\u{2003}' {
+                        let width = if character == ' ' {
+                            self.space_width(style)
+                        } else {
+                            self.size(style)
+                        };
                         atoms.push(Atom {
                             class: None,
                             layout: Layout {
-                                width: self.space_width(style),
+                                width,
                                 ..Layout::default()
                             },
                         });

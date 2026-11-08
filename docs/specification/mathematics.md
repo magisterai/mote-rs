@@ -43,7 +43,8 @@ Unknown commands become visible command names and warn; unknown environments
 flatten their contents and warn. Missing delimiter symbols, an absent closing
 `right`, or an unmatched `right` preserve the entire equation as literal source
 text and warn. Whitespace outside text groups is ignored,
-with explicit spacing commands retained. This deliberately bounded grammar
+with explicit spacing commands retained; `quad` and `qquad` are one and two
+em spaces. This deliberately bounded grammar
 must not be treated as arbitrary LaTeX execution.
 
 Lua `document.math` accepts the same attributes and returns an element. Its

@@ -143,7 +143,8 @@ impl<'a> Parser<'a> {
         match name.as_str() {
             "!" | "" | "displaystyle" => Node::text(""),
             "," | ";" | ":" => Node::text(" "),
-            "quad" | "qquad" => Node::text("  "),
+            "quad" => Node::text("\u{2003}"),
+            "qquad" => Node::text("\u{2003}\u{2003}"),
             "frac" | "dfrac" | "tfrac" | "cfrac" => Node::Fraction {
                 numerator: Box::new(self.required()),
                 denominator: Box::new(self.required()),
