@@ -12,8 +12,8 @@
   "pdf_changed_pixels": 0,
   "files": {
     "geometry.json": "717e070ca6f097302c11474b9e35397c116d2d898e7e718b23626f75e2e1edbb",
-    "reference-3.png": "d3d703d4a6a038441a6c46fd9f1f63cd503b94485b4bffe8615ce5c9629a0852",
-    "reference-2.png": "234023afdd7607ec3ad8d166100cf410158c4076184bf28cf5a9a740bfb5e400",
-    "reference-1.png": "75c89afc66a83ef30dc58b869b582d00855dd6c553caf13b66707e2351662f1e"
+    "reference-3.png": "8411816e99fed4717761472eea3d996877941d229aabe39b4dfbe3195fddf1af",
+    "reference-2.png": "7e2da761a642e1e8341f196141b0ba7cc4c7f8960e92522729c728618d3b64d7",
+    "reference-1.png": "d377fcd156ff320866ea45e4d47b864df1e78f5eb2463870d074dd823534eb22"
   }
 }

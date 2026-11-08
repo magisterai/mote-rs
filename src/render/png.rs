@@ -604,6 +604,12 @@ fn paint_marker(
             }
             return Ok(());
         }
+        ListMarkerKind::Bullet if marker.glyph_bullet() => {
+            if let Some(line) = &marker.text {
+                paint_line(pixels, line, scale, fonts, warnings, clip)?;
+            }
+            return Ok(());
+        }
         ListMarkerKind::Bullet => {
             let ([center_x, center_y], radius) = marker.bullet_disc();
             let color = marker

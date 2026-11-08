@@ -13,9 +13,9 @@
   "pdf_changed_pixels": 0,
   "files": {
     "geometry.json": "c2faae3320e1bd536237de513e7194db17e34c3d10f9d6fb2112b40aeeb3ead4",
-    "reference-1.png": "af00ba04d8f94075eb8be5f95fe2cecadbc9e8361c977f07b035b4bad476bdc2",
-    "reference-2.png": "718f183eaccce55d00ea037cfb1391a0ec5aa1c626d936014793f5fda3f02961",
-    "reference-3.png": "ccff849c02dc692e5cc513fc9f05c7f1225a35ef855621be16ddb805f2126714"
+    "reference-1.png": "ade7d616ce4b3e4885289178302712b21ce8ee8b32a363cb3d46344d29e6fd7c",
+    "reference-2.png": "c850eb18c9de3a884abe37c7bfd6682dcfc091bd3052f33b11f625f26bfec1c1",
+    "reference-3.png": "7f97da9d72b84a25cfe77d19a7f12ec7d4369ad5c748266c3d375968523f28fb"
   },
   "geometry_font_discovery": "disabled",
   "raster_font_discovery": "installed",

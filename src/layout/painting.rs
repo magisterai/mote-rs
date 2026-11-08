@@ -189,6 +189,15 @@ impl ListMarker {
     /// the U+2022 bullet of a list with the ArialMT glyph, a disc of radius 0.1238
     /// em centred 0.177 em after the glyph origin and 0.3503 em above the baseline;
     /// the glyph origin is the left edge of the marker's slot.
+    /// Whether the bullet is drawn as its glyph in the paragraph's font, as
+    /// Word draws it. A core PDF font, which has no file, has a disc instead.
+    pub fn glyph_bullet(&self) -> bool {
+        self.text
+            .as_ref()
+            .and_then(|line| line.fragments.first())
+            .is_some_and(|fragment| fragment.font.bytes.is_some())
+    }
+
     pub fn bullet_disc(&self) -> ([f64; 2], f64) {
         let size = self.font_size;
         (

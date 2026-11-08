@@ -55,21 +55,21 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "bc9c32ebbcbba6f72912ec7d882a492ee90276185e81a1e723a0d80e8d18cb52",
+      "sha256": "907fd8fd497d43088c6d682640d12f5c6a87a9d40544057cf04885819c4ff74f",
       "maximum": 47,
       "mean": 1.699,
       "outliers": 0
     },
     {
       "path": "reference-2.png",
-      "sha256": "9f56182f7a0bffd63a37b77607cba73dbb9b42ec6faceff9292bcfb27211ac15",
+      "sha256": "505a72abd78c4f5298ca0183a2c21405e01b33ee2590c05865b5d9dbb451d820",
       "maximum": 42,
       "mean": 1.723,
       "outliers": 0
     },
     {
       "path": "reference-3.png",
-      "sha256": "89b902305a689c90d4006a12e98ad750720c66c06156272eba1155fe66124f01",
+      "sha256": "2b034e9a5d1973b933be1bdd14dd48836ecced56080b6301f6f7040a598227a5",
       "maximum": 42,
       "mean": 1.723,
       "outliers": 0

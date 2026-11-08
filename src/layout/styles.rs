@@ -72,7 +72,9 @@ impl Default for ParagraphStyle {
 pub struct LayoutStyleResolver<'document> {
     pub(crate) document: &'document Document,
     declarations: StyleResolver<'document>,
-    use_document_line_heights: bool,
+    /// Whether the text belongs to a Word document rather than to DrawingML,
+    /// which neither takes Word's line heights nor its automatic colour.
+    word_document: bool,
     /// Single line heights of the named font files, as multiples of the size.
     font_line_heights: std::collections::BTreeMap<String, f64>,
     pub(super) anchors: crate::references::Catalog,
@@ -83,7 +85,7 @@ impl<'document> LayoutStyleResolver<'document> {
         Self {
             document,
             declarations: StyleResolver::new(document),
-            use_document_line_heights: true,
+            word_document: true,
             font_line_heights: Default::default(),
             anchors: crate::references::Catalog::build(document),
             reference_pages: Default::default(),
@@ -92,12 +94,16 @@ impl<'document> LayoutStyleResolver<'document> {
     pub(crate) fn for_drawing_text(document: &'document Document) -> Self {
         // DrawingML line spacing does not use document font calibrations.
         Self {
-            use_document_line_heights: false,
+            word_document: false,
             ..Self::new(document)
         }
     }
     pub fn default_text(&self) -> TextStyle {
         let mut style = TextStyle::default();
+        if self.word_document {
+            // Word draws text without a colour in its automatic black.
+            style.color = "000000".into();
+        }
         if let Some(size) = self
             .document
             .defaults
@@ -181,7 +187,7 @@ impl<'document> LayoutStyleResolver<'document> {
     pub fn paragraph(&self, element: &Element) -> ParagraphStyle {
         let mut style = ParagraphStyle {
             text: self.default_text(),
-            word_exact_baseline: self.use_document_line_heights,
+            word_exact_baseline: self.word_document,
             ..Default::default()
         };
         let explicit = values::text(&element.attributes, "style");
@@ -287,7 +293,7 @@ impl<'document> LayoutStyleResolver<'document> {
     }
     pub(crate) fn apply_font(&self, style: &mut TextStyle, name: &str) {
         style.measurement.font = name.into();
-        if !self.use_document_line_heights {
+        if !self.word_document {
             style.word_line_height = None;
             return;
         }

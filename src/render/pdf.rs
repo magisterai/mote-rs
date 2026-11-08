@@ -547,6 +547,11 @@ fn paint_marker(
                 paint_line(content, line, page_height, fonts, " ")?;
             }
         }
+        ListMarkerKind::Bullet if marker.glyph_bullet() => {
+            if let Some(line) = &marker.text {
+                paint_line(content, line, page_height, fonts, " ")?;
+            }
+        }
         ListMarkerKind::Bullet => {
             let ([center_x, center_y], radius) = marker.bullet_disc();
             let color_value = marker
