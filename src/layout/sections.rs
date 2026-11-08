@@ -223,6 +223,7 @@ fn plan_pass(
 ) -> Result<PassResult, LayoutError> {
     let mut styles = LayoutStyleResolver::new(document);
     styles.reference_pages = inputs.reference_pages.clone();
+    styles.measure_font_line_heights(measurer);
     let mut sections = sections.to_vec();
     let mut notes =
         super::notes::NoteLayout::prepare(&mut sections, inputs.total, &styles, measurer)?;

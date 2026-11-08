@@ -78,6 +78,53 @@ impl SystemFontResolver {
                     ][variant_index],
                 ),
             ),
+            "calibri" => (
+                [
+                    "Calibri.ttf",
+                    "Calibrib.ttf",
+                    "Calibrii.ttf",
+                    "Calibriz.ttf",
+                ][variant_index],
+                None,
+            ),
+            "verdana" => {
+                let name = [
+                    "Verdana.ttf",
+                    "Verdana Bold.ttf",
+                    "Verdana Italic.ttf",
+                    "Verdana Bold Italic.ttf",
+                ][variant_index];
+                (name, Some(name))
+            }
+            // Word sets Times New Roman and Georgia at the line heights of the
+            // system faces, which therefore precede Word's own copy.
+            "times new roman" => {
+                return vec![
+                    PathBuf::from("/System/Library/Fonts/Supplemental").join(
+                        [
+                            "Times New Roman.ttf",
+                            "Times New Roman Bold.ttf",
+                            "Times New Roman Italic.ttf",
+                            "Times New Roman Bold Italic.ttf",
+                        ][variant_index],
+                    ),
+                    PathBuf::from("/Applications/Microsoft Word.app/Contents/Resources/DFonts")
+                        .join(
+                            ["times.ttf", "timesbd.ttf", "timesi.ttf", "timesbi.ttf"]
+                                [variant_index],
+                        ),
+                ];
+            }
+            "georgia" => {
+                return vec![PathBuf::from("/System/Library/Fonts/Supplemental").join(
+                    [
+                        "Georgia.ttf",
+                        "Georgia Bold.ttf",
+                        "Georgia Italic.ttf",
+                        "Georgia Bold Italic.ttf",
+                    ][variant_index],
+                )];
+            }
             "cambria math" if variant == FontVariant::Regular => ("Cambria.ttc", None),
             "stix two math" if variant == FontVariant::Regular => {
                 return vec![PathBuf::from(

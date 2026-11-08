@@ -66,7 +66,7 @@
   "word/27_columns_layout": 0.002,
   "word/28_natural_column_balancing": 0.002,
   "word/29_section_transition": 0.006,
-  "word/30_media_references_notes": 0.001,
+  "word/30_media_references_notes": 0.003,
   "word/31_reference_parity": 0.002,
   "word/32_forward_page_reference_reflow": 0.003,
   "word/33_annotation_story_placement": 0.001,
@@ -104,6 +104,6 @@
   "word/65_display_equations": 0.013,
   "word/66_inline_equations_flow": 0.007,
   "word/67_equation_page_breaks": 0.019,
-  "word/68_stacked_fractions": 0.02,
+  "word/68_stacked_fractions": 0.039,
   "word/69_equation_columns": 0.01
 }

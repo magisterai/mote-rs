@@ -24,6 +24,7 @@ pub(super) fn place(
 ) -> Result<(), LayoutError> {
     let mut styles = LayoutStyleResolver::new(document);
     styles.reference_pages = reference_pages.clone();
+    styles.measure_font_line_heights(measurer);
     let total = plan.pages.len().max(1);
     for page in &mut plan.pages {
         let geometry = page.geometry.unwrap_or(plan.geometry);

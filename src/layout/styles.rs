@@ -73,6 +73,8 @@ pub struct LayoutStyleResolver<'document> {
     pub(crate) document: &'document Document,
     declarations: StyleResolver<'document>,
     use_document_line_heights: bool,
+    /// Single line heights of the named font files, as multiples of the size.
+    font_line_heights: std::collections::BTreeMap<String, f64>,
     pub(super) anchors: crate::references::Catalog,
     pub(super) reference_pages: std::collections::BTreeMap<String, usize>,
 }
@@ -82,6 +84,7 @@ impl<'document> LayoutStyleResolver<'document> {
             document,
             declarations: StyleResolver::new(document),
             use_document_line_heights: true,
+            font_line_heights: Default::default(),
             anchors: crate::references::Catalog::build(document),
             reference_pages: Default::default(),
         }
@@ -294,11 +297,69 @@ impl<'document> LayoutStyleResolver<'document> {
                 style.word_line_height = values::number(scale).filter(|value| *value > 0.0);
                 return;
             }
-            family = values::text(&font.properties, "latin");
+            family = Some(values::text(&font.properties, "latin"))
+                .filter(|latin| !latin.is_empty())
+                .unwrap_or_else(|| name.into());
         } else {
             family = name.into();
         }
-        style.word_line_height = builtin_word_line_height(&family);
+        style.word_line_height = builtin_word_line_height(&family)
+            .or_else(|| self.font_line_heights.get(&family.to_lowercase()).copied());
+    }
+    /// Word sets a single line of a font file at the ascender, descender and
+    /// line gap of its horizontal header. The core PDF fonts, which have no
+    /// file, keep the default calibration.
+    pub(super) fn measure_font_line_heights(
+        &mut self,
+        measurer: &mut crate::measurement::TextMeasurer<'_>,
+    ) {
+        let mut families = std::collections::BTreeSet::new();
+        collect_font_names(&self.document.defaults, &mut families);
+        collect_font_names(&self.document.properties, &mut families);
+        for declaration in self.document.styles.values() {
+            collect_font_names(&declaration.properties, &mut families);
+        }
+        collect_content_font_names(&self.document.content, &mut families);
+        for section in &self.document.sections {
+            collect_content_font_names(&section.content, &mut families);
+        }
+        // A declared font is measured by its name, which selects its files, and
+        // recorded under its family.
+        let mut requests: Vec<(String, String)> = self
+            .document
+            .fonts
+            .iter()
+            .map(|(name, font)| {
+                let latin = values::text(&font.properties, "latin");
+                let family = if latin.is_empty() {
+                    name.clone()
+                } else {
+                    latin
+                };
+                (name.clone(), family)
+            })
+            .collect();
+        for family in families {
+            if !self.document.fonts.contains_key(&family) {
+                requests.push((family.clone(), family));
+            }
+        }
+        for (name, family) in requests {
+            if family.is_empty() {
+                continue;
+            }
+            let mut measurement = TextStyle::default().measurement;
+            measurement.font = name;
+            measurement.size_points = 100.0;
+            if let Ok(measured) = measurer.measure(&measurement, "", false)
+                && measured.font.bytes.is_some()
+                && measured.measurement.extents.height > 0.0
+            {
+                self.font_line_heights
+                    .entry(family.to_lowercase())
+                    .or_insert(measured.measurement.extents.height / 100.0);
+            }
+        }
     }
     pub(super) fn apply_run(&self, style: &mut TextStyle, properties: &Properties) {
         let font = values::text(properties, "font");
@@ -645,6 +706,31 @@ pub(super) fn builtin_word_line_height(family: &str) -> Option<f64> {
     match family.trim().to_lowercase().as_str() {
         "mono" | "courier" | "courier new" | "couriernewpsmt" => Some(1.137391304347826),
         "ms gothic" => Some(1.2964),
+        "aptos" => Some(1.2131),
         _ => None,
+    }
+}
+
+fn collect_font_names(properties: &Properties, families: &mut std::collections::BTreeSet<String>) {
+    for (key, value) in properties {
+        match value {
+            Value::String(name) if key == "font" || key.ends_with("_font") || key == "latin" => {
+                families.insert(name.clone());
+            }
+            Value::Object(nested) => collect_font_names(nested, families),
+            _ => {}
+        }
+    }
+}
+
+fn collect_content_font_names(
+    content: &[crate::model::Content],
+    families: &mut std::collections::BTreeSet<String>,
+) {
+    for item in content {
+        if let crate::model::Content::Element(element) = item {
+            collect_font_names(&element.attributes, families);
+            collect_content_font_names(&element.children, families);
+        }
     }
 }

@@ -31,6 +31,10 @@ and printed to standard error by the CLI; they do not enter JSON output.
 Typeface values are nonempty strings. All four fields are optional and omitted
 fields stay absent. `word_line_height` requires a number, not a numeric string;
 it records metadata without measuring or changing line height during evaluation.
+In native Word layout, a font without `word_line_height` sets a single line at
+the ascender, descender and line gap of its file's horizontal header, as Word
+does. Aptos keeps the 1.2131 times its size that Word gives it, and a core PDF
+font, which has no file, keeps 1.2036 times its size.
 
 ```mote
 #font(name = "body", latin = "Aptos", east_asian = "Yu Gothic", complex_script = "Arial", word_line_height = 1.25)

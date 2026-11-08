@@ -318,8 +318,11 @@ pub(super) fn place_blocks(
                         area.content_bottom =
                             page_content_bottom(pages, geometry, boundary, page_number);
                         if page_number == cursor.page_number {
-                            area.content_top = cursor.current_top;
-                            area.page_start = cursor.current_top;
+                            // A section that begins at the foot of a full page
+                            // leaves no room there, so its first line moves on.
+                            let top = cursor.current_top.min(area.content_bottom - 0.01);
+                            area.content_top = top;
+                            area.page_start = top;
                         }
                         area
                     },

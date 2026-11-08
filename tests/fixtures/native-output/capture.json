@@ -14,12 +14,12 @@
       "bytes": 799
     },
     "expected/cff-1.png": {
-      "sha256": "043dbaf1f6ddee994911fe041bc5e18ea228bd96340f790485cde63af5be6d9a",
-      "bytes": 14663
+      "sha256": "eb4afed938bc6242d4564b98f26f1c0278994bf90d2055df345384c143cead2b",
+      "bytes": 8908
     },
     "expected/truetype-1.png": {
-      "sha256": "a3176f1886debd61ee61c0dd36cdc73e600f969e60fec3e281429d02e0679aee",
-      "bytes": 9021
+      "sha256": "2e38ff12b2e708007aa3f1db454530639173f7416910bd703dc86140b82db158",
+      "bytes": 9109
     },
     "truetype.mote": {
       "sha256": "7dcf75f6f592fd291ef68b00bdae46b8fea5678bf9d005889fb562d4b119aec6",

@@ -47,46 +47,46 @@
         "top": 72,
         "height": 24.072,
         "x": 0,
-        "width": 167.22,
+        "width": 167.21875,
         "fragments": [
           {
             "text": "Body ",
             "x": 0,
             "baseline": 90.036,
-            "advance": 48.34,
+            "advance": 48.34375,
             "size": 20
           },
           {
             "text": "text ",
-            "x": 48.34,
+            "x": 48.34375,
             "baseline": 90.036,
             "advance": 35,
             "size": 20
           },
           {
             "text": "and ",
-            "x": 83.34,
+            "x": 83.34375,
             "baseline": 90.036,
-            "advance": 33.88,
+            "advance": 33.875,
             "size": 20
           },
           {
             "text": "a ",
-            "x": 117.22,
+            "x": 117.21875,
             "baseline": 90.036,
-            "advance": 13.88,
+            "advance": 13.875,
             "size": 20
           },
           {
             "text": "link",
-            "x": 131.1,
+            "x": 131.09375,
             "baseline": 90.036,
-            "advance": 31.12,
+            "advance": 31.125,
             "size": 20
           },
           {
             "text": ".",
-            "x": 162.22,
+            "x": 162.21875,
             "baseline": 90.036,
             "advance": 5,
             "size": 20
@@ -102,8 +102,8 @@
     },
     {
       "kind": "decoration",
-      "start": 117.22,
-      "end": 162.22,
+      "start": 117.21875,
+      "end": 162.21875,
       "y": 92.036,
       "width": 1,
       "color": "CC5500",
@@ -152,21 +152,21 @@
       "line": {
         "top": 169.1676,
         "height": 21.6648,
-        "x": 408.756,
-        "width": 95.994,
+        "x": 408.78125,
+        "width": 95.96875,
         "fragments": [
           {
             "text": "Second ",
-            "x": 408.756,
+            "x": 408.78125,
             "baseline": 185.39999999999998,
-            "advance": 57.492,
+            "advance": 57.484375,
             "size": 18
           },
           {
             "text": "slide.",
-            "x": 466.248,
+            "x": 466.265625,
             "baseline": 185.39999999999998,
-            "advance": 38.502,
+            "advance": 38.484375,
             "size": 18
           }
         ]
