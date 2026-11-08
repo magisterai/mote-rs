@@ -63,6 +63,7 @@ pub(crate) fn typeset(
     source: &str,
     display: bool,
     lone: bool,
+    word: bool,
     size: f64,
     font: &FontSelection,
     text_font: Option<&FontSelection>,
@@ -83,6 +84,7 @@ pub(crate) fn typeset(
         text_face: text_font.as_ref().map(|(_, face)| face.clone()),
         size,
         missing: BTreeSet::new(),
+        word,
     };
     let mut parser = Parser::new(source);
     let mut root = parser.sequence(&[]);
@@ -306,6 +308,7 @@ struct Typesetter<'a> {
     units: f64,
     size: f64,
     missing: BTreeSet<char>,
+    word: bool,
 }
 impl Typesetter<'_> {
     fn size(&self, style: Style) -> f64 {
@@ -534,6 +537,17 @@ impl Typesetter<'_> {
                     )
                 };
                 atoms.push(atom(Class::Operator, layout));
+                // Office output gives the operator a space as its argument,
+                // which Word draws and PowerPoint does not.
+                if self.word {
+                    atoms.push(Atom {
+                        class: None,
+                        layout: Layout {
+                            width: self.space_width(style),
+                            ..Layout::default()
+                        },
+                    });
+                }
             }
             Node::LimitOperator(name) => {
                 let layout = self.word(name, style);

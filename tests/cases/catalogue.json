@@ -998,6 +998,16 @@
     "required_fonts": []
   },
   {
+    "identifier": "word-equation-columns",
+    "application": "word",
+    "name": "69_equation_columns",
+    "source": "word-69-equation-columns.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 2,
+    "required_fonts": []
+  },
+  {
     "identifier": "markdown-table-slides",
     "application": "powerpoint",
     "name": "31_markdown_table_alignment",

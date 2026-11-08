@@ -1,0 +1,175 @@
+#metadata(title = "Mote Equations In Columns", author = "Mote")
+
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#font(name = "body", latin = "Aptos")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(11), color = "#111827" },
+  paragraph = {
+    spacing = {
+      before = pt(0),
+      after = pt(8),
+      line = { rule = "multiple", value = 1.08 }
+    }
+  }
+)
+
+#heading(level = 1)[Equations In Columns]
+
+#paragraph[
+The section below sets display and inline equations in two columns. Every
+column ends near an equation, so that each column break depends on the height
+of every equation above it, and a tall equation that does not fit moves whole
+to the next column.
+]
+
+#section(
+  properties = { start = "continuous" },
+  columns = { count = 2, gap = pt(24) }
+)[
+  The roots of a quadratic:
+
+  \[
+  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+  \]
+
+  A sum with limits:
+
+  \[
+  \sum_{k=1}^{n} k^3 = \left( \frac{n(n+1)}{2} \right)^2
+  \]
+
+  #paragraph[
+    Inline, the ratio $\frac{a}{b}$ and the sum $\sum_{i=1}^{n} x_i$ enlarge
+    their lines a little within the narrow column.
+  ]
+
+  A fraction of fractions:
+
+  \[
+  \frac{\frac{a}{b} + \frac{c}{d}}{\frac{e}{f}}
+  \]
+
+  A continued fraction:
+
+  \[
+  \sqrt{3} = 1 + \cfrac{2}{2 + \cfrac{2}{2 + \cdots}}
+  \]
+
+  A determinant:
+
+  \[
+  \begin{vmatrix} a & b & c \\ d & e & f \\ g & h & i \end{vmatrix}
+  \]
+
+  An integral:
+
+  \[
+  \int_{0}^{1} \frac{dx}{\sqrt{1 - x^2}} = \frac{\pi}{2}
+  \]
+
+  #paragraph[
+    Inline, the ratio $\frac{a}{b}$ and the sum $\sum_{i=1}^{n} x_i$ enlarge
+    their lines a little within the narrow column.
+  ]
+
+  A product:
+
+  \[
+  \prod_{n=1}^{\infty} \left( 1 - \frac{1}{n^2} \right)
+  \]
+
+  A derivation:
+
+  \[
+  \begin{aligned} (a - b)^2 &= a^2 - 2ab + b^2 \\ &= (b - a)^2 \end{aligned}
+  \]
+
+  A function by cases:
+
+  \[
+  |x| = \begin{cases} x & \text{if } x \ge 0 \\ -x & \text{if } x < 0 \end{cases}
+  \]
+
+  A limit:
+
+  \[
+  \lim_{x \to 0} \frac{1 - \cos x}{x^2} = \frac{1}{2}
+  \]
+
+  #paragraph[
+    Inline, the ratio $\frac{a}{b}$ and the sum $\sum_{i=1}^{n} x_i$ enlarge
+    their lines a little within the narrow column.
+  ]
+
+  A rotation:
+
+  \[
+  R = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
+  \]
+
+  A series:
+
+  \[
+  \ln 2 = \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}
+  \]
+
+  A nested root:
+
+  \[
+  \sqrt{1 + \sqrt{1 + \sqrt{1 + x}}}
+  \]
+
+  A matrix of fractions:
+
+  \[
+  \begin{pmatrix} \frac{1}{2} & \frac{1}{3} \\ \frac{1}{4} & \frac{1}{5} \end{pmatrix}
+  \]
+
+  #paragraph[
+    Inline, the ratio $\frac{a}{b}$ and the sum $\sum_{i=1}^{n} x_i$ enlarge
+    their lines a little within the narrow column.
+  ]
+
+  A tall system:
+
+  \[
+  \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 1 & 1 \\ 2 & 2 & 2 \end{pmatrix}
+  \]
+
+  Braces:
+
+  \[
+  \underbrace{1 + 1 + \cdots + 1}_{n}
+  \]
+
+  A ratio of sums:
+
+  \[
+  \bar{x} = \frac{\sum_{i} w_i x_i}{\sum_{i} w_i}
+  \]
+
+  A double integral:
+
+  \[
+  \iint_{D} \, dA = |D|
+  \]
+
+  #paragraph[
+    Inline, the ratio $\frac{a}{b}$ and the sum $\sum_{i=1}^{n} x_i$ enlarge
+    their lines a little within the narrow column.
+  ]
+
+  #paragraph(fill = "#dcfce7")[
+    REVIEW: every column ends after the same equation in both outputs, and no
+    equation is divided between columns.
+  ]
+]

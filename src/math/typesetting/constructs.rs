@@ -383,13 +383,26 @@ impl Typesetter<'_> {
     }
 
     /// The cells of `cases` align left; those of other matrices are centred.
+    /// Word spaces a matrix row of plain characters, such as `x'`, by the line
+    /// of the math font alone, whatever the height of their ink.
     pub(super) fn matrix(&mut self, rows: &[Vec<Node>], style: Style, left: bool) -> Layout {
         let cells: Vec<Vec<Layout>> = rows
             .iter()
             .map(|row| row.iter().map(|cell| self.node(cell, style)).collect())
             .collect();
+        let plain: Vec<Vec<bool>> = rows
+            .iter()
+            .map(|row| row.iter().map(plain).collect())
+            .collect();
         let em = self.size(style);
-        self.grid(cells, em, em, |_| if left { 0.0 } else { 0.5 }, true, style)
+        self.grid(
+            cells,
+            Some(&plain),
+            em,
+            em,
+            |_| if left { 0.0 } else { 0.5 },
+            style,
+        )
     }
 
     /// Columns alternate between right and left alignment, as in TeX's `aligned`.
@@ -424,21 +437,21 @@ impl Typesetter<'_> {
                 0.0
             }
         };
-        self.grid(cells, 0.0, 2.0 * em, alignments, false, style)
+        self.grid(cells, None, 0.0, 2.0 * em, alignments, style)
     }
 
     /// Leaves `gap` between columns, or `pair_gap` before each later pair of
     /// aligned columns. Word separates the ink of successive rows by 0.38 em,
-    /// with their baselines at least a line of the math font apart. A matrix
-    /// row reaches at least the descent of that line; an aligned row reaches
-    /// only as deep as its ink.
+    /// with their baselines at least a line of the math font apart. A matrix,
+    /// whose `plain` cells take only that line, has rows reaching at least its
+    /// descent; an aligned row reaches only as deep as its ink.
     fn grid(
         &mut self,
         cells: Vec<Vec<Layout>>,
+        plain: Option<&[Vec<bool>]>,
         gap: f64,
         pair_gap: f64,
         alignment: impl Fn(usize) -> f64,
-        matrix: bool,
         style: Style,
     ) -> Layout {
         let scale = self.scale(style);
@@ -471,17 +484,26 @@ impl Typesetter<'_> {
         }
         let ink: Vec<(f64, f64)> = cells
             .iter()
-            .map(|row| {
+            .enumerate()
+            .map(|(index, row)| {
                 row.iter()
-                    .fold((0.0f64, 0.0f64), |(ascent, descent), cell| {
-                        (ascent.max(cell.ascent), descent.max(cell.descent))
+                    .enumerate()
+                    .fold((0.0f64, 0.0f64), |extent, (column, cell)| {
+                        let within = cell.ascent <= strut.0 && cell.descent <= strut.1;
+                        let plain =
+                            plain.and_then(|plain| plain.get(index)?.get(column)) == Some(&true);
+                        if within && plain {
+                            extent
+                        } else {
+                            (extent.0.max(cell.ascent), extent.1.max(cell.descent))
+                        }
                     })
             })
             .collect();
         let row_gap = 0.38 * self.size(style);
         let mut baselines = vec![0.0];
         for pair in ink.windows(2) {
-            let above = if matrix {
+            let above = if plain.is_some() {
                 pair[0].1.max(strut.1)
             } else {
                 pair[0].1
@@ -504,5 +526,18 @@ impl Typesetter<'_> {
             }
         }
         layout
+    }
+}
+
+fn plain(node: &Node) -> bool {
+    match node {
+        Node::Text(..) => true,
+        Node::Sequence(nodes) => nodes.iter().all(plain),
+        Node::Script {
+            base,
+            subscript: None,
+            superscript: None,
+        } => plain(base),
+        _ => false,
     }
 }

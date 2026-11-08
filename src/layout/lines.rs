@@ -60,7 +60,7 @@ pub fn plan_text(
         if run.style.measurement.size_points <= 0.0 {
             run.style.measurement.size_points = 11.0;
         }
-        typeset(run, measurer);
+        typeset(run, measurer, options.word_exact_baseline);
     }
     let runs = small_caps(&runs);
     let wrapped = wrapping::wrap(&runs, options, measurer)?;
@@ -271,7 +271,7 @@ pub fn plan_text(
 
 /// Replaces an equation by its typeset formula, which wraps as one object, or
 /// leaves its source text when no math font is available.
-fn typeset(run: &mut TextRun, measurer: &mut TextMeasurer<'_>) {
+fn typeset(run: &mut TextRun, measurer: &mut TextMeasurer<'_>, word: bool) {
     let Some(element) = &run.math else {
         return;
     };
@@ -300,6 +300,7 @@ fn typeset(run: &mut TextRun, measurer: &mut TextMeasurer<'_>) {
         &crate::properties::text(attributes, "source"),
         crate::properties::text(attributes, "display") == "block",
         attributes.contains_key("lone"),
+        word,
         run.style.measurement.size_points,
         &font,
         text_font.as_ref(),

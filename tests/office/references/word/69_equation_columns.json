@@ -1,0 +1,743 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Equations In Columns",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "The section below sets display and inline equations in two columns. Every column ends near an",
+          "x": 72.0
+        },
+        {
+          "baseline": 124.32,
+          "text": "equation, so that each column break depends on the height of every equation above it, and a tall",
+          "x": 72.0
+        },
+        {
+          "baseline": 138.72,
+          "text": "equation that does not fit moves whole to the next column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 161.28,
+          "text": "The roots of a quadratic:",
+          "x": 72.0
+        },
+        {
+          "baseline": 161.28,
+          "text": "A derivation:",
+          "x": 318.0
+        },
+        {
+          "baseline": 180.96,
+          "text": "2",
+          "x": 401.87
+        },
+        {
+          "baseline": 180.96,
+          "text": "2",
+          "x": 487.93
+        },
+        {
+          "baseline": 183.36,
+          "text": "!",
+          "x": 197.08
+        },
+        {
+          "baseline": 182.88,
+          "text": "2",
+          "x": 428.8
+        },
+        {
+          "baseline": 186.96,
+          "text": "−𝑏± √𝑏 − 4𝑎𝑐",
+          "x": 152.35
+        },
+        {
+          "baseline": 186.96,
+          "text": "(𝑎− 𝑏) = 𝑎 − 2𝑎𝑏+ 𝑏",
+          "x": 364.9
+        },
+        {
+          "baseline": 196.08,
+          "text": "𝑥=",
+          "x": 129.97
+        },
+        {
+          "baseline": 198.72,
+          "text": "2",
+          "x": 459.08
+        },
+        {
+          "baseline": 204.0,
+          "text": "2𝑎",
+          "x": 187.38
+        },
+        {
+          "baseline": 204.72,
+          "text": "= (𝑏− 𝑎)",
+          "x": 422.11
+        },
+        {
+          "baseline": 223.68,
+          "text": "A sum with limits:",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.8,
+          "text": "A function by cases:",
+          "x": 318.0
+        },
+        {
+          "baseline": 241.68,
+          "text": "𝑛",
+          "x": 132.97
+        },
+        {
+          "baseline": 243.36,
+          "text": "2",
+          "x": 233.3
+        },
+        {
+          "baseline": 249.6,
+          "text": "𝑛(𝑛+ 1)",
+          "x": 182.76
+        },
+        {
+          "baseline": 248.88,
+          "text": "𝑥 if 𝑥≥ 0",
+          "x": 413.69
+        },
+        {
+          "baseline": 252.0,
+          "text": "3",
+          "x": 156.21
+        },
+        {
+          "baseline": 255.36,
+          "text": "|𝑥|= <",
+          "x": 378.63
+        },
+        {
+          "baseline": 258.0,
+          "text": "!\t𝑘 = \"",
+          "x": 149.59
+        },
+        {
+          "baseline": 258.0,
+          "text": "#",
+          "x": 227.04
+        },
+        {
+          "baseline": 262.8,
+          "text": "−𝑥 if 𝑥< 0",
+          "x": 413.69
+        },
+        {
+          "baseline": 265.44,
+          "text": "2",
+          "x": 201.55
+        },
+        {
+          "baseline": 271.92,
+          "text": "𝑘=1",
+          "x": 127.54
+        },
+        {
+          "baseline": 282.48,
+          "text": "A limit:",
+          "x": 318.0
+        },
+        {
+          "baseline": 286.8,
+          "text": "!",
+          "x": 145.31
+        },
+        {
+          "baseline": 288.72,
+          "text": "#",
+          "x": 221.59
+        },
+        {
+          "baseline": 293.27,
+          "text": "Inline, the ratio  and the sum ∑\t𝑥 enlarge",
+          "x": 72.0
+        },
+        {
+          "baseline": 295.8,
+          "text": "$%& $",
+          "x": 246.96
+        },
+        {
+          "baseline": 298.8,
+          "text": "\"",
+          "x": 145.4
+        },
+        {
+          "baseline": 304.32,
+          "text": "1− cos\t𝑥 1",
+          "x": 404.17
+        },
+        {
+          "baseline": 310.08,
+          "text": "their lines a little within the narrow column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 312.72,
+          "text": "lim",
+          "x": 385.76
+        },
+        {
+          "baseline": 312.72,
+          "text": "=",
+          "x": 453.57
+        },
+        {
+          "baseline": 317.04,
+          "text": "2",
+          "x": 427.96
+        },
+        {
+          "baseline": 319.68,
+          "text": "𝑥→0 𝑥",
+          "x": 385.87
+        },
+        {
+          "baseline": 320.16,
+          "text": "2",
+          "x": 465.59
+        },
+        {
+          "baseline": 332.4,
+          "text": "A fraction of fractions:",
+          "x": 72.0
+        },
+        {
+          "baseline": 335.04,
+          "text": "!",
+          "x": 391.31
+        },
+        {
+          "baseline": 336.96,
+          "text": "#",
+          "x": 467.59
+        },
+        {
+          "baseline": 341.51,
+          "text": "Inline, the ratio  and the sum ∑\t𝑥 enlarge",
+          "x": 318.0
+        },
+        {
+          "baseline": 344.04,
+          "text": "$%& $",
+          "x": 492.96
+        },
+        {
+          "baseline": 347.04,
+          "text": "\"",
+          "x": 391.4
+        },
+        {
+          "baseline": 351.84,
+          "text": "𝑎 𝑐",
+          "x": 169.25
+        },
+        {
+          "baseline": 358.32,
+          "text": "+",
+          "x": 178.38
+        },
+        {
+          "baseline": 358.32,
+          "text": "their lines a little within the narrow column.",
+          "x": 318.0
+        },
+        {
+          "baseline": 364.56,
+          "text": "𝑏 𝑑",
+          "x": 169.36
+        },
+        {
+          "baseline": 373.92,
+          "text": "𝑒",
+          "x": 180.02
+        },
+        {
+          "baseline": 380.88,
+          "text": "A rotation:",
+          "x": 318.0
+        },
+        {
+          "baseline": 386.64,
+          "text": "𝑓",
+          "x": 179.7
+        },
+        {
+          "baseline": 403.2,
+          "text": "cos𝜃 −sin𝜃",
+          "x": 407.23
+        },
+        {
+          "baseline": 408.72,
+          "text": "A continued fraction:",
+          "x": 72.0
+        },
+        {
+          "baseline": 409.68,
+          "text": "𝑅 = G",
+          "x": 377.72
+        },
+        {
+          "baseline": 409.68,
+          "text": "J",
+          "x": 474.48
+        },
+        {
+          "baseline": 417.36,
+          "text": "sin𝜃 cos𝜃",
+          "x": 408.04
+        },
+        {
+          "baseline": 430.56,
+          "text": "2",
+          "x": 204.87
+        },
+        {
+          "baseline": 438.0,
+          "text": "’",
+          "x": 132.24
+        },
+        {
+          "baseline": 436.56,
+          "text": "A series:",
+          "x": 318.0
+        },
+        {
+          "baseline": 438.96,
+          "text": "3= 1+",
+          "x": 140.34
+        },
+        {
+          "baseline": 445.68,
+          "text": "2",
+          "x": 215.12
+        },
+        {
+          "baseline": 452.16,
+          "text": "2+",
+          "x": 182.56
+        },
+        {
+          "baseline": 454.8,
+          "text": ",",
+          "x": 417.77
+        },
+        {
+          "baseline": 458.16,
+          "text": "2+ ⋯",
+          "x": 203.06
+        },
+        {
+          "baseline": 459.12,
+          "text": "-0/",
+          "x": 462.29
+        },
+        {
+          "baseline": 463.44,
+          "text": "(−1)",
+          "x": 436.72
+        },
+        {
+          "baseline": 472.56,
+          "text": "ln\t2= K",
+          "x": 378.44
+        },
+        {
+          "baseline": 477.84,
+          "text": "A determinant:",
+          "x": 72.0
+        },
+        {
+          "baseline": 480.48,
+          "text": "𝑛",
+          "x": 454.6
+        },
+        {
+          "baseline": 487.92,
+          "text": "-./",
+          "x": 413.31
+        },
+        {
+          "baseline": 501.12,
+          "text": "𝑎 𝑏 𝑐",
+          "x": 162.03
+        },
+        {
+          "baseline": 507.36,
+          "text": "A nested root:",
+          "x": 318.0
+        },
+        {
+          "baseline": 514.56,
+          "text": "(𝑑 𝑒 𝑓(",
+          "x": 157.92
+        },
+        {
+          "baseline": 528.48,
+          "text": "𝑔 ℎ 𝑖",
+          "x": 161.7
+        },
+        {
+          "baseline": 544.44,
+          "text": "+ ,",
+          "x": 411.6
+        },
+        {
+          "baseline": 546.85,
+          "text": "1+ 1+ ’1+ 𝑥",
+          "x": 391.05
+        },
+        {
+          "baseline": 551.28,
+          "text": "An integral:",
+          "x": 72.0
+        },
+        {
+          "baseline": 570.96,
+          "text": "1",
+          "x": 151.64
+        },
+        {
+          "baseline": 575.04,
+          "text": "𝑑𝑥 𝜋",
+          "x": 174.26
+        },
+        {
+          "baseline": 577.92,
+          "text": "A matrix of fractions:",
+          "x": 318.0
+        },
+        {
+          "baseline": 583.44,
+          "text": ")",
+          "x": 142.8
+        },
+        {
+          "baseline": 583.44,
+          "text": "=",
+          "x": 204.1
+        },
+        {
+          "baseline": 591.12,
+          "text": "2 2",
+          "x": 195.88
+        },
+        {
+          "baseline": 594.24,
+          "text": "0 ’1− 𝑥",
+          "x": 147.59
+        },
+        {
+          "baseline": 600.0,
+          "text": "1 1",
+          "x": 416.86
+        },
+        {
+          "baseline": 611.04,
+          "text": "!",
+          "x": 145.31
+        },
+        {
+          "baseline": 612.96,
+          "text": "#",
+          "x": 221.59
+        },
+        {
+          "baseline": 617.04,
+          "text": "∑",
+          "x": 213.84
+        },
+        {
+          "baseline": 615.6,
+          "text": "2 3",
+          "x": 416.86
+        },
+        {
+          "baseline": 617.52,
+          "text": "Inline, the ratio  and the sum",
+          "x": 72.0
+        },
+        {
+          "baseline": 617.52,
+          "text": "𝑥 enlarge",
+          "x": 241.21
+        },
+        {
+          "baseline": 620.04,
+          "text": "$%& $",
+          "x": 246.96
+        },
+        {
+          "baseline": 620.8,
+          "text": "- .",
+          "x": 441.12
+        },
+        {
+          "baseline": 623.04,
+          "text": "\"",
+          "x": 145.4
+        },
+        {
+          "baseline": 627.36,
+          "text": "1 1",
+          "x": 416.86
+        },
+        {
+          "baseline": 634.32,
+          "text": "their lines a little within the narrow column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 642.96,
+          "text": "4 5",
+          "x": 416.86
+        },
+        {
+          "baseline": 656.88,
+          "text": "A product:",
+          "x": 72.0
+        },
+        {
+          "baseline": 657.6,
+          "text": "!",
+          "x": 391.31
+        },
+        {
+          "baseline": 659.52,
+          "text": "#",
+          "x": 467.59
+        },
+        {
+          "baseline": 664.07,
+          "text": "Inline, the ratio  and the sum ∑\t𝑥 enlarge",
+          "x": 318.0
+        },
+        {
+          "baseline": 666.6,
+          "text": "$%& $",
+          "x": 492.96
+        },
+        {
+          "baseline": 669.6,
+          "text": "\"",
+          "x": 391.4
+        },
+        {
+          "baseline": 674.88,
+          "text": "∞",
+          "x": 153.65
+        },
+        {
+          "baseline": 680.88,
+          "text": "their lines a little within the narrow column.",
+          "x": 318.0
+        },
+        {
+          "baseline": 682.8,
+          "text": "1",
+          "x": 201.38
+        },
+        {
+          "baseline": 691.2,
+          "text": "*\t\"1− #",
+          "x": 171.84
+        },
+        {
+          "baseline": 695.52,
+          "text": "2",
+          "x": 205.56
+        },
+        {
+          "baseline": 698.88,
+          "text": "𝑛",
+          "x": 198.68
+        },
+        {
+          "baseline": 703.44,
+          "text": "A tall system:",
+          "x": 318.0
+        },
+        {
+          "baseline": 705.12,
+          "text": "𝑛=1",
+          "x": 149.29
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "1 0 0",
+          "x": 162.03
+        },
+        {
+          "baseline": 95.28,
+          "text": "0 1 0",
+          "x": 162.03
+        },
+        {
+          "baseline": 99.12,
+          "text": "⎛",
+          "x": 153.6
+        },
+        {
+          "baseline": 99.12,
+          "text": "⎞",
+          "x": 204.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "0 0 1",
+          "x": 162.03
+        },
+        {
+          "baseline": 110.88,
+          "text": "⎜",
+          "x": 153.6
+        },
+        {
+          "baseline": 110.88,
+          "text": "⎟",
+          "x": 204.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "1 1 1",
+          "x": 162.03
+        },
+        {
+          "baseline": 134.21,
+          "text": "⎝2 2 2⎠",
+          "x": 153.6
+        },
+        {
+          "baseline": 154.08,
+          "text": "Braces:",
+          "x": 72.0
+        },
+        {
+          "baseline": 176.64,
+          "text": "516+6616+76⋯66+681",
+          "x": 147.36
+        },
+        {
+          "baseline": 188.64,
+          "text": "𝑛",
+          "x": 180.56
+        },
+        {
+          "baseline": 208.08,
+          "text": "A ratio of sums:",
+          "x": 72.0
+        },
+        {
+          "baseline": 229.56,
+          "text": "∑\t𝑤 𝑥",
+          "x": 191.35
+        },
+        {
+          "baseline": 232.08,
+          "text": "𝑖 𝑖 𝑖",
+          "x": 182.35
+        },
+        {
+          "baseline": 238.08,
+          "text": "𝑥=",
+          "x": 153.09
+        },
+        {
+          "baseline": 245.36,
+          "text": "∑\t𝑤",
+          "x": 196.12
+        },
+        {
+          "baseline": 247.68,
+          "text": "𝑖 𝑖",
+          "x": 187.12
+        },
+        {
+          "baseline": 267.36,
+          "text": "A double integral:",
+          "x": 72.0
+        },
+        {
+          "baseline": 295.92,
+          "text": "9\t\t𝑑𝐴= |𝐷|",
+          "x": 149.04
+        },
+        {
+          "baseline": 306.24,
+          "text": "𝐷",
+          "x": 158.33
+        },
+        {
+          "baseline": 321.12,
+          "text": "!",
+          "x": 145.31
+        },
+        {
+          "baseline": 323.04,
+          "text": "#",
+          "x": 221.59
+        },
+        {
+          "baseline": 327.59,
+          "text": "Inline, the ratio  and the sum ∑\t𝑥 enlarge",
+          "x": 72.0
+        },
+        {
+          "baseline": 330.12,
+          "text": "$%& $",
+          "x": 246.96
+        },
+        {
+          "baseline": 333.12,
+          "text": "\"",
+          "x": 145.4
+        },
+        {
+          "baseline": 344.4,
+          "text": "their lines a little within the narrow column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 366.96,
+          "text": "REVIEW: every column ends after the same",
+          "x": 72.0
+        },
+        {
+          "baseline": 381.36,
+          "text": "equation in both outputs, and no equation is",
+          "x": 72.0
+        },
+        {
+          "baseline": 396.0,
+          "text": "divided between columns.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "64be70e1ee1af95981aa806ce3b9c6b9f50ced2de32a0ec24a5a1be10659e5c4"
+}

@@ -116,6 +116,7 @@ Cases may deliberately exercise unsupported values; inspect their warning manife
 | `word-inline-equations-flow` | Document | 2 | [inline equations in flow](word-66-inline-equations-flow.mote) |
 | `word-equation-page-breaks` | Document | 2 | [equation page breaks](word-67-equation-page-breaks.mote) |
 | `word-stacked-fractions` | Document | 3 | [stacked fractions](word-68-stacked-fractions.mote) |
+| `word-equation-columns` | Document | 2 | [equation columns](word-69-equation-columns.mote) |
 | `powerpoint-shapes-lines` | Presentation | 2 | [shapes lines](powerpoint-07-shapes-lines.mote) |
 | `powerpoint-theme-text-tables-charts` | Presentation | 1 | [theme text tables charts](powerpoint-09-theme-text-tables-charts.mote) |
 | `powerpoint-chart-properties` | Presentation | 3 | [chart properties](powerpoint-10-chart-properties.mote) |
