@@ -18,7 +18,8 @@ pub(super) fn write(element: &Element, resources: &mut Resources) -> Result<Stri
     let workbook_name = format!("embeddings/chart{number}.xlsx");
     let options = charts::drawingml::Options {
         part_number: number,
-        label_baseline: -10000,
+        font: "Aptos".into(),
+        text_color: charts::WORD_TEXT_COLOR.into(),
         axis_label_color: charts::axis_label_color(charts::WORD_TEXT_COLOR),
     };
     let part = ChartPart {

@@ -39,11 +39,11 @@ impl ChartPlanner<'_, '_> {
                 let lines: Vec<_> = text.split('\n').collect();
                 let mut width: f64 = 0.0;
                 for line in &lines {
-                    width = width.max(self.measurement.text_width(line, 10.0)? + 8.0);
+                    width = width.max(self.measurement.text_width(line, 10.0)? + 4.0);
                 }
-                width = width.max(28.0).min((radius * 1.15).max(28.0));
-                let height = (lines.len() as f64 * 15.0).max(16.0);
-                let label_radius = label_radius(chart, radius, middle, width, height, lines.len());
+                width = width.min((radius * 1.15).max(28.0));
+                let height = lines.len() as f64 * 14.0;
+                let label_radius = label_radius(chart, radius, middle, width, height);
                 labels.push(RadialLabel {
                     text,
                     middle,
@@ -175,24 +175,24 @@ fn label(chart: &Chart, index: usize, value: f64, total: f64) -> String {
     parts.join("\n")
 }
 
+// Office sets a label just inside the circle, whatever the legend's position.
 fn label_radius(
     chart: &Chart,
     radius: f64,
     angle: f64,
     width: f64,
     height: f64,
-    lines: usize,
 ) -> f64 {
-    if chart.kind == "pie" && chart.legend.enabled && super::legend::position(chart) == "bottom" {
-        let ratio = if lines > 1 { 0.83 } else { 0.89 };
-        (radius * ratio).min(maximum_label_radius(radius, angle, width, height))
+    let inside = maximum_label_radius(radius, angle, width, height);
+    if chart.kind == "pie" && inside > 0.0 {
+        inside
     } else {
         radius * 0.78
     }
 }
 
 fn maximum_label_radius(radius: f64, angle: f64, width: f64, height: f64) -> f64 {
-    let inner_radius = (radius - 1.5).max(0.0);
+    let inner_radius = (radius - 3.0).max(0.0);
     let half_width = width.max(0.0) / 2.0;
     let half_height = height.max(0.0) / 2.0;
     let mut maximum = inner_radius;

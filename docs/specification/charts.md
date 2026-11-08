@@ -60,6 +60,12 @@ instead supplies `text` together with optional formatting: `size` (a length),
 `bold` and `italic` (booleans), `color` (a hex color), and `font` (a typeface
 name). An omitted field keeps the output's default title formatting.
 
+Chart text defaults to 10 points in the body typeface and the text colour: Aptos
+and black in a Word document, and the theme's body font and dark text colour on
+a slide. Editable output writes this typeface and colour into the chart's text
+properties and into every title run, since Office otherwise draws title runs in
+its own default typeface.
+
 ```mote
 #chart(kind = "column",
        title = {text = "Live coral cover", size = pt(13), bold = true, color = "#0b3b4f"},
@@ -157,6 +163,12 @@ normalized value is also accepted as label input.
 
 The legend position becomes `b` and label position becomes `outEnd`. These are
 normalized authoring intentions; output support does not follow from storing them.
+
+Native output sets a pie's labels just inside the circle on each sector's middle
+ray, and a doughnut's within its ring. A label may cross into a neighbouring
+sector, as Office's best fit allows. If two labels would overlap, or a pie label
+would leave the circle, the labels move into columns beside the chart with leader
+lines.
 
 ## Overrides and constructors
 

@@ -15,6 +15,7 @@ pub(super) struct ChartPart {
     pub workbook: Vec<u8>,
 }
 pub(super) fn write(
+    document: &crate::model::Document,
     container: &Element,
     element: &Element,
     theme: &Theme,
@@ -30,7 +31,8 @@ pub(super) fn write(
         &chart,
         &charts::drawingml::Options {
             part_number: number,
-            label_baseline: 0,
+            font: crate::layout::charts::presentation_font(document, theme).into(),
+            text_color: theme.colors[0].clone(),
             axis_label_color: charts::axis_label_color(&theme.colors[0]),
         },
     )

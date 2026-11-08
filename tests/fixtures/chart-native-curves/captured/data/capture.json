@@ -1,9 +1,9 @@
 {
   "source_sha256": "78f1745af463247ee5df7cc6c9b73a6fe57884e76eff935726902ae953f3571e",
-  "geometry_sha256": "4c8216382c6789c82e1315b8f1b88da94773832422684e4afc82caaec299344f",
+  "geometry_sha256": "d014ab83487dd8e16c3b8c8a64506cf0daa661404ee04d7190ff4811717fdd01",
   "native_png_files": {
-    "reference-1.png": "71dbb4598ae4fe61c6399cc1aafd9d8a0bcb3841f3cae79d5f0c8b732dcbe280",
-    "reference-2.png": "fe63a3bb9edee51be14153a37f08da86a76053701918dee8e650c8229edd939a"
+    "reference-1.png": "f04234d74e50dbf472932324a9bccfe1f21959cf618cb3697db307851bad3eec",
+    "reference-2.png": "8ad12b4f0ee270b3fd6f2bbe387e98897972b46d1d376add0f329552ed34e56c"
   },
   "native_png_dpi": 72,
   "native_pdf_comparison_dpi": 144,

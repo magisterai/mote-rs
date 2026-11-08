@@ -11,157 +11,152 @@
         {
           "baseline": 103.68,
           "text": "Quarterly Revenue",
-          "x": 399.66
+          "x": 403.14
         },
         {
-          "baseline": 122.16,
+          "baseline": 123.36,
           "text": "25",
-          "x": 97.4
+          "x": 98.67
         },
         {
-          "baseline": 164.4,
+          "baseline": 165.12,
           "text": "20.1",
-          "x": 808.24
+          "x": 808.34
         },
         {
-          "baseline": 172.8,
+          "baseline": 173.52,
           "text": "19.3",
-          "x": 739.07
+          "x": 739.28
         },
         {
-          "baseline": 175.44,
+          "baseline": 176.16,
           "text": "20",
-          "x": 97.4
+          "x": 98.67
         },
         {
-          "baseline": 192.96,
+          "baseline": 193.68,
           "text": "17.4",
-          "x": 618.01
+          "x": 618.43
         },
         {
-          "baseline": 201.79,
+          "baseline": 205.28,
           "text": ")",
           "x": 90.7
         },
         {
-          "baseline": 206.88,
+          "baseline": 207.36,
           "text": "16.1",
-          "x": 548.84
+          "x": 549.38
         },
         {
-          "baseline": 216.79,
+          "baseline": 216.72,
+          "text": "15.2",
+          "x": 428.53
+        },
+        {
+          "baseline": 219.5,
           "text": "M",
           "x": 90.7
         },
         {
-          "baseline": 216.48,
-          "text": "15.2",
-          "x": 427.79
-        },
-        {
-          "baseline": 220.8,
+          "baseline": 221.04,
           "text": "14.8",
-          "x": 358.62
+          "x": 359.47
         },
         {
-          "baseline": 226.8,
-          "text": "$",
+          "baseline": 228.85,
+          "text": "$15",
           "x": 90.7
         },
         {
-          "baseline": 228.48,
-          "text": "15",
-          "x": 97.4
-        },
-        {
-          "baseline": 232.79,
+          "baseline": 234.39,
           "text": "(",
           "x": 90.7
         },
         {
           "baseline": 239.76,
           "text": "13",
-          "x": 241.67
+          "x": 242.72
+        },
+        {
+          "baseline": 247.53,
+          "text": "e",
+          "x": 90.7
         },
         {
           "baseline": 246.24,
           "text": "12.4",
-          "x": 168.4
+          "x": 169.57
         },
         {
-          "baseline": 247.8,
-          "text": "e",
-          "x": 90.7
-        },
-        {
-          "baseline": 257.81,
+          "baseline": 257.58,
           "text": "u",
           "x": 90.7
         },
         {
-          "baseline": 267.82,
+          "baseline": 267.51,
           "text": "n",
           "x": 90.7
         },
         {
-          "baseline": 277.83,
+          "baseline": 276.99,
           "text": "e",
           "x": 90.7
         },
         {
-          "baseline": 281.52,
+          "baseline": 281.28,
           "text": "10",
-          "x": 97.4
+          "x": 98.67
         },
         {
-          "baseline": 286.83,
+          "baseline": 285.13,
           "text": "v",
           "x": 90.7
         },
         {
-          "baseline": 296.84,
+          "baseline": 294.62,
           "text": "e",
           "x": 90.7
         },
         {
-          "baseline": 309.84,
+          "baseline": 305.52,
           "text": "R",
           "x": 90.7
         },
         {
-          "baseline": 334.8,
+          "baseline": 334.08,
           "text": "5",
-          "x": 102.74
+          "x": 104.01
         },
         {
-          "baseline": 387.84,
+          "baseline": 386.64,
           "text": "0",
-          "x": 102.74
+          "x": 104.01
         },
         {
-          "baseline": 401.04,
+          "baseline": 399.6,
           "text": "Q1",
-          "x": 206.09
+          "x": 207.2
         },
         {
-          "baseline": 401.04,
+          "baseline": 399.6,
           "text": "Q2",
-          "x": 396.31
+          "x": 397.1
         },
         {
-          "baseline": 401.04,
+          "baseline": 399.6,
           "text": "Q3",
-          "x": 586.53
+          "x": 587.01
         },
         {
-          "baseline": 401.04,
+          "baseline": 399.6,
           "text": "Q4",
-          "x": 776.76
+          "x": 776.91
         },
         {
-          "baseline": 424.08,
+          "baseline": 422.88,
           "text": "Quarter",
-          "x": 467.24
+          "x": 468.31
         },
         {
           "baseline": 451.44,
@@ -192,25 +187,25 @@
         {
           "baseline": 103.68,
           "text": "Pipeline Mix",
-          "x": 430.28
+          "x": 432.39
         },
         {
-          "baseline": 159.36,
+          "baseline": 161.04,
           "text": "9%",
-          "x": 438.3
+          "x": 439.05
         },
         {
-          "baseline": 238.08,
+          "baseline": 239.76,
           "text": "21%",
           "x": 356.55
         },
         {
-          "baseline": 244.08,
+          "baseline": 245.04,
           "text": "42%",
-          "x": 583.05
+          "x": 582.3
         },
         {
-          "baseline": 387.36,
+          "baseline": 388.08,
           "text": "28%",
           "x": 423.3
         },
@@ -243,70 +238,70 @@
         {
           "baseline": 103.68,
           "text": "Stacked Support Load",
-          "x": 168.34
+          "x": 171.67
         },
         {
           "baseline": 103.68,
           "text": "Area Trend",
-          "x": 647.98
+          "x": 651.26
         },
         {
-          "baseline": 122.16,
+          "baseline": 123.36,
           "text": "45",
           "x": 492.5
         },
         {
-          "baseline": 155.04,
+          "baseline": 156.24,
           "text": "40",
           "x": 492.5
         },
         {
-          "baseline": 171.36,
+          "baseline": 172.32,
           "text": "QA",
           "x": 75.23
         },
         {
-          "baseline": 187.92,
+          "baseline": 188.88,
           "text": "35",
           "x": 492.5
         },
         {
-          "baseline": 220.56,
+          "baseline": 221.52,
           "text": "30",
           "x": 492.5
         },
         {
-          "baseline": 253.44,
+          "baseline": 254.16,
           "text": "25",
           "x": 492.5
         },
         {
-          "baseline": 269.76,
+          "baseline": 270.48,
           "text": "Emitter",
           "x": 56.9
         },
         {
-          "baseline": 286.32,
+          "baseline": 286.8,
           "text": "20",
           "x": 492.5
         },
         {
-          "baseline": 319.2,
+          "baseline": 319.44,
           "text": "15",
           "x": 492.5
         },
         {
-          "baseline": 351.84,
+          "baseline": 352.32,
           "text": "10",
           "x": 492.5
         },
         {
-          "baseline": 368.4,
+          "baseline": 368.64,
           "text": "Parser",
           "x": 60.55
         },
         {
-          "baseline": 384.72,
+          "baseline": 384.96,
           "text": "5",
           "x": 497.84
         },

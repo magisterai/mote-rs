@@ -5,16 +5,17 @@ use super::super::{
 use super::{Chart, Error, Options};
 use crate::xml::escape;
 
-pub(super) fn title(text: &str) -> Result<String, Error> {
-    styled_title(text, &TitleStyle::default())
+pub(super) fn title(text: &str, options: &Options) -> Result<String, Error> {
+    styled_title(text, &TitleStyle::default(), options)
 }
-pub(super) fn chart_title(chart: &Chart) -> Result<String, Error> {
+pub(super) fn chart_title(chart: &Chart, options: &Options) -> Result<String, Error> {
     if chart.title.is_empty() {
         return Ok(r#"<c:autoTitleDeleted val="1"/>"#.into());
     }
-    styled_title(&chart.title, &chart.title_style)
+    styled_title(&chart.title, &chart.title_style, options)
 }
-fn styled_title(text: &str, style: &TitleStyle) -> Result<String, Error> {
+// Office draws rich title text in its own default typeface and colour unless the run names them.
+fn styled_title(text: &str, style: &TitleStyle, options: &Options) -> Result<String, Error> {
     if text.is_empty() {
         return Ok(String::new());
     }
@@ -27,21 +28,12 @@ fn styled_title(text: &str, style: &TitleStyle) -> Result<String, Error> {
             attributes.push_str(&format!(r#" {name}="{}""#, u8::from(value)));
         }
     }
-    let mut children = String::new();
-    if let Some(color) = &style.color {
-        children.push_str(&format!(
-            r#"<a:solidFill><a:srgbClr val="{}"/></a:solidFill>"#,
-            escape(color)?
-        ));
-    }
-    if let Some(font) = &style.font {
-        children.push_str(&format!(r#"<a:latin typeface="{}"/>"#, escape(font)?));
-    }
-    let properties = if children.is_empty() {
-        format!(r#"<a:rPr lang="en-US"{attributes}/>"#)
-    } else {
-        format!(r#"<a:rPr lang="en-US"{attributes}>{children}</a:rPr>"#)
-    };
+    let children = format!(
+        r#"<a:solidFill><a:srgbClr val="{}"/></a:solidFill><a:latin typeface="{}"/>"#,
+        escape(style.color.as_deref().unwrap_or(&options.text_color))?,
+        escape(style.font.as_deref().unwrap_or(&options.font))?
+    );
+    let properties = format!(r#"<a:rPr lang="en-US"{attributes}>{children}</a:rPr>"#);
     Ok(format!(
         r#"<c:title><c:tx><c:rich><a:bodyPr/><a:lstStyle/><a:p><a:r>{properties}<a:t>{}</a:t></a:r></a:p></c:rich></c:tx><c:layout/><c:overlay val="0"/></c:title>"#,
         escape(text)?
@@ -80,23 +72,14 @@ fn border_line(border: &Border) -> Result<String, Error> {
         escape(color)?
     ))
 }
-pub(super) fn label_text(baseline: i32, color: &str) -> Result<String, Error> {
-    if baseline == 0 && color.is_empty() {
+pub(super) fn label_text(color: &str) -> Result<String, Error> {
+    if color.is_empty() {
         return Ok(String::new());
     }
-    let baseline = if baseline == 0 {
-        String::new()
-    } else {
-        format!(r#" baseline="{baseline}""#)
-    };
-    let properties = if color.is_empty() {
-        format!("<a:defRPr{baseline}/>")
-    } else {
-        format!(
-            r#"<a:defRPr{baseline}><a:solidFill><a:srgbClr val="{}"/></a:solidFill></a:defRPr>"#,
-            escape(color)?
-        )
-    };
+    let properties = format!(
+        r#"<a:defRPr><a:solidFill><a:srgbClr val="{}"/></a:solidFill></a:defRPr>"#,
+        escape(color)?
+    );
     Ok(format!(
         r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr>{properties}</a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#
     ))
@@ -129,14 +112,14 @@ pub(super) fn data_labels(labels: &DataLabels, kind: &str) -> Result<String, Err
 pub(super) fn axes(chart: &Chart, options: &Options) -> Result<String, Error> {
     let category = options.category_axis();
     let value = options.value_axis();
-    let labels = label_text(options.label_baseline, &options.axis_label_color)?;
+    let labels = label_text(&options.axis_label_color)?;
     let category_line = rule_line(RULE_WIDTH, RULE_COLOR)?;
     let mut output = format!(
         r#"<c:catAx><c:axId val="{category}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="b"/>{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="{}"/><c:spPr><a:noFill/>{category_line}</c:spPr>{labels}<c:crossAx val="{value}"/><c:crosses val="autoZero"/><c:auto val="1"/><c:lblAlgn val="ctr"/><c:lblOffset val="100"/><c:noMultiLvlLbl val="0"/></c:catAx>"#,
-        title(&chart.category_title)?,
+        title(&chart.category_title, options)?,
         chart.category_label_position()
     );
-    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title)?));
+    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title, options)?));
     Ok(output)
 }
 fn gridlines(gridlines: &Gridlines) -> Result<String, Error> {

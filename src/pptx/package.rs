@@ -220,6 +220,7 @@ pub(super) fn write(
                 && chart.kind == ElementKind::Chart
             {
                 output.push_str(&super::charts::write(
+                    document,
                     element,
                     chart,
                     &deck.theme,

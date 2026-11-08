@@ -117,7 +117,7 @@ fn unstyled_axes_follow_the_office_default_chart_style() {
         for placed in &page.lines {
             for fragment in &placed.line.fragments {
                 let expected = if fragment.text == "Totals" {
-                    "111827"
+                    "000000"
                 } else {
                     "595959"
                 };

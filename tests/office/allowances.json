@@ -56,39 +56,39 @@
     "vertical": 2.3
   },
   "powerpoint/09_theme_text_tables_charts": {
-    "horizontal": 4.7,
+    "horizontal": 1.7,
     "median": 0.2,
     "page_moves": 0,
-    "unmatched": 8,
-    "vertical": 4.9
+    "unmatched": 11,
+    "vertical": 12.2
   },
   "powerpoint/10_chart_properties": {
-    "horizontal": 9.6,
-    "median": 0.8,
-    "page_moves": 0,
-    "unmatched": 3,
-    "vertical": 5.1
-  },
-  "powerpoint/11_chart_exhaustive": {
-    "horizontal": 483.2,
-    "median": 0.7,
-    "page_moves": 0,
-    "unmatched": 51,
-    "vertical": 21.0
-  },
-  "powerpoint/12_chart_defaults": {
-    "horizontal": 10.0,
-    "median": 0.5,
+    "horizontal": 2.6,
+    "median": 0.4,
     "page_moves": 0,
     "unmatched": 2,
-    "vertical": 2.1
+    "vertical": 4.5
   },
-  "powerpoint/13_chart_lua_json": {
-    "horizontal": 11.9,
-    "median": 0.5,
+  "powerpoint/11_chart_exhaustive": {
+    "horizontal": 7.8,
+    "median": 0.4,
+    "page_moves": 0,
+    "unmatched": 23,
+    "vertical": 8.5
+  },
+  "powerpoint/12_chart_defaults": {
+    "horizontal": 2.4,
+    "median": 0.4,
     "page_moves": 0,
     "unmatched": 4,
-    "vertical": 17.4
+    "vertical": 2.2
+  },
+  "powerpoint/13_chart_lua_json": {
+    "horizontal": 2.5,
+    "median": 0.3,
+    "page_moves": 0,
+    "unmatched": 4,
+    "vertical": 1.5
   },
   "powerpoint/14_standard_auto_layout": {
     "horizontal": 0.9,
@@ -140,18 +140,18 @@
     "vertical": 1.3
   },
   "powerpoint/21_named_layouts": {
-    "horizontal": 2.7,
-    "median": 0.8,
+    "horizontal": 1.1,
+    "median": 0.3,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 2.4
+    "vertical": 2.1
   },
   "powerpoint/22_named_layouts_lua_json": {
     "horizontal": 5.7,
-    "median": 1.1,
+    "median": 0.5,
     "page_moves": 0,
-    "unmatched": 4,
-    "vertical": 2.4
+    "unmatched": 2,
+    "vertical": 2.0
   },
   "powerpoint/23_markdown_core": {
     "horizontal": 13.6,
@@ -161,11 +161,11 @@
     "vertical": 5.0
   },
   "powerpoint/24_media_charts": {
-    "horizontal": 4.2,
-    "median": 0.5,
+    "horizontal": 1.3,
+    "median": 0.4,
     "page_moves": 0,
-    "unmatched": 3,
-    "vertical": 2.3
+    "unmatched": 0,
+    "vertical": 1.9
   },
   "powerpoint/25_slide_edges": {
     "horizontal": 0.8,
@@ -182,11 +182,11 @@
     "vertical": 0.5
   },
   "powerpoint/27_default_style": {
-    "horizontal": 0.9,
+    "horizontal": 1.3,
     "median": 0.9,
     "page_moves": 0,
-    "unmatched": 1,
-    "vertical": 3.9
+    "unmatched": 0,
+    "vertical": 1.9
   },
   "powerpoint/28_table_alignment": {
     "horizontal": 0.3,
@@ -224,11 +224,11 @@
     "vertical": 2.2
   },
   "probes/chart-value-axis": {
-    "horizontal": 5.7,
-    "median": 0.7,
+    "horizontal": 0.4,
+    "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.0
+    "vertical": 1.7
   },
   "probes/east-asian-line-height": {
     "horizontal": 0.0,
@@ -308,11 +308,11 @@
     "vertical": 0.7
   },
   "word/07_warning_authority": {
-    "horizontal": 4.0,
-    "median": 0.9,
+    "horizontal": 0.7,
+    "median": 1.2,
     "page_moves": 0,
     "unmatched": 3,
-    "vertical": 2.2
+    "vertical": 1.9
   },
   "word/08_lists": {
     "horizontal": 0.0,
@@ -560,25 +560,25 @@
     "vertical": 0.5
   },
   "word/43_chart_properties": {
-    "horizontal": 85.8,
-    "median": 0.9,
+    "horizontal": 1.9,
+    "median": 0.4,
     "page_moves": 0,
-    "unmatched": 10,
-    "vertical": 14.8
+    "unmatched": 1,
+    "vertical": 3.4
   },
   "word/44_chart_defaults": {
-    "horizontal": 61.2,
-    "median": 0.7,
+    "horizontal": 2.5,
+    "median": 0.4,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 14.9
+    "vertical": 4.8
   },
   "word/45_chart_lua_json": {
-    "horizontal": 19.8,
-    "median": 0.7,
+    "horizontal": 1.3,
+    "median": 0.4,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.5
+    "vertical": 1.4
   },
   "word/46_longform_tables": {
     "horizontal": 2.0,
@@ -707,7 +707,7 @@
     "vertical": 1.2
   },
   "word/64_drawings_and_charts_in_flow": {
-    "horizontal": 9.8,
+    "horizontal": 0.6,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,

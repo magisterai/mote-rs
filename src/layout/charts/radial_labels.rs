@@ -1,6 +1,5 @@
-//! Keep radial labels inside their sectors, or arrange them in two clear columns.
+//! Keep radial labels inside the circle, or arrange them in two clear columns.
 use super::geometry::Rectangle;
-use std::f64::consts::PI;
 
 pub(super) struct RadialLabel {
     pub text: String,
@@ -17,8 +16,9 @@ pub(super) fn arrange(
     radius: f64,
     doughnut: bool,
 ) -> f64 {
+    // Office sets doughnut labels within the ring even where they cross its edges.
     let clear = labels.iter().enumerate().all(|(index, label)| {
-        fits_sector(label, center, radius, doughnut)
+        (doughnut || fits_circle(label, center, radius))
             && labels[..index]
                 .iter()
                 .all(|earlier| !overlap(label.bounds, earlier.bounds))
@@ -80,34 +80,19 @@ pub(super) fn arrange(
     radius
 }
 
-fn fits_sector(label: &RadialLabel, center: [f64; 2], radius: f64, doughnut: bool) -> bool {
+// A pie label may cross into a neighbouring sector, as Office's best fit allows.
+fn fits_circle(label: &RadialLabel, center: [f64; 2], radius: f64) -> bool {
     if label.sweep <= 0.0 {
         return false;
     }
     let bounds = label.bounds;
-    if doughnut {
-        let nearest = [
-            center[0].clamp(bounds.left, bounds.left + bounds.width),
-            center[1].clamp(bounds.top, bounds.top + bounds.height),
-        ];
-        if (nearest[0] - center[0]).hypot(nearest[1] - center[1]) < radius / 2.0 + 2.0 - 1e-9 {
-            return false;
-        }
-    }
-    for horizontal in [bounds.left, bounds.left + bounds.width] {
-        for vertical in [bounds.top, bounds.top + bounds.height] {
-            let offset = [horizontal - center[0], vertical - center[1]];
-            if offset[0].hypot(offset[1]) > radius - 1.5 + 1e-9 {
-                return false;
-            }
-            let difference =
-                (offset[1].atan2(offset[0]) - label.middle + PI).rem_euclid(2.0 * PI) - PI;
-            if difference.abs() > label.sweep / 2.0 + 1e-9 {
-                return false;
-            }
-        }
-    }
-    true
+    [bounds.left, bounds.left + bounds.width]
+        .into_iter()
+        .flat_map(|horizontal| {
+            [bounds.top, bounds.top + bounds.height]
+                .map(|vertical| (horizontal - center[0]).hypot(vertical - center[1]))
+        })
+        .all(|distance| distance <= radius - 1.5 + 1e-9)
 }
 
 fn overlap(first: Rectangle, second: Rectangle) -> bool {

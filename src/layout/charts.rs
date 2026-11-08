@@ -56,7 +56,7 @@ impl ChartBlock {
             &chart,
             [0.0, 0.0, round_coordinate(width), round_coordinate(height)],
             "Aptos",
-            "111827",
+            crate::charts::WORD_TEXT_COLOR,
             &crate::charts::axis_label_color(crate::charts::WORD_TEXT_COLOR),
             "FFFFFF",
             measurer,
@@ -139,7 +139,7 @@ pub(crate) fn automatic_frame_fits(
 }
 
 // Automatic frame selection and native painting must measure the same typeface.
-fn presentation_font<'theme>(
+pub(crate) fn presentation_font<'theme>(
     document: &crate::model::Document,
     theme: &'theme crate::presentation::Theme,
 ) -> &'theme str {

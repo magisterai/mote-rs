@@ -3,7 +3,7 @@ mod formatting;
 mod series;
 use super::{Chart, Error};
 use crate::xml::{HEADER, escape};
-use formatting::{chart_title, data_labels, label_text, shape_properties};
+use formatting::{chart_title, data_labels, shape_properties};
 
 pub(crate) const CONTENT_TYPE: &str =
     "application/vnd.openxmlformats-officedocument.drawingml.chart+xml";
@@ -11,7 +11,8 @@ pub(crate) const GRAPHIC_DATA_URI: &str = "http://schemas.openxmlformats.org/dra
 
 pub(crate) struct Options {
     pub part_number: usize,
-    pub label_baseline: i32,
+    pub font: String,
+    pub text_color: String,
     pub axis_label_color: String,
 }
 impl Options {
@@ -25,7 +26,7 @@ impl Options {
 pub(crate) fn write(chart: &Chart, options: &Options) -> Result<String, Error> {
     let mut output = format!(
         r#"{HEADER}<c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><c:date1904 val="0"/><c:lang val="en-US"/><c:roundedCorners val="0"/><c:chart>{}<c:plotArea><c:layout/>"#,
-        chart_title(chart)?
+        chart_title(chart, options)?
     );
     match chart.kind.as_str() {
         "pie" | "doughnut" => output.push_str(&write_pie(chart)?),
@@ -37,14 +38,18 @@ pub(crate) fn write(chart: &Chart, options: &Options) -> Result<String, Error> {
     output.push_str("</c:plotArea>");
     if chart.legend.enabled {
         output.push_str(&format!(
-            r#"<c:legend><c:legendPos val="{}"/><c:layout/><c:overlay val="0"/>{}</c:legend>"#,
-            escape(&chart.legend.position)?,
-            label_text(options.label_baseline, "")?
+            r#"<c:legend><c:legendPos val="{}"/><c:layout/><c:overlay val="0"/></c:legend>"#,
+            escape(&chart.legend.position)?
         ));
     }
     output.push_str(r#"<c:plotVisOnly val="1"/><c:dispBlanksAs val="gap"/><c:showDLblsOverMax val="0"/></c:chart>"#);
     output.push_str(&shape_properties(&chart.chart_area)?);
-    output.push_str(r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="1000"/></a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr><c:externalData r:id="rId1"><c:autoUpdate val="0"/></c:externalData><c:printSettings><c:headerFooter/><c:pageMargins b="0.75" l="0.7" r="0.7" t="0.75" header="0.3" footer="0.3"/><c:pageSetup/></c:printSettings></c:chartSpace>"#);
+    output.push_str(&format!(
+        r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="1000"><a:solidFill><a:srgbClr val="{}"/></a:solidFill><a:latin typeface="{}"/></a:defRPr></a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#,
+        escape(&options.text_color)?,
+        escape(&options.font)?
+    ));
+    output.push_str(r#"<c:externalData r:id="rId1"><c:autoUpdate val="0"/></c:externalData><c:printSettings><c:headerFooter/><c:pageMargins b="0.75" l="0.7" r="0.7" t="0.75" header="0.3" footer="0.3"/><c:pageSetup/></c:printSettings></c:chartSpace>"#);
     Ok(output)
 }
 fn write_cartesian(chart: &Chart, options: &Options) -> Result<String, Error> {

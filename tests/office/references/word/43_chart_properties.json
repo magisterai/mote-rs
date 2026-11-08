@@ -21,152 +21,157 @@
         {
           "baseline": 191.76,
           "text": "Quarterly Revenue",
-          "x": 221.46
+          "x": 224.94
         },
         {
-          "baseline": 211.44,
+          "baseline": 211.92,
           "text": "25",
-          "x": 108.2
+          "x": 109.47
         },
         {
-          "baseline": 217.15,
+          "baseline": 218.0,
           "text": ")",
           "x": 101.3
         },
         {
-          "baseline": 223.2,
+          "baseline": 224.16,
           "text": "20.1",
-          "x": 470.82
+          "x": 471.21
         },
         {
-          "baseline": 227.04,
+          "baseline": 227.52,
           "text": "19.3",
-          "x": 435.69
+          "x": 436.51
         },
         {
-          "baseline": 232.15,
+          "baseline": 232.22,
           "text": "M",
           "x": 101.3
         },
         {
-          "baseline": 234.24,
+          "baseline": 234.48,
           "text": "20",
-          "x": 108.2
+          "x": 109.47
         },
         {
-          "baseline": 235.68,
+          "baseline": 236.16,
           "text": "17.4",
-          "x": 374.21
+          "x": 375.8
         },
         {
-          "baseline": 242.16,
+          "baseline": 241.83,
           "text": "$",
           "x": 101.3
         },
         {
-          "baseline": 241.68,
+          "baseline": 241.92,
           "text": "16.1",
-          "x": 339.08
+          "x": 341.11
         },
         {
-          "baseline": 245.76,
-          "text": "15.2",
-          "x": 277.6
-        },
-        {
-          "baseline": 248.15,
+          "baseline": 247.11,
           "text": "(",
           "x": 101.3
         },
         {
-          "baseline": 247.44,
-          "text": "14.8",
-          "x": 242.47
+          "baseline": 246.0,
+          "text": "15.2",
+          "x": 280.4
         },
         {
-          "baseline": 257.28,
+          "baseline": 247.68,
+          "text": "14.8",
+          "x": 245.71
+        },
+        {
+          "baseline": 256.8,
           "text": "15",
-          "x": 108.2
+          "x": 109.47
         },
         {
           "baseline": 255.84,
           "text": "13",
-          "x": 185.08
+          "x": 189.09
         },
         {
           "baseline": 258.48,
           "text": "12.4",
-          "x": 145.86
+          "x": 150.3
         },
         {
-          "baseline": 263.16,
+          "baseline": 260.25,
           "text": "e",
           "x": 101.3
         },
         {
-          "baseline": 273.17,
+          "baseline": 270.3,
           "text": "u",
           "x": 101.3
         },
         {
-          "baseline": 280.08,
-          "text": "10",
-          "x": 108.2
-        },
-        {
-          "baseline": 283.18,
-          "text": "n",
+          "baseline": 279.49,
+          "text": "n10",
           "x": 101.3
         },
         {
-          "baseline": 293.19,
+          "baseline": 289.71,
           "text": "e",
           "x": 101.3
         },
         {
-          "baseline": 302.66,
-          "text": "v5",
+          "baseline": 297.85,
+          "text": "v",
           "x": 101.3
         },
         {
-          "baseline": 312.2,
+          "baseline": 301.44,
+          "text": "5",
+          "x": 114.81
+        },
+        {
+          "baseline": 307.34,
           "text": "e",
           "x": 101.3
         },
         {
-          "baseline": 325.56,
-          "text": "R0",
+          "baseline": 318.24,
+          "text": "R",
           "x": 101.3
         },
         {
-          "baseline": 338.88,
+          "baseline": 324.0,
+          "text": "0",
+          "x": 114.81
+        },
+        {
+          "baseline": 336.96,
           "text": "Q1",
-          "x": 168.64
+          "x": 170.75
         },
         {
-          "baseline": 338.88,
+          "baseline": 336.96,
           "text": "Q2",
-          "x": 265.25
+          "x": 266.16
         },
         {
-          "baseline": 338.88,
+          "baseline": 336.96,
           "text": "Q3",
-          "x": 361.86
+          "x": 361.56
         },
         {
-          "baseline": 338.88,
+          "baseline": 336.96,
           "text": "Q4",
-          "x": 458.47
+          "x": 456.97
         },
         {
-          "baseline": 360.96,
+          "baseline": 359.52,
           "text": "Quarter",
-          "x": 287.27
+          "x": 290.12
         },
         {
-          "baseline": 389.52,
+          "baseline": 388.8,
           "text": "Actual Forecast",
-          "x": 273.21
+          "x": 261.49
         },
         {
           "baseline": 427.68,
@@ -176,47 +181,47 @@
         {
           "baseline": 464.64,
           "text": "Pipeline Mix",
-          "x": 230.48
+          "x": 232.59
         },
         {
-          "baseline": 510.48,
+          "baseline": 511.2,
           "text": "9%",
-          "x": 229.5
+          "x": 222.0
         },
         {
-          "baseline": 543.12,
+          "baseline": 542.88,
           "text": "New",
-          "x": 446.09
-        },
-        {
-          "baseline": 551.76,
-          "text": "21%",
-          "x": 186.75
+          "x": 431.16
         },
         {
           "baseline": 552.48,
+          "text": "21%",
+          "x": 180.0
+        },
+        {
+          "baseline": 553.2,
           "text": "42%",
-          "x": 297.75
+          "x": 290.25
         },
         {
           "baseline": 561.12,
           "text": "Expansion",
-          "x": 446.09
+          "x": 431.16
         },
         {
           "baseline": 579.12,
           "text": "Renewal",
-          "x": 446.09
+          "x": 431.16
         },
         {
-          "baseline": 597.36,
+          "baseline": 597.12,
           "text": "Services",
-          "x": 446.09
+          "x": 431.16
         },
         {
           "baseline": 624.48,
           "text": "28%",
-          "x": 219.0
+          "x": 212.25
         },
         {
           "baseline": 689.76,
@@ -232,12 +237,12 @@
         {
           "baseline": 96.24,
           "text": "Stacked Support Load",
-          "x": 189.94
+          "x": 193.27
         },
         {
-          "baseline": 138.24,
+          "baseline": 138.48,
           "text": "QA",
-          "x": 90.72
+          "x": 96.83
         },
         {
           "baseline": 182.64,
@@ -245,87 +250,87 @@
           "x": 78.5
         },
         {
-          "baseline": 227.28,
+          "baseline": 226.56,
           "text": "Parser",
-          "x": 80.94
+          "x": 82.15
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "0",
-          "x": 106.98
+          "x": 116.62
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "5",
-          "x": 147.08
+          "x": 155.55
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "10",
-          "x": 185.4
+          "x": 191.81
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "15",
-          "x": 225.5
+          "x": 230.74
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "20",
-          "x": 265.6
+          "x": 269.67
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "25",
-          "x": 305.7
+          "x": 308.6
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "30",
-          "x": 345.8
+          "x": 347.53
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "35",
-          "x": 385.9
+          "x": 386.46
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "40",
-          "x": 426.0
+          "x": 425.39
         },
         {
-          "baseline": 262.56,
+          "baseline": 261.84,
           "text": "45",
-          "x": 466.1
+          "x": 464.32
         },
         {
-          "baseline": 283.44,
+          "baseline": 282.72,
           "text": "Open Closed",
-          "x": 259.27
+          "x": 249.57
         },
         {
           "baseline": 327.6,
           "text": "Area Trend",
-          "x": 233.98
+          "x": 237.26
         },
         {
-          "baseline": 347.28,
+          "baseline": 347.76,
           "text": "45",
           "x": 78.5
         },
         {
-          "baseline": 362.16,
+          "baseline": 362.4,
           "text": "40",
           "x": 78.5
         },
         {
-          "baseline": 376.8,
+          "baseline": 377.04,
           "text": "35",
           "x": 78.5
         },
         {
-          "baseline": 391.68,
+          "baseline": 391.92,
           "text": "30",
           "x": 78.5
         },
@@ -335,49 +340,49 @@
           "x": 78.5
         },
         {
-          "baseline": 421.44,
+          "baseline": 421.2,
           "text": "20",
           "x": 78.5
         },
         {
-          "baseline": 436.08,
+          "baseline": 435.84,
           "text": "15",
           "x": 78.5
         },
         {
-          "baseline": 450.96,
+          "baseline": 450.48,
           "text": "10",
           "x": 78.5
         },
         {
-          "baseline": 465.84,
+          "baseline": 465.12,
           "text": "5",
-          "x": 82.06
+          "x": 83.84
         },
         {
-          "baseline": 480.72,
+          "baseline": 480.0,
           "text": "0",
-          "x": 82.06
+          "x": 83.84
         },
         {
-          "baseline": 493.68,
+          "baseline": 492.96,
           "text": "Jan",
-          "x": 153.5
+          "x": 154.11
         },
         {
-          "baseline": 493.68,
+          "baseline": 492.96,
           "text": "Feb",
-          "x": 279.55
+          "x": 278.64
         },
         {
-          "baseline": 493.68,
+          "baseline": 492.96,
           "text": "Mar",
-          "x": 406.12
+          "x": 403.96
         },
         {
-          "baseline": 514.56,
+          "baseline": 513.84,
           "text": "Teams Projects",
-          "x": 255.76
+          "x": 244.3
         }
       ],
       "width": 612.0

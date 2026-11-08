@@ -4,7 +4,7 @@
       "height": 540.0,
       "lines": [
         {
-          "baseline": 54.72,
+          "baseline": 58.8,
           "text": "Quarterly delivery review",
           "x": 50.4
         },
@@ -40,7 +40,7 @@
       "height": 540.0,
       "lines": [
         {
-          "baseline": 54.72,
+          "baseline": 58.8,
           "text": "Delivery by workstream",
           "x": 50.4
         },
@@ -171,84 +171,84 @@
       "height": 540.0,
       "lines": [
         {
-          "baseline": 54.72,
+          "baseline": 58.8,
           "text": "Quarterly delivery trend",
           "x": 50.4
         },
         {
           "baseline": 114.0,
           "text": "120",
-          "x": 86.6
+          "x": 87.87
         },
         {
           "baseline": 159.12,
           "text": "100",
-          "x": 86.6
+          "x": 87.87
         },
         {
           "baseline": 204.24,
           "text": "80",
-          "x": 91.94
+          "x": 93.21
         },
         {
-          "baseline": 234.04,
+          "baseline": 233.92,
           "text": "s",
           "x": 79.9
         },
         {
-          "baseline": 249.25,
+          "baseline": 249.33,
           "text": "m60",
           "x": 79.9
         },
         {
-          "baseline": 259.04,
+          "baseline": 258.78,
           "text": "e",
           "x": 79.9
         },
         {
-          "baseline": 264.04,
+          "baseline": 264.59,
           "text": "t",
           "x": 79.9
         },
         {
-          "baseline": 269.04,
+          "baseline": 269.28,
           "text": "I",
           "x": 79.9
         },
         {
           "baseline": 294.48,
           "text": "40",
-          "x": 91.94
+          "x": 93.21
         },
         {
           "baseline": 339.6,
           "text": "20",
-          "x": 91.94
+          "x": 93.21
         },
         {
           "baseline": 384.48,
           "text": "0",
-          "x": 97.28
+          "x": 98.55
         },
         {
           "baseline": 397.68,
           "text": "Q1",
-          "x": 203.86
+          "x": 204.97
         },
         {
           "baseline": 397.68,
           "text": "Q2",
-          "x": 400.55
+          "x": 401.34
         },
         {
           "baseline": 397.68,
           "text": "Q3",
-          "x": 597.24
+          "x": 597.71
         },
         {
           "baseline": 397.68,
           "text": "Q4",
-          "x": 793.92
+          "x": 794.08
         },
         {
           "baseline": 418.56,

@@ -23,7 +23,8 @@ Compatibility observations retained by the captures:
 - Shared-string `count` currently equals unique count, including duplicate labels.
 - Doughnut label positions are omitted; other label flags remain editable.
 - Unitless dimensions and border widths use EMUs. Chart defaults are 6 by 3.5 inches.
-- Word chart tick/legend text has a -10000 DrawingML baseline adjustment.
+- Chart text names its typeface and colour in the chart's text properties and in
+  each title run.
 - Gridlines and the category axis carry the explicit `#D9D9D9` 0.75 pt line of
   Office's default chart style, because Word draws a bare `c:majorGridlines` in
   black at one point. The value axis has no line, and neither axis has tick marks.

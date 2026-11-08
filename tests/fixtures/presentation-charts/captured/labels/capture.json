@@ -112,8 +112,8 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     },
     "ppt/charts/chart1.xml": {
-      "path": "captured/parts/a5beffa8a0c1b5fe486fcdcff473ea5bd511b79ee1cf1ddc9b11b94e5f80f1de.xml",
-      "sha256": "a5beffa8a0c1b5fe486fcdcff473ea5bd511b79ee1cf1ddc9b11b94e5f80f1de"
+      "path": "captured/parts/0fa5101b4c03d688e20382235256bbc583aa2ad05639045122edc96cb98cfecf.xml",
+      "sha256": "0fa5101b4c03d688e20382235256bbc583aa2ad05639045122edc96cb98cfecf"
     },
     "ppt/embeddings/chart1.xlsx": {
       "parts": {
@@ -160,8 +160,8 @@
       }
     },
     "ppt/charts/chart2.xml": {
-      "path": "captured/parts/7f74938e3f1ae463e4840866bc910ef0eb6bb0af961936d689777503db32968d.xml",
-      "sha256": "7f74938e3f1ae463e4840866bc910ef0eb6bb0af961936d689777503db32968d"
+      "path": "captured/parts/f00bede8e93b9934899d841c75d45b09c1c3e923fb7ec31eb39c68fdb27e68ba.xml",
+      "sha256": "f00bede8e93b9934899d841c75d45b09c1c3e923fb7ec31eb39c68fdb27e68ba"
     },
     "ppt/embeddings/chart2.xlsx": {
       "parts": {
@@ -208,8 +208,8 @@
       }
     },
     "ppt/charts/chart3.xml": {
-      "path": "captured/parts/fd0da2e68e6236d1382d178cfe81be407d3d5d771e4f2479bd0e6e279978da3e.xml",
-      "sha256": "fd0da2e68e6236d1382d178cfe81be407d3d5d771e4f2479bd0e6e279978da3e"
+      "path": "captured/parts/5aaf0fb423829a02df4d049f0e748e3567d0dda38a7fec6d86467e8540d4e9ab.xml",
+      "sha256": "5aaf0fb423829a02df4d049f0e748e3567d0dda38a7fec6d86467e8540d4e9ab"
     },
     "ppt/embeddings/chart3.xlsx": {
       "parts": {
@@ -256,8 +256,8 @@
       }
     },
     "ppt/charts/chart4.xml": {
-      "path": "captured/parts/88782ba3414a62cf66349652c7fce6dea380c137bddab88f58c7103532517ecf.xml",
-      "sha256": "88782ba3414a62cf66349652c7fce6dea380c137bddab88f58c7103532517ecf"
+      "path": "captured/parts/9e96dc5483272934166285face654ddcc7b35a8b4bda1e5387d7517273760fce.xml",
+      "sha256": "9e96dc5483272934166285face654ddcc7b35a8b4bda1e5387d7517273760fce"
     },
     "ppt/embeddings/chart4.xlsx": {
       "parts": {
@@ -304,12 +304,12 @@
       }
     }
   },
-  "geometry_sha256": "de4ebd52fc314bd21b3ad56a0108c522897b1feedcc0c7ebc08bc10dbc3e008d",
+  "geometry_sha256": "4857e0cb0125abc938a96e21ab0eb1d03bbebbad470622ef599ad4c31a95e5a1",
   "native_png_files": {
-    "reference-1.png": "1d3379cef846bbef32330547baa40061498be3f4c7f65e6aba3e755527a5714f",
-    "reference-2.png": "c5000f2abab23e06b619ff370a02529656978cf2e644e6ce0031a72b97a2924a",
-    "reference-3.png": "861f9a7ca62fd782b2d7be38f92176dfaf92e34df84734044774f87fce20cb08",
-    "reference-4.png": "9bb2edd2f200c6366afbbfec5e65d27b07c34483510d6abb49dfa353fa0eba1d"
+    "reference-1.png": "ae4d2b30988f492756e486e3f33cab7d84b79d9f2779b84d8d8e0208d2d96a70",
+    "reference-2.png": "3cdf50cc7868a9e0d0ab60cc47fc3496ef89ee7a44fcfb3b351b45a1155fbf0e",
+    "reference-3.png": "3de96541e87df9b55d1dc171698097646511448df8d07763cb4c2853e0417072",
+    "reference-4.png": "9cd8a63592d6a41eacfc0c206a6f9cd2dfd94662b3bf19b6f1bcbaf77ad65abc"
   },
   "native_pdf_comparison": [
     {

@@ -100,7 +100,7 @@ fn resolve(
                 );
             }
             "top" => {
-                legend = Rectangle::new(bounds.left, top - 6.8, bounds.width, 18.0);
+                legend = Rectangle::new(bounds.left, top - 4.2, bounds.width, 18.0);
                 top += 24.0;
             }
             _ => {}
@@ -138,7 +138,7 @@ fn resolve(
                     29.5
                 },
             11.0,
-            24.0 + if chart.category_title.is_empty() {
+            25.5 + if chart.category_title.is_empty() {
                 0.0
             } else {
                 31.0
@@ -146,7 +146,7 @@ fn resolve(
         )
     };
     if chart.legend.enabled && matches!(position, "left" | "right") {
-        let reserve = (legend_width + super::legend::key_width(chart) + 13.0)
+        let reserve = (legend_width + super::legend::key_width(chart) + 17.0)
             .max(56.0)
             .min(bounds.width * 0.28);
         if position == "left" {
@@ -189,7 +189,7 @@ fn resolve(
 }
 
 const TITLE_SIZE: f64 = 18.0;
-const TITLE_TOP: f64 = 4.0;
+const TITLE_TOP: f64 = 5.1;
 const TITLE_GAP: f64 = 8.8;
 const UNTITLED_TOP: f64 = 12.0;
 
