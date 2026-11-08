@@ -63,7 +63,7 @@
     "vertical": 4.9
   },
   "powerpoint/10_chart_properties": {
-    "horizontal": 9.9,
+    "horizontal": 9.6,
     "median": 0.8,
     "page_moves": 0,
     "unmatched": 3,
@@ -77,7 +77,7 @@
     "vertical": 21.0
   },
   "powerpoint/12_chart_defaults": {
-    "horizontal": 10.3,
+    "horizontal": 10.0,
     "median": 0.5,
     "page_moves": 0,
     "unmatched": 2,
@@ -126,7 +126,7 @@
     "vertical": 3.4
   },
   "powerpoint/19_shape_text_bounds": {
-    "horizontal": 274.5,
+    "horizontal": 274.6,
     "median": 1.3,
     "page_moves": 0,
     "unmatched": 29,
@@ -246,10 +246,10 @@
   },
   "probes/footnote-spacing": {
     "horizontal": 0.1,
-    "median": 0.7,
+    "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 19.4
+    "vertical": 0.8
   },
   "probes/paragraph-spacing": {
     "horizontal": 0.0,
@@ -280,7 +280,7 @@
     "vertical": 2.2
   },
   "word/03_nested_styles_layout": {
-    "horizontal": 0.9,
+    "horizontal": 1.0,
     "median": 0.4,
     "page_moves": 0,
     "unmatched": 1,
@@ -291,7 +291,7 @@
     "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 7.3
+    "vertical": 1.2
   },
   "word/05_full_page_markdown_report": {
     "horizontal": 0.3,
@@ -309,10 +309,10 @@
   },
   "word/07_warning_authority": {
     "horizontal": 4.0,
-    "median": 1.2,
+    "median": 0.9,
     "page_moves": 0,
     "unmatched": 3,
-    "vertical": 7.2
+    "vertical": 2.2
   },
   "word/08_lists": {
     "horizontal": 0.0,
@@ -445,7 +445,7 @@
     "median": 0.3,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 14.4
+    "vertical": 1.4
   },
   "word/27_columns_layout": {
     "horizontal": 0.2,
@@ -469,18 +469,18 @@
     "vertical": 0.2
   },
   "word/30_media_references_notes": {
-    "horizontal": 1.8,
-    "median": 2.0,
+    "horizontal": 1.0,
+    "median": 1.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 7.7
+    "vertical": 2.4
   },
   "word/31_reference_parity": {
     "horizontal": 0.2,
-    "median": 0.7,
+    "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.9
+    "vertical": 1.3
   },
   "word/32_forward_page_reference_reflow": {
     "horizontal": 0.0,
@@ -491,24 +491,24 @@
   },
   "word/33_annotation_story_placement": {
     "horizontal": 0.7,
-    "median": 1.0,
+    "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 19.6
+    "vertical": 6.4
   },
   "word/34_notes_one_page": {
     "horizontal": 0.5,
-    "median": 1.0,
+    "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 13.4
+    "vertical": 3.4
   },
   "word/35_notes_two_page": {
     "horizontal": 0.6,
-    "median": 1.0,
+    "median": 0.6,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 7.2
+    "vertical": 3.4
   },
   "word/36_footnote_page_pressure": {
     "horizontal": 0.2,
@@ -588,7 +588,7 @@
     "vertical": 2.5
   },
   "word/47_table_feature_overview": {
-    "horizontal": 0.9,
+    "horizontal": 1.0,
     "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,

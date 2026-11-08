@@ -122,28 +122,28 @@
           "fragments": [
             {
               "advance": 8.34,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "1 ",
               "x": 36
             },
             {
               "advance": 23.9,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "Note ",
               "x": 44.34
             },
             {
               "advance": 16.12,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "text",
               "x": 68.24
             }
           ],
           "height": 13,
-          "top": 349.8,
+          "top": 348.0,
           "width": 48.36,
           "x": 36
         }
@@ -154,11 +154,11 @@
           "dash": [],
           "end": [
             180,
-            334.96000000000004
+            333.16
           ],
           "start": [
             36,
-            334.96000000000004
+            333.16
           ],
           "width": 0.5
         }

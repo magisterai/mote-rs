@@ -1,5 +1,5 @@
 //! Paint note stories into the same ordered page plan as body content.
-use super::{BOTTOM_PADDING, ENDNOTE_BAND, NoteLayout, PARAGRAPH_GAP, SEPARATOR_BAND};
+use super::{ENDNOTE_BAND, NoteLayout, SEPARATOR_BAND};
 use crate::layout::{
     FlowCursor, LayoutError, PageGeometry, PageOperation, PlacedTextLine, Rule, RuleRole, TextPage,
 };
@@ -27,17 +27,14 @@ impl NoteLayout {
     ) {
         for (number, notes) in &self.pages {
             let page = &mut pages[number - 1];
-            let mut top = geometry.content_bottom() - BOTTOM_PADDING - self.stack_height(notes);
+            let mut top = geometry.content_bottom() - self.stack_height(notes);
             separator(
                 page,
                 geometry.margin_left,
                 top - SEPARATOR_BAND,
                 (geometry.width - geometry.margin_left - geometry.margin_right).min(144.0),
             );
-            for (index, number) in notes.iter().enumerate() {
-                if index > 0 {
-                    top += PARAGRAPH_GAP;
-                }
+            for number in notes {
                 for line in &self.footnotes[number - 1].lines {
                     let mut line = line.clone();
                     line.translate(geometry.margin_left, top);
@@ -47,6 +44,7 @@ impl NoteLayout {
                         line,
                     });
                 }
+                top += self.footnotes[number - 1].after;
             }
         }
     }

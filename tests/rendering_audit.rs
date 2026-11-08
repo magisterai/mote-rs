@@ -142,13 +142,20 @@ fn semantic_wrappers_preserve_page_notes_and_definition_endnotes() {
             )
         })
         .collect();
+    let (body_bottom, _) = lines
+        .iter()
+        .find(|(_, text)| text.starts_with("i An endnote"))
+        .unwrap();
     for number in 1..=6 {
         let prefix = format!("{number} Note {number}:");
         let (top, _) = lines
             .iter()
             .find(|(_, text)| text.starts_with(&prefix))
             .unwrap();
-        assert!(*top > 370.0, "note {number} must remain below the body");
+        assert!(
+            top > body_bottom,
+            "note {number} must remain below the body"
+        );
     }
     assert!(
         lines

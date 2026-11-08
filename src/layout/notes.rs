@@ -10,15 +10,15 @@ pub(super) use flow::NoteFlowContext;
 mod placement;
 
 pub(super) const NUMBER: &str = "__layout_note_number";
-const PARAGRAPH_GAP: f64 = 1.8;
 const SEPARATOR_BAND: f64 = 14.84;
 const BODY_GAP: f64 = 6.0;
-const BOTTOM_PADDING: f64 = 1.2;
 const ENDNOTE_BAND: f64 = 20.878;
 
 struct Note {
     lines: Vec<TextLine>,
     height: f64,
+    /// The space after the note's paragraph, which Word keeps below each note.
+    after: f64,
 }
 #[derive(Default)]
 pub(super) struct NoteLayout {
@@ -146,16 +146,15 @@ impl NoteLayout {
     fn stack_height(&self, numbers: &[usize]) -> f64 {
         numbers
             .iter()
-            .map(|number| self.footnotes[number - 1].height)
+            .map(|number| self.footnotes[number - 1].height + self.footnotes[number - 1].after)
             .sum::<f64>()
-            + numbers.len().saturating_sub(1) as f64 * PARAGRAPH_GAP
     }
     fn body_bottom(&self, numbers: &[usize], geometry: PageGeometry) -> f64 {
         let height = self.stack_height(numbers);
         if height <= 0.0 {
             geometry.content_bottom()
         } else {
-            geometry.content_bottom() - BOTTOM_PADDING - height - SEPARATOR_BAND - BODY_GAP
+            geometry.content_bottom() - height - SEPARATOR_BAND - BODY_GAP
         }
     }
 }
@@ -267,5 +266,9 @@ fn measure(
         }
     }
     let height = lines.iter().map(|line| line.height).sum();
-    Ok(Note { lines, height })
+    Ok(Note {
+        lines,
+        height,
+        after: style.spacing_after.max(0.0),
+    })
 }

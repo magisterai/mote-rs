@@ -136,28 +136,28 @@
           "fragments": [
             {
               "advance": 8.34,
-              "baseline": 330.59999999999997,
+              "baseline": 326.4,
               "size": 10,
               "text": "1 ",
               "x": 36
             },
             {
               "advance": 22.22,
-              "baseline": 330.59999999999997,
+              "baseline": 326.4,
               "size": 10,
               "text": "First ",
               "x": 44.34
             },
             {
               "advance": 22.24,
-              "baseline": 330.59999999999997,
+              "baseline": 326.4,
               "size": 10,
               "text": "note.",
               "x": 66.56
             }
           ],
           "height": 13,
-          "top": 320.2,
+          "top": 316.0,
           "width": 52.8,
           "x": 36
         },
@@ -165,28 +165,28 @@
           "fragments": [
             {
               "advance": 8.34,
-              "baseline": 345.4,
+              "baseline": 342.4,
               "size": 10,
               "text": "2 ",
               "x": 36
             },
             {
               "advance": 36.69,
-              "baseline": 345.4,
+              "baseline": 342.4,
               "size": 10,
               "text": "Second ",
               "x": 44.34
             },
             {
               "advance": 22.24,
-              "baseline": 345.4,
+              "baseline": 342.4,
               "size": 10,
               "text": "note.",
               "x": 81.03
             }
           ],
           "height": 13,
-          "top": 335,
+          "top": 332.0,
           "width": 67.27,
           "x": 36
         },
@@ -194,56 +194,56 @@
           "fragments": [
             {
               "advance": 8.34,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "3 ",
               "x": 36
             },
             {
               "advance": 25.56,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "Third ",
               "x": 44.34
             },
             {
               "advance": 22.24,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "note ",
               "x": 69.9
             },
             {
               "advance": 20.56,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "with ",
               "x": 92.14
             },
             {
               "advance": 23.89,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "bold ",
               "x": 112.7
             },
             {
               "advance": 17.78,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": "text",
               "x": 136.59
             },
             {
               "advance": 2.78,
-              "baseline": 360.2,
+              "baseline": 358.4,
               "size": 10,
               "text": ".",
               "x": 154.37
             }
           ],
           "height": 13,
-          "top": 349.8,
+          "top": 348.0,
           "width": 121.15,
           "x": 36
         }
@@ -306,11 +306,11 @@
           "dash": [],
           "end": [
             180,
-            305.36
+            301.16
           ],
           "start": [
             36,
-            305.36
+            301.16
           ],
           "width": 0.5
         }
