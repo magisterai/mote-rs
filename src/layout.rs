@@ -272,6 +272,18 @@ pub struct TextFragment {
     pub formula: Option<std::sync::Arc<Formula>>,
 }
 
+impl TextFragment {
+    /// Returns the outline stroke width that emboldens a fragment whose font
+    /// file has no bold weight, as Word and PowerPoint embolden it.
+    pub fn synthetic_bold(&self) -> Option<f64> {
+        let (bold, _) = styles::emphasis(self.style.measurement.variant);
+        let bytes = self.font.bytes.as_ref()?;
+        let face = ttf_parser::Face::parse(bytes, 0).ok()?;
+        (bold && face.weight().to_number() < 600)
+            .then_some(self.style.measurement.size_points * 0.04)
+    }
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct TextLine {
     pub x: f64,

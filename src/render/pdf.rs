@@ -336,6 +336,13 @@ fn paint_line(
             .set_fill_rgb(red, green, blue)
             .begin_text()
             .set_font(Name(font.resource.as_bytes()), font_size);
+        let synthetic_bold = fragment.synthetic_bold();
+        if let Some(width) = synthetic_bold {
+            content
+                .set_stroke_rgb(red, green, blue)
+                .set_line_width(width as f32)
+                .set_text_rendering_mode(pdf_writer::types::TextRenderingMode::FillStroke);
+        }
         let baseline = if compact {
             (page_height - fragment.baseline) as f32
         } else {
@@ -409,6 +416,9 @@ fn paint_line(
             content
                 .set_text_matrix([1.0, 0.0, 0.0, 1.0, rounded(fragment.x), baseline])
                 .show(Str(&encoded));
+        }
+        if synthetic_bold.is_some() {
+            content.set_text_rendering_mode(pdf_writer::types::TextRenderingMode::Fill);
         }
         content.end_text();
     }

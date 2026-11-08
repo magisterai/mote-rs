@@ -327,6 +327,7 @@ fn paint_line(
         let baseline = (fragment.baseline * scale).round();
         let origin = (fragment.x * scale).round();
         let brush = paint(&fragment.style.color, true)?;
+        let synthetic_bold = fragment.synthetic_bold();
         for placement in glyphs::placements(&face, &fragment.text, size, fragment.kerned)? {
             let mut outline = Outline {
                 path: PathBuilder::new(),
@@ -343,6 +344,18 @@ fn paint_line(
                     Transform::identity(),
                     clip,
                 );
+                if let Some(width) = synthetic_bold {
+                    pixels.stroke_path(
+                        &path,
+                        &brush,
+                        &tiny_skia::Stroke {
+                            width: (width * scale) as f32,
+                            ..Default::default()
+                        },
+                        Transform::identity(),
+                        clip,
+                    );
+                }
             }
         }
     }
