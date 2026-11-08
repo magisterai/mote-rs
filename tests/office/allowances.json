@@ -715,10 +715,10 @@
   },
   "word/65_display_equations": {
     "horizontal": 108.3,
-    "median": 1.5,
+    "median": 2.6,
     "page_moves": 0,
     "unmatched": 38,
-    "vertical": 15.6
+    "vertical": 10.4
   },
   "word/66_inline_equations_flow": {
     "horizontal": 7.1,

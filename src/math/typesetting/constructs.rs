@@ -482,33 +482,42 @@ impl Typesetter<'_> {
             starts.push(x);
             x += width;
         }
+        let row_gap = 0.38 * self.size(style);
         let ink: Vec<(f64, f64)> = cells
+            .iter()
+            .map(|row| {
+                row.iter().fold((0.0f64, 0.0f64), |extent, cell| {
+                    (extent.0.max(cell.ascent), extent.1.max(cell.descent))
+                })
+            })
+            .collect();
+        // Two successive rows of plain characters within the font's line keep
+        // the line apart, whatever their ink.
+        let plain_rows: Vec<bool> = cells
             .iter()
             .enumerate()
             .map(|(index, row)| {
-                row.iter()
-                    .enumerate()
-                    .fold((0.0f64, 0.0f64), |extent, (column, cell)| {
-                        let within = cell.ascent <= strut.0 && cell.descent <= strut.1;
-                        let plain =
-                            plain.and_then(|plain| plain.get(index)?.get(column)) == Some(&true);
-                        if within && plain {
-                            extent
-                        } else {
-                            (extent.0.max(cell.ascent), extent.1.max(cell.descent))
-                        }
+                plain
+                    .and_then(|plain| plain.get(index))
+                    .is_some_and(|flags| {
+                        row.iter().zip(flags).all(|(cell, plain)| {
+                            *plain && cell.ascent <= strut.0 && cell.descent <= strut.1
+                        })
                     })
             })
             .collect();
-        let row_gap = 0.38 * self.size(style);
         let mut baselines = vec![0.0];
-        for pair in ink.windows(2) {
+        for (index, pair) in ink.windows(2).enumerate() {
             let above = if plain.is_some() {
                 pair[0].1.max(strut.1)
             } else {
                 pair[0].1
             };
-            let pitch = (above + pair[1].0 + row_gap).max(strut.0 + strut.1);
+            let pitch = if plain_rows[index] && plain_rows[index + 1] {
+                strut.0 + strut.1
+            } else {
+                (above + pair[1].0 + row_gap).max(strut.0 + strut.1)
+            };
             baselines.push(baselines.last().unwrap() - pitch);
         }
         let top = ink.first().map_or(0.0, |row| row.0.max(strut.0));
