@@ -349,6 +349,7 @@ fn paint_line(
                     &face,
                     &fragment.text,
                     fragment.style.measurement.size_points,
+                    fragment.kerned,
                 )? {
                     let code = font.code(placement.character)?;
                     content
@@ -363,13 +364,38 @@ fn paint_line(
                         .show(Str(&code.to_be_bytes()));
                 }
             } else {
+                // A reader advances by the font's widths alone, so the kerning
+                // that the layout applied is restored with positioning offsets.
+                content.set_text_matrix([1.0, 0.0, 0.0, 1.0, rounded(fragment.x), baseline]);
+                let units = f64::from(face.units_per_em());
+                let mut positioned = content.show_positioned();
+                let mut items = positioned.items();
                 let mut encoded = Vec::new();
-                for character in fragment.text.chars() {
-                    encoded.extend(font.code(character)?.to_be_bytes());
+                let mut position = 0.0;
+                for placement in glyphs::placements(
+                    &face,
+                    &fragment.text,
+                    fragment.style.measurement.size_points,
+                    fragment.kerned,
+                )? {
+                    let shift = placement.offset - position;
+                    if shift.abs() > 0.001 {
+                        if !encoded.is_empty() {
+                            items.show(Str(&encoded));
+                            encoded.clear();
+                        }
+                        items.adjust((-shift * 1000.0 / f64::from(font_size)) as f32);
+                    }
+                    encoded.extend(font.code(placement.character)?.to_be_bytes());
+                    let width = (f64::from(face.glyph_hor_advance(placement.glyph).unwrap_or(0))
+                        * 1000.0
+                        / units)
+                        .round();
+                    position = placement.offset + width * f64::from(font_size) / 1000.0;
                 }
-                content
-                    .set_text_matrix([1.0, 0.0, 0.0, 1.0, rounded(fragment.x), baseline])
-                    .show(Str(&encoded));
+                if !encoded.is_empty() {
+                    items.show(Str(&encoded));
+                }
             }
         } else {
             let encoded = fragment

@@ -2,8 +2,8 @@
   "source_sha256": "59264ce01839410645d2e943bb9fda2537131fe8c85c93bf2f4f587fe5d4cceb",
   "geometry_sha256": "c23c8e226997fb4ba0ffcf49417b49d8439bfae9eae03a2e2e96509416519433",
   "native_png_files": {
-    "reference-1.png": "98bfd1ae2ff2897477db83b2b5870ed1fa6cf1df5dfb9187c48ac8ee99e87bcb",
-    "reference-2.png": "6a752058cc4fd5fc098697bd18b4c3d45f1d5d1d459c49ea1def7c2ce44f8bb9"
+    "reference-1.png": "10328a5bdf142dcf4250fefeb7ff9bd1411fa28a0530e54d876866f2bfc367fb",
+    "reference-2.png": "033b4eaa275c075101648b585322e8e39aae7bf5ae345acef8765d7a5ee843bd"
   },
   "native_png_dpi": 72,
   "native_pdf_comparison_dpi": 144,

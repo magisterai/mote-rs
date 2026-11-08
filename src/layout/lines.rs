@@ -183,6 +183,7 @@ pub fn plan_text(
             if let Some(formula) = &placed.run.formula {
                 fragments.push(TextFragment {
                     text: formula.text(),
+                    kerned: false,
                     x: placed.x,
                     baseline,
                     top: baseline - formula.ascent,
@@ -248,6 +249,7 @@ pub fn plan_text(
                 height: measurement.extents.ascent + measurement.extents.descent,
                 width: placed.width,
                 advance: placed.advance,
+                kerned: options.layout_kerning,
                 style: placed.run.style,
                 font: measured.font,
                 missing_codepoints: measurement.missing_codepoints,

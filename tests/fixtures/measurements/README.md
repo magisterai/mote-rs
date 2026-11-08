@@ -66,14 +66,14 @@ line gap; a library's higher-level preferred metrics may select different tables
 Core metrics instead scale integer widths in thousandths of an em without that
 26.6 quantization and use their standard WinAnsi character repertoire.
 
-The capture preserves a kerning-scale difference that must stay visible during
-implementation: TrueType pair adjustments use `units_per_em / 64` points as the
-scale, independent of the requested size, while CFF pair adjustments use the
-quantized requested size. At 12 points, regular Source Sans 3 measures
-`AV To Wa` as 44.453125 points in TrueType and 44.796875 points in CFF. Both
-have an unkerned layout width of 45.953125 points. Do not silently replace these
-expectations with a library's defaults or describe the difference as equivalent
-geometry. Any intentional behavior change needs separate review.
+Pair adjustments of TrueType and CFF fonts alike are scaled to the quantized
+requested size and rounded separately. At 12 points, regular Source Sans 3
+measures `AV To Wa` as 44.796875 points in both forms, against an unkerned layout
+width of 45.953125 points. The first capture scaled TrueType adjustments by
+`units_per_em / 64` points regardless of size. A review replaced it: the old scale
+drew Aptos headings with overlapping pairs such as `Te`, and it made a PNG
+page's kerning depend on its resolution. Any further change to these expectations
+needs the same review.
 
 ## Comparison
 

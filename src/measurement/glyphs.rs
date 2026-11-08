@@ -13,15 +13,11 @@ pub(crate) fn placements(
     face: &Face<'_>,
     text: &str,
     size: f64,
+    kerned: bool,
 ) -> Result<Vec<GlyphPlacement>, MeasurementError> {
     let scale = (size * 64.0).round();
     let units = f64::from(face.units_per_em());
     let kerning = Kerning::new(face);
-    let kerning_scale = if face.tables().cff.is_some() {
-        scale
-    } else {
-        units
-    };
     let mut position = 0.0;
     let mut previous = None;
     let mut output = Vec::new();
@@ -29,9 +25,8 @@ pub(crate) fn placements(
         let glyph = face
             .glyph_index(character)
             .ok_or(MeasurementError::MissingReplacementGlyph)?;
-        if let Some(previous) = previous {
-            position +=
-                (f64::from(kerning.adjustment(previous, glyph)) * kerning_scale / units).round();
+        if let Some(previous) = previous.filter(|_| kerned) {
+            position += (f64::from(kerning.adjustment(previous, glyph)) * scale / units).round();
         }
         output.push(GlyphPlacement {
             glyph,

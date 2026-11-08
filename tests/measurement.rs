@@ -115,15 +115,18 @@ fn size_validation_and_omitted_size_are_consistent() {
 }
 
 #[test]
-fn kerning_scale_and_paint_width_are_distinct_from_layout_advance() {
+fn kerning_scales_with_size_alike_in_both_outline_formats() {
     let truetype = OpenTypeFont::parse(REGULAR).unwrap();
     let compact = OpenTypeFont::parse(COMPACT).unwrap();
+    let mut previous_kerning = 0.0;
     for size in [9.5, 12.0, 24.0] {
         let first = truetype.measure("AV To Wa", size, false).unwrap();
         let second = compact.measure("AV To Wa", size, false).unwrap();
         assert_eq!(first.layout_width, second.layout_width);
-        assert_eq!(first.layout_width - first.paint_width, 1.5);
-        assert_ne!(first.paint_width, second.paint_width);
+        assert_eq!(first.paint_width, second.paint_width);
+        let kerning = first.layout_width - first.paint_width;
+        assert!(kerning > previous_kerning);
+        previous_kerning = kerning;
         assert_eq!(
             truetype
                 .measure("AV To Wa", size, true)

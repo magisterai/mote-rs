@@ -63,42 +63,42 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "32f3e209eb69aef26e376f1e29c12ce24fb348497f4afce669fb9459b9e38acf",
+      "sha256": "5049251892947a10187335573bd4ea959d71c27968ad44d13e50a127e632e5b5",
       "maximum": 47,
       "mean": 10.008,
       "outliers": 0
     },
     {
       "path": "reference-2.png",
-      "sha256": "dbe0b0adda6497cf3d158fe36d6c466ae5f66f4398fd9ac6e19f8483c9e86971",
+      "sha256": "c2e5ed4a5f47bd8e2e4241fc7c1c46f2fa116f93a995e59695d91f81b11c3ab9",
       "maximum": 44,
       "mean": 10.04,
       "outliers": 0
     },
     {
       "path": "reference-3.png",
-      "sha256": "a68b2b1adec3e3743104954d7bcfcaa12b502e5813eca63bcae1815ded8067f4",
+      "sha256": "c5260cd84e3f2c9390216af30984ceb5108d46e7d630a116eaf0d7c22be60ccc",
       "maximum": 44,
       "mean": 10.303,
       "outliers": 0
     },
     {
       "path": "reference-4.png",
-      "sha256": "aca1d85bf4968eddf422c48118a311575e2a4e15714aa6f6158b9e829bdea195",
+      "sha256": "c1f62d1304bc90e1ac5e8485d41702870b4a4e0898a5ef5eae4849aefd8009c7",
       "maximum": 44,
       "mean": 10.26,
       "outliers": 0
     },
     {
       "path": "reference-5.png",
-      "sha256": "8b8fe191969abf56ffef72e3a0a81009119e38ffffd53a23d7fcf422bbb709d9",
+      "sha256": "5edad34c9a355e6b5ffd4c1657531c8b06017ee345ad067614c4dddc04f91c8c",
       "maximum": 44,
       "mean": 10.26,
       "outliers": 0
     },
     {
       "path": "reference-6.png",
-      "sha256": "6ddd1157b308380c8e84df5d6fde7ce806bc490b2833b9a711a01143b7bda2d3",
+      "sha256": "a9e5f6d256d71f232a129d8da24b0b4012f683920740bf1ffa22f826fbc73ce6",
       "maximum": 44,
       "mean": 10.26,
       "outliers": 0

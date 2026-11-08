@@ -256,6 +256,8 @@ pub struct TextFragment {
     pub height: f64,
     pub width: f64,
     pub advance: f64,
+    /// Whether the layout kerned the fragment's glyphs, as the painters must.
+    pub kerned: bool,
     pub style: TextStyle,
     pub font: FontSelection,
     pub missing_codepoints: Vec<char>,

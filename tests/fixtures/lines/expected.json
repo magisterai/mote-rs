@@ -27155,48 +27155,48 @@
           "break": 1,
           "fragments": [
             {
-              "advance": 15.973958333333334,
+              "advance": 15.901041666666666,
               "baseline": 17.857259999999997,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "AV ",
               "top": 6.857259999999997,
-              "width": 13.640625,
+              "width": 13.703125,
               "x": 6
             },
             {
-              "advance": 15.364583333333334,
+              "advance": 15.541666666666666,
               "baseline": 17.857259999999997,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "To ",
               "top": 6.857259999999997,
-              "width": 13.03125,
-              "x": 21.973958333333336
+              "width": 13.34375,
+              "x": 21.901041666666664
             },
             {
-              "advance": 18.473958333333332,
+              "advance": 18.416666666666668,
               "baseline": 17.857259999999997,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "Wa ",
               "top": 6.857259999999997,
-              "width": 16.140625,
-              "x": 37.33854166666667
+              "width": 16.21875,
+              "x": 37.44270833333333
             },
             {
-              "advance": 44.1875,
+              "advance": 44.140625,
               "baseline": 17.857259999999997,
               "height": 23.875,
               "missing_codepoints": [],
               "size_points": 18,
               "text": "Mixed",
               "top": -0.14274000000000342,
-              "width": 44.1875,
-              "x": 55.8125
+              "width": 44.140625,
+              "x": 55.859375
             }
           ],
           "height": 24.914519999999996,
@@ -27208,26 +27208,26 @@
           "break": 1,
           "fragments": [
             {
-              "advance": 84.21875,
+              "advance": 83.96875,
               "baseline": 17.857259999999997,
               "height": 23.875,
               "missing_codepoints": [],
               "size_points": 18,
               "text": "words ",
               "top": -0.14274000000000342,
-              "width": 49.84375,
+              "width": 49.796875,
               "x": 0
             },
             {
-              "advance": 15.78125,
+              "advance": 16.03125,
               "baseline": 17.857259999999997,
               "height": 12.59375,
               "missing_codepoints": [],
               "size_points": 9.5,
               "text": "stay",
               "top": 8.357259999999997,
-              "width": 15.78125,
-              "x": 84.21875
+              "width": 16.03125,
+              "x": 83.96875
             }
           ],
           "height": 24.914519999999996,
@@ -27239,19 +27239,19 @@
           "break": 0,
           "fragments": [
             {
-              "advance": 35.15625,
+              "advance": 35.71875,
               "baseline": 10.9475,
               "height": 12.59375,
               "missing_codepoints": [],
               "size_points": 9.5,
               "text": "together.",
               "top": 1.4474999999999998,
-              "width": 35.15625,
+              "width": 35.71875,
               "x": 0
             }
           ],
           "height": 15.294999999999998,
-          "width": 35.15625,
+          "width": 35.71875,
           "x": 0
         }
       ]
@@ -27373,48 +27373,48 @@
           "break": 1,
           "fragments": [
             {
-              "advance": 15.973958333333334,
+              "advance": 15.901041666666666,
               "baseline": 10.4,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "AV ",
               "top": -0.5999999999999996,
-              "width": 13.640625,
+              "width": 13.703125,
               "x": 6
             },
             {
-              "advance": 15.364583333333334,
+              "advance": 15.541666666666666,
               "baseline": 10.4,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "To ",
               "top": -0.5999999999999996,
-              "width": 13.03125,
-              "x": 21.973958333333336
+              "width": 13.34375,
+              "x": 21.901041666666664
             },
             {
-              "advance": 18.473958333333332,
+              "advance": 18.416666666666668,
               "baseline": 10.4,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "Wa ",
               "top": -0.5999999999999996,
-              "width": 16.140625,
-              "x": 37.33854166666667
+              "width": 16.21875,
+              "x": 37.44270833333333
             },
             {
-              "advance": 44.1875,
+              "advance": 44.140625,
               "baseline": 10.4,
               "height": 23.875,
               "missing_codepoints": [],
               "size_points": 18,
               "text": "Mixed",
               "top": -7.6,
-              "width": 44.1875,
-              "x": 55.8125
+              "width": 44.140625,
+              "x": 55.859375
             }
           ],
           "height": 10,
@@ -27426,26 +27426,26 @@
           "break": 1,
           "fragments": [
             {
-              "advance": 84.21875,
+              "advance": 83.96875,
               "baseline": 10.4,
               "height": 23.875,
               "missing_codepoints": [],
               "size_points": 18,
               "text": "words ",
               "top": -7.6,
-              "width": 49.84375,
+              "width": 49.796875,
               "x": 0
             },
             {
-              "advance": 15.78125,
+              "advance": 16.03125,
               "baseline": 10.4,
               "height": 12.59375,
               "missing_codepoints": [],
               "size_points": 9.5,
               "text": "stay",
               "top": 0.9000000000000004,
-              "width": 15.78125,
-              "x": 84.21875
+              "width": 16.03125,
+              "x": 83.96875
             }
           ],
           "height": 10,
@@ -27457,19 +27457,19 @@
           "break": 0,
           "fragments": [
             {
-              "advance": 35.15625,
+              "advance": 35.71875,
               "baseline": 8.3,
               "height": 12.59375,
               "missing_codepoints": [],
               "size_points": 9.5,
               "text": "together.",
               "top": -1.1999999999999993,
-              "width": 35.15625,
+              "width": 35.71875,
               "x": 0
             }
           ],
           "height": 10,
-          "width": 35.15625,
+          "width": 35.71875,
           "x": 0
         }
       ]
@@ -27591,48 +27591,48 @@
           "break": 1,
           "fragments": [
             {
-              "advance": 15.9739583333,
+              "advance": 15.901041666666666,
               "baseline": 16.2324,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "AV ",
               "top": 5.2324,
-              "width": 13.640625,
+              "width": 13.703125,
               "x": 6
             },
             {
-              "advance": 15.3645833333,
+              "advance": 15.541666666666666,
               "baseline": 16.2324,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "To ",
               "top": 5.2324,
-              "width": 13.03125,
-              "x": 21.9739583333
+              "width": 13.34375,
+              "x": 21.901041666666664
             },
             {
-              "advance": 18.4739583333,
+              "advance": 18.416666666666668,
               "baseline": 16.2324,
               "height": 14.59375,
               "missing_codepoints": [],
               "size_points": 11,
               "text": "Wa ",
               "top": 5.2324,
-              "width": 16.140625,
-              "x": 37.3385416667
+              "width": 16.21875,
+              "x": 37.44270833333333
             },
             {
-              "advance": 44.1875,
+              "advance": 44.140625,
               "baseline": 16.2324,
               "height": 23.875,
               "missing_codepoints": [],
               "size_points": 18,
               "text": "Mixed",
               "top": -1.7676,
-              "width": 44.1875,
-              "x": 55.8125
+              "width": 44.140625,
+              "x": 55.859375
             }
           ],
           "height": 21.6648,
@@ -27644,26 +27644,26 @@
           "break": 1,
           "fragments": [
             {
-              "advance": 84.21875,
+              "advance": 83.96875,
               "baseline": 16.2324,
               "height": 23.875,
               "missing_codepoints": [],
               "size_points": 18,
               "text": "words ",
               "top": -1.7676,
-              "width": 49.84375,
+              "width": 49.796875,
               "x": 0
             },
             {
-              "advance": 15.78125,
+              "advance": 16.03125,
               "baseline": 16.2324,
               "height": 12.59375,
               "missing_codepoints": [],
               "size_points": 9.5,
               "text": "stay",
               "top": 6.7324,
-              "width": 15.78125,
-              "x": 84.21875
+              "width": 16.03125,
+              "x": 83.96875
             }
           ],
           "height": 21.6648,
@@ -27675,19 +27675,19 @@
           "break": 0,
           "fragments": [
             {
-              "advance": 35.15625,
+              "advance": 35.71875,
               "baseline": 12.3,
               "height": 12.59375,
               "missing_codepoints": [],
               "size_points": 9.5,
               "text": "together.",
               "top": 2.8,
-              "width": 35.15625,
+              "width": 35.71875,
               "x": 0
             }
           ],
           "height": 18,
-          "width": 35.15625,
+          "width": 35.71875,
           "x": 0
         }
       ]

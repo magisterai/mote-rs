@@ -327,7 +327,7 @@ fn paint_line(
         let baseline = (fragment.baseline * scale).round();
         let origin = (fragment.x * scale).round();
         let brush = paint(&fragment.style.color, true)?;
-        for placement in glyphs::placements(&face, &fragment.text, size)? {
+        for placement in glyphs::placements(&face, &fragment.text, size, fragment.kerned)? {
             let mut outline = Outline {
                 path: PathBuilder::new(),
                 scale: outline_scale,

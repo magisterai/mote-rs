@@ -8,7 +8,6 @@ use ttf_parser::{Face, Tag};
 pub struct OpenTypeFont<'font> {
     face: Face<'font>,
     kerning: Kerning<'font>,
-    compact_outlines: bool,
 }
 
 impl<'font> OpenTypeFont<'font> {
@@ -35,11 +34,7 @@ impl<'font> OpenTypeFont<'font> {
             return Err(MeasurementError::MissingReplacementGlyph);
         }
         let kerning = Kerning::new(&face);
-        Ok(Self {
-            face,
-            kerning,
-            compact_outlines: bytes.starts_with(b"OTTO"),
-        })
+        Ok(Self { face, kerning })
     }
 
     pub fn measure(
@@ -67,16 +62,11 @@ impl<'font> OpenTypeFont<'font> {
                 .ok_or(MeasurementError::InvalidFont)?;
             advances += scaled_units(i64::from(advance), scale, units_per_em);
             if let Some(previous) = previous {
-                // Keep the captured TrueType adjustment scale explicit. CFF uses
-                // the requested point scale; both paths round each pair separately.
-                let kerning_scale = if self.compact_outlines {
-                    scale
-                } else {
-                    units_per_em
-                };
+                // Each pair adjustment is scaled to the quantized size and
+                // rounded separately.
                 adjustments += scaled_units(
                     i64::from(self.kerning.adjustment(previous, glyph)),
-                    kerning_scale,
+                    scale,
                     units_per_em,
                 );
             }

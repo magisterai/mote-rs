@@ -3,7 +3,7 @@
   "requests": "requests.json",
   "requests_sha256": "b4f28ba4937aef46576345c67b56b3e57d30e3122b136be1cc4eeaa51ee6f1aa",
   "expected": "expected.json",
-  "expected_sha256": "31025600113dfb14b318900d2403c53043ac7e2b2558b000368ab337f5b617cf",
+  "expected_sha256": "aaa16f33ec56254a04144b9de57d982157a43f3fefc41bd7f00c3442f5823a01",
   "case_count": 960,
   "coordinate_unit": "point",
   "absolute_tolerance_points": 1e-09,

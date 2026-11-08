@@ -7811,8 +7811,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 34.875,
-      "paint_width": 34.875,
+      "layout_width": 35.453125,
+      "paint_width": 35.453125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7825,7 +7825,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 36.375,
-      "paint_width": 34.875,
+      "paint_width": 35.453125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7837,8 +7837,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 31.59375,
-      "paint_width": 31.59375,
+      "layout_width": 31.71875,
+      "paint_width": 31.71875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7851,7 +7851,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 31.921875,
-      "paint_width": 31.59375,
+      "paint_width": 31.71875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7863,8 +7863,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 41.421875,
-      "paint_width": 41.421875,
+      "layout_width": 41.546875,
+      "paint_width": 41.546875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7877,7 +7877,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 41.734375,
-      "paint_width": 41.421875,
+      "paint_width": 41.546875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7892,8 +7892,8 @@
         9731,
         23383
       ],
-      "layout_width": 22.453125,
-      "paint_width": 22.453125,
+      "layout_width": 22.609375,
+      "paint_width": 22.609375,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7909,7 +7909,7 @@
         23383
       ],
       "layout_width": 22.859375,
-      "paint_width": 22.453125,
+      "paint_width": 22.609375,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -7973,8 +7973,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 44.453125,
-      "paint_width": 44.453125,
+      "layout_width": 44.796875,
+      "paint_width": 44.796875,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -7987,7 +7987,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 45.953125,
-      "paint_width": 44.453125,
+      "paint_width": 44.796875,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -7999,8 +7999,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 39.90625,
-      "paint_width": 39.90625,
+      "layout_width": 39.984375,
+      "paint_width": 39.984375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -8013,7 +8013,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 40.234375,
-      "paint_width": 39.90625,
+      "paint_width": 39.984375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -8025,8 +8025,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 52.40625,
-      "paint_width": 52.40625,
+      "layout_width": 52.46875,
+      "paint_width": 52.46875,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -8039,7 +8039,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 52.71875,
-      "paint_width": 52.40625,
+      "paint_width": 52.46875,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -8054,8 +8054,8 @@
         9731,
         23383
       ],
-      "layout_width": 28.46875,
-      "paint_width": 28.46875,
+      "layout_width": 28.5625,
+      "paint_width": 28.5625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -8071,7 +8071,7 @@
         23383
       ],
       "layout_width": 28.875,
-      "paint_width": 28.46875,
+      "paint_width": 28.5625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -8135,8 +8135,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 46.40625,
-      "paint_width": 46.40625,
+      "layout_width": 46.703125,
+      "paint_width": 46.703125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8149,7 +8149,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 47.90625,
-      "paint_width": 46.40625,
+      "paint_width": 46.703125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8161,8 +8161,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 41.640625,
-      "paint_width": 41.640625,
+      "layout_width": 41.703125,
+      "paint_width": 41.703125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8175,7 +8175,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 41.96875,
-      "paint_width": 41.640625,
+      "paint_width": 41.703125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8187,8 +8187,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 54.65625,
-      "paint_width": 54.65625,
+      "layout_width": 54.71875,
+      "paint_width": 54.71875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8201,7 +8201,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 54.96875,
-      "paint_width": 54.65625,
+      "paint_width": 54.71875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8216,8 +8216,8 @@
         9731,
         23383
       ],
-      "layout_width": 29.703125,
-      "paint_width": 29.703125,
+      "layout_width": 29.78125,
+      "paint_width": 29.78125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8233,7 +8233,7 @@
         23383
       ],
       "layout_width": 30.109375,
-      "paint_width": 29.703125,
+      "paint_width": 29.78125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -8297,8 +8297,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 90.34375,
-      "paint_width": 90.34375,
+      "layout_width": 89.53125,
+      "paint_width": 89.53125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -8311,7 +8311,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 91.84375,
-      "paint_width": 90.34375,
+      "paint_width": 89.53125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -8323,8 +8323,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 80.203125,
-      "paint_width": 80.203125,
+      "layout_width": 80.03125,
+      "paint_width": 80.03125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -8337,7 +8337,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 80.53125,
-      "paint_width": 80.203125,
+      "paint_width": 80.03125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -8349,8 +8349,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 105.109375,
-      "paint_width": 105.109375,
+      "layout_width": 104.953125,
+      "paint_width": 104.953125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -8363,7 +8363,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 105.421875,
-      "paint_width": 105.109375,
+      "paint_width": 104.953125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -8378,8 +8378,8 @@
         9731,
         23383
       ],
-      "layout_width": 57.375,
-      "paint_width": 57.375,
+      "layout_width": 57.15625,
+      "paint_width": 57.15625,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -8395,7 +8395,7 @@
         23383
       ],
       "layout_width": 57.78125,
-      "paint_width": 57.375,
+      "paint_width": 57.15625,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9107,8 +9107,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 36.140625,
-      "paint_width": 36.140625,
+      "layout_width": 36.796875,
+      "paint_width": 36.796875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9121,7 +9121,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 37.796875,
-      "paint_width": 36.140625,
+      "paint_width": 36.796875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9133,8 +9133,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 34.203125,
-      "paint_width": 34.203125,
+      "layout_width": 34.40625,
+      "paint_width": 34.40625,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9147,7 +9147,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 34.71875,
-      "paint_width": 34.203125,
+      "paint_width": 34.40625,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9159,8 +9159,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 43,
-      "paint_width": 43,
+      "layout_width": 43.125,
+      "paint_width": 43.125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9173,7 +9173,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 43.3125,
-      "paint_width": 43,
+      "paint_width": 43.125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9188,8 +9188,8 @@
         9731,
         23383
       ],
-      "layout_width": 23.84375,
-      "paint_width": 23.84375,
+      "layout_width": 24.0625,
+      "paint_width": 24.0625,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9205,7 +9205,7 @@
         23383
       ],
       "layout_width": 24.40625,
-      "paint_width": 23.84375,
+      "paint_width": 24.0625,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -9269,8 +9269,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 46.109375,
-      "paint_width": 46.109375,
+      "layout_width": 46.5,
+      "paint_width": 46.5,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9283,7 +9283,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 47.765625,
-      "paint_width": 46.109375,
+      "paint_width": 46.5,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9295,8 +9295,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 43.375,
-      "paint_width": 43.375,
+      "layout_width": 43.484375,
+      "paint_width": 43.484375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9309,7 +9309,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 43.890625,
-      "paint_width": 43.375,
+      "paint_width": 43.484375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9321,8 +9321,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 54.421875,
-      "paint_width": 54.421875,
+      "layout_width": 54.484375,
+      "paint_width": 54.484375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9335,7 +9335,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 54.734375,
-      "paint_width": 54.421875,
+      "paint_width": 54.484375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9350,8 +9350,8 @@
         9731,
         23383
       ],
-      "layout_width": 30.265625,
-      "paint_width": 30.265625,
+      "layout_width": 30.390625,
+      "paint_width": 30.390625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9367,7 +9367,7 @@
         23383
       ],
       "layout_width": 30.828125,
-      "paint_width": 30.265625,
+      "paint_width": 30.390625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -9431,8 +9431,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 48.140625,
-      "paint_width": 48.140625,
+      "layout_width": 48.46875,
+      "paint_width": 48.46875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9445,7 +9445,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 49.796875,
-      "paint_width": 48.140625,
+      "paint_width": 48.46875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9457,8 +9457,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 45.234375,
-      "paint_width": 45.234375,
+      "layout_width": 45.34375,
+      "paint_width": 45.34375,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9471,7 +9471,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 45.75,
-      "paint_width": 45.234375,
+      "paint_width": 45.34375,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9483,8 +9483,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 56.734375,
-      "paint_width": 56.734375,
+      "layout_width": 56.796875,
+      "paint_width": 56.796875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9497,7 +9497,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 57.046875,
-      "paint_width": 56.734375,
+      "paint_width": 56.796875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9512,8 +9512,8 @@
         9731,
         23383
       ],
-      "layout_width": 31.578125,
-      "paint_width": 31.578125,
+      "layout_width": 31.6875,
+      "paint_width": 31.6875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9529,7 +9529,7 @@
         23383
       ],
       "layout_width": 32.140625,
-      "paint_width": 31.578125,
+      "paint_width": 31.6875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -9593,8 +9593,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 93.84375,
-      "paint_width": 93.84375,
+      "layout_width": 92.953125,
+      "paint_width": 92.953125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9607,7 +9607,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 95.5,
-      "paint_width": 93.84375,
+      "paint_width": 92.953125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9619,8 +9619,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 87.234375,
-      "paint_width": 87.234375,
+      "layout_width": 86.953125,
+      "paint_width": 86.953125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9633,7 +9633,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 87.75,
-      "paint_width": 87.234375,
+      "paint_width": 86.953125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9645,8 +9645,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 109.09375,
-      "paint_width": 109.09375,
+      "layout_width": 108.9375,
+      "paint_width": 108.9375,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9659,7 +9659,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 109.40625,
-      "paint_width": 109.09375,
+      "paint_width": 108.9375,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9674,8 +9674,8 @@
         9731,
         23383
       ],
-      "layout_width": 61.03125,
-      "paint_width": 61.03125,
+      "layout_width": 60.734375,
+      "paint_width": 60.734375,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -9691,7 +9691,7 @@
         23383
       ],
       "layout_width": 61.59375,
-      "paint_width": 61.03125,
+      "paint_width": 60.734375,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10403,8 +10403,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 33.375,
-      "paint_width": 33.375,
+      "layout_width": 34.171875,
+      "paint_width": 34.171875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10417,7 +10417,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 35.390625,
-      "paint_width": 33.375,
+      "paint_width": 34.171875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10429,8 +10429,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 30.484375,
-      "paint_width": 30.484375,
+      "layout_width": 30.5625,
+      "paint_width": 30.5625,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10443,7 +10443,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 30.671875,
-      "paint_width": 30.484375,
+      "paint_width": 30.5625,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10455,8 +10455,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 40.890625,
-      "paint_width": 40.890625,
+      "layout_width": 41.03125,
+      "paint_width": 41.03125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10469,7 +10469,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 41.234375,
-      "paint_width": 40.890625,
+      "paint_width": 41.03125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10484,8 +10484,8 @@
         9731,
         23383
       ],
-      "layout_width": 21.15625,
-      "paint_width": 21.15625,
+      "layout_width": 21.453125,
+      "paint_width": 21.453125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10501,7 +10501,7 @@
         23383
       ],
       "layout_width": 21.921875,
-      "paint_width": 21.15625,
+      "paint_width": 21.453125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -10565,8 +10565,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 42.6875,
-      "paint_width": 42.6875,
+      "layout_width": 43.15625,
+      "paint_width": 43.15625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10579,7 +10579,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 44.703125,
-      "paint_width": 42.6875,
+      "paint_width": 43.15625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10591,8 +10591,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 38.625,
-      "paint_width": 38.625,
+      "layout_width": 38.671875,
+      "paint_width": 38.671875,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10605,7 +10605,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 38.8125,
-      "paint_width": 38.625,
+      "paint_width": 38.671875,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10617,8 +10617,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 51.78125,
-      "paint_width": 51.78125,
+      "layout_width": 51.859375,
+      "paint_width": 51.859375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10631,7 +10631,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 52.125,
-      "paint_width": 51.78125,
+      "paint_width": 51.859375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10646,8 +10646,8 @@
         9731,
         23383
       ],
-      "layout_width": 26.90625,
-      "paint_width": 26.90625,
+      "layout_width": 27.078125,
+      "paint_width": 27.078125,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10663,7 +10663,7 @@
         23383
       ],
       "layout_width": 27.671875,
-      "paint_width": 26.90625,
+      "paint_width": 27.078125,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -10727,8 +10727,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 44.59375,
-      "paint_width": 44.59375,
+      "layout_width": 45.0,
+      "paint_width": 45.0,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10741,7 +10741,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 46.609375,
-      "paint_width": 44.59375,
+      "paint_width": 45.0,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10753,8 +10753,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 40.25,
-      "paint_width": 40.25,
+      "layout_width": 40.28125,
+      "paint_width": 40.28125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10767,7 +10767,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 40.4375,
-      "paint_width": 40.25,
+      "paint_width": 40.28125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10779,8 +10779,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 53.984375,
-      "paint_width": 53.984375,
+      "layout_width": 54.046875,
+      "paint_width": 54.046875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10793,7 +10793,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 54.328125,
-      "paint_width": 53.984375,
+      "paint_width": 54.046875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10808,8 +10808,8 @@
         9731,
         23383
       ],
-      "layout_width": 28.125,
-      "paint_width": 28.125,
+      "layout_width": 28.28125,
+      "paint_width": 28.28125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10825,7 +10825,7 @@
         23383
       ],
       "layout_width": 28.890625,
-      "paint_width": 28.125,
+      "paint_width": 28.28125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -10889,8 +10889,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 87.328125,
-      "paint_width": 87.328125,
+      "layout_width": 86.25,
+      "paint_width": 86.25,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10903,7 +10903,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 89.34375,
-      "paint_width": 87.328125,
+      "paint_width": 86.25,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10915,8 +10915,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 77.34375,
-      "paint_width": 77.34375,
+      "layout_width": 77.25,
+      "paint_width": 77.25,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10929,7 +10929,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 77.53125,
-      "paint_width": 77.34375,
+      "paint_width": 77.25,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10941,8 +10941,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 103.859375,
-      "paint_width": 103.859375,
+      "layout_width": 103.6875,
+      "paint_width": 103.6875,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10955,7 +10955,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 104.203125,
-      "paint_width": 103.859375,
+      "paint_width": 103.6875,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10970,8 +10970,8 @@
         9731,
         23383
       ],
-      "layout_width": 54.5625,
-      "paint_width": 54.5625,
+      "layout_width": 54.15625,
+      "paint_width": 54.15625,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -10987,7 +10987,7 @@
         23383
       ],
       "layout_width": 55.328125,
-      "paint_width": 54.5625,
+      "paint_width": 54.15625,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -11699,8 +11699,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 34.5625,
-      "paint_width": 34.5625,
+      "layout_width": 35.578125,
+      "paint_width": 35.578125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11713,7 +11713,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 37.15625,
-      "paint_width": 34.5625,
+      "paint_width": 35.578125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11725,8 +11725,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 33.125,
-      "paint_width": 33.125,
+      "layout_width": 33.203125,
+      "paint_width": 33.203125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11739,7 +11739,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 33.34375,
-      "paint_width": 33.125,
+      "paint_width": 33.203125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11751,8 +11751,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 42.140625,
-      "paint_width": 42.140625,
+      "layout_width": 42.28125,
+      "paint_width": 42.28125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11765,7 +11765,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 42.515625,
-      "paint_width": 42.140625,
+      "paint_width": 42.28125,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11780,8 +11780,8 @@
         9731,
         23383
       ],
-      "layout_width": 22.15625,
-      "paint_width": 22.15625,
+      "layout_width": 22.6875,
+      "paint_width": 22.6875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11797,7 +11797,7 @@
         23383
       ],
       "layout_width": 23.5,
-      "paint_width": 22.15625,
+      "paint_width": 22.6875,
       "ascent": 9.5,
       "descent": 3.09375,
       "height": 12.59375
@@ -11861,8 +11861,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 44.34375,
-      "paint_width": 44.34375,
+      "layout_width": 44.953125,
+      "paint_width": 44.953125,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -11875,7 +11875,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 46.9375,
-      "paint_width": 44.34375,
+      "paint_width": 44.953125,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -11887,8 +11887,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 41.890625,
-      "paint_width": 41.890625,
+      "layout_width": 41.9375,
+      "paint_width": 41.9375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -11901,7 +11901,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 42.109375,
-      "paint_width": 41.890625,
+      "paint_width": 41.9375,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -11913,8 +11913,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 53.328125,
-      "paint_width": 53.328125,
+      "layout_width": 53.40625,
+      "paint_width": 53.40625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -11927,7 +11927,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 53.703125,
-      "paint_width": 53.328125,
+      "paint_width": 53.40625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -11942,8 +11942,8 @@
         9731,
         23383
       ],
-      "layout_width": 28.328125,
-      "paint_width": 28.328125,
+      "layout_width": 28.640625,
+      "paint_width": 28.640625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -11959,7 +11959,7 @@
         23383
       ],
       "layout_width": 29.671875,
-      "paint_width": 28.328125,
+      "paint_width": 28.640625,
       "ascent": 12,
       "descent": 3.90625,
       "height": 15.90625
@@ -12023,8 +12023,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 46.328125,
-      "paint_width": 46.328125,
+      "layout_width": 46.84375,
+      "paint_width": 46.84375,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12037,7 +12037,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 48.921875,
-      "paint_width": 46.328125,
+      "paint_width": 46.84375,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12049,8 +12049,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 43.671875,
-      "paint_width": 43.671875,
+      "layout_width": 43.71875,
+      "paint_width": 43.71875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12063,7 +12063,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 43.890625,
-      "paint_width": 43.671875,
+      "paint_width": 43.71875,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12075,8 +12075,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 55.625,
-      "paint_width": 55.625,
+      "layout_width": 55.703125,
+      "paint_width": 55.703125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12089,7 +12089,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 56,
-      "paint_width": 55.625,
+      "paint_width": 55.703125,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12104,8 +12104,8 @@
         9731,
         23383
       ],
-      "layout_width": 29.625,
-      "paint_width": 29.625,
+      "layout_width": 29.890625,
+      "paint_width": 29.890625,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12121,7 +12121,7 @@
         23383
       ],
       "layout_width": 30.96875,
-      "paint_width": 29.625,
+      "paint_width": 29.890625,
       "ascent": 12.515625,
       "descent": 4.078125,
       "height": 16.59375
@@ -12185,8 +12185,8 @@
       "metric_source": "declared",
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
-      "layout_width": 91.25,
-      "paint_width": 91.25,
+      "layout_width": 89.859375,
+      "paint_width": 89.859375,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -12199,7 +12199,7 @@
       "prepared_text": "AV To Wa",
       "missing_codepoints": [],
       "layout_width": 93.84375,
-      "paint_width": 91.25,
+      "paint_width": 89.859375,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -12211,8 +12211,8 @@
       "metric_source": "declared",
       "prepared_text": "office ffi",
       "missing_codepoints": [],
-      "layout_width": 83.953125,
-      "paint_width": 83.953125,
+      "layout_width": 83.828125,
+      "paint_width": 83.828125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -12225,7 +12225,7 @@
       "prepared_text": "office ffi",
       "missing_codepoints": [],
       "layout_width": 84.171875,
-      "paint_width": 83.953125,
+      "paint_width": 83.828125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -12237,8 +12237,8 @@
       "metric_source": "declared",
       "prepared_text": "café € —…",
       "missing_codepoints": [],
-      "layout_width": 106.984375,
-      "paint_width": 106.984375,
+      "layout_width": 106.78125,
+      "paint_width": 106.78125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -12251,7 +12251,7 @@
       "prepared_text": "café € —…",
       "missing_codepoints": [],
       "layout_width": 107.359375,
-      "paint_width": 106.984375,
+      "paint_width": 106.78125,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -12266,8 +12266,8 @@
         9731,
         23383
       ],
-      "layout_width": 58.015625,
-      "paint_width": 58.015625,
+      "layout_width": 57.296875,
+      "paint_width": 57.296875,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125
@@ -12283,7 +12283,7 @@
         23383
       ],
       "layout_width": 59.359375,
-      "paint_width": 58.015625,
+      "paint_width": 57.296875,
       "ascent": 24,
       "descent": 7.828125,
       "height": 31.828125

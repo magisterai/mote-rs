@@ -71,16 +71,10 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "bd0d88234a6afb2b87b8680bc4ba8a78eafbabdb0b5711a950c7f6f58f81547a",
+      "sha256": "515ca7393401d8f3bb2bbfd2b1bc8a598ccee0a4ac0c4caf8a19c00cc21d1027",
       "maximum": 77,
       "mean": 5.65,
-      "outliers": 1,
-      "edge_outliers": [
-        [
-          308,
-          56
-        ]
-      ]
+      "outliers": 1
     }
   ],
   "warnings": [],
