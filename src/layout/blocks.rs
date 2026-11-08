@@ -298,7 +298,7 @@ impl BlockBuilder<'_, '_, '_> {
             let marker = TextRun::new(marker, style.text.clone());
             let width = self
                 .measurer
-                .measure(&marker.style.measurement, &marker.text, true)?
+                .measure(&marker.style.measurement, &marker.text, false)?
                 .measurement
                 .layout_width
                 .max(0.0);
@@ -314,7 +314,7 @@ impl BlockBuilder<'_, '_, '_> {
             &runs,
             self.width,
             self.measurer,
-            true,
+            false,
             true,
         )?;
         if element.kind == ElementKind::Caption && runs.is_empty() {
@@ -431,7 +431,7 @@ impl BlockBuilder<'_, '_, '_> {
                     style.first_line = -item_geometry.hanging;
                     let space = self
                         .measurer
-                        .measure(&style.text.measurement, " ", true)?
+                        .measure(&style.text.measurement, " ", false)?
                         .measurement
                         .layout_width;
                     let mut checkbox = TextRun::new(" ", style.text.clone());
@@ -466,7 +466,7 @@ impl BlockBuilder<'_, '_, '_> {
                     marker_style.first_line = 0.0;
                     let measured = self
                         .measurer
-                        .measure(&style.text.measurement, &marker_text, true)?
+                        .measure(&style.text.measurement, &marker_text, false)?
                         .measurement
                         .layout_width;
                     let paragraph = plan_resolved_paragraph(
@@ -475,7 +475,7 @@ impl BlockBuilder<'_, '_, '_> {
                         &[TextRun::new(marker_text, style.text.clone())],
                         item_geometry.hanging.max(measured).max(1.0),
                         self.measurer,
-                        true,
+                        false,
                         true,
                     )?;
                     paragraph.lines.into_iter().next().map(|mut line| {
@@ -495,7 +495,7 @@ impl BlockBuilder<'_, '_, '_> {
                     &runs,
                     self.width,
                     self.measurer,
-                    true,
+                    false,
                     true,
                 )?;
                 self.blocks

@@ -163,7 +163,7 @@ fn measure(
             &runs,
             geometry.content_width(),
             measurer,
-            true,
+            false,
             true,
         )?;
         let count = paragraph.lines.len();

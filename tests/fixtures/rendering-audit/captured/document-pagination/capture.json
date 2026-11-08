@@ -63,42 +63,42 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "24750bc0665b07a106eb0cb6b6c081979736fb23a06092356472b4082a2a851e",
+      "sha256": "4478db3f30cd68794ff453db0e5bedbf905ed65334befbba0bb6f76b0ffee23c",
       "maximum": 47,
       "mean": 10.008,
       "outliers": 0
     },
     {
       "path": "reference-2.png",
-      "sha256": "2eb829e5f36aa293876065551f40ca964cb8e18ff0a4716d4c0d28420eea6a6e",
+      "sha256": "1864a3954e3476c7f04c701437e97c2520b1b12deadae677e65b606331b87571",
       "maximum": 44,
       "mean": 10.04,
       "outliers": 0
     },
     {
       "path": "reference-3.png",
-      "sha256": "11ce9c5bdb4540ddc6697b104bdc2b56d2d6826544ec331c2451852838861e7c",
+      "sha256": "d7f822ac4cb023b0e8862565c306cca29a2226ed5d389273580bad220af3abce",
       "maximum": 44,
       "mean": 10.303,
       "outliers": 0
     },
     {
       "path": "reference-4.png",
-      "sha256": "d096bfec41519ac68ed7e08f9fe2d32f7be1aa314b3314f99db5e43f360a8a73",
+      "sha256": "0dbdc0b95e817572c1ad8d683143df5d0cd445e005681eb40b348cecc5fd997a",
       "maximum": 44,
       "mean": 10.26,
       "outliers": 0
     },
     {
       "path": "reference-5.png",
-      "sha256": "d61e1d95aca854a14b3409fc5147612c15d487ce0879fd7891d204914ea1fb60",
+      "sha256": "e9b01d98f1c800da128bc81ffb350f28e45462c58888e8c8d223b06ed37f597b",
       "maximum": 44,
       "mean": 10.26,
       "outliers": 0
     },
     {
       "path": "reference-6.png",
-      "sha256": "59d9dbb7d228f7efb0553c14052d0321c64da9f945938d9b82dfb276df02c2e8",
+      "sha256": "0ee4b8cd22ebc66968c8727a20ec29597eb3b9004d35f1a9cd56e50cc456e516",
       "maximum": 44,
       "mean": 10.26,
       "outliers": 0
