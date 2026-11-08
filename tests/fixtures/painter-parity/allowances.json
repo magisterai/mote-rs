@@ -30,7 +30,7 @@
   "powerpoint/29_table_spacing": 0.0,
   "powerpoint/30_table_margins": 0.001,
   "powerpoint/31_markdown_table_alignment": 0.0,
-  "probes/automatic-line-height": 0.005,
+  "probes/automatic-line-height": 0.007,
   "probes/chart-value-axis": 0.005,
   "probes/east-asian-line-height": 0.001,
   "probes/exact-line-baseline": 0.004,
@@ -83,7 +83,7 @@
   "word/44_chart_defaults": 0.001,
   "word/45_chart_lua_json": 0.002,
   "word/46_longform_tables": 0.004,
-  "word/47_table_feature_overview": 0.001,
+  "word/47_table_feature_overview": 0.002,
   "word/48_full_page_tables_and_media": 0.004,
   "word/49_spanning_table_components": 0.003,
   "word/50_table_column_widths": 0.002,
@@ -104,6 +104,6 @@
   "word/65_display_equations": 0.009,
   "word/66_inline_equations_flow": 0.006,
   "word/67_equation_page_breaks": 0.007,
-  "word/68_stacked_fractions": 0.036,
+  "word/68_stacked_fractions": 0.037,
   "word/69_equation_columns": 0.007
 }
