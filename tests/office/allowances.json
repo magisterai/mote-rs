@@ -715,23 +715,30 @@
   },
   "word/65_display_equations": {
     "horizontal": 108.3,
-    "median": 6.9,
+    "median": 1.8,
     "page_moves": 0,
     "unmatched": 38,
-    "vertical": 22.8
+    "vertical": 9.9
   },
   "word/66_inline_equations_flow": {
     "horizontal": 9.9,
-    "median": 1.2,
+    "median": 0.7,
     "page_moves": 0,
-    "unmatched": 103,
-    "vertical": 16.0
+    "unmatched": 95,
+    "vertical": 15.6
   },
   "word/67_equation_page_breaks": {
     "horizontal": 60.8,
-    "median": 15.2,
-    "page_moves": 1,
-    "unmatched": 13,
-    "vertical": 36.6
+    "median": 1.4,
+    "page_moves": 0,
+    "unmatched": 16,
+    "vertical": 9.9
+  },
+  "word/68_stacked_fractions": {
+    "horizontal": 206.2,
+    "median": 2.6,
+    "page_moves": 0,
+    "unmatched": 42,
+    "vertical": 27.5
   }
 }

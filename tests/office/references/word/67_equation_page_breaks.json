@@ -746,12 +746,7 @@
         },
         {
           "baseline": 532.32,
-          "text": "introductory line stays at the foot of the first page as in Word. No equation is divided between two",
-          "x": 72.0
-        },
-        {
-          "baseline": 546.72,
-          "text": "pages.",
+          "text": "introductory line moves with it, as in Word. No equation is divided between two pages.",
           "x": 72.0
         }
       ],
@@ -759,5 +754,5 @@
     }
   ],
   "renderer": "Microsoft Word 16.114.1",
-  "source_sha256": "7392101ba2d148dd1dfc2f6224186508ee6e230465a19ee44d2ff94235a9d9a6"
+  "source_sha256": "51484a2dc06be7690e28eac5b4390bcd34ae64817c8d7fb6239995e12cb133fe"
 }

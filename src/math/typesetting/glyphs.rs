@@ -1,6 +1,9 @@
 //! Single glyphs, size variants and glyph assemblies from the math font.
 use super::{FormulaGlyph, Layout, Style, Typesetter};
-use ttf_parser::{GlyphId, math::GlyphAssembly};
+use ttf_parser::{
+    GlyphId,
+    math::{GlyphAssembly, GlyphPart},
+};
 
 impl Typesetter<'_> {
     /// Falls back to the original character when the font lacks its
@@ -112,7 +115,9 @@ impl Typesetter<'_> {
     }
 
     /// Repeats the extenders of an assembly until it reaches the target, then
-    /// overlaps the connectors evenly so that the assembly meets it exactly.
+    /// overlaps the connectors evenly so that the assembly meets it exactly. If
+    /// one more extender would overshoot the target by more than the shorter
+    /// assembly falls short of it, the shorter assembly is taken.
     fn assembly(
         &self,
         assembly: GlyphAssembly<'_>,
@@ -127,9 +132,8 @@ impl Typesetter<'_> {
             .map(|variants| f64::from(variants.min_connector_overlap) * scale)
             .unwrap_or_default();
         let parts: Vec<_> = assembly.parts.into_iter().collect();
-        let mut sequence = Vec::new();
-        for repeats in 0..=64 {
-            sequence = parts
+        let build = |repeats: usize| -> (Vec<GlyphPart>, f64, f64) {
+            let sequence: Vec<_> = parts
                 .iter()
                 .flat_map(|part| {
                     let count = if part.part_flags.extender() {
@@ -144,26 +148,37 @@ impl Typesetter<'_> {
                 .iter()
                 .map(|part| f64::from(part.full_advance) * scale)
                 .sum();
-            let joins = sequence.len().saturating_sub(1) as f64;
-            if full - joins * minimum_overlap >= target {
+            let maximum_overlap = sequence
+                .windows(2)
+                .map(|pair| {
+                    f64::from(
+                        pair[0]
+                            .end_connector_length
+                            .min(pair[1].start_connector_length),
+                    ) * scale
+                })
+                .fold(f64::INFINITY, f64::min);
+            (sequence, full, maximum_overlap)
+        };
+        let reach = |(sequence, full, _): &(Vec<GlyphPart>, f64, f64)| {
+            full - sequence.len().saturating_sub(1) as f64 * minimum_overlap
+        };
+        let shortest = |(sequence, full, maximum): &(Vec<GlyphPart>, f64, f64)| {
+            full - sequence.len().saturating_sub(1) as f64 * maximum.max(minimum_overlap)
+        };
+        let mut chosen = build(0);
+        for repeats in 1..=64 {
+            if reach(&chosen) >= target {
                 break;
             }
+            let longer = build(repeats);
+            if reach(&longer) >= target && shortest(&longer) - target > target - reach(&chosen) {
+                break;
+            }
+            chosen = longer;
         }
-        let full: f64 = sequence
-            .iter()
-            .map(|part| f64::from(part.full_advance) * scale)
-            .sum();
+        let (sequence, full, maximum_overlap) = chosen;
         let joins = sequence.len().saturating_sub(1);
-        let maximum_overlap = sequence
-            .windows(2)
-            .map(|pair| {
-                f64::from(
-                    pair[0]
-                        .end_connector_length
-                        .min(pair[1].start_connector_length),
-                ) * scale
-            })
-            .fold(f64::INFINITY, f64::min);
         let overlap = if joins == 0 {
             0.0
         } else {
@@ -176,6 +191,7 @@ impl Typesetter<'_> {
             ..Layout::default()
         };
         let mut position = 0.0;
+        let mut extent = (f64::NEG_INFINITY, f64::NEG_INFINITY);
         for (index, part) in sequence.iter().enumerate() {
             let piece = self.glyph(
                 part.glyph_id,
@@ -193,12 +209,16 @@ impl Typesetter<'_> {
                 layout.place(piece, 0.0, position - bottom);
             } else {
                 let left = bounds.map_or(0.0, |bounds| f64::from(bounds.x_min) * scale);
+                extent = (extent.0.max(piece.ascent), extent.1.max(piece.descent));
                 layout.place(piece, position - left, 0.0);
             }
             position += f64::from(part.full_advance) * scale - overlap;
         }
         if !vertical {
+            // A horizontal assembly, such as a brace, may lie wholly above or
+            // below its baseline.
             layout.width = position + overlap;
+            (layout.ascent, layout.descent) = extent;
         }
         layout
     }

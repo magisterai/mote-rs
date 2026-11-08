@@ -16,8 +16,11 @@ impl Typesetter<'_> {
         bar: bool,
         style: Style,
     ) -> Layout {
-        let numerator = self.node(numerator, style.numerator());
-        let denominator = self.node(denominator, style.denominator());
+        let mut numerator = self.node(numerator, style.numerator());
+        let mut denominator = self.node(denominator, style.denominator());
+        let strut = self.character('(', '(', style.numerator());
+        numerator.descent = numerator.descent.max(strut.descent);
+        denominator.ascent = denominator.ascent.max(strut.ascent);
         let constants = self.constants;
         let scale = self.scale(style);
         let value = |value: MathValue<'_>| f64::from(value.value) * scale;
@@ -34,11 +37,18 @@ impl Typesetter<'_> {
         } else {
             0.0
         };
-        let (shift_up, gap_above, shift_down, gap_below) = if display {
+        let (shift_up, gap_above, shift_down, gap_below) = if display && !style.enclosed {
             (
                 constants.fraction_numerator_display_style_shift_up(),
                 constants.fraction_num_display_style_gap_min(),
                 constants.fraction_denominator_display_style_shift_down(),
+                constants.fraction_denom_display_style_gap_min(),
+            )
+        } else if style.full_fractions && style.display_gaps {
+            (
+                constants.fraction_numerator_shift_up(),
+                constants.fraction_num_display_style_gap_min(),
+                constants.fraction_denominator_shift_down(),
                 constants.fraction_denom_display_style_gap_min(),
             )
         } else {
@@ -95,6 +105,8 @@ impl Typesetter<'_> {
                     level: Level::ScriptScript,
                     cramped: false,
                     full_fractions: false,
+                    display_gaps: false,
+                    enclosed: false,
                 },
             );
             let raise = f64::from(constants.radical_degree_bottom_raise_percent()) / 100.0;
@@ -251,7 +263,7 @@ impl Typesetter<'_> {
     pub(super) fn fenced(&mut self, begin: &str, end: &str, body: &Node, style: Style) -> Layout {
         let inner = match body {
             Node::Matrix(rows) => self.matrix(rows, style, begin == "{" && end.is_empty()),
-            body => self.node(body, style),
+            body => self.node(body, style.enclosed()),
         };
         let axis = self.axis(style);
         let reach = (inner.ascent - axis).max(inner.descent + axis);
@@ -358,7 +370,9 @@ impl Typesetter<'_> {
         let brace_x = (width - brace.width) / 2.0;
         let body_x = (width - body.width) / 2.0;
         if over {
-            let rise = ascent + value(constants.stretch_stack_gap_below_min()) + brace.descent;
+            // Word sets the top of an overbrace 0.44 em above the body, though
+            // the brace's bounding box reaches down to its baseline.
+            let rise = ascent + 0.44 * self.size(style) - brace.ascent;
             layout.place(brace, brace_x, rise);
         } else {
             let drop = descent + value(constants.stretch_stack_gap_above_min()) + brace.ascent;
@@ -375,7 +389,7 @@ impl Typesetter<'_> {
             .map(|row| row.iter().map(|cell| self.node(cell, style)).collect())
             .collect();
         let em = self.size(style);
-        self.grid(cells, em, em, |_| if left { 0.0 } else { 0.5 }, style)
+        self.grid(cells, em, em, |_| if left { 0.0 } else { 0.5 }, true, style)
     }
 
     /// Columns alternate between right and left alignment, as in TeX's `aligned`.
@@ -410,18 +424,21 @@ impl Typesetter<'_> {
                 0.0
             }
         };
-        self.grid(cells, 0.0, 2.0 * em, alignments, style)
+        self.grid(cells, 0.0, 2.0 * em, alignments, false, style)
     }
 
     /// Leaves `gap` between columns, or `pair_gap` before each later pair of
-    /// aligned columns. Word gives each row at least the ascent and descent of
-    /// the math font's line, with no space between rows.
+    /// aligned columns. Word separates the ink of successive rows by 0.38 em,
+    /// with their baselines at least a line of the math font apart. A matrix
+    /// row reaches at least the descent of that line; an aligned row reaches
+    /// only as deep as its ink.
     fn grid(
         &mut self,
         cells: Vec<Vec<Layout>>,
         gap: f64,
         pair_gap: f64,
         alignment: impl Fn(usize) -> f64,
+        matrix: bool,
         style: Style,
     ) -> Layout {
         let scale = self.scale(style);
@@ -452,30 +469,39 @@ impl Typesetter<'_> {
             starts.push(x);
             x += width;
         }
-        let metrics: Vec<(f64, f64)> = cells
+        let ink: Vec<(f64, f64)> = cells
             .iter()
             .map(|row| {
-                row.iter().fold(strut, |(ascent, descent), cell| {
-                    (ascent.max(cell.ascent), descent.max(cell.descent))
-                })
+                row.iter()
+                    .fold((0.0f64, 0.0f64), |(ascent, descent), cell| {
+                        (ascent.max(cell.ascent), descent.max(cell.descent))
+                    })
             })
             .collect();
-        let height: f64 = metrics
-            .iter()
-            .map(|(ascent, descent)| ascent + descent)
-            .sum::<f64>();
-        let mut top = height / 2.0 + self.axis(style);
+        let row_gap = 0.38 * self.size(style);
+        let mut baselines = vec![0.0];
+        for pair in ink.windows(2) {
+            let above = if matrix {
+                pair[0].1.max(strut.1)
+            } else {
+                pair[0].1
+            };
+            let pitch = (above + pair[1].0 + row_gap).max(strut.0 + strut.1);
+            baselines.push(baselines.last().unwrap() - pitch);
+        }
+        let top = ink.first().map_or(0.0, |row| row.0.max(strut.0));
+        let bottom = ink.last().map_or(0.0, |row| row.1.max(strut.1));
+        let height = top - baselines.last().unwrap() + bottom;
+        let shift = height / 2.0 + self.axis(style) - top;
         let mut layout = Layout {
             width: x,
             ..Layout::default()
         };
-        for (row, (ascent, descent)) in cells.into_iter().zip(metrics) {
-            let baseline = top - ascent;
+        for (row, baseline) in cells.into_iter().zip(baselines) {
             for (column, cell) in row.into_iter().enumerate() {
                 let offset = (widths[column] - cell.width) * alignment(column);
-                layout.place(cell, starts[column] + offset, baseline);
+                layout.place(cell, starts[column] + offset, baseline + shift);
             }
-            top = baseline - descent;
         }
         layout
     }

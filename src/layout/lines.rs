@@ -121,13 +121,17 @@ pub fn plan_text(
             // Office measures an equation against the single-spaced line and
             // enlarges it once the equation comes within a clearance of an
             // edge, whatever the line spacing. PowerPoint keeps more room
-            // above an equation than Word does.
-            let above = if options.word_exact_baseline {
-                0.06
-            } else {
-                0.13
-            } * ordinary_size;
-            let below = 0.06 * ordinary_size;
+            // above an equation than Word does. Word keeps more above a
+            // display equation and less below it, and more on both sides of
+            // one that opens with ordinary text.
+            let display = formulas.iter().find(|formula| formula.display);
+            let (above, below) = match (options.word_exact_baseline, display) {
+                (true, Some(formula)) if formula.leading_text => (0.289, 0.119),
+                (true, Some(_)) => (0.137, 0.037),
+                (true, None) => (0.06, 0.06),
+                (false, _) => (0.13, 0.06),
+            };
+            let (above, below) = (above * ordinary_size, below * ordinary_size);
             let single = std::iter::once(&base_style)
                 .chain(
                     wrapped
@@ -295,6 +299,7 @@ fn typeset(run: &mut TextRun, measurer: &mut TextMeasurer<'_>) {
     let Some((formula, warnings)) = crate::math::typesetting::typeset(
         &crate::properties::text(attributes, "source"),
         crate::properties::text(attributes, "display") == "block",
+        attributes.contains_key("lone"),
         run.style.measurement.size_points,
         &font,
         text_font.as_ref(),

@@ -1,0 +1,984 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Stacked Fractions",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.92,
+          "text": "Each equation below stacks fractions within fractions, so that the size and spacing of every level",
+          "x": 72.0
+        },
+        {
+          "baseline": 124.32,
+          "text": "decide its height. The equations run on to a second page and a third, so that each page break",
+          "x": 72.0
+        },
+        {
+          "baseline": 138.72,
+          "text": "depends on every height above it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 164.4,
+          "text": "Fractions of fractions",
+          "x": 72.0
+        },
+        {
+          "baseline": 186.48,
+          "text": "A fraction whose numerator and denominator are both fractions:",
+          "x": 72.0
+        },
+        {
+          "baseline": 205.68,
+          "text": "𝑎",
+          "x": 288.3
+        },
+        {
+          "baseline": 215.04,
+          "text": "𝑎𝑑",
+          "x": 311.3
+        },
+        {
+          "baseline": 218.4,
+          "text": "𝑏",
+          "x": 288.41
+        },
+        {
+          "baseline": 223.44,
+          "text": "=",
+          "x": 299.27
+        },
+        {
+          "baseline": 227.76,
+          "text": "𝑐",
+          "x": 288.88
+        },
+        {
+          "baseline": 230.88,
+          "text": "𝑏𝑐",
+          "x": 312.12
+        },
+        {
+          "baseline": 240.48,
+          "text": "𝑑",
+          "x": 288.16
+        },
+        {
+          "baseline": 260.16,
+          "text": "Sums of fractions over differences of fractions:",
+          "x": 72.0
+        },
+        {
+          "baseline": 279.6,
+          "text": "𝑎 𝑐",
+          "x": 251.5
+        },
+        {
+          "baseline": 286.08,
+          "text": "+",
+          "x": 260.63
+        },
+        {
+          "baseline": 288.96,
+          "text": "(𝑎𝑑+ 𝑏𝑐)\t𝑓ℎ",
+          "x": 294.76
+        },
+        {
+          "baseline": 292.32,
+          "text": "𝑏 𝑑",
+          "x": 251.61
+        },
+        {
+          "baseline": 297.36,
+          "text": "=",
+          "x": 282.2
+        },
+        {
+          "baseline": 301.92,
+          "text": "𝑒 𝑔",
+          "x": 251.67
+        },
+        {
+          "baseline": 304.8,
+          "text": "𝑏𝑑\t(𝑒ℎ− 𝑓𝑔)",
+          "x": 294.22
+        },
+        {
+          "baseline": 308.4,
+          "text": "−",
+          "x": 260.39
+        },
+        {
+          "baseline": 314.88,
+          "text": "𝑓 ℎ",
+          "x": 251.35
+        },
+        {
+          "baseline": 336.72,
+          "text": "Three levels of nesting in the numerator and the denominator:",
+          "x": 72.0
+        },
+        {
+          "baseline": 358.56,
+          "text": "1",
+          "x": 312.93
+        },
+        {
+          "baseline": 365.04,
+          "text": "1+",
+          "x": 282.18
+        },
+        {
+          "baseline": 371.04,
+          "text": "1",
+          "x": 323.18
+        },
+        {
+          "baseline": 377.52,
+          "text": "1+",
+          "x": 302.68
+        },
+        {
+          "baseline": 383.04,
+          "text": "𝑥",
+          "x": 323.3
+        },
+        {
+          "baseline": 394.8,
+          "text": "1",
+          "x": 312.93
+        },
+        {
+          "baseline": 401.28,
+          "text": "1−",
+          "x": 282.18
+        },
+        {
+          "baseline": 407.28,
+          "text": "1",
+          "x": 323.18
+        },
+        {
+          "baseline": 413.76,
+          "text": "1−",
+          "x": 302.68
+        },
+        {
+          "baseline": 419.28,
+          "text": "𝑥",
+          "x": 323.3
+        },
+        {
+          "baseline": 438.72,
+          "text": "A fraction nested four levels deep in its denominator:",
+          "x": 72.0
+        },
+        {
+          "baseline": 460.8,
+          "text": "1",
+          "x": 313.87
+        },
+        {
+          "baseline": 469.92,
+          "text": "𝑥=",
+          "x": 259.89
+        },
+        {
+          "baseline": 476.4,
+          "text": "1",
+          "x": 324.51
+        },
+        {
+          "baseline": 483.6,
+          "text": "𝑎+",
+          "x": 282.27
+        },
+        {
+          "baseline": 489.36,
+          "text": "1",
+          "x": 335.02
+        },
+        {
+          "baseline": 496.32,
+          "text": "𝑏+",
+          "x": 303.55
+        },
+        {
+          "baseline": 502.32,
+          "text": "1",
+          "x": 345.12
+        },
+        {
+          "baseline": 509.28,
+          "text": "𝑐+",
+          "x": 324.58
+        },
+        {
+          "baseline": 515.28,
+          "text": "𝑑",
+          "x": 344.78
+        },
+        {
+          "baseline": 534.72,
+          "text": "A harmonic mean of fractions:",
+          "x": 72.0
+        },
+        {
+          "baseline": 554.4,
+          "text": "𝑛",
+          "x": 314.81
+        },
+        {
+          "baseline": 563.52,
+          "text": "𝐻 =",
+          "x": 249.62
+        },
+        {
+          "baseline": 570.0,
+          "text": "1 1",
+          "x": 276.73
+        },
+        {
+          "baseline": 570.0,
+          "text": "1",
+          "x": 352.84
+        },
+        {
+          "baseline": 577.2,
+          "text": "+ + ⋯ +",
+          "x": 314.41
+        },
+        {
+          "baseline": 583.2,
+          "text": "𝑥 𝑥",
+          "x": 274.34
+        },
+        {
+          "baseline": 583.2,
+          "text": "𝑥",
+          "x": 349.95
+        },
+        {
+          "baseline": 585.6,
+          "text": "!",
+          "x": 280.34
+        },
+        {
+          "baseline": 585.6,
+          "text": "\"",
+          "x": 306.32
+        },
+        {
+          "baseline": 585.6,
+          "text": "#",
+          "x": 356.22
+        },
+        {
+          "baseline": 608.16,
+          "text": "Fractions with other structures",
+          "x": 72.0
+        },
+        {
+          "baseline": 630.24,
+          "text": "Sums and integrals inside a fraction:",
+          "x": 72.0
+        },
+        {
+          "baseline": 648.72,
+          "text": "#",
+          "x": 269.85
+        },
+        {
+          "baseline": 653.48,
+          "text": "∑\t(𝑥 − 𝑥)(𝑦 − 𝑦)",
+          "x": 290.86
+        },
+        {
+          "baseline": 656.28,
+          "text": "$%! $",
+          "x": 302.11
+        },
+        {
+          "baseline": 655.92,
+          "text": "$",
+          "x": 343.24
+        },
+        {
+          "baseline": 662.64,
+          "text": "𝜌=",
+          "x": 209.71
+        },
+        {
+          "baseline": 668.64,
+          "text": "#",
+          "x": 249.67
+        },
+        {
+          "baseline": 669.12,
+          "text": "\" #",
+          "x": 334.56
+        },
+        {
+          "baseline": 669.6,
+          "text": "\"",
+          "x": 396.88
+        },
+        {
+          "baseline": 673.17,
+          "text": "7∑\t(𝑥 − 𝑥)7∑\t(𝑦 − 𝑦)",
+          "x": 232.32
+        },
+        {
+          "baseline": 676.14,
+          "text": "$%! $",
+          "x": 281.94
+        },
+        {
+          "baseline": 676.14,
+          "text": "$%! $",
+          "x": 366.91
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 79.44,
+          "text": "&",
+          "x": 285.85
+        },
+        {
+          "baseline": 86.67,
+          "text": "∫\t𝑓(𝑥)\t𝑤(𝑥)\t𝑑𝑥",
+          "x": 295.81
+        },
+        {
+          "baseline": 91.44,
+          "text": "’",
+          "x": 283.42
+        },
+        {
+          "baseline": 96.96,
+          "text": "⟨𝑓⟩=",
+          "x": 247.61
+        },
+        {
+          "baseline": 101.04,
+          "text": "&",
+          "x": 299.0
+        },
+        {
+          "baseline": 108.32,
+          "text": "∫\t𝑤(𝑥)\t𝑑𝑥",
+          "x": 308.96
+        },
+        {
+          "baseline": 113.28,
+          "text": "’",
+          "x": 296.57
+        },
+        {
+          "baseline": 132.72,
+          "text": "Fractions in exponents and in the limits of an integral:",
+          "x": 72.0
+        },
+        {
+          "baseline": 152.4,
+          "text": "𝑏",
+          "x": 301.77
+        },
+        {
+          "baseline": 155.04,
+          "text": "2",
+          "x": 283.76
+        },
+        {
+          "baseline": 157.92,
+          "text": "𝑥",
+          "x": 279.24
+        },
+        {
+          "baseline": 161.36,
+          "text": "2 𝑑𝑡",
+          "x": 301.71
+        },
+        {
+          "baseline": 165.84,
+          "text": "2",
+          "x": 286.34
+        },
+        {
+          "baseline": 169.2,
+          "text": "𝑒2𝜎 !",
+          "x": 270.71
+        },
+        {
+          "baseline": 175.44,
+          "text": "𝑎",
+          "x": 297.66
+        },
+        {
+          "baseline": 174.0,
+          "text": "3",
+          "x": 336.13
+        },
+        {
+          "baseline": 184.03,
+          "text": "2 1+ 𝑡2",
+          "x": 297.67
+        },
+        {
+          "baseline": 204.0,
+          "text": "A fraction under a root under a fraction:",
+          "x": 72.0
+        },
+        {
+          "baseline": 230.24,
+          "text": "𝑇 𝑔𝜆",
+          "x": 308.32
+        },
+        {
+          "baseline": 237.36,
+          "text": "+",
+          "x": 318.4
+        },
+        {
+          "baseline": 243.0,
+          "text": "1 𝜇 2𝜋",
+          "x": 290.47
+        },
+        {
+          "baseline": 250.68,
+          "text": "𝑣= ?",
+          "x": 267.96
+        },
+        {
+          "baseline": 258.96,
+          "text": "2",
+          "x": 290.47
+        },
+        {
+          "baseline": 258.0,
+          "text": "𝜆",
+          "x": 333.45
+        },
+        {
+          "baseline": 264.96,
+          "text": "1+",
+          "x": 312.4
+        },
+        {
+          "baseline": 270.96,
+          "text": "𝐿",
+          "x": 333.34
+        },
+        {
+          "baseline": 291.6,
+          "text": "The quotient rule for a quotient:",
+          "x": 72.0
+        },
+        {
+          "baseline": 314.64,
+          "text": "𝑓′(𝑥)\t𝑔(𝑥)− 𝑓(𝑥)\t𝑔′(𝑥)",
+          "x": 235.03
+        },
+        {
+          "baseline": 314.64,
+          "text": "𝑓(𝑥)",
+          "x": 395.35
+        },
+        {
+          "baseline": 317.76,
+          "text": "𝑓(𝑥)",
+          "x": 187.47
+        },
+        {
+          "baseline": 321.36,
+          "text": "ℎ(𝑥)−",
+          "x": 358.12
+        },
+        {
+          "baseline": 321.36,
+          "text": "ℎ′(𝑥)",
+          "x": 423.14
+        },
+        {
+          "baseline": 325.2,
+          "text": "2",
+          "x": 303.6
+        },
+        {
+          "baseline": 327.84,
+          "text": "𝑔(𝑥)",
+          "x": 394.97
+        },
+        {
+          "baseline": 331.01,
+          "text": "𝑑 𝑔(𝑥)",
+          "x": 165.95
+        },
+        {
+          "baseline": 331.2,
+          "text": "𝑔(𝑥)",
+          "x": 279.91
+        },
+        {
+          "baseline": 338.88,
+          "text": "\"",
+          "x": 177.84
+        },
+        {
+          "baseline": 338.72,
+          "text": "# =",
+          "x": 223.01
+        },
+        {
+          "baseline": 342.96,
+          "text": "2",
+          "x": 351.06
+        },
+        {
+          "baseline": 346.08,
+          "text": "𝑑𝑥 ℎ(𝑥)",
+          "x": 162.76
+        },
+        {
+          "baseline": 348.96,
+          "text": "ℎ(𝑥)",
+          "x": 328.05
+        },
+        {
+          "baseline": 378.72,
+          "text": "A matrix of fractions:",
+          "x": 72.0
+        },
+        {
+          "baseline": 404.4,
+          "text": "𝜕𝑢 𝜕𝑢",
+          "x": 188.75
+        },
+        {
+          "baseline": 405.6,
+          "text": "𝜕𝑣 𝜕𝑢",
+          "x": 387.84
+        },
+        {
+          "baseline": 414.72,
+          "text": "−",
+          "x": 418.87
+        },
+        {
+          "baseline": 421.12,
+          "text": "⎛𝜕𝑥 𝜕𝑦⎞",
+          "x": 179.76
+        },
+        {
+          "baseline": 420.24,
+          "text": "1",
+          "x": 331.35
+        },
+        {
+          "baseline": 422.64,
+          "text": "𝜕𝑦 𝜕𝑦",
+          "x": 387.82
+        },
+        {
+          "baseline": 425.04,
+          "text": ".!",
+          "x": 270.85
+        },
+        {
+          "baseline": 426.96,
+          "text": "⎛",
+          "x": 373.2
+        },
+        {
+          "baseline": 426.96,
+          "text": "⎞",
+          "x": 443.76
+        },
+        {
+          "baseline": 429.36,
+          "text": "𝐽=",
+          "x": 159.2
+        },
+        {
+          "baseline": 429.36,
+          "text": ", 𝐽 =",
+          "x": 266.03
+        },
+        {
+          "baseline": 433.44,
+          "text": "⎜",
+          "x": 179.76
+        },
+        {
+          "baseline": 433.44,
+          "text": "⎟",
+          "x": 228.48
+        },
+        {
+          "baseline": 436.32,
+          "text": "𝜕𝑣 𝜕𝑣",
+          "x": 188.9
+        },
+        {
+          "baseline": 436.72,
+          "text": "𝜕𝑢𝜕𝑣 𝜕𝑢𝜕𝑣 𝜕𝑣 𝜕𝑢",
+          "x": 298.08
+        },
+        {
+          "baseline": 443.28,
+          "text": "−",
+          "x": 330.21
+        },
+        {
+          "baseline": 446.64,
+          "text": "−",
+          "x": 382.35
+        },
+        {
+          "baseline": 449.52,
+          "text": "𝜕𝑥𝜕𝑦 𝜕𝑦𝜕𝑥",
+          "x": 298.3
+        },
+        {
+          "baseline": 453.36,
+          "text": "𝜕𝑥 𝜕𝑦",
+          "x": 188.97
+        },
+        {
+          "baseline": 452.88,
+          "text": "⎝",
+          "x": 373.2
+        },
+        {
+          "baseline": 452.88,
+          "text": "⎠",
+          "x": 443.76
+        },
+        {
+          "baseline": 454.56,
+          "text": "𝜕𝑥 𝜕𝑥",
+          "x": 393.38
+        },
+        {
+          "baseline": 459.36,
+          "text": "⎝",
+          "x": 179.76
+        },
+        {
+          "baseline": 459.36,
+          "text": "⎠",
+          "x": 228.48
+        },
+        {
+          "baseline": 481.68,
+          "text": "Generalised continued fractions",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.76,
+          "text": "The arctangent as a continued fraction:",
+          "x": 72.0
+        },
+        {
+          "baseline": 523.44,
+          "text": "𝑥",
+          "x": 331.5
+        },
+        {
+          "baseline": 532.56,
+          "text": "arctan\t𝑥=",
+          "x": 230.1
+        },
+        {
+          "baseline": 536.4,
+          "text": "\"",
+          "x": 346.16
+        },
+        {
+          "baseline": 540.0,
+          "text": "𝑥",
+          "x": 339.12
+        },
+        {
+          "baseline": 546.96,
+          "text": "1+",
+          "x": 287.85
+        },
+        {
+          "baseline": 550.08,
+          "text": "\"",
+          "x": 359.96
+        },
+        {
+          "baseline": 553.68,
+          "text": "4𝑥",
+          "x": 346.27
+        },
+        {
+          "baseline": 560.88,
+          "text": "3+",
+          "x": 308.8
+        },
+        {
+          "baseline": 564.0,
+          "text": "\"",
+          "x": 370.43
+        },
+        {
+          "baseline": 567.6,
+          "text": "9𝑥",
+          "x": 356.74
+        },
+        {
+          "baseline": 574.56,
+          "text": "5+",
+          "x": 329.74
+        },
+        {
+          "baseline": 580.56,
+          "text": "7+ ⋯",
+          "x": 350.68
+        },
+        {
+          "baseline": 600.24,
+          "text": "Lord Brouncker's formula for pi:",
+          "x": 72.0
+        },
+        {
+          "baseline": 619.92,
+          "text": "2",
+          "x": 328.08
+        },
+        {
+          "baseline": 625.44,
+          "text": "4",
+          "x": 238.76
+        },
+        {
+          "baseline": 625.44,
+          "text": "1",
+          "x": 321.44
+        },
+        {
+          "baseline": 633.84,
+          "text": "= 1+",
+          "x": 260.71
+        },
+        {
+          "baseline": 638.16,
+          "text": "2",
+          "x": 338.33
+        },
+        {
+          "baseline": 641.28,
+          "text": "𝜋",
+          "x": 238.52
+        },
+        {
+          "baseline": 643.92,
+          "text": "3",
+          "x": 331.69
+        },
+        {
+          "baseline": 650.16,
+          "text": "2+",
+          "x": 281.21
+        },
+        {
+          "baseline": 654.0,
+          "text": "2",
+          "x": 348.58
+        },
+        {
+          "baseline": 659.76,
+          "text": "5",
+          "x": 341.94
+        },
+        {
+          "baseline": 666.24,
+          "text": "2+",
+          "x": 301.71
+        },
+        {
+          "baseline": 669.84,
+          "text": "2",
+          "x": 358.83
+        },
+        {
+          "baseline": 675.36,
+          "text": "7",
+          "x": 352.19
+        },
+        {
+          "baseline": 681.84,
+          "text": "2+",
+          "x": 322.21
+        },
+        {
+          "baseline": 687.84,
+          "text": "2+ ⋯",
+          "x": 342.7
+        },
+        {
+          "baseline": 707.52,
+          "text": "A ratio of continued fractions:",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.6,
+          "text": "1",
+          "x": 283.46
+        },
+        {
+          "baseline": 88.08,
+          "text": "1+",
+          "x": 252.71
+        },
+        {
+          "baseline": 94.24,
+          "text": "1 10",
+          "x": 293.71
+        },
+        {
+          "baseline": 100.56,
+          "text": "2+",
+          "x": 273.21
+        },
+        {
+          "baseline": 103.2,
+          "text": "15",
+          "x": 346.0
+        },
+        {
+          "baseline": 106.56,
+          "text": "3 7",
+          "x": 293.71
+        },
+        {
+          "baseline": 111.6,
+          "text": "= =",
+          "x": 333.98
+        },
+        {
+          "baseline": 118.61,
+          "text": "1 26 13",
+          "x": 283.46
+        },
+        {
+          "baseline": 124.8,
+          "text": "1+",
+          "x": 252.71
+        },
+        {
+          "baseline": 130.8,
+          "text": "1 21",
+          "x": 293.71
+        },
+        {
+          "baseline": 137.28,
+          "text": "4+",
+          "x": 273.21
+        },
+        {
+          "baseline": 143.52,
+          "text": "5",
+          "x": 293.71
+        },
+        {
+          "baseline": 166.08,
+          "text": "Stacked fractions in prose",
+          "x": 72.0
+        },
+        {
+          "baseline": 182.88,
+          "text": "!",
+          "x": 247.12
+        },
+        {
+          "baseline": 191.52,
+          "text": "\"",
+          "x": 247.22
+        },
+        {
+          "baseline": 195.85,
+          "text": "Inline, a fraction of fractions such as # shrinks to the text style, and a continued fraction $1 +",
+          "x": 72.0
+        },
+        {
+          "baseline": 205.92,
+          "text": "$",
+          "x": 247.1
+        },
+        {
+          "baseline": 211.68,
+          "text": "%",
+          "x": 248.8
+        },
+        {
+          "baseline": 216.48,
+          "text": "!\"",
+          "x": 238.35
+        },
+        {
+          "baseline": 220.32,
+          "text": "&",
+          "x": 248.93
+        },
+        {
+          "baseline": 224.65,
+          "text": "frac{1}{1 + frac{1}{x}}$ or a quotient % enlarges its line. The line after them keeps its ordinary",
+          "x": 72.0
+        },
+        {
+          "baseline": 230.64,
+          "text": "!#",
+          "x": 238.35
+        },
+        {
+          "baseline": 234.72,
+          "text": "&",
+          "x": 248.93
+        },
+        {
+          "baseline": 246.0,
+          "text": "height.",
+          "x": 72.0
+        },
+        {
+          "baseline": 268.56,
+          "text": "REVIEW: every level of a stacked fraction has the size and spacing Word gives it, each equation is",
+          "x": 72.0
+        },
+        {
+          "baseline": 282.96,
+          "text": "as tall as in Word, and the second page begins with the same equation in both outputs, as does the",
+          "x": 72.0
+        },
+        {
+          "baseline": 297.6,
+          "text": "third.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "8879ed16040293bebc81b2d1c09f9d9a46f6815cbad4aec19d8f98118fc4e899"
+}

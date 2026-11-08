@@ -18,6 +18,10 @@ pub struct Formula {
     pub width: f64,
     pub ascent: f64,
     pub descent: f64,
+    pub display: bool,
+    /// Whether the equation opens with ordinary text rather than a structure.
+    /// Word keeps more room around a display equation that does.
+    pub leading_text: bool,
     pub font: FontSelection,
     /// The paragraph's font, in which Word sets normal text such as `\text`.
     pub text_font: Option<FontSelection>,
@@ -58,6 +62,7 @@ impl Formula {
 pub(crate) fn typeset(
     source: &str,
     display: bool,
+    lone: bool,
     size: f64,
     font: &FontSelection,
     text_font: Option<&FontSelection>,
@@ -90,7 +95,22 @@ pub(crate) fn typeset(
         level: if display { Level::Display } else { Level::Text },
         cramped: false,
         full_fractions: display,
+        display_gaps: display && !lone,
+        enclosed: false,
     };
+    let mut first = &root;
+    loop {
+        first = match first {
+            Node::Sequence(nodes) if !nodes.is_empty() => &nodes[0],
+            Node::Script {
+                base,
+                subscript: None,
+                superscript: None,
+            } => base,
+            _ => break,
+        };
+    }
+    let leading_text = !lone && matches!(first, Node::Text(..));
     let layout = match &root {
         Node::Sequence(nodes) => typesetter.list(nodes, style, false),
         node => typesetter.node(node, style),
@@ -106,6 +126,8 @@ pub(crate) fn typeset(
             width: layout.width,
             ascent: layout.ascent,
             descent: layout.descent,
+            display,
+            leading_text,
             font: font.clone(),
             text_font: text_font
                 .filter(|_| layout.glyphs.iter().any(|glyph| glyph.in_text_font))
@@ -127,12 +149,16 @@ enum Level {
 
 /// A cramped style raises superscripts less, as TeX does under a bar. Word
 /// sets every fraction of a display equation at full size, however deeply it
-/// is nested, though only the outermost takes the display spacing.
+/// is nested, though only the outermost takes the display shifts; the inner
+/// ones keep the display gaps unless the equation is displayed only for
+/// standing alone.
 #[derive(Clone, Copy)]
 struct Style {
     level: Level,
     cramped: bool,
     full_fractions: bool,
+    display_gaps: bool,
+    enclosed: bool,
 }
 impl Style {
     fn script(self) -> Self {
@@ -165,6 +191,14 @@ impl Style {
         Self {
             cramped: true,
             ..self.numerator()
+        }
+    }
+    /// Word sets a fraction within delimiters of a display equation with the
+    /// spacing of a nested fraction.
+    fn enclosed(self) -> Self {
+        Self {
+            enclosed: true,
+            ..self
         }
     }
     fn cramped(self) -> Self {

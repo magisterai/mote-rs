@@ -988,6 +988,16 @@
     "required_fonts": []
   },
   {
+    "identifier": "word-stacked-fractions",
+    "application": "word",
+    "name": "68_stacked_fractions",
+    "source": "word-68-stacked-fractions.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
     "identifier": "markdown-table-slides",
     "application": "powerpoint",
     "name": "31_markdown_table_alignment",

@@ -550,9 +550,14 @@ fn display_lone_equation(paragraph: &mut Element) {
     if equation.kind != ElementKind::Math {
         return;
     }
-    equation
-        .attributes
-        .insert("display".into(), Value::String("block".into()));
+    if crate::properties::text(&equation.attributes, "display") != "block" {
+        equation
+            .attributes
+            .insert("display".into(), Value::String("block".into()));
+        equation
+            .attributes
+            .insert("lone".into(), Value::Boolean(true));
+    }
     paragraph
         .attributes
         .entry("alignment".into())

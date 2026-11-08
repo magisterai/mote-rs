@@ -129,6 +129,6 @@ The Riemann zeta function:
 
 #paragraph(fill = "#dcfce7")[
 REVIEW: the matrix system lies wholly at the top of the second page in both
-outputs, and its introductory line stays at the foot of the first page as in
-Word. No equation is divided between two pages.
+outputs, and its introductory line moves with it, as in Word. No equation is
+divided between two pages.
 ]
