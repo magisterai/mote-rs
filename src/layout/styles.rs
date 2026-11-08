@@ -498,6 +498,15 @@ impl<'document> LayoutStyleResolver<'document> {
     }
     fn apply_fallback(&self, style: &mut ParagraphStyle, name: &str) {
         let normalized = normalize_style_name(name);
+        // Office output bases each built-in paragraph style on Normal.
+        if normalized != "normal"
+            && let Some(declaration) = self.find_declaration("Normal")
+            && declaration.kind == StyleKind::Paragraph
+        {
+            let resolved = self.declarations.resolve_style(&declaration.name);
+            self.apply_run(&mut style.text, &resolved.run);
+            self.apply_paragraph(style, &resolved.paragraph);
+        }
         let (mut bold, mut italic) = emphasis(style.text.measurement.variant);
         let mut multiple = Some(1.15);
         match normalized.as_str() {

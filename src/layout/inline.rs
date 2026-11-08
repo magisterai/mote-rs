@@ -96,7 +96,13 @@ fn collect(
                         }
                     }
                     let mut style = inherited.clone();
-                    if resolution.anchor.is_some() {
+                    // Word shows a page or number reference as a field result,
+                    // not as a hyperlink.
+                    let inferred_number = resolution.display == "number"
+                        && resolution.anchor.is_some_and(|anchor| {
+                            !anchor.number.is_empty() && !anchor.explicit_number
+                        });
+                    if resolution.anchor.is_some() && !page && !inferred_number {
                         style.color = "0563C1".into();
                         style.underline = true;
                     }
