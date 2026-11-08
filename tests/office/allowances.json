@@ -260,10 +260,10 @@
   },
   "probes/table-row-height": {
     "horizontal": 0.3,
-    "median": 5.6,
+    "median": 2.4,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 27.1
+    "vertical": 2.5
   },
   "word/01_plain_markdown_basics": {
     "horizontal": 1.0,
@@ -588,11 +588,11 @@
     "vertical": 2.5
   },
   "word/47_table_feature_overview": {
-    "horizontal": 2.2,
-    "median": 11.5,
+    "horizontal": 0.9,
+    "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 11.9
+    "vertical": 1.1
   },
   "word/48_full_page_tables_and_media": {
     "horizontal": 2.1,

@@ -21,6 +21,9 @@ pub(super) struct TablePlan {
 pub(super) struct RowPlan {
     pub cells: Vec<CellPlan>,
     pub height: f64,
+    /// The authored height, and whether its rule is exact rather than a
+    /// minimum. An automatic rule leaves it absent.
+    pub authored_height: Option<(f64, bool)>,
     pub repeat_header: bool,
     pub cant_split: bool,
 }
@@ -95,6 +98,13 @@ pub(super) fn prepare(
                 "repeat_header",
             ),
             cant_split: property_values::boolean(&source_rows[row_index].attributes, "cant_split"),
+            authored_height: {
+                let attributes = &source_rows[row_index].attributes;
+                let rule = property_values::text(attributes, "height_rule");
+                cells::points(attributes.get("height"))
+                    .filter(|_| rule != "auto")
+                    .map(|height| (height, rule == "exact"))
+            },
         };
         for (column, slot) in row.iter().enumerate() {
             let Some(cell) = slot
@@ -224,6 +234,20 @@ pub(super) fn prepare(
         }
         if row.height == 0.0 {
             row.height = default_style.line_height + default_margins[0] + default_margins[2];
+        }
+        match row.authored_height {
+            Some((height, true)) => row.height = height,
+            Some((height, false)) => {
+                // Word holds a minimum height for the content within the
+                // cells' top and bottom margins.
+                let margins = row
+                    .cells
+                    .iter()
+                    .map(|cell| cell.margins[0] + cell.margins[2])
+                    .fold(default_margins[0] + default_margins[2], f64::max);
+                row.height = row.height.max(height + margins);
+            }
+            None => {}
         }
     }
     for (start, span, required) in spans {
