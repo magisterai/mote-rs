@@ -213,7 +213,7 @@ fn table_cells_and_explicit_paragraphs_resolve_alignment_in_the_same_order() {
 }
 
 #[test]
-fn table_paragraph_spacing_contributes_to_top_middle_and_bottom_alignment() {
+fn table_paragraph_spacing_between_paragraphs_contributes_to_alignment() {
     let (document, plan) = case("slide-table-spacing");
     assert_eq!(plan.pages.len(), 2);
     for (page_index, page) in plan.pages.iter().enumerate() {
@@ -222,13 +222,15 @@ fn table_paragraph_spacing_contributes_to_top_middle_and_bottom_alignment() {
             let second = line(page, &format!("Second {name}"));
             let gap = if page_index == 0 { 16.0 } else { 0.0 };
             close(second.top - first.top, first.line.height + gap, name);
-            let height = first.line.height + second.line.height + 16.0 + gap;
+            // PowerPoint ignores the space before a cell's first paragraph and
+            // after its last.
+            let height = first.line.height + second.line.height + gap;
             let offset = match column {
                 0 => 0.0,
                 1 => (220.0 - height) / 2.0,
                 _ => 220.0 - height,
             };
-            close(first.top, 90.0 + offset + 4.0, name);
+            close(first.top, 90.0 + offset, name);
         }
     }
     let xml = slide(&document, 1);

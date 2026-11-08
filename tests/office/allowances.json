@@ -52,8 +52,8 @@
     "horizontal": 583.2,
     "median": 0.3,
     "page_moves": 0,
-    "unmatched": 8,
-    "vertical": 8.0
+    "unmatched": 4,
+    "vertical": 2.3
   },
   "powerpoint/09_theme_text_tables_charts": {
     "horizontal": 4.7,
@@ -186,7 +186,7 @@
     "median": 0.9,
     "page_moves": 0,
     "unmatched": 1,
-    "vertical": 14.5
+    "vertical": 3.9
   },
   "powerpoint/28_table_alignment": {
     "horizontal": 0.3,
@@ -197,10 +197,10 @@
   },
   "powerpoint/29_table_spacing": {
     "horizontal": 0.0,
-    "median": 5.3,
+    "median": 1.4,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 13.8
+    "vertical": 1.8
   },
   "powerpoint/30_table_margins": {
     "horizontal": 0.1,

@@ -34,7 +34,8 @@ fn plan_paragraphs(
 ) -> Result<(Vec<ParagraphText>, f64), LayoutError> {
     let mut output = Vec::new();
     let mut total = 0.0;
-    for paragraph in paragraphs {
+    let count = paragraphs.len();
+    for (index, paragraph) in paragraphs.iter().enumerate() {
         let mut style = paragraph.style.clone();
         let mut runs = paragraph.runs.clone();
         for run in &mut runs {
@@ -47,6 +48,14 @@ fn plan_paragraphs(
             style.indent_left = 0.0;
             style.indent_right = 0.0;
             style.first_line = 0.0;
+            if index + 1 == count {
+                style.spacing_after = 0.0;
+            }
+        }
+        // PowerPoint ignores the space before the first paragraph of a text
+        // box or cell, and after the last paragraph of a cell.
+        if index == 0 {
+            style.spacing_before = 0.0;
         }
         if !alignment.is_empty() {
             style.alignment = alignment.into();

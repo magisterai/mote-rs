@@ -67,7 +67,7 @@
     {
       "kind": "text",
       "line": {
-        "top": 135,
+        "top": 131.0,
         "height": 0.05,
         "x": 50,
         "width": 231.25,
@@ -75,42 +75,42 @@
           {
             "text": "Normal ",
             "x": 50,
-            "baseline": 140.425,
+            "baseline": 136.425,
             "advance": 61.921875,
             "size": 18
           },
           {
             "text": "bold",
             "x": 111.921875,
-            "baseline": 140.425,
+            "baseline": 136.425,
             "advance": 36.75,
             "size": 18
           },
           {
             "text": " ",
             "x": 148.671875,
-            "baseline": 140.425,
+            "baseline": 136.425,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "italic",
             "x": 152.328125,
-            "baseline": 140.425,
+            "baseline": 136.425,
             "advance": 41.203125,
             "size": 18
           },
           {
             "text": " ",
             "x": 193.53125,
-            "baseline": 140.425,
+            "baseline": 136.425,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "underlined",
             "x": 197.1875,
-            "baseline": 140.425,
+            "baseline": 136.425,
             "advance": 84.0625,
             "size": 18
           }
@@ -127,7 +127,7 @@
       "kind": "decoration",
       "start": 197.1875,
       "end": 281.25,
-      "y": 142.225,
+      "y": 138.225,
       "width": 0.9,
       "color": "111827",
       "decoration_kind": "underline",
@@ -142,7 +142,7 @@
       "kind": "rectangle",
       "bounds": [
         98.515625,
-        135.05,
+        131.05,
         85.875,
         0.05
       ],
@@ -157,7 +157,7 @@
     {
       "kind": "text",
       "line": {
-        "top": 135.05,
+        "top": 131.05,
         "height": 0.05,
         "x": 46,
         "width": 143.53125,
@@ -165,28 +165,28 @@
           {
             "text": "struck",
             "x": 46,
-            "baseline": 140.47500000000002,
+            "baseline": 136.47500000000002,
             "advance": 48.859375,
             "size": 18
           },
           {
             "text": " ",
             "x": 94.859375,
-            "baseline": 140.47500000000002,
+            "baseline": 136.47500000000002,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "highlighted",
             "x": 98.515625,
-            "baseline": 140.47500000000002,
+            "baseline": 136.47500000000002,
             "advance": 85.875,
             "size": 18
           },
           {
             "text": ".",
             "x": 184.390625,
-            "baseline": 140.47500000000002,
+            "baseline": 136.47500000000002,
             "advance": 5.140625,
             "size": 18
           }
@@ -203,7 +203,7 @@
       "kind": "decoration",
       "start": 46,
       "end": 94.859375,
-      "y": 135.07750000000001,
+      "y": 131.07750000000001,
       "width": 0.2,
       "color": "111827",
       "decoration_kind": "strike",
@@ -217,7 +217,7 @@
     {
       "kind": "text",
       "line": {
-        "top": 143.1,
+        "top": 139.10000000000002,
         "height": 21.6648,
         "x": 44,
         "width": 127.15625,
@@ -225,63 +225,63 @@
           {
             "text": "A ",
             "x": 44,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 14.265625,
             "size": 18
           },
           {
             "text": "link",
             "x": 58.265625,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 27.671875,
             "size": 18
           },
           {
             "text": " ",
             "x": 85.9375,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "and ",
             "x": 89.59375,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 33.234375,
             "size": 18
           },
           {
             "text": "c",
             "x": 122.828125,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": "o",
             "x": 133.625,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": "d",
             "x": 144.421875,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": "e",
             "x": 155.21875,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": ".",
             "x": 166.015625,
-            "baseline": 159.3324,
+            "baseline": 155.3324,
             "advance": 5.140625,
             "size": 18
           }
@@ -298,7 +298,7 @@
       "kind": "decoration",
       "start": 58.265625,
       "end": 85.9375,
-      "y": 161.1324,
+      "y": 157.13240000000002,
       "width": 0.9,
       "color": "2563EB",
       "decoration_kind": "underline",
@@ -312,7 +312,7 @@
     {
       "kind": "text",
       "line": {
-        "top": 164.76479999999998,
+        "top": 160.76480000000004,
         "height": 21.6648,
         "x": 44,
         "width": 96.265625,
@@ -320,14 +320,14 @@
           {
             "text": "Second ",
             "x": 44,
-            "baseline": 180.99719999999996,
+            "baseline": 176.99720000000002,
             "advance": 62.734375,
             "size": 18
           },
           {
             "text": "line.",
             "x": 106.734375,
-            "baseline": 180.99719999999996,
+            "baseline": 176.99720000000002,
             "advance": 33.53125,
             "size": 18
           }

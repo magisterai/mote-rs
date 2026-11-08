@@ -58,7 +58,7 @@
     {
       "kind": "text",
       "line": {
-        "top": 134,
+        "top": 130.0,
         "height": 24.072,
         "x": 40,
         "width": 141.16,
@@ -66,14 +66,14 @@
           {
             "text": "First ",
             "x": 40,
-            "baseline": 152.036,
+            "baseline": 148.036,
             "advance": 44.44,
             "size": 20
           },
           {
             "text": "paragraph.",
             "x": 84.44,
-            "baseline": 152.036,
+            "baseline": 148.036,
             "advance": 96.72,
             "size": 20
           }
@@ -89,7 +89,7 @@
     {
       "kind": "text",
       "line": {
-        "top": 174.072,
+        "top": 170.072,
         "height": 24.072,
         "x": 40,
         "width": 296.8,
@@ -97,42 +97,42 @@
           {
             "text": "Second ",
             "x": 40,
-            "baseline": 192.108,
+            "baseline": 188.108,
             "advance": 73.38,
             "size": 20
           },
           {
             "text": "paragraph ",
             "x": 113.38,
-            "baseline": 192.108,
+            "baseline": 188.108,
             "advance": 96.72,
             "size": 20
           },
           {
             "text": "with ",
             "x": 210.1,
-            "baseline": 192.108,
+            "baseline": 188.108,
             "advance": 41.12,
             "size": 20
           },
           {
             "text": "bold",
             "x": 251.22,
-            "baseline": 192.108,
+            "baseline": 188.108,
             "advance": 42.22,
             "size": 20
           },
           {
             "text": " ",
             "x": 293.44,
-            "baseline": 192.108,
+            "baseline": 188.108,
             "advance": 5.56,
             "size": 20
           },
           {
             "text": "text.",
             "x": 299,
-            "baseline": 192.108,
+            "baseline": 188.108,
             "advance": 37.8,
             "size": 20
           }
