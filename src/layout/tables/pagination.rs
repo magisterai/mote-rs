@@ -22,7 +22,6 @@ pub(super) struct SpanSlice {
     pub height: f64,
     pub window: Window,
     pub first: bool,
-    pub last: bool,
 }
 #[derive(Clone, Copy)]
 struct Segment {
@@ -419,7 +418,6 @@ pub(super) fn plan(
                         ..Default::default()
                     },
                     first: index == 0,
-                    last: index + 1 == groups.len(),
                 });
                 offset += height;
             }

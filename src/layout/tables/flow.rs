@@ -138,7 +138,7 @@ pub(in crate::layout) fn place(
                         bounds,
                         &cell.borders,
                         span.first,
-                        span.last,
+                        true,
                     );
                 }
                 for (index, cell) in table.rows[slice.row]
@@ -160,7 +160,8 @@ pub(in crate::layout) fn place(
                         bounds,
                         &cell.borders,
                         slice.offset <= 0.01,
-                        slice.offset + slice.height >= table.rows[slice.row].height - 0.01,
+                        // Word closes the part of a split row on each page.
+                        true,
                     );
                 }
                 cursor.y += slice.height;
