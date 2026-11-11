@@ -14,7 +14,7 @@
     "vertical": 0.1
   },
   "powerpoint/03_slide_features_links": {
-    "horizontal": 2.4,
+    "horizontal": 0.9,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -119,7 +119,7 @@
     "vertical": 0.2
   },
   "powerpoint/18_math_layout": {
-    "horizontal": 7.3,
+    "horizontal": 6.7,
     "median": 0.7,
     "page_moves": 0,
     "unmatched": 11,
@@ -223,6 +223,13 @@
     "unmatched": 0,
     "vertical": 0.6
   },
+  "probes/break-opportunities": {
+    "horizontal": 0.1,
+    "median": 0.2,
+    "page_moves": 0,
+    "unmatched": 2,
+    "vertical": 0.2
+  },
   "probes/chart-value-axis": {
     "horizontal": 0.4,
     "median": 0.3,
@@ -249,7 +256,7 @@
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.1
+    "vertical": 0.3
   },
   "probes/line-baseline": {
     "horizontal": 0.0,
@@ -271,6 +278,13 @@
     "page_moves": 0,
     "unmatched": 1,
     "vertical": 2.1
+  },
+  "probes/script-position": {
+    "horizontal": 0.2,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 1,
+    "vertical": 1.5
   },
   "probes/shape-text": {
     "horizontal": 0.2,
@@ -301,18 +315,18 @@
     "vertical": 0.8
   },
   "word/03_nested_styles_layout": {
-    "horizontal": 1.0,
+    "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
-    "unmatched": 1,
-    "vertical": 0.9
+    "unmatched": 0,
+    "vertical": 0.2
   },
   "word/04_expanded_markdown": {
     "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.1
+    "vertical": 0.3
   },
   "word/05_full_page_markdown_report": {
     "horizontal": 0.3,
@@ -329,11 +343,11 @@
     "vertical": 0.2
   },
   "word/07_warning_authority": {
-    "horizontal": 0.7,
+    "horizontal": 0.4,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 3,
-    "vertical": 1.2
+    "vertical": 0.5
   },
   "word/08_lists": {
     "horizontal": 0.0,
@@ -367,7 +381,7 @@
     "horizontal": 0.0,
     "median": 0.1,
     "page_moves": 0,
-    "unmatched": 2,
+    "unmatched": 0,
     "vertical": 0.3
   },
   "word/13_mixed_size_inline_runs": {
@@ -406,7 +420,7 @@
     "vertical": 1.0
   },
   "word/18_preserve_space": {
-    "horizontal": 12.0,
+    "horizontal": 0.0,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -490,11 +504,11 @@
     "vertical": 0.2
   },
   "word/30_media_references_notes": {
-    "horizontal": 1.0,
+    "horizontal": 0.1,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 2.6
+    "vertical": 0.3
   },
   "word/31_reference_parity": {
     "horizontal": 0.2,
@@ -511,39 +525,39 @@
     "vertical": 0.4
   },
   "word/33_annotation_story_placement": {
-    "horizontal": 0.7,
-    "median": 0.3,
+    "horizontal": 0.2,
+    "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 7.0
+    "vertical": 0.3
   },
   "word/34_notes_one_page": {
-    "horizontal": 0.5,
+    "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 3.9
+    "vertical": 0.3
   },
   "word/35_notes_two_page": {
-    "horizontal": 0.6,
+    "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 3.8
+    "vertical": 0.2
   },
   "word/36_footnote_page_pressure": {
     "horizontal": 0.2,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.0
+    "vertical": 0.4
   },
   "word/37_endnote_page_pressure": {
     "horizontal": 0.1,
-    "median": 1.0,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.1
+    "vertical": 0.5
   },
   "word/38_layout_images": {
     "horizontal": 0.6,
@@ -672,10 +686,10 @@
     "vertical": 0.6
   },
   "word/56_table_autofit_vs_fixed": {
-    "horizontal": 6.0,
+    "horizontal": 1.8,
     "median": 0.2,
     "page_moves": 0,
-    "unmatched": 2,
+    "unmatched": 0,
     "vertical": 0.5
   },
   "word/57_table_cross_page_spans": {

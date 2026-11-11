@@ -50,7 +50,7 @@ fn wrapped_links_retain_targets_in_pdf_and_visual_text_in_png() {
         .flat_map(|placed| placed.line.fragments.iter())
         .filter(|fragment| fragment.link.is_some())
         .collect();
-    assert_eq!(linked.len(), 28);
+    assert_eq!(linked.len(), 24);
     assert!(
         lines
             .iter()

@@ -142,7 +142,7 @@
         "x": 72,
         "top": 95.17999999999999,
         "height": 15.179999999999998,
-        "width": 30.877,
+        "width": 30.182,
         "baseline": 105.85,
         "fragments": [
           {
@@ -161,19 +161,19 @@
           {
             "text": "1",
             "x": 95.232,
-            "baseline": 101.68539999999999,
-            "top": 95.7619,
-            "width": 4.587,
-            "height": 7.63125,
-            "advance": 4.587,
-            "size": 8.25,
+            "baseline": 102.82499999999999,
+            "top": 97.79899999999999,
+            "width": 3.892,
+            "height": 6.475,
+            "advance": 3.892,
+            "size": 7.0,
             "font": "Helvetica",
             "variant": "regular",
             "missing_codepoints": []
           },
           {
             "text": ".",
-            "x": 99.819,
+            "x": 99.124,
             "baseline": 105.85,
             "top": 97.952,
             "width": 3.058,

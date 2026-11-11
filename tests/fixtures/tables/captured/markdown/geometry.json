@@ -170,18 +170,11 @@
         {
           "fragments": [
             {
-              "advance": 10.197,
+              "advance": 17.534,
               "baseline": 122.21,
-              "size": 11,
-              "text": "A|",
+              "size": 11.0,
+              "text": "A|B",
               "x": 139.466
-            },
-            {
-              "advance": 7.337,
-              "baseline": 122.21,
-              "size": 11,
-              "text": "B",
-              "x": 149.663
             }
           ],
           "height": 15.179999999999998,

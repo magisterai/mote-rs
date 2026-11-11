@@ -74,7 +74,7 @@ pub(super) fn intrinsic(
                             })
                             .collect();
                         let mut line_width = 0.0;
-                        for group in super::super::wrapping::groups(&runs) {
+                        for group in super::super::wrapping::groups(&runs, true) {
                             let width = super::super::wrapping::measure(&group, measurer, false)?;
                             line_width += width;
                             if !super::super::wrapping::join(&group).trim().is_empty() {

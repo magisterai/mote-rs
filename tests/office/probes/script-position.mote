@@ -1,0 +1,518 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+SCRIPT POSITION: Word draws a superscript or subscript at a reduced size and moves its baseline by a part of the font size, whatever the line spacing. A note reference is a superscript.
+
+#style(
+  name = "S1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S1")[baseH9m10 #superscript[upH9m10] endH9m10#footnote[Note of H9m10.]]
+
+#paragraph(style = "S1")[lowH9m10 #subscript[dnH9m10] tailH9m10]
+
+#style(
+  name = "S2",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S2")[baseH9m15 #superscript[upH9m15] endH9m15]
+
+#paragraph(style = "S2")[lowH9m15 #subscript[dnH9m15] tailH9m15]
+
+#style(
+  name = "S3",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(13.5) } } }
+)
+
+#paragraph(style = "S3")[baseH9ex #superscript[upH9ex] endH9ex]
+
+#paragraph(style = "S3")[lowH9ex #subscript[dnH9ex] tailH9ex]
+
+#style(
+  name = "S4",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S4")[baseH11m10 #superscript[upH11m10] endH11m10#footnote[Note of H11m10.]]
+
+#paragraph(style = "S4")[lowH11m10 #subscript[dnH11m10] tailH11m10]
+
+#style(
+  name = "S5",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S5")[baseH11m15 #superscript[upH11m15] endH11m15]
+
+#paragraph(style = "S5")[lowH11m15 #subscript[dnH11m15] tailH11m15]
+
+#style(
+  name = "S6",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(16.5) } } }
+)
+
+#paragraph(style = "S6")[baseH11ex #superscript[upH11ex] endH11ex]
+
+#paragraph(style = "S6")[lowH11ex #subscript[dnH11ex] tailH11ex]
+
+#style(
+  name = "S7",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S7")[baseH16m10 #superscript[upH16m10] endH16m10#footnote[Note of H16m10.]]
+
+#paragraph(style = "S7")[lowH16m10 #subscript[dnH16m10] tailH16m10]
+
+#style(
+  name = "S8",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S8")[baseH16m15 #superscript[upH16m15] endH16m15]
+
+#paragraph(style = "S8")[lowH16m15 #subscript[dnH16m15] tailH16m15]
+
+#style(
+  name = "S9",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(24.0) } } }
+)
+
+#paragraph(style = "S9")[baseH16ex #superscript[upH16ex] endH16ex]
+
+#paragraph(style = "S9")[lowH16ex #subscript[dnH16ex] tailH16ex]
+
+#style(
+  name = "S10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S10")[baseH24m10 #superscript[upH24m10] endH24m10#footnote[Note of H24m10.]]
+
+#paragraph(style = "S10")[lowH24m10 #subscript[dnH24m10] tailH24m10]
+
+#style(
+  name = "S11",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S11")[baseH24m15 #superscript[upH24m15] endH24m15]
+
+#paragraph(style = "S11")[lowH24m15 #subscript[dnH24m15] tailH24m15]
+
+#style(
+  name = "S12",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(36.0) } } }
+)
+
+#paragraph(style = "S12")[baseH24ex #superscript[upH24ex] endH24ex]
+
+#paragraph(style = "S12")[lowH24ex #subscript[dnH24ex] tailH24ex]
+
+#style(
+  name = "S13",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S13")[baseH36m10 #superscript[upH36m10] endH36m10#footnote[Note of H36m10.]]
+
+#paragraph(style = "S13")[lowH36m10 #subscript[dnH36m10] tailH36m10]
+
+#style(
+  name = "S14",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S14")[baseH36m15 #superscript[upH36m15] endH36m15]
+
+#paragraph(style = "S14")[lowH36m15 #subscript[dnH36m15] tailH36m15]
+
+#style(
+  name = "S15",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(54.0) } } }
+)
+
+#paragraph(style = "S15")[baseH36ex #superscript[upH36ex] endH36ex]
+
+#paragraph(style = "S15")[lowH36ex #subscript[dnH36ex] tailH36ex]
+
+#style(
+  name = "S16",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S16")[baseA9m10 #superscript[upA9m10] endA9m10#footnote[Note of A9m10.]]
+
+#paragraph(style = "S16")[lowA9m10 #subscript[dnA9m10] tailA9m10]
+
+#style(
+  name = "S17",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S17")[baseA9m15 #superscript[upA9m15] endA9m15]
+
+#paragraph(style = "S17")[lowA9m15 #subscript[dnA9m15] tailA9m15]
+
+#style(
+  name = "S18",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(9) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(13.5) } } }
+)
+
+#paragraph(style = "S18")[baseA9ex #superscript[upA9ex] endA9ex]
+
+#paragraph(style = "S18")[lowA9ex #subscript[dnA9ex] tailA9ex]
+
+#style(
+  name = "S19",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S19")[baseA11m10 #superscript[upA11m10] endA11m10#footnote[Note of A11m10.]]
+
+#paragraph(style = "S19")[lowA11m10 #subscript[dnA11m10] tailA11m10]
+
+#style(
+  name = "S20",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S20")[baseA11m15 #superscript[upA11m15] endA11m15]
+
+#paragraph(style = "S20")[lowA11m15 #subscript[dnA11m15] tailA11m15]
+
+#style(
+  name = "S21",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(16.5) } } }
+)
+
+#paragraph(style = "S21")[baseA11ex #superscript[upA11ex] endA11ex]
+
+#paragraph(style = "S21")[lowA11ex #subscript[dnA11ex] tailA11ex]
+
+#style(
+  name = "S22",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S22")[baseA16m10 #superscript[upA16m10] endA16m10#footnote[Note of A16m10.]]
+
+#paragraph(style = "S22")[lowA16m10 #subscript[dnA16m10] tailA16m10]
+
+#style(
+  name = "S23",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S23")[baseA16m15 #superscript[upA16m15] endA16m15]
+
+#paragraph(style = "S23")[lowA16m15 #subscript[dnA16m15] tailA16m15]
+
+#style(
+  name = "S24",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(16) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(24.0) } } }
+)
+
+#paragraph(style = "S24")[baseA16ex #superscript[upA16ex] endA16ex]
+
+#paragraph(style = "S24")[lowA16ex #subscript[dnA16ex] tailA16ex]
+
+#style(
+  name = "S25",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S25")[baseA24m10 #superscript[upA24m10] endA24m10#footnote[Note of A24m10.]]
+
+#paragraph(style = "S25")[lowA24m10 #subscript[dnA24m10] tailA24m10]
+
+#style(
+  name = "S26",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S26")[baseA24m15 #superscript[upA24m15] endA24m15]
+
+#paragraph(style = "S26")[lowA24m15 #subscript[dnA24m15] tailA24m15]
+
+#style(
+  name = "S27",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(36.0) } } }
+)
+
+#paragraph(style = "S27")[baseA24ex #superscript[upA24ex] endA24ex]
+
+#paragraph(style = "S27")[lowA24ex #subscript[dnA24ex] tailA24ex]
+
+#style(
+  name = "S28",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S28")[baseA36m10 #superscript[upA36m10] endA36m10#footnote[Note of A36m10.]]
+
+#paragraph(style = "S28")[lowA36m10 #subscript[dnA36m10] tailA36m10]
+
+#style(
+  name = "S29",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(style = "S29")[baseA36m15 #superscript[upA36m15] endA36m15]
+
+#paragraph(style = "S29")[lowA36m15 #subscript[dnA36m15] tailA36m15]
+
+#style(
+  name = "S30",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "exact", value = pt(54.0) } } }
+)
+
+#paragraph(style = "S30")[baseA36ex #superscript[upA36ex] endA36ex]
+
+#paragraph(style = "S30")[lowA36ex #subscript[dnA36ex] tailA36ex]
+
+#style(
+  name = "S31",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S31")[baseR11m10 #superscript[upR11m10] endR11m10]
+
+#paragraph(style = "S31")[lowR11m10 #subscript[dnR11m10] tailR11m10]
+
+#style(
+  name = "S32",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S32")[baseR24m10 #superscript[upR24m10] endR24m10]
+
+#paragraph(style = "S32")[lowR24m10 #subscript[dnR24m10] tailR24m10]
+
+#style(
+  name = "S33",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S33")[baseR36m10 #superscript[upR36m10] endR36m10]
+
+#paragraph(style = "S33")[lowR36m10 #subscript[dnR36m10] tailR36m10]
+
+#style(
+  name = "S34",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S34")[baseT11m10 #superscript[upT11m10] endT11m10]
+
+#paragraph(style = "S34")[lowT11m10 #subscript[dnT11m10] tailT11m10]
+
+#style(
+  name = "S35",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S35")[baseT24m10 #superscript[upT24m10] endT24m10]
+
+#paragraph(style = "S35")[lowT24m10 #subscript[dnT24m10] tailT24m10]
+
+#style(
+  name = "S36",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S36")[baseT36m10 #superscript[upT36m10] endT36m10]
+
+#paragraph(style = "S36")[lowT36m10 #subscript[dnT36m10] tailT36m10]
+
+#style(
+  name = "S37",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S37")[baseG11m10 #superscript[upG11m10] endG11m10]
+
+#paragraph(style = "S37")[lowG11m10 #subscript[dnG11m10] tailG11m10]
+
+#style(
+  name = "S38",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S38")[baseG24m10 #superscript[upG24m10] endG24m10]
+
+#paragraph(style = "S38")[lowG24m10 #subscript[dnG24m10] tailG24m10]
+
+#style(
+  name = "S39",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S39")[baseG36m10 #superscript[upG36m10] endG36m10]
+
+#paragraph(style = "S39")[lowG36m10 #subscript[dnG36m10] tailG36m10]
+
+#style(
+  name = "S40",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S40")[baseC11m10 #superscript[upC11m10] endC11m10]
+
+#paragraph(style = "S40")[lowC11m10 #subscript[dnC11m10] tailC11m10]
+
+#style(
+  name = "S41",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S41")[baseC24m10 #superscript[upC24m10] endC24m10]
+
+#paragraph(style = "S41")[lowC24m10 #subscript[dnC24m10] tailC24m10]
+
+#style(
+  name = "S42",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(36) },
+  paragraph = { spacing = { before = pt(0), after = pt(4), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(style = "S42")[baseC36m10 #superscript[upC36m10] endC36m10]
+
+#paragraph(style = "S42")[lowC36m10 #subscript[dnC36m10] tailC36m10]

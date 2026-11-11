@@ -101,6 +101,29 @@ impl<'document> LayoutStyleResolver<'document> {
             ..Self::new(document)
         }
     }
+    /// Returns the size of a superscript or subscript within text of a style.
+    /// Word draws one at the part of the size that its font states, which is
+    /// three fifths for Aptos and thirteen twentieths for the other fonts
+    /// measured, rounded to a half point. PowerPoint draws one at three quarters.
+    pub(super) fn script_size(&self, style: &TextStyle) -> f64 {
+        let size = style.measurement.size_points;
+        if !self.word_document {
+            return size * 0.75;
+        }
+        let scale = match self.family(&style.measurement.font).to_lowercase().as_str() {
+            "aptos" => 0.6,
+            _ => 0.65,
+        };
+        (size * scale * 2.0).round() / 2.0
+    }
+    fn family(&self, name: &str) -> String {
+        self.document
+            .fonts
+            .get(name)
+            .map(|font| values::text(&font.properties, "latin"))
+            .filter(|latin| !latin.is_empty())
+            .unwrap_or_else(|| name.into())
+    }
     pub fn default_text(&self) -> TextStyle {
         let mut style = TextStyle::default();
         if self.word_document {
@@ -269,11 +292,11 @@ impl<'document> LayoutStyleResolver<'document> {
             ElementKind::SmallCaps => style.small_caps = true,
             ElementKind::Subscript => {
                 style.subscript = true;
-                style.measurement.size_points *= 0.75;
+                style.measurement.size_points = self.script_size(&style);
             }
             ElementKind::Superscript => {
                 style.superscript = true;
-                style.measurement.size_points *= 0.75;
+                style.measurement.size_points = self.script_size(&style);
             }
             ElementKind::Code | ElementKind::Raw => style.code = true,
             _ => {}
@@ -302,6 +325,7 @@ impl<'document> LayoutStyleResolver<'document> {
         style.measurement.font = name.into();
         style.word_line_height = None;
         style.word_line_descent = None;
+        style.word_superscript_rise = None;
         if self.word_document {
             self.apply_word_line_metrics(style);
         }
@@ -335,6 +359,7 @@ impl<'document> LayoutStyleResolver<'document> {
         };
         style.word_line_height = metrics.map(|(height, _)| height);
         style.word_line_descent = metrics.map(|(_, descent)| descent);
+        style.word_superscript_rise = Some(word_superscript_rise(&family));
     }
     /// Word sets a single line of a font file at the ascender, descender and
     /// line gap of its horizontal header. The core PDF fonts, which have no
@@ -759,6 +784,18 @@ pub(super) fn builtin_word_line_metrics(family: &str) -> Option<(f64, f64)> {
         "ms gothic" => Some((1.2964, 0.284)),
         "aptos" => Some((2500.0 / 2048.0, 577.0 / 2048.0)),
         _ => None,
+    }
+}
+
+/// Returns the rise of a superscript in Word for a family, as a multiple of the
+/// font size. The values were measured in Word from 9 to 36 points; an unmeasured
+/// family takes a third.
+fn word_superscript_rise(family: &str) -> f64 {
+    match family.trim().to_lowercase().as_str() {
+        "aptos" | "arial" | "times new roman" => 0.347,
+        "mono" | "courier" | "courier new" | "couriernewpsmt" => 0.29,
+        "helvetica" | "georgia" => 0.275,
+        _ => 1.0 / 3.0,
     }
 }
 

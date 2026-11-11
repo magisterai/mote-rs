@@ -1,5 +1,5 @@
 //! Paint note stories into the same ordered page plan as body content.
-use super::{ENDNOTE_BAND, NoteLayout, SEPARATOR_BAND};
+use super::{NoteLayout, SEPARATOR_BAND};
 use crate::layout::{
     FlowCursor, LayoutError, PageGeometry, PageOperation, PlacedTextLine, Rule, RuleRole, TextPage,
 };
@@ -66,7 +66,7 @@ impl NoteLayout {
             .first()
             .map(|line| line.height)
             .unwrap_or(0.0);
-        let required = ENDNOTE_BAND + first_height;
+        let required = self.endnote_band + first_height;
         if pending_spacing > 0.0 {
             let previous_page = cursor.page_number;
             if cursor.y + pending_spacing + required
@@ -87,10 +87,14 @@ impl NoteLayout {
             cursor.y,
             width.min(144.0),
         );
-        cursor.y += ENDNOTE_BAND;
+        cursor.y += self.endnote_band;
         let mut continuation = false;
         for (index, note) in self.endnotes.iter().enumerate() {
-            let mut leading = if index == 0 { 0.0 } else { 5.0 };
+            let mut leading = if index == 0 {
+                0.0
+            } else {
+                self.endnotes[index - 1].after
+            };
             for line in &note.lines {
                 let ordinary_bottom = if continuation {
                     self.endnote_continuation_bottom(geometry, cursor.page_number)
@@ -104,7 +108,7 @@ impl NoteLayout {
                     let available = self
                         .endnote_continuation_bottom(geometry, cursor.page_number + 1)
                         - geometry.margin_top
-                        - ENDNOTE_BAND;
+                        - self.endnote_band;
                     if line.height > available + 0.001 {
                         warnings.push(
                             "native oversized endnote line exceeds its continuation page".into(),
@@ -118,7 +122,7 @@ impl NoteLayout {
                         cursor.y + 6.945,
                         width,
                     );
-                    cursor.y += ENDNOTE_BAND;
+                    cursor.y += self.endnote_band;
                     leading = 0.0;
                 }
                 cursor.y += leading;

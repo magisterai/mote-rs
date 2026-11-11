@@ -76,7 +76,7 @@ fn trim(runs: &[TextRun]) -> Vec<TextRun> {
     output
 }
 
-pub(super) fn break_offsets(text: &str) -> BTreeSet<usize> {
+pub(super) fn break_offsets(text: &str, word: bool) -> BTreeSet<usize> {
     let graphemes: BTreeSet<_> = text
         .grapheme_indices(true)
         .map(|(offset, cluster)| offset + cluster.len())
@@ -86,7 +86,32 @@ pub(super) fn break_offsets(text: &str) -> BTreeSet<usize> {
         .filter(|offset| graphemes.contains(offset))
         .collect();
     numeric_context_breaks(text, &graphemes, &mut offsets);
+    if word {
+        word_punctuation_breaks(text, &graphemes, &mut offsets);
+    }
     offsets
+}
+
+/// Word breaks a line after a hyphen or a dash, even before a digit, and neither
+/// before a dash nor after any other ASCII punctuation mark.
+fn word_punctuation_breaks(text: &str, graphemes: &BTreeSet<usize>, offsets: &mut BTreeSet<usize>) {
+    let dash = |character| matches!(character, '-' | '\u{2013}' | '\u{2014}');
+    let mut previous: Option<char> = None;
+    for (offset, character) in text.char_indices() {
+        if let Some(previous) = previous
+            && !previous.is_whitespace()
+            && !character.is_whitespace()
+        {
+            if dash(previous) && !dash(character) {
+                if graphemes.contains(&offset) {
+                    offsets.insert(offset);
+                }
+            } else if previous.is_ascii_punctuation() || dash(character) {
+                offsets.remove(&offset);
+            }
+        }
+        previous = Some(character);
+    }
 }
 
 /// Brackets bind to numeric prefixes/suffixes only in numeric expressions. The
@@ -146,7 +171,7 @@ fn numeric_context_breaks(text: &str, graphemes: &BTreeSet<usize>, offsets: &mut
     }
 }
 
-pub(super) fn groups(runs: &[TextRun]) -> Vec<Vec<TextRun>> {
+pub(super) fn groups(runs: &[TextRun], word: bool) -> Vec<Vec<TextRun>> {
     let mut normalized = Vec::new();
     let mut pending_carriage_return = false;
     for run in runs {
@@ -163,7 +188,7 @@ pub(super) fn groups(runs: &[TextRun]) -> Vec<Vec<TextRun>> {
         }
     }
     let text = join(&normalized);
-    let mut offsets = break_offsets(&text);
+    let mut offsets = break_offsets(&text, word);
     for (offset, character) in text.char_indices() {
         if matches!(character, '\n' | '\t') && offset > 0 {
             offsets.insert(offset);
@@ -204,7 +229,7 @@ pub(super) fn wrap(
     let mut lines = Vec::new();
     let mut current = Vec::new();
     let mut preserved_hard_break = false;
-    for mut group in groups(runs) {
+    for mut group in groups(runs, options.word_exact_baseline) {
         let text = join(&group);
         if text == "\n" {
             preserved_hard_break = group.iter().any(|run| run.preserve_space);
@@ -311,7 +336,7 @@ mod tests {
             ("a/\u{301}1", vec!["a/\u{301}", "1"]),
         ] {
             let mut start = 0;
-            let segments: Vec<_> = super::break_offsets(source)
+            let segments: Vec<_> = super::break_offsets(source, false)
                 .into_iter()
                 .map(|end| {
                     let segment = &source[start..end];
@@ -340,7 +365,7 @@ mod tests {
             ("$(1)", vec!["$(1)"]),
         ] {
             let mut start = 0;
-            let actual: Vec<_> = super::break_offsets(source)
+            let actual: Vec<_> = super::break_offsets(source, false)
                 .into_iter()
                 .map(|end| {
                     let piece = &source[start..end];

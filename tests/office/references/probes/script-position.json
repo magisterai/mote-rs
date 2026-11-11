@@ -1,0 +1,1183 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "SCRIPT POSITION: W ord draws a superscript or subscript at a reduced size and moves its",
+          "x": 72.0
+        },
+        {
+          "baseline": 95.76,
+          "text": "baseline by a part of the font size, whatever the line spacing. A note reference is a superscript.",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.72,
+          "text": "upH9m10",
+          "x": 123.03
+        },
+        {
+          "baseline": 108.72,
+          "text": "1",
+          "x": 195.6
+        },
+        {
+          "baseline": 111.12,
+          "text": "baseH9m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 111.12,
+          "text": "endH9m10",
+          "x": 151.55
+        },
+        {
+          "baseline": 125.88,
+          "text": "lowH9m10 dnH9m10 tailH9m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 138.24,
+          "text": "upH9m15",
+          "x": 123.03
+        },
+        {
+          "baseline": 140.64,
+          "text": "baseH9m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.64,
+          "text": "endH9m15",
+          "x": 151.55
+        },
+        {
+          "baseline": 160.92,
+          "text": "lowH9m15 dnH9m15 tailH9m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 180.96,
+          "text": "upH9ex",
+          "x": 115.03
+        },
+        {
+          "baseline": 183.36,
+          "text": "baseH9ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 183.36,
+          "text": "endH9ex",
+          "x": 138.21
+        },
+        {
+          "baseline": 200.76,
+          "text": "lowH9ex dnH9ex tailH9ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 214.8,
+          "text": "upH11m10",
+          "x": 140.49
+        },
+        {
+          "baseline": 214.8,
+          "text": "2",
+          "x": 237.6
+        },
+        {
+          "baseline": 217.92,
+          "text": "baseH11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 217.92,
+          "text": "endH11m10",
+          "x": 177.79
+        },
+        {
+          "baseline": 235.46,
+          "text": "lowH11m10 dnH11m10 tailH11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 249.36,
+          "text": "upH11m15",
+          "x": 140.49
+        },
+        {
+          "baseline": 252.48,
+          "text": "baseH11m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 252.48,
+          "text": "endH11m15",
+          "x": 177.79
+        },
+        {
+          "baseline": 276.5,
+          "text": "lowH11m15 dnH11m15 tailH11m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 299.52,
+          "text": "upH11ex",
+          "x": 130.71
+        },
+        {
+          "baseline": 302.64,
+          "text": "baseH11ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 302.64,
+          "text": "endH11ex",
+          "x": 161.78
+        },
+        {
+          "baseline": 323.53,
+          "text": "lowH11ex dnH11ex tailH11ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 341.52,
+          "text": "upH16m10",
+          "x": 171.62
+        },
+        {
+          "baseline": 341.52,
+          "text": "3",
+          "x": 314.64
+        },
+        {
+          "baseline": 346.08,
+          "text": "baseH16m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 346.08,
+          "text": "endH16m10",
+          "x": 227.43
+        },
+        {
+          "baseline": 369.62,
+          "text": "lowH16m10 dnH16m10 tailH16m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 387.84,
+          "text": "upH16m15",
+          "x": 171.62
+        },
+        {
+          "baseline": 392.4,
+          "text": "baseH16m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 392.4,
+          "text": "endH16m15",
+          "x": 227.43
+        },
+        {
+          "baseline": 425.54,
+          "text": "lowH16m15 dnH16m15 tailH16m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 457.2,
+          "text": "upH16ex",
+          "x": 157.39
+        },
+        {
+          "baseline": 461.76,
+          "text": "baseH16ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 461.76,
+          "text": "endH16ex",
+          "x": 203.87
+        },
+        {
+          "baseline": 490.09,
+          "text": "lowH16ex dnH16ex tailH16ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 515.28,
+          "text": "upH24m10",
+          "x": 221.43
+        },
+        {
+          "baseline": 515.28,
+          "text": "4",
+          "x": 434.64
+        },
+        {
+          "baseline": 521.76,
+          "text": "baseH24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 521.76,
+          "text": "endH24m10",
+          "x": 303.92
+        },
+        {
+          "baseline": 554.64,
+          "text": "lowH24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 554.64,
+          "text": "tailH24m10",
+          "x": 287.89
+        },
+        {
+          "baseline": 556.56,
+          "text": "dnH24m10",
+          "x": 205.39
+        },
+        {
+          "baseline": 581.04,
+          "text": "upH24m15",
+          "x": 221.43
+        },
+        {
+          "baseline": 587.52,
+          "text": "baseH24m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 587.52,
+          "text": "endH24m15",
+          "x": 303.92
+        },
+        {
+          "baseline": 661.68,
+          "text": "1 Note of H9m10.",
+          "x": 72.0
+        },
+        {
+          "baseline": 678.96,
+          "text": "2 Note of H11m10.",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.24,
+          "text": "3 Note of H16m10.",
+          "x": 72.0
+        },
+        {
+          "baseline": 713.28,
+          "text": "4 Note of H24m10.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 95.28,
+          "text": "lowH24m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 95.28,
+          "text": "tailH24m15",
+          "x": 287.89
+        },
+        {
+          "baseline": 97.2,
+          "text": "dnH24m15",
+          "x": 205.39
+        },
+        {
+          "baseline": 141.6,
+          "text": "upH24ex",
+          "x": 200.09
+        },
+        {
+          "baseline": 148.08,
+          "text": "baseH24ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 148.08,
+          "text": "endH24ex",
+          "x": 268.8
+        },
+        {
+          "baseline": 187.92,
+          "text": "lowH24ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 187.92,
+          "text": "tailH24ex",
+          "x": 252.77
+        },
+        {
+          "baseline": 189.84,
+          "text": "dnH24ex",
+          "x": 184.05
+        },
+        {
+          "baseline": 224.16,
+          "text": "upH36m10",
+          "x": 296.14
+        },
+        {
+          "baseline": 234.24,
+          "text": "baseH36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 267.36,
+          "text": "5",
+          "x": 268.08
+        },
+        {
+          "baseline": 277.44,
+          "text": "endH36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 324.72,
+          "text": "lowH36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 327.12,
+          "text": "dnH36m10",
+          "x": 272.09
+        },
+        {
+          "baseline": 367.92,
+          "text": "tailH36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 405.12,
+          "text": "upH36m15",
+          "x": 296.14
+        },
+        {
+          "baseline": 415.2,
+          "text": "baseH36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 480.0,
+          "text": "endH36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 548.88,
+          "text": "lowH36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 551.28,
+          "text": "dnH36m15",
+          "x": 272.09
+        },
+        {
+          "baseline": 613.68,
+          "text": "tailH36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 713.28,
+          "text": "5 Note of H36m10.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 105.12,
+          "text": "upH36ex",
+          "x": 264.13
+        },
+        {
+          "baseline": 115.2,
+          "text": "baseH36ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 115.2,
+          "text": "endH36ex",
+          "x": 368.2
+        },
+        {
+          "baseline": 173.28,
+          "text": "lowH36ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 173.28,
+          "text": "tailH36ex",
+          "x": 344.15
+        },
+        {
+          "baseline": 175.68,
+          "text": "dnH36ex",
+          "x": 240.08
+        },
+        {
+          "baseline": 193.2,
+          "text": "upA9m10",
+          "x": 120.18
+        },
+        {
+          "baseline": 193.2,
+          "text": "6",
+          "x": 186.96
+        },
+        {
+          "baseline": 196.32,
+          "text": "baseA9m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 196.32,
+          "text": "endA9m10",
+          "x": 144.91
+        },
+        {
+          "baseline": 211.56,
+          "text": "lowA9m10 dnA9m10 tailA9m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 223.2,
+          "text": "upA9m15",
+          "x": 120.18
+        },
+        {
+          "baseline": 226.32,
+          "text": "baseA9m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 226.32,
+          "text": "endA9m15",
+          "x": 144.91
+        },
+        {
+          "baseline": 247.08,
+          "text": "lowA9m15 dnA9m15 tailA9m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 266.64,
+          "text": "upA9ex",
+          "x": 111.61
+        },
+        {
+          "baseline": 269.76,
+          "text": "baseA9ex  endA9ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 287.4,
+          "text": "lowA9ex dnA9ex tailA9ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 300.24,
+          "text": "upA11m10",
+          "x": 136.76
+        },
+        {
+          "baseline": 300.24,
+          "text": "7",
+          "x": 227.04
+        },
+        {
+          "baseline": 304.32,
+          "text": "baseA11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 304.32,
+          "text": "endA11m10",
+          "x": 169.54
+        },
+        {
+          "baseline": 321.86,
+          "text": "lowA11m10 dnA11m10 tailA11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 335.04,
+          "text": "upA11m15",
+          "x": 136.76
+        },
+        {
+          "baseline": 339.12,
+          "text": "baseA11m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 339.12,
+          "text": "endA11m15",
+          "x": 169.54
+        },
+        {
+          "baseline": 363.62,
+          "text": "lowA11m15 dnA11m15 tailA11m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 386.16,
+          "text": "upA11ex",
+          "x": 126.29
+        },
+        {
+          "baseline": 390.24,
+          "text": "baseA11ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 390.24,
+          "text": "endA11ex",
+          "x": 152.87
+        },
+        {
+          "baseline": 411.13,
+          "text": "lowA11ex dnA11ex tailA11ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 427.68,
+          "text": "upA16m10",
+          "x": 166.2
+        },
+        {
+          "baseline": 427.68,
+          "text": "8",
+          "x": 297.6
+        },
+        {
+          "baseline": 433.2,
+          "text": "baseA16m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 433.2,
+          "text": "endA16m10",
+          "x": 214.08
+        },
+        {
+          "baseline": 456.98,
+          "text": "lowA16m10 dnA16m10 tailA16m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 474.72,
+          "text": "upA16m15",
+          "x": 166.2
+        },
+        {
+          "baseline": 480.24,
+          "text": "baseA16m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 480.24,
+          "text": "endA16m15",
+          "x": 214.08
+        },
+        {
+          "baseline": 513.86,
+          "text": "lowA16m15 dnA16m15 tailA16m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 545.52,
+          "text": "upA16ex",
+          "x": 150.96
+        },
+        {
+          "baseline": 551.04,
+          "text": "baseA16ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 551.04,
+          "text": "endA16ex",
+          "x": 189.8
+        },
+        {
+          "baseline": 579.13,
+          "text": "lowA16ex dnA16ex tailA16ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 601.92,
+          "text": "upA24m10",
+          "x": 213.29
+        },
+        {
+          "baseline": 601.92,
+          "text": "9",
+          "x": 411.6
+        },
+        {
+          "baseline": 610.32,
+          "text": "baseA24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 610.32,
+          "text": "endA24m10",
+          "x": 286.3
+        },
+        {
+          "baseline": 661.68,
+          "text": "6 Note of A9m10.",
+          "x": 72.0
+        },
+        {
+          "baseline": 678.96,
+          "text": "7 Note of A11m10.",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.24,
+          "text": "8 Note of A16m10.",
+          "x": 72.0
+        },
+        {
+          "baseline": 713.28,
+          "text": "9 Note of A24m10.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 94.56,
+          "text": "lowA24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 94.56,
+          "text": "tailA24m10",
+          "x": 272.45
+        },
+        {
+          "baseline": 96.48,
+          "text": "dnA24m10",
+          "x": 199.56
+        },
+        {
+          "baseline": 119.52,
+          "text": "upA24m15",
+          "x": 213.29
+        },
+        {
+          "baseline": 127.92,
+          "text": "baseA24m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 127.92,
+          "text": "endA24m15",
+          "x": 286.3
+        },
+        {
+          "baseline": 175.92,
+          "text": "lowA24m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 175.92,
+          "text": "tailA24m15",
+          "x": 272.45
+        },
+        {
+          "baseline": 177.84,
+          "text": "dnA24m15",
+          "x": 199.56
+        },
+        {
+          "baseline": 221.52,
+          "text": "upA24ex",
+          "x": 190.44
+        },
+        {
+          "baseline": 229.92,
+          "text": "baseA24ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 229.92,
+          "text": "endA24ex",
+          "x": 249.64
+        },
+        {
+          "baseline": 270.0,
+          "text": "lowA24ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 270.0,
+          "text": "tailA24ex",
+          "x": 235.79
+        },
+        {
+          "baseline": 271.92,
+          "text": "dnA24ex",
+          "x": 176.71
+        },
+        {
+          "baseline": 302.64,
+          "text": "upA36m10",
+          "x": 283.94
+        },
+        {
+          "baseline": 315.12,
+          "text": "baseA36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 346.56,
+          "text": "10",
+          "x": 259.92
+        },
+        {
+          "baseline": 359.04,
+          "text": "endA36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 406.8,
+          "text": "lowA36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 409.2,
+          "text": "dnA36m10",
+          "x": 263.34
+        },
+        {
+          "baseline": 450.96,
+          "text": "tailA36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 486.24,
+          "text": "upA36m15",
+          "x": 283.94
+        },
+        {
+          "baseline": 498.72,
+          "text": "baseA36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 564.72,
+          "text": "endA36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 713.28,
+          "text": "10 Note of A36m10.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 105.84,
+          "text": "lowA36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.24,
+          "text": "dnA36m15",
+          "x": 263.34
+        },
+        {
+          "baseline": 171.84,
+          "text": "tailA36m15",
+          "x": 72.0
+        },
+        {
+          "baseline": 238.56,
+          "text": "upA36ex",
+          "x": 249.66
+        },
+        {
+          "baseline": 251.04,
+          "text": "baseA36ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 251.04,
+          "text": "endA36ex",
+          "x": 337.53
+        },
+        {
+          "baseline": 309.12,
+          "text": "lowA36ex",
+          "x": 72.0
+        },
+        {
+          "baseline": 309.12,
+          "text": "tailA36ex",
+          "x": 316.76
+        },
+        {
+          "baseline": 311.52,
+          "text": "dnA36ex",
+          "x": 229.06
+        },
+        {
+          "baseline": 329.52,
+          "text": "upR11m10",
+          "x": 140.49
+        },
+        {
+          "baseline": 334.08,
+          "text": "baseR11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 334.08,
+          "text": "endR11m10",
+          "x": 177.79
+        },
+        {
+          "baseline": 351.14,
+          "text": "lowR11m10 dnR11m10 tailR11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 371.28,
+          "text": "upR24m10",
+          "x": 221.43
+        },
+        {
+          "baseline": 379.68,
+          "text": "baseR24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 379.68,
+          "text": "endR24m10",
+          "x": 303.92
+        },
+        {
+          "baseline": 411.74,
+          "text": "lowR24m10 dnR24m10 tailR24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 441.84,
+          "text": "upR36m10",
+          "x": 296.14
+        },
+        {
+          "baseline": 453.84,
+          "text": "baseR36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 495.6,
+          "text": "endR36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 540.72,
+          "text": "lowR36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 543.12,
+          "text": "dnR36m10",
+          "x": 272.09
+        },
+        {
+          "baseline": 582.24,
+          "text": "tailR36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 599.76,
+          "text": "upT11m10",
+          "x": 131.57
+        },
+        {
+          "baseline": 604.32,
+          "text": "baseT11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 604.32,
+          "text": "endT11m10",
+          "x": 165.04
+        },
+        {
+          "baseline": 621.14,
+          "text": "lowT11m10 dnT11m10 tailT11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 641.04,
+          "text": "upT24m10",
+          "x": 201.97
+        },
+        {
+          "baseline": 649.44,
+          "text": "baseT24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 649.44,
+          "text": "endT24m10",
+          "x": 276.0
+        },
+        {
+          "baseline": 681.12,
+          "text": "lowT24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 681.12,
+          "text": "tailT24m10",
+          "x": 269.35
+        },
+        {
+          "baseline": 683.04,
+          "text": "dnT24m10",
+          "x": 195.33
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 93.12,
+          "text": "upT36m10",
+          "x": 266.96
+        },
+        {
+          "baseline": 105.6,
+          "text": "baseT36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 146.88,
+          "text": "endT36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 192.48,
+          "text": "lowT36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 192.48,
+          "text": "tailT36m10",
+          "x": 369.13
+        },
+        {
+          "baseline": 194.88,
+          "text": "dnT36m10",
+          "x": 256.99
+        },
+        {
+          "baseline": 211.2,
+          "text": "upG11m10",
+          "x": 135.02
+        },
+        {
+          "baseline": 214.32,
+          "text": "baseG11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 214.32,
+          "text": "endG11m10",
+          "x": 170.26
+        },
+        {
+          "baseline": 231.14,
+          "text": "lowG11m10 dnG11m10 tailG11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 252.72,
+          "text": "upG24m10",
+          "x": 215.85
+        },
+        {
+          "baseline": 259.2,
+          "text": "baseG24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 259.2,
+          "text": "endG24m10",
+          "x": 297.89
+        },
+        {
+          "baseline": 290.64,
+          "text": "lowG24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 290.64,
+          "text": "tailG24m10",
+          "x": 288.17
+        },
+        {
+          "baseline": 292.56,
+          "text": "dnG24m10",
+          "x": 205.84
+        },
+        {
+          "baseline": 323.04,
+          "text": "upG36m10",
+          "x": 287.56
+        },
+        {
+          "baseline": 332.64,
+          "text": "baseG36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 373.68,
+          "text": "endG36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 418.32,
+          "text": "lowG36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 420.72,
+          "text": "dnG36m10",
+          "x": 272.55
+        },
+        {
+          "baseline": 459.6,
+          "text": "tailG36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 477.36,
+          "text": "upC11m10",
+          "x": 144.61
+        },
+        {
+          "baseline": 480.48,
+          "text": "baseC11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 480.48,
+          "text": "endC11m10",
+          "x": 184.82
+        },
+        {
+          "baseline": 497.42,
+          "text": "lowC11m10 dnC11m10 tailC11m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 517.2,
+          "text": "upC24m10",
+          "x": 230.43
+        },
+        {
+          "baseline": 524.16,
+          "text": "baseC24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 524.16,
+          "text": "endC24m10",
+          "x": 319.24
+        },
+        {
+          "baseline": 555.36,
+          "text": "lowC24m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 555.36,
+          "text": "tailC24m10",
+          "x": 304.84
+        },
+        {
+          "baseline": 557.28,
+          "text": "dnC24m10",
+          "x": 216.02
+        },
+        {
+          "baseline": 586.08,
+          "text": "upC36m10",
+          "x": 309.64
+        },
+        {
+          "baseline": 596.64,
+          "text": "baseC36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 637.44,
+          "text": "endC36m10",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 102.0,
+          "text": "lowC36m10",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.08,
+          "text": "dnC36m10",
+          "x": 288.04
+        },
+        {
+          "baseline": 142.8,
+          "text": "tailC36m10",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "344977fc2147e98a3850302dc41a3184716c9b7e775741e0d1816fd3848a9ade"
+}

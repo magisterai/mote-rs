@@ -12,7 +12,6 @@ mod placement;
 pub(super) const NUMBER: &str = "__layout_note_number";
 const SEPARATOR_BAND: f64 = 14.84;
 const BODY_GAP: f64 = 6.0;
-const ENDNOTE_BAND: f64 = 20.878;
 
 struct Note {
     lines: Vec<TextLine>,
@@ -24,6 +23,9 @@ struct Note {
 pub(super) struct NoteLayout {
     footnotes: Vec<Note>,
     endnotes: Vec<Note>,
+    /// The height of the separator before the endnotes, which Word sets as a
+    /// paragraph of the default style with its space after.
+    endnote_band: f64,
     endnote_footer_heights: Vec<f64>,
     pages: BTreeMap<usize, Vec<usize>>,
     assigned: BTreeSet<usize>,
@@ -37,6 +39,8 @@ impl NoteLayout {
         measurer: &mut TextMeasurer<'_>,
     ) -> Result<Self, LayoutError> {
         let mut layout = Self::default();
+        let separator = styles.paragraph(&empty_paragraph());
+        layout.endnote_band = separator.line_height + separator.spacing_after.max(0.0);
         let eligible = sections.len() == 1 && sections[0].columns.count.unwrap_or(1) <= 1;
         for section in sections {
             let geometry = PageGeometry::from_section(section)?;

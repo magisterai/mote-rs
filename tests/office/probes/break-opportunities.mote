@@ -1,0 +1,62 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(6), line = { rule = "multiple", value = 1.0 } } }
+)
+
+BREAK OPPORTUNITIES: Word breaks a line at a space and after a hyphen or dash, and divides a longer unbroken token between any two characters. Each sample joins the same words with one character.
+
+#paragraph[slash alphabet/bravery/charlies/deltaic/echoing/foxtrots/golfers/hoteliers/indians/juliets/kilobyte/limabean/mikes/novembers/oscars/papas/quebecs/romeos/sierras/tangos end]
+
+#paragraph[hyphen alphabet-bravery-charlies-deltaic-echoing-foxtrots-golfers-hoteliers-indians-juliets-kilobyte-limabean-mikes-novembers-oscars-papas-quebecs-romeos-sierras-tangos end]
+
+#paragraph[dot alphabet.bravery.charlies.deltaic.echoing.foxtrots.golfers.hoteliers.indians.juliets.kilobyte.limabean.mikes.novembers.oscars.papas.quebecs.romeos.sierras.tangos end]
+
+#paragraph[comma alphabet,bravery,charlies,deltaic,echoing,foxtrots,golfers,hoteliers,indians,juliets,kilobyte,limabean,mikes,novembers,oscars,papas,quebecs,romeos,sierras,tangos end]
+
+#paragraph[question alphabet?bravery?charlies?deltaic?echoing?foxtrots?golfers?hoteliers?indians?juliets?kilobyte?limabean?mikes?novembers?oscars?papas?quebecs?romeos?sierras?tangos end]
+
+#paragraph[ampersand alphabet&bravery&charlies&deltaic&echoing&foxtrots&golfers&hoteliers&indians&juliets&kilobyte&limabean&mikes&novembers&oscars&papas&quebecs&romeos&sierras&tangos end]
+
+#paragraph[equals alphabet=bravery=charlies=deltaic=echoing=foxtrots=golfers=hoteliers=indians=juliets=kilobyte=limabean=mikes=novembers=oscars=papas=quebecs=romeos=sierras=tangos end]
+
+#paragraph[colon alphabet:bravery:charlies:deltaic:echoing:foxtrots:golfers:hoteliers:indians:juliets:kilobyte:limabean:mikes:novembers:oscars:papas:quebecs:romeos:sierras:tangos end]
+
+#paragraph[semicolon alphabet;bravery;charlies;deltaic;echoing;foxtrots;golfers;hoteliers;indians;juliets;kilobyte;limabean;mikes;novembers;oscars;papas;quebecs;romeos;sierras;tangos end]
+
+#paragraph[endash alphabet–bravery–charlies–deltaic–echoing–foxtrots–golfers–hoteliers–indians–juliets–kilobyte–limabean–mikes–novembers–oscars–papas–quebecs–romeos–sierras–tangos end]
+
+#paragraph[emdash alphabet—bravery—charlies—deltaic—echoing—foxtrots—golfers—hoteliers—indians—juliets—kilobyte—limabean—mikes—novembers—oscars—papas—quebecs—romeos—sierras—tangos end]
+
+#paragraph[pipe alphabet|bravery|charlies|deltaic|echoing|foxtrots|golfers|hoteliers|indians|juliets|kilobyte|limabean|mikes|novembers|oscars|papas|quebecs|romeos|sierras|tangos end]
+
+#paragraph[plus alphabet+bravery+charlies+deltaic+echoing+foxtrots+golfers+hoteliers+indians+juliets+kilobyte+limabean+mikes+novembers+oscars+papas+quebecs+romeos+sierras+tangos end]
+
+#paragraph[percent alphabet%bravery%charlies%deltaic%echoing%foxtrots%golfers%hoteliers%indians%juliets%kilobyte%limabean%mikes%novembers%oscars%papas%quebecs%romeos%sierras%tangos end]
+
+#paragraph[at alphabet@bravery@charlies@deltaic@echoing@foxtrots@golfers@hoteliers@indians@juliets@kilobyte@limabean@mikes@novembers@oscars@papas@quebecs@romeos@sierras@tangos end]
+
+#paragraph[exclamation alphabet!bravery!charlies!deltaic!echoing!foxtrots!golfers!hoteliers!indians!juliets!kilobyte!limabean!mikes!novembers!oscars!papas!quebecs!romeos!sierras!tangos end]
+
+#paragraph[closeparen alphabet)bravery)charlies)deltaic)echoing)foxtrots)golfers)hoteliers)indians)juliets)kilobyte)limabean)mikes)novembers)oscars)papas)quebecs)romeos)sierras)tangos end]
+
+#paragraph[openparen alphabet(bravery(charlies(deltaic(echoing(foxtrots(golfers(hoteliers(indians(juliets(kilobyte(limabean(mikes(novembers(oscars(papas(quebecs(romeos(sierras(tangos end]
+
+#paragraph[backslash alphabet\\bravery\\charlies\\deltaic\\echoing\\foxtrots\\golfers\\hoteliers\\indians\\juliets\\kilobyte\\limabean\\mikes\\novembers\\oscars\\papas\\quebecs\\romeos\\sierras\\tangos end]
+
+#paragraph[digitslash 1024/2048/4096/8192/16384/32768/65536/131072/262144/524288/1048576/2097152/4194304/8388608/16777216/33554432/67108864/134217728 end]
+
+#paragraph[digitdot 1024.2048.4096.8192.16384.32768.65536.131072.262144.524288.1048576.2097152.4194304.8388608.16777216.33554432.67108864.134217728 end]
+
+#paragraph[digitcomma 1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152,4194304,8388608,16777216,33554432,67108864,134217728 end]
+
+#paragraph[digithyphen 1024-2048-4096-8192-16384-32768-65536-131072-262144-524288-1048576-2097152-4194304-8388608-16777216-33554432-67108864-134217728 end]
+
+#paragraph[digitcolon 1024:2048:4096:8192:16384:32768:65536:131072:262144:524288:1048576:2097152:4194304:8388608:16777216:33554432:67108864:134217728 end]

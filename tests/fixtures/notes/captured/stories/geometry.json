@@ -13,9 +13,9 @@
               "x": 72
             },
             {
-              "advance": 4.587,
-              "baseline": 78.5054,
-              "size": 8.25,
+              "advance": 3.892,
+              "baseline": 79.645,
+              "size": 7.0,
               "text": "1",
               "x": 97.069
             },
@@ -24,68 +24,68 @@
               "baseline": 82.67,
               "size": 11,
               "text": " ",
-              "x": 101.656
+              "x": 100.961
             },
             {
               "advance": 21.406,
               "baseline": 82.67,
               "size": 11,
               "text": "and ",
-              "x": 104.714
+              "x": 104.019
             },
             {
-              "advance": 1.8315,
-              "baseline": 78.5054,
-              "size": 8.25,
+              "advance": 1.554,
+              "baseline": 79.645,
+              "size": 7.0,
               "text": "i",
-              "x": 126.12
+              "x": 125.425
             },
             {
               "advance": 3.058,
               "baseline": 82.67,
               "size": 11,
               "text": ".",
-              "x": 127.9515
+              "x": 126.979
             }
           ],
           "height": 15.179999999999998,
           "top": 72,
-          "width": 59.009499999999996,
+          "width": 58.037,
           "x": 72
         },
         {
           "fragments": [
             {
               "advance": 5.5,
-              "baseline": 126.728,
+              "baseline": 129.02999999999997,
               "size": 11,
               "text": "i ",
               "x": 72
             },
             {
               "advance": 22.627,
-              "baseline": 126.728,
+              "baseline": 129.02999999999997,
               "size": 11,
               "text": "End ",
               "x": 77.5
             },
             {
               "advance": 36.08,
-              "baseline": 126.728,
+              "baseline": 129.02999999999997,
               "size": 11,
               "text": "nested ",
               "x": 100.127
             },
             {
               "advance": 39.754,
-              "baseline": 126.728,
+              "baseline": 129.02999999999997,
               "size": 11,
               "text": "footnote",
               "x": 136.207
             }
           ],
           "height": 15.179999999999998,
-          "top": 116.05799999999999,
+          "top": 118.35999999999999,
           "width": 103.96099999999998,
           "x": 72
         },

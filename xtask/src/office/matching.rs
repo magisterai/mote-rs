@@ -132,8 +132,14 @@ pub(crate) fn compare(office: &[Page], native: &[Page]) -> Comparison {
                 &office_lines[office_word.line],
                 &native_lines[native_word.line],
             );
-            let horizontal =
-                (office_word.first && native_word.first).then_some(office_line.x - native_line.x);
+            // Two lines of as many words that differ in a word hold generated
+            // text, such as the date of the export, whose width moves the
+            // start of a centred or right-aligned line.
+            let keys = |text: &str| text.split_whitespace().map(key).collect::<Vec<_>>();
+            let (office_keys, native_keys) = (keys(office_line.text), keys(native_line.text));
+            let generated = office_keys.len() == native_keys.len() && office_keys != native_keys;
+            let horizontal = (office_word.first && native_word.first && !generated)
+                .then_some(office_line.x - native_line.x);
             line_pairs.push((office_word.line, native_word.line, horizontal));
         }
     }

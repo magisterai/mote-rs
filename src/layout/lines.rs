@@ -246,6 +246,15 @@ pub fn plan_text(
                     if style.subscript {
                         baseline += style.measurement.size_points * 0.26;
                     }
+                } else if options.word_exact_baseline {
+                    // Word moves a script by a part of the size of the text
+                    // around it, whatever the line spacing.
+                    if style.superscript {
+                        baseline -= ordinary_size * style.word_superscript_rise.unwrap_or(0.275);
+                    }
+                    if style.subscript {
+                        baseline += ordinary_size * 0.073;
+                    }
                 } else {
                     if !word_exact {
                         baseline += 0.3 * (style.measurement.size_points - ordinary_size);

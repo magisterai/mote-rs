@@ -1,0 +1,388 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "BREAK OPPORTUNITIES: W ord breaks a line at a space and after a hyphen or dash, and",
+          "x": 72.0
+        },
+        {
+          "baseline": 95.76,
+          "text": "divides a longer unbroken token between any two characters. Each sample joins the same",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.96,
+          "text": "words with one character.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "slash",
+          "x": 72.0
+        },
+        {
+          "baseline": 141.36,
+          "text": "alphabet/bravery/charlies/deltaic/echoing/foxtrots/golfers/hoteliers/indians/juliets/kilobyte/limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.56,
+          "text": "an/mikes/novembers/oscars/papas/quebecs/romeos/sierras/tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 173.76,
+          "text": "hyphen alphabet-bravery-charlies-deltaic-echoing-foxtrots-golfers-hoteliers-indians-juliets-",
+          "x": 72.0
+        },
+        {
+          "baseline": 186.96,
+          "text": "kilobyte-limabean-mikes-novembers-oscars-papas-quebecs-romeos-sierras-tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 206.16,
+          "text": "dot",
+          "x": 72.0
+        },
+        {
+          "baseline": 219.36,
+          "text": "alphabet.bravery.charlies.deltaic.echoing.foxtrots.golfers.hoteliers.indians.juliets.kilobyte.limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.56,
+          "text": "an.mikes.novembers.oscars.papas.quebecs.romeos.sierras.tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 251.76,
+          "text": "comma",
+          "x": 72.0
+        },
+        {
+          "baseline": 264.96,
+          "text": "alphabet,bravery,charlies,deltaic,echoing,foxtrots,golfers,hoteliers,indians,juliets,kilobyte,limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.16,
+          "text": "an,mikes,novembers,oscars,papas,quebecs,romeos,sierras,tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 297.36,
+          "text": "question",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.56,
+          "text": "alphabet?bravery?charlies?deltaic?echoing?foxtrots?golfers?hoteliers?indians?juliets?kilobyte?l",
+          "x": 72.0
+        },
+        {
+          "baseline": 324.0,
+          "text": "imabean?mikes?novembers?oscars?papas?quebecs?romeos?sierras?tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 343.2,
+          "text": "ampersand",
+          "x": 72.0
+        },
+        {
+          "baseline": 356.4,
+          "text": "alphabet&bravery&charlies&deltaic&echoing&foxtrots&golfers&hoteliers&indians&juliets&kilobyt",
+          "x": 72.0
+        },
+        {
+          "baseline": 369.6,
+          "text": "e&limabean&mikes&novembers&oscars&papas&quebecs&romeos&sierras&tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 388.8,
+          "text": "equals",
+          "x": 72.0
+        },
+        {
+          "baseline": 402.0,
+          "text": "alphabet=bravery=charlies=deltaic=echoing=foxtrots=golfers=hoteliers=indians=juliets=kilobyte",
+          "x": 72.0
+        },
+        {
+          "baseline": 415.2,
+          "text": "=limabean=mikes=novembers=oscars=papas=quebecs=romeos=sierras=tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 434.4,
+          "text": "colon",
+          "x": 72.0
+        },
+        {
+          "baseline": 447.6,
+          "text": "alphabet:bravery:charlies:deltaic:echoing:foxtrots:golfers:hoteliers:indians:juliets:kilobyte:limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 460.8,
+          "text": "an:mikes:novembers:oscars:papas:quebecs:romeos:sierras:tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 480.0,
+          "text": "semicolon",
+          "x": 72.0
+        },
+        {
+          "baseline": 493.2,
+          "text": "alphabet;bravery;charlies;deltaic;echoing;foxtrots;golfers;hoteliers;indians;juliets;kilobyte;limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 506.4,
+          "text": "an;mikes;novembers;oscars;papas;quebecs;romeos;sierras;tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 525.6,
+          "text": "endash alphabet–bravery–charlies–deltaic–echoing–foxtrots–golfers–hoteliers–indians–juliets–",
+          "x": 72.0
+        },
+        {
+          "baseline": 538.8,
+          "text": "kilobyte–limabean–mikes–novembers–oscars–papas–quebecs–romeos–sierras–tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 558.0,
+          "text": "emdash alphabet— bravery— charlies— deltaic— echoing— foxtrots— golfers— hoteliers—",
+          "x": 72.0
+        },
+        {
+          "baseline": 571.2,
+          "text": "indians— juliets— kilobyte— limabean— mikes— novembers— oscars— papas— quebecs—",
+          "x": 72.0
+        },
+        {
+          "baseline": 584.4,
+          "text": "romeos— sierras— tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 603.6,
+          "text": "pipe",
+          "x": 72.0
+        },
+        {
+          "baseline": 616.8,
+          "text": "alphabet|bravery|charlies|deltaic|echoing|foxtrots|golfers|hoteliers|indians|juliets|kilobyte|limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 630.0,
+          "text": "an|mikes|novembers|oscars|papas|quebecs|romeos|sierras|tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 649.2,
+          "text": "plus",
+          "x": 72.0
+        },
+        {
+          "baseline": 662.4,
+          "text": "alphabet+bravery+charlies+deltaic+echoing+foxtrots+golfers+hoteliers+indians+juliets+kilobyte",
+          "x": 72.0
+        },
+        {
+          "baseline": 675.6,
+          "text": "+limabean+mikes+novembers+oscars+papas+quebecs+romeos+sierras+tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 694.8,
+          "text": "percent",
+          "x": 72.0
+        },
+        {
+          "baseline": 708.0,
+          "text": "alphabet%bravery%charlies%deltaic%echoing%foxtrots%golfers%hoteliers%indians%juliets%ki",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "lobyte%limabean%mikes%novembers%oscars%papas%quebecs%romeos%sierras%tangos",
+          "x": 72.0
+        },
+        {
+          "baseline": 95.76,
+          "text": "end",
+          "x": 72.0
+        },
+        {
+          "baseline": 114.96,
+          "text": "at",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "alphabet@ bravery@ charlies@ deltaic@ echoing@ foxtrots@ golfers@ hoteliers@ indians@ juliets",
+          "x": 72.0
+        },
+        {
+          "baseline": 141.36,
+          "text": "@ kilobyte@ limabean@ mikes@ novembers@ oscars@ papas@ quebecs@ romeos@ sierras@ tan",
+          "x": 83.17
+        },
+        {
+          "baseline": 154.56,
+          "text": "gos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 173.76,
+          "text": "exclamation",
+          "x": 72.0
+        },
+        {
+          "baseline": 186.96,
+          "text": "alphabet!bravery!charlies!deltaic!echoing!foxtrots!golfers!hoteliers!indians!juliets!kilobyte!limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 200.16,
+          "text": "an!mikes!novembers!oscars!papas!quebecs!romeos!sierras!tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 219.36,
+          "text": "closeparen",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.56,
+          "text": "alphabet)bravery)charlies)deltaic)echoing)foxtrots)golfers)hoteliers)indians)juliets)kilobyte)limab",
+          "x": 72.0
+        },
+        {
+          "baseline": 245.76,
+          "text": "ean)mikes)novembers)oscars)papas)quebecs)romeos)sierras)tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 264.96,
+          "text": "openparen",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.16,
+          "text": "alphabet(bravery(charlies(deltaic(echoing(foxtrots(golfers(hoteliers(indians(juliets(kilobyte(limab",
+          "x": 72.0
+        },
+        {
+          "baseline": 291.36,
+          "text": "ean(mikes(novembers(oscars(papas(quebecs(romeos(sierras(tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.56,
+          "text": "backslash",
+          "x": 72.0
+        },
+        {
+          "baseline": 324.0,
+          "text": "alphabet\\bravery\\charlies\\deltaic\\echoing\\foxtrots\\golfers\\hoteliers\\indians\\juliets\\kilobyte\\limabe",
+          "x": 72.0
+        },
+        {
+          "baseline": 337.2,
+          "text": "an\\mikes\\novembers\\oscars\\papas\\quebecs\\romeos\\sierras\\tangos end",
+          "x": 72.0
+        },
+        {
+          "baseline": 356.4,
+          "text": "digitslash",
+          "x": 72.0
+        },
+        {
+          "baseline": 369.6,
+          "text": "1024/2048/4096/8192/16384/32768/65536/131072/262144/524288/1048576/2097152/4194304/",
+          "x": 72.0
+        },
+        {
+          "baseline": 382.8,
+          "text": "8388608/16777216/33554432/67108864/134217728 end",
+          "x": 72.0
+        },
+        {
+          "baseline": 402.0,
+          "text": "digitdot",
+          "x": 72.0
+        },
+        {
+          "baseline": 415.2,
+          "text": "1024.2048.4096.8192.16384.32768.65536.131072.262144.524288.1048576.2097152.4194304.",
+          "x": 72.0
+        },
+        {
+          "baseline": 428.4,
+          "text": "8388608.16777216.33554432.67108864.134217728 end",
+          "x": 72.0
+        },
+        {
+          "baseline": 447.6,
+          "text": "digitcomma",
+          "x": 72.0
+        },
+        {
+          "baseline": 460.8,
+          "text": "1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152,4194304,",
+          "x": 72.0
+        },
+        {
+          "baseline": 474.0,
+          "text": "8388608,16777216,33554432,67108864,134217728 end",
+          "x": 72.0
+        },
+        {
+          "baseline": 493.2,
+          "text": "digithyphen 1024-2048-4096-8192-16384-32768-65536-131072-262144-524288-1048576-",
+          "x": 72.0
+        },
+        {
+          "baseline": 506.4,
+          "text": "2097152-4194304-8388608-16777216-33554432-67108864-134217728 end",
+          "x": 72.0
+        },
+        {
+          "baseline": 525.6,
+          "text": "digitcolon",
+          "x": 72.0
+        },
+        {
+          "baseline": 538.8,
+          "text": "1024:2048:4096:8192:16384:32768:65536:131072:262144:524288:1048576:2097152:4194304:",
+          "x": 72.0
+        },
+        {
+          "baseline": 552.0,
+          "text": "8388608:16777216:33554432:67108864:134217728 end",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "a084a4161655bd7630d911faa79baf22ced0d261b389f002fa4724b2d931116d"
+}

@@ -64,6 +64,9 @@ pub struct TextStyle {
     /// The depth below the baseline that Word gives a single line, as a
     /// multiple of the font size.
     pub word_line_descent: Option<f64>,
+    /// The rise of a superscript's baseline in Word, as a multiple of the size
+    /// of the surrounding text.
+    pub word_superscript_rise: Option<f64>,
     pub color: String,
     pub highlight: Option<String>,
     pub underline: bool,
@@ -88,6 +91,7 @@ impl Default for TextStyle {
             },
             word_line_height: None,
             word_line_descent: None,
+            word_superscript_rise: None,
             color: "111827".into(),
             highlight: None,
             underline: false,

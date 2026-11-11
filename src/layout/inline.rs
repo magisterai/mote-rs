@@ -62,7 +62,7 @@ fn collect(
                     };
                     let mut style = inherited.clone();
                     style.superscript = true;
-                    style.measurement.size_points *= 0.75;
+                    style.measurement.size_points = styles.script_size(&style);
                     let mut run = TextRun::new(text, style);
                     run.footnote_number = (element.kind == ElementKind::Footnote).then_some(number);
                     runs.push(run);

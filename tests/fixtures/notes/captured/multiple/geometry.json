@@ -13,9 +13,9 @@
               "x": 36
             },
             {
-              "advance": 4.17,
-              "baseline": 43.54,
-              "size": 7.5,
+              "advance": 3.614,
+              "baseline": 43.65,
+              "size": 6.5,
               "text": "1",
               "x": 55.44
             },
@@ -24,61 +24,61 @@
               "baseline": 46.4,
               "size": 10,
               "text": " ",
-              "x": 59.61
+              "x": 59.054
             },
             {
               "advance": 32.24,
               "baseline": 46.4,
               "size": 10,
               "text": "second",
-              "x": 62.39
+              "x": 61.834
             },
             {
-              "advance": 4.17,
-              "baseline": 43.54,
-              "size": 7.5,
+              "advance": 3.614,
+              "baseline": 43.65,
+              "size": 6.5,
               "text": "2",
-              "x": 94.63
+              "x": 94.07400000000001
             },
             {
               "advance": 2.78,
               "baseline": 46.4,
               "size": 10,
               "text": " ",
-              "x": 98.80000000000001
+              "x": 97.688
             },
             {
               "advance": 19.46,
               "baseline": 46.4,
               "size": 10,
               "text": "and ",
-              "x": 101.58
+              "x": 100.468
             },
             {
               "advance": 19.45,
               "baseline": 46.4,
               "size": 10,
               "text": "third",
-              "x": 121.03999999999999
+              "x": 119.928
             },
             {
-              "advance": 4.17,
-              "baseline": 43.54,
-              "size": 7.5,
+              "advance": 3.614,
+              "baseline": 43.65,
+              "size": 6.5,
               "text": "3",
-              "x": 140.49
+              "x": 139.378
             },
             {
               "advance": 2.78,
               "baseline": 46.4,
               "size": 10,
               "text": ".",
-              "x": 144.66
+              "x": 142.99200000000002
             }
           ],
           "height": 13,
           "top": 36,
-          "width": 111.44,
+          "width": 109.772,
           "x": 36
         },
         {

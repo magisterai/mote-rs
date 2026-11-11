@@ -50,7 +50,7 @@ pub(super) fn place(
         }
         gaps.retain(|offset| gap_allowed(runs, *offset));
         if gaps.is_empty() {
-            for offset in wrapping::break_offsets(&text) {
+            for offset in wrapping::break_offsets(&text, false) {
                 if offset == 0 || offset == text.len() {
                     continue;
                 }
@@ -146,8 +146,12 @@ fn resolve_tabs(
         tab_origin,
         ..
     } = frame;
+    // A tab in preserved space stands for the four spaces that replace it.
     let is_tab = |run: &TextRun| {
-        run.synthetic_tab && run.fixed_advance.is_none() && run.text.trim().is_empty()
+        run.synthetic_tab
+            && !run.preserve_space
+            && run.fixed_advance.is_none()
+            && run.text.trim().is_empty()
     };
     if !fragments.iter().any(|(run, _)| is_tab(run)) {
         return Ok((fragments, widths));
