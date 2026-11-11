@@ -176,13 +176,7 @@ fn label(chart: &Chart, index: usize, value: f64, total: f64) -> String {
 }
 
 // Office sets a label just inside the circle, whatever the legend's position.
-fn label_radius(
-    chart: &Chart,
-    radius: f64,
-    angle: f64,
-    width: f64,
-    height: f64,
-) -> f64 {
+fn label_radius(chart: &Chart, radius: f64, angle: f64, width: f64, height: f64) -> f64 {
     let inside = maximum_label_radius(radius, angle, width, height);
     if chart.kind == "pie" && inside > 0.0 {
         inside

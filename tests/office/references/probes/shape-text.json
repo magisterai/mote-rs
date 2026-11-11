@@ -1,0 +1,325 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "SHAPE TEXT: W ord lays out the text of a shape as it lays out body text, aligns the block of lines",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "within the text rectangle, and keeps the text clear of the inner half of the outline.",
+          "x": 72.0
+        },
+        {
+          "baseline": 135.84,
+          "text": "Aptos 11 top one",
+          "x": 80.4
+        },
+        {
+          "baseline": 135.84,
+          "text": "Aptos 11 top alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 149.28,
+          "text": "Aptos 11 top beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 162.72,
+          "text": "Aptos 11 top gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 270.24,
+          "text": "Aptos 11 middle alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 283.68,
+          "text": "Aptos 11 middle one",
+          "x": 80.4
+        },
+        {
+          "baseline": 283.68,
+          "text": "Aptos 11 middle beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 297.12,
+          "text": "Aptos 11 middle gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 404.64,
+          "text": "Aptos 11 bottom alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 417.84,
+          "text": "Aptos 11 bottom beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 431.28,
+          "text": "Aptos 11 bottom one",
+          "x": 80.4
+        },
+        {
+          "baseline": 431.28,
+          "text": "Aptos 11 bottom gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 470.64,
+          "text": "Aptos 16 top one",
+          "x": 80.4
+        },
+        {
+          "baseline": 470.4,
+          "text": "Aptos 16 top alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 489.84,
+          "text": "Aptos 16 top beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 509.76,
+          "text": "Aptos 16 top gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 595.68,
+          "text": "Aptos 16 middle alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 615.36,
+          "text": "Aptos 16 middle one",
+          "x": 80.4
+        },
+        {
+          "baseline": 615.12,
+          "text": "Aptos 16 middle beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 634.8,
+          "text": "Aptos 16 middle gamma",
+          "x": 320.4
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Page 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 170.88,
+          "text": "Aptos 16 bottom alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 190.32,
+          "text": "Aptos 16 bottom beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 210.0,
+          "text": "Aptos 16 bottom one",
+          "x": 80.4
+        },
+        {
+          "baseline": 210.0,
+          "text": "Aptos 16 bottom gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 246.0,
+          "text": "Helvetica 11 top one",
+          "x": 80.4
+        },
+        {
+          "baseline": 246.0,
+          "text": "Helvetica 11 top alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 259.2,
+          "text": "Helvetica 11 top beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 272.4,
+          "text": "Helvetica 11 top gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 380.64,
+          "text": "Helvetica 11 middle alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 393.84,
+          "text": "Helvetica 11 middle one",
+          "x": 80.4
+        },
+        {
+          "baseline": 393.84,
+          "text": "Helvetica 11 middle beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 407.28,
+          "text": "Helvetica 11 middle gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 515.52,
+          "text": "Helvetica 11 bottom alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 528.72,
+          "text": "Helvetica 11 bottom beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 541.92,
+          "text": "Helvetica 11 bottom one",
+          "x": 80.4
+        },
+        {
+          "baseline": 541.92,
+          "text": "Helvetica 11 bottom gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 581.04,
+          "text": "Helvetica 16 top one",
+          "x": 80.4
+        },
+        {
+          "baseline": 581.04,
+          "text": "Helvetica 16 top alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 600.24,
+          "text": "Helvetica 16 top beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 619.44,
+          "text": "Helvetica 16 top gamma",
+          "x": 320.4
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Page 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 156.72,
+          "text": "Helvetica 16 middle alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 175.92,
+          "text": "Helvetica 16 middle one",
+          "x": 80.4
+        },
+        {
+          "baseline": 175.92,
+          "text": "Helvetica 16 middle beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 195.12,
+          "text": "Helvetica 16 middle gamma",
+          "x": 320.4
+        },
+        {
+          "baseline": 282.48,
+          "text": "Helvetica 16 bottom alpha",
+          "x": 320.4
+        },
+        {
+          "baseline": 301.68,
+          "text": "Helvetica 16 bottom beta",
+          "x": 320.4
+        },
+        {
+          "baseline": 320.88,
+          "text": "Helvetica 16 bottom one",
+          "x": 80.4
+        },
+        {
+          "baseline": 320.88,
+          "text": "Helvetica 16 bottom gamma",
+          "x": 320.4
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Page 4.",
+          "x": 72.0
+        },
+        {
+          "baseline": 135.6,
+          "text": "No outline top alpha",
+          "x": 319.92
+        },
+        {
+          "baseline": 138.48,
+          "text": "W ide outline top alpha",
+          "x": 83.04
+        },
+        {
+          "baseline": 148.8,
+          "text": "No outline top beta",
+          "x": 319.92
+        },
+        {
+          "baseline": 151.68,
+          "text": "W ide outline top beta",
+          "x": 83.04
+        },
+        {
+          "baseline": 316.08,
+          "text": "W ide outline bottom alpha",
+          "x": 83.04
+        },
+        {
+          "baseline": 329.28,
+          "text": "W ide outline bottom beta",
+          "x": 83.04
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "4eda5b5445935992a757dc2ad1070381be8838f4a386b7285d6c12265e7f5309"
+}

@@ -1,0 +1,163 @@
+#presentation(size = "wide", background = "#ffffff")
+
+#slide[
+  #box(position = { x = pt(20), y = pt(12.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(12))[Aptos 12 x1.0 a]
+    #paragraph(font = "Aptos", size = pt(12))[Aptos 12 x1.0 b]
+    #paragraph(font = "Aptos", size = pt(12))[Aptos 12 x1.0 c]
+  ]
+  #box(position = { x = pt(330), y = pt(17.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(18))[Aptos 18 x1.0 a]
+    #paragraph(font = "Aptos", size = pt(18))[Aptos 18 x1.0 b]
+    #paragraph(font = "Aptos", size = pt(18))[Aptos 18 x1.0 c]
+  ]
+  #box(position = { x = pt(640), y = pt(22.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(32))[Aptos 32 x1.0 a]
+    #paragraph(font = "Aptos", size = pt(32))[Aptos 32 x1.0 b]
+    #paragraph(font = "Aptos", size = pt(32))[Aptos 32 x1.0 c]
+  ]
+  #box(position = { x = pt(20), y = pt(184.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(12))[Arial 12 x1.0 a]
+    #paragraph(font = "Arial", size = pt(12))[Arial 12 x1.0 b]
+    #paragraph(font = "Arial", size = pt(12))[Arial 12 x1.0 c]
+  ]
+  #box(position = { x = pt(330), y = pt(189.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(18))[Arial 18 x1.0 a]
+    #paragraph(font = "Arial", size = pt(18))[Arial 18 x1.0 b]
+    #paragraph(font = "Arial", size = pt(18))[Arial 18 x1.0 c]
+  ]
+  #box(position = { x = pt(640), y = pt(194.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(32))[Arial 32 x1.0 a]
+    #paragraph(font = "Arial", size = pt(32))[Arial 32 x1.0 b]
+    #paragraph(font = "Arial", size = pt(32))[Arial 32 x1.0 c]
+  ]
+  #box(position = { x = pt(20), y = pt(356.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Helvetica", size = pt(12))[Helvetica 12 x1.0 a]
+    #paragraph(font = "Helvetica", size = pt(12))[Helvetica 12 x1.0 b]
+    #paragraph(font = "Helvetica", size = pt(12))[Helvetica 12 x1.0 c]
+  ]
+  #box(position = { x = pt(330), y = pt(361.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Helvetica", size = pt(18))[Helvetica 18 x1.0 a]
+    #paragraph(font = "Helvetica", size = pt(18))[Helvetica 18 x1.0 b]
+    #paragraph(font = "Helvetica", size = pt(18))[Helvetica 18 x1.0 c]
+  ]
+  #box(position = { x = pt(640), y = pt(366.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Helvetica", size = pt(32))[Helvetica 32 x1.0 a]
+    #paragraph(font = "Helvetica", size = pt(32))[Helvetica 32 x1.0 b]
+    #paragraph(font = "Helvetica", size = pt(32))[Helvetica 32 x1.0 c]
+  ]
+]
+
+#slide[
+  #box(position = { x = pt(20), y = pt(12.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Times New Roman", size = pt(12))[Times 12 x1.0 a]
+    #paragraph(font = "Times New Roman", size = pt(12))[Times 12 x1.0 b]
+    #paragraph(font = "Times New Roman", size = pt(12))[Times 12 x1.0 c]
+  ]
+  #box(position = { x = pt(330), y = pt(17.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Times New Roman", size = pt(18))[Times 18 x1.0 a]
+    #paragraph(font = "Times New Roman", size = pt(18))[Times 18 x1.0 b]
+    #paragraph(font = "Times New Roman", size = pt(18))[Times 18 x1.0 c]
+  ]
+  #box(position = { x = pt(640), y = pt(22.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Times New Roman", size = pt(32))[Times 32 x1.0 a]
+    #paragraph(font = "Times New Roman", size = pt(32))[Times 32 x1.0 b]
+    #paragraph(font = "Times New Roman", size = pt(32))[Times 32 x1.0 c]
+  ]
+  #box(position = { x = pt(20), y = pt(184.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Georgia", size = pt(12))[Georgia 12 x1.0 a]
+    #paragraph(font = "Georgia", size = pt(12))[Georgia 12 x1.0 b]
+    #paragraph(font = "Georgia", size = pt(12))[Georgia 12 x1.0 c]
+  ]
+  #box(position = { x = pt(330), y = pt(189.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Georgia", size = pt(18))[Georgia 18 x1.0 a]
+    #paragraph(font = "Georgia", size = pt(18))[Georgia 18 x1.0 b]
+    #paragraph(font = "Georgia", size = pt(18))[Georgia 18 x1.0 c]
+  ]
+  #box(position = { x = pt(640), y = pt(194.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Georgia", size = pt(32))[Georgia 32 x1.0 a]
+    #paragraph(font = "Georgia", size = pt(32))[Georgia 32 x1.0 b]
+    #paragraph(font = "Georgia", size = pt(32))[Georgia 32 x1.0 c]
+  ]
+  #box(position = { x = pt(20), y = pt(356.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Courier New", size = pt(12))[Courier 12 x1.0 a]
+    #paragraph(font = "Courier New", size = pt(12))[Courier 12 x1.0 b]
+    #paragraph(font = "Courier New", size = pt(12))[Courier 12 x1.0 c]
+  ]
+  #box(position = { x = pt(330), y = pt(361.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Courier New", size = pt(18))[Courier 18 x1.0 a]
+    #paragraph(font = "Courier New", size = pt(18))[Courier 18 x1.0 b]
+    #paragraph(font = "Courier New", size = pt(18))[Courier 18 x1.0 c]
+  ]
+  #box(position = { x = pt(640), y = pt(366.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Courier New", size = pt(32))[Courier 32 x1.0 a]
+    #paragraph(font = "Courier New", size = pt(32))[Courier 32 x1.0 b]
+    #paragraph(font = "Courier New", size = pt(32))[Courier 32 x1.0 c]
+  ]
+]
+
+#slide[
+  #box(position = { x = pt(20), y = pt(12.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(12), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 12 x1.5 a]
+    #paragraph(font = "Aptos", size = pt(12), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 12 x1.5 b]
+    #paragraph(font = "Aptos", size = pt(12), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 12 x1.5 c]
+  ]
+  #box(position = { x = pt(330), y = pt(17.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(18), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 18 x1.5 a]
+    #paragraph(font = "Aptos", size = pt(18), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 18 x1.5 b]
+    #paragraph(font = "Aptos", size = pt(18), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 18 x1.5 c]
+  ]
+  #box(position = { x = pt(640), y = pt(22.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(32), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 32 x1.5 a]
+    #paragraph(font = "Aptos", size = pt(32), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 32 x1.5 b]
+    #paragraph(font = "Aptos", size = pt(32), spacing = { line = { rule = "multiple", value = 1.5 } })[Aptos 32 x1.5 c]
+  ]
+  #box(position = { x = pt(20), y = pt(184.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(12), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 12 x0.8 a]
+    #paragraph(font = "Aptos", size = pt(12), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 12 x0.8 b]
+    #paragraph(font = "Aptos", size = pt(12), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 12 x0.8 c]
+  ]
+  #box(position = { x = pt(330), y = pt(189.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(18), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 18 x0.8 a]
+    #paragraph(font = "Aptos", size = pt(18), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 18 x0.8 b]
+    #paragraph(font = "Aptos", size = pt(18), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 18 x0.8 c]
+  ]
+  #box(position = { x = pt(640), y = pt(194.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Aptos", size = pt(32), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 32 x0.8 a]
+    #paragraph(font = "Aptos", size = pt(32), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 32 x0.8 b]
+    #paragraph(font = "Aptos", size = pt(32), spacing = { line = { rule = "multiple", value = 0.8 } })[Aptos 32 x0.8 c]
+  ]
+  #box(position = { x = pt(20), y = pt(356.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(12), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 12 x1.5 a]
+    #paragraph(font = "Arial", size = pt(12), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 12 x1.5 b]
+    #paragraph(font = "Arial", size = pt(12), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 12 x1.5 c]
+  ]
+  #box(position = { x = pt(330), y = pt(361.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(18), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 18 x1.5 a]
+    #paragraph(font = "Arial", size = pt(18), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 18 x1.5 b]
+    #paragraph(font = "Arial", size = pt(18), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 18 x1.5 c]
+  ]
+  #box(position = { x = pt(640), y = pt(366.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(32), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 32 x1.5 a]
+    #paragraph(font = "Arial", size = pt(32), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 32 x1.5 b]
+    #paragraph(font = "Arial", size = pt(32), spacing = { line = { rule = "multiple", value = 1.5 } })[Arial 32 x1.5 c]
+  ]
+]
+
+#slide[
+  #box(position = { x = pt(20), y = pt(12.0), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(12), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 12 x0.8 a]
+    #paragraph(font = "Arial", size = pt(12), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 12 x0.8 b]
+    #paragraph(font = "Arial", size = pt(12), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 12 x0.8 c]
+  ]
+  #box(position = { x = pt(330), y = pt(17.3), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(18), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 18 x0.8 a]
+    #paragraph(font = "Arial", size = pt(18), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 18 x0.8 b]
+    #paragraph(font = "Arial", size = pt(18), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 18 x0.8 c]
+  ]
+  #box(position = { x = pt(640), y = pt(22.6), width = pt(300), height = pt(160) }, margin = { top = pt(0), right = pt(0), bottom = pt(0), left = pt(0) }, vertical_alignment = "top")[
+    #paragraph(font = "Arial", size = pt(32), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 32 x0.8 a]
+    #paragraph(font = "Arial", size = pt(32), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 32 x0.8 b]
+    #paragraph(font = "Arial", size = pt(32), spacing = { line = { rule = "multiple", value = 0.8 } })[Arial 32 x0.8 c]
+  ]
+]

@@ -47,14 +47,14 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "2f39d711dc2369012c36d39a6e6dcffb77908729ab3e255f232ce30da65941c4",
+      "sha256": "64b768e61a9277ce7f53d8169b8e3ee0b17c1d718e1e7d079d65af59e3866204",
       "maximum": 64,
       "mean": 12,
       "outliers": 0
     },
     {
       "path": "page-2.png",
-      "sha256": "d299f42d36275c1921a771754c5e6ac211ce481d34ef83a9dd44d48194e4fc7f",
+      "sha256": "d46c820d8a57247ba3d7a57e297aeac8d2b40081bc93fc9726f5e87de1a4777e",
       "maximum": 64,
       "mean": 12,
       "outliers": 0
@@ -63,6 +63,6 @@
   "warnings": [],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "664ef117e952958f14c45c68f63a93fc1b6b3c6f90a49a20cba857daab73e929"
+    "sha256": "0c86d4a12e490df16b8e7459f74b26f7e40c26052c6060b5a57fe1d33c56a182"
   }
 }

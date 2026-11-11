@@ -11,8 +11,8 @@
   "pdf_comparison_dpi": 144,
   "pdf_changed_pixels": 0,
   "files": {
-    "geometry.json": "e9dd2f07a66acd79cd1004bba87684ad2be1cabdd1f33b24d1b35de3fc4dd0c4",
-    "reference-2.png": "1c2b25f6fdadd24a536a4f88652c186f6b8a26981c5105e34cb2a23a1fec6764",
-    "reference-1.png": "b3ed39e0b1fb2e3664b4a14ef4a8d59c50f84b7902721c032108363c511721d1"
+    "geometry.json": "9620ad1acd31a9e624e53a829160c9f62c7383abc35389defed323d49d7168d5",
+    "reference-2.png": "da222e6ad4b89d8dae4e55ed378ec993fe0b94b1d78874f995db2095d94ea486",
+    "reference-1.png": "b16897284134873eced6270a5dd617baf69552702014ede7aadbc9c907b34905"
   }
 }

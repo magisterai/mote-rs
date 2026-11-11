@@ -38,15 +38,19 @@ only for a change that is itself supported by Office evidence.
 ## Probes
 
 A probe in [probes/](probes/) isolates one layout rule and sweeps its parameters.
-Each probe states its rule in its first paragraph. The present results are as
-follows.
+Each probe states its rule in its first paragraph. A probe whose name begins with
+`powerpoint-` is exported through PowerPoint; every other probe is exported
+through Word. The present results are as follows.
 
 | Probe | Rule | Present result |
 | --- | --- | --- |
 | [exact-line-baseline](probes/exact-line-baseline.mote) | An exact line's baseline lies at four fifths of its height. | Matches Word exactly. |
+| [line-baseline](probes/line-baseline.mote) | An automatic line's baseline lies below the line gap and ascender of its font. A multiple above one adds its space beneath the descender, a multiple below one shrinks the line in proportion, and a minimum adds its space above the line. | Within 0.4 point of Word over ten pages. |
 | [paragraph-spacing](probes/paragraph-spacing.mote) | The gap between paragraphs follows from the first one's spacing after and the second one's spacing before. | Within 0.3 point of Word. |
-| [east-asian-line-height](probes/east-asian-line-height.mote) | A line holding an MS Gothic glyph takes the height Word gives that font. | Within 0.9 point of Word. |
+| [east-asian-line-height](probes/east-asian-line-height.mote) | A line holding an MS Gothic glyph takes the height Word gives that font. | Within 0.2 point of Word. |
 | [chart-value-axis](probes/chart-value-axis.mote) | A vertical value axis pads the data by a twentieth of its range and labels every major tick at a step chosen from the data and the plot height. | Every label of all forty charts matches Word. |
-| [automatic-line-height](probes/automatic-line-height.mote) | A single line follows from the font metrics, scaled by the multiple. | Drifts by up to 0.1 point a line. Georgia and Times New Roman are substituted natively although installed, and four lines move to another page. |
-| [footnote-spacing](probes/footnote-spacing.mote) | Footnotes stack at the foot of the page with Word's separator and spacing. | The notes lie 19 points from Word's position. |
-| [table-row-height](probes/table-row-height.mote) | A row is at least its at-least height, or exactly its exact height. | Native layout ignores row heights; following rows lie up to 27 points away. |
+| [automatic-line-height](probes/automatic-line-height.mote) | A single line follows from the font metrics, scaled by the multiple. | Within 0.6 point of Word over three pages. |
+| [footnote-spacing](probes/footnote-spacing.mote) | Footnotes stack at the foot of the page with Word's separator and spacing. | Within 1.1 points of Word. |
+| [table-row-height](probes/table-row-height.mote) | A table lies its top border below the preceding paragraph. A row holds an at-least height within its cells' margins, and an exact height above its cells' bottom margin with its border drawn inside. | Every row lies within 0.2 point of Word. The columns of the table with three-point borders lie up to 12 points from Word's. |
+| [shape-text](probes/shape-text.mote) | Word lays out the text of a shape as body text, aligns the block of lines in the text rectangle, and keeps the text clear of the inner half of the outline. | Within 0.3 point of Word. |
+| [powerpoint-line-height](probes/powerpoint-line-height.mote) | PowerPoint sets a line at six fifths of its font size whatever the font, and every baseline a whole number of points below the top of the text. | The first baseline of every box matches. Later lines lie up to a point away, and Courier New up to two. |

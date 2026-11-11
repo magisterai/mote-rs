@@ -61,6 +61,9 @@ use std::fmt;
 pub struct TextStyle {
     pub measurement: MeasurementStyle,
     pub word_line_height: Option<f64>,
+    /// The depth below the baseline that Word gives a single line, as a
+    /// multiple of the font size.
+    pub word_line_descent: Option<f64>,
     pub color: String,
     pub highlight: Option<String>,
     pub underline: bool,
@@ -84,6 +87,7 @@ impl Default for TextStyle {
                 variant: FontVariant::Regular,
             },
             word_line_height: None,
+            word_line_descent: None,
             color: "111827".into(),
             highlight: None,
             underline: false,
@@ -174,6 +178,26 @@ impl Default for LineSpacing {
     }
 }
 
+impl TextStyle {
+    /// Returns the depth of a single Word line below its baseline. A font
+    /// without a measured depth takes that of Helvetica, in proportion to its
+    /// line height.
+    pub(crate) fn word_descent(&self) -> f64 {
+        let size = self.measurement.size_points;
+        match (self.word_line_descent, self.word_line_height) {
+            (Some(descent), _) if descent >= 0.0 => size * descent,
+            (_, Some(scale)) if scale > 0.0 => size * scale * styles::DESCENT_SHARE,
+            _ => size * 1.18 * 1.02 * styles::DESCENT_SHARE,
+        }
+    }
+
+    /// Returns the rise of a single Word line above its baseline, which
+    /// includes the line gap of the font.
+    pub(crate) fn word_ascent(&self) -> f64 {
+        LineSpacing::Multiple(1.0).height(self) - self.word_descent()
+    }
+}
+
 impl LineSpacing {
     pub(crate) fn height(self, style: &TextStyle) -> f64 {
         let size = style.measurement.size_points;
@@ -220,6 +244,8 @@ pub struct LineOptions {
     pub tab_origin: f64,
     /// Places an exact line's baseline as Word does rather than as PowerPoint does.
     pub word_exact_baseline: bool,
+    /// Places a baseline a whole number of points below its line, as PowerPoint does.
+    pub whole_point_baseline: bool,
 }
 
 impl Default for LineOptions {
@@ -236,6 +262,7 @@ impl Default for LineOptions {
             tab_stops: None,
             tab_origin: 0.0,
             word_exact_baseline: false,
+            whole_point_baseline: false,
         }
     }
 }

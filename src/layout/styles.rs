@@ -44,6 +44,8 @@ pub struct ParagraphStyle {
     pub tab_stops: Vec<TabStop>,
     /// Word places the baseline of an exact line at four fifths of its height.
     pub word_exact_baseline: bool,
+    /// PowerPoint places a baseline a whole number of points below its line.
+    pub whole_point_baseline: bool,
 }
 impl Default for ParagraphStyle {
     fn default() -> Self {
@@ -65,6 +67,7 @@ impl Default for ParagraphStyle {
             fill: None,
             tab_stops: Vec::new(),
             word_exact_baseline: false,
+            whole_point_baseline: false,
         }
     }
 }
@@ -76,7 +79,7 @@ pub struct LayoutStyleResolver<'document> {
     /// which neither takes Word's line heights nor its automatic colour.
     word_document: bool,
     /// Single line heights of the named font files, as multiples of the size.
-    font_line_heights: std::collections::BTreeMap<String, f64>,
+    font_line_heights: std::collections::BTreeMap<String, (f64, f64)>,
     pub(super) anchors: crate::references::Catalog,
     pub(super) reference_pages: std::collections::BTreeMap<String, usize>,
 }
@@ -116,6 +119,8 @@ impl<'document> LayoutStyleResolver<'document> {
         let font = values::text(&self.document.defaults, "default_font");
         if !font.is_empty() {
             self.apply_font(&mut style, &font);
+        } else if self.word_document {
+            self.apply_word_line_metrics(&mut style);
         }
         style
     }
@@ -188,6 +193,7 @@ impl<'document> LayoutStyleResolver<'document> {
         let mut style = ParagraphStyle {
             text: self.default_text(),
             word_exact_baseline: self.word_document,
+            whole_point_baseline: !self.word_document,
             ..Default::default()
         };
         let explicit = values::text(&element.attributes, "style");
@@ -227,6 +233,7 @@ impl<'document> LayoutStyleResolver<'document> {
             spacing_after: 0.0,
             line_spacing: LineSpacing::Multiple(1.0),
             line_multiplier: 1.0,
+            whole_point_baseline: !self.word_document,
             ..Default::default()
         };
         let explicit = values::text(properties, "style");
@@ -293,24 +300,41 @@ impl<'document> LayoutStyleResolver<'document> {
     }
     pub(crate) fn apply_font(&self, style: &mut TextStyle, name: &str) {
         style.measurement.font = name.into();
-        if !self.word_document {
-            style.word_line_height = None;
-            return;
+        style.word_line_height = None;
+        style.word_line_descent = None;
+        if self.word_document {
+            self.apply_word_line_metrics(style);
         }
-        let family;
-        if let Some(font) = self.document.fonts.get(name) {
-            if let Some(scale) = font.properties.get("word_line_height") {
-                style.word_line_height = values::number(scale).filter(|value| *value > 0.0);
-                return;
-            }
-            family = Some(values::text(&font.properties, "latin"))
-                .filter(|latin| !latin.is_empty())
-                .unwrap_or_else(|| name.into());
-        } else {
-            family = name.into();
-        }
-        style.word_line_height = builtin_word_line_height(&family)
-            .or_else(|| self.font_line_heights.get(&family.to_lowercase()).copied());
+    }
+    /// Gives a style the height and depth of a single Word line of its font.
+    pub(crate) fn apply_word_line_metrics(&self, style: &mut TextStyle) {
+        let name = &style.measurement.font;
+        let (family, declared) = match self.document.fonts.get(name) {
+            Some(font) => (
+                Some(values::text(&font.properties, "latin"))
+                    .filter(|latin| !latin.is_empty())
+                    .unwrap_or_else(|| name.clone()),
+                font.properties
+                    .get("word_line_height")
+                    .and_then(values::number)
+                    .filter(|scale| *scale > 0.0),
+            ),
+            None => (name.clone(), None),
+        };
+        let measured = self.font_line_heights.get(&family.to_lowercase()).copied();
+        let metrics = match declared {
+            // Word divides the height it adds to a font's own line equally
+            // above and below the line.
+            Some(scale) => Some((
+                scale,
+                measured.map_or(scale * DESCENT_SHARE, |(height, descent)| {
+                    descent + (scale - height) / 2.0
+                }),
+            )),
+            None => builtin_word_line_metrics(&family).or(measured),
+        };
+        style.word_line_height = metrics.map(|(height, _)| height);
+        style.word_line_descent = metrics.map(|(_, descent)| descent);
     }
     /// Word sets a single line of a font file at the ascender, descender and
     /// line gap of its horizontal header. The core PDF fonts, which have no
@@ -363,7 +387,10 @@ impl<'document> LayoutStyleResolver<'document> {
             {
                 self.font_line_heights
                     .entry(family.to_lowercase())
-                    .or_insert(measured.measurement.extents.height / 100.0);
+                    .or_insert((
+                        measured.measurement.extents.height / 100.0,
+                        measured.measurement.extents.descent / 100.0,
+                    ));
             }
         }
     }
@@ -714,14 +741,23 @@ fn border_side(value: &Value) -> Option<BorderSide> {
     })
 }
 
-/// Returns the line height that Word gives a family, as a multiple of the font
-/// size, where Word measured it differently from the font's own metrics. The MS
-/// Gothic value was measured in Word at 11 and 22 points.
-pub(super) fn builtin_word_line_height(family: &str) -> Option<f64> {
+/// The part of a line of Helvetica that Word sets below the baseline, which
+/// serves a font whose own depth is unknown.
+pub(crate) const DESCENT_SHARE: f64 = 0.195;
+
+/// Returns the line height that Word gives a family and the part of it below the
+/// baseline, as multiples of the font size, for a family whose file may be
+/// absent. Aptos and Courier New take the ascender and descender of their
+/// horizontal headers. Word sets Helvetica a fifth of its size above those. The
+/// MS Gothic values were measured in Word at 11 and 22 points.
+pub(super) fn builtin_word_line_metrics(family: &str) -> Option<(f64, f64)> {
     match family.trim().to_lowercase().as_str() {
-        "mono" | "courier" | "courier new" | "couriernewpsmt" => Some(1.137391304347826),
-        "ms gothic" => Some(1.2964),
-        "aptos" => Some(1.2131),
+        "mono" | "courier" | "courier new" | "couriernewpsmt" => {
+            Some((2320.0 / 2048.0, 615.0 / 2048.0))
+        }
+        "helvetica" => Some((1.2, 0.23)),
+        "ms gothic" => Some((1.2964, 0.284)),
+        "aptos" => Some((2500.0 / 2048.0, 577.0 / 2048.0)),
         _ => None,
     }
 }

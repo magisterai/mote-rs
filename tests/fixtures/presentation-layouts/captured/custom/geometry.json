@@ -21,14 +21,14 @@
           {
             "text": "Custom ",
             "x": 50.4,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 67.014,
             "size": 18
           },
           {
             "text": "dimensions",
             "x": 117.41399999999999,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 91.026,
             "size": 18
           }
@@ -52,21 +52,21 @@
           {
             "text": "Proportional ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 102.042,
             "size": 18
           },
           {
             "text": "left ",
             "x": 152.442,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 29.016,
             "size": 18
           },
           {
             "text": "frame.",
             "x": 181.458,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 51.012,
             "size": 18
           }
@@ -90,21 +90,21 @@
           {
             "text": "Proportional ",
             "x": 314.2259842519685,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 102.042,
             "size": 18
           },
           {
             "text": "right ",
             "x": 416.2679842519685,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 40.014,
             "size": 18
           },
           {
             "text": "frame.",
             "x": 456.28198425196854,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 51.012,
             "size": 18
           }
@@ -140,28 +140,28 @@
           {
             "text": "Overridden ",
             "x": 254.63,
-            "baseline": 216.23239999999998,
+            "baseline": 217.0,
             "advance": 94.032,
             "size": 18
           },
           {
             "text": "position, ",
             "x": 348.662,
-            "baseline": 216.23239999999998,
+            "baseline": 217.0,
             "advance": 72.036,
             "size": 18
           },
           {
             "text": "absent ",
             "x": 420.698,
-            "baseline": 216.23239999999998,
+            "baseline": 217.0,
             "advance": 59.04,
             "size": 18
           },
           {
             "text": "title.",
             "x": 479.738,
-            "baseline": 216.23239999999998,
+            "baseline": 217.0,
             "advance": 33.012,
             "size": 18
           }
@@ -197,21 +197,21 @@
           {
             "text": "Lua ",
             "x": 42.91897637795275,
-            "baseline": 159.49983937007875,
+            "baseline": 160.03503937007872,
             "advance": 74.016,
             "size": 36
           },
           {
             "text": "slot ",
             "x": 116.93497637795275,
-            "baseline": 159.49983937007875,
+            "baseline": 160.03503937007872,
             "advance": 74.016,
             "size": 36
           },
           {
             "text": "assignment",
             "x": 190.95097637795277,
-            "baseline": 159.49983937007875,
+            "baseline": 160.03503937007872,
             "advance": 200.052,
             "size": 36
           }

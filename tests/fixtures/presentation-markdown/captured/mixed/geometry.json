@@ -21,7 +21,7 @@
           {
             "text": "Before",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 114.012,
             "size": 36
           }
@@ -45,14 +45,14 @@
           {
             "text": "Implicit ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 61.002,
             "size": 18
           },
           {
             "text": "text.",
             "x": 111.402,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 34.02,
             "size": 18
           }
@@ -76,14 +76,14 @@
           {
             "text": "Mixed ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 29.45,
             "size": 10
           },
           {
             "text": "slides",
             "x": 72.65,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 25.56,
             "size": 10
           }
@@ -107,7 +107,7 @@
           {
             "text": "1",
             "x": 671.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }
@@ -143,28 +143,28 @@
           {
             "text": "First ",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 88.02,
             "size": 36
           },
           {
             "text": "heading ",
             "x": 138.42,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 148.032,
             "size": 36
           },
           {
             "text": "stays ",
             "x": 286.452,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 102.06,
             "size": 36
           },
           {
             "text": "here",
             "x": 388.512,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 76.032,
             "size": 36
           }
@@ -188,28 +188,28 @@
           {
             "text": "Second ",
             "x": 50.4,
-            "baseline": 133.26479999999998,
+            "baseline": 133.8,
             "advance": 140.04,
             "size": 36
           },
           {
             "text": "heading ",
             "x": 190.44,
-            "baseline": 133.26479999999998,
+            "baseline": 133.8,
             "advance": 148.032,
             "size": 36
           },
           {
             "text": "stays ",
             "x": 338.472,
-            "baseline": 133.26479999999998,
+            "baseline": 133.8,
             "advance": 102.06,
             "size": 36
           },
           {
             "text": "here",
             "x": 440.532,
-            "baseline": 133.26479999999998,
+            "baseline": 133.8,
             "advance": 76.032,
             "size": 36
           }
@@ -233,14 +233,14 @@
           {
             "text": "Explicit ",
             "x": 50.4,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 62.01,
             "size": 18
           },
           {
             "text": "content.",
             "x": 112.41,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 64.044,
             "size": 18
           }
@@ -264,14 +264,14 @@
           {
             "text": "Mixed ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 29.45,
             "size": 10
           },
           {
             "text": "slides",
             "x": 72.65,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 25.56,
             "size": 10
           }
@@ -295,7 +295,7 @@
           {
             "text": "2",
             "x": 671.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }
@@ -331,7 +331,7 @@
           {
             "text": "After",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 83.988,
             "size": 36
           }
@@ -355,42 +355,42 @@
           {
             "text": "Implicit ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 61.002,
             "size": 18
           },
           {
             "text": "text ",
             "x": 111.402,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 34.02,
             "size": 18
           },
           {
             "text": "after ",
             "x": 145.422,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 41.022,
             "size": 18
           },
           {
             "text": "the ",
             "x": 186.44400000000002,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 30.024,
             "size": 18
           },
           {
             "text": "explicit ",
             "x": 216.46800000000002,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 60.012,
             "size": 18
           },
           {
             "text": "slide.",
             "x": 276.48,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 42.012,
             "size": 18
           }
@@ -414,14 +414,14 @@
           {
             "text": "Mixed ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 29.45,
             "size": 10
           },
           {
             "text": "slides",
             "x": 72.65,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 25.56,
             "size": 10
           }
@@ -445,7 +445,7 @@
           {
             "text": "3",
             "x": 671.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }

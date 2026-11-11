@@ -22,7 +22,23 @@ ROW HEIGHT: a row's height is the larger of its content and an at-least height, 
   #row(height = pt(30), height_rule = "at_least")[#cell[At least 30]#cell[Taller than content]]
   #row(height = pt(10), height_rule = "at_least")[#cell[At least 10]#cell[Content wins]]
   #row(height = pt(28), height_rule = "exact")[#cell[Exactly 28]#cell[Fixed height]]
+  #row[#cell[Automatic after exact]#cell[Content height]]
+  #row(height = pt(40), height_rule = "exact")[#cell[Exactly 40]#cell[Fixed height]]
+  #row[#cell[Automatic after forty]#cell[Content height]]
+  #row(height = pt(12), height_rule = "exact")[#cell[Exactly 12]#cell[Clipped content]]
+  #row[#cell[Automatic after twelve]#cell[Content height]]
+  #row(height = pt(28), height_rule = "exact")[#cell(margin = { top = pt(10), bottom = pt(2) })[Exactly 28 margins]#cell[Fixed height]]
   #row[#cell[Final automatic row]#cell[Content height]]
 ]
 
 The line after the table.
+
+#table(cell = { margin = { top = pt(9), bottom = pt(1) } }, borders = { all = { style = "single", width = 3, color = "#000000" } })[
+  #row[#cell[Wide automatic one]#cell[Content height]]
+  #row(height = pt(28), height_rule = "exact")[#cell[Wide exactly 28]#cell[Fixed height]]
+  #row[#cell[Wide automatic two]#cell[Content height]]
+  #row(height = pt(30), height_rule = "at_least")[#cell[Wide at least 30]#cell[Taller than content]]
+  #row[#cell[Wide automatic three]#cell[Content height]]
+]
+
+The line after the second table.

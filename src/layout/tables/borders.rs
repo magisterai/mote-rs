@@ -166,6 +166,9 @@ pub(super) fn add_row_heights(plan: &mut TablePlan, grid: &tables::TableGrid) {
         })
         .collect();
     for (row_index, row) in plan.rows.iter_mut().enumerate() {
+        if matches!(row.authored_height, Some((_, true))) {
+            continue;
+        }
         let mut width: f64 = 0.0;
         for column in 0..grid.column_count {
             let above = grid.rows[row_index]

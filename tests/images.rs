@@ -100,7 +100,7 @@ fn image_models_packages_and_native_pages_match_captures() {
             plan.output.pages.len() as u64,
             manifest["pages"].as_u64().unwrap()
         );
-        let expected_images: serde_json::Value =
+        let mut expected_images: serde_json::Value =
             serde_json::from_slice(&fs::read(capture.join("images.json")).unwrap()).unwrap();
         let actual_images: Vec<_> = plan
             .output
@@ -120,6 +120,16 @@ fn image_models_packages_and_native_pages_match_captures() {
             actual_images.len(),
             expected_images.as_array().unwrap().len()
         );
+        if capture::refreshing() {
+            for ((_, actual), expected) in actual_images
+                .iter()
+                .zip(expected_images.as_array_mut().unwrap())
+            {
+                expected["bounds"] = serde_json::json!(actual.bounds);
+                expected["clip"] = serde_json::json!(actual.clip);
+            }
+            capture::rewrite_json(&capture.join("images.json"), &expected_images);
+        }
         for ((page_number, actual), expected) in actual_images
             .iter()
             .zip(expected_images.as_array().unwrap())

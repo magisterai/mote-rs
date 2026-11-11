@@ -76,11 +76,17 @@ pub(crate) fn subjects() -> Result<Vec<(String, Subject)>, String> {
     names.sort();
     for path in names {
         let name = path.file_stem().unwrap().to_string_lossy().into_owned();
+        // A probe of PowerPoint's layout names the application in its file name.
+        let application = if name.starts_with("powerpoint-") {
+            Application::PowerPoint
+        } else {
+            Application::Word
+        };
         subjects.push((
             format!("probe:{name}"),
             Subject {
                 key: format!("probes/{name}"),
-                application: Application::Word,
+                application,
                 source: path,
                 enable_lua: false,
             },

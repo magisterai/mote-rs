@@ -48,11 +48,15 @@ const CASES: &[&str] = &[
 #[test]
 fn captions_match_frozen_geometry() {
     for case in CASES {
-        let expected: Value = serde_json::from_slice(
-            &fs::read(fixtures().join("captured").join(case).join("geometry.json")).unwrap(),
-        )
-        .unwrap();
-        compare(&projection(&planned(case).output), &expected, case);
+        let folder = fixtures().join("captured").join(case);
+        let actual = projection(&planned(case).output);
+        if refreshing() {
+            capture::replace_json(&folder, "geometry.json", &actual);
+            continue;
+        }
+        let expected: Value =
+            serde_json::from_slice(&fs::read(folder.join("geometry.json")).unwrap()).unwrap();
+        compare(&actual, &expected, case);
     }
 }
 #[test]

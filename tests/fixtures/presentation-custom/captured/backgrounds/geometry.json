@@ -57,35 +57,35 @@
           {
             "text": "Inherited ",
             "x": 50.4,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 75.042,
             "size": 18
           },
           {
             "text": "image ",
             "x": 125.44200000000001,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 54.018,
             "size": 18
           },
           {
             "text": "and ",
             "x": 179.46,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 35.028,
             "size": 18
           },
           {
             "text": "new ",
             "x": 214.488,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 38.016,
             "size": 18
           },
           {
             "text": "color",
             "x": 252.504,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 39.006,
             "size": 18
           }
@@ -123,42 +123,42 @@
           {
             "text": "Nested ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 62.028,
             "size": 18
           },
           {
             "text": "background ",
             "x": 112.428,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 99.054,
             "size": 18
           },
           {
             "text": "fields ",
             "x": 211.482,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 47.016,
             "size": 18
           },
           {
             "text": "merge ",
             "x": 258.498,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 56.016,
             "size": 18
           },
           {
             "text": "across ",
             "x": 314.51399999999995,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 58.014,
             "size": 18
           },
           {
             "text": "layouts.",
             "x": 372.52799999999996,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 62.028,
             "size": 18
           }
@@ -182,14 +182,14 @@
           {
             "text": "Inherited ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 41.69,
             "size": 10
           },
           {
             "text": "image",
             "x": 84.89,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 27.23,
             "size": 10
           }
@@ -213,7 +213,7 @@
           {
             "text": "1",
             "x": 911.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }
@@ -263,21 +263,21 @@
           {
             "text": "Whole ",
             "x": 50.4,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 56.016,
             "size": 18
           },
           {
             "text": "background ",
             "x": 106.416,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 99.054,
             "size": 18
           },
           {
             "text": "override",
             "x": 205.47,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 65.016,
             "size": 18
           }
@@ -315,63 +315,63 @@
           {
             "text": "The ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 36.018,
             "size": 18
           },
           {
             "text": "slide's ",
             "x": 86.418,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 54.45,
             "size": 18
           },
           {
             "text": "color-",
             "x": 140.868,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 45,
             "size": 18
           },
           {
             "text": "only ",
             "x": 185.86800000000002,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 38.016,
             "size": 18
           },
           {
             "text": "background ",
             "x": 223.88400000000001,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 99.054,
             "size": 18
           },
           {
             "text": "suppresses ",
             "x": 322.938,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 97.038,
             "size": 18
           },
           {
             "text": "the ",
             "x": 419.976,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 30.024,
             "size": 18
           },
           {
             "text": "inherited ",
             "x": 450,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 74.034,
             "size": 18
           },
           {
             "text": "image.",
             "x": 524.034,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 54.018,
             "size": 18
           }
@@ -395,14 +395,14 @@
           {
             "text": "Slide ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 25.01,
             "size": 10
           },
           {
             "text": "footer",
             "x": 68.21000000000001,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 25.57,
             "size": 10
           }
@@ -426,7 +426,7 @@
           {
             "text": "2",
             "x": 911.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }
@@ -476,21 +476,21 @@
           {
             "text": "Missing ",
             "x": 50.4,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 66.006,
             "size": 18
           },
           {
             "text": "image ",
             "x": 116.406,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 54.018,
             "size": 18
           },
           {
             "text": "fallback",
             "x": 170.424,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 61.02,
             "size": 18
           }
@@ -514,14 +514,14 @@
           {
             "text": "Inherited ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 41.69,
             "size": 10
           },
           {
             "text": "image",
             "x": 84.89,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 27.23,
             "size": 10
           }
@@ -545,7 +545,7 @@
           {
             "text": "3",
             "x": 911.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }

@@ -91,10 +91,10 @@
       "sha256": "906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce"
     }
   },
-  "geometry_sha256": "34349db89a7b1026faa8488a3d90f2c228c27b9ee2c2733c8f08c034847c2c6d",
+  "geometry_sha256": "00dd8fbeac870ec6dbfb0887b911d22451d6e7e98fbd84efe3a53def2e6f2e14",
   "native_png_files": {
-    "reference-1.png": "65e40311f4ad8633e0883e40231bc4480da1765ae21a1d72691c4320326a8571",
-    "reference-2.png": "9193eafa8c6e5f81679ce5392070d0cece1e94a4f008327b85c8cafdb0c6e17f",
-    "reference-3.png": "8df4425d90259961600a7d1fd1039dbdb83975137baf38bed56ad2d30347fcc1"
+    "reference-1.png": "bd2a81dcdc7ee72e16d6fac231cb9d1c9b23198e196b5f0567c9e086dda5abaf",
+    "reference-2.png": "5baa9f2dd7f5c4993f9a3db26e54c90ac484fd1a31ecda9118f5b11cf9a7be72",
+    "reference-3.png": "9b6a692b9e8777fd435ea8f3d5c4e457a48d2812c94c6609ad35b75ed6fb6b53"
   }
 }

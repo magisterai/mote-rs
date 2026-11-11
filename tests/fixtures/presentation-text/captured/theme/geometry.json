@@ -21,14 +21,14 @@
           {
             "text": "Theme ",
             "x": 0,
-            "baseline": 32.4648,
+            "baseline": 33.0,
             "advance": 126.015625,
             "size": 36
           },
           {
             "text": "title",
             "x": 126.015625,
-            "baseline": 32.4648,
+            "baseline": 33.0,
             "advance": 63.984375,
             "size": 36
           }
@@ -52,42 +52,42 @@
           {
             "text": "Body ",
             "x": 0,
-            "baseline": 90.036,
+            "baseline": 91.0,
             "advance": 48.34375,
             "size": 20
           },
           {
             "text": "text ",
             "x": 48.34375,
-            "baseline": 90.036,
+            "baseline": 91.0,
             "advance": 35,
             "size": 20
           },
           {
             "text": "and ",
             "x": 83.34375,
-            "baseline": 90.036,
+            "baseline": 91.0,
             "advance": 33.875,
             "size": 20
           },
           {
             "text": "a ",
             "x": 117.21875,
-            "baseline": 90.036,
+            "baseline": 91.0,
             "advance": 13.875,
             "size": 20
           },
           {
             "text": "link",
             "x": 131.09375,
-            "baseline": 90.036,
+            "baseline": 91.0,
             "advance": 31.125,
             "size": 20
           },
           {
             "text": ".",
             "x": 162.21875,
-            "baseline": 90.036,
+            "baseline": 91.0,
             "advance": 5,
             "size": 20
           }
@@ -104,7 +104,7 @@
       "kind": "decoration",
       "start": 117.21875,
       "end": 162.21875,
-      "y": 92.036,
+      "y": 93.0,
       "width": 1,
       "color": "CC5500",
       "decoration_kind": "underline",
@@ -158,14 +158,14 @@
           {
             "text": "Second ",
             "x": 408.78125,
-            "baseline": 185.39999999999998,
+            "baseline": 186.1676,
             "advance": 57.484375,
             "size": 18
           },
           {
             "text": "slide.",
             "x": 466.265625,
-            "baseline": 185.39999999999998,
+            "baseline": 186.1676,
             "advance": 38.484375,
             "size": 18
           }

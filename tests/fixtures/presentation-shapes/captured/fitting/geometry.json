@@ -288,14 +288,14 @@
           {
             "text": "This ",
             "x": 47.16369055210983,
-            "baseline": 50.45886094067262,
+            "baseline": 51.32466094067262,
             "advance": 41.173,
             "size": 19
           },
           {
             "text": "text",
             "x": 88.33669055210983,
-            "baseline": 50.45886094067262,
+            "baseline": 51.32466094067262,
             "advance": 30.628,
             "size": 19
           }
@@ -319,14 +319,14 @@
           {
             "text": "shrinks ",
             "x": 47.16369055210983,
-            "baseline": 73.32726094067263,
+            "baseline": 74.32466094067263,
             "advance": 65.455,
             "size": 19
           },
           {
             "text": "into",
             "x": 112.61869055210983,
-            "baseline": 73.32726094067263,
+            "baseline": 74.32466094067263,
             "advance": 30.628,
             "size": 19
           }
@@ -350,14 +350,14 @@
           {
             "text": "the ",
             "x": 47.16369055210983,
-            "baseline": 96.19566094067261,
+            "baseline": 96.32466094067263,
             "advance": 31.692,
             "size": 19
           },
           {
             "text": "ellipse.",
             "x": 78.85569055210982,
-            "baseline": 96.19566094067261,
+            "baseline": 96.32466094067263,
             "advance": 59.128,
             "size": 19
           }
@@ -536,28 +536,28 @@
           {
             "text": "This ",
             "x": 223.417118341,
-            "baseline": 38.659518340999995,
+            "baseline": 39.427118340999996,
             "advance": 39.006,
             "size": 18
           },
           {
             "text": "text ",
             "x": 262.42311834099996,
-            "baseline": 38.659518340999995,
+            "baseline": 39.427118340999996,
             "advance": 34.02,
             "size": 18
           },
           {
             "text": "grows ",
             "x": 296.443118341,
-            "baseline": 38.659518340999995,
+            "baseline": 39.427118340999996,
             "advance": 53.01,
             "size": 18
           },
           {
             "text": "the",
             "x": 349.453118341,
-            "baseline": 38.659518340999995,
+            "baseline": 39.427118340999996,
             "advance": 25.02,
             "size": 18
           }
@@ -581,21 +581,21 @@
           {
             "text": "text ",
             "x": 223.417118341,
-            "baseline": 60.324318340999994,
+            "baseline": 60.427118341,
             "advance": 34.02,
             "size": 18
           },
           {
             "text": "area ",
             "x": 257.437118341,
-            "baseline": 60.324318340999994,
+            "baseline": 60.427118341,
             "advance": 41.022,
             "size": 18
           },
           {
             "text": "over",
             "x": 298.459118341,
-            "baseline": 60.324318340999994,
+            "baseline": 60.427118341,
             "advance": 35.01,
             "size": 18
           }
@@ -619,21 +619,21 @@
           {
             "text": "several ",
             "x": 223.417118341,
-            "baseline": 81.989118341,
+            "baseline": 82.427118341,
             "advance": 63.018,
             "size": 18
           },
           {
             "text": "lines ",
             "x": 286.435118341,
-            "baseline": 81.989118341,
+            "baseline": 82.427118341,
             "advance": 42.012,
             "size": 18
           },
           {
             "text": "and",
             "x": 328.44711834099996,
-            "baseline": 81.989118341,
+            "baseline": 82.427118341,
             "advance": 30.024,
             "size": 18
           }
@@ -657,14 +657,14 @@
           {
             "text": "preserves ",
             "x": 223.417118341,
-            "baseline": 103.653918341,
+            "baseline": 104.427118341,
             "advance": 84.024,
             "size": 18
           },
           {
             "text": "the",
             "x": 307.441118341,
-            "baseline": 103.653918341,
+            "baseline": 104.427118341,
             "advance": 25.02,
             "size": 18
           }
@@ -688,14 +688,14 @@
           {
             "text": "native ",
             "x": 223.417118341,
-            "baseline": 125.318718341,
+            "baseline": 125.427118341,
             "advance": 53.028,
             "size": 18
           },
           {
             "text": "shape",
             "x": 276.445118341,
-            "baseline": 125.318718341,
+            "baseline": 125.427118341,
             "advance": 49.032,
             "size": 18
           }
@@ -719,7 +719,7 @@
           {
             "text": "outline.",
             "x": 223.417118341,
-            "baseline": 146.98351834099998,
+            "baseline": 147.42711834099998,
             "advance": 58.032,
             "size": 18
           }
@@ -770,21 +770,21 @@
           {
             "text": "This ",
             "x": 420,
-            "baseline": 36.93599999999999,
+            "baseline": 37.9,
             "advance": 43.34,
             "size": 20
           },
           {
             "text": "text ",
             "x": 463.34000000000003,
-            "baseline": 36.93599999999999,
+            "baseline": 37.9,
             "advance": 37.8,
             "size": 20
           },
           {
             "text": "clips",
             "x": 501.14,
-            "baseline": 36.93599999999999,
+            "baseline": 37.9,
             "advance": 40,
             "size": 20
           }
@@ -808,21 +808,21 @@
           {
             "text": "inside ",
             "x": 420,
-            "baseline": 61.007999999999996,
+            "baseline": 61.9,
             "advance": 57.8,
             "size": 20
           },
           {
             "text": "its ",
             "x": 477.8,
-            "baseline": 61.007999999999996,
+            "baseline": 61.9,
             "advance": 25.56,
             "size": 20
           },
           {
             "text": "original",
             "x": 503.36,
-            "baseline": 61.007999999999996,
+            "baseline": 61.9,
             "advance": 64.46,
             "size": 20
           }
@@ -846,21 +846,21 @@
           {
             "text": "rectangle ",
             "x": 420,
-            "baseline": 85.08,
+            "baseline": 85.9,
             "advance": 87.82,
             "size": 20
           },
           {
             "text": "at ",
             "x": 507.82,
-            "baseline": 85.08,
+            "baseline": 85.9,
             "advance": 22.24,
             "size": 20
           },
           {
             "text": "the",
             "x": 530.06,
-            "baseline": 85.08,
+            "baseline": 85.9,
             "advance": 27.8,
             "size": 20
           }
@@ -884,7 +884,7 @@
           {
             "text": "bottom.",
             "x": 420,
-            "baseline": 109.152,
+            "baseline": 109.9,
             "advance": 66.7,
             "size": 20
           }
@@ -935,35 +935,35 @@
           {
             "text": "Bold",
             "x": 20,
-            "baseline": 233.5488,
+            "baseline": 234.12,
             "advance": 35.552,
             "size": 16
           },
           {
             "text": " ",
             "x": 55.552,
-            "baseline": 233.5488,
+            "baseline": 234.12,
             "advance": 4.448,
             "size": 16
           },
           {
             "text": "and ",
             "x": 60,
-            "baseline": 233.5488,
+            "baseline": 234.12,
             "advance": 31.136,
             "size": 16
           },
           {
             "text": "linked",
             "x": 91.136,
-            "baseline": 233.5488,
+            "baseline": 234.12,
             "advance": 41.792,
             "size": 16
           },
           {
             "text": ".",
             "x": 132.928,
-            "baseline": 233.5488,
+            "baseline": 234.12,
             "advance": 4.448,
             "size": 16
           }
@@ -980,7 +980,7 @@
       "kind": "decoration",
       "start": 91.136,
       "end": 132.928,
-      "y": 235.1488,
+      "y": 235.72,
       "width": 0.8,
       "color": "2563EB",
       "decoration_kind": "underline",
@@ -1002,14 +1002,14 @@
           {
             "text": "\u2022",
             "x": 33.5,
-            "baseline": 255.8064,
+            "baseline": 256.12,
             "advance": 5.6,
             "size": 16
           },
           {
             "text": "First",
             "x": 47,
-            "baseline": 255.8064,
+            "baseline": 256.12,
             "advance": 31.104,
             "size": 16
           }
@@ -1033,14 +1033,14 @@
           {
             "text": "\u2022",
             "x": 33.5,
-            "baseline": 278.064,
+            "baseline": 278.12,
             "advance": 5.6,
             "size": 16
           },
           {
             "text": "Second",
             "x": 47,
-            "baseline": 278.064,
+            "baseline": 278.12,
             "advance": 54.256,
             "size": 16
           }
@@ -1099,14 +1099,14 @@
           {
             "text": "Bottom ",
             "x": 472.494,
-            "baseline": 325.03360000000004,
+            "baseline": 325.6048,
             "advance": 55.136,
             "size": 16
           },
           {
             "text": "right",
             "x": 527.63,
-            "baseline": 325.03360000000004,
+            "baseline": 325.6048,
             "advance": 31.12,
             "size": 16
           }
@@ -1123,7 +1123,7 @@
       "kind": "rectangle",
       "bounds": [
         478.718,
-        329.86240000000004,
+        329.7248,
         80.032,
         19.2576
       ],
@@ -1146,7 +1146,7 @@
           {
             "text": "Highlighted",
             "x": 478.718,
-            "baseline": 344.29120000000006,
+            "baseline": 344.6048,
             "advance": 80.032,
             "size": 16
           }
@@ -1163,7 +1163,7 @@
       "kind": "decoration",
       "start": 478.718,
       "end": 558.75,
-      "y": 345.8912,
+      "y": 346.20480000000003,
       "width": 0.8,
       "color": "111827",
       "decoration_kind": "underline",

@@ -7,27 +7,27 @@
           "fragments": [
             {
               "advance": 35.464,
-              "baseline": 58.91277,
+              "baseline": 58.67,
               "size": 11,
               "text": "Before ",
               "x": 24
             },
             {
               "advance": 18.348,
-              "baseline": 58.91277,
+              "baseline": 58.67,
               "size": 11,
               "text": "the ",
               "x": 59.464
             },
             {
               "advance": 44.011,
-              "baseline": 58.91277,
+              "baseline": 58.67,
               "size": 11,
               "text": "columns.",
               "x": 77.812
             }
           ],
-          "height": 15.22554,
+          "height": 15.179999999999998,
           "top": 48,
           "width": 97.823,
           "x": 24
@@ -36,28 +36,28 @@
           "fragments": [
             {
               "advance": 24.442,
-              "baseline": 82.13831,
+              "baseline": 81.85000000000001,
               "size": 11,
               "text": "First ",
               "x": 24
             },
             {
               "advance": 38.511,
-              "baseline": 82.13831,
+              "baseline": 81.85000000000001,
               "size": 11,
               "text": "column ",
               "x": 48.442
             },
             {
               "advance": 20.79,
-              "baseline": 82.13831,
+              "baseline": 81.85000000000001,
               "size": 11,
               "text": "text.",
               "x": 86.953
             }
           ],
-          "height": 15.22554,
-          "top": 71.22554,
+          "height": 15.179999999999998,
+          "top": 71.18,
           "width": 83.743,
           "x": 24
         },
@@ -65,28 +65,28 @@
           "fragments": [
             {
               "advance": 40.359,
-              "baseline": 82.13831,
+              "baseline": 81.85000000000001,
               "size": 11,
               "text": "Second ",
               "x": 189
             },
             {
               "advance": 38.511,
-              "baseline": 82.13831,
+              "baseline": 81.85000000000001,
               "size": 11,
               "text": "column ",
               "x": 229.359
             },
             {
               "advance": 20.79,
-              "baseline": 82.13831,
+              "baseline": 81.85000000000001,
               "size": 11,
               "text": "text.",
               "x": 267.87
             }
           ],
-          "height": 15.22554,
-          "top": 71.22554,
+          "height": 15.179999999999998,
+          "top": 71.18,
           "width": 99.66,
           "x": 189
         },
@@ -94,28 +94,28 @@
           "fragments": [
             {
               "advance": 26.29,
-              "baseline": 105.36385,
+              "baseline": 105.03,
               "size": 11,
               "text": "After ",
               "x": 24
             },
             {
               "advance": 18.348,
-              "baseline": 105.36385,
+              "baseline": 105.03,
               "size": 11,
               "text": "the ",
               "x": 50.29
             },
             {
               "advance": 44.011,
-              "baseline": 105.36385,
+              "baseline": 105.03,
               "size": 11,
               "text": "columns.",
               "x": 68.638
             }
           ],
-          "height": 15.22554,
-          "top": 94.45108,
+          "height": 15.179999999999998,
+          "top": 94.36,
           "width": 88.649,
           "x": 24
         }
@@ -126,11 +126,11 @@
           "dash": [],
           "end": [
             180,
-            86.45108
+            86.36
           ],
           "start": [
             180,
-            71.22554
+            71.18
           ],
           "width": 1
         }

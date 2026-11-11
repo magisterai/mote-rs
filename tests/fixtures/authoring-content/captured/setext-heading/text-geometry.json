@@ -6,15 +6,15 @@
       {
         "x": 72,
         "top": 72,
-        "height": 19.2576,
+        "height": 19.2,
         "width": 63.12,
-        "baseline": 86.4288,
+        "baseline": 87.52,
         "fragments": [
           {
             "text": "Heading",
             "x": 72,
-            "baseline": 86.4288,
-            "top": 74.9408,
+            "baseline": 87.52,
+            "top": 76.032,
             "width": 63.12,
             "height": 14.799999999999999,
             "advance": 63.12,
@@ -27,16 +27,16 @@
       },
       {
         "x": 72,
-        "top": 99.2576,
-        "height": 15.225539999999999,
+        "top": 99.2,
+        "height": 15.179999999999998,
         "width": 28.127,
-        "baseline": 110.17036999999999,
+        "baseline": 109.87,
         "fragments": [
           {
             "text": "Body.",
             "x": 72,
-            "baseline": 110.17036999999999,
-            "top": 102.27237,
+            "baseline": 109.87,
+            "top": 101.97200000000001,
             "width": 28.127,
             "height": 10.175,
             "advance": 28.127,

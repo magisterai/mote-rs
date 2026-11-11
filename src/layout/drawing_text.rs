@@ -230,7 +230,12 @@ pub(crate) fn fit_with_frame(
         clip[3] += overflow;
     }
     page.operations.push(PageOperation::PushClip(clip));
+    let origin = top;
     for (paragraph, original) in planned.into_iter().zip(paragraphs) {
+        // PowerPoint sets every baseline a whole number of points below the
+        // top of the text.
+        let whole_points =
+            paragraph.style.whole_point_baseline && !paragraph.style.word_exact_baseline;
         top += paragraph.style.spacing_before;
         if let Some(checked) = original.task
             && let Some(line) = paragraph.lines.first()
@@ -253,6 +258,10 @@ pub(crate) fn fit_with_frame(
         for mut line in paragraph.lines {
             let height = line.height;
             line.translate(content[0], top);
+            if whole_points {
+                let offset = line.baseline - origin;
+                line.translate(0.0, offset.round() - offset);
+            }
             page.push_line(PlacedTextLine { top, line });
             top += height;
         }

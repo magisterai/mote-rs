@@ -7,35 +7,35 @@
           "fragments": [
             {
               "advance": 40.964,
-              "baseline": 53.91277,
+              "baseline": 51.17,
               "size": 11,
               "text": "Caption ",
               "x": 30
             },
             {
               "advance": 11.616,
-              "baseline": 53.91277,
+              "baseline": 51.17,
               "size": 11,
               "text": "in ",
               "x": 70.964
             },
             {
               "advance": 9.174,
-              "baseline": 53.91277,
+              "baseline": 51.17,
               "size": 11,
               "text": "a ",
               "x": 82.58
             },
             {
               "advance": 16.5,
-              "baseline": 53.91277,
+              "baseline": 51.17,
               "size": 11,
               "text": "cell",
               "x": 91.75399999999999
             }
           ],
-          "height": 15.225539999999999,
-          "top": 43,
+          "height": 15.179999999999998,
+          "top": 40.5,
           "width": 78.25399999999999,
           "x": 30
         },
@@ -43,21 +43,21 @@
           "fragments": [
             {
               "advance": 37.906,
-              "baseline": 82.63830999999999,
+              "baseline": 78.85000000000001,
               "size": 11,
               "text": "Nested ",
               "x": 24
             },
             {
               "advance": 23.848,
-              "baseline": 82.63830999999999,
+              "baseline": 78.85000000000001,
               "size": 11,
               "text": "body",
               "x": 61.906
             }
           ],
-          "height": 15.225539999999999,
-          "top": 71.72554,
+          "height": 15.179999999999998,
+          "top": 68.18,
           "width": 61.754,
           "x": 24
         },
@@ -65,35 +65,35 @@
           "fragments": [
             {
               "advance": 36.674,
-              "baseline": 105.86384999999999,
+              "baseline": 102.03,
               "size": 11,
               "text": "Figure ",
               "x": 24
             },
             {
               "advance": 12.232,
-              "baseline": 105.86384999999999,
+              "baseline": 102.03,
               "size": 11,
               "text": "1. ",
               "x": 60.674
             },
             {
               "advance": 37.906,
-              "baseline": 105.86384999999999,
+              "baseline": 102.03,
               "size": 11,
               "text": "Nested ",
               "x": 72.906
             },
             {
               "advance": 35.464,
-              "baseline": 105.86384999999999,
+              "baseline": 102.03,
               "size": 11,
               "text": "caption",
               "x": 110.812
             }
           ],
-          "height": 15.225539999999999,
-          "top": 94.95107999999999,
+          "height": 15.179999999999998,
+          "top": 91.36,
           "width": 122.276,
           "x": 24
         },
@@ -101,35 +101,35 @@
           "fragments": [
             {
               "advance": 36.674,
-              "baseline": 129.08938999999998,
+              "baseline": 125.21,
               "size": 11,
               "text": "Figure ",
               "x": 24
             },
             {
               "advance": 12.232,
-              "baseline": 129.08938999999998,
+              "baseline": 125.21,
               "size": 11,
               "text": "2. ",
               "x": 60.674
             },
             {
               "advance": 30.569,
-              "baseline": 129.08938999999998,
+              "baseline": 125.21,
               "size": 11,
               "text": "Outer ",
               "x": 72.906
             },
             {
               "advance": 35.464,
-              "baseline": 129.08938999999998,
+              "baseline": 125.21,
               "size": 11,
               "text": "caption",
               "x": 103.475
             }
           ],
-          "height": 15.225539999999999,
-          "top": 118.17661999999999,
+          "height": 15.179999999999998,
+          "top": 114.53999999999999,
           "width": 114.939,
           "x": 24
         },
@@ -137,56 +137,56 @@
           "fragments": [
             {
               "advance": 34.232,
-              "baseline": 152.31492999999998,
+              "baseline": 148.39,
               "size": 11,
               "text": "Figure ",
               "x": 24
             },
             {
               "advance": 6.116,
-              "baseline": 152.31492999999998,
+              "baseline": 148.39,
               "size": 11,
               "text": "2",
               "x": 58.232
             },
             {
               "advance": 3.058,
-              "baseline": 152.31492999999998,
+              "baseline": 148.39,
               "size": 11,
               "text": " ",
               "x": 64.348
             },
             {
               "advance": 24.464,
-              "baseline": 152.31492999999998,
+              "baseline": 148.39,
               "size": 11,
               "text": "then ",
               "x": 67.406
             },
             {
               "advance": 34.232,
-              "baseline": 152.31492999999998,
+              "baseline": 148.39,
               "size": 11,
               "text": "Figure ",
               "x": 91.87
             },
             {
               "advance": 6.116,
-              "baseline": 152.31492999999998,
+              "baseline": 148.39,
               "size": 11,
               "text": "3",
               "x": 126.102
             },
             {
               "advance": 3.058,
-              "baseline": 152.31492999999998,
+              "baseline": 148.39,
               "size": 11,
               "text": ".",
               "x": 132.21800000000002
             }
           ],
-          "height": 15.225539999999999,
-          "top": 141.40215999999998,
+          "height": 15.179999999999998,
+          "top": 137.72,
           "width": 111.27600000000001,
           "x": 24
         },
@@ -194,56 +194,56 @@
           "fragments": [
             {
               "advance": 16.511,
-              "baseline": 175.54046999999997,
+              "baseline": 171.57,
               "size": 11,
               "text": "An ",
               "x": 24
             },
             {
               "advance": 33.011,
-              "baseline": 175.54046999999997,
+              "baseline": 171.57,
               "size": 11,
               "text": "empty ",
               "x": 40.510999999999996
             },
             {
               "advance": 38.522,
-              "baseline": 175.54046999999997,
+              "baseline": 171.57,
               "size": 11,
               "text": "caption ",
               "x": 73.522
             },
             {
               "advance": 15.29,
-              "baseline": 175.54046999999997,
+              "baseline": 171.57,
               "size": 11,
               "text": "on ",
               "x": 112.04400000000001
             },
             {
               "advance": 27.522,
-              "baseline": 175.54046999999997,
+              "baseline": 171.57,
               "size": 11,
               "text": "page ",
               "x": 127.334
             },
             {
               "advance": 6.116,
-              "baseline": 175.54046999999997,
+              "baseline": 171.57,
               "size": 11,
               "text": "1",
               "x": 154.856
             },
             {
               "advance": 3.058,
-              "baseline": 175.54046999999997,
+              "baseline": 171.57,
               "size": 11,
               "text": ".",
               "x": 160.97199999999998
             }
           ],
-          "height": 15.225539999999999,
-          "top": 164.62769999999998,
+          "height": 15.179999999999998,
+          "top": 160.9,
           "width": 140.02999999999997,
           "x": 24
         }
@@ -254,11 +254,11 @@
           "dash": [],
           "end": [
             115,
-            39
+            36.5
           ],
           "start": [
             24,
-            39
+            36.5
           ],
           "width": 0.5
         },
@@ -267,11 +267,11 @@
           "dash": [],
           "end": [
             115,
-            70.726
+            68.18
           ],
           "start": [
             24,
-            70.726
+            68.18
           ],
           "width": 0.5
         },
@@ -280,11 +280,11 @@
           "dash": [],
           "end": [
             24,
-            70.72554
+            68.18
           ],
           "start": [
             24,
-            39
+            36.5
           ],
           "width": 0.5
         },
@@ -293,11 +293,11 @@
           "dash": [],
           "end": [
             115,
-            70.72554
+            68.18
           ],
           "start": [
             115,
-            39
+            36.5
           ],
           "width": 0.5
         }

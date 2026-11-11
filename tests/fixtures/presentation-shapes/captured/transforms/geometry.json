@@ -53,7 +53,7 @@
           {
             "text": "Turned",
             "x": 60,
-            "baseline": 91.8552,
+            "baseline": 92.23,
             "advance": 44.352,
             "size": 14
           }
@@ -5469,14 +5469,14 @@
           {
             "text": "Cloud ",
             "x": 250.9211111111111,
-            "baseline": 59.31403703703704,
+            "baseline": 59.78703703703704,
             "advance": 43.35,
             "size": 15
           },
           {
             "text": "text",
             "x": 294.2711111111111,
-            "baseline": 59.31403703703704,
+            "baseline": 59.78703703703704,
             "advance": 24.18,
             "size": 15
           }
@@ -5826,14 +5826,14 @@
           {
             "text": "Sharp ",
             "x": 415.369757393,
-            "baseline": 50.612157393,
+            "baseline": 51.379757393,
             "advance": 53.028,
             "size": 18
           },
           {
             "text": "shadow",
             "x": 468.397757393,
-            "baseline": 50.612157393,
+            "baseline": 51.379757393,
             "advance": 62.028,
             "size": 18
           }
@@ -5890,14 +5890,14 @@
           {
             "text": "Edge ",
             "x": 8,
-            "baseline": 227.8552,
+            "baseline": 228.23,
             "advance": 36.582,
             "size": 14
           },
           {
             "text": "clipping",
             "x": 44.582,
-            "baseline": 227.8552,
+            "baseline": 228.23,
             "advance": 47.46,
             "size": 14
           }
@@ -5955,7 +5955,7 @@
           {
             "text": "Readable",
             "x": 245.415,
-            "baseline": 246.8552,
+            "baseline": 247.23,
             "advance": 59.92,
             "size": 14
           }
@@ -5979,7 +5979,7 @@
           {
             "text": "flips",
             "x": 262.929,
-            "baseline": 263.7056,
+            "baseline": 264.23,
             "advance": 24.892,
             "size": 14
           }

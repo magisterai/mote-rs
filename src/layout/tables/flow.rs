@@ -26,7 +26,7 @@ pub(in crate::layout) fn place(
     if table.rows.is_empty() {
         return Ok(warnings);
     }
-    let leading = pending.max(3.0);
+    let border = table.top_border();
     let previous = (cursor.page_number, cursor.column_index);
     ensure_space(
         cursor,
@@ -34,11 +34,12 @@ pub(in crate::layout) fn place(
         columns,
         geometry,
         boundary,
-        leading + table.rows[0].height,
+        pending + border + table.rows[0].height,
     );
     if previous == (cursor.page_number, cursor.column_index) {
-        cursor.y += leading;
+        cursor.y += pending;
     }
+    cursor.y += border;
     let header_count = table
         .rows
         .iter()
@@ -257,11 +258,6 @@ pub(in crate::layout) fn place(
         start = end;
     }
     collector.append(pages);
-    let before = (cursor.page_number, cursor.column_index);
-    ensure_space(cursor, pages, columns, geometry, boundary, 1.0);
-    if before == (cursor.page_number, cursor.column_index) {
-        cursor.y += 1.0;
-    }
     cursor.body_started = true;
     Ok(warnings)
 }

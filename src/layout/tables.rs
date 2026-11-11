@@ -47,6 +47,16 @@ impl TablePlan {
     pub fn height(&self) -> f64 {
         self.rows.iter().map(|row| row.height).sum()
     }
+    /// Returns the width of the table's top border, which Word sets above the
+    /// first row.
+    pub fn top_border(&self) -> f64 {
+        self.rows.first().map_or(0.0, |row| {
+            row.cells
+                .iter()
+                .map(|cell| cell.borders[0].width)
+                .fold(0.0, f64::max)
+        })
+    }
     pub fn left(&self, left: f64, available: f64) -> f64 {
         left + match self.alignment.as_str() {
             "center" => (available - self.width()) / 2.0,
@@ -236,7 +246,16 @@ pub(super) fn prepare(
             row.height = default_style.line_height + default_margins[0] + default_margins[2];
         }
         match row.authored_height {
-            Some((height, true)) => row.height = height,
+            // Word sets an exact height above the cells' bottom margin and
+            // draws the row's border within it.
+            Some((height, true)) => {
+                row.height = height
+                    + row
+                        .cells
+                        .iter()
+                        .map(|cell| cell.margins[2])
+                        .fold(0.0, f64::max);
+            }
             Some((height, false)) => {
                 // Word holds a minimum height for the content within the
                 // cells' top and bottom margins.

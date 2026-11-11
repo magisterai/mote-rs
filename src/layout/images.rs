@@ -93,7 +93,7 @@ impl ImageBlock {
         })
     }
     pub fn height(&self) -> f64 {
-        self.height + 1.0
+        self.height
     }
     pub fn place(
         &self,

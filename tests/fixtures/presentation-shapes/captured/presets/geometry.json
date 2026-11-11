@@ -54,7 +54,7 @@
           {
             "text": "rectangle",
             "x": 42.6405,
-            "baseline": 93.185,
+            "baseline": 93.4616,
             "advance": 53.469,
             "size": 13
           }
@@ -239,7 +239,7 @@
           {
             "text": "Rounded",
             "x": 159.998,
-            "baseline": 85.3616,
+            "baseline": 85.6382,
             "advance": 52.754,
             "size": 13
           }
@@ -263,7 +263,7 @@
           {
             "text": "rectangle",
             "x": 159.6405,
-            "baseline": 101.0084,
+            "baseline": 101.6382,
             "advance": 53.469,
             "size": 13
           }
@@ -560,7 +560,7 @@
           {
             "text": "ellipse",
             "x": 284.95399999999995,
-            "baseline": 93.185,
+            "baseline": 93.4616,
             "advance": 36.842,
             "size": 13
           }
@@ -613,7 +613,7 @@
           {
             "text": "triangle",
             "x": 399.0615,
-            "baseline": 128.185,
+            "baseline": 128.4616,
             "advance": 42.627,
             "size": 13
           }
@@ -670,7 +670,7 @@
           {
             "text": "diamond",
             "x": 512.4475,
-            "baseline": 93.185,
+            "baseline": 93.4616,
             "advance": 49.855,
             "size": 13
           }
@@ -735,7 +735,7 @@
           {
             "text": "hexagon",
             "x": 44.441,
-            "baseline": 273.185,
+            "baseline": 273.4616,
             "advance": 49.868,
             "size": 13
           }
@@ -800,7 +800,7 @@
           {
             "text": "chevron",
             "x": 163.2545,
-            "baseline": 273.185,
+            "baseline": 273.4616,
             "advance": 46.241,
             "size": 13
           }
@@ -1895,7 +1895,7 @@
           {
             "text": "cloud",
             "x": 284,
-            "baseline": 269.94101851851855,
+            "baseline": 270.2176185185185,
             "advance": 31.07,
             "size": 13
           }
@@ -1952,7 +1952,7 @@
           {
             "text": "parallelogram",
             "x": 381.0045,
-            "baseline": 273.185,
+            "baseline": 273.4616,
             "advance": 78.741,
             "size": 13
           }
@@ -2009,7 +2009,7 @@
           {
             "text": "trapezoid",
             "x": 510.6405,
-            "baseline": 273.185,
+            "baseline": 273.4616,
             "advance": 53.469,
             "size": 13
           }

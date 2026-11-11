@@ -36,21 +36,21 @@
         "fragments": [
           {
             "advance": 63.57,
-            "baseline": 63.446799999999996,
+            "baseline": 64.0,
             "size": 26.0,
             "text": "Data-",
             "x": 50.0
           },
           {
             "advance": 78.026,
-            "baseline": 63.446799999999996,
+            "baseline": 64.0,
             "size": 26.0,
             "text": "driven ",
             "x": 113.57
           },
           {
             "advance": 82.368,
-            "baseline": 63.446799999999996,
+            "baseline": 64.0,
             "size": 26.0,
             "text": "layouts",
             "x": 191.596
@@ -630,14 +630,14 @@
         "fragments": [
           {
             "advance": 29.45,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "size": 10.0,
             "text": "JSON ",
             "x": 43.2
           },
           {
             "advance": 25.57,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "size": 10.0,
             "text": "footer",
             "x": 72.65
@@ -661,7 +661,7 @@
         "fragments": [
           {
             "advance": 5.56,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "size": 10.0,
             "text": "1",
             "x": 671.99

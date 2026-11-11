@@ -31,7 +31,7 @@
           {
             "text": "Preferred",
             "x": 27.2,
-            "baseline": 39.8324,
+            "baseline": 40.6,
             "advance": 75.024,
             "size": 18
           }
@@ -55,7 +55,7 @@
           {
             "text": "Competing",
             "x": 213.86661417322833,
-            "baseline": 39.8324,
+            "baseline": 40.6,
             "advance": 87.03,
             "size": 18
           }
@@ -79,7 +79,7 @@
           {
             "text": "Control",
             "x": 400.53322834645667,
-            "baseline": 39.8324,
+            "baseline": 40.6,
             "advance": 58.014,
             "size": 18
           }
@@ -103,7 +103,7 @@
           {
             "text": "None",
             "x": 27.2,
-            "baseline": 109.83239999999999,
+            "baseline": 110.6,
             "advance": 43.02,
             "size": 18
           }
@@ -127,7 +127,7 @@
           {
             "text": "Visible",
             "x": 213.86661417322833,
-            "baseline": 109.83239999999999,
+            "baseline": 110.6,
             "advance": 53.01,
             "size": 18
           }
@@ -151,7 +151,7 @@
           {
             "text": "Dots",
             "x": 400.53322834645667,
-            "baseline": 109.83239999999999,
+            "baseline": 110.6,
             "advance": 37.008,
             "size": 18
           }
@@ -354,7 +354,7 @@
           {
             "text": "Borderless",
             "x": 27.2,
-            "baseline": 229.8324,
+            "baseline": 230.6,
             "advance": 86.022,
             "size": 18
           }
@@ -378,7 +378,7 @@
           {
             "text": "Control",
             "x": 157.2,
-            "baseline": 229.8324,
+            "baseline": 230.6,
             "advance": 58.014,
             "size": 18
           }
@@ -402,7 +402,7 @@
           {
             "text": "Dashed",
             "x": 327.2,
-            "baseline": 229.8324,
+            "baseline": 230.6,
             "advance": 62.028,
             "size": 18
           }
@@ -426,14 +426,14 @@
           {
             "text": "Half ",
             "x": 457.2,
-            "baseline": 229.8324,
+            "baseline": 230.6,
             "advance": 37.008,
             "size": 18
           },
           {
             "text": "alpha",
             "x": 494.20799999999997,
-            "baseline": 229.8324,
+            "baseline": 230.6,
             "advance": 44.028,
             "size": 18
           }

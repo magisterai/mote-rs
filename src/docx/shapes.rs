@@ -76,7 +76,20 @@ fn text_box(
         return Ok(String::new());
     }
     let text = drawings::text_properties(&element.attributes);
-    let paragraph = drawings::paragraph_properties(&text);
+    // Native layout sets the text of a shape at single spacing unless a style
+    // states a line spacing, whereas Word would otherwise apply the line
+    // spacing of the document defaults.
+    let normal = crate::formatting::StyleResolver::new(styles.document)
+        .resolve_style("Normal")
+        .paragraph;
+    let single = !normal.contains_key("line_spacing")
+        && !object(&normal, "spacing").is_some_and(|spacing| {
+            spacing.contains_key("line") || spacing.contains_key("line_spacing")
+        });
+    let mut paragraph = drawings::paragraph_properties(&text);
+    if single && !paragraph.contains_key("style") {
+        super::paragraph_properties::fit_drawing(&mut paragraph);
+    }
     let previous = state.resources.active_text.clone();
     state.resources.active_text.properties.extend(
         text.into_iter()
@@ -107,6 +120,12 @@ fn text_box(
                         .attributes
                         .entry(name.clone())
                         .or_insert_with(|| value.clone());
+                }
+                if single
+                    && !element.attributes.contains_key("style")
+                    && element.kind != ElementKind::Heading
+                {
+                    super::paragraph_properties::fit_drawing(&mut element.attributes);
                 }
             }
         }

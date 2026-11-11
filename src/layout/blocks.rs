@@ -438,8 +438,9 @@ impl BlockBuilder<'_, '_, '_> {
                     let size = style.text.measurement.size_points;
                     checkbox.fixed_advance = Some(if size > 0.0 { size } else { 11.0 } + space);
                     checkbox.preserve_space = true;
-                    checkbox.style.word_line_height =
-                        super::styles::builtin_word_line_height("MS Gothic");
+                    let metrics = super::styles::builtin_word_line_metrics("MS Gothic");
+                    checkbox.style.word_line_height = metrics.map(|(height, _)| height);
+                    checkbox.style.word_line_descent = metrics.map(|(_, descent)| descent);
                     runs.insert(0, checkbox);
                 }
                 let kind = if task {

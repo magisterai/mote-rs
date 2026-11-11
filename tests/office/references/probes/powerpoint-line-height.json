@@ -1,0 +1,490 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 23.04,
+          "text": "Aptos 12 x1.0 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 34.32,
+          "text": "Aptos 18 x1.0 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 36.96,
+          "text": "Aptos 12 x1.0 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 52.08,
+          "text": "Aptos 12 x1.0 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 52.56,
+          "text": "Aptos 32 x1.0 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 55.2,
+          "text": "Aptos 18 x1.0 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 77.28,
+          "text": "Aptos 18 x1.0 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 90.48,
+          "text": "Aptos 32 x1.0 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 128.64,
+          "text": "Aptos 32 x1.0 c",
+          "x": 640.0
+        },
+        {
+          "baseline": 194.88,
+          "text": "Arial 12 x1.0 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 206.4,
+          "text": "Arial 18 x1.0 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 210.0,
+          "text": "Arial 12 x1.0 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 223.92,
+          "text": "Arial 12 x1.0 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 224.64,
+          "text": "Arial 32 x1.0 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 227.28,
+          "text": "Arial 18 x1.0 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 249.36,
+          "text": "Arial 18 x1.0 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 262.56,
+          "text": "Arial 32 x1.0 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 301.68,
+          "text": "Arial 32 x1.0 c",
+          "x": 640.0
+        },
+        {
+          "baseline": 366.96,
+          "text": "Helvetica 12 x1.0 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 378.24,
+          "text": "Helvetica 18 x1.0 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 380.88,
+          "text": "Helvetica 12 x1.0 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 396.0,
+          "text": "Helvetica 12 x1.0 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 396.48,
+          "text": "Helvetica 32 x1.0 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 399.36,
+          "text": "Helvetica 18 x1.0 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 421.2,
+          "text": "Helvetica 18 x1.0 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 434.64,
+          "text": "Helvetica 32 x1.0 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 472.56,
+          "text": "Helvetica 32 x1.0 c",
+          "x": 640.0
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 23.04,
+          "text": "Times 12 x1.0 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 34.32,
+          "text": "Times 18 x1.0 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 37.92,
+          "text": "Times 12 x1.0 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 52.08,
+          "text": "Times 12 x1.0 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 52.56,
+          "text": "Times 32 x1.0 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 55.2,
+          "text": "Times 18 x1.0 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 77.28,
+          "text": "Times 18 x1.0 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 90.48,
+          "text": "Times 32 x1.0 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 129.6,
+          "text": "Times 32 x1.0 c",
+          "x": 640.0
+        },
+        {
+          "baseline": 194.88,
+          "text": "Georgia 12 x1.0 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 206.4,
+          "text": "Georgia 18 x1.0 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 210.0,
+          "text": "Georgia 12 x1.0 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 223.92,
+          "text": "Georgia 12 x1.0 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 224.64,
+          "text": "Georgia 32 x1.0 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 227.28,
+          "text": "Georgia 18 x1.0 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 249.36,
+          "text": "Georgia 18 x1.0 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 262.56,
+          "text": "Georgia 32 x1.0 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 301.68,
+          "text": "Georgia 32 x1.0 c",
+          "x": 640.0
+        },
+        {
+          "baseline": 366.96,
+          "text": "Courier 12 x1.0 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 377.28,
+          "text": "Courier 18 x1.0 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 380.88,
+          "text": "Courier 12 x1.0 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 396.0,
+          "text": "Courier 12 x1.0 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 394.56,
+          "text": "Courier 32 x1.0",
+          "x": 640.0
+        },
+        {
+          "baseline": 399.36,
+          "text": "Courier 18 x1.0 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 420.24,
+          "text": "Courier 18 x1.0 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 433.68,
+          "text": "a",
+          "x": 640.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "Courier 32 x1.0",
+          "x": 640.0
+        },
+        {
+          "baseline": 510.48,
+          "text": "b",
+          "x": 640.0
+        },
+        {
+          "baseline": 548.64,
+          "text": "Courier 32 x1.0",
+          "x": 640.0
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 28.08,
+          "text": "Aptos 12 x1.5 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 41.28,
+          "text": "Aptos 18 x1.5 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 49.92,
+          "text": "Aptos 12 x1.5 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 65.52,
+          "text": "Aptos 32 x1.5 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 71.04,
+          "text": "Aptos 12 x1.5 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 74.4,
+          "text": "Aptos 18 x1.5 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 106.32,
+          "text": "Aptos 18 x1.5 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 123.6,
+          "text": "Aptos 32 x1.5 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 180.48,
+          "text": "Aptos 32 x1.5 c",
+          "x": 640.0
+        },
+        {
+          "baseline": 192.96,
+          "text": "Aptos 12 x0.8 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 202.32,
+          "text": "Aptos 18 x0.8 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 204.0,
+          "text": "Aptos 12 x0.8 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 216.0,
+          "text": "Aptos 12 x0.8 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 217.68,
+          "text": "Aptos 32 x0.8 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 219.36,
+          "text": "Aptos 18 x0.8 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 237.36,
+          "text": "Aptos 18 x0.8 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 248.64,
+          "text": "Aptos 32 x0.8 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 278.64,
+          "text": "Aptos 32 x0.8 c",
+          "x": 640.0
+        },
+        {
+          "baseline": 372.0,
+          "text": "Arial 12 x1.5 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 385.2,
+          "text": "Arial 18 x1.5 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 394.08,
+          "text": "Arial 12 x1.5 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 409.68,
+          "text": "Arial 32 x1.5 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "Arial 12 x1.5 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 418.32,
+          "text": "Arial 18 x1.5 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 450.24,
+          "text": "Arial 18 x1.5 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 467.52,
+          "text": "Arial 32 x1.5 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 524.64,
+          "text": "Arial 32 x1.5 c",
+          "x": 640.0
+        }
+      ],
+      "width": 960.0
+    },
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 20.88,
+          "text": "Arial 12 x0.8 a",
+          "x": 20.0
+        },
+        {
+          "baseline": 30.24,
+          "text": "Arial 18 x0.8 a",
+          "x": 330.0
+        },
+        {
+          "baseline": 31.92,
+          "text": "Arial 12 x0.8 b",
+          "x": 20.0
+        },
+        {
+          "baseline": 43.92,
+          "text": "Arial 12 x0.8 c",
+          "x": 20.0
+        },
+        {
+          "baseline": 45.6,
+          "text": "Arial 32 x0.8 a",
+          "x": 640.0
+        },
+        {
+          "baseline": 47.28,
+          "text": "Arial 18 x0.8 b",
+          "x": 330.0
+        },
+        {
+          "baseline": 65.28,
+          "text": "Arial 18 x0.8 c",
+          "x": 330.0
+        },
+        {
+          "baseline": 76.56,
+          "text": "Arial 32 x0.8 b",
+          "x": 640.0
+        },
+        {
+          "baseline": 106.56,
+          "text": "Arial 32 x0.8 c",
+          "x": 640.0
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "713f2cd8b94ba4c48a5307988106873f66dabf103fbb79a6d65d60bc35b7cd5a"
+}

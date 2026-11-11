@@ -6,15 +6,15 @@
       {
         "x": 108,
         "top": 72,
-        "height": 15.225539999999999,
+        "height": 15.179999999999998,
         "width": 78.276,
-        "baseline": 82.91277,
+        "baseline": 82.67,
         "fragments": [
           {
             "text": "Quoted ",
             "x": 108,
-            "baseline": 82.91277,
-            "top": 75.01477,
+            "baseline": 82.67,
+            "top": 74.77199999999999,
             "width": 39.138,
             "height": 10.175,
             "advance": 39.138,
@@ -26,8 +26,8 @@
           {
             "text": "content.",
             "x": 147.138,
-            "baseline": 82.91277,
-            "top": 75.01477,
+            "baseline": 82.67,
+            "top": 74.77199999999999,
             "width": 39.138,
             "height": 10.175,
             "advance": 39.138,

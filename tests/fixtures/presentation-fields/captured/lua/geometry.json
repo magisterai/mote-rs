@@ -21,14 +21,14 @@
           {
             "text": "Generated ",
             "x": 40,
-            "baseline": 46.2324,
+            "baseline": 47.0,
             "advance": 90.054,
             "size": 18
           },
           {
             "text": "content",
             "x": 130.054,
-            "baseline": 46.2324,
+            "baseline": 47.0,
             "advance": 59.04,
             "size": 18
           }
@@ -52,14 +52,14 @@
           {
             "text": "Lua ",
             "x": 43.2,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "advance": 19.46,
             "size": 10
           },
           {
             "text": "footer",
             "x": 62.660000000000004,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "advance": 25.57,
             "size": 10
           }
@@ -83,7 +83,7 @@
           {
             "text": "1",
             "x": 551.99,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "advance": 5.56,
             "size": 10
           }

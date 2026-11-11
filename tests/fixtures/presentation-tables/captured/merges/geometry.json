@@ -31,14 +31,14 @@
           {
             "text": "Merged ",
             "x": 29,
-            "baseline": 50.2324,
+            "baseline": 51.0,
             "advance": 66.024,
             "size": 18
           },
           {
             "text": "heading",
             "x": 95.024,
-            "baseline": 50.2324,
+            "baseline": 51.0,
             "advance": 64.044,
             "size": 18
           }
@@ -62,7 +62,7 @@
           {
             "text": "Third",
             "x": 402.3332283464567,
-            "baseline": 50.2324,
+            "baseline": 51.0,
             "advance": 41.004,
             "size": 18
           }
@@ -96,14 +96,14 @@
           {
             "text": "Two ",
             "x": 29,
-            "baseline": 170.39999999999998,
+            "baseline": 171.1676,
             "advance": 39.006,
             "size": 18
           },
           {
             "text": "rows",
             "x": 68.006,
-            "baseline": 170.39999999999998,
+            "baseline": 171.1676,
             "advance": 37.998,
             "size": 18
           }
@@ -127,7 +127,7 @@
           {
             "text": "Middle",
             "x": 215.66661417322834,
-            "baseline": 120.2324,
+            "baseline": 121.0,
             "advance": 53.01,
             "size": 18
           }
@@ -151,7 +151,7 @@
           {
             "text": "Right",
             "x": 402.3332283464567,
-            "baseline": 120.2324,
+            "baseline": 121.0,
             "advance": 42.012,
             "size": 18
           }
@@ -175,14 +175,14 @@
           {
             "text": "col ",
             "x": 215.66661417322834,
-            "baseline": 190.23239999999998,
+            "baseline": 191.0,
             "advance": 28.008,
             "size": 18
           },
           {
             "text": "2",
             "x": 243.67461417322835,
-            "baseline": 190.23239999999998,
+            "baseline": 191.0,
             "advance": 10.008,
             "size": 18
           }
@@ -206,14 +206,14 @@
           {
             "text": "col ",
             "x": 402.3332283464567,
-            "baseline": 190.23239999999998,
+            "baseline": 191.0,
             "advance": 28.008,
             "size": 18
           },
           {
             "text": "3",
             "x": 430.34122834645666,
-            "baseline": 190.23239999999998,
+            "baseline": 191.0,
             "advance": 10.008,
             "size": 18
           }
@@ -237,14 +237,14 @@
           {
             "text": "Uneven ",
             "x": 29,
-            "baseline": 260.2324,
+            "baseline": 261.0,
             "advance": 67.032,
             "size": 18
           },
           {
             "text": "row",
             "x": 96.032,
-            "baseline": 260.2324,
+            "baseline": 261.0,
             "advance": 28.998,
             "size": 18
           }

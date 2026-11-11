@@ -21,14 +21,14 @@
           {
             "text": "Automatic ",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 186.012,
             "size": 36
           },
           {
             "text": "title",
             "x": 236.412,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 64.008,
             "size": 36
           }
@@ -52,77 +52,77 @@
           {
             "text": "A ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 17.01,
             "size": 18
           },
           {
             "text": "paragraph ",
             "x": 67.41,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 87.048,
             "size": 18
           },
           {
             "text": "with ",
             "x": 154.458,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 37.008,
             "size": 18
           },
           {
             "text": "bold",
             "x": 191.466,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 37.998,
             "size": 18
           },
           {
             "text": ", ",
             "x": 229.464,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 10.008,
             "size": 18
           },
           {
             "text": "emphasis",
             "x": 239.472,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 83.034,
             "size": 18
           },
           {
             "text": " ",
             "x": 322.506,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 5.004,
             "size": 18
           },
           {
             "text": "and ",
             "x": 327.51,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 35.028,
             "size": 18
           },
           {
             "text": "a ",
             "x": 362.538,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 15.012,
             "size": 18
           },
           {
             "text": "link",
             "x": 377.55,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 27,
             "size": 18
           },
           {
             "text": ".",
             "x": 404.55,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 5.004,
             "size": 18
           }
@@ -139,7 +139,7 @@
       "kind": "decoration",
       "start": 377.55,
       "end": 404.55,
-      "y": 118.83239999999999,
+      "y": 119.60000000000001,
       "width": 0.9,
       "color": "2563EB",
       "decoration_kind": "underline",
@@ -161,21 +161,21 @@
           {
             "text": "\u2022",
             "x": 63.9,
-            "baseline": 138.6972,
+            "baseline": 138.8,
             "advance": 6.3,
             "size": 18
           },
           {
             "text": "First ",
             "x": 77.4,
-            "baseline": 138.6972,
+            "baseline": 138.8,
             "advance": 39.996,
             "size": 18
           },
           {
             "text": "item",
             "x": 117.39600000000002,
-            "baseline": 138.6972,
+            "baseline": 138.8,
             "advance": 34.002,
             "size": 18
           }
@@ -199,21 +199,21 @@
           {
             "text": "\u2022",
             "x": 63.9,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 6.3,
             "size": 18
           },
           {
             "text": "Second ",
             "x": 77.4,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 66.042,
             "size": 18
           },
           {
             "text": "item",
             "x": 143.442,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 34.002,
             "size": 18
           }
@@ -237,21 +237,21 @@
           {
             "text": "\u2022",
             "x": 90.9,
-            "baseline": 182.02679999999998,
+            "baseline": 182.8,
             "advance": 6.3,
             "size": 18
           },
           {
             "text": "Nested ",
             "x": 104.4,
-            "baseline": 182.02679999999998,
+            "baseline": 182.8,
             "advance": 62.028,
             "size": 18
           },
           {
             "text": "item",
             "x": 166.428,
-            "baseline": 182.02679999999998,
+            "baseline": 182.8,
             "advance": 34.002,
             "size": 18
           }
@@ -275,35 +275,35 @@
           {
             "text": "A ",
             "x": 50.4,
-            "baseline": 203.6916,
+            "baseline": 203.8,
             "advance": 17.01,
             "size": 18
           },
           {
             "text": "quotation ",
             "x": 67.41,
-            "baseline": 203.6916,
+            "baseline": 203.8,
             "advance": 79.056,
             "size": 18
           },
           {
             "text": "follows ",
             "x": 146.466,
-            "baseline": 203.6916,
+            "baseline": 203.8,
             "advance": 60.012,
             "size": 18
           },
           {
             "text": "the ",
             "x": 206.478,
-            "baseline": 203.6916,
+            "baseline": 203.8,
             "advance": 30.024,
             "size": 18
           },
           {
             "text": "list.",
             "x": 236.502,
-            "baseline": 203.6916,
+            "baseline": 203.8,
             "advance": 27,
             "size": 18
           }
@@ -327,14 +327,14 @@
           {
             "text": "Standard ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 43.36,
             "size": 10
           },
           {
             "text": "layout",
             "x": 86.56,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 26.68,
             "size": 10
           }
@@ -358,21 +358,21 @@
           {
             "text": "October ",
             "x": 321.74,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 38.35,
             "size": 10
           },
           {
             "text": "30, ",
             "x": 360.09000000000003,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 16.68,
             "size": 10
           },
           {
             "text": "2026",
             "x": 376.77,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 22.24,
             "size": 10
           }
@@ -396,7 +396,7 @@
           {
             "text": "1",
             "x": 671.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }
@@ -432,35 +432,35 @@
           {
             "text": "A ",
             "x": 50.4,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 28,
             "size": 28
           },
           {
             "text": "second-",
             "x": 78.4,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 107.352,
             "size": 28
           },
           {
             "text": "level ",
             "x": 185.752,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 70.056,
             "size": 28
           },
           {
             "text": "leading ",
             "x": 255.80800000000002,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 105.812,
             "size": 28
           },
           {
             "text": "heading",
             "x": 361.62,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 107.352,
             "size": 28
           }
@@ -481,7 +481,7 @@
         18,
         21.6648
       ],
-      "baseline": 117.0324,
+      "baseline": 117.53999999999999,
       "font_size": 18,
       "checked": true,
       "clip": [
@@ -502,14 +502,14 @@
           {
             "text": "Finished ",
             "x": 86.904,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 73.026,
             "size": 18
           },
           {
             "text": "task",
             "x": 159.93,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 33.012,
             "size": 18
           }
@@ -530,7 +530,7 @@
         18,
         21.6648
       ],
-      "baseline": 138.6972,
+      "baseline": 139.2048,
       "font_size": 18,
       "checked": false,
       "clip": [
@@ -551,14 +551,14 @@
           {
             "text": "Pending ",
             "x": 86.904,
-            "baseline": 138.6972,
+            "baseline": 138.8,
             "advance": 71.046,
             "size": 18
           },
           {
             "text": "task",
             "x": 157.95000000000002,
-            "baseline": 138.6972,
+            "baseline": 138.8,
             "advance": 33.012,
             "size": 18
           }
@@ -582,21 +582,21 @@
           {
             "text": "A ",
             "x": 50.4,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 17.01,
             "size": 18
           },
           {
             "text": "final ",
             "x": 67.41,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 38.016,
             "size": 18
           },
           {
             "text": "paragraph.",
             "x": 105.42599999999999,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 87.048,
             "size": 18
           }
@@ -620,14 +620,14 @@
           {
             "text": "Standard ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 43.36,
             "size": 10
           },
           {
             "text": "layout",
             "x": 86.56,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 26.68,
             "size": 10
           }
@@ -651,21 +651,21 @@
           {
             "text": "October ",
             "x": 321.74,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 38.35,
             "size": 10
           },
           {
             "text": "30, ",
             "x": 360.09000000000003,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 16.68,
             "size": 10
           },
           {
             "text": "2026",
             "x": 376.77,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 22.24,
             "size": 10
           }
@@ -689,7 +689,7 @@
           {
             "text": "2",
             "x": 671.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }

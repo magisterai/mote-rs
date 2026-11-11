@@ -148,6 +148,15 @@ fn collect(
                 if element.kind == ElementKind::Checkbox {
                     let mut style = inherited.clone();
                     styles.apply_font(&mut style, "Helvetica");
+                    // Word draws the control with an MS Gothic glyph, which
+                    // sets the height of its line.
+                    if style.word_line_height.is_some()
+                        && let Some((height, descent)) =
+                            super::styles::builtin_word_line_metrics("MS Gothic")
+                    {
+                        style.word_line_height = Some(height);
+                        style.word_line_descent = Some(descent);
+                    }
                     style.small_caps = false;
                     runs.push(TextRun::new(
                         if crate::properties::boolean(&element.attributes, "checked") {

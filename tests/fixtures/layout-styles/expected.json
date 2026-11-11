@@ -11,7 +11,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 19.2576,
+          "line_height": 19.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -31,7 +31,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -49,7 +49,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -68,7 +68,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -85,7 +85,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 16.8504,
+          "line_height": 16.8,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -105,7 +105,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -123,7 +123,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -142,7 +142,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -159,7 +159,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 14.443200000000001,
+          "line_height": 14.399999999999999,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -179,7 +179,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -197,7 +197,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -216,7 +216,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -233,7 +233,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 13.2396,
+          "line_height": 13.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -253,7 +253,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -271,7 +271,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -290,7 +290,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -307,7 +307,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 13.2396,
+          "line_height": 13.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -327,7 +327,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -345,7 +345,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -364,7 +364,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -381,7 +381,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 13.2396,
+          "line_height": 13.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -401,7 +401,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -419,7 +419,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -438,7 +438,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -455,7 +455,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 13.2396,
+          "line_height": 13.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -475,7 +475,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -493,7 +493,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -512,7 +512,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -529,7 +529,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 13.2396,
+          "line_height": 13.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -549,7 +549,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -567,7 +567,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -586,7 +586,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -603,7 +603,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 13.2396,
+          "line_height": 13.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -623,7 +623,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Heading "
             },
@@ -641,7 +641,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "color"
             }
@@ -660,7 +660,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -677,7 +677,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -697,7 +697,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -715,7 +715,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -733,7 +733,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -751,7 +751,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -769,7 +769,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -788,7 +788,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -805,7 +805,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -825,7 +825,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -843,7 +843,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -861,7 +861,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -879,7 +879,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -897,7 +897,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -916,7 +916,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -933,7 +933,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -953,7 +953,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -971,7 +971,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -989,7 +989,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1007,7 +1007,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1025,7 +1025,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1044,7 +1044,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1061,7 +1061,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -1081,7 +1081,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1099,7 +1099,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -1117,7 +1117,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1135,7 +1135,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1153,7 +1153,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1172,7 +1172,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1189,7 +1189,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -1209,7 +1209,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1227,7 +1227,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -1245,7 +1245,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1263,7 +1263,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1281,7 +1281,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1300,7 +1300,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1317,7 +1317,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -1337,7 +1337,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1355,7 +1355,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -1373,7 +1373,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1391,7 +1391,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1409,7 +1409,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1428,7 +1428,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1445,7 +1445,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -1465,7 +1465,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1483,7 +1483,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -1501,7 +1501,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1519,7 +1519,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1537,7 +1537,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1556,7 +1556,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1573,7 +1573,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -1593,7 +1593,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1611,7 +1611,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -1629,7 +1629,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1647,7 +1647,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1665,7 +1665,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1684,7 +1684,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1701,7 +1701,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -1721,7 +1721,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1739,7 +1739,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -1757,7 +1757,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1775,7 +1775,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1793,7 +1793,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1812,7 +1812,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1849,7 +1849,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1867,7 +1867,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -1885,7 +1885,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -1903,7 +1903,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -1921,7 +1921,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -1940,7 +1940,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -1957,7 +1957,7 @@
           "indent_right": 6,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -1977,7 +1977,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -1995,7 +1995,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2013,7 +2013,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2031,7 +2031,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2049,7 +2049,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2068,7 +2068,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2085,7 +2085,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -2105,7 +2105,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -2123,7 +2123,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2141,7 +2141,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2159,7 +2159,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2177,7 +2177,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2196,7 +2196,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2213,7 +2213,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -2233,7 +2233,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -2251,7 +2251,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2269,7 +2269,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2287,7 +2287,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2305,7 +2305,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2324,7 +2324,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2341,7 +2341,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -2361,7 +2361,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -2379,7 +2379,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2397,7 +2397,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2415,7 +2415,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2433,7 +2433,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2452,7 +2452,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2469,7 +2469,7 @@
           "indent_right": 0,
           "keep_together": true,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -2489,7 +2489,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -2507,7 +2507,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2525,7 +2525,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2543,7 +2543,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2561,7 +2561,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2580,7 +2580,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2597,7 +2597,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -2617,7 +2617,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -2635,7 +2635,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2653,7 +2653,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2671,7 +2671,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2689,7 +2689,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2708,7 +2708,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2725,7 +2725,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -2745,7 +2745,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -2763,7 +2763,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2781,7 +2781,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2799,7 +2799,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2817,7 +2817,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2836,7 +2836,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2853,7 +2853,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -2873,7 +2873,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -2891,7 +2891,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -2909,7 +2909,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -2927,7 +2927,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -2945,7 +2945,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -2964,7 +2964,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -2981,7 +2981,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -3001,7 +3001,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -3019,7 +3019,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -3037,7 +3037,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -3055,7 +3055,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -3073,7 +3073,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -3092,7 +3092,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3109,7 +3109,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -3129,7 +3129,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -3147,7 +3147,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -3165,7 +3165,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -3183,7 +3183,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -3201,7 +3201,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -3220,7 +3220,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": false
         }
@@ -3237,7 +3237,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -3257,7 +3257,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Ordinary "
             },
@@ -3275,7 +3275,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "bold"
             },
@@ -3293,7 +3293,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " "
             },
@@ -3311,7 +3311,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "italic"
             },
@@ -3329,7 +3329,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " text."
             }
@@ -3348,7 +3348,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3365,7 +3365,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 19.8594,
+          "line_height": 19.799999999999997,
           "line_multiplier": 1.5,
           "line_rule": "multiple",
           "line_value": 1.5,
@@ -3385,7 +3385,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Small "
             },
@@ -3403,7 +3403,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "different"
             }
@@ -3422,7 +3422,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3439,7 +3439,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 19.8594,
+          "line_height": 19.799999999999997,
           "line_multiplier": 1.5,
           "line_rule": "multiple",
           "line_value": 1.5,
@@ -3459,7 +3459,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Small "
             },
@@ -3477,7 +3477,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "different"
             }
@@ -3496,7 +3496,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3533,7 +3533,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Small "
             },
@@ -3551,7 +3551,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "different"
             }
@@ -3570,7 +3570,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3607,7 +3607,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Small "
             },
@@ -3625,7 +3625,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "different"
             }
@@ -3644,7 +3644,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3681,7 +3681,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Small "
             },
@@ -3699,7 +3699,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "different"
             }
@@ -3718,7 +3718,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3755,7 +3755,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Small "
             },
@@ -3773,7 +3773,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "different"
             }
@@ -3792,7 +3792,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3809,7 +3809,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 17.99382,
+          "line_height": 17.939999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -3829,7 +3829,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Default "
             },
@@ -3847,7 +3847,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "code"
             }
@@ -3866,7 +3866,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -3921,7 +3921,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "code"
             }
@@ -3957,7 +3957,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 17.003999999999998,
+          "line_height": 16.935546875,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -3977,7 +3977,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "Default "
             },
@@ -3995,7 +3995,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "code"
             }
@@ -4014,7 +4014,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 1.137391304347826
+            "word_line_height": 1.1328125
           },
           "widow_control": true
         }
@@ -4031,7 +4031,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 17.003999999999998,
+          "line_height": 16.935546875,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4051,7 +4051,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "Default "
             },
@@ -4069,7 +4069,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "code"
             }
@@ -4088,7 +4088,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 1.137391304347826
+            "word_line_height": 1.1328125
           },
           "widow_control": true
         }
@@ -4105,7 +4105,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 17.003999999999998,
+          "line_height": 16.935546875,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4125,7 +4125,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "Default "
             },
@@ -4143,7 +4143,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "code"
             }
@@ -4162,7 +4162,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 1.137391304347826
+            "word_line_height": 1.1328125
           },
           "widow_control": true
         }
@@ -4217,7 +4217,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "code"
             }
@@ -4291,7 +4291,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "code"
             }
@@ -4327,7 +4327,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 0.8304839999999999,
+          "line_height": 0.828,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4347,7 +4347,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "sized default"
             }
@@ -4366,7 +4366,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4383,7 +4383,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 0.8304839999999999,
+          "line_height": 0.828,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4403,7 +4403,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "sized default"
             }
@@ -4422,7 +4422,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4439,7 +4439,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 16.60968,
+          "line_height": 16.56,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4459,7 +4459,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "sized default"
             }
@@ -4478,7 +4478,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4495,7 +4495,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 16.678887,
+          "line_height": 16.629,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4515,7 +4515,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "sized default"
             }
@@ -4534,7 +4534,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4551,7 +4551,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.709988999999998,
+          "line_height": 15.662999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4571,7 +4571,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "sized default"
             }
@@ -4590,7 +4590,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4627,7 +4627,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "sized default"
             }
@@ -4646,7 +4646,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4663,7 +4663,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4683,7 +4683,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A changed "
             },
@@ -4701,7 +4701,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -4719,7 +4719,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -4738,7 +4738,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4755,7 +4755,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4775,7 +4775,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -4829,7 +4829,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -4848,7 +4848,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4865,7 +4865,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4885,7 +4885,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -4903,7 +4903,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -4921,7 +4921,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -4939,7 +4939,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -4958,7 +4958,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -4975,7 +4975,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -4995,7 +4995,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5013,7 +5013,7 @@
                 "small_caps": true,
                 "strike": true,
                 "underline": true,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -5031,7 +5031,7 @@
                 "small_caps": true,
                 "strike": true,
                 "underline": true,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -5049,7 +5049,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5068,7 +5068,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5085,7 +5085,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5105,7 +5105,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5123,7 +5123,7 @@
                 "small_caps": false,
                 "strike": true,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -5141,7 +5141,7 @@
                 "small_caps": false,
                 "strike": true,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -5159,7 +5159,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5178,7 +5178,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5195,7 +5195,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5215,7 +5215,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A changed "
             },
@@ -5233,7 +5233,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -5251,7 +5251,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5270,7 +5270,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5287,7 +5287,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5307,7 +5307,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5343,7 +5343,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5362,7 +5362,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5379,7 +5379,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5399,7 +5399,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5417,7 +5417,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -5435,7 +5435,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -5453,7 +5453,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5472,7 +5472,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5489,7 +5489,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5509,7 +5509,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5527,7 +5527,7 @@
                 "small_caps": true,
                 "strike": true,
                 "underline": true,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed nested"
             },
@@ -5545,7 +5545,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5564,7 +5564,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5581,7 +5581,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5601,7 +5601,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5619,7 +5619,7 @@
                 "small_caps": false,
                 "strike": true,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed nested"
             },
@@ -5637,7 +5637,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5656,7 +5656,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5673,7 +5673,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5693,7 +5693,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A changed "
             },
@@ -5711,7 +5711,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -5729,7 +5729,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5748,7 +5748,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5765,7 +5765,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5785,7 +5785,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5839,7 +5839,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5858,7 +5858,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5875,7 +5875,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -5895,7 +5895,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -5913,7 +5913,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -5931,7 +5931,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -5949,7 +5949,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -5968,7 +5968,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -5985,7 +5985,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6005,7 +6005,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -6023,7 +6023,7 @@
                 "small_caps": true,
                 "strike": true,
                 "underline": true,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -6041,7 +6041,7 @@
                 "small_caps": true,
                 "strike": true,
                 "underline": true,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -6059,7 +6059,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -6078,7 +6078,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6095,7 +6095,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6115,7 +6115,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -6133,7 +6133,7 @@
                 "small_caps": false,
                 "strike": true,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -6151,7 +6151,7 @@
                 "small_caps": false,
                 "strike": true,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -6169,7 +6169,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -6188,7 +6188,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6205,7 +6205,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6225,7 +6225,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -6243,7 +6243,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "changed "
             },
@@ -6261,7 +6261,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "nested"
             },
@@ -6279,7 +6279,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -6298,7 +6298,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6315,7 +6315,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6335,7 +6335,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -6389,7 +6389,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -6408,7 +6408,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6425,7 +6425,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6445,7 +6445,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -6463,7 +6463,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "changed "
             },
@@ -6481,7 +6481,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "nested"
             },
@@ -6499,7 +6499,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -6518,7 +6518,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6535,7 +6535,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6555,7 +6555,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -6573,7 +6573,7 @@
                 "small_caps": true,
                 "strike": true,
                 "underline": true,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "changed "
             },
@@ -6591,7 +6591,7 @@
                 "small_caps": true,
                 "strike": true,
                 "underline": true,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "nested"
             },
@@ -6609,7 +6609,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -6628,7 +6628,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6645,7 +6645,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6665,7 +6665,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "A "
             },
@@ -6683,7 +6683,7 @@
                 "small_caps": false,
                 "strike": true,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "changed "
             },
@@ -6701,7 +6701,7 @@
                 "small_caps": false,
                 "strike": true,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "nested"
             },
@@ -6719,7 +6719,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " Z"
             }
@@ -6738,7 +6738,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6755,7 +6755,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6775,7 +6775,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -6793,7 +6793,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -6812,7 +6812,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6829,7 +6829,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6849,7 +6849,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -6867,7 +6867,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -6886,7 +6886,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6903,7 +6903,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 19.2576,
+          "line_height": 19.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -6923,7 +6923,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -6941,7 +6941,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -6960,7 +6960,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -6977,7 +6977,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 13.079999999999998,
+          "line_height": 13.027343749999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -6997,7 +6997,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "Styled "
             },
@@ -7015,7 +7015,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7034,7 +7034,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 1.137391304347826
+            "word_line_height": 1.1328125
           },
           "widow_control": true
         }
@@ -7051,7 +7051,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7071,7 +7071,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7089,7 +7089,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7108,7 +7108,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7125,7 +7125,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7145,7 +7145,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7163,7 +7163,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7182,7 +7182,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7199,7 +7199,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7219,7 +7219,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7237,7 +7237,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7256,7 +7256,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7273,7 +7273,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7293,7 +7293,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7311,7 +7311,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7330,7 +7330,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7347,7 +7347,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7367,7 +7367,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7385,7 +7385,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7404,7 +7404,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7421,7 +7421,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7441,7 +7441,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7459,7 +7459,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7478,7 +7478,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7515,7 +7515,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7533,7 +7533,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7552,7 +7552,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7569,7 +7569,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7589,7 +7589,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Styled "
             },
@@ -7607,7 +7607,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "preserved  code"
             }
@@ -7626,7 +7626,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7643,7 +7643,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 20.762099999999997,
+          "line_height": 20.7,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7663,7 +7663,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Default "
             },
@@ -7681,7 +7681,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "one  two"
             }
@@ -7700,7 +7700,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         },
@@ -7712,7 +7712,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 19.2576,
+          "line_height": 19.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -7732,7 +7732,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Title"
             }
@@ -7751,7 +7751,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7768,7 +7768,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7788,7 +7788,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Default "
             },
@@ -7806,7 +7806,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "one  two"
             }
@@ -7825,7 +7825,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         },
@@ -7837,7 +7837,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 19.2576,
+          "line_height": 19.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -7857,7 +7857,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Title"
             }
@@ -7876,7 +7876,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -7893,7 +7893,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7913,7 +7913,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Default "
             },
@@ -7931,7 +7931,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "one  two"
             }
@@ -7950,7 +7950,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         },
@@ -7962,7 +7962,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 20.762099999999997,
+          "line_height": 20.7,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -7982,7 +7982,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Title"
             }
@@ -8001,7 +8001,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -8018,7 +8018,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -8038,7 +8038,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Default "
             },
@@ -8075,7 +8075,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         },
@@ -8087,7 +8087,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": true,
-          "line_height": 19.2576,
+          "line_height": 19.2,
           "line_multiplier": 1,
           "line_rule": "multiple",
           "line_value": 1,
@@ -8107,7 +8107,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Title"
             }
@@ -8126,7 +8126,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -8143,7 +8143,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -8163,7 +8163,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Hello "
             },
@@ -8181,7 +8181,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "large"
             }
@@ -8200,7 +8200,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -8291,7 +8291,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 14.387999999999998,
+          "line_height": 14.330078124999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -8311,7 +8311,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "Hello "
             },
@@ -8329,7 +8329,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "large"
             }
@@ -8348,7 +8348,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 1.137391304347826
+            "word_line_height": 1.1328125
           },
           "widow_control": true
         }
@@ -8439,7 +8439,7 @@
           "indent_right": 2,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 23.4702,
+          "line_height": 23.4,
           "line_multiplier": 1.5,
           "line_rule": "multiple",
           "line_value": 1.5,
@@ -8459,7 +8459,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "Inherited "
             },
@@ -8477,7 +8477,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "off"
             }
@@ -8496,7 +8496,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }
@@ -8513,7 +8513,7 @@
           "indent_right": 0,
           "keep_together": false,
           "keep_with_next": false,
-          "line_height": 15.225539999999999,
+          "line_height": 15.179999999999998,
           "line_multiplier": 1.15,
           "line_rule": "multiple",
           "line_value": 1.15,
@@ -8533,7 +8533,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": "before "
             },
@@ -8551,7 +8551,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 1.137391304347826
+                "word_line_height": 1.1328125
               },
               "text": "  code\n next  "
             },
@@ -8569,7 +8569,7 @@
                 "small_caps": false,
                 "strike": false,
                 "underline": false,
-                "word_line_height": 0
+                "word_line_height": 1.2
               },
               "text": " after \there\nthere"
             }
@@ -8588,7 +8588,7 @@
             "small_caps": false,
             "strike": false,
             "underline": false,
-            "word_line_height": 0
+            "word_line_height": 1.2
           },
           "widow_control": true
         }

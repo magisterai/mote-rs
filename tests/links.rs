@@ -66,7 +66,7 @@ fn wrapped_links_retain_targets_in_pdf_and_visual_text_in_png() {
     let serialized = String::from_utf8_lossy(&pdf);
     assert_eq!(serialized.matches("/Subtype /Link").count(), linked.len());
     assert!(serialized.contains("/URI (mailto:reader@example.com)"));
-    assert!(serialized.contains("/Rect [35.39 248.77 67.19 264]"));
+    assert!(serialized.contains("/Rect [35.39 248.82 67.19 264]"));
     let png = render::paint_png(&planned.output, &Default::default()).unwrap();
     assert_eq!(png.output.len(), 1);
     assert!(serialized.contains("/Contents (Title)"));

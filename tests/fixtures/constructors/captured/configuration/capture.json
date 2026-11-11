@@ -25,6 +25,6 @@
   "native_png_maximum_channel_difference": 32,
   "native_png_mean_foreground_difference": 7.529051987767584,
   "native_png_files": {
-    "reference-1.png": "45061a24e5a77485f8d2f4c1781ea7c10bd1d9754d10010646220ced98fb6f03"
+    "reference-1.png": "fb441cebec9075da3f12590803da8cfabb85c50ce28e603e156f32086df51979"
   }
 }

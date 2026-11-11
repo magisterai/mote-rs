@@ -3,291 +3,291 @@
     {
       "lines": [
         {
-          "top": 94.01,
-          "height": 21.6648,
+          "top": 95.0,
+          "height": 21.97265625,
           "x": 95,
           "width": 181.90625,
           "fragments": [
             {
               "text": "Rotated",
               "x": 95,
-              "baseline": 110.2424,
+              "baseline": 111.9013671875,
               "advance": 61.609375,
               "size": 18
             },
             {
               "text": " ",
               "x": 156.609375,
-              "baseline": 110.2424,
+              "baseline": 111.9013671875,
               "advance": 3.65625,
               "size": 18
             },
             {
               "text": "linked ",
               "x": 160.265625,
-              "baseline": 110.2424,
+              "baseline": 111.9013671875,
               "advance": 50.90625,
               "size": 18
             },
             {
               "text": "text",
               "x": 211.171875,
-              "baseline": 110.2424,
+              "baseline": 111.9013671875,
               "advance": 29.078125,
               "size": 18
             },
             {
               "text": " ",
               "x": 240.25,
-              "baseline": 110.2424,
+              "baseline": 111.9013671875,
               "advance": 3.65625,
               "size": 18
             },
             {
               "text": "with",
               "x": 243.90625,
-              "baseline": 110.2424,
+              "baseline": 111.9013671875,
               "advance": 33,
               "size": 18
             }
           ]
         },
         {
-          "top": 115.6748,
-          "height": 21.6648,
+          "top": 116.97265625,
+          "height": 21.97265625,
           "x": 95,
           "width": 202.75,
           "fragments": [
             {
               "text": "clipping ",
               "x": 95,
-              "baseline": 131.9072,
+              "baseline": 133.8740234375,
               "advance": 65.21875,
               "size": 18
             },
             {
               "text": "near ",
               "x": 160.21875,
-              "baseline": 131.9072,
+              "baseline": 133.8740234375,
               "advance": 38.640625,
               "size": 18
             },
             {
               "text": "the ",
               "x": 198.859375,
-              "baseline": 131.9072,
+              "baseline": 133.8740234375,
               "advance": 28.875,
               "size": 18
             },
             {
               "text": "edge ",
               "x": 227.734375,
-              "baseline": 131.9072,
+              "baseline": 133.8740234375,
               "advance": 41.4375,
               "size": 18
             },
             {
               "text": "of ",
               "x": 269.171875,
-              "baseline": 131.9072,
+              "baseline": 133.8740234375,
               "advance": 19.015625,
               "size": 18
             },
             {
               "text": "a",
               "x": 288.1875,
-              "baseline": 131.9072,
+              "baseline": 133.8740234375,
               "advance": 9.5625,
               "size": 18
             }
           ]
         },
         {
-          "top": 137.33960000000002,
-          "height": 21.6648,
+          "top": 138.9453125,
+          "height": 21.97265625,
           "x": 95,
           "width": 52.953125,
           "fragments": [
             {
               "text": "shape.",
               "x": 95,
-              "baseline": 153.572,
+              "baseline": 155.8466796875,
               "advance": 52.953125,
               "size": 18
             }
           ]
         },
         {
-          "top": 159.0044,
-          "height": 21.6648,
+          "top": 160.91796875,
+          "height": 21.97265625,
           "x": 95,
           "width": 147.421875,
           "fragments": [
             {
               "text": "Second ",
               "x": 95,
-              "baseline": 175.23680000000002,
+              "baseline": 177.8193359375,
               "advance": 62.734375,
               "size": 18
             },
             {
               "text": "paragraph.",
               "x": 157.734375,
-              "baseline": 175.23680000000002,
+              "baseline": 177.8193359375,
               "advance": 84.6875,
               "size": 18
             }
           ]
         },
         {
-          "top": 352.10400000000004,
-          "height": 16.8504,
+          "top": 352.275390625,
+          "height": 17.08984375,
           "x": 366.5078125,
           "width": 87.734375,
           "fragments": [
             {
               "text": "Text ",
               "x": 366.5078125,
-              "baseline": 364.72920000000005,
+              "baseline": 365.4208984375,
               "advance": 27.640625,
               "size": 14
             },
             {
               "text": "turns ",
               "x": 394.1484375,
-              "baseline": 364.72920000000005,
+              "baseline": 365.4208984375,
               "advance": 34.40625,
               "size": 14
             },
             {
               "text": "with",
               "x": 428.5546875,
-              "baseline": 364.72920000000005,
+              "baseline": 365.4208984375,
               "advance": 25.6875,
               "size": 14
             }
           ]
         },
         {
-          "top": 368.9544,
-          "height": 16.8504,
+          "top": 369.365234375,
+          "height": 17.08984375,
           "x": 367.625,
           "width": 85.5,
           "fragments": [
             {
               "text": "the ",
               "x": 367.625,
-              "baseline": 381.5796,
+              "baseline": 382.5107421875,
               "advance": 22.46875,
               "size": 14
             },
             {
               "text": "shape ",
               "x": 390.09375,
-              "baseline": 381.5796,
+              "baseline": 382.5107421875,
               "advance": 40.03125,
               "size": 14
             },
             {
               "text": "and",
               "x": 430.125,
-              "baseline": 381.5796,
+              "baseline": 382.5107421875,
               "advance": 23,
               "size": 14
             }
           ]
         },
         {
-          "top": 385.8048,
-          "height": 16.8504,
+          "top": 386.455078125,
+          "height": 17.08984375,
           "x": 385.7265625,
           "width": 49.296875,
           "fragments": [
             {
               "text": "remains",
               "x": 385.7265625,
-              "baseline": 398.43,
+              "baseline": 399.6005859375,
               "advance": 49.296875,
               "size": 14
             }
           ]
         },
         {
-          "top": 402.6552,
-          "height": 16.8504,
+          "top": 403.544921875,
+          "height": 17.08984375,
           "x": 383.546875,
           "width": 53.65625,
           "fragments": [
             {
               "text": "readable",
               "x": 383.546875,
-              "baseline": 415.2804,
+              "baseline": 416.6904296875,
               "advance": 53.65625,
               "size": 14
             }
           ]
         },
         {
-          "top": 419.50559999999996,
-          "height": 16.8504,
+          "top": 420.634765625,
+          "height": 17.08984375,
           "x": 370.53125,
           "width": 79.6875,
           "fragments": [
             {
               "text": "through ",
               "x": 370.53125,
-              "baseline": 432.13079999999997,
+              "baseline": 433.7802734375,
               "advance": 49.828125,
               "size": 14
             },
             {
               "text": "flips.",
               "x": 420.359375,
-              "baseline": 432.13079999999997,
+              "baseline": 433.7802734375,
               "advance": 29.859375,
               "size": 14
             }
           ]
         },
         {
-          "top": 574.23,
-          "height": 16.8504,
+          "top": 575.0,
+          "height": 17.08984375,
           "x": 108.5,
           "width": 93.1875,
           "fragments": [
             {
               "text": "Rotated ",
               "x": 125.34375,
-              "baseline": 586.8552,
+              "baseline": 588.1455078125,
               "advance": 50.765625,
               "size": 14
             },
             {
               "text": "task",
               "x": 176.109375,
-              "baseline": 586.8552,
+              "baseline": 588.1455078125,
               "advance": 25.578125,
               "size": 14
             }
           ]
         },
         {
-          "top": 591.0804,
-          "height": 16.8504,
+          "top": 592.08984375,
+          "height": 17.08984375,
           "x": 108.5,
           "width": 93.265625,
           "fragments": [
             {
               "text": "Another ",
               "x": 125.34375,
-              "baseline": 603.7056,
+              "baseline": 605.2353515625,
               "advance": 50.84375,
               "size": 14
             },
             {
               "text": "task",
               "x": 176.1875,
-              "baseline": 603.7056,
+              "baseline": 605.2353515625,
               "advance": 25.578125,
               "size": 14
             }

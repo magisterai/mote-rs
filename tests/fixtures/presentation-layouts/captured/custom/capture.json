@@ -86,10 +86,10 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     }
   },
-  "geometry_sha256": "779042061c42cc04b17367fa9bd2966e16d8b6c2aaab257f6b5720c31dedb60e",
+  "geometry_sha256": "c2e4733edc86d68706e22b7385b940ec4d5bf5e2ab808f60ed771aebe46ea8c2",
   "native_png_files": {
-    "reference-1.png": "c71cb3cb83dc1c92dcce84b28a18807e0d3445d6a2c502195dab61ac49761f11",
-    "reference-2.png": "c3f181c0e97fbdf4ff67d3bcb2a70590223f4ffd3d38f4736ef26a5e2520cf2b",
-    "reference-3.png": "c6adff8db0ce3272e655b5f6684bcd683f87f8eb39bd7d0d3e81a3a59bd7143c"
+    "reference-1.png": "0ca192fef61bbd80e1302b29bae73b65e1a0740bec37aa4677a70e20d0e336c9",
+    "reference-2.png": "73ee9324addb13b358053e0d0bc063caa78f44ab31d54c9af6dadf56498511b2",
+    "reference-3.png": "0cbac2517636c1a1cc25ba44f7b266239db56d309f35509a6c065d6e758a2f90"
   }
 }

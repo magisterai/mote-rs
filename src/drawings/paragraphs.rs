@@ -229,6 +229,7 @@ pub(crate) fn resolve(
                 if let Some(font) = heading_font {
                     base.measurement.font = font.into();
                     base.word_line_height = None;
+                    base.word_line_descent = None;
                 }
                 output.push(paragraph(
                     &element.children,

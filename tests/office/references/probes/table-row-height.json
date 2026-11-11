@@ -15,8 +15,13 @@
         },
         {
           "baseline": 121.44,
-          "text": "Header at least 24 Second header cell",
+          "text": "Header at least 24",
           "x": 78.24
+        },
+        {
+          "baseline": 121.44,
+          "text": "Second header cell",
+          "x": 198.48
         },
         {
           "baseline": 153.84,
@@ -26,7 +31,7 @@
         {
           "baseline": 153.84,
           "text": "Content height",
-          "x": 185.76
+          "x": 198.48
         },
         {
           "baseline": 178.32,
@@ -36,7 +41,7 @@
         {
           "baseline": 178.32,
           "text": "Taller than content",
-          "x": 185.76
+          "x": 198.48
         },
         {
           "baseline": 216.96,
@@ -46,7 +51,7 @@
         {
           "baseline": 216.96,
           "text": "Content wins",
-          "x": 185.76
+          "x": 198.48
         },
         {
           "baseline": 241.44,
@@ -56,16 +61,96 @@
         {
           "baseline": 241.44,
           "text": "Fixed height",
-          "x": 185.76
+          "x": 198.48
         },
         {
           "baseline": 273.36,
+          "text": "Automatic after exact Content height",
+          "x": 78.24
+        },
+        {
+          "baseline": 297.84,
+          "text": "Exactly 40",
+          "x": 78.24
+        },
+        {
+          "baseline": 297.84,
+          "text": "Fixed height",
+          "x": 198.48
+        },
+        {
+          "baseline": 342.0,
+          "text": "Automatic after forty Content height",
+          "x": 78.24
+        },
+        {
+          "baseline": 366.48,
+          "text": "Exactly 12",
+          "x": 78.24
+        },
+        {
+          "baseline": 366.48,
+          "text": "Clipped content",
+          "x": 198.48
+        },
+        {
+          "baseline": 382.32,
+          "text": "Automatic after twelve Content height",
+          "x": 78.24
+        },
+        {
+          "baseline": 412.8,
+          "text": "Exactly 28 margins Fixed height",
+          "x": 78.24
+        },
+        {
+          "baseline": 438.96,
           "text": "Final automatic row Content height",
           "x": 78.24
         },
         {
-          "baseline": 294.0,
+          "baseline": 459.36,
           "text": "The line after the table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 487.44,
+          "text": "W ide automatic one Content height",
+          "x": 75.12
+        },
+        {
+          "baseline": 516.48,
+          "text": "W ide exactly 28",
+          "x": 75.12
+        },
+        {
+          "baseline": 516.48,
+          "text": "Fixed height",
+          "x": 181.92
+        },
+        {
+          "baseline": 545.28,
+          "text": "W ide automatic two Content height",
+          "x": 75.12
+        },
+        {
+          "baseline": 574.32,
+          "text": "W ide at least 30",
+          "x": 75.12
+        },
+        {
+          "baseline": 574.32,
+          "text": "Taller than content",
+          "x": 181.92
+        },
+        {
+          "baseline": 617.28,
+          "text": "W ide automatic three Content height",
+          "x": 75.12
+        },
+        {
+          "baseline": 637.44,
+          "text": "The line after the second table.",
           "x": 72.0
         }
       ],
@@ -73,5 +158,5 @@
     }
   ],
   "renderer": "Microsoft Word 16.114.1",
-  "source_sha256": "8fc7178e800051fc089e32677100a94962f10b8981c45b1fbfcc0e1e193d5b41"
+  "source_sha256": "14c25bb4cc97c3d6982d7cdb04f9364deb4f16f06a62b2d85734f70cd2eb9c92"
 }

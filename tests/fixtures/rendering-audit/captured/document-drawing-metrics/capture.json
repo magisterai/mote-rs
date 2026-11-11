@@ -28,8 +28,8 @@
       "sha256": "f33f0a7027225b1847f1aa4c34c833de90289f041d8b005c9563e16ea7298196"
     },
     "word/document.xml": {
-      "path": "captured/parts/4ef62379565bea899d515a870e3d88604e85e302bd2649e815483b20887cbdc7.xml",
-      "sha256": "4ef62379565bea899d515a870e3d88604e85e302bd2649e815483b20887cbdc7"
+      "path": "captured/parts/32af46bab1cd7254347d4de609ac42492617c490fc79abd820ef6bef84d1bee7.xml",
+      "sha256": "32af46bab1cd7254347d4de609ac42492617c490fc79abd820ef6bef84d1bee7"
     },
     "word/fontTable.xml": {
       "path": "captured/parts/221f0ed9bad139de36a09766bba664ad8476843d2b2e894130f5c1ebf44d7d48.xml",
@@ -51,7 +51,7 @@
   "pages": [
     {
       "path": "reference-1.png",
-      "sha256": "180a69c2c62ba66f44ff70f326758b279f53a545dec1a1acc57ba59755a4a63a",
+      "sha256": "d3be7b37b03573a332fe6e474a00822aa805e582ab9fb2d51094381bbd48d948",
       "maximum": 58,
       "mean": 0.608,
       "outliers": 0

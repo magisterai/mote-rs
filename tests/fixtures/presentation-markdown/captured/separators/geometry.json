@@ -21,21 +21,21 @@
           {
             "text": "Explicit ",
             "x": 50.4,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 107.38,
             "size": 28
           },
           {
             "text": "divider ",
             "x": 157.78,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 99.596,
             "size": 28
           },
           {
             "text": "boundary",
             "x": 257.376,
-            "baseline": 54.050399999999996,
+            "baseline": 54.8,
             "advance": 127.568,
             "size": 28
           }
@@ -59,63 +59,63 @@
           {
             "text": "The ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 36.018,
             "size": 18
           },
           {
             "text": "smaller ",
             "x": 86.418,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 63,
             "size": 18
           },
           {
             "text": "heading ",
             "x": 149.418,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 69.048,
             "size": 18
           },
           {
             "text": "does ",
             "x": 218.466,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 44.028,
             "size": 18
           },
           {
             "text": "not ",
             "x": 262.49399999999997,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 30.024,
             "size": 18
           },
           {
             "text": "create ",
             "x": 292.518,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 55.026,
             "size": 18
           },
           {
             "text": "its ",
             "x": 347.544,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 23.004,
             "size": 18
           },
           {
             "text": "own ",
             "x": 370.548,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 38.016,
             "size": 18
           },
           {
             "text": "boundary.",
             "x": 408.564,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 80.046,
             "size": 18
           }
@@ -139,7 +139,7 @@
           {
             "text": "---",
             "x": 50.4,
-            "baseline": 147.71519999999998,
+            "baseline": 148.8,
             "advance": 27.972,
             "size": 28
           }
@@ -175,14 +175,14 @@
           {
             "text": "After ",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 93.996,
             "size": 36
           },
           {
             "text": "dividers",
             "x": 144.396,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 138.06,
             "size": 36
           }
@@ -216,7 +216,7 @@
           {
             "text": "Label",
             "x": 57.6,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 47.016,
             "size": 18
           }
@@ -250,7 +250,7 @@
           {
             "text": "Value",
             "x": 487.2,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 48.024,
             "size": 18
           }
@@ -284,7 +284,7 @@
           {
             "text": "Amount",
             "x": 57.6,
-            "baseline": 322.2324,
+            "baseline": 323.0,
             "advance": 62.028,
             "size": 18
           }
@@ -318,7 +318,7 @@
           {
             "text": "12",
             "x": 487.2,
-            "baseline": 322.2324,
+            "baseline": 323.0,
             "advance": 20.016,
             "size": 18
           }

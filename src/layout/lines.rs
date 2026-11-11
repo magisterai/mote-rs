@@ -92,11 +92,14 @@ pub fn plan_text(
         if !matches!(options.spacing, LineSpacing::Exact(_)) {
             height = height.max(natural_height);
         }
+        let (mut ascent, mut descent) = (base_style.word_ascent(), base_style.word_descent());
         for run in &wrapped.runs {
             if run.style.superscript || run.style.subscript {
                 continue;
             }
             ordinary_size = ordinary_size.max(run.style.measurement.size_points);
+            ascent = ascent.max(run.style.word_ascent());
+            descent = descent.max(run.style.word_descent());
             if !matches!(options.spacing, LineSpacing::Exact(_)) {
                 height = height.max(options.spacing.height(&run.style));
             }
@@ -107,10 +110,27 @@ pub fn plan_text(
         }
         let word_exact =
             options.word_exact_baseline && matches!(options.spacing, LineSpacing::Exact(_));
-        let mut baseline = if word_exact {
-            0.8 * height
-        } else {
-            0.5 * height + 0.3 * ordinary_size
+        // Word sets an automatic line's baseline below the line gap and
+        // ascender of its tallest font. A multiple above one adds its space
+        // beneath the descender, a multiple below one shrinks the line about
+        // its baseline in proportion, and a minimum adds its space above.
+        let mut baseline = match options.spacing {
+            // PowerPoint sets a single line's baseline below its top by a
+            // fixed part of the font size, whatever the font. A multiple above
+            // one adds seven tenths of its space above the baseline, and a
+            // multiple below one removes rather more of its space from there.
+            LineSpacing::Multiple(multiple)
+                if options.whole_point_baseline
+                    && !options.word_exact_baseline
+                    && multiple > 0.0 =>
+            {
+                let change = height - height / multiple;
+                0.93 * ordinary_size + change * if multiple >= 1.0 { 0.7 } else { 0.87 }
+            }
+            _ if !options.word_exact_baseline => 0.5 * height + 0.3 * ordinary_size,
+            LineSpacing::Exact(_) => 0.8 * height,
+            LineSpacing::Multiple(multiple) => ascent * multiple.min(1.0),
+            LineSpacing::AtLeast(_) => height - descent,
         };
         let formulas: Vec<_> = wrapped
             .runs
@@ -126,9 +146,9 @@ pub fn plan_text(
             // one that opens with ordinary text.
             let display = formulas.iter().find(|formula| formula.display);
             let (above, below) = match (options.word_exact_baseline, display) {
-                (true, Some(formula)) if formula.leading_text => (0.289, 0.119),
-                (true, Some(_)) => (0.137, 0.037),
-                (true, None) => (0.06, 0.06),
+                (true, Some(formula)) if formula.leading_text => (0.3156, 0.0924),
+                (true, Some(_)) => (0.1636, 0.0104),
+                (true, None) => (0.0866, 0.0334),
                 (false, _) => (0.13, 0.06),
             };
             let (above, below) = (above * ordinary_size, below * ordinary_size);
@@ -142,7 +162,11 @@ pub fn plan_text(
                 )
                 .map(|style| LineSpacing::Multiple(1.0).height(style))
                 .fold(0.0, f64::max);
-            let single_baseline = 0.5 * single + 0.3 * ordinary_size;
+            let single_baseline = if options.word_exact_baseline {
+                ascent
+            } else {
+                0.5 * single + 0.3 * ordinary_size
+            };
             let ascent = formulas
                 .iter()
                 .map(|formula| formula.ascent)

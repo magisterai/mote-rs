@@ -1,0 +1,452 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+SHAPE TEXT: Word lays out the text of a shape as it lays out body text, aligns the block of lines within the text rectangle, and keeps the text clear of the inner half of the outline.
+
+#shape(
+  name = "Shape 1",
+  kind = "rect",
+  position = { x = pt(72), y = pt(120), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 11 top one]
+
+#shape(
+  name = "Shape 2",
+  kind = "rect",
+  position = { x = pt(312), y = pt(120), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 11 top alpha
+
+Aptos 11 top beta
+
+Aptos 11 top gamma]
+
+#shape(
+  name = "Shape 3",
+  kind = "rect",
+  position = { x = pt(72), y = pt(230), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 11 middle one]
+
+#shape(
+  name = "Shape 4",
+  kind = "rect",
+  position = { x = pt(312), y = pt(230), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 11 middle alpha
+
+Aptos 11 middle beta
+
+Aptos 11 middle gamma]
+
+#shape(
+  name = "Shape 5",
+  kind = "rect",
+  position = { x = pt(72), y = pt(340), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 11 bottom one]
+
+#shape(
+  name = "Shape 6",
+  kind = "rect",
+  position = { x = pt(312), y = pt(340), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 11 bottom alpha
+
+Aptos 11 bottom beta
+
+Aptos 11 bottom gamma]
+
+#shape(
+  name = "Shape 7",
+  kind = "rect",
+  position = { x = pt(72), y = pt(450), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 16 top one]
+
+#shape(
+  name = "Shape 8",
+  kind = "rect",
+  position = { x = pt(312), y = pt(450), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 16 top alpha
+
+Aptos 16 top beta
+
+Aptos 16 top gamma]
+
+#shape(
+  name = "Shape 9",
+  kind = "rect",
+  position = { x = pt(72), y = pt(560), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 16 middle one]
+
+#shape(
+  name = "Shape 10",
+  kind = "rect",
+  position = { x = pt(312), y = pt(560), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 16 middle alpha
+
+Aptos 16 middle beta
+
+Aptos 16 middle gamma]
+
+#break()
+
+Page 2.
+
+#shape(
+  name = "Shape 11",
+  kind = "rect",
+  position = { x = pt(72), y = pt(120), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 16 bottom one]
+
+#shape(
+  name = "Shape 12",
+  kind = "rect",
+  position = { x = pt(312), y = pt(120), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Aptos",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Aptos 16 bottom alpha
+
+Aptos 16 bottom beta
+
+Aptos 16 bottom gamma]
+
+#shape(
+  name = "Shape 13",
+  kind = "rect",
+  position = { x = pt(72), y = pt(230), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 11 top one]
+
+#shape(
+  name = "Shape 14",
+  kind = "rect",
+  position = { x = pt(312), y = pt(230), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 11 top alpha
+
+Helvetica 11 top beta
+
+Helvetica 11 top gamma]
+
+#shape(
+  name = "Shape 15",
+  kind = "rect",
+  position = { x = pt(72), y = pt(340), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 11 middle one]
+
+#shape(
+  name = "Shape 16",
+  kind = "rect",
+  position = { x = pt(312), y = pt(340), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 11 middle alpha
+
+Helvetica 11 middle beta
+
+Helvetica 11 middle gamma]
+
+#shape(
+  name = "Shape 17",
+  kind = "rect",
+  position = { x = pt(72), y = pt(450), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 11 bottom one]
+
+#shape(
+  name = "Shape 18",
+  kind = "rect",
+  position = { x = pt(312), y = pt(450), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 11 bottom alpha
+
+Helvetica 11 bottom beta
+
+Helvetica 11 bottom gamma]
+
+#shape(
+  name = "Shape 19",
+  kind = "rect",
+  position = { x = pt(72), y = pt(560), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 16 top one]
+
+#shape(
+  name = "Shape 20",
+  kind = "rect",
+  position = { x = pt(312), y = pt(560), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 16 top alpha
+
+Helvetica 16 top beta
+
+Helvetica 16 top gamma]
+
+#break()
+
+Page 3.
+
+#shape(
+  name = "Shape 21",
+  kind = "rect",
+  position = { x = pt(72), y = pt(120), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 16 middle one]
+
+#shape(
+  name = "Shape 22",
+  kind = "rect",
+  position = { x = pt(312), y = pt(120), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "middle",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 16 middle alpha
+
+Helvetica 16 middle beta
+
+Helvetica 16 middle gamma]
+
+#shape(
+  name = "Shape 23",
+  kind = "rect",
+  position = { x = pt(72), y = pt(230), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 16 bottom one]
+
+#shape(
+  name = "Shape 24",
+  kind = "rect",
+  position = { x = pt(312), y = pt(230), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(1) },
+  text = {
+    font = "Helvetica",
+    size = pt(16),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Helvetica 16 bottom alpha
+
+Helvetica 16 bottom beta
+
+Helvetica 16 bottom gamma]
+
+#break()
+
+Page 4.
+
+#shape(
+  name = "Wide outline top",
+  kind = "rect",
+  position = { x = pt(72), y = pt(120), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(6) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Wide outline top alpha
+
+Wide outline top beta]
+
+#shape(
+  name = "No outline top",
+  kind = "rect",
+  position = { x = pt(312), y = pt(120), width = pt(220), height = pt(100) },
+  fill = "#DBEAFE",
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "top",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[No outline top alpha
+
+No outline top beta]
+
+#shape(
+  name = "Wide outline bottom",
+  kind = "rect",
+  position = { x = pt(72), y = pt(240), width = pt(220), height = pt(100) },
+  border = { color = "#2563EB", width = pt(6) },
+  text = {
+    font = "Helvetica",
+    size = pt(11),
+    alignment = "left",
+    vertical_alignment = "bottom",
+    margin = { top = pt(5), right = pt(8), bottom = pt(5), left = pt(8) }
+  }
+)[Wide outline bottom alpha
+
+Wide outline bottom beta]

@@ -21,14 +21,14 @@
           {
             "text": "Formatted ",
             "x": 36,
-            "baseline": 61.2504,
+            "baseline": 62.0,
             "advance": 130.296875,
             "size": 28
           },
           {
             "text": "text",
             "x": 166.296875,
-            "baseline": 61.2504,
+            "baseline": 62.0,
             "advance": 46.78125,
             "size": 28
           }
@@ -75,42 +75,42 @@
           {
             "text": "Normal ",
             "x": 50,
-            "baseline": 136.425,
+            "baseline": 136.0,
             "advance": 61.921875,
             "size": 18
           },
           {
             "text": "bold",
             "x": 111.921875,
-            "baseline": 136.425,
+            "baseline": 136.0,
             "advance": 36.75,
             "size": 18
           },
           {
             "text": " ",
             "x": 148.671875,
-            "baseline": 136.425,
+            "baseline": 136.0,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "italic",
             "x": 152.328125,
-            "baseline": 136.425,
+            "baseline": 136.0,
             "advance": 41.203125,
             "size": 18
           },
           {
             "text": " ",
             "x": 193.53125,
-            "baseline": 136.425,
+            "baseline": 136.0,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "underlined",
             "x": 197.1875,
-            "baseline": 136.425,
+            "baseline": 136.0,
             "advance": 84.0625,
             "size": 18
           }
@@ -127,7 +127,7 @@
       "kind": "decoration",
       "start": 197.1875,
       "end": 281.25,
-      "y": 138.225,
+      "y": 137.79999999999998,
       "width": 0.9,
       "color": "111827",
       "decoration_kind": "underline",
@@ -142,7 +142,7 @@
       "kind": "rectangle",
       "bounds": [
         98.515625,
-        131.05,
+        130.575,
         85.875,
         0.05
       ],
@@ -165,28 +165,28 @@
           {
             "text": "struck",
             "x": 46,
-            "baseline": 136.47500000000002,
+            "baseline": 136.0,
             "advance": 48.859375,
             "size": 18
           },
           {
             "text": " ",
             "x": 94.859375,
-            "baseline": 136.47500000000002,
+            "baseline": 136.0,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "highlighted",
             "x": 98.515625,
-            "baseline": 136.47500000000002,
+            "baseline": 136.0,
             "advance": 85.875,
             "size": 18
           },
           {
             "text": ".",
             "x": 184.390625,
-            "baseline": 136.47500000000002,
+            "baseline": 136.0,
             "advance": 5.140625,
             "size": 18
           }
@@ -203,7 +203,7 @@
       "kind": "decoration",
       "start": 46,
       "end": 94.859375,
-      "y": 131.07750000000001,
+      "y": 130.6025,
       "width": 0.2,
       "color": "111827",
       "decoration_kind": "strike",
@@ -225,63 +225,63 @@
           {
             "text": "A ",
             "x": 44,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 14.265625,
             "size": 18
           },
           {
             "text": "link",
             "x": 58.265625,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 27.671875,
             "size": 18
           },
           {
             "text": " ",
             "x": 85.9375,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 3.65625,
             "size": 18
           },
           {
             "text": "and ",
             "x": 89.59375,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 33.234375,
             "size": 18
           },
           {
             "text": "c",
             "x": 122.828125,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": "o",
             "x": 133.625,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": "d",
             "x": 144.421875,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": "e",
             "x": 155.21875,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 10.796875,
             "size": 18
           },
           {
             "text": ".",
             "x": 166.015625,
-            "baseline": 155.3324,
+            "baseline": 156.0,
             "advance": 5.140625,
             "size": 18
           }
@@ -298,7 +298,7 @@
       "kind": "decoration",
       "start": 58.265625,
       "end": 85.9375,
-      "y": 157.13240000000002,
+      "y": 157.79999999999998,
       "width": 0.9,
       "color": "2563EB",
       "decoration_kind": "underline",
@@ -320,14 +320,14 @@
           {
             "text": "Second ",
             "x": 44,
-            "baseline": 176.99720000000002,
+            "baseline": 178.0,
             "advance": 62.734375,
             "size": 18
           },
           {
             "text": "line.",
             "x": 106.734375,
-            "baseline": 176.99720000000002,
+            "baseline": 178.0,
             "advance": 33.53125,
             "size": 18
           }
@@ -351,14 +351,14 @@
           {
             "text": "\u2022",
             "x": 373.5,
-            "baseline": 293.6256,
+            "baseline": 294.1968,
             "advance": 7.515625,
             "size": 16
           },
           {
             "text": "First",
             "x": 387,
-            "baseline": 293.6256,
+            "baseline": 294.1968,
             "advance": 30.53125,
             "size": 16
           }
@@ -382,14 +382,14 @@
           {
             "text": "\u2022",
             "x": 373.5,
-            "baseline": 312.88320000000004,
+            "baseline": 313.1968,
             "advance": 7.515625,
             "size": 16
           },
           {
             "text": "Second",
             "x": 387,
-            "baseline": 312.88320000000004,
+            "baseline": 313.1968,
             "advance": 52.53125,
             "size": 16
           }
@@ -413,14 +413,14 @@
           {
             "text": "\u2022",
             "x": 400.5,
-            "baseline": 332.14080000000007,
+            "baseline": 332.1968,
             "advance": 7.515625,
             "size": 16
           },
           {
             "text": "Nested",
             "x": 414,
-            "baseline": 332.14080000000007,
+            "baseline": 332.1968,
             "advance": 50.09375,
             "size": 16
           }
@@ -444,14 +444,14 @@
           {
             "text": "c.",
             "x": 368,
-            "baseline": 351.3984000000001,
+            "baseline": 352.1968,
             "advance": 12.984375,
             "size": 16
           },
           {
             "text": "Third",
             "x": 387,
-            "baseline": 351.3984000000001,
+            "baseline": 352.1968,
             "advance": 34.640625,
             "size": 16
           }
@@ -475,14 +475,14 @@
           {
             "text": "d.",
             "x": 368,
-            "baseline": 370.6560000000001,
+            "baseline": 371.1968,
             "advance": 13.546875,
             "size": 16
           },
           {
             "text": "Fourth",
             "x": 387,
-            "baseline": 370.6560000000001,
+            "baseline": 371.1968,
             "advance": 45.515625,
             "size": 16
           }
@@ -503,7 +503,7 @@
         16,
         19.2576
       ],
-      "baseline": 389.91360000000014,
+      "baseline": 390.3648000000001,
       "font_size": 16,
       "checked": true,
       "clip": [
@@ -524,7 +524,7 @@
           {
             "text": "Done",
             "x": 392.75,
-            "baseline": 389.91360000000014,
+            "baseline": 390.1968,
             "advance": 37.078125,
             "size": 16
           }
@@ -545,7 +545,7 @@
         16,
         19.2576
       ],
-      "baseline": 409.17120000000017,
+      "baseline": 409.62240000000014,
       "font_size": 16,
       "checked": false,
       "clip": [
@@ -566,7 +566,7 @@
           {
             "text": "Pending",
             "x": 392.75,
-            "baseline": 409.17120000000017,
+            "baseline": 409.1968,
             "advance": 55.875,
             "size": 16
           }

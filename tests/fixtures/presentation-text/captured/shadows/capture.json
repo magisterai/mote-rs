@@ -75,10 +75,10 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     }
   },
-  "geometry_sha256": "e86a6063688958e3233981ef37e91899ef866f080e24ff8dfe548d1fd405be8d",
+  "geometry_sha256": "eec991e39ca9b9a048c8ab864f83920895c88d6b6f852cdb95e40f92e6ae55ca",
   "native_png_files": {
-    "reference-1.png": "0bacacbc6115d635d0721259cbea3f543adac1948fd3c4961ecd2b1729c28066",
-    "reference-2.png": "019ede360edff37b48ee82091658c496ed118e030dabcaad7fb6aa2a5a7e98c7"
+    "reference-1.png": "0ebca36ef30b36ef28c9ecb10746c9327d5cbb39a4d788c6f9f341da6a0bf63f",
+    "reference-2.png": "e41b495e1ee479a99d6a186eeca3f37bc7977d06770a0777fcc3a039d1129bc0"
   },
   "pdf_comparison_dpi": 144,
   "pdf_changed_pixels": 0,

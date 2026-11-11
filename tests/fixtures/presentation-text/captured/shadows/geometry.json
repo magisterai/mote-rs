@@ -35,14 +35,14 @@
           {
             "text": "Default ",
             "x": 32,
-            "baseline": 48.2324,
+            "baseline": 49.0,
             "advance": 61.03125,
             "size": 18
           },
           {
             "text": "shadow",
             "x": 93.03125,
-            "baseline": 48.2324,
+            "baseline": 49.0,
             "advance": 61.234375,
             "size": 18
           }
@@ -86,14 +86,14 @@
           {
             "text": "Colored ",
             "x": 336,
-            "baseline": 48.2324,
+            "baseline": 49.0,
             "advance": 66.28125,
             "size": 18
           },
           {
             "text": "shadow",
             "x": 402.28125,
-            "baseline": 48.2324,
+            "baseline": 49.0,
             "advance": 61.234375,
             "size": 18
           }
@@ -131,21 +131,21 @@
           {
             "text": "Zero ",
             "x": 32,
-            "baseline": 272.2324,
+            "baseline": 273.0,
             "advance": 38.375,
             "size": 18
           },
           {
             "text": "shadow ",
             "x": 70.375,
-            "baseline": 272.2324,
+            "baseline": 273.0,
             "advance": 64.890625,
             "size": 18
           },
           {
             "text": "opacity",
             "x": 135.265625,
-            "baseline": 272.2324,
+            "baseline": 273.0,
             "advance": 57.296875,
             "size": 18
           }
@@ -183,21 +183,21 @@
           {
             "text": "Retained ",
             "x": 336,
-            "baseline": 272.2324,
+            "baseline": 273.0,
             "advance": 73.21875,
             "size": 18
           },
           {
             "text": "enabled ",
             "x": 409.21875,
-            "baseline": 272.2324,
+            "baseline": 273.0,
             "advance": 66.984375,
             "size": 18
           },
           {
             "text": "flag",
             "x": 476.203125,
-            "baseline": 272.2324,
+            "baseline": 273.0,
             "advance": 28.390625,
             "size": 18
           }
@@ -247,35 +247,35 @@
           {
             "text": "Shrinking ",
             "x": 36,
-            "baseline": 47.7234,
+            "baseline": 48.0,
             "advance": 54.703125,
             "size": 13
           },
           {
             "text": "text ",
             "x": 90.703125,
-            "baseline": 47.7234,
+            "baseline": 48.0,
             "advance": 23.640625,
             "size": 13
           },
           {
             "text": "keeps ",
             "x": 114.34375,
-            "baseline": 47.7234,
+            "baseline": 48.0,
             "advance": 36.265625,
             "size": 13
           },
           {
             "text": "its ",
             "x": 150.609375,
-            "baseline": 47.7234,
+            "baseline": 48.0,
             "advance": 16.265625,
             "size": 13
           },
           {
             "text": "measured",
             "x": 166.875,
-            "baseline": 47.7234,
+            "baseline": 48.0,
             "advance": 56.890625,
             "size": 13
           }
@@ -299,21 +299,21 @@
           {
             "text": "position ",
             "x": 36,
-            "baseline": 63.3702,
+            "baseline": 64.0,
             "advance": 48.1875,
             "size": 13
           },
           {
             "text": "and ",
             "x": 84.1875,
-            "baseline": 63.3702,
+            "baseline": 64.0,
             "advance": 24,
             "size": 13
           },
           {
             "text": "fitting.",
             "x": 108.1875,
-            "baseline": 63.3702,
+            "baseline": 64.0,
             "advance": 35.734375,
             "size": 13
           }
@@ -351,21 +351,21 @@
           {
             "text": "Resizing ",
             "x": 336,
-            "baseline": 53.6432,
+            "baseline": 54.0,
             "advance": 90.5625,
             "size": 24
           },
           {
             "text": "text ",
             "x": 426.5625,
-            "baseline": 53.6432,
+            "baseline": 54.0,
             "advance": 43.671875,
             "size": 24
           },
           {
             "text": "extends",
             "x": 470.234375,
-            "baseline": 53.6432,
+            "baseline": 54.0,
             "advance": 82.015625,
             "size": 24
           }
@@ -389,28 +389,28 @@
           {
             "text": "the ",
             "x": 336,
-            "baseline": 82.5296,
+            "baseline": 83.0,
             "advance": 38.515625,
             "size": 24
           },
           {
             "text": "box ",
             "x": 374.515625,
-            "baseline": 82.5296,
+            "baseline": 83.0,
             "advance": 42.21875,
             "size": 24
           },
           {
             "text": "to ",
             "x": 416.734375,
-            "baseline": 82.5296,
+            "baseline": 83.0,
             "advance": 25.890625,
             "size": 24
           },
           {
             "text": "contain",
             "x": 442.625,
-            "baseline": 82.5296,
+            "baseline": 83.0,
             "advance": 78.5625,
             "size": 24
           }
@@ -434,21 +434,21 @@
           {
             "text": "these ",
             "x": 336,
-            "baseline": 111.416,
+            "baseline": 112.0,
             "advance": 62.8125,
             "size": 24
           },
           {
             "text": "wrapped ",
             "x": 398.8125,
-            "baseline": 111.416,
+            "baseline": 112.0,
             "advance": 95.984375,
             "size": 24
           },
           {
             "text": "lines.",
             "x": 494.796875,
-            "baseline": 111.416,
+            "baseline": 112.0,
             "advance": 56.375,
             "size": 24
           }
@@ -472,35 +472,35 @@
           {
             "text": "Text ",
             "x": 32,
-            "baseline": 256.2324,
+            "baseline": 257.0,
             "advance": 35.53125,
             "size": 18
           },
           {
             "text": "without ",
             "x": 67.53125,
-            "baseline": 256.2324,
+            "baseline": 257.0,
             "advance": 62.46875,
             "size": 18
           },
           {
             "text": "a ",
             "x": 130,
-            "baseline": 256.2324,
+            "baseline": 257.0,
             "advance": 13.21875,
             "size": 18
           },
           {
             "text": "box ",
             "x": 143.21875,
-            "baseline": 256.2324,
+            "baseline": 257.0,
             "advance": 31.65625,
             "size": 18
           },
           {
             "text": "fill",
             "x": 174.875,
-            "baseline": 256.2324,
+            "baseline": 257.0,
             "advance": 19.09375,
             "size": 18
           }
@@ -538,14 +538,14 @@
           {
             "text": "Canvas ",
             "x": 520,
-            "baseline": 416.2324,
+            "baseline": 417.0,
             "advance": 62.0625,
             "size": 18
           },
           {
             "text": "edge",
             "x": 582.0625,
-            "baseline": 416.2324,
+            "baseline": 417.0,
             "advance": 37.78125,
             "size": 18
           }

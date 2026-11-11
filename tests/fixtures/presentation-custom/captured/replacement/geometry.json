@@ -31,14 +31,14 @@
           {
             "text": "Latest ",
             "x": 57.6,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 54.036,
             "size": 18
           },
           {
             "text": "declaration",
             "x": 111.636,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 88.038,
             "size": 18
           }
@@ -72,7 +72,7 @@
           {
             "text": "12",
             "x": 307.2,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 20.016,
             "size": 18
           }
@@ -206,14 +206,14 @@
           {
             "text": "Replacement ",
             "x": 43.2,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "advance": 61.69,
             "size": 10
           },
           {
             "text": "footer",
             "x": 104.89,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "advance": 25.57,
             "size": 10
           }
@@ -249,14 +249,14 @@
           {
             "text": "Required ",
             "x": 50.4,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 78.03,
             "size": 18
           },
           {
             "text": "title",
             "x": 128.43,
-            "baseline": 45.032399999999996,
+            "baseline": 45.8,
             "advance": 28.008,
             "size": 18
           }
@@ -290,14 +290,14 @@
           {
             "text": "Second ",
             "x": 57.6,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 66.042,
             "size": 18
           },
           {
             "text": "slide",
             "x": 123.642,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 37.008,
             "size": 18
           }
@@ -331,7 +331,7 @@
           {
             "text": "24",
             "x": 307.2,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 20.016,
             "size": 18
           }
@@ -465,14 +465,14 @@
           {
             "text": "Replacement ",
             "x": 43.2,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "advance": 61.69,
             "size": 10
           },
           {
             "text": "footer",
             "x": 104.89,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "advance": 25.57,
             "size": 10
           }

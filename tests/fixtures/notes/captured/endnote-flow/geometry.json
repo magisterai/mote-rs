@@ -1780,20 +1780,20 @@
           "fragments": [
             {
               "advance": 46.14,
-              "baseline": 27.920699999999997,
+              "baseline": 27.7,
               "size": 10,
               "text": "Repeated ",
               "x": 36
             },
             {
               "advance": 31.13,
-              "baseline": 27.920699999999997,
+              "baseline": 27.7,
               "size": 10,
               "text": "header",
               "x": 82.14
             }
           ],
-          "height": 13.841399999999998,
+          "height": 13.799999999999999,
           "top": 18,
           "width": 77.27,
           "x": 36
@@ -1802,21 +1802,21 @@
           "fragments": [
             {
               "advance": 26.13,
-              "baseline": 378.0793,
+              "baseline": 377.9,
               "size": 10,
               "text": "Page ",
               "x": 36
             },
             {
               "advance": 5.56,
-              "baseline": 378.0793,
+              "baseline": 377.9,
               "size": 10,
               "text": "1",
               "x": 62.129999999999995
             }
           ],
-          "height": 13.841399999999998,
-          "top": 368.1586,
+          "height": 13.799999999999999,
+          "top": 368.2,
           "width": 31.689999999999998,
           "x": 36
         }
@@ -3624,20 +3624,20 @@
           "fragments": [
             {
               "advance": 46.14,
-              "baseline": 27.920699999999997,
+              "baseline": 27.7,
               "size": 10,
               "text": "Repeated ",
               "x": 36
             },
             {
               "advance": 31.13,
-              "baseline": 27.920699999999997,
+              "baseline": 27.7,
               "size": 10,
               "text": "header",
               "x": 82.14
             }
           ],
-          "height": 13.841399999999998,
+          "height": 13.799999999999999,
           "top": 18,
           "width": 77.27,
           "x": 36
@@ -3646,21 +3646,21 @@
           "fragments": [
             {
               "advance": 26.13,
-              "baseline": 378.0793,
+              "baseline": 377.9,
               "size": 10,
               "text": "Page ",
               "x": 36
             },
             {
               "advance": 5.56,
-              "baseline": 378.0793,
+              "baseline": 377.9,
               "size": 10,
               "text": "2",
               "x": 62.129999999999995
             }
           ],
-          "height": 13.841399999999998,
-          "top": 368.1586,
+          "height": 13.799999999999999,
+          "top": 368.2,
           "width": 31.689999999999998,
           "x": 36
         }
@@ -5188,20 +5188,20 @@
           "fragments": [
             {
               "advance": 46.14,
-              "baseline": 27.920699999999997,
+              "baseline": 27.7,
               "size": 10,
               "text": "Repeated ",
               "x": 36
             },
             {
               "advance": 31.13,
-              "baseline": 27.920699999999997,
+              "baseline": 27.7,
               "size": 10,
               "text": "header",
               "x": 82.14
             }
           ],
-          "height": 13.841399999999998,
+          "height": 13.799999999999999,
           "top": 18,
           "width": 77.27,
           "x": 36
@@ -5210,21 +5210,21 @@
           "fragments": [
             {
               "advance": 26.13,
-              "baseline": 378.0793,
+              "baseline": 377.9,
               "size": 10,
               "text": "Page ",
               "x": 36
             },
             {
               "advance": 5.56,
-              "baseline": 378.0793,
+              "baseline": 377.9,
               "size": 10,
               "text": "3",
               "x": 62.129999999999995
             }
           ],
-          "height": 13.841399999999998,
-          "top": 368.1586,
+          "height": 13.799999999999999,
+          "top": 368.2,
           "width": 31.689999999999998,
           "x": 36
         }

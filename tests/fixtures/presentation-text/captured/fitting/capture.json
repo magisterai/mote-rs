@@ -75,9 +75,9 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     }
   },
-  "geometry_sha256": "7cd8c68f69c2bddbf65d8547bfaad4cc1a3db53a00da46aaa2b2f7dfe915b0eb",
+  "geometry_sha256": "a5595e808a451644b14e14f8a4c04e888b199e8e49d4a3022c103b4ab6627c41",
   "native_png_files": {
-    "reference-1.png": "ca3d68a93ae6e3453bb0c5ca74941f8832a6fa33c93bbbd63e157c95f8211243",
+    "reference-1.png": "37d5636a0d6bf648b1f447364321ca64eb9a824b502e80e8ab53b2e63d63fe0e",
     "reference-2.png": "95bbee20120addd37c926a5fd1377f665ff74f0d4725b2959849d06fda783e4b"
   }
 }

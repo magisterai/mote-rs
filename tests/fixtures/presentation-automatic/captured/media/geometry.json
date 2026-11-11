@@ -21,21 +21,21 @@
           {
             "text": "Images ",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 134.064,
             "size": 36
           },
           {
             "text": "and ",
             "x": 184.464,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 74.016,
             "size": 36
           },
           {
             "text": "tables",
             "x": 258.47999999999996,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 104.04,
             "size": 36
           }
@@ -59,21 +59,21 @@
           {
             "text": "A ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 17.01,
             "size": 18
           },
           {
             "text": "short ",
             "x": 67.41,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 45.018,
             "size": 18
           },
           {
             "text": "introduction.",
             "x": 112.428,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 98.046,
             "size": 18
           }
@@ -129,7 +129,7 @@
           {
             "text": "Name",
             "x": 57.6,
-            "baseline": 399.0324,
+            "baseline": 399.8,
             "advance": 48.006,
             "size": 18
           }
@@ -163,7 +163,7 @@
           {
             "text": "Value",
             "x": 487.2,
-            "baseline": 399.0324,
+            "baseline": 399.8,
             "advance": 46.026,
             "size": 18
           }
@@ -197,7 +197,7 @@
           {
             "text": "Alpha",
             "x": 57.6,
-            "baseline": 461.4324,
+            "baseline": 462.2,
             "advance": 46.026,
             "size": 18
           }
@@ -231,7 +231,7 @@
           {
             "text": "12",
             "x": 487.2,
-            "baseline": 461.4324,
+            "baseline": 462.2,
             "advance": 20.016,
             "size": 18
           }
@@ -387,7 +387,7 @@
           {
             "text": "1",
             "x": 911.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }
@@ -433,7 +433,7 @@
           {
             "text": "One",
             "x": 57.6,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 34.02,
             "size": 18
           }
@@ -467,7 +467,7 @@
           {
             "text": "Two",
             "x": 487.2,
-            "baseline": 120.63239999999999,
+            "baseline": 121.39999999999999,
             "advance": 34.002,
             "size": 18
           }
@@ -501,7 +501,7 @@
           {
             "text": "Three",
             "x": 57.6,
-            "baseline": 217.8324,
+            "baseline": 218.6,
             "advance": 47.016,
             "size": 18
           }
@@ -535,7 +535,7 @@
           {
             "text": "Four",
             "x": 487.2,
-            "baseline": 217.8324,
+            "baseline": 218.6,
             "advance": 37.008,
             "size": 18
           }
@@ -691,28 +691,28 @@
           {
             "text": "Text ",
             "x": 50.4,
-            "baseline": 325.8324,
+            "baseline": 326.6,
             "advance": 40.014,
             "size": 18
           },
           {
             "text": "after ",
             "x": 90.414,
-            "baseline": 325.8324,
+            "baseline": 326.6,
             "advance": 41.022,
             "size": 18
           },
           {
             "text": "the ",
             "x": 131.436,
-            "baseline": 325.8324,
+            "baseline": 326.6,
             "advance": 30.024,
             "size": 18
           },
           {
             "text": "table.",
             "x": 161.46,
-            "baseline": 325.8324,
+            "baseline": 326.6,
             "advance": 44.028,
             "size": 18
           }
@@ -736,7 +736,7 @@
           {
             "text": "2",
             "x": 911.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }

@@ -103,9 +103,9 @@
       "sha256": "906076c6f275ece145f8b9f65aba740b3390db0f45e6ef30105b0a3750cbddce"
     }
   },
-  "geometry_sha256": "5b290d7a25e9f9b81e585dc3584b88987cb9547823c986775c1d7d4a89758320",
+  "geometry_sha256": "26436c78c59b258a80dc25773eba3c09db41c1f71867b8a6a27f90f0a29e2931",
   "native_png_files": {
-    "reference-1.png": "1542db1533e243de26a12fb6fccc5ec261c8e2e25e817c4690d838db5ab6916d",
-    "reference-2.png": "00246426979244c44e197cc303bd8b8b4c01e24008e3d23ecda3eac100cb4d54"
+    "reference-1.png": "8cd1639ec8df0a766156fbac4d0069bc4be8a5d26b20f8a443a695191ace6ca4",
+    "reference-2.png": "c83aa5f50bd05971c71260a4b16ccff4fc602184506334a18a097420bf1802b4"
   }
 }

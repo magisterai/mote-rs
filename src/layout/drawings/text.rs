@@ -12,6 +12,7 @@ pub(super) fn prepare(
     styles: &LayoutStyleResolver<'_>,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<TextPage, LayoutError> {
+    let flow_styles = styles;
     let styles = LayoutStyleResolver::for_drawing_text(styles.document);
     let attributes = crate::drawings::text_attributes(&element.attributes);
     let mut base = TextStyle::default();
@@ -54,13 +55,28 @@ pub(super) fn prepare(
             .then_some("Aptos"),
         &styles,
     );
+    // Word lays out the text of a shape as it lays out body text.
     for paragraph in &mut paragraphs {
         paragraph.style.word_exact_baseline = true;
+        flow_styles.apply_word_line_metrics(&mut paragraph.style.text);
+        paragraph.style.line_height = paragraph.style.line_spacing.height(&paragraph.style.text);
+        for run in &mut paragraph.runs {
+            flow_styles.apply_word_line_metrics(&mut run.style);
+        }
     }
     let mut bounds = geometry::text_rectangle(
         &text(&element.attributes, "kind"),
         geometry::rectangle(&element.attributes),
     );
-    bounds[1] -= geometry::points(attributes.get("size"), 18.0).max(0.0) * 0.055;
+    // Word keeps the text clear of the inner half of the shape's outline.
+    let inset = crate::properties::object(&element.attributes, "border")
+        .and_then(geometry::stroke)
+        .map_or(0.0, |stroke| stroke.width / 2.0);
+    bounds = [
+        bounds[0] + inset,
+        bounds[1] + inset,
+        (bounds[2] - 2.0 * inset).max(0.0),
+        (bounds[3] - 2.0 * inset).max(0.0),
+    ];
     Ok(crate::layout::drawing_text::fit(&paragraphs, bounds, &attributes, measurer)?.page)
 }

@@ -7,20 +7,20 @@
           "fragments": [
             {
               "advance": 24.442,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "First ",
               "x": 72
             },
             {
               "advance": 26.906,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "body.",
               "x": 96.44200000000001
             }
           ],
-          "height": 15.225539999999999,
+          "height": 15.179999999999998,
           "top": 72,
           "width": 51.348,
           "x": 72
@@ -29,20 +29,20 @@
           "fragments": [
             {
               "advance": 24.442,
-              "baseline": 46.91277,
+              "baseline": 46.67,
               "size": 11,
               "text": "First ",
               "x": 72
             },
             {
               "advance": 34.243,
-              "baseline": 46.91277,
+              "baseline": 46.67,
               "size": 11,
               "text": "header",
               "x": 96.44200000000001
             }
           ],
-          "height": 15.225539999999999,
+          "height": 15.179999999999998,
           "top": 36,
           "width": 58.685,
           "x": 72
@@ -57,20 +57,20 @@
           "fragments": [
             {
               "advance": 40.359,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "Second ",
               "x": 72
             },
             {
               "advance": 26.906,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "body.",
               "x": 112.35900000000001
             }
           ],
-          "height": 15.225539999999999,
+          "height": 15.179999999999998,
           "top": 72,
           "width": 67.265,
           "x": 72
@@ -79,20 +79,20 @@
           "fragments": [
             {
               "advance": 40.359,
-              "baseline": 28.912770000000002,
+              "baseline": 28.669999999999998,
               "size": 11,
               "text": "Second ",
               "x": 72
             },
             {
               "advance": 34.243,
-              "baseline": 28.912770000000002,
+              "baseline": 28.669999999999998,
               "size": 11,
               "text": "header",
               "x": 112.35900000000001
             }
           ],
-          "height": 15.225539999999999,
+          "height": 15.179999999999998,
           "top": 18,
           "width": 74.602,
           "x": 72
@@ -101,21 +101,21 @@
           "fragments": [
             {
               "advance": 40.359,
-              "baseline": 259.68723,
+              "baseline": 259.49,
               "size": 11,
               "text": "Second ",
               "x": 72
             },
             {
               "advance": 28.127,
-              "baseline": 259.68723,
+              "baseline": 259.49,
               "size": 11,
               "text": "footer",
               "x": 112.35900000000001
             }
           ],
-          "height": 15.225539999999999,
-          "top": 248.77446,
+          "height": 15.179999999999998,
+          "top": 248.82,
           "width": 68.486,
           "x": 72
         }
@@ -129,41 +129,41 @@
           "fragments": [
             {
               "advance": 28.116,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "Third ",
               "x": 72
             },
             {
               "advance": 26.906,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "body ",
               "x": 100.116
             },
             {
               "advance": 37.906,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "without ",
               "x": 127.02199999999999
             },
             {
               "advance": 9.174,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "a ",
               "x": 164.928
             },
             {
               "advance": 37.301,
-              "baseline": 82.91277,
+              "baseline": 82.67,
               "size": 11,
               "text": "header.",
               "x": 174.102
             }
           ],
-          "height": 15.225539999999999,
+          "height": 15.179999999999998,
           "top": 72,
           "width": 139.40300000000002,
           "x": 72
@@ -172,21 +172,21 @@
           "fragments": [
             {
               "advance": 40.359,
-              "baseline": 259.68723,
+              "baseline": 259.49,
               "size": 11,
               "text": "Second ",
               "x": 72
             },
             {
               "advance": 28.127,
-              "baseline": 259.68723,
+              "baseline": 259.49,
               "size": 11,
               "text": "footer",
               "x": 112.35900000000001
             }
           ],
-          "height": 15.225539999999999,
-          "top": 248.77446,
+          "height": 15.179999999999998,
+          "top": 248.82,
           "width": 68.486,
           "x": 72
         }

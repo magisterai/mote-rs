@@ -85,6 +85,20 @@ fn shapes_preserve_models_and_complete_editable_packages() {
                     .unwrap();
                 let expected = fs::read(capture.join("package").join(name)).unwrap();
                 if name.ends_with(".xml") || name.ends_with(".rels") {
+                    // A refresh replaces only a part whose content has changed.
+                    if std::env::var_os("MOTE_REFRESH_CAPTURES").is_some()
+                        && std::panic::catch_unwind(|| {
+                            xml_support::compare_xml(
+                                std::str::from_utf8(&actual).unwrap(),
+                                std::str::from_utf8(&expected).unwrap(),
+                                name,
+                            )
+                        })
+                        .is_err()
+                    {
+                        fs::write(capture.join("package").join(name), &actual).unwrap();
+                        continue;
+                    }
                     xml_support::compare_xml(
                         std::str::from_utf8(&actual).unwrap(),
                         std::str::from_utf8(&expected).unwrap(),

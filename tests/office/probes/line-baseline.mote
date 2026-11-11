@@ -1,0 +1,1284 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } } }
+)
+
+LINE BASELINE: Word sets the baseline of an automatic line below the line gap and ascender of its font, and places the space a multiple adds beneath the descender. Each sample lies between exact reference lines, whose baselines are known.
+
+#style(
+  name = "S1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 001.
+
+#paragraph(style = "S1")[Helvetica 11 multiple 0.8 first.]
+
+#paragraph(style = "S1")[Helvetica 11 multiple 0.8 second.]
+
+#style(
+  name = "S2",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 002.
+
+#paragraph(style = "S2")[Helvetica 11 multiple 1.0 first.]
+
+#paragraph(style = "S2")[Helvetica 11 multiple 1.0 second.]
+
+#style(
+  name = "S3",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 003.
+
+#paragraph(style = "S3")[Helvetica 11 multiple 1.15 first.]
+
+#paragraph(style = "S3")[Helvetica 11 multiple 1.15 second.]
+
+#style(
+  name = "S4",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 004.
+
+#paragraph(style = "S4")[Helvetica 11 multiple 1.5 first.]
+
+#paragraph(style = "S4")[Helvetica 11 multiple 1.5 second.]
+
+#style(
+  name = "S5",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 005.
+
+#paragraph(style = "S5")[Helvetica 11 multiple 2.0 first.]
+
+#paragraph(style = "S5")[Helvetica 11 multiple 2.0 second.]
+
+#style(
+  name = "S6",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 006.
+
+#paragraph(style = "S6")[Helvetica 11 at least 6 first.]
+
+#paragraph(style = "S6")[Helvetica 11 at least 6 second.]
+
+#style(
+  name = "S7",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 007.
+
+#paragraph(style = "S7")[Helvetica 11 at least 30 first.]
+
+#paragraph(style = "S7")[Helvetica 11 at least 30 second.]
+
+#style(
+  name = "S8",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 008.
+
+#paragraph(style = "S8")[Helvetica 20 multiple 0.8 first.]
+
+#paragraph(style = "S8")[Helvetica 20 multiple 0.8 second.]
+
+#style(
+  name = "S9",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 009.
+
+#paragraph(style = "S9")[Helvetica 20 multiple 1.0 first.]
+
+#paragraph(style = "S9")[Helvetica 20 multiple 1.0 second.]
+
+#style(
+  name = "S10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 010.
+
+#paragraph(style = "S10")[Helvetica 20 multiple 1.15 first.]
+
+#paragraph(style = "S10")[Helvetica 20 multiple 1.15 second.]
+
+#style(
+  name = "S11",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 011.
+
+#paragraph(style = "S11")[Helvetica 20 multiple 1.5 first.]
+
+#paragraph(style = "S11")[Helvetica 20 multiple 1.5 second.]
+
+#style(
+  name = "S12",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 012.
+
+#paragraph(style = "S12")[Helvetica 20 multiple 2.0 first.]
+
+#paragraph(style = "S12")[Helvetica 20 multiple 2.0 second.]
+
+#style(
+  name = "S13",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 013.
+
+#paragraph(style = "S13")[Helvetica 20 at least 6 first.]
+
+#paragraph(style = "S13")[Helvetica 20 at least 6 second.]
+
+#style(
+  name = "S14",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 014.
+
+#paragraph(style = "S14")[Helvetica 20 at least 30 first.]
+
+#paragraph(style = "S14")[Helvetica 20 at least 30 second.]
+
+#style(
+  name = "S15",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 015.
+
+#paragraph(style = "S15")[Arial 11 multiple 0.8 first.]
+
+#paragraph(style = "S15")[Arial 11 multiple 0.8 second.]
+
+#style(
+  name = "S16",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 016.
+
+#paragraph(style = "S16")[Arial 11 multiple 1.0 first.]
+
+#paragraph(style = "S16")[Arial 11 multiple 1.0 second.]
+
+#style(
+  name = "S17",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 017.
+
+#paragraph(style = "S17")[Arial 11 multiple 1.15 first.]
+
+#paragraph(style = "S17")[Arial 11 multiple 1.15 second.]
+
+#style(
+  name = "S18",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 018.
+
+#paragraph(style = "S18")[Arial 11 multiple 1.5 first.]
+
+#paragraph(style = "S18")[Arial 11 multiple 1.5 second.]
+
+#style(
+  name = "S19",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 019.
+
+#paragraph(style = "S19")[Arial 11 multiple 2.0 first.]
+
+#paragraph(style = "S19")[Arial 11 multiple 2.0 second.]
+
+#style(
+  name = "S20",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 020.
+
+#paragraph(style = "S20")[Arial 11 at least 6 first.]
+
+#paragraph(style = "S20")[Arial 11 at least 6 second.]
+
+#style(
+  name = "S21",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 021.
+
+#paragraph(style = "S21")[Arial 11 at least 30 first.]
+
+#paragraph(style = "S21")[Arial 11 at least 30 second.]
+
+#style(
+  name = "S22",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 022.
+
+#paragraph(style = "S22")[Arial 20 multiple 0.8 first.]
+
+#paragraph(style = "S22")[Arial 20 multiple 0.8 second.]
+
+#style(
+  name = "S23",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 023.
+
+#paragraph(style = "S23")[Arial 20 multiple 1.0 first.]
+
+#paragraph(style = "S23")[Arial 20 multiple 1.0 second.]
+
+#style(
+  name = "S24",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 024.
+
+#paragraph(style = "S24")[Arial 20 multiple 1.15 first.]
+
+#paragraph(style = "S24")[Arial 20 multiple 1.15 second.]
+
+#style(
+  name = "S25",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 025.
+
+#paragraph(style = "S25")[Arial 20 multiple 1.5 first.]
+
+#paragraph(style = "S25")[Arial 20 multiple 1.5 second.]
+
+#style(
+  name = "S26",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 026.
+
+#paragraph(style = "S26")[Arial 20 multiple 2.0 first.]
+
+#paragraph(style = "S26")[Arial 20 multiple 2.0 second.]
+
+#style(
+  name = "S27",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 027.
+
+#paragraph(style = "S27")[Arial 20 at least 6 first.]
+
+#paragraph(style = "S27")[Arial 20 at least 6 second.]
+
+#style(
+  name = "S28",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 028.
+
+#paragraph(style = "S28")[Arial 20 at least 30 first.]
+
+#paragraph(style = "S28")[Arial 20 at least 30 second.]
+
+#style(
+  name = "S29",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 029.
+
+#paragraph(style = "S29")[Times New Roman 11 multiple 0.8 first.]
+
+#paragraph(style = "S29")[Times New Roman 11 multiple 0.8 second.]
+
+#style(
+  name = "S30",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 030.
+
+#paragraph(style = "S30")[Times New Roman 11 multiple 1.0 first.]
+
+#paragraph(style = "S30")[Times New Roman 11 multiple 1.0 second.]
+
+#style(
+  name = "S31",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 031.
+
+#paragraph(style = "S31")[Times New Roman 11 multiple 1.15 first.]
+
+#paragraph(style = "S31")[Times New Roman 11 multiple 1.15 second.]
+
+#style(
+  name = "S32",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 032.
+
+#paragraph(style = "S32")[Times New Roman 11 multiple 1.5 first.]
+
+#paragraph(style = "S32")[Times New Roman 11 multiple 1.5 second.]
+
+#style(
+  name = "S33",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 033.
+
+#paragraph(style = "S33")[Times New Roman 11 multiple 2.0 first.]
+
+#paragraph(style = "S33")[Times New Roman 11 multiple 2.0 second.]
+
+#style(
+  name = "S34",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 034.
+
+#paragraph(style = "S34")[Times New Roman 11 at least 6 first.]
+
+#paragraph(style = "S34")[Times New Roman 11 at least 6 second.]
+
+#style(
+  name = "S35",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 035.
+
+#paragraph(style = "S35")[Times New Roman 11 at least 30 first.]
+
+#paragraph(style = "S35")[Times New Roman 11 at least 30 second.]
+
+#style(
+  name = "S36",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 036.
+
+#paragraph(style = "S36")[Times New Roman 20 multiple 0.8 first.]
+
+#paragraph(style = "S36")[Times New Roman 20 multiple 0.8 second.]
+
+#style(
+  name = "S37",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 037.
+
+#paragraph(style = "S37")[Times New Roman 20 multiple 1.0 first.]
+
+#paragraph(style = "S37")[Times New Roman 20 multiple 1.0 second.]
+
+#style(
+  name = "S38",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 038.
+
+#paragraph(style = "S38")[Times New Roman 20 multiple 1.15 first.]
+
+#paragraph(style = "S38")[Times New Roman 20 multiple 1.15 second.]
+
+#style(
+  name = "S39",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 039.
+
+#paragraph(style = "S39")[Times New Roman 20 multiple 1.5 first.]
+
+#paragraph(style = "S39")[Times New Roman 20 multiple 1.5 second.]
+
+#style(
+  name = "S40",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 040.
+
+#paragraph(style = "S40")[Times New Roman 20 multiple 2.0 first.]
+
+#paragraph(style = "S40")[Times New Roman 20 multiple 2.0 second.]
+
+#style(
+  name = "S41",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 041.
+
+#paragraph(style = "S41")[Times New Roman 20 at least 6 first.]
+
+#paragraph(style = "S41")[Times New Roman 20 at least 6 second.]
+
+#style(
+  name = "S42",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 042.
+
+#paragraph(style = "S42")[Times New Roman 20 at least 30 first.]
+
+#paragraph(style = "S42")[Times New Roman 20 at least 30 second.]
+
+#style(
+  name = "S43",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 043.
+
+#paragraph(style = "S43")[Georgia 11 multiple 0.8 first.]
+
+#paragraph(style = "S43")[Georgia 11 multiple 0.8 second.]
+
+#style(
+  name = "S44",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 044.
+
+#paragraph(style = "S44")[Georgia 11 multiple 1.0 first.]
+
+#paragraph(style = "S44")[Georgia 11 multiple 1.0 second.]
+
+#style(
+  name = "S45",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 045.
+
+#paragraph(style = "S45")[Georgia 11 multiple 1.15 first.]
+
+#paragraph(style = "S45")[Georgia 11 multiple 1.15 second.]
+
+#style(
+  name = "S46",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 046.
+
+#paragraph(style = "S46")[Georgia 11 multiple 1.5 first.]
+
+#paragraph(style = "S46")[Georgia 11 multiple 1.5 second.]
+
+#style(
+  name = "S47",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 047.
+
+#paragraph(style = "S47")[Georgia 11 multiple 2.0 first.]
+
+#paragraph(style = "S47")[Georgia 11 multiple 2.0 second.]
+
+#style(
+  name = "S48",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 048.
+
+#paragraph(style = "S48")[Georgia 11 at least 6 first.]
+
+#paragraph(style = "S48")[Georgia 11 at least 6 second.]
+
+#style(
+  name = "S49",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 049.
+
+#paragraph(style = "S49")[Georgia 11 at least 30 first.]
+
+#paragraph(style = "S49")[Georgia 11 at least 30 second.]
+
+#style(
+  name = "S50",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 050.
+
+#paragraph(style = "S50")[Georgia 20 multiple 0.8 first.]
+
+#paragraph(style = "S50")[Georgia 20 multiple 0.8 second.]
+
+#style(
+  name = "S51",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 051.
+
+#paragraph(style = "S51")[Georgia 20 multiple 1.0 first.]
+
+#paragraph(style = "S51")[Georgia 20 multiple 1.0 second.]
+
+#style(
+  name = "S52",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 052.
+
+#paragraph(style = "S52")[Georgia 20 multiple 1.15 first.]
+
+#paragraph(style = "S52")[Georgia 20 multiple 1.15 second.]
+
+#style(
+  name = "S53",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 053.
+
+#paragraph(style = "S53")[Georgia 20 multiple 1.5 first.]
+
+#paragraph(style = "S53")[Georgia 20 multiple 1.5 second.]
+
+#style(
+  name = "S54",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 054.
+
+#paragraph(style = "S54")[Georgia 20 multiple 2.0 first.]
+
+#paragraph(style = "S54")[Georgia 20 multiple 2.0 second.]
+
+#style(
+  name = "S55",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 055.
+
+#paragraph(style = "S55")[Georgia 20 at least 6 first.]
+
+#paragraph(style = "S55")[Georgia 20 at least 6 second.]
+
+#style(
+  name = "S56",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Georgia", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 056.
+
+#paragraph(style = "S56")[Georgia 20 at least 30 first.]
+
+#paragraph(style = "S56")[Georgia 20 at least 30 second.]
+
+#style(
+  name = "S57",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 057.
+
+#paragraph(style = "S57")[Courier New 11 multiple 0.8 first.]
+
+#paragraph(style = "S57")[Courier New 11 multiple 0.8 second.]
+
+#style(
+  name = "S58",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 058.
+
+#paragraph(style = "S58")[Courier New 11 multiple 1.0 first.]
+
+#paragraph(style = "S58")[Courier New 11 multiple 1.0 second.]
+
+#style(
+  name = "S59",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 059.
+
+#paragraph(style = "S59")[Courier New 11 multiple 1.15 first.]
+
+#paragraph(style = "S59")[Courier New 11 multiple 1.15 second.]
+
+#style(
+  name = "S60",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 060.
+
+#paragraph(style = "S60")[Courier New 11 multiple 1.5 first.]
+
+#paragraph(style = "S60")[Courier New 11 multiple 1.5 second.]
+
+#style(
+  name = "S61",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 061.
+
+#paragraph(style = "S61")[Courier New 11 multiple 2.0 first.]
+
+#paragraph(style = "S61")[Courier New 11 multiple 2.0 second.]
+
+#style(
+  name = "S62",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 062.
+
+#paragraph(style = "S62")[Courier New 11 at least 6 first.]
+
+#paragraph(style = "S62")[Courier New 11 at least 6 second.]
+
+#style(
+  name = "S63",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 063.
+
+#paragraph(style = "S63")[Courier New 11 at least 30 first.]
+
+#paragraph(style = "S63")[Courier New 11 at least 30 second.]
+
+#style(
+  name = "S64",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 064.
+
+#paragraph(style = "S64")[Courier New 20 multiple 0.8 first.]
+
+#paragraph(style = "S64")[Courier New 20 multiple 0.8 second.]
+
+#style(
+  name = "S65",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 065.
+
+#paragraph(style = "S65")[Courier New 20 multiple 1.0 first.]
+
+#paragraph(style = "S65")[Courier New 20 multiple 1.0 second.]
+
+#style(
+  name = "S66",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 066.
+
+#paragraph(style = "S66")[Courier New 20 multiple 1.15 first.]
+
+#paragraph(style = "S66")[Courier New 20 multiple 1.15 second.]
+
+#style(
+  name = "S67",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 067.
+
+#paragraph(style = "S67")[Courier New 20 multiple 1.5 first.]
+
+#paragraph(style = "S67")[Courier New 20 multiple 1.5 second.]
+
+#style(
+  name = "S68",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 068.
+
+#paragraph(style = "S68")[Courier New 20 multiple 2.0 first.]
+
+#paragraph(style = "S68")[Courier New 20 multiple 2.0 second.]
+
+#style(
+  name = "S69",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 069.
+
+#paragraph(style = "S69")[Courier New 20 at least 6 first.]
+
+#paragraph(style = "S69")[Courier New 20 at least 6 second.]
+
+#style(
+  name = "S70",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Courier New", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 070.
+
+#paragraph(style = "S70")[Courier New 20 at least 30 first.]
+
+#paragraph(style = "S70")[Courier New 20 at least 30 second.]
+
+#style(
+  name = "S71",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 071.
+
+#paragraph(style = "S71")[Aptos 11 multiple 0.8 first.]
+
+#paragraph(style = "S71")[Aptos 11 multiple 0.8 second.]
+
+#style(
+  name = "S72",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 072.
+
+#paragraph(style = "S72")[Aptos 11 multiple 1.0 first.]
+
+#paragraph(style = "S72")[Aptos 11 multiple 1.0 second.]
+
+#style(
+  name = "S73",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 073.
+
+#paragraph(style = "S73")[Aptos 11 multiple 1.15 first.]
+
+#paragraph(style = "S73")[Aptos 11 multiple 1.15 second.]
+
+#style(
+  name = "S74",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 074.
+
+#paragraph(style = "S74")[Aptos 11 multiple 1.5 first.]
+
+#paragraph(style = "S74")[Aptos 11 multiple 1.5 second.]
+
+#style(
+  name = "S75",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 075.
+
+#paragraph(style = "S75")[Aptos 11 multiple 2.0 first.]
+
+#paragraph(style = "S75")[Aptos 11 multiple 2.0 second.]
+
+#style(
+  name = "S76",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 076.
+
+#paragraph(style = "S76")[Aptos 11 at least 6 first.]
+
+#paragraph(style = "S76")[Aptos 11 at least 6 second.]
+
+#style(
+  name = "S77",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 077.
+
+#paragraph(style = "S77")[Aptos 11 at least 30 first.]
+
+#paragraph(style = "S77")[Aptos 11 at least 30 second.]
+
+#style(
+  name = "S78",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+Reference 078.
+
+#paragraph(style = "S78")[Aptos 20 multiple 0.8 first.]
+
+#paragraph(style = "S78")[Aptos 20 multiple 0.8 second.]
+
+#style(
+  name = "S79",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 079.
+
+#paragraph(style = "S79")[Aptos 20 multiple 1.0 first.]
+
+#paragraph(style = "S79")[Aptos 20 multiple 1.0 second.]
+
+#style(
+  name = "S80",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+Reference 080.
+
+#paragraph(style = "S80")[Aptos 20 multiple 1.15 first.]
+
+#paragraph(style = "S80")[Aptos 20 multiple 1.15 second.]
+
+#style(
+  name = "S81",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 081.
+
+#paragraph(style = "S81")[Aptos 20 multiple 1.5 first.]
+
+#paragraph(style = "S81")[Aptos 20 multiple 1.5 second.]
+
+#style(
+  name = "S82",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+Reference 082.
+
+#paragraph(style = "S82")[Aptos 20 multiple 2.0 first.]
+
+#paragraph(style = "S82")[Aptos 20 multiple 2.0 second.]
+
+#style(
+  name = "S83",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(6) } } }
+)
+
+Reference 083.
+
+#paragraph(style = "S83")[Aptos 20 at least 6 first.]
+
+#paragraph(style = "S83")[Aptos 20 at least 6 second.]
+
+#style(
+  name = "S84",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(20) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(30) } } }
+)
+
+Reference 084.
+
+#paragraph(style = "S84")[Aptos 20 at least 30 first.]
+
+#paragraph(style = "S84")[Aptos 20 at least 30 second.]
+
+#style(
+  name = "S85",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(16), bold = true },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 085.
+
+#paragraph(style = "S85")[Helvetica bold 16 multiple 1.0 first.]
+
+#paragraph(style = "S85")[Helvetica bold 16 multiple 1.0 second.]
+
+#style(
+  name = "S86",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 086.
+
+#paragraph(style = "S86")[Helvetica mixed 1.0 first #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S86")[Helvetica mixed 1.0 second #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S86")[Helvetica mixed 1.0 third plain.]
+
+#style(
+  name = "S87",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 087.
+
+#paragraph(style = "S87")[Helvetica mixed 1.5 first #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S87")[Helvetica mixed 1.5 second #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S87")[Helvetica mixed 1.5 third plain.]
+
+#style(
+  name = "S88",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(16), bold = true },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 088.
+
+#paragraph(style = "S88")[Aptos bold 16 multiple 1.0 first.]
+
+#paragraph(style = "S88")[Aptos bold 16 multiple 1.0 second.]
+
+#style(
+  name = "S89",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+Reference 089.
+
+#paragraph(style = "S89")[Aptos mixed 1.0 first #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S89")[Aptos mixed 1.0 second #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S89")[Aptos mixed 1.0 third plain.]
+
+#style(
+  name = "S90",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+Reference 090.
+
+#paragraph(style = "S90")[Aptos mixed 1.5 first #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S90")[Aptos mixed 1.5 second #span(size = pt(24))[large] word.]
+
+#paragraph(style = "S90")[Aptos mixed 1.5 third plain.]
+
+Reference 091.

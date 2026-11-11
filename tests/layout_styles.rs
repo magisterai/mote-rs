@@ -46,6 +46,9 @@ fn native_styles_match_captured_source_cases() {
     }
     let actual = json!({"schema_version":1,"cases":cases});
     assert_eq!(cases.len(), 91);
+    if json_compare::refresh(&root, &actual) {
+        return;
+    }
     let mut differences = Vec::new();
     compare(&expected, &actual, "root", &mut differences);
     assert!(

@@ -1,0 +1,1456 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "LINE BASELINE: W ord sets the baseline of an automatic line below the line gap and ascender",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "of its font, and places the space a multiple adds beneath the descender. Each sample lies",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "between exact reference lines, whose baselines are known.",
+          "x": 72.0
+        },
+        {
+          "baseline": 148.08,
+          "text": "Reference 001.",
+          "x": 72.0
+        },
+        {
+          "baseline": 160.56,
+          "text": "Helvetica 11 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 171.12,
+          "text": "Helvetica 11 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 189.12,
+          "text": "Reference 002.",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.76,
+          "text": "Helvetica 11 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 216.96,
+          "text": "Helvetica 11 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 235.68,
+          "text": "Reference 003.",
+          "x": 72.0
+        },
+        {
+          "baseline": 250.08,
+          "text": "Helvetica 11 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 265.2,
+          "text": "Helvetica 11 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 286.08,
+          "text": "Reference 004.",
+          "x": 72.0
+        },
+        {
+          "baseline": 300.48,
+          "text": "Helvetica 11 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 320.4,
+          "text": "Helvetica 11 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 345.6,
+          "text": "Reference 005.",
+          "x": 72.0
+        },
+        {
+          "baseline": 360.0,
+          "text": "Helvetica 11 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 386.64,
+          "text": "Helvetica 11 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 418.56,
+          "text": "Reference 006.",
+          "x": 72.0
+        },
+        {
+          "baseline": 432.96,
+          "text": "Helvetica 11 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 446.16,
+          "text": "Helvetica 11 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 464.88,
+          "text": "Reference 007.",
+          "x": 72.0
+        },
+        {
+          "baseline": 496.08,
+          "text": "Helvetica 11 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 526.08,
+          "text": "Helvetica 11 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 544.8,
+          "text": "Reference 008.",
+          "x": 72.0
+        },
+        {
+          "baseline": 564.48,
+          "text": "Helvetica 20 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 583.68,
+          "text": "Helvetica 20 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 603.36,
+          "text": "Reference 009.",
+          "x": 72.0
+        },
+        {
+          "baseline": 626.64,
+          "text": "Helvetica 20 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 650.64,
+          "text": "Helvetica 20 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 671.28,
+          "text": "Reference 010.",
+          "x": 72.0
+        },
+        {
+          "baseline": 694.8,
+          "text": "Helvetica 20 multiple 1.15 first.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 91.44,
+          "text": "Helvetica 20 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 115.68,
+          "text": "Reference 011.",
+          "x": 72.0
+        },
+        {
+          "baseline": 138.96,
+          "text": "Helvetica 20 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 174.96,
+          "text": "Helvetica 20 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 207.84,
+          "text": "Reference 012.",
+          "x": 72.0
+        },
+        {
+          "baseline": 231.12,
+          "text": "Helvetica 20 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 279.12,
+          "text": "Helvetica 20 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 323.76,
+          "text": "Reference 013.",
+          "x": 72.0
+        },
+        {
+          "baseline": 347.04,
+          "text": "Helvetica 20 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 371.28,
+          "text": "Helvetica 20 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 391.92,
+          "text": "Reference 014.",
+          "x": 72.0
+        },
+        {
+          "baseline": 421.2,
+          "text": "Helvetica 20 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 451.2,
+          "text": "Helvetica 20 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.84,
+          "text": "Reference 015.",
+          "x": 72.0
+        },
+        {
+          "baseline": 483.84,
+          "text": "Arial 11 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 493.92,
+          "text": "Arial 11 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 512.16,
+          "text": "Reference 016.",
+          "x": 72.0
+        },
+        {
+          "baseline": 526.32,
+          "text": "Arial 11 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 538.8,
+          "text": "Arial 11 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 557.28,
+          "text": "Reference 017.",
+          "x": 72.0
+        },
+        {
+          "baseline": 571.68,
+          "text": "Arial 11 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.08,
+          "text": "Arial 11 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 606.48,
+          "text": "Reference 018.",
+          "x": 72.0
+        },
+        {
+          "baseline": 620.64,
+          "text": "Arial 11 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 639.6,
+          "text": "Arial 11 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 664.32,
+          "text": "Reference 019.",
+          "x": 72.0
+        },
+        {
+          "baseline": 678.72,
+          "text": "Arial 11 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 703.92,
+          "text": "Arial 11 multiple 2.0 second.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "Reference 020.",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.24,
+          "text": "Arial 11 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 114.96,
+          "text": "Arial 11 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.44,
+          "text": "Reference 021.",
+          "x": 72.0
+        },
+        {
+          "baseline": 164.88,
+          "text": "Arial 11 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 194.88,
+          "text": "Arial 11 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 213.36,
+          "text": "Reference 022.",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.32,
+          "text": "Arial 20 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 250.8,
+          "text": "Arial 20 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 270.24,
+          "text": "Reference 023.",
+          "x": 72.0
+        },
+        {
+          "baseline": 292.8,
+          "text": "Arial 20 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 315.84,
+          "text": "Arial 20 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 336.24,
+          "text": "Reference 024.",
+          "x": 72.0
+        },
+        {
+          "baseline": 358.8,
+          "text": "Arial 20 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 385.2,
+          "text": "Arial 20 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 408.96,
+          "text": "Reference 025.",
+          "x": 72.0
+        },
+        {
+          "baseline": 431.76,
+          "text": "Arial 20 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 466.32,
+          "text": "Arial 20 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 498.0,
+          "text": "Reference 026.",
+          "x": 72.0
+        },
+        {
+          "baseline": 520.8,
+          "text": "Arial 20 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 566.64,
+          "text": "Arial 20 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 610.08,
+          "text": "Reference 027.",
+          "x": 72.0
+        },
+        {
+          "baseline": 632.64,
+          "text": "Arial 20 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 655.68,
+          "text": "Arial 20 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.08,
+          "text": "Reference 028.",
+          "x": 72.0
+        },
+        {
+          "baseline": 705.6,
+          "text": "Arial 20 at least 30 first.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 97.68,
+          "text": "Arial 20 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 118.08,
+          "text": "Reference 029.",
+          "x": 72.0
+        },
+        {
+          "baseline": 130.08,
+          "text": "Times New Roman 11 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.16,
+          "text": "Times New Roman 11 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.4,
+          "text": "Reference 030.",
+          "x": 72.0
+        },
+        {
+          "baseline": 172.56,
+          "text": "Times New Roman 11 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 185.04,
+          "text": "Times New Roman 11 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.52,
+          "text": "Reference 031.",
+          "x": 72.0
+        },
+        {
+          "baseline": 217.92,
+          "text": "Times New Roman 11 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 232.32,
+          "text": "Times New Roman 11 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 252.72,
+          "text": "Reference 032.",
+          "x": 72.0
+        },
+        {
+          "baseline": 266.88,
+          "text": "Times New Roman 11 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 285.84,
+          "text": "Times New Roman 11 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.56,
+          "text": "Reference 033.",
+          "x": 72.0
+        },
+        {
+          "baseline": 324.96,
+          "text": "Times New Roman 11 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 350.16,
+          "text": "Times New Roman 11 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 381.36,
+          "text": "Reference 034.",
+          "x": 72.0
+        },
+        {
+          "baseline": 395.52,
+          "text": "Times New Roman 11 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 408.0,
+          "text": "Times New Roman 11 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 426.48,
+          "text": "Reference 035.",
+          "x": 72.0
+        },
+        {
+          "baseline": 458.16,
+          "text": "Times New Roman 11 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 488.16,
+          "text": "Times New Roman 11 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 506.64,
+          "text": "Reference 036.",
+          "x": 72.0
+        },
+        {
+          "baseline": 525.6,
+          "text": "Times New Roman 20 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 543.84,
+          "text": "Times New Roman 20 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 563.28,
+          "text": "Reference 037.",
+          "x": 72.0
+        },
+        {
+          "baseline": 585.84,
+          "text": "Times New Roman 20 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 608.88,
+          "text": "Times New Roman 20 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 629.28,
+          "text": "Reference 038.",
+          "x": 72.0
+        },
+        {
+          "baseline": 652.08,
+          "text": "Times New Roman 20 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 678.48,
+          "text": "Times New Roman 20 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 702.24,
+          "text": "Reference 039.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 90.72,
+          "text": "Times New Roman 20 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 125.28,
+          "text": "Times New Roman 20 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 156.96,
+          "text": "Reference 040.",
+          "x": 72.0
+        },
+        {
+          "baseline": 179.76,
+          "text": "Times New Roman 20 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 225.6,
+          "text": "Times New Roman 20 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 269.04,
+          "text": "Reference 041.",
+          "x": 72.0
+        },
+        {
+          "baseline": 291.6,
+          "text": "Times New Roman 20 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 314.64,
+          "text": "Times New Roman 20 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 335.04,
+          "text": "Reference 042.",
+          "x": 72.0
+        },
+        {
+          "baseline": 364.56,
+          "text": "Times New Roman 20 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 394.56,
+          "text": "Times New Roman 20 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "Reference 043.",
+          "x": 72.0
+        },
+        {
+          "baseline": 426.96,
+          "text": "Georgia 11 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 437.04,
+          "text": "Georgia 11 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 455.04,
+          "text": "Reference 044.",
+          "x": 72.0
+        },
+        {
+          "baseline": 468.96,
+          "text": "Georgia 11 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 481.44,
+          "text": "Georgia 11 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 500.16,
+          "text": "Reference 045.",
+          "x": 72.0
+        },
+        {
+          "baseline": 514.08,
+          "text": "Georgia 11 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 528.48,
+          "text": "Georgia 11 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 548.88,
+          "text": "Reference 046.",
+          "x": 72.0
+        },
+        {
+          "baseline": 562.8,
+          "text": "Georgia 11 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 581.52,
+          "text": "Georgia 11 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 606.24,
+          "text": "Reference 047.",
+          "x": 72.0
+        },
+        {
+          "baseline": 620.4,
+          "text": "Georgia 11 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 645.36,
+          "text": "Georgia 11 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.32,
+          "text": "Reference 048.",
+          "x": 72.0
+        },
+        {
+          "baseline": 690.24,
+          "text": "Georgia 11 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 702.72,
+          "text": "Georgia 11 at least 6 second.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "Reference 049.",
+          "x": 72.0
+        },
+        {
+          "baseline": 119.52,
+          "text": "Georgia 11 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 149.52,
+          "text": "Georgia 11 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 168.0,
+          "text": "Reference 050.",
+          "x": 72.0
+        },
+        {
+          "baseline": 186.48,
+          "text": "Georgia 20 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 204.72,
+          "text": "Georgia 20 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 224.4,
+          "text": "Reference 051.",
+          "x": 72.0
+        },
+        {
+          "baseline": 246.72,
+          "text": "Georgia 20 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 269.52,
+          "text": "Georgia 20 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 289.92,
+          "text": "Reference 052.",
+          "x": 72.0
+        },
+        {
+          "baseline": 312.24,
+          "text": "Georgia 20 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 338.4,
+          "text": "Georgia 20 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 362.16,
+          "text": "Reference 053.",
+          "x": 72.0
+        },
+        {
+          "baseline": 384.48,
+          "text": "Georgia 20 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 418.56,
+          "text": "Georgia 20 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 450.24,
+          "text": "Reference 054.",
+          "x": 72.0
+        },
+        {
+          "baseline": 472.56,
+          "text": "Georgia 20 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 517.92,
+          "text": "Georgia 20 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 561.12,
+          "text": "Reference 055.",
+          "x": 72.0
+        },
+        {
+          "baseline": 583.44,
+          "text": "Georgia 20 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 606.24,
+          "text": "Georgia 20 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 626.64,
+          "text": "Reference 056.",
+          "x": 72.0
+        },
+        {
+          "baseline": 656.16,
+          "text": "Georgia 20 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 686.16,
+          "text": "Georgia 20 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 706.56,
+          "text": "Reference 057.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 79.44,
+          "text": "Courier New 11 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 89.28,
+          "text": "Courier New 11 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "Reference 058.",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "Courier New 11 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 133.44,
+          "text": "Courier New 11 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 152.88,
+          "text": "Reference 059.",
+          "x": 72.0
+        },
+        {
+          "baseline": 166.08,
+          "text": "Courier New 11 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 180.24,
+          "text": "Courier New 11 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 201.6,
+          "text": "Reference 060.",
+          "x": 72.0
+        },
+        {
+          "baseline": 214.56,
+          "text": "Courier New 11 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 233.28,
+          "text": "Courier New 11 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 258.96,
+          "text": "Reference 061.",
+          "x": 72.0
+        },
+        {
+          "baseline": 271.92,
+          "text": "Courier New 11 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 296.88,
+          "text": "Courier New 11 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 328.8,
+          "text": "Reference 062.",
+          "x": 72.0
+        },
+        {
+          "baseline": 341.76,
+          "text": "Courier New 11 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 354.24,
+          "text": "Courier New 11 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 373.68,
+          "text": "Reference 063.",
+          "x": 72.0
+        },
+        {
+          "baseline": 404.4,
+          "text": "Courier New 11 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 434.4,
+          "text": "Courier New 11 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 453.84,
+          "text": "Reference 064.",
+          "x": 72.0
+        },
+        {
+          "baseline": 470.88,
+          "text": "Courier New 20 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 489.12,
+          "text": "Courier New 20 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 510.0,
+          "text": "Reference 065.",
+          "x": 72.0
+        },
+        {
+          "baseline": 530.4,
+          "text": "Courier New 20 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 553.2,
+          "text": "Courier New 20 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 575.28,
+          "text": "Reference 066.",
+          "x": 72.0
+        },
+        {
+          "baseline": 595.92,
+          "text": "Courier New 20 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 622.08,
+          "text": "Courier New 20 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 647.52,
+          "text": "Reference 067.",
+          "x": 72.0
+        },
+        {
+          "baseline": 668.16,
+          "text": "Courier New 20 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 702.24,
+          "text": "Courier New 20 multiple 1.5 second.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "Reference 068.",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.72,
+          "text": "Courier New 20 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 154.08,
+          "text": "Courier New 20 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 198.72,
+          "text": "Reference 069.",
+          "x": 72.0
+        },
+        {
+          "baseline": 219.12,
+          "text": "Courier New 20 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 241.92,
+          "text": "Courier New 20 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 264.0,
+          "text": "Reference 070.",
+          "x": 72.0
+        },
+        {
+          "baseline": 291.84,
+          "text": "Courier New 20 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 321.84,
+          "text": "Courier New 20 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 343.92,
+          "text": "Reference 071.",
+          "x": 72.0
+        },
+        {
+          "baseline": 356.16,
+          "text": "Aptos 11 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 366.96,
+          "text": "Aptos 11 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 385.44,
+          "text": "Reference 072.",
+          "x": 72.0
+        },
+        {
+          "baseline": 399.84,
+          "text": "Aptos 11 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 413.04,
+          "text": "Aptos 11 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 432.24,
+          "text": "Reference 073.",
+          "x": 72.0
+        },
+        {
+          "baseline": 446.64,
+          "text": "Aptos 11 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 462.0,
+          "text": "Aptos 11 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 483.36,
+          "text": "Reference 074.",
+          "x": 72.0
+        },
+        {
+          "baseline": 497.52,
+          "text": "Aptos 11 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 517.68,
+          "text": "Aptos 11 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 543.6,
+          "text": "Reference 075.",
+          "x": 72.0
+        },
+        {
+          "baseline": 557.76,
+          "text": "Aptos 11 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 584.64,
+          "text": "Aptos 11 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 617.28,
+          "text": "Reference 076.",
+          "x": 72.0
+        },
+        {
+          "baseline": 631.44,
+          "text": "Aptos 11 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 644.88,
+          "text": "Aptos 11 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 664.08,
+          "text": "Reference 077.",
+          "x": 72.0
+        },
+        {
+          "baseline": 694.8,
+          "text": "Aptos 11 at least 30 first.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 98.88,
+          "text": "Aptos 11 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 118.08,
+          "text": "Reference 078.",
+          "x": 72.0
+        },
+        {
+          "baseline": 136.8,
+          "text": "Aptos 20 multiple 0.8 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 156.48,
+          "text": "Aptos 20 multiple 0.8 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 177.12,
+          "text": "Reference 079.",
+          "x": 72.0
+        },
+        {
+          "baseline": 199.92,
+          "text": "Aptos 20 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 224.4,
+          "text": "Aptos 20 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 246.0,
+          "text": "Reference 080.",
+          "x": 72.0
+        },
+        {
+          "baseline": 268.8,
+          "text": "Aptos 20 multiple 1.15 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 296.88,
+          "text": "Aptos 20 multiple 1.15 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 322.08,
+          "text": "Reference 081.",
+          "x": 72.0
+        },
+        {
+          "baseline": 345.12,
+          "text": "Aptos 20 multiple 1.5 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 381.6,
+          "text": "Aptos 20 multiple 1.5 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 415.44,
+          "text": "Reference 082.",
+          "x": 72.0
+        },
+        {
+          "baseline": 438.0,
+          "text": "Aptos 20 multiple 2.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 486.72,
+          "text": "Aptos 20 multiple 2.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 533.04,
+          "text": "Reference 083.",
+          "x": 72.0
+        },
+        {
+          "baseline": 555.84,
+          "text": "Aptos 20 at least 6 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 580.32,
+          "text": "Aptos 20 at least 6 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 601.92,
+          "text": "Reference 084.",
+          "x": 72.0
+        },
+        {
+          "baseline": 630.24,
+          "text": "Aptos 20 at least 30 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 660.24,
+          "text": "Aptos 20 at least 30 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 681.84,
+          "text": "Reference 085.",
+          "x": 72.0
+        },
+        {
+          "baseline": 701.28,
+          "text": "Helvetica bold 16 multiple 1.0 first.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Helvetica bold 16 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.28,
+          "text": "Reference 086.",
+          "x": 72.0
+        },
+        {
+          "baseline": 134.4,
+          "text": "Helvetica mixed 1.0 first large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 163.2,
+          "text": "Helvetica mixed 1.0 second large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 179.52,
+          "text": "Helvetica mixed 1.0 third plain.",
+          "x": 72.0
+        },
+        {
+          "baseline": 198.24,
+          "text": "Reference 087.",
+          "x": 72.0
+        },
+        {
+          "baseline": 225.36,
+          "text": "Helvetica mixed 1.5 first large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 268.56,
+          "text": "Helvetica mixed 1.5 second large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 299.04,
+          "text": "Helvetica mixed 1.5 third plain.",
+          "x": 72.0
+        },
+        {
+          "baseline": 324.48,
+          "text": "Reference 088.",
+          "x": 72.0
+        },
+        {
+          "baseline": 343.2,
+          "text": "Aptos bold 16 multiple 1.0 first.",
+          "x": 72.0
+        },
+        {
+          "baseline": 362.64,
+          "text": "Aptos bold 16 multiple 1.0 second.",
+          "x": 72.0
+        },
+        {
+          "baseline": 383.52,
+          "text": "Reference 089.",
+          "x": 72.0
+        },
+        {
+          "baseline": 409.92,
+          "text": "Aptos mixed 1.0 first large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 439.2,
+          "text": "Aptos mixed 1.0 second large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 456.24,
+          "text": "Aptos mixed 1.0 third plain.",
+          "x": 72.0
+        },
+        {
+          "baseline": 475.44,
+          "text": "Reference 090.",
+          "x": 72.0
+        },
+        {
+          "baseline": 501.84,
+          "text": "Aptos mixed 1.5 first large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 546.0,
+          "text": "Aptos mixed 1.5 second large word.",
+          "x": 72.0
+        },
+        {
+          "baseline": 577.68,
+          "text": "Aptos mixed 1.5 third plain.",
+          "x": 72.0
+        },
+        {
+          "baseline": 603.6,
+          "text": "Reference 091.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "6f9ce4ff2cc3b6db9bb105426685c14f925a1cecc0bde03d946f692fb8dff863"
+}

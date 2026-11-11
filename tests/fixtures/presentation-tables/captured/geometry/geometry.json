@@ -31,7 +31,7 @@
           {
             "text": "Name",
             "x": 22.2,
-            "baseline": 34.8324,
+            "baseline": 35.6,
             "advance": 48.006,
             "size": 18
           }
@@ -65,7 +65,7 @@
           {
             "text": "Amount",
             "x": 152.2,
-            "baseline": 34.8324,
+            "baseline": 35.6,
             "advance": 62.028,
             "size": 18
           }
@@ -99,7 +99,7 @@
           {
             "text": "First",
             "x": 22.2,
-            "baseline": 78.16570708661418,
+            "baseline": 78.93330708661418,
             "advance": 34.992,
             "size": 18
           }
@@ -133,7 +133,7 @@
           {
             "text": "120",
             "x": 152.2,
-            "baseline": 78.16570708661418,
+            "baseline": 78.93330708661418,
             "advance": 30.024,
             "size": 18
           }
@@ -167,7 +167,7 @@
           {
             "text": "Second",
             "x": 22.2,
-            "baseline": 121.49901417322835,
+            "baseline": 122.26661417322835,
             "advance": 61.038,
             "size": 18
           }
@@ -201,7 +201,7 @@
           {
             "text": "240",
             "x": 152.2,
-            "baseline": 121.49901417322835,
+            "baseline": 122.26661417322835,
             "advance": 30.024,
             "size": 18
           }
@@ -389,7 +389,7 @@
           {
             "text": "Left",
             "x": 382.2,
-            "baseline": 34.8324,
+            "baseline": 35.6,
             "advance": 30.024,
             "size": 18
           }
@@ -423,7 +423,7 @@
           {
             "text": "Right",
             "x": 462.2,
-            "baseline": 34.8324,
+            "baseline": 35.6,
             "advance": 42.012,
             "size": 18
           }
@@ -457,7 +457,7 @@
           {
             "text": "Value",
             "x": 382.2,
-            "baseline": 69.8324,
+            "baseline": 70.6,
             "advance": 46.026,
             "size": 18
           }
@@ -491,7 +491,7 @@
           {
             "text": "320",
             "x": 462.2,
-            "baseline": 69.8324,
+            "baseline": 70.6,
             "advance": 30.024,
             "size": 18
           }
@@ -657,7 +657,7 @@
           {
             "text": "First",
             "x": 81,
-            "baseline": 245.39999999999998,
+            "baseline": 246.1676,
             "advance": 34.992,
             "size": 18
           }
@@ -691,7 +691,7 @@
           {
             "text": "Second",
             "x": 231,
-            "baseline": 245.39999999999998,
+            "baseline": 246.1676,
             "advance": 61.038,
             "size": 18
           }
@@ -725,7 +725,7 @@
           {
             "text": "Third",
             "x": 361,
-            "baseline": 245.39999999999998,
+            "baseline": 246.1676,
             "advance": 41.004,
             "size": 18
           }
@@ -759,7 +759,7 @@
           {
             "text": "One",
             "x": 81,
-            "baseline": 317.9,
+            "baseline": 318.6676,
             "advance": 34.02,
             "size": 18
           }
@@ -793,7 +793,7 @@
           {
             "text": "Two",
             "x": 231,
-            "baseline": 317.9,
+            "baseline": 318.6676,
             "advance": 34.002,
             "size": 18
           }
@@ -827,7 +827,7 @@
           {
             "text": "Three",
             "x": 361,
-            "baseline": 317.9,
+            "baseline": 318.6676,
             "advance": 47.016,
             "size": 18
           }

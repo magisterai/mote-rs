@@ -21,28 +21,28 @@
           {
             "text": "Introduction ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 99.054,
             "size": 18
           },
           {
             "text": "before ",
             "x": 149.454,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 56.034,
             "size": 18
           },
           {
             "text": "a ",
             "x": 205.488,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 15.012,
             "size": 18
           },
           {
             "text": "title.",
             "x": 220.5,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 33.012,
             "size": 18
           }
@@ -78,14 +78,14 @@
           {
             "text": "First ",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 88.02,
             "size": 36
           },
           {
             "text": "title",
             "x": 138.42,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 64.008,
             "size": 36
           }
@@ -109,35 +109,35 @@
           {
             "text": "A ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 17.01,
             "size": 18
           },
           {
             "text": "paragraph ",
             "x": 67.41,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 87.048,
             "size": 18
           },
           {
             "text": "and ",
             "x": 154.458,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 35.028,
             "size": 18
           },
           {
             "text": "a ",
             "x": 189.48600000000002,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 15.012,
             "size": 18
           },
           {
             "text": "list.",
             "x": 204.49800000000002,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 27,
             "size": 18
           }
@@ -161,14 +161,14 @@
           {
             "text": "\u2022",
             "x": 63.9,
-            "baseline": 138.6972,
+            "baseline": 138.8,
             "advance": 6.3,
             "size": 18
           },
           {
             "text": "First",
             "x": 77.4,
-            "baseline": 138.6972,
+            "baseline": 138.8,
             "advance": 34.992,
             "size": 18
           }
@@ -189,7 +189,7 @@
         18,
         21.6648
       ],
-      "baseline": 160.36199999999997,
+      "baseline": 160.8696,
       "font_size": 18,
       "checked": true,
       "clip": [
@@ -210,7 +210,7 @@
           {
             "text": "Second",
             "x": 86.904,
-            "baseline": 160.36199999999997,
+            "baseline": 160.8,
             "advance": 61.038,
             "size": 18
           }
@@ -234,21 +234,21 @@
           {
             "text": "A ",
             "x": 50.4,
-            "baseline": 191.0448,
+            "baseline": 191.8,
             "advance": 28,
             "size": 28
           },
           {
             "text": "smaller ",
             "x": 78.4,
-            "baseline": 191.0448,
+            "baseline": 191.8,
             "advance": 105.84,
             "size": 28
           },
           {
             "text": "heading",
             "x": 184.24,
-            "baseline": 191.0448,
+            "baseline": 191.8,
             "advance": 107.352,
             "size": 28
           }
@@ -272,35 +272,35 @@
           {
             "text": "Still ",
             "x": 50.4,
-            "baseline": 215.7276,
+            "baseline": 215.8,
             "advance": 34.002,
             "size": 18
           },
           {
             "text": "on ",
             "x": 84.402,
-            "baseline": 215.7276,
+            "baseline": 215.8,
             "advance": 25.02,
             "size": 18
           },
           {
             "text": "the ",
             "x": 109.422,
-            "baseline": 215.7276,
+            "baseline": 215.8,
             "advance": 30.024,
             "size": 18
           },
           {
             "text": "same ",
             "x": 139.446,
-            "baseline": 215.7276,
+            "baseline": 215.8,
             "advance": 49.014,
             "size": 18
           },
           {
             "text": "slide.",
             "x": 188.46,
-            "baseline": 215.7276,
+            "baseline": 215.8,
             "advance": 42.012,
             "size": 18
           }
@@ -336,14 +336,14 @@
           {
             "text": "Second ",
             "x": 50.4,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 140.04,
             "size": 36
           },
           {
             "text": "title",
             "x": 190.44,
-            "baseline": 61.264799999999994,
+            "baseline": 61.8,
             "advance": 64.008,
             "size": 36
           }
@@ -367,14 +367,14 @@
           {
             "text": "Final ",
             "x": 50.4,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 44.01,
             "size": 18
           },
           {
             "text": "paragraph.",
             "x": 94.41,
-            "baseline": 117.0324,
+            "baseline": 117.8,
             "advance": 87.048,
             "size": 18
           }

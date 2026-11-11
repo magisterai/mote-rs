@@ -51,6 +51,8 @@ a string. `alignment` accepts left, center, right, or justify;
 `resize` normalize respectively to those values. `text.paragraph` uses the
 paragraph-style property family. Text and `text.list` also accept the established
 `spacing`, `spacing_before`, `spacing_after`, `line_spacing`, and `indent` fields.
+The text of a shape is set at single line spacing, with no space before or after
+a paragraph, unless these fields or a paragraph style state otherwise.
 
 ```mote
 #shape(position = {width = inch(2), height = inch(1)},

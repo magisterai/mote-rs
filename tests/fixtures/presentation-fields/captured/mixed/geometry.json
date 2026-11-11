@@ -81,7 +81,7 @@
         "fragments": [
           {
             "advance": 35.01,
-            "baseline": 49.8324,
+            "baseline": 50.6,
             "size": 18.0,
             "text": "Item",
             "x": 37.2
@@ -115,7 +115,7 @@
         "fragments": [
           {
             "advance": 46.026,
-            "baseline": 49.8324,
+            "baseline": 50.6,
             "size": 18.0,
             "text": "Value",
             "x": 157.2
@@ -149,7 +149,7 @@
         "fragments": [
           {
             "advance": 46.026,
-            "baseline": 93.16570708661418,
+            "baseline": 93.93330708661418,
             "size": 18.0,
             "text": "Alpha",
             "x": 37.2
@@ -183,7 +183,7 @@
         "fragments": [
           {
             "advance": 20.016,
-            "baseline": 93.16570708661418,
+            "baseline": 93.93330708661418,
             "size": 18.0,
             "text": "12",
             "x": 157.2
@@ -217,7 +217,7 @@
         "fragments": [
           {
             "advance": 37.026,
-            "baseline": 136.49901417322835,
+            "baseline": 137.26661417322833,
             "size": 18.0,
             "text": "Beta",
             "x": 37.2
@@ -251,7 +251,7 @@
         "fragments": [
           {
             "advance": 20.016,
-            "baseline": 136.49901417322835,
+            "baseline": 137.26661417322833,
             "size": 18.0,
             "text": "24",
             "x": 157.2
@@ -986,7 +986,7 @@
         "fragments": [
           {
             "advance": 68.448,
-            "baseline": 213.92,
+            "baseline": 214.4912,
             "size": 16.0,
             "text": "Summary",
             "x": 176.151
@@ -1055,14 +1055,14 @@
         "fragments": [
           {
             "advance": 48.35,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "size": 10.0,
             "text": "Combined ",
             "x": 43.2
           },
           {
             "advance": 32.8,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "size": 10.0,
             "text": "content",
             "x": 91.55000000000001
@@ -1086,21 +1086,21 @@
         "fragments": [
           {
             "advance": 38.35,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "size": 10.0,
             "text": "October ",
             "x": 261.74
           },
           {
             "advance": 16.68,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "size": 10.0,
             "text": "30, ",
             "x": 300.09000000000003
           },
           {
             "advance": 22.24,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "size": 10.0,
             "text": "2026",
             "x": 316.77
@@ -1124,7 +1124,7 @@
         "fragments": [
           {
             "advance": 5.56,
-            "baseline": 378.98199999999997,
+            "baseline": 378.964,
             "size": 10.0,
             "text": "1",
             "x": 551.99

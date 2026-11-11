@@ -73,7 +73,7 @@ fn table_list_spacing_preserves_item_spacing_and_paragraph_overrides() {
         (source.replace("#list[", "#list(tight=true)["), 12.0),
         (
             source.replace("#item[", "#item(spacing={after=pt(7)})["),
-            20.14933,
+            20.11,
         ),
     ] {
         let document = mote::compile(&source).unwrap();

@@ -79,21 +79,21 @@
           "fragments": [
             {
               "advance": 37.22,
-              "baseline": 66.4,
+              "baseline": 66.9,
               "size": 10,
               "text": "CellCell ",
               "x": 42
             },
             {
               "advance": 33.9,
-              "baseline": 66.4,
+              "baseline": 66.9,
               "size": 10,
               "text": "fallback",
               "x": 79.22
             }
           ],
           "height": 13,
-          "top": 56,
+          "top": 56.5,
           "width": 71.12,
           "x": 42
         },
@@ -101,21 +101,21 @@
           "fragments": [
             {
               "advance": 59.46,
-              "baseline": 84.9,
+              "baseline": 84.4,
               "size": 10,
               "text": "FigureFigure ",
               "x": 36
             },
             {
               "advance": 33.9,
-              "baseline": 84.9,
+              "baseline": 84.4,
               "size": 10,
               "text": "fallback",
               "x": 95.46000000000001
             }
           ],
           "height": 13,
-          "top": 74.5,
+          "top": 74.0,
           "width": 93.36,
           "x": 36
         }
@@ -126,11 +126,11 @@
           "dash": [],
           "end": [
             120,
-            52
+            52.5
           ],
           "start": [
             36,
-            52
+            52.5
           ],
           "width": 0.5
         },
@@ -139,11 +139,11 @@
           "dash": [],
           "end": [
             120,
-            73.5
+            74.0
           ],
           "start": [
             36,
-            73.5
+            74.0
           ],
           "width": 0.5
         },
@@ -152,11 +152,11 @@
           "dash": [],
           "end": [
             36,
-            73.5
+            74.0
           ],
           "start": [
             36,
-            52
+            52.5
           ],
           "width": 0.5
         },
@@ -165,11 +165,11 @@
           "dash": [],
           "end": [
             120,
-            73.5
+            74.0
           ],
           "start": [
             120,
-            52
+            52.5
           ],
           "width": 0.5
         }

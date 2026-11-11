@@ -12,12 +12,12 @@
   "pdf_comparison_dpi": 144,
   "pdf_changed_pixels": 0,
   "files": {
-    "geometry.json": "6a6704081c1df24f458cacbd755161fb66914cabe46c20e6fff6c5b4bded5e12",
-    "reference-1.png": "5f17f1844e75950e04d64214c63fa85f038108cd4fdb12b98eaff69aa6061e1a",
-    "reference-2.png": "325e0717499f2520eca49deed0fd7067dfb36c011444fcc98b4c9a45c3f2da24",
-    "reference-3.png": "61b0f2f8294bc66cce6b72fd9d4bd5dceb0320d4c43c68bf4107014367f85fb4",
-    "reference-4.png": "961f5b5f45cf136fbb40210673b50940f922db28c0082c615d2ca49630b508cb",
-    "reference-5.png": "f271b1a9860319b34d0c26f2f325f86a75f86777b77b5374a9c640719c0ddee9"
+    "geometry.json": "72268b75cc1c5aac9334d4a3a3c934f158d605e68cfcc85d2ffb19172070719a",
+    "reference-1.png": "d5126231f2a49db1c70a6fca54b7ade6cf77ee4bd8889d379e69d89cd5f499eb",
+    "reference-2.png": "2d46da7c5714f1fab13a0462aec060e51733551f6a7edfbc79ff9bd7c85d04ea",
+    "reference-3.png": "7ea46d10d06d903ee39827df674550f36e4c6dbffb1641180ce036f39ea0bae3",
+    "reference-4.png": "748384d5ac0335285d141aa418130c98c548c09cdded2d8932ceae26de4dd24f",
+    "reference-5.png": "f29a90a9a21fd5ae6a996d781d3c305c8078b862b877fb1e3b0c379d845da348"
   },
   "geometry_font_discovery": "disabled",
   "raster_font_discovery": "installed",

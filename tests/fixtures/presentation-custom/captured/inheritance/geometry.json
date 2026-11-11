@@ -35,14 +35,14 @@
           {
             "text": "Inherited ",
             "x": 52,
-            "baseline": 48.446799999999996,
+            "baseline": 49.0,
             "advance": 108.394,
             "size": 26
           },
           {
             "text": "properties",
             "x": 160.394,
-            "baseline": 48.446799999999996,
+            "baseline": 49.0,
             "advance": 115.596,
             "size": 26
           }
@@ -66,14 +66,14 @@
           {
             "text": "First ",
             "x": 40,
-            "baseline": 148.036,
+            "baseline": 149.0,
             "advance": 44.44,
             "size": 20
           },
           {
             "text": "paragraph.",
             "x": 84.44,
-            "baseline": 148.036,
+            "baseline": 149.0,
             "advance": 96.72,
             "size": 20
           }
@@ -97,42 +97,42 @@
           {
             "text": "Second ",
             "x": 40,
-            "baseline": 188.108,
+            "baseline": 189.0,
             "advance": 73.38,
             "size": 20
           },
           {
             "text": "paragraph ",
             "x": 113.38,
-            "baseline": 188.108,
+            "baseline": 189.0,
             "advance": 96.72,
             "size": 20
           },
           {
             "text": "with ",
             "x": 210.1,
-            "baseline": 188.108,
+            "baseline": 189.0,
             "advance": 41.12,
             "size": 20
           },
           {
             "text": "bold",
             "x": 251.22,
-            "baseline": 188.108,
+            "baseline": 189.0,
             "advance": 42.22,
             "size": 20
           },
           {
             "text": " ",
             "x": 293.44,
-            "baseline": 188.108,
+            "baseline": 189.0,
             "advance": 5.56,
             "size": 20
           },
           {
             "text": "text.",
             "x": 299,
-            "baseline": 188.108,
+            "baseline": 189.0,
             "advance": 37.8,
             "size": 20
           }
@@ -205,14 +205,14 @@
           {
             "text": "Layout ",
             "x": 43.2,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 32.8,
             "size": 10
           },
           {
             "text": "footer",
             "x": 76,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 25.57,
             "size": 10
           }
@@ -236,21 +236,21 @@
           {
             "text": "October ",
             "x": 321.74,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 38.35,
             "size": 10
           },
           {
             "text": "30, ",
             "x": 360.09000000000003,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 16.68,
             "size": 10
           },
           {
             "text": "2026",
             "x": 376.77,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 22.24,
             "size": 10
           }
@@ -274,7 +274,7 @@
           {
             "text": "1",
             "x": 671.99,
-            "baseline": 518.982,
+            "baseline": 518.9639999999999,
             "advance": 5.56,
             "size": 10
           }
@@ -324,21 +324,21 @@
           {
             "text": "Optional ",
             "x": 52,
-            "baseline": 48.446799999999996,
+            "baseline": 49.0,
             "advance": 104.052,
             "size": 26
           },
           {
             "text": "body ",
             "x": 156.05200000000002,
-            "baseline": 48.446799999999996,
+            "baseline": 49.0,
             "advance": 63.596,
             "size": 26
           },
           {
             "text": "omitted",
             "x": 219.648,
-            "baseline": 48.446799999999996,
+            "baseline": 49.0,
             "advance": 85.254,
             "size": 26
           }
