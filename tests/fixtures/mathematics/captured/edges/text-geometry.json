@@ -771,37 +771,37 @@
         "x": 72.0
       },
       {
-        "baseline": 480.7331205078126,
+        "baseline": 480.8969388671876,
         "fragments": [
           {
             "advance": 28.732,
-            "baseline": 480.7331205078126,
+            "baseline": 480.8969388671876,
             "font": "Helvetica",
             "height": 10.175,
             "missing_codepoints": [],
             "size": 11.0,
             "text": "Case ",
-            "top": 472.8351205078126,
+            "top": 472.9989388671876,
             "variant": "regular",
             "width": 28.732,
             "x": 72.0
           },
           {
             "advance": 18.348,
-            "baseline": 480.7331205078126,
+            "baseline": 480.8969388671876,
             "font": "Helvetica",
             "height": 10.175,
             "missing_codepoints": [],
             "size": 11.0,
             "text": "16: ",
-            "top": 472.8351205078126,
+            "top": 472.9989388671876,
             "variant": "regular",
             "width": 18.348,
             "x": 100.732
           },
           {
             "advance": 36.48046875,
-            "baseline": 480.7331205078126,
+            "baseline": 480.8969388671876,
             "font": "ca2a527ab14967b1c7170a97329ed29f38af51b71c8c2073d89d1c055de22de1",
             "height": 20.57666015625,
             "missing_codepoints": [],
@@ -819,37 +819,37 @@
         "x": 72.0
       },
       {
-        "baseline": 512.6097806640626,
+        "baseline": 512.8192533203126,
         "fragments": [
           {
             "advance": 28.732,
-            "baseline": 512.6097806640626,
+            "baseline": 512.8192533203126,
             "font": "Helvetica",
             "height": 10.175,
             "missing_codepoints": [],
             "size": 11.0,
             "text": "Case ",
-            "top": 504.7117806640626,
+            "top": 504.9212533203126,
             "variant": "regular",
             "width": 28.732,
             "x": 72.0
           },
           {
             "advance": 18.348,
-            "baseline": 512.6097806640626,
+            "baseline": 512.8192533203126,
             "font": "Helvetica",
             "height": 10.175,
             "missing_codepoints": [],
             "size": 11.0,
             "text": "17: ",
-            "top": 504.7117806640626,
+            "top": 504.9212533203126,
             "variant": "regular",
             "width": 18.348,
             "x": 100.732
           },
           {
             "advance": 26.83279079861111,
-            "baseline": 512.6097806640626,
+            "baseline": 512.8192533203126,
             "font": "ca2a527ab14967b1c7170a97329ed29f38af51b71c8c2073d89d1c055de22de1",
             "height": 20.66796875,
             "missing_codepoints": [],
@@ -867,37 +867,37 @@
         "x": 72.0
       },
       {
-        "baseline": 544.5777494140625,
+        "baseline": 544.7845365234375,
         "fragments": [
           {
             "advance": 28.732,
-            "baseline": 544.5777494140625,
+            "baseline": 544.7845365234375,
             "font": "Helvetica",
             "height": 10.175,
             "missing_codepoints": [],
             "size": 11.0,
             "text": "Case ",
-            "top": 536.6797494140626,
+            "top": 536.8865365234376,
             "variant": "regular",
             "width": 28.732,
             "x": 72.0
           },
           {
             "advance": 18.348,
-            "baseline": 544.5777494140625,
+            "baseline": 544.7845365234375,
             "font": "Helvetica",
             "height": 10.175,
             "missing_codepoints": [],
             "size": 11.0,
             "text": "18: ",
-            "top": 536.6797494140626,
+            "top": 536.8865365234376,
             "variant": "regular",
             "width": 18.348,
             "x": 100.732
           },
           {
             "advance": 36.07763671875,
-            "baseline": 544.5777494140625,
+            "baseline": 544.7845365234375,
             "font": "ca2a527ab14967b1c7170a97329ed29f38af51b71c8c2073d89d1c055de22de1",
             "height": 20.66259765625,
             "missing_codepoints": [],

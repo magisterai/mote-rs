@@ -175,8 +175,28 @@ pub fn plan_text(
                 .iter()
                 .map(|formula| formula.descent)
                 .fold(0.0, f64::max);
-            let raise = (ascent + above - single_baseline).max(0.0);
-            let growth = (descent + below - (single - single_baseline)).max(0.0);
+            // Word sets a display equation that stands alone on its line
+            // within the line of the math font, which is a little shallower
+            // than a line of text, and enlarges that line once the ink of
+            // the equation comes within a clearance of an edge.
+            let alone = options.word_exact_baseline
+                && display.is_some()
+                && wrapped
+                    .runs
+                    .iter()
+                    .all(|run| run.formula.is_some() || run.text.trim().is_empty());
+            let (raise, growth) = if alone {
+                (
+                    (1.036 * ordinary_size).max(ascent + 0.19 * ordinary_size) - single_baseline,
+                    (0.244 * ordinary_size).max(descent + 0.014 * ordinary_size)
+                        - (single - single_baseline),
+                )
+            } else {
+                (
+                    (ascent + above - single_baseline).max(0.0),
+                    (descent + below - (single - single_baseline)).max(0.0),
+                )
+            };
             match options.spacing {
                 // PowerPoint keeps an exact height but lifts a line whose
                 // equation reaches further below than half its rise above.

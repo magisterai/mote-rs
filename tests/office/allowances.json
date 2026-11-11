@@ -244,6 +244,13 @@
     "unmatched": 0,
     "vertical": 0.2
   },
+  "probes/equation-height": {
+    "horizontal": 78.9,
+    "median": 1.7,
+    "page_moves": 0,
+    "unmatched": 63,
+    "vertical": 5.6
+  },
   "probes/exact-line-baseline": {
     "horizontal": 0.0,
     "median": 0.1,
@@ -749,38 +756,38 @@
     "vertical": 0.7
   },
   "word/65_display_equations": {
-    "horizontal": 108.3,
-    "median": 3.0,
+    "horizontal": 78.9,
+    "median": 2.3,
     "page_moves": 0,
-    "unmatched": 38,
-    "vertical": 10.5
+    "unmatched": 35,
+    "vertical": 7.0
   },
   "word/66_inline_equations_flow": {
     "horizontal": 7.1,
-    "median": 0.6,
+    "median": 0.9,
     "page_moves": 0,
     "unmatched": 95,
-    "vertical": 14.0
+    "vertical": 15.1
   },
   "word/67_equation_page_breaks": {
     "horizontal": 60.8,
     "median": 0.7,
     "page_moves": 0,
-    "unmatched": 17,
-    "vertical": 8.4
+    "unmatched": 11,
+    "vertical": 8.3
   },
   "word/68_stacked_fractions": {
-    "horizontal": 206.2,
-    "median": 2.5,
+    "horizontal": 108.8,
+    "median": 1.7,
     "page_moves": 0,
-    "unmatched": 42,
-    "vertical": 15.7
+    "unmatched": 41,
+    "vertical": 8.8
   },
   "word/69_equation_columns": {
     "horizontal": 59.2,
-    "median": 1.2,
+    "median": 1.6,
     "page_moves": 0,
-    "unmatched": 39,
-    "vertical": 4.1
+    "unmatched": 41,
+    "vertical": 6.8
   }
 }

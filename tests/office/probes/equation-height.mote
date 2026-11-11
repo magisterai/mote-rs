@@ -1,0 +1,315 @@
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#font(name = "body", latin = "Aptos")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+#style(
+  name = "Mark",
+  type = "paragraph",
+  based_on = "Normal",
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } } }
+)
+
+EQUATION HEIGHT: a display equation stands in a paragraph of its own, whose height follows from the parts of the equation. Each equation lies between two exact lines, whose baselines are known.
+
+#paragraph(style = "Mark")[Mark 001 before.]
+
+\[
+a + b = c
+\]
+
+#paragraph(style = "Mark")[Mark 002 before.]
+
+\[
+x^2 + y_1^2 = z_i
+\]
+
+#paragraph(style = "Mark")[Mark 003 before.]
+
+\[
+\frac{a}{b}
+\]
+
+#paragraph(style = "Mark")[Mark 004 before.]
+
+\[
+\frac{a + b}{c + d} = \frac{x^2}{y_1}
+\]
+
+#paragraph(style = "Mark")[Mark 005 before.]
+
+\[
+\frac{\frac{a}{b}}{\frac{c}{d}}
+\]
+
+#paragraph(style = "Mark")[Mark 006 before.]
+
+\[
+\frac{1 + \frac{1}{1 + \frac{1}{x}}}{1 - \frac{1}{1 - \frac{1}{x}}}
+\]
+
+#paragraph(style = "Mark")[Mark 007 before.]
+
+\[
+x = \frac{1}{a + \frac{1}{b + \frac{1}{c + \frac{1}{d}}}}
+\]
+
+#paragraph(style = "Mark")[Mark 008 before.]
+
+\[
+\cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cdots}}}
+\]
+
+#paragraph(style = "Mark")[Mark 009 before.]
+
+\[
+\sqrt{x}
+\]
+
+#paragraph(style = "Mark")[Mark 010 before.]
+
+\[
+\sqrt{\frac{a}{b}}
+\]
+
+#paragraph(style = "Mark")[Mark 011 before.]
+
+\[
+\sqrt{1 + \sqrt{1 + \sqrt{x}}}
+\]
+
+#paragraph(style = "Mark")[Mark 012 before.]
+
+\[
+\sqrt[3]{\frac{q}{2} + \sqrt{\frac{q^2}{4}}}
+\]
+
+#paragraph(style = "Mark")[Mark 013 before.]
+
+\[
+\sum_{k=0}^{n} k
+\]
+
+#paragraph(style = "Mark")[Mark 014 before.]
+
+\[
+\sum_{k=0}^{n} \frac{1}{k}
+\]
+
+#paragraph(style = "Mark")[Mark 015 before.]
+
+\[
+\prod_{i=1}^{3} a_i
+\]
+
+#paragraph(style = "Mark")[Mark 016 before.]
+
+\[
+\int_{0}^{1} x \, dx
+\]
+
+#paragraph(style = "Mark")[Mark 017 before.]
+
+\[
+\int_{-\infty}^{\infty} e^{-x^2} \, dx
+\]
+
+#paragraph(style = "Mark")[Mark 018 before.]
+
+\[
+\oint_{\gamma} \frac{f(z)}{z - a} \, dz
+\]
+
+#paragraph(style = "Mark")[Mark 019 before.]
+
+\[
+\lim_{n \to \infty} a_n
+\]
+
+#paragraph(style = "Mark")[Mark 020 before.]
+
+\[
+\left( 1 + \frac{1}{n} \right)^{n}
+\]
+
+#paragraph(style = "Mark")[Mark 021 before.]
+
+\[
+\binom{n}{k}
+\]
+
+#paragraph(style = "Mark")[Mark 022 before.]
+
+\[
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 023 before.]
+
+\[
+\begin{vmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 024 before.]
+
+\[
+\begin{bmatrix} x \\ y \end{bmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 025 before.]
+
+\[
+\begin{pmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \\ 7 & 8 \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 026 before.]
+
+\[
+f(x) = \begin{cases} 1 & \text{if } x > 0 \\ 2 & \text{if } x = 0 \end{cases}
+\]
+
+#paragraph(style = "Mark")[Mark 027 before.]
+
+\[
+f(x) = \begin{cases} \frac{x^2 - 1}{x - 1} & \text{if } x \neq 1 \\ 2 & \text{if } x = 1 \end{cases}
+\]
+
+#paragraph(style = "Mark")[Mark 028 before.]
+
+\[
+\begin{aligned} a &= b + c \\ &= d + e \end{aligned}
+\]
+
+#paragraph(style = "Mark")[Mark 029 before.]
+
+\[
+\begin{aligned} (a + b)^2 &= (a + b)(a + b) \\ &= a^2 + ab + ba + b^2 \\ &= a^2 + 2ab + b^2 \end{aligned}
+\]
+
+#paragraph(style = "Mark")[Mark 030 before.]
+
+\[
+\overbrace{1 + 2 + \cdots + n}^{n \text{ terms}}
+\]
+
+#paragraph(style = "Mark")[Mark 031 before.]
+
+\[
+\underbrace{\frac{n(n + 1)}{2}}_{\text{triangular}}
+\]
+
+#paragraph(style = "Mark")[Mark 032 before.]
+
+\[
+\vec{E} + \hat{f} + \dot{x} + \ddot{x} + \bar{z}
+\]
+
+#paragraph(style = "Mark")[Mark 033 before.]
+
+\[
+e^{\frac{a}{b}}
+\]
+
+#paragraph(style = "Mark")[Mark 034 before.]
+
+\[
+\int_{\frac{1}{2}}^{\frac{3}{2}} x \, dx
+\]
+
+#paragraph(style = "Mark")[Mark 035 before.]
+
+\[
+\frac{\sum_{k=1}^{n} k}{\int_{0}^{1} x \, dx}
+\]
+
+#paragraph(style = "Mark")[Mark 036 before.]
+
+\[
+\sqrt{(a + b)^2}
+\]
+
+#paragraph(style = "Mark")[Mark 037 before.]
+
+\[
+\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}
+\]
+
+#paragraph(style = "Mark")[Mark 038 before.]
+
+\[
+r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
+\]
+
+#paragraph(style = "Mark")[Mark 039 before.]
+
+\[
+(a + b)^2 + b^2 + a^2 + f^2 + y_1 + f_1 + a_1
+\]
+
+#paragraph(style = "Mark")[Mark 040 before.]
+
+Inline 040 holds $a + b = c$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 041 before.]
+
+Inline 041 holds $x^2 + y_1^2 = z_i$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 042 before.]
+
+Inline 042 holds $(a + b)^2 + b^2 + f_1$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 043 before.]
+
+Inline 043 holds $\frac{a}{b}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 044 before.]
+
+Inline 044 holds $\frac{a + b}{c + d}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 045 before.]
+
+Inline 045 holds $\sqrt{x}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 046 before.]
+
+Inline 046 holds $\sqrt{(a + b)^2}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 047 before.]
+
+Inline 047 holds $\sum_{k=1}^{n} k^2$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 048 before.]
+
+Inline 048 holds $\int_{0}^{1} x \, dx$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 049 before.]
+
+Inline 049 holds $r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 050 before.]
+
+Inline 050 holds $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 051 before.]
+
+Inline 051 holds $\left( 1 + \frac{1}{n} \right)^{n}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 052 before.]
+
+Inline 052 holds $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 053 before.]
+
+Inline 053 holds $e^{\frac{a}{b}}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 054 before.]

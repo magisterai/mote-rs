@@ -99,6 +99,7 @@ pub(crate) fn typeset(
         full_fractions: display,
         display_gaps: display && !lone,
         enclosed: false,
+        argument: false,
     };
     let mut first = &root;
     loop {
@@ -151,9 +152,9 @@ enum Level {
 
 /// A cramped style raises superscripts less, as TeX does under a bar. Word
 /// sets every fraction of a display equation at full size, however deeply it
-/// is nested, though only the outermost takes the display shifts; the inner
-/// ones keep the display gaps unless the equation is displayed only for
-/// standing alone.
+/// is nested, though only the outermost and those within delimiters take the
+/// display shifts; the inner ones keep the display gaps unless the equation is
+/// displayed only for standing alone.
 #[derive(Clone, Copy)]
 struct Style {
     level: Level,
@@ -161,6 +162,10 @@ struct Style {
     full_fractions: bool,
     display_gaps: bool,
     enclosed: bool,
+    /// Whether the style belongs to a part of a display fraction or to a row
+    /// of aligned equations, where Word measures a single character beneath a
+    /// script as it measures any other base.
+    argument: bool,
 }
 impl Style {
     fn script(self) -> Self {
@@ -186,6 +191,7 @@ impl Style {
                 Level::Text => Level::Script,
                 _ => Level::ScriptScript,
             },
+            argument: self.level == Level::Display || self.argument,
             ..self
         }
     }
@@ -195,8 +201,8 @@ impl Style {
             ..self.numerator()
         }
     }
-    /// Word sets a fraction within delimiters of a display equation with the
-    /// spacing of a nested fraction.
+    /// PowerPoint sets a fraction within delimiters of a display equation
+    /// with the spacing of a nested fraction.
     fn enclosed(self) -> Self {
         Self {
             enclosed: true,

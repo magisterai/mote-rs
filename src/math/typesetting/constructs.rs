@@ -18,8 +18,12 @@ impl Typesetter<'_> {
     ) -> Layout {
         let mut numerator = self.node(numerator, style.numerator());
         let mut denominator = self.node(denominator, style.denominator());
+        // Word keeps a denominator as clear of the bar as a parenthesis
+        // would be, but lets a numerator sit as low as its ink allows.
         let strut = self.character('(', '(', style.numerator());
-        numerator.descent = numerator.descent.max(strut.descent);
+        if !self.word {
+            numerator.descent = numerator.descent.max(strut.descent);
+        }
         denominator.ascent = denominator.ascent.max(strut.ascent);
         let constants = self.constants;
         let scale = self.scale(style);
@@ -37,28 +41,29 @@ impl Typesetter<'_> {
         } else {
             0.0
         };
-        let (shift_up, gap_above, shift_down, gap_below) = if display && !style.enclosed {
-            (
-                constants.fraction_numerator_display_style_shift_up(),
-                constants.fraction_num_display_style_gap_min(),
-                constants.fraction_denominator_display_style_shift_down(),
-                constants.fraction_denom_display_style_gap_min(),
-            )
-        } else if style.full_fractions && style.display_gaps {
-            (
-                constants.fraction_numerator_shift_up(),
-                constants.fraction_num_display_style_gap_min(),
-                constants.fraction_denominator_shift_down(),
-                constants.fraction_denom_display_style_gap_min(),
-            )
-        } else {
-            (
-                constants.fraction_numerator_shift_up(),
-                constants.fraction_numerator_gap_min(),
-                constants.fraction_denominator_shift_down(),
-                constants.fraction_denominator_gap_min(),
-            )
-        };
+        let (shift_up, gap_above, shift_down, gap_below) =
+            if display && (!style.enclosed || self.word) {
+                (
+                    constants.fraction_numerator_display_style_shift_up(),
+                    constants.fraction_num_display_style_gap_min(),
+                    constants.fraction_denominator_display_style_shift_down(),
+                    constants.fraction_denom_display_style_gap_min(),
+                )
+            } else if style.full_fractions && style.display_gaps {
+                (
+                    constants.fraction_numerator_shift_up(),
+                    constants.fraction_num_display_style_gap_min(),
+                    constants.fraction_denominator_shift_down(),
+                    constants.fraction_denom_display_style_gap_min(),
+                )
+            } else {
+                (
+                    constants.fraction_numerator_shift_up(),
+                    constants.fraction_numerator_gap_min(),
+                    constants.fraction_denominator_shift_down(),
+                    constants.fraction_denominator_gap_min(),
+                )
+            };
         let up = value(shift_up).max(axis + thickness / 2.0 + value(gap_above) + numerator.descent);
         let down =
             value(shift_down).max(denominator.ascent + value(gap_below) - axis + thickness / 2.0);
@@ -78,7 +83,13 @@ impl Typesetter<'_> {
         degree: Option<&Node>,
         style: Style,
     ) -> Layout {
-        let body = self.node(radicand, style.cramped());
+        let body = self.node(
+            radicand,
+            Style {
+                argument: style.argument && !style.cramped,
+                ..style.cramped()
+            },
+        );
         let constants = self.constants;
         let scale = self.scale(style);
         let value = |value: MathValue<'_>| f64::from(value.value) * scale;
@@ -107,6 +118,7 @@ impl Typesetter<'_> {
                     full_fractions: false,
                     display_gaps: false,
                     enclosed: false,
+                    argument: false,
                 },
             );
             let raise = f64::from(constants.radical_degree_bottom_raise_percent()) / 100.0;
@@ -145,13 +157,21 @@ impl Typesetter<'_> {
         let constants = self.constants;
         let scale = self.scale(style);
         let value = |value: MathValue<'_>| f64::from(value.value) * scale;
-        let (mut up, mut down) = if base.single {
-            (0.0, 0.0)
+        // Word measures a single character as it measures any other base
+        // within a row of aligned equations, and beneath a superscript in a
+        // display equation.
+        let boxed = !base.single || self.word && style.argument;
+        let deep =
+            boxed || self.word && style.display() && subscript.is_some() && superscript.is_some();
+        let mut up = if boxed {
+            base.ascent - value(constants.superscript_baseline_drop_max())
         } else {
-            (
-                base.ascent - value(constants.superscript_baseline_drop_max()),
-                base.descent + value(constants.subscript_baseline_drop_min()),
-            )
+            0.0
+        };
+        let mut down = if deep {
+            base.descent + value(constants.subscript_baseline_drop_min())
+        } else {
+            0.0
         };
         if let Some(superscript) = &superscript {
             let shift = if style.cramped {
@@ -287,11 +307,17 @@ impl Typesetter<'_> {
                 None => *x += null,
             };
         delimiter(self, begin, &mut layout, &mut x);
-        let inner_width = inner.width;
+        let (inner_width, inner_ascent, inner_descent) = (inner.width, inner.ascent, inner.descent);
         layout.place(inner, x, 0.0);
         x += inner_width;
         delimiter(self, end, &mut layout, &mut x);
         layout.width = x;
+        // Word gives a line the height of the rows that its delimiters
+        // enclose, however far the delimiters themselves reach.
+        if self.word && matches!(body, Node::Matrix(_)) {
+            layout.ascent = inner_ascent;
+            layout.descent = inner_descent;
+        }
         layout
     }
 
@@ -422,6 +448,10 @@ impl Typesetter<'_> {
                     [Node::Sequence(nodes)] => nodes.as_slice(),
                     part => part,
                 };
+                let style = Style {
+                    argument: true,
+                    ..style
+                };
                 row_cells.push(self.list(part, style, index > 0));
             }
             cells.push(row_cells);
@@ -506,6 +536,13 @@ impl Typesetter<'_> {
                     })
             })
             .collect();
+        let worded: Vec<bool> = cells
+            .iter()
+            .map(|row| {
+                row.iter()
+                    .any(|cell| cell.glyphs.iter().any(|glyph| glyph.in_text_font))
+            })
+            .collect();
         let mut baselines = vec![0.0];
         for (index, pair) in ink.windows(2).enumerate() {
             let above = if plain.is_some() {
@@ -513,15 +550,32 @@ impl Typesetter<'_> {
             } else {
                 pair[0].1
             };
-            let pitch = if plain_rows[index] && plain_rows[index + 1] {
-                strut.0 + strut.1
+            // Word keeps two rows a full line of an equation apart where
+            // either holds ordinary text.
+            let line = if self.word && (worded[index] || worded[index + 1]) {
+                1.28 * self.size(style)
             } else {
-                (above + pair[1].0 + row_gap).max(strut.0 + strut.1)
+                strut.0 + strut.1
+            };
+            let pitch = if plain_rows[index] && plain_rows[index + 1] {
+                line
+            } else {
+                (above + pair[1].0 + row_gap).max(line)
             };
             baselines.push(baselines.last().unwrap() - pitch);
         }
-        let top = ink.first().map_or(0.0, |row| row.0.max(strut.0));
-        let bottom = ink.last().map_or(0.0, |row| row.1.max(strut.1));
+        // Word bounds the rows by the ink of the first and the last.
+        let (top, bottom) = if self.word {
+            (
+                ink.first().map_or(0.0, |row| row.0),
+                ink.last().map_or(0.0, |row| row.1),
+            )
+        } else {
+            (
+                ink.first().map_or(0.0, |row| row.0.max(strut.0)),
+                ink.last().map_or(0.0, |row| row.1.max(strut.1)),
+            )
+        };
         let height = top - baselines.last().unwrap() + bottom;
         let shift = height / 2.0 + self.axis(style) - top;
         let mut layout = Layout {
