@@ -98,19 +98,8 @@ pub(super) fn opening(
 }
 
 pub(super) fn remove_run_attributes(attributes: &mut Properties) -> Vec<&'static str> {
-    [
-        "font",
-        "size",
-        "color",
-        "bold",
-        "italic",
-        "underline",
-        "strike",
-        "double_strike",
-        "small_caps",
-        "highlight",
-    ]
-    .into_iter()
-    .filter(|field| attributes.remove(*field).is_some())
-    .collect()
+    crate::properties::PARAGRAPH_RUN_ATTRIBUTES
+        .into_iter()
+        .filter(|field| attributes.remove(*field).is_some())
+        .collect()
 }

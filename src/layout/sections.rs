@@ -63,12 +63,25 @@ struct PassInputs {
     targets: BTreeMap<usize, BalanceTarget>,
 }
 
+fn remove_paragraph_run_attributes(content: &mut [Content]) {
+    for node in content {
+        if let Content::Element(element) = node {
+            if matches!(element.kind, ElementKind::Paragraph | ElementKind::Heading) {
+                for name in crate::properties::PARAGRAPH_RUN_ATTRIBUTES {
+                    element.attributes.remove(name);
+                }
+            }
+            remove_paragraph_run_attributes(&mut element.children);
+        }
+    }
+}
+
 pub(super) fn plan(
     document: &Document,
     measurer: &mut TextMeasurer<'_>,
     images: &crate::media::ImageCatalog,
 ) -> Result<DocumentTextPlan, LayoutError> {
-    let sections = if document.sections.is_empty() {
+    let mut sections = if document.sections.is_empty() {
         vec![Section {
             page: document.page.clone(),
             margin: document.margin.clone(),
@@ -79,6 +92,15 @@ pub(super) fn plan(
     } else {
         document.sections.clone()
     };
+    for section in &mut sections {
+        for content in [
+            &mut section.content,
+            &mut section.header.content,
+            &mut section.footer.content,
+        ] {
+            remove_paragraph_run_attributes(content);
+        }
+    }
     let mut inputs = PassInputs {
         total: 1,
         ..Default::default()

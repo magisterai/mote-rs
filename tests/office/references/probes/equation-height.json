@@ -1411,11 +1411,216 @@
           "baseline": 106.08,
           "text": "Mark 054 before.",
           "x": 72.0
+        },
+        {
+          "baseline": 120.0,
+          "text": "𝜕𝑢",
+          "x": 299.22
+        },
+        {
+          "baseline": 135.84,
+          "text": "𝜕𝑥",
+          "x": 299.47
+        },
+        {
+          "baseline": 151.92,
+          "text": "Mark 055 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 163.44,
+          "text": "𝑎 𝑐",
+          "x": 293.49
+        },
+        {
+          "baseline": 179.04,
+          "text": "𝑏 𝑑",
+          "x": 293.59
+        },
+        {
+          "baseline": 185.44,
+          "text": "0 1",
+          "x": 285.36
+        },
+        {
+          "baseline": 188.4,
+          "text": "𝑒 𝑔",
+          "x": 293.85
+        },
+        {
+          "baseline": 204.0,
+          "text": "𝑓 ℎ",
+          "x": 293.53
+        },
+        {
+          "baseline": 222.72,
+          "text": "Mark 056 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 238.8,
+          "text": "𝜕𝑢 𝜕𝑢",
+          "x": 286.94
+        },
+        {
+          "baseline": 254.16,
+          "text": "⎛𝜕𝑥 𝜕𝑦⎞",
+          "x": 278.64
+        },
+        {
+          "baseline": 265.44,
+          "text": "⎜",
+          "x": 278.64
+        },
+        {
+          "baseline": 265.44,
+          "text": "⎟",
+          "x": 324.96
+        },
+        {
+          "baseline": 268.8,
+          "text": "𝜕𝑣 𝜕𝑣",
+          "x": 287.12
+        },
+        {
+          "baseline": 284.64,
+          "text": "𝜕𝑥 𝜕𝑦",
+          "x": 287.19
+        },
+        {
+          "baseline": 289.2,
+          "text": "⎝",
+          "x": 278.64
+        },
+        {
+          "baseline": 289.2,
+          "text": "⎠",
+          "x": 324.96
+        },
+        {
+          "baseline": 305.28,
+          "text": "Mark 057 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 316.56,
+          "text": "𝑎",
+          "x": 302.66
+        },
+        {
+          "baseline": 329.28,
+          "text": ") *",
+          "x": 309.36
+        },
+        {
+          "baseline": 332.16,
+          "text": "𝑏",
+          "x": 302.77
+        },
+        {
+          "baseline": 341.52,
+          "text": "𝑐",
+          "x": 303.24
+        },
+        {
+          "baseline": 357.6,
+          "text": "Mark 058 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 371.04,
+          "text": "1",
+          "x": 302.68
+        },
+        {
+          "baseline": 386.4,
+          "text": "𝑎 𝑑",
+          "x": 284.36
+        },
+        {
+          "baseline": 392.88,
+          "text": "𝑐− 𝑓",
+          "x": 292.88
+        },
+        {
+          "baseline": 398.76,
+          "text": "𝑏 𝑒",
+          "x": 284.47
+        },
+        {
+          "baseline": 415.44,
+          "text": "Mark 059 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 438.91,
+          "text": "\"1+ 𝑥",
+          "x": 284.88
+        },
+        {
+          "baseline": 439.92,
+          "text": "√",
+          "x": 313.68
+        },
+        {
+          "baseline": 462.48,
+          "text": "Mark 060 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 478.08,
+          "text": "𝑎 𝑐",
+          "x": 296.47
+        },
+        {
+          "baseline": 484.56,
+          "text": "+",
+          "x": 305.6
+        },
+        {
+          "baseline": 490.8,
+          "text": "𝑏 𝑑",
+          "x": 296.58
+        },
+        {
+          "baseline": 496.44,
+          "text": "$",
+          "x": 288.0
+        },
+        {
+          "baseline": 500.16,
+          "text": "𝑒",
+          "x": 317.49
+        },
+        {
+          "baseline": 506.64,
+          "text": "1+",
+          "x": 296.67
+        },
+        {
+          "baseline": 512.88,
+          "text": "𝑓",
+          "x": 317.17
+        },
+        {
+          "baseline": 533.76,
+          "text": "Mark 061 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 551.36,
+          "text": "L𝑏",
+          "x": 298.8
+        },
+        {
+          "baseline": 570.24,
+          "text": "Mark 062 before.",
+          "x": 72.0
         }
       ],
       "width": 612.0
     }
   ],
   "renderer": "Microsoft Word 16.114.1",
-  "source_sha256": "691c906044c94f00db4d474eb4052b3695d07024a6510ae04a883460f3354a0f"
+  "source_sha256": "8905fb0d8bd95824f2a03fc232f83d5463f2e103031905fe15ee7f724a430741"
 }

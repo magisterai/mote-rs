@@ -136,7 +136,7 @@ fn invalid_geometry_and_excessive_raster_allocations_are_rejected() {
 }
 #[test]
 fn font_substitution_and_missing_glyphs_are_reported_before_painting() {
-    let document=mote::compile("#font(name=\"missing\",files={regular=\"missing.ttf\"})\n#paragraph(font=\"missing\")[a☃☃]").unwrap();
+    let document=mote::compile("#font(name=\"missing\",files={regular=\"missing.ttf\"})\n#paragraph[#span(font=\"missing\")[a☃☃]]").unwrap();
     let resolver = FileAssetResolver::from_current_directory().unwrap();
     let output = render::emit_pdf(&document, &resolver, None).unwrap();
     assert!(

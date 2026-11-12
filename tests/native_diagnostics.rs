@@ -8,9 +8,21 @@ fn warnings(source: &str) -> Vec<String> {
 #[test]
 fn implemented_text_properties_do_not_produce_stale_support_warnings() {
     let result = warnings(
-        "#paragraph(font=\"Helvetica\",size=pt(12),border={bottom={color=\"#123\"}})[#span(double_strike=true)[Text]]",
+        "#paragraph(border={bottom={color=\"#123\"}})[#span(font=\"Helvetica\",size=pt(12),double_strike=true)[Text]]",
     );
     assert!(result.is_empty(), "{result:?}");
+}
+#[test]
+fn run_formatting_on_a_paragraph_is_reported_as_ignored() {
+    let result = warnings("#paragraph(font=\"Helvetica\",size=pt(12))[Text]");
+    for field in [".font", ".size"] {
+        assert!(
+            result
+                .iter()
+                .any(|warning| warning.contains(field) && warning.contains("no paragraph effect")),
+            "missing {field}: {result:?}"
+        );
+    }
 }
 #[test]
 fn retained_properties_report_the_specific_native_limit() {

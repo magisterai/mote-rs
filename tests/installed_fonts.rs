@@ -9,7 +9,10 @@ const REGULAR: &[u8] = include_bytes!("fixtures/measurements/fonts/SourceSans3-R
 #[test]
 fn exact_font_resolver_feeds_the_same_bytes_to_layout_pdf_and_png() {
     let resolver = FileAssetResolver::new(Path::new(env!("CARGO_MANIFEST_DIR"))).unwrap();
-    let installed = mote::compile("#paragraph(font=\"Exact\",size=pt(12))[AV To café]").unwrap();
+    let installed = mote::compile(
+        "#document(default_font=\"Exact\",default_size=pt(12))\n#paragraph[AV To café]",
+    )
+    .unwrap();
     let calls = Cell::new(0);
     let fonts = |family: &str, variant: FontVariant| {
         assert_eq!(family, "Exact");
@@ -31,7 +34,7 @@ fn exact_font_resolver_feeds_the_same_bytes_to_layout_pdf_and_png() {
             .iter()
             .all(|fragment| fragment.font.source == FontSource::Installed)
     );
-    let declared=mote::compile("#font(name=\"Exact\",files={regular=\"tests/fixtures/measurements/fonts/SourceSans3-Regular.ttf\"})\n#paragraph(font=\"Exact\",size=pt(12))[AV To café]").unwrap();
+    let declared=mote::compile("#font(name=\"Exact\",files={regular=\"tests/fixtures/measurements/fonts/SourceSans3-Regular.ttf\"})\n#document(default_font=\"Exact\",default_size=pt(12))\n#paragraph[AV To café]").unwrap();
     let declared = render::plan_with_fonts(&declared, &resolver, None, None)
         .unwrap()
         .output;

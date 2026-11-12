@@ -313,3 +313,51 @@ Inline 052 holds $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ in a line of tex
 Inline 053 holds $e^{\frac{a}{b}}$ in a line of text.
 
 #paragraph(style = "Mark")[Mark 054 before.]
+
+\[
+\frac{\partial u}{\partial x}
+\]
+
+#paragraph(style = "Mark")[Mark 055 before.]
+
+\[
+\begin{pmatrix} \frac{a}{b} & \frac{c}{d} \\ \frac{e}{f} & \frac{g}{h} \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 056 before.]
+
+\[
+\begin{pmatrix} \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\ \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 057 before.]
+
+\[
+\begin{pmatrix} \frac{a}{b} \\ c \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 058 before.]
+
+\[
+\frac{1}{\frac{a}{b} c - \frac{d}{e} f}
+\]
+
+#paragraph(style = "Mark")[Mark 059 before.]
+
+\[
+\sqrt{1 + \sqrt{x}}
+\]
+
+#paragraph(style = "Mark")[Mark 060 before.]
+
+\[
+\sqrt{\frac{\frac{a}{b} + \frac{c}{d}}{1 + \frac{e}{f}}}
+\]
+
+#paragraph(style = "Mark")[Mark 061 before.]
+
+\[
+\sqrt{b}
+\]
+
+#paragraph(style = "Mark")[Mark 062 before.]

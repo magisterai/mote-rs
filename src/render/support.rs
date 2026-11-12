@@ -257,6 +257,13 @@ fn content(
                 }
             }
         }
+        if !drawing && matches!(element.kind, ElementKind::Paragraph | ElementKind::Heading) {
+            for field in crate::properties::PARAGRAPH_RUN_ATTRIBUTES {
+                if attributes.contains_key(field) {
+                    warnings.insert(format!("{path}.{field} is retained but has no paragraph effect; use an inline span or a named style"));
+                }
+            }
+        }
         let list = matches!(element.kind, ElementKind::List | ElementKind::OrderedList);
         let item = element.kind == ElementKind::ListItem;
         let mut allowed = Vec::new();

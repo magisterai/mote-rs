@@ -1,6 +1,20 @@
 //! Scalar and object access for retained authoring properties.
 use crate::model::{Properties, Value};
 
+/// The run formatting that Word does not take from a paragraph.
+pub(crate) const PARAGRAPH_RUN_ATTRIBUTES: [&str; 10] = [
+    "font",
+    "size",
+    "color",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "double_strike",
+    "small_caps",
+    "highlight",
+];
+
 pub(crate) fn text(properties: &Properties, name: &str) -> String {
     properties.get(name).map(Value::to_text).unwrap_or_default()
 }

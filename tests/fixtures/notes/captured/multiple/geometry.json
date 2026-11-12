@@ -110,27 +110,27 @@
               "baseline": 82.9,
               "size": 10,
               "text": "Table ",
-              "x": 42
+              "x": 42.25
             },
             {
               "advance": 22.79,
               "baseline": 82.9,
               "size": 10,
               "text": "after ",
-              "x": 69.78999999999999
+              "x": 70.03999999999999
             },
             {
               "advance": 27.24,
               "baseline": 82.9,
               "size": 10,
               "text": "notes.",
-              "x": 92.58
+              "x": 92.83
             }
           ],
           "height": 13,
           "top": 72.5,
           "width": 77.82,
-          "x": 42
+          "x": 42.25
         },
         {
           "fragments": [
@@ -253,37 +253,11 @@
           "color": "BFBFBF",
           "dash": [],
           "end": [
-            126,
+            126.1,
             68.5
           ],
           "start": [
-            36,
-            68.5
-          ],
-          "width": 0.5
-        },
-        {
-          "color": "BFBFBF",
-          "dash": [],
-          "end": [
-            126,
-            90.0
-          ],
-          "start": [
-            36,
-            90.0
-          ],
-          "width": 0.5
-        },
-        {
-          "color": "BFBFBF",
-          "dash": [],
-          "end": [
-            36,
-            90.0
-          ],
-          "start": [
-            36,
+            36.25,
             68.5
           ],
           "width": 0.5
@@ -292,11 +266,37 @@
           "color": "BFBFBF",
           "dash": [],
           "end": [
-            126,
+            126.1,
             90.0
           ],
           "start": [
-            126,
+            36.25,
+            90.0
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            36.25,
+            90.0
+          ],
+          "start": [
+            36.25,
+            68.5
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "BFBFBF",
+          "dash": [],
+          "end": [
+            126.1,
+            90.0
+          ],
+          "start": [
+            126.1,
             68.5
           ],
           "width": 0.5

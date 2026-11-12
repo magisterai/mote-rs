@@ -57,13 +57,26 @@ impl TablePlan {
                 .fold(0.0, f64::max)
         })
     }
+    /// Word sets the outer edge of a left-aligned table's left border on the
+    /// margin, so the table starts half that border's width inside it.
     pub fn left(&self, left: f64, available: f64) -> f64 {
         left + match self.alignment.as_str() {
             "center" => (available - self.width()) / 2.0,
             "right" => available - self.width(),
-            _ => 0.0,
+            _ => {
+                self.rows
+                    .iter()
+                    .filter_map(|row| row.cells.first())
+                    .map(|cell| cell.borders[3].width)
+                    .fold(0.0, f64::max)
+                    / 2.0
+            }
         }
     }
+}
+/// Word sizes an automatic column to its content, in whole twips.
+fn whole_twips(width: f64) -> f64 {
+    (width * 20.0 - 1e-6).ceil() / 20.0
 }
 pub(super) fn prepare(
     table: &Element,
@@ -153,8 +166,8 @@ pub(super) fn prepare(
                 column,
                 span: cell.column_span,
                 explicit: cells::points(attributes.get("width")).unwrap_or(0.0),
-                preferred: (intrinsic.0 + margins[1] + margins[3]).ceil(),
-                minimum: (intrinsic.1 + margins[1] + margins[3]).ceil(),
+                preferred: whole_twips(intrinsic.0 + margins[1] + margins[3]),
+                minimum: whole_twips(intrinsic.1 + margins[1] + margins[3]),
             });
             let borders = borders::resolve(
                 styles.document,

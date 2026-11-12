@@ -8,16 +8,15 @@
   "office_review_status": "unreviewed",
   "captured_at_utc": "2026-10-29T12:16:42.654674+00:00",
   "native_reference_status": "captured",
-  "pages": 5,
+  "pages": 4,
   "pdf_comparison_dpi": 144,
   "pdf_changed_pixels": 0,
   "files": {
-    "geometry.json": "72268b75cc1c5aac9334d4a3a3c934f158d605e68cfcc85d2ffb19172070719a",
-    "reference-1.png": "d5126231f2a49db1c70a6fca54b7ade6cf77ee4bd8889d379e69d89cd5f499eb",
-    "reference-2.png": "2d46da7c5714f1fab13a0462aec060e51733551f6a7edfbc79ff9bd7c85d04ea",
-    "reference-3.png": "7ea46d10d06d903ee39827df674550f36e4c6dbffb1641180ce036f39ea0bae3",
-    "reference-4.png": "748384d5ac0335285d141aa418130c98c548c09cdded2d8932ceae26de4dd24f",
-    "reference-5.png": "f29a90a9a21fd5ae6a996d781d3c305c8078b862b877fb1e3b0c379d845da348"
+    "geometry.json": "88c805fbd96222bc6c0d2dc8743b2342db9cae148a1d02d0a21e14427eee40a7",
+    "reference-1.png": "0a2b4047cf3b9ea081ff00d8aa66a7b68ae0a4a99b8849e2ffeed4b1520d59f7",
+    "reference-2.png": "5e1549ed062650572c7fc0c01647a7b2ed3d6c63acb40c692b8f861248b40138",
+    "reference-3.png": "56b172faa7ddef5b920b8a18748f0c48010adfe8b1b56455cb1fad6b28a4e73b",
+    "reference-4.png": "fe8ff65fdec21209e83017cb8b87100aa3f2e4b42755aefe5293083ac44471e9"
   },
   "geometry_font_discovery": "disabled",
   "raster_font_discovery": "installed",

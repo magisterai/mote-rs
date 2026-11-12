@@ -59,7 +59,7 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "d8a61b8acf7c6ca1f22b61cfad7188d1628e6434181178a29c7cff607ca9aab0",
+      "sha256": "06557bbbbaf43022c3d0de436dfdbc602465f0c2904ff893460cd9eafa81bee3",
       "maximum": 64,
       "mean": 12,
       "outliers": 0
@@ -68,6 +68,6 @@
   "warnings": [],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "87fc73197c4df6785789ce5fba0feeaed2feff1fa4995b97c7583bfd11d1bac6"
+    "sha256": "9bd5ba18c0565e34a194b340f5df4507d80926f1ead74801969d430ecee09400"
   }
 }

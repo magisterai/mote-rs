@@ -287,36 +287,50 @@ impl Typesetter<'_> {
         };
         let axis = self.axis(style);
         let reach = (inner.ascent - axis).max(inner.descent + axis);
-        let target = (2.0 * reach * 0.901).max(2.0 * reach - self.size(style) * 0.5);
+        // Word sizes the delimiters of a matrix to the whole height of its
+        // rows.
+        let matrix = self.word && matches!(body, Node::Matrix(_));
+        let target = if matrix {
+            2.0 * reach
+        } else {
+            (2.0 * reach * 0.901).max(2.0 * reach - self.size(style) * 0.5)
+        };
         let mut layout = Layout::default();
         let mut x = 0.0;
         let null = self.fraction_padding(style);
-        let delimiter =
-            |typesetter: &mut Self, symbol: &str, layout: &mut Layout, x: &mut f64| match symbol
-                .chars()
-                .next()
-            {
-                Some(character) => {
-                    let glyph = typesetter
-                        .stretched(character, target, true, style)
-                        .centred(axis);
-                    let width = glyph.width;
-                    layout.place(glyph, *x, 0.0);
-                    *x += width;
+        let mut assembled = (0.0f64, 0.0f64);
+        let mut delimiter = |typesetter: &mut Self,
+                             symbol: &str,
+                             layout: &mut Layout,
+                             x: &mut f64| match symbol.chars().next() {
+            Some(character) => {
+                let glyph = typesetter
+                    .stretched(character, target, true, style)
+                    .centred(axis);
+                if glyph.glyphs.len() > 1 {
+                    assembled = (
+                        assembled.0.max(glyph.ascent),
+                        assembled.1.max(glyph.descent),
+                    );
                 }
-                None => *x += null,
-            };
+                let width = glyph.width;
+                layout.place(glyph, *x, 0.0);
+                *x += width;
+            }
+            None => *x += null,
+        };
         delimiter(self, begin, &mut layout, &mut x);
         let (inner_width, inner_ascent, inner_descent) = (inner.width, inner.ascent, inner.descent);
         layout.place(inner, x, 0.0);
         x += inner_width;
         delimiter(self, end, &mut layout, &mut x);
         layout.width = x;
-        // Word gives a line the height of the rows that its delimiters
-        // enclose, however far the delimiters themselves reach.
-        if self.word && matches!(body, Node::Matrix(_)) {
-            layout.ascent = inner_ascent;
-            layout.descent = inner_descent;
+        // Word gives a line the height of the rows that a whole delimiter
+        // encloses, however far the delimiter reaches, but the height of a
+        // delimiter that is assembled from parts.
+        if matrix {
+            layout.ascent = inner_ascent.max(assembled.0);
+            layout.descent = inner_descent.max(assembled.1);
         }
         layout
     }

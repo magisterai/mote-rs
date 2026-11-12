@@ -246,9 +246,9 @@
   },
   "probes/equation-height": {
     "horizontal": 78.9,
-    "median": 1.7,
+    "median": 1.5,
     "page_moves": 0,
-    "unmatched": 63,
+    "unmatched": 66,
     "vertical": 5.6
   },
   "probes/exact-line-baseline": {
@@ -301,21 +301,21 @@
     "vertical": 0.3
   },
   "probes/table-row-height": {
-    "horizontal": 12.1,
+    "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 1,
     "vertical": 0.3
   },
   "word/01_plain_markdown_basics": {
-    "horizontal": 1.0,
+    "horizontal": 0.1,
     "median": 0.5,
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 0.8
   },
   "word/02_plain_markdown_longform": {
-    "horizontal": 0.9,
+    "horizontal": 0.1,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -336,14 +336,14 @@
     "vertical": 0.3
   },
   "word/05_full_page_markdown_report": {
-    "horizontal": 0.3,
+    "horizontal": 0.2,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 1.6
   },
   "word/06_full_page_layout_review": {
-    "horizontal": 0.3,
+    "horizontal": 0.2,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -469,7 +469,7 @@
     "vertical": 0.4
   },
   "word/24_headers_footers": {
-    "horizontal": 0.8,
+    "horizontal": 0.2,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -567,7 +567,7 @@
     "vertical": 0.5
   },
   "word/38_layout_images": {
-    "horizontal": 0.6,
+    "horizontal": 0.1,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -630,21 +630,21 @@
     "vertical": 0.9
   },
   "word/47_table_feature_overview": {
-    "horizontal": 1.0,
+    "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 0.5
   },
   "word/48_full_page_tables_and_media": {
-    "horizontal": 2.1,
+    "horizontal": 0.2,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 0.4
   },
   "word/49_spanning_table_components": {
-    "horizontal": 2.2,
+    "horizontal": 0.2,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -665,7 +665,7 @@
     "vertical": 0.7
   },
   "word/52_recursive_table_cell_content": {
-    "horizontal": 0.3,
+    "horizontal": 0.1,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -693,7 +693,7 @@
     "vertical": 0.6
   },
   "word/56_table_autofit_vs_fixed": {
-    "horizontal": 1.8,
+    "horizontal": 1.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -735,14 +735,14 @@
     "vertical": 1.0
   },
   "word/62_default_style": {
-    "horizontal": 0.3,
+    "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 0.4
   },
   "word/63_markdown_table_alignment": {
-    "horizontal": 1.6,
+    "horizontal": 0.2,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -781,13 +781,13 @@
     "median": 1.7,
     "page_moves": 0,
     "unmatched": 41,
-    "vertical": 8.8
+    "vertical": 5.7
   },
   "word/69_equation_columns": {
     "horizontal": 59.2,
-    "median": 1.6,
+    "median": 1.7,
     "page_moves": 0,
-    "unmatched": 41,
+    "unmatched": 42,
     "vertical": 6.8
   }
 }

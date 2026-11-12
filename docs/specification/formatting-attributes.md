@@ -106,6 +106,13 @@ and styles; their output work remains tracked separately.
 Paragraphs and headings accept a `style` reference, the alignment values already
 defined, and the following spacing and indentation controls.
 
+A document paragraph or heading does not take run formatting. The attributes
+`font`, `size`, `color`, `bold`, `italic`, `underline`, `strike`,
+`double_strike`, `small_caps`, and `highlight` remain in the model, but
+document output ignores them and reports a warning. An inline span or a named
+style carries that formatting. The text of a slide does take these attributes
+from its paragraphs.
+
 `spacing` accepts `before`, `after`, and `line`; `spacing_before`, `spacing_after`,
 and `line_spacing` are also accepted as field aliases within it. The flat
 attributes `spacing_before`, `spacing_after`, and `line_spacing` accept lengths.

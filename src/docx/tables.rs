@@ -93,15 +93,14 @@ pub(super) fn write(
     if fixed {
         output.push_str("<w:tblLayout w:type=\"fixed\"/>");
     }
-    let margins = property_values::object(&defaults, "margin")
-        .cloned()
-        .unwrap_or_else(|| {
-            if style.is_empty() {
-                tables::default_margins()
-            } else {
-                Properties::new()
-            }
-        });
+    let mut margins = if style.is_empty() {
+        tables::default_margins()
+    } else {
+        Properties::new()
+    };
+    if let Some(declared) = property_values::object(&defaults, "margin") {
+        margins.extend(tables::margins(declared));
+    }
     output.push_str(&properties::margins("tblCellMar", &margins)?);
     output.push_str(&self::styles::look(&table_style));
     output.push_str("</w:tblPr>");
