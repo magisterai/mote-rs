@@ -1,0 +1,583 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "EQUATION LINE MULTIPLE: the paragraphs of this probe have a line multiple of 1.08, so that the",
+          "x": 72.0
+        },
+        {
+          "baseline": 96.72,
+          "text": "part of the height of an equation that follows the multiple is known. The same equations stand in",
+          "x": 72.0
+        },
+        {
+          "baseline": 111.36,
+          "text": "the equation height probe under a multiple of one.",
+          "x": 72.0
+        },
+        {
+          "baseline": 131.52,
+          "text": "Mark 001 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 145.92,
+          "text": "𝑎+ 𝑏= 𝑐",
+          "x": 283.29
+        },
+        {
+          "baseline": 165.36,
+          "text": "Mark 002 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 176.16,
+          "text": "𝑎",
+          "x": 302.8
+        },
+        {
+          "baseline": 192.0,
+          "text": "𝑏",
+          "x": 302.91
+        },
+        {
+          "baseline": 209.04,
+          "text": "Mark 003 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 219.84,
+          "text": "𝑎",
+          "x": 302.8
+        },
+        {
+          "baseline": 231.84,
+          "text": "𝑏",
+          "x": 302.91
+        },
+        {
+          "baseline": 240.72,
+          "text": "𝑐",
+          "x": 303.3
+        },
+        {
+          "baseline": 252.72,
+          "text": "𝑑",
+          "x": 302.64
+        },
+        {
+          "baseline": 270.0,
+          "text": "Mark 004 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 282.96,
+          "text": "1",
+          "x": 313.21
+        },
+        {
+          "baseline": 291.36,
+          "text": "𝑥=",
+          "x": 263.73
+        },
+        {
+          "baseline": 297.36,
+          "text": "1",
+          "x": 322.96
+        },
+        {
+          "baseline": 303.84,
+          "text": "𝑎+",
+          "x": 284.25
+        },
+        {
+          "baseline": 309.12,
+          "text": "1",
+          "x": 332.6
+        },
+        {
+          "baseline": 315.6,
+          "text": "𝑏+",
+          "x": 303.75
+        },
+        {
+          "baseline": 320.88,
+          "text": "1",
+          "x": 341.86
+        },
+        {
+          "baseline": 327.36,
+          "text": "𝑐+",
+          "x": 323.03
+        },
+        {
+          "baseline": 333.12,
+          "text": "𝑑",
+          "x": 341.54
+        },
+        {
+          "baseline": 350.16,
+          "text": "Mark 005 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 366.0,
+          "text": "√𝑥",
+          "x": 299.28
+        },
+        {
+          "baseline": 385.2,
+          "text": "Mark 006 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 399.12,
+          "text": "𝑎",
+          "x": 306.93
+        },
+        {
+          "baseline": 407.4,
+          "text": "*",
+          "x": 298.56
+        },
+        {
+          "baseline": 414.96,
+          "text": "𝑏",
+          "x": 307.04
+        },
+        {
+          "baseline": 433.2,
+          "text": "Mark 007 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "!",
+          "x": 297.09
+        },
+        {
+          "baseline": 459.12,
+          "text": "+\t𝑘",
+          "x": 313.61
+        },
+        {
+          "baseline": 473.04,
+          "text": "\"#$",
+          "x": 292.0
+        },
+        {
+          "baseline": 490.32,
+          "text": "Mark 008 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 500.88,
+          "text": "%",
+          "x": 295.41
+        },
+        {
+          "baseline": 513.36,
+          "text": ".\t𝑥\t𝑑𝑥",
+          "x": 304.29
+        },
+        {
+          "baseline": 523.68,
+          "text": "$",
+          "x": 291.35
+        },
+        {
+          "baseline": 540.96,
+          "text": "Mark 009 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 554.16,
+          "text": "𝑎 𝑏",
+          "x": 293.94
+        },
+        {
+          "baseline": 559.92,
+          "text": "/ 0",
+          "x": 318.0
+        },
+        {
+          "baseline": 567.12,
+          "text": "𝑐 𝑑",
+          "x": 294.43
+        },
+        {
+          "baseline": 584.16,
+          "text": "Mark 010 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 594.96,
+          "text": "𝑎 𝑎 𝑎",
+          "x": 271.36
+        },
+        {
+          "baseline": 597.36,
+          "text": "%% %& %’",
+          "x": 304.08
+        },
+        {
+          "baseline": 607.92,
+          "text": "𝑎 𝑎 𝑎",
+          "x": 271.24
+        },
+        {
+          "baseline": 609.92,
+          "text": "1&% && &’1",
+          "x": 267.6
+        },
+        {
+          "baseline": 620.88,
+          "text": "𝑎 𝑎 𝑎",
+          "x": 271.24
+        },
+        {
+          "baseline": 623.04,
+          "text": "’% ’& ’’",
+          "x": 304.21
+        },
+        {
+          "baseline": 640.08,
+          "text": "Mark 011 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 654.24,
+          "text": "1 2",
+          "x": 294.41
+        },
+        {
+          "baseline": 666.96,
+          "text": "3 4",
+          "x": 294.41
+        },
+        {
+          "baseline": 673.12,
+          "text": "2 :",
+          "x": 286.32
+        },
+        {
+          "baseline": 679.92,
+          "text": "5 6",
+          "x": 294.41
+        },
+        {
+          "baseline": 692.88,
+          "text": "7 8",
+          "x": 294.41
+        },
+        {
+          "baseline": 710.4,
+          "text": "Mark 012 before.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.12,
+          "text": "1 if 𝑥> 0",
+          "x": 300.39
+        },
+        {
+          "baseline": 87.12,
+          "text": "𝑓(𝑥)= >",
+          "x": 259.71
+        },
+        {
+          "baseline": 94.08,
+          "text": "2 if 𝑥= 0",
+          "x": 300.39
+        },
+        {
+          "baseline": 111.12,
+          "text": "Mark 013 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 121.68,
+          "text": "𝑎 𝑐",
+          "x": 293.84
+        },
+        {
+          "baseline": 137.28,
+          "text": "𝑏 𝑑",
+          "x": 293.96
+        },
+        {
+          "baseline": 143.68,
+          "text": "2 :",
+          "x": 285.84
+        },
+        {
+          "baseline": 146.16,
+          "text": "𝑒 𝑔",
+          "x": 294.19
+        },
+        {
+          "baseline": 162.0,
+          "text": "𝑓 ℎ",
+          "x": 293.86
+        },
+        {
+          "baseline": 181.44,
+          "text": "Mark 014 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 197.76,
+          "text": "𝜕𝑢 𝜕𝑢",
+          "x": 287.79
+        },
+        {
+          "baseline": 213.28,
+          "text": "⎛𝜕𝑥 𝜕𝑦⎞",
+          "x": 279.36
+        },
+        {
+          "baseline": 224.4,
+          "text": "⎜",
+          "x": 279.36
+        },
+        {
+          "baseline": 224.4,
+          "text": "⎟",
+          "x": 324.24
+        },
+        {
+          "baseline": 227.04,
+          "text": "𝜕𝑣 𝜕𝑣",
+          "x": 287.93
+        },
+        {
+          "baseline": 242.88,
+          "text": "𝜕𝑥 𝜕𝑦",
+          "x": 287.99
+        },
+        {
+          "baseline": 248.16,
+          "text": "⎝",
+          "x": 279.36
+        },
+        {
+          "baseline": 248.16,
+          "text": "⎠",
+          "x": 324.24
+        },
+        {
+          "baseline": 265.2,
+          "text": "Mark 015 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 276.24,
+          "text": "𝑎",
+          "x": 302.8
+        },
+        {
+          "baseline": 288.96,
+          "text": "N O",
+          "x": 296.4
+        },
+        {
+          "baseline": 291.84,
+          "text": "𝑏",
+          "x": 302.91
+        },
+        {
+          "baseline": 300.72,
+          "text": "𝑐",
+          "x": 303.3
+        },
+        {
+          "baseline": 317.76,
+          "text": "Mark 016 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 330.48,
+          "text": "1",
+          "x": 302.95
+        },
+        {
+          "baseline": 345.12,
+          "text": "𝑎 𝑑",
+          "x": 285.16
+        },
+        {
+          "baseline": 351.6,
+          "text": "𝑐− 𝑓",
+          "x": 293.39
+        },
+        {
+          "baseline": 357.12,
+          "text": "𝑏 𝑒",
+          "x": 285.28
+        },
+        {
+          "baseline": 374.4,
+          "text": "Mark 017 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 390.96,
+          "text": "𝑎 𝑐",
+          "x": 297.11
+        },
+        {
+          "baseline": 397.44,
+          "text": "+",
+          "x": 305.95
+        },
+        {
+          "baseline": 402.96,
+          "text": "𝑏 𝑑",
+          "x": 297.22
+        },
+        {
+          "baseline": 408.6,
+          "text": "Q",
+          "x": 288.72
+        },
+        {
+          "baseline": 411.84,
+          "text": "𝑒",
+          "x": 316.97
+        },
+        {
+          "baseline": 418.32,
+          "text": "1+",
+          "x": 297.44
+        },
+        {
+          "baseline": 423.84,
+          "text": "𝑓",
+          "x": 316.64
+        },
+        {
+          "baseline": 446.88,
+          "text": "Mark 018 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 456.48,
+          "text": "(",
+          "x": 149.11
+        },
+        {
+          "baseline": 462.96,
+          "text": "Inline 018 holds  in a line of text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 468.48,
+          "text": ")",
+          "x": 149.21
+        },
+        {
+          "baseline": 485.52,
+          "text": "Mark 019 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 501.38,
+          "text": "Inline 019 holds √𝑥 in a line of text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 521.28,
+          "text": "Mark 020 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 533.28,
+          "text": "∑(, -,)(/ -/)",
+          "x": 195.41
+        },
+        {
+          "baseline": 534.96,
+          "text": "!",
+          "x": 192.63
+        },
+        {
+          "baseline": 534.96,
+          "text": "!",
+          "x": 217.87
+        },
+        {
+          "baseline": 539.76,
+          "text": "Inline 020 holds 𝑟=",
+          "x": 72.0
+        },
+        {
+          "baseline": 539.76,
+          "text": "in a line of text.",
+          "x": 247.29
+        },
+        {
+          "baseline": 543.6,
+          "text": "\"",
+          "x": 205.43
+        },
+        {
+          "baseline": 543.6,
+          "text": "\"",
+          "x": 240.85
+        },
+        {
+          "baseline": 546.0,
+          "text": "0∑(, -,) ∑(/ -/)",
+          "x": 168.96
+        },
+        {
+          "baseline": 547.68,
+          "text": "!",
+          "x": 188.57
+        },
+        {
+          "baseline": 547.68,
+          "text": "!",
+          "x": 223.68
+        },
+        {
+          "baseline": 565.2,
+          "text": "Mark 021 before.",
+          "x": 72.0
+        },
+        {
+          "baseline": 578.64,
+          "text": "𝑎 𝑏",
+          "x": 153.13
+        },
+        {
+          "baseline": 584.4,
+          "text": "Inline 021 holds / 0 in a line of text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 591.6,
+          "text": "𝑐 𝑑",
+          "x": 153.62
+        },
+        {
+          "baseline": 608.64,
+          "text": "Mark 022 before.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "61269666431122ec226ea2f7b60e6295378c108898c84a1acc6d8edaf9590679"
+}

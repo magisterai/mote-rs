@@ -86,6 +86,52 @@ impl Typesetter<'_> {
         vertical: bool,
         style: Style,
     ) -> Layout {
+        self.stretched_within(character, target, 0.0, vertical, style)
+    }
+
+    /// The whole vertical variants of a character in ascending order, each
+    /// with its height and the height of its top above the baseline as
+    /// designed.
+    pub(super) fn vertical_variants(
+        &self,
+        character: char,
+        style: Style,
+    ) -> Vec<(GlyphId, f64, f64)> {
+        let scale = self.scale(style);
+        self.face
+            .glyph_index(character)
+            .and_then(|glyph| self.variants?.vertical_constructions.get(glyph))
+            .map(|construction| {
+                construction
+                    .variants
+                    .into_iter()
+                    .map(|variant| {
+                        let top = self
+                            .face
+                            .glyph_bounding_box(variant.variant_glyph)
+                            .map_or(0.0, |bounds| f64::from(bounds.y_max) * scale);
+                        (
+                            variant.variant_glyph,
+                            f64::from(variant.advance_measurement) * scale,
+                            top,
+                        )
+                    })
+                    .collect()
+            })
+            .unwrap_or_default()
+    }
+
+    /// Returns the first size variant of a character that falls no more than
+    /// the shortfall short of the target, or else an assembly of parts
+    /// stretched to the target.
+    pub(super) fn stretched_within(
+        &mut self,
+        character: char,
+        target: f64,
+        shortfall: f64,
+        vertical: bool,
+        style: Style,
+    ) -> Layout {
         let Some(glyph) = self.face.glyph_index(character) else {
             return self.character(character, character, style);
         };
@@ -104,12 +150,12 @@ impl Typesetter<'_> {
         let mut largest = glyph;
         for variant in construction.variants {
             largest = variant.variant_glyph;
-            if f64::from(variant.advance_measurement) * scale >= target {
+            if f64::from(variant.advance_measurement) * scale >= target - shortfall {
                 return self.glyph(variant.variant_glyph, text, style);
             }
         }
         match construction.assembly {
-            Some(assembly) => self.assembly(assembly, target, text, vertical, style),
+            Some(assembly) => self.assembly(assembly, target, shortfall, text, vertical, style),
             None => self.glyph(largest, text, style),
         }
     }
@@ -117,11 +163,13 @@ impl Typesetter<'_> {
     /// Repeats the extenders of an assembly until it reaches the target, then
     /// overlaps the connectors evenly so that the assembly meets it exactly. If
     /// one more extender would overshoot the target by more than the shorter
-    /// assembly falls short of it, the shorter assembly is taken.
+    /// assembly falls short of it, the shorter assembly is taken. A shortfall
+    /// replaces that comparison: the first assembly within it is taken.
     fn assembly(
         &self,
         assembly: GlyphAssembly<'_>,
         target: f64,
+        shortfall: f64,
         text: String,
         vertical: bool,
         style: Style,
@@ -168,11 +216,14 @@ impl Typesetter<'_> {
         };
         let mut chosen = build(0);
         for repeats in 1..=64 {
-            if reach(&chosen) >= target {
+            if reach(&chosen) >= target - shortfall {
                 break;
             }
             let longer = build(repeats);
-            if reach(&longer) >= target && shortest(&longer) - target > target - reach(&chosen) {
+            if shortfall == 0.0
+                && reach(&longer) >= target
+                && shortest(&longer) - target > target - reach(&chosen)
+            {
                 break;
             }
             chosen = longer;

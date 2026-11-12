@@ -50,28 +50,41 @@ must not be treated as arbitrary LaTeX execution.
 Lua `document.math` accepts the same attributes and returns an element. Its
 normalized `display` determines whether it contributes inline or block content.
 
-Office output retains editable math structure. Native PDF/PNG typesets each
+Office output retains editable math structure. An equation takes the size and
+colour of its text; a stated size or colour applies to its bars, signs and
+delimiters as to its characters. Native PDF/PNG typesets each
 equation with the OpenType MATH table of Cambria Math, the font Word and
 PowerPoint use, or else STIX Two Math. A declared font named `Cambria Math`
 takes precedence over both. A display equation is set in display style, with
 enlarged operators and limits above and below. An inline equation that stands
 alone in its paragraph is displayed, as Word displays it. Display style extends
 to the bases of scripts and the cells of matrices, and every fraction of a
-display equation keeps the full size, however deeply it is nested. The
-outermost fraction outside delimiters takes the display shifts; a nested or
-enclosed fraction takes the text shifts with the display gaps, unless the
-equation is displayed only for standing alone. The ink of successive rows of a
-matrix or an alignment is 0.38 em apart, and their baselines at least a line of
-the math font apart. A matrix cell of plain characters takes only that line. A
-large operator with limits is followed in Word by a space, which Office output
-gives it as its argument. An overbrace rises 0.44 em above its body. A
-stretched delimiter, brace or radical takes one fewer extender when that comes
-nearer its target. An equation is an unbreakable object within its line. The
-equation is measured against the single-spaced line: once it comes within 0.06
-em of either edge, as in Word, or 0.13 em of the top in PowerPoint, the line
-grows by the excess whatever the line spacing. A display equation in Word keeps
-0.137 em above and 0.037 em below, or 0.289 em and 0.119 em if it opens with
-ordinary text. A minimum line height absorbs that growth until the line
+display equation keeps the full size, however deeply it is nested; a fraction
+within a script keeps the size of the script in Word. The outermost fraction
+outside delimiters takes the display shifts, as does a fraction within
+delimiters in Word; a nested fraction takes the text shifts, with the display
+gaps in PowerPoint. The ink of successive rows of a matrix or an alignment is
+0.31 em apart in Word and 0.38 em in PowerPoint, and their baselines at least a
+line of the math font apart. A matrix cell of plain characters takes only that
+line. A large operator with limits is followed in Word by a space, which Office
+output gives it as its argument. If the limits fall beside the operator in the
+text style, Word sets them as the scripts of a character. A subscript and a
+superscript that would meet are parted equally in Word. An overbrace rises
+0.375 em above its body in Word and 0.44 em in PowerPoint, and an underbrace
+in Word falls 0.375 em beneath it. A delimiter in Word is the first that falls
+no more than a third of an em short of its content. A radical sign in Word is
+the first that covers the radicand, the gap and the rule to within a tenth of
+a point, and stands at the least gap above the radicand; the smallest sign is
+drawn no lower than its design, so that it serves no radicand with a
+descender. A stretched brace or radical takes one fewer extender when that
+comes nearer its target. An equation is an unbreakable object within its line.
+The equation is measured against the single-spaced line: once it comes within
+0.087 em of the top or 0.033 em of the foot in Word, or 0.13 em and 0.06 em in
+PowerPoint, the line grows by the excess whatever the line spacing. A display
+equation alone on its line in Word stands in the line of the math font, 0.95
+em above the baseline and 0.222 em below; the line rises to keep 0.145 em
+clear above the equation and deepens to hold it.
+A minimum line height absorbs that growth until the line
 outgrows it. An exact height in Word is kept unchanged; PowerPoint keeps the
 height but raises the line by the growth below less half the growth above. Text
 in `text` is set upright in the paragraph font, as in Word and PowerPoint,

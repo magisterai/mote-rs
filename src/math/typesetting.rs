@@ -19,9 +19,6 @@ pub struct Formula {
     pub ascent: f64,
     pub descent: f64,
     pub display: bool,
-    /// Whether the equation opens with ordinary text rather than a structure.
-    /// Word keeps more room around a display equation that does.
-    pub leading_text: bool,
     pub font: FontSelection,
     /// The paragraph's font, in which Word sets normal text such as `\text`.
     pub text_font: Option<FontSelection>,
@@ -62,7 +59,6 @@ impl Formula {
 pub(crate) fn typeset(
     source: &str,
     display: bool,
-    lone: bool,
     word: bool,
     size: f64,
     font: &FontSelection,
@@ -97,23 +93,11 @@ pub(crate) fn typeset(
         level: if display { Level::Display } else { Level::Text },
         cramped: false,
         full_fractions: display,
-        display_gaps: display && !lone,
+        display_gaps: display && !word,
+        script_fractions: display && word,
         enclosed: false,
         argument: false,
     };
-    let mut first = &root;
-    loop {
-        first = match first {
-            Node::Sequence(nodes) if !nodes.is_empty() => &nodes[0],
-            Node::Script {
-                base,
-                subscript: None,
-                superscript: None,
-            } => base,
-            _ => break,
-        };
-    }
-    let leading_text = !lone && matches!(first, Node::Text(..));
     let layout = match &root {
         Node::Sequence(nodes) => typesetter.list(nodes, style, false),
         node => typesetter.node(node, style),
@@ -130,7 +114,6 @@ pub(crate) fn typeset(
             ascent: layout.ascent,
             descent: layout.descent,
             display,
-            leading_text,
             font: font.clone(),
             text_font: text_font
                 .filter(|_| layout.glyphs.iter().any(|glyph| glyph.in_text_font))
@@ -150,17 +133,20 @@ enum Level {
     ScriptScript,
 }
 
-/// A cramped style raises superscripts less, as TeX does under a bar. Word
+/// A cramped style raises superscripts less, as TeX does under a bar. Office
 /// sets every fraction of a display equation at full size, however deeply it
-/// is nested, though only the outermost and those within delimiters take the
-/// display shifts; the inner ones keep the display gaps unless the equation is
-/// displayed only for standing alone.
+/// is nested, though only the outermost and, in Word, those within delimiters
+/// take the display shifts; in PowerPoint the inner ones keep the display
+/// gaps.
 #[derive(Clone, Copy)]
 struct Style {
     level: Level,
     cramped: bool,
     full_fractions: bool,
     display_gaps: bool,
+    /// Whether a fraction within a script keeps the size of the script, as
+    /// in a display equation in Word.
+    script_fractions: bool,
     enclosed: bool,
     /// Whether the style belongs to a part of a display fraction or to a row
     /// of aligned equations, where Word measures a single character beneath a
@@ -189,6 +175,7 @@ impl Style {
                 Level::Display => Level::Text,
                 Level::Text if self.full_fractions => Level::Text,
                 Level::Text => Level::Script,
+                Level::Script if self.script_fractions => Level::Script,
                 _ => Level::ScriptScript,
             },
             argument: self.level == Level::Display || self.argument,
@@ -525,7 +512,10 @@ impl Typesetter<'_> {
                 subscript,
                 superscript,
             } => {
-                let operator = self.operator(symbol, style);
+                let mut operator = self.operator(symbol, style);
+                // Word sets limits that fall beside an operator in the text
+                // style as the scripts of any other character.
+                operator.single = self.word && *location == "undOvr";
                 let layout = if *location == "undOvr" && style.display() {
                     let over = superscript
                         .as_deref()

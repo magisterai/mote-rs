@@ -24,8 +24,8 @@
       "sha256": "f33f0a7027225b1847f1aa4c34c833de90289f041d8b005c9563e16ea7298196"
     },
     "word/document.xml": {
-      "path": "parts/1ca6af43e9d80488a59ba58e71fb7807aa1f2a20a91a68008a8dc4bd4296b52e.xml",
-      "sha256": "1ca6af43e9d80488a59ba58e71fb7807aa1f2a20a91a68008a8dc4bd4296b52e"
+      "path": "parts/f81f1db9fcd48f375f15dd706b34e0e6f808fd5ff61c0d8eea016853a5ae0eb2.xml",
+      "sha256": "f81f1db9fcd48f375f15dd706b34e0e6f808fd5ff61c0d8eea016853a5ae0eb2"
     },
     "word/fontTable.xml": {
       "path": "parts/0fb4198f04b3bf733cffa5e6a0f184d979ea1c14387128312a3a0e379ad93bc8.xml",
@@ -47,7 +47,7 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "70badb2a9f2f7ad542b021e569cd48ad9f228b7894128d7fbeb123d60b1b4aec",
+      "sha256": "d33b649968e90540686113f12a0b9540e411be5ecbf62352a8158c9ddbf9ae3b",
       "maximum": 64,
       "mean": 12,
       "outliers": 0
@@ -56,6 +56,6 @@
   "warnings": [],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "c97d888ff2e286c3c13a1fd41c2a1ca8d600a3edcb5242048a8ef922e7853c3c"
+    "sha256": "49f3654820e58f1083e146f859d27d51f0b3c2fbe7f3a61917f4ae4af5394fa0"
   }
 }

@@ -24,8 +24,8 @@
       "sha256": "f33f0a7027225b1847f1aa4c34c833de90289f041d8b005c9563e16ea7298196"
     },
     "word/document.xml": {
-      "path": "parts/6a09df0c7eb15a99deba78814b54fbbdb301436e249d6d210736c456233f161b.xml",
-      "sha256": "6a09df0c7eb15a99deba78814b54fbbdb301436e249d6d210736c456233f161b"
+      "path": "parts/859f27da79a5f848f955554acb9b9c4dcdac07001213c55ef2fd685a6338bee1.xml",
+      "sha256": "859f27da79a5f848f955554acb9b9c4dcdac07001213c55ef2fd685a6338bee1"
     },
     "word/fontTable.xml": {
       "path": "parts/0fb4198f04b3bf733cffa5e6a0f184d979ea1c14387128312a3a0e379ad93bc8.xml",
@@ -47,7 +47,7 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "10ff07c52c9b26c41ace8031ad047b56b7f0bde6bb29eb6de8938c7800f526fb",
+      "sha256": "c6471720a994c04378e187e2861f2260a8ff19f121f30bd739e3d73748c8c7e6",
       "maximum": 64,
       "mean": 12,
       "outliers": 0
@@ -58,6 +58,6 @@
   ],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "e814e3bd189543494d32136f300842f32e5a53d7e7665b613ba653ad98150db3"
+    "sha256": "3dfa837e0918e829428c01404b3e838b2e0fc8955d1709e4cb3e9e4ac4c576bd"
   }
 }

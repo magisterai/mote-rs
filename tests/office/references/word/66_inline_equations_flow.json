@@ -690,117 +690,117 @@
           "x": 72.0
         },
         {
-          "baseline": 238.98,
-          "text": "∞ 𝑠−1",
-          "x": 272.0
+          "baseline": 238.26,
+          "text": "! A=$",
+          "x": 274.59
         },
         {
-          "baseline": 242.88,
+          "baseline": 242.16,
           "text": "𝑥",
-          "x": 265.61
+          "x": 267.88
         },
         {
-          "baseline": 251.28,
+          "baseline": 250.56,
           "text": "P",
-          "x": 240.24
+          "x": 242.88
         },
         {
-          "baseline": 251.28,
+          "baseline": 250.56,
           "text": "𝑑𝑥= 𝛤(𝑠)\t𝜁(𝑠)",
-          "x": 296.71
+          "x": 298.28
         },
         {
-          "baseline": 255.36,
-          "text": "𝑥",
-          "x": 266.76
+          "baseline": 254.64,
+          "text": "-",
+          "x": 269.43
         },
         {
-          "baseline": 258.72,
+          "baseline": 258.0,
           "text": "𝑒 − 1",
-          "x": 260.81
+          "x": 263.39
         },
         {
-          "baseline": 261.6,
-          "text": "0",
-          "x": 245.05
+          "baseline": 260.88,
+          "text": "/",
+          "x": 247.68
         },
         {
-          "baseline": 277.92,
-          "text": "2",
-          "x": 277.2
+          "baseline": 276.72,
+          "text": "7",
+          "x": 277.73
         },
         {
-          "baseline": 279.6,
-          "text": "𝑛",
-          "x": 230.43
+          "baseline": 278.4,
+          "text": "\"",
+          "x": 231.74
         },
         {
-          "baseline": 279.6,
-          "text": "𝑛",
-          "x": 309.61
+          "baseline": 278.4,
+          "text": "\"",
+          "x": 308.96
         },
         {
-          "baseline": 279.6,
-          "text": "𝑛",
-          "x": 358.75
+          "baseline": 278.4,
+          "text": "\"",
+          "x": 357.48
         },
         {
-          "baseline": 291.36,
-          "text": "2",
-          "x": 332.91
+          "baseline": 290.4,
+          "text": "7",
+          "x": 331.88
         },
         {
-          "baseline": 289.92,
-          "text": "2",
-          "x": 381.84
+          "baseline": 290.4,
+          "text": "7",
+          "x": 380.27
         },
         {
-          "baseline": 295.92,
-          "text": "QE\t𝑎 𝑏 R ≤ QE\t𝑎 RQE\t𝑏 R",
-          "x": 218.4
+          "baseline": 294.72,
+          "text": "TE\t𝑎 𝑏 U ≤ TE\t𝑎 UTE\t𝑏 U",
+          "x": 219.84
         },
         {
-          "baseline": 298.08,
-          "text": "𝑘 𝑘",
-          "x": 253.74
+          "baseline": 296.88,
+          "text": "8 8",
+          "x": 254.38
         },
         {
-          "baseline": 298.8,
-          "text": "𝑘",
-          "x": 332.91
+          "baseline": 297.36,
+          "text": "8",
+          "x": 331.61
         },
         {
-          "baseline": 298.08,
-          "text": "𝑘",
-          "x": 381.84
+          "baseline": 297.36,
+          "text": "8",
+          "x": 379.57
         },
         {
-          "baseline": 309.84,
-          "text": "𝑘=1",
-          "x": 225.0
+          "baseline": 308.64,
+          "text": "8#$",
+          "x": 226.64
         },
         {
-          "baseline": 309.84,
-          "text": "𝑘=1",
-          "x": 304.17
+          "baseline": 308.64,
+          "text": "8#$",
+          "x": 303.87
         },
         {
-          "baseline": 309.84,
-          "text": "𝑘=1",
-          "x": 353.31
+          "baseline": 308.64,
+          "text": "8#$",
+          "x": 352.38
         },
         {
-          "baseline": 329.52,
+          "baseline": 328.08,
           "text": "REVIEW: inline equations enlarge only their own lines under single, multiple and minimum spacing,",
           "x": 72.0
         },
         {
-          "baseline": 344.16,
+          "baseline": 342.72,
           "text": "and leave exact lines unchanged. Table rows with tall equations grow as Word's rows do, and the",
           "x": 72.0
         },
         {
-          "baseline": 358.56,
+          "baseline": 357.12,
           "text": "content after the table starts at the same position in both outputs.",
           "x": 72.0
         }

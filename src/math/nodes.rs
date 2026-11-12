@@ -69,6 +69,47 @@ const PRESENTATION_UPRIGHT_PROPERTIES: &str = r#"<a:rPr lang="en-US" b="0" i="0"
 /// PowerPoint ignores `m:nor` and takes the style of normal text from these
 /// properties, which leave its font to the paragraph as Word does.
 const PRESENTATION_NORMAL_PROPERTIES: &str = r#"<a:rPr lang="en-US" b="0" i="0" smtClean="0"/>"#;
+/// The colour and size of an equation, as Word run properties.
+fn word_properties(options: &Options) -> String {
+    let mut word = String::new();
+    if !options.color.is_empty() {
+        word.push_str(&format!(r#"<w:color w:val="{}"/>"#, escape(&options.color)));
+    }
+    if options.size_half_points > 0 {
+        word.push_str(&format!(
+            r#"<w:sz w:val="{0}"/><w:szCs w:val="{0}"/>"#,
+            options.size_half_points
+        ));
+    }
+    if word.is_empty() {
+        word
+    } else {
+        format!("<w:rPr>{word}</w:rPr>")
+    }
+}
+/// Word draws the bar, sign or delimiters of an object in the paragraph's
+/// colour and size unless the object states its own, whatever its runs state.
+fn control(options: &Options) -> String {
+    let properties = if options.presentation {
+        String::new()
+    } else {
+        word_properties(options)
+    };
+    if properties.is_empty() {
+        properties
+    } else {
+        format!("<m:ctrlPr>{properties}</m:ctrlPr>")
+    }
+}
+/// The properties element of an object, or nothing if it would be empty.
+fn object_properties(name: &str, properties: &str, options: &Options) -> String {
+    let control = control(options);
+    if properties.is_empty() && control.is_empty() {
+        String::new()
+    } else {
+        format!("<m:{name}>{properties}{control}</m:{name}>")
+    }
+}
 impl Node {
     pub fn text(text: impl Into<String>) -> Self {
         Self::Text(text.into(), TextKind::Ordinary)
@@ -79,11 +120,12 @@ impl Node {
         let properties = if left {
             let columns = rows.iter().map(Vec::len).max().unwrap_or(0);
             format!(
-                r#"<m:mPr><m:mcs><m:mc><m:mcPr><m:count m:val="{columns}"/><m:mcJc m:val="left"/></m:mcPr></m:mc></m:mcs></m:mPr>"#
+                r#"<m:mcs><m:mc><m:mcPr><m:count m:val="{columns}"/><m:mcJc m:val="left"/></m:mcPr></m:mc></m:mcs>"#
             )
         } else {
             String::new()
         };
+        let properties = object_properties("mPr", &properties, options);
         let rows: String = rows
             .iter()
             .map(|row| {
@@ -119,19 +161,7 @@ impl Node {
                         r#"<m:rPr><m:scr m:val="roman"/><m:sty m:val="p"/></m:rPr>"#.into()
                     }
                 };
-                let mut word = String::new();
-                if !options.color.is_empty() {
-                    word.push_str(&format!(r#"<w:color w:val="{}"/>"#, escape(&options.color)));
-                }
-                if options.size_half_points > 0 {
-                    word.push_str(&format!(
-                        r#"<w:sz w:val="{0}"/><w:szCs w:val="{0}"/>"#,
-                        options.size_half_points
-                    ));
-                }
-                if !word.is_empty() {
-                    properties.push_str(&format!("<w:rPr>{word}</w:rPr>"));
-                }
+                properties.push_str(&word_properties(options));
                 if options.presentation {
                     properties.push_str(match kind {
                         TextKind::Ordinary => PRESENTATION_PROPERTIES,
@@ -150,20 +180,33 @@ impl Node {
                 bar,
             } => format!(
                 "<m:f>{}{}{}</m:f>",
-                if *bar {
-                    ""
-                } else {
-                    r#"<m:fPr><m:type m:val="noBar"/></m:fPr>"#
-                },
+                object_properties(
+                    "fPr",
+                    if *bar {
+                        ""
+                    } else {
+                        r#"<m:type m:val="noBar"/>"#
+                    },
+                    options
+                ),
                 part("num", numerator),
                 part("den", denominator)
             ),
             Self::Radical { radicand, degree } => format!(
-                "<m:rad>{}{}</m:rad>",
+                "<m:rad>{}{}{}</m:rad>",
+                object_properties(
+                    "radPr",
+                    if degree.is_some() {
+                        ""
+                    } else {
+                        r#"<m:degHide m:val="1"/>"#
+                    },
+                    options
+                ),
                 degree
                     .as_ref()
                     .map(|degree| part("deg", degree))
-                    .unwrap_or_else(|| r#"<m:radPr><m:degHide m:val="1"/></m:radPr>"#.into()),
+                    .unwrap_or_default(),
                 part("e", radicand)
             ),
             Self::Script {
@@ -178,7 +221,8 @@ impl Node {
                     (false, false) => return base.xml(options),
                 };
                 format!(
-                    "<m:{name}>{}{}{}</m:{name}>",
+                    "<m:{name}>{}{}{}{}</m:{name}>",
+                    object_properties(&format!("{name}Pr"), "", options),
                     part("e", base),
                     subscript
                         .as_ref()
@@ -201,15 +245,20 @@ impl Node {
                     }
                     body => part("e", body),
                 };
-                format!("<m:d><m:dPr>{properties}</m:dPr>{body}</m:d>")
+                format!(
+                    "<m:d>{}{body}</m:d>",
+                    object_properties("dPr", &properties, options)
+                )
             }
             Self::Accent { character, body } => format!(
-                r#"<m:acc><m:accPr><m:chr m:val="{}"/></m:accPr>{}</m:acc>"#,
+                r#"<m:acc><m:accPr><m:chr m:val="{}"/>{}</m:accPr>{}</m:acc>"#,
                 escape(character),
+                control(options),
                 part("e", body)
             ),
             Self::Bar { position, body } => format!(
-                r#"<m:bar><m:barPr><m:pos m:val="{position}"/></m:barPr>{}</m:bar>"#,
+                r#"<m:bar><m:barPr><m:pos m:val="{position}"/>{}</m:barPr>{}</m:bar>"#,
+                control(options),
                 part("e", body)
             ),
             Self::GroupCharacter {
@@ -229,7 +278,7 @@ impl Node {
                 let control = if options.presentation {
                     format!("<m:ctrlPr>{PRESENTATION_PROPERTIES}</m:ctrlPr>")
                 } else {
-                    String::new()
+                    control(options)
                 };
                 format!(
                     r#"<m:groupChr><m:groupChrPr><m:chr m:val="{character}"/>{placement}{control}</m:groupChrPr>{}</m:groupChr>"#,
@@ -239,7 +288,8 @@ impl Node {
             Self::Limit { body, limit, upper } => {
                 let name = if *upper { "limUpp" } else { "limLow" };
                 format!(
-                    "<m:{name}>{}{}</m:{name}>",
+                    "<m:{name}>{}{}{}</m:{name}>",
+                    object_properties(&format!("{name}Pr"), "", options),
                     part("e", body),
                     part("lim", limit)
                 )
@@ -251,7 +301,7 @@ impl Node {
                 subscript,
                 superscript,
             } => format!(
-                r#"<m:nary><m:naryPr><m:chr m:val="{symbol}"/><m:limLoc m:val="{location}"/>{}{}</m:naryPr>{}{}{}</m:nary>"#,
+                r#"<m:nary><m:naryPr><m:chr m:val="{symbol}"/><m:limLoc m:val="{location}"/>{}{}{}</m:naryPr>{}{}{}</m:nary>"#,
                 if subscript.is_none() {
                     r#"<m:subHide m:val="1"/>"#
                 } else {
@@ -262,6 +312,7 @@ impl Node {
                 } else {
                     ""
                 },
+                control(options),
                 optional("sub", subscript),
                 optional("sup", superscript),
                 part("e", &Self::text(" "))
@@ -269,7 +320,8 @@ impl Node {
             Self::LimitOperator(name) => Self::Text(name.clone(), TextKind::Roman).xml(options),
             Self::Matrix(rows) => Self::matrix_xml(rows, false, options),
             Self::EquationArray(rows) => format!(
-                "<m:eqArr>{}</m:eqArr>",
+                "<m:eqArr>{}{}</m:eqArr>",
+                object_properties("eqArrPr", "", options),
                 rows.iter().map(|row| part("e", row)).collect::<String>()
             ),
         }

@@ -1,0 +1,403 @@
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#font(name = "body", latin = "Aptos")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+#style(
+  name = "Mark",
+  type = "paragraph",
+  based_on = "Normal",
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } } }
+)
+
+RADICAL HEIGHT: a radical sign is the smallest of its sizes that covers the radicand, so that the height of a radical moves in steps as the radicand grows. Each radical lies between two exact lines, whose baselines are known.
+
+#paragraph(style = "Mark")[Mark 001 before.]
+
+\[
+\sqrt{x^2}
+\]
+
+#paragraph(style = "Mark")[Mark 002 before.]
+
+\[
+\sqrt{x_1^2}
+\]
+
+#paragraph(style = "Mark")[Mark 003 before.]
+
+\[
+\sqrt{(x)}
+\]
+
+#paragraph(style = "Mark")[Mark 004 before.]
+
+\[
+\sqrt{\frac{a}{g}}
+\]
+
+#paragraph(style = "Mark")[Mark 005 before.]
+
+\[
+\sqrt{\frac{f}{g}}
+\]
+
+#paragraph(style = "Mark")[Mark 006 before.]
+
+\[
+\sqrt{\frac{a^2}{b}}
+\]
+
+#paragraph(style = "Mark")[Mark 007 before.]
+
+\[
+\sqrt{\frac{a^2}{b_1}}
+\]
+
+#paragraph(style = "Mark")[Mark 008 before.]
+
+\[
+\sqrt{\frac{(a)}{(b)}}
+\]
+
+#paragraph(style = "Mark")[Mark 009 before.]
+
+\[
+\sqrt{\sum_{i=1}^{n} x}
+\]
+
+#paragraph(style = "Mark")[Mark 010 before.]
+
+\[
+\sqrt{\frac{\frac{a}{b}}{c}}
+\]
+
+#paragraph(style = "Mark")[Mark 011 before.]
+
+\[
+\sqrt{\frac{a}{\frac{b}{c}}}
+\]
+
+#paragraph(style = "Mark")[Mark 012 before.]
+
+\[
+\sqrt{\frac{\frac{a}{b}}{\frac{c}{d}}}
+\]
+
+#paragraph(style = "Mark")[Mark 013 before.]
+
+\[
+\sqrt{\frac{\frac{f}{g}}{\frac{c}{d}}}
+\]
+
+#paragraph(style = "Mark")[Mark 014 before.]
+
+\[
+\sqrt{\frac{\frac{f}{g}}{\frac{f}{g}}}
+\]
+
+#paragraph(style = "Mark")[Mark 015 before.]
+
+\[
+\sqrt{\frac{\frac{f^2}{g}}{\frac{f}{g}}}
+\]
+
+#paragraph(style = "Mark")[Mark 016 before.]
+
+\[
+\sqrt{\frac{\frac{f^2}{g}}{\frac{f^2}{g}}}
+\]
+
+#paragraph(style = "Mark")[Mark 017 before.]
+
+\[
+\sqrt{\frac{\frac{f^2}{g_1}}{\frac{f^2}{g_1}}}
+\]
+
+#paragraph(style = "Mark")[Mark 018 before.]
+
+\[
+\sqrt{\frac{\frac{(f)^2}{g_1}}{\frac{(f)^2}{g_1}}}
+\]
+
+#paragraph(style = "Mark")[Mark 019 before.]
+
+\[
+\sqrt{\frac{\frac{T}{\mu} + \frac{g\lambda}{2\pi}}{1 + \frac{\lambda}{L}}}
+\]
+
+#paragraph(style = "Mark")[Mark 020 before.]
+
+\[
+\frac{1}{2} \sqrt{\frac{\frac{T}{\mu} + \frac{g\lambda}{2\pi}}{1 + \frac{\lambda}{L}}}
+\]
+
+#paragraph(style = "Mark")[Mark 021 before.]
+
+\[
+\sqrt{\frac{\sum_{i=1}^{n} x}{\frac{c}{d}}}
+\]
+
+#paragraph(style = "Mark")[Mark 022 before.]
+
+\[
+\sqrt{\frac{\sum_{i=1}^{n} x}{\sum_{i=1}^{n} x}}
+\]
+
+#paragraph(style = "Mark")[Mark 023 before.]
+
+\[
+\sqrt{\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}}
+\]
+
+#paragraph(style = "Mark")[Mark 024 before.]
+
+\[
+\sqrt{\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}}
+\]
+
+#paragraph(style = "Mark")[Mark 025 before.]
+
+\[
+\sqrt{\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{pmatrix}}
+\]
+
+#paragraph(style = "Mark")[Mark 026 before.]
+
+\[
+\sqrt{\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6 \end{pmatrix}}
+\]
+
+#paragraph(style = "Mark")[Mark 027 before.]
+
+\[
+\sqrt{\frac{\frac{\frac{a}{b}}{c}}{\frac{d}{\frac{e}{f}}}}
+\]
+
+#paragraph(style = "Mark")[Mark 028 before.]
+
+\[
+\sqrt{\sqrt{\frac{a}{b}}}
+\]
+
+#paragraph(style = "Mark")[Mark 029 before.]
+
+\[
+\sqrt{\sqrt{\frac{\frac{a}{b}}{\frac{c}{d}}}}
+\]
+
+#paragraph(style = "Mark")[Mark 030 before.]
+
+\[
+v = \frac{1}{2} \sqrt{\frac{\frac{T}{\mu} + \frac{g\lambda}{2\pi}}{1 + \frac{\lambda}{L}}}
+\]
+
+#paragraph(style = "Mark")[Mark 031 before.]
+
+\[
+v = \sqrt{\frac{\frac{T}{\mu} + \frac{g\lambda}{2\pi}}{1 + \frac{\lambda}{L}}}
+\]
+
+#paragraph(style = "Mark")[Mark 032 before.]
+
+\[
+\sqrt{\frac{\frac{T}{\mu} + \frac{g\lambda}{2\pi}}{1 + \frac{\lambda}{L}}} + 1
+\]
+
+#paragraph(style = "Mark")[Mark 033 before.]
+
+\[
+\sqrt{(a + b)^2}
+\]
+
+#paragraph(style = "Mark")[Mark 034 before.]
+
+\[
+\sqrt{\left( x \right)}
+\]
+
+#paragraph(style = "Mark")[Mark 035 before.]
+
+\[
+\sqrt{[x]}
+\]
+
+#paragraph(style = "Mark")[Mark 036 before.]
+
+\[
+\sqrt{f}
+\]
+
+#paragraph(style = "Mark")[Mark 037 before.]
+
+\[
+\sqrt{g}
+\]
+
+#paragraph(style = "Mark")[Mark 038 before.]
+
+\[
+\sqrt{fg}
+\]
+
+#paragraph(style = "Mark")[Mark 039 before.]
+
+\[
+\sqrt{y}
+\]
+
+#paragraph(style = "Mark")[Mark 040 before.]
+
+\[
+\sqrt{p}
+\]
+
+#paragraph(style = "Mark")[Mark 041 before.]
+
+\[
+\sqrt{j}
+\]
+
+#paragraph(style = "Mark")[Mark 042 before.]
+
+\[
+\sqrt{T}
+\]
+
+#paragraph(style = "Mark")[Mark 043 before.]
+
+\[
+\sqrt{1}
+\]
+
+#paragraph(style = "Mark")[Mark 044 before.]
+
+\[
+\sqrt{Q}
+\]
+
+#paragraph(style = "Mark")[Mark 045 before.]
+
+\[
+\sqrt{d}
+\]
+
+#paragraph(style = "Mark")[Mark 046 before.]
+
+\[
+\sqrt{x_1}
+\]
+
+#paragraph(style = "Mark")[Mark 047 before.]
+
+\[
+\sqrt{y_1}
+\]
+
+#paragraph(style = "Mark")[Mark 048 before.]
+
+\[
+\sqrt{x'}
+\]
+
+#paragraph(style = "Mark")[Mark 049 before.]
+
+\[
+\sqrt{b^2}
+\]
+
+#paragraph(style = "Mark")[Mark 050 before.]
+
+\[
+\sqrt{y_{1_1}}
+\]
+
+#paragraph(style = "Mark")[Mark 051 before.]
+
+\[
+\sqrt{\dot{y}}
+\]
+
+#paragraph(style = "Mark")[Mark 052 before.]
+
+\[
+\sqrt{f'}
+\]
+
+#paragraph(style = "Mark")[Mark 053 before.]
+
+\[
+\sqrt{(x)'}
+\]
+
+#paragraph(style = "Mark")[Mark 054 before.]
+
+\[
+\sqrt{|x|^2}
+\]
+
+#paragraph(style = "Mark")[Mark 055 before.]
+
+\[
+\sqrt{y^2}
+\]
+
+#paragraph(style = "Mark")[Mark 056 before.]
+
+\[
+\sqrt{f^2}
+\]
+
+#paragraph(style = "Mark")[Mark 057 before.]
+
+\[
+\sqrt{[x]^2}
+\]
+
+#paragraph(style = "Mark")[Mark 058 before.]
+
+\[
+\sqrt{\bar{x}^2}
+\]
+
+#paragraph(style = "Mark")[Mark 059 before.]
+
+\[
+\sqrt{\hat{f}}
+\]
+
+#paragraph(style = "Mark")[Mark 060 before.]
+
+\[
+\sqrt{\bar{y}}
+\]
+
+#paragraph(style = "Mark")[Mark 061 before.]
+
+\[
+\sqrt{\vec{E}}
+\]
+
+#paragraph(style = "Mark")[Mark 062 before.]
+
+\[
+\sqrt{x^{2^2}}
+\]
+
+#paragraph(style = "Mark")[Mark 063 before.]
+
+\[
+\sqrt{f_1}
+\]
+
+#paragraph(style = "Mark")[Mark 064 before.]

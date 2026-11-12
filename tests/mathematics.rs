@@ -135,6 +135,31 @@ fn unfinished_delimiters_preserve_whole_sources_in_editable_equations() {
 }
 
 #[test]
+fn equation_objects_take_the_stated_size_and_no_other() {
+    let part = |source: &str| {
+        let document = mote::compile(source).unwrap();
+        let resolver = mote::source::FileAssetResolver::from_current_directory().unwrap();
+        let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+        package_support::unpack(generated.bytes)["word/document.xml"].clone()
+    };
+    let plain = part(r#"#math("\\sqrt{\\frac{a}{b}}",display="block")"#);
+    assert!(!plain.contains("<w:sz "), "{plain}");
+    assert!(!plain.contains("<m:ctrlPr>"), "{plain}");
+    let sized = part(r#"#math("\\sqrt{\\frac{a}{b}}",display="block",size=pt(14))"#);
+    let control = r#"<m:ctrlPr><w:rPr><w:sz w:val="28"/><w:szCs w:val="28"/></w:rPr></m:ctrlPr>"#;
+    assert!(
+        sized.contains(&format!(
+            r#"<m:radPr><m:degHide m:val="1"/>{control}</m:radPr>"#
+        )),
+        "{sized}"
+    );
+    assert!(
+        sized.contains(&format!("<m:fPr>{control}</m:fPr>")),
+        "{sized}"
+    );
+}
+
+#[test]
 fn raw_equations_inherit_the_destination_namespace_context() {
     for (source, presentation) in [
         (

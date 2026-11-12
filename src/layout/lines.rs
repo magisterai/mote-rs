@@ -141,15 +141,12 @@ pub fn plan_text(
             // Office measures an equation against the single-spaced line and
             // enlarges it once the equation comes within a clearance of an
             // edge, whatever the line spacing. PowerPoint keeps more room
-            // above an equation than Word does. Word keeps more above a
-            // display equation and less below it, and more on both sides of
-            // one that opens with ordinary text.
-            let display = formulas.iter().find(|formula| formula.display);
-            let (above, below) = match (options.word_exact_baseline, display) {
-                (true, Some(formula)) if formula.leading_text => (0.3156, 0.0924),
-                (true, Some(_)) => (0.1636, 0.0104),
-                (true, None) => (0.0866, 0.0334),
-                (false, _) => (0.13, 0.06),
+            // above an equation than Word does.
+            let display = formulas.iter().any(|formula| formula.display);
+            let (above, below) = if options.word_exact_baseline {
+                (0.0866, 0.0334)
+            } else {
+                (0.13, 0.06)
             };
             let (above, below) = (above * ordinary_size, below * ordinary_size);
             let single = std::iter::once(&base_style)
@@ -167,34 +164,35 @@ pub fn plan_text(
             } else {
                 0.5 * single + 0.3 * ordinary_size
             };
-            let ascent = formulas
-                .iter()
-                .map(|formula| formula.ascent)
-                .fold(0.0, f64::max);
-            let descent = formulas
-                .iter()
-                .map(|formula| formula.descent)
-                .fold(0.0, f64::max);
+            let extent = |measure: fn(&crate::math::typesetting::Formula) -> f64| {
+                formulas
+                    .iter()
+                    .map(|formula| measure(formula))
+                    .fold(0.0, f64::max)
+            };
             // Word sets a display equation that stands alone on its line
             // within the line of the math font, which is a little shallower
-            // than a line of text, and enlarges that line once the ink of
-            // the equation comes within a clearance of an edge.
+            // than a line of text. The line rises to keep a clearance above
+            // the ink of the equation, and deepens to hold the ink below.
             let alone = options.word_exact_baseline
-                && display.is_some()
+                && display
                 && wrapped
                     .runs
                     .iter()
                     .all(|run| run.formula.is_some() || run.text.trim().is_empty());
             let (raise, growth) = if alone {
                 (
-                    (1.036 * ordinary_size).max(ascent + 0.19 * ordinary_size) - single_baseline,
-                    (0.244 * ordinary_size).max(descent + 0.014 * ordinary_size)
+                    (0.95 * ordinary_size)
+                        .max(extent(|formula| formula.ascent) + 0.145 * ordinary_size)
+                        - single_baseline,
+                    (0.222 * ordinary_size).max(extent(|formula| formula.descent))
                         - (single - single_baseline),
                 )
             } else {
                 (
-                    (ascent + above - single_baseline).max(0.0),
-                    (descent + below - (single - single_baseline)).max(0.0),
+                    (extent(|formula| formula.ascent) + above - single_baseline).max(0.0),
+                    (extent(|formula| formula.descent) + below - (single - single_baseline))
+                        .max(0.0),
                 )
             };
             match options.spacing {
@@ -354,7 +352,6 @@ fn typeset(run: &mut TextRun, measurer: &mut TextMeasurer<'_>, word: bool) {
     let Some((formula, warnings)) = crate::math::typesetting::typeset(
         &crate::properties::text(attributes, "source"),
         crate::properties::text(attributes, "display") == "block",
-        attributes.contains_key("lone"),
         word,
         run.style.measurement.size_points,
         &font,

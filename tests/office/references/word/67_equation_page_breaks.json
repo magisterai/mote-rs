@@ -30,33 +30,33 @@
         },
         {
           "baseline": 175.2,
-          "text": "𝑛",
-          "x": 242.87
+          "text": "!",
+          "x": 246.16
         },
         {
           "baseline": 183.12,
           "text": "𝑛(𝑛+ 1)(2𝑛+ 1)",
-          "x": 286.35
+          "x": 288.69
         },
         {
-          "baseline": 185.52,
-          "text": "2",
-          "x": 266.11
+          "baseline": 187.44,
+          "text": "%",
+          "x": 269.28
         },
         {
           "baseline": 191.52,
           "text": "!\t𝑘 =",
-          "x": 259.49
+          "x": 262.67
         },
         {
           "baseline": 198.96,
           "text": "6",
-          "x": 327.14
+          "x": 326.77
         },
         {
           "baseline": 205.44,
-          "text": "𝑘=1",
-          "x": 237.43
+          "text": "\"#$",
+          "x": 241.06
         },
         {
           "baseline": 222.96,
@@ -64,314 +64,319 @@
           "x": 72.0
         },
         {
-          "baseline": 238.8,
-          "text": "∞",
-          "x": 240.58
+          "baseline": 238.56,
+          "text": "&",
+          "x": 243.71
         },
         {
-          "baseline": 246.72,
+          "baseline": 246.48,
           "text": "1",
-          "x": 294.08
+          "x": 296.18
         },
         {
-          "baseline": 251.04,
-          "text": "𝑘",
-          "x": 264.08
+          "baseline": 250.8,
+          "text": "\"",
+          "x": 267.03
         },
         {
-          "baseline": 255.12,
+          "baseline": 254.88,
           "text": "!\t𝑟 =",
-          "x": 258.37
+          "x": 261.26
         },
         {
-          "baseline": 255.12,
+          "baseline": 254.88,
           "text": ",\t\t|𝑟|< 1",
-          "x": 340.64
+          "x": 339.48
         },
         {
-          "baseline": 262.56,
+          "baseline": 262.32,
           "text": "1− 𝑟",
-          "x": 284.3
+          "x": 286.89
         },
         {
-          "baseline": 269.04,
-          "text": "𝑘=0",
-          "x": 236.32
+          "baseline": 268.8,
+          "text": "\"#’",
+          "x": 239.65
         },
         {
-          "baseline": 286.56,
+          "baseline": 286.32,
           "text": "The binomial coefficient:",
           "x": 72.0
         },
         {
-          "baseline": 306.48,
+          "baseline": 305.52,
           "text": "𝑛",
-          "x": 267.38
+          "x": 269.56
         },
         {
-          "baseline": 306.48,
+          "baseline": 305.52,
           "text": "𝑛!",
-          "x": 317.22
+          "x": 316.99
         },
         {
-          "baseline": 314.88,
-          "text": "\" #=",
-          "x": 274.32
+          "baseline": 313.92,
+          "text": "1 2=",
+          "x": 264.24
         },
         {
-          "baseline": 322.32,
+          "baseline": 321.36,
           "text": "𝑘 𝑘!\t(𝑛− 𝑘)!",
-          "x": 267.51
+          "x": 269.61
         },
         {
-          "baseline": 342.0,
+          "baseline": 341.04,
           "text": "Stirling's approximation:",
           "x": 72.0
         },
         {
-          "baseline": 358.32,
-          "text": "(",
-          "x": 340.58
+          "baseline": 356.88,
+          "text": "!",
+          "x": 337.63
         },
         {
-          "baseline": 361.2,
+          "baseline": 359.52,
           "text": "𝑛",
-          "x": 327.6
+          "x": 325.73
         },
         {
-          "baseline": 370.34,
-          "text": "𝑛!∼ √2𝜋𝑛4 6",
-          "x": 265.26
+          "baseline": 367.92,
+          "text": "𝑛!∼ √2𝜋𝑛1 2",
+          "x": 268.59
         },
         {
-          "baseline": 378.24,
+          "baseline": 375.36,
           "text": "𝑒",
-          "x": 328.04
+          "x": 326.13
         },
         {
-          "baseline": 396.0,
+          "baseline": 392.64,
           "text": "The Basel problem:",
           "x": 72.0
         },
         {
-          "baseline": 411.84,
-          "text": "∞",
-          "x": 279.53
+          "baseline": 408.24,
+          "text": "&",
+          "x": 280.19
         },
         {
-          "baseline": 415.92,
-          "text": "2",
-          "x": 331.66
+          "baseline": 412.32,
+          "text": "%",
+          "x": 330.92
         },
         {
-          "baseline": 419.76,
+          "baseline": 416.16,
           "text": "1 𝜋",
-          "x": 300.12
+          "x": 300.62
         },
         {
-          "baseline": 428.16,
+          "baseline": 424.56,
           "text": "!",
-          "x": 275.76
+          "x": 276.48
         },
         {
-          "baseline": 428.16,
+          "baseline": 424.56,
           "text": "=",
-          "x": 312.52
+          "x": 312.51
         },
         {
-          "baseline": 432.48,
-          "text": "2",
-          "x": 304.31
+          "baseline": 428.64,
+          "text": "%",
+          "x": 304.37
         },
         {
-          "baseline": 435.72,
+          "baseline": 432.0,
           "text": "𝑛 6",
-          "x": 297.42
+          "x": 297.87
         },
         {
-          "baseline": 442.08,
-          "text": "𝑛=1",
-          "x": 275.18
+          "baseline": 438.48,
+          "text": "!#$",
+          "x": 276.0
         },
         {
-          "baseline": 459.6,
+          "baseline": 456.0,
           "text": "A Wallis product:",
           "x": 72.0
         },
         {
-          "baseline": 475.44,
-          "text": "∞",
-          "x": 290.73
+          "baseline": 471.84,
+          "text": "&",
+          "x": 291.37
         },
         {
-          "baseline": 479.52,
-          "text": "2",
-          "x": 332.73
+          "baseline": 475.92,
+          "text": "%",
+          "x": 331.64
         },
         {
-          "baseline": 483.36,
+          "baseline": 479.76,
           "text": "𝜋",
-          "x": 263.86
+          "x": 265.68
         },
         {
-          "baseline": 483.36,
+          "baseline": 479.76,
           "text": "4𝑛",
-          "x": 319.2
+          "x": 319.05
         },
         {
-          "baseline": 491.76,
-          "text": "= $",
-          "x": 286.08
+          "baseline": 488.16,
+          "text": "= 8",
+          "x": 286.8
         },
         {
-          "baseline": 496.08,
+          "baseline": 492.24,
+          "text": "%",
+          "x": 322.04
+        },
+        {
+          "baseline": 495.6,
           "text": "2",
-          "x": 322.48
+          "x": 266.01
         },
         {
-          "baseline": 499.2,
-          "text": "2",
-          "x": 264.09
-        },
-        {
-          "baseline": 499.44,
+          "baseline": 495.6,
           "text": "4𝑛 − 1",
-          "x": 308.95
+          "x": 309.45
         },
         {
-          "baseline": 505.68,
-          "text": "𝑛=1",
-          "x": 286.38
+          "baseline": 502.08,
+          "text": "!#$",
+          "x": 287.17
         },
         {
-          "baseline": 523.2,
+          "baseline": 519.6,
           "text": "The Gamma function:",
           "x": 72.0
         },
         {
-          "baseline": 539.28,
-          "text": ")",
-          "x": 297.44
+          "baseline": 535.2,
+          "text": "&",
+          "x": 297.74
         },
         {
-          "baseline": 548.64,
-          "text": "+,- ,.",
-          "x": 338.21
+          "baseline": 543.6,
+          "text": "()$ )*",
+          "x": 335.69
         },
         {
-          "baseline": 552.96,
-          "text": "𝛤(𝑧)= :\t𝑡 𝑒\t𝑑𝑡",
-          "x": 248.51
+          "baseline": 547.68,
+          "text": "𝛤(𝑧)= <\t𝑡 𝑒\t𝑑𝑡",
+          "x": 252.89
         },
         {
-          "baseline": 564.24,
-          "text": "*",
-          "x": 293.01
+          "baseline": 558.0,
+          "text": "’",
+          "x": 293.68
         },
         {
-          "baseline": 581.76,
+          "baseline": 575.76,
           "text": "A Taylor series:",
           "x": 72.0
         },
         {
-          "baseline": 597.84,
-          "text": "∞",
-          "x": 247.93
+          "baseline": 591.36,
+          "text": "&",
+          "x": 250.38
         },
         {
-          "baseline": 601.92,
-          "text": "𝑛",
-          "x": 272.2
+          "baseline": 595.44,
+          "text": "!",
+          "x": 274.51
         },
         {
-          "baseline": 601.92,
-          "text": "2",
-          "x": 339.74
+          "baseline": 595.44,
+          "text": "%",
+          "x": 339.58
         },
         {
-          "baseline": 601.92,
-          "text": "3",
-          "x": 365.14
+          "baseline": 595.44,
+          "text": ",",
+          "x": 364.23
         },
         {
-          "baseline": 605.76,
+          "baseline": 599.28,
           "text": "𝑥",
-          "x": 265.82
+          "x": 268.06
         },
         {
-          "baseline": 605.76,
+          "baseline": 599.28,
           "text": "𝑥 𝑥",
-          "x": 333.35
+          "x": 333.12
         },
         {
-          "baseline": 610.08,
-          "text": "𝑥",
-          "x": 223.52
+          "baseline": 603.6,
+          "text": "+",
+          "x": 226.46
         },
         {
-          "baseline": 614.16,
+          "baseline": 607.68,
           "text": "𝑒 = !",
-          "x": 217.56
+          "x": 220.16
         },
         {
-          "baseline": 614.16,
+          "baseline": 607.68,
           "text": "= 1+ 𝑥+ + + ⋯",
-          "x": 292.61
+          "x": 294.63
         },
         {
-          "baseline": 621.6,
+          "baseline": 615.12,
           "text": "𝑛!",
-          "x": 266.52
+          "x": 269.36
+        },
+        {
+          "baseline": 615.12,
+          "text": "2! 3!",
+          "x": 334.28
         },
         {
           "baseline": 621.6,
-          "text": "2! 3!",
-          "x": 334.09
+          "text": "!#’",
+          "x": 246.19
         },
         {
-          "baseline": 628.08,
-          "text": "𝑛=0",
-          "x": 243.57
-        },
-        {
-          "baseline": 645.6,
+          "baseline": 639.12,
           "text": "A continued fraction for the golden ratio:",
           "x": 72.0
         },
         {
-          "baseline": 665.52,
+          "baseline": 658.32,
           "text": "1",
-          "x": 325.16
+          "x": 323.56
         },
         {
-          "baseline": 674.64,
+          "baseline": 666.72,
           "text": "𝜑 = 1+",
-          "x": 246.97
+          "x": 251.89
         },
         {
-          "baseline": 681.12,
+          "baseline": 672.72,
           "text": "1",
-          "x": 335.63
+          "x": 333.16
         },
         {
-          "baseline": 688.32,
+          "baseline": 679.2,
           "text": "1+",
-          "x": 291.93
+          "x": 293.1
         },
         {
-          "baseline": 694.08,
+          "baseline": 684.48,
           "text": "1",
-          "x": 346.1
+          "x": 342.76
         },
         {
-          "baseline": 701.04,
+          "baseline": 690.96,
           "text": "1+",
-          "x": 312.87
+          "x": 312.3
         },
         {
-          "baseline": 707.04,
+          "baseline": 696.48,
           "text": "1+ ⋯",
-          "x": 333.81
+          "x": 331.49
+        },
+        {
+          "baseline": 714.0,
+          "text": "A system of four equations in matrix form:",
+          "x": 72.0
         }
       ],
       "width": 612.0
@@ -380,372 +385,387 @@
       "height": 792.0,
       "lines": [
         {
-          "baseline": 82.32,
-          "text": "A system of four equations in matrix form:",
-          "x": 72.0
+          "baseline": 80.88,
+          "text": "𝑎 𝑎 𝑎 𝑎",
+          "x": 222.98
         },
         {
-          "baseline": 102.77,
-          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
-          "x": 219.94
+          "baseline": 81.12,
+          "text": "𝑥",
+          "x": 337.32
+        },
+        {
+          "baseline": 81.36,
+          "text": "𝑏",
+          "x": 378.61
+        },
+        {
+          "baseline": 83.28,
+          "text": "$$ $% $, $-",
+          "x": 255.69
+        },
+        {
+          "baseline": 83.28,
+          "text": "$",
+          "x": 342.81
+        },
+        {
+          "baseline": 83.52,
+          "text": "$",
+          "x": 383.94
+        },
+        {
+          "baseline": 93.84,
+          "text": "𝑎 𝑎 𝑎 𝑎",
+          "x": 222.85
+        },
+        {
+          "baseline": 93.84,
+          "text": "𝑥",
+          "x": 337.19
+        },
+        {
+          "baseline": 94.8,
+          "text": "𝑏",
+          "x": 378.48
+        },
+        {
+          "baseline": 96.0,
+          "text": "%$ %% %, %-",
+          "x": 255.82
+        },
+        {
+          "baseline": 96.24,
+          "text": "%",
+          "x": 342.94
+        },
+        {
+          "baseline": 96.96,
+          "text": "%",
+          "x": 384.07
         },
         {
           "baseline": 102.24,
+          "text": "C",
+          "x": 214.8
+        },
+        {
+          "baseline": 102.17,
+          "text": "EC E = C E",
+          "x": 319.2
+        },
+        {
+          "baseline": 106.8,
+          "text": "𝑎 𝑎 𝑎 𝑎",
+          "x": 222.85
+        },
+        {
+          "baseline": 106.8,
+          "text": "𝑥",
+          "x": 337.19
+        },
+        {
+          "baseline": 108.24,
           "text": "𝑏",
-          "x": 380.16
+          "x": 378.48
         },
         {
-          "baseline": 105.12,
-          "text": "11 12 13 14",
-          "x": 226.62
+          "baseline": 108.96,
+          "text": ",$ ,% ,, ,-",
+          "x": 255.82
         },
         {
-          "baseline": 105.12,
-          "text": "1",
-          "x": 343.51
+          "baseline": 108.96,
+          "text": ",",
+          "x": 342.94
         },
         {
-          "baseline": 104.64,
-          "text": "1",
-          "x": 386.63
+          "baseline": 110.4,
+          "text": ",",
+          "x": 384.07
         },
         {
-          "baseline": 115.68,
-          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
-          "x": 219.94
+          "baseline": 119.76,
+          "text": "𝑎 𝑎 𝑎 𝑎",
+          "x": 222.85
         },
         {
-          "baseline": 116.4,
+          "baseline": 119.76,
+          "text": "𝑥",
+          "x": 337.19
+        },
+        {
+          "baseline": 121.92,
+          "text": "-$ -% -, --",
+          "x": 255.82
+        },
+        {
+          "baseline": 121.92,
+          "text": "-",
+          "x": 342.94
+        },
+        {
+          "baseline": 121.68,
           "text": "𝑏",
-          "x": 380.16
+          "x": 378.48
         },
         {
-          "baseline": 117.84,
-          "text": "21 22 23 24",
-          "x": 226.62
+          "baseline": 124.08,
+          "text": "-",
+          "x": 384.07
         },
         {
-          "baseline": 118.08,
-          "text": "2",
-          "x": 343.51
-        },
-        {
-          "baseline": 118.56,
-          "text": "2",
-          "x": 386.63
-        },
-        {
-          "baseline": 121.2,
-          "text": "⎛ ⎞",
-          "x": 391.68
-        },
-        {
-          "baseline": 123.84,
-          "text": "%",
-          "x": 211.92
-        },
-        {
-          "baseline": 123.74,
-          "text": "&% & =",
-          "x": 348.72
-        },
-        {
-          "baseline": 128.64,
-          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
-          "x": 219.94
-        },
-        {
-          "baseline": 130.8,
-          "text": "31 32 33 34",
-          "x": 226.62
-        },
-        {
-          "baseline": 130.8,
-          "text": "3",
-          "x": 343.51
-        },
-        {
-          "baseline": 130.56,
-          "text": "𝑏",
-          "x": 380.16
-        },
-        {
-          "baseline": 132.72,
-          "text": "3",
-          "x": 386.63
-        },
-        {
-          "baseline": 141.6,
-          "text": "𝑎 𝑎 𝑎 𝑎 𝑥",
-          "x": 219.94
-        },
-        {
-          "baseline": 143.76,
-          "text": "41 42 43 44",
-          "x": 226.62
-        },
-        {
-          "baseline": 144.6,
-          "text": "4 ⎝𝑏 ⎠",
-          "x": 343.51
-        },
-        {
-          "baseline": 147.12,
-          "text": "4",
-          "x": 386.63
-        },
-        {
-          "baseline": 164.64,
+          "baseline": 141.36,
           "text": "The arithmetic and geometric means:",
           "x": 72.0
         },
         {
-          "baseline": 183.6,
+          "baseline": 159.6,
           "text": "𝑥 + 𝑥 + ⋯ + 𝑥",
-          "x": 226.31
+          "x": 230.25
         },
         {
-          "baseline": 186.0,
-          "text": "1",
-          "x": 232.7
+          "baseline": 162.0,
+          "text": "$",
+          "x": 235.74
         },
         {
-          "baseline": 186.0,
-          "text": "2",
-          "x": 258.1
+          "baseline": 162.0,
+          "text": "%",
+          "x": 259.68
         },
         {
-          "baseline": 186.48,
-          "text": "𝑛 𝑛",
-          "x": 307.03
+          "baseline": 162.48,
+          "text": "! !",
+          "x": 326.39
         },
         {
-          "baseline": 192.1,
-          "text": "≥ +𝑥 𝑥 ⋯ 𝑥",
-          "x": 328.8
+          "baseline": 168.1,
+          "text": "≥ H𝑥 𝑥 ⋯ 𝑥",
+          "x": 327.6
         },
         {
-          "baseline": 194.16,
-          "text": "1 2",
-          "x": 343.31
+          "baseline": 170.16,
+          "text": "$ %",
+          "x": 352.04
         },
         {
-          "baseline": 194.16,
+          "baseline": 170.16,
+          "text": "!",
+          "x": 375.96
+        },
+        {
+          "baseline": 175.44,
           "text": "𝑛",
-          "x": 380.35
+          "x": 267.54
         },
         {
-          "baseline": 199.44,
-          "text": "𝑛",
-          "x": 265.89
-        },
-        {
-          "baseline": 216.72,
+          "baseline": 192.72,
           "text": "A Fourier series:",
           "x": 72.0
         },
         {
-          "baseline": 232.8,
-          "text": ")",
-          "x": 267.27
+          "baseline": 208.32,
+          "text": "&",
+          "x": 270.32
         },
         {
-          "baseline": 241.44,
+          "baseline": 216.24,
           "text": "𝑎",
-          "x": 236.41
+          "x": 241.8
         },
         {
-          "baseline": 241.44,
+          "baseline": 216.24,
           "text": "𝑛𝜋𝑥",
-          "x": 323.77
+          "x": 322.55
         },
         {
-          "baseline": 241.44,
+          "baseline": 216.24,
           "text": "𝑛𝜋𝑥",
-          "x": 388.25
+          "x": 381.8
         },
         {
-          "baseline": 243.84,
-          "text": "*",
-          "x": 243.09
+          "baseline": 218.64,
+          "text": "’",
+          "x": 247.93
         },
         {
-          "baseline": 250.56,
-          "text": "𝑓(𝑥)= + E\t4𝑎 cos + 𝑏 sin 6",
-          "x": 197.12
+          "baseline": 224.64,
+          "text": "𝑓(𝑥)= + !\t1𝑎 cos + 𝑏 sin 2",
+          "x": 205.79
         },
         {
-          "baseline": 252.96,
-          "text": "(",
-          "x": 298.79
+          "baseline": 226.8,
+          "text": "!",
+          "x": 299.52
         },
         {
-          "baseline": 252.96,
-          "text": "(",
-          "x": 364.9
+          "baseline": 226.8,
+          "text": "!",
+          "x": 360.26
         },
         {
-          "baseline": 258.48,
+          "baseline": 232.08,
           "text": "2",
-          "x": 239.14
+          "x": 244.37
         },
         {
-          "baseline": 258.48,
+          "baseline": 232.08,
           "text": "𝐿",
-          "x": 330.83
+          "x": 329.02
         },
         {
-          "baseline": 258.48,
+          "baseline": 232.08,
           "text": "𝐿",
-          "x": 395.31
+          "x": 388.27
         },
         {
-          "baseline": 265.92,
-          "text": "(2-",
-          "x": 262.81
+          "baseline": 238.56,
+          "text": "!#$",
+          "x": 266.12
         },
         {
-          "baseline": 283.44,
+          "baseline": 256.32,
           "text": "The Gaussian integral in two dimensions:",
           "x": 72.0
         },
         {
-          "baseline": 303.36,
-          "text": "2 2",
-          "x": 289.28
+          "baseline": 276.24,
+          "text": "\" \"",
+          "x": 306.05
         },
         {
-          "baseline": 306.24,
-          "text": "−(𝑥 +𝑦 )",
-          "x": 274.88
+          "baseline": 279.12,
+          "text": ")(+ 01 )",
+          "x": 294.85
         },
         {
-          "baseline": 310.32,
-          "text": ",\t𝑒",
-          "x": 268.93
+          "baseline": 283.2,
+          "text": "P\t𝑒",
+          "x": 246.72
         },
         {
-          "baseline": 310.32,
+          "baseline": 283.2,
           "text": "𝑑𝑥\t𝑑𝑦= 𝜋",
-          "x": 315.43
+          "x": 316.45
         },
         {
-          "baseline": 316.8,
-          "text": "2",
-          "x": 260.24
+          "baseline": 291.12,
+          "text": "\"",
+          "x": 261.91
         },
         {
-          "baseline": 320.64,
+          "baseline": 293.52,
           "text": "ℝ",
-          "x": 253.91
+          "x": 255.95
         },
         {
-          "baseline": 337.92,
+          "baseline": 310.8,
           "text": "The divergence theorem:",
           "x": 72.0
         },
         {
-          "baseline": 361.68,
-          "text": "..⃗",
-          "x": 281.52
+          "baseline": 335.28,
+          "text": "⃗",
+          "x": 285.12
         },
         {
-          "baseline": 361.68,
-          "text": "..⃗ ..⃗",
-          "x": 363.12
+          "baseline": 335.28,
+          "text": "⃗ ⃗",
+          "x": 363.84
         },
         {
-          "baseline": 364.56,
-          "text": "-\t𝛻⋅𝐹\t𝑑𝑉= 0\t𝐹⋅𝑑𝑆",
-          "x": 265.98
+          "baseline": 337.44,
+          "text": "R\t𝛻⋅𝐹\t𝑑𝑉 = X\t𝐹⋅𝑑𝑆",
+          "x": 244.32
         },
         {
-          "baseline": 374.88,
-          "text": "𝑉",
-          "x": 256.19
+          "baseline": 347.76,
+          "text": "3",
+          "x": 257.95
         },
         {
-          "baseline": 374.88,
-          "text": "𝜕𝑉",
-          "x": 325.94
+          "baseline": 347.76,
+          "text": "43",
+          "x": 325.05
         },
         {
-          "baseline": 392.4,
+          "baseline": 365.28,
           "text": "A piecewise function:",
           "x": 72.0
         },
         {
-          "baseline": 412.56,
+          "baseline": 384.48,
           "text": "−1 if 𝑥< 0",
-          "x": 300.65
+          "x": 301.1
         },
         {
-          "baseline": 426.21,
-          "text": "sgn(𝑥)= S0 if 𝑥= 0",
-          "x": 245.77
+          "baseline": 397.17,
+          "text": "sgn(𝑥)= [0 if 𝑥= 0",
+          "x": 250.79
         },
         {
-          "baseline": 440.64,
+          "baseline": 410.4,
           "text": "1 if 𝑥> 0",
-          "x": 300.65
+          "x": 301.1
         },
         {
-          "baseline": 458.16,
+          "baseline": 427.92,
           "text": "The Riemann zeta function:",
           "x": 72.0
         },
         {
-          "baseline": 475.62,
-          "text": ") ;,-",
-          "x": 335.1
+          "baseline": 444.66,
+          "text": "& 5)$",
+          "x": 332.58
         },
         {
-          "baseline": 480.0,
+          "baseline": 448.56,
           "text": "1",
-          "x": 283.54
+          "x": 285.26
         },
         {
-          "baseline": 480.0,
+          "baseline": 448.56,
           "text": "𝑥",
-          "x": 327.78
+          "x": 325.87
         },
         {
-          "baseline": 489.12,
+          "baseline": 456.96,
           "text": "𝜁(𝑠)=",
-          "x": 237.62
+          "x": 243.16
         },
         {
-          "baseline": 489.12,
-          "text": ":",
-          "x": 300.48
-        },
-        {
-          "baseline": 489.12,
-          "text": "𝑑𝑥",
-          "x": 360.67
-        },
-        {
-          "baseline": 493.44,
+          "baseline": 456.96,
           "text": "<",
-          "x": 329.34
+          "x": 300.96
         },
         {
-          "baseline": 497.04,
+          "baseline": 456.96,
+          "text": "𝑑𝑥",
+          "x": 356.28
+        },
+        {
+          "baseline": 461.04,
+          "text": "+",
+          "x": 327.43
+        },
+        {
+          "baseline": 464.4,
           "text": "𝛤(𝑠) 𝑒 − 1",
-          "x": 275.17
+          "x": 277.58
         },
         {
-          "baseline": 500.4,
-          "text": "*",
-          "x": 305.82
+          "baseline": 467.28,
+          "text": "’",
+          "x": 305.68
         },
         {
-          "baseline": 517.92,
+          "baseline": 484.8,
           "text": "REVIEW: the matrix system lies wholly at the top of the second page in both outputs, and its",
           "x": 72.0
         },
         {
-          "baseline": 532.32,
+          "baseline": 499.2,
           "text": "introductory line moves with it, as in Word. No equation is divided between two pages.",
           "x": 72.0
         }

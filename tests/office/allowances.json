@@ -245,11 +245,25 @@
     "vertical": 0.2
   },
   "probes/equation-height": {
-    "horizontal": 78.9,
+    "horizontal": 8.4,
     "median": 1.5,
+    "page_moves": 3,
+    "unmatched": 126,
+    "vertical": 25.4
+  },
+  "probes/equation-line-multiple-108": {
+    "horizontal": 4.6,
+    "median": 0.3,
     "page_moves": 0,
-    "unmatched": 66,
-    "vertical": 5.6
+    "unmatched": 26,
+    "vertical": 2.7
+  },
+  "probes/equation-line-multiple-150": {
+    "horizontal": 4.6,
+    "median": 0.9,
+    "page_moves": 3,
+    "unmatched": 26,
+    "vertical": 28.7
   },
   "probes/exact-line-baseline": {
     "horizontal": 0.0,
@@ -285,6 +299,13 @@
     "page_moves": 0,
     "unmatched": 1,
     "vertical": 2.1
+  },
+  "probes/radical-height": {
+    "horizontal": 15.5,
+    "median": 0.3,
+    "page_moves": 0,
+    "unmatched": 52,
+    "vertical": 7.9
   },
   "probes/script-position": {
     "horizontal": 0.2,
@@ -756,38 +777,38 @@
     "vertical": 0.7
   },
   "word/65_display_equations": {
-    "horizontal": 78.9,
-    "median": 2.3,
+    "horizontal": 105.5,
+    "median": 0.6,
     "page_moves": 0,
-    "unmatched": 35,
-    "vertical": 7.0
+    "unmatched": 58,
+    "vertical": 12.7
   },
   "word/66_inline_equations_flow": {
-    "horizontal": 7.1,
-    "median": 0.9,
+    "horizontal": 25.7,
+    "median": 0.7,
     "page_moves": 0,
-    "unmatched": 95,
+    "unmatched": 121,
     "vertical": 15.1
   },
   "word/67_equation_page_breaks": {
-    "horizontal": 60.8,
-    "median": 0.7,
+    "horizontal": 57.5,
+    "median": 0.3,
     "page_moves": 0,
-    "unmatched": 11,
-    "vertical": 8.3
+    "unmatched": 55,
+    "vertical": 8.8
   },
   "word/68_stacked_fractions": {
-    "horizontal": 108.8,
-    "median": 1.7,
+    "horizontal": 99.1,
+    "median": 0.9,
     "page_moves": 0,
-    "unmatched": 41,
-    "vertical": 5.7
+    "unmatched": 51,
+    "vertical": 4.4
   },
   "word/69_equation_columns": {
-    "horizontal": 59.2,
-    "median": 1.7,
+    "horizontal": 37.1,
+    "median": 0.4,
     "page_moves": 0,
-    "unmatched": 42,
-    "vertical": 6.8
+    "unmatched": 49,
+    "vertical": 8.3
   }
 }

@@ -12,7 +12,7 @@ pub(super) fn write(
         .transpose()?
         .unwrap_or_default();
     let options = crate::math::Options {
-        size_half_points: if element.is_block() { 24 } else { 0 },
+        size_half_points: 0,
         color,
         presentation: false,
     };

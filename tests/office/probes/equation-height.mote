@@ -361,3 +361,23 @@ Inline 053 holds $e^{\frac{a}{b}}$ in a line of text.
 \]
 
 #paragraph(style = "Mark")[Mark 062 before.]
+
+$\frac{a}{b}$
+
+#paragraph(style = "Mark")[Mark 063 before.]
+
+$x = \frac{1}{a + \frac{1}{b + \frac{1}{c + \frac{1}{d}}}}$
+
+#paragraph(style = "Mark")[Mark 064 before.]
+
+$\sqrt{\frac{a}{b}}$
+
+#paragraph(style = "Mark")[Mark 065 before.]
+
+$\begin{pmatrix} \frac{a}{b} & \frac{c}{d} \\ \frac{e}{f} & \frac{g}{h} \end{pmatrix}$
+
+#paragraph(style = "Mark")[Mark 066 before.]
+
+$x^2 + y_1^2 = z_i$
+
+#paragraph(style = "Mark")[Mark 067 before.]

@@ -35,11 +35,14 @@
   "probes/chart-value-axis": 0.004,
   "probes/east-asian-line-height": 0.001,
   "probes/equation-height": 0.019,
+  "probes/equation-line-multiple-108": 0.012,
+  "probes/equation-line-multiple-150": 0.009,
   "probes/exact-line-baseline": 0.004,
   "probes/footnote-spacing": 0.003,
   "probes/line-baseline": 0.006,
   "probes/paragraph-spacing": 0.002,
   "probes/powerpoint-line-height": 0.0,
+  "probes/radical-height": 0.029,
   "probes/script-position": 0.001,
   "probes/shape-text": 0.002,
   "probes/table-row-height": 0.003,
@@ -107,9 +110,9 @@
   "word/62_default_style": 0.001,
   "word/63_markdown_table_alignment": 0.005,
   "word/64_drawings_and_charts_in_flow": 0.001,
-  "word/65_display_equations": 0.015,
+  "word/65_display_equations": 0.011,
   "word/66_inline_equations_flow": 0.004,
-  "word/67_equation_page_breaks": 0.008,
-  "word/68_stacked_fractions": 0.023,
-  "word/69_equation_columns": 0.014
+  "word/67_equation_page_breaks": 0.007,
+  "word/68_stacked_fractions": 0.043,
+  "word/69_equation_columns": 0.006
 }

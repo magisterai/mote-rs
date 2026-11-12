@@ -1,0 +1,143 @@
+#document(
+  default_font = "body",
+  default_size = pt(11),
+  page = { size = "letter" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#font(name = "body", latin = "Aptos")
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "body", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.08 } } }
+)
+#style(
+  name = "Mark",
+  type = "paragraph",
+  based_on = "Normal",
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } } }
+)
+
+EQUATION LINE MULTIPLE: the paragraphs of this probe have a line multiple of 1.08, so that the part of the height of an equation that follows the multiple is known. The same equations stand in the equation height probe under a multiple of one.
+
+#paragraph(style = "Mark")[Mark 001 before.]
+
+\[
+a + b = c
+\]
+
+#paragraph(style = "Mark")[Mark 002 before.]
+
+\[
+\frac{a}{b}
+\]
+
+#paragraph(style = "Mark")[Mark 003 before.]
+
+\[
+\frac{\frac{a}{b}}{\frac{c}{d}}
+\]
+
+#paragraph(style = "Mark")[Mark 004 before.]
+
+\[
+x = \frac{1}{a + \frac{1}{b + \frac{1}{c + \frac{1}{d}}}}
+\]
+
+#paragraph(style = "Mark")[Mark 005 before.]
+
+\[
+\sqrt{x}
+\]
+
+#paragraph(style = "Mark")[Mark 006 before.]
+
+\[
+\sqrt{\frac{a}{b}}
+\]
+
+#paragraph(style = "Mark")[Mark 007 before.]
+
+\[
+\sum_{k=0}^{n} k
+\]
+
+#paragraph(style = "Mark")[Mark 008 before.]
+
+\[
+\int_{0}^{1} x \, dx
+\]
+
+#paragraph(style = "Mark")[Mark 009 before.]
+
+\[
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 010 before.]
+
+\[
+\begin{vmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 011 before.]
+
+\[
+\begin{pmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \\ 7 & 8 \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 012 before.]
+
+\[
+f(x) = \begin{cases} 1 & \text{if } x > 0 \\ 2 & \text{if } x = 0 \end{cases}
+\]
+
+#paragraph(style = "Mark")[Mark 013 before.]
+
+\[
+\begin{pmatrix} \frac{a}{b} & \frac{c}{d} \\ \frac{e}{f} & \frac{g}{h} \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 014 before.]
+
+\[
+\begin{pmatrix} \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\ \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 015 before.]
+
+\[
+\begin{pmatrix} \frac{a}{b} \\ c \end{pmatrix}
+\]
+
+#paragraph(style = "Mark")[Mark 016 before.]
+
+\[
+\frac{1}{\frac{a}{b} c - \frac{d}{e} f}
+\]
+
+#paragraph(style = "Mark")[Mark 017 before.]
+
+\[
+\sqrt{\frac{\frac{a}{b} + \frac{c}{d}}{1 + \frac{e}{f}}}
+\]
+
+#paragraph(style = "Mark")[Mark 018 before.]
+
+Inline 018 holds $\frac{a}{b}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 019 before.]
+
+Inline 019 holds $\sqrt{x}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 020 before.]
+
+Inline 020 holds $r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 021 before.]
+
+Inline 021 holds $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ in a line of text.
+
+#paragraph(style = "Mark")[Mark 022 before.]

@@ -99,12 +99,46 @@ impl Typesetter<'_> {
         } else {
             constants.radical_vertical_gap()
         });
+        let extra = value(constants.radical_extra_ascender());
         let target = body.ascent + body.descent + gap + thickness;
-        let surd = self.stretched('√', target, true, style);
+        // Word sets the top of a whole sign at the least gap above the
+        // radicand, where TeX centres the radicand within the sign, and lets
+        // the sign fall a tenth of a point short. The smallest sign is drawn
+        // no lower than its own design, so that it serves no radicand with a
+        // descender.
+        let fitted = if self.word {
+            self.vertical_variants('√', style)
+                .into_iter()
+                .enumerate()
+                .map(|(index, (glyph, height, design))| {
+                    let top = body.ascent + gap + thickness;
+                    let top = if index == 0 {
+                        top.max(design - extra)
+                    } else {
+                        top
+                    };
+                    (glyph, height, top)
+                })
+                .find(|(_, height, top)| height + 0.1 >= top + body.descent)
+                .map(|(glyph, _, top)| (glyph, top))
+        } else {
+            None
+        };
+        let surd = match fitted {
+            Some((glyph, top)) => {
+                gap = top - thickness - body.ascent;
+                self.glyph(glyph, "√".into(), style)
+            }
+            None => {
+                let surd = self.stretched('√', target, true, style);
+                let surd_height = surd.ascent + surd.descent;
+                if surd_height > target {
+                    gap += (surd_height - target) / 2.0;
+                }
+                surd
+            }
+        };
         let surd_height = surd.ascent + surd.descent;
-        if surd_height > target {
-            gap += (surd_height - target) / 2.0;
-        }
         let rule = body.ascent + gap;
         let surd_rise = rule + thickness - surd.ascent;
         let mut layout = Layout::default();
@@ -117,6 +151,7 @@ impl Typesetter<'_> {
                     cramped: false,
                     full_fractions: false,
                     display_gaps: false,
+                    script_fractions: false,
                     enclosed: false,
                     argument: false,
                 },
@@ -138,9 +173,7 @@ impl Typesetter<'_> {
         let body_width = body.width;
         layout.place(body, x, 0.0);
         layout.rule(x, rule, body_width, thickness);
-        layout.ascent = layout
-            .ascent
-            .max(rule + thickness + value(constants.radical_extra_ascender()));
+        layout.ascent = layout.ascent.max(rule + thickness + extra);
         layout.width = x + body_width;
         layout
     }
@@ -160,9 +193,8 @@ impl Typesetter<'_> {
         // Word measures a single character as it measures any other base
         // within a row of aligned equations, and beneath a superscript in a
         // display equation.
-        let boxed = !base.single || self.word && style.argument;
-        let deep =
-            boxed || self.word && style.display() && subscript.is_some() && superscript.is_some();
+        let boxed = !base.single;
+        let deep = boxed;
         let mut up = if boxed {
             base.ascent - value(constants.superscript_baseline_drop_max())
         } else {
@@ -191,7 +223,12 @@ impl Typesetter<'_> {
         if let (Some(superscript), Some(subscript)) = (&superscript, &subscript) {
             let gap = (up - superscript.descent) - (subscript.ascent - down);
             let minimum = value(constants.sub_superscript_gap_min());
-            if gap < minimum {
+            if gap < minimum && self.word {
+                // Word parts the scripts equally, where TeX lowers the
+                // subscript alone.
+                up += (minimum - gap) / 2.0;
+                down += (minimum - gap) / 2.0;
+            } else if gap < minimum {
                 down += minimum - gap;
                 let lift = value(constants.superscript_bottom_max_with_subscript())
                     - (up - superscript.descent);
@@ -287,51 +324,41 @@ impl Typesetter<'_> {
         };
         let axis = self.axis(style);
         let reach = (inner.ascent - axis).max(inner.descent + axis);
-        // Word sizes the delimiters of a matrix to the whole height of its
-        // rows.
-        let matrix = self.word && matches!(body, Node::Matrix(_));
-        let target = if matrix {
-            2.0 * reach
+        // Word takes the first delimiter that falls no more than a third of
+        // an em short of the content, where TeX also requires nine tenths of
+        // its height.
+        let (target, shortfall) = if self.word {
+            (2.0 * reach, self.size(style) / 3.0)
         } else {
-            (2.0 * reach * 0.901).max(2.0 * reach - self.size(style) * 0.5)
+            (
+                (2.0 * reach * 0.901).max(2.0 * reach - self.size(style) * 0.5),
+                0.0,
+            )
         };
         let mut layout = Layout::default();
         let mut x = 0.0;
         let null = self.fraction_padding(style);
-        let mut assembled = (0.0f64, 0.0f64);
-        let mut delimiter = |typesetter: &mut Self,
-                             symbol: &str,
-                             layout: &mut Layout,
-                             x: &mut f64| match symbol.chars().next() {
-            Some(character) => {
-                let glyph = typesetter
-                    .stretched(character, target, true, style)
-                    .centred(axis);
-                if glyph.glyphs.len() > 1 {
-                    assembled = (
-                        assembled.0.max(glyph.ascent),
-                        assembled.1.max(glyph.descent),
-                    );
+        let delimiter =
+            |typesetter: &mut Self, symbol: &str, layout: &mut Layout, x: &mut f64| match symbol
+                .chars()
+                .next()
+            {
+                Some(character) => {
+                    let glyph = typesetter
+                        .stretched_within(character, target, shortfall, true, style)
+                        .centred(axis);
+                    let width = glyph.width;
+                    layout.place(glyph, *x, 0.0);
+                    *x += width;
                 }
-                let width = glyph.width;
-                layout.place(glyph, *x, 0.0);
-                *x += width;
-            }
-            None => *x += null,
-        };
+                None => *x += null,
+            };
         delimiter(self, begin, &mut layout, &mut x);
-        let (inner_width, inner_ascent, inner_descent) = (inner.width, inner.ascent, inner.descent);
+        let inner_width = inner.width;
         layout.place(inner, x, 0.0);
         x += inner_width;
         delimiter(self, end, &mut layout, &mut x);
         layout.width = x;
-        // Word gives a line the height of the rows that a whole delimiter
-        // encloses, however far the delimiter reaches, but the height of a
-        // delimiter that is assembled from parts.
-        if matrix {
-            layout.ascent = inner_ascent.max(assembled.0);
-            layout.descent = inner_descent.max(assembled.1);
-        }
         layout
     }
 
@@ -410,10 +437,17 @@ impl Typesetter<'_> {
         let brace_x = (width - brace.width) / 2.0;
         let body_x = (width - body.width) / 2.0;
         if over {
-            // Word sets the top of an overbrace 0.44 em above the body, though
-            // the brace's bounding box reaches down to its baseline.
-            let rise = ascent + 0.44 * self.size(style) - brace.ascent;
+            // Word sets the top of an overbrace 0.375 em above the body and
+            // PowerPoint 0.44 em, though the brace's bounding box reaches
+            // down to its baseline.
+            let reach = if self.word { 0.375 } else { 0.44 };
+            let rise = ascent + reach * self.size(style) - brace.ascent;
             layout.place(brace, brace_x, rise);
+        } else if self.word {
+            // Word sets the foot of an underbrace 0.375 em beneath the body,
+            // though the brace's bounding box reaches up to its baseline.
+            let drop = descent + 0.375 * self.size(style) - brace.descent;
+            layout.place(brace, brace_x, -drop);
         } else {
             let drop = descent + value(constants.stretch_stack_gap_above_min()) + brace.ascent;
             layout.place(brace, brace_x, -drop);
@@ -485,8 +519,9 @@ impl Typesetter<'_> {
     }
 
     /// Leaves `gap` between columns, or `pair_gap` before each later pair of
-    /// aligned columns. Word separates the ink of successive rows by 0.38 em,
-    /// with their baselines at least a line of the math font apart. A matrix,
+    /// aligned columns. Word separates the ink of successive rows by 0.31 em
+    /// and PowerPoint by 0.38 em, with their baselines at least a line of the
+    /// math font apart. A matrix,
     /// whose `plain` cells take only that line, has rows reaching at least its
     /// descent; an aligned row reaches only as deep as its ink.
     fn grid(
@@ -526,7 +561,7 @@ impl Typesetter<'_> {
             starts.push(x);
             x += width;
         }
-        let row_gap = 0.38 * self.size(style);
+        let row_gap = if self.word { 0.31 } else { 0.38 } * self.size(style);
         let ink: Vec<(f64, f64)> = cells
             .iter()
             .map(|row| {
@@ -550,13 +585,6 @@ impl Typesetter<'_> {
                     })
             })
             .collect();
-        let worded: Vec<bool> = cells
-            .iter()
-            .map(|row| {
-                row.iter()
-                    .any(|cell| cell.glyphs.iter().any(|glyph| glyph.in_text_font))
-            })
-            .collect();
         let mut baselines = vec![0.0];
         for (index, pair) in ink.windows(2).enumerate() {
             let above = if plain.is_some() {
@@ -564,13 +592,7 @@ impl Typesetter<'_> {
             } else {
                 pair[0].1
             };
-            // Word keeps two rows a full line of an equation apart where
-            // either holds ordinary text.
-            let line = if self.word && (worded[index] || worded[index + 1]) {
-                1.28 * self.size(style)
-            } else {
-                strut.0 + strut.1
-            };
+            let line = strut.0 + strut.1;
             let pitch = if plain_rows[index] && plain_rows[index + 1] {
                 line
             } else {

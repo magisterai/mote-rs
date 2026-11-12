@@ -555,9 +555,6 @@ fn display_lone_equation(paragraph: &mut Element) {
         equation
             .attributes
             .insert("display".into(), Value::String("block".into()));
-        equation
-            .attributes
-            .insert("lone".into(), Value::Boolean(true));
     }
     paragraph
         .attributes
