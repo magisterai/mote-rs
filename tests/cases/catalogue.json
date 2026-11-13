@@ -1016,5 +1016,15 @@
     "evaluation": "static",
     "pages": 1,
     "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-groups",
+    "application": "powerpoint",
+    "name": "32_groups",
+    "source": "powerpoint-32-groups.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
   }
 ]

@@ -258,8 +258,22 @@ pub(super) fn validate_children(
     children: &[Content],
     span: Span,
 ) -> Result<(), Diagnostic> {
-    let positioned = |child: &Content| matches!(child, Content::Element(element) if matches!(element.kind, ElementKind::Box | ElementKind::Shape | ElementKind::Line));
-    if kind == ElementKind::Slide {
+    let positioned = |child: &Content| matches!(child, Content::Element(element) if matches!(element.kind, ElementKind::Box | ElementKind::Shape | ElementKind::Line | ElementKind::Group));
+    if kind == ElementKind::Group {
+        if !children.iter().all(positioned) {
+            return Err(Diagnostic::new(
+                span,
+                "group accepts only boxes, shapes, lines and groups",
+            ));
+        }
+        // A layout assigns its slots among the objects of the slide itself.
+        if children.iter().any(|child| matches!(child, Content::Element(element) if element.kind == ElementKind::Box && !crate::properties::text(&element.attributes, "slot").is_empty())) {
+            return Err(Diagnostic::new(
+                span,
+                "group cannot contain a box assigned to a layout slot",
+            ));
+        }
+    } else if kind == ElementKind::Slide {
         if children.iter().any(positioned) && children.iter().any(|child| !positioned(child)) {
             return Err(Diagnostic::new(
                 span,

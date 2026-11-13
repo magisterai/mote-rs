@@ -181,6 +181,31 @@ box in the same slide.
 ]
 ```
 
+## Groups
+
+A group gathers positioned objects of a slide into one object. `group` takes
+named arguments and a required body, and produces a block `group` element. The
+body holds boxes, shapes, lines and groups only; any other content is invalid,
+as is a box assigned to a layout slot. Optional `name` accepts a string or
+number and becomes text. A group is itself a positioned object, so that a slide
+may hold groups beside boxes, shapes and lines, and a group may hold groups.
+
+A group moves nothing: each object within keeps the place its own `position`,
+or its `from` and `to`, gives it on the slide. The Lua constructor is
+`document.group`.
+
+```mote
+#slide[
+  #group(name="Card")[
+    #shape(position={x=inch(1), y=inch(1), width=inch(4), height=inch(2)},
+           kind="round_rect", fill="#dcfce7")
+    #box(position={x=inch(1.2), y=inch(1.2), width=inch(3.6), height=inch(1)})[
+      A caption on the card.
+    ]
+  ]
+]
+```
+
 Current output support and review status are recorded in the
-[presentation](../checklists/presentation.md), [slide](../checklists/slide.md) and
-[box](../checklists/box.md) checklists. They are separate from the language model.
+[presentation](../checklists/presentation.md), [slide](../checklists/slide.md),
+[box](../checklists/box.md) and [group](../checklists/group.md) checklists. They are separate from the language model.

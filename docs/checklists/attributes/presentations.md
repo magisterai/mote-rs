@@ -579,7 +579,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 - [ ] `nvGrpSpPr` — [p:CT_GroupShapeNonVisual](presentations.md#p-ct_groupshapenonvisual); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `grpSpPr` — [a:CT_GroupShapeProperties](charts.md#a-ct_groupshapeproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `sp` — [p:CT_Shape](shapes-and-lines.md#p-ct_shape); Strict, Transitional.
-- [ ] `grpSp` — [p:CT_GroupShape](presentations.md#p-ct_groupshape); Strict, Transitional.
+- [ ] `grpSp` — [p:CT_GroupShape](presentations.md#p-ct_groupshape); Strict, Transitional. The group directive writes a group shape on a slide, nested as authored, holding shapes, connectors, pictures, graphic frames and groups. A group has no fill, effect or transform argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `graphicFrame` — [p:CT_GraphicalObjectFrame](presentations.md#p-ct_graphicalobjectframe); Strict, Transitional.
 - [ ] `cxnSp` — [p:CT_Connector](shapes-and-lines.md#p-ct_connector); Strict, Transitional.
 - [ ] `pic` — [p:CT_Picture](presentations.md#p-ct_picture); Strict, Transitional.

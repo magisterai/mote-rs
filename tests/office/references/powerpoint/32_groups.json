@@ -1,0 +1,52 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 52.8,
+          "text": "Grouped objects",
+          "x": 50.4
+        },
+        {
+          "baseline": 167.28,
+          "text": "Collect",
+          "x": 572.54
+        },
+        {
+          "baseline": 167.28,
+          "text": "Review",
+          "x": 803.45
+        },
+        {
+          "baseline": 259.68,
+          "text": "The flow is a second group, and its connector a group",
+          "x": 518.4
+        },
+        {
+          "baseline": 278.88,
+          "text": "within it. A group leaves every object where its own",
+          "x": 518.4
+        },
+        {
+          "baseline": 297.84,
+          "text": "position puts it.",
+          "x": 518.4
+        },
+        {
+          "baseline": 362.64,
+          "text": "A card is one group: a rounded rectangle, a",
+          "x": 72.0
+        },
+        {
+          "baseline": 383.52,
+          "text": "picture and a caption.",
+          "x": 72.0
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "6f84844efe7682da0c9f4ce933cf5e66dba3ec1b37e83167ec8bf25206c78579"
+}

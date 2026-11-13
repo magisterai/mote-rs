@@ -267,6 +267,10 @@ fn validate_named_argument(
                 "flip_horizontal" | "flip_vertical" => Some(ArgumentType::Boolean),
                 _ => None,
             },
+            Group => match name {
+                "name" => Some(ArgumentType::NumberOrString),
+                _ => None,
+            },
             Line => match name {
                 "name" | "opacity" => Some(ArgumentType::NumberOrString),
                 "from" | "to" | "border" => Some(ArgumentType::Object),
@@ -447,6 +451,8 @@ pub(super) fn normalize_attribute(
         Chart => super::charts::normalize(name, value, span),
         Slide | Box => super::presentation::normalize(kind, name, value, span),
         Shape | Line => super::drawings::normalize(kind, name, value, span),
+        Group if name == "name" => normalize_identifier(value, span, name).map(Value::String),
+        Group => Ok(value),
         Figure | Caption => match name {
             "alignment" => normalize_enum(value, span, name, ALIGNMENTS),
             "position" if kind == Caption => normalize_enum(value, span, name, &["above", "below"]),

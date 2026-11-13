@@ -951,3 +951,129 @@ fn a_stated_corner_radius_gives_rounded_rectangles_of_any_size_the_same_corner()
             .is_err()
     );
 }
+
+#[test]
+fn groups_become_powerpoint_group_shapes_and_leave_native_pictures_unchanged() {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let objects = [
+        "#shape(name='Panel',position={x=pt(20),y=pt(30),width=pt(120),height=pt(80)},fill='#dcfce7')[Panel]",
+        "#box(position={x=pt(30),y=pt(40),width=pt(48),height=pt(32)})[#image('pattern.png')]",
+        "#line(from={x=pt(150),y=pt(100)},to={x=pt(180),y=pt(20)})",
+        "#shape(position={x=pt(170),y=pt(60),width=pt(20),height=pt(20)},kind='ellipse',fill='#15803d')",
+    ];
+    let deck = |body: String| {
+        mote::compile(&format!(
+            "#presentation(width=pt(200),height=pt(150))#slide[{body}]"
+        ))
+        .unwrap()
+    };
+    let grouped = deck(format!(
+        "#group(name='Card & frame')[{}{}#group[{}{}]]",
+        objects[0], objects[1], objects[2], objects[3]
+    ));
+    let plan = |document: &mote::model::Document| {
+        render::plan_with_layout(document, &resolver, None, render::LayoutMode::Presentation)
+            .unwrap()
+    };
+    let grouped_plan = plan(&grouped);
+    assert_eq!(grouped_plan.warnings, Vec::<String>::new());
+    let single = deck(objects.concat());
+    assert_eq!(
+        grouped_plan.output.pages[0].operations,
+        plan(&single).output.pages[0].operations
+    );
+
+    let package = mote::pptx::emit_with_fonts(&grouped, &resolver, None, None).unwrap();
+    assert_eq!(package.warnings, Vec::<String>::new());
+    let xml = slide_xml(package.bytes);
+    let tree = roxmltree::Document::parse(&xml).unwrap();
+    fn named<'tree, 'input>(
+        node: roxmltree::Node<'tree, 'input>,
+        name: &str,
+    ) -> Vec<roxmltree::Node<'tree, 'input>> {
+        node.children()
+            .filter(|child| child.has_tag_name(name))
+            .collect()
+    }
+    let shape_tree = tree
+        .descendants()
+        .find(|node| node.has_tag_name("spTree"))
+        .unwrap();
+    let [outer] = named(shape_tree, "grpSp")[..] else {
+        panic!("the slide holds one group shape");
+    };
+    let frame = |group: roxmltree::Node<'_, '_>| {
+        let transform = group
+            .descendants()
+            .find(|node| node.has_tag_name("xfrm"))
+            .unwrap();
+        ["off", "ext", "chOff", "chExt"].map(|name| {
+            let field = named(transform, name)[0];
+            field
+                .attributes()
+                .map(|attribute| attribute.value().parse::<i64>().unwrap() / 12700)
+                .collect::<Vec<_>>()
+        })
+    };
+    let title = |group: roxmltree::Node<'_, '_>| {
+        group
+            .descendants()
+            .find(|node| node.has_tag_name("cNvPr"))
+            .unwrap()
+            .attribute("name")
+            .unwrap()
+            .to_owned()
+    };
+    assert_eq!(title(outer), "Card & frame");
+    assert_eq!(
+        frame(outer),
+        [vec![20, 20], vec![170, 90], vec![20, 20], vec![170, 90]]
+    );
+    assert_eq!(named(outer, "sp").len(), 1);
+    assert_eq!(named(outer, "pic").len(), 1);
+    let [inner] = named(outer, "grpSp")[..] else {
+        panic!("the group holds one group shape");
+    };
+    assert!(title(inner).starts_with("Group "));
+    assert_eq!(
+        frame(inner),
+        [vec![150, 20], vec![40, 80], vec![150, 20], vec![40, 80]]
+    );
+    assert_eq!(named(inner, "cxnSp").len(), 1);
+    assert_eq!(named(inner, "sp").len(), 1);
+    let identifiers: std::collections::BTreeSet<_> = tree
+        .descendants()
+        .filter(|node| node.has_tag_name("cNvPr"))
+        .map(|node| node.attribute("id").unwrap())
+        .collect();
+    assert_eq!(identifiers.len(), 7);
+
+    let empty =
+        mote::compile("#slide[#group[]#shape(position={width=pt(4),height=pt(4)})]").unwrap();
+    let package = mote::pptx::emit_with_warnings(&empty).unwrap();
+    assert!(!slide_xml(package.bytes).contains("<p:grpSp>"));
+    for warnings in [package.warnings, plan(&empty).warnings] {
+        assert_eq!(warnings.len(), 1, "{warnings:?}");
+        assert!(warnings[0].ends_with(".group is empty and is omitted"));
+    }
+}
+
+#[test]
+fn a_document_places_the_objects_of_a_group_singly_and_says_so() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let shape = "#shape(position={x=pt(100),y=pt(100),width=pt(40),height=pt(20)},fill='#dcfce7')";
+    let grouped = mote::compile(&format!("#paragraph[Text]#group[{shape}]")).unwrap();
+    let single = mote::compile(&format!("#paragraph[Text]{shape}")).unwrap();
+    let plan = render::plan(&grouped, &resolver, None).unwrap();
+    assert_eq!(
+        plan.output.pages[0].operations,
+        render::plan(&single, &resolver, None).unwrap().output.pages[0].operations
+    );
+    assert!(
+        plan.warnings.iter().any(|warning| warning
+            .ends_with("groups its objects on a slide only; a document places them singly")),
+        "{:?}",
+        plan.warnings
+    );
+    assert!(mote::docx::emit(&grouped).is_ok());
+}

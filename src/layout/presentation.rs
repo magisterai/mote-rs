@@ -142,7 +142,8 @@ fn plan(
                 &mut deck.warnings,
             )?;
         }
-        for child in &slide.element.children {
+        // A group changes nothing in a still picture of its objects.
+        for child in &crate::drawings::ungrouped(&slide.element.children) {
             let Content::Element(element) = child else {
                 return Err(LayoutError::Unsupported(
                     "presentation output currently requires positioned slide objects".into(),

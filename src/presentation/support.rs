@@ -230,6 +230,12 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
                 formatting(nested, &format!("{path}.text"), warnings);
             }
         }
+        ElementKind::Group => {
+            allowed.push("name");
+            if element.children.is_empty() {
+                warnings.insert(format!("{path} is empty and is omitted"));
+            }
+        }
         ElementKind::Line => {
             allowed.extend(["name", "from", "to", "border", "opacity", "cap", "arrow"]);
             for name in ["from", "to"] {

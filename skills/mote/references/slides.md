@@ -66,6 +66,10 @@ separates slides.
   `#image("logo.png", opacity = 0.4)`; the `opacity` of the box does not fade
   its picture.
 - Shapes and lines may stand beside boxes on a positioned slide.
+- A `#group(name = "Card")[ ... ]` gathers boxes, shapes, lines and other groups
+  into one PowerPoint group, which is selected and moved as a unit there. The
+  group moves nothing itself: each object keeps its own position on the slide.
+  PDF and PNG draw the objects exactly as they draw them ungrouped.
 
 ## Layouts
 

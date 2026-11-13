@@ -4,7 +4,7 @@
 [Presentation extensions](attributes/presentation-extensions.md)
 
 - [x] Block body required; an empty body creates an empty slide and a warning.
-- [x] Positioned boxes/shapes/lines cannot mix with loose content in one slide.
+- [x] Positioned boxes/shapes/lines/groups cannot mix with loose content in one slide.
 - [x] `name`: text/number normalization; `notes`: speaker-note text.
 - [x] `background`: color or `color`, `src`, `fit` property table; replaces the
   complete deck background rather than merging image and color fields.
@@ -18,7 +18,7 @@
   presentation mode; explicit slides mixed with implicit segments.
 
 Output supports explicit slides with positioned text, pictures, tables, shapes,
-connectors and charts, plus automatic text, image, table and chart layout. Built-in and custom named layouts are supported.
+connectors, [groups](group.md) and charts, plus automatic text, image, table and chart layout. Built-in and custom named layouts are supported.
 Speaker notes are plain PPTX metadata. Footer text, dates and slide numbers render
 in editable and native output, with independent suppression on each slide.
 Master/layout inheritance, hidden slides, transitions, timing, animation and

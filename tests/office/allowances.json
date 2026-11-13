@@ -216,6 +216,13 @@
     "unmatched": 0,
     "vertical": 0.2
   },
+  "powerpoint/32_groups": {
+    "horizontal": 0.4,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.8
+  },
   "probes/automatic-line-height": {
     "horizontal": 0.0,
     "median": 0.2,

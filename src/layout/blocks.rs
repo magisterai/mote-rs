@@ -61,7 +61,7 @@ pub(super) fn prepare_content(
     numbers: &mut BlockNumbers,
     in_cell: bool,
 ) -> Result<Vec<Block>, LayoutError> {
-    let content = super::captions::expand(content);
+    let content = super::captions::expand(&crate::drawings::ungrouped(content));
     let mut builder = BlockBuilder {
         width,
         styles,

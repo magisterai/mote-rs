@@ -2534,5 +2534,50 @@
       "tests/drawings.rs",
       "tests/shape_geometry.rs"
     ]
+  },
+  "p:CT_GroupShape/grpSp": {
+    "status": "partial",
+    "note": "The group directive writes a group shape on a slide, nested as authored, holding shapes, connectors, pictures, graphic frames and groups. A group has no fill, effect or transform argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "a:CT_GroupTransform2D/off": {
+    "status": "partial",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "a:CT_GroupTransform2D/ext": {
+    "status": "partial",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "a:CT_GroupTransform2D/chOff": {
+    "status": "partial",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "a:CT_GroupTransform2D/chExt": {
+    "status": "partial",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
   }
 }

@@ -35,7 +35,13 @@ pub(super) fn write_blocks(
         state.table_cell_depth == 0 && state.figure_depth == 0 && !state.resources.notes.writing;
     let mut previous_table = false;
     let mut pending_column_break = false;
-    for content in content {
+    if content.iter().any(|content| matches!(content, Content::Element(element) if element.kind == ElementKind::Group)) {
+        state
+            .resources
+            .warnings
+            .push("DOCX places the objects of a group singly".into());
+    }
+    for content in &crate::drawings::ungrouped(content) {
         if let Some(labels) = crate::references::standalone_labels(content) {
             state.resources.pending_bookmarks.extend(labels);
             continue;

@@ -1321,10 +1321,10 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `off` — [a:CT_Point2D](images.md#a-ct_point2d); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `ext` — [a:CT_PositiveSize2D](images.md#a-ct_positivesize2d); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `chOff` — [a:CT_Point2D](images.md#a-ct_point2d); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `chExt` — [a:CT_PositiveSize2D](images.md#a-ct_positivesize2d); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `off` — [a:CT_Point2D](images.md#a-ct_point2d); Strict, Transitional; minOccurs=0; maxOccurs=1. A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `ext` — [a:CT_PositiveSize2D](images.md#a-ct_positivesize2d); Strict, Transitional; minOccurs=0; maxOccurs=1. A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `chOff` — [a:CT_Point2D](images.md#a-ct_point2d); Strict, Transitional; minOccurs=0; maxOccurs=1. A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `chExt` — [a:CT_PositiveSize2D](images.md#a-ct_positivesize2d); Strict, Transitional; minOccurs=0; maxOccurs=1. A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@rot` — [a:ST_Angle](values-drawing.md#a-st_angle); Strict, Transitional; use=optional; default=0.
 - [ ] `@flipH` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
 - [ ] `@flipV` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.

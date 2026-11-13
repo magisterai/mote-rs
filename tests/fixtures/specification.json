@@ -709,6 +709,10 @@
     {
       "example": "annotations/1",
       "model": "annotations-1"
+    },
+    {
+      "example": "presentations/7",
+      "model": "presentations-groups"
     }
   ],
   "models": {
@@ -11717,6 +11721,196 @@
                 }
               ],
               "kind": "shape"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "presentations-groups": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "name": "Card"
+              },
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "fill": "#dcfce7",
+                    "kind": "round_rect",
+                    "position": {
+                      "height": {
+                        "text": "2in",
+                        "unit": "in",
+                        "value": 2.0
+                      },
+                      "width": {
+                        "text": "4in",
+                        "unit": "in",
+                        "value": 4.0
+                      },
+                      "x": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      },
+                      "y": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "kind": "shape"
+                },
+                {
+                  "attributes": {
+                    "position": {
+                      "height": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      },
+                      "width": {
+                        "text": "3.6in",
+                        "unit": "in",
+                        "value": 3.6
+                      },
+                      "x": {
+                        "text": "1.2in",
+                        "unit": "in",
+                        "value": 1.2
+                      },
+                      "y": {
+                        "text": "1.2in",
+                        "unit": "in",
+                        "value": 1.2
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "category": "block",
+                      "children": [
+                        {
+                          "kind": "text",
+                          "text": "A caption on the card."
+                        }
+                      ],
+                      "kind": "paragraph"
+                    }
+                  ],
+                  "kind": "box"
+                }
+              ],
+              "kind": "group"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "name": "Card"
+                  },
+                  "category": "block",
+                  "children": [
+                    {
+                      "attributes": {
+                        "fill": "#dcfce7",
+                        "kind": "round_rect",
+                        "position": {
+                          "height": {
+                            "text": "2in",
+                            "unit": "in",
+                            "value": 2.0
+                          },
+                          "width": {
+                            "text": "4in",
+                            "unit": "in",
+                            "value": 4.0
+                          },
+                          "x": {
+                            "text": "1in",
+                            "unit": "in",
+                            "value": 1.0
+                          },
+                          "y": {
+                            "text": "1in",
+                            "unit": "in",
+                            "value": 1.0
+                          }
+                        }
+                      },
+                      "category": "block",
+                      "kind": "shape"
+                    },
+                    {
+                      "attributes": {
+                        "position": {
+                          "height": {
+                            "text": "1in",
+                            "unit": "in",
+                            "value": 1.0
+                          },
+                          "width": {
+                            "text": "3.6in",
+                            "unit": "in",
+                            "value": 3.6
+                          },
+                          "x": {
+                            "text": "1.2in",
+                            "unit": "in",
+                            "value": 1.2
+                          },
+                          "y": {
+                            "text": "1.2in",
+                            "unit": "in",
+                            "value": 1.2
+                          }
+                        }
+                      },
+                      "category": "block",
+                      "children": [
+                        {
+                          "category": "block",
+                          "children": [
+                            {
+                              "kind": "text",
+                              "text": "A caption on the card."
+                            }
+                          ],
+                          "kind": "paragraph"
+                        }
+                      ],
+                      "kind": "box"
+                    }
+                  ],
+                  "kind": "group"
+                }
+              ],
+              "kind": "slide"
             }
           ],
           "footer_properties": {},

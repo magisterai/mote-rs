@@ -3,9 +3,24 @@ pub(crate) mod drawingml;
 pub(crate) mod paragraphs;
 pub(crate) mod pictures;
 use crate::{
-    model::{Properties, Unit, Value},
+    model::{Content, ElementKind, Properties, Unit, Value},
     properties::object,
 };
+
+/// Returns the content with each group replaced by the objects it holds, in
+/// their order, however deeply the groups are nested.
+pub(crate) fn ungrouped(content: &[Content]) -> Vec<Content> {
+    let mut output = Vec::new();
+    for node in content {
+        match node {
+            Content::Element(element) if element.kind == ElementKind::Group => {
+                output.extend(ungrouped(&element.children));
+            }
+            _ => output.push(node.clone()),
+        }
+    }
+    output
+}
 
 pub(crate) fn text_properties(attributes: &Properties) -> Properties {
     let mut merged = attributes.clone();

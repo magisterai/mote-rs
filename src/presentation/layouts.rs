@@ -55,7 +55,7 @@ impl Layouts {
             };
             if !matches!(
                 element.kind,
-                ElementKind::Box | ElementKind::Shape | ElementKind::Line
+                ElementKind::Box | ElementKind::Shape | ElementKind::Line | ElementKind::Group
             ) {
                 return Err(format!(
                     "slide using layout {name:?} contains non-positioned content"

@@ -2,6 +2,7 @@
 mod boxes;
 mod charts;
 mod fields;
+mod groups;
 mod notes;
 mod package;
 mod pictures;

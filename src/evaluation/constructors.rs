@@ -21,6 +21,7 @@ pub(super) const ELEMENT_NAMES: &[&str] = &[
     "slide",
     "box",
     "line",
+    "group",
     "table",
     "row",
     "cell",
@@ -118,6 +119,7 @@ impl Signature {
             ElementKind::Shape
             | ElementKind::Slide
             | ElementKind::Box
+            | ElementKind::Group
             | ElementKind::Cell
             | ElementKind::ListItem
             | ElementKind::Blockquote
@@ -409,9 +411,12 @@ impl PreparedElement {
         }
         if matches!(
             kind,
-            ElementKind::Shape | ElementKind::Slide | ElementKind::Box
+            ElementKind::Shape | ElementKind::Slide | ElementKind::Box | ElementKind::Group
         ) {
             children.retain(|child| !matches!(child,Content::Text(text) if text.trim().is_empty()));
+        }
+        if kind == ElementKind::Group {
+            super::presentation::validate_children(kind, &children, span)?;
         }
         if matches!(kind, ElementKind::Slide | ElementKind::Box) {
             super::presentation::validate_children(kind, &children, span)?;

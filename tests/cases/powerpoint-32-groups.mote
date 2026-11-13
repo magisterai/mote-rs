@@ -1,0 +1,43 @@
+#presentation(size = "wide", background = "#f8fafc")
+
+#slide[
+  #box(position = { x = inch(0.7), y = inch(0.4), width = inch(12), height = inch(0.7) })[
+    #span(size = pt(26), bold = true, color = "#111827")[Grouped objects]
+  ]
+
+  #group(name = "Evidence card")[
+    #shape(
+      position = { x = inch(0.7), y = inch(1.5), width = inch(5.6), height = inch(4.8) },
+      kind = "round_rect", corner_radius = pt(12),
+      fill = "#ffffff", border = { color = "#cbd5e1", width = pt(1) }
+    )
+    #box(position = { x = inch(1.0), y = inch(1.8), width = inch(5.0), height = inch(2.8) }, fit = "contain")[
+      #image("assets/evidence_stack.png", alt = "A stack of evidence")
+    ]
+    #box(position = { x = inch(1.0), y = inch(4.8), width = inch(5.0), height = inch(1.2) },
+         text = { size = pt(18), color = "#334155" })[
+      A card is one group: a rounded rectangle, a picture and a caption.
+    ]
+  ]
+
+  #group(name = "Flow")[
+    #shape(position = { x = inch(7.2), y = inch(1.8), width = inch(2.2), height = inch(0.9) },
+           kind = "round_rect", corner_radius = pt(12), fill = "#dbeafe",
+           text = { size = pt(16), alignment = "center", vertical_alignment = "middle" })[Collect]
+    #shape(position = { x = inch(10.4), y = inch(1.8), width = inch(2.2), height = inch(0.9) },
+           kind = "round_rect", corner_radius = pt(12), fill = "#dcfce7",
+           text = { size = pt(16), alignment = "center", vertical_alignment = "middle" })[Review]
+    #group(name = "Connector")[
+      #line(from = { x = inch(9.4), y = inch(2.25) }, to = { x = inch(10.4), y = inch(2.25) },
+            border = { color = "#2563eb", width = pt(2) }, arrow = "triangle")
+      #shape(position = { x = inch(9.8), y = inch(2.15), width = inch(0.2), height = inch(0.2) },
+             kind = "ellipse", fill = "#2563eb")
+    ]
+  ]
+
+  #box(position = { x = inch(7.2), y = inch(3.4), width = inch(5.4), height = inch(2.0) },
+       text = { size = pt(16), color = "#334155" })[
+    The flow is a second group, and its connector a group within it. A group
+    leaves every object where its own position puts it.
+  ]
+]

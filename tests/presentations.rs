@@ -1,4 +1,8 @@
-use mote::{evaluation::EvaluationOptions, source::FileAssetResolver};
+use mote::{
+    evaluation::EvaluationOptions,
+    model::{Content, ElementKind},
+    source::FileAssetResolver,
+};
 use serde_json::Value;
 use sha2::{Digest, Sha256};
 use std::{fs, path::Path};
@@ -98,4 +102,62 @@ fn presentation_signatures_and_content_boundaries_are_explicit() {
     let plain = mote::compile("#presentation()Plain text.").unwrap();
     assert!(plain.presentation.properties.is_empty());
     assert!(mote::docx::emit(&plain).is_ok());
+}
+
+#[test]
+fn groups_hold_positioned_objects_and_nothing_else() {
+    let document = mote::compile(
+        "#slide[#group(name=7)[\
+         #shape(position={width=pt(40),height=pt(20)})\
+         #group[#line(from={x=pt(0),y=pt(0)},to={x=pt(10),y=pt(10)})]\
+         #box(position={width=pt(40),height=pt(20)})[Text]]]",
+    )
+    .unwrap();
+    let Content::Element(slide) = &document.content[0] else {
+        panic!("a slide is an element");
+    };
+    let [Content::Element(group)] = slide.children.as_slice() else {
+        panic!("the slide holds one group");
+    };
+    assert_eq!(group.kind, ElementKind::Group);
+    assert!(group.is_block());
+    assert_eq!(group.attributes["name"].to_text(), "7");
+    let kinds: Vec<_> = group
+        .children
+        .iter()
+        .map(|child| match child {
+            Content::Element(element) => element.kind,
+            Content::Text(_) => panic!("a group holds elements only"),
+        })
+        .collect();
+    assert_eq!(
+        kinds,
+        [ElementKind::Shape, ElementKind::Group, ElementKind::Box]
+    );
+
+    for (source, message) in [
+        (
+            "#slide[#group[#paragraph[Text]]]",
+            "group accepts only boxes, shapes, lines and groups",
+        ),
+        (
+            "#slide[#group[Loose text]]",
+            "group accepts only boxes, shapes, lines and groups",
+        ),
+        (
+            "#slide(layout='title')[#group[#box(slot='title')[Title]]]",
+            "group cannot contain a box assigned to a layout slot",
+        ),
+        (
+            "#slide[#group('Card')[#shape(position={width=pt(4),height=pt(4)})]]",
+            "unexpected positional argument",
+        ),
+        (
+            "#slide[Loose text.#group[#shape(position={width=pt(4),height=pt(4)})]]",
+            "slide cannot mix positioned objects and loose content",
+        ),
+    ] {
+        let error = mote::compile(source).unwrap_err().to_string();
+        assert!(error.contains(message), "{source}: {error}");
+    }
 }

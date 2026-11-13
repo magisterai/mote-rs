@@ -185,7 +185,20 @@ pub(super) fn write(
         output.push_str("<p:spTree>");
         output.push_str(super::GROUP);
         output.push_str(&picture);
-        for content in &slide.element.children {
+        let mut items = Vec::new();
+        super::groups::items(&slide.element.children, &mut items);
+        for item in items {
+            let content = match item {
+                super::groups::Item::Open(group) => {
+                    output.push_str(&super::groups::open(group, &mut next_shape)?);
+                    continue;
+                }
+                super::groups::Item::Close => {
+                    output.push_str("</p:grpSp>");
+                    continue;
+                }
+                super::groups::Item::Object(content) => content,
+            };
             let Content::Element(element) = content else {
                 return Err(Error(
                     "PPTX currently requires positioned slide objects".into(),

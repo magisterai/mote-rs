@@ -339,6 +339,12 @@ fn content(
                     "{path} uses a visible [line] fallback; document drawing geometry is omitted"
                 ));
             }
+            ElementKind::Group => {
+                allowed.push("name");
+                warnings.insert(format!(
+                    "{path} groups its objects on a slide only; a document places them singly"
+                ));
+            }
             ElementKind::Paragraph
             | ElementKind::Heading
             | ElementKind::Blockquote

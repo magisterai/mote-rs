@@ -104,6 +104,7 @@ their concepts before using them in examples.
 | `chart` | [Chart](chart.md) | Typed data and appearance; editable document charts and native chart geometry. |
 | `shape` | [Shape](shape.md) | Positioned shape geometry, appearance and text. |
 | `line` | [Line](line.md) | Positioned line endpoints, strokes and arrow markers. |
+| `group` | [Group](group.md) | Positioned slide objects gathered into one editable group. |
 | `span` | [Span](span.md) | General inline formatting and explicit resolution. |
 | `break` | [Break](break.md) | Block page, column and line breaks; section types deferred. |
 | `document` | [Document configuration](document.md) | Document-wide page and margin geometry. |

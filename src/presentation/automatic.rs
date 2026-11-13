@@ -96,7 +96,7 @@ pub(super) fn meaningful(content: &Content) -> bool {
     !matches!(content, Content::Text(text) if text.trim().is_empty())
 }
 fn positioned(content: &Content) -> bool {
-    matches!(content, Content::Element(element) if matches!(element.kind, ElementKind::Box | ElementKind::Shape | ElementKind::Line))
+    matches!(content, Content::Element(element) if matches!(element.kind, ElementKind::Box | ElementKind::Shape | ElementKind::Line | ElementKind::Group))
 }
 fn container(name: String, bounds: [i64; 4], children: Vec<Content>) -> Content {
     Content::Element(Element {
