@@ -64,10 +64,7 @@ pub(super) fn prepare(
             flow_styles.apply_word_line_metrics(&mut run.style);
         }
     }
-    let mut bounds = geometry::text_rectangle(
-        &text(&element.attributes, "kind"),
-        geometry::rectangle(&element.attributes),
-    );
+    let mut bounds = geometry::text_rectangle(&element.attributes);
     // Word keeps the text clear of the inner half of the shape's outline.
     let inset = crate::properties::object(&element.attributes, "border")
         .and_then(geometry::stroke)

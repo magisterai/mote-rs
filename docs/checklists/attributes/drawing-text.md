@@ -503,8 +503,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `@name` — [a:ST_GeomGuideName](values-drawing.md#a-st_geomguidename); Strict, Transitional; use=required.
-- [ ] `@fmla` — [a:ST_GeomGuideFormula](values-drawing.md#a-st_geomguideformula); Strict, Transitional; use=required.
+- [ ] `@name` — [a:ST_GeomGuideName](values-drawing.md#a-st_geomguidename); Strict, Transitional; use=required. Shape corner_radius writes the adj guide of a round_rect preset. Other guides are not exposed. Evidence: [drawings.md](../../../docs/specification/drawings.md), [drawings.rs](../../../tests/drawings.rs), [shape_geometry.rs](../../../tests/shape_geometry.rs).
+- [ ] `@fmla` — [a:ST_GeomGuideFormula](values-drawing.md#a-st_geomguideformula); Strict, Transitional; use=required. Shape corner_radius writes a val formula: the radius in hundred thousandths of the shorter side, at most 50000. Other formulas are not exposed. Evidence: [drawings.md](../../../docs/specification/drawings.md), [drawings.rs](../../../tests/drawings.rs), [shape_geometry.rs](../../../tests/shape_geometry.rs).
 
 <a id="a-ct_point3d"></a>
 

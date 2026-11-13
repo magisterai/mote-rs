@@ -90,7 +90,8 @@ PDF interpreter, compares every page with the PNG painter's page at 144 dots per
 inch, and reports the share of inked two-by-two blocks that differ. A block
 differs only when its luminance lies outside the range of the other image's
 blocks around it, so that sub-pixel rounding is no difference while a moved or
-reshaped mark is. `--images DIRECTORY` writes both pictures and a map of the
+reshaped mark is. `--case NAME` selects a review case by its identifier, or a
+probe as `probe:NAME`, and an unknown name is an error. `--images DIRECTORY` writes both pictures and a map of the
 differing blocks, and `--allow` records the present shares in the
 [painter parity allowances](../tests/fixtures/painter-parity/README.md). A test
 holds every subject within its allowance.

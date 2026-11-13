@@ -30,7 +30,8 @@ Mote attribute for each XML field.
 
 Editable DOCX/PPTX math and native typesetting are separate capabilities.
 Native output typesets equations with Cambria Math or STIX Two Math and falls
-back to italic source text, with a warning, when neither is available. Text in
+back to italic source text, with a warning, when neither is available. The PDF
+and PNG painters draw the bars of an equation with the same exact coverage. Text in
 `text` uses the upright paragraph font, except a core PDF font. Unsupported
 commands and environments must warn while preserving a visible degradation.
 Raw OMML must have a valid math root before inclusion in an Office package.

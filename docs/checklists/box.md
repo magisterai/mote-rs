@@ -46,8 +46,9 @@ The [language definition](../specification/presentations.md) and
 The image-box output boundary includes the existing `position`, `fit`, image
 source, crop, flips, rotation, effects, link and metadata contracts. A box owns
 the image frame; direct image width/height, alignment and spacing do not
-reposition it. An image border overrides the box border. Image-box fills, opacity,
-shadows and text properties have no picture effect. Background images have
+reposition it. An image border overrides the box border. Image-box fills, box opacity,
+shadows and text properties have no picture effect; the `opacity` of the image
+itself fades the picture. Background images have
 [separate captures](../../tests/fixtures/presentation-backgrounds/README.md).
 Editable PPTX and native PDF/PNG support this picture subset, including source-
 relative assets, image effects, patterned translucent borders and rotated links.

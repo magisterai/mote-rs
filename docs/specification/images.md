@@ -40,12 +40,19 @@ retains its metadata and reports that ordinary flow is used.
 `crop` has left, top, right and bottom percentages. Cropping fills the original
 frame; it does not change the frame's aspect ratio. `rotation` is a number or a
 string with optional `deg`. `flip_horizontal` and `flip_vertical` are booleans.
-The transform order is crop, flips, effects, then rotation. Native rotation
+The transform order is crop, flips, effects and opacity, then rotation. Native rotation
 expands the raster around the frame but clips vertically to its authored band.
 
 `effects` accepts `brightness`, `contrast` and `transparency` percentages and
 `grayscale`. Native effects clamp brightness/contrast to -100..100 and
 transparency/crop to 0..100. Percentage strings may end in `%`.
+
+`opacity` states how much of an image shows over whatever lies beneath it. The
+value is a number from 0 to 1, or a percentage: a number above 1 or a string
+ending in `%`. An image with `opacity = 0.4` and one with `opacity = "40%"` are
+drawn alike, at two fifths of their own strength, in DOCX, PPTX, PDF and PNG. If
+`effects.transparency` is also stated, the image keeps the product of its
+opacity and the complement of that transparency.
 
 `border` accepts a length `width`, hex `color`, `opacity` from 0 to 1 or a
 percentage (a number above 1 or a string ending in `%`), and `style`: single, solid, dashed, dotted, or none. DOCX

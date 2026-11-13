@@ -11,9 +11,9 @@ pub(super) fn is_identity(attributes: &Properties) -> bool {
         !boolean(effects, "grayscale")
             && percent(effects, "brightness", -100.0, 100.0) == 0.0
             && percent(effects, "contrast", -100.0, 100.0) == 0.0
-            && percent(effects, "transparency", 0.0, 100.0) == 0.0
     });
     crop && effects
+        && crate::drawings::pictures::alpha(attributes) == 1.0
         && !boolean(attributes, "flip_horizontal")
         && !boolean(attributes, "flip_vertical")
         && (number(attributes, "rotation").unwrap_or(0.0) * 60000.0)
@@ -75,10 +75,15 @@ pub(super) fn prepare(
         }
         raster.pixels = pixels.into();
     }
-    if let Some(effects) = object(attributes, "effects") {
-        let brightness = percent(effects, "brightness", -100.0, 100.0) / 100.0;
-        let contrast = percent(effects, "contrast", -100.0, 100.0) / 100.0;
-        let alpha_scale = 1.0 - percent(effects, "transparency", 0.0, 100.0) / 100.0;
+    let alpha_scale = crate::drawings::pictures::alpha(attributes);
+    let effects = object(attributes, "effects");
+    if effects.is_some() || alpha_scale < 1.0 {
+        let amount = |name: &str| {
+            effects.map_or(0.0, |effects| percent(effects, name, -100.0, 100.0) / 100.0)
+        };
+        let brightness = amount("brightness");
+        let contrast = amount("contrast");
+        let grayscale = effects.is_some_and(|effects| boolean(effects, "grayscale"));
         let mut pixels = raster.pixels.to_vec();
         for pixel in pixels.as_chunks_mut::<4>().0 {
             let mut channels = [
@@ -86,7 +91,7 @@ pub(super) fn prepare(
                 effect(f64::from(pixel[1]) / 255.0, brightness, contrast),
                 effect(f64::from(pixel[2]) / 255.0, brightness, contrast),
             ];
-            if boolean(effects, "grayscale") {
+            if grayscale {
                 channels = [0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2]; 3];
             }
             for channel in 0..3 {

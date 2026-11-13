@@ -1998,7 +1998,7 @@
   },
   "a:CT_AlphaModulateFixedEffect/@amt": {
     "status": "partial",
-    "note": "Image effects.transparency maps inverse opacity; native transparency clamps to 0..100. Other alpha-modulation use cases are not exposed.",
+    "note": "Image opacity and effects.transparency map to the amount as the product of the opacity and the complement of the transparency; native transparency clamps to 0..100. Other alpha-modulation use cases are not exposed.",
     "evidence": [
       "docs/specification/images.md",
       "tests/images.rs"
@@ -2515,6 +2515,24 @@
     "evidence": [
       "docs/specification/mathematics.md",
       "tests/mathematics.rs"
+    ]
+  },
+  "a:CT_GeomGuide/@name": {
+    "status": "partial",
+    "note": "Shape corner_radius writes the adj guide of a round_rect preset. Other guides are not exposed.",
+    "evidence": [
+      "docs/specification/drawings.md",
+      "tests/drawings.rs",
+      "tests/shape_geometry.rs"
+    ]
+  },
+  "a:CT_GeomGuide/@fmla": {
+    "status": "partial",
+    "note": "Shape corner_radius writes a val formula: the radius in hundred thousandths of the shorter side, at most 50000. Other formulas are not exposed.",
+    "evidence": [
+      "docs/specification/drawings.md",
+      "tests/drawings.rs",
+      "tests/shape_geometry.rs"
     ]
   }
 }

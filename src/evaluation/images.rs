@@ -16,6 +16,7 @@ pub(super) fn normalize(name: &str, value: Value, span: Span) -> Result<Value, D
             value.to_text().trim().trim_end_matches("deg").into(),
         )),
         "flip_horizontal" | "flip_vertical" => normalize_boolean(value, span, name),
+        "opacity" => Ok(percent_text(value)),
         "placement" => placement(value, span),
         "crop" | "effects" | "border" => {
             // Extra fields are retained as metadata, without inferred output effects.

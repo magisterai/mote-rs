@@ -62,6 +62,9 @@ separates slides.
   is 13.333 by 7.5 inches, and a standard slide 10 by 7.5 inches.
 - A box accepts the appearance and `text` arguments of a shape, described in
   [shapes](shapes.md), including `fit = "shrink"` for text that must fit.
+- An image in a box is faded by the `opacity` of the image, as in
+  `#image("logo.png", opacity = 0.4)`; the `opacity` of the box does not fade
+  its picture.
 - Shapes and lines may stand beside boxes on a positioned slide.
 
 ## Layouts

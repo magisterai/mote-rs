@@ -28,6 +28,20 @@ Plain text in a source body becomes a paragraph.
 `ellipse`. An omitted kind remains omitted in the model and uses rectangle
 geometry in output. Optional `name` accepts a string or number and becomes text.
 
+`corner_radius` is a nonnegative length: the radius of each corner of a
+`round_rect` shape. The radius is at most half the shorter side of the shape,
+and a greater length is drawn as that half. If `corner_radius` is omitted, the
+radius is one sixth of the shorter side, so that the corner grows with the
+shape. On a shape of another kind `corner_radius` is retained without effect,
+and output reports a warning.
+
+```mote
+#shape(position = {width = inch(3), height = inch(2)}, kind = "round_rect",
+       corner_radius = pt(6), fill = "#dcfce7")[A card]
+#shape(position = {y = inch(2.5), width = inch(1), height = inch(0.3)},
+       kind = "round_rect", corner_radius = pt(6), fill = "#dcfce7")[A tag]
+```
+
 `fill` is a color. `border` uses the image-border fields `width`, `color`, `style`,
 and `opacity`. Styles are `single`, `solid`, `dashed`, `dotted`, or `none`.
 `rotation` accepts a number or string with an optional `deg` suffix, removed in

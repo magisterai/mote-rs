@@ -17,6 +17,7 @@ pub(super) fn normalize(
         "name" => normalize_identifier(value, span, name).map(Value::String),
         "border" => images::normalize(name, value, span),
         "opacity" => Ok(percent(value)),
+        "corner_radius" if kind == ElementKind::Shape => normalize_length(value, span, name),
         "arrow" if kind == ElementKind::Line => arrows(value, span),
         "cap" if kind == ElementKind::Line => {
             normalize_enum(value, span, name, &["flat", "round", "square"])

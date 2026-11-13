@@ -17,6 +17,9 @@
 - [x] `rotation`: degrees; `flip_horizontal`, `flip_vertical`: booleans.
 - [x] `border`: width, color, opacity, style (single, solid, dashed, dotted, none).
 - [x] `effects`: brightness, contrast, transparency percentages; grayscale boolean.
+- [x] `opacity`: fraction, percentage number or percentage string; multiplies
+  the image's alpha in DOCX, PPTX and native PDF/PNG, together with
+  `effects.transparency`.
 - [x] `properties`: flattened overrides and retained extra metadata.
 - [x] Markdown image syntax; source-relative and custom resolver assets.
 - [x] PNG, JPEG and first-frame GIF assets; explicit missing/unsupported asset diagnostics.

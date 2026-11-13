@@ -799,3 +799,155 @@ fn cropped_contain_and_cover_preserve_the_cropped_aspect_ratio() {
         assert!((actual - expected).abs() <= 1.0 / 12700.0);
     }
 }
+
+#[test]
+fn image_opacity_fades_pictures_in_editable_and_native_output() {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let slide = |arguments: &str| {
+        mote::compile(&format!(
+            "#presentation(width=pt(96),height=pt(64))#slide[#box(position={{width=pt(96),height=pt(64)}},fit='stretch')[#image('pattern.png'{arguments})]]"
+        ))
+        .unwrap()
+    };
+    let painted = |arguments: &str| {
+        let plan = render::plan_with_layout(
+            &slide(arguments),
+            &resolver,
+            None,
+            render::LayoutMode::Presentation,
+        )
+        .unwrap();
+        assert_eq!(plan.warnings, Vec::<String>::new(), "{arguments}");
+        assert!(
+            render::paint_pdf(&plan.output)
+                .unwrap()
+                .starts_with(b"%PDF-")
+        );
+        let pages = render::paint_png(&plan.output, &Default::default())
+            .unwrap()
+            .output;
+        capture::pixels(&pages[0].bytes).2
+    };
+    let opaque = painted("");
+    let faded = painted(",opacity=0.4");
+    assert_eq!(faded, painted(",opacity='40%'"));
+    assert_eq!(faded, painted(",opacity=40"));
+    assert_eq!(faded, painted(",opacity=0.8,effects={transparency=50}"));
+    assert_ne!(faded, opaque);
+    // The slide is white, so a faded pixel lies two fifths of the way from white
+    // to the opaque pixel.
+    for (faded, opaque) in faded.iter().zip(&opaque) {
+        let expected = 255.0 - 0.4 * (255.0 - f64::from(*opaque));
+        assert!(
+            (f64::from(*faded) - expected).abs() <= 2.0,
+            "{faded} {expected}"
+        );
+    }
+    // Two pictures of one source that differ only in opacity are prepared apart.
+    let pair = mote::compile(
+        "#presentation(width=pt(200),height=pt(64))#slide[\
+         #box(position={width=pt(96),height=pt(64)})[#image('pattern.png')]\
+         #box(position={x=pt(100),width=pt(96),height=pt(64)})[#image('pattern.png',opacity=0.4)]]",
+    )
+    .unwrap();
+    let plan =
+        render::plan_with_layout(&pair, &resolver, None, render::LayoutMode::Presentation).unwrap();
+    let pictures: Vec<_> = plan.output.pages[0]
+        .operations
+        .iter()
+        .filter_map(|operation| match operation {
+            mote::layout::PageOperation::Image(image) => Some(&image.image),
+            _ => None,
+        })
+        .collect();
+    assert_eq!(pictures.len(), 2);
+    assert_ne!(pictures[0], pictures[1]);
+    for (arguments, amount) in [
+        (",opacity=0.4", "40000"),
+        (",opacity='40%'", "40000"),
+        (",opacity=0.8,effects={transparency=50}", "40000"),
+        (",opacity=3,effects={grayscale=true}", "3000"),
+    ] {
+        let package =
+            mote::pptx::emit_with_fonts(&slide(arguments), &resolver, None, None).unwrap();
+        assert!(
+            slide_xml(package.bytes).contains(&format!("<a:alphaModFix amt=\"{amount}\"/>")),
+            "{arguments}"
+        );
+    }
+}
+
+#[test]
+fn a_stated_corner_radius_gives_rounded_rectangles_of_any_size_the_same_corner() {
+    use mote::layout::PageOperation;
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let document = mote::compile(
+        "#presentation(width=pt(400),height=pt(300))#slide[\
+         #shape(position={x=pt(10),y=pt(10),width=pt(300),height=pt(200)},kind='round_rect',corner_radius=pt(6),fill='#336699')\
+         #shape(position={x=pt(10),y=pt(220),width=pt(60),height=pt(20)},kind='rounded',corner_radius=pt(6),fill='#336699')\
+         #shape(position={x=pt(100),y=pt(220),width=pt(60),height=pt(20)},kind='round_rect',corner_radius=pt(40),fill='#336699')\
+         #shape(position={x=pt(200),y=pt(220),width=pt(60),height=pt(24)},kind='round_rect',fill='#336699')]",
+    )
+    .unwrap();
+    let plan =
+        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+            .unwrap();
+    assert_eq!(plan.warnings, Vec::<String>::new());
+    // A rounded rectangle begins where its top edge meets the top-right corner.
+    let corners: Vec<f64> = plan.output.pages[0]
+        .operations
+        .iter()
+        .filter_map(|operation| match operation {
+            PageOperation::Path(path) => {
+                let right = path.points.iter().map(|point| point[0]).fold(0.0, f64::max);
+                Some(right - path.points[0][0])
+            }
+            _ => None,
+        })
+        .collect();
+    assert_eq!(corners.len(), 4);
+    for (corner, expected) in corners
+        .iter()
+        .zip([6.0, 6.0, 10.0, 24.0 * 16667.0 / 100000.0])
+    {
+        assert!((corner - expected).abs() < 1e-9, "{corner} {expected}");
+    }
+    let xml = slide_xml(mote::pptx::emit(&document).unwrap());
+    let adjustments: Vec<&str> = xml
+        .split("<a:prstGeom prst=\"roundRect\">")
+        .skip(1)
+        .map(|rest| rest.split("</a:prstGeom>").next().unwrap())
+        .collect();
+    assert_eq!(
+        adjustments,
+        [
+            "<a:avLst><a:gd name=\"adj\" fmla=\"val 3000\"/></a:avLst>",
+            "<a:avLst><a:gd name=\"adj\" fmla=\"val 30000\"/></a:avLst>",
+            "<a:avLst><a:gd name=\"adj\" fmla=\"val 50000\"/></a:avLst>",
+            "<a:avLst/>",
+        ]
+    );
+
+    let misplaced = mote::compile(
+        "#slide[#shape(position={width=pt(60),height=pt(20)},kind='ellipse',corner_radius=pt(6))]",
+    )
+    .unwrap();
+    for warnings in [
+        render::plan_with_layout(
+            &misplaced,
+            &resolver,
+            None,
+            render::LayoutMode::Presentation,
+        )
+        .unwrap()
+        .warnings,
+        mote::pptx::emit_with_warnings(&misplaced).unwrap().warnings,
+    ] {
+        assert_eq!(warnings.len(), 1);
+        assert!(warnings[0].ends_with(".corner_radius has an effect only on a round_rect shape"));
+    }
+    assert!(
+        mote::compile("#slide[#shape(position={width=pt(60),height=pt(20)},corner_radius=pt(-6))]")
+            .is_err()
+    );
+}

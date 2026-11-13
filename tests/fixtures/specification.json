@@ -569,10 +569,14 @@
     },
     {
       "example": "drawings/2",
-      "model": "drawings-2"
+      "model": "drawings-corner-radius"
     },
     {
       "example": "drawings/3",
+      "model": "drawings-2"
+    },
+    {
+      "example": "drawings/4",
       "model": "drawings-3"
     },
     {
@@ -11505,6 +11509,214 @@
                 }
               ],
               "kind": "paragraph"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "drawings-corner-radius": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "corner_radius": {
+              "text": "6pt",
+              "unit": "pt",
+              "value": 6.0
+            },
+            "fill": "#dcfce7",
+            "kind": "round_rect",
+            "position": {
+              "height": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2.0
+              },
+              "width": {
+                "text": "3in",
+                "unit": "in",
+                "value": 3.0
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0.0
+              },
+              "y": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0.0
+              }
+            }
+          },
+          "category": "block",
+          "children": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A card"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "kind": "shape"
+        },
+        {
+          "attributes": {
+            "corner_radius": {
+              "text": "6pt",
+              "unit": "pt",
+              "value": 6.0
+            },
+            "fill": "#dcfce7",
+            "kind": "round_rect",
+            "position": {
+              "height": {
+                "text": "0.3in",
+                "unit": "in",
+                "value": 0.3
+              },
+              "width": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "x": {
+                "text": "0in",
+                "unit": "in",
+                "value": 0.0
+              },
+              "y": {
+                "text": "2.5in",
+                "unit": "in",
+                "value": 2.5
+              }
+            }
+          },
+          "category": "block",
+          "children": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A tag"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "kind": "shape"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "corner_radius": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6.0
+                },
+                "fill": "#dcfce7",
+                "kind": "round_rect",
+                "position": {
+                  "height": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  },
+                  "width": {
+                    "text": "3in",
+                    "unit": "in",
+                    "value": 3.0
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  },
+                  "y": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  }
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A card"
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "shape"
+            },
+            {
+              "attributes": {
+                "corner_radius": {
+                  "text": "6pt",
+                  "unit": "pt",
+                  "value": 6.0
+                },
+                "fill": "#dcfce7",
+                "kind": "round_rect",
+                "position": {
+                  "height": {
+                    "text": "0.3in",
+                    "unit": "in",
+                    "value": 0.3
+                  },
+                  "width": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "x": {
+                    "text": "0in",
+                    "unit": "in",
+                    "value": 0.0
+                  },
+                  "y": {
+                    "text": "2.5in",
+                    "unit": "in",
+                    "value": 2.5
+                  }
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "A tag"
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "shape"
             }
           ],
           "footer_properties": {},

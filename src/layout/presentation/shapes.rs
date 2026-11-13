@@ -24,10 +24,7 @@ pub(crate) fn fit(
         theme,
         crate::presentation::text::TextDefaults::Resolved,
     )?;
-    let mut bounds = geometry::text_rectangle(
-        &text(&element.attributes, "kind"),
-        geometry::rectangle(&element.attributes),
-    );
+    let mut bounds = geometry::text_rectangle(&element.attributes);
     bounds[1] -= geometry::points(attributes.get("size"), 18.0).max(0.0) * 0.055;
     drawing_text::fit(&paragraphs, bounds, &attributes, measurer)
 }

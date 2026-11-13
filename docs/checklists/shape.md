@@ -17,6 +17,9 @@ property has no implied Mote argument or output support.
 - [x] `name`: string or number, normalized to a string.
 - [x] `kind`: rectangle (`rect` alias), round_rect (`rounded`), ellipse (`oval`),
   triangle, diamond, hexagon, chevron, cloud, parallelogram, trapezoid.
+- [x] `corner_radius`: nonnegative length; the corner of a round_rect, at most
+  half its shorter side; a warning on another kind. DOCX and PPTX write the
+  `adj` guide of the preset; native output draws the same arc.
 - [x] `fill`: normalized color.
 - [x] `border`: width, color, style (single/solid/dashed/dotted/none), opacity;
   unknown nested metadata retained without inferred output effects.

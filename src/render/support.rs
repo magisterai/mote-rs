@@ -302,6 +302,7 @@ fn content(
                     "flip_horizontal",
                     "flip_vertical",
                     "opacity",
+                    "corner_radius",
                     "shadow",
                     "name",
                     "text",
@@ -310,6 +311,13 @@ fn content(
                     "vertical_alignment",
                 ]);
                 allowed.extend_from_slice(crate::drawings::TEXT_ATTRIBUTES);
+                if attributes.contains_key("corner_radius")
+                    && crate::properties::text(attributes, "kind") != "round_rect"
+                {
+                    warnings.insert(format!(
+                        "{path}.corner_radius has an effect only on a round_rect shape"
+                    ));
+                }
                 if crate::properties::number(attributes, "rotation").unwrap_or(0.0) != 0.0
                     && contains_link(&element.children)
                 {
@@ -400,6 +408,7 @@ fn content(
                 "flip_horizontal",
                 "flip_vertical",
                 "effects",
+                "opacity",
                 "border",
                 "link",
                 "placement",

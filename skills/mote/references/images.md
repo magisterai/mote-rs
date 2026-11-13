@@ -22,6 +22,9 @@ a network address is not fetched.
 - The `alt` argument is the alternative text read by assistive software.
 - The `crop` table gives `left`, `top`, `right` and `bottom` percentages, and
   `rotation`, `flip_horizontal` and `flip_vertical` transform the image.
+- The `opacity` argument fades the image: a fraction such as `0.4`, or a
+  percentage such as `40` or `"40%"`. The faded image is drawn in DOCX, PPTX,
+  PDF and PNG alike.
 - The `border` table gives `width` and `color`, and `link` makes the image a
   hyperlink in DOCX and PDF.
 

@@ -1261,7 +1261,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `@amt` — [a:ST_PositivePercentage](values-drawing.md#a-st_positivepercentage); Strict, Transitional; use=optional; default=100%. Image effects.transparency maps inverse opacity; native transparency clamps to 0..100. Other alpha-modulation use cases are not exposed. Evidence: [images.md](../../../docs/specification/images.md), [images.rs](../../../tests/images.rs).
+- [ ] `@amt` — [a:ST_PositivePercentage](values-drawing.md#a-st_positivepercentage); Strict, Transitional; use=optional; default=100%. Image opacity and effects.transparency map to the amount as the product of the opacity and the complement of the transparency; native transparency clamps to 0..100. Other alpha-modulation use cases are not exposed. Evidence: [images.md](../../../docs/specification/images.md), [images.rs](../../../tests/images.rs).
 
 <a id="a-ct_alphaoutseteffect"></a>
 

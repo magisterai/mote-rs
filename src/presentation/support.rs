@@ -187,7 +187,20 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
                 "vertical_alignment",
             ]);
             if element.kind == ElementKind::Shape {
-                allowed.extend(["kind", "rotation", "flip_horizontal", "flip_vertical"]);
+                allowed.extend([
+                    "kind",
+                    "corner_radius",
+                    "rotation",
+                    "flip_horizontal",
+                    "flip_vertical",
+                ]);
+                if attributes.contains_key("corner_radius")
+                    && text(attributes, "kind") != "round_rect"
+                {
+                    warnings.insert(format!(
+                        "{path}.corner_radius has an effect only on a round_rect shape"
+                    ));
+                }
             }
             allowed.extend_from_slice(RUN);
             allowed.extend_from_slice(PARAGRAPH);
@@ -264,6 +277,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
                 "flip_horizontal",
                 "flip_vertical",
                 "effects",
+                "opacity",
                 "border",
             ]);
             for (name, fields) in [

@@ -224,7 +224,13 @@ fn transformation_properties(attributes: &Properties) -> Properties {
         .filter(|(name, _)| {
             matches!(
                 name.as_str(),
-                "src" | "crop" | "rotation" | "flip_horizontal" | "flip_vertical" | "effects"
+                "src"
+                    | "crop"
+                    | "rotation"
+                    | "flip_horizontal"
+                    | "flip_vertical"
+                    | "effects"
+                    | "opacity"
             )
         })
         .map(|(name, value)| (name.clone(), value.clone()))

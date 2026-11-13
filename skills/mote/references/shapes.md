@@ -21,6 +21,10 @@ straight connector with optional arrowheads, available on slides only.
 - The `kind` argument is `rectangle`, the default, or one of `round_rect`,
   `ellipse`, `triangle`, `diamond`, `hexagon`, `chevron`, `cloud`,
   `parallelogram` and `trapezoid`.
+- The `corner_radius` argument is a length, such as `pt(6)`, giving the corner
+  of a `round_rect`. If the argument is omitted, the corner is a sixth of the
+  shorter side, so a small tag and a large card receive different corners; a
+  stated radius gives them the same corner.
 - The `fill` argument is a color. The `border` argument gives `width`, `color`,
   `style` (`solid`, `dashed`, `dotted` or `none`) and `opacity`.
 - The remaining appearance arguments are `opacity`, a percentage such as `35`;

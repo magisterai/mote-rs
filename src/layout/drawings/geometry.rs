@@ -94,7 +94,11 @@ pub(crate) fn shape(attributes: &Properties) -> Vec<PaintedPath> {
         return Vec::new();
     }
     let kind = text(attributes, "kind");
-    let points = transform(preset(&kind, bounds), bounds, attributes);
+    let points = transform(
+        preset(&kind, bounds, corner(attributes, bounds)),
+        bounds,
+        attributes,
+    );
     let mut paths = shadows(attributes, &points);
     let fill = paint(attributes, "fill", None);
     let stroke = object(attributes, "border").and_then(stroke);
@@ -143,13 +147,23 @@ fn transform(points: Vec<[f64; 2]>, bounds: [f64; 4], attributes: &Properties) -
         })
         .collect()
 }
-fn preset(kind: &str, bounds: [f64; 4]) -> Vec<[f64; 2]> {
+/// Returns the corner radius of a rounded rectangle: the stated
+/// `corner_radius`, or a sixth of the shorter side, and in either case no more
+/// than half that side, which is the range of the DrawingML adjustment.
+fn corner(attributes: &Properties, bounds: [f64; 4]) -> f64 {
+    let shorter = bounds[2].min(bounds[3]);
+    attributes
+        .get("corner_radius")
+        .map_or(shorter * 16667.0 / 100000.0, |radius| {
+            points(Some(radius), 0.0).clamp(0.0, shorter / 2.0)
+        })
+}
+fn preset(kind: &str, bounds: [f64; 4], corner: f64) -> Vec<[f64; 2]> {
     let width = bounds[2];
     let height = bounds[3];
     let inset = width.min(height) * 0.25 / width;
     let normalized = match kind {
         "round_rect" => {
-            let corner = width.min(height) * 16667.0 / 100000.0;
             let horizontal_radius = corner / width;
             let vertical_radius = corner / height;
             let mut points = Vec::new();
@@ -342,11 +356,13 @@ fn shadows(attributes: &Properties, points: &[[f64; 2]]) -> Vec<PaintedPath> {
         .collect()
 }
 
-pub(crate) fn text_rectangle(kind: &str, bounds: [f64; 4]) -> [f64; 4] {
+pub(crate) fn text_rectangle(attributes: &Properties) -> [f64; 4] {
+    let bounds = rectangle(attributes);
     let [left, top, width, height] = bounds;
-    let (horizontal, vertical, inner_width, inner_height) = match kind {
+    let (horizontal, vertical, inner_width, inner_height) = match text(attributes, "kind").as_str()
+    {
         "round_rect" => {
-            let inset = width.min(height) * 16667.0 / 100000.0 * 29289.0 / 100000.0;
+            let inset = corner(attributes, bounds) * 29289.0 / 100000.0;
             (inset, inset, width - 2.0 * inset, height - 2.0 * inset)
         }
         "ellipse" => {

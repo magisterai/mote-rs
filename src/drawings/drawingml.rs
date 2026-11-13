@@ -21,6 +21,20 @@ pub(crate) fn shape(attributes: &Properties, bounds: [i64; 4]) -> Result<String,
         | "trapezoid" => &kind,
         _ => "rect",
     };
+    // The adjustment of a rounded rectangle is its corner radius in hundred
+    // thousandths of the shorter side, and at most half that side.
+    let adjustments = if preset == "roundRect" && attributes.contains_key("corner_radius") {
+        let radius = length(attributes, "corner_radius", 0)?;
+        let shorter = width.min(height).max(1);
+        format!(
+            "<a:avLst><a:gd name=\"adj\" fmla=\"val {}\"/></a:avLst>",
+            (radius as f64 * 100000.0 / shorter as f64)
+                .round()
+                .clamp(0.0, 50000.0) as i64
+        )
+    } else {
+        "<a:avLst/>".into()
+    };
     let fill = if let Some(value) = attributes.get("fill") {
         solid_fill(&value.to_text(), number(attributes, "opacity"))?
     } else {
@@ -32,7 +46,7 @@ pub(crate) fn shape(attributes: &Properties, bounds: [i64; 4]) -> Result<String,
         .unwrap_or_else(|| "<a:ln><a:noFill/></a:ln>".into());
     let shadow = shadow(attributes)?;
     Ok(format!(
-        "<a:xfrm{transform}><a:off x=\"{horizontal}\" y=\"{vertical}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"{preset}\"><a:avLst/></a:prstGeom>{fill}{border}{shadow}"
+        "<a:xfrm{transform}><a:off x=\"{horizontal}\" y=\"{vertical}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"{preset}\">{adjustments}</a:prstGeom>{fill}{border}{shadow}"
     ))
 }
 pub(crate) fn solid_fill(color: &str, opacity: Option<f64>) -> Result<String, String> {
