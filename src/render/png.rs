@@ -446,15 +446,24 @@ fn paint_formula(
         }
     }
     for rule in &formula.rules {
-        let middle = (fragment.baseline - rule.rise - rule.height / 2.0) * scale;
-        crisp_axis_aligned(
-            pixels,
-            [(fragment.x + rule.x) * scale, middle],
-            [(fragment.x + rule.x + rule.width) * scale, middle],
-            rule.height * scale,
-            color(&fragment.style.color)?,
-            clip,
+        // A rule takes the exact coverage of its rectangle, as the glyphs beside
+        // it do; a rule snapped to whole pixels would vary in weight with its
+        // place on the pixel grid.
+        let bounds = tiny_skia::Rect::from_xywh(
+            ((fragment.x + rule.x) * scale) as f32,
+            ((fragment.baseline - rule.rise - rule.height) * scale) as f32,
+            (rule.width * scale) as f32,
+            (rule.height * scale) as f32,
         );
+        if let Some(bounds) = bounds {
+            pixels.fill_path(
+                &PathBuilder::from_rect(bounds),
+                &brush,
+                FillRule::Winding,
+                Transform::identity(),
+                clip,
+            );
+        }
     }
     Ok(())
 }

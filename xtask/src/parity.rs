@@ -252,7 +252,13 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
                 print!("{HELP}");
                 return Ok(ExitCode::SUCCESS);
             }
-            "--case" => selected.push(arguments.value("--case")?),
+            "--case" => {
+                let identifier = arguments.value("--case")?;
+                if !all.iter().any(|(candidate, _)| *candidate == identifier) {
+                    return Err(format!("unknown subject: {identifier}"));
+                }
+                selected.push(identifier);
+            }
             "--images" => images = Some(arguments.path("--images")?),
             "--allow" => allowing = true,
             other => return Err(format!("unknown option: {other}; use --help")),
