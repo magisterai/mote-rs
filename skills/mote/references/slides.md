@@ -70,6 +70,8 @@ separates slides.
   into one PowerPoint group, which is selected and moved as a unit there. The
   group moves nothing itself: each object keeps its own position on the slide.
   PDF and PNG draw the objects exactly as they draw them ungrouped.
+  Text, headings and lists go in a box or a shape of the group, never loose in
+  the group itself.
 
 ## Layouts
 

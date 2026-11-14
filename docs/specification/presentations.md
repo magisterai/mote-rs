@@ -190,6 +190,10 @@ as is a box assigned to a layout slot. Optional `name` accepts a string or
 number and becomes text. A group is itself a positioned object, so that a slide
 may hold groups beside boxes, shapes and lines, and a group may hold groups.
 
+Text, a heading, a list and every other block belong in a box or a shape of
+the group, where they are written exactly as in a box or a shape outside it. A
+group has no frame of its own in which loose content could be placed.
+
 A group moves nothing: each object within keeps the place its own `position`,
 or its `from` and `to`, gives it on the slide. The Lua constructor is
 `document.group`.

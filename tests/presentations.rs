@@ -135,14 +135,46 @@ fn groups_hold_positioned_objects_and_nothing_else() {
         [ElementKind::Shape, ElementKind::Group, ElementKind::Box]
     );
 
+    let document = mote::compile(
+        "#slide[\n#group[\n#box(position={width=pt(200),height=pt(200)})[\n\
+         ## Heading\n\nA paragraph.\n\n- first\n- second\n\n> A quotation.\n]\n]\n]",
+    )
+    .unwrap();
+    let Content::Element(slide) = &document.content[0] else {
+        panic!("a slide is an element");
+    };
+    let [Content::Element(group)] = slide.children.as_slice() else {
+        panic!("the slide holds one group");
+    };
+    let [Content::Element(text_box)] = group.children.as_slice() else {
+        panic!("the group holds one box");
+    };
+    let blocks: Vec<_> = text_box
+        .children
+        .iter()
+        .filter_map(|child| match child {
+            Content::Element(element) => Some(element.kind),
+            Content::Text(_) => None,
+        })
+        .collect();
+    assert_eq!(
+        blocks,
+        [
+            ElementKind::Heading,
+            ElementKind::Paragraph,
+            ElementKind::List,
+            ElementKind::Blockquote
+        ]
+    );
+
     for (source, message) in [
         (
             "#slide[#group[#paragraph[Text]]]",
-            "group accepts only boxes, shapes, lines and groups",
+            "group accepts only boxes, shapes, lines and groups; text belongs in a box or a shape",
         ),
         (
             "#slide[#group[Loose text]]",
-            "group accepts only boxes, shapes, lines and groups",
+            "group accepts only boxes, shapes, lines and groups; text belongs in a box or a shape",
         ),
         (
             "#slide(layout='title')[#group[#box(slot='title')[Title]]]",

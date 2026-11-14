@@ -232,7 +232,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
         }
         ElementKind::Group => {
             allowed.push("name");
-            if element.children.is_empty() {
+            if crate::drawings::ungrouped(&element.children).is_empty() {
                 warnings.insert(format!("{path} is empty and is omitted"));
             }
         }

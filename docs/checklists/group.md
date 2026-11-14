@@ -21,7 +21,7 @@ A group gathers positioned slide objects into one object. The
 PPTX writes a group shape, nested as authored, whose frame is the smallest
 rectangle about the frames of its objects and whose child frame is the same, so
 that each object keeps its slide coordinates. A group without a name is named
-`Group N`. An empty group is omitted with a warning. Native PDF and PNG draw the
+`Group N`. A group that holds no object at any depth is omitted with a warning. Native PDF and PNG draw the
 objects of a group in their order, exactly as they draw them ungrouped.
 
 A group has an effect on a slide only. DOCX and native document output place

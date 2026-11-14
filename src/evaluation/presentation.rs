@@ -263,7 +263,7 @@ pub(super) fn validate_children(
         if !children.iter().all(positioned) {
             return Err(Diagnostic::new(
                 span,
-                "group accepts only boxes, shapes, lines and groups",
+                "group accepts only boxes, shapes, lines and groups; text belongs in a box or a shape",
             ));
         }
         // A layout assigns its slots among the objects of the slide itself.

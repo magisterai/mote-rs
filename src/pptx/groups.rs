@@ -13,12 +13,12 @@ pub(super) enum Item<'content> {
 }
 
 /// Lists the objects of a slide with each group opened before its objects and
-/// closed after them. An empty group is left out.
+/// closed after them. A group that holds no object at any depth is left out.
 pub(super) fn items<'content>(content: &'content [Content], output: &mut Vec<Item<'content>>) {
     for node in content {
         match node {
             Content::Element(element) if element.kind == ElementKind::Group => {
-                if !element.children.is_empty() {
+                if !crate::drawings::ungrouped(&element.children).is_empty() {
                     output.push(Item::Open(element));
                     items(&element.children, output);
                     output.push(Item::Close);

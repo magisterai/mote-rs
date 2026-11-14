@@ -1049,12 +1049,15 @@ fn groups_become_powerpoint_group_shapes_and_leave_native_pictures_unchanged() {
     assert_eq!(identifiers.len(), 7);
 
     let empty =
-        mote::compile("#slide[#group[]#shape(position={width=pt(4),height=pt(4)})]").unwrap();
+        mote::compile("#slide[#group[#group[]]#shape(position={width=pt(4),height=pt(4)})]")
+            .unwrap();
     let package = mote::pptx::emit_with_warnings(&empty).unwrap();
     assert!(!slide_xml(package.bytes).contains("<p:grpSp>"));
     for warnings in [package.warnings, plan(&empty).warnings] {
-        assert_eq!(warnings.len(), 1, "{warnings:?}");
-        assert!(warnings[0].ends_with(".group is empty and is omitted"));
+        assert_eq!(warnings.len(), 2, "{warnings:?}");
+        for warning in warnings {
+            assert!(warning.ends_with(".group is empty and is omitted"));
+        }
     }
 }
 
