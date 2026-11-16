@@ -7,6 +7,9 @@ pub(super) const BEFORE: &str = "__layout_figure_before";
 pub(super) const AFTER: &str = "__layout_figure_after";
 pub(super) const KIND: &str = "__layout_figure_kind";
 pub(super) const PARENT: &str = "__layout_figure_properties";
+/// The mark of a block that stays on the page of the block after it. Every
+/// block of a figure but the last carries the mark.
+pub(super) const KEEP_WITH_NEXT: &str = "__layout_figure_keep_with_next";
 
 pub(super) fn expand(content: &[Content]) -> Vec<Content> {
     let mut output = Vec::new();
@@ -62,6 +65,16 @@ pub(super) fn expand(content: &[Content]) -> Vec<Content> {
                     &text(&element.attributes, "kind"),
                     &element.attributes,
                 )));
+            }
+            let blocks: Vec<usize> = (start..output.len())
+                .filter(|index| crate::references::standalone_labels(&output[*index]).is_none())
+                .collect();
+            for index in blocks.iter().rev().skip(1) {
+                if let Content::Element(element) = &mut output[*index] {
+                    element
+                        .attributes
+                        .insert(KEEP_WITH_NEXT.into(), Value::Boolean(true));
+                }
             }
             for marker in [BEFORE, AFTER] {
                 let index = if marker == BEFORE {

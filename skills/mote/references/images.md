@@ -47,6 +47,8 @@ a network address is not fetched.
   `format` and `separator`.
 - A `#label("name")` inside the figure lets the text refer to its number, as
   described in [notes and references](notes-and-references.md).
+- The content of a figure and its caption stay on one page: a figure that the
+  foot of a page cannot hold moves whole to the next page.
 
 ## Limits
 

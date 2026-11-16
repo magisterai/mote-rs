@@ -48,7 +48,9 @@ pub(super) fn intrinsic(
             images,
             &mut numbers.clone(),
             true,
-        )? {
+        )?
+        .blocks
+        {
             match block {
                 Block::Paragraph(paragraph) => {
                     let style = &paragraph.text.style;

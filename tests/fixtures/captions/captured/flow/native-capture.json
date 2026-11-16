@@ -7,12 +7,13 @@
   "png_mean_foreground_difference": 11.0,
   "office_review_status": "unreviewed",
   "native_reference_status": "captured",
-  "pages": 2,
+  "pages": 3,
   "pdf_comparison_dpi": 144,
   "pdf_changed_pixels": 0,
   "files": {
-    "geometry.json": "1be459f4a451d3cf74e8943af2ee7e037c6161f61de0bc70733d9f16f4a1186b",
-    "reference-2.png": "b9fd0b1dd959852b132aa39b9bd9d68a2d14b54ae02b10b89eca2514ee32c8c6",
-    "reference-1.png": "ebd74988b0fe7ae039731db6532a20751a9883a682860b0048e4df38bc127b9b"
+    "geometry.json": "2ac802c02e55c8c1e8c35adb3060cf25c567f499318e0374bd97a1f309a9fed8",
+    "reference-2.png": "138f7ec6f149dc195f231424f977f689e9a7541a5abe4c2b2e6bd1396a8d72a8",
+    "reference-1.png": "92e44e16050b5e354737fd81ae3bc4b08b67422370b9f9a3a37bfc42aab534bb",
+    "reference-3.png": "cbbe384da925db023e6a1cc633f722e85e4ff6565b84043c352a06887c4b3e06"
   }
 }

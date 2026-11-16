@@ -8,6 +8,10 @@
 - [x] `numbering`: enabled, restart, start, id, label, prefix, format, separator; preserve unknown nested metadata.
 - [x] Decimal, lower/upper alpha and lower/upper Roman numbering; shared sequence identity and restarts.
 - [x] `properties`: retained overrides; standalone and figure-associated captions.
+- [x] Pagination: a caption in a figure shares a page with the content of the
+  figure, as the [figure checklist](figure.md) records. A standalone caption is
+  not kept with the block before or after it. See the
+  [pagination tests](../../tests/figure_pagination.rs).
 
 See [language semantics](../specification/figures-and-captions.md),
 [model/package tests](../../tests/captions.rs), and

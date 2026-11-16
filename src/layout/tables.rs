@@ -230,7 +230,8 @@ pub(super) fn prepare(
                     images,
                     numbers,
                     true,
-                )?;
+                )?
+                .blocks;
                 cell.block_frames
                     .extend(std::iter::repeat_n(frame, blocks.len()));
                 cell.blocks.extend(blocks);

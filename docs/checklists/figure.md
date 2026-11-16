@@ -9,6 +9,15 @@
 - [ ] `placement`: normalized and retained; DOCX uses `align` as an alignment fallback, while native layout ignores this object. Floating figure geometry is unsupported.
 - [x] `numbering`: shared caption-numbering fields, inherited by associated captions.
 - [x] `properties`: retained overrides; associate labels with caption title and number.
+- [x] Pagination: each block of a figure but the last stays on the page of the
+  block after it, so that the content and the caption share a page whichever
+  comes first. A figure that a page cannot hold breaks as its blocks would
+  alone. DOCX writes `w:keepNext` on every paragraph of each block but the last,
+  the paragraphs of table cells included. Native layout moves the figure to the
+  next column or page when the remaining space cannot hold the kept blocks and
+  the start of the last block. A figure inside a table cell is not kept
+  together in native layout. See the
+  [pagination tests](../../tests/figure_pagination.rs).
 
 The placement object inventories `width`, `height`, `x`, `y`, `margin`, `align`,
 `type`, `float`, `wrap`, `anchor`, `allow_overlap`, `behind_text`, `layout_in_cell`,

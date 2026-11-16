@@ -17,6 +17,12 @@ Caption `position` is `above` or `below`. Native layout orders the caption aroun
 the other figure content; editable document output currently retains authored
 child order. Author the caption on the intended side when both outputs matter.
 
+A figure is kept on one page. Each block of a figure but the last stays on the
+page of the block that follows it, so that a page break does not separate the
+content from the caption, whichever comes first. A figure that a page cannot
+hold breaks as its blocks would outside a figure. The rule applies to no block
+outside a figure, and a standalone caption is not kept with its neighbours.
+
 Numbering is opt-in through a `numbering` object on the figure or caption:
 
 - `enabled` controls numbering; an object without this field enables it.

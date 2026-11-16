@@ -115,23 +115,23 @@ pub(super) fn write_figure(
     }
     let mut output = String::new();
     state.figure_depth += 1;
-    for child in children {
-        if let Content::Element(element) = child {
+    let last = children.len().saturating_sub(1);
+    for (index, child) in children.into_iter().enumerate() {
+        let block = if let Content::Element(element) = child {
             let element = crate::captions::aligned_child(element, &alignment);
             if element.kind == ElementKind::Caption {
                 state.resources.pending_bookmarks = std::mem::take(&mut bookmarks);
-                output.push_str(&write_caption(
-                    &element,
-                    &kind,
-                    &figure.attributes,
-                    styles,
-                    state,
-                )?);
+                write_caption(&element, &kind, &figure.attributes, styles, state)?
             } else {
-                output.push_str(&write_blocks(&[Content::Element(element)], styles, state)?);
+                write_blocks(&[Content::Element(element)], styles, state)?
             }
         } else {
-            output.push_str(&write_blocks(std::slice::from_ref(child), styles, state)?);
+            write_blocks(std::slice::from_ref(child), styles, state)?
+        };
+        if index < last {
+            output.push_str(&keep_with_next(&block));
+        } else {
+            output.push_str(&block);
         }
     }
     state.figure_depth -= 1;
@@ -147,4 +147,70 @@ pub(super) fn write_figure(
         )?);
     }
     Ok(output)
+}
+
+/// Returns the blocks with `w:keepNext` on each paragraph, so that Word sets
+/// the blocks on the page of the block after them. Word keeps a table row with
+/// what follows only if the paragraphs of the row ask for it, so the paragraphs
+/// within table cells are included. The paragraphs of a text box are not in
+/// the flow of the page and are left as they are, as is a paragraph that
+/// states `w:keepNext` already.
+fn keep_with_next(blocks: &str) -> String {
+    const TEXT_BOX_OPENING: &str = "<w:txbxContent>";
+    const TEXT_BOX_CLOSING: &str = "</w:txbxContent>";
+    const EMPTY_PARAGRAPH: &str = "<w:p/>";
+    const PARAGRAPH_OPENING: &str = "<w:p>";
+    const PROPERTIES_OPENING: &str = "<w:pPr>";
+    const KEEP: &str = "<w:keepNext/>";
+    let mut output = String::with_capacity(blocks.len());
+    let mut rest = blocks;
+    let mut text_box_depth = 0usize;
+    while let Some((position, token)) = [
+        TEXT_BOX_OPENING,
+        TEXT_BOX_CLOSING,
+        EMPTY_PARAGRAPH,
+        PARAGRAPH_OPENING,
+    ]
+    .into_iter()
+    .filter_map(|token| rest.find(token).map(|position| (position, token)))
+    .min()
+    {
+        output.push_str(&rest[..position]);
+        rest = &rest[position + token.len()..];
+        if token == TEXT_BOX_OPENING {
+            text_box_depth += 1;
+        } else if token == TEXT_BOX_CLOSING {
+            text_box_depth = text_box_depth.saturating_sub(1);
+        }
+        if text_box_depth > 0 || token == TEXT_BOX_CLOSING {
+            output.push_str(token);
+        } else if token == EMPTY_PARAGRAPH {
+            output.push_str(&format!(
+                "{PARAGRAPH_OPENING}{PROPERTIES_OPENING}{KEEP}</w:pPr></w:p>"
+            ));
+        } else if let Some(properties) = rest.strip_prefix(PROPERTIES_OPENING) {
+            output.push_str(PARAGRAPH_OPENING);
+            output.push_str(PROPERTIES_OPENING);
+            let end = properties.find("</w:pPr>").unwrap_or(properties.len());
+            if properties[..end].contains("<w:keepNext") {
+                rest = properties;
+                continue;
+            }
+            // The schema places `w:keepNext` directly after `w:pStyle`.
+            let style_end = if properties.starts_with("<w:pStyle ") {
+                properties.find("/>").map_or(0, |position| position + 2)
+            } else {
+                0
+            };
+            output.push_str(&properties[..style_end]);
+            output.push_str(KEEP);
+            rest = &properties[style_end..];
+        } else {
+            output.push_str(&format!(
+                "{PARAGRAPH_OPENING}{PROPERTIES_OPENING}{KEEP}</w:pPr>"
+            ));
+        }
+    }
+    output.push_str(rest);
+    output
 }

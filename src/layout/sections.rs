@@ -315,7 +315,7 @@ fn plan_pass(
         for identifier in first_field..next_field {
             field_offsets.insert(identifier, numbering_offset);
         }
-        let blocks = prepare_content(
+        let prepared = prepare_content(
             &content,
             geometry.column_width(),
             &styles,
@@ -325,8 +325,9 @@ fn plan_pass(
             false,
         )?;
         place_blocks(
-            &blocks,
+            &prepared.blocks,
             PlacementContext {
+                kept_with_next: &prepared.kept_with_next,
                 styles: &styles,
                 geometry,
                 boundary,

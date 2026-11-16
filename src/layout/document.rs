@@ -43,6 +43,9 @@ pub(super) struct PlacementContext<'scope, 'document> {
     pub geometry: PageGeometry,
     pub boundary: Option<super::sections::FlowBoundary>,
     pub notes: &'scope mut super::notes::NoteLayout,
+    /// Holds, for each block, whether the block stays on the page of the
+    /// block after it.
+    pub kept_with_next: &'scope [bool],
 }
 pub(super) fn place_blocks(
     blocks: &[Block],
@@ -58,9 +61,18 @@ pub(super) fn place_blocks(
         geometry,
         boundary,
         notes,
+        kept_with_next,
     } = context;
     let mut painting = super::painting::ParagraphPainting::default();
     for (index, block) in blocks.iter().enumerate() {
+        let kept_height = |leading: f64| {
+            kept_blocks_height(
+                &blocks[index..],
+                &kept_with_next[index..],
+                leading,
+                geometry.content_bottom() - geometry.margin_top,
+            )
+        };
         match block {
             Block::Divider(divider) => {
                 painting.clear_fill();
@@ -71,6 +83,7 @@ pub(super) fn place_blocks(
                     continue;
                 }
                 let leading = (*pending_spacing).max(divider.before);
+                let required = divider.width.max(kept_height(leading));
                 if leading > 0.0 {
                     let previous = (cursor.page_number, cursor.column_index);
                     ensure_space(
@@ -79,13 +92,13 @@ pub(super) fn place_blocks(
                         columns,
                         geometry,
                         boundary,
-                        leading + divider.width,
+                        leading + required,
                     );
                     if previous == (cursor.page_number, cursor.column_index) {
                         cursor.y += leading;
                     }
                 }
-                ensure_space(cursor, pages, columns, geometry, boundary, divider.width);
+                ensure_space(cursor, pages, columns, geometry, boundary, required);
                 divider.place(
                     &mut pages[cursor.page_number - 1],
                     geometry.column_left(cursor.column_index),
@@ -103,6 +116,7 @@ pub(super) fn place_blocks(
                     continue;
                 }
                 let leading = (*pending_spacing).max(chart.before);
+                let required = chart.height.max(kept_height(leading));
                 if leading > 0.0 {
                     let previous = (cursor.page_number, cursor.column_index);
                     ensure_space(
@@ -111,13 +125,13 @@ pub(super) fn place_blocks(
                         columns,
                         geometry,
                         boundary,
-                        leading + chart.height,
+                        leading + required,
                     );
                     if previous == (cursor.page_number, cursor.column_index) {
                         cursor.y += leading;
                     }
                 }
-                ensure_space(cursor, pages, columns, geometry, boundary, chart.height);
+                ensure_space(cursor, pages, columns, geometry, boundary, required);
                 chart.place(
                     &mut pages[cursor.page_number - 1],
                     geometry.column_left(cursor.column_index),
@@ -136,12 +150,19 @@ pub(super) fn place_blocks(
                     cursor.y += *pending_spacing;
                 }
                 *pending_spacing = 0.0;
-                ensure_space(cursor, pages, columns, geometry, boundary, 1.0);
+                ensure_space(
+                    cursor,
+                    pages,
+                    columns,
+                    geometry,
+                    boundary,
+                    DRAWING_HEIGHT.max(kept_height(0.0)),
+                );
                 drawing.place(&mut pages[cursor.page_number - 1]);
                 if let Some(cut_off) = &drawing.cut_off_text {
                     warnings.push(cut_off.warning(cursor.page_number));
                 }
-                cursor.y += 1.0;
+                cursor.y += DRAWING_HEIGHT;
                 cursor.body_started = true;
                 columns.note(cursor, geometry);
             }
@@ -200,6 +221,7 @@ pub(super) fn place_blocks(
             Block::Image(image) => {
                 painting.clear_fill();
                 let leading = (*pending_spacing).max(image.before);
+                let required = image.height().max(kept_height(leading));
                 if leading > 0.0 {
                     let previous = (cursor.page_number, cursor.column_index);
                     ensure_space(
@@ -208,13 +230,13 @@ pub(super) fn place_blocks(
                         columns,
                         geometry,
                         boundary,
-                        leading + image.height(),
+                        leading + required,
                     );
                     if previous == (cursor.page_number, cursor.column_index) {
                         cursor.y += leading;
                     }
                 }
-                ensure_space(cursor, pages, columns, geometry, boundary, image.height());
+                ensure_space(cursor, pages, columns, geometry, boundary, required);
                 pages[cursor.page_number - 1].place_anchors(
                     &image.anchors,
                     [geometry.column_left(cursor.column_index), cursor.y],
@@ -231,6 +253,22 @@ pub(super) fn place_blocks(
             }
             Block::Table(table) => {
                 painting.clear_fill();
+                let required = kept_height(*pending_spacing);
+                if required > 0.0 {
+                    let previous = (cursor.page_number, cursor.column_index);
+                    ensure_space(
+                        cursor,
+                        pages,
+                        columns,
+                        geometry,
+                        boundary,
+                        *pending_spacing + required,
+                    );
+                    // A table that moves to a fresh area drops the space above it.
+                    if previous != (cursor.page_number, cursor.column_index) {
+                        *pending_spacing = 0.0;
+                    }
+                }
                 warnings.extend(super::tables::flow::place(
                     table,
                     cursor,
@@ -268,7 +306,8 @@ pub(super) fn place_blocks(
                     &blocks[index..],
                     geometry.content_bottom() - geometry.margin_top,
                 )
-                .max(prepared.minimum_start());
+                .max(prepared.minimum_start())
+                .max(kept_height(leading));
                 if paragraph
                     .lines
                     .iter()
@@ -447,6 +486,80 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
         }
     }
     if count < 2 || first.style.spacing_before + required > maximum {
+        0.0
+    } else {
+        required
+    }
+}
+
+/// The height by which a drawing anchored in the flow advances the flow.
+const DRAWING_HEIGHT: f64 = 1.0;
+
+/// Returns the height that the first block needs below its leading space if
+/// that block and the blocks kept with it are to share a page: the whole of
+/// each kept block, and the start of the first block that is not kept. The
+/// result is zero if the first block is not kept, or if a full page cannot
+/// hold the blocks, in which case each block breaks as it would alone.
+fn kept_blocks_height(
+    blocks: &[Block],
+    kept_with_next: &[bool],
+    leading: f64,
+    maximum: f64,
+) -> f64 {
+    if !kept_with_next.first().copied().unwrap_or(false) {
+        return 0.0;
+    }
+    let mut required: f64 = 0.0;
+    let mut previous_after: Option<f64> = None;
+    for (block, kept) in blocks.iter().zip(kept_with_next) {
+        let (height, before, after) = match block {
+            Block::Break(_) => return 0.0,
+            Block::Paragraph(prepared) => {
+                let paragraph = &prepared.text;
+                let heights: Vec<_> = paragraph.lines.iter().map(|line| line.height).collect();
+                let height = if *kept {
+                    heights.iter().sum()
+                } else {
+                    minimum_start_height(
+                        &heights,
+                        paragraph.style.widow_control,
+                        paragraph.style.keep_together,
+                    )
+                    .max(prepared.minimum_start())
+                };
+                (
+                    height,
+                    paragraph.style.spacing_before,
+                    paragraph.style.spacing_after,
+                )
+            }
+            Block::Divider(divider) => (divider.width, divider.before, divider.after),
+            Block::Chart(chart) => (chart.height, chart.before, chart.after),
+            Block::Drawing(_) => (DRAWING_HEIGHT, 0.0, 0.0),
+            Block::Image(image) => (image.height(), image.before, image.after),
+            Block::Table(table) => (
+                table.top_border()
+                    + if *kept {
+                        table.height()
+                    } else {
+                        table.rows.first().map_or(0.0, |row| row.height)
+                    },
+                0.0,
+                0.0,
+            ),
+        };
+        if height > 0.0 {
+            if let Some(previous_after) = previous_after {
+                required += previous_after.max(before);
+            }
+            required += height;
+            previous_after = Some(after.max(0.0));
+        }
+        if !kept {
+            break;
+        }
+    }
+    if leading + required > maximum {
         0.0
     } else {
         required

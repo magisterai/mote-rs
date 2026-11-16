@@ -52,6 +52,12 @@ pub(super) struct BlockNumbers {
     pub lists: ListNumbers,
     pub captions: std::collections::BTreeMap<String, u64>,
 }
+pub(super) struct PreparedContent {
+    pub blocks: Vec<Block>,
+    /// Holds, for each block, whether the block stays on the page of the
+    /// block after it.
+    pub kept_with_next: Vec<bool>,
+}
 pub(super) fn prepare_content(
     content: &[Content],
     width: f64,
@@ -60,7 +66,7 @@ pub(super) fn prepare_content(
     images: &crate::media::ImageCatalog,
     numbers: &mut BlockNumbers,
     in_cell: bool,
-) -> Result<Vec<Block>, LayoutError> {
+) -> Result<PreparedContent, LayoutError> {
     let content = super::captions::expand(&crate::drawings::ungrouped(content));
     let mut builder = BlockBuilder {
         width,
@@ -72,6 +78,7 @@ pub(super) fn prepare_content(
         flow_start: !in_cell,
         pending_anchors: Vec::new(),
     };
+    let mut kept_with_next = Vec::new();
     for content in &content {
         if let Some(labels) = crate::references::standalone_labels(content) {
             builder.pending_anchors.extend(
@@ -209,8 +216,15 @@ pub(super) fn prepare_content(
                 )));
             }
         }
+        kept_with_next.resize(
+            builder.blocks.len(),
+            values::boolean(&element.attributes, super::captions::KEEP_WITH_NEXT),
+        );
     }
-    Ok(builder.blocks)
+    Ok(PreparedContent {
+        blocks: builder.blocks,
+        kept_with_next,
+    })
 }
 struct BlockBuilder<'builder, 'document, 'assets> {
     width: f64,

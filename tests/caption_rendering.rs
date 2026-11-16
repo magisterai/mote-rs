@@ -119,10 +119,10 @@ fn caption_rasters_match_frozen_pages() {
 #[test]
 fn caption_targets_follow_the_placed_caption_after_natural_pagination() {
     let rendered = planned("flow");
-    assert_eq!(rendered.output.pages.len(), 2);
+    assert_eq!(rendered.output.pages.len(), 3);
     assert!(!rendered.output.pages[0].anchors.contains_key("long"));
     assert!(rendered.output.pages[1].anchors.contains_key("long"));
-    let fragments: Vec<_> = rendered.output.pages[1]
+    let fragments: Vec<_> = rendered.output.pages[2]
         .lines
         .iter()
         .flat_map(|placed| &placed.line.fragments)
