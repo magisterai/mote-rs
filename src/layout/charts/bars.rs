@@ -76,28 +76,35 @@ impl ChartPlanner<'_, '_> {
                     cross = group_start;
                 }
                 let bar = if horizontal {
-                    let first = plot.left + plot.width * scale.ratio(start);
-                    let last = plot.left + plot.width * scale.ratio(start + value);
+                    let first = plot.left + plot.width * scale.visible_ratio(start);
+                    let last = plot.left + plot.width * scale.visible_ratio(start + value);
                     Rectangle::new(first.min(last), cross, (last - first).abs(), thickness)
                 } else {
-                    let first = plot.top + plot.height * (1.0 - scale.ratio(start));
-                    let last = plot.top + plot.height * (1.0 - scale.ratio(start + value));
+                    let first = plot.top + plot.height * (1.0 - scale.visible_ratio(start));
+                    let last = plot.top + plot.height * (1.0 - scale.visible_ratio(start + value));
                     Rectangle::new(cross, first.min(last), thickness, (last - first).abs())
                 };
                 self.fill(bar, chart.color(series_index));
-                if chart.data_labels.enabled {
+                let end = start + value;
+                if chart.data_labels.enabled && scale.shows(start.min(end), start.max(end)) {
                     let label = label(chart, series_index, category_index);
+                    // A label beyond the end of a bar that reaches a stated bound
+                    // would leave the plot, and is placed inside the end instead.
+                    let reaches_bound = scale.clips
+                        && ((value > 0.0 && end >= scale.maximum)
+                            || (value < 0.0 && end <= scale.minimum));
+                    let position = match chart.data_labels.position.as_str() {
+                        "ctr" | "inBase" => chart.data_labels.position.as_str(),
+                        _ if reaches_bound => "inEnd",
+                        position => position,
+                    };
                     let place = if horizontal {
                         horizontal_label
                     } else {
                         vertical_label
                     };
-                    let (bounds, alignment) = place(
-                        bar,
-                        &chart.data_labels.position,
-                        value < 0.0,
-                        chart.label_scale(),
-                    );
+                    let (bounds, alignment) =
+                        place(bar, position, value < 0.0, chart.label_scale());
                     let first_label_operation = self.page.operations.len();
                     self.text(bounds, &label, chart.label_size, alignment, 0.0)?;
                     label_operations.extend(self.page.operations.drain(first_label_operation..));

@@ -3155,5 +3155,23 @@
       "tests/presentations.rs",
       "tests/presentation_rendering.rs"
     ]
+  },
+  "c:CT_Scaling/max": {
+    "status": "partial",
+    "note": "The `axis.value.maximum` of a chart states the maximum of the value axis. The category axis, the percentage-stacked kinds, and the pie and doughnut kinds take no stated bound.",
+    "evidence": [
+      "docs/specification/charts.md",
+      "tests/charts.rs",
+      "tests/chart_axis_labels.rs"
+    ]
+  },
+  "c:CT_Scaling/min": {
+    "status": "partial",
+    "note": "The `axis.value.minimum` of a chart states the minimum of the value axis. The category axis, the percentage-stacked kinds, and the pie and doughnut kinds take no stated bound.",
+    "evidence": [
+      "docs/specification/charts.md",
+      "tests/charts.rs",
+      "tests/chart_axis_labels.rs"
+    ]
   }
 }

@@ -5,8 +5,19 @@ pub(super) struct Scale {
     pub minimum: f64,
     pub maximum: f64,
     pub step: f64,
+    /// A scale with a stated bound may exclude data, and its marks are then
+    /// confined to the plot. An automatic scale contains all of its data.
+    pub clips: bool,
 }
 impl Scale {
+    fn automatic(minimum: f64, maximum: f64, step: f64) -> Self {
+        Self {
+            minimum,
+            maximum,
+            step,
+            clips: false,
+        }
+    }
     pub fn ratio(self, value: f64) -> f64 {
         let span = self.maximum - self.minimum;
         if span <= 0.0 {
@@ -15,16 +26,102 @@ impl Scale {
             (value - self.minimum) / span
         }
     }
+    pub fn visible_ratio(self, value: f64) -> f64 {
+        let ratio = self.ratio(value);
+        if self.clips {
+            ratio.clamp(0.0, 1.0)
+        } else {
+            ratio
+        }
+    }
+    pub fn shows(self, lower: f64, upper: f64) -> bool {
+        !self.clips || (upper >= self.minimum && lower <= self.maximum)
+    }
+    /// Office places the category axis at zero, or at the bound nearest zero
+    /// when the range excludes zero.
+    pub fn crossing(self) -> f64 {
+        0.0_f64.clamp(self.minimum, self.maximum)
+    }
+    /// The ticks of a stated range start at its minimum, which need not be a
+    /// multiple of the step, and a label then needs the digits of the minimum.
+    pub fn label_unit(self) -> f64 {
+        let mut unit = self.step;
+        for _ in 0..6 {
+            let multiple = self.minimum / unit;
+            if (multiple - multiple.round()).abs() < 1e-6 {
+                break;
+            }
+            unit /= 10.0;
+        }
+        unit
+    }
     pub fn for_chart(chart: &Chart, length: f64, horizontal: bool) -> Self {
+        let automatic = Self::automatic_for_chart(chart, length, horizontal);
+        if (chart.value_minimum.is_none() && chart.value_maximum.is_none())
+            || automatic.validate().is_err()
+        {
+            return automatic;
+        }
+        // The step of a stated range allows for enlarged labels as the automatic
+        // step does.
+        automatic.with_stated_range(
+            chart.value_minimum,
+            chart.value_maximum,
+            length / chart.label_scale(),
+            horizontal,
+        )
+    }
+    /// A stated bound replaces the automatic one, and the step follows from the
+    /// resulting range by the automatic rule. An unstated bound keeps its
+    /// automatic value, moved outward to a whole number of steps; if the stated
+    /// bound lies beyond that value, the automatic span is kept instead.
+    fn with_stated_range(
+        self,
+        stated_minimum: Option<f64>,
+        stated_maximum: Option<f64>,
+        length: f64,
+        horizontal: bool,
+    ) -> Self {
+        let span = self.maximum - self.minimum;
+        let minimum = stated_minimum.unwrap_or_else(|| {
+            let maximum = stated_maximum.unwrap_or(self.maximum);
+            if self.minimum < maximum {
+                self.minimum
+            } else {
+                maximum - span
+            }
+        });
+        let maximum = stated_maximum.unwrap_or(if self.maximum > minimum {
+            self.maximum
+        } else {
+            minimum + span
+        });
+        let step = if horizontal {
+            horizontal_step(maximum - minimum, length)
+        } else {
+            step_at_least((maximum - minimum) / vertical_parts(length))
+        };
+        Self {
+            minimum: if stated_minimum.is_some() {
+                minimum
+            } else {
+                (minimum / step + 1e-9).floor() * step
+            },
+            maximum: if stated_maximum.is_some() {
+                maximum
+            } else {
+                minimum + ((maximum - minimum) / step - 1e-9).ceil() * step
+            },
+            step,
+            clips: true,
+        }
+    }
+    fn automatic_for_chart(chart: &Chart, length: f64, horizontal: bool) -> Self {
         let stacked = chart.kind.contains("stacked");
         let percent = chart.kind.contains("percent_stacked");
         let (minimum, maximum) = extents(chart, stacked);
         if !minimum.is_finite() || !maximum.is_finite() {
-            return Self {
-                minimum,
-                maximum,
-                step: 0.0,
-            };
+            return Self::automatic(minimum, maximum, 0.0);
         }
         // The step rules were measured for default labels, so a larger label
         // sees a proportionally shorter axis.
@@ -50,6 +147,7 @@ impl Scale {
                 minimum,
                 maximum,
                 step,
+                clips: false,
             };
         }
         if !horizontal {
@@ -57,19 +155,11 @@ impl Scale {
         }
         if minimum >= 0.0 {
             let (maximum, step) = positive_scale(maximum, length);
-            return Self {
-                minimum: 0.0,
-                maximum,
-                step,
-            };
+            return Self::automatic(0.0, maximum, step);
         }
         if maximum <= 0.0 {
             let (magnitude, step) = positive_scale(-minimum, 0.0);
-            return Self {
-                minimum: -magnitude,
-                maximum: 0.0,
-                step,
-            };
+            return Self::automatic(-magnitude, 0.0, step);
         }
         let step = nice_step((maximum - minimum) / 6.0);
         let mut lower = (minimum / step).floor() * step;
@@ -80,11 +170,7 @@ impl Scale {
         if upper != 0.0 && maximum / upper > 0.95 {
             upper += step;
         }
-        Self {
-            minimum: lower,
-            maximum: upper,
-            step,
-        }
+        Self::automatic(lower, upper, step)
     }
     pub fn validate(self) -> Result<Self, super::LayoutError> {
         if !self.minimum.is_finite()
@@ -136,23 +222,47 @@ fn vertical_scale(minimum: f64, maximum: f64, length: f64) -> Scale {
     let top = if maximum > 0.0 { maximum + margin } else { 0.0 };
     let bottom = if minimum < 0.0 { minimum - margin } else { 0.0 };
     if top - bottom <= 0.0 {
-        return Scale {
-            minimum: 0.0,
-            maximum: 1.0,
-            step: 0.2,
-        };
+        return Scale::automatic(0.0, 1.0, 0.2);
     }
-    let parts = if length > 0.0 {
+    let step = step_at_least((top - bottom) / vertical_parts(length));
+    Scale::automatic(
+        (bottom / step).floor() * step,
+        (top / step).ceil() * step,
+        step,
+    )
+}
+fn vertical_parts(length: f64) -> f64 {
+    if length > 0.0 {
         ((length - 16.0) * 0.085).clamp(1.0, 10.0)
     } else {
         10.0
-    };
-    let step = step_at_least((top - bottom) / parts);
-    Scale {
-        minimum: (bottom / step).floor() * step,
-        maximum: (top / step).ceil() * step,
-        step,
     }
+}
+/// The step of a stated horizontal range follows the rule of `positive_scale`
+/// with the range fixed: about six intervals, coarser while an interval is
+/// narrower than 12.5 points, and finer by one grade if that gives from five to
+/// ten intervals of sufficient width.
+fn horizontal_step(span: f64, length: f64) -> f64 {
+    let mut step = nice_step(span / 6.0);
+    if length <= 0.0 {
+        return step;
+    }
+    let wide_enough = |step: f64| length / (span / step).round().max(1.0) >= 12.5;
+    while !wide_enough(step) {
+        let next = nice_step(step * 2.0);
+        if next <= step {
+            break;
+        }
+        step = next;
+    }
+    let candidate = nice_step(step / 2.0);
+    if candidate < step
+        && (5.0..=10.0).contains(&(span / candidate).round())
+        && wide_enough(candidate)
+    {
+        step = candidate;
+    }
+    step
 }
 fn step_at_least(rough: f64) -> f64 {
     let power = 10.0_f64.powf(rough.log10().floor());

@@ -88,13 +88,37 @@ inches; unitless drawing dimensions use EMUs (914,400 per inch).
 
 `colors` accepts an array of colors or a property table of colors. Every member
 is normalized, including additional property-table keys. `axis` accepts a property
-table and retains its contents unchanged. `style` accepts a string and is retained;
+table and retains its contents unchanged, apart from the range of the value axis
+defined below. `style` accepts a string and is retained;
 its presence does not establish a formatting effect. Arrays choose colors in
 order. Property tables use consecutive `series1`, `series2`, and so on, stopping
 at the first missing entry. Remaining colors use the repeating palette `#2563EB`,
 `#059669`, `#D97706`, `#DC2626`, `#7C3AED`, `#0891B2`. Pie and doughnut colors
 apply to points in the first series. Axis tables use `category.title` and
 `value.title`, with `name` as a fallback for an empty title.
+
+The value axis has an automatic range, chosen from the data. A stated range
+replaces it: `axis.value.minimum` and `axis.value.maximum` each accept a finite
+number, or a string that is one, and normalize to a number. Either may be given
+alone, and the other bound then remains automatic. If both are given, the
+minimum must be less than the maximum. A value that is not a finite number, or a
+minimum not less than the maximum, is an error. The step between labelled values
+remains automatic and is chosen for the range in force. The first labelled value
+is the minimum, and the last is the greatest that does not exceed the maximum.
+The category axis crosses the value axis at zero, or at the bound nearer zero if
+the range excludes zero.
+
+A stated range may exclude data. A bar, line or area is then drawn only where it
+lies within the range, and ends at the edge of the plot. A line marker or data
+label belongs to a value within the range; the data label of a bar is drawn if
+any part of the bar lies within the range, and is placed inside the end of a bar
+that reaches a stated bound. A stated range does not change with the data, so
+that charts with different data share one scale.
+
+The percentage-stacked kinds have a fixed percentage scale, and the pie and
+doughnut kinds have no value axis. A range stated for one of these kinds is
+retained in the model, has no effect on output, and is reported by a warning in
+PPTX, PDF and PNG output.
 
 `border` accepts a boolean, color, or property table. Its table form normalizes
 `enabled` as a boolean, `color` as a color, and `width` as a length. `plot_area`
@@ -182,8 +206,8 @@ lines.
 As with other content directives, named arguments are type-checked before
 `properties` overrides are merged. The resulting designated formatting fields
 are then normalized. `data` must be supplied as a named argument even when a
-`properties` table also contains it. Data and axis contents remain unchanged by
-normalization. An override can therefore retain values that output cannot use.
+`properties` table also contains it. Data contents, and axis contents other than the range of
+the value axis, remain unchanged by normalization. An override can therefore retain values that output cannot use.
 
 With Lua enabled, `document.chart` constructs the same element from a property
 table. It accepts no body arguments. Its data can use previously loaded JSON

@@ -327,3 +327,155 @@ fn chart_text_size_sets_the_label_size_of_editable_charts() {
         assert_eq!(xml.matches(r#" sz="1400""#).count(), 4, "{xml}");
     }
 }
+
+#[test]
+fn a_stated_value_range_is_normalized_and_written_to_both_editable_packages() {
+    let chart = |kind: &str, range: &str| {
+        format!(
+            "#chart(kind='{kind}',axis={{value={{title='Units',{range}}}}},data={{categories={{'A','B'}},values={{50,120}}}})"
+        )
+    };
+    let document = mote::compile(&chart("column", "minimum='0',maximum=200")).unwrap();
+    let model: Value = serde_json::from_str(&mote::json::to_json(&document).unwrap()).unwrap();
+    let value_axis = &find_member(&model, "axis").unwrap()["value"];
+    assert_eq!(value_axis["title"], "Units");
+    assert_eq!(value_axis["minimum"].as_f64(), Some(0.0));
+    assert_eq!(value_axis["maximum"].as_f64(), Some(200.0));
+
+    for range in [
+        "minimum='low'",
+        "maximum=true",
+        "maximum='Inf'",
+        "minimum=5,maximum=5",
+        "minimum=6,maximum=5",
+    ] {
+        assert!(mote::compile(&chart("column", range)).is_err(), "{range}");
+    }
+
+    for (kind, range, bounds) in [
+        (
+            "column",
+            "minimum=0,maximum=200",
+            r#"<c:max val="200"/><c:min val="0"/>"#,
+        ),
+        ("bar", "minimum=-2.5", r#"<c:min val="-2.5"/>"#),
+        ("line", "maximum=1000", r#"<c:max val="1000"/>"#),
+        ("stacked_area", "name='Units'", ""),
+        ("percent_stacked_column", "minimum=0,maximum=200", ""),
+        ("pie", "maximum=5", ""),
+    ] {
+        let source = chart(kind, range);
+        let slide = format!(
+            "#slide[#box(position={{x=pt(10),y=pt(10),width=pt(300),height=pt(200)}})[{source}]]"
+        );
+        for xml in [
+            chart_part(
+                &mote::docx::emit(&mote::compile(&source).unwrap()).unwrap(),
+                "word/charts/chart1.xml",
+            ),
+            chart_part(
+                &mote::pptx::emit(&mote::compile(&slide).unwrap()).unwrap(),
+                "ppt/charts/chart1.xml",
+            ),
+        ] {
+            if kind != "pie" {
+                let value_axis = &xml[xml.find("<c:valAx>").unwrap()..];
+                let scaling =
+                    format!(r#"<c:scaling><c:orientation val="minMax"/>{bounds}</c:scaling>"#);
+                assert!(value_axis.contains(&scaling), "{kind}: {xml}");
+            }
+            for bound in ["<c:min ", "<c:max "] {
+                assert_eq!(
+                    xml.matches(bound).count(),
+                    bounds.matches(bound).count(),
+                    "{kind}: {xml}"
+                );
+            }
+        }
+    }
+}
+
+fn find_member<'value>(value: &'value Value, name: &str) -> Option<&'value Value> {
+    match value {
+        Value::Object(fields) => fields
+            .get(name)
+            .or_else(|| fields.values().find_map(|nested| find_member(nested, name))),
+        Value::Array(values) => values.iter().find_map(|nested| find_member(nested, name)),
+        _ => None,
+    }
+}
+
+#[test]
+fn a_stated_value_range_warns_only_where_the_chart_kind_has_no_free_range() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for (kind, inapplicable) in [
+        ("column", false),
+        ("bar", false),
+        ("line", false),
+        ("stacked_area", false),
+        ("percent_stacked_bar", true),
+        ("doughnut", true),
+    ] {
+        let chart = format!(
+            "#chart(kind='{kind}',axis={{value={{minimum=0,maximum=200}}}},data={{categories={{'A','B'}},values={{50,120}}}})"
+        );
+        let slide = format!(
+            "#slide[#box(position={{x=pt(10),y=pt(10),width=pt(300),height=pt(200)}})[{chart}]]"
+        );
+        let document = mote::compile(&chart).unwrap();
+        let deck = mote::compile(&slide).unwrap();
+        for (output, warnings) in [
+            (
+                "document PDF and PNG",
+                mote::render::plan(&document, &resolver, None)
+                    .unwrap()
+                    .warnings,
+            ),
+            (
+                "DOCX",
+                mote::docx::emit_with_assets(&document, &resolver, None)
+                    .unwrap()
+                    .warnings,
+            ),
+            (
+                "slide PDF and PNG",
+                mote::render::plan_with_layout(
+                    &deck,
+                    &resolver,
+                    None,
+                    mote::render::LayoutMode::Presentation,
+                )
+                .unwrap()
+                .warnings,
+            ),
+            (
+                "PPTX",
+                mote::pptx::emit_with_warnings(&deck).unwrap().warnings,
+            ),
+        ] {
+            let range: Vec<_> = warnings
+                .iter()
+                .filter(|warning| warning.contains("axis.value"))
+                .collect();
+            assert!(
+                range
+                    .iter()
+                    .all(|warning| warning.contains("has no effect on")),
+                "{kind} {output}: {warnings:?}"
+            );
+            // A DOCX package reports no limit of a chart argument.
+            let expected = if inapplicable && output != "DOCX" {
+                2
+            } else {
+                0
+            };
+            assert_eq!(range.len(), expected, "{kind} {output}: {warnings:?}");
+            if !inapplicable {
+                assert!(
+                    !warnings.iter().any(|warning| warning.contains("chart")),
+                    "{kind} {output}: {warnings:?}"
+                );
+            }
+        }
+    }
+}

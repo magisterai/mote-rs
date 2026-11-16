@@ -229,3 +229,235 @@ fn large_column_chart_labels_stay_clear_and_inside_the_chart_frame() {
         }
     }
 }
+
+struct PlannedChart {
+    frame: [f64; 4],
+    plot: [f64; 4],
+    tick_labels: Vec<f64>,
+    bars: Vec<[f64; 4]>,
+    path_points: Vec<[f64; 2]>,
+    painted_extent: [f64; 4],
+}
+
+/// The chart and plot borders give the frame and the plot as outline rectangles.
+fn plan_bordered_chart(arguments: &str) -> PlannedChart {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let source = format!("#chart({arguments},legend=false,border=true,plot_area={{border=true}})");
+    let document = mote::compile(&source).unwrap();
+    let planned = render::plan(&document, &resolver, None).unwrap();
+    assert_eq!(planned.warnings, Vec::<String>::new(), "{source}");
+    let page = &planned.output.pages[0];
+    let outlines: Vec<[f64; 4]> = page
+        .operations
+        .iter()
+        .filter_map(|operation| match operation {
+            PageOperation::OutlineRectangle { bounds, .. } => Some(*bounds),
+            _ => None,
+        })
+        .collect();
+    let [frame, plot] = outlines[..] else {
+        panic!("{outlines:?}")
+    };
+    let mut extent = [f64::MAX, f64::MAX, f64::MIN, f64::MIN];
+    let mut include = |left: f64, top: f64, right: f64, bottom: f64| {
+        extent = [
+            extent[0].min(left),
+            extent[1].min(top),
+            extent[2].max(right),
+            extent[3].max(bottom),
+        ];
+    };
+    let mut bars = Vec::new();
+    let mut path_points = Vec::new();
+    for operation in &page.operations {
+        match operation {
+            PageOperation::Rectangle(bar) => {
+                bars.push([bar.x, bar.top, bar.width, bar.height]);
+                include(bar.x, bar.top, bar.x + bar.width, bar.top + bar.height);
+            }
+            PageOperation::Rule(rule) => {
+                for point in [rule.start, rule.end] {
+                    include(point[0], point[1], point[0], point[1]);
+                }
+            }
+            PageOperation::Path(path) => {
+                for point in &path.points {
+                    path_points.push(*point);
+                    include(point[0], point[1], point[0], point[1]);
+                }
+            }
+            _ => {}
+        }
+    }
+    let mut tick_labels = Vec::new();
+    for placed in &page.lines {
+        let left = placed.line.fragments[0].x;
+        include(
+            left,
+            placed.top,
+            left + placed.line.width,
+            placed.top + placed.line.height,
+        );
+        let text: String = placed
+            .line
+            .fragments
+            .iter()
+            .map(|fragment| fragment.text.as_str())
+            .collect();
+        if let Ok(value) = text.parse::<f64>() {
+            tick_labels.push(value);
+        }
+    }
+    PlannedChart {
+        frame,
+        plot,
+        tick_labels,
+        bars,
+        path_points,
+        painted_extent: extent,
+    }
+}
+
+fn assert_painted_within_frame(chart: &PlannedChart, context: &str) {
+    let [left, top, width, height] = chart.frame;
+    let [painted_left, painted_top, painted_right, painted_bottom] = chart.painted_extent;
+    assert!(
+        painted_left >= left
+            && painted_top >= top
+            && painted_right <= left + width
+            && painted_bottom <= top + height,
+        "{context}: {:?} leaves {:?}",
+        chart.painted_extent,
+        chart.frame
+    );
+}
+
+fn assert_close(actual: f64, expected: f64, context: &str) {
+    assert!(
+        (actual - expected).abs() < 1e-6,
+        "{context}: {actual} is not {expected}"
+    );
+}
+
+#[test]
+fn a_stated_value_range_fixes_the_ticks_and_the_scale_of_the_bars() {
+    for (kind, text) in [
+        ("column", ""),
+        ("bar", ""),
+        ("column", ",text={size=pt(16)}"),
+        ("bar", ",text={size=pt(16)}"),
+    ] {
+        let chart = plan_bordered_chart(&format!(
+            "kind='{kind}',axis={{value={{minimum=0,maximum=200}}}},data_labels={},data={{categories={{'A','B','C'}},values={{50,200,10}}}}{text}",
+            !text.is_empty()
+        ));
+        // The data labels of the enlarged chart repeat the values of the data.
+        let ticks = chart.tick_labels.iter().copied();
+        assert!(
+            ticks.clone().filter(|tick| *tick == 0.0).count() == 1
+                && ticks.clone().filter(|tick| *tick == 200.0).count()
+                    == 1 + usize::from(!text.is_empty()),
+            "{kind}{text}: {:?}",
+            chart.tick_labels
+        );
+        let minimum = chart.tick_labels.iter().copied().fold(f64::MAX, f64::min);
+        let maximum = chart.tick_labels.iter().copied().fold(f64::MIN, f64::max);
+        assert_eq!((minimum, maximum), (0.0, 200.0), "{kind}");
+        let [plot_left, plot_top, plot_width, plot_height] = chart.plot;
+        let (lengths, plot_length): (Vec<f64>, f64) = if kind == "bar" {
+            (chart.bars.iter().map(|bar| bar[2]).collect(), plot_width)
+        } else {
+            (chart.bars.iter().map(|bar| bar[3]).collect(), plot_height)
+        };
+        assert_eq!(lengths.len(), 3, "{kind}");
+        let mut lengths = lengths;
+        lengths.sort_by(f64::total_cmp);
+        for (length, value) in lengths.iter().zip([10.0, 50.0, 200.0]) {
+            assert_close(*length, plot_length * value / 200.0, kind);
+        }
+        for bar in &chart.bars {
+            if kind == "bar" {
+                assert_close(bar[0], plot_left, kind);
+            } else {
+                assert_close(bar[1] + bar[3], plot_top + plot_height, kind);
+            }
+        }
+        assert_painted_within_frame(&chart, kind);
+    }
+}
+
+#[test]
+fn a_single_stated_bound_leaves_the_other_automatic() {
+    let data = "data={categories={'A','B'},values={50,120}}";
+    let automatic = plan_bordered_chart(data);
+    let raised = plan_bordered_chart(&format!("axis={{value={{maximum=1000}}}},{data}"));
+    let lifted = plan_bordered_chart(&format!("axis={{value={{minimum=40}}}},{data}"));
+    let extremes = |chart: &PlannedChart| {
+        (
+            chart.tick_labels.iter().copied().fold(f64::MAX, f64::min),
+            chart.tick_labels.iter().copied().fold(f64::MIN, f64::max),
+        )
+    };
+    assert_eq!(extremes(&automatic), (0.0, 140.0));
+    assert_eq!(extremes(&raised), (0.0, 1000.0));
+    assert_eq!(extremes(&lifted), (40.0, 140.0));
+    assert_close(
+        raised.bars[0][3],
+        raised.plot[3] * 50.0 / 1000.0,
+        "raised maximum",
+    );
+    assert_close(
+        lifted.bars[0][3],
+        lifted.plot[3] * (50.0 - 40.0) / 100.0,
+        "lifted minimum",
+    );
+}
+
+#[test]
+fn data_beyond_a_stated_bound_is_clipped_to_the_plot() {
+    for kind in ["column", "bar", "stacked_column", "line", "area"] {
+        // A native area chart has no data labels, and warns of one that is requested.
+        let range = format!(
+            "axis={{value={{minimum=20,maximum=100}}}},data_labels={}",
+            kind != "area"
+        );
+        let chart = plan_bordered_chart(&format!(
+            "kind='{kind}',{range},data={{categories={{'A','B','C','D'}},series={{{{name='One',values={{50,10,130,-40}}}},{{name='Two',values={{90,300,5,60}}}}}}}}"
+        ));
+        let [plot_left, plot_top, plot_width, plot_height] = chart.plot;
+        for bar in &chart.bars {
+            assert!(
+                bar[0] >= plot_left - 1e-6
+                    && bar[1] >= plot_top - 1e-6
+                    && bar[0] + bar[2] <= plot_left + plot_width + 1e-6
+                    && bar[1] + bar[3] <= plot_top + plot_height + 1e-6,
+                "{kind}: {bar:?} leaves {:?}",
+                chart.plot
+            );
+        }
+        // A line marker is a circle of radius 2.5 points about a point in range.
+        for point in &chart.path_points {
+            assert!(
+                point[1] >= plot_top - 2.5 - 1e-6
+                    && point[1] <= plot_top + plot_height + 2.5 + 1e-6,
+                "{kind}: {point:?} leaves {:?}",
+                chart.plot
+            );
+        }
+        assert_painted_within_frame(&chart, kind);
+        if kind == "column" {
+            let heights: Vec<f64> = chart.bars.iter().map(|bar| bar[3]).collect();
+            assert!(
+                heights
+                    .iter()
+                    .any(|height| (height - plot_height).abs() < 1e-6),
+                "a value beyond both bounds fills the plot: {heights:?}"
+            );
+            assert_eq!(
+                heights.len(),
+                5,
+                "a bar wholly outside the range is not painted"
+            );
+        }
+    }
+}

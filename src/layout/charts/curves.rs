@@ -25,10 +25,23 @@ impl ChartPlanner<'_, '_> {
                     })
                     .collect();
                 let color = chart.color(series_index);
-                if points.len() > 1 {
-                    self.path(points.clone(), false, None, Some((color, 2.0)));
+                let visible_parts = if scale.clips {
+                    super::clipping::clip_line(
+                        &points,
+                        layout.plot.top,
+                        layout.plot.top + layout.plot.height,
+                    )
+                } else {
+                    vec![points.clone()]
+                };
+                for part in visible_parts {
+                    self.path(part, false, None, Some((color, 2.0)));
                 }
                 for (index, point) in points.iter().enumerate() {
+                    let value = super::series_value(series, index);
+                    if !scale.shows(value, value) {
+                        continue;
+                    }
                     self.ellipse([point[0], point[1]], [5.0, 5.0], 24, color);
                     if chart.data_labels.enabled {
                         labels.push(super::line_labels::LineLabel {
@@ -89,6 +102,13 @@ impl ChartPlanner<'_, '_> {
                     ]);
                 }
                 upper.extend(lower.into_iter().rev());
+                if scale.clips {
+                    upper = super::clipping::clip_outline(
+                        upper,
+                        layout.plot.top,
+                        layout.plot.top + layout.plot.height,
+                    );
+                }
                 self.path(upper, true, Some(chart.color(series_index)), None);
             }
         }

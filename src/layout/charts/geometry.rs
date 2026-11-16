@@ -61,15 +61,10 @@ impl ChartMeasurement<'_, '_> {
         } else {
             let scale = Scale::for_chart(chart, 0.0, false).validate()?;
             let percent = chart.kind.contains("percent_stacked");
+            let unit = scale.label_unit();
             let width = self
-                .text_width(
-                    &axis_label(scale.minimum, scale.step, percent),
-                    chart.label_size,
-                )?
-                .max(self.text_width(
-                    &axis_label(scale.maximum, scale.step, percent),
-                    chart.label_size,
-                )?);
+                .text_width(&axis_label(scale.minimum, unit, percent), chart.label_size)?
+                .max(self.text_width(&axis_label(scale.maximum, unit, percent), chart.label_size)?);
             (width - self.text_width("80", chart.label_size)?).max(0.0)
         };
         let mut layout = resolve(bounds, chart, category_width, legend_width, value_extra);

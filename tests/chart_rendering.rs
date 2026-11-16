@@ -203,13 +203,13 @@ fn native_chart_support_boundaries_and_numeric_failures_are_explicit() {
             .any(|fragment| fragment.text == "[chart]")
     );
     let document =
-        mote::compile("#chart(data={values={1}},axis={value={maximum=10}},style='Retained')")
+        mote::compile("#chart(data={values={1}},axis={value={major_unit=10}},style='Retained')")
             .unwrap();
     let plan = render::plan(&document, &resolver, None).unwrap();
     assert!(
         plan.warnings
             .iter()
-            .any(|warning| warning.contains("axis.value.maximum"))
+            .any(|warning| warning.contains("axis.value.major_unit"))
     );
     assert!(
         plan.warnings

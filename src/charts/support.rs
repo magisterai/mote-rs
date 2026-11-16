@@ -81,10 +81,26 @@ pub(crate) fn warnings(
             if let Some(properties) = crate::properties::object(axis, name) {
                 unknown(
                     properties,
-                    &["title", "name"],
+                    if name == "value" {
+                        &["title", "name", "minimum", "maximum"]
+                    } else {
+                        &["title", "name"]
+                    },
                     &format!("{path}.axis.{name}"),
                     warnings,
                 );
+            }
+        }
+        let kind = crate::properties::text(attributes, "kind");
+        if kind.contains("percent_stacked") || matches!(kind.as_str(), "pie" | "doughnut") {
+            for name in ["minimum", "maximum"] {
+                if crate::properties::object(axis, "value")
+                    .is_some_and(|value| value.contains_key(name))
+                {
+                    warnings.insert(format!(
+                        "{path}.axis.value.{name} has no effect on {kind} charts"
+                    ));
+                }
             }
         }
     }

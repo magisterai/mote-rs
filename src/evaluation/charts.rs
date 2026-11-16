@@ -48,6 +48,7 @@ pub(super) fn normalize(name: &str, value: Value, span: Span) -> Result<Value, D
         "title" => title(value, span),
         "width" | "height" => normalize_length(value, span, name),
         "legend" => legend(value, span),
+        "axis" => axis(value, span),
         "colors" => colors(value, span),
         "background" => normalize_color(value, span, name),
         "border" => border(value, span),
@@ -248,4 +249,39 @@ fn appearance(group: &str, value: Value, span: Span) -> Result<Value, Diagnostic
         })
         .collect::<Result<Properties, Diagnostic>>()
         .map(Value::Object)
+}
+
+fn axis(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    let Value::Object(mut fields) = value else {
+        return Ok(value);
+    };
+    let Some(Value::Object(mut value_axis)) = fields.remove("value") else {
+        return Ok(Value::Object(fields));
+    };
+    let mut bounds = [None, None];
+    for (bound, name) in bounds.iter_mut().zip(["minimum", "maximum"]) {
+        if let Some(value) = value_axis.remove(name) {
+            let number = match value {
+                Value::Number(number) => Some(number),
+                Value::String(text) => text.trim().parse::<f64>().ok(),
+                _ => None,
+            }
+            .filter(|number| number.is_finite())
+            .ok_or_else(|| {
+                Diagnostic::new(span, format!("axis.value.{name} must be a finite number"))
+            })?;
+            value_axis.insert(name.into(), Value::Number(number));
+            *bound = Some(number);
+        }
+    }
+    if let [Some(minimum), Some(maximum)] = bounds
+        && minimum >= maximum
+    {
+        return Err(Diagnostic::new(
+            span,
+            "axis.value.minimum must be less than axis.value.maximum",
+        ));
+    }
+    fields.insert("value".into(), Value::Object(value_axis));
+    Ok(Value::Object(fields))
 }

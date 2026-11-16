@@ -50,9 +50,11 @@ impl ChartPlanner<'_, '_> {
             }
         }
         let percent = chart.kind.contains("percent_stacked");
+        let label_unit = scale.label_unit();
+        // The last tick of a stated range may fall short of the maximum.
         let values: Vec<_> = (0..1000)
             .map(|index| scale.minimum + index as f64 * scale.step)
-            .take_while(|value| *value <= scale.maximum + scale.step / 2.0)
+            .take_while(|value| *value <= scale.maximum + scale.step / 1000.0)
             .map(|value| {
                 if value.abs() < scale.step / 1000000.0 {
                     0.0
@@ -68,7 +70,7 @@ impl ChartPlanner<'_, '_> {
             for value in &values {
                 let width = self
                     .measurement
-                    .text_width(&axis_label(*value, scale.step, percent), chart.label_size)?
+                    .text_width(&axis_label(*value, label_unit, percent), chart.label_size)?
                     .min(40.0 * label_scale);
                 intervals.push((scale.ratio(*value) * plot.width, width));
             }
@@ -109,17 +111,17 @@ impl ChartPlanner<'_, '_> {
             if visible[index] {
                 self.axis_label(
                     bounds,
-                    &axis_label(value, scale.step, percent),
+                    &axis_label(value, label_unit, percent),
                     chart.label_size,
                     alignment,
                 )?;
             }
         }
         let category_axis = if horizontal {
-            let zero = plot.left + plot.width * scale.ratio(0.0);
+            let zero = plot.left + plot.width * scale.ratio(scale.crossing());
             [[zero, plot.top], [zero, plot.top + plot.height]]
         } else {
-            let zero = plot.top + plot.height * (1.0 - scale.ratio(0.0));
+            let zero = plot.top + plot.height * (1.0 - scale.ratio(scale.crossing()));
             [[plot.left, zero], [plot.left + plot.width, zero]]
         };
         self.rule(
@@ -134,7 +136,7 @@ impl ChartPlanner<'_, '_> {
             + if chart.category_label_position() == "low" {
                 plot.height
             } else {
-                plot.height * (1.0 - scale.ratio(0.0))
+                plot.height * (1.0 - scale.ratio(scale.crossing()))
             };
         for (index, category) in chart.categories.iter().enumerate() {
             let (bounds, alignment) = if horizontal {

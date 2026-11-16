@@ -90,10 +90,27 @@ arguments require units.
 
 ## The value axis
 
-The range and step of the value axis follow Office's automatic rules. The data's
-range is padded by a twentieth at each nonzero end, the step is 1, 2 or 5 times a
-power of ten chosen for the height of the chart, and every step is labelled. No
-argument sets the minimum, maximum or step.
+The range and step of the value axis follow Office's automatic rules unless a
+range is stated. The data's range is padded by a twentieth at each nonzero end,
+the step is 1, 2 or 5 times a power of ten chosen for the height of the chart,
+and every step is labelled.
+
+```mote
+#chart(
+  kind = "column",
+  data = { categories = { "North", "South" }, values = { 50, 120 } },
+  axis = { value = { minimum = 0, maximum = 200 } }
+)
+```
+
+- The `minimum` and `maximum` of `axis.value` are numbers. Either may be given
+  alone, and the minimum must be less than the maximum. The step stays automatic
+  and widens for a larger `text` size.
+- A stated range does not follow the data. A chart whose data changes between
+  the frames of an animation keeps one scale when both bounds are stated.
+- A bar, line or area beyond a stated bound is cut off at the edge of the plot.
+- A percentage-stacked, pie or doughnut chart has no free value range, and a
+  range stated for one has no effect and gives a warning.
 
 ## Limits
 

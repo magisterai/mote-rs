@@ -1,6 +1,7 @@
 //! Native chart operations share text measurement and both page painters.
 mod axes;
 mod bars;
+mod clipping;
 mod curves;
 mod geometry;
 mod legend;

@@ -30,6 +30,20 @@ and [value-domain](attributes/values.md) inventories.
   The short legend positions are output model values, not accepted inputs.
 - [x] Kind- and series-count-dependent legend output defaults.
 - [x] `axis.category.title`/`name` and `axis.value.title`/`name`.
+- [x] `axis.value.minimum` and `axis.value.maximum`: finite numbers, either alone
+  or both with the minimum less than the maximum, written as the `min` and `max`
+  of the value axis [scaling](attributes/charts.md#c-ct_scaling). Native output
+  uses the stated bounds, chooses the step by the automatic rule for the range in
+  force, and confines bars, lines and areas to the plot. An unstated bound keeps
+  its automatic value, moved outward to a whole number of steps. The
+  percentage-stacked, pie and doughnut kinds ignore a stated range with a
+  warning; a DOCX package omits the range from these kinds without one. See the
+  [specification](../specification/charts.md#dimensions-and-appearance), the
+  [package test](../../tests/charts.rs) and the
+  [native test](../../tests/chart_axis_labels.rs). The placement of the automatic
+  bound and of the labels of clipped bars is not compared with Office. The
+  logarithmic base, the orientation, and the major and minor units have no
+  argument.
 - [x] `colors`: arrays and property tables normalize every color member.
 - [x] `series1`, `series2`, ... lookup; default palette and missing-color behavior.
 - [x] `background`: normalized chart-area color.
@@ -69,7 +83,8 @@ and [value-domain](attributes/values.md) inventories.
 - [x] `style`: retained name; retained metadata alone has no formatting effect.
 - [x] Lua `document.chart` uses the shared constructor and typed JSON values.
 
-Data and axis tables remain unchanged in the evaluated model and resolve through
+Data and axis tables, apart from the normalized range of the value axis, remain
+unchanged in the evaluated model and resolve through
 one shared chart model during output. DOCX contains editable chart XML, cached
 values and an embedded workbook, with complete package capture tests across all
 twelve kinds. Doughnut label positions are omitted from editable XML so Office

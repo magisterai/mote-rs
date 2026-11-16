@@ -84,6 +84,8 @@ pub(crate) struct Chart {
     pub legend: Legend,
     pub category_title: String,
     pub value_title: String,
+    pub value_minimum: Option<f64>,
+    pub value_maximum: Option<f64>,
     pub colors: Vec<String>,
     pub chart_area: ShapeProperties,
     pub plot_area: Option<ShapeProperties>,
@@ -113,7 +115,19 @@ impl Chart {
                 })
                 .unwrap_or_default()
         };
+        // A percentage scale and a chart without axes have no free value range.
+        let ranged =
+            !kind.contains("percent_stacked") && !matches!(kind.as_str(), "pie" | "doughnut");
+        let value_bound = |name| {
+            axis.and_then(|axis| object(axis, "value"))
+                .and_then(|axis| match axis.get(name) {
+                    Some(Value::Number(number)) if ranged && number.is_finite() => Some(*number),
+                    _ => None,
+                })
+        };
         Ok(Self {
+            value_minimum: value_bound("minimum"),
+            value_maximum: value_bound("maximum"),
             title: match attributes.get("title") {
                 Some(Value::Object(fields)) => text(fields.get("text")),
                 value => text(value),
