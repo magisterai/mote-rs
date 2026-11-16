@@ -297,8 +297,6 @@ fn repeated_table_headers_in_columns_have_distinct_page_operations() {
 fn output_limits_are_reported_without_warning_for_implemented_table_fields() {
     let warnings = planned("attributes").warnings;
     for field in [
-        ".height",
-        ".height_rule",
         ".text_direction",
         ".no_wrap",
         ".indent",
@@ -312,6 +310,8 @@ fn output_limits_are_reported_without_warning_for_implemented_table_fields() {
     }
     for field in [
         ".width is retained",
+        ".height is retained",
+        ".height_rule is retained",
         ".margin is retained",
         ".repeat_header is retained",
         ".cant_split is retained",

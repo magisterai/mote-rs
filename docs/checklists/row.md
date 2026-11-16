@@ -21,7 +21,7 @@ page; the two-column fixture has captured native geometry and rasters.
 Ordinary rows and merged groups can continue across pages and columns at safe
 content boundaries. Oversized atomic rows warn about clipping; an oversized merged
 group without a safe split warns and falls back to individual rows.
-`height` and `height_rule` affect editable DOCX only and produce native support warnings.
+`height` and `height_rule` take effect in editable DOCX and in native output alike.
 A native row whose exact height cuts off the content of a cell gives a warning
 that names the row and the page on which its table begins; a nested table is
 named as such. DOCX output measures no content and gives no such warning. See

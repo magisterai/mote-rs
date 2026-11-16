@@ -387,7 +387,9 @@ fn content(
             ElementKind::Table => {
                 allowed.extend(["style", "width", "alignment", "cell", "borders"])
             }
-            ElementKind::Row => allowed.extend(["repeat_header", "cant_split"]),
+            ElementKind::Row => {
+                allowed.extend(["repeat_header", "cant_split", "height", "height_rule"])
+            }
             ElementKind::Cell => allowed.extend([
                 "style",
                 "width",

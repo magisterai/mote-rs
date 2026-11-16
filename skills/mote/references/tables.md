@@ -43,8 +43,9 @@ The `#table`, `#row` and `#cell` directives give full control.
 - The `borders` table gives `top`, `right`, `bottom`, `left`, `inside_h` and
   `inside_v`, or `all`, `outside` and `inside` for groups of edges; each edge has
   `style`, `width` and `color`, and `style = "none"` removes it.
-- A row accepts `repeat_header`, which repeats a leading row on each page, and
-  `cant_split`, which keeps the row on one page.
+- A row accepts `repeat_header`, which repeats a leading row on each page,
+  `cant_split`, which keeps the row on one page, and `height` with a
+  `height_rule` of `at_least` or `exact`.
 - A cell accepts `width`, `colspan`, `rowspan`, `fill`, `alignment`,
   `vertical_alignment` (`top`, `center` or `bottom`), `margin` and `borders`. The
   `margin` table gives `all`, `vertical`, `horizontal`, or individual edges.
@@ -68,8 +69,8 @@ cell defaults and borders.
 
 ## Limits
 
-- The row arguments `height` and `height_rule`, the table arguments `indent`,
-  `cell_spacing` and `layout`, and the cell arguments `text_direction` and
-  `no_wrap` affect DOCX only; PDF and PNG output ignores them with a warning.
+- The table arguments `indent`, `cell_spacing` and `layout`, and the cell
+  arguments `text_direction` and `no_wrap` affect DOCX only; PDF and PNG output
+  ignores them with a warning.
 - In PDF and PNG output, a chart inside a cell is replaced by text, with a
   warning.

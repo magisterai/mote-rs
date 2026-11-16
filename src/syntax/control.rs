@@ -14,8 +14,11 @@ impl Parser<'_> {
                 .next()
                 .ok_or_else(|| self.error("if requires a condition"))?
                 .value;
+            self.skip_horizontal_whitespace();
             if self.peek_character() != Some('[') {
-                return Err(self.error("if requires a bracketed body"));
+                return Err(self.error(
+                    "if requires a body in square brackets: #if(condition)[...] else [...]",
+                ));
             }
             self.advance_character();
             let consequence = self.parse_markup(MarkupBoundary::Body)?;
@@ -30,7 +33,9 @@ impl Parser<'_> {
                 self.position += 4;
                 self.skip_horizontal_whitespace();
                 if self.peek_character() != Some('[') {
-                    return Err(self.error("else requires a bracketed body"));
+                    return Err(self.error(
+                        "else requires a body in square brackets: #if(condition)[...] else [...]",
+                    ));
                 }
                 self.advance_character();
                 Some(self.parse_markup(MarkupBoundary::Body)?)
