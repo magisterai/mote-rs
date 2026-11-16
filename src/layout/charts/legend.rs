@@ -208,12 +208,12 @@ impl ChartPlanner<'_, '_> {
                 entry.key[1],
                 chart.color(color_index(chart, entry.index)),
             );
-            self.text(
+            self.label(
+                super::text::LabelKind::Legend,
                 entry.text,
                 labels[entry.index],
                 chart.label_size,
                 "left",
-                0.0,
             )?;
         }
         Ok(())

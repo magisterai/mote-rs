@@ -54,7 +54,13 @@ impl ChartPlanner<'_, '_> {
             occupied.push(bounds);
         }
         for (label, frame) in labels.iter().zip(placements) {
-            self.text(frame, &label.text, label_size, "center", 0.0)?;
+            self.label(
+                super::text::LabelKind::Data,
+                frame,
+                &label.text,
+                label_size,
+                "center",
+            )?;
         }
         Ok(())
     }

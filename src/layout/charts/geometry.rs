@@ -62,9 +62,18 @@ impl ChartMeasurement<'_, '_> {
             let scale = Scale::for_chart(chart, 0.0, false).validate()?;
             let percent = chart.kind.contains("percent_stacked");
             let unit = scale.label_unit();
-            let width = self
+            let mut width = self
                 .text_width(&axis_label(scale.minimum, unit, percent), chart.label_size)?
                 .max(self.text_width(&axis_label(scale.maximum, unit, percent), chart.label_size)?);
+            // The ticks of a stated range or step may have more digits than its ends.
+            if chart.value_minimum.is_some() || chart.value_step.is_some() {
+                let intervals = ((scale.maximum - scale.minimum) / scale.step).floor() as usize;
+                for index in 1..=intervals.min(100) {
+                    let tick = scale.minimum + index as f64 * scale.step;
+                    width = width
+                        .max(self.text_width(&axis_label(tick, unit, percent), chart.label_size)?);
+                }
+            }
             (width - self.text_width("80", chart.label_size)?).max(0.0)
         };
         let mut layout = resolve(bounds, chart, category_width, legend_width, value_extra);

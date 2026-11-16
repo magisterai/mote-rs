@@ -282,6 +282,24 @@ fn axis(value: Value, span: Span) -> Result<Value, Diagnostic> {
             "axis.value.minimum must be less than axis.value.maximum",
         ));
     }
+    if let Some(value) = value_axis.remove("step") {
+        let step = match value {
+            Value::Number(number) => Some(number),
+            Value::String(text) => text.trim().parse::<f64>().ok(),
+            _ => None,
+        }
+        .filter(|number| number.is_finite() && *number > 0.0)
+        .ok_or_else(|| Diagnostic::new(span, "axis.value.step must be a positive finite number"))?;
+        if let [Some(minimum), Some(maximum)] = bounds
+            && (maximum - minimum) / step > crate::charts::MAXIMUM_VALUE_INTERVALS + 1e-9
+        {
+            return Err(Diagnostic::new(
+                span,
+                "axis.value.step must divide the range from axis.value.minimum to axis.value.maximum into no more than 100 intervals",
+            ));
+        }
+        value_axis.insert("step".into(), Value::Number(step));
+    }
     fields.insert("value".into(), Value::Object(value_axis));
     Ok(Value::Object(fields))
 }

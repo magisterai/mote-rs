@@ -461,3 +461,101 @@ fn data_beyond_a_stated_bound_is_clipped_to_the_plot() {
         }
     }
 }
+
+#[test]
+fn a_stated_value_step_sets_the_ticks_from_the_minimum_in_force() {
+    let data = "data={categories={'A','B'},values={50,120}}";
+    for (kind, value_axis, expected) in [
+        (
+            "column",
+            "minimum=0,maximum=150,step=50",
+            vec![0.0, 50.0, 100.0, 150.0],
+        ),
+        (
+            "bar",
+            "minimum=0,maximum=150,step=50",
+            vec![0.0, 50.0, 100.0, 150.0],
+        ),
+        ("line", "step=50", vec![0.0, 50.0, 100.0, 150.0]),
+        (
+            "column",
+            "minimum=10,step=40",
+            vec![10.0, 50.0, 90.0, 130.0, 170.0],
+        ),
+        (
+            "column",
+            "maximum=3,step=0.75",
+            vec![0.0, 0.75, 1.5, 2.25, 3.0],
+        ),
+    ] {
+        let chart = plan_bordered_chart(&format!(
+            "kind='{kind}',axis={{value={{{value_axis}}}}},{data}"
+        ));
+        assert_painted_within_frame(&chart, value_axis);
+        let mut ticks = chart.tick_labels.clone();
+        ticks.sort_by(f64::total_cmp);
+        assert_eq!(ticks, expected, "{kind} {value_axis}");
+        assert_painted_within_frame(&chart, value_axis);
+    }
+
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let source = format!("#chart(axis={{value={{step=0.5}}}},{data})");
+    let error = render::plan(&mote::compile(&source).unwrap(), &resolver, None)
+        .err()
+        .map(|error| error.to_string())
+        .unwrap_or_default();
+    assert!(error.contains("more than 100 intervals"), "{error}");
+}
+
+#[test]
+fn a_label_reduced_below_the_chart_text_size_is_reported_once_for_its_chart() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let chart = |categories: &str, name: &str| {
+        format!(
+            "#chart(kind='column'{name},width=pt(300),height=pt(200),data={{categories={{{categories}}},values={{1,2,3,4,5,6}}}})"
+        )
+    };
+    let short = "'A','B','C','D','E','F'";
+    let long = "'A','B','Falcon Heavy Extended','D','E','F'";
+    let reduced = |warnings: &[String]| -> Vec<String> {
+        warnings
+            .iter()
+            .filter(|warning| warning.contains("reduced below the chart's text size"))
+            .cloned()
+            .collect()
+    };
+
+    let plan = |source: &str| {
+        render::plan(&mote::compile(source).unwrap(), &resolver, None)
+            .unwrap()
+            .warnings
+    };
+    assert_eq!(plan(&chart(short, "")), Vec::<String>::new());
+    assert_eq!(
+        reduced(&plan(&chart(long, ""))),
+        [
+            "the category labels of a chart on page 1 are reduced below the chart's text size to fit; shorten the labels, widen the chart or reduce text.size"
+        ]
+    );
+    let named = reduced(&plan(&chart(long, ",name='Launches'")));
+    assert_eq!(named.len(), 1, "{named:?}");
+    assert!(
+        named[0].starts_with("the category labels of chart \"Launches\" on page 1 "),
+        "{named:?}"
+    );
+
+    let slide = |categories: &str| {
+        format!(
+            "#presentation(size='wide')\n#slide[#box(position={{x=pt(40),y=pt(40),width=pt(300),height=pt(200)}})[{}]]",
+            chart(categories, "")
+        )
+    };
+    assert_eq!(reduced(&plan(&slide(short))), Vec::<String>::new());
+    let on_slide = reduced(&plan(&slide(long)));
+    assert_eq!(on_slide.len(), 1, "{on_slide:?}");
+    assert!(
+        on_slide[0]
+            .starts_with("the category labels of content[0].slide[0].box[0].chart are reduced"),
+        "{on_slide:?}"
+    );
+}

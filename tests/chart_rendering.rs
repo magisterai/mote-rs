@@ -81,7 +81,21 @@ fn compare_captures(collection: &str, cases: &[&str]) {
         let original = document.clone();
         let plan = render::plan(&document, &resolver, None).unwrap();
         assert_eq!(document, original);
-        assert!(plan.warnings.is_empty(), "{case}: {:?}", plan.warnings);
+        // The bar label case joins a category, a series name and a value in
+        // each data label, which its narrow label frames reduce.
+        let reduced_labels = collection == "chart-native-bars" && case == "labels";
+        assert!(
+            plan.warnings.iter().all(|warning| reduced_labels
+                && warning.starts_with("the data labels of a chart on page ")),
+            "{case}: {:?}",
+            plan.warnings
+        );
+        assert_eq!(
+            plan.warnings.is_empty(),
+            !reduced_labels,
+            "{case}: {:?}",
+            plan.warnings
+        );
         let geometry = fs::read(folder.join("geometry.json")).unwrap();
         assert_eq!(
             format!("{:x}", Sha256::digest(&geometry)),

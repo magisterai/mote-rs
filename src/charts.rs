@@ -86,6 +86,7 @@ pub(crate) struct Chart {
     pub value_title: String,
     pub value_minimum: Option<f64>,
     pub value_maximum: Option<f64>,
+    pub value_step: Option<f64>,
     pub colors: Vec<String>,
     pub chart_area: ShapeProperties,
     pub plot_area: Option<ShapeProperties>,
@@ -128,6 +129,7 @@ impl Chart {
         Ok(Self {
             value_minimum: value_bound("minimum"),
             value_maximum: value_bound("maximum"),
+            value_step: value_bound("step").filter(|step| *step > 0.0),
             title: match attributes.get("title") {
                 Some(Value::Object(fields)) => text(fields.get("text")),
                 value => text(value),
@@ -188,6 +190,9 @@ pub(crate) const DEFAULT_LABEL_SIZE: f64 = 10.0;
 /// default chart style, which tints black text to 15% luminance offset by 85%.
 pub(crate) const RULE_COLOR: &str = "D9D9D9";
 pub(crate) const RULE_WIDTH: i64 = 9525;
+/// A stated step that divides the value range into more intervals than these is
+/// rejected, since its labels and gridlines could not be told apart.
+pub(crate) const MAXIMUM_VALUE_INTERVALS: f64 = 100.0;
 /// A Word chart takes its text colour from the default Office theme, whose dark
 /// text colour is black.
 pub(crate) const WORD_TEXT_COLOR: &str = "000000";

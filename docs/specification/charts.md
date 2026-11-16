@@ -103,8 +103,16 @@ number, or a string that is one, and normalize to a number. Either may be given
 alone, and the other bound then remains automatic. If both are given, the
 minimum must be less than the maximum. A value that is not a finite number, or a
 minimum not less than the maximum, is an error. The step between labelled values
-remains automatic and is chosen for the range in force. The first labelled value
-is the minimum, and the last is the greatest that does not exceed the maximum.
+is automatic and is chosen for the range in force, unless `axis.value.step`
+states it. The step is a positive finite number, or a string that is one; any
+other value is an error. The step is the distance between labelled values and
+between major gridlines, and may be stated with or without a bound. The first
+labelled value is the minimum, and the last is the greatest that does not exceed
+the maximum. An unstated bound beside a stated step is the automatic bound moved
+outward to a whole number of steps. A stated step may divide the range in force
+into no more than 100 intervals: a finer step is an error when both bounds are
+stated, and otherwise an error of PDF and PNG output, where the range follows
+from the data.
 The category axis crosses the value axis at zero, or at the bound nearer zero if
 the range excludes zero.
 
@@ -116,9 +124,15 @@ that reaches a stated bound. A stated range does not change with the data, so
 that charts with different data share one scale.
 
 The percentage-stacked kinds have a fixed percentage scale, and the pie and
-doughnut kinds have no value axis. A range stated for one of these kinds is
+doughnut kinds have no value axis. A range or step stated for one of these kinds is
 retained in the model, has no effect on output, and is reported by a warning in
 PPTX, PDF and PNG output.
+
+PDF and PNG output reduces a category label, a value axis label, a legend entry
+or a data label that does not fit its place, so that the label is smaller than
+the label size of its chart. One warning for each chart names the chart and the
+kinds of label that were reduced. A shorter label, a wider chart or a smaller
+`text.size` removes the reduction.
 
 `border` accepts a boolean, color, or property table. Its table form normalizes
 `enabled` as a boolean, `color` as a color, and `width` as a length. `plot_area`

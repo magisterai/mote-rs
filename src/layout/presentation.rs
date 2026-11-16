@@ -291,13 +291,20 @@ fn place_object(
         context
             .warnings
             .extend(crate::charts::support::native_warnings(&chart.attributes));
-        page.append_content(super::charts::plan_slide(
+        let planned = super::charts::plan_slide(
             context.document,
             element,
             chart,
             context.theme,
             context.measurer,
-        )?);
+        )?;
+        context.warnings.extend(
+            planned.reduced_labels_warning(&overflow::slide_object(
+                chart,
+                &format!("{path}[0].chart"),
+            )),
+        );
+        page.append_content(planned.page);
         return Ok(());
     }
     if let [Content::Element(table)] = element.children.as_slice()

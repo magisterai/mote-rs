@@ -142,7 +142,11 @@ pub(super) fn axes(chart: &Chart, options: &Options) -> Result<String, Error> {
         .into_iter()
         .filter_map(|(name, bound)| bound.map(|bound| format!(r#"<c:{name} val="{bound}"/>"#)))
         .collect();
-    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/>{range}</c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title, options)?));
+    let major_unit = chart
+        .value_step
+        .map(|step| format!(r#"<c:majorUnit val="{step}"/>"#))
+        .unwrap_or_default();
+    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/>{range}</c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/>{major_unit}</c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title, options)?));
     Ok(output)
 }
 fn gridlines(gridlines: &Gridlines) -> Result<String, Error> {

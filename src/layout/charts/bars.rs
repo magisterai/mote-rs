@@ -106,7 +106,13 @@ impl ChartPlanner<'_, '_> {
                     let (bounds, alignment) =
                         place(bar, position, value < 0.0, chart.label_scale());
                     let first_label_operation = self.page.operations.len();
-                    self.text(bounds, &label, chart.label_size, alignment, 0.0)?;
+                    self.label(
+                        super::text::LabelKind::Data,
+                        bounds,
+                        &label,
+                        chart.label_size,
+                        alignment,
+                    )?;
                     label_operations.extend(self.page.operations.drain(first_label_operation..));
                 }
             }

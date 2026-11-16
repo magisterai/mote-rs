@@ -110,6 +110,7 @@ impl ChartPlanner<'_, '_> {
             };
             if visible[index] {
                 self.axis_label(
+                    super::text::LabelKind::ValueAxis,
                     bounds,
                     &axis_label(value, label_unit, percent),
                     chart.label_size,
@@ -163,7 +164,13 @@ impl ChartPlanner<'_, '_> {
                     "center",
                 )
             };
-            self.axis_label(bounds, category, chart.label_size, alignment)?;
+            self.axis_label(
+                super::text::LabelKind::Category,
+                bounds,
+                category,
+                chart.label_size,
+                alignment,
+            )?;
         }
         if horizontal {
             self.text(

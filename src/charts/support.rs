@@ -82,7 +82,7 @@ pub(crate) fn warnings(
                 unknown(
                     properties,
                     if name == "value" {
-                        &["title", "name", "minimum", "maximum"]
+                        &["title", "name", "minimum", "maximum", "step"]
                     } else {
                         &["title", "name"]
                     },
@@ -93,7 +93,7 @@ pub(crate) fn warnings(
         }
         let kind = crate::properties::text(attributes, "kind");
         if kind.contains("percent_stacked") || matches!(kind.as_str(), "pie" | "doughnut") {
-            for name in ["minimum", "maximum"] {
+            for name in ["minimum", "maximum", "step"] {
                 if crate::properties::object(axis, "value")
                     .is_some_and(|value| value.contains_key(name))
                 {

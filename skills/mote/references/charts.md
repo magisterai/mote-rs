@@ -99,18 +99,21 @@ and every step is labelled.
 #chart(
   kind = "column",
   data = { categories = { "North", "South" }, values = { 50, 120 } },
-  axis = { value = { minimum = 0, maximum = 200 } }
+  axis = { value = { minimum = 0, maximum = 200, step = 50 } }
 )
 ```
 
 - The `minimum` and `maximum` of `axis.value` are numbers. Either may be given
-  alone, and the minimum must be less than the maximum. The step stays automatic
-  and widens for a larger `text` size.
+  alone, and the minimum must be less than the maximum. The `step` is the distance between labelled
+  values; without it the step is automatic, widens for a larger `text` size, and
+  may leave the maximum unlabelled.
 - A stated range does not follow the data. A chart whose data changes between
   the frames of an animation keeps one scale when both bounds are stated.
 - A bar, line or area beyond a stated bound is cut off at the edge of the plot.
 - A percentage-stacked, pie or doughnut chart has no free value range, and a
-  range stated for one has no effect and gives a warning.
+  range or step stated for one has no effect and gives a warning.
+- A label too long for its place is drawn smaller in PDF and PNG output, with a
+  warning. A shorter label, a wider chart or a smaller `text.size` avoids it.
 
 ## Limits
 

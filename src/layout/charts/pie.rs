@@ -134,7 +134,13 @@ impl ChartPlanner<'_, '_> {
         }
         // Labels follow both sector fills and the composited doughnut centre.
         for label in labels {
-            self.text(label.bounds, &label.text, chart.label_size, "center", 0.0)?;
+            self.label(
+                super::text::LabelKind::Data,
+                label.bounds,
+                &label.text,
+                chart.label_size,
+                "center",
+            )?;
         }
         Ok(())
     }

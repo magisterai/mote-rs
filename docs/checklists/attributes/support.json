@@ -3173,5 +3173,14 @@
       "tests/charts.rs",
       "tests/chart_axis_labels.rs"
     ]
+  },
+  "c:CT_ValAx/majorUnit": {
+    "status": "partial",
+    "note": "The `axis.value.step` of a chart states the distance between the labelled ticks of the value axis. The percentage-stacked kinds, and the pie and doughnut kinds, take no stated step.",
+    "evidence": [
+      "docs/specification/charts.md",
+      "tests/charts.rs",
+      "tests/chart_axis_labels.rs"
+    ]
   }
 }

@@ -42,8 +42,20 @@ and [value-domain](attributes/values.md) inventories.
   [package test](../../tests/charts.rs) and the
   [native test](../../tests/chart_axis_labels.rs). The placement of the automatic
   bound and of the labels of clipped bars is not compared with Office. The
-  logarithmic base, the orientation, and the major and minor units have no
-  argument.
+  logarithmic base, the orientation and the minor unit have no argument.
+- [x] `axis.value.step`: a positive finite number, written as the `majorUnit` of
+  the value axis and used by native output as the distance between labelled
+  ticks and major gridlines, which start at the minimum in force. A step that
+  divides the range into more than 100 intervals is rejected: at evaluation when
+  both bounds are stated, and otherwise by native output, where the range
+  follows from the data. Editable output with an unstated bound writes such a
+  step unchecked. The inapplicable kinds are those of the stated range. See the
+  [package test](../../tests/charts.rs) and the
+  [native test](../../tests/chart_axis_labels.rs).
+- [x] Native output warns once for each chart whose category labels, value axis
+  labels, legend entries or data labels are reduced below the label size to fit
+  their places; see the [native test](../../tests/chart_axis_labels.rs). The
+  titles are not reported.
 - [x] `colors`: arrays and property tables normalize every color member.
 - [x] `series1`, `series2`, ... lookup; default palette and missing-color behavior.
 - [x] `background`: normalized chart-area color.

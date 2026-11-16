@@ -23,7 +23,8 @@ use geometry::Rectangle;
 use text::ChartMeasurement;
 
 pub(super) struct ChartBlock {
-    content: TextPage,
+    content: PlannedChart,
+    name: String,
     pub height: f64,
     pub before: f64,
     pub after: f64,
@@ -46,7 +47,8 @@ impl ChartBlock {
         }
         if width <= 0.0 || height <= 0.0 {
             return Ok(Self {
-                content: TextPage::default(),
+                content: PlannedChart::default(),
+                name: String::new(),
                 height: 0.0,
                 before: 0.0,
                 after: 0.0,
@@ -71,6 +73,7 @@ impl ChartBlock {
         });
         Ok(Self {
             content,
+            name: crate::properties::text(&element.attributes, "name"),
             height,
             before: paragraph.spacing_before,
             after: paragraph.spacing_after,
@@ -80,9 +83,20 @@ impl ChartBlock {
     pub fn place(&self, page: &mut TextPage, left: f64, top: f64) {
         page.place_anchors(&self.anchors, [left, top]);
         page.append_content_at(
-            self.content.clone(),
+            self.content.page.clone(),
             [round_coordinate(left), round_coordinate(top)],
         );
+    }
+    /// The warning for labels reduced to fit, naming the chart by its name,
+    /// where it has one, and by the page on which it is placed.
+    pub fn reduced_labels_warning(&self, page_number: usize) -> Option<String> {
+        let chart = if self.name.is_empty() {
+            "a chart".to_owned()
+        } else {
+            format!("chart {:?}", self.name)
+        };
+        self.content
+            .reduced_labels_warning(&format!("{chart} on page {page_number}"))
     }
 }
 pub(crate) fn plan_slide(
@@ -91,7 +105,7 @@ pub(crate) fn plan_slide(
     element: &Element,
     theme: &crate::presentation::Theme,
     measurer: &mut TextMeasurer<'_>,
-) -> Result<TextPage, LayoutError> {
+) -> Result<PlannedChart, LayoutError> {
     let mut chart = Chart::from_element(element)
         .map_err(|error| LayoutError::Unsupported(error.to_string()))?;
     theme.apply_chart_palette(&mut chart);
@@ -99,7 +113,7 @@ pub(crate) fn plan_slide(
         .map_err(LayoutError::Unsupported)?
         .map(|value| value as f64 / 12700.0);
     if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
-        return Ok(TextPage::default());
+        return Ok(PlannedChart::default());
     }
     let font = presentation_font(document, theme);
     plan_chart(
@@ -159,7 +173,7 @@ fn plan_chart(
     axis_label_color: &str,
     background: &str,
     measurer: &mut TextMeasurer<'_>,
-) -> Result<TextPage, LayoutError> {
+) -> Result<PlannedChart, LayoutError> {
     if !matches!(
         chart.kind.as_str(),
         "column"
@@ -186,6 +200,7 @@ fn plan_chart(
         axis_label_color: axis_label_color.into(),
         background: background.into(),
         page: TextPage::default(),
+        reduced_labels: Default::default(),
     };
     let layout = planner.measurement.measure_layout(
         chart,
@@ -214,7 +229,21 @@ fn plan_chart(
             *index = planner.page.lines.len() - 1;
         }
     }
-    Ok(planner.page)
+    Ok(PlannedChart {
+        page: planner.page,
+        reduced_labels: planner.reduced_labels,
+    })
+}
+#[derive(Default)]
+pub(crate) struct PlannedChart {
+    pub page: TextPage,
+    reduced_labels: std::collections::BTreeSet<text::LabelKind>,
+}
+impl PlannedChart {
+    /// The warning for labels reduced to fit, naming the chart as described.
+    pub fn reduced_labels_warning(&self, described: &str) -> Option<String> {
+        text::reduced_labels_warning(&self.reduced_labels, described)
+    }
 }
 struct ChartPlanner<'planner, 'assets> {
     measurement: ChartMeasurement<'planner, 'assets>,
@@ -222,6 +251,7 @@ struct ChartPlanner<'planner, 'assets> {
     axis_label_color: String,
     background: String,
     page: TextPage,
+    reduced_labels: std::collections::BTreeSet<text::LabelKind>,
 }
 impl ChartPlanner<'_, '_> {
     fn fill(&mut self, bounds: Rectangle, color: &str) {

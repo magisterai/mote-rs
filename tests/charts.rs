@@ -479,3 +479,80 @@ fn a_stated_value_range_warns_only_where_the_chart_kind_has_no_free_range() {
         }
     }
 }
+
+#[test]
+fn a_stated_value_step_is_normalized_and_written_as_the_major_unit() {
+    let chart = |kind: &str, value_axis: &str| {
+        format!(
+            "#chart(kind='{kind}',axis={{value={{{value_axis}}}}},data={{categories={{'A','B'}},values={{50,120}}}})"
+        )
+    };
+    let document = mote::compile(&chart("column", "minimum=0,maximum=150,step='50'")).unwrap();
+    let model: Value = serde_json::from_str(&mote::json::to_json(&document).unwrap()).unwrap();
+    let value_axis = &find_member(&model, "axis").unwrap()["value"];
+    assert_eq!(value_axis["step"].as_f64(), Some(50.0));
+
+    for value_axis in [
+        "step=0",
+        "step=-10",
+        "step='wide'",
+        "step=true",
+        "step='Inf'",
+        "minimum=0,maximum=150,step=1",
+    ] {
+        assert!(
+            mote::compile(&chart("column", value_axis)).is_err(),
+            "{value_axis}"
+        );
+    }
+    assert!(mote::compile(&chart("column", "minimum=0,maximum=150,step=1.5")).is_ok());
+
+    for (kind, value_axis, major_unit) in [
+        (
+            "column",
+            "minimum=0,maximum=150,step=50",
+            r#"<c:majorUnit val="50"/>"#,
+        ),
+        ("bar", "step=2.5", r#"<c:majorUnit val="2.5"/>"#),
+        ("line", "maximum=150", ""),
+        ("percent_stacked_column", "step=50", ""),
+        ("pie", "step=50", ""),
+    ] {
+        let source = chart(kind, value_axis);
+        let slide = format!(
+            "#slide[#box(position={{x=pt(10),y=pt(10),width=pt(300),height=pt(200)}})[{source}]]"
+        );
+        let deck = mote::compile(&slide).unwrap();
+        for xml in [
+            chart_part(
+                &mote::docx::emit(&mote::compile(&source).unwrap()).unwrap(),
+                "word/charts/chart1.xml",
+            ),
+            chart_part(&mote::pptx::emit(&deck).unwrap(), "ppt/charts/chart1.xml"),
+        ] {
+            assert_eq!(
+                xml.matches("<c:majorUnit ").count(),
+                usize::from(!major_unit.is_empty()),
+                "{kind}: {xml}"
+            );
+            if !major_unit.is_empty() {
+                let expected = format!(r#"<c:crossBetween val="between"/>{major_unit}</c:valAx>"#);
+                assert!(xml.contains(&expected), "{kind}: {xml}");
+            }
+        }
+        let warnings = mote::pptx::emit_with_warnings(&deck).unwrap().warnings;
+        let inapplicable = matches!(kind, "percent_stacked_column" | "pie");
+        assert_eq!(
+            warnings
+                .iter()
+                .filter(|warning| warning.contains("axis.value.step has no effect on"))
+                .count(),
+            usize::from(inapplicable),
+            "{kind}: {warnings:?}"
+        );
+        assert!(
+            inapplicable || !warnings.iter().any(|warning| warning.contains("chart")),
+            "{kind}: {warnings:?}"
+        );
+    }
+}

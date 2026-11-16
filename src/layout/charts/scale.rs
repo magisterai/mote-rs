@@ -43,12 +43,16 @@ impl Scale {
         0.0_f64.clamp(self.minimum, self.maximum)
     }
     /// The ticks of a stated range start at its minimum, which need not be a
-    /// multiple of the step, and a label then needs the digits of the minimum.
+    /// multiple of the step, and a stated step need not be a single digit. A
+    /// label then needs the digits of both.
     pub fn label_unit(self) -> f64 {
-        let mut unit = self.step;
+        let whole = |quotient: f64| (quotient - quotient.round()).abs() < 1e-6;
+        let mut unit = 10.0_f64.powf(self.step.log10().floor());
+        if !unit.is_finite() || unit <= 0.0 || whole(self.step / unit) {
+            unit = self.step;
+        }
         for _ in 0..6 {
-            let multiple = self.minimum / unit;
-            if (multiple - multiple.round()).abs() < 1e-6 {
+            if whole(self.minimum / unit) && whole(self.step / unit) {
                 break;
             }
             unit /= 10.0;
@@ -57,7 +61,9 @@ impl Scale {
     }
     pub fn for_chart(chart: &Chart, length: f64, horizontal: bool) -> Self {
         let automatic = Self::automatic_for_chart(chart, length, horizontal);
-        if (chart.value_minimum.is_none() && chart.value_maximum.is_none())
+        if (chart.value_minimum.is_none()
+            && chart.value_maximum.is_none()
+            && chart.value_step.is_none())
             || automatic.validate().is_err()
         {
             return automatic;
@@ -67,6 +73,7 @@ impl Scale {
         automatic.with_stated_range(
             chart.value_minimum,
             chart.value_maximum,
+            chart.value_step,
             length / chart.label_scale(),
             horizontal,
         )
@@ -79,6 +86,7 @@ impl Scale {
         self,
         stated_minimum: Option<f64>,
         stated_maximum: Option<f64>,
+        stated_step: Option<f64>,
         length: f64,
         horizontal: bool,
     ) -> Self {
@@ -96,11 +104,13 @@ impl Scale {
         } else {
             minimum + span
         });
-        let step = if horizontal {
-            horizontal_step(maximum - minimum, length)
-        } else {
-            step_at_least((maximum - minimum) / vertical_parts(length))
-        };
+        let step = stated_step.unwrap_or_else(|| {
+            if horizontal {
+                horizontal_step(maximum - minimum, length)
+            } else {
+                step_at_least((maximum - minimum) / vertical_parts(length))
+            }
+        });
         Self {
             minimum: if stated_minimum.is_some() {
                 minimum
@@ -113,7 +123,7 @@ impl Scale {
                 minimum + ((maximum - minimum) / step - 1e-9).ceil() * step
             },
             step,
-            clips: true,
+            clips: stated_minimum.is_some() || stated_maximum.is_some(),
         }
     }
     fn automatic_for_chart(chart: &Chart, length: f64, horizontal: bool) -> Self {
@@ -182,6 +192,12 @@ impl Scale {
         {
             return Err(super::LayoutError::InvalidGeometry(
                 "chart scale must be finite and increasing",
+            ));
+        }
+        if (self.maximum - self.minimum) / self.step > crate::charts::MAXIMUM_VALUE_INTERVALS + 1e-9
+        {
+            return Err(super::LayoutError::InvalidGeometry(
+                "chart axis.value.step divides the value range into more than 100 intervals",
             ));
         }
         Ok(self)

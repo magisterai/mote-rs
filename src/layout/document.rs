@@ -123,6 +123,7 @@ pub(super) fn place_blocks(
                     geometry.column_left(cursor.column_index),
                     cursor.y,
                 );
+                warnings.extend(chart.reduced_labels_warning(cursor.page_number));
                 cursor.y += chart.height;
                 cursor.body_started = true;
                 columns.note(cursor, geometry);
