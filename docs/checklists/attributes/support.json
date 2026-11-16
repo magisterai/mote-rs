@@ -2717,7 +2717,7 @@
   },
   "p:CT_TLCommonTimeNodeData/stCondLst": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2726,7 +2726,7 @@
   },
   "p:CT_TLCommonTimeNodeData/childTnLst": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2735,7 +2735,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@id": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2744,7 +2744,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@presetID": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2753,7 +2753,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@presetClass": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2762,7 +2762,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@presetSubtype": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2771,7 +2771,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@dur": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2780,7 +2780,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@accel": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2789,7 +2789,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@decel": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2798,7 +2798,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@restart": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2807,7 +2807,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@fill": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2816,7 +2816,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@grpId": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2825,7 +2825,7 @@
   },
   "p:CT_TLCommonTimeNodeData/@nodeType": {
     "status": "partial",
-    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, wipe, appear, grow or shrink, spin or a custom path. The subtype of a wipe names its edge.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2942,7 +2942,7 @@
   },
   "p:CT_TLAnimateEffectBehavior/cBhvr": {
     "status": "partial",
-    "note": "The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name.",
+    "note": "The effects `fade_in` and `fade_out` write the fade filter, and `wipe_in` and `wipe_out` the wipe filter from the edge `from`. No other filter has a Mote name.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2951,7 +2951,7 @@
   },
   "p:CT_TLAnimateEffectBehavior/@transition": {
     "status": "partial",
-    "note": "The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name.",
+    "note": "The effects `fade_in` and `fade_out` write the fade filter, and `wipe_in` and `wipe_out` the wipe filter from the edge `from`. No other filter has a Mote name.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2960,7 +2960,7 @@
   },
   "p:CT_TLAnimateEffectBehavior/@filter": {
     "status": "partial",
-    "note": "The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name.",
+    "note": "The effects `fade_in` and `fade_out` write the fade filter, and `wipe_in` and `wipe_out` the wipe filter from the edge `from`. No other filter has a Mote name.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -3050,7 +3050,7 @@
   },
   "p:CT_TLSetBehavior/cBhvr": {
     "status": "partial",
-    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "note": "The effects `appear`, `disappear`, `fade_in`, `fade_out`, `wipe_in` and `wipe_out` set the visibility of their object. No other property is set.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -3059,7 +3059,7 @@
   },
   "p:CT_TLSetBehavior/to": {
     "status": "partial",
-    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "note": "The effects `appear`, `disappear`, `fade_in`, `fade_out`, `wipe_in` and `wipe_out` set the visibility of their object. No other property is set.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -3068,7 +3068,7 @@
   },
   "p:CT_TLAnimVariant/strVal": {
     "status": "partial",
-    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "note": "The effects `appear`, `disappear`, `fade_in`, `fade_out`, `wipe_in` and `wipe_out` set the visibility of their object. No other property is set.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -3077,7 +3077,7 @@
   },
   "p:CT_TLAnimVariantStringVal/@val": {
     "status": "partial",
-    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "note": "The effects `appear`, `disappear`, `fade_in`, `fade_out`, `wipe_in` and `wipe_out` set the visibility of their object. No other property is set.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",

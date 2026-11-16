@@ -39,11 +39,15 @@ The objects of a slide are animated on one clock, which starts when the slide
 is first shown. The [language definition](../specification/presentations.md#animation)
 is covered by [model tests](../../tests/presentations.rs), and the output by
 [slide rendering tests](../../tests/presentation_rendering.rs) and
-[command-line tests](../../tests/cli.rs).
+[command-line tests](../../tests/cli.rs). The [wipe tests](../../tests/wipe_effects.rs)
+cover the model and the output of `wipe_in` and `wipe_out`.
 
 - [x] `animate` on a [box](box.md), a [shape](shape.md), a [line](line.md) and
   a [group](group.md): one effect, or a list of effects.
-- [x] `effect`: fade_in, fade_out, appear, disappear, move, scale, rotate.
+- [x] `effect`: fade_in, fade_out, wipe_in, wipe_out, appear, disappear, move,
+  scale, rotate.
+- [x] `from` of `wipe_in` and `wipe_out`: left, right, top, bottom; left where
+  omitted.
 - [x] `start`, `duration`: seconds, not negative; a start of zero and a
   duration of half a second where omitted. `appear` and `disappear` take no
   duration.
@@ -55,18 +59,22 @@ is covered by [model tests](../../tests/presentations.rs), and the output by
   option, which takes precedence over it.
 - [x] `--frames RATE`, with `--from` and `--to`: numbered PNG frames.
 - [ ] Effects started by a click, repetition, reversal, triggers, curved paths,
-  colour changes, builds by paragraph and sound have no Mote argument.
+  colour changes, builds by paragraph and sound have no Mote argument. The
+  filters of an effect other than fade and wipe have none.
 - [ ] Transition effects between slides have no Mote argument.
 
 A slide rendered without a time is the slide as authored, with every effect
 disregarded. At a time, native PDF and PNG draw each object as it stands then:
-an object is out of view before its first `fade_in` or `appear`, a `move` is
-exact, and a faint, enlarged or turned object is drawn as one layer, so that
-the parts of a group do not show through one another. PNG resamples an
+an object is out of view before its first `fade_in`, `wipe_in` or `appear`, a
+`move` is exact, and a faint, enlarged or turned object is drawn as one layer,
+so that the parts of a group do not show through one another. An object under
+a wipe is clipped at the advancing side of the wipe, within its layer and
+after its displacement. PNG resamples an
 enlarged or turned layer; PDF keeps its vectors.
 
 PPTX writes the effects as a timing tree in the form PowerPoint itself writes:
-every effect starts with the slide after a delay equal to its `start`. Easing
+every effect starts with the slide after a delay equal to its `start`. A wipe
+is the Wipe entrance or exit of PowerPoint from the edge `from`. Easing
 is the PowerPoint model of speed gathered and lost over half the duration, and
 native output follows the same curve. PowerPoint opens the tree and reports
 each effect with its kind, target, duration and path. A value computed from

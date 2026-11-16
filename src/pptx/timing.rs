@@ -5,7 +5,7 @@
 //! start with that step after a delay equal to its own start.
 use crate::{
     model::{Content, Element, ElementKind},
-    presentation::animation::{self, Effect, EffectKind},
+    presentation::animation::{self, Edge, Effect, EffectKind},
 };
 use std::collections::BTreeMap;
 
@@ -81,21 +81,35 @@ impl Timeline {
                 )
             };
             let outer = node();
+            // A wipe is the fade of PowerPoint with another preset and filter;
+            // the subtype of the preset names the edge as the filter does.
+            let (transition, subtype, filter) = match effect.kind {
+                EffectKind::WipeIn(edge) | EffectKind::WipeOut(edge) => {
+                    let (subtype, filter) = match edge {
+                        Edge::Left => (8, "wipe(left)"),
+                        Edge::Right => (2, "wipe(right)"),
+                        Edge::Top => (1, "wipe(up)"),
+                        Edge::Bottom => (4, "wipe(down)"),
+                    };
+                    (22, subtype, filter)
+                }
+                _ => (10, 0, "fade"),
+            };
             let (preset, class, behaviors) = match effect.kind {
-                EffectKind::FadeIn => (
-                    10,
+                EffectKind::FadeIn | EffectKind::WipeIn(_) => (
+                    transition,
                     "entr",
                     format!(
-                        r#"{}<p:animEffect transition="in" filter="fade"><p:cBhvr><p:cTn id="{}" dur="{duration}"/>{shape}</p:cBhvr></p:animEffect>"#,
+                        r#"{}<p:animEffect transition="in" filter="{filter}"><p:cBhvr><p:cTn id="{}" dur="{duration}"/>{shape}</p:cBhvr></p:animEffect>"#,
                         visibility(node(), 0, "visible"),
                         node()
                     ),
                 ),
-                EffectKind::FadeOut => (
-                    10,
+                EffectKind::FadeOut | EffectKind::WipeOut(_) => (
+                    transition,
                     "exit",
                     format!(
-                        r#"<p:animEffect transition="out" filter="fade"><p:cBhvr><p:cTn id="{}" dur="{duration}"/>{shape}</p:cBhvr></p:animEffect>{}"#,
+                        r#"<p:animEffect transition="out" filter="{filter}"><p:cBhvr><p:cTn id="{}" dur="{duration}"/>{shape}</p:cBhvr></p:animEffect>{}"#,
                         node(),
                         visibility(node(), duration - 1, "hidden")
                     ),
@@ -177,7 +191,7 @@ impl Timeline {
                 "withEffect"
             };
             output.push_str(&format!(
-                r#"<p:par><p:cTn id="{outer}" presetID="{preset}" presetClass="{class}" presetSubtype="0"{pace} fill="hold"{build} nodeType="{node_type}"><p:stCondLst><p:cond delay="{}"/></p:stCondLst><p:childTnLst>{behaviors}</p:childTnLst></p:cTn></p:par>"#,
+                r#"<p:par><p:cTn id="{outer}" presetID="{preset}" presetClass="{class}" presetSubtype="{subtype}"{pace} fill="hold"{build} nodeType="{node_type}"><p:stCondLst><p:cond delay="{}"/></p:stCondLst><p:childTnLst>{behaviors}</p:childTnLst></p:cTn></p:par>"#,
                 milliseconds(effect.start)
             ));
         }

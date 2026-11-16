@@ -264,14 +264,23 @@ through the second half.
 | --- | --- | --- |
 | `fade_in` | | The object comes into view by degrees. |
 | `fade_out` | | The object passes out of view by degrees. |
+| `wipe_in` | `from` | The object comes into view progressively, beginning at the edge `from`. |
+| `wipe_out` | `from` | The object passes out of view progressively, beginning at the edge `from`. |
 | `appear` | no `duration` | The object comes into view at `start`. |
 | `disappear` | no `duration` | The object passes out of view at `start`. |
 | `move` | `by` required | The object is displaced by the lengths `x` and `y` of `by`, of either sign. |
 | `scale` | `to` required | The object is enlarged about its centre by the positive factor `to`. |
 | `rotate` | `by` required | The object is turned clockwise about its centre by `by` degrees. |
 
-An object whose first effect upon its visibility is `fade_in` or `appear` is
-out of view until that effect begins. The effects of one object accumulate: a
+The extent of an object is the smallest upright rectangle about its frame, and
+that of a group the smallest about the extents of its members. `from` names an
+edge of the extent, is `left`, `right`, `top` or `bottom`, and is `left` where
+omitted. A `wipe_in` that is a fraction complete shows the part of the object
+within that fraction of the extent, measured from the edge `from`; a `wipe_out`
+that is a fraction complete hides that part and shows the rest.
+
+An object whose first effect upon its visibility is `fade_in`, `wipe_in` or
+`appear` is out of view until that effect begins. The effects of one object accumulate: a
 second `move` begins where the first ended. An effect on a group acts upon the
 group as one object. An argument that an effect does not take is invalid.
 

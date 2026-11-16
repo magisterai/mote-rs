@@ -14,6 +14,8 @@ which the source is rendered, so that any value may be computed from it.
        animate = { effect = "fade_in", duration = 1 })[
     #heading(level = 1)[Results]
   ]
+  #line(from = { x = inch(0.7), y = inch(1.6) }, to = { x = inch(12.7), y = inch(1.6) },
+        animate = { effect = "wipe_in", from = "left", start = 0.5, duration = 1 })
   #shape(position = { x = inch(0.7), y = inch(2), width = inch(2), height = inch(1) }, fill = "#2563eb",
          animate = {
            { effect = "move", by = { x = inch(8) }, start = 1, duration = 2, easing = "ease_in_out" },
@@ -29,21 +31,23 @@ which the source is rendered, so that any value may be computed from it.
 - The `animate` argument belongs to a box, a shape, a line and a group. Its
   value is one effect or a list of effects. A box is animated whatever it
   holds: text, an image, a table or a chart.
-- The `effect` is `fade_in`, `fade_out`, `appear`, `disappear`, `move`, `scale`
-  or `rotate`.
+- The `effect` is `fade_in`, `fade_out`, `wipe_in`, `wipe_out`, `appear`,
+  `disappear`, `move`, `scale` or `rotate`.
 - The `start` and `duration` are numbers of seconds. A start is 0 and a duration
   0.5 where omitted; `appear` and `disappear` take no duration.
 - The `easing` is `linear`, `ease_in`, `ease_out` or `ease_in_out`.
 - A `move` requires `by`, a table of signed `x` and `y` lengths. A `rotate`
   requires `by`, a number of clockwise degrees. A `scale` requires `to`, a
   positive factor.
-- An object whose first effect is `fade_in` or `appear` is out of view until
-  that effect begins. A second `move` begins where the first ended.
+- A `wipe_in` reveals an object progressively from the edge `from`, and a
+  `wipe_out` hides it progressively from that edge. The `from` is `left`,
+  `right`, `top` or `bottom`, and `left` where omitted.
+- An object whose first effect is `fade_in`, `wipe_in` or `appear` is out of
+  view until that effect begins. A second `move` begins where the first ended.
 - A `scale` begins at the size as authored and grows or shrinks about the
   centre of the object; `to = 1.2` ends a fifth larger and `to = 0.5` at half
-  size. No effect grows an object from one edge: a bar that fills from the left
-  is a shape whose width is computed from `time`, as below, and plays in frames
-  but not in PowerPoint.
+  size. A bar that fills from the left, or a line that is drawn from one end,
+  is the whole object with a `wipe_in`, as the line above.
 - Effects of one object whose intervals overlap play together, so a `move` and
   a `scale` with the same `start` make one motion.
 - An effect on a group acts on the group as one object, so that a faint group
@@ -115,6 +119,8 @@ mote deck.mote --format png --frames 30 --from 1 --to 2 --dpi 144 -o frame
   click, a repeated effect and a curved path are not available.
 - All slides share one value of `time`, each on its own clock.
 - A group has no opacity of its own; `fade_in` and `fade_out` make it faint.
+- A wipe reveals an object at its full size and never stretches it. A rounded
+  end or an arrowhead therefore appears only as the wipe reaches it.
 - A chart rescales its axis to its data, so a chart whose values depend on
   `time` changes its scale; bars drawn as shapes keep a fixed scale.
 - A PNG of an enlarged or turned object is resampled and slightly soft. A PDF

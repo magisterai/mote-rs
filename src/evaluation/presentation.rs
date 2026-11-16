@@ -234,7 +234,7 @@ pub(super) fn seconds(value: Value, span: Span, name: &str) -> Result<Value, Dia
 /// Normalizes the `animate` argument of an object to a list of effects. One
 /// effect may be given alone, without the list about it.
 pub(super) fn animation(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    use crate::presentation::animation::{EASING_NAMES, EFFECT_NAMES};
+    use crate::presentation::animation::{EASING_NAMES, EDGE_NAMES, EFFECT_NAMES};
     let entries = match value {
         Value::Array(entries) => entries,
         Value::Object(fields) if fields.contains_key("effect") => vec![Value::Object(fields)],
@@ -264,6 +264,9 @@ pub(super) fn animation(value: Value, span: Span) -> Result<Value, Diagnostic> {
                     }
                     ("duration", _) => seconds(value, span, "animate duration")?,
                     ("easing", _) => normalize_enum(value, span, "animate easing", &EASING_NAMES)?,
+                    ("from", "wipe_in" | "wipe_out") => {
+                        normalize_enum(value, span, "animate from", &EDGE_NAMES)?
+                    }
                     ("by", "move") => displacement(value, span)?,
                     ("by", "rotate") => finite(value, span, "animate rotate by")?,
                     ("to", "scale") => match finite(value, span, "animate scale to")? {

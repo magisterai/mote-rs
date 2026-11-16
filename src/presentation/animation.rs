@@ -7,10 +7,77 @@ use crate::{
     properties::{number, object, text},
 };
 
+/// An edge of the extent of an object.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum Edge {
+    Left,
+    Right,
+    Top,
+    Bottom,
+}
+
+impl Edge {
+    fn opposite(self) -> Self {
+        match self {
+            Self::Left => Self::Right,
+            Self::Right => Self::Left,
+            Self::Top => Self::Bottom,
+            Self::Bottom => Self::Top,
+        }
+    }
+}
+
+/// The part of an object that a wipe leaves in view: the stated fraction of
+/// the extent of the object, measured from the stated edge.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub(crate) struct Reveal {
+    pub edge: Edge,
+    pub fraction: f64,
+}
+
+impl Reveal {
+    /// Returns the left, top, width and height of the region in which the
+    /// object is drawn, for an extent given by its left, top, right and
+    /// bottom. The region is bounded at the advancing side of the wipe alone
+    /// and passes the extent by the margin on the other sides, since a stroke
+    /// lies partly outside the extent and the extent of a straight line has no
+    /// breadth.
+    pub fn clip(&self, [left, top, right, bottom]: [f64; 4], margin: f64) -> [f64; 4] {
+        let horizontal = (right - left) * self.fraction;
+        let vertical = (bottom - top) * self.fraction;
+        let [left, top, right, bottom] = match self.edge {
+            Edge::Left => [
+                left - margin,
+                top - margin,
+                left + horizontal,
+                bottom + margin,
+            ],
+            Edge::Right => [
+                right - horizontal,
+                top - margin,
+                right + margin,
+                bottom + margin,
+            ],
+            Edge::Top => [left - margin, top - margin, right + margin, top + vertical],
+            Edge::Bottom => [
+                left - margin,
+                bottom - vertical,
+                right + margin,
+                bottom + margin,
+            ],
+        };
+        [left, top, right - left, bottom - top]
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub(crate) enum EffectKind {
     FadeIn,
     FadeOut,
+    /// A progressive revealing that begins at the edge.
+    WipeIn(Edge),
+    /// A progressive hiding that begins at the edge.
+    WipeOut(Edge),
     Appear,
     Disappear,
     /// A displacement in drawing units.
@@ -59,18 +126,25 @@ impl Effect {
         }
     }
 
-    fn concerns_opacity(&self) -> bool {
+    fn concerns_visibility(&self) -> bool {
         matches!(
             self.kind,
-            EffectKind::FadeIn | EffectKind::FadeOut | EffectKind::Appear | EffectKind::Disappear
+            EffectKind::FadeIn
+                | EffectKind::FadeOut
+                | EffectKind::WipeIn(_)
+                | EffectKind::WipeOut(_)
+                | EffectKind::Appear
+                | EffectKind::Disappear
         )
     }
 }
 
 /// The names of the effects, as the evaluator admits them.
-pub(crate) const EFFECT_NAMES: [&str; 7] = [
+pub(crate) const EFFECT_NAMES: [&str; 9] = [
     "fade_in",
     "fade_out",
+    "wipe_in",
+    "wipe_out",
     "appear",
     "disappear",
     "move",
@@ -78,6 +152,7 @@ pub(crate) const EFFECT_NAMES: [&str; 7] = [
     "rotate",
 ];
 pub(crate) const EASING_NAMES: [&str; 4] = ["linear", "ease_in", "ease_out", "ease_in_out"];
+pub(crate) const EDGE_NAMES: [&str; 4] = ["left", "right", "top", "bottom"];
 pub(crate) const DEFAULT_DURATION: f64 = 0.5;
 
 /// Reads the normalized `animate` attribute of an object, in order of start.
@@ -96,9 +171,17 @@ pub(crate) fn effects(attributes: &Properties) -> Vec<Effect> {
                     .and_then(|by| super::units(by.get(name)))
                     .unwrap_or(0)
             };
+            let edge = match text(fields, "from").as_str() {
+                "right" => Edge::Right,
+                "top" => Edge::Top,
+                "bottom" => Edge::Bottom,
+                _ => Edge::Left,
+            };
             let kind = match text(fields, "effect").as_str() {
                 "fade_in" => EffectKind::FadeIn,
                 "fade_out" => EffectKind::FadeOut,
+                "wipe_in" => EffectKind::WipeIn(edge),
+                "wipe_out" => EffectKind::WipeOut(edge),
                 "appear" => EffectKind::Appear,
                 "disappear" => EffectKind::Disappear,
                 "move" => EffectKind::Move([displacement("x"), displacement("y")]),
@@ -138,6 +221,9 @@ pub(crate) struct Appearance {
     pub scale: f64,
     /// A clockwise turn in degrees.
     pub rotation: f64,
+    /// The part in view of an object that a wipe has revealed or hidden in
+    /// part.
+    pub reveal: Option<Reveal>,
 }
 
 impl Default for Appearance {
@@ -147,6 +233,7 @@ impl Default for Appearance {
             offset: [0.0; 2],
             scale: 1.0,
             rotation: 0.0,
+            reveal: None,
         }
     }
 }
@@ -154,7 +241,7 @@ impl Default for Appearance {
 impl Appearance {
     /// Returns the appearance of an object at a time, or the object as
     /// authored where no time is given. An object whose first effect upon its
-    /// opacity brings it into view is out of view until that effect begins.
+    /// visibility brings it into view is out of view until that effect begins.
     pub fn at(element: &Element, time: Option<f64>) -> Self {
         let mut appearance = Self::default();
         if let Some(offset) = object(&element.attributes, "offset") {
@@ -172,16 +259,38 @@ impl Appearance {
         let effects = effects(&element.attributes);
         if effects
             .iter()
-            .find(|effect| effect.concerns_opacity())
-            .is_some_and(|effect| matches!(effect.kind, EffectKind::FadeIn | EffectKind::Appear))
+            .find(|effect| effect.concerns_visibility())
+            .is_some_and(|effect| {
+                matches!(
+                    effect.kind,
+                    EffectKind::FadeIn | EffectKind::WipeIn(_) | EffectKind::Appear
+                )
+            })
         {
             appearance.opacity = 0.0;
         }
         for effect in effects.iter().filter(|effect| time >= effect.start) {
             let progress = effect.progress(time);
+            if effect.concerns_visibility() {
+                appearance.reveal = None;
+            }
             match effect.kind {
                 EffectKind::FadeIn => appearance.opacity = progress,
                 EffectKind::FadeOut => appearance.opacity = 1.0 - progress,
+                EffectKind::WipeIn(edge) => {
+                    appearance.opacity = 1.0;
+                    appearance.reveal = (progress < 1.0).then_some(Reveal {
+                        edge,
+                        fraction: progress,
+                    });
+                }
+                EffectKind::WipeOut(edge) => {
+                    appearance.opacity = if progress < 1.0 { 1.0 } else { 0.0 };
+                    appearance.reveal = (progress > 0.0).then_some(Reveal {
+                        edge: edge.opposite(),
+                        fraction: 1.0 - progress,
+                    });
+                }
                 EffectKind::Appear => appearance.opacity = 1.0,
                 EffectKind::Disappear => appearance.opacity = 0.0,
                 EffectKind::Move(by) => {

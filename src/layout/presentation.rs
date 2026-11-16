@@ -153,6 +153,7 @@ fn plan(
                 images,
                 warnings: &mut deck.warnings,
                 time: deck.time,
+                wipe_margin: geometry.width + geometry.height,
             },
             &mut page,
         )?;
@@ -178,11 +179,16 @@ struct Placement<'deck, 'measurer> {
     images: &'deck mut crate::media::ImageCatalog,
     warnings: &'deck mut Vec<String>,
     time: Option<f64>,
+    /// The distance by which the region of a wipe passes the extent of its
+    /// object on the sides that the wipe does not cut.
+    wipe_margin: f64,
 }
 
 /// Places objects in their order. An object or a group whose appearance at
 /// the time of rendering differs from the authored one is displaced, and is
-/// drawn as a layer where it is enlarged, turned or faint.
+/// drawn as a layer where it is enlarged, turned or faint. An object that a
+/// wipe leaves partly in view is clipped within its layer, after its
+/// displacement, so that the wipe is enlarged and turned with the object.
 fn place(
     content: &[Content],
     context: &mut Placement<'_, '_>,
@@ -209,19 +215,26 @@ fn place(
         }
         let layered =
             appearance.opacity < 1.0 || appearance.scale != 1.0 || appearance.rotation != 0.0;
+        let [left, top, right, bottom] = crate::presentation::extent(element)
+            .unwrap_or_default()
+            .map(|value| value as f64 / 12700.0);
+        let [left, right] = [left, right].map(|value| value + appearance.offset[0]);
+        let [top, bottom] = [top, bottom].map(|value| value + appearance.offset[1]);
         if layered {
-            let [left, top, right, bottom] = crate::presentation::extent(element)
-                .unwrap_or_default()
-                .map(|value| value as f64 / 12700.0);
             page.operations.push(PageOperation::PushLayer {
-                matrix: appearance.matrix([
-                    (left + right) / 2.0 + appearance.offset[0],
-                    (top + bottom) / 2.0 + appearance.offset[1],
-                ]),
+                matrix: appearance.matrix([(left + right) / 2.0, (top + bottom) / 2.0]),
                 opacity: appearance.opacity.min(1.0),
             });
         }
+        if let Some(reveal) = appearance.reveal {
+            page.operations.push(PageOperation::PushClip(
+                reveal.clip([left, top, right, bottom], context.wipe_margin),
+            ));
+        }
         page.append_content_at(piece, appearance.offset);
+        if appearance.reveal.is_some() {
+            page.operations.push(PageOperation::PopClip);
+        }
         if layered {
             page.operations.push(PageOperation::PopLayer);
         }
