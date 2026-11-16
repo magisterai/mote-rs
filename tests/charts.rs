@@ -101,6 +101,13 @@ fn invalid_chart_signatures_and_formatting_are_rejected_before_output() {
         "#chart(data={values={1}},gap_width=1.5)",
         "#chart(data={values={1}},overlap='-2.5')",
         "#chart(data={values={1}},style=17)",
+        "#chart(data={values={1}},text=pt(14))",
+        "#chart(data={values={1}},text='large')",
+        "#chart(data={values={1}},text={size=pt(0)})",
+        "#chart(data={values={1}},text={size=14})",
+        "#chart(data={values={1}},text={size='large'})",
+        "#chart(data={values={1}},text={size=pt(14),color='#ff0000'})",
+        "#chart(data={values={1}},text={font='Aptos'})",
     ] {
         assert!(mote::compile(source).is_err(), "{source}");
     }
@@ -218,5 +225,105 @@ fn unstyled_chart_rules_follow_the_office_default_chart_style() {
         );
         assert!(xml.contains(&gridlines), "{xml}");
         assert_eq!(xml.matches(&label_fill(label)).count(), 2, "{text}");
+    }
+}
+
+#[test]
+fn chart_text_size_is_a_positive_length_and_the_only_member() {
+    let document = mote::compile("#chart(data={values={1}},text={size='14pt'})").unwrap();
+    let mote::model::Content::Element(chart) = &document.content[0] else {
+        panic!("the document begins with the chart");
+    };
+    let mote::model::Value::Object(text) = &chart.attributes["text"] else {
+        panic!("the text argument remains a property table");
+    };
+    assert_eq!(text.len(), 1);
+    assert_eq!(text["size"].to_text(), "14pt");
+
+    let unknown_member = mote::compile("#chart(data={values={1}},text={size=pt(14),bold=true})")
+        .unwrap_err()
+        .to_string();
+    assert!(
+        unknown_member.contains("chart text accepts only size, not bold"),
+        "{unknown_member}"
+    );
+    let wrong_size = mote::compile("#chart(data={values={1}},text={size=pt(0)})")
+        .unwrap_err()
+        .to_string();
+    assert!(
+        wrong_size.contains("text.size must be a positive length"),
+        "{wrong_size}"
+    );
+    assert!(mote::compile("#chart(data={values={1}},text=pt(14))").is_err());
+}
+
+#[test]
+fn chart_text_size_sets_the_label_size_of_editable_charts() {
+    const DATA: &str =
+        "data={categories={'A','B'},series={{name='One',values={1,2}},{name='Two',values={2,3}}}}";
+    let chart = |arguments: &str| {
+        format!(
+            "#chart({DATA},title='Totals',axis={{value={{title='Units'}}}},data_labels=true{arguments})"
+        )
+    };
+    let slide = |chart: &str| {
+        format!(
+            "#presentation(size='wide')\n#slide[#box(position={{x=pt(10),y=pt(10),width=pt(600),height=pt(400)}})[{chart}]]"
+        )
+    };
+    let parts = |arguments: &str| {
+        let source = chart(arguments);
+        let word = mote::docx::emit_with_assets(
+            &mote::compile(&source).unwrap(),
+            &FileAssetResolver::new(".").unwrap(),
+            None,
+        )
+        .unwrap();
+        let slides = mote::pptx::emit_with_assets(
+            &mote::compile(&slide(&source)).unwrap(),
+            &FileAssetResolver::new(".").unwrap(),
+            None,
+        )
+        .unwrap();
+        assert!(word.warnings.is_empty(), "{:?}", word.warnings);
+        assert!(slides.warnings.is_empty(), "{:?}", slides.warnings);
+        [
+            chart_part(&word.bytes, "word/charts/chart1.xml"),
+            chart_part(&slides.bytes, "ppt/charts/chart1.xml"),
+        ]
+    };
+    for xml in parts("") {
+        assert_eq!(xml.matches(" sz=").count(), 1, "{xml}");
+        assert!(xml.contains(r#"<a:defRPr sz="1000">"#), "{xml}");
+    }
+    for xml in parts(",text={size=pt(10)}") {
+        assert_eq!(xml.matches(" sz=").count(), 1, "{xml}");
+    }
+    for xml in parts(",text={size=pt(14)}") {
+        // The two axes carry the axis label colour; the legend and the data
+        // labels state the size alone.
+        assert_eq!(
+            xml.matches(r#"<a:defRPr sz="1400"><a:solidFill>"#).count(),
+            2
+        );
+        assert!(
+            xml.contains(r#"<c:overlay val="0"/><c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="1400"/></a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr></c:legend>"#),
+            "{xml}"
+        );
+        assert!(
+            xml.contains(r#"<c:dLbls><c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="1400"/></a:pPr>"#),
+            "{xml}"
+        );
+        assert_eq!(xml.matches(r#" sz="1400""#).count(), 4, "{xml}");
+        // The chart space default and the title runs are as they are without the argument.
+        assert!(xml.contains(r#"<a:defRPr sz="1000">"#), "{xml}");
+        assert_eq!(
+            xml.matches(r#"<a:rPr lang="en-US"><a:solidFill>"#).count(),
+            2
+        );
+    }
+    for xml in parts(",text={size=pt(14)},title={text='Totals',size=pt(20)}") {
+        assert_eq!(xml.matches(r#"<a:rPr lang="en-US" sz="2000">"#).count(), 1);
+        assert_eq!(xml.matches(r#" sz="1400""#).count(), 4, "{xml}");
     }
 }

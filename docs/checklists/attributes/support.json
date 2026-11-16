@@ -3140,7 +3140,7 @@
   },
   "p:CT_SlideTransition/@advTm": {
     "status": "partial",
-    "note": "The `duration` of a slide writes the time after which the slide advances. No transition effect, speed or sound has a Mote argument.",
+    "note": "The `advance_after` of a slide writes the time after which the slide advances by itself. No transition effect, speed or sound has a Mote argument.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",

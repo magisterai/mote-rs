@@ -53,6 +53,7 @@ pub(super) fn normalize(name: &str, value: Value, span: Span) -> Result<Value, D
         "border" => border(value, span),
         "plot_area" | "gridlines" | "data_labels" => appearance(name, value, span),
         "gap_width" | "overlap" => integer(value, span, name),
+        "text" => text(value, span),
         _ => Ok(value),
     }
 }
@@ -125,6 +126,28 @@ fn title(value: Value, span: Span) -> Result<Value, Diagnostic> {
         fields.insert("color".into(), normalize_color(value, span, "title.color")?);
     }
     Ok(Value::Object(fields))
+}
+
+fn text(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    require_object(value, span, "text")?
+        .into_iter()
+        .map(|(name, value)| {
+            if name != "size" {
+                return Err(Diagnostic::new(
+                    span,
+                    format!("chart text accepts only size, not {name}"),
+                ));
+            }
+            match normalize_length(value, span, "text.size")? {
+                size @ Value::Length { value, .. } if value > 0.0 => Ok((name, size)),
+                _ => Err(Diagnostic::new(
+                    span,
+                    "text.size must be a positive length with a unit",
+                )),
+            }
+        })
+        .collect::<Result<Properties, Diagnostic>>()
+        .map(Value::Object)
 }
 
 fn legend(value: Value, span: Span) -> Result<Value, Diagnostic> {

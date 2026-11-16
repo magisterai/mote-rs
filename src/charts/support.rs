@@ -32,6 +32,7 @@ pub(crate) fn warnings(
         "plot_area",
         "gridlines",
         "data_labels",
+        "text",
         "gap_width",
         "overlap",
         "name",
@@ -59,6 +60,7 @@ pub(crate) fn warnings(
         ),
         ("plot_area", &["background", "fill", "color", "border"][..]),
         ("axis", &["category", "value"][..]),
+        ("text", &["size"][..]),
     ] {
         if let Some(properties) = crate::properties::object(attributes, name) {
             unknown(properties, fields, &format!("{path}.{name}"), warnings);

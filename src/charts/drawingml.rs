@@ -3,7 +3,7 @@ mod formatting;
 mod series;
 use super::{Chart, Error};
 use crate::xml::{HEADER, escape};
-use formatting::{chart_title, data_labels, shape_properties};
+use formatting::{chart_title, data_labels, label_text, shape_properties};
 
 pub(crate) const CONTENT_TYPE: &str =
     "application/vnd.openxmlformats-officedocument.drawingml.chart+xml";
@@ -38,8 +38,9 @@ pub(crate) fn write(chart: &Chart, options: &Options) -> Result<String, Error> {
     output.push_str("</c:plotArea>");
     if chart.legend.enabled {
         output.push_str(&format!(
-            r#"<c:legend><c:legendPos val="{}"/><c:layout/><c:overlay val="0"/></c:legend>"#,
-            escape(&chart.legend.position)?
+            r#"<c:legend><c:legendPos val="{}"/><c:layout/><c:overlay val="0"/>{}</c:legend>"#,
+            escape(&chart.legend.position)?,
+            label_text(chart, "")?
         ));
     }
     output.push_str(r#"<c:plotVisOnly val="1"/><c:dispBlanksAs val="gap"/><c:showDLblsOverMax val="0"/></c:chart>"#);
@@ -82,7 +83,7 @@ fn write_cartesian(chart: &Chart, options: &Options) -> Result<String, Error> {
     for (index, series) in chart.series.iter().enumerate() {
         output.push_str(&series::write(index, series, chart, series_kind)?);
     }
-    output.push_str(&data_labels(&chart.data_labels, &chart.kind)?);
+    output.push_str(&data_labels(chart)?);
     if series_kind == series::Kind::Bar {
         if let Some(gap) = chart.gap_width {
             output.push_str(&format!(r#"<c:gapWidth val="{gap}"/>"#));
@@ -119,7 +120,7 @@ fn write_pie(chart: &Chart) -> Result<String, Error> {
     let mut output = format!(
         r#"<c:{tag}><c:varyColors val="1"/>{}{}"#,
         series::write(0, series, chart, series::Kind::Pie)?,
-        data_labels(&chart.data_labels, &chart.kind)?
+        data_labels(chart)?
     );
     if chart.kind == "doughnut" {
         output.push_str(r#"<c:holeSize val="50"/>"#);

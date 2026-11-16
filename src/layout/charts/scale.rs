@@ -26,23 +26,30 @@ impl Scale {
                 step: 0.0,
             };
         }
+        // The step rules were measured for default labels, so a larger label
+        // sees a proportionally shorter axis.
+        let length = length / chart.label_scale();
         if percent {
-            return match (minimum < 0.0, maximum > 0.0) {
-                (true, true) => Self {
-                    minimum: -100.0,
-                    maximum: 100.0,
-                    step: 20.0,
-                },
-                (true, false) => Self {
-                    minimum: -100.0,
-                    maximum: 0.0,
-                    step: if horizontal { 20.0 } else { 10.0 },
-                },
-                _ => Self {
-                    minimum: 0.0,
-                    maximum: 100.0,
-                    step: if horizontal { 20.0 } else { 10.0 },
-                },
+            let (minimum, maximum, step) = match (minimum < 0.0, maximum > 0.0) {
+                (true, true) => (-100.0, 100.0, 20.0),
+                (true, false) => (-100.0, 0.0, if horizontal { 20.0 } else { 10.0 }),
+                _ => (0.0, 100.0, if horizontal { 20.0 } else { 10.0 }),
+            };
+            // A default chart keeps its percentage step at every height; larger
+            // labels on a vertical axis take the finest step that separates them.
+            let enlarged =
+                !horizontal && chart.label_size > crate::charts::DEFAULT_LABEL_SIZE && length > 0.0;
+            let step = [step, 20.0, 50.0]
+                .into_iter()
+                .find(|candidate| {
+                    *candidate >= step
+                        && (!enlarged || length * candidate / (maximum - minimum) >= 12.5)
+                })
+                .unwrap_or(100.0);
+            return Self {
+                minimum,
+                maximum,
+                step,
             };
         }
         if !horizontal {

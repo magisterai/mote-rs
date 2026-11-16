@@ -141,11 +141,12 @@ impl ChartPlanner<'_, '_> {
         &mut self,
         bounds: Rectangle,
         text: &str,
+        size: f64,
         alignment: &str,
     ) -> Result<(), LayoutError> {
         let previous =
             std::mem::replace(&mut self.measurement.color, self.axis_label_color.clone());
-        let result = self.text(bounds, text, 10.0, alignment, 0.0);
+        let result = self.text(bounds, text, size, alignment, 0.0);
         self.measurement.color = previous;
         result
     }

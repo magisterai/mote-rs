@@ -23,11 +23,13 @@ pub(super) fn position(chart: &Chart) -> &'static str {
     }
 }
 pub(super) fn key_width(chart: &Chart) -> f64 {
-    if chart.kind == "line" { 21.2 } else { 5.6 }
+    let width = if chart.kind == "line" { 21.2 } else { 5.6 };
+    width * chart.label_scale()
 }
 /// The distance from a key's left edge to its label, as Word and PowerPoint draw it.
 fn label_offset(chart: &Chart) -> f64 {
-    key_width(chart) + if chart.kind == "line" { 1.0 } else { 2.3 }
+    let gap = if chart.kind == "line" { 1.0 } else { 2.3 };
+    key_width(chart) + gap * chart.label_scale()
 }
 const ENTRY_GAP: f64 = 6.0;
 fn color_index(chart: &Chart, index: usize) -> usize {
@@ -61,11 +63,17 @@ impl ChartMeasurement<'_, '_> {
         let position = position(chart);
         let side = matches!(position, "left" | "right");
         let offset = label_offset(chart);
+        let label_scale = chart.label_scale();
+        let row_height = 18.0 * label_scale;
+        let entry_gap = ENTRY_GAP * label_scale;
         let mut widths = labels
             .iter()
-            .map(|label| self.text_width(label, 10.0).map(|width| width + 3.0))
+            .map(|label| {
+                self.text_width(label, chart.label_size)
+                    .map(|width| width + 3.0)
+            })
             .collect::<Result<Vec<_>, _>>()?;
-        let total_width = ENTRY_GAP * (labels.len() - 1) as f64
+        let total_width = entry_gap * (labels.len() - 1) as f64
             + widths.iter().map(|width| offset + width).sum::<f64>();
         if !side && total_width <= bounds.width {
             // Trailing text padding does not participate in centering.
@@ -75,9 +83,9 @@ impl ChartMeasurement<'_, '_> {
                 layout.legend_entries.push(LegendEntry {
                     index,
                     key: [left, bounds.top],
-                    text: Rectangle::new(left + offset, bounds.top, *width, 16.0),
+                    text: Rectangle::new(left + offset, bounds.top, *width, 16.0 * label_scale),
                 });
-                left += offset + width + ENTRY_GAP;
+                left += offset + width + entry_gap;
             }
             return Ok(());
         }
@@ -89,27 +97,31 @@ impl ChartMeasurement<'_, '_> {
                 widths[index].min((bounds.width - offset).max(1.0))
             };
             let entry_width = offset + widths[index];
-            let text_height =
-                super::text::text_height(&self.text_plan(label, 10.0, "left", widths[index])?);
+            let text_height = super::text::text_height(&self.text_plan(
+                label,
+                chart.label_size,
+                "left",
+                widths[index],
+            )?);
             if side
                 || rows
                     .last()
-                    .is_none_or(|row| row.width + ENTRY_GAP + entry_width > bounds.width)
+                    .is_none_or(|row| row.width + entry_gap + entry_width > bounds.width)
             {
                 rows.push(LegendRow::default());
             }
             let row = rows.last_mut().expect("legend row was allocated");
             if !row.indices.is_empty() {
-                row.width += ENTRY_GAP;
+                row.width += entry_gap;
             }
             row.indices.push(index);
             row.width += entry_width;
-            row.height = row.height.max(18.0_f64.max(text_height + 2.0));
+            row.height = row.height.max(row_height.max(text_height + 2.0));
         }
         let total_height: f64 = rows.iter().map(|row| row.height).sum();
         if !side {
-            let extra = (total_height - 18.0).max(0.0).min(
-                (layout.chart.height * 0.4 - 18.0)
+            let extra = (total_height - row_height).max(0.0).min(
+                (layout.chart.height * 0.4 - row_height)
                     .max(0.0)
                     .min((layout.plot.height - 1.0).max(0.0)),
             );
@@ -125,6 +137,7 @@ impl ChartMeasurement<'_, '_> {
         let row_scale = (bounds.height / total_height).min(1.0);
         let mut top = bounds.top + ((bounds.height - total_height * row_scale) / 2.0).max(0.0);
         for row in rows {
+            let key_height = row_height;
             let row_height = row.height * row_scale;
             let mut left = if side {
                 bounds.left + 2.0
@@ -134,7 +147,7 @@ impl ChartMeasurement<'_, '_> {
             for index in row.indices {
                 layout.legend_entries.push(LegendEntry {
                     index,
-                    key: [left, top + (row_height - 18.0) / 2.0],
+                    key: [left, top + (row_height - key_height) / 2.0],
                     text: Rectangle::new(
                         left + offset,
                         top,
@@ -142,7 +155,7 @@ impl ChartMeasurement<'_, '_> {
                         (row_height - 2.0).max(row_height / 2.0),
                     ),
                 });
-                left += offset + widths[index] + ENTRY_GAP;
+                left += offset + widths[index] + entry_gap;
             }
             top += row_height;
         }
@@ -152,17 +165,27 @@ impl ChartMeasurement<'_, '_> {
 
 impl ChartPlanner<'_, '_> {
     fn legend_key(&mut self, chart: &Chart, left: f64, top: f64, color: &str) {
+        let label_scale = chart.label_scale();
+        let middle = top + 8.0 * label_scale;
         if chart.kind == "line" {
             self.rule(
-                [left, top + 8.0],
-                [left + 21.2, top + 8.0],
+                [left, middle],
+                [left + 21.2 * label_scale, middle],
                 2.0,
                 color,
                 crate::layout::RuleRole::Generic,
             );
-            self.ellipse([left + 10.6, top + 8.0], [5.0, 5.0], 16, color);
+            self.ellipse([left + 10.6 * label_scale, middle], [5.0, 5.0], 16, color);
         } else {
-            self.fill(Rectangle::new(left, top + 5.2, 5.6, 5.6), color);
+            self.fill(
+                Rectangle::new(
+                    left,
+                    top + 5.2 * label_scale,
+                    5.6 * label_scale,
+                    5.6 * label_scale,
+                ),
+                color,
+            );
         }
     }
     pub(super) fn legend(
@@ -185,7 +208,13 @@ impl ChartPlanner<'_, '_> {
                 entry.key[1],
                 chart.color(color_index(chart, entry.index)),
             );
-            self.text(entry.text, labels[entry.index], 10.0, "left", 0.0)?;
+            self.text(
+                entry.text,
+                labels[entry.index],
+                chart.label_size,
+                "left",
+                0.0,
+            )?;
         }
         Ok(())
     }

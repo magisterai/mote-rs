@@ -87,13 +87,19 @@ impl ChartPlanner<'_, '_> {
                 self.fill(bar, chart.color(series_index));
                 if chart.data_labels.enabled {
                     let label = label(chart, series_index, category_index);
-                    let (bounds, alignment) = if horizontal {
-                        horizontal_label(bar, &chart.data_labels.position, value < 0.0)
+                    let place = if horizontal {
+                        horizontal_label
                     } else {
-                        vertical_label(bar, &chart.data_labels.position, value < 0.0)
+                        vertical_label
                     };
+                    let (bounds, alignment) = place(
+                        bar,
+                        &chart.data_labels.position,
+                        value < 0.0,
+                        chart.label_scale(),
+                    );
                     let first_label_operation = self.page.operations.len();
-                    self.text(bounds, &label, 10.0, alignment, 0.0)?;
+                    self.text(bounds, &label, chart.label_size, alignment, 0.0)?;
                     label_operations.extend(self.page.operations.drain(first_label_operation..));
                 }
             }
@@ -128,34 +134,55 @@ pub(super) fn label(chart: &Chart, series_index: usize, category_index: usize) -
     }
     parts.join(" ")
 }
-fn vertical_label(bar: Rectangle, position: &str, negative: bool) -> (Rectangle, &'static str) {
-    let width = (bar.width + 20.0).max(42.0);
+fn vertical_label(
+    bar: Rectangle,
+    position: &str,
+    negative: bool,
+    label_scale: f64,
+) -> (Rectangle, &'static str) {
+    let width = (bar.width + 20.0 * label_scale).max(42.0 * label_scale);
     let top = match position {
-        "ctr" => bar.top + bar.height / 2.0 - 8.0,
-        "inEnd" if negative => bar.top + bar.height - 18.0,
+        "ctr" => bar.top + bar.height / 2.0 - 8.0 * label_scale,
+        "inEnd" if negative => bar.top + bar.height - 18.0 * label_scale,
         "inEnd" => bar.top + 2.0,
         "inBase" if negative => bar.top + 2.0,
-        "inBase" => bar.top + bar.height - 18.0,
+        "inBase" => bar.top + bar.height - 18.0 * label_scale,
         _ if negative => bar.top + bar.height + 1.0,
-        _ => bar.top - 17.0,
+        _ => bar.top - 17.0 * label_scale,
     };
     (
-        Rectangle::new(bar.left + bar.width / 2.0 - width / 2.0, top, width, 16.0),
+        Rectangle::new(
+            bar.left + bar.width / 2.0 - width / 2.0,
+            top,
+            width,
+            16.0 * label_scale,
+        ),
         "center",
     )
 }
-fn horizontal_label(bar: Rectangle, position: &str, negative: bool) -> (Rectangle, &'static str) {
+fn horizontal_label(
+    bar: Rectangle,
+    position: &str,
+    negative: bool,
+    label_scale: f64,
+) -> (Rectangle, &'static str) {
+    let inside_end = (bar.left + 2.0).max(bar.left + bar.width - 45.0 * label_scale);
     let (left, alignment) = match position {
-        "ctr" => (bar.left + bar.width / 2.0 - 21.0, "center"),
+        "ctr" => (bar.left + bar.width / 2.0 - 21.0 * label_scale, "center"),
         "inEnd" if negative => (bar.left + 3.0, "left"),
-        "inEnd" => ((bar.left + 2.0).max(bar.left + bar.width - 45.0), "right"),
-        "inBase" if negative => ((bar.left + 2.0).max(bar.left + bar.width - 45.0), "right"),
+        "inEnd" => (inside_end, "right"),
+        "inBase" if negative => (inside_end, "right"),
         "inBase" => (bar.left + 3.0, "left"),
-        _ if negative => (bar.left - 46.0, "right"),
+        _ if negative => (bar.left - 46.0 * label_scale, "right"),
         _ => (bar.left + bar.width + 4.0, "left"),
     };
     (
-        Rectangle::new(left, bar.top + bar.height / 2.0 - 8.0, 42.0, 16.0),
+        Rectangle::new(
+            left,
+            bar.top + bar.height / 2.0 - 8.0 * label_scale,
+            42.0 * label_scale,
+            16.0 * label_scale,
+        ),
         alignment,
     )
 }

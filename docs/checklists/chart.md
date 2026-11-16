@@ -46,11 +46,24 @@ and [value-domain](attributes/values.md) inventories.
   [package test](../../tests/charts.rs) and the
   [native test](../../tests/chart_axis_labels.rs). An attribute for axis lines or
   tick marks is not defined. The Office default axis label size of 9 pt is not
-  applied; labels remain 10 pt.
+  applied; labels are 10 pt unless `text.size` states another size.
 - [x] `data_labels`: boolean or property table with enabled, value, category,
   series, percent/percentage and position. Position aliases: center/ctr,
   inside_base/inBase, inside_end/inEnd, outside_end/outEnd, best_fit/bestFit,
   left/l, right/r, top/t and bottom/b.
+- [x] `text`: a property table whose only member is `size`, a positive length
+  that defaults to 10 pt. The size governs the axis tick labels, the category
+  labels, the legend entries and the data labels, and leaves the chart title and
+  the axis titles at their own sizes. Editable output writes the size as
+  `a:defRPr@sz` in the `c:txPr` of each axis, of the legend and of the data
+  labels, and writes none of them at the default size; native output measures
+  and paints the same text at the size and scales the label frames and the space
+  reserved for them in proportion. Any other member is an evaluation error. The
+  other DrawingML run properties of `c:txPr`, such as typeface, weight and
+  colour, have no chart argument. See the
+  [specification](../specification/charts.md#dimensions-and-appearance), the
+  [evaluation and package tests](../../tests/charts.rs) and the
+  [native tests](../../tests/chart_axis_labels.rs).
 - [x] `gap_width`, `overlap`: signed integer normalization.
 - [x] Gap and overlap output range handling.
 - [x] `style`: retained name; retained metadata alone has no formatting effect.

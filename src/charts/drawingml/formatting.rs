@@ -1,5 +1,5 @@
 use super::super::{
-    RULE_COLOR, RULE_WIDTH, TitleStyle,
+    DEFAULT_LABEL_SIZE, RULE_COLOR, RULE_WIDTH, TitleStyle,
     appearance::{Border, DataLabels, Gridlines, ShapeProperties},
 };
 use super::{Chart, Error, Options};
@@ -72,23 +72,41 @@ fn border_line(border: &Border) -> Result<String, Error> {
         escape(color)?
     ))
 }
-pub(super) fn label_text(color: &str) -> Result<String, Error> {
-    if color.is_empty() {
+// A label element states its size only when the chart departs from the default,
+// which the chart space already supplies. The chart space default is left alone,
+// so that no title can inherit an authored label size.
+pub(super) fn label_text(chart: &Chart, color: &str) -> Result<String, Error> {
+    let size = if chart.label_size == DEFAULT_LABEL_SIZE {
+        String::new()
+    } else {
+        // DrawingML admits a run size from 1 to 4000 points, in hundredths of a point.
+        format!(
+            r#" sz="{}""#,
+            ((chart.label_size * 100.0).round() as i64).clamp(100, 400000)
+        )
+    };
+    if color.is_empty() && size.is_empty() {
         return Ok(String::new());
     }
-    let properties = format!(
-        r#"<a:defRPr><a:solidFill><a:srgbClr val="{}"/></a:solidFill></a:defRPr>"#,
-        escape(color)?
-    );
+    let properties = if color.is_empty() {
+        format!("<a:defRPr{size}/>")
+    } else {
+        format!(
+            r#"<a:defRPr{size}><a:solidFill><a:srgbClr val="{}"/></a:solidFill></a:defRPr>"#,
+            escape(color)?
+        )
+    };
     Ok(format!(
         r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr>{properties}</a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#
     ))
 }
-pub(super) fn data_labels(labels: &DataLabels, kind: &str) -> Result<String, Error> {
+pub(super) fn data_labels(chart: &Chart) -> Result<String, Error> {
+    let labels: &DataLabels = &chart.data_labels;
+    let kind = chart.kind.as_str();
     if !labels.enabled {
         return Ok(String::new());
     }
-    let mut output = String::from("<c:dLbls>");
+    let mut output = format!("<c:dLbls>{}", label_text(chart, "")?);
     // Office repairs doughnut charts with an explicit label position.
     if !labels.position.is_empty() && kind != "doughnut" {
         output.push_str(&format!(
@@ -112,7 +130,7 @@ pub(super) fn data_labels(labels: &DataLabels, kind: &str) -> Result<String, Err
 pub(super) fn axes(chart: &Chart, options: &Options) -> Result<String, Error> {
     let category = options.category_axis();
     let value = options.value_axis();
-    let labels = label_text(&options.axis_label_color)?;
+    let labels = label_text(chart, &options.axis_label_color)?;
     let category_line = rule_line(RULE_WIDTH, RULE_COLOR)?;
     let mut output = format!(
         r#"<c:catAx><c:axId val="{category}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="b"/>{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="{}"/><c:spPr><a:noFill/>{category_line}</c:spPr>{labels}<c:crossAx val="{value}"/><c:crosses val="autoZero"/><c:auto val="1"/><c:lblAlgn val="ctr"/><c:lblOffset val="100"/><c:noMultiLvlLbl val="0"/></c:catAx>"#,

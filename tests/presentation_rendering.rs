@@ -1191,7 +1191,7 @@ fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() 
     let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
     let deck = |objects: &str, time| {
         mote::compile_with_options(
-            &format!("#presentation(width=pt(200),height=pt(150))#slide(duration=4)[{objects}]"),
+            &format!("#presentation(width=pt(200),height=pt(150))#slide(duration=4,advance_after=6)[{objects}]"),
             mote::evaluation::EvaluationOptions {
                 time,
                 ..Default::default()
@@ -1436,11 +1436,17 @@ fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() 
             (mover, "1")
         ]
     );
-    assert!(xml.contains(r#"<p:transition advTm="4000"/><p:timing>"#));
+    assert!(xml.contains(r#"<p:transition advTm="6000"/><p:timing>"#));
     assert_eq!(object_frames(&xml, "grpSp")[0], [30.0, 60.0, 90.0, 80.0]);
 
     let still = mote::pptx::emit_with_warnings(&deck(&authored, None)).unwrap();
     assert!(!slide_xml(still.bytes).contains("<p:timing>"));
+    // A duration alone leaves the advance of a slide to the speaker.
+    let timed =
+        mote::compile("#slide(duration=4)[#shape(position={width=pt(4),height=pt(4)})]").unwrap();
+    let package = mote::pptx::emit_with_warnings(&timed).unwrap();
+    assert_eq!(package.warnings, Vec::<String>::new());
+    assert!(!slide_xml(package.bytes).contains("<p:transition"));
     let turned = deck(&turned, None);
     let xml = slide_xml(mote::pptx::emit_with_warnings(&turned).unwrap().bytes);
     assert!(xml.contains(r#"<a:xfrm rot="900000">"#), "{xml}");

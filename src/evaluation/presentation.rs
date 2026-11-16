@@ -352,6 +352,7 @@ pub(super) fn normalize(
             "footer" | "date" => text_or_boolean(value, span, name),
             "slide_number" => normalize_boolean(value, span, name),
             "duration" => seconds(value, span, "slide duration"),
+            "advance_after" => seconds(value, span, "slide advance_after"),
             "field_text" => field_text(value, span),
             "layout" => {
                 let name = normalize_identifier(value, span, name)?;

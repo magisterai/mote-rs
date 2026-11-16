@@ -50,11 +50,11 @@ impl ChartMeasurement<'_, '_> {
     ) -> Result<ChartLayout, LayoutError> {
         let mut category_width: f64 = 0.0;
         for category in &chart.categories {
-            category_width = category_width.max(self.text_width(category, 10.0)?);
+            category_width = category_width.max(self.text_width(category, chart.label_size)?);
         }
         let mut legend_width: f64 = 0.0;
         for label in super::legend::labels(chart) {
-            legend_width = legend_width.max(self.text_width(label, 10.0)?);
+            legend_width = legend_width.max(self.text_width(label, chart.label_size)?);
         }
         let value_extra = if matches!(chart.kind.as_str(), "pie" | "doughnut") {
             0.0
@@ -62,9 +62,15 @@ impl ChartMeasurement<'_, '_> {
             let scale = Scale::for_chart(chart, 0.0, false).validate()?;
             let percent = chart.kind.contains("percent_stacked");
             let width = self
-                .text_width(&axis_label(scale.minimum, scale.step, percent), 10.0)?
-                .max(self.text_width(&axis_label(scale.maximum, scale.step, percent), 10.0)?);
-            (width - self.text_width("80", 10.0)?).max(0.0)
+                .text_width(
+                    &axis_label(scale.minimum, scale.step, percent),
+                    chart.label_size,
+                )?
+                .max(self.text_width(
+                    &axis_label(scale.maximum, scale.step, percent),
+                    chart.label_size,
+                )?);
+            (width - self.text_width("80", chart.label_size)?).max(0.0)
         };
         let mut layout = resolve(bounds, chart, category_width, legend_width, value_extra);
         self.arrange_legend(chart, &mut layout)?;
@@ -79,6 +85,7 @@ fn resolve(
     value_extra: f64,
 ) -> ChartLayout {
     let title_height = title_height(chart);
+    let label_scale = chart.label_scale();
     let mut top = bounds.top
         + if title_height > 0.0 {
             TITLE_TOP + title_height + TITLE_GAP
@@ -91,26 +98,26 @@ fn resolve(
     if chart.legend.enabled {
         match position {
             "bottom" => {
-                legend_reserve = 24.0;
+                legend_reserve = 24.0 * label_scale;
                 legend = Rectangle::new(
                     bounds.left,
-                    bounds.top + bounds.height - 24.0,
+                    bounds.top + bounds.height - legend_reserve,
                     bounds.width,
-                    18.0,
+                    18.0 * label_scale,
                 );
             }
             "top" => {
-                legend = Rectangle::new(bounds.left, top - 4.2, bounds.width, 18.0);
-                top += 24.0;
+                legend = Rectangle::new(bounds.left, top - 4.2, bounds.width, 18.0 * label_scale);
+                top += 24.0 * label_scale;
             }
             _ => {}
         }
     }
     let (mut left, mut right, piece_reserve) = if super::horizontal(chart) {
         let category_inset = if chart.legend.enabled && matches!(position, "left" | "right") {
-            11.0
+            11.0 * label_scale
         } else {
-            15.75
+            15.75 * label_scale
         };
         (
             category_width.max(1.0)
@@ -120,33 +127,36 @@ fn resolve(
                 } else {
                     30.0
                 },
-            16.0 + value_extra.max(0.0) / 2.0,
-            24.0 + if chart.value_title.is_empty() {
-                0.0
-            } else {
-                31.0
-            },
+            16.0 * label_scale + value_extra.max(0.0) / 2.0,
+            24.0 * label_scale
+                + if chart.value_title.is_empty() {
+                    0.0
+                } else {
+                    31.0
+                },
         )
     } else if matches!(chart.kind.as_str(), "pie" | "doughnut") {
         (0.0, 0.0, 10.0)
     } else {
         (
-            26.5 + value_extra.max(0.0)
+            26.5 * label_scale
+                + value_extra.max(0.0)
                 + if chart.value_title.is_empty() {
                     0.0
                 } else {
                     29.5
                 },
             11.0,
-            25.5 + if chart.category_title.is_empty() {
-                0.0
-            } else {
-                31.0
-            },
+            25.5 * label_scale
+                + if chart.category_title.is_empty() {
+                    0.0
+                } else {
+                    31.0
+                },
         )
     };
     if chart.legend.enabled && matches!(position, "left" | "right") {
-        let reserve = (legend_width + super::legend::key_width(chart) + 17.0)
+        let reserve = (legend_width + super::legend::key_width(chart) + 17.0 * label_scale)
             .max(56.0)
             .min(bounds.width * 0.28);
         if position == "left" {

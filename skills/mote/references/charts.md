@@ -58,7 +58,8 @@ arguments require units.
   axis = { category = { title = "Region" }, value = { title = "Percent" } },
   legend = "bottom",
   data_labels = { value = true, position = "outside_end" },
-  gap_width = 80
+  gap_width = 80,
+  text = { size = pt(12) }
 )
 ```
 
@@ -76,11 +77,13 @@ arguments require units.
 - A chart without a `title` has no title area.
 - The `data_labels` argument applies to every kind of chart. A value of zero
   draws its label and no bar.
-- The text of a chart has a fixed size, so a chart on a slide deserves a large
-  box: the full width of the slide, or nearly so, keeps its labels legible.
+- The `text` argument is a table whose only member is `size`, as in
+  `text = { size = pt(14) }`. The size applies to the axis labels, the legend and
+  the data labels, and defaults to 10 points; the titles keep their own sizes. A
+  chart on a slide deserves 14 points or more and a large box.
 - The axis labels, legend and data labels take the `text` color of the deck's
-  theme, and no chart argument colors or sizes them separately. A chart on a
-  dark slide is legible when the theme gives a light `text` color.
+  theme, and no chart argument colors them. A chart on a dark slide is legible
+  when the theme gives a light `text` color.
 - The lines follow Office's default chart style: light grey (`#D9D9D9`) gridlines and
   category axis at 0.75 pt, no value axis line and no tick marks. The `gridlines`
   table's `color` and `width` replace the gridline defaults.

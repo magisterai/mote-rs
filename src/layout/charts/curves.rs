@@ -40,7 +40,7 @@ impl ChartPlanner<'_, '_> {
                 series_points.push(points);
             }
         }
-        self.place_line_labels(&labels, &series_points, layout.plot)?;
+        self.place_line_labels(&labels, &series_points, layout.plot, chart.label_size)?;
         self.page.operations.extend(foreground);
         Ok(())
     }

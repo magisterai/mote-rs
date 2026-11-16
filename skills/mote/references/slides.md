@@ -180,9 +180,11 @@ the part to reuse; colors and fonts are left at their defaults.
   text that does not fit is cut off at the edge of the box without a warning,
   as is text too wide for a table cell. `text = { fit = "shrink" }` reduces the
   text of a box until it fits.
-- A table on a slide has a pale fill by default. The declaration
-  `#set table(cell = { fill = "#16213a" })` before the slides gives every cell
-  of every table that fill, which a dark deck requires.
+- A table on a slide has a pale fill
+  and white borders by default. The declaration
+  `#set table(cell = { fill = "#16213a" }, borders = { all = { color = "#334155", width = pt(0.5) } })`
+  before the slides gives every table that fill and those borders, which a
+  dark deck requires.
 - The `field_text` argument of the deck, or of one slide, sets the `size`,
   `color`, `font`, `bold` and `italic` of the footer, date and slide number.
   The footer stands at the bottom left and the slide number at the bottom

@@ -13,8 +13,10 @@
   the [layout checklist](layout.md).
 - [x] `properties` overrides, retained metadata and Lua construction.
 - [x] `field_text`: replaces the deck `field_text` member by member.
-- [x] `duration`: a number of seconds, not negative. PPTX writes it as the time
-  after which the slide advances, and `--frames` takes it as an end.
+- [x] `duration`: a number of seconds, not negative, which `--frames` takes as
+  an end. It writes nothing to PPTX.
+- [x] `advance_after`: a number of seconds, not negative. PPTX writes it as the
+  time after which the slide advances by itself.
 - [x] Automatic loose-content layout: a leading heading, grouped text, separate
   image/table frames in which an image keeps its proportion, shared fitting and page-size-aware geometry.
 - [x] Implicit top-level Markdown slide separators and heading boundaries in

@@ -425,7 +425,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 - [ ] `extLst` — [p:CT_ExtensionListModify](shapes-and-lines.md#p-ct_extensionlistmodify); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@spd` — [p:ST_TransitionSpeed](values-drawing.md#p-st_transitionspeed); Strict, Transitional; use=optional; default=fast.
 - [ ] `@advClick` — `xsd:boolean`; Strict, Transitional; use=optional; default=true.
-- [ ] `@advTm` — `xsd:unsignedInt`; Strict, Transitional; use=optional. The `duration` of a slide writes the time after which the slide advances. No transition effect, speed or sound has a Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@advTm` — `xsd:unsignedInt`; Strict, Transitional; use=optional. The `advance_after` of a slide writes the time after which the slide advances by itself. No transition effect, speed or sound has a Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_slidetiming"></a>
 

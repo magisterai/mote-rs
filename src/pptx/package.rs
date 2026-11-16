@@ -325,7 +325,9 @@ pub(super) fn write(
             );
         }
         output.push_str("</p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr>");
-        if let Some(duration) = crate::properties::number(&slide.element.attributes, "duration") {
+        if let Some(duration) =
+            crate::properties::number(&slide.element.attributes, "advance_after")
+        {
             output.push_str(&super::timing::advance(duration));
         }
         output.push_str(&timeline.write([deck.width, deck.height]));

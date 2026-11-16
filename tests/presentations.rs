@@ -314,6 +314,10 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
             "#slide(duration=-1)[]".to_owned(),
             "slide duration must be a number of seconds, not negative",
         ),
+        (
+            "#slide(advance_after='soon')[]".to_owned(),
+            "slide advance_after must be a number of seconds, not negative",
+        ),
         ("#presentation(render_at='end')".to_owned(), "render_at"),
         (
             "#presentation(field_text={weight=1})".to_owned(),

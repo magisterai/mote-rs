@@ -58,7 +58,10 @@ footer, date or slide number. `footer=true` uses the declared deck footer text;
 without deck text it produces no footer. A fixed footer or date string replaces
 the inherited text. Speaker notes are trimmed plain text, independent of the
 visible slide body; directive syntax inside a note string is not evaluated.
-`duration` is a number of seconds, not negative, for which the slide is shown.
+`duration` is a number of seconds, not negative: the length of the animation
+of the slide, at which `--frames` ends. It does not move a presentation on.
+`advance_after` is a number of seconds, not negative, after which a
+presentation leaves the slide for the next without the act of a speaker.
 `field_text` replaces, member by member, the `field_text` of the deck.
 
 A slide contains either positioned boxes, shapes and lines, or loose content.

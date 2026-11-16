@@ -66,6 +66,13 @@ a slide. Editable output writes this typeface and colour into the chart's text
 properties and into every title run, since Office otherwise draws title runs in
 its own default typeface.
 
+A **label** of a chart is an axis tick label, a category label, a legend entry
+or a data label. `text` accepts a property table whose only member is `size`, a
+positive length with a unit, as in `text = {size = pt(14)}`; the size replaces
+the default of 10 points for every label. The chart title and the axis titles
+are not labels and keep their own sizes. Any other member of the table is an
+evaluation error, and a value that is not a property table is a type error.
+
 ```mote
 #chart(kind = "column",
        title = {text = "Live coral cover", size = pt(13), bold = true, color = "#0b3b4f"},

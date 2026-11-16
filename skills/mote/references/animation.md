@@ -48,7 +48,12 @@ which the source is rendered, so that any value may be computed from it.
   a `scale` with the same `start` make one motion.
 - An effect on a group acts on the group as one object, so that a faint group
   does not show one part through another.
-- The `duration` of a slide is the time for which the slide is shown.
+- The `duration` of a slide is the length of its animation, at which `--frames`
+  ends; it does not move PowerPoint on. A slide that must advance by itself
+  states `advance_after`, a number of seconds; without it the speaker advances
+  the slide.
+- An object without `fade_in` or `appear` is in view from the start, at its
+  authored place and size, until its `move`, `scale` or `rotate` begins.
 
 ## Values computed from the time
 

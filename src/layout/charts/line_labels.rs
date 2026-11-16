@@ -1,5 +1,6 @@
 //! Keep line labels near their points without covering other labels or marks.
 use super::{ChartPlanner, LayoutError, geometry::Rectangle, text::text_height};
+use crate::charts::DEFAULT_LABEL_SIZE;
 
 pub(super) struct LineLabel {
     pub point: [f64; 2],
@@ -12,7 +13,12 @@ impl ChartPlanner<'_, '_> {
         labels: &[LineLabel],
         series_points: &[Vec<[f64; 2]>],
         plot: Rectangle,
+        label_size: f64,
     ) -> Result<(), LayoutError> {
+        let frame = [
+            FRAME[0] * label_size / DEFAULT_LABEL_SIZE,
+            FRAME[1] * label_size / DEFAULT_LABEL_SIZE,
+        ];
         // Place the higher point first, regardless of series order, so a nearby
         // lower point can put its label below instead of between the two marks.
         let mut order: Vec<_> = (0..labels.len()).collect();
@@ -30,46 +36,62 @@ impl ChartPlanner<'_, '_> {
             }
             let plan = self.measurement.fit_text(
                 &label.text,
-                10.0,
+                label_size,
                 "center",
-                Rectangle::new(0.0, 0.0, 56.0, 16.0),
+                Rectangle::new(0.0, 0.0, frame[0], frame[1]),
             )?;
             let width = plan.lines.iter().map(|line| line.width).fold(0.0, f64::max);
             let height = text_height(&plan);
-            let (frame, bounds) =
-                place_line_label(label.point, [width, height], plot, &occupied, series_points);
-            placements[index] = frame;
+            let (placement, bounds) = place_line_label(
+                label.point,
+                [width, height],
+                frame,
+                plot,
+                &occupied,
+                series_points,
+            );
+            placements[index] = placement;
             occupied.push(bounds);
         }
         for (label, frame) in labels.iter().zip(placements) {
-            self.text(frame, &label.text, 10.0, "center", 0.0)?;
+            self.text(frame, &label.text, label_size, "center", 0.0)?;
         }
         Ok(())
     }
 }
 
+/// The clipping frame of a line label at the default label size.
+const FRAME: [f64; 2] = [56.0, 16.0];
+
 fn place_line_label(
     point: [f64; 2],
     size: [f64; 2],
+    frame: [f64; 2],
     plot: Rectangle,
     occupied: &[Rectangle],
     series_points: &[Vec<[f64; 2]>],
 ) -> (Rectangle, Rectangle) {
     let side_gap = (size[0] / 2.0 + 2.0).max(5.0);
+    let [width, height] = frame;
     let frames = [
-        Rectangle::new(point[0] - 28.0, point[1] - 19.0, 56.0, 16.0),
-        Rectangle::new(point[0] - 28.0, point[1] + 3.0, 56.0, 16.0),
         Rectangle::new(
-            point[0] + side_gap + size[0] / 2.0 - 28.0,
-            point[1] - 8.0,
-            56.0,
-            16.0,
+            point[0] - width / 2.0,
+            point[1] - (3.0 + height),
+            width,
+            height,
+        ),
+        Rectangle::new(point[0] - width / 2.0, point[1] + 3.0, width, height),
+        Rectangle::new(
+            point[0] + side_gap + size[0] / 2.0 - width / 2.0,
+            point[1] - height / 2.0,
+            width,
+            height,
         ),
         Rectangle::new(
-            point[0] - side_gap - size[0] / 2.0 - 28.0,
-            point[1] - 8.0,
-            56.0,
-            16.0,
+            point[0] - side_gap - size[0] / 2.0 - width / 2.0,
+            point[1] - height / 2.0,
+            width,
+            height,
         ),
     ];
     let mut best = (frames[0], Rectangle::default());
@@ -160,10 +182,11 @@ mod tests {
     #[test]
     fn labels_keep_clear_defaults_and_use_below_when_above_is_occupied() {
         let plot = Rectangle::new(0.0, 0.0, 200.0, 200.0);
-        let (first, occupied) = place_line_label([100.0, 90.0], [12.0, 12.0], plot, &[], &[]);
+        let (first, occupied) =
+            place_line_label([100.0, 90.0], [12.0, 12.0], FRAME, plot, &[], &[]);
         assert_eq!(first.top, 71.0);
         let (second, bounds) =
-            place_line_label([100.0, 94.0], [12.0, 12.0], plot, &[occupied], &[]);
+            place_line_label([100.0, 94.0], [12.0, 12.0], FRAME, plot, &[occupied], &[]);
         assert_eq!(second.top, 97.0);
         assert_eq!(overlap_area(bounds, occupied), 0.0);
     }
@@ -174,8 +197,14 @@ mod tests {
         let points = vec![vec![[100.0, 100.0]]];
         let mut occupied = Vec::new();
         for _ in 0..4 {
-            let (_, bounds) =
-                place_line_label([100.0, 100.0], [12.0, 12.0], plot, &occupied, &points);
+            let (_, bounds) = place_line_label(
+                [100.0, 100.0],
+                [12.0, 12.0],
+                FRAME,
+                plot,
+                &occupied,
+                &points,
+            );
             for &previous in &occupied {
                 assert_eq!(overlap_area(bounds, previous), 0.0);
             }
@@ -187,12 +216,13 @@ mod tests {
     fn labels_avoid_plot_edges_and_nearby_series_segments() {
         let plot = Rectangle::new(0.0, 0.0, 200.0, 200.0);
         for (point, expected_top) in [([100.0, 0.0], 3.0), ([100.0, 200.0], 181.0)] {
-            let (frame, bounds) = place_line_label(point, [12.0, 12.0], plot, &[], &[]);
+            let (frame, bounds) = place_line_label(point, [12.0, 12.0], FRAME, plot, &[], &[]);
             assert_eq!(frame.top, expected_top);
             assert!((overlap_area(bounds, plot) - bounds.width * bounds.height).abs() < 1e-9);
         }
         let crossing = vec![vec![[80.0, 89.0], [120.0, 89.0]]];
-        let (frame, bounds) = place_line_label([100.0, 100.0], [12.0, 12.0], plot, &[], &crossing);
+        let (frame, bounds) =
+            place_line_label([100.0, 100.0], [12.0, 12.0], FRAME, plot, &[], &crossing);
         assert_eq!(frame.top, 103.0);
         assert!(!segment_intersects(bounds, crossing[0][0], crossing[0][1]));
     }
@@ -200,7 +230,7 @@ mod tests {
     #[test]
     fn crowded_fallback_stays_local_and_preserves_finite_geometry() {
         let plot = Rectangle::new(0.0, 0.0, 4.0, 4.0);
-        let (frame, bounds) = place_line_label([2.0, 2.0], [40.0, 12.0], plot, &[plot], &[]);
+        let (frame, bounds) = place_line_label([2.0, 2.0], [40.0, 12.0], FRAME, plot, &[plot], &[]);
         assert!(frame.bounds().iter().all(|value| value.is_finite()));
         assert_eq!(bounds.width, 42.0);
         assert!((frame.center()[0] - 2.0).abs() <= 42.0);

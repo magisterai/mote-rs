@@ -171,6 +171,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             "date",
             "slide_number",
             "duration",
+            "advance_after",
             "field_text",
         ]),
         ElementKind::Box | ElementKind::Shape => {

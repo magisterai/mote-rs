@@ -39,10 +39,10 @@ impl ChartPlanner<'_, '_> {
                 let lines: Vec<_> = text.split('\n').collect();
                 let mut width: f64 = 0.0;
                 for line in &lines {
-                    width = width.max(self.measurement.text_width(line, 10.0)? + 4.0);
+                    width = width.max(self.measurement.text_width(line, chart.label_size)? + 4.0);
                 }
-                width = width.min((radius * 1.15).max(28.0));
-                let height = lines.len() as f64 * 14.0;
+                width = width.min((radius * 1.15).max(28.0 * chart.label_scale()));
+                let height = lines.len() as f64 * 14.0 * chart.label_scale();
                 let label_radius = label_radius(chart, radius, middle, width, height);
                 labels.push(RadialLabel {
                     text,
@@ -134,7 +134,7 @@ impl ChartPlanner<'_, '_> {
         }
         // Labels follow both sector fills and the composited doughnut centre.
         for label in labels {
-            self.text(label.bounds, &label.text, 10.0, "center", 0.0)?;
+            self.text(label.bounds, &label.text, chart.label_size, "center", 0.0)?;
         }
         Ok(())
     }

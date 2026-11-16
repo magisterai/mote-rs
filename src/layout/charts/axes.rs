@@ -17,6 +17,7 @@ impl ChartPlanner<'_, '_> {
         horizontal: bool,
     ) -> Result<Vec<PageOperation>, LayoutError> {
         let plot = layout.plot;
+        let label_scale = chart.label_scale();
         let grid_color = super::valid_color(&chart.gridlines.color).unwrap_or(RULE_COLOR);
         let grid_width = if chart.gridlines.width > 0 {
             chart.gridlines.width as f64 / 12700.0
@@ -67,11 +68,15 @@ impl ChartPlanner<'_, '_> {
             for value in &values {
                 let width = self
                     .measurement
-                    .text_width(&axis_label(*value, scale.step, percent), 10.0)?
-                    .min(40.0);
+                    .text_width(&axis_label(*value, scale.step, percent), chart.label_size)?
+                    .min(40.0 * label_scale);
                 intervals.push((scale.ratio(*value) * plot.width, width));
             }
-            visible_labels(&intervals, values.iter().position(|value| *value == 0.0))
+            visible_labels(
+                &intervals,
+                values.iter().position(|value| *value == 0.0),
+                4.0 * label_scale,
+            )
         } else {
             vec![true; values.len()]
         };
@@ -83,26 +88,31 @@ impl ChartPlanner<'_, '_> {
             let (bounds, alignment) = if horizontal {
                 (
                     Rectangle::new(
-                        plot.left + plot.width * ratio - 20.0,
-                        plot.top + plot.height + 4.0,
-                        40.0,
-                        15.0,
+                        plot.left + plot.width * ratio - 20.0 * label_scale,
+                        plot.top + plot.height + 4.0 * label_scale,
+                        40.0 * label_scale,
+                        15.0 * label_scale,
                     ),
                     "center",
                 )
             } else {
                 (
                     Rectangle::new(
-                        plot.left - 37.0,
-                        plot.top + plot.height * (1.0 - ratio) - 8.0,
-                        28.0,
-                        16.0,
+                        plot.left - 37.0 * label_scale,
+                        plot.top + plot.height * (1.0 - ratio) - 8.0 * label_scale,
+                        28.0 * label_scale,
+                        16.0 * label_scale,
                     ),
                     "right",
                 )
             };
             if visible[index] {
-                self.axis_label(bounds, &axis_label(value, scale.step, percent), alignment)?;
+                self.axis_label(
+                    bounds,
+                    &axis_label(value, scale.step, percent),
+                    chart.label_size,
+                    alignment,
+                )?;
             }
         }
         let category_axis = if horizontal {
@@ -131,10 +141,11 @@ impl ChartPlanner<'_, '_> {
                 let slot = plot.height / count.max(1) as f64;
                 (
                     Rectangle::new(
-                        plot.left - layout.category_label_width - 9.0,
-                        plot.top + (count - 1 - index) as f64 * slot + slot / 2.0 - 8.0,
+                        plot.left - layout.category_label_width - 9.0 * label_scale,
+                        plot.top + (count - 1 - index) as f64 * slot + slot / 2.0
+                            - 8.0 * label_scale,
                         layout.category_label_width,
-                        16.0,
+                        16.0 * label_scale,
                     ),
                     "right",
                 )
@@ -143,18 +154,23 @@ impl ChartPlanner<'_, '_> {
                 (
                     Rectangle::new(
                         plot.category_center(count, index) - slot / 2.0,
-                        category_top + 5.0,
+                        category_top + 5.0 * label_scale,
                         slot,
-                        16.0,
+                        16.0 * label_scale,
                     ),
                     "center",
                 )
             };
-            self.axis_label(bounds, category, alignment)?;
+            self.axis_label(bounds, category, chart.label_size, alignment)?;
         }
         if horizontal {
             self.text(
-                Rectangle::new(plot.left, plot.top + plot.height + 21.0, plot.width, 24.0),
+                Rectangle::new(
+                    plot.left,
+                    plot.top + plot.height + 21.0 * label_scale,
+                    plot.width,
+                    24.0,
+                ),
                 &chart.value_title,
                 18.0,
                 "center",
@@ -166,7 +182,7 @@ impl ChartPlanner<'_, '_> {
                 21.5
             } else {
                 29.0
-            };
+            } + 9.0 * (label_scale - 1.0);
             let center_left = plot.left - layout.category_label_width - offset;
             self.text(
                 Rectangle::new(
@@ -182,7 +198,12 @@ impl ChartPlanner<'_, '_> {
             )?;
         } else {
             self.text(
-                Rectangle::new(plot.left, plot.top + plot.height + 20.5, plot.width, 25.0),
+                Rectangle::new(
+                    plot.left,
+                    plot.top + plot.height + 20.5 * label_scale,
+                    plot.width,
+                    25.0,
+                ),
                 &chart.category_title,
                 18.0,
                 "center",
@@ -225,7 +246,7 @@ impl ChartPlanner<'_, '_> {
 }
 
 // Prefer zero and the endpoints, then retain every label with enough clear space.
-fn visible_labels(intervals: &[(f64, f64)], zero: Option<usize>) -> Vec<bool> {
+fn visible_labels(intervals: &[(f64, f64)], zero: Option<usize>, clearance: f64) -> Vec<bool> {
     let mut visible = vec![false; intervals.len()];
     if intervals.is_empty() {
         return visible;
@@ -238,7 +259,8 @@ fn visible_labels(intervals: &[(f64, f64)], zero: Option<usize>) -> Vec<bool> {
         let (center, extent) = intervals[index];
         if visible.iter().enumerate().any(|(other, selected)| {
             *selected
-                && (center - intervals[other].0).abs() < (extent + intervals[other].1) / 2.0 + 4.0
+                && (center - intervals[other].0).abs()
+                    < (extent + intervals[other].1) / 2.0 + clearance
         }) {
             continue;
         }

@@ -89,6 +89,8 @@ pub(crate) struct Chart {
     pub plot_area: Option<ShapeProperties>,
     pub gridlines: Gridlines,
     pub data_labels: DataLabels,
+    /// The size in points of the axis labels, legend entries and data labels.
+    pub label_size: f64,
     pub gap_width: Option<i64>,
     pub overlap: Option<i64>,
     pub width: i64,
@@ -127,6 +129,11 @@ impl Chart {
             plot_area: object(attributes, "plot_area").map(ShapeProperties::from_properties),
             gridlines: Gridlines::from_value(attributes.get("gridlines")),
             data_labels: DataLabels::from_value(attributes.get("data_labels")),
+            label_size: object(attributes, "text")
+                .and_then(|text| drawing_units(text.get("size")))
+                .map(|units| units as f64 / 12700.0)
+                .filter(|size| *size > 0.0)
+                .unwrap_or(DEFAULT_LABEL_SIZE),
             gap_width: integer(attributes.get("gap_width")),
             overlap: integer(attributes.get("overlap")),
             width: drawing_units(attributes.get("width")).unwrap_or(5486400),
@@ -145,6 +152,11 @@ impl Chart {
             .filter(|color| !color.is_empty())
             .unwrap_or(PALETTE[index % PALETTE.len()])
     }
+    /// The ratio of the label size to the default, by which native output scales
+    /// the frames and reserves that were measured for default labels.
+    pub fn label_scale(&self) -> f64 {
+        self.label_size / DEFAULT_LABEL_SIZE
+    }
     pub fn category_label_position(&self) -> &'static str {
         if self
             .series
@@ -157,6 +169,7 @@ impl Chart {
         }
     }
 }
+pub(crate) const DEFAULT_LABEL_SIZE: f64 = 10.0;
 /// The colour and width of an unstyled gridline or category axis line in Office's
 /// default chart style, which tints black text to 15% luminance offset by 85%.
 pub(crate) const RULE_COLOR: &str = "D9D9D9";
