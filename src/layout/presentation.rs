@@ -1,11 +1,12 @@
 //! Positioned slides use the same page operations as document layout.
 mod images;
 pub(crate) mod shapes;
-mod tables;
+pub(crate) mod tables;
 use super::{
     DocumentTextPlan, HighlightRectangle, LayoutError, LineCap, PageGeometry, PageOperation,
     PathPaint, PathStroke, TextPage,
     drawing_text::{self, FittedText},
+    overflow,
 };
 use crate::{
     measurement::TextMeasurer,
@@ -30,11 +31,7 @@ pub(crate) fn prepare_box(
     if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
         return Ok(PreparedBox {
             bounds,
-            fitted: FittedText {
-                page: TextPage::default(),
-                font_scale: 1.0,
-                height_delta: 0.0,
-            },
+            fitted: FittedText::empty(),
         });
     }
     let attributes = crate::drawings::text_attributes(&element.attributes);
@@ -144,8 +141,10 @@ fn plan(
                 &mut deck.warnings,
             )?;
         }
+        let slide_path = format!("content[{index}].slide");
         place(
             &slide.element.children,
+            &slide_path,
             &mut Placement {
                 document,
                 theme: &deck.theme,
@@ -160,6 +159,10 @@ fn plan(
         for field in slide.metadata.fields(index + 1) {
             let element = field.native_box([geometry.width, geometry.height], &slide.metadata.text);
             let prepared = prepare_box(document, &element, &deck.theme, measurer)?;
+            if prepared.fitted.is_cut_off() {
+                deck.warnings
+                    .push(overflow::field_text(field.kind, &slide_path));
+            }
             page.append_content(prepared.fitted.page);
         }
         page.operations.push(PageOperation::PopClip);
@@ -191,10 +194,11 @@ struct Placement<'deck, 'measurer> {
 /// displacement, so that the wipe is enlarged and turned with the object.
 fn place(
     content: &[Content],
+    path: &str,
     context: &mut Placement<'_, '_>,
     page: &mut TextPage,
 ) -> Result<(), LayoutError> {
-    for child in content {
+    for (index, child) in content.iter().enumerate() {
         let Content::Element(element) = child else {
             return Err(LayoutError::Unsupported(
                 "presentation output currently requires positioned slide objects".into(),
@@ -205,10 +209,11 @@ fn place(
             continue;
         }
         let mut piece = TextPage::default();
+        let path = format!("{path}[{index}].{}", element.kind.as_text());
         if element.kind == ElementKind::Group {
-            place(&element.children, context, &mut piece)?;
+            place(&element.children, &path, context, &mut piece)?;
         } else {
-            place_object(element, context, &mut piece)?;
+            place_object(element, &path, context, &mut piece)?;
         }
         if piece.operations.is_empty() {
             continue;
@@ -244,17 +249,23 @@ fn place(
 
 fn place_object(
     element: &Element,
+    path: &str,
     context: &mut Placement<'_, '_>,
     page: &mut TextPage,
 ) -> Result<(), LayoutError> {
     if element.kind == ElementKind::Shape {
-        shapes::place(
+        let cut_off = shapes::place(
             context.document,
             element,
             context.theme,
             context.measurer,
             page,
         )?;
+        if cut_off {
+            context
+                .warnings
+                .push(overflow::slide_frame_text(element, path));
+        }
         return Ok(());
     }
     if element.kind == ElementKind::Line {
@@ -292,15 +303,15 @@ fn place_object(
     if let [Content::Element(table)] = element.children.as_slice()
         && table.kind == ElementKind::Table
     {
-        tables::place(
+        context.warnings.extend(tables::place(
             context.document,
             element,
             table,
             context.theme,
             context.measurer,
             page,
-            context.warnings,
-        )?;
+            &overflow::slide_object(element, path),
+        )?);
         return Ok(());
     }
     if let Some(image) = crate::presentation::images::child(element) {
@@ -324,6 +335,11 @@ fn place_object(
         context
             .warnings
             .push("native slides omit text-box shadows".into());
+    }
+    if prepared.fitted.is_cut_off() {
+        context
+            .warnings
+            .push(overflow::slide_frame_text(element, path));
     }
     if let Some(rectangle) = rectangle(prepared.bounds, &element.attributes) {
         page.operations.push(rectangle);

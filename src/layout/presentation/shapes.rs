@@ -28,16 +28,17 @@ pub(crate) fn fit(
     bounds[1] -= geometry::points(attributes.get("size"), 18.0).max(0.0) * 0.055;
     drawing_text::fit(&paragraphs, bounds, &attributes, measurer)
 }
+/// Places a shape and returns whether its frame cuts off its text.
 pub(super) fn place(
     document: &Document,
     element: &Element,
     theme: &Theme,
     measurer: &mut TextMeasurer<'_>,
     page: &mut TextPage,
-) -> Result<(), LayoutError> {
+) -> Result<bool, LayoutError> {
     let bounds = geometry::rectangle(&element.attributes);
     if bounds[2] <= 0.0 || bounds[3] <= 0.0 {
-        return Ok(());
+        return Ok(false);
     }
     page.operations.extend(
         geometry::shape(&element.attributes)
@@ -53,11 +54,12 @@ pub(super) fn place(
             center: [bounds[0] + bounds[2] / 2.0, bounds[1] + bounds[3] / 2.0],
         });
     }
+    let cut_off = fitted.is_cut_off();
     page.append_content(fitted.page);
     if rotation != 0.0 {
         page.operations.push(PageOperation::PopRotation);
     }
-    Ok(())
+    Ok(cut_off)
 }
 pub(super) fn connector(attributes: &Properties) -> Vec<PageOperation> {
     let endpoint = |name| {

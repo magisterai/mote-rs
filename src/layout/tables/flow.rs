@@ -40,6 +40,7 @@ pub(in crate::layout) fn place(
         cursor.y += pending;
     }
     cursor.y += border;
+    warn_of_cut_off_rows(table, cursor.page_number, false, &mut warnings);
     let header_count = table
         .rows
         .iter()
@@ -304,6 +305,31 @@ fn place_row(
         );
     }
     Ok(())
+}
+/// Reports each row of the table, and of the tables nested in its cells, whose
+/// exact height cuts off its content.
+fn warn_of_cut_off_rows(
+    table: &TablePlan,
+    page_number: usize,
+    nested: bool,
+    warnings: &mut Vec<String>,
+) {
+    for (index, row) in table.rows.iter().enumerate() {
+        if row.cut_off {
+            warnings.push(super::super::overflow::exact_row(
+                index,
+                page_number,
+                nested,
+            ));
+        }
+        for cell in &row.cells {
+            for block in &cell.blocks {
+                if let Block::Table(nested) = block {
+                    warn_of_cut_off_rows(nested, page_number, true, warnings);
+                }
+            }
+        }
+    }
 }
 fn cell_bounds(table: &TablePlan, cell: &CellPlan, left: f64, top: f64, height: f64) -> [f64; 4] {
     [

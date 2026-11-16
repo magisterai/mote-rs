@@ -26,6 +26,8 @@ pub(super) struct RowPlan {
     pub authored_height: Option<(f64, bool)>,
     pub repeat_header: bool,
     pub cant_split: bool,
+    /// Whether an exact height cuts off the content of a cell of the row.
+    pub cut_off: bool,
 }
 pub(super) struct CellPlan {
     pub column: usize,
@@ -121,6 +123,7 @@ pub(super) fn prepare(
                 "repeat_header",
             ),
             cant_split: property_values::boolean(&source_rows[row_index].attributes, "cant_split"),
+            cut_off: false,
             authored_height: {
                 let attributes = &source_rows[row_index].attributes;
                 let rule = property_values::text(attributes, "height_rule");
@@ -268,6 +271,11 @@ pub(super) fn prepare(
                         .iter()
                         .map(|cell| cell.margins[2])
                         .fold(0.0, f64::max);
+                row.cut_off = row.cells.iter().any(|cell| {
+                    cell.row_span == 1
+                        && cell.margins[0] + cells::visible_height(cell)
+                            > row.height + cells::CUT_OFF_TOLERANCE
+                });
             }
             Some((height, false)) => {
                 // Word holds a minimum height for the content within the

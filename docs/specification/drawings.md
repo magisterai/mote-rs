@@ -62,9 +62,12 @@ a string. `alignment` accepts left, center, right, or justify;
 `margin` is a map of lengths, normally left, right, top, and bottom.
 
 `fit` is `clip`, `shrink`, or `resize_shape`. The aliases `none`, `autofit`, and
-`resize` normalize respectively to those values. `text.paragraph` uses the
-paragraph-style property family. Text and `text.list` also accept the established
-`spacing`, `spacing_before`, `spacing_after`, `line_spacing`, and `indent` fields.
+`resize` normalize respectively to those values. A shape whose text falls
+below its text area, because `fit` is `clip` or absent or because shrinking has
+reached its least size, gives a warning that names the shape. `text.paragraph`
+uses the paragraph-style property family. Text and `text.list` also accept the
+established `spacing`, `spacing_before`, `spacing_after`, `line_spacing`, and
+`indent` fields.
 The text of a shape is set at single line spacing, with no space before or after
 a paragraph, unless these fields or a paragraph style state otherwise.
 

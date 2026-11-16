@@ -9,22 +9,31 @@ use crate::{
 pub(super) enum Item<'content> {
     Open(&'content Element),
     Close,
-    Object(&'content Content),
+    /// An object and its path within the slide.
+    Object(&'content Content, String),
 }
 
 /// Lists the objects of a slide with each group opened before its objects and
 /// closed after them. A group that holds no object at any depth is left out.
-pub(super) fn items<'content>(content: &'content [Content], output: &mut Vec<Item<'content>>) {
-    for node in content {
+pub(super) fn items<'content>(
+    content: &'content [Content],
+    path: &str,
+    output: &mut Vec<Item<'content>>,
+) {
+    for (index, node) in content.iter().enumerate() {
+        let path = match node {
+            Content::Element(element) => format!("{path}[{index}].{}", element.kind.as_text()),
+            Content::Text(_) => format!("{path}[{index}]"),
+        };
         match node {
             Content::Element(element) if element.kind == ElementKind::Group => {
                 if !crate::drawings::ungrouped(&element.children).is_empty() {
                     output.push(Item::Open(element));
-                    items(&element.children, output);
+                    items(&element.children, &path, output);
                     output.push(Item::Close);
                 }
             }
-            _ => output.push(Item::Object(node)),
+            _ => output.push(Item::Object(node, path)),
         }
     }
 }

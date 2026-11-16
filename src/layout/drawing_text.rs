@@ -18,6 +18,29 @@ pub(crate) struct FittedText {
     pub page: TextPage,
     pub font_scale: f64,
     pub height_delta: f64,
+    /// The height in points of the paragraphs, with their spacing, at the
+    /// width of the frame.
+    pub text_height: f64,
+    /// The distance in points by which the lowest glyph outline of the text
+    /// falls below the frame, where the text is cut off.
+    pub overflow: f64,
+}
+/// The overflow below which the text of a frame is taken to fit. A lesser
+/// overflow cuts no visible part of a glyph.
+const OVERFLOW_TOLERANCE: f64 = 0.5;
+impl FittedText {
+    pub fn empty() -> Self {
+        Self {
+            page: TextPage::default(),
+            font_scale: 1.0,
+            height_delta: 0.0,
+            text_height: 0.0,
+            overflow: 0.0,
+        }
+    }
+    pub fn is_cut_off(&self) -> bool {
+        self.overflow > OVERFLOW_TOLERANCE
+    }
 }
 fn points(value: Option<&Value>, fallback: f64) -> f64 {
     crate::drawings::length_in_drawing_units(value)
@@ -231,6 +254,7 @@ pub(crate) fn fit_with_frame(
     }
     page.operations.push(PageOperation::PushClip(clip));
     let origin = top;
+    let mut lowest_outline = f64::NEG_INFINITY;
     for (paragraph, original) in planned.into_iter().zip(paragraphs) {
         // PowerPoint sets every baseline a whole number of points below the
         // top of the text.
@@ -262,6 +286,14 @@ pub(crate) fn fit_with_frame(
                 let offset = line.baseline - origin;
                 line.translate(0.0, offset.round() - offset);
             }
+            // The outlines are read only for a line that may pass the frame.
+            if top + height > clip[1] + clip[3] {
+                for fragment in &line.fragments {
+                    if let Some(bottom) = fragment.lowest_outline() {
+                        lowest_outline = lowest_outline.max(bottom);
+                    }
+                }
+            }
             page.push_line(PlacedTextLine { top, line });
             top += height;
         }
@@ -272,6 +304,8 @@ pub(crate) fn fit_with_frame(
         page,
         font_scale: scale,
         height_delta: (content[3] - initial_height).max(0.0),
+        text_height: total,
+        overflow: (lowest_outline - (clip[1] + clip[3])).max(0.0),
     })
 }
 

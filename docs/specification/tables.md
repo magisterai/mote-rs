@@ -31,6 +31,7 @@ Use `cell.margin`; `cell_padding` is rejected.
 Rows accept boolean `repeat_header` and `cant_split`, a nonnegative `height`,
 and `height_rule` of auto, at_least or exact. Repeated headers are the consecutive
 leading header rows. Exact heights may clip content; at_least permits expansion.
+A warning names a row whose exact height cuts off its content in native output.
 Ordinary rows may split across pages unless `cant_split` applies.
 
 Cells accept nonnegative `width`, positive integer `colspan` and `rowspan`, and

@@ -168,6 +168,9 @@ proportion, centred in the box. A `width` or `height` of the image itself has
 no effect in a box. Rotation and flip metadata are not box geometry controls.
 
 `text.fit` normalizes none to clip, autofit to shrink, and resize to resize_shape.
+A box whose text falls below its frame, because `text.fit` is clip or absent or
+because shrinking has reached its least size, gives a warning that names the
+box. Text that fits gives none.
 Nested text supports margins, alignment, vertical alignment, font and run
 formatting, paragraph properties, and list spacing/indentation. Model support
 records these properties; each output must separately implement their effects.
@@ -178,7 +181,9 @@ which governs what the box leaves unstated. A named paragraph style and the
 formatting of a heading are not overridden. A table in a box takes the same
 run formatting, beneath the text formatting of its table style and of its
 cells. A row that repeats as a header has nothing to repeat upon a slide and
-is an ordinary row there.
+is an ordinary row there. The height of a row upon a slide is a minimum: a row
+grows to hold the text of its cells, and a warning names the box where the
+table then passes the lower edge of its frame.
 
 ```mote
 #slide[

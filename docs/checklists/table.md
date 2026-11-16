@@ -38,6 +38,10 @@ row/column merges, cell margins/fills/text direction/alignment, declared table
 regions and text defaults, and physical border ownership. Editable PPTX and native PDF/PNG are covered by the
 [positioned table captures](../../tests/fixtures/presentation-tables/README.md). Table styles may select `style_id` or
 `powerpoint_style_id`; first/last row/column and banding flags are captured.
+A row grows to hold the text of its cells in native output, as PowerPoint grows
+it; PPTX keeps the authored heights. Both outputs warn where the grown rows
+pass the lower edge of the box, and where rotated text is cut off in its cell.
+See the [overflow tests](../../tests/text_overflow.rs).
 PowerPoint visual review remains unreviewed.
 
 The [focused table cases](../../tests/cases/README.md) and

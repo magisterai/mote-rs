@@ -261,6 +261,36 @@ fn inherit_list_items(list: &mut Element, attributes: &Properties) {
     }
 }
 
+/// The excess below which the content of a cell is taken to fit its row. A
+/// lesser excess cuts no visible part of a glyph.
+pub(super) const CUT_OFF_TOLERANCE: f64 = 0.5;
+
+/// Returns the distance from the top of the content of a cell to the bottom
+/// of its lowest glyph outline, picture, table or other object. The spacing after
+/// the last block and the leading below the last line are excluded, because
+/// their loss is invisible.
+pub(super) fn visible_height(cell: &super::CellPlan) -> f64 {
+    let mut lowest: f64 = 0.0;
+    for (block, top) in cell.blocks.iter().zip(&cell.content_tops) {
+        match block {
+            Block::Paragraph(paragraph) => {
+                let mut line_top = *top;
+                for line in &paragraph.text.lines {
+                    for fragment in &line.fragments {
+                        if let Some(bottom) = fragment.lowest_outline() {
+                            lowest = lowest.max(line_top + bottom);
+                        }
+                    }
+                    line_top += line.height;
+                }
+            }
+            Block::Break(_) => {}
+            block => lowest = lowest.max(top + block_geometry(block).0),
+        }
+    }
+    lowest
+}
+
 pub(super) fn block_geometry(block: &Block) -> (f64, f64, f64) {
     match block {
         Block::Paragraph(paragraph) => (

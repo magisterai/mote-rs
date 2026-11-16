@@ -19,6 +19,10 @@
 - [x] `alignment`; `vertical_alignment`: top, center/middle, bottom.
 - [x] `margin`: top/right/bottom/left; nested extra lengths remain normalized.
 - [x] `text.fit`: clip/none, shrink/autofit, resize/resize_shape.
+- [x] A warning where the frame cuts off the text: the lowest glyph outline lies
+  below the frame, whether `text.fit` is clip or absent, or shrink at its least
+  size. The warning names the box by its path and its `name`, in native output
+  and in PPTX. See the [overflow tests](../../tests/text_overflow.rs).
 - [x] `text.margin`, alignment, vertical_alignment, font and run formatting.
 - [x] `text.paragraph`: paragraph formatting, spacing, indentation and line spacing.
 - [x] `text.list`: spacing, indentation, markers and numbering properties.
@@ -79,6 +83,8 @@ placeholder text and are omitted with a diagnostic natively.
 Positioned [tables](../../tests/fixtures/presentation-tables/README.md) and
 [charts](../../tests/fixtures/presentation-charts/README.md) use the box rectangle
 for layout. Their capture guides record style, sizing and native output limits.
+A row of a table grows to hold its text, as PowerPoint grows it; a warning
+names the box where the table then passes the lower edge of the frame.
 
 Loose chart objects use measured automatic frames: one column when it fits,
 then a row-major grid. Each plot reserves at least 72 points in both dimensions

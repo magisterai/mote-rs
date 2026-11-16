@@ -137,6 +137,9 @@ pub(super) fn place_blocks(
                 *pending_spacing = 0.0;
                 ensure_space(cursor, pages, columns, geometry, boundary, 1.0);
                 drawing.place(&mut pages[cursor.page_number - 1]);
+                if let Some(cut_off) = &drawing.cut_off_text {
+                    warnings.push(cut_off.warning(cursor.page_number));
+                }
                 cursor.y += 1.0;
                 cursor.body_started = true;
                 columns.note(cursor, geometry);

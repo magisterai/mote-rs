@@ -177,9 +177,10 @@ the part to reuse; colors and fonts are left at their defaults.
   effect in a box.
 - The `text` argument of a box sets the size and color of its paragraphs and of
   a table within it. A box of text without `text.fit` neither shrinks nor grows:
-  text that does not fit is cut off at the edge of the box without a warning,
-  as is text too wide for a table cell. `text = { fit = "shrink" }` reduces the
-  text of a box until it fits.
+  text that does not fit is cut off at the edge of the box, and a warning names
+  the box. `text = { fit = "shrink" }` reduces the text of a box until it fits.
+  A row of a table grows to hold its text, and a warning is given where the
+  table then passes the lower edge of its box.
 - A table on a slide has a pale fill
   and white borders by default. The declaration
   `#set table(cell = { fill = "#16213a" }, borders = { all = { color = "#334155", width = pt(0.5) } })`

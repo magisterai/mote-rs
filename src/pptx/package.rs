@@ -1,5 +1,6 @@
 use super::{Error, escape};
 use crate::{
+    layout::overflow,
     model::{Content, Document, ElementKind},
     presentation::Deck,
     xml::HEADER,
@@ -186,10 +187,14 @@ pub(super) fn write(
         output.push_str(super::GROUP);
         output.push_str(&picture);
         let mut items = Vec::new();
-        super::groups::items(&slide.element.children, &mut items);
+        super::groups::items(
+            &slide.element.children,
+            &format!("content[{index}].slide"),
+            &mut items,
+        );
         let mut timeline = super::timing::Timeline::default();
         for item in items {
-            let content = match item {
+            let (content, path) = match item {
                 super::groups::Item::Open(group) => {
                     timeline.record(next_shape, group);
                     output.push_str(&super::groups::open(group, &mut next_shape)?);
@@ -199,7 +204,7 @@ pub(super) fn write(
                     output.push_str("</p:grpSp>");
                     continue;
                 }
-                super::groups::Item::Object(content) => content,
+                super::groups::Item::Object(content, path) => (content, path),
             };
             let Content::Element(element) = content else {
                 return Err(Error(
@@ -211,14 +216,19 @@ pub(super) fn write(
                 timeline.record(next_shape, element);
             }
             if element.kind == ElementKind::Shape {
-                output.push_str(&super::shapes::write(
+                let shape = super::shapes::write(
                     element,
                     document,
                     &deck.theme,
                     measurer,
                     &mut next_shape,
                     &mut relations,
-                )?);
+                )?;
+                output.push_str(&shape.markup);
+                if shape.text_is_cut_off {
+                    deck.warnings
+                        .push(overflow::slide_frame_text(element, &path));
+                }
                 continue;
             }
             if element.kind == ElementKind::Line {
@@ -261,6 +271,20 @@ pub(super) fn write(
                     &mut relations,
                     &mut deck.warnings,
                 )?);
+                // PowerPoint grows the rows itself, so the package keeps the
+                // authored heights and the native layout only reports.
+                deck.warnings.extend(
+                    crate::layout::presentation::tables::place(
+                        document,
+                        element,
+                        table,
+                        &deck.theme,
+                        measurer,
+                        &mut crate::layout::TextPage::default(),
+                        &overflow::slide_object(element, &path),
+                    )
+                    .map_err(|error| Error(error.to_string()))?,
+                );
                 continue;
             }
             let mut placeholder;
@@ -281,6 +305,19 @@ pub(super) fn write(
                 placeholder.children = vec![Content::Text(label)];
                 &placeholder
             } else {
+                if crate::layout::presentation::prepare_box(
+                    document,
+                    element,
+                    &deck.theme,
+                    measurer,
+                )
+                .map_err(|error| Error(error.to_string()))?
+                .fitted
+                .is_cut_off()
+                {
+                    deck.warnings
+                        .push(overflow::slide_frame_text(element, &path));
+                }
                 element
             };
             output.push_str(&super::boxes::write(

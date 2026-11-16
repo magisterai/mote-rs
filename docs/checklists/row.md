@@ -22,9 +22,16 @@ Ordinary rows and merged groups can continue across pages and columns at safe
 content boundaries. Oversized atomic rows warn about clipping; an oversized merged
 group without a safe split warns and falls back to individual rows.
 `height` and `height_rule` affect editable DOCX only and produce native support warnings.
+A native row whose exact height cuts off the content of a cell gives a warning
+that names the row and the page on which its table begins; a nested table is
+named as such. DOCX output measures no content and gives no such warning. See
+the [overflow tests](../../tests/text_overflow.rs).
 
 Microsoft Word visual review remains unreviewed.
 
 Positioned-slide rows use their containing box and explicit heights rather than
-page fragmentation. Slide sizing and merge continuity are covered by the
+page fragmentation. The height of a slide row is a minimum: the row grows to
+hold the text of its cells, as PowerPoint grows it, and the rows beneath move
+down. A cell of rotated text does not grow its row, and warns where its text
+is cut off. Slide sizing and merge continuity are covered by the
 [positioned table captures](../../tests/fixtures/presentation-tables/README.md); document pagination flags do not imply slide pagination.

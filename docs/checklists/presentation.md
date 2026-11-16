@@ -51,7 +51,10 @@ that text, fixed and automatic dates, one-based slide-number fields, independent
 false overrides, field geometry/alignment, editable field identifiers and cached
 text, plain speaker-note text, slide/notes/master relationships and notes counts.
 Automatic dates use the local calendar at generation time. Notes remain package
-metadata and do not paint onto slides.
+metadata and do not paint onto slides. The native frame of a field is fixed: a
+footer, date or slide number that it cuts off gives a native warning that names
+the slide ([overflow tests](../../tests/text_overflow.rs)); PowerPoint does not
+clip the field, and PPTX gives no such warning.
 [Editable and native captures](../../tests/fixtures/presentation-fields/README.md)
 cover these effects, including independent overrides and combined slide content.
 PowerPoint review remains pending.

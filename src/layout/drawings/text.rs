@@ -2,7 +2,7 @@
 use super::geometry;
 use crate::{
     drawings::paragraphs,
-    layout::{LayoutError, LayoutStyleResolver, TextPage, TextStyle},
+    layout::{LayoutError, LayoutStyleResolver, TextStyle, drawing_text::FittedText},
     measurement::TextMeasurer,
     model::{Element, ElementKind},
     properties::text,
@@ -11,7 +11,7 @@ pub(super) fn prepare(
     element: &Element,
     styles: &LayoutStyleResolver<'_>,
     measurer: &mut TextMeasurer<'_>,
-) -> Result<TextPage, LayoutError> {
+) -> Result<FittedText, LayoutError> {
     let flow_styles = styles;
     let styles = LayoutStyleResolver::for_drawing_text(styles.document);
     let attributes = crate::drawings::text_attributes(&element.attributes);
@@ -76,5 +76,5 @@ pub(super) fn prepare(
         (bounds[2] - 2.0 * inset).max(0.0),
         (bounds[3] - 2.0 * inset).max(0.0),
     ];
-    Ok(crate::layout::drawing_text::fit(&paragraphs, bounds, &attributes, measurer)?.page)
+    crate::layout::drawing_text::fit(&paragraphs, bounds, &attributes, measurer)
 }

@@ -31,6 +31,12 @@ property has no implied Mote argument or output support.
 - [x] `shadow`: color, blur, distance, opacity, angle; retained additional metadata.
 - [x] `text`: fit (clip/none, shrink/autofit, resize/resize_shape), margin,
   alignment, vertical_alignment, font, span formatting, paragraph and list defaults.
+- [x] A warning where the frame cuts off the text: the lowest glyph outline lies
+  below the text area, whether `text.fit` is clip or absent, or shrink at its
+  least size. Native document output names the shape and its page; native slide
+  output and PPTX name the shape by its path and its `name`. DOCX output
+  measures no text and gives no such warning. See the
+  [overflow tests](../../tests/text_overflow.rs).
 - [x] `text.paragraph`: the established paragraph-style property family;
   text/list spacing_before, spacing_after, line_spacing, spacing and indent.
 - [x] Shared direct font, size, color, highlight, bold, italic, underline,

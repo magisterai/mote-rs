@@ -1,29 +1,123 @@
 //! Fixed slide grids share formatting with editable DrawingML tables.
 mod borders;
 use crate::{
-    layout::{HighlightRectangle, LayoutError, PageOperation, TextPage, drawing_text},
+    layout::{HighlightRectangle, LayoutError, PageOperation, TextPage, drawing_text, overflow},
     measurement::TextMeasurer,
     model::{Document, Element, Properties},
     presentation::{Theme, color, tables::SlideTable, text::TextDefaults, units},
     properties::{boolean, object, text},
 };
 
-pub(super) fn place(
+/// The rotation in degrees that a text direction gives the text of a cell.
+fn rotation(cell: &Properties) -> f64 {
+    match text(cell, "text_direction").as_str() {
+        "tb_rl" => -90.0,
+        "bt_lr" => 90.0,
+        _ => 0.0,
+    }
+}
+
+/// Returns the heights of the rows in points. PowerPoint treats the height of
+/// a row as a minimum and grows the row to hold the text of its cells; a cell
+/// of rotated text does not grow its row here.
+pub(crate) fn row_heights(
+    document: &Document,
+    table: &SlideTable,
+    theme: &Theme,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<Vec<f64>, LayoutError> {
+    let mut heights: Vec<f64> = table
+        .heights
+        .iter()
+        .map(|height| *height as f64 / 12700.0)
+        .collect();
+    let columns = offsets(&table.widths);
+    let mut spanning = Vec::new();
+    for (row_index, row) in table.grid.rows.iter().enumerate() {
+        for (column, cell) in row.iter().enumerate() {
+            let Some(cell) = cell
+                .as_ref()
+                .filter(|cell| !cell.continuation && cell.origin_column == column)
+            else {
+                continue;
+            };
+            let format = table.formats[row_index][column]
+                .as_ref()
+                .expect("origin format");
+            if rotation(&format.cell) != 0.0 {
+                continue;
+            }
+            let width =
+                columns[(column + cell.column_span).min(columns.len() - 1)] - columns[column];
+            let [left, top, right, bottom] = margins(&format.cell);
+            let paragraphs = crate::presentation::text::resolve(
+                document,
+                &cell.element.children,
+                &format.text_attributes(),
+                theme,
+                TextDefaults::Resolved,
+            )?;
+            let fitted = drawing_text::fit_with_frame(
+                &paragraphs,
+                [0.0, 0.0, (width - left - right).max(1.0), 1.0],
+                &Properties::new(),
+                drawing_text::TextFrame::TableCell,
+                measurer,
+            )?;
+            let required = fitted.text_height + top + bottom;
+            let last = (row_index + cell.row_span).min(heights.len());
+            if last - row_index > 1 {
+                spanning.push((row_index, last, required));
+            } else {
+                heights[row_index] = heights[row_index].max(required);
+            }
+        }
+    }
+    for (first, last, required) in spanning {
+        let height: f64 = heights[first..last].iter().sum();
+        if required > height {
+            heights[last - 1] += required - height;
+        }
+    }
+    Ok(heights)
+}
+
+/// Returns whether the rows, grown to hold their text, make the table taller
+/// than its frame.
+pub(crate) fn grows_beyond_frame(table: &SlideTable, heights: &[f64]) -> bool {
+    let authored: f64 = table
+        .heights
+        .iter()
+        .map(|height| *height as f64 / 12700.0)
+        .sum();
+    let grown: f64 = heights.iter().sum();
+    grown > authored + 0.5 && grown > table.bounds[3] as f64 / 12700.0 + 0.5
+}
+
+pub(crate) fn place(
     document: &Document,
     container: &Element,
     element: &Element,
     theme: &Theme,
     measurer: &mut TextMeasurer<'_>,
     page: &mut TextPage,
-    warnings: &mut Vec<String>,
-) -> Result<(), LayoutError> {
+    described: &str,
+) -> Result<Vec<String>, LayoutError> {
+    let mut warnings = Vec::new();
     let table =
         SlideTable::resolve(document, container, element).map_err(LayoutError::Unsupported)?;
     if table.bounds[2] <= 0 || table.bounds[3] <= 0 {
-        return Ok(());
+        return Ok(warnings);
     }
     let columns = offsets(&table.widths);
-    let rows = offsets(&table.heights);
+    let heights = row_heights(document, &table, theme, measurer)?;
+    if grows_beyond_frame(&table, &heights) {
+        warnings.push(overflow::table_rows(described));
+    }
+    let mut rows = vec![0.0];
+    for height in &heights {
+        rows.push(rows.last().unwrap() + height);
+    }
     let origin = [
         table.bounds[0] as f64 / 12700.0,
         table.bounds[1] as f64 / 12700.0,
@@ -76,11 +170,7 @@ pub(super) fn place(
             if boolean(&format.cell, "no_wrap") {
                 warnings.push("PowerPoint always wraps table-cell text; cell.no_wrap has no presentation effect".into());
             }
-            let rotation = match text(&format.cell, "text_direction").as_str() {
-                "tb_rl" => -90.0,
-                "bt_lr" => 90.0,
-                _ => 0.0,
-            };
+            let rotation = rotation(&format.cell);
             let center = [content[0] + content[2] / 2.0, content[1] + content[3] / 2.0];
             let text_bounds = if rotation == 0.0 {
                 content
@@ -103,6 +193,9 @@ pub(super) fn place(
                 drawing_text::TextFrame::TableCell,
                 measurer,
             )?;
+            if fitted.is_cut_off() {
+                warnings.push(overflow::cell_text(described, row_index, column));
+            }
             if rotation != 0.0 {
                 page.operations.push(PageOperation::PushRotation {
                     degrees: rotation,
@@ -117,7 +210,7 @@ pub(super) fn place(
     }
     page.operations
         .extend(borders::operations(&table, origin, &columns, &rows));
-    Ok(())
+    Ok(warnings)
 }
 fn offsets(lengths: &[i64]) -> Vec<f64> {
     let mut output = vec![0.0];
@@ -126,7 +219,8 @@ fn offsets(lengths: &[i64]) -> Vec<f64> {
     }
     output
 }
-fn content_bounds(bounds: [f64; 4], attributes: &Properties) -> [f64; 4] {
+/// Returns the left, top, right and bottom margins of a cell in points.
+fn margins(attributes: &Properties) -> [f64; 4] {
     let margin = object(attributes, "margin");
     let side = |name, fallback| {
         margin
@@ -134,13 +228,20 @@ fn content_bounds(bounds: [f64; 4], attributes: &Properties) -> [f64; 4] {
             .map(|value| value as f64 / 12700.0)
             .unwrap_or(fallback)
     };
-    let left = side("left", 7.2);
-    let top = side("top", 3.6);
+    [
+        side("left", 7.2),
+        side("top", 3.6),
+        side("right", 7.2),
+        side("bottom", 3.6),
+    ]
+}
+fn content_bounds(bounds: [f64; 4], attributes: &Properties) -> [f64; 4] {
+    let [left, top, right, bottom] = margins(attributes);
     [
         bounds[0] + left,
         bounds[1] + top,
-        (bounds[2] - left - side("right", 7.2)).max(1.0),
-        (bounds[3] - top - side("bottom", 3.6)).max(1.0),
+        (bounds[2] - left - right).max(1.0),
+        (bounds[3] - top - bottom).max(1.0),
     ]
 }
 fn tinted(color: &str) -> String {

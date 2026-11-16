@@ -16,6 +16,7 @@ mod fields;
 mod lists;
 mod notes;
 mod numbering;
+pub(crate) mod overflow;
 pub(crate) mod references;
 mod sections;
 mod stories;
@@ -312,6 +313,39 @@ impl TextFragment {
         let face = ttf_parser::Face::parse(bytes, 0).ok()?;
         (bold && face.weight().to_number() < 600)
             .then_some(self.style.measurement.size_points * 0.04)
+    }
+
+    /// Returns the vertical position of the lowest point of the fragment's
+    /// glyph outlines, or nothing for a fragment without a visible glyph. An
+    /// equation reaches its descent. A glyph whose outline cannot be read is
+    /// taken to reach the baseline only, so that a descent which the text may
+    /// not use is never reported as cut off.
+    pub(crate) fn lowest_outline(&self) -> Option<f64> {
+        if self.text.trim().is_empty() {
+            return None;
+        }
+        if self.formula.is_some() {
+            return Some(self.top + self.height);
+        }
+        let Some(face) = self
+            .font
+            .bytes
+            .as_ref()
+            .and_then(|bytes| ttf_parser::Face::parse(bytes, 0).ok())
+        else {
+            return Some(self.baseline);
+        };
+        let scale = self.style.measurement.size_points / f64::from(face.units_per_em());
+        let mut lowest = self.baseline;
+        for character in self.text.chars() {
+            if let Some(bounds) = face
+                .glyph_index(character)
+                .and_then(|glyph| face.glyph_bounding_box(glyph))
+            {
+                lowest = lowest.max(self.baseline - f64::from(bounds.y_min) * scale);
+            }
+        }
+        Some(lowest)
     }
 }
 

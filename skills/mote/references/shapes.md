@@ -62,7 +62,7 @@ The `text` table sets defaults for the body: `font`, `size`, `color`, `bold`,
 `right`, `top` and `bottom`) and `fit`. The `fit` value determines the treatment
 of text that exceeds the shape:
 
-- `clip`, the default, cuts the text at the shape's edge;
+- `clip`, the default, cuts the text at the shape's edge, with a warning;
 - `shrink` reduces the text until it fits;
 - `resize_shape` extends the text area downwards.
 

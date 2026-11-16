@@ -7,6 +7,11 @@ use crate::{
     properties::{object, text},
 };
 
+pub(super) struct WrittenShape {
+    pub markup: String,
+    pub text_is_cut_off: bool,
+}
+
 pub(super) fn write(
     element: &Element,
     document: &Document,
@@ -14,7 +19,7 @@ pub(super) fn write(
     measurer: &mut TextMeasurer<'_>,
     next_shape: &mut usize,
     relationships: &mut Vec<Relationship>,
-) -> Result<String, Error> {
+) -> Result<WrittenShape, Error> {
     let identifier = *next_shape;
     *next_shape += 1;
     let name = text(&element.attributes, "name");
@@ -46,7 +51,10 @@ pub(super) fn write(
         ));
     }
     output.push_str("</p:sp>");
-    Ok(output)
+    Ok(WrittenShape {
+        markup: output,
+        text_is_cut_off: fitted.is_cut_off(),
+    })
 }
 pub(super) fn connector(element: &Element, next_shape: &mut usize) -> Result<String, Error> {
     let identifier = *next_shape;
