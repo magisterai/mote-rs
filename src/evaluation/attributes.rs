@@ -211,6 +211,7 @@ fn validate_named_argument(
                 "background" => Some(ArgumentType::ColorOrObject),
                 "footer" | "date" | "slide_number" => Some(ArgumentType::Boolean),
                 "duration" => Some(ArgumentType::NumberOrString),
+                "field_text" => Some(ArgumentType::Object),
                 _ => None,
             },
             Box => match name {

@@ -177,14 +177,23 @@ fn paragraph(
         marker: None,
     }
 }
+/// Resolves the paragraphs of a text frame. The run formatting of the frame
+/// is applied to each plain paragraph as direct formatting, so that it
+/// overrides the `Normal` style and not the reverse.
 pub(crate) fn resolve(
     content: &[Content],
     base: &TextStyle,
     defaults: &Properties,
+    frame_run: &Properties,
     heading_font: Option<&str>,
     styles: &LayoutStyleResolver<'_>,
 ) -> Vec<DrawingParagraph> {
     let mut output = Vec::new();
+    let plain = |attributes: &Properties| {
+        let mut result = frame_run.clone();
+        result.extend(attributes.clone());
+        result
+    };
     for child in content {
         let element = match child {
             Content::Text(text) => {
@@ -211,7 +220,7 @@ pub(crate) fn resolve(
             ElementKind::Paragraph => output.push(paragraph(
                 &element.children,
                 base,
-                &attributes,
+                &plain(&attributes),
                 "Normal",
                 styles,
             )),
@@ -266,6 +275,7 @@ pub(crate) fn resolve(
                 &element.children,
                 base,
                 defaults,
+                frame_run,
                 heading_font,
                 styles,
             )),

@@ -11,6 +11,26 @@ pub(crate) fn child(element: &Element) -> Option<&Element> {
     }
 }
 
+/// Gives every box that holds a picture alone, and states no fit, the fit
+/// that shows the whole picture in its proportion.
+pub(super) fn contain_by_default(content: &mut [Content]) {
+    for node in content {
+        let Content::Element(element) = node else {
+            continue;
+        };
+        if element.kind == ElementKind::Group {
+            contain_by_default(&mut element.children);
+        } else if element.kind == ElementKind::Box
+            && child(element).is_some()
+            && !element.attributes.contains_key("fit")
+        {
+            element
+                .attributes
+                .insert("fit".into(), crate::model::Value::String("contain".into()));
+        }
+    }
+}
+
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub(crate) struct Crop {
     pub left: f64,

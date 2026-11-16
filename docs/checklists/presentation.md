@@ -20,6 +20,9 @@ remain separate steps within the established compatibility baseline.
 - [x] `theme.name`; `theme.colors`: background/text aliases, dark1/light1,
   dark2/light2, accent1–accent6, hyperlink/followed_hyperlink.
 - [x] `theme.fonts`: heading/body and major/minor; declared font aliases.
+- [x] `field_text`: size, color, font, bold and italic of the footer, the date
+  and the slide number; grey at 10 points where omitted. A native field frame
+  grows upward from its lower edge to hold larger text.
 - [x] `render_at`: a number of seconds, not negative; the time at which the
   deck is rendered and the value of `time`. See [animation](slide.md#animation).
 - [x] `properties` overrides; unknown metadata; Lua declaration constructor.

@@ -69,6 +69,7 @@ impl Deck {
                 "date",
                 "slide_number",
                 "render_at",
+                "field_text",
             ]
             .contains(&name.as_str())
             {
@@ -101,6 +102,9 @@ impl Deck {
                         .map_err(|error| error.to_string())
                     })?;
             }
+        }
+        for element in &mut slides {
+            images::contain_by_default(&mut element.children);
         }
         warnings.extend(support::warnings(document, &slides));
         let today = fields::current_date(document, &slides, &mut warnings);

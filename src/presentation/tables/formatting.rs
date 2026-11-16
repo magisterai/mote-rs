@@ -59,15 +59,37 @@ pub(super) fn style(document: &Document, table: &Element) -> Properties {
     }
     crate::tables::styles::declared(style)
 }
+/// The run formatting that the text of a table takes from its box.
+pub(super) fn inherited_text(container: &Element) -> Properties {
+    let text = crate::drawings::text_attributes(&container.attributes);
+    [
+        "font",
+        "size",
+        "color",
+        "bold",
+        "italic",
+        "underline",
+        "small_caps",
+        "strike",
+        "double_strike",
+    ]
+    .into_iter()
+    .filter_map(|name| Some((name.to_owned(), text.get(name)?.clone())))
+    .collect()
+}
 pub(super) fn resolve(
     document: &Document,
     table: &Element,
     style: &Properties,
+    inherited_text: &Properties,
     cell: &GridCell,
     rows: usize,
     columns: usize,
 ) -> CellFormat {
-    let mut format = CellFormat::default();
+    let mut format = CellFormat {
+        text: inherited_text.clone(),
+        ..Default::default()
+    };
     if let Some(defaults) = object(style, "cell") {
         format.apply(defaults);
     }

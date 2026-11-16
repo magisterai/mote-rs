@@ -51,6 +51,7 @@ pub(super) fn prepare(
         &element.children,
         &base,
         &defaults,
+        &crate::model::Properties::new(),
         (text(&attributes, "font").is_empty() && text(&attributes, "style").is_empty())
             .then_some("Aptos"),
         &styles,

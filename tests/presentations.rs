@@ -263,6 +263,7 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
             .contains("presentation")
     );
     assert_eq!(timed("#presentation(render_at=0)", None).0, Some(0.0));
+    assert_eq!(timed("#presentation(render_at=.5)", None).0, Some(0.5));
 
     let object = |arguments: &str| {
         format!("#slide[#shape(position={{width=pt(4),height=pt(4)}},{arguments})]")
@@ -314,6 +315,14 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
             "slide duration must be a number of seconds, not negative",
         ),
         ("#presentation(render_at='end')".to_owned(), "render_at"),
+        (
+            "#presentation(field_text={weight=1})".to_owned(),
+            "field_text does not accept weight",
+        ),
+        (
+            "#slide(field_text={size=pt(-1)})[]".to_owned(),
+            "field_text.size",
+        ),
         (
             "#slide[#group(rotation='quarter')[#shape(position={width=pt(4),height=pt(4)})]]"
                 .to_owned(),

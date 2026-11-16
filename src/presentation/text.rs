@@ -52,10 +52,26 @@ pub(crate) fn resolve(
     } else {
         "+mj-lt"
     });
+    let frame_run: Properties = [
+        "font",
+        "size",
+        "color",
+        "highlight",
+        "bold",
+        "italic",
+        "underline",
+        "small_caps",
+        "strike",
+        "double_strike",
+    ]
+    .into_iter()
+    .filter_map(|name| Some((name.to_owned(), attributes.get(name)?.clone())))
+    .collect();
     let mut paragraphs = paragraphs::resolve(
         content,
         &base,
         &paragraphs::paragraph_defaults(attributes),
+        &frame_run,
         heading,
         &styles,
     );

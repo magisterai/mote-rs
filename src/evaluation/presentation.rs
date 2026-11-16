@@ -49,7 +49,7 @@ pub(super) fn apply(
             "footer" | "date" | "slide_number" => {
                 matches!(argument.value, Value::String(_) | Value::Boolean(_))
             }
-            "theme" | "properties" => matches!(argument.value, Value::Object(_)),
+            "theme" | "properties" | "field_text" => matches!(argument.value, Value::Object(_)),
             "render_at" => matches!(argument.value, Value::Number(_)),
             _ => true,
         };
@@ -84,6 +84,7 @@ pub(super) fn apply(
                 "footer" | "date" => text_or_boolean(value, span, &name)?,
                 "slide_number" => normalize_boolean(value, span, &name)?,
                 "render_at" => seconds(value, span, "presentation render_at")?,
+                "field_text" => field_text(value, span)?,
                 _ => value,
             };
             Ok((name, value))
@@ -196,6 +197,29 @@ fn theme(value: Value, span: Span) -> Result<Value, Diagnostic> {
     }
     Ok(Value::Object(fields))
 }
+/// Normalizes the formatting of the footer, the date and the slide number.
+pub(super) fn field_text(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    require_object(value, span, "field_text")?
+        .into_iter()
+        .map(|(name, value)| {
+            let value = match name.as_str() {
+                "size" => normalize_length(value, span, "field_text.size")?,
+                "color" => normalize_color(value, span, "field_text.color")?,
+                "bold" | "italic" => normalize_boolean(value, span, &name)?,
+                "font" => Value::String(value.to_text()),
+                _ => {
+                    return Err(Diagnostic::new(
+                        span,
+                        format!("field_text does not accept {name}"),
+                    ));
+                }
+            };
+            Ok((name, value))
+        })
+        .collect::<Result<Properties, Diagnostic>>()
+        .map(Value::Object)
+}
+
 /// Admits a time or a duration: a finite number of seconds, not negative.
 pub(super) fn seconds(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
     match value {
@@ -328,6 +352,7 @@ pub(super) fn normalize(
             "footer" | "date" => text_or_boolean(value, span, name),
             "slide_number" => normalize_boolean(value, span, name),
             "duration" => seconds(value, span, "slide duration"),
+            "field_text" => field_text(value, span),
             "layout" => {
                 let name = normalize_identifier(value, span, name)?;
                 if name.trim().is_empty() {

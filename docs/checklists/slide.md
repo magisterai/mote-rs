@@ -12,10 +12,11 @@
 - [x] `layout`: trimmed name, built-in/custom resolution and typed slots; see
   the [layout checklist](layout.md).
 - [x] `properties` overrides, retained metadata and Lua construction.
+- [x] `field_text`: replaces the deck `field_text` member by member.
 - [x] `duration`: a number of seconds, not negative. PPTX writes it as the time
   after which the slide advances, and `--frames` takes it as an end.
 - [x] Automatic loose-content layout: a leading heading, grouped text, separate
-  image/table frames, shared fitting and page-size-aware geometry.
+  image/table frames in which an image keeps its proportion, shared fitting and page-size-aware geometry.
 - [x] Implicit top-level Markdown slide separators and heading boundaries in
   presentation mode; explicit slides mixed with implicit segments.
 

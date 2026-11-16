@@ -9,7 +9,9 @@ Repeating a name replaces its value in the current scope. A forward reference to
 an unknown name is an error.
 
 Values keep their types: strings, numbers, booleans, nil, lengths, colors,
-property objects, and arrays. They can supply directive attributes or helper
+property objects, and arrays. A number is written in decimal digits with an
+optional sign and an optional fraction; the digits before the point may be
+omitted, so that `.5` is one half. They can supply directive attributes or helper
 arguments. `#name` inserts a value as text. Nil inserts no content; at block level,
 a declaration or nil value also consumes the next whitespace-only source node.
 Objects and arrays use their value text representation; use a property path when

@@ -24,11 +24,16 @@
 - [x] `text.list`: spacing, indentation, markers and numbering properties.
 - [x] Direct text color, size, bold, italic, underline, strike, double_strike,
   small_caps; extra metadata does not imply a rendering effect.
+- [x] The run formatting of a box overrides the `Normal` style in its plain
+  paragraphs, and reaches a table within the box beneath the table style and
+  the cells. See the [box test](../../tests/presentation_rendering.rs).
 - [x] `opacity`: fraction, percentage number or percentage string.
 - [x] `shadow`: color, blur, distance, angle and opacity normalization.
 - [ ] `shadow.enabled`: retained metadata; does not enable or suppress the effect.
   A zero shadow opacity makes the effect invisible.
-- [x] `fit`: contain, cover, stretch for an image child.
+- [x] `fit`: contain, cover, stretch for an image child; contain where omitted.
+  A `width` or `height` of the image has no effect and gives a warning that
+  names the box as the source of the size.
 - [x] `slot`: nonempty named assignment, with optional position and body.
 - [x] `kind`, `required`, `remove`: layout-only declaration fields; see the
   [layout inventory](layout.md).

@@ -67,17 +67,9 @@ separates slides.
   is 13.333 by 7.5 inches, and a standard slide 10 by 7.5 inches.
 - A box accepts the appearance and `text` arguments of a shape, described in
   [shapes](shapes.md), including `fit = "shrink"` for text that must fit.
-- An image alone in a box takes its size from the box, and a `width` or `height`
-  on the image has no effect and gives a warning. The picture is stretched to
-  the box unless the box has `fit = "contain"`, which shows the whole picture
-  centered in the box, or `fit = "cover"`, which fills the box and crops the
-  excess. A photograph therefore requires `fit` on its box:
-  `#box(position = { ... }, fit = "contain")[#image("photo.jpg", alt = "...")]`.
 - An image in a box is faded by the `opacity` of the image, as in
   `#image("logo.png", opacity = 0.4)`; the `opacity` of the box does not fade
   its picture.
-- A title is a box of text with a large `text.size`, or a box that holds a
-  heading; both are ordinary editable text in PowerPoint.
 - A box may mix text with images, tables and charts. The pieces are stacked
   down the box in their order: text takes the height of its lines, an image the
   height of its proportion, and tables and charts share what remains. PowerPoint
@@ -94,56 +86,107 @@ separates slides.
   Text, headings and lists go in a box or a shape of the group, never loose in
   the group itself.
 
-## A slide of a picture and text
+## Common arrangements
+
+Each slide below is a complete arrangement for a wide slide. The positions are
+the part to reuse; colors and fonts are left at their defaults.
 
 ```mote
-#presentation(size = "wide", background = "#f7f3ea",
-  theme = { colors = { text = "#1c2733", accent1 = "#b4532a" }, fonts = { heading = "Helvetica", body = "Helvetica" } })
-#style "Heading1" (run = { size = pt(40), bold = true, color = "#b4532a" })
+#presentation(size = "wide", footer = "Survey 2026", slide_number = true,
+  field_text = { size = pt(11), color = "#475569" })
 
-#slide[
-  #box(position = { x = inch(0.7), y = inch(0.5), width = inch(12), height = inch(1.1) })[
-    # The first flight
-  ]
-  #box(position = { x = inch(0.7), y = inch(1.8), width = inch(5.6), height = inch(5) }, fit = "contain")[
+#slide(notes = "A title slide: a large title above a subtitle.")[
+  #box(position = { x = inch(1), y = inch(2.4), width = inch(11.3), height = inch(1.5) },
+       text = { size = pt(54), bold = true, vertical_alignment = "bottom" })[The first flight]
+  #box(position = { x = inch(1), y = inch(4), width = inch(11.3), height = inch(0.9) },
+       text = { size = pt(26) })[An evening talk]
+]
+
+#slide(notes = "A picture beside text, with a credit beneath the picture.")[
+  #box(position = { x = inch(0.7), y = inch(0.5), width = inch(12), height = inch(1) },
+       text = { size = pt(40), bold = true })[A picture beside text]
+  #box(position = { x = inch(0.7), y = inch(1.7), width = inch(5.8), height = inch(4.6) })[
     #image("photo.png", alt = "The rocket on its stand")
   ]
-  #box(position = { x = inch(6.8), y = inch(1.8), width = inch(5.8), height = inch(4.4) },
+  #box(position = { x = inch(0.7), y = inch(6.35), width = inch(5.8), height = inch(0.4) },
+       text = { size = pt(12) })[Credit: the archive]
+  #box(position = { x = inch(6.9), y = inch(1.7), width = inch(5.7), height = inch(4.6) },
        text = { size = pt(26), vertical_alignment = "middle" })[
     - The flight lasted 2.5 seconds.
     - The rocket reached 12.5 metres.
   ]
-  #box(position = { x = inch(6.8), y = inch(6.3), width = inch(5.8), height = inch(0.4) },
-       text = { size = pt(12), color = "#6b7280" })[Credit: the archive]
+]
+
+#slide(notes = "Two pictures side by side, each with a caption.")[
+  #box(position = { x = inch(0.7), y = inch(0.5), width = inch(12), height = inch(1) },
+       text = { size = pt(40), bold = true })[Two pictures]
+  #box(position = { x = inch(0.7), y = inch(1.7), width = inch(5.8), height = inch(3.8) }, fit = "cover")[
+    #image("photo.png", alt = "The first vehicle")
+  ]
+  #box(position = { x = inch(6.8), y = inch(1.7), width = inch(5.8), height = inch(3.8) }, fit = "cover")[
+    #image("photo.png", alt = "The second vehicle")
+  ]
+  #box(position = { x = inch(0.7), y = inch(5.6), width = inch(5.8), height = inch(1) },
+       text = { size = pt(20) })[The first vehicle, 1981.]
+  #box(position = { x = inch(6.8), y = inch(5.6), width = inch(5.8), height = inch(1) },
+       text = { size = pt(20) })[The second vehicle, 2018.]
+]
+
+#slide(notes = "A chart across the whole slide.")[
+  #box(position = { x = inch(0.7), y = inch(0.5), width = inch(12), height = inch(1) },
+       text = { size = pt(40), bold = true })[A chart]
+  #box(position = { x = inch(0.7), y = inch(1.6), width = inch(12), height = inch(5.1) })[
+    #chart(kind = "column", data_labels = true,
+           data = { categories = { "1957", "1967", "2018" }, series = { { name = "Tonnes", values = { 0.5, 140, 63.8 } } } })
+  ]
+]
+
+#slide(notes = "A table, its text sized by the box.")[
+  #box(position = { x = inch(0.7), y = inch(0.5), width = inch(12), height = inch(1) },
+       text = { size = pt(40), bold = true })[A table]
+  #box(position = { x = inch(1.7), y = inch(1.8), width = inch(10), height = inch(3) },
+       text = { size = pt(22) })[
+    | Rocket | Year | Payload |
+    | :--- | :---: | ---: |
+    | Saturn V | 1967 | 140 |
+    | Falcon Heavy | 2018 | 63.8 |
+  ]
+]
+
+#slide(notes = "A timeline: a line, a marker for each date, and labels.")[
+  #box(position = { x = inch(0.7), y = inch(0.5), width = inch(12), height = inch(1) },
+       text = { size = pt(40), bold = true })[A timeline]
+  #line(from = { x = inch(1), y = inch(3.8) }, to = { x = inch(12.3), y = inch(3.8) },
+        border = { color = "#475569", width = pt(2) })
+  #for entry in { { x = 2, left = 0.65, year = "1926", event = "First liquid-fuelled flight" },
+                  { x = 6.2, left = 4.85, year = "1957", event = "First satellite" },
+                  { x = 10.4, left = 9.05, year = "1969", event = "First Moon landing" } } {
+    #shape(position = { x = inch(entry.x), y = inch(3.65), width = inch(0.3), height = inch(0.3) },
+           kind = "ellipse", fill = "#2563eb")
+    #box(position = { x = inch(entry.left), y = inch(2.7), width = inch(3), height = inch(0.8) },
+         text = { size = pt(26), bold = true, alignment = "center" })[#entry.year]
+    #box(position = { x = inch(entry.left), y = inch(4.2), width = inch(3), height = inch(1.2) },
+         text = { size = pt(18), alignment = "center" })[#entry.event]
+  }
 ]
 ```
 
-- The colors and fonts above are one example; a deck takes a palette and
-  typefaces that suit its subject and audience.
+- A picture keeps its proportion in its box and is centered there; `fit =
+  "cover"` fills the box and crops the excess, and `fit = "stretch"` distorts
+  the picture to the box. A `width` or `height` on the image itself has no
+  effect in a box.
+- The `text` argument of a box sets the size and color of its paragraphs and of
+  a table within it. A box of text without `text.fit` neither shrinks nor grows;
+  `text = { fit = "shrink" }` reduces text that would not fit.
+- The `field_text` argument of the deck, or of one slide, sets the `size`,
+  `color`, `font`, `bold` and `italic` of the footer, date and slide number.
+  The footer stands at the bottom left and the slide number at the bottom
+  right, so the lowest half inch of a slide is best left free.
 - The declarations of a deck, `#presentation`, `#style`, `#layout` and
-  `#function`, stand before the first slide.
-- The deck `footer` is drawn small and grey at the bottom left of each slide and
-  the slide number at the bottom right, so the lowest half inch of a slide is
-  best left free of other objects.
-- The `text` argument of a box does not reach a table within it. The text of a
-  table on a slide is sized and colored in its cells, as in
-  `#cell[#span(size = pt(20))[Saturn V]]`.
-- A `#style "Normal"` declaration is best left out of a deck: its size and
-  color override the `text` argument of every box and shape.
-- A table on a slide is written with `#table`, since a Markdown table marks its
-  header to repeat across pages and that gives a warning on a slide. The rows
-  of the table share the height of its box equally.
-- A slide shown to a room wants a title of 36 to 44 points and body text of 22
-  to 28 points. The boxes together should occupy most of the slide: a picture
-  and its text each take about half the width and most of the height below
-  the title.
-- A `#style "Heading1" (...)` declaration sets the size, weight and color of
-  every level-one heading of the deck, and `"Heading2"` of every level-two
-  heading, so a title needs no formatting of its own.
-- A box of text without `fit` neither shrinks nor grows, so text too long for
-  its box does not fit within it; `text = { fit = "shrink" }` prevents this.
+  `#function`, stand before the first slide. A `#style "Heading1" (...)`
+  declaration formats every level-one heading of the deck.
 - The previews are the check: each slide is rendered to PNG and looked at for
-  overflow, overlap, empty areas and text too small to read.
+  overflow, overlap and empty areas.
 
 ## Layouts
 

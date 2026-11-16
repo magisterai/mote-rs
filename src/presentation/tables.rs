@@ -56,6 +56,7 @@ impl SlideTable {
                 .cloned()
                 .unwrap_or_default(),
         );
+        let inherited_text = formatting::inherited_text(container);
         let mut formats = Vec::new();
         let mut authored = !borders.is_empty();
         for row in &grid.rows {
@@ -69,6 +70,7 @@ impl SlideTable {
                             document,
                             table,
                             &style,
+                            &inherited_text,
                             cell,
                             grid.rows.len(),
                             grid.column_count,

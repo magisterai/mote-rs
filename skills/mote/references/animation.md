@@ -47,10 +47,6 @@ which the source is rendered, so that any value may be computed from it.
 - An effect on a group acts on the group as one object, so that a faint group
   does not show one part through another.
 - The `duration` of a slide is the time for which the slide is shown.
-- A slide reads well when its objects enter in the order they are spoken of:
-  the title at 0, the picture at 0.5, each point a half second after the last.
-  A `move` or a `scale` suits one object that the slide is about, such as a
-  picture that grows slightly or a label that slides to its place.
 
 ## Values computed from the time
 

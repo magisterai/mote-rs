@@ -1449,3 +1449,162 @@ fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() 
         [([0.966, 0.259, -0.259, 0.966, 28.097, -13.416], 1.0)]
     );
 }
+
+#[test]
+fn a_box_governs_the_fit_of_its_image_and_the_text_of_its_paragraphs_and_table() {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let plan = |source: &str| {
+        let document = mote::compile(&format!(
+            "#presentation(width=pt(400),height=pt(300))\n{source}"
+        ))
+        .unwrap();
+        let planned =
+            render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+                .unwrap();
+        let package = mote::pptx::emit_with_fonts(&document, &resolver, None, None).unwrap();
+        (planned, package.warnings, slide_xml(package.bytes))
+    };
+
+    // An image keeps its proportion in a box that states no fit.
+    let picture = |fit: &str| {
+        let (planned, warnings, xml) = plan(&format!(
+            "#slide[#box(position={{x=pt(20),y=pt(20),width=pt(300),height=pt(100)}}{fit})[#image('pattern.png')]]"
+        ));
+        assert_eq!(planned.warnings, Vec::<String>::new());
+        assert_eq!(warnings, Vec::<String>::new());
+        (
+            planned.output.pages[0].operations.clone(),
+            object_frames(&xml, "pic"),
+        )
+    };
+    let (default_operations, default_frames) = picture("");
+    assert_eq!(
+        (default_operations, default_frames.clone()),
+        picture(",fit='contain'")
+    );
+    let [frame] = default_frames[..] else {
+        panic!("the slide holds one picture");
+    };
+    assert!(frame[2] < 300.0 && frame[3] == 100.0, "{frame:?}");
+    assert_eq!(picture(",fit='stretch'").1, [[20.0, 20.0, 300.0, 100.0]]);
+
+    let (planned, warnings, _) = plan(
+        "#slide[#box(position={width=pt(300),height=pt(100)})[#image('pattern.png',width=pt(40))]]",
+    );
+    for warnings in [planned.warnings, warnings] {
+        assert_eq!(
+            warnings,
+            [
+                "content[0].slide[0].box[0].image.width has no effect on a slide: the box sets the size of its image"
+            ]
+        );
+    }
+
+    // The text settings of a box override the Normal style, which governs
+    // what the box leaves unstated, and they reach a table within the box.
+    let (planned, warnings, xml) = plan(
+        "#style \"Normal\" (run={size=pt(14),color='#aa0000'})\n\
+         #slide[\n\
+         #box(position={x=pt(10),y=pt(10),width=pt(380),height=pt(60)},text={size=pt(30)})[Sized by the box]\n\
+         #box(position={x=pt(10),y=pt(80),width=pt(380),height=pt(60)})[Sized by the style]\n\
+         #box(position={x=pt(10),y=pt(150),width=pt(380),height=pt(120)},text={size=pt(22),color='#0000aa'})[\n\
+         | Rocket | Year |\n| --- | --- |\n| Saturn V | 1967 |\n]\n]",
+    );
+    assert_eq!(planned.warnings, Vec::<String>::new());
+    assert_eq!(warnings, Vec::<String>::new());
+    let tree = roxmltree::Document::parse(&xml).unwrap();
+    let run = |text: &str| {
+        let run = tree
+            .descendants()
+            .find(|node| {
+                node.has_tag_name("r") && node.descendants().any(|child| child.text() == Some(text))
+            })
+            .unwrap();
+        let properties = run
+            .children()
+            .find(|node| node.has_tag_name("rPr"))
+            .unwrap();
+        (
+            properties.attribute("sz").unwrap().to_owned(),
+            properties
+                .descendants()
+                .find(|node| node.has_tag_name("srgbClr"))
+                .map(|node| node.attribute("val").unwrap().to_owned()),
+        )
+    };
+    assert_eq!(
+        run("Sized by the box"),
+        ("3000".into(), Some("AA0000".into()))
+    );
+    assert_eq!(
+        run("Sized by the style"),
+        ("1400".into(), Some("AA0000".into()))
+    );
+    assert_eq!(run("Saturn V"), ("2200".into(), Some("0000AA".into())));
+    assert_eq!(run("Rocket").0, "2200");
+    let sizes: Vec<_> = planned.output.pages[0]
+        .lines
+        .iter()
+        .flat_map(|line| &line.line.fragments)
+        .map(|fragment| fragment.style.measurement.size_points)
+        .collect();
+    for expected in [30.0, 14.0, 22.0] {
+        assert!(sizes.contains(&expected), "{expected}: {sizes:?}");
+    }
+}
+
+#[test]
+fn the_footer_fields_take_the_field_text_of_the_deck_and_of_the_slide() {
+    let document = mote::compile(
+        "#presentation(width=pt(400),height=pt(300),footer='Foot',slide_number=true,\
+         field_text={size=pt(14),color='#f59e0b',bold=true})\
+         #slide[#shape(position={width=pt(4),height=pt(4)})]\
+         #slide(field_text={color='#38bdf8',italic=true,font='Georgia'})[\
+         #shape(position={width=pt(4),height=pt(4)})]",
+    )
+    .unwrap();
+    let package = mote::pptx::emit_with_warnings(&document).unwrap();
+    assert_eq!(package.warnings, Vec::<String>::new());
+    let mut archive = zip::ZipArchive::new(std::io::Cursor::new(package.bytes)).unwrap();
+    let mut slide = |number: usize| {
+        use std::io::Read;
+        let mut xml = String::new();
+        archive
+            .by_name(&format!("ppt/slides/slide{number}.xml"))
+            .unwrap()
+            .read_to_string(&mut xml)
+            .unwrap();
+        xml
+    };
+    assert_eq!(
+        slide(1)
+            .matches(r#"<a:rPr lang="en-US" sz="1400" b="1"><a:solidFill><a:srgbClr val="F59E0B"/></a:solidFill></a:rPr>"#)
+            .count(),
+        2
+    );
+    assert_eq!(
+        slide(2)
+            .matches(r#"<a:rPr lang="en-US" sz="1400" b="1" i="1"><a:solidFill><a:srgbClr val="38BDF8"/></a:solidFill><a:latin typeface="Georgia"/></a:rPr>"#)
+            .count(),
+        2
+    );
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let planned =
+        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+            .unwrap();
+    assert_eq!(planned.warnings, Vec::<String>::new());
+    for (page, color) in planned.output.pages.iter().zip(["F59E0B", "38BDF8"]) {
+        let fields: Vec<_> = page
+            .lines
+            .iter()
+            .flat_map(|line| &line.line.fragments)
+            .map(|fragment| {
+                (
+                    fragment.style.measurement.size_points,
+                    fragment.style.color.as_str(),
+                )
+            })
+            .collect();
+        assert_eq!(fields, [(14.0, color), (14.0, color)]);
+    }
+}

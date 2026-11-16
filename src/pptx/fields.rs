@@ -33,7 +33,27 @@ pub(super) fn write(
         };
         let [horizontal, vertical, width, height] = field.editable_bounds(dimensions);
         let text = escape(&field.text)?;
-        let properties = r#"<a:rPr lang="en-US" sz="1000"><a:solidFill><a:srgbClr val="6B7280"/></a:solidFill></a:rPr>"#;
+        let style = &metadata.text;
+        let mut properties = format!(
+            r#"<a:rPr lang="en-US" sz="{}""#,
+            (style.size * 100.0).round() as i64
+        );
+        for (name, stated) in [("b", style.bold), ("i", style.italic)] {
+            if stated {
+                properties.push_str(&format!(r#" {name}="1""#));
+            }
+        }
+        properties.push_str(&format!(
+            r#"><a:solidFill><a:srgbClr val="{}"/></a:solidFill>"#,
+            style.color
+        ));
+        if !style.font.is_empty() {
+            properties.push_str(&format!(
+                r#"<a:latin typeface="{}"/>"#,
+                escape(&style.font)?
+            ));
+        }
+        properties.push_str("</a:rPr>");
         let content = if let Some(field_type) = field_type {
             let field_identifier =
                 format!("{{{slide_number:08X}-0000-0000-0000-{identifier:012X}}}");

@@ -157,7 +157,7 @@ fn plan(
             &mut page,
         )?;
         for field in slide.metadata.fields(index + 1) {
-            let element = field.native_box([geometry.width, geometry.height]);
+            let element = field.native_box([geometry.width, geometry.height], &slide.metadata.text);
             let prepared = prepare_box(document, &element, &deck.theme, measurer)?;
             page.append_content(prepared.fitted.page);
         }

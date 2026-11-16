@@ -236,7 +236,16 @@ where
                     .unwrap_or_else(|| Value::String("contain".into()));
                 (Properties::from([("fit".to_owned(), fit)]), height)
             }
-            Height::Share => (Properties::new(), share),
+            // The text of a table takes the run formatting of its box.
+            Height::Share => (
+                match (&piece[0], text_attributes.get("text")) {
+                    (Content::Element(table), Some(text)) if table.kind == ElementKind::Table => {
+                        Properties::from([("text".to_owned(), text.clone())])
+                    }
+                    _ => Properties::new(),
+                },
+                share,
+            ),
         };
         if height > 0 {
             attributes.insert("position".into(), position([left, offset, width, height]));

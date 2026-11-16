@@ -28,7 +28,10 @@ meanings defined earlier. Additional fields remain metadata. `footer` is text
 or a boolean; `date` is fixed text, true for an automatic date field, or false to
 suppress it. An automatic date uses the generation date with the full English
 month name, day and year. `slide_number` normalizes a boolean and displays the
-one-based slide index when enabled. `render_at` is a number of seconds, not
+one-based slide index when enabled. `field_text` is a table that formats the
+footer, the date and the slide number: `size` is a length, `color` a color,
+`font` a font name, and `bold` and `italic` are booleans; any other member is
+invalid. Where it is omitted the three are set in grey at 10 points. `render_at` is a number of seconds, not
 negative: the time at which the deck is rendered, as [animation](#animation)
 defines it.
 
@@ -56,6 +59,7 @@ without deck text it produces no footer. A fixed footer or date string replaces
 the inherited text. Speaker notes are trimmed plain text, independent of the
 visible slide body; directive syntax inside a note string is not evaluated.
 `duration` is a number of seconds, not negative, for which the slide is shown.
+`field_text` replaces, member by member, the `field_text` of the deck.
 
 A slide contains either positioned boxes, shapes and lines, or loose content.
 Mixing positioned objects and loose content in one slide is invalid.
@@ -156,12 +160,22 @@ Box appearance reuses the [shape formatting](drawings.md) definitions: `fill`,
 `border`, `opacity`, `shadow`, alignment, vertical alignment, margins, direct run
 formatting, and nested `text` properties. `name` accepts text or a number; `style`
 is a retained text style hint. Box `fit` accepts contain, cover or stretch for an
-image child. Rotation and flip metadata are not box geometry controls.
+image child, and is contain where omitted: the whole image is shown in its
+proportion, centred in the box. A `width` or `height` of the image itself has
+no effect in a box. Rotation and flip metadata are not box geometry controls.
 
 `text.fit` normalizes none to clip, autofit to shrink, and resize to resize_shape.
 Nested text supports margins, alignment, vertical alignment, font and run
 formatting, paragraph properties, and list spacing/indentation. Model support
 records these properties; each output must separately implement their effects.
+
+The run formatting of a box, its font, size, color and emphasis, is direct
+formatting of each plain paragraph within: it overrides the `Normal` style,
+which governs what the box leaves unstated. A named paragraph style and the
+formatting of a heading are not overridden. A table in a box takes the same
+run formatting, beneath the text formatting of its table style and of its
+cells. A row that repeats as a header has nothing to repeat upon a slide and
+is an ordinary row there.
 
 ```mote
 #slide[

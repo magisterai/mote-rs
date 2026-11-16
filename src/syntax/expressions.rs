@@ -117,7 +117,7 @@ impl Parser<'_> {
                     ExpressionKind::Array(entries.into_iter().map(|entry| entry.value).collect())
                 }
             }
-            Some(character) if character.is_ascii_digit() || character == '-' => {
+            Some(character) if character.is_ascii_digit() || matches!(character, '-' | '.') => {
                 if character == '-' {
                     self.advance_character();
                 }

@@ -171,6 +171,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             "date",
             "slide_number",
             "duration",
+            "field_text",
         ]),
         ElementKind::Box | ElementKind::Shape => {
             allowed.extend([
@@ -262,7 +263,8 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             "style_id",
             "powerpoint_style_id",
         ]),
-        ElementKind::Row => allowed.extend(["height"]),
+        // A slide has no second page upon which a header row could repeat.
+        ElementKind::Row => allowed.extend(["height", "repeat_header"]),
         ElementKind::Cell => allowed.extend([
             "colspan",
             "rowspan",
@@ -292,6 +294,14 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
                 "opacity",
                 "border",
             ]);
+            for name in ["width", "height"] {
+                if attributes.contains_key(name) {
+                    allowed.push(name);
+                    warnings.insert(format!(
+                        "{path}.{name} has no effect on a slide: the box sets the size of its image"
+                    ));
+                }
+            }
             for (name, fields) in [
                 ("crop", &["left", "top", "right", "bottom"][..]),
                 (

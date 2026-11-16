@@ -7,6 +7,35 @@ pub(crate) struct SlideMetadata {
     automatic_date: bool,
     slide_number: bool,
     pub notes: String,
+    pub text: FieldText,
+}
+/// The formatting of the footer, the date and the slide number of a slide.
+pub(crate) struct FieldText {
+    pub size: f64,
+    pub color: String,
+    pub font: String,
+    pub bold: bool,
+    pub italic: bool,
+}
+impl FieldText {
+    /// A slide states its own formatting field by field over that of the deck.
+    fn resolve(document: &Document, slide: &Element) -> Self {
+        let mut fields = Properties::new();
+        for source in [&document.presentation.properties, &slide.attributes] {
+            if let Some(stated) = crate::properties::object(source, "field_text") {
+                fields.extend(stated.clone());
+            }
+        }
+        Self {
+            size: super::units(fields.get("size"))
+                .filter(|size| *size > 0)
+                .map_or(10.0, |size| size as f64 / 12700.0),
+            color: super::color(fields.get("color")).unwrap_or_else(|| "6B7280".into()),
+            font: crate::properties::text(&fields, "font"),
+            bold: crate::properties::boolean(&fields, "bold"),
+            italic: crate::properties::boolean(&fields, "italic"),
+        }
+    }
 }
 #[derive(Clone, Copy)]
 pub(crate) enum FieldKind {
@@ -61,6 +90,7 @@ impl SlideMetadata {
             notes: crate::properties::text(&slide.attributes, "notes")
                 .trim()
                 .into(),
+            text: FieldText::resolve(document, slide),
         }
     }
     pub fn fields(&self, slide_number: usize) -> Vec<Field> {
@@ -97,7 +127,7 @@ impl Field {
         };
         [horizontal, height - 457200, width, 274320]
     }
-    pub fn native_box(&self, [width, height]: [f64; 2]) -> Element {
+    pub fn native_box(&self, [width, height]: [f64; 2], text: &FieldText) -> Element {
         let (horizontal, width, alignment) = match self.kind {
             FieldKind::Footer => (36.0, width / 3.0, "left"),
             FieldKind::Date { .. } => ((width - width / 4.0) / 2.0, width / 4.0, "center"),
@@ -107,6 +137,8 @@ impl Field {
             value,
             unit: Unit::Point,
         };
+        // The frame keeps its lower edge and grows upward to hold larger text.
+        let frame_height = (text.size * 1.25 + 7.2).max(21.6);
         Element {
             source_name: None,
             source_location: None,
@@ -116,9 +148,9 @@ impl Field {
                     "position".into(),
                     Value::Object(Properties::from([
                         ("x".into(), points(horizontal)),
-                        ("y".into(), points(height - 36.0)),
+                        ("y".into(), points(height - 14.4 - frame_height)),
                         ("width".into(), points(width)),
-                        ("height".into(), points(21.6)),
+                        ("height".into(), points(frame_height)),
                     ])),
                 ),
                 (
@@ -130,11 +162,19 @@ impl Field {
                         ("right".into(), points(7.2)),
                     ])),
                 ),
-                ("size".into(), points(10.0)),
-                ("color".into(), Value::String("#6B7280".into())),
+                ("size".into(), points(text.size)),
+                ("color".into(), Value::String(format!("#{}", text.color))),
+                ("bold".into(), Value::Boolean(text.bold)),
+                ("italic".into(), Value::Boolean(text.italic)),
                 ("alignment".into(), Value::String(alignment.into())),
                 ("vertical_alignment".into(), Value::String("bottom".into())),
-            ]),
+            ])
+            .into_iter()
+            .chain(
+                (!text.font.is_empty())
+                    .then(|| ("font".to_owned(), Value::String(text.font.clone()))),
+            )
+            .collect(),
             children: vec![Content::Text(self.text.clone())],
         }
     }
