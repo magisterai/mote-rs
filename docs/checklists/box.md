@@ -83,8 +83,9 @@ placeholder text and are omitted with a diagnostic natively.
 Positioned [tables](../../tests/fixtures/presentation-tables/README.md) and
 [charts](../../tests/fixtures/presentation-charts/README.md) use the box rectangle
 for layout. Their capture guides record style, sizing and native output limits.
-A row of a table grows to hold its text, as PowerPoint grows it; a warning
-names the box where the table then passes the lower edge of the frame.
+A row of a table is never lower than its text, and takes what it needs beyond
+an equal share from the other rows; a warning names the box where the table
+cannot fit and passes the lower edge of the frame.
 
 Loose chart objects use measured automatic frames: one column when it fits,
 then a row-major grid. Each plot reserves at least 72 points in both dimensions

@@ -262,17 +262,32 @@ pub(super) fn write(
             if let [Content::Element(table)] = element.children.as_slice()
                 && table.kind == ElementKind::Table
             {
+                let mut resolved =
+                    crate::presentation::tables::SlideTable::resolve(document, element, table)
+                        .map_err(Error)?;
+                if resolved.grid.column_count == 0 {
+                    // The identifier is taken as for a table that is written.
+                    next_shape += 1;
+                    deck.warnings.push("PPTX omits empty tables".into());
+                    continue;
+                }
+                resolved.heights = crate::layout::presentation::tables::row_heights(
+                    document,
+                    &resolved,
+                    &deck.theme,
+                    measurer,
+                )
+                .map_err(|error| Error(error.to_string()))?;
                 output.push_str(&super::tables::write(
                     document,
                     element,
                     table,
+                    &resolved,
                     &deck.theme,
                     &mut next_shape,
                     &mut relations,
-                    &mut deck.warnings,
                 )?);
-                // PowerPoint grows the rows itself, so the package keeps the
-                // authored heights and the native layout only reports.
+                // The native layout of the table gives its warnings.
                 deck.warnings.extend(
                     crate::layout::presentation::tables::place(
                         document,

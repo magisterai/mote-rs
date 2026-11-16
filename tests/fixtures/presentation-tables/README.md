@@ -13,7 +13,9 @@ These cases remain unreviewed in Microsoft PowerPoint.
 
 A slide table occupies its box without document pagination. Unspecified row
 heights divide the box equally; explicit row heights replace their shares without
-redistribution. A row grows beyond its height to hold the text of its cells.
+redistribution. A row is never lower than the text of its cells; among the rows
+that state no height, a row that needs more than its share takes it from the
+others.
 Fully specified cell widths can determine the column grid.
 Rotated text clips inside cell margins. PowerPoint always wraps table-cell text, so
 `no_wrap` warns. Row height rules and pagination flags have no slide effect.

@@ -17,20 +17,23 @@ fn rotation(cell: &Properties) -> f64 {
     }
 }
 
-/// Returns the heights of the rows in points. PowerPoint treats the height of
-/// a row as a minimum and grows the row to hold the text of its cells; a cell
-/// of rotated text does not grow its row here.
+/// Returns the heights of the rows in drawing units, which the native and
+/// the editable output share. PowerPoint treats the height of a row as a
+/// minimum and grows the row to hold the text of its cells, so that no row is
+/// lower than its text; a cell of rotated text does not grow its row here.
+///
+/// The rows that state no height share a part of the box. A row whose text
+/// needs more than an equal share takes what the text needs, and the rest of
+/// that part is divided equally among the other rows, until no row needs more
+/// than its share. The heights are those of the table itself where no row
+/// needs more than it has.
 pub(crate) fn row_heights(
     document: &Document,
     table: &SlideTable,
     theme: &Theme,
     measurer: &mut TextMeasurer<'_>,
-) -> Result<Vec<f64>, LayoutError> {
-    let mut heights: Vec<f64> = table
-        .heights
-        .iter()
-        .map(|height| *height as f64 / 12700.0)
-        .collect();
+) -> Result<Vec<i64>, LayoutError> {
+    let mut required = vec![0_i64; table.heights.len()];
     let columns = offsets(&table.widths);
     let mut spanning = Vec::new();
     for (row_index, row) in table.grid.rows.iter().enumerate() {
@@ -64,19 +67,47 @@ pub(crate) fn row_heights(
                 drawing_text::TextFrame::TableCell,
                 measurer,
             )?;
-            let required = fitted.text_height + top + bottom;
-            let last = (row_index + cell.row_span).min(heights.len());
+            let needed = ((fitted.text_height + top + bottom) * 12700.0).ceil() as i64;
+            let last = (row_index + cell.row_span).min(required.len());
             if last - row_index > 1 {
-                spanning.push((row_index, last, required));
+                spanning.push((row_index, last, needed));
             } else {
-                heights[row_index] = heights[row_index].max(required);
+                required[row_index] = required[row_index].max(needed);
             }
         }
     }
-    for (first, last, required) in spanning {
-        let height: f64 = heights[first..last].iter().sum();
-        if required > height {
-            heights[last - 1] += required - height;
+    let mut heights = table.heights.clone();
+    let mut unsettled: Vec<usize> = (0..heights.len())
+        .filter(|row| !table.stated_heights[*row])
+        .collect();
+    let mut remaining: i64 = unsettled.iter().map(|row| heights[*row]).sum();
+    let mut redistributed = false;
+    while !unsettled.is_empty() {
+        let share = (remaining / unsettled.len() as i64).max(0);
+        let (exceeding, within): (Vec<usize>, Vec<usize>) =
+            unsettled.iter().partition(|row| required[**row] > share);
+        if exceeding.is_empty() {
+            if redistributed {
+                for row in within {
+                    heights[row] = share;
+                }
+            }
+            break;
+        }
+        for row in exceeding {
+            heights[row] = required[row];
+            remaining -= required[row];
+        }
+        redistributed = true;
+        unsettled = within;
+    }
+    for (row, height) in heights.iter_mut().enumerate() {
+        *height = (*height).max(required[row]);
+    }
+    for (first, last, needed) in spanning {
+        let height: i64 = heights[first..last].iter().sum();
+        if needed > height {
+            heights[last - 1] += needed - height;
         }
     }
     Ok(heights)
@@ -84,14 +115,11 @@ pub(crate) fn row_heights(
 
 /// Returns whether the rows, grown to hold their text, make the table taller
 /// than its frame.
-pub(crate) fn grows_beyond_frame(table: &SlideTable, heights: &[f64]) -> bool {
-    let authored: f64 = table
-        .heights
-        .iter()
-        .map(|height| *height as f64 / 12700.0)
-        .sum();
-    let grown: f64 = heights.iter().sum();
-    grown > authored + 0.5 && grown > table.bounds[3] as f64 / 12700.0 + 0.5
+pub(crate) fn grows_beyond_frame(table: &SlideTable, heights: &[i64]) -> bool {
+    // Half a point, below which a difference is not visible.
+    const TOLERANCE: i64 = 6350;
+    let grown: i64 = heights.iter().sum();
+    grown > table.heights.iter().sum::<i64>() + TOLERANCE && grown > table.bounds[3] + TOLERANCE
 }
 
 pub(crate) fn place(
@@ -114,10 +142,7 @@ pub(crate) fn place(
     if grows_beyond_frame(&table, &heights) {
         warnings.push(overflow::table_rows(described));
     }
-    let mut rows = vec![0.0];
-    for height in &heights {
-        rows.push(rows.last().unwrap() + height);
-    }
+    let rows = offsets(&heights);
     let origin = [
         table.bounds[0] as f64 / 12700.0,
         table.bounds[1] as f64 / 12700.0,

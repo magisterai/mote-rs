@@ -182,8 +182,11 @@ formatting of a heading are not overridden. A table in a box takes the same
 run formatting, beneath the text formatting of its table style and of its
 cells. A row that repeats as a header has nothing to repeat upon a slide and
 is an ordinary row there. The height of a row upon a slide is a minimum: a row
-grows to hold the text of its cells, and a warning names the box where the
-table then passes the lower edge of its frame.
+is never lower than the text of its cells. The rows that state no height share
+the box equally, save that a row whose text needs more than an equal share
+takes what it needs and the others divide the remainder equally. A warning
+names the box where the rows cannot fit and the table passes the lower edge of
+its frame.
 
 ```mote
 #slide[

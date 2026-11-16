@@ -13,6 +13,9 @@ pub(crate) struct SlideTable {
     pub bounds: [i64; 4],
     pub widths: Vec<i64>,
     pub heights: Vec<i64>,
+    /// Whether each row states its own height. A row that states none takes a
+    /// share of the box.
+    pub stated_heights: Vec<bool>,
     pub style: Properties,
     pub borders: Properties,
     pub style_identifier: String,
@@ -49,6 +52,10 @@ impl SlideTable {
                 .map(|row| units(row.attributes.get("height")).unwrap_or(default))
                 .collect()
         };
+        let stated_heights = tables::rows(table)
+            .iter()
+            .map(|row| units(row.attributes.get("height")).is_some())
+            .collect();
         let style = formatting::style(document, table);
         let mut borders = object(&style, "borders").cloned().unwrap_or_default();
         borders.extend(
@@ -103,6 +110,7 @@ impl SlideTable {
             bounds,
             widths,
             heights,
+            stated_heights,
             style,
             borders,
             style_identifier,

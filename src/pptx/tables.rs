@@ -7,25 +7,20 @@ use crate::{
         tables::{SlideTable, option_enabled},
         units,
     },
-    properties::{boolean, number, object, text},
+    properties::{number, object, text},
 };
 
 pub(super) fn write(
     document: &Document,
     container: &Element,
     table: &Element,
+    resolved: &SlideTable,
     theme: &Theme,
     next_shape: &mut usize,
     relationships: &mut Vec<Relationship>,
-    warnings: &mut Vec<String>,
 ) -> Result<String, Error> {
     let identifier = *next_shape;
     *next_shape += 1;
-    let resolved = SlideTable::resolve(document, container, table).map_err(Error)?;
-    if resolved.grid.column_count == 0 {
-        warnings.push("PPTX omits empty tables".into());
-        return Ok(String::new());
-    }
     let mut name = text(&container.attributes, "name");
     if name.is_empty() {
         name = format!("Table {identifier}");
@@ -35,7 +30,7 @@ pub(super) fn write(
     let mut output = format!(
         r#"<p:graphicFrame><p:nvGraphicFramePr><p:cNvPr id="{identifier}" name="{name}"/><p:cNvGraphicFramePr/><p:nvPr/></p:nvGraphicFramePr><p:xfrm><a:off x="{left}" y="{top}"/><a:ext cx="{width}" cy="{height}"/></p:xfrm><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/table"><a:tbl>"#
     );
-    output.push_str(&table_properties(&resolved, table)?);
+    output.push_str(&table_properties(resolved, table)?);
     output.push_str("<a:tblGrid>");
     for width in &resolved.widths {
         output.push_str(&format!(r#"<a:gridCol w="{width}"/>"#));
@@ -74,10 +69,7 @@ pub(super) fn write(
                     relationships,
                 )?);
                 output.push_str("</a:txBody>");
-                output.push_str(&cell_properties(&resolved, cell, &format.cell)?);
-                if boolean(&format.cell, "no_wrap") {
-                    warnings.push("PowerPoint always wraps table-cell text; cell.no_wrap has no presentation effect".into());
-                }
+                output.push_str(&cell_properties(resolved, cell, &format.cell)?);
             } else {
                 output.push_str("<a:p/></a:txBody><a:tcPr/>");
             }

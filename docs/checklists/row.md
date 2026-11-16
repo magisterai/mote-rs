@@ -31,7 +31,10 @@ Microsoft Word visual review remains unreviewed.
 
 Positioned-slide rows use their containing box and explicit heights rather than
 page fragmentation. The height of a slide row is a minimum: the row grows to
-hold the text of its cells, as PowerPoint grows it, and the rows beneath move
-down. A cell of rotated text does not grow its row, and warns where its text
+hold the text of its cells, as PowerPoint grows it. The rows that state no
+height share a part of the box: a row whose text needs more than an equal
+share takes what it needs, and the remainder is divided equally among the
+others, so that the table leaves its box only where the needed heights exceed
+it. PPTX states the same heights as native output. A cell of rotated text does not grow its row, and warns where its text
 is cut off. Slide sizing and merge continuity are covered by the
 [positioned table captures](../../tests/fixtures/presentation-tables/README.md); document pagination flags do not imply slide pagination.

@@ -179,8 +179,9 @@ the part to reuse; colors and fonts are left at their defaults.
   a table within it. A box of text without `text.fit` neither shrinks nor grows:
   text that does not fit is cut off at the edge of the box, and a warning names
   the box. `text = { fit = "shrink" }` reduces the text of a box until it fits.
-  A row of a table grows to hold its text, and a warning is given where the
-  table then passes the lower edge of its box.
+  The rows of a table share the height of its box; a row whose text needs more
+  takes it from the others, and a warning is given only where the table cannot
+  fit its box.
 - A table on a slide has a pale fill
   and white borders by default. The declaration
   `#set table(cell = { fill = "#16213a" }, borders = { all = { color = "#334155", width = pt(0.5) } })`

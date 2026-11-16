@@ -179,8 +179,10 @@ fn a_slide_table_row_grows_to_hold_its_text_and_warns_where_the_table_passes_its
     for fill in &fills[..4] {
         assert_eq!(*fill, [header_top, header_height]);
     }
+    // The second row gives up its slack and keeps the height of its text.
     for fill in &fills[4..] {
-        assert_eq!(*fill, [header_top + header_height, 36.0]);
+        assert_eq!(fill[0], header_top + header_height);
+        assert!(fill[1] > 20.0 && fill[1] < 36.0, "{fill:?}");
     }
 
     assert_eq!(
@@ -325,4 +327,163 @@ fn a_document_table_row_warns_once_where_its_exact_height_cuts_off_its_content()
              height_rule = \"at_least\" or a greater height"
         ]
     );
+}
+
+fn slide_xml(bytes: Vec<u8>) -> String {
+    use std::io::{Cursor, Read};
+    let mut archive = zip::ZipArchive::new(Cursor::new(bytes)).unwrap();
+    let mut xml = String::new();
+    archive
+        .by_name("ppt/slides/slide1.xml")
+        .unwrap()
+        .read_to_string(&mut xml)
+        .unwrap();
+    xml
+}
+
+fn package_xml(objects: &str) -> String {
+    let document = mote::compile(&format!("#presentation(size='wide')#slide[{objects}]")).unwrap();
+    slide_xml(
+        mote::pptx::emit_with_assets(&document, &resolver(), None)
+            .unwrap()
+            .bytes,
+    )
+}
+
+/// Returns the row heights in points that the editable table states.
+fn package_row_heights(xml: &str) -> Vec<f64> {
+    let tree = roxmltree::Document::parse(xml).unwrap();
+    tree.descendants()
+        .filter(|node| node.has_tag_name("tr"))
+        .map(|row| row.attribute("h").unwrap().parse::<f64>().unwrap() / 12700.0)
+        .collect()
+}
+
+fn markdown_table(height: &str) -> String {
+    format!(
+        "#box(text={{size=pt(24)}},\
+         position={{x=inch(1),y=inch(1),width=inch(10),height=inch({height})}})[\n\
+         | Rocket | Payload to low Earth orbit in metric tonnes at the first flight | Year |\n\
+         | :--- | :---: | ---: |\n\
+         | Saturn V | 140 | 1967 |\n\
+         | Space Shuttle | 27.5 | 1981 |\n\
+         | Falcon 9 | 22.8 | 2015 |\n\
+         | Falcon Heavy | 63.8 | 2018 |\n]"
+    )
+}
+
+#[test]
+fn a_row_that_needs_more_than_its_share_takes_it_from_the_slack_of_the_other_rows() {
+    let table = markdown_table("4");
+    assert_eq!(slide_warnings(&table), Vec::<String>::new());
+    let fills = cell_fills(&slide_plan(&table).0);
+    assert_eq!(fills.len(), 15);
+    let native: Vec<f64> = fills.chunks(3).map(|row| row[0][1]).collect();
+    let share = 4.0 * 72.0 / 5.0;
+    assert!(native[0] > share + 5.0, "{native:?}");
+    for height in &native[1..] {
+        assert!(
+            *height < share && (*height - native[1]).abs() < 1e-9,
+            "{native:?}"
+        );
+    }
+    let total: f64 = native.iter().sum();
+    assert!((total - 4.0 * 72.0).abs() < 0.01, "{total}");
+    let editable = package_row_heights(&package_xml(&table));
+    assert_eq!(editable.len(), 5);
+    for (editable, native) in editable.iter().zip(&native) {
+        assert!((editable - native).abs() < 1e-9, "{editable} {native}");
+    }
+}
+
+#[test]
+fn a_table_whose_rows_have_room_keeps_its_equal_shares_in_both_outputs() {
+    let table = slide_table("2", "Payload");
+    let fills = cell_fills(&slide_plan(&table).0);
+    assert!(fills.iter().all(|fill| fill[1] == 72.0), "{fills:?}");
+    assert_eq!(package_row_heights(&package_xml(&table)), [72.0, 72.0]);
+}
+
+#[test]
+fn a_table_that_cannot_fit_its_box_still_warns_and_states_the_same_heights_in_both_outputs() {
+    let table = markdown_table("1.5");
+    assert_eq!(
+        slide_warnings(&table),
+        [
+            "the rows of the table in content[0].slide[0].box grow beyond its frame to hold \
+             their text; enlarge the frame or shorten the text"
+        ]
+    );
+    let fills = cell_fills(&slide_plan(&table).0);
+    let native: Vec<f64> = fills.chunks(3).map(|row| row[0][1]).collect();
+    assert!(native.iter().sum::<f64>() > 1.5 * 72.0 + 20.0, "{native:?}");
+    let editable = package_row_heights(&package_xml(&table));
+    for (editable, native) in editable.iter().zip(&native) {
+        assert!((editable - native).abs() < 1e-9, "{editable} {native}");
+    }
+}
+
+#[test]
+fn a_centred_markdown_column_is_centred_on_a_slide_in_both_outputs() {
+    for declaration in [
+        "",
+        "#set table(cell={fill='#16213a',margin={vertical=pt(8),horizontal=pt(14)}},\
+         borders={all={color='#334155',width=pt(0.5)}})",
+    ] {
+        let objects = "#box(text={size=pt(22)},\
+             position={x=inch(1),y=inch(1),width=inch(9),height=inch(4)})[\n\
+             | Rocket | Year | Payload (tonnes) |\n\
+             | :--- | :---: | ---: |\n\
+             | Saturn V | 1967 | 140 |\n\
+             | Falcon 9 | 2015 | 22.8 |\n]";
+        let source = format!("#presentation(size='wide'){declaration}#slide[{objects}]");
+        let document = mote::compile(&source).unwrap();
+        let planned = render::plan_with_layout(
+            &document,
+            &resolver(),
+            None,
+            render::LayoutMode::Presentation,
+        )
+        .unwrap();
+        // The middle column runs from 4 to 7 inches.
+        let centre = 5.5 * 72.0;
+        let mut centred = 0;
+        for line in planned.output.pages[0].text_lines() {
+            let text: String = line
+                .fragments
+                .iter()
+                .map(|fragment| fragment.text.as_str())
+                .collect();
+            if ["Year", "1967", "2015"].contains(&text.trim()) {
+                let left = line.fragments[0].x;
+                let width: f64 = line.fragments.iter().map(|fragment| fragment.width).sum();
+                assert!(
+                    (left + width / 2.0 - centre).abs() < 1.0,
+                    "{text}: {left} {width}"
+                );
+                centred += 1;
+            }
+        }
+        assert_eq!(centred, 3, "{declaration}");
+
+        let xml = slide_xml(
+            mote::pptx::emit_with_assets(&document, &resolver(), None)
+                .unwrap()
+                .bytes,
+        );
+        let tree = roxmltree::Document::parse(&xml).unwrap();
+        for row in tree.descendants().filter(|node| node.has_tag_name("tr")) {
+            let alignments: Vec<_> = row
+                .children()
+                .filter(|node| node.has_tag_name("tc"))
+                .map(|cell| {
+                    cell.descendants()
+                        .find(|node| node.has_tag_name("pPr"))
+                        .and_then(|properties| properties.attribute("algn"))
+                })
+                .collect();
+            assert_eq!(alignments[1..], [Some("ctr"), Some("r")], "{declaration}");
+            assert!(matches!(alignments[0], None | Some("l")), "{declaration}");
+        }
+    }
 }
