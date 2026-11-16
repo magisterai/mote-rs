@@ -41,8 +41,9 @@ a network address is not fetched.
   `below`. The editable DOCX keeps the order in which the caption is written, so
   the caption belongs on the side where it should appear.
 - With `numbering = { enabled = true }`, the caption begins with a bold label and
-  number such as "Figure 1. ". The label is "Table" when `kind = "table"` and
-  "Figure" otherwise; the `numbering` table also accepts `label`, `start`,
+  number such as "Figure 1. ". The label is "Table" when the figure itself has
+  `kind = "table"`, as in `#figure(kind = "table", numbering = { enabled = true })`,
+  and "Figure" otherwise; the `numbering` table also accepts `label`, `start`,
   `format` and `separator`.
 - A `#label("name")` inside the figure lets the text refer to its number, as
   described in [notes and references](notes-and-references.md).
