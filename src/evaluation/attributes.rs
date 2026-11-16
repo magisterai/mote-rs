@@ -210,9 +210,11 @@ fn validate_named_argument(
                 "layout" | "notes" => Some(ArgumentType::String),
                 "background" => Some(ArgumentType::ColorOrObject),
                 "footer" | "date" | "slide_number" => Some(ArgumentType::Boolean),
+                "duration" => Some(ArgumentType::NumberOrString),
                 _ => None,
             },
             Box => match name {
+                "animate" => Some(ArgumentType::Collection),
                 "name" | "slot" | "opacity" => Some(ArgumentType::NumberOrString),
                 "kind" | "style" | "alignment" | "vertical_alignment" | "fit" => {
                     Some(ArgumentType::String)
@@ -259,6 +261,7 @@ fn validate_named_argument(
                 _ => None,
             },
             Shape => match name {
+                "animate" => Some(ArgumentType::Collection),
                 "name" | "rotation" | "opacity" => Some(ArgumentType::NumberOrString),
                 "kind" | "alignment" | "vertical_alignment" => Some(ArgumentType::String),
                 "position" | "border" | "margin" | "text" | "shadow" => Some(ArgumentType::Object),
@@ -268,10 +271,13 @@ fn validate_named_argument(
                 _ => None,
             },
             Group => match name {
-                "name" => Some(ArgumentType::NumberOrString),
+                "name" | "rotation" => Some(ArgumentType::NumberOrString),
+                "animate" => Some(ArgumentType::Collection),
+                "offset" => Some(ArgumentType::Object),
                 _ => None,
             },
             Line => match name {
+                "animate" => Some(ArgumentType::Collection),
                 "name" | "opacity" => Some(ArgumentType::NumberOrString),
                 "from" | "to" | "border" => Some(ArgumentType::Object),
                 "arrow" => Some(ArgumentType::StringOrObject),
@@ -451,8 +457,21 @@ pub(super) fn normalize_attribute(
         Chart => super::charts::normalize(name, value, span),
         Slide | Box => super::presentation::normalize(kind, name, value, span),
         Shape | Line => super::drawings::normalize(kind, name, value, span),
-        Group if name == "name" => normalize_identifier(value, span, name).map(Value::String),
-        Group => Ok(value),
+        Group => match name {
+            "name" => normalize_identifier(value, span, name).map(Value::String),
+            "animate" => super::presentation::animation(value, span),
+            "offset" => super::presentation::displacement(value, span),
+            "rotation" => value
+                .to_text()
+                .trim()
+                .trim_end_matches("deg")
+                .parse::<f64>()
+                .ok()
+                .filter(|degrees| degrees.is_finite())
+                .map(Value::Number)
+                .ok_or_else(|| Diagnostic::new(span, "group rotation must be a number of degrees")),
+            _ => Ok(value),
+        },
         Figure | Caption => match name {
             "alignment" => normalize_enum(value, span, name, ALIGNMENTS),
             "position" if kind == Caption => normalize_enum(value, span, name, &["above", "below"]),

@@ -75,6 +75,7 @@ pub fn paint_png(
         pixels.fill(tiny_skia::Color::WHITE);
         let mut clips = clipping::Clips::new(width as u32, height as u32)?;
         let mut rotations = Vec::new();
+        let mut layers = Vec::new();
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 let clip = clips.mask();
@@ -98,6 +99,49 @@ pub fn paint_png(
                         let layer = std::mem::replace(&mut pixels, parent);
                         clips = parent_clips;
                         rotation::paint(&mut pixels, layer, degrees, center, scale, clips.mask());
+                    }
+                    PageOperation::PushLayer { matrix, opacity } => {
+                        let layer =
+                            Pixmap::new(pixels.width(), pixels.height()).ok_or_else(|| {
+                                RenderError::Invalid("cannot allocate drawing layer".into())
+                            })?;
+                        let layer_clips = clipping::Clips::new(pixels.width(), pixels.height())?;
+                        layers.push((
+                            std::mem::replace(&mut pixels, layer),
+                            std::mem::replace(&mut clips, layer_clips),
+                            *matrix,
+                            *opacity,
+                        ));
+                    }
+                    PageOperation::PopLayer => {
+                        let (parent, parent_clips, matrix, opacity) =
+                            layers.pop().expect("validated layer nesting");
+                        let layer = std::mem::replace(&mut pixels, parent);
+                        clips = parent_clips;
+                        let identity = matrix == [1.0, 0.0, 0.0, 1.0, 0.0, 0.0];
+                        pixels.draw_pixmap(
+                            0,
+                            0,
+                            layer.as_ref(),
+                            &tiny_skia::PixmapPaint {
+                                opacity: opacity as f32,
+                                blend_mode: tiny_skia::BlendMode::SourceOver,
+                                quality: if identity {
+                                    tiny_skia::FilterQuality::Nearest
+                                } else {
+                                    tiny_skia::FilterQuality::Bicubic
+                                },
+                            },
+                            Transform::from_row(
+                                matrix[0] as f32,
+                                matrix[1] as f32,
+                                matrix[2] as f32,
+                                matrix[3] as f32,
+                                (matrix[4] * scale) as f32,
+                                (matrix[5] * scale) as f32,
+                            ),
+                            clips.mask(),
+                        );
                     }
 
                     PageOperation::PaintedRectangle {

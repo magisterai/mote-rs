@@ -9,7 +9,7 @@ use mote::source::{
     AssetRequest, CachingAssetResolver, FileAssetResolver, SourceFile, load_source,
 };
 
-const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX, PPTX, PDF and PNG require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--layout document|presentation selects native layout explicitly.\nWithout --layout, an explicit presentation declaration selects slide layout.\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
+const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [--time SECONDS] [--frames RATE [--from SECONDS] [--to SECONDS]] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX, PPTX, PDF and PNG require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--time SECONDS renders at a time: the binding `time` holds it, and the effects of slide objects are drawn as they stand then.\n--frames RATE writes PNG frames PREFIX-0001.png, PREFIX-0002.png, ... at RATE frames a second, from --from (default 0) to --to (default the end of the animation).\n--layout document|presentation selects native layout explicitly.\nWithout --layout, an explicit presentation declaration selects slide layout.\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
 
 fn main() -> ExitCode {
     match run_command() {
@@ -31,8 +31,27 @@ fn run_command() -> Result<(), String> {
     let mut layout = mote::render::LayoutMode::Automatic;
     let mut enable_lua = false;
     let mut lua_timeout = Some(std::time::Duration::from_secs(10));
+    let mut time = None;
+    let mut frame_rate = None;
+    let mut frames_from = None;
+    let mut frames_to = None;
     while let Some(argument) = arguments.next() {
         match argument.to_str().filter(|_| !literal_arguments) {
+            Some(flag @ ("--time" | "--frames" | "--from" | "--to")) => {
+                let seconds = arguments
+                    .next()
+                    .and_then(|value| value.into_string().ok())
+                    .and_then(|value| value.parse::<f64>().ok())
+                    .filter(|value| value.is_finite() && *value >= 0.0)
+                    .ok_or_else(|| format!("{flag} requires a number, not negative"))?;
+                match flag {
+                    "--time" => time = Some(seconds),
+                    "--frames" if seconds > 0.0 => frame_rate = Some(seconds),
+                    "--frames" => return Err("--frames requires a positive rate".into()),
+                    "--from" => frames_from = Some(seconds),
+                    _ => frames_to = Some(seconds),
+                }
+            }
             Some("--help" | "-h") => return write_stdout(HELP),
             Some("--") => literal_arguments = true,
             Some("--format" | "-format") => {
@@ -100,6 +119,15 @@ fn run_command() -> Result<(), String> {
     if dots_per_inch.is_some() && format != "png" {
         return Err("--dpi applies only to PNG output".into());
     }
+    if frame_rate.is_some() && format != "png" {
+        return Err("--frames applies only to PNG output".into());
+    }
+    if frame_rate.is_some() && time.is_some() {
+        return Err("--frames and --time cannot be given together".into());
+    }
+    if frame_rate.is_none() && (frames_from.is_some() || frames_to.is_some()) {
+        return Err("--from and --to apply only with --frames".into());
+    }
     if let (Some(input_path), Some(output_path)) = (&input, &output_path)
         && input_path != "-"
         && let (Ok(input_path), Ok(output_path)) = (
@@ -134,36 +162,81 @@ fn run_command() -> Result<(), String> {
     };
     let name = source.name.to_string_lossy();
     let source_name = (source.name != "<stdin>").then_some(source.name.as_os_str());
-    let document = mote::compile_with_options(
-        &source.text,
-        mote::evaluation::EvaluationOptions {
-            asset_resolver: Some(&resolver),
-            source_name,
-            enable_lua,
-            lua_timeout,
-        },
-    )
-    .map_err(|error| {
-        let (line, column) = error.location(&source.text);
-        let name = error
-            .source
-            .as_ref()
-            .map_or_else(|| name.clone(), |source| source.name.to_string_lossy());
-        format!("{name}:{line}:{column}: {}", error.message)
-    })?;
-    for warning in &document.warnings {
-        let (line, column) = warning.location(&source.text);
-        let name = warning
-            .source
-            .as_ref()
-            .map_or_else(|| name.clone(), |source| source.name.to_string_lossy());
-        writeln!(
-            io::stderr().lock(),
-            "{name}:{line}:{column}: warning: {}",
-            warning.message
+    let compile = |time: Option<f64>, report: bool| -> Result<mote::model::Document, String> {
+        let document = mote::compile_with_options(
+            &source.text,
+            mote::evaluation::EvaluationOptions {
+                asset_resolver: Some(&resolver),
+                source_name,
+                enable_lua,
+                lua_timeout,
+                time,
+            },
         )
-        .map_err(|error| format!("standard error: {error}"))?;
+        .map_err(|error| {
+            let (line, column) = error.location(&source.text);
+            let name = error
+                .source
+                .as_ref()
+                .map_or_else(|| name.clone(), |source| source.name.to_string_lossy());
+            format!("{name}:{line}:{column}: {}", error.message)
+        })?;
+        for warning in document.warnings.iter().filter(|_| report) {
+            let (line, column) = warning.location(&source.text);
+            let name = warning
+                .source
+                .as_ref()
+                .map_or_else(|| name.clone(), |source| source.name.to_string_lossy());
+            writeln!(
+                io::stderr().lock(),
+                "{name}:{line}:{column}: warning: {}",
+                warning.message
+            )
+            .map_err(|error| format!("standard error: {error}"))?;
+        }
+        Ok(document)
+    };
+    if let Some(rate) = frame_rate {
+        let from = frames_from.unwrap_or(0.0);
+        let mut document = compile(Some(from), true)?;
+        let to = match frames_to {
+            Some(to) => to,
+            None => mote::render::animation_end(&document),
+        };
+        if to <= from {
+            return Err(
+                "--frames requires --to, an effect or a slide duration to end the animation".into(),
+            );
+        }
+        let count = ((to - from) * rate + 1e-9).floor() as usize + 1;
+        for frame in 0..count {
+            if frame > 0 {
+                document = compile(Some(from + frame as f64 / rate), false)?;
+            }
+            let planned = mote::render::plan_with_layout(&document, &resolver, source_name, layout)
+                .map_err(|error| format!("{name}: {error}"))?;
+            let rendered = mote::render::paint_png(
+                &planned.output,
+                &mote::render::PngOptions {
+                    dots_per_inch: dots_per_inch.unwrap_or(72),
+                    ..Default::default()
+                },
+            )
+            .map_err(|error| format!("{name}: {error}"))?;
+            if frame == 0 {
+                print_warnings(&name, &planned.warnings)?;
+                print_warnings(&name, &rendered.warnings)?;
+            }
+            write_png_pages(
+                output_path.as_ref().unwrap(),
+                source_name,
+                &rendered.output,
+                Some(frame + 1),
+            )?;
+        }
+        return Ok(());
     }
+    let document = compile(time, true)?;
     let bytes = if matches!(format.as_str(), "pdf" | "png") {
         let planned = mote::render::plan_with_layout(&document, &resolver, source_name, layout)
             .map_err(|error| format!("{name}: {error}"))?;
@@ -178,7 +251,12 @@ fn run_command() -> Result<(), String> {
             )
             .map_err(|error| format!("{name}: {error}"))?;
             print_warnings(&name, &rendered.warnings)?;
-            return write_png_pages(output_path.as_ref().unwrap(), source_name, &rendered.output);
+            return write_png_pages(
+                output_path.as_ref().unwrap(),
+                source_name,
+                &rendered.output,
+                None,
+            );
         }
         mote::render::paint_pdf(&planned.output).map_err(|error| format!("{name}: {error}"))?
     } else if format == "docx" {
@@ -216,6 +294,7 @@ fn write_png_pages(
     output: &std::ffi::OsStr,
     source: Option<&std::ffi::OsStr>,
     pages: &[mote::render::RasterPage],
+    frame: Option<usize>,
 ) -> Result<(), String> {
     let mut prefix = std::path::PathBuf::from(output);
     if prefix.is_dir()
@@ -235,7 +314,11 @@ fn write_png_pages(
         .iter()
         .map(|page| {
             let mut path = prefix.as_os_str().to_os_string();
-            path.push(format!("-{}.png", page.number));
+            path.push(match frame {
+                Some(frame) if pages.len() == 1 => format!("-{frame:04}.png"),
+                Some(frame) => format!("-{frame:04}-{}.png", page.number),
+                None => format!("-{}.png", page.number),
+            });
             std::path::PathBuf::from(path)
         })
         .collect();

@@ -230,6 +230,13 @@
     "unmatched": 0,
     "vertical": 1.8
   },
+  "powerpoint/34_animation": {
+    "horizontal": 0.1,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 1.1
+  },
   "probes/automatic-line-height": {
     "horizontal": 0.0,
     "median": 0.2,

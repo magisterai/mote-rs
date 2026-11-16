@@ -15,6 +15,7 @@ pub(super) fn normalize(
         "position" if kind == ElementKind::Shape => position(value, span, "shape.position"),
         "from" | "to" if kind == ElementKind::Line => point(value, span, name),
         "name" => normalize_identifier(value, span, name).map(Value::String),
+        "animate" => super::presentation::animation(value, span),
         "border" => images::normalize(name, value, span),
         "opacity" => Ok(percent(value)),
         "corner_radius" if kind == ElementKind::Shape => normalize_length(value, span, name),

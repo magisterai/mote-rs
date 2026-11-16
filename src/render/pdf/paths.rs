@@ -8,7 +8,13 @@ pub(super) struct Opacities {
     pub entries: BTreeMap<(u8, u8), (String, Ref)>,
 }
 impl Opacities {
-    fn name(&mut self, fill: u8, stroke: u8, document: &mut Pdf, objects: &mut Objects) -> String {
+    pub(super) fn name(
+        &mut self,
+        fill: u8,
+        stroke: u8,
+        document: &mut Pdf,
+        objects: &mut Objects,
+    ) -> String {
         self.entries
             .entry((fill, stroke))
             .or_insert_with(|| {

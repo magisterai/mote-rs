@@ -259,3 +259,29 @@ fn arguments_evaluate_once_in_source_order() {
         );
     }
 }
+
+#[test]
+fn the_time_of_rendering_is_a_number_in_lua() {
+    let source = "#presentation(render_at=1.5)\n\
+         #function eased(from, to, start, duration)\n\
+         local progress = math.min(math.max((time - start) / duration, 0), 1)\n\
+         return from + (to - from) * progress\n\
+         end\n\
+         #let(value=eased(0, 100, 1, 2))#paragraph[#value]";
+    let text = |time| {
+        let document = mote::compile_with_options(
+            source,
+            EvaluationOptions {
+                enable_lua: true,
+                time,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        mote::json::to_json(&document).unwrap()
+    };
+    assert!(text(None).contains(r#""text": "25""#));
+    assert!(text(Some(0.0)).contains(r#""text": "0""#));
+    assert!(text(Some(2.0)).contains(r#""text": "50""#));
+    assert!(text(Some(9.0)).contains(r#""text": "100""#));
+}

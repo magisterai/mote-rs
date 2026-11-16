@@ -36,6 +36,8 @@ property has no implied Mote argument or output support.
 - [x] Shared direct font, size, color, highlight, bold, italic, underline,
   small_caps, strike and double_strike; `properties` override rules.
 - [x] Optional body contains significant block content, including text paragraphs.
+- [x] `animate`: effects on the clock of a slide; see [animation](slide.md#animation).
+  A shape of a document is drawn as authored, with a native warning.
 - [x] Lua `document.shape` uses the same validation and typed attributes.
 
 DOCX emits absolute page anchors, editable Word shape text, preset geometry,

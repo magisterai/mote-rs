@@ -1036,5 +1036,15 @@
     "evaluation": "static",
     "pages": 1,
     "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-animation",
+    "application": "powerpoint",
+    "name": "34_animation",
+    "source": "powerpoint-34-animation.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
   }
 ]

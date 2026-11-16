@@ -114,6 +114,8 @@ fn paint_operations(page: &mote::layout::TextPage) -> Value {
         match operation {
             PageOperation::PushRotation {degrees,center} => operations.push(json!({"kind":"push_rotation","degrees":degrees,"center":center})),
             PageOperation::PopRotation => operations.push(json!({"kind":"pop_rotation"})),
+            PageOperation::PushLayer {matrix,opacity} => operations.push(json!({"kind":"push_layer","matrix":matrix,"opacity":opacity})),
+            PageOperation::PopLayer => operations.push(json!({"kind":"pop_layer"})),
 
             PageOperation::PaintedRectangle {bounds,fill,stroke} => operations.push(json!({"kind":"painted_rectangle","bounds":bounds,"fill":fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),
             PageOperation::Path(path) => operations.push(json!({"kind":"path","points":path.points,"closed":path.closed,"fill":path.fill.as_ref().map(|paint|json!({"color":paint.color,"alpha":paint.alpha})),"stroke":path.stroke.as_ref().map(|stroke|json!({"color":stroke.paint.color,"alpha":stroke.paint.alpha,"width":stroke.width,"dash":stroke.dash,"cap":format!("{:?}",stroke.cap)}))})),

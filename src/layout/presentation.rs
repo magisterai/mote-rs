@@ -10,7 +10,7 @@ use super::{
 use crate::{
     measurement::TextMeasurer,
     model::{Content, Document, Element, ElementKind, Properties},
-    presentation::{Deck, Theme, color, units},
+    presentation::{Deck, Theme, animation::Appearance, color, units},
     properties::{number, object, text},
 };
 
@@ -144,86 +144,18 @@ fn plan(
                 &mut deck.warnings,
             )?;
         }
-        // A group changes nothing in a still picture of its objects.
-        for child in &crate::drawings::ungrouped(&slide.element.children) {
-            let Content::Element(element) = child else {
-                return Err(LayoutError::Unsupported(
-                    "presentation output currently requires positioned slide objects".into(),
-                ));
-            };
-            if element.kind == ElementKind::Shape {
-                shapes::place(document, element, &deck.theme, measurer, &mut page)?;
-                continue;
-            }
-            if element.kind == ElementKind::Line {
-                page.operations
-                    .extend(shapes::connector(&element.attributes));
-                continue;
-            }
-            if element.kind != ElementKind::Box {
-                return Err(LayoutError::Unsupported(format!(
-                    "native slides do not yet support {} objects",
-                    element.kind.as_text()
-                )));
-            }
-            if element.children.is_empty() {
-                deck.warnings.push("native slides omit empty boxes".into());
-                continue;
-            }
-            if let [Content::Element(chart)] = element.children.as_slice()
-                && chart.kind == ElementKind::Chart
-            {
-                deck.warnings
-                    .extend(crate::charts::support::native_warnings(&chart.attributes));
-                page.append_content(super::charts::plan_slide(
-                    document,
-                    element,
-                    chart,
-                    &deck.theme,
-                    measurer,
-                )?);
-                continue;
-            }
-            if let [Content::Element(table)] = element.children.as_slice()
-                && table.kind == ElementKind::Table
-            {
-                tables::place(
-                    document,
-                    element,
-                    table,
-                    &deck.theme,
-                    measurer,
-                    &mut page,
-                    &mut deck.warnings,
-                )?;
-                continue;
-            }
-            if let Some(image) = crate::presentation::images::child(element) {
-                images::place(
-                    element,
-                    image,
-                    images::ImageContainer::Box,
-                    images,
-                    &mut page.operations,
-                    &mut deck.warnings,
-                )?;
-                continue;
-            }
-            let prepared = prepare_box(document, element, &deck.theme, measurer)?;
-            if prepared.bounds[2] <= 0.0 || prepared.bounds[3] <= 0.0 {
-                continue;
-            }
-            if let Some(shadow) = object(&element.attributes, "shadow")
-                && number(shadow, "opacity") != Some(0.0)
-            {
-                deck.warnings
-                    .push("native slides omit text-box shadows".into());
-            }
-            if let Some(rectangle) = rectangle(prepared.bounds, &element.attributes) {
-                page.operations.push(rectangle);
-            }
-            page.append_content(prepared.fitted.page);
-        }
+        place(
+            &slide.element.children,
+            &mut Placement {
+                document,
+                theme: &deck.theme,
+                measurer,
+                images,
+                warnings: &mut deck.warnings,
+                time: deck.time,
+            },
+            &mut page,
+        )?;
         for field in slide.metadata.fields(index + 1) {
             let element = field.native_box([geometry.width, geometry.height]);
             let prepared = prepare_box(document, &element, &deck.theme, measurer)?;
@@ -237,6 +169,154 @@ fn plan(
         pages,
         warnings: deck.warnings,
     })
+}
+/// The setting in which the objects of a slide are placed.
+struct Placement<'deck, 'measurer> {
+    document: &'deck Document,
+    theme: &'deck Theme,
+    measurer: &'deck mut TextMeasurer<'measurer>,
+    images: &'deck mut crate::media::ImageCatalog,
+    warnings: &'deck mut Vec<String>,
+    time: Option<f64>,
+}
+
+/// Places objects in their order. An object or a group whose appearance at
+/// the time of rendering differs from the authored one is displaced, and is
+/// drawn as a layer where it is enlarged, turned or faint.
+fn place(
+    content: &[Content],
+    context: &mut Placement<'_, '_>,
+    page: &mut TextPage,
+) -> Result<(), LayoutError> {
+    for child in content {
+        let Content::Element(element) = child else {
+            return Err(LayoutError::Unsupported(
+                "presentation output currently requires positioned slide objects".into(),
+            ));
+        };
+        let appearance = Appearance::at(element, context.time);
+        if appearance.opacity <= 0.0 {
+            continue;
+        }
+        let mut piece = TextPage::default();
+        if element.kind == ElementKind::Group {
+            place(&element.children, context, &mut piece)?;
+        } else {
+            place_object(element, context, &mut piece)?;
+        }
+        if piece.operations.is_empty() {
+            continue;
+        }
+        let layered =
+            appearance.opacity < 1.0 || appearance.scale != 1.0 || appearance.rotation != 0.0;
+        if layered {
+            let [left, top, right, bottom] = crate::presentation::extent(element)
+                .unwrap_or_default()
+                .map(|value| value as f64 / 12700.0);
+            page.operations.push(PageOperation::PushLayer {
+                matrix: appearance.matrix([
+                    (left + right) / 2.0 + appearance.offset[0],
+                    (top + bottom) / 2.0 + appearance.offset[1],
+                ]),
+                opacity: appearance.opacity.min(1.0),
+            });
+        }
+        page.append_content_at(piece, appearance.offset);
+        if layered {
+            page.operations.push(PageOperation::PopLayer);
+        }
+    }
+    Ok(())
+}
+
+fn place_object(
+    element: &Element,
+    context: &mut Placement<'_, '_>,
+    page: &mut TextPage,
+) -> Result<(), LayoutError> {
+    if element.kind == ElementKind::Shape {
+        shapes::place(
+            context.document,
+            element,
+            context.theme,
+            context.measurer,
+            page,
+        )?;
+        return Ok(());
+    }
+    if element.kind == ElementKind::Line {
+        page.operations
+            .extend(shapes::connector(&element.attributes));
+        return Ok(());
+    }
+    if element.kind != ElementKind::Box {
+        return Err(LayoutError::Unsupported(format!(
+            "native slides do not yet support {} objects",
+            element.kind.as_text()
+        )));
+    }
+    if element.children.is_empty() {
+        context
+            .warnings
+            .push("native slides omit empty boxes".into());
+        return Ok(());
+    }
+    if let [Content::Element(chart)] = element.children.as_slice()
+        && chart.kind == ElementKind::Chart
+    {
+        context
+            .warnings
+            .extend(crate::charts::support::native_warnings(&chart.attributes));
+        page.append_content(super::charts::plan_slide(
+            context.document,
+            element,
+            chart,
+            context.theme,
+            context.measurer,
+        )?);
+        return Ok(());
+    }
+    if let [Content::Element(table)] = element.children.as_slice()
+        && table.kind == ElementKind::Table
+    {
+        tables::place(
+            context.document,
+            element,
+            table,
+            context.theme,
+            context.measurer,
+            page,
+            context.warnings,
+        )?;
+        return Ok(());
+    }
+    if let Some(image) = crate::presentation::images::child(element) {
+        images::place(
+            element,
+            image,
+            images::ImageContainer::Box,
+            context.images,
+            &mut page.operations,
+            context.warnings,
+        )?;
+        return Ok(());
+    }
+    let prepared = prepare_box(context.document, element, context.theme, context.measurer)?;
+    if prepared.bounds[2] <= 0.0 || prepared.bounds[3] <= 0.0 {
+        return Ok(());
+    }
+    if let Some(shadow) = object(&element.attributes, "shadow")
+        && number(shadow, "opacity") != Some(0.0)
+    {
+        context
+            .warnings
+            .push("native slides omit text-box shadows".into());
+    }
+    if let Some(rectangle) = rectangle(prepared.bounds, &element.attributes) {
+        page.operations.push(rectangle);
+    }
+    page.append_content(prepared.fitted.page);
+    Ok(())
 }
 fn rectangle(bounds: [f64; 4], attributes: &Properties) -> Option<PageOperation> {
     let fill = color(attributes.get("fill")).map(|color| PathPaint {

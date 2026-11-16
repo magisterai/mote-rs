@@ -196,3 +196,136 @@ fn groups_hold_positioned_objects_and_nothing_else() {
         assert!(error.contains(message), "{source}: {error}");
     }
 }
+
+#[test]
+fn effects_times_and_displacements_are_normalized_and_checked() {
+    let source = "#presentation(render_at=1.5)\
+         #slide(duration=4)[\
+         #shape(position={width=pt(40),height=pt(20)},animate={\
+         {effect='fade_in'},\
+         {effect='move',by={x=pt(30)},start=1,duration=2,easing='ease_in_out'}})[At #time]\
+         #group(offset={x=pt(5),y=pt(-5)},rotation='15deg',animate={effect='rotate',by=90})[\
+         #line(from={x=pt(0),y=pt(0)},to={x=pt(10),y=pt(10)},animate={effect='disappear',start=2})]]";
+    let document = mote::compile(source).unwrap();
+    assert_eq!(document.time, Some(1.5));
+    let mut model: Value = serde_json::from_str(&mote::json::to_json(&document).unwrap()).unwrap();
+    normalize_numbers(&mut model);
+    assert_eq!(model["presentation"]["properties"]["render_at"], 1.5);
+    let slide = &model["content"][0];
+    assert_eq!(slide["attributes"]["duration"], 4.0);
+    let shape = &slide["children"][0];
+    assert_eq!(
+        shape["attributes"]["animate"],
+        serde_json::json!([
+            {"effect": "fade_in"},
+            {
+                "effect": "move",
+                "by": {"x": {"text": "30pt", "unit": "pt", "value": 30.0}},
+                "start": 1.0,
+                "duration": 2.0,
+                "easing": "ease_in_out"
+            }
+        ])
+    );
+    assert_eq!(shape["children"][0]["children"][1]["text"], "1.5");
+    let group = &slide["children"][1];
+    assert_eq!(group["attributes"]["rotation"], 15.0);
+    assert_eq!(group["attributes"]["offset"]["y"]["value"], -5.0);
+    assert_eq!(
+        group["attributes"]["animate"],
+        serde_json::json!([{"effect": "rotate", "by": 90.0}])
+    );
+    assert_eq!(
+        group["children"][0]["attributes"]["animate"],
+        serde_json::json!([{"effect": "disappear", "start": 2.0}])
+    );
+
+    let timed = |source: &str, time| {
+        let document = mote::compile_with_options(
+            source,
+            EvaluationOptions {
+                time,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        (document.time, mote::json::to_json(&document).unwrap())
+    };
+    let (time, model) = timed(source, Some(3.0));
+    assert_eq!(time, Some(3.0));
+    assert!(model.contains(r#""text": "3""#), "{model}");
+    let (time, model) = timed("The time is #time.", None);
+    assert_eq!(time, None);
+    assert!(model.contains(r#""text": "0""#), "{model}");
+    assert!(
+        !timed("The time is #time.", Some(2.0))
+            .1
+            .contains("presentation")
+    );
+    assert_eq!(timed("#presentation(render_at=0)", None).0, Some(0.0));
+
+    let object = |arguments: &str| {
+        format!("#slide[#shape(position={{width=pt(4),height=pt(4)}},{arguments})]")
+    };
+    for (source, message) in [
+        (
+            object("animate='fade_in'"),
+            "animate must have collection type",
+        ),
+        (object("animate={effect='wipe'}"), "animate effect"),
+        (
+            object("animate={effect='fade_in',start=-1}"),
+            "animate start must be a number of seconds, not negative",
+        ),
+        (
+            object("animate={effect='fade_in',duration='1s'}"),
+            "animate duration must be a number of seconds, not negative",
+        ),
+        (
+            object("animate={effect='appear',duration=1}"),
+            "animate appear and disappear take no duration",
+        ),
+        (
+            object("animate={effect='fade_in',easing='bounce'}"),
+            "animate easing",
+        ),
+        (
+            object("animate={effect='move'}"),
+            "animate move requires by",
+        ),
+        (
+            object("animate={effect='move',by={z=pt(1)}}"),
+            "a displacement holds the lengths x and y only",
+        ),
+        (
+            object("animate={effect='rotate',by={x=pt(1)}}"),
+            "animate rotate by must be a number",
+        ),
+        (
+            object("animate={effect='scale',to=0}"),
+            "animate scale to must be a positive number",
+        ),
+        (
+            object("animate={effect='fade_in',to=2}"),
+            "animate fade_in does not accept to",
+        ),
+        (
+            "#slide(duration=-1)[]".to_owned(),
+            "slide duration must be a number of seconds, not negative",
+        ),
+        ("#presentation(render_at='end')".to_owned(), "render_at"),
+        (
+            "#slide[#group(rotation='quarter')[#shape(position={width=pt(4),height=pt(4)})]]"
+                .to_owned(),
+            "group rotation must be a number of degrees",
+        ),
+        (
+            "#slide[#group(offset={z=pt(1)})[#shape(position={width=pt(4),height=pt(4)})]]"
+                .to_owned(),
+            "a displacement holds the lengths x and y only",
+        ),
+    ] {
+        let error = mote::compile(&source).unwrap_err().to_string();
+        assert!(error.contains(message), "{source}: {error}");
+    }
+}

@@ -32,6 +32,8 @@
 - [x] `slot`: nonempty named assignment, with optional position and body.
 - [x] `kind`, `required`, `remove`: layout-only declaration fields; see the
   [layout inventory](layout.md).
+- [x] `animate`: effects on the clock of the slide; see [animation](slide.md#animation).
+  A stack is animated as its group.
 - [x] `properties` overrides and Lua construction.
 
 Output covers positioned text, image, table and chart boxes. PPTX writes a

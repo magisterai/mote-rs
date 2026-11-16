@@ -120,7 +120,10 @@ where
         format!("box {name:?}")
     };
     let mut text_attributes = element.attributes.clone();
-    for name in ["name", "slot", "fit"].into_iter().chain(FRAME_ATTRIBUTES) {
+    for name in ["name", "slot", "fit", "animate"]
+        .into_iter()
+        .chain(FRAME_ATTRIBUTES)
+    {
         text_attributes.remove(name);
     }
     // The height of a text piece is the height of its text, so that neither
@@ -242,8 +245,10 @@ where
         offset += height + PIECE_GAP;
     }
     let mut attributes = Properties::new();
-    if let Some(name) = element.attributes.get("name") {
-        attributes.insert("name".into(), name.clone());
+    for name in ["name", "animate"] {
+        if let Some(value) = element.attributes.get(name) {
+            attributes.insert(name.into(), value.clone());
+        }
     }
     Ok(Element {
         kind: ElementKind::Group,

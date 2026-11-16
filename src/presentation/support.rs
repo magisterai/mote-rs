@@ -170,9 +170,11 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             "footer",
             "date",
             "slide_number",
+            "duration",
         ]),
         ElementKind::Box | ElementKind::Shape => {
             allowed.extend([
+                "animate",
                 "name",
                 "slot",
                 "position",
@@ -233,13 +235,15 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             }
         }
         ElementKind::Group => {
-            allowed.push("name");
+            allowed.extend(["name", "animate", "offset", "rotation"]);
             if crate::drawings::ungrouped(&element.children).is_empty() {
                 warnings.insert(format!("{path} is empty and is omitted"));
             }
         }
         ElementKind::Line => {
-            allowed.extend(["name", "from", "to", "border", "opacity", "cap", "arrow"]);
+            allowed.extend([
+                "animate", "name", "from", "to", "border", "opacity", "cap", "arrow",
+            ]);
             for name in ["from", "to"] {
                 if let Some(fields) = object(attributes, name) {
                     unknown(fields, &["x", "y"], &format!("{path}.{name}"), warnings);

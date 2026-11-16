@@ -20,10 +20,12 @@ remain separate steps within the established compatibility baseline.
 - [x] `theme.name`; `theme.colors`: background/text aliases, dark1/light1,
   dark2/light2, accent1–accent6, hyperlink/followed_hyperlink.
 - [x] `theme.fonts`: heading/body and major/minor; declared font aliases.
+- [x] `render_at`: a number of seconds, not negative; the time at which the
+  deck is rendered and the value of `time`. See [animation](slide.md#animation).
 - [x] `properties` overrides; unknown metadata; Lua declaration constructor.
 
 Slide/master ownership, printing, embedded fonts, custom shows, slide ordering,
-notes masters, accessibility metadata, media, transitions, animation, zoom and
+notes masters, accessibility metadata, media, transition effects, zoom and
 collaboration extensions remain visible in the inventories. No additional Mote
 names are assigned to unmapped standard fields. The [language definition](../specification/presentations.md) and
 [model captures](../../tests/fixtures/presentations/README.md) cover these contracts.

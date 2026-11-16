@@ -1,0 +1,41 @@
+#presentation(size = "wide", background = "#f8fafc")
+
+#slide(duration = 5)[
+  #box(name = "Title", position = { x = inch(0.7), y = inch(0.4), width = inch(12), height = inch(0.8) },
+       text = { size = pt(28), bold = true },
+       animate = { effect = "fade_in", duration = 1 })[Effects and placed groups]
+
+  #shape(name = "Mover", position = { x = inch(0.7), y = inch(1.5), width = inch(2), height = inch(0.9) },
+         kind = "round_rect", corner_radius = pt(10), fill = "#2563eb",
+         text = { color = "#ffffff", alignment = "center", vertical_alignment = "middle" },
+         animate = {
+           { effect = "move", by = { x = inch(6) }, start = 1, duration = 2, easing = "ease_in_out" },
+           { effect = "scale", to = 1.2, start = 3, duration = 1 },
+         })[Moves, then grows]
+
+  #group(name = "Authored", animate = { { effect = "fade_in", start = 1 }, { effect = "fade_out", start = 4 } })[
+    #shape(position = { x = inch(0.7), y = inch(3), width = inch(3.4), height = inch(2) },
+           kind = "round_rect", corner_radius = pt(12), fill = "#ffffff", border = { color = "#94a3b8", width = pt(1) })
+    #box(position = { x = inch(0.9), y = inch(3.2), width = inch(3), height = inch(1.6) },
+         text = { size = pt(16) })[
+      ### As authored
+
+      A group fades as one object.
+    ]
+  ]
+
+  #group(name = "Displaced", offset = { x = inch(4.2), y = inch(1.1) }, animate = { effect = "rotate", by = 360, start = 2, duration = 2 })[
+    #shape(position = { x = inch(0.7), y = inch(3), width = inch(3.4), height = inch(2) },
+           kind = "round_rect", corner_radius = pt(12), fill = "#ffffff", border = { color = "#94a3b8", width = pt(1) })
+    #box(position = { x = inch(0.9), y = inch(3.2), width = inch(3), height = inch(1.6) },
+         text = { size = pt(16) })[
+      ### Displaced
+
+      An offset moves every object of a group.
+    ]
+  ]
+
+  #line(name = "Rule", from = { x = inch(0.7), y = inch(7) }, to = { x = inch(12.6), y = inch(7) },
+        border = { color = "#111827", width = pt(2) },
+        animate = { effect = "appear", start = 0.5 })
+]

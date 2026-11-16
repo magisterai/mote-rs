@@ -74,6 +74,13 @@ arguments require units.
 - The `gap_width` argument is the space between groups of bars, and `overlap` the
   overlap of bars within a group, each as a percentage of a bar's width.
 - A chart without a `title` has no title area.
+- The `data_labels` argument applies to every kind of chart. A value of zero
+  draws its label and no bar.
+- The text of a chart has a fixed size, so a chart on a slide deserves a large
+  box: the full width of the slide, or nearly so, keeps its labels legible.
+- The axis labels, legend and data labels take the `text` color of the deck's
+  theme, and no chart argument colors or sizes them separately. A chart on a
+  dark slide is legible when the theme gives a light `text` color.
 - The lines follow Office's default chart style: light grey (`#D9D9D9`) gridlines and
   category axis at 0.75 pt, no value axis line and no tick marks. The `gridlines`
   table's `color` and `width` replace the gridline defaults.

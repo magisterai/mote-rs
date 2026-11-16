@@ -12,6 +12,8 @@ pub fn projection(plan: &DocumentTextPlan) -> Value {
             match operation {
                 PageOperation::PushRotation { degrees, center } => rotations.push(json!({"degrees":degrees,"center":center})),
                 PageOperation::PopRotation => { rotations.pop().unwrap(); },
+                PageOperation::PushLayer { matrix, opacity } => operations.push(json!({"kind":"push_layer","matrix":matrix,"opacity":opacity})),
+                PageOperation::PopLayer => operations.push(json!({"kind":"pop_layer"})),
                 PageOperation::Image(image) => operations.push(json!({"kind":"image","bounds":image.bounds,"image_clip":image.clip,"clip":clip,"link":image.link})),
                 PageOperation::PushClip(bounds) => clips.push(*bounds),
                 PageOperation::PopClip => { clips.pop().unwrap(); },

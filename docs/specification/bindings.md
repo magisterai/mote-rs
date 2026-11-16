@@ -15,6 +15,10 @@ a declaration or nil value also consumes the next whitespace-only source node.
 Objects and arrays use their value text representation; use a property path when
 only a particular field should be displayed.
 
+The binding `time` exists in every source. It holds the time in seconds at
+which the source is rendered, as [animation](presentations.md#animation)
+defines it, and is zero where no time is given. A later `let` may replace it.
+
 ```mote
 #let(title="Quarterly report", size=pt(12), shade=color("#123456"))
 #heading[#title]

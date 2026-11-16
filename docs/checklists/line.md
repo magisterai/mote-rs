@@ -22,6 +22,7 @@ inventory, including properties without an authoring mapping.
   from_size/from_length/to_size/to_length aliases normalize to start/end fields.
 - [x] Marker sizes small/sm, medium/med and large/lg normalize to sm/med/lg.
 - [x] Shared `properties` overrides and retained unknown nested metadata.
+- [x] `animate`: effects on the clock of a slide; see [animation](slide.md#animation).
 - [x] Lua `document.line` uses the same validation and typed attributes.
 
 Output boundary: editable connectors and native line painting belong to

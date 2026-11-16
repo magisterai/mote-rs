@@ -1185,3 +1185,267 @@ fn a_document_places_the_objects_of_a_group_singly_and_says_so() {
     );
     assert!(mote::docx::emit(&grouped).is_ok());
 }
+
+#[test]
+fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let deck = |objects: &str, time| {
+        mote::compile_with_options(
+            &format!("#presentation(width=pt(200),height=pt(150))#slide(duration=4)[{objects}]"),
+            mote::evaluation::EvaluationOptions {
+                time,
+                ..Default::default()
+            },
+        )
+        .unwrap()
+    };
+    let operations = |document: &mote::model::Document| {
+        let planned =
+            render::plan_with_layout(document, &resolver, None, render::LayoutMode::Presentation)
+                .unwrap();
+        assert_eq!(planned.warnings, Vec::<String>::new());
+        planned.output.pages[0].operations.clone()
+    };
+    let mover = |position: &str, animate: &str| {
+        format!(
+            "#shape(name='Mover',position={{{position},width=pt(40),height=pt(20)}},fill='#2563eb'{animate})[Go]"
+        )
+    };
+    let moves = ",animate={{effect='move',by={x=pt(100)},start=1,duration=2},\
+                 {effect='move',by={y=pt(30)},start=3,duration=1,easing='ease_in'}}";
+    let card = |arguments: &str| {
+        format!(
+            "#group(name='Card'{arguments})[\
+             #shape(position={{x=pt(20),y=pt(60),width=pt(60),height=pt(60)}},fill='#ff0000')\
+             #shape(position={{x=pt(50),y=pt(80),width=pt(60),height=pt(60)}},fill='#0000ff')]"
+        )
+    };
+    let fades = ",offset={x=pt(10)},animate={{effect='fade_in',duration=2},\
+                 {effect='fade_out',start=3,duration=1}}";
+    let spinner = |animate: &str| {
+        format!(
+            "#shape(name='Spinner',position={{x=pt(140),y=pt(80),width=pt(40),height=pt(20)}},fill='#d97706'{animate})"
+        )
+    };
+    let turns = ",animate={{effect='rotate',by=90,duration=1},{effect='scale',to=2,duration=1}}";
+    let rule = |animate: &str| {
+        format!(
+            "#line(name='Rule',from={{x=pt(10),y=pt(145)}},to={{x=pt(190),y=pt(145)}}{animate})"
+        )
+    };
+    let late = |animate: &str| {
+        format!(
+            "#box(name='Late',position={{x=pt(120),y=pt(10),width=pt(60),height=pt(20)}}{animate})[Late]"
+        )
+    };
+    let turned = card(",rotation=15");
+    let animated = [
+        mover("x=pt(20),y=pt(10)", moves),
+        card(fades),
+        spinner(turns),
+        rule(",animate={effect='disappear',start=1}"),
+        late(",animate={effect='appear',start=2}"),
+    ]
+    .concat();
+
+    // A slide rendered without a time is the slide as authored.
+    let authored = [
+        mover("x=pt(20),y=pt(10)", ""),
+        card(",offset={x=pt(10)}"),
+        spinner(""),
+        rule(""),
+        late(""),
+    ]
+    .concat();
+    assert_eq!(
+        operations(&deck(&animated, None)),
+        operations(&deck(&authored, None))
+    );
+
+    // An object out of view is not drawn, and a displaced one is drawn in its place.
+    let layer = |operations: &[mote::layout::PageOperation]| {
+        operations
+            .iter()
+            .filter_map(|operation| match operation {
+                mote::layout::PageOperation::PushLayer { matrix, opacity } => Some((
+                    matrix.map(|value| (value * 1000.0).round() / 1000.0),
+                    *opacity,
+                )),
+                _ => None,
+            })
+            .collect::<Vec<_>>()
+    };
+    let start = operations(&deck(&animated, Some(0.0)));
+    assert_eq!(layer(&start), []);
+    assert_eq!(
+        start,
+        operations(&deck(
+            &[mover("x=pt(20),y=pt(10)", ""), spinner(""), rule("")].concat(),
+            None
+        ))
+    );
+    let without_layers = |operations: Vec<mote::layout::PageOperation>| {
+        operations
+            .into_iter()
+            .filter(|operation| {
+                !matches!(
+                    operation,
+                    mote::layout::PageOperation::PushLayer { .. }
+                        | mote::layout::PageOperation::PopLayer
+                )
+            })
+            .collect::<Vec<_>>()
+    };
+    let moved = operations(&deck(&animated, Some(3.0)));
+    assert_eq!(layer(&moved), [([0.0, 2.0, -2.0, 0.0, 340.0, -230.0], 1.0)]);
+    assert_eq!(
+        without_layers(moved),
+        operations(&deck(
+            &[
+                mover("x=pt(120),y=pt(10)", ""),
+                card(",offset={x=pt(10)}"),
+                spinner(""),
+                late(""),
+            ]
+            .concat(),
+            None
+        ))
+    );
+    // An effect that gathers speed through its first half has covered a third
+    // of its way at its middle.
+    let late_operations = operations(&deck(&animated, Some(3.5)));
+    assert_eq!(
+        layer(&late_operations),
+        [
+            ([1.0, 0.0, 0.0, 1.0, 0.0, 0.0], 0.5),
+            ([0.0, 2.0, -2.0, 0.0, 340.0, -230.0], 1.0)
+        ]
+    );
+    assert!(late_operations.iter().any(|operation| matches!(
+        operation,
+        mote::layout::PageOperation::Path(path) if path.points[0] == [120.0, 20.0]
+    )));
+
+    // A group fades as one object: the lower shape does not show through the upper.
+    let pixel = |document: &mote::model::Document, [x, y]: [usize; 2]| {
+        let planned =
+            render::plan_with_layout(document, &resolver, None, render::LayoutMode::Presentation)
+                .unwrap();
+        render::paint_pdf(&planned.output).unwrap();
+        let page = &render::paint_png(&planned.output, &render::PngOptions::default())
+            .unwrap()
+            .output[0];
+        let mut reader = png::Decoder::new(std::io::Cursor::new(&page.bytes))
+            .read_info()
+            .unwrap();
+        let mut pixels = vec![0; reader.output_buffer_size().unwrap()];
+        let frame = reader.next_frame(&mut pixels).unwrap();
+        let channels = frame.color_type.samples();
+        let offset = (y * frame.width as usize + x) * channels;
+        [pixels[offset], pixels[offset + 1], pixels[offset + 2]]
+    };
+    let faint = deck(&animated, Some(1.0));
+    for (point, color) in [([40, 70], [255, 128, 128]), ([75, 100], [128, 128, 255])] {
+        let actual = pixel(&faint, point);
+        for (actual, expected) in actual.into_iter().zip(color) {
+            assert!(actual.abs_diff(expected) <= 2, "{point:?}: {actual}");
+        }
+    }
+    assert_eq!(pixel(&deck(&animated, Some(2.0)), [75, 100]), [0, 0, 255]);
+
+    let package =
+        mote::pptx::emit_with_fonts(&deck(&animated, None), &resolver, None, None).unwrap();
+    assert_eq!(package.warnings, Vec::<String>::new());
+    let xml = slide_xml(package.bytes);
+    let tree = roxmltree::Document::parse(&xml).unwrap();
+    let identifier = |name: &str| {
+        tree.descendants()
+            .find(|node| node.has_tag_name("cNvPr") && node.attribute("name") == Some(name))
+            .unwrap()
+            .attribute("id")
+            .unwrap()
+            .to_owned()
+    };
+    let effects: Vec<_> = tree
+        .descendants()
+        .filter(|node| node.has_tag_name("cTn") && node.attribute("presetID").is_some())
+        .map(|node| {
+            let find = |name: &str| node.descendants().find(|child| child.has_tag_name(name));
+            (
+                find("spTgt").unwrap().attribute("spid").unwrap().to_owned(),
+                node.attribute("presetClass").unwrap(),
+                node.attribute("presetID").unwrap(),
+                find("cond").unwrap().attribute("delay").unwrap(),
+                node.attribute("nodeType").unwrap(),
+                node.attribute("accel"),
+                find("animMotion").and_then(|motion| motion.attribute("path")),
+            )
+        })
+        .collect();
+    let [mover, card, spinner, rule, late] =
+        ["Mover", "Card", "Spinner", "Rule", "Late"].map(identifier);
+    assert_eq!(
+        effects,
+        [
+            (card.clone(), "entr", "10", "0", "afterEffect", None, None),
+            (spinner.clone(), "emph", "8", "0", "withEffect", None, None),
+            (spinner.clone(), "emph", "6", "0", "withEffect", None, None),
+            (
+                mover.clone(),
+                "path",
+                "0",
+                "1000",
+                "withEffect",
+                None,
+                Some("M 0 0 L 0.5 0")
+            ),
+            (rule, "exit", "1", "1000", "withEffect", None, None),
+            (late.clone(), "entr", "1", "2000", "withEffect", None, None),
+            (
+                mover.clone(),
+                "path",
+                "0",
+                "3000",
+                "withEffect",
+                Some("50000"),
+                Some("M 0.5 0 L 0.5 0.2")
+            ),
+            (card, "exit", "10", "3000", "withEffect", None, None),
+        ]
+    );
+    assert!(xml.contains(r#"<p:animRot by="5400000">"#));
+    assert!(xml.contains(r#"<p:by x="200000" y="200000"/>"#));
+    // A shape with a text body has one build for each of its effects.
+    let builds: Vec<_> = tree
+        .descendants()
+        .filter(|node| node.has_tag_name("bldP"))
+        .map(|node| {
+            (
+                node.attribute("spid").unwrap().to_owned(),
+                node.attribute("grpId").unwrap(),
+            )
+        })
+        .collect();
+    assert_eq!(
+        builds,
+        [
+            (spinner.clone(), "0"),
+            (spinner, "1"),
+            (mover.clone(), "0"),
+            (late, "0"),
+            (mover, "1")
+        ]
+    );
+    assert!(xml.contains(r#"<p:transition advTm="4000"/><p:timing>"#));
+    assert_eq!(object_frames(&xml, "grpSp")[0], [30.0, 60.0, 90.0, 80.0]);
+
+    let still = mote::pptx::emit_with_warnings(&deck(&authored, None)).unwrap();
+    assert!(!slide_xml(still.bytes).contains("<p:timing>"));
+    let turned = deck(&turned, None);
+    let xml = slide_xml(mote::pptx::emit_with_warnings(&turned).unwrap().bytes);
+    assert!(xml.contains(r#"<a:xfrm rot="900000">"#), "{xml}");
+    assert_eq!(
+        layer(&operations(&turned)),
+        [([0.966, 0.259, -0.259, 0.966, 28.097, -13.416], 1.0)]
+    );
+}

@@ -1,0 +1,52 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 54.72,
+          "text": "Effects and placed groups",
+          "x": 50.4
+        },
+        {
+          "baseline": 135.84,
+          "text": "Moves, then",
+          "x": 75.51
+        },
+        {
+          "baseline": 156.72,
+          "text": "grows",
+          "x": 99.48
+        },
+        {
+          "baseline": 252.48,
+          "text": "As authored",
+          "x": 64.8
+        },
+        {
+          "baseline": 274.32,
+          "text": "A group fades as one object.",
+          "x": 64.8
+        },
+        {
+          "baseline": 331.68,
+          "text": "Displaced",
+          "x": 367.2
+        },
+        {
+          "baseline": 353.52,
+          "text": "An offset moves every object of",
+          "x": 367.2
+        },
+        {
+          "baseline": 372.48,
+          "text": "a group.",
+          "x": 367.2
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "567a703287524943548219512d0fea4d248ca2c168740008109f7bf4765a4446"
+}

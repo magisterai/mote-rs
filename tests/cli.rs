@@ -344,3 +344,124 @@ fn docx_fallback_warnings_name_the_property_and_source_location() {
     assert!(warning.contains("surrounding span"));
     assert!(warning.contains(":3:1"), "{warning}");
 }
+
+#[test]
+fn a_time_reaches_the_source_and_frames_are_numbered_from_one() {
+    let output = run(&["--format", "json", "--time", "2.5"], b"At #time.");
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let document: serde_json::Value = serde_json::from_slice(&output.stdout).unwrap();
+    assert_eq!(document["content"][0]["children"][1]["text"], "2.5");
+    assert!(document.get("presentation").is_none());
+
+    let deck = b"#presentation(width=pt(100),height=pt(50))\
+        #slide(duration=1)[#shape(position={width=pt(20),height=pt(20)},fill='#2563eb',\
+        animate={effect='move',by={x=pt(60)},duration=1})]";
+    let prefix = temporary_input_path().with_extension("frames");
+    let frame = |number: usize| PathBuf::from(format!("{}-{number:04}.png", prefix.display()));
+    let blue_column = |path: PathBuf| {
+        let bytes = fs::read(&path).unwrap();
+        fs::remove_file(path).unwrap();
+        let mut reader = png::Decoder::new(std::io::Cursor::new(bytes))
+            .read_info()
+            .unwrap();
+        let mut pixels = vec![0; reader.output_buffer_size().unwrap()];
+        let frame = reader.next_frame(&mut pixels).unwrap();
+        assert_eq!((frame.width, frame.height), (100, 50));
+        let channels = frame.color_type.samples();
+        (0..100)
+            .find(|column| pixels[(10 * 100 + column) * channels] < 128)
+            .unwrap()
+    };
+    let output = run(
+        &[
+            "--format",
+            "png",
+            "--frames",
+            "2",
+            "-o",
+            prefix.to_str().unwrap(),
+        ],
+        deck,
+    );
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert_eq!(
+        [1, 2, 3].map(|number| blue_column(frame(number))),
+        [0, 30, 60]
+    );
+    assert!(!frame(4).exists());
+
+    let output = run(
+        &[
+            "--format",
+            "png",
+            "--frames",
+            "4",
+            "--from",
+            "0.5",
+            "--to",
+            "0.75",
+            "-o",
+            prefix.to_str().unwrap(),
+        ],
+        deck,
+    );
+    assert!(output.status.success());
+    assert_eq!([1, 2].map(|number| blue_column(frame(number))), [30, 45]);
+    assert!(!frame(3).exists());
+
+    let still = PathBuf::from(format!("{}-1.png", prefix.display()));
+    let output = run(
+        &[
+            "--format",
+            "png",
+            "--time",
+            "0.5",
+            "-o",
+            prefix.to_str().unwrap(),
+        ],
+        deck,
+    );
+    assert!(output.status.success());
+    assert_eq!(blue_column(still), 30);
+
+    let output_path = prefix.to_str().unwrap();
+    for (arguments, message) in [
+        (
+            vec!["--format", "png", "--frames", "2", "--time", "1"],
+            "--frames and --time cannot be given together",
+        ),
+        (
+            vec!["--format", "pdf", "--frames", "2"],
+            "--frames applies only to PNG output",
+        ),
+        (
+            vec!["--format", "png", "--from", "1"],
+            "--from and --to apply only with --frames",
+        ),
+        (
+            vec!["--format", "png", "--frames", "0"],
+            "--frames requires a positive rate",
+        ),
+        (
+            vec!["--format", "png", "--time", "-1"],
+            "--time requires a number, not negative",
+        ),
+        (
+            vec!["--format", "png", "--frames", "2", "--from", "1"],
+            "--frames requires --to, an effect or a slide duration to end the animation",
+        ),
+    ] {
+        let output = run(&[arguments.as_slice(), &["-o", output_path]].concat(), deck);
+        assert!(!output.status.success(), "{arguments:?}");
+        let error = String::from_utf8_lossy(&output.stderr);
+        assert!(error.contains(message), "{arguments:?}: {error}");
+    }
+}

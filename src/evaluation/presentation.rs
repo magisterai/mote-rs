@@ -50,6 +50,7 @@ pub(super) fn apply(
                 matches!(argument.value, Value::String(_) | Value::Boolean(_))
             }
             "theme" | "properties" => matches!(argument.value, Value::Object(_)),
+            "render_at" => matches!(argument.value, Value::Number(_)),
             _ => true,
         };
         if !valid {
@@ -82,6 +83,7 @@ pub(super) fn apply(
                 "theme" => theme(value, span)?,
                 "footer" | "date" => text_or_boolean(value, span, &name)?,
                 "slide_number" => normalize_boolean(value, span, &name)?,
+                "render_at" => seconds(value, span, "presentation render_at")?,
                 _ => value,
             };
             Ok((name, value))
@@ -194,6 +196,114 @@ fn theme(value: Value, span: Span) -> Result<Value, Diagnostic> {
     }
     Ok(Value::Object(fields))
 }
+/// Admits a time or a duration: a finite number of seconds, not negative.
+pub(super) fn seconds(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
+    match value {
+        Value::Number(number) if number.is_finite() && number >= 0.0 => Ok(value),
+        _ => Err(Diagnostic::new(
+            span,
+            format!("{name} must be a number of seconds, not negative"),
+        )),
+    }
+}
+
+/// Normalizes the `animate` argument of an object to a list of effects. One
+/// effect may be given alone, without the list about it.
+pub(super) fn animation(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    use crate::presentation::animation::{EASING_NAMES, EFFECT_NAMES};
+    let entries = match value {
+        Value::Array(entries) => entries,
+        Value::Object(fields) if fields.contains_key("effect") => vec![Value::Object(fields)],
+        // A table written as a sequence arrives with its positions as names.
+        Value::Object(fields) => fields.into_values().collect(),
+        _ => return Err(Diagnostic::new(span, "animate must be a list of effects")),
+    };
+    entries
+        .into_iter()
+        .map(|entry| {
+            let mut fields = require_object(entry, span, "animate effect")?;
+            let effect = normalize_enum(
+                fields.remove("effect").unwrap_or(Value::Nil),
+                span,
+                "animate effect",
+                &EFFECT_NAMES,
+            )?;
+            let mut normalized = Properties::new();
+            for (name, value) in fields {
+                let value = match (name.as_str(), effect.to_text().as_str()) {
+                    ("start", _) => seconds(value, span, "animate start")?,
+                    ("duration", "appear" | "disappear") => {
+                        return Err(Diagnostic::new(
+                            span,
+                            "animate appear and disappear take no duration",
+                        ));
+                    }
+                    ("duration", _) => seconds(value, span, "animate duration")?,
+                    ("easing", _) => normalize_enum(value, span, "animate easing", &EASING_NAMES)?,
+                    ("by", "move") => displacement(value, span)?,
+                    ("by", "rotate") => finite(value, span, "animate rotate by")?,
+                    ("to", "scale") => match finite(value, span, "animate scale to")? {
+                        Value::Number(factor) if factor > 0.0 => Value::Number(factor),
+                        _ => {
+                            return Err(Diagnostic::new(
+                                span,
+                                "animate scale to must be a positive number",
+                            ));
+                        }
+                    },
+                    _ => {
+                        return Err(Diagnostic::new(
+                            span,
+                            format!("animate {} does not accept {name}", effect.to_text()),
+                        ));
+                    }
+                };
+                normalized.insert(name, value);
+            }
+            let required = match effect.to_text().as_str() {
+                "move" | "rotate" => Some("by"),
+                "scale" => Some("to"),
+                _ => None,
+            };
+            if let Some(name) = required
+                && !normalized.contains_key(name)
+            {
+                return Err(Diagnostic::new(
+                    span,
+                    format!("animate {} requires {name}", effect.to_text()),
+                ));
+            }
+            normalized.insert("effect".into(), effect);
+            Ok(Value::Object(normalized))
+        })
+        .collect::<Result<_, _>>()
+        .map(Value::Array)
+}
+
+fn finite(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
+    match value {
+        Value::Number(number) if number.is_finite() => Ok(value),
+        _ => Err(Diagnostic::new(span, format!("{name} must be a number"))),
+    }
+}
+
+/// Normalizes a displacement: horizontal and vertical lengths of either sign,
+/// where an omitted one is zero.
+pub(super) fn displacement(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    let fields = require_object(value, span, "displacement")?;
+    for (name, value) in &fields {
+        if !matches!(name.as_str(), "x" | "y")
+            || crate::drawings::length_in_drawing_units(Some(value)).is_none()
+        {
+            return Err(Diagnostic::new(
+                span,
+                "a displacement holds the lengths x and y only",
+            ));
+        }
+    }
+    Ok(Value::Object(fields))
+}
+
 fn text_or_boolean(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
     if matches!(value, Value::String(_) | Value::Boolean(_)) {
         Ok(value)
@@ -217,6 +327,7 @@ pub(super) fn normalize(
             "background" => background(value, span),
             "footer" | "date" => text_or_boolean(value, span, name),
             "slide_number" => normalize_boolean(value, span, name),
+            "duration" => seconds(value, span, "slide duration"),
             "layout" => {
                 let name = normalize_identifier(value, span, name)?;
                 if name.trim().is_empty() {

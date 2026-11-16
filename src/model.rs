@@ -101,6 +101,9 @@ pub struct Document {
     pub styles: BTreeMap<String, StyleDeclaration>,
     /// Non-fatal evaluation diagnostics, kept separate from JSON inspection.
     pub warnings: Vec<crate::diagnostics::Diagnostic>,
+    /// The time in seconds at which the document is rendered. Without one the
+    /// effects of slide objects are ignored.
+    pub time: Option<f64>,
 }
 
 /// A link's screen tip is its `tooltip`, or else its `title`, as a Markdown link

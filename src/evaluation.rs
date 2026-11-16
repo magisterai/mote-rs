@@ -45,6 +45,9 @@ pub struct EvaluationOptions<'resolver> {
     pub enable_lua: bool,
     /// Shared wall-clock budget starting at first Lua use. None disables it.
     pub lua_timeout: Option<std::time::Duration>,
+    /// The time in seconds at which the document is rendered. The binding
+    /// `time` holds it, or zero where none is given.
+    pub time: Option<f64>,
 }
 impl Default for EvaluationOptions<'_> {
     fn default() -> Self {
@@ -53,6 +56,7 @@ impl Default for EvaluationOptions<'_> {
             source_name: None,
             enable_lua: false,
             lua_timeout: Some(std::time::Duration::from_secs(10)),
+            time: None,
         }
     }
 }
@@ -81,6 +85,26 @@ pub fn evaluate_with_options(
     tree: &SyntaxTree,
     options: EvaluationOptions<'_>,
 ) -> Result<Document, Diagnostic> {
+    let mut document = evaluate_at(tree, &options, options.time)?;
+    // A deck may state the time at which it is rendered. The binding `time`
+    // must then hold that time, which only an evaluation discovers.
+    if options.time.is_none()
+        && let Some(Value::Number(time)) = document.presentation.properties.get("render_at")
+    {
+        let time = *time;
+        if time != 0.0 {
+            document = evaluate_at(tree, &options, Some(time))?;
+        }
+        document.time = Some(time);
+    }
+    Ok(document)
+}
+
+fn evaluate_at(
+    tree: &SyntaxTree,
+    options: &EvaluationOptions<'_>,
+    time: Option<f64>,
+) -> Result<Document, Diagnostic> {
     let assets = options
         .asset_resolver
         .map(crate::source::CachingAssetResolver::new);
@@ -94,7 +118,12 @@ pub fn evaluate_with_options(
     });
     state.enable_lua = options.enable_lua;
     state.lua_timeout = options.lua_timeout;
-    evaluate_with_state(tree, state)
+    state
+        .bindings
+        .set("time".into(), Value::Number(time.unwrap_or(0.0)));
+    let mut document = evaluate_with_state(tree, state)?;
+    document.time = time;
+    Ok(document)
 }
 
 fn evaluate_with_state(

@@ -37,11 +37,90 @@ pub fn paint_pdf(plan: &DocumentTextPlan) -> Result<Vec<u8>, RenderError> {
         let content_id = objects.allocate();
 
         let mut content = Content::new();
-        let mut page_images = Vec::new();
+        let mut page_images: Vec<(String, Ref)> = Vec::new();
         let mut opacities = paths::Opacities::default();
+        // A layer of full opacity is a transformation of the content about
+        // it. A fainter one is a transparency group, so that its parts fade
+        // together and do not show through one another.
+        let mut layers: Vec<Option<(Content, [f32; 6], f64)>> = Vec::new();
         if let Some(page) = plan.pages.get(page_index) {
             for operation in &page.operations {
                 match operation {
+                    PageOperation::PushLayer { matrix, opacity } => {
+                        let [first, second, third, fourth, horizontal, vertical] = *matrix;
+                        let height = geometry.height;
+                        let matrix = [
+                            first,
+                            -second,
+                            -third,
+                            fourth,
+                            third * height + horizontal,
+                            height - fourth * height - vertical,
+                        ]
+                        .map(|value| ((value * 100000.0).round() / 100000.0) as f32);
+                        if *opacity >= 1.0 {
+                            content.save_state().transform(matrix);
+                            layers.push(None);
+                        } else {
+                            layers.push(Some((
+                                std::mem::replace(&mut content, Content::new()),
+                                matrix,
+                                *opacity,
+                            )));
+                        }
+                    }
+                    PageOperation::PopLayer => {
+                        match layers.pop().expect("validated layer nesting") {
+                            None => {
+                                content.restore_state();
+                            }
+                            Some((parent, matrix, opacity)) => {
+                                let layer = std::mem::replace(&mut content, parent);
+                                let reference = objects.allocate();
+                                let bytes = compress(&layer.finish())?;
+                                let mut form = document.form_xobject(reference, &bytes);
+                                form.filter(Filter::FlateDecode);
+                                form.bbox(Rect::new(
+                                    0.0,
+                                    0.0,
+                                    geometry.width as f32,
+                                    geometry.height as f32,
+                                ));
+                                form.group().transparency();
+                                let mut resources = form.resources();
+                                if !page_images.is_empty() {
+                                    let mut images = resources.x_objects();
+                                    for (name, reference) in &page_images {
+                                        images.pair(Name(name.as_bytes()), *reference);
+                                    }
+                                }
+                                if !opacities.entries.is_empty() {
+                                    let mut states = resources.ext_g_states();
+                                    for (name, reference) in opacities.entries.values() {
+                                        states.pair(Name(name.as_bytes()), *reference);
+                                    }
+                                }
+                                let mut form_fonts = resources.fonts();
+                                for font in &fonts.entries {
+                                    form_fonts.pair(Name(font.resource.as_bytes()), font.reference);
+                                }
+                                drop(form_fonts);
+                                drop(resources);
+                                drop(form);
+                                let alpha = (opacity * 255.0).round() as u8;
+                                let state =
+                                    opacities.name(alpha, alpha, &mut document, &mut objects);
+                                let name = format!("Layer{}", page_images.len() + 1);
+                                content
+                                    .save_state()
+                                    .transform(matrix)
+                                    .set_parameters(Name(state.as_bytes()))
+                                    .x_object(Name(name.as_bytes()))
+                                    .restore_state();
+                                page_images.push((name, reference));
+                            }
+                        }
+                    }
                     PageOperation::PushRotation { degrees, center } => {
                         let (sine, cosine) = degrees.to_radians().sin_cos();
                         let [horizontal, vertical] = [center[0], geometry.height - center[1]];

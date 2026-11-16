@@ -425,7 +425,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 - [ ] `extLst` — [p:CT_ExtensionListModify](shapes-and-lines.md#p-ct_extensionlistmodify); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@spd` — [p:ST_TransitionSpeed](values-drawing.md#p-st_transitionspeed); Strict, Transitional; use=optional; default=fast.
 - [ ] `@advClick` — `xsd:boolean`; Strict, Transitional; use=optional; default=true.
-- [ ] `@advTm` — `xsd:unsignedInt`; Strict, Transitional; use=optional.
+- [ ] `@advTm` — `xsd:unsignedInt`; Strict, Transitional; use=optional. The `duration` of a slide writes the time after which the slide advances. No transition effect, speed or sound has a Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_slidetiming"></a>
 
@@ -433,8 +433,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `tnLst` — [p:CT_TimeNodeList](presentations.md#p-ct_timenodelist); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `bldLst` — [p:CT_BuildList](presentations.md#p-ct_buildlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `tnLst` — [p:CT_TimeNodeList](presentations.md#p-ct_timenodelist); Strict, Transitional; minOccurs=0; maxOccurs=1. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `bldLst` — [p:CT_BuildList](presentations.md#p-ct_buildlist); Strict, Transitional; minOccurs=0; maxOccurs=1. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `extLst` — [p:CT_ExtensionListModify](shapes-and-lines.md#p-ct_extensionlistmodify); Strict, Transitional; minOccurs=0; maxOccurs=1.
 
 <a id="p-ct_headerfooter"></a>
@@ -579,7 +579,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 - [ ] `nvGrpSpPr` — [p:CT_GroupShapeNonVisual](presentations.md#p-ct_groupshapenonvisual); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `grpSpPr` — [a:CT_GroupShapeProperties](charts.md#a-ct_groupshapeproperties); Strict, Transitional; minOccurs=1; maxOccurs=1.
 - [ ] `sp` — [p:CT_Shape](shapes-and-lines.md#p-ct_shape); Strict, Transitional.
-- [ ] `grpSp` — [p:CT_GroupShape](presentations.md#p-ct_groupshape); Strict, Transitional. The group directive writes a group shape on a slide, nested as authored, holding shapes, connectors, pictures, graphic frames and groups. A group has no fill, effect or transform argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `grpSp` — [p:CT_GroupShape](presentations.md#p-ct_groupshape); Strict, Transitional. The group directive writes a group shape on a slide, nested as authored, holding shapes, connectors, pictures, graphic frames and groups. A group has `offset` and `rotation`, and no fill, effect, size or flip argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `graphicFrame` — [p:CT_GraphicalObjectFrame](presentations.md#p-ct_graphicalobjectframe); Strict, Transitional.
 - [ ] `cxnSp` — [p:CT_Connector](shapes-and-lines.md#p-ct_connector); Strict, Transitional.
 - [ ] `pic` — [p:CT_Picture](presentations.md#p-ct_picture); Strict, Transitional.
@@ -682,17 +682,17 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `par` — [p:CT_TLTimeNodeParallel](presentations.md#p-ct_tltimenodeparallel); Strict, Transitional.
-- [ ] `seq` — [p:CT_TLTimeNodeSequence](presentations.md#p-ct_tltimenodesequence); Strict, Transitional.
+- [ ] `par` — [p:CT_TLTimeNodeParallel](presentations.md#p-ct_tltimenodeparallel); Strict, Transitional. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `seq` — [p:CT_TLTimeNodeSequence](presentations.md#p-ct_tltimenodesequence); Strict, Transitional. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `excl` — [p:CT_TLTimeNodeExclusive](presentations.md#p-ct_tltimenodeexclusive); Strict, Transitional.
 - [ ] `anim` — [p:CT_TLAnimateBehavior](presentations.md#p-ct_tlanimatebehavior); Strict, Transitional.
 - [ ] `animClr` — [p:CT_TLAnimateColorBehavior](presentations.md#p-ct_tlanimatecolorbehavior); Strict, Transitional.
-- [ ] `animEffect` — [p:CT_TLAnimateEffectBehavior](presentations.md#p-ct_tlanimateeffectbehavior); Strict, Transitional.
-- [ ] `animMotion` — [p:CT_TLAnimateMotionBehavior](presentations.md#p-ct_tlanimatemotionbehavior); Strict, Transitional.
-- [ ] `animRot` — [p:CT_TLAnimateRotationBehavior](presentations.md#p-ct_tlanimaterotationbehavior); Strict, Transitional.
-- [ ] `animScale` — [p:CT_TLAnimateScaleBehavior](presentations.md#p-ct_tlanimatescalebehavior); Strict, Transitional.
+- [ ] `animEffect` — [p:CT_TLAnimateEffectBehavior](presentations.md#p-ct_tlanimateeffectbehavior); Strict, Transitional. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `animMotion` — [p:CT_TLAnimateMotionBehavior](presentations.md#p-ct_tlanimatemotionbehavior); Strict, Transitional. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `animRot` — [p:CT_TLAnimateRotationBehavior](presentations.md#p-ct_tlanimaterotationbehavior); Strict, Transitional. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `animScale` — [p:CT_TLAnimateScaleBehavior](presentations.md#p-ct_tlanimatescalebehavior); Strict, Transitional. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `cmd` — [p:CT_TLCommandBehavior](presentations.md#p-ct_tlcommandbehavior); Strict, Transitional.
-- [ ] `set` — [p:CT_TLSetBehavior](presentations.md#p-ct_tlsetbehavior); Strict, Transitional.
+- [ ] `set` — [p:CT_TLSetBehavior](presentations.md#p-ct_tlsetbehavior); Strict, Transitional. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `audio` — [p:CT_TLMediaNodeAudio](presentations.md#p-ct_tlmedianodeaudio); Strict, Transitional.
 - [ ] `video` — [p:CT_TLMediaNodeVideo](presentations.md#p-ct_tlmedianodevideo); Strict, Transitional.
 
@@ -702,7 +702,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `bldP` — [p:CT_TLBuildParagraph](presentations.md#p-ct_tlbuildparagraph); Strict, Transitional.
+- [ ] `bldP` — [p:CT_TLBuildParagraph](presentations.md#p-ct_tlbuildparagraph); Strict, Transitional. An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `bldDgm` — [p:CT_TLBuildDiagram](presentations.md#p-ct_tlbuilddiagram); Strict, Transitional.
 - [ ] `bldOleChart` — [p:CT_TLOleBuildChart](presentations.md#p-ct_tlolebuildchart); Strict, Transitional.
 - [ ] `bldGraphic` — [p:CT_TLGraphicalObjectBuild](presentations.md#p-ct_tlgraphicalobjectbuild); Strict, Transitional.
@@ -882,7 +882,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cTn` — [p:CT_TLCommonTimeNodeData](presentations.md#p-ct_tlcommontimenodedata); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `cTn` — [p:CT_TLCommonTimeNodeData](presentations.md#p-ct_tlcommontimenodedata); Strict, Transitional; minOccurs=1; maxOccurs=1. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tltimenodesequence"></a>
 
@@ -890,12 +890,12 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cTn` — [p:CT_TLCommonTimeNodeData](presentations.md#p-ct_tlcommontimenodedata); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `prevCondLst` — [p:CT_TLTimeConditionList](presentations.md#p-ct_tltimeconditionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `nextCondLst` — [p:CT_TLTimeConditionList](presentations.md#p-ct_tltimeconditionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `@concurrent` — `xsd:boolean`; Strict, Transitional; use=optional.
+- [ ] `cTn` — [p:CT_TLCommonTimeNodeData](presentations.md#p-ct_tlcommontimenodedata); Strict, Transitional; minOccurs=1; maxOccurs=1. The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `prevCondLst` — [p:CT_TLTimeConditionList](presentations.md#p-ct_tltimeconditionlist); Strict, Transitional; minOccurs=0; maxOccurs=1. The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `nextCondLst` — [p:CT_TLTimeConditionList](presentations.md#p-ct_tltimeconditionlist); Strict, Transitional; minOccurs=0; maxOccurs=1. The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@concurrent` — `xsd:boolean`; Strict, Transitional; use=optional. The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@prevAc` — [p:ST_TLPreviousActionType](values-drawing.md#p-st_tlpreviousactiontype); Strict, Transitional; use=optional.
-- [ ] `@nextAc` — [p:ST_TLNextActionType](values-drawing.md#p-st_tlnextactiontype); Strict, Transitional; use=optional.
+- [ ] `@nextAc` — [p:ST_TLNextActionType](values-drawing.md#p-st_tlnextactiontype); Strict, Transitional; use=optional. The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tltimenodeexclusive"></a>
 
@@ -938,10 +938,10 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1. The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `progress` — [p:CT_TLAnimVariant](presentations.md#p-ct_tlanimvariant); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `@transition` — [p:ST_TLAnimateEffectTransition](values-drawing.md#p-st_tlanimateeffecttransition); Strict, Transitional; default=in; use=optional.
-- [ ] `@filter` — `xsd:string`; Strict, Transitional; use=optional.
+- [ ] `@transition` — [p:ST_TLAnimateEffectTransition](values-drawing.md#p-st_tlanimateeffecttransition); Strict, Transitional; default=in; use=optional. The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@filter` — `xsd:string`; Strict, Transitional; use=optional. The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@prLst` — `xsd:string`; Strict, Transitional; use=optional.
 
 <a id="p-ct_tlanimatemotionbehavior"></a>
@@ -950,16 +950,16 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1.
+- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1. The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `by` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `from` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `to` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `rCtr` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `@origin` — [p:ST_TLAnimateMotionBehaviorOrigin](values-drawing.md#p-st_tlanimatemotionbehaviororigin); Strict, Transitional; use=optional.
-- [ ] `@path` — `xsd:string`; Strict, Transitional; use=optional.
-- [ ] `@pathEditMode` — [p:ST_TLAnimateMotionPathEditMode](values-drawing.md#p-st_tlanimatemotionpatheditmode); Strict, Transitional; use=optional.
+- [ ] `@origin` — [p:ST_TLAnimateMotionBehaviorOrigin](values-drawing.md#p-st_tlanimatemotionbehaviororigin); Strict, Transitional; use=optional. The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@path` — `xsd:string`; Strict, Transitional; use=optional. The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@pathEditMode` — [p:ST_TLAnimateMotionPathEditMode](values-drawing.md#p-st_tlanimatemotionpatheditmode); Strict, Transitional; use=optional. The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@rAng` — [a:ST_Angle](values-drawing.md#a-st_angle); Strict, Transitional; use=optional.
-- [ ] `@ptsTypes` — `xsd:string`; Strict, Transitional; use=optional.
+- [ ] `@ptsTypes` — `xsd:string`; Strict, Transitional; use=optional. The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tlanimaterotationbehavior"></a>
 
@@ -967,8 +967,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `@by` — [a:ST_Angle](values-drawing.md#a-st_angle); Strict, Transitional; use=optional.
+- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1. The effect `rotate` writes a clockwise turn of `by` degrees about the centre of its object. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@by` — [a:ST_Angle](values-drawing.md#a-st_angle); Strict, Transitional; use=optional. The effect `rotate` writes a clockwise turn of `by` degrees about the centre of its object. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@from` — [a:ST_Angle](values-drawing.md#a-st_angle); Strict, Transitional; use=optional.
 - [ ] `@to` — [a:ST_Angle](values-drawing.md#a-st_angle); Strict, Transitional; use=optional.
 
@@ -978,8 +978,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `by` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1. The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `by` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1. The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `from` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `to` — [p:CT_TLPoint](presentations.md#p-ct_tlpoint); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `@zoomContents` — `xsd:boolean`; Strict, Transitional; use=optional.
@@ -1000,8 +1000,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `to` — [p:CT_TLAnimVariant](presentations.md#p-ct_tlanimvariant); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `cBhvr` — [p:CT_TLCommonBehaviorData](presentations.md#p-ct_tlcommonbehaviordata); Strict, Transitional; minOccurs=1; maxOccurs=1. The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `to` — [p:CT_TLAnimVariant](presentations.md#p-ct_tlanimvariant); Strict, Transitional; minOccurs=0; maxOccurs=1. The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tlmedianodeaudio"></a>
 
@@ -1028,12 +1028,12 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
 - [ ] `tmplLst` — [p:CT_TLTemplateList](presentations.md#p-ct_tltemplatelist); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `@spid` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required.
-- [ ] `@grpId` — `xsd:unsignedInt`; Strict, Transitional; use=required.
+- [ ] `@spid` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required. An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@grpId` — `xsd:unsignedInt`; Strict, Transitional; use=required. An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@uiExpand` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
 - [ ] `@build` — [p:ST_TLParaBuildType](values-drawing.md#p-st_tlparabuildtype); Strict, Transitional; use=optional; default=whole.
 - [ ] `@bldLvl` — `xsd:unsignedInt`; Strict, Transitional; use=optional; default=1.
-- [ ] `@animBg` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
+- [ ] `@animBg` — `xsd:boolean`; Strict, Transitional; use=optional; default=false. An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@autoUpdateAnimBg` — `xsd:boolean`; Strict, Transitional; default=true; use=optional.
 - [ ] `@rev` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
 - [ ] `@advAuto` — [p:ST_TLTime](values-drawing.md#p-st_tltime); Strict, Transitional; use=optional; default=indefinite.
@@ -1149,34 +1149,34 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `stCondLst` — [p:CT_TLTimeConditionList](presentations.md#p-ct_tltimeconditionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `stCondLst` — [p:CT_TLTimeConditionList](presentations.md#p-ct_tltimeconditionlist); Strict, Transitional; minOccurs=0; maxOccurs=1. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `endCondLst` — [p:CT_TLTimeConditionList](presentations.md#p-ct_tltimeconditionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `endSync` — [p:CT_TLTimeCondition](presentations.md#p-ct_tltimecondition); Strict, Transitional; minOccurs=0; maxOccurs=1.
 - [ ] `iterate` — [p:CT_TLIterateData](presentations.md#p-ct_tliteratedata); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `childTnLst` — [p:CT_TimeNodeList](presentations.md#p-ct_timenodelist); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `childTnLst` — [p:CT_TimeNodeList](presentations.md#p-ct_timenodelist); Strict, Transitional; minOccurs=0; maxOccurs=1. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `subTnLst` — [p:CT_TimeNodeList](presentations.md#p-ct_timenodelist); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `@id` — [p:ST_TLTimeNodeID](values-drawing.md#p-st_tltimenodeid); Strict, Transitional; use=optional.
-- [ ] `@presetID` — `xsd:int`; Strict, Transitional; use=optional.
-- [ ] `@presetClass` — [p:ST_TLTimeNodePresetClassType](values-drawing.md#p-st_tltimenodepresetclasstype); Strict, Transitional; use=optional.
-- [ ] `@presetSubtype` — `xsd:int`; Strict, Transitional; use=optional.
-- [ ] `@dur` — [p:ST_TLTime](values-drawing.md#p-st_tltime); Strict, Transitional; use=optional.
+- [ ] `@id` — [p:ST_TLTimeNodeID](values-drawing.md#p-st_tltimenodeid); Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@presetID` — `xsd:int`; Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@presetClass` — [p:ST_TLTimeNodePresetClassType](values-drawing.md#p-st_tltimenodepresetclasstype); Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@presetSubtype` — `xsd:int`; Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@dur` — [p:ST_TLTime](values-drawing.md#p-st_tltime); Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@repeatCount` — [p:ST_TLTime](values-drawing.md#p-st_tltime); Strict, Transitional; use=optional; default=1000.
 - [ ] `@repeatDur` — [p:ST_TLTime](values-drawing.md#p-st_tltime); Strict, Transitional; use=optional.
 - [ ] `@spd` — [a:ST_Percentage](values-drawing.md#a-st_percentage); Strict, Transitional; use=optional; default=100%.
-- [ ] `@accel` — [a:ST_PositiveFixedPercentage](values-drawing.md#a-st_positivefixedpercentage); Strict, Transitional; use=optional; default=0%.
-- [ ] `@decel` — [a:ST_PositiveFixedPercentage](values-drawing.md#a-st_positivefixedpercentage); Strict, Transitional; use=optional; default=0%.
+- [ ] `@accel` — [a:ST_PositiveFixedPercentage](values-drawing.md#a-st_positivefixedpercentage); Strict, Transitional; use=optional; default=0%. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@decel` — [a:ST_PositiveFixedPercentage](values-drawing.md#a-st_positivefixedpercentage); Strict, Transitional; use=optional; default=0%. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@autoRev` — `xsd:boolean`; Strict, Transitional; use=optional; default=false.
-- [ ] `@restart` — [p:ST_TLTimeNodeRestartType](values-drawing.md#p-st_tltimenoderestarttype); Strict, Transitional; use=optional.
-- [ ] `@fill` — [p:ST_TLTimeNodeFillType](values-drawing.md#p-st_tltimenodefilltype); Strict, Transitional; use=optional.
+- [ ] `@restart` — [p:ST_TLTimeNodeRestartType](values-drawing.md#p-st_tltimenoderestarttype); Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@fill` — [p:ST_TLTimeNodeFillType](values-drawing.md#p-st_tltimenodefilltype); Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@syncBehavior` — [p:ST_TLTimeNodeSyncType](values-drawing.md#p-st_tltimenodesynctype); Strict, Transitional; use=optional.
 - [ ] `@tmFilter` — `xsd:string`; Strict, Transitional; use=optional.
 - [ ] `@evtFilter` — `xsd:string`; Strict, Transitional; use=optional.
 - [ ] `@display` — `xsd:boolean`; Strict, Transitional; use=optional.
 - [ ] `@masterRel` — [p:ST_TLTimeNodeMasterRelation](values-drawing.md#p-st_tltimenodemasterrelation); Strict, Transitional; use=optional.
 - [ ] `@bldLvl` — `xsd:int`; Strict, Transitional; use=optional.
-- [ ] `@grpId` — `xsd:unsignedInt`; Strict, Transitional; use=optional.
+- [ ] `@grpId` — `xsd:unsignedInt`; Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@afterEffect` — `xsd:boolean`; Strict, Transitional; use=optional.
-- [ ] `@nodeType` — [p:ST_TLTimeNodeType](values-drawing.md#p-st_tltimenodetype); Strict, Transitional; use=optional.
+- [ ] `@nodeType` — [p:ST_TLTimeNodeType](values-drawing.md#p-st_tltimenodetype); Strict, Transitional; use=optional. An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@nodePh` — `xsd:boolean`; Strict, Transitional; use=optional.
 
 <a id="p-ct_tltimeconditionlist"></a>
@@ -1185,7 +1185,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cond` — [p:CT_TLTimeCondition](presentations.md#p-ct_tltimecondition); Strict, Transitional; minOccurs=1; maxOccurs=unbounded.
+- [ ] `cond` — [p:CT_TLTimeCondition](presentations.md#p-ct_tltimecondition); Strict, Transitional; minOccurs=1; maxOccurs=unbounded. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tlcommonbehaviordata"></a>
 
@@ -1193,9 +1193,9 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `cTn` — [p:CT_TLCommonTimeNodeData](presentations.md#p-ct_tlcommontimenodedata); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `tgtEl` — [p:CT_TLTimeTargetElement](presentations.md#p-ct_tltimetargetelement); Strict, Transitional; minOccurs=1; maxOccurs=1.
-- [ ] `attrNameLst` — [p:CT_TLBehaviorAttributeNameList](presentations.md#p-ct_tlbehaviorattributenamelist); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [ ] `cTn` — [p:CT_TLCommonTimeNodeData](presentations.md#p-ct_tlcommontimenodedata); Strict, Transitional; minOccurs=1; maxOccurs=1. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `tgtEl` — [p:CT_TLTimeTargetElement](presentations.md#p-ct_tltimetargetelement); Strict, Transitional; minOccurs=1; maxOccurs=1. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `attrNameLst` — [p:CT_TLBehaviorAttributeNameList](presentations.md#p-ct_tlbehaviorattributenamelist); Strict, Transitional; minOccurs=0; maxOccurs=1. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `@additive` — [p:ST_TLBehaviorAdditiveType](values-drawing.md#p-st_tlbehavioradditivetype); Strict, Transitional; use=optional.
 - [ ] `@accumulate` — [p:ST_TLBehaviorAccumulateType](values-drawing.md#p-st_tlbehavioraccumulatetype); Strict, Transitional; use=optional.
 - [ ] `@xfrmType` — [p:ST_TLBehaviorTransformType](values-drawing.md#p-st_tlbehaviortransformtype); Strict, Transitional; use=optional.
@@ -1231,7 +1231,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 - [ ] `boolVal` — [p:CT_TLAnimVariantBooleanVal](presentations.md#p-ct_tlanimvariantbooleanval); Strict, Transitional.
 - [ ] `intVal` — [p:CT_TLAnimVariantIntegerVal](presentations.md#p-ct_tlanimvariantintegerval); Strict, Transitional.
 - [ ] `fltVal` — [p:CT_TLAnimVariantFloatVal](presentations.md#p-ct_tlanimvariantfloatval); Strict, Transitional.
-- [ ] `strVal` — [p:CT_TLAnimVariantStringVal](presentations.md#p-ct_tlanimvariantstringval); Strict, Transitional.
+- [ ] `strVal` — [p:CT_TLAnimVariantStringVal](presentations.md#p-ct_tlanimvariantstringval); Strict, Transitional. The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `clrVal` — [a:CT_Color](presentation-extensions.md#a-ct_color); Strict, Transitional.
 
 <a id="p-ct_tlpoint"></a>
@@ -1240,8 +1240,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `@x` — [a:ST_Percentage](values-drawing.md#a-st_percentage); Strict, Transitional; use=required.
-- [ ] `@y` — [a:ST_Percentage](values-drawing.md#a-st_percentage); Strict, Transitional; use=required.
+- [ ] `@x` — [a:ST_Percentage](values-drawing.md#a-st_percentage); Strict, Transitional; use=required. The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@y` — [a:ST_Percentage](values-drawing.md#a-st_percentage); Strict, Transitional; use=required. The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tlcommonmedianodedata"></a>
 
@@ -1290,11 +1290,11 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `tgtEl` — [p:CT_TLTimeTargetElement](presentations.md#p-ct_tltimetargetelement); Strict, Transitional.
-- [ ] `tn` — [p:CT_TLTriggerTimeNodeID](presentations.md#p-ct_tltriggertimenodeid); Strict, Transitional.
+- [ ] `tgtEl` — [p:CT_TLTimeTargetElement](presentations.md#p-ct_tltimetargetelement); Strict, Transitional. The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `tn` — [p:CT_TLTriggerTimeNodeID](presentations.md#p-ct_tltriggertimenodeid); Strict, Transitional. The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `rtn` — [p:CT_TLTriggerRuntimeNode](presentations.md#p-ct_tltriggerruntimenode); Strict, Transitional.
-- [ ] `@evt` — [p:ST_TLTriggerEvent](values-drawing.md#p-st_tltriggerevent); Strict, Transitional; use=optional.
-- [ ] `@delay` — [p:ST_TLTime](values-drawing.md#p-st_tltime); Strict, Transitional; use=optional.
+- [ ] `@evt` — [p:ST_TLTriggerEvent](values-drawing.md#p-st_tltriggerevent); Strict, Transitional; use=optional. The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
+- [ ] `@delay` — [p:ST_TLTime](values-drawing.md#p-st_tltime); Strict, Transitional; use=optional. The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tliteratedata"></a>
 
@@ -1313,9 +1313,9 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `sldTgt` — [p:CT_Empty](presentation-extensions.md#p-ct_empty); Strict, Transitional.
+- [ ] `sldTgt` — [p:CT_Empty](presentation-extensions.md#p-ct_empty); Strict, Transitional. An effect has for its target the whole object that carries `animate`. A paragraph, a part of a chart and a sound cannot be a target. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `sndTgt` — [a:CT_EmbeddedWAVAudioFile](links.md#a-ct_embeddedwavaudiofile); Strict, Transitional.
-- [ ] `spTgt` — [p:CT_TLShapeTargetElement](presentations.md#p-ct_tlshapetargetelement); Strict, Transitional.
+- [ ] `spTgt` — [p:CT_TLShapeTargetElement](presentations.md#p-ct_tlshapetargetelement); Strict, Transitional. An effect has for its target the whole object that carries `animate`. A paragraph, a part of a chart and a sound cannot be a target. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 - [ ] `inkTgt` — [p:CT_TLSubShapeId](presentations.md#p-ct_tlsubshapeid); Strict, Transitional.
 
 <a id="p-ct_tlbehaviorattributenamelist"></a>
@@ -1324,7 +1324,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `attrName` — `xsd:string`; Strict, Transitional; minOccurs=1; maxOccurs=unbounded.
+- [ ] `attrName` — `xsd:string`; Strict, Transitional; minOccurs=1; maxOccurs=unbounded. The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tltimeanimatevalue"></a>
 
@@ -1386,7 +1386,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/pml.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/pml.xsd).
 
-- [ ] `@val` — `xsd:string`; Strict, Transitional; use=required.
+- [ ] `@val` — `xsd:string`; Strict, Transitional; use=required. The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tltemplate"></a>
 
@@ -1458,7 +1458,7 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/p
 - [ ] `oleChartEl` — [p:CT_TLOleChartTargetElement](presentations.md#p-ct_tlolecharttargetelement); Strict, Transitional.
 - [ ] `txEl` — [p:CT_TLTextTargetElement](presentations.md#p-ct_tltexttargetelement); Strict, Transitional.
 - [ ] `graphicEl` — [a:CT_AnimationElementChoice](presentations.md#a-ct_animationelementchoice); Strict, Transitional.
-- [ ] `@spid` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required.
+- [ ] `@spid` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required. An effect has for its target the whole object that carries `animate`. A paragraph, a part of a chart and a sound cannot be a target. Evidence: [presentations.md](../../../docs/specification/presentations.md), [presentations.rs](../../../tests/presentations.rs), [presentation_rendering.rs](../../../tests/presentation_rendering.rs).
 
 <a id="p-ct_tlsubshapeid"></a>
 

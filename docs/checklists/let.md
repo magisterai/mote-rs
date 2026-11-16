@@ -13,6 +13,8 @@ feed the already inventoried attributes of the receiving directives.
 - [x] Value insertion in content and sentence punctuation after paths.
 - [x] Unknown names, missing properties, invalid indices and scalar traversal fail with source locations.
 - [x] Bindings remain evaluation state, separate from the emitted document model.
+- [x] The binding `time` exists before a source is evaluated: the time of
+  rendering in seconds, zero where none is given. See [animation](slide.md#animation).
 
 Evidence: [language](../specification/bindings.md),
 [evaluation](../../src/evaluation/bindings.rs),

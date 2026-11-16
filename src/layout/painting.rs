@@ -28,6 +28,15 @@ pub enum PageOperation {
         center: [f64; 2],
     },
     PopRotation,
+    /// Draws the operations up to the matching `PopLayer` as one picture, to
+    /// which the affine map and the opacity then apply. The map sends a point
+    /// `(x, y)` to `(a x + c y + e, b x + d y + f)` for the coefficients
+    /// `[a, b, c, d, e, f]`.
+    PushLayer {
+        matrix: [f64; 6],
+        opacity: f64,
+    },
+    PopLayer,
     Path(PaintedPath),
     PaintedRectangle {
         bounds: [f64; 4],
@@ -65,6 +74,13 @@ impl PageOperation {
         };
         match self {
             Self::PushRotation { center, .. } => move_point(center),
+            Self::PushLayer { matrix, .. } => {
+                // The map T M T⁻¹ of the displaced layer differs from M in its
+                // constant terms alone.
+                let [first, second, third, fourth, ..] = *matrix;
+                matrix[4] += horizontal - first * horizontal - third * vertical;
+                matrix[5] += vertical - second * horizontal - fourth * vertical;
+            }
             Self::Path(path) => path.points.iter_mut().for_each(move_point),
             Self::PaintedRectangle { bounds, .. }
             | Self::OutlineRectangle { bounds, .. }
@@ -88,7 +104,7 @@ impl PageOperation {
                     text.translate(horizontal, vertical);
                 }
             }
-            Self::Text(_) | Self::PopClip | Self::PopRotation => {}
+            Self::Text(_) | Self::PopClip | Self::PopRotation | Self::PopLayer => {}
         }
     }
 }

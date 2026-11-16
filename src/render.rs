@@ -164,6 +164,12 @@ pub fn plan_with_layout_and_fonts(
     })
 }
 
+/// Returns the time in seconds at which the animation of a document ends:
+/// the latest end of an effect or of the stated duration of a slide.
+pub fn animation_end(document: &Document) -> f64 {
+    crate::presentation::animation::end(&document.content)
+}
+
 pub fn emit_pdf(
     document: &Document,
     resolver: &dyn AssetResolver,
@@ -240,6 +246,22 @@ fn validate_plan(plan: &DocumentTextPlan) -> Result<(), RenderError> {
                 crate::layout::PageOperation::PopRotation => {
                     if rotation_clips.pop() != Some(clip_depth) {
                         return Err(RenderError::Invalid("unbalanced page rotation".into()));
+                    }
+                }
+                crate::layout::PageOperation::PushLayer { matrix, opacity } => {
+                    if matrix.iter().any(|value| !value.is_finite())
+                        || !(0.0..=1.0).contains(opacity)
+                        || rotation_clips.len() >= 16
+                    {
+                        return Err(RenderError::Invalid(
+                            "invalid or excessively nested page layer".into(),
+                        ));
+                    }
+                    rotation_clips.push(clip_depth);
+                }
+                crate::layout::PageOperation::PopLayer => {
+                    if rotation_clips.pop() != Some(clip_depth) {
+                        return Err(RenderError::Invalid("unbalanced page layer".into()));
                     }
                 }
                 crate::layout::PageOperation::Path(path) => {

@@ -9,6 +9,7 @@ mod pictures;
 mod shapes;
 mod tables;
 mod text;
+mod timing;
 use crate::{model::Document, presentation::Deck};
 use std::fmt;
 

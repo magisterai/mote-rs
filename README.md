@@ -345,6 +345,9 @@ mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [OPTIONS] [SOURCE|-]
 | `--format FORMAT` | `json` (the default), `docx`, `pptx`, `pdf` or `png`. |
 | `-o`, `--output PATH` | The output file. Required for every format except JSON, which is written to standard output when no path is given. |
 | `--dpi N` | The PNG resolution, from 1 to 9600; the default is 72. PNG only. |
+| `--time SECONDS` | Renders at a time: the binding `time` holds it, and the effects of slide objects are drawn as they stand then. Without it, a deck is drawn as authored, or at its `render_at`. |
+| `--frames RATE` | Writes PNG frames at `RATE` frames a second: `-o frames/shot` produces `frames/shot-0001.png`, `frames/shot-0002.png` and so on. PNG only, and not with `--time`. |
+| `--from SECONDS`, `--to SECONDS` | The first and last times of `--frames`. The default is from 0 to the latest end of an effect or of a slide `duration`. |
 | `--layout document\|presentation` | The native layout for PDF and PNG. Without it, a source that declares `#presentation(...)` is laid out as slides and any other source as pages. |
 | `--lua` | Enables Lua expressions and `#function` definitions, which are otherwise rejected. |
 | `--lua-timeout DURATION` | The time budget shared by all Lua in one run, such as `500ms`, `10s`, `2m` or `1h`. The default is `10s`; a negative value removes the limit. |
@@ -364,6 +367,8 @@ mote --format pptx -o deck.pptx deck.mote                 # editable PowerPoint 
 mote --format pdf -o report.pdf report.mote               # native PDF
 mote --format png --dpi 144 -o pages/deck deck.mote       # pages/deck-1.png, ...
 mote --format png --layout presentation -o slides/ notes.md
+mote --format png --time 2.5 -o still deck.mote            # the deck at 2.5 seconds
+mote --format png --frames 30 -o frames/shot deck.mote    # frames/shot-0001.png, ...
 cat defaults.mote notes.md | mote --format docx -o notes.docx -
 mote --lua --lua-timeout 2s --format docx -o summary.docx lua.mote
 ```

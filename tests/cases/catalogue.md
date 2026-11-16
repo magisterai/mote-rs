@@ -133,3 +133,4 @@ Cases may deliberately exercise unsupported values; inspect their warning manife
 | `powerpoint-slide-edges` | Presentation | 2 | [slide edges](powerpoint-25-slide-edges.mote) |
 | `powerpoint-groups` | Presentation | 1 | [groups](powerpoint-32-groups.mote) |
 | `powerpoint-stacked-boxes` | Presentation | 1 | [stacked boxes](powerpoint-33-stacked-boxes.mote) |
+| `powerpoint-animation` | Presentation | 1 | [animation](powerpoint-34-animation.mote) |

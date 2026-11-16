@@ -187,9 +187,11 @@ pub(super) fn write(
         output.push_str(&picture);
         let mut items = Vec::new();
         super::groups::items(&slide.element.children, &mut items);
+        let mut timeline = super::timing::Timeline::default();
         for item in items {
             let content = match item {
                 super::groups::Item::Open(group) => {
+                    timeline.record(next_shape, group);
                     output.push_str(&super::groups::open(group, &mut next_shape)?);
                     continue;
                 }
@@ -204,6 +206,10 @@ pub(super) fn write(
                     "PPTX currently requires positioned slide objects".into(),
                 ));
             };
+            // Every writer of an object takes the next shape identifier first.
+            if !(element.kind == ElementKind::Box && element.children.is_empty()) {
+                timeline.record(next_shape, element);
+            }
             if element.kind == ElementKind::Shape {
                 output.push_str(&super::shapes::write(
                     element,
@@ -318,9 +324,12 @@ pub(super) fn write(
                 ])?,
             );
         }
-        output.push_str(
-            "</p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr></p:sld>",
-        );
+        output.push_str("</p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr>");
+        if let Some(duration) = crate::properties::number(&slide.element.attributes, "duration") {
+            output.push_str(&super::timing::advance(duration));
+        }
+        output.push_str(&timeline.write([deck.width, deck.height]));
+        output.push_str("</p:sld>");
         parts.insert(format!("ppt/slides/slide{number}.xml"), output);
         parts.insert(
             format!("ppt/slides/_rels/slide{number}.xml.rels"),

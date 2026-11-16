@@ -2,7 +2,7 @@
 use super::{Error, escape};
 use crate::{
     model::{Content, Element, ElementKind},
-    properties::{object, text},
+    properties::{number, object, text},
 };
 
 /// A step in writing the objects of a slide in their order.
@@ -29,49 +29,9 @@ pub(super) fn items<'content>(content: &'content [Content], output: &mut Vec<Ite
     }
 }
 
-/// Returns the left, top, right and bottom of the smallest rectangle about the
-/// frames of an object or of the objects of a group.
-fn extent(element: &Element) -> Option<[i64; 4]> {
-    match element.kind {
-        ElementKind::Group => element
-            .children
-            .iter()
-            .filter_map(|child| match child {
-                Content::Element(child) => extent(child),
-                Content::Text(_) => None,
-            })
-            .reduce(|first, second| {
-                [
-                    first[0].min(second[0]),
-                    first[1].min(second[1]),
-                    first[2].max(second[2]),
-                    first[3].max(second[3]),
-                ]
-            }),
-        ElementKind::Line => {
-            let endpoint = |name| {
-                let fields = object(&element.attributes, name);
-                ["x", "y"].map(|field| {
-                    crate::presentation::units(fields.and_then(|fields| fields.get(field)))
-                        .unwrap_or(0)
-                })
-            };
-            let (start, end) = (endpoint("from"), endpoint("to"));
-            Some([
-                start[0].min(end[0]),
-                start[1].min(end[1]),
-                start[0].max(end[0]),
-                start[1].max(end[1]),
-            ])
-        }
-        _ => crate::presentation::box_bounds(&element.attributes)
-            .ok()
-            .map(|[left, top, width, height]| [left, top, left + width, top + height]),
-    }
-}
-
-/// Opens a group shape. The child frame equals the frame of the group, so the
-/// objects within keep their slide coordinates.
+/// Opens a group shape. The child frame is the frame about the objects, so
+/// that the objects within keep their slide coordinates; the frame of the
+/// group is that frame displaced by the `offset` of the group.
 pub(super) fn open(element: &Element, next_shape: &mut usize) -> Result<String, Error> {
     let identifier = *next_shape;
     *next_shape += 1;
@@ -81,9 +41,25 @@ pub(super) fn open(element: &Element, next_shape: &mut usize) -> Result<String, 
     } else {
         name
     })?;
-    let [left, top, right, bottom] = extent(element).unwrap_or_default();
+    let [left, top, right, bottom] = crate::presentation::extent(element).unwrap_or_default();
     let (width, height) = (right - left, bottom - top);
+    let displacement = |name| {
+        object(&element.attributes, "offset")
+            .and_then(|offset| crate::presentation::units(offset.get(name)))
+            .unwrap_or(0)
+    };
+    let rotation = match number(&element.attributes, "rotation") {
+        Some(degrees) if degrees != 0.0 => {
+            format!(
+                " rot=\"{}\"",
+                (degrees.rem_euclid(360.0) * 60000.0).round() as i64
+            )
+        }
+        _ => String::new(),
+    };
     Ok(format!(
-        "<p:grpSp><p:nvGrpSpPr><p:cNvPr id=\"{identifier}\" name=\"{name}\"/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr><a:xfrm><a:off x=\"{left}\" y=\"{top}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/><a:chOff x=\"{left}\" y=\"{top}\"/><a:chExt cx=\"{width}\" cy=\"{height}\"/></a:xfrm></p:grpSpPr>"
+        "<p:grpSp><p:nvGrpSpPr><p:cNvPr id=\"{identifier}\" name=\"{name}\"/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr><a:xfrm{rotation}><a:off x=\"{}\" y=\"{}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/><a:chOff x=\"{left}\" y=\"{top}\"/><a:chExt cx=\"{width}\" cy=\"{height}\"/></a:xfrm></p:grpSpPr>",
+        left + displacement("x"),
+        top + displacement("y"),
     ))
 }

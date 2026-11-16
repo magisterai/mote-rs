@@ -2537,7 +2537,7 @@
   },
   "p:CT_GroupShape/grpSp": {
     "status": "partial",
-    "note": "The group directive writes a group shape on a slide, nested as authored, holding shapes, connectors, pictures, graphic frames and groups. A group has no fill, effect or transform argument.",
+    "note": "The group directive writes a group shape on a slide, nested as authored, holding shapes, connectors, pictures, graphic frames and groups. A group has `offset` and `rotation`, and no fill, effect, size or flip argument.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2546,7 +2546,7 @@
   },
   "a:CT_GroupTransform2D/off": {
     "status": "partial",
-    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. The `offset` of a group displaces the frame, and so every object within.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2555,7 +2555,7 @@
   },
   "a:CT_GroupTransform2D/ext": {
     "status": "partial",
-    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. The `offset` of a group displaces the frame, and so every object within.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2564,7 +2564,7 @@
   },
   "a:CT_GroupTransform2D/chOff": {
     "status": "partial",
-    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. The `offset` of a group displaces the frame, and so every object within.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",
@@ -2573,7 +2573,583 @@
   },
   "a:CT_GroupTransform2D/chExt": {
     "status": "partial",
-    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. No Mote argument sets the group transform.",
+    "note": "A slide group writes the smallest rectangle about its objects as both its frame and its child frame. The `offset` of a group displaces the frame, and so every object within.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_SlideTiming/tnLst": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_SlideTiming/bldLst": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TimeNodeList/par": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TimeNodeList/seq": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TimeNodeList/animEffect": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TimeNodeList/animMotion": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TimeNodeList/animRot": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TimeNodeList/animScale": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TimeNodeList/set": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeNodeParallel/cTn": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeNodeSequence/cTn": {
+    "status": "partial",
+    "note": "The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeNodeSequence/prevCondLst": {
+    "status": "partial",
+    "note": "The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeNodeSequence/nextCondLst": {
+    "status": "partial",
+    "note": "The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeNodeSequence/@concurrent": {
+    "status": "partial",
+    "note": "The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeNodeSequence/@nextAc": {
+    "status": "partial",
+    "note": "The main sequence of a slide is written in the form PowerPoint itself writes. No Mote argument alters it.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/stCondLst": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/childTnLst": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@id": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@presetID": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@presetClass": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@presetSubtype": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@dur": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@accel": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@decel": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@restart": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@fill": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@grpId": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonTimeNodeData/@nodeType": {
+    "status": "partial",
+    "note": "An effect of `animate` writes its `start` as a delay, its `duration`, and its `easing` as the fractions of the duration spent gathering and losing speed. The preset is that of the effect: fade, appear, grow or shrink, spin or a custom path.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeConditionList/cond": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeCondition/tgtEl": {
+    "status": "partial",
+    "note": "The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeCondition/tn": {
+    "status": "partial",
+    "note": "The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeCondition/@evt": {
+    "status": "partial",
+    "note": "The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeCondition/@delay": {
+    "status": "partial",
+    "note": "The `start` of an effect is written as the delay of its start condition. No other event has a Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonBehaviorData/cTn": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonBehaviorData/tgtEl": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLCommonBehaviorData/attrNameLst": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeTargetElement/sldTgt": {
+    "status": "partial",
+    "note": "An effect has for its target the whole object that carries `animate`. A paragraph, a part of a chart and a sound cannot be a target.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLTimeTargetElement/spTgt": {
+    "status": "partial",
+    "note": "An effect has for its target the whole object that carries `animate`. A paragraph, a part of a chart and a sound cannot be a target.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLShapeTargetElement/@spid": {
+    "status": "partial",
+    "note": "An effect has for its target the whole object that carries `animate`. A paragraph, a part of a chart and a sound cannot be a target.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLBehaviorAttributeNameList/attrName": {
+    "status": "partial",
+    "note": "The `animate` argument of a box, a shape, a line or a group writes one timing tree for the slide, in which every effect starts with the slide after its own delay. Effects started by a click, repetition, reversal and triggers have no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateEffectBehavior/cBhvr": {
+    "status": "partial",
+    "note": "The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateEffectBehavior/@transition": {
+    "status": "partial",
+    "note": "The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateEffectBehavior/@filter": {
+    "status": "partial",
+    "note": "The effects `fade_in` and `fade_out` write the fade filter. No other filter has a Mote name.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateMotionBehavior/cBhvr": {
+    "status": "partial",
+    "note": "The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateMotionBehavior/@origin": {
+    "status": "partial",
+    "note": "The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateMotionBehavior/@path": {
+    "status": "partial",
+    "note": "The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateMotionBehavior/@pathEditMode": {
+    "status": "partial",
+    "note": "The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateMotionBehavior/@ptsTypes": {
+    "status": "partial",
+    "note": "The effect `move` writes a straight path from the place its object has reached to that place displaced by `by`. A curved path has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateRotationBehavior/cBhvr": {
+    "status": "partial",
+    "note": "The effect `rotate` writes a clockwise turn of `by` degrees about the centre of its object.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateRotationBehavior/@by": {
+    "status": "partial",
+    "note": "The effect `rotate` writes a clockwise turn of `by` degrees about the centre of its object.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateScaleBehavior/cBhvr": {
+    "status": "partial",
+    "note": "The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimateScaleBehavior/by": {
+    "status": "partial",
+    "note": "The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLSetBehavior/cBhvr": {
+    "status": "partial",
+    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLSetBehavior/to": {
+    "status": "partial",
+    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimVariant/strVal": {
+    "status": "partial",
+    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLAnimVariantStringVal/@val": {
+    "status": "partial",
+    "note": "The effects `appear`, `disappear`, `fade_in` and `fade_out` set the visibility of their object. No other property is set.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLPoint/@x": {
+    "status": "partial",
+    "note": "The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLPoint/@y": {
+    "status": "partial",
+    "note": "The effect `scale` writes an enlargement by the factor `to`, equal in both directions, about the centre of its object.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_BuildList/bldP": {
+    "status": "partial",
+    "note": "An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLBuildParagraph/@spid": {
+    "status": "partial",
+    "note": "An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLBuildParagraph/@grpId": {
+    "status": "partial",
+    "note": "An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_TLBuildParagraph/@animBg": {
+    "status": "partial",
+    "note": "An animated shape with a text body is listed once for each of its effects, as PowerPoint requires. A build by paragraph has no Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "p:CT_SlideTransition/@advTm": {
+    "status": "partial",
+    "note": "The `duration` of a slide writes the time after which the slide advances. No transition effect, speed or sound has a Mote argument.",
+    "evidence": [
+      "docs/specification/presentations.md",
+      "tests/presentations.rs",
+      "tests/presentation_rendering.rs"
+    ]
+  },
+  "a:CT_GroupTransform2D/@rot": {
+    "status": "partial",
+    "note": "The `rotation` of a group turns the group clockwise about the centre of its frame.",
     "evidence": [
       "docs/specification/presentations.md",
       "tests/presentations.rs",

@@ -1,6 +1,6 @@
 ---
 name: mote
-description: The Mote markup language (.mote files), which compiles one source to editable Word (DOCX) and PowerPoint (PPTX) files and to PDF or PNG pages. The skill applies when a .mote file is to be written, edited or corrected, or when a report, letter or slide deck is to be produced with the mote command; it does not apply to editing an existing .docx or .pptx file directly.
+description: The Mote markup language (.mote files), which compiles one source to editable Word (DOCX) and PowerPoint (PPTX) files and to PDF or PNG pages. The skill applies when a .mote file is to be written, edited or corrected, or when a report, letter or slide deck, still or animated, or the frames of a motion video are to be produced with the mote command; it does not apply to editing an existing .docx or .pptx file directly.
 ---
 
 # Mote
@@ -87,12 +87,18 @@ mote report.mote --format pdf -o report.pdf
 mote report.mote --format png -o report      # report-1.png, report-2.png, ...
 mote deck.mote --format pptx -o deck.pptx
 mote report.mote                             # the evaluated model as JSON
+mote deck.mote --format png --time 2 -o still     # the deck at 2 seconds
+mote deck.mote --format png --frames 30 -o frame  # frame-0001.png, frame-0002.png, ...
 ```
 
 An error stops compilation and names the file, line and column. A warning is
 printed to standard error while the output is still written; each warning names
 an element or attribute that did not render as written, and should be resolved.
 The `--lua` option enables Lua expressions, which are disabled by default.
+PNG output writes one file for each page or slide, numbered from 1. Images and
+data files are found relative to the source file. A font that is not installed
+is substituted with a warning in PDF and PNG; a DOCX or PPTX file names the font
+and the machine that opens the file supplies it.
 
 ## Common mistakes
 
@@ -102,6 +108,12 @@ The `--lua` option enables Lua expressions, which are disabled by default.
 - A shape is placed at page or slide coordinates, and body text does not wrap
   around it.
 - A slide holds either positioned boxes and shapes or loose content, never both.
+- Arithmetic and comparisons in an argument or a `#let`, and `#function`
+  definitions, are Lua, and a source that uses them is compiled with `--lua`.
+  The helpers `inch`, `pt`, `color`, `json` and `csv` need no option.
+- A number begins with a digit: `0.5`, never `.5`.
+- Quotation marks and dashes are kept as typed; a curly quote or an em dash is
+  typed as that character.
 - An unknown attribute is retained without effect. The only sign is a warning, so
   the warnings deserve attention after any change of attributes.
 
@@ -131,6 +143,8 @@ requires each of the corresponding pages.
   geometry with fills, borders and text, and lines and arrows on slides.
 - [Slides](references/slides.md): deck settings, themes, speaker notes,
   positioned boxes, built-in and custom slide layouts.
+- [Animation](references/animation.md): effects on slide objects, values
+  computed from the time, stills at a time and frames for a video.
 - [Data, conditions and loops](references/data.md): bindings, JSON and CSV files,
   imports, conditions, loops, and number, money and date formatting.
 - [Lua](references/lua.md): arithmetic, comparisons, string formatting and

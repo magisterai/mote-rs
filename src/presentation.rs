@@ -1,4 +1,5 @@
 //! Resolved deck geometry and defaults shared by editable and native slides.
+pub(crate) mod animation;
 mod automatic;
 pub(crate) mod backgrounds;
 pub(crate) mod fields;
@@ -21,6 +22,9 @@ pub(crate) struct Deck {
     pub size_type: &'static str,
     pub theme: Theme,
     pub warnings: Vec<String>,
+    /// The time in seconds at which the slides are rendered. Without one a
+    /// slide is rendered as authored, its effects disregarded.
+    pub time: Option<f64>,
 }
 pub(crate) struct Slide {
     pub element: Element,
@@ -64,6 +68,7 @@ impl Deck {
                 "footer",
                 "date",
                 "slide_number",
+                "render_at",
             ]
             .contains(&name.as_str())
             {
@@ -117,6 +122,7 @@ impl Deck {
             size_type,
             theme,
             warnings,
+            time: document.time,
         };
         Ok(deck)
     }
@@ -159,6 +165,45 @@ impl Deck {
             )?;
         }
         Ok(())
+    }
+}
+
+/// Returns the left, top, right and bottom, in drawing units, of the smallest
+/// rectangle about the frame of an object or about the objects of a group.
+pub(crate) fn extent(element: &Element) -> Option<[i64; 4]> {
+    match element.kind {
+        ElementKind::Group => element
+            .children
+            .iter()
+            .filter_map(|child| match child {
+                crate::model::Content::Element(child) => extent(child),
+                crate::model::Content::Text(_) => None,
+            })
+            .reduce(|first, second| {
+                [
+                    first[0].min(second[0]),
+                    first[1].min(second[1]),
+                    first[2].max(second[2]),
+                    first[3].max(second[3]),
+                ]
+            }),
+        ElementKind::Line => {
+            let endpoint = |name| {
+                let fields = object(&element.attributes, name);
+                ["x", "y"]
+                    .map(|field| units(fields.and_then(|fields| fields.get(field))).unwrap_or(0))
+            };
+            let (start, end) = (endpoint("from"), endpoint("to"));
+            Some([
+                start[0].min(end[0]),
+                start[1].min(end[1]),
+                start[0].max(end[0]),
+                start[1].max(end[1]),
+            ])
+        }
+        _ => box_bounds(&element.attributes)
+            .ok()
+            .map(|[left, top, width, height]| [left, top, left + width, top + height]),
     }
 }
 

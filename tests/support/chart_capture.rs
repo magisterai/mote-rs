@@ -13,6 +13,8 @@ pub fn projection(plan: &DocumentTextPlan) -> Value {
                 PageOperation::PopClip => { clips.pop().unwrap(); },
                 PageOperation::PushRotation { degrees, center } => rotations.push(json!({"degrees":degrees,"center":center})),
                 PageOperation::PopRotation => { rotations.pop().unwrap(); },
+                PageOperation::PushLayer { matrix, opacity } => operations.push(json!({"kind":"push_layer","matrix":matrix,"opacity":opacity})),
+                PageOperation::PopLayer => operations.push(json!({"kind":"pop_layer"})),
                 PageOperation::Text(index) => {
                     let placed = &page.lines[*index];
                     let line = &placed.line;

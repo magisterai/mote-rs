@@ -605,6 +605,24 @@ PNG canvas dimensions round up to cover fractional page sizes. PNG writes
 to the source file. Generation errors leave existing output untouched, and source
 paths cannot be used as output destinations, including generated PNG page names.
 
+### Time and animation
+
+A document carries the time at which it is rendered. The evaluator binds `time`
+to it before any source is read, and evaluates a deck a second time where the
+deck states a `render_at` and no time was given, since only an evaluation
+discovers that statement. Each frame of `--frames` is a complete evaluation and
+layout at its own time, so that a value computed from `time` changes with the
+effects.
+
+The appearance of an object at a time is an opacity, a displacement, a factor
+of enlargement and a turn, computed from its effects by one function for PDF
+and PNG. Slide layout applies a displacement to the
+page operations themselves. It encloses a faint, enlarged or turned object in
+a layer: PNG paints the layer on a surface of its own and composes it, and PDF
+writes a transparency group for a faint layer and a transformation otherwise.
+PPTX does not consult the time for its timing tree: it writes every effect,
+each starting with the slide after a delay equal to its start.
+
 ### Installed-face discovery
 
 `FontResolver` supplies exact named font variants independently of source asset
