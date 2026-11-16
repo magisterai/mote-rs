@@ -1,0 +1,132 @@
+{
+  "pages": [
+    {
+      "height": 540.0,
+      "lines": [
+        {
+          "baseline": 53.04,
+          "text": "A picture with its caption beneath:",
+          "x": 496.8
+        },
+        {
+          "baseline": 70.08,
+          "text": "Quarterly results",
+          "x": 55.2
+        },
+        {
+          "baseline": 91.92,
+          "text": "Revenue rose in every region, and the table gives the",
+          "x": 55.2
+        },
+        {
+          "baseline": 112.08,
+          "text": "figures.",
+          "x": 55.2
+        },
+        {
+          "baseline": 148.08,
+          "text": "Region",
+          "x": 50.4
+        },
+        {
+          "baseline": 148.08,
+          "text": "Q1",
+          "x": 189.6
+        },
+        {
+          "baseline": 148.08,
+          "text": "Q2",
+          "x": 328.8
+        },
+        {
+          "baseline": 192.24,
+          "text": "North",
+          "x": 50.4
+        },
+        {
+          "baseline": 192.24,
+          "text": "12",
+          "x": 189.6
+        },
+        {
+          "baseline": 192.24,
+          "text": "15",
+          "x": 328.8
+        },
+        {
+          "baseline": 236.64,
+          "text": "South",
+          "x": 50.4
+        },
+        {
+          "baseline": 236.64,
+          "text": "9",
+          "x": 189.6
+        },
+        {
+          "baseline": 236.64,
+          "text": "11",
+          "x": 328.8
+        },
+        {
+          "baseline": 290.64,
+          "text": "•The north leads.",
+          "x": 68.7
+        },
+        {
+          "baseline": 309.6,
+          "text": "•The south follows.",
+          "x": 68.7
+        },
+        {
+          "baseline": 338.64,
+          "text": "20",
+          "x": 49.7
+        },
+        {
+          "baseline": 353.52,
+          "text": "Figure 1. The evidence stack.",
+          "x": 496.8
+        },
+        {
+          "baseline": 362.88,
+          "text": "15",
+          "x": 49.7
+        },
+        {
+          "baseline": 387.12,
+          "text": "10",
+          "x": 49.7
+        },
+        {
+          "baseline": 411.36,
+          "text": "5",
+          "x": 55.04
+        },
+        {
+          "baseline": 435.6,
+          "text": "0",
+          "x": 55.04
+        },
+        {
+          "baseline": 448.56,
+          "text": "North",
+          "x": 152.32
+        },
+        {
+          "baseline": 448.56,
+          "text": "South",
+          "x": 342.0
+        },
+        {
+          "baseline": 488.64,
+          "text": "A closing remark below the chart.",
+          "x": 55.2
+        }
+      ],
+      "width": 960.0
+    }
+  ],
+  "renderer": "Microsoft PowerPoint 16.114.1",
+  "source_sha256": "ff60b8bb025796a97332b72c82132b8e054f0b93846955fd586e260553d6a4c1"
+}

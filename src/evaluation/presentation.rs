@@ -281,12 +281,8 @@ pub(super) fn validate_children(
             ));
         }
     } else {
-        if matches!(children, [Content::Element(element)] if matches!(element.kind, ElementKind::Image | ElementKind::Table | ElementKind::Chart))
-        {
-            return Ok(());
-        }
-        if children.iter().any(|child| matches!(child, Content::Element(element) if (element.is_block() || element.kind.is_table_part()) && !matches!(element.kind, ElementKind::Math | ElementKind::Paragraph | ElementKind::Heading | ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem | ElementKind::Blockquote | ElementKind::Raw | ElementKind::DefinitionList | ElementKind::Term | ElementKind::Definition | ElementKind::Divider))) {
-            return Err(Diagnostic::new(span, "box accepts text flow or exactly one image, table or chart"));
+        if children.iter().any(|child| matches!(child, Content::Element(element) if (element.is_block() || element.kind.is_table_part()) && !matches!(element.kind, ElementKind::Image | ElementKind::Table | ElementKind::Chart | ElementKind::Math | ElementKind::Paragraph | ElementKind::Heading | ElementKind::List | ElementKind::OrderedList | ElementKind::ListItem | ElementKind::Blockquote | ElementKind::Raw | ElementKind::DefinitionList | ElementKind::Term | ElementKind::Definition | ElementKind::Divider))) {
+            return Err(Diagnostic::new(span, "box accepts text flow, images, tables and charts"));
         }
     }
     Ok(())

@@ -5,6 +5,7 @@ pub(crate) mod fields;
 pub(crate) mod images;
 pub(crate) mod layouts;
 mod segmentation;
+mod stacks;
 pub(crate) mod support;
 pub(crate) mod tables;
 pub(crate) mod text;
@@ -118,6 +119,46 @@ impl Deck {
             warnings,
         };
         Ok(deck)
+    }
+}
+
+impl Deck {
+    /// Replaces each box of several pieces by a group of boxes stacked down
+    /// its frame. The step follows the loading of the pictures, whose
+    /// proportions give their heights.
+    pub fn stack(
+        &mut self,
+        document: &Document,
+        measurer: &mut crate::measurement::TextMeasurer<'_>,
+        images: &crate::media::ImageCatalog,
+    ) -> Result<(), String> {
+        for slide in &mut self.slides {
+            slide.element.children = stacks::elements(
+                std::mem::take(&mut slide.element.children),
+                &mut stacks::Measures {
+                    text_height: |text_box: &Element| {
+                        crate::layout::presentation::prepare_box(
+                            document,
+                            text_box,
+                            &self.theme,
+                            measurer,
+                        )
+                        .map(|prepared| (prepared.bounds[3] * 12700.0).ceil() as i64)
+                        .map_err(|error| error.to_string())
+                    },
+                    picture_proportion: |image: &Element| {
+                        let asset = images.get(image).ok()?;
+                        let [width, height] = images::Crop::resolve(&image.attributes).dimensions(
+                            f64::from(asset.natural_width),
+                            f64::from(asset.natural_height),
+                        );
+                        (width > 0.0 && height > 0.0).then_some(height / width)
+                    },
+                },
+                &mut self.warnings,
+            )?;
+        }
+        Ok(())
     }
 }
 

@@ -171,15 +171,21 @@ fn content_kind(element: &Element) -> &str {
         .iter()
         .filter(|node| super::automatic::meaningful(node))
         .collect();
-    if let [Content::Element(child)] = children.as_slice() {
-        match child.kind {
-            ElementKind::Image => return "image",
-            ElementKind::Table => return "table",
-            ElementKind::Chart => return "chart",
-            _ => {}
-        }
+    let kind = |node: &&Content| match node {
+        Content::Element(child) => match child.kind {
+            ElementKind::Image => Some("image"),
+            ElementKind::Table => Some("table"),
+            ElementKind::Chart => Some("chart"),
+            _ => None,
+        },
+        Content::Text(_) => None,
+    };
+    match children.as_slice() {
+        [child] => kind(child).unwrap_or("text"),
+        // A box of several pieces fills a content slot alone.
+        children if children.iter().any(|child| kind(child).is_some()) => "mixed",
+        _ => "text",
     }
-    "text"
 }
 pub(crate) fn is_builtin(name: &str) -> bool {
     matches!(

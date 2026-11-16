@@ -1062,6 +1062,111 @@ fn groups_become_powerpoint_group_shapes_and_leave_native_pictures_unchanged() {
 }
 
 #[test]
+fn a_box_of_several_pieces_becomes_a_group_stacked_down_its_frame() {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let deck = |body: &str| {
+        mote::compile(&format!(
+            "#presentation(width=pt(400),height=pt(300))#slide[{body}]"
+        ))
+        .unwrap()
+    };
+    let plan = |document: &mote::model::Document| {
+        render::plan_with_layout(document, &resolver, None, render::LayoutMode::Presentation)
+            .unwrap()
+    };
+    let pieces = [
+        "#paragraph[Caption]",
+        "#table[#row[#cell[A]#cell[B]]]",
+        "#image('pattern.png')",
+        "#paragraph[Note]",
+    ];
+    let stacked = deck(&format!(
+        "#box(name='Card',position={{x=pt(20),y=pt(10),width=pt(240),height=pt(260)}},fill='#dcfce7',text={{size=pt(14)}})[{}]",
+        pieces.concat()
+    ));
+    let package = mote::pptx::emit_with_fonts(&stacked, &resolver, None, None).unwrap();
+    assert_eq!(package.warnings, Vec::<String>::new());
+    let xml = slide_xml(package.bytes);
+    assert_eq!(xml.matches("<p:grpSp>").count(), 1);
+    assert!(xml.contains("name=\"Card\""));
+    let frame = [20.0, 10.0, 240.0, 260.0];
+    assert_eq!(object_frames(&xml, "grpSp"), [frame]);
+    let [background, caption, note] = object_frames(&xml, "sp")[..] else {
+        panic!("the group holds a background and two text boxes");
+    };
+    let [table] = object_frames(&xml, "graphicFrame")[..] else {
+        panic!("the group holds one table");
+    };
+    let [picture] = object_frames(&xml, "pic")[..] else {
+        panic!("the group holds one picture");
+    };
+    assert_eq!(background, frame);
+    let gap = 7.2;
+    let close = |first: f64, second: f64| (first - second).abs() < 0.01;
+    assert_eq!(caption[..3], [20.0, 10.0, 240.0]);
+    assert!(caption[3] > 14.0 && caption[3] < 28.0);
+    assert_eq!(table[0], 20.0);
+    assert!(close(table[1], caption[1] + caption[3] + gap));
+    // The picture is 96 by 64 pixels, and an equal share of the frame is less
+    // than the height its proportion gives at the width of the frame.
+    assert!(close(picture[1], table[1] + table[3] + gap));
+    assert!(close(picture[3], table[3]));
+    assert!(close(picture[2], picture[3] * 1.5));
+    assert!(close(picture[0] + picture[2] / 2.0, 140.0));
+    assert!(close(note[1], picture[1] + picture[3] + gap));
+    assert!(close(note[1] + note[3], 270.0));
+
+    let position = |[x, y, width, height]: [f64; 4]| {
+        format!("position={{x=pt({x}),y=pt({y}),width=pt({width}),height=pt({height})}}")
+    };
+    let explicit = deck(&format!(
+        "#group(name='Card')[\
+         #shape(kind='rect',{},fill='#dcfce7')\
+         #box({},text={{size=pt(14)}})[{}]\
+         #box({})[{}]\
+         #box({},fit='contain')[{}]\
+         #box({},text={{size=pt(14)}})[{}]]",
+        position(frame),
+        position(caption),
+        pieces[0],
+        position(table),
+        pieces[1],
+        position([20.0, picture[1], 240.0, picture[3]]),
+        pieces[2],
+        position(note),
+        pieces[3],
+    ));
+    let stacked_plan = plan(&stacked);
+    assert_eq!(stacked_plan.warnings, Vec::<String>::new());
+    assert_eq!(
+        stacked_plan.output.pages[0].operations,
+        plan(&explicit).output.pages[0].operations
+    );
+
+    let crowded = deck(
+        "#box(name='Tag',position={width=pt(240),height=pt(20)},text={fit='shrink'})[\
+         #paragraph[Caption]#table[#row[#cell[A]]]]",
+    );
+    assert_eq!(
+        plan(&crowded).warnings,
+        [
+            "box \"Tag\" exceeds its frame",
+            "box \"Tag\" ignores text.fit"
+        ]
+    );
+
+    let error = mote::compile(
+        "#slide(layout='title_and_content')[#box(slot='title')[\
+         #paragraph[Title]#table[#row[#cell[A]]]]]",
+    )
+    .unwrap_err();
+    assert_eq!(
+        error.message,
+        "layout slot \"title\" requires text content, got mixed content"
+    );
+}
+
+#[test]
 fn a_document_places_the_objects_of_a_group_singly_and_says_so() {
     let resolver = FileAssetResolver::new(".").unwrap();
     let shape = "#shape(position={x=pt(100),y=pt(100),width=pt(40),height=pt(20)},fill='#dcfce7')";

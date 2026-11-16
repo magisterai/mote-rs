@@ -24,6 +24,8 @@ that each object keeps its slide coordinates. A group without a name is named
 `Group N`. A group that holds no object at any depth is omitted with a warning. Native PDF and PNG draw the
 objects of a group in their order, exactly as they draw them ungrouped.
 
+A [box](box.md) of several pieces is written as a group in the same way.
+
 A group has an effect on a slide only. DOCX and native document output place
 the objects of a group singly, with a warning.
 

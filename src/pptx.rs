@@ -72,6 +72,8 @@ pub fn emit_with_fonts(
         resolver,
         source_name,
     );
+    deck.stack(document, &mut measurer, &images)
+        .map_err(Error)?;
     let bytes = package::write(document, &mut deck, &mut measurer, &images)?;
     deck.warnings.extend(images.warnings);
     deck.warnings.sort();

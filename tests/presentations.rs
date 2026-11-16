@@ -89,7 +89,6 @@ fn presentation_signatures_and_content_boundaries_are_explicit() {
         "#box(position={width=1})[Text]",
         "#box(position={width=1,height=1},alignment='middle')[Text]",
         "#box(position={width=1,height=1},text={fit='expand'})[Text]",
-        "#box(position={width=1,height=1})[Text #image(src='image.png')]",
         "#slide[Text #shape(position={width=1,height=1})]",
         "#slide[Text #line(from={x=1,y=1},to={x=2,y=2})]",
         "#slide(layout='title')[Text]",
@@ -97,6 +96,10 @@ fn presentation_signatures_and_content_boundaries_are_explicit() {
     ] {
         assert!(mote::compile(source).is_err(), "{source}");
     }
+    assert!(
+        mote::compile("#box(position={width=1,height=1})[Text #image(src='image.png')]").is_ok(),
+        "a box holds text and an image together"
+    );
     let document = mote::compile("#slide[] #slide[#box(position={width=1,height=1})[]]").unwrap();
     assert_eq!(document.warnings.len(), 2);
     let plain = mote::compile("#presentation()Plain text.").unwrap();

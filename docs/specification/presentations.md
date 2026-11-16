@@ -121,9 +121,19 @@ non-negative lengths. The origin is the slide's upper-left corner, horizontal
 coordinates increase rightward and vertical coordinates increase downward.
 Unknown position fields remain metadata.
 
-A box contains text flow, or exactly one image, table or chart. Separate objects
-need separate boxes. Empty boxes are allowed and warn. Text may include the
-paragraphs, headings, spans, links, lists and block quotes defined earlier.
+A box contains text flow, images, tables and charts, in any order. Empty boxes
+are allowed and warn. Text may include the paragraphs, headings, spans, links,
+lists and block quotes defined earlier.
+
+A **piece** of a box is a run of consecutive text flow, or a single image, table
+or chart. A box of one piece is a single object. A box of several pieces is a
+stack: the pieces follow one another down the frame of the box in their order,
+each at the full width of the frame. A text piece takes the height of its lines.
+An image takes the height its proportion gives at the width of the frame, and
+no more than an equal share of the height the text leaves. The tables and charts
+divide equally the height that remains. The `fill`, `border` and `shadow` of
+the box apply to the frame, the text arguments to every text piece, and `fit`
+to every image, where the default is `contain`. A stack ignores `text.fit`.
 
 ```mote
 #presentation(size="wide", background="#ffffff")

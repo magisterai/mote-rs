@@ -132,3 +132,4 @@ Cases may deliberately exercise unsupported values; inspect their warning manife
 | `powerpoint-media-charts` | Presentation | 1 | [media charts](powerpoint-24-media-charts.mote) |
 | `powerpoint-slide-edges` | Presentation | 2 | [slide edges](powerpoint-25-slide-edges.mote) |
 | `powerpoint-groups` | Presentation | 1 | [groups](powerpoint-32-groups.mote) |
+| `powerpoint-stacked-boxes` | Presentation | 1 | [stacked boxes](powerpoint-33-stacked-boxes.mote) |

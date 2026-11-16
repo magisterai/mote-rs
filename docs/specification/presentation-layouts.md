@@ -24,7 +24,7 @@ fit by default. All built-in slots are optional: an omitted slot emits no object
 
 A text slot accepts the text flow already defined for boxes. An image, table or
 chart slot accepts exactly one element of that type. A content slot accepts any
-valid box body: text flow, or exactly one image, table or chart. An empty text or
+valid box body, and alone accepts a box of several pieces. An empty text or
 content assignment is valid; an empty typed-media assignment is not.
 
 ```mote

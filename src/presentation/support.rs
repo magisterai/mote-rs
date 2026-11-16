@@ -204,7 +204,9 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             }
             allowed.extend_from_slice(RUN);
             allowed.extend_from_slice(PARAGRAPH);
-            if attributes.contains_key("fit") && super::images::child(element).is_none() {
+            if attributes.contains_key("fit")
+                && !element.children.iter().any(|child| matches!(child, Content::Element(image) if image.kind == ElementKind::Image))
+            {
                 warnings.insert(format!(
                     "{path}.fit applies to image boxes, not text; use text.fit for text fitting"
                 ));

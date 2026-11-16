@@ -2,8 +2,8 @@
 
 A **deck** is a sequence of slides, declared by `#presentation`. A **slide** holds
 either loose content, which is laid out automatically, or positioned objects. A
-**box** is a positioned rectangle holding text, or exactly one image, table or
-chart. A **layout** is a named arrangement of **slots**, boxes whose position is
+**box** is a positioned rectangle holding text, images, tables and charts. A
+**layout** is a named arrangement of **slots**, boxes whose position is
 given once and filled on each slide.
 
 ## The deck
@@ -65,6 +65,11 @@ separates slides.
 - An image in a box is faded by the `opacity` of the image, as in
   `#image("logo.png", opacity = 0.4)`; the `opacity` of the box does not fade
   its picture.
+- A box may mix text with images, tables and charts. The pieces are stacked
+  down the box in their order: text takes the height of its lines, an image the
+  height of its proportion, and tables and charts share what remains. PowerPoint
+  receives the pieces as one group named after the box. A warning says when
+  the pieces exceed the box.
 - Shapes and lines may stand beside boxes on a positioned slide.
 - A `#group(name = "Card")[ ... ]` gathers boxes, shapes, lines and other groups
   into one PowerPoint group, which is selected and moved as a unit there. The

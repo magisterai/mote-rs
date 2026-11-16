@@ -1,0 +1,31 @@
+#presentation(size = "wide", background = "#f8fafc")
+
+#slide[
+  #box(name = "Results", position = { x = inch(0.6), y = inch(0.5), width = inch(5.8), height = inch(6.4) },
+       fill = "#ffffff", border = { color = "#cbd5e1", width = pt(1) },
+       text = { size = pt(16), margin = { left = pt(12), right = pt(12), top = pt(8), bottom = pt(4) } })[
+    ## Quarterly results
+
+    Revenue rose in every region, and the table gives the figures.
+
+    | Region | Q1 | Q2 |
+    |--------|----|----|
+    | North  | 12 | 15 |
+    | South  | 9  | 11 |
+
+    - The north leads.
+    - The south follows.
+
+    #chart(kind = "column", data = { categories = { "North", "South" }, series = { { name = "Q2", values = { 15, 11 } } } })
+
+    A closing remark below the chart.
+  ]
+
+  #box(position = { x = inch(6.9), y = inch(0.5), width = inch(5.8), height = inch(6.4) }, fit = "contain")[
+    A picture with its caption beneath:
+
+    #image("assets/evidence_stack.png", alt = "Evidence")
+
+    *Figure 1.* The evidence stack.
+  ]
+]

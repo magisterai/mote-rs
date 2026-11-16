@@ -8,7 +8,13 @@
 - [x] `position`: x/y default to zero inches; width/height required; all four
   coordinates normalize non-negative lengths; preserve extra fields.
 - [x] `name`: text or number; `style`: retained text style hint.
-- [x] Text flow, or exactly one image/table/chart child; ambiguous mixes rejected.
+- [x] Text flow, images, tables and charts in any order. A box of several pieces
+  is a stack down its frame: text at the height of its lines, an image at the
+  height of its proportion and at most an equal share, tables and charts in
+  equal shares of the remainder. A stack ignores `text.fit` with a warning, and
+  warns when its pieces exceed the frame. See the
+  [stack test](../../tests/presentation_rendering.rs) and the
+  [stacked boxes case](../../tests/cases/powerpoint-33-stacked-boxes.mote).
 - [x] `fill`, `border`: color, width, dash and enabled stroke fields.
 - [x] `alignment`; `vertical_alignment`: top, center/middle, bottom.
 - [x] `margin`: top/right/bottom/left; nested extra lengths remain normalized.
@@ -28,7 +34,12 @@
   [layout inventory](layout.md).
 - [x] `properties` overrides and Lua construction.
 
-Output covers positioned text, image, table and chart boxes. Built-in and custom named layout slots are supported. Text body properties, paragraph/run/list
+Output covers positioned text, image, table and chart boxes. PPTX writes a
+stack as a group shape named after the box, holding a rectangle for a filled or
+bordered frame and one object for each piece; native PDF and PNG draw the same
+objects. The places of the pieces are fixed when the output is written, so that
+text edited afterwards in PowerPoint does not move the pieces beneath it. A
+layout slot of kind `text` rejects a stack. Built-in and custom named layout slots are supported. Text body properties, paragraph/run/list
 fields, geometry, fills, strokes, effects, hyperlinks, accessibility and nonvisual
 metadata remain in the shared inventories, including unsupported values.
 Editable positioned text supports paragraph/run/list formatting, theme fonts and

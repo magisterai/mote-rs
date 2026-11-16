@@ -111,7 +111,10 @@ pub(crate) fn elements(deck: &super::Deck) -> impl Iterator<Item = &Element> {
         for node in content {
             match node {
                 Content::Element(element) if element.kind == ElementKind::Box => {
-                    output.extend(child(element));
+                    output.extend(element.children.iter().filter_map(|child| match child {
+                        Content::Element(image) if image.kind == ElementKind::Image => Some(image),
+                        _ => None,
+                    }));
                 }
                 Content::Element(element) if element.kind == ElementKind::Group => {
                     pictures(&element.children, output);

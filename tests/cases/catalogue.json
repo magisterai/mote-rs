@@ -1026,5 +1026,15 @@
     "evaluation": "static",
     "pages": 1,
     "required_fonts": []
+  },
+  {
+    "identifier": "powerpoint-stacked-boxes",
+    "application": "powerpoint",
+    "name": "33_stacked_boxes",
+    "source": "powerpoint-33-stacked-boxes.mote",
+    "group": "media",
+    "evaluation": "static",
+    "pages": 1,
+    "required_fonts": []
   }
 ]
