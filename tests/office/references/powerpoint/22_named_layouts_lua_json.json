@@ -20,23 +20,8 @@
         },
         {
           "baseline": 137.76,
-          "text": "9",
+          "text": "10",
           "x": 391.7
-        },
-        {
-          "baseline": 160.08,
-          "text": "8",
-          "x": 485.25
-        },
-        {
-          "baseline": 160.08,
-          "text": "8",
-          "x": 648.56
-        },
-        {
-          "baseline": 160.08,
-          "text": "8",
-          "x": 811.87
         },
         {
           "baseline": 162.48,
@@ -44,9 +29,9 @@
           "x": 77.04
         },
         {
-          "baseline": 172.32,
-          "text": "8",
-          "x": 391.7
+          "baseline": 168.96,
+          "text": "9",
+          "x": 397.04
         },
         {
           "baseline": 184.32,
@@ -54,14 +39,29 @@
           "x": 77.04
         },
         {
+          "baseline": 187.68,
+          "text": "8",
+          "x": 489.71
+        },
+        {
+          "baseline": 187.68,
+          "text": "8",
+          "x": 651.24
+        },
+        {
+          "baseline": 187.68,
+          "text": "8",
+          "x": 812.77
+        },
+        {
+          "baseline": 200.16,
+          "text": "8",
+          "x": 397.04
+        },
+        {
           "baseline": 204.48,
           "text": "geometry, colors, margins, and",
           "x": 77.04
-        },
-        {
-          "baseline": 206.88,
-          "text": "7",
-          "x": 391.7
         },
         {
           "baseline": 224.4,
@@ -69,9 +69,9 @@
           "x": 77.04
         },
         {
-          "baseline": 241.44,
-          "text": "6",
-          "x": 391.7
+          "baseline": 231.12,
+          "text": "7",
+          "x": 397.04
         },
         {
           "baseline": 245.28,
@@ -79,14 +79,14 @@
           "x": 77.04
         },
         {
+          "baseline": 262.32,
+          "text": "6",
+          "x": 397.04
+        },
+        {
           "baseline": 265.44,
           "text": "an editable chart while native PDF",
           "x": 77.04
-        },
-        {
-          "baseline": 276.0,
-          "text": "5",
-          "x": 391.7
         },
         {
           "baseline": 286.32,
@@ -94,49 +94,54 @@
           "x": 77.04
         },
         {
+          "baseline": 293.28,
+          "text": "5",
+          "x": 397.04
+        },
+        {
           "baseline": 306.48,
           "text": "slide.",
           "x": 77.04
         },
         {
-          "baseline": 310.56,
+          "baseline": 324.48,
           "text": "4",
-          "x": 391.7
+          "x": 397.04
         },
         {
-          "baseline": 345.12,
+          "baseline": 355.44,
           "text": "3",
-          "x": 391.7
+          "x": 397.04
         },
         {
-          "baseline": 379.68,
+          "baseline": 386.64,
           "text": "2",
-          "x": 391.7
+          "x": 397.04
         },
         {
-          "baseline": 414.24,
+          "baseline": 417.6,
           "text": "1",
-          "x": 391.7
+          "x": 397.04
         },
         {
           "baseline": 448.8,
           "text": "0",
-          "x": 391.7
+          "x": 397.04
         },
         {
           "baseline": 462.0,
           "text": "PPTX",
-          "x": 477.0
+          "x": 481.45
         },
         {
           "baseline": 462.0,
           "text": "PDF",
-          "x": 642.3
+          "x": 644.97
         },
         {
           "baseline": 462.0,
           "text": "PNG",
-          "x": 804.59
+          "x": 805.48
         },
         {
           "baseline": 518.88,
