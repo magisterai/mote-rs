@@ -38,7 +38,8 @@ The `#table`, `#row` and `#cell` directives give full control.
 ```
 
 - The table accepts `width`, `alignment` (`left`, `center` or `right`), `style`, a
-  `cell` table of defaults for every cell, and `borders`.
+  `cell` table of defaults for every cell, and `borders`. The `cell` defaults
+  take any cell argument, such as `fill`, `alignment` and `margin`.
 - The `borders` table gives `top`, `right`, `bottom`, `left`, `inside_h` and
   `inside_v`, or `all`, `outside` and `inside` for groups of edges; each edge has
   `style`, `width` and `color`, and `style = "none"` removes it.

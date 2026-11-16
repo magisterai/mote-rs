@@ -176,8 +176,13 @@ the part to reuse; colors and fonts are left at their defaults.
   the picture to the box. A `width` or `height` on the image itself has no
   effect in a box.
 - The `text` argument of a box sets the size and color of its paragraphs and of
-  a table within it. A box of text without `text.fit` neither shrinks nor grows;
-  `text = { fit = "shrink" }` reduces text that would not fit.
+  a table within it. A box of text without `text.fit` neither shrinks nor grows:
+  text that does not fit is cut off at the edge of the box without a warning,
+  as is text too wide for a table cell. `text = { fit = "shrink" }` reduces the
+  text of a box until it fits.
+- A table on a slide has a pale fill by default. The declaration
+  `#set table(cell = { fill = "#16213a" })` before the slides gives every cell
+  of every table that fill, which a dark deck requires.
 - The `field_text` argument of the deck, or of one slide, sets the `size`,
   `color`, `font`, `bold` and `italic` of the footer, date and slide number.
   The footer stands at the bottom left and the slide number at the bottom

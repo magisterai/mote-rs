@@ -44,6 +44,8 @@ which the source is rendered, so that any value may be computed from it.
   size. No effect grows an object from one edge: a bar that fills from the left
   is a shape whose width is computed from `time`, as below, and plays in frames
   but not in PowerPoint.
+- Effects of one object whose intervals overlap play together, so a `move` and
+  a `scale` with the same `start` make one motion.
 - An effect on a group acts on the group as one object, so that a faint group
   does not show one part through another.
 - The `duration` of a slide is the time for which the slide is shown.

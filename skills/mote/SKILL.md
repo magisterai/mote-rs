@@ -110,7 +110,8 @@ and the machine that opens the file supplies it.
 - A slide holds either positioned boxes and shapes or loose content, never both.
 - Arithmetic and comparisons in an argument or a `#let`, and `#function`
   definitions, are Lua, and a source that uses them is compiled with `--lua`.
-  The helpers `inch`, `pt`, `color`, `json` and `csv` need no option.
+  The helpers `inch`, `pt`, `color`, `json` and `csv`, `#for` loops, `#if` on
+  a single value and property paths such as `entry.x` need no option.
 - A number begins with a digit: `0.5`, never `.5`.
 - Quotation marks and dashes are kept as typed; a curly quote or an em dash is
   typed as that character.

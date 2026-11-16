@@ -95,6 +95,11 @@ impl Parser<'_> {
                     self.advance_character();
                     self.skip_whitespace();
                 }
+                Some('+' | '-' | '*' | '/' | '%' | '<' | '>' | '~' | '^') | Some('=') => {
+                    return Err(self.error(format!(
+                        "expected ',' or '{closing_delimiter}'; arithmetic and comparisons are Lua expressions, which the --lua option enables"
+                    )));
+                }
                 _ => return Err(self.error(format!("expected ',' or '{closing_delimiter}'"))),
             }
         }
