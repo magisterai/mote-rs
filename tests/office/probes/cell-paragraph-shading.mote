@@ -1,0 +1,94 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+CELL PARAGRAPH SHADING: a paragraph in a table cell is shaded and ruled by the rule of body text, measured from the text area of its cell. Word cuts the shading off at the borders of the cell and the rules at its edge, so that a side rule which would stand beyond the cell is not drawn. The paragraphs of one cell share a box and carry shading across the space between them as in body text, and a box is left open where its row is divided between pages. Each sample states the extent of its shading in Word, in points from the left edge of the page. The cells are 200 points wide with margins of 8 points, so that the text of the first column runs from 80.25 to 264.25 and that of the second from 280.25 to 464.25.
+
+#table(width = pt(400), cell = { margin = { vertical = pt(4), horizontal = pt(8) } }, borders = { all = { style = "single", width = pt(0.5), color = "#94a3b8" } })[
+  #row(repeat_header = true)[
+    #cell(width = pt(200))[#paragraph(fill = "#10E0F0")[No rule: 78.72 to 265.68.]]
+    #cell(width = pt(200))[A plain paragraph.]
+  ]
+  #row[
+    #cell[#paragraph(fill = "#16E0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[Four rules 3 points from the text: 75.84 to 268.56.]]
+    #cell[#paragraph(fill = "#1CE0F0", border = { all = { style = "single", width = pt(2), color = "#2563eb", space = pt(12) } })[Four rules 12 points from the text, whose side rules the cell cuts off: 272.40 to 472.08.]]
+  ]
+  #row[
+    #cell[#paragraph(fill = "#22E0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(8) } })[Four rules 8 points from the text, whose side rules the cell cuts off: 72.48 to 271.92.]]
+    #cell[#paragraph(fill = "#28E0F0", border = { left = { style = "single", width = pt(3), color = "#dc2626", space = pt(8) }, right = { style = "single", width = pt(3), color = "#16a34a", space = pt(8) } })[Left and right rules 8 points from the text, which the cell cuts off: 272.40 to 472.08.]]
+  ]
+  #row[
+    #cell(fill = "#fff7cc")[#paragraph(fill = "#2EE0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[The first of two paragraphs in one box, above the fill of their cell: 75.84 to 268.56.]
+
+    #paragraph(fill = "#2EE0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[The second of two paragraphs in one box: 75.84 to 268.56.]]
+    #cell[#paragraph(fill = "#34E0F0", spacing = { after = pt(10) })[A shaded paragraph whose shading crosses the space after it: 278.88 to 465.84.]
+
+    #paragraph(fill = "#34E0F0", spacing = { after = pt(10) })[The second shaded paragraph: 278.88 to 465.84.]
+
+    A plain paragraph.]
+  ]
+  #row(height = pt(70))[
+    #cell(rowspan = 2, vertical_alignment = "bottom")[#paragraph(fill = "#3AE0F0")[Shaded at the bottom of a merged cell: 78.72 to 265.68.]]
+    #cell(vertical_alignment = "center")[#paragraph(fill = "#40E0F0", border = { left = { style = "single", width = pt(3), color = "#dc2626", space = pt(4) }, right = { style = "single", width = pt(3), color = "#16a34a", space = pt(4) } })[Centred, with side rules 4 points out: 275.04 to 469.68.]]
+  ]
+  #row[
+    #cell[#table[#row[#cell[#paragraph(fill = "#46E0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[Boxed in a nested table: 282.24 to 462.48.]]]]
+
+    A paragraph after the nested table.]
+  ]
+  #row(height = pt(44))[
+    #cell(vertical_alignment = "bottom")[#paragraph(fill = "#4CE0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[Boxed at the bottom: 75.84 to 268.56.]]
+    #cell(vertical_alignment = "center")[#paragraph(fill = "#52E0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[Boxed at the centre: 276.00 to 468.72.]]
+  ]
+]
+
+#break()
+
+A border widens no automatic column, and its rules and their space add to the height of the row. In the table that follows, the shading of the second cell runs from 129.12 to 166.32, that of the third from 176.40 to 219.36 between rules whose outer edges lie at 175.44 and 220.32, and that of the fourth from 223.20 to 273.12, which is the whole of its cell.
+
+#table(cell = { margin = { vertical = pt(4), horizontal = pt(8) } }, borders = { all = { style = "single", width = pt(0.5), color = "#94a3b8" } })[
+  #row[#cell[Abcdef]#cell[#paragraph(fill = "#58E0F0")[Abcdef]]#cell[#paragraph(fill = "#5EE0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[Abcdef]]#cell[#paragraph(fill = "#64E0F0", border = { all = { style = "single", width = pt(2), color = "#2563eb", space = pt(12) } })[Abcdef]]#cell[Abcdef]]
+]
+
+The cells of the table that follows are 130 points wide. The shading and the rules of the middle cell end at its edges, and leave the cells beside it as they are.
+
+#table(width = pt(390), cell = { margin = { vertical = pt(4), horizontal = pt(8) } }, borders = { all = { style = "single", width = pt(0.5), color = "#94a3b8" } })[
+  #row[
+    #cell(width = pt(130), fill = "#fff7cc")[#paragraph(fill = "#6AE0F0")[On the left: 78.72 to 195.60.]]
+    #cell(width = pt(130))[#paragraph(fill = "#70E0F0", border = { all = { style = "single", width = pt(2), color = "#2563eb", space = pt(12) } })[Rules 12 points out: 202.56 to 331.92.]]
+    #cell(width = pt(130), fill = "#fff7cc")[#paragraph(fill = "#76E0F0")[On the right: 338.88 to 455.76.]]
+  ]
+  #row[#cell(fill = "#ffe4e6")[Below left.]#cell(fill = "#ffe4e6")[Below middle.]#cell(fill = "#ffe4e6")[Below right.]]
+]
+
+Filler paragraph 1.
+
+Filler paragraph 2.
+
+Filler paragraph 3.
+
+Filler paragraph 4.
+
+Filler paragraph 5.
+
+Filler paragraph 6.
+
+Filler paragraph 7.
+
+Filler paragraph 8.
+
+Filler paragraph 9.
+
+#paragraph(spacing = { after = pt(8) })[The last filler paragraph.]
+
+#table(width = pt(400), cell = { margin = { vertical = pt(4), horizontal = pt(8) } }, borders = { all = { style = "single", width = pt(0.5), color = "#94a3b8" } })[
+  #row(repeat_header = true)[#cell(width = pt(200))[#paragraph(fill = "#7CE0F0")[A shaded header: 78.72 to 265.68.]]#cell(width = pt(200))[#paragraph(fill = "#82E0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[A boxed header: 276.00 to 468.72.]]]
+  #row[
+    #cell[#paragraph(fill = "#88E0F0", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(3) } })[A boxed paragraph that crosses the foot of the page: 75.84 to 268.56. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages.]]
+    #cell[#paragraph(fill = "#8EE0F0")[A shaded paragraph that crosses the foot of the page: 278.88 to 465.84. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages. The paragraph runs on, so that its row is divided between two pages.]]
+  ]
+  #row[#cell[The last row.]#cell[A plain paragraph.]]
+]

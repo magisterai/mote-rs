@@ -156,7 +156,9 @@ fn the_shading_and_the_rules_of_a_paragraph_are_clipped_to_its_cell() {
     let wide = "#paragraph(fill = '#10e0f0', border = { all = { style = 'single', width = pt(2), color = '#2563eb', space = pt(12) } })[Boxed.]";
     let page = &pages(&two_cells(wide, "Plain."))[0];
     let shading = page.shading_of("10E0F0");
-    // The shading is planned beyond the cell, whose clip bounds it.
+    // The shading is planned beyond the cell, whose clip bounds it. Word cuts
+    // such a shading off from 272.40 to 472.08 points in a cell whose borders
+    // lie at 272.25 and 472.25, and draws no part of a rule beyond the cell.
     assert!(shading[0][0] < 72.25);
     assert_near(page.clips[0][0], 72.25);
     assert_near(page.clips[0][2], 200.0);
@@ -290,4 +292,115 @@ fn a_table_without_paragraph_shading_or_borders_is_planned_as_before() {
     assert_eq!(plain.line_lefts, shaded.line_lefts);
     assert_eq!(plain.clips, shaded.clips);
     assert!(plain.shading.is_empty() && plain.paragraph_rules.is_empty());
+}
+
+/// Returns the colour of each sample of the cell-paragraph-shading probe that
+/// states the extent of its shading in Word, with that extent.
+fn extents_stated_by_the_probe(source: &str) -> Vec<(String, [f64; 2])> {
+    source
+        .split("#paragraph(fill = \"#")
+        .skip(1)
+        .filter_map(|sample| {
+            let color = sample[..6].to_owned();
+            let text = sample.split_once('[')?.1.split_once(']')?.0;
+            let (left, right) = text.rsplit_once(": ")?.1.split_once(" to ")?;
+            let right: String = right
+                .chars()
+                .take_while(|character| character.is_ascii_digit() || *character == '.')
+                .collect();
+            Some((
+                color,
+                [
+                    left.parse().unwrap(),
+                    right.trim_end_matches('.').parse().unwrap(),
+                ],
+            ))
+        })
+        .collect()
+}
+
+/// The borders of every cell of the probe are half a point wide and are drawn
+/// above the content of the cell, so that each covers a quarter of a point
+/// within the clip of the cell.
+const BORDER_COVER: f64 = 0.25;
+
+/// Returns, for each shading colour, the horizontal extent of the shading that
+/// shows: the part within the borders of its cell and between the parts of its
+/// side rules that the clip of the cell leaves.
+fn visible_shading(source: &str) -> std::collections::BTreeMap<String, [f64; 2]> {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let document = mote::compile(source).unwrap();
+    let planned = render::plan(&document, &resolver, None).unwrap();
+    let mut extents = std::collections::BTreeMap::<String, [f64; 2]>::new();
+    for page in &planned.output.pages {
+        let mut clips: Vec<[f64; 4]> = Vec::new();
+        let mut shaded: Option<String> = None;
+        for operation in &page.operations {
+            match operation {
+                PageOperation::PushClip(bounds) => clips.push(*bounds),
+                PageOperation::PopClip => {
+                    clips.pop();
+                }
+                PageOperation::Rectangle(rectangle) if rectangle.color.ends_with("E0F0") => {
+                    let clip = clips.last().expect("a cell clips its shading");
+                    let left = rectangle.x.max(clip[0] + BORDER_COVER);
+                    let right =
+                        (rectangle.x + rectangle.width).min(clip[0] + clip[2] - BORDER_COVER);
+                    let extent = extents
+                        .entry(rectangle.color.clone())
+                        .or_insert([left, right]);
+                    *extent = [extent[0].min(left), extent[1].max(right)];
+                    shaded = Some(rectangle.color.clone());
+                }
+                PageOperation::Rule(rule)
+                    if rule.role == RuleRole::Generic && rule.start[0] == rule.end[0] =>
+                {
+                    let clip = clips.last().expect("a cell clips its rules");
+                    let left = (rule.start[0] - rule.width / 2.0).max(clip[0]);
+                    let right = (rule.start[0] + rule.width / 2.0).min(clip[0] + clip[2]);
+                    let Some(extent) = shaded.as_ref().and_then(|color| extents.get_mut(color))
+                    else {
+                        continue;
+                    };
+                    if left >= right {
+                        continue;
+                    }
+                    if rule.start[0] < (extent[0] + extent[1]) / 2.0 {
+                        extent[0] = extent[0].max(right);
+                    } else {
+                        extent[1] = extent[1].min(left);
+                    }
+                }
+                _ => {}
+            }
+        }
+    }
+    extents
+}
+
+/// Holds the native shading of every sample of the probe to the extent that
+/// Word gave it. Word's PDF export has a grid of 0.48 point, and the columns of
+/// Word's table lie up to 0.1 point from the native columns, so that an extent
+/// agrees within 0.3 point. The nested table of the probe fills its cell, and
+/// Word ends such a table 0.35 point before the native table ends, so that the
+/// right edge of its sample agrees within 0.6 point.
+#[test]
+fn the_shading_of_the_probe_has_the_extents_that_word_measured() {
+    const NESTED_SAMPLE: &str = "46E0F0";
+    let source =
+        std::fs::read_to_string("tests/office/probes/cell-paragraph-shading.mote").unwrap();
+    let stated = extents_stated_by_the_probe(&source);
+    assert_eq!(stated.len(), 21, "{stated:?}");
+    assert!(source.contains(&format!(
+        "#table[#row[#cell[#paragraph(fill = \"#{NESTED_SAMPLE}\""
+    )));
+    let visible = visible_shading(&source);
+    for (color, word) in stated {
+        let native = visible[&color];
+        let right_tolerance = if color == NESTED_SAMPLE { 0.6 } else { 0.3 };
+        assert!(
+            (native[0] - word[0]).abs() <= 0.3 && (native[1] - word[1]).abs() <= right_tolerance,
+            "{color}: Word {word:?}, native {native:?}"
+        );
+    }
 }

@@ -142,16 +142,24 @@ Word's ends at the inner edge; the ink is the same. The shading of a paragraph
 crosses the space after it only to a paragraph that shares its box: one with
 identical borders and an equal box, or a shaded paragraph without borders after
 another whose box is equal. The space before the lower paragraph that exceeds
-the space after the upper one takes the lower shading. Word shades a paragraph
-in a table cell by the same rule, measured from the text area of the cell: a
-shading from 78.72 to 265.68 points was measured about cell text from 80.25 to
-264.25 points. Native output paints the fill and the borders of a paragraph in a
-cell by that rule, joins and bridges the adjacent paragraphs of one cell as in
-body text, leaves a box open where its row splits between pages, and cuts the
-shading and the rules off at the edge of the cell; see the
-[cell paragraph tests](../../tests/cell_paragraphs.rs). The rules and the joined
-boxes of a paragraph in a cell, and the cut at the edge of the cell, are not
-measured against Word. A list item's fill is not written to DOCX, and its
+the space after the upper one takes the lower shading. Word shades and rules a
+paragraph in a table cell by the same rules, measured from the text area of the
+cell, as its PDF export shows in the
+[cell-paragraph-shading probe](../../tests/office/probes/cell-paragraph-shading.mote),
+whose every sample states its measured extent: a shading from 78.72 to 265.68
+points was measured about cell text from 80.25 to 264.25 points. Word joins the
+adjacent paragraphs of one cell and carries shading across the space between
+them as in body text, paints the shading above the fill of the cell, leaves a
+box open where its row is divided between pages, and shades the paragraph of a
+repeated header row on every page. Word cuts the shading off at the inner edge
+of the borders of the cell and the rules at the edge of the cell, so that a
+side rule which would stand beyond the cell is not drawn; the clip of its PDF
+export lies on whole points, and ends up to 0.6 point beyond the right border
+of the cell. A border widens no automatic column, and adds its rules and their
+space to the height of its row. Native output follows each of these rules; the
+[cell paragraph tests](../../tests/cell_paragraphs.rs) hold the native shading
+of every sample of the probe within 0.3 point of Word's, and the probe holds
+the lines. A list item's fill is not written to DOCX, and its
 native band is not measured against Word; native output does not paint the fill
 of a list item in a cell, and reports it. Styles other than
 single and thick are drawn as a single line and reported. See the

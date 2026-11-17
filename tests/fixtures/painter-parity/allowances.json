@@ -35,6 +35,7 @@
   "powerpoint/34_animation": 0.0,
   "probes/automatic-line-height": 0.006,
   "probes/break-opportunities": 0.002,
+  "probes/cell-paragraph-shading": 0.001,
   "probes/chart-axis-floor": 0.003,
   "probes/chart-value-axis": 0.004,
   "probes/east-asian-line-height": 0.001,

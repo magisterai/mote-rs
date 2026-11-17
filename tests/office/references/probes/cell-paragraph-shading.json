@@ -1,0 +1,534 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "CELL PARAGRAPH SHADING: a paragraph in a table cell is shaded and ruled by the rule of",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "body text, measured from the text area of its cell. W ord cuts the shading off at the borders of the",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "cell and the rules at its edge, so that a side rule which would stand beyond the cell is not drawn.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "The paragraphs of one cell share a box and carry shading across the space between them as in",
+          "x": 72.0
+        },
+        {
+          "baseline": 143.28,
+          "text": "body text, and a box is left open where its row is divided between pages. Each sample states",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.4,
+          "text": "the extent of its shading in W ord, in points from the left edge of the page. The cells are 200",
+          "x": 72.0
+        },
+        {
+          "baseline": 173.76,
+          "text": "points wide with margins of 8 points, so that the text of the first column runs from 80.25 to",
+          "x": 72.0
+        },
+        {
+          "baseline": 188.88,
+          "text": "264.25 and that of the second from 280.25 to 464.25.",
+          "x": 72.0
+        },
+        {
+          "baseline": 216.48,
+          "text": "No rule: 78.72 to 265.68.",
+          "x": 80.16
+        },
+        {
+          "baseline": 216.48,
+          "text": "A plain paragraph.",
+          "x": 280.32
+        },
+        {
+          "baseline": 244.32,
+          "text": "Four rules 3 points from the text:",
+          "x": 80.16
+        },
+        {
+          "baseline": 254.4,
+          "text": "Four rules 12 points from the text,",
+          "x": 280.32
+        },
+        {
+          "baseline": 259.44,
+          "text": "75.84 to 268.56.",
+          "x": 80.16
+        },
+        {
+          "baseline": 269.52,
+          "text": "whose side rules the cell cuts off:",
+          "x": 280.32
+        },
+        {
+          "baseline": 284.64,
+          "text": "272.40 to 472.08.",
+          "x": 280.32
+        },
+        {
+          "baseline": 322.32,
+          "text": "Left and right rules 8 points from the",
+          "x": 280.32
+        },
+        {
+          "baseline": 331.44,
+          "text": "Four rules 8 points from the text,",
+          "x": 80.16
+        },
+        {
+          "baseline": 337.44,
+          "text": "text, which the cell cuts off: 272.40 to",
+          "x": 280.32
+        },
+        {
+          "baseline": 346.56,
+          "text": "whose side rules the cell cuts off:",
+          "x": 80.16
+        },
+        {
+          "baseline": 352.8,
+          "text": "472.08.",
+          "x": 280.32
+        },
+        {
+          "baseline": 361.68,
+          "text": "72.48 to 271.92.",
+          "x": 80.16
+        },
+        {
+          "baseline": 394.32,
+          "text": "A shaded paragraph whose shading",
+          "x": 280.32
+        },
+        {
+          "baseline": 398.4,
+          "text": "The first of two paragraphs in one",
+          "x": 80.16
+        },
+        {
+          "baseline": 409.68,
+          "text": "crosses the space after it: 278.88 to",
+          "x": 280.32
+        },
+        {
+          "baseline": 413.52,
+          "text": "box, above the fill of their cell: 75.84",
+          "x": 80.16
+        },
+        {
+          "baseline": 424.8,
+          "text": "465.84.",
+          "x": 280.32
+        },
+        {
+          "baseline": 428.88,
+          "text": "to 268.56.",
+          "x": 80.16
+        },
+        {
+          "baseline": 444.0,
+          "text": "The second of two paragraphs in one",
+          "x": 80.16
+        },
+        {
+          "baseline": 450.0,
+          "text": "The second shaded paragraph:",
+          "x": 280.32
+        },
+        {
+          "baseline": 459.12,
+          "text": "box: 75.84 to 268.56.",
+          "x": 80.16
+        },
+        {
+          "baseline": 465.12,
+          "text": "278.88 to 465.84.",
+          "x": 280.32
+        },
+        {
+          "baseline": 490.32,
+          "text": "A plain paragraph.",
+          "x": 280.32
+        },
+        {
+          "baseline": 533.76,
+          "text": "Centred, with side rules 4 points out:",
+          "x": 280.32
+        },
+        {
+          "baseline": 549.12,
+          "text": "275.04 to 469.68.",
+          "x": 280.32
+        },
+        {
+          "baseline": 601.2,
+          "text": "Boxed in a nested table: 282.24 to",
+          "x": 286.56
+        },
+        {
+          "baseline": 616.32,
+          "text": "462.48.",
+          "x": 286.56
+        },
+        {
+          "baseline": 624.72,
+          "text": "Shaded at the bottom of a merged",
+          "x": 80.16
+        },
+        {
+          "baseline": 639.84,
+          "text": "cell: 78.72 to 265.68.",
+          "x": 80.16
+        },
+        {
+          "baseline": 639.84,
+          "text": "A paragraph after the nested table.",
+          "x": 280.32
+        },
+        {
+          "baseline": 670.56,
+          "text": "Boxed at the centre: 276.00 to",
+          "x": 280.32
+        },
+        {
+          "baseline": 673.2,
+          "text": "Boxed at the bottom: 75.84 to",
+          "x": 80.16
+        },
+        {
+          "baseline": 685.68,
+          "text": "468.72.",
+          "x": 280.32
+        },
+        {
+          "baseline": 688.32,
+          "text": "268.56.",
+          "x": 80.16
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "A border widens no automatic column, and its rules and their space add to the height of the row.",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "In the table that follows, the shading of the second cell runs from 129.12 to 166.32, that of the",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "third from 176.40 to 219.36 between rules whose outer edges lie at 175.44 and 220.32, and that",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "of the fourth from 223.20 to 273.12, which is the whole of its cell.",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.76,
+          "text": "Abcdef Abcdef",
+          "x": 80.16
+        },
+        {
+          "baseline": 155.76,
+          "text": "Abcdef",
+          "x": 281.28
+        },
+        {
+          "baseline": 159.84,
+          "text": "Abcdef",
+          "x": 180.72
+        },
+        {
+          "baseline": 169.68,
+          "text": "Abcdef",
+          "x": 231.12
+        },
+        {
+          "baseline": 203.52,
+          "text": "The cells of the table that follows are 130 points wide. The shading and the rules of the middle",
+          "x": 72.0
+        },
+        {
+          "baseline": 218.64,
+          "text": "cell end at its edges, and leave the cells beside it as they are.",
+          "x": 72.0
+        },
+        {
+          "baseline": 246.48,
+          "text": "On the left: 78.72 to",
+          "x": 80.16
+        },
+        {
+          "baseline": 246.48,
+          "text": "On the right: 338.88 to",
+          "x": 340.32
+        },
+        {
+          "baseline": 261.6,
+          "text": "195.60.",
+          "x": 80.16
+        },
+        {
+          "baseline": 260.64,
+          "text": "Rules 12 points out:",
+          "x": 210.24
+        },
+        {
+          "baseline": 261.6,
+          "text": "455.76.",
+          "x": 340.32
+        },
+        {
+          "baseline": 275.52,
+          "text": "202.56 to 331.92.",
+          "x": 210.24
+        },
+        {
+          "baseline": 313.2,
+          "text": "Below left.",
+          "x": 80.16
+        },
+        {
+          "baseline": 313.2,
+          "text": "Below middle.",
+          "x": 210.24
+        },
+        {
+          "baseline": 313.2,
+          "text": "Below right.",
+          "x": 340.32
+        },
+        {
+          "baseline": 332.88,
+          "text": "Filler paragraph 1.",
+          "x": 72.0
+        },
+        {
+          "baseline": 356.16,
+          "text": "Filler paragraph 2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 379.44,
+          "text": "Filler paragraph 3.",
+          "x": 72.0
+        },
+        {
+          "baseline": 402.48,
+          "text": "Filler paragraph 4.",
+          "x": 72.0
+        },
+        {
+          "baseline": 425.76,
+          "text": "Filler paragraph 5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 448.8,
+          "text": "Filler paragraph 6.",
+          "x": 72.0
+        },
+        {
+          "baseline": 472.08,
+          "text": "Filler paragraph 7.",
+          "x": 72.0
+        },
+        {
+          "baseline": 495.36,
+          "text": "Filler paragraph 8.",
+          "x": 72.0
+        },
+        {
+          "baseline": 518.4,
+          "text": "Filler paragraph 9.",
+          "x": 72.0
+        },
+        {
+          "baseline": 541.68,
+          "text": "The last filler paragraph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 569.28,
+          "text": "A shaded header: 78.72 to 265.68.",
+          "x": 80.16
+        },
+        {
+          "baseline": 573.36,
+          "text": "A boxed header: 276.00 to 468.72.",
+          "x": 280.32
+        },
+        {
+          "baseline": 600.96,
+          "text": "A shaded paragraph that crosses the",
+          "x": 280.32
+        },
+        {
+          "baseline": 605.04,
+          "text": "A boxed paragraph that crosses the",
+          "x": 80.16
+        },
+        {
+          "baseline": 616.32,
+          "text": "foot of the page: 278.88 to 465.84.",
+          "x": 280.32
+        },
+        {
+          "baseline": 620.16,
+          "text": "foot of the page: 75.84 to 268.56.",
+          "x": 80.16
+        },
+        {
+          "baseline": 631.44,
+          "text": "The paragraph runs on, so that its",
+          "x": 280.32
+        },
+        {
+          "baseline": 635.52,
+          "text": "The paragraph runs on, so that its",
+          "x": 80.16
+        },
+        {
+          "baseline": 646.56,
+          "text": "row is divided between two pages.",
+          "x": 280.32
+        },
+        {
+          "baseline": 650.64,
+          "text": "row is divided between two pages.",
+          "x": 80.16
+        },
+        {
+          "baseline": 661.68,
+          "text": "The paragraph runs on, so that its",
+          "x": 280.32
+        },
+        {
+          "baseline": 665.76,
+          "text": "The paragraph runs on, so that its",
+          "x": 80.16
+        },
+        {
+          "baseline": 677.04,
+          "text": "row is divided between two pages.",
+          "x": 280.32
+        },
+        {
+          "baseline": 680.88,
+          "text": "row is divided between two pages.",
+          "x": 80.16
+        },
+        {
+          "baseline": 692.16,
+          "text": "The paragraph runs on, so that its",
+          "x": 280.32
+        },
+        {
+          "baseline": 696.24,
+          "text": "The paragraph runs on, so that its",
+          "x": 80.16
+        },
+        {
+          "baseline": 707.28,
+          "text": "row is divided between two pages.",
+          "x": 280.32
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "A shaded header: 78.72 to 265.68.",
+          "x": 80.16
+        },
+        {
+          "baseline": 91.2,
+          "text": "A boxed header: 276.00 to 468.72.",
+          "x": 280.32
+        },
+        {
+          "baseline": 118.8,
+          "text": "row is divided between two pages.",
+          "x": 80.16
+        },
+        {
+          "baseline": 118.8,
+          "text": "The paragraph runs on, so that its",
+          "x": 280.32
+        },
+        {
+          "baseline": 133.92,
+          "text": "The paragraph runs on, so that its",
+          "x": 80.16
+        },
+        {
+          "baseline": 133.92,
+          "text": "row is divided between two pages.",
+          "x": 280.32
+        },
+        {
+          "baseline": 149.04,
+          "text": "row is divided between two pages.",
+          "x": 80.16
+        },
+        {
+          "baseline": 149.04,
+          "text": "The paragraph runs on, so that its",
+          "x": 280.32
+        },
+        {
+          "baseline": 164.4,
+          "text": "The paragraph runs on, so that its",
+          "x": 80.16
+        },
+        {
+          "baseline": 164.4,
+          "text": "row is divided between two pages.",
+          "x": 280.32
+        },
+        {
+          "baseline": 179.52,
+          "text": "row is divided between two pages.",
+          "x": 80.16
+        },
+        {
+          "baseline": 207.12,
+          "text": "The last row.",
+          "x": 80.16
+        },
+        {
+          "baseline": 207.12,
+          "text": "A plain paragraph.",
+          "x": 280.32
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "f1e84f3d7a59262c25a4f5c35471b757a6c39a30187b39eecafbcf97c7dc68a0"
+}
