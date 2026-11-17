@@ -605,6 +605,131 @@ fn an_axis_title_table_sets_the_size_weight_and_color_of_the_title() {
     }
 }
 
+/// The expected ticks are those Word draws for the charts of the
+/// chart-axis-floor probe.
+#[test]
+fn an_automatic_axis_excludes_zero_only_for_values_that_lie_close_together() {
+    let stepped = |first: f64, step: f64, count: usize| -> Vec<f64> {
+        (0..count)
+            .map(|index| first + index as f64 * step)
+            .collect()
+    };
+    for (kind, size, series, expected) in [
+        ("column", "216,162", "26,31", stepped(23.0, 1.0, 10)),
+        ("column", "216,162", "25,31", stepped(0.0, 5.0, 8)),
+        ("column", "216,162", "50,60", stepped(44.0, 2.0, 10)),
+        ("column", "216,162", "50,61", stepped(0.0, 10.0, 8)),
+        ("column", "216,162", "84,100", stepped(75.0, 5.0, 7)),
+        ("column", "216,162", "83,100", stepped(0.0, 20.0, 7)),
+        ("column", "216,162", "99,100", stepped(98.4, 0.2, 10)),
+        ("column", "216,162", "0.26,0.31", stepped(0.23, 0.01, 10)),
+        ("column", "216,162", "26,28,31", stepped(23.0, 1.0, 10)),
+        ("column", "216,162", "31,31", stepped(0.0, 5.0, 8)),
+        ("column", "216,162", "-31,-26", stepped(-32.0, 1.0, 10)),
+        ("column", "216,162", "-31,-25", stepped(-35.0, 5.0, 8)),
+        ("column", "216,162", "-5,31", stepped(-10.0, 5.0, 10)),
+        ("column", "216,90", "26,31", stepped(22.0, 2.0, 6)),
+        ("column", "216,90", "990,1000", stepped(985.0, 5.0, 5)),
+        ("column", "216,288", "990,1000", stepped(984.0, 2.0, 10)),
+        ("line", "216,162", "26,31", stepped(23.0, 1.0, 10)),
+        ("line", "216,162", "25,31", stepped(0.0, 5.0, 8)),
+        ("area", "216,162", "26,31", stepped(23.0, 1.0, 10)),
+        ("area", "216,162", "-31,-26", stepped(-32.0, 1.0, 10)),
+        ("bar", "216,162", "26,31", stepped(22.0, 2.0, 6)),
+        ("bar", "216,162", "84,100", stepped(70.0, 10.0, 5)),
+        ("bar", "252,162", "84,100", stepped(75.0, 5.0, 7)),
+        ("bar", "144,162", "95,100", stepped(90.0, 5.0, 4)),
+        ("bar", "288,162", "26,31", stepped(22.0, 2.0, 6)),
+        ("bar", "324,162", "26,31", stepped(23.0, 1.0, 10)),
+        ("bar", "216,162", "-31,-26", stepped(-32.0, 2.0, 6)),
+        ("stacked_column", "216,162", "26,31", stepped(23.0, 1.0, 10)),
+        (
+            "stacked_column",
+            "216,162",
+            "27,31}},{name='T',values={1,1",
+            stepped(24.0, 1.0, 10),
+        ),
+        (
+            "stacked_column",
+            "216,162",
+            "26,31}},{name='T',values={27,30",
+            stepped(0.0, 10.0, 8),
+        ),
+        (
+            "stacked_bar",
+            "216,162",
+            "27,31}},{name='T',values={1,1",
+            stepped(24.0, 2.0, 6),
+        ),
+    ] {
+        let (width, height) = size.split_once(',').unwrap();
+        let context = format!("{kind} {size} {series}");
+        let categories = if series.starts_with("26,28") {
+            "'A','B','C'"
+        } else {
+            "'A','B'"
+        };
+        let chart = plan_bordered_chart(&format!(
+            "kind='{kind}',width=pt({width}),height=pt({height}),data={{categories={{{categories}}},series={{{{name='S',values={{{series}}}}}}}}}"
+        ));
+        let mut ticks = chart.tick_labels.clone();
+        ticks.sort_by(f64::total_cmp);
+        assert_eq!(ticks.len(), expected.len(), "{context}: {ticks:?}");
+        for (tick, expected_tick) in ticks.iter().zip(&expected) {
+            assert_close(*tick, *expected_tick, &context);
+        }
+        let [left, top, width, height] = chart.plot;
+        let (right, bottom) = (left + width, top + height);
+        assert!(!chart.bars.is_empty() || !chart.path_points.is_empty());
+        for bar in &chart.bars {
+            assert!(
+                bar[0] >= left - 1e-6
+                    && bar[1] >= top - 1e-6
+                    && bar[0] + bar[2] <= right + 1e-6
+                    && bar[1] + bar[3] <= bottom + 1e-6,
+                "{context}: the bar {bar:?} leaves the plot {:?}",
+                chart.plot
+            );
+        }
+        for point in &chart.path_points {
+            assert!(
+                point[0] >= left - 2.5
+                    && point[0] <= right + 2.5
+                    && point[1] >= top - 2.5
+                    && point[1] <= bottom + 2.5,
+                "{context}: the point {point:?} leaves the plot {:?}",
+                chart.plot
+            );
+        }
+        // A bar stands on the end of the axis nearer zero where the range
+        // excludes zero.
+        let lowest_tick = ticks[0];
+        let highest_tick = ticks[ticks.len() - 1];
+        if kind.contains("stacked") && series.contains("name") {
+            continue;
+        }
+        for bar in &chart.bars {
+            match (kind, lowest_tick > 0.0, highest_tick < 0.0) {
+                ("bar" | "stacked_bar", true, _) => assert_close(bar[0], left, &context),
+                ("bar" | "stacked_bar", _, true) => assert_close(bar[0] + bar[2], right, &context),
+                (_, true, _) => assert_close(bar[1] + bar[3], bottom, &context),
+                (_, _, true) => assert_close(bar[1], top, &context),
+                _ => {}
+            }
+        }
+    }
+}
+
+#[test]
+fn a_stated_minimum_of_zero_replaces_an_automatic_minimum_above_zero() {
+    let chart = plan_bordered_chart(
+        "kind='column',width=pt(216),height=pt(162),axis={value={minimum=0}},data={categories={'A','B'},values={26,31}}",
+    );
+    let mut ticks = chart.tick_labels.clone();
+    ticks.sort_by(f64::total_cmp);
+    assert_eq!(ticks, [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0]);
+}
+
 #[test]
 fn default_ticks_of_small_whole_values_are_even_and_a_stated_range_replaces_them() {
     let resolver = FileAssetResolver::new(".").unwrap();

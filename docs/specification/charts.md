@@ -109,8 +109,15 @@ accepts a string or a title object with the members and rules of the chart
 `title`, as in `axis = {value = {title = {text = "Tonnes", size = pt(12), bold =
 true}}}`; an omitted `size` is 10 points.
 
-The value axis has an automatic range, chosen from the data. A stated range
-replaces it: `axis.value.minimum` and `axis.value.maximum` each accept a finite
+The value axis has an automatic range, chosen from the data. The automatic
+range starts at zero and extends beyond the value farthest from zero. If the
+values all have one sign, are not all equal, and differ by no more than a sixth
+of the magnitude of the value farthest from zero, the range instead starts
+beyond the value nearest zero by half that difference, moved outward to a whole
+number of steps, as in Office. A stacked kind is judged by the running totals of
+each category in place of its values, and a percentage-stacked kind is exempt. A
+stated minimum of zero restores the start at zero. A stated range
+replaces the automatic one: `axis.value.minimum` and `axis.value.maximum` each accept a finite
 number, or a string that is one, and normalize to a number. Either may be given
 alone, and the other bound then remains automatic. If both are given, the
 minimum must be less than the maximum. A value that is not a finite number, or a

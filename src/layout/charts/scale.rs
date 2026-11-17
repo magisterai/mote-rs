@@ -42,6 +42,11 @@ impl Scale {
     pub fn crossing(self) -> f64 {
         0.0_f64.clamp(self.minimum, self.maximum)
     }
+    /// A bar or an area stands on the category axis, so that its base lies
+    /// within the plot even where the range excludes zero.
+    pub fn base_ratio(self, base: f64) -> f64 {
+        self.ratio(base).clamp(0.0, 1.0)
+    }
     /// The ticks of a stated range start at its minimum, which need not be a
     /// multiple of the step, and a stated step need not be a single digit. A
     /// label then needs the digits of both.
@@ -59,8 +64,15 @@ impl Scale {
         }
         unit
     }
-    pub fn for_chart(chart: &Chart, length: f64, horizontal: bool) -> Self {
-        let automatic = Self::automatic_for_chart(chart, length, horizontal);
+    /// The width and height are those of the plot, and are zero where the plot
+    /// is not yet known.
+    pub fn for_chart(chart: &Chart, width: f64, height: f64, horizontal: bool) -> Self {
+        let length = if horizontal {
+            width.min(height)
+        } else {
+            height
+        };
+        let automatic = Self::automatic_for_chart(chart, length, width, horizontal);
         if (chart.value_minimum.is_none()
             && chart.value_maximum.is_none()
             && chart.value_step.is_none())
@@ -126,10 +138,11 @@ impl Scale {
             clips: stated_minimum.is_some() || stated_maximum.is_some(),
         }
     }
-    fn automatic_for_chart(chart: &Chart, length: f64, horizontal: bool) -> Self {
+    fn automatic_for_chart(chart: &Chart, length: f64, width: f64, horizontal: bool) -> Self {
         let stacked = chart.kind.contains("stacked");
         let percent = chart.kind.contains("percent_stacked");
-        let (minimum, maximum) = extents(chart, stacked);
+        let (lowest, highest) = plotted_range(chart, stacked);
+        let (minimum, maximum) = (lowest.min(0.0), highest.max(0.0));
         if !minimum.is_finite() || !maximum.is_finite() {
             return Self::automatic(minimum, maximum, 0.0);
         }
@@ -159,8 +172,12 @@ impl Scale {
                 clips: false,
             };
         }
+        let (bottom, top) = padded_ends(lowest, highest);
         if !horizontal {
-            return vertical_scale(minimum, maximum, length);
+            return padded_scale(bottom, top, vertical_parts(length));
+        }
+        if bottom > 0.0 || top < 0.0 {
+            return padded_scale(bottom, top, horizontal_parts(measured_length(chart, width)));
         }
         if minimum >= 0.0 {
             let (maximum, step) = positive_scale(maximum, length);
@@ -217,9 +234,17 @@ fn measured_length(chart: &Chart, length: f64) -> f64 {
         length / scale
     }
 }
-fn extents(chart: &Chart, stacked: bool) -> (f64, f64) {
-    let mut minimum: f64 = 0.0;
-    let mut maximum: f64 = 0.0;
+/// The least and greatest of the values that an automatic axis must show: every
+/// value of a plain chart, and every running total of a stacked one, as Word's
+/// chart-axis-floor probe shows for series stacked on a first series far from
+/// zero.
+fn plotted_range(chart: &Chart, stacked: bool) -> (f64, f64) {
+    let mut lowest = f64::INFINITY;
+    let mut highest = f64::NEG_INFINITY;
+    let mut include = |value: f64| {
+        lowest = lowest.min(value);
+        highest = highest.max(value);
+    };
     if stacked {
         for index in 0..chart.categories.len() {
             let mut negative = 0.0;
@@ -228,42 +253,75 @@ fn extents(chart: &Chart, stacked: bool) -> (f64, f64) {
                 let value = super::series_value(series, index);
                 if value < 0.0 {
                     negative += value;
+                    include(negative);
                 } else {
                     positive += value;
+                    include(positive);
                 }
             }
-            minimum = minimum.min(negative);
-            maximum = maximum.max(positive);
         }
     } else {
         for value in chart.series.iter().flat_map(|series| &series.values) {
-            minimum = minimum.min(*value);
-            maximum = maximum.max(*value);
+            include(*value);
         }
     }
-    (minimum, maximum)
+    if lowest > highest {
+        (0.0, 0.0)
+    } else {
+        (lowest, highest)
+    }
 }
-/// Office pads each nonzero end of the data by a twentieth of its range, then
-/// takes the finest step of one, two or five times a power of ten that divides
-/// the padded span into no more parts than the plot height allows. The limit on
-/// the parts lies midway in the range that Word's chart-value-axis probe admits.
-fn vertical_scale(minimum: f64, maximum: f64, length: f64) -> Scale {
-    let margin = (maximum - minimum) / 20.0;
-    let top = if maximum > 0.0 { maximum + margin } else { 0.0 };
-    let bottom = if minimum < 0.0 { minimum - margin } else { 0.0 };
+/// The ends of the axis before they are moved outward to the step. Office
+/// includes zero and pads each nonzero end of the data by a twentieth of the
+/// range so extended. If the values have one sign, differ, and span no more than
+/// a sixth of the magnitude of the one farthest from zero, Office instead pads
+/// the end nearer zero by half their span and the other end by a twentieth of
+/// it, as Word's chart-axis-floor probe shows.
+fn padded_ends(lowest: f64, highest: f64) -> (f64, f64) {
+    let span = highest - lowest;
+    let farthest = highest.abs().max(lowest.abs());
+    let close_together =
+        span > 0.0 && lowest * highest > 0.0 && span * 6.0 <= farthest * (1.0 + 1e-9);
+    if close_together && lowest > 0.0 {
+        return (lowest - span / 2.0, highest + span / 20.0);
+    }
+    if close_together {
+        return (lowest - span / 20.0, highest + span / 2.0);
+    }
+    let margin = (highest.max(0.0) - lowest.min(0.0)) / 20.0;
+    (
+        if lowest < 0.0 { lowest - margin } else { 0.0 },
+        if highest > 0.0 { highest + margin } else { 0.0 },
+    )
+}
+/// Office takes the finest step of one, two or five times a power of ten that
+/// divides the padded span into no more parts than the length of the axis
+/// allows, and moves each end outward to a whole number of steps.
+fn padded_scale(bottom: f64, top: f64, parts: f64) -> Scale {
     if top - bottom <= 0.0 {
         return Scale::automatic(0.0, 1.0, 0.2);
     }
-    let step = step_at_least((top - bottom) / vertical_parts(length));
+    let step = step_at_least((top - bottom) / parts);
     Scale::automatic(
-        (bottom / step).floor() * step,
-        (top / step).ceil() * step,
+        (bottom / step + 1e-9).floor() * step,
+        (top / step - 1e-9).ceil() * step,
         step,
     )
 }
+/// The limit on the parts of a vertical axis lies midway in the range that
+/// Word's chart-value-axis probe admits.
 fn vertical_parts(length: f64) -> f64 {
     if length > 0.0 {
         ((length - 16.0) * 0.085).clamp(1.0, 10.0)
+    } else {
+        10.0
+    }
+}
+/// The limit on the parts of a horizontal axis that does not start at zero lies
+/// midway in the range that Word's chart-axis-floor probe admits.
+fn horizontal_parts(length: f64) -> f64 {
+    if length > 0.0 {
+        ((length - 13.0) / 35.5).clamp(1.0, 10.0)
     } else {
         10.0
     }

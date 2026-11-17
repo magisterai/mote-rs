@@ -97,9 +97,11 @@ arguments require units.
 ## The value axis
 
 The range and step of the value axis follow Office's automatic rules unless a
-range is stated. The data's range is padded by a twentieth at each nonzero end,
-the step is 1, 2 or 5 times a power of ten chosen for the height of the chart,
-and every step is labelled.
+range is stated. The axis starts at zero and is padded by a twentieth beyond the
+data, the step is 1, 2 or 5 times a power of ten chosen for the height of the
+chart, and every step is labelled. If the values are all close together, within
+a sixth of the largest, the axis starts just below the smallest instead, as in
+Office; a stated `minimum = 0` forces zero.
 
 ```mote
 #chart(

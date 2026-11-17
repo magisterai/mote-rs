@@ -7,7 +7,8 @@ impl ChartPlanner<'_, '_> {
         chart: &Chart,
         layout: &ChartLayout,
     ) -> Result<(), LayoutError> {
-        let scale = Scale::for_chart(chart, layout.plot.height, false).validate()?;
+        let scale =
+            Scale::for_chart(chart, layout.plot.width, layout.plot.height, false).validate()?;
         let foreground = self.axes(chart, layout, scale, false)?;
         let count = chart.categories.len();
         let mut series_points = Vec::new();
@@ -62,7 +63,8 @@ impl ChartPlanner<'_, '_> {
         chart: &Chart,
         layout: &ChartLayout,
     ) -> Result<(), LayoutError> {
-        let scale = Scale::for_chart(chart, layout.plot.height, false).validate()?;
+        let scale =
+            Scale::for_chart(chart, layout.plot.width, layout.plot.height, false).validate()?;
         let foreground = self.axes(chart, layout, scale, false)?;
         let count = chart.categories.len();
         if count > 1 {
@@ -98,7 +100,7 @@ impl ChartPlanner<'_, '_> {
                     ]);
                     lower.push([
                         left,
-                        layout.plot.top + layout.plot.height * (1.0 - scale.ratio(base)),
+                        layout.plot.top + layout.plot.height * (1.0 - scale.base_ratio(base)),
                     ]);
                 }
                 upper.extend(lower.into_iter().rev());

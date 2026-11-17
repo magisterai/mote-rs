@@ -1,0 +1,4801 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "CHART AXIS FLOOR: a value axis starts at zero unless the values have one sign and span at",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "most a sixth of the largest magnitude, when the axis starts half their span beyond the value",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "nearest zero and a twentieth of it beyond the farthest. A stacked chart is judged by its running",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "totals, and the step follows from the padded span and the length of the axis.",
+          "x": 72.0
+        },
+        {
+          "baseline": 151.2,
+          "text": "Chart 1: column, values 26, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 177.12,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 191.28,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 205.44,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 219.84,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 234.0,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 248.16,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 262.32,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 276.48,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 290.88,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 305.04,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 316.8,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 316.8,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 344.4,
+          "text": "Chart 2: column, values 25, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 370.32,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 388.56,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 406.8,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 425.04,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 443.28,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 461.76,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 480.0,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 498.24,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 510.0,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 510.0,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 537.6,
+          "text": "Chart 3: column, values 26, 30, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 563.52,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 581.76,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 600.0,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 618.24,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 636.48,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 654.96,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 673.2,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 691.44,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 703.2,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 703.2,
+          "text": "B",
+          "x": 229.14
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Chart 4: column, values 50, 59, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.48,
+          "text": "60",
+          "x": 78.5
+        },
+        {
+          "baseline": 124.32,
+          "text": "58",
+          "x": 78.5
+        },
+        {
+          "baseline": 140.4,
+          "text": "56",
+          "x": 78.5
+        },
+        {
+          "baseline": 156.24,
+          "text": "54",
+          "x": 78.5
+        },
+        {
+          "baseline": 172.32,
+          "text": "52",
+          "x": 78.5
+        },
+        {
+          "baseline": 188.4,
+          "text": "50",
+          "x": 78.5
+        },
+        {
+          "baseline": 204.24,
+          "text": "48",
+          "x": 78.5
+        },
+        {
+          "baseline": 220.32,
+          "text": "46",
+          "x": 78.5
+        },
+        {
+          "baseline": 236.16,
+          "text": "44",
+          "x": 78.5
+        },
+        {
+          "baseline": 248.16,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 248.16,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 275.76,
+          "text": "Chart 5: column, values 50, 60, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 301.68,
+          "text": "62",
+          "x": 78.5
+        },
+        {
+          "baseline": 315.84,
+          "text": "60",
+          "x": 78.5
+        },
+        {
+          "baseline": 330.0,
+          "text": "58",
+          "x": 78.5
+        },
+        {
+          "baseline": 344.16,
+          "text": "56",
+          "x": 78.5
+        },
+        {
+          "baseline": 358.32,
+          "text": "54",
+          "x": 78.5
+        },
+        {
+          "baseline": 372.72,
+          "text": "52",
+          "x": 78.5
+        },
+        {
+          "baseline": 386.88,
+          "text": "50",
+          "x": 78.5
+        },
+        {
+          "baseline": 401.04,
+          "text": "48",
+          "x": 78.5
+        },
+        {
+          "baseline": 415.2,
+          "text": "46",
+          "x": 78.5
+        },
+        {
+          "baseline": 429.36,
+          "text": "44",
+          "x": 78.5
+        },
+        {
+          "baseline": 441.36,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 441.36,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 468.96,
+          "text": "Chart 6: column, values 50, 61, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 494.64,
+          "text": "70",
+          "x": 78.5
+        },
+        {
+          "baseline": 513.12,
+          "text": "60",
+          "x": 78.5
+        },
+        {
+          "baseline": 531.36,
+          "text": "50",
+          "x": 78.5
+        },
+        {
+          "baseline": 549.6,
+          "text": "40",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.84,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 586.08,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 604.32,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 622.56,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 634.56,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 634.56,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 662.16,
+          "text": "Chart 7: column, values 83, 100, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "120",
+          "x": 78.5
+        },
+        {
+          "baseline": 106.56,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 127.92,
+          "text": "80",
+          "x": 83.31
+        },
+        {
+          "baseline": 149.04,
+          "text": "60",
+          "x": 83.31
+        },
+        {
+          "baseline": 170.4,
+          "text": "40",
+          "x": 83.31
+        },
+        {
+          "baseline": 191.76,
+          "text": "20",
+          "x": 83.31
+        },
+        {
+          "baseline": 213.12,
+          "text": "0",
+          "x": 88.12
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 8: column, values 84, 100, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "105",
+          "x": 78.5
+        },
+        {
+          "baseline": 299.76,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 321.12,
+          "text": "95",
+          "x": 83.31
+        },
+        {
+          "baseline": 342.24,
+          "text": "90",
+          "x": 83.31
+        },
+        {
+          "baseline": 363.6,
+          "text": "85",
+          "x": 83.31
+        },
+        {
+          "baseline": 384.96,
+          "text": "80",
+          "x": 83.31
+        },
+        {
+          "baseline": 406.32,
+          "text": "75",
+          "x": 83.31
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 9: column, values 95, 100, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "101",
+          "x": 78.5
+        },
+        {
+          "baseline": 485.76,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 499.92,
+          "text": "99",
+          "x": 83.31
+        },
+        {
+          "baseline": 514.08,
+          "text": "98",
+          "x": 83.31
+        },
+        {
+          "baseline": 528.48,
+          "text": "97",
+          "x": 83.31
+        },
+        {
+          "baseline": 542.64,
+          "text": "96",
+          "x": 83.31
+        },
+        {
+          "baseline": 556.8,
+          "text": "95",
+          "x": 83.31
+        },
+        {
+          "baseline": 570.96,
+          "text": "94",
+          "x": 83.31
+        },
+        {
+          "baseline": 585.12,
+          "text": "93",
+          "x": 83.31
+        },
+        {
+          "baseline": 599.52,
+          "text": "92",
+          "x": 83.31
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 10: column, values 99, 100, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "100.2",
+          "x": 78.5
+        },
+        {
+          "baseline": 99.36,
+          "text": "100",
+          "x": 85.88
+        },
+        {
+          "baseline": 113.52,
+          "text": "99.8",
+          "x": 83.31
+        },
+        {
+          "baseline": 127.92,
+          "text": "99.6",
+          "x": 83.31
+        },
+        {
+          "baseline": 142.08,
+          "text": "99.4",
+          "x": 83.31
+        },
+        {
+          "baseline": 156.24,
+          "text": "99.2",
+          "x": 83.31
+        },
+        {
+          "baseline": 170.4,
+          "text": "99",
+          "x": 90.69
+        },
+        {
+          "baseline": 184.56,
+          "text": "98.8",
+          "x": 83.31
+        },
+        {
+          "baseline": 198.96,
+          "text": "98.6",
+          "x": 83.31
+        },
+        {
+          "baseline": 213.12,
+          "text": "98.4",
+          "x": 83.31
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 148.06
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 232.19
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 11: column, values 990, 1000, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "1002",
+          "x": 78.5
+        },
+        {
+          "baseline": 292.56,
+          "text": "1000",
+          "x": 78.5
+        },
+        {
+          "baseline": 306.72,
+          "text": "998",
+          "x": 83.31
+        },
+        {
+          "baseline": 321.12,
+          "text": "996",
+          "x": 83.31
+        },
+        {
+          "baseline": 335.28,
+          "text": "994",
+          "x": 83.31
+        },
+        {
+          "baseline": 349.44,
+          "text": "992",
+          "x": 83.31
+        },
+        {
+          "baseline": 363.6,
+          "text": "990",
+          "x": 83.31
+        },
+        {
+          "baseline": 377.76,
+          "text": "988",
+          "x": 83.31
+        },
+        {
+          "baseline": 392.16,
+          "text": "986",
+          "x": 83.31
+        },
+        {
+          "baseline": 406.32,
+          "text": "984",
+          "x": 83.31
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 12: column, values 0.26, 0.31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "0.32",
+          "x": 78.5
+        },
+        {
+          "baseline": 485.76,
+          "text": "0.31",
+          "x": 78.5
+        },
+        {
+          "baseline": 499.92,
+          "text": "0.3",
+          "x": 83.31
+        },
+        {
+          "baseline": 514.08,
+          "text": "0.29",
+          "x": 78.5
+        },
+        {
+          "baseline": 528.48,
+          "text": "0.28",
+          "x": 78.5
+        },
+        {
+          "baseline": 542.64,
+          "text": "0.27",
+          "x": 78.5
+        },
+        {
+          "baseline": 556.8,
+          "text": "0.26",
+          "x": 78.5
+        },
+        {
+          "baseline": 570.96,
+          "text": "0.25",
+          "x": 78.5
+        },
+        {
+          "baseline": 585.12,
+          "text": "0.24",
+          "x": 78.5
+        },
+        {
+          "baseline": 599.52,
+          "text": "0.23",
+          "x": 78.5
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 144.45
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 230.98
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 13: column, values 2600, 3100, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "3200",
+          "x": 78.5
+        },
+        {
+          "baseline": 99.36,
+          "text": "3100",
+          "x": 78.5
+        },
+        {
+          "baseline": 113.52,
+          "text": "3000",
+          "x": 78.5
+        },
+        {
+          "baseline": 127.92,
+          "text": "2900",
+          "x": 78.5
+        },
+        {
+          "baseline": 142.08,
+          "text": "2800",
+          "x": 78.5
+        },
+        {
+          "baseline": 156.24,
+          "text": "2700",
+          "x": 78.5
+        },
+        {
+          "baseline": 170.4,
+          "text": "2600",
+          "x": 78.5
+        },
+        {
+          "baseline": 184.56,
+          "text": "2500",
+          "x": 78.5
+        },
+        {
+          "baseline": 198.96,
+          "text": "2400",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "2300",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 14: column, values 26, 28, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 292.56,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 306.72,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 321.12,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 335.28,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 349.44,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 363.6,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 377.76,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 392.16,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 406.32,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 123.87
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 184.0
+        },
+        {
+          "baseline": 418.08,
+          "text": "C",
+          "x": 243.79
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 15: column, values 25, 28, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 489.84,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 508.08,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 526.32,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 544.56,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 562.8,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 581.28,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 599.52,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 123.87
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 184.0
+        },
+        {
+          "baseline": 611.28,
+          "text": "C",
+          "x": 243.79
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 16: column, values 31, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 103.44,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 121.68,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 139.92,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 158.16,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 176.64,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 194.88,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 213.12,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 184.06
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 17: column, values 31, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 296.64,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 314.88,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 333.12,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 351.36,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 369.6,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 388.08,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 406.32,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 18: column, values -31, -26, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "-23",
+          "x": 78.5
+        },
+        {
+          "baseline": 485.76,
+          "text": "-24",
+          "x": 78.5
+        },
+        {
+          "baseline": 499.92,
+          "text": "-25",
+          "x": 78.5
+        },
+        {
+          "baseline": 514.08,
+          "text": "-26",
+          "x": 78.5
+        },
+        {
+          "baseline": 528.48,
+          "text": "-27",
+          "x": 78.5
+        },
+        {
+          "baseline": 542.64,
+          "text": "-28",
+          "x": 78.5
+        },
+        {
+          "baseline": 556.8,
+          "text": "-29",
+          "x": 78.5
+        },
+        {
+          "baseline": 570.96,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 585.12,
+          "text": "-31",
+          "x": 78.5
+        },
+        {
+          "baseline": 599.52,
+          "text": "-32",
+          "x": 78.5
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 19: column, values -31, -25, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "0",
+          "x": 86.38
+        },
+        {
+          "baseline": 103.44,
+          "text": "-5",
+          "x": 83.31
+        },
+        {
+          "baseline": 121.68,
+          "text": "-10",
+          "x": 78.5
+        },
+        {
+          "baseline": 139.92,
+          "text": "-15",
+          "x": 78.5
+        },
+        {
+          "baseline": 158.16,
+          "text": "-20",
+          "x": 78.5
+        },
+        {
+          "baseline": 176.64,
+          "text": "-25",
+          "x": 78.5
+        },
+        {
+          "baseline": 194.88,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "-35",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 20: column, values -100, -84, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "-75",
+          "x": 83.31
+        },
+        {
+          "baseline": 299.76,
+          "text": "-80",
+          "x": 83.31
+        },
+        {
+          "baseline": 321.12,
+          "text": "-85",
+          "x": 83.31
+        },
+        {
+          "baseline": 342.24,
+          "text": "-90",
+          "x": 83.31
+        },
+        {
+          "baseline": 363.6,
+          "text": "-95",
+          "x": 83.31
+        },
+        {
+          "baseline": 384.96,
+          "text": "-100",
+          "x": 78.5
+        },
+        {
+          "baseline": 406.32,
+          "text": "-105",
+          "x": 78.5
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 144.83
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 231.11
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 21: column, values -100, -83, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "0",
+          "x": 91.19
+        },
+        {
+          "baseline": 492.96,
+          "text": "-20",
+          "x": 83.31
+        },
+        {
+          "baseline": 514.08,
+          "text": "-40",
+          "x": 83.31
+        },
+        {
+          "baseline": 535.44,
+          "text": "-60",
+          "x": 83.31
+        },
+        {
+          "baseline": 556.8,
+          "text": "-80",
+          "x": 83.31
+        },
+        {
+          "baseline": 578.16,
+          "text": "-100",
+          "x": 78.5
+        },
+        {
+          "baseline": 599.52,
+          "text": "-120",
+          "x": 78.5
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 144.83
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 231.11
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 22: column, values -31, -31, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "0",
+          "x": 86.38
+        },
+        {
+          "baseline": 103.44,
+          "text": "-5",
+          "x": 83.31
+        },
+        {
+          "baseline": 121.68,
+          "text": "-10",
+          "x": 78.5
+        },
+        {
+          "baseline": 139.92,
+          "text": "-15",
+          "x": 78.5
+        },
+        {
+          "baseline": 158.16,
+          "text": "-20",
+          "x": 78.5
+        },
+        {
+          "baseline": 176.64,
+          "text": "-25",
+          "x": 78.5
+        },
+        {
+          "baseline": 194.88,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "-35",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 23: column, values -5, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "35",
+          "x": 81.57
+        },
+        {
+          "baseline": 292.56,
+          "text": "30",
+          "x": 81.57
+        },
+        {
+          "baseline": 306.72,
+          "text": "25",
+          "x": 81.57
+        },
+        {
+          "baseline": 321.12,
+          "text": "20",
+          "x": 81.57
+        },
+        {
+          "baseline": 335.28,
+          "text": "15",
+          "x": 81.57
+        },
+        {
+          "baseline": 349.44,
+          "text": "10",
+          "x": 81.57
+        },
+        {
+          "baseline": 363.6,
+          "text": "5",
+          "x": 86.38
+        },
+        {
+          "baseline": 377.76,
+          "text": "0",
+          "x": 86.38
+        },
+        {
+          "baseline": 392.16,
+          "text": "-5",
+          "x": 83.31
+        },
+        {
+          "baseline": 406.32,
+          "text": "-10",
+          "x": 78.5
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 24: column, values -26, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "40",
+          "x": 81.57
+        },
+        {
+          "baseline": 489.84,
+          "text": "30",
+          "x": 81.57
+        },
+        {
+          "baseline": 508.08,
+          "text": "20",
+          "x": 81.57
+        },
+        {
+          "baseline": 526.32,
+          "text": "10",
+          "x": 81.57
+        },
+        {
+          "baseline": 544.56,
+          "text": "0",
+          "x": 86.38
+        },
+        {
+          "baseline": 562.8,
+          "text": "-10",
+          "x": 78.5
+        },
+        {
+          "baseline": 581.28,
+          "text": "-20",
+          "x": 78.5
+        },
+        {
+          "baseline": 599.52,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 25: column, values -31, 26, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "30",
+          "x": 81.57
+        },
+        {
+          "baseline": 103.44,
+          "text": "20",
+          "x": 81.57
+        },
+        {
+          "baseline": 121.68,
+          "text": "10",
+          "x": 81.57
+        },
+        {
+          "baseline": 139.92,
+          "text": "0",
+          "x": 86.38
+        },
+        {
+          "baseline": 158.16,
+          "text": "-10",
+          "x": 78.5
+        },
+        {
+          "baseline": 176.64,
+          "text": "-20",
+          "x": 78.5
+        },
+        {
+          "baseline": 194.88,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "-40",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 26: column, values 26, 31, height 90 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 289.44,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 300.72,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 312.0,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 323.04,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 334.32,
+          "text": "22",
+          "x": 78.5
+        },
+        {
+          "baseline": 346.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 346.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 373.68,
+          "text": "Chart 27: column, values 990, 1000, height 90 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 399.6,
+          "text": "1005",
+          "x": 78.5
+        },
+        {
+          "baseline": 413.52,
+          "text": "1000",
+          "x": 78.5
+        },
+        {
+          "baseline": 427.44,
+          "text": "995",
+          "x": 83.31
+        },
+        {
+          "baseline": 441.36,
+          "text": "990",
+          "x": 83.31
+        },
+        {
+          "baseline": 455.52,
+          "text": "985",
+          "x": 83.31
+        },
+        {
+          "baseline": 467.28,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 467.28,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 494.88,
+          "text": "Chart 28: column, values 95, 100, height 90 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 520.8,
+          "text": "102",
+          "x": 78.5
+        },
+        {
+          "baseline": 531.84,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 543.12,
+          "text": "98",
+          "x": 83.31
+        },
+        {
+          "baseline": 554.4,
+          "text": "96",
+          "x": 83.31
+        },
+        {
+          "baseline": 565.44,
+          "text": "94",
+          "x": 83.31
+        },
+        {
+          "baseline": 576.72,
+          "text": "92",
+          "x": 83.31
+        },
+        {
+          "baseline": 588.48,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 588.48,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 616.08,
+          "text": "Chart 29: column, values -31, -26, height 90 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 642.0,
+          "text": "-22",
+          "x": 78.5
+        },
+        {
+          "baseline": 653.04,
+          "text": "-24",
+          "x": 78.5
+        },
+        {
+          "baseline": 664.32,
+          "text": "-26",
+          "x": 78.5
+        },
+        {
+          "baseline": 675.36,
+          "text": "-28",
+          "x": 78.5
+        },
+        {
+          "baseline": 686.64,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 697.92,
+          "text": "-32",
+          "x": 78.5
+        },
+        {
+          "baseline": 709.68,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 709.68,
+          "text": "B",
+          "x": 229.91
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Chart 30: column, values 26, 31, height 126 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.48,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 126.72,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 145.2,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 163.44,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.92,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 200.16,
+          "text": "22",
+          "x": 78.5
+        },
+        {
+          "baseline": 212.16,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 212.16,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 239.76,
+          "text": "Chart 31: column, values 990, 1000, height 126 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 265.68,
+          "text": "1005",
+          "x": 78.5
+        },
+        {
+          "baseline": 288.48,
+          "text": "1000",
+          "x": 78.5
+        },
+        {
+          "baseline": 311.52,
+          "text": "995",
+          "x": 83.31
+        },
+        {
+          "baseline": 334.56,
+          "text": "990",
+          "x": 83.31
+        },
+        {
+          "baseline": 357.36,
+          "text": "985",
+          "x": 83.31
+        },
+        {
+          "baseline": 369.36,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 369.36,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 396.96,
+          "text": "Chart 32: column, values 95, 100, height 126 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 422.64,
+          "text": "102",
+          "x": 78.5
+        },
+        {
+          "baseline": 441.12,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 459.6,
+          "text": "98",
+          "x": 83.31
+        },
+        {
+          "baseline": 477.84,
+          "text": "96",
+          "x": 83.31
+        },
+        {
+          "baseline": 496.32,
+          "text": "94",
+          "x": 83.31
+        },
+        {
+          "baseline": 514.56,
+          "text": "92",
+          "x": 83.31
+        },
+        {
+          "baseline": 526.56,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 526.56,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 554.16,
+          "text": "Chart 33: column, values -31, -26, height 126 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 579.84,
+          "text": "-22",
+          "x": 78.5
+        },
+        {
+          "baseline": 598.32,
+          "text": "-24",
+          "x": 78.5
+        },
+        {
+          "baseline": 616.8,
+          "text": "-26",
+          "x": 78.5
+        },
+        {
+          "baseline": 635.04,
+          "text": "-28",
+          "x": 78.5
+        },
+        {
+          "baseline": 653.52,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 671.76,
+          "text": "-32",
+          "x": 78.5
+        },
+        {
+          "baseline": 683.76,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 683.76,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 711.36,
+          "text": "Chart 34: column, values 26, 31, height 216 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 105.36,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 125.52,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 145.92,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 166.08,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 186.24,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 206.4,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 226.56,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 246.96,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 267.12,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 278.88,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 278.88,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 306.48,
+          "text": "Chart 35: column, values 990, 1000, height 216 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 332.4,
+          "text": "1002",
+          "x": 78.5
+        },
+        {
+          "baseline": 352.56,
+          "text": "1000",
+          "x": 78.5
+        },
+        {
+          "baseline": 372.72,
+          "text": "998",
+          "x": 83.31
+        },
+        {
+          "baseline": 393.12,
+          "text": "996",
+          "x": 83.31
+        },
+        {
+          "baseline": 413.28,
+          "text": "994",
+          "x": 83.31
+        },
+        {
+          "baseline": 433.44,
+          "text": "992",
+          "x": 83.31
+        },
+        {
+          "baseline": 453.6,
+          "text": "990",
+          "x": 83.31
+        },
+        {
+          "baseline": 473.76,
+          "text": "988",
+          "x": 83.31
+        },
+        {
+          "baseline": 494.16,
+          "text": "986",
+          "x": 83.31
+        },
+        {
+          "baseline": 514.32,
+          "text": "984",
+          "x": 83.31
+        },
+        {
+          "baseline": 526.08,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 526.08,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 553.68,
+          "text": "Chart 36: column, values 95, 100, height 216 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "101",
+          "x": 78.5
+        },
+        {
+          "baseline": 105.36,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 125.52,
+          "text": "99",
+          "x": 83.31
+        },
+        {
+          "baseline": 145.92,
+          "text": "98",
+          "x": 83.31
+        },
+        {
+          "baseline": 166.08,
+          "text": "97",
+          "x": 83.31
+        },
+        {
+          "baseline": 186.24,
+          "text": "96",
+          "x": 83.31
+        },
+        {
+          "baseline": 206.4,
+          "text": "95",
+          "x": 83.31
+        },
+        {
+          "baseline": 226.56,
+          "text": "94",
+          "x": 83.31
+        },
+        {
+          "baseline": 246.96,
+          "text": "93",
+          "x": 83.31
+        },
+        {
+          "baseline": 267.12,
+          "text": "92",
+          "x": 83.31
+        },
+        {
+          "baseline": 278.88,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 278.88,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 306.48,
+          "text": "Chart 37: column, values -31, -26, height 216 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 332.4,
+          "text": "-23",
+          "x": 78.5
+        },
+        {
+          "baseline": 352.56,
+          "text": "-24",
+          "x": 78.5
+        },
+        {
+          "baseline": 372.72,
+          "text": "-25",
+          "x": 78.5
+        },
+        {
+          "baseline": 393.12,
+          "text": "-26",
+          "x": 78.5
+        },
+        {
+          "baseline": 413.28,
+          "text": "-27",
+          "x": 78.5
+        },
+        {
+          "baseline": 433.44,
+          "text": "-28",
+          "x": 78.5
+        },
+        {
+          "baseline": 453.6,
+          "text": "-29",
+          "x": 78.5
+        },
+        {
+          "baseline": 473.76,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 494.16,
+          "text": "-31",
+          "x": 78.5
+        },
+        {
+          "baseline": 514.32,
+          "text": "-32",
+          "x": 78.5
+        },
+        {
+          "baseline": 526.08,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 526.08,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 553.68,
+          "text": "Chart 38: column, values 26, 31, height 288 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 113.28,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 141.6,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 169.92,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 198.0,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 226.32,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 254.4,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 282.72,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 310.8,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 339.12,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 350.88,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 350.88,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 378.48,
+          "text": "Chart 39: column, values 990, 1000, height 288 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 404.4,
+          "text": "1002",
+          "x": 78.5
+        },
+        {
+          "baseline": 432.48,
+          "text": "1000",
+          "x": 78.5
+        },
+        {
+          "baseline": 460.8,
+          "text": "998",
+          "x": 83.31
+        },
+        {
+          "baseline": 489.12,
+          "text": "996",
+          "x": 83.31
+        },
+        {
+          "baseline": 517.2,
+          "text": "994",
+          "x": 83.31
+        },
+        {
+          "baseline": 545.52,
+          "text": "992",
+          "x": 83.31
+        },
+        {
+          "baseline": 573.6,
+          "text": "990",
+          "x": 83.31
+        },
+        {
+          "baseline": 601.92,
+          "text": "988",
+          "x": 83.31
+        },
+        {
+          "baseline": 630.0,
+          "text": "986",
+          "x": 83.31
+        },
+        {
+          "baseline": 658.32,
+          "text": "984",
+          "x": 83.31
+        },
+        {
+          "baseline": 670.08,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 670.08,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 697.68,
+          "text": "Chart 40: column, values 95, 100, height 288 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "101",
+          "x": 78.5
+        },
+        {
+          "baseline": 113.28,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 141.6,
+          "text": "99",
+          "x": 83.31
+        },
+        {
+          "baseline": 169.92,
+          "text": "98",
+          "x": 83.31
+        },
+        {
+          "baseline": 198.0,
+          "text": "97",
+          "x": 83.31
+        },
+        {
+          "baseline": 226.32,
+          "text": "96",
+          "x": 83.31
+        },
+        {
+          "baseline": 254.4,
+          "text": "95",
+          "x": 83.31
+        },
+        {
+          "baseline": 282.72,
+          "text": "94",
+          "x": 83.31
+        },
+        {
+          "baseline": 310.8,
+          "text": "93",
+          "x": 83.31
+        },
+        {
+          "baseline": 339.12,
+          "text": "92",
+          "x": 83.31
+        },
+        {
+          "baseline": 350.88,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 350.88,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 378.48,
+          "text": "Chart 41: column, values -31, -26, height 288 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 404.4,
+          "text": "-23",
+          "x": 78.5
+        },
+        {
+          "baseline": 432.48,
+          "text": "-24",
+          "x": 78.5
+        },
+        {
+          "baseline": 460.8,
+          "text": "-25",
+          "x": 78.5
+        },
+        {
+          "baseline": 489.12,
+          "text": "-26",
+          "x": 78.5
+        },
+        {
+          "baseline": 517.2,
+          "text": "-27",
+          "x": 78.5
+        },
+        {
+          "baseline": 545.52,
+          "text": "-28",
+          "x": 78.5
+        },
+        {
+          "baseline": 573.6,
+          "text": "-29",
+          "x": 78.5
+        },
+        {
+          "baseline": 601.92,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 630.0,
+          "text": "-31",
+          "x": 78.5
+        },
+        {
+          "baseline": 658.32,
+          "text": "-32",
+          "x": 78.5
+        },
+        {
+          "baseline": 670.08,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 670.08,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 697.68,
+          "text": "Chart 42: column, values 26, 31, height 162 points, labels of 14 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 89.52,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 112.8,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 135.84,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 159.12,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 182.4,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 205.68,
+          "text": "22",
+          "x": 78.5
+        },
+        {
+          "baseline": 223.68,
+          "text": "A",
+          "x": 144.92
+        },
+        {
+          "baseline": 223.68,
+          "text": "B",
+          "x": 230.12
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 43: column, values 26, 31, height 288 points, labels of 14 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 282.72,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 309.6,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 336.48,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 363.36,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 390.24,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 417.12,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 444.0,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 470.88,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 497.76,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 524.88,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 542.88,
+          "text": "A",
+          "x": 144.92
+        },
+        {
+          "baseline": 542.88,
+          "text": "B",
+          "x": 230.12
+        },
+        {
+          "baseline": 571.68,
+          "text": "Chart 44: column, values 26, 31 and 27, 30, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 99.36,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 113.52,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 127.92,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 142.08,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 156.24,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 170.4,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 184.56,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 198.96,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 45: bar, values 26, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "22",
+          "x": 87.43
+        },
+        {
+          "baseline": 418.08,
+          "text": "24",
+          "x": 123.42
+        },
+        {
+          "baseline": 418.08,
+          "text": "26",
+          "x": 159.41
+        },
+        {
+          "baseline": 418.08,
+          "text": "28",
+          "x": 195.4
+        },
+        {
+          "baseline": 418.08,
+          "text": "30",
+          "x": 231.39
+        },
+        {
+          "baseline": 418.08,
+          "text": "32",
+          "x": 267.38
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 46: bar, values 25, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "0",
+          "x": 89.84
+        },
+        {
+          "baseline": 611.28,
+          "text": "10",
+          "x": 132.42
+        },
+        {
+          "baseline": 611.28,
+          "text": "20",
+          "x": 177.41
+        },
+        {
+          "baseline": 611.28,
+          "text": "30",
+          "x": 222.39
+        },
+        {
+          "baseline": 611.28,
+          "text": "40",
+          "x": 267.38
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 47: bar, values 83, 100, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 117.12,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.2,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 224.88,
+          "text": "0",
+          "x": 89.84
+        },
+        {
+          "baseline": 224.88,
+          "text": "50",
+          "x": 146.61
+        },
+        {
+          "baseline": 224.88,
+          "text": "100",
+          "x": 203.39
+        },
+        {
+          "baseline": 224.88,
+          "text": "150",
+          "x": 262.57
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 48: bar, values 84, 100, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "70",
+          "x": 87.43
+        },
+        {
+          "baseline": 418.08,
+          "text": "80",
+          "x": 131.82
+        },
+        {
+          "baseline": 418.08,
+          "text": "90",
+          "x": 176.2
+        },
+        {
+          "baseline": 418.08,
+          "text": "100",
+          "x": 218.18
+        },
+        {
+          "baseline": 418.08,
+          "text": "110",
+          "x": 262.57
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 49: bar, values 95, 100, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "92",
+          "x": 87.43
+        },
+        {
+          "baseline": 611.28,
+          "text": "94",
+          "x": 122.94
+        },
+        {
+          "baseline": 611.28,
+          "text": "96",
+          "x": 158.45
+        },
+        {
+          "baseline": 611.28,
+          "text": "98",
+          "x": 193.96
+        },
+        {
+          "baseline": 611.28,
+          "text": "100 102",
+          "x": 227.06
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 50: bar, values 990, 1000, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 117.12,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.2,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 224.88,
+          "text": "985",
+          "x": 85.03
+        },
+        {
+          "baseline": 224.88,
+          "text": "990",
+          "x": 128.81
+        },
+        {
+          "baseline": 224.88,
+          "text": "995",
+          "x": 172.6
+        },
+        {
+          "baseline": 224.88,
+          "text": "1000",
+          "x": 213.98
+        },
+        {
+          "baseline": 224.88,
+          "text": "1005",
+          "x": 257.76
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 51: bar, values -31, -26, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "-32",
+          "x": 85.9
+        },
+        {
+          "baseline": 418.08,
+          "text": "-30",
+          "x": 121.58
+        },
+        {
+          "baseline": 418.08,
+          "text": "-28",
+          "x": 157.27
+        },
+        {
+          "baseline": 418.08,
+          "text": "-26",
+          "x": 192.95
+        },
+        {
+          "baseline": 418.08,
+          "text": "-24",
+          "x": 228.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "-22",
+          "x": 264.32
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 52: bar, values 0.26, 0.31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "0.22 0.24 0.26 0.28 0.3 0.32",
+          "x": 83.74
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 53: bar, values 31, 31, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 117.12,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.2,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 224.88,
+          "text": "0",
+          "x": 89.84
+        },
+        {
+          "baseline": 224.88,
+          "text": "10",
+          "x": 132.42
+        },
+        {
+          "baseline": 224.88,
+          "text": "20",
+          "x": 177.41
+        },
+        {
+          "baseline": 224.88,
+          "text": "30",
+          "x": 222.39
+        },
+        {
+          "baseline": 224.88,
+          "text": "40",
+          "x": 267.38
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 54: bar, values 26, 31, height 162 points, width 360 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "23",
+          "x": 87.43
+        },
+        {
+          "baseline": 418.08,
+          "text": "24",
+          "x": 123.43
+        },
+        {
+          "baseline": 418.08,
+          "text": "25",
+          "x": 159.42
+        },
+        {
+          "baseline": 418.08,
+          "text": "26",
+          "x": 195.42
+        },
+        {
+          "baseline": 418.08,
+          "text": "27",
+          "x": 231.41
+        },
+        {
+          "baseline": 418.08,
+          "text": "28",
+          "x": 267.4
+        },
+        {
+          "baseline": 418.08,
+          "text": "29",
+          "x": 303.4
+        },
+        {
+          "baseline": 418.08,
+          "text": "30",
+          "x": 339.39
+        },
+        {
+          "baseline": 418.08,
+          "text": "31",
+          "x": 375.39
+        },
+        {
+          "baseline": 418.08,
+          "text": "32",
+          "x": 411.38
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 55: bar, values 990, 1000, height 162 points, width 360 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "984 986 988 990 992 994 996 998 1000 1002",
+          "x": 85.03
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 56: line, values 26, 31, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 99.36,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 113.52,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 127.92,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 142.08,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 156.24,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 170.4,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 184.56,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 198.96,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 57: line, values 25, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 296.64,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 314.88,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 333.12,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 351.36,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 369.6,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 388.08,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 406.32,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 58: line, values 83, 100, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "120",
+          "x": 78.5
+        },
+        {
+          "baseline": 492.96,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 514.08,
+          "text": "80",
+          "x": 83.31
+        },
+        {
+          "baseline": 535.44,
+          "text": "60",
+          "x": 83.31
+        },
+        {
+          "baseline": 556.8,
+          "text": "40",
+          "x": 83.31
+        },
+        {
+          "baseline": 578.16,
+          "text": "20",
+          "x": 83.31
+        },
+        {
+          "baseline": 599.52,
+          "text": "0",
+          "x": 88.12
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 59: line, values 84, 100, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "105",
+          "x": 78.5
+        },
+        {
+          "baseline": 106.56,
+          "text": "100",
+          "x": 78.5
+        },
+        {
+          "baseline": 127.92,
+          "text": "95",
+          "x": 83.31
+        },
+        {
+          "baseline": 149.04,
+          "text": "90",
+          "x": 83.31
+        },
+        {
+          "baseline": 170.4,
+          "text": "85",
+          "x": 83.31
+        },
+        {
+          "baseline": 191.76,
+          "text": "80",
+          "x": 83.31
+        },
+        {
+          "baseline": 213.12,
+          "text": "75",
+          "x": 83.31
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 142.53
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 230.34
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 60: line, values 990, 1000, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "1002",
+          "x": 78.5
+        },
+        {
+          "baseline": 292.56,
+          "text": "1000",
+          "x": 78.5
+        },
+        {
+          "baseline": 306.72,
+          "text": "998",
+          "x": 83.31
+        },
+        {
+          "baseline": 321.12,
+          "text": "996",
+          "x": 83.31
+        },
+        {
+          "baseline": 335.28,
+          "text": "994",
+          "x": 83.31
+        },
+        {
+          "baseline": 349.44,
+          "text": "992",
+          "x": 83.31
+        },
+        {
+          "baseline": 363.6,
+          "text": "990",
+          "x": 83.31
+        },
+        {
+          "baseline": 377.76,
+          "text": "988",
+          "x": 83.31
+        },
+        {
+          "baseline": 392.16,
+          "text": "986",
+          "x": 83.31
+        },
+        {
+          "baseline": 406.32,
+          "text": "984",
+          "x": 83.31
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 61: line, values -31, -26, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "-23",
+          "x": 78.5
+        },
+        {
+          "baseline": 485.76,
+          "text": "-24",
+          "x": 78.5
+        },
+        {
+          "baseline": 499.92,
+          "text": "-25",
+          "x": 78.5
+        },
+        {
+          "baseline": 514.08,
+          "text": "-26",
+          "x": 78.5
+        },
+        {
+          "baseline": 528.48,
+          "text": "-27",
+          "x": 78.5
+        },
+        {
+          "baseline": 542.64,
+          "text": "-28",
+          "x": 78.5
+        },
+        {
+          "baseline": 556.8,
+          "text": "-29",
+          "x": 78.5
+        },
+        {
+          "baseline": 570.96,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 585.12,
+          "text": "-31",
+          "x": 78.5
+        },
+        {
+          "baseline": 599.52,
+          "text": "-32",
+          "x": 78.5
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 62: line, values 31, 31, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 103.44,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 121.68,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 139.92,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 158.16,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 176.64,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 194.88,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 213.12,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 63: area, values 26, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 292.56,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 306.72,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 321.12,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 335.28,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 349.44,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 363.6,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 377.76,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 392.16,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 406.32,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 64: area, values 990, 1000, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "1002",
+          "x": 78.5
+        },
+        {
+          "baseline": 485.76,
+          "text": "1000",
+          "x": 78.5
+        },
+        {
+          "baseline": 499.92,
+          "text": "998",
+          "x": 83.31
+        },
+        {
+          "baseline": 514.08,
+          "text": "996",
+          "x": 83.31
+        },
+        {
+          "baseline": 528.48,
+          "text": "994",
+          "x": 83.31
+        },
+        {
+          "baseline": 542.64,
+          "text": "992",
+          "x": 83.31
+        },
+        {
+          "baseline": 556.8,
+          "text": "990",
+          "x": 83.31
+        },
+        {
+          "baseline": 570.96,
+          "text": "988",
+          "x": 83.31
+        },
+        {
+          "baseline": 585.12,
+          "text": "986",
+          "x": 83.31
+        },
+        {
+          "baseline": 599.52,
+          "text": "984",
+          "x": 83.31
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 146.13
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 231.54
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 65: area, values -31, -26, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "-23",
+          "x": 78.5
+        },
+        {
+          "baseline": 99.36,
+          "text": "-24",
+          "x": 78.5
+        },
+        {
+          "baseline": 113.52,
+          "text": "-25",
+          "x": 78.5
+        },
+        {
+          "baseline": 127.92,
+          "text": "-26",
+          "x": 78.5
+        },
+        {
+          "baseline": 142.08,
+          "text": "-27",
+          "x": 78.5
+        },
+        {
+          "baseline": 156.24,
+          "text": "-28",
+          "x": 78.5
+        },
+        {
+          "baseline": 170.4,
+          "text": "-29",
+          "x": 78.5
+        },
+        {
+          "baseline": 184.56,
+          "text": "-30",
+          "x": 78.5
+        },
+        {
+          "baseline": 198.96,
+          "text": "-31",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "-32",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 141.22
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.91
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 66: stacked column, values 26, 31 and 27, 30, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "70",
+          "x": 78.5
+        },
+        {
+          "baseline": 296.64,
+          "text": "60",
+          "x": 78.5
+        },
+        {
+          "baseline": 314.88,
+          "text": "50",
+          "x": 78.5
+        },
+        {
+          "baseline": 333.12,
+          "text": "40",
+          "x": 78.5
+        },
+        {
+          "baseline": 351.36,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 369.6,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 388.08,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 406.32,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 67: stacked column, values 26, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 485.76,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 499.92,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 514.08,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 528.48,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 542.64,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 556.8,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 570.96,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 585.12,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 599.52,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 68: stacked bar, values 26, 31 and 27, 30, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 117.12,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.2,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 224.88,
+          "text": "0",
+          "x": 89.84
+        },
+        {
+          "baseline": 224.88,
+          "text": "20",
+          "x": 132.42
+        },
+        {
+          "baseline": 224.88,
+          "text": "40",
+          "x": 177.41
+        },
+        {
+          "baseline": 224.88,
+          "text": "60",
+          "x": 222.39
+        },
+        {
+          "baseline": 224.88,
+          "text": "80",
+          "x": 267.38
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 69: stacked bar, values 26, 31, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "22",
+          "x": 87.43
+        },
+        {
+          "baseline": 418.08,
+          "text": "24",
+          "x": 123.42
+        },
+        {
+          "baseline": 418.08,
+          "text": "26",
+          "x": 159.41
+        },
+        {
+          "baseline": 418.08,
+          "text": "28",
+          "x": 195.4
+        },
+        {
+          "baseline": 418.08,
+          "text": "30",
+          "x": 231.39
+        },
+        {
+          "baseline": 418.08,
+          "text": "32",
+          "x": 267.38
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 70: stacked area, values 26, 31 and 27, 30, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 471.6,
+          "text": "70",
+          "x": 78.5
+        },
+        {
+          "baseline": 489.84,
+          "text": "60",
+          "x": 78.5
+        },
+        {
+          "baseline": 508.08,
+          "text": "50",
+          "x": 78.5
+        },
+        {
+          "baseline": 526.32,
+          "text": "40",
+          "x": 78.5
+        },
+        {
+          "baseline": 544.56,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 562.8,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 581.28,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 599.52,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 611.28,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 611.28,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 71: stacked area, values 26, 31, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 99.36,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 113.52,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 127.92,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 142.08,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 156.24,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 170.4,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 184.56,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 198.96,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "23",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 72: stacked column, values 26, 31 and 1, 1, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 296.64,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 314.88,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 333.12,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 351.36,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 369.6,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 388.08,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 406.32,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 73: bar, values 26, 31, height 162 points, width 252 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "22",
+          "x": 87.43
+        },
+        {
+          "baseline": 611.28,
+          "text": "24",
+          "x": 130.62
+        },
+        {
+          "baseline": 611.28,
+          "text": "26",
+          "x": 173.81
+        },
+        {
+          "baseline": 611.28,
+          "text": "28",
+          "x": 217.0
+        },
+        {
+          "baseline": 611.28,
+          "text": "30",
+          "x": 260.19
+        },
+        {
+          "baseline": 611.28,
+          "text": "32",
+          "x": 303.38
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 74: bar, values 26, 31, height 162 points, width 288 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 117.12,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.2,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 224.88,
+          "text": "22",
+          "x": 87.43
+        },
+        {
+          "baseline": 224.88,
+          "text": "24",
+          "x": 137.82
+        },
+        {
+          "baseline": 224.88,
+          "text": "26",
+          "x": 188.21
+        },
+        {
+          "baseline": 224.88,
+          "text": "28",
+          "x": 238.6
+        },
+        {
+          "baseline": 224.88,
+          "text": "30",
+          "x": 288.99
+        },
+        {
+          "baseline": 224.88,
+          "text": "32",
+          "x": 339.38
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 75: bar, values 26, 31, height 162 points, width 324 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "23 24 25 26 27 28 29 30 31 32",
+          "x": 87.43
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 76: bar, values 84, 100, height 162 points, width 252 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "75",
+          "x": 87.43
+        },
+        {
+          "baseline": 611.28,
+          "text": "80",
+          "x": 123.02
+        },
+        {
+          "baseline": 611.28,
+          "text": "85",
+          "x": 158.61
+        },
+        {
+          "baseline": 611.28,
+          "text": "90",
+          "x": 194.2
+        },
+        {
+          "baseline": 611.28,
+          "text": "95",
+          "x": 229.79
+        },
+        {
+          "baseline": 611.28,
+          "text": "100 105",
+          "x": 262.98
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 77: bar, values 84, 100, height 162 points, width 288 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 117.12,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.2,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 224.88,
+          "text": "75",
+          "x": 87.43
+        },
+        {
+          "baseline": 224.88,
+          "text": "80",
+          "x": 129.02
+        },
+        {
+          "baseline": 224.88,
+          "text": "85",
+          "x": 170.61
+        },
+        {
+          "baseline": 224.88,
+          "text": "90",
+          "x": 212.2
+        },
+        {
+          "baseline": 224.88,
+          "text": "95",
+          "x": 253.79
+        },
+        {
+          "baseline": 224.88,
+          "text": "100",
+          "x": 292.98
+        },
+        {
+          "baseline": 224.88,
+          "text": "105",
+          "x": 334.57
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 78: bar, values 84, 100, height 162 points, width 324 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "75",
+          "x": 87.43
+        },
+        {
+          "baseline": 418.08,
+          "text": "80",
+          "x": 135.02
+        },
+        {
+          "baseline": 418.08,
+          "text": "85",
+          "x": 182.61
+        },
+        {
+          "baseline": 418.08,
+          "text": "90",
+          "x": 230.2
+        },
+        {
+          "baseline": 418.08,
+          "text": "95",
+          "x": 277.79
+        },
+        {
+          "baseline": 418.08,
+          "text": "100",
+          "x": 322.98
+        },
+        {
+          "baseline": 418.08,
+          "text": "105",
+          "x": 370.57
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 79: bar, values 84, 100, height 162 points, width 360 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "75",
+          "x": 87.43
+        },
+        {
+          "baseline": 611.28,
+          "text": "80",
+          "x": 141.02
+        },
+        {
+          "baseline": 611.28,
+          "text": "85",
+          "x": 194.61
+        },
+        {
+          "baseline": 611.28,
+          "text": "90",
+          "x": 248.2
+        },
+        {
+          "baseline": 611.28,
+          "text": "95",
+          "x": 301.79
+        },
+        {
+          "baseline": 611.28,
+          "text": "100",
+          "x": 352.98
+        },
+        {
+          "baseline": 611.28,
+          "text": "105",
+          "x": 406.57
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 80: bar, values 95, 100, height 162 points, width 144 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 117.12,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 181.2,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 224.88,
+          "text": "90",
+          "x": 87.43
+        },
+        {
+          "baseline": 224.88,
+          "text": "95",
+          "x": 122.61
+        },
+        {
+          "baseline": 224.88,
+          "text": "100 105",
+          "x": 155.39
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 81: bar, values 95, 100, height 162 points, width 180 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 310.32,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 374.4,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 418.08,
+          "text": "92 94 96 98 100 102",
+          "x": 87.43
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 82: bar, values 26, 31, height 162 points, width 360 points, labels of 14 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.04,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 562.32,
+          "text": "A",
+          "x": 78.71
+        },
+        {
+          "baseline": 610.08,
+          "text": "22",
+          "x": 92.4
+        },
+        {
+          "baseline": 610.08,
+          "text": "24",
+          "x": 155.13
+        },
+        {
+          "baseline": 610.08,
+          "text": "26",
+          "x": 217.86
+        },
+        {
+          "baseline": 610.08,
+          "text": "28",
+          "x": 280.58
+        },
+        {
+          "baseline": 610.08,
+          "text": "30",
+          "x": 343.31
+        },
+        {
+          "baseline": 610.08,
+          "text": "32",
+          "x": 406.04
+        },
+        {
+          "baseline": 638.88,
+          "text": "Chart 83: bar, values 26, 31, height 288 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 148.56,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 275.52,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 350.88,
+          "text": "22",
+          "x": 87.43
+        },
+        {
+          "baseline": 350.88,
+          "text": "24",
+          "x": 123.42
+        },
+        {
+          "baseline": 350.88,
+          "text": "26",
+          "x": 159.41
+        },
+        {
+          "baseline": 350.88,
+          "text": "28",
+          "x": 195.4
+        },
+        {
+          "baseline": 350.88,
+          "text": "30",
+          "x": 231.39
+        },
+        {
+          "baseline": 350.88,
+          "text": "32",
+          "x": 267.38
+        },
+        {
+          "baseline": 378.48,
+          "text": "Chart 84: stacked column, values 27, 31 and 1, 1, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 404.4,
+          "text": "33",
+          "x": 78.5
+        },
+        {
+          "baseline": 418.56,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 432.72,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 447.12,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 461.28,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 475.44,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 489.6,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 503.76,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 518.16,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 532.32,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 544.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 544.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 571.68,
+          "text": "Chart 85: stacked column, values 27, 31 and 0, 0, height 162 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 103.44,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 121.68,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 139.92,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 158.16,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 176.64,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 194.88,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 213.12,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 224.88,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 224.88,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 252.48,
+          "text": "Chart 86: stacked area, values 27, 31 and 1, 1, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 278.4,
+          "text": "33",
+          "x": 78.5
+        },
+        {
+          "baseline": 292.56,
+          "text": "32",
+          "x": 78.5
+        },
+        {
+          "baseline": 306.72,
+          "text": "31",
+          "x": 78.5
+        },
+        {
+          "baseline": 321.12,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 335.28,
+          "text": "29",
+          "x": 78.5
+        },
+        {
+          "baseline": 349.44,
+          "text": "28",
+          "x": 78.5
+        },
+        {
+          "baseline": 363.6,
+          "text": "27",
+          "x": 78.5
+        },
+        {
+          "baseline": 377.76,
+          "text": "26",
+          "x": 78.5
+        },
+        {
+          "baseline": 392.16,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 406.32,
+          "text": "24",
+          "x": 78.5
+        },
+        {
+          "baseline": 418.08,
+          "text": "A",
+          "x": 138.92
+        },
+        {
+          "baseline": 418.08,
+          "text": "B",
+          "x": 229.14
+        },
+        {
+          "baseline": 445.68,
+          "text": "Chart 87: stacked bar, values 27, 31 and 1, 1, height 162 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.52,
+          "text": "B",
+          "x": 78.5
+        },
+        {
+          "baseline": 567.36,
+          "text": "A",
+          "x": 78.63
+        },
+        {
+          "baseline": 611.28,
+          "text": "24",
+          "x": 87.43
+        },
+        {
+          "baseline": 611.28,
+          "text": "26",
+          "x": 123.42
+        },
+        {
+          "baseline": 611.28,
+          "text": "28",
+          "x": 159.41
+        },
+        {
+          "baseline": 611.28,
+          "text": "30",
+          "x": 195.4
+        },
+        {
+          "baseline": 611.28,
+          "text": "32",
+          "x": 231.39
+        },
+        {
+          "baseline": 611.28,
+          "text": "34",
+          "x": 267.38
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "ca6c42a1f0aed990001ae0bb2735a6a4ebfbea49c48089b22638243c4c2b7a57"
+}

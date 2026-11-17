@@ -59,7 +59,7 @@ impl ChartMeasurement<'_, '_> {
         let value_extra = if matches!(chart.kind.as_str(), "pie" | "doughnut") {
             0.0
         } else {
-            let scale = Scale::for_chart(chart, 0.0, false).validate()?;
+            let scale = Scale::for_chart(chart, 0.0, 0.0, false).validate()?;
             let percent = chart.kind.contains("percent_stacked");
             let unit = scale.label_unit();
             let mut width = self

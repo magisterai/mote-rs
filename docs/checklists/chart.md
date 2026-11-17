@@ -130,6 +130,17 @@ A vertical value axis pads each nonzero end of the data by a twentieth of its
 range and takes the finest step of one, two or five times a power of ten that
 the plot height admits, and labels every major tick, as Word does; a horizontal
 value axis omits colliding text while retaining every gridline.
+If the values, or the running totals of a stacked kind, have one sign, differ,
+and span no more than a sixth of the magnitude of the one farthest from zero,
+the axis of either direction excludes zero: the end nearer zero lies half the
+span beyond the data and the other end a twentieth of it, each moved outward to
+a whole number of steps, and the bars and areas stand on that end. The
+[chart-axis-floor probe](../../tests/office/probes/chart-axis-floor.mote) holds
+the rule to Word for column, bar, line, area and stacked kinds, and the
+[native test](../../tests/chart_axis_labels.rs) holds its ticks. A horizontal
+axis that starts at zero keeps an older rule, and its range differs from
+Word's for four charts of the probe. Editable output states no bound, so that
+Word and PowerPoint apply their own rule.
 Pie label-position overrides use automatic placement with a
 warning; doughnut centers use the plot, chart or default white background. Native line and area kinds share axes,
 scales and legends; line charts include circular markers and automatic labels.

@@ -1,0 +1,1325 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+CHART AXIS FLOOR: a value axis starts at zero unless the values have one sign and span at most a sixth of the largest magnitude, when the axis starts half their span beyond the value nearest zero and a twentieth of it beyond the farthest. A stacked chart is judged by its running totals, and the step follows from the padded span and the length of the axis.
+
+#paragraph[Chart 1: column, values 26, 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 2: column, values 25, 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 25, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 3: column, values 26, 30, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 30 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 4: column, values 50, 59, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 50, 59 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 5: column, values 50, 60, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 50, 60 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 6: column, values 50, 61, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 50, 61 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 7: column, values 83, 100, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 83, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 8: column, values 84, 100, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 84, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 9: column, values 95, 100, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 10: column, values 99, 100, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 99, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 11: column, values 990, 1000, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 12: column, values 0.26, 0.31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 0.26, 0.31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 13: column, values 2600, 3100, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 2600, 3100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 14: column, values 26, 28, 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B", "C" },
+    series = {
+      { name = "S1", values = { 26, 28, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 15: column, values 25, 28, 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B", "C" },
+    series = {
+      { name = "S1", values = { 25, 28, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 16: column, values 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A" },
+    series = {
+      { name = "S1", values = { 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 17: column, values 31, 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 31, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 18: column, values -31, -26, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 19: column, values -31, -25, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -25 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 20: column, values -100, -84, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -100, -84 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 21: column, values -100, -83, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -100, -83 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 22: column, values -31, -31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 23: column, values -5, 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -5, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 24: column, values -26, 31, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 25: column, values -31, 26, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, 26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 26: column, values 26, 31, height 90 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(90),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 27: column, values 990, 1000, height 90 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(90),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 28: column, values 95, 100, height 90 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(90),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 29: column, values -31, -26, height 90 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(90),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 30: column, values 26, 31, height 126 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(126),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 31: column, values 990, 1000, height 126 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(126),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 32: column, values 95, 100, height 126 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(126),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 33: column, values -31, -26, height 126 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(126),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 34: column, values 26, 31, height 216 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(216),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 35: column, values 990, 1000, height 216 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(216),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 36: column, values 95, 100, height 216 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(216),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 37: column, values -31, -26, height 216 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(216),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 38: column, values 26, 31, height 288 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(288),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 39: column, values 990, 1000, height 288 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(288),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 40: column, values 95, 100, height 288 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(288),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 41: column, values -31, -26, height 288 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(288),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 42: column, values 26, 31, height 162 points, labels of 14 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false,
+  text = { size = pt(14) }
+)
+
+#paragraph[Chart 43: column, values 26, 31, height 288 points, labels of 14 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(288),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false,
+  text = { size = pt(14) }
+)
+
+#paragraph[Chart 44: column, values 26, 31 and 27, 30, height 162 points.]
+
+#chart(
+  kind = "column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } },
+      { name = "S2", values = { 27, 30 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 45: bar, values 26, 31, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 46: bar, values 25, 31, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 25, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 47: bar, values 83, 100, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 83, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 48: bar, values 84, 100, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 84, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 49: bar, values 95, 100, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 50: bar, values 990, 1000, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 51: bar, values -31, -26, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 52: bar, values 0.26, 0.31, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 0.26, 0.31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 53: bar, values 31, 31, height 162 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 31, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 54: bar, values 26, 31, height 162 points, width 360 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(360),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 55: bar, values 990, 1000, height 162 points, width 360 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(360),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 56: line, values 26, 31, height 162 points.]
+
+#chart(
+  kind = "line",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 57: line, values 25, 31, height 162 points.]
+
+#chart(
+  kind = "line",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 25, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 58: line, values 83, 100, height 162 points.]
+
+#chart(
+  kind = "line",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 83, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 59: line, values 84, 100, height 162 points.]
+
+#chart(
+  kind = "line",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 84, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 60: line, values 990, 1000, height 162 points.]
+
+#chart(
+  kind = "line",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 61: line, values -31, -26, height 162 points.]
+
+#chart(
+  kind = "line",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 62: line, values 31, 31, height 162 points.]
+
+#chart(
+  kind = "line",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 31, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 63: area, values 26, 31, height 162 points.]
+
+#chart(
+  kind = "area",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 64: area, values 990, 1000, height 162 points.]
+
+#chart(
+  kind = "area",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 990, 1000 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 65: area, values -31, -26, height 162 points.]
+
+#chart(
+  kind = "area",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { -31, -26 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 66: stacked column, values 26, 31 and 27, 30, height 162 points.]
+
+#chart(
+  kind = "stacked_column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } },
+      { name = "S2", values = { 27, 30 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 67: stacked column, values 26, 31, height 162 points.]
+
+#chart(
+  kind = "stacked_column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 68: stacked bar, values 26, 31 and 27, 30, height 162 points.]
+
+#chart(
+  kind = "stacked_bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } },
+      { name = "S2", values = { 27, 30 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 69: stacked bar, values 26, 31, height 162 points.]
+
+#chart(
+  kind = "stacked_bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 70: stacked area, values 26, 31 and 27, 30, height 162 points.]
+
+#chart(
+  kind = "stacked_area",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } },
+      { name = "S2", values = { 27, 30 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 71: stacked area, values 26, 31, height 162 points.]
+
+#chart(
+  kind = "stacked_area",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 72: stacked column, values 26, 31 and 1, 1, height 162 points.]
+
+#chart(
+  kind = "stacked_column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } },
+      { name = "S2", values = { 1, 1 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 73: bar, values 26, 31, height 162 points, width 252 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(252),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 74: bar, values 26, 31, height 162 points, width 288 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(288),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 75: bar, values 26, 31, height 162 points, width 324 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(324),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 76: bar, values 84, 100, height 162 points, width 252 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(252),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 84, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 77: bar, values 84, 100, height 162 points, width 288 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(288),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 84, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 78: bar, values 84, 100, height 162 points, width 324 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(324),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 84, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 79: bar, values 84, 100, height 162 points, width 360 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(360),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 84, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 80: bar, values 95, 100, height 162 points, width 144 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(144),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 81: bar, values 95, 100, height 162 points, width 180 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(180),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 95, 100 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 82: bar, values 26, 31, height 162 points, width 360 points, labels of 14 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(360),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false,
+  text = { size = pt(14) }
+)
+
+#paragraph[Chart 83: bar, values 26, 31, height 288 points.]
+
+#chart(
+  kind = "bar",
+  width = pt(216),
+  height = pt(288),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 26, 31 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 84: stacked column, values 27, 31 and 1, 1, height 162 points.]
+
+#chart(
+  kind = "stacked_column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 27, 31 } },
+      { name = "S2", values = { 1, 1 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 85: stacked column, values 27, 31 and 0, 0, height 162 points.]
+
+#chart(
+  kind = "stacked_column",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 27, 31 } },
+      { name = "S2", values = { 0, 0 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 86: stacked area, values 27, 31 and 1, 1, height 162 points.]
+
+#chart(
+  kind = "stacked_area",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 27, 31 } },
+      { name = "S2", values = { 1, 1 } }
+    }
+  },
+  legend = false
+)
+
+#paragraph[Chart 87: stacked bar, values 27, 31 and 1, 1, height 162 points.]
+
+#chart(
+  kind = "stacked_bar",
+  width = pt(216),
+  height = pt(162),
+  data = {
+    categories = { "A", "B" },
+    series = {
+      { name = "S1", values = { 27, 31 } },
+      { name = "S2", values = { 1, 1 } }
+    }
+  },
+  legend = false
+)
