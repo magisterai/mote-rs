@@ -18,7 +18,7 @@
           "children": [
             {
               "kind": "text",
-              "text": "second/first!/first"
+              "text": "second/first!/second"
             }
           ]
         },
@@ -60,7 +60,7 @@
       "children": [
         {
           "kind": "text",
-          "text": "second/first!/first"
+          "text": "second/first!/second"
         }
       ]
     },

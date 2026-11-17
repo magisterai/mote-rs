@@ -445,13 +445,38 @@ fn a_function_body_keeps_its_captured_bindings_and_its_parameters() {
         ),
         "first! second later changed"
     );
-    // A call made by a function body leaves the captured values of the callee
-    // in the globals for the remainder of that body, and a parameter is a
-    // local that the call cannot reach.
-    assert_eq!(
-        text(
-            "#let(label = \"first\")\n#function inner()\n  return label\nend\n#let(label = \"second\")\n#function outer(parameter)\n  local saved = label\n  return saved .. \"/\" .. inner() .. \"/\" .. label .. \"/\" .. parameter\nend\n#let(result = outer(\"given\") .. \"/\" .. label)\n#paragraph[#result]"
+    for (case, source, expected) in [
+        (
+            "a captured value read before and after a call, beside a parameter",
+            "#let(label = \"first\")\n#function inner()\n  return label\nend\n#let(label = \"second\")\n#function outer(parameter)\n  return label .. \"/\" .. inner() .. \"/\" .. label .. \"/\" .. parameter\nend\n#let(result = outer(\"given\") .. \"/\" .. label)\n#paragraph[#result]",
+            "second/first/second/given/second",
         ),
-        "second/first/first/given/second"
-    );
+        (
+            "calls nested three deep",
+            "#let(label = \"first\")\n#function innermost()\n  return label\nend\n#let(label = \"second\")\n#function middle()\n  return label .. \"(\" .. innermost() .. \")\" .. label\nend\n#let(label = \"third\")\n#function outermost()\n  return label .. \"(\" .. middle() .. \")\" .. label\nend\n#let(label = \"fourth\")\n#let(result = outermost() .. \" \" .. label)\n#paragraph[#result]",
+            "third(second(first)second)third fourth",
+        ),
+        (
+            "a function that calls itself through a retained alias",
+            "#let(label = \"first\")\n#function countdown(count)\n  if count == 0 then return label end\n  return label .. count .. \"(\" .. countdown_again(count - 1) .. \")\" .. count .. label\nend\n#let(saved = (function() countdown_again = countdown; return true end)())\n#let(label = \"second\")\n#let(result = countdown(2) .. \" \" .. label)\n#paragraph[#result]",
+            "first2(first1(first)1first)2first second",
+        ),
+        (
+            "two functions that call each other through retained aliases",
+            "#let(label = \"even\")\n#function even(count)\n  if count == 0 then return label end\n  return label .. \"(\" .. retained_odd(count - 1) .. \")\" .. label\nend\n#let(label = \"odd\")\n#function odd(count)\n  if count == 0 then return label end\n  return label .. \"(\" .. retained_even(count - 1) .. \")\" .. label\nend\n#let(saved = (function() retained_odd = odd; retained_even = even; return true end)())\n#let(label = \"outside\")\n#let(result = even(3) .. \" \" .. label)\n#paragraph[#result]",
+            "even(odd(even(odd)even)odd)even outside",
+        ),
+        (
+            "a callee that fails within a protected call",
+            "#let(label = \"first\")\n#function failure()\n  error(label)\nend\n#let(label = \"second\")\n#function outer()\n  return label .. \"/\" .. tostring(pcall(failure)) .. \"/\" .. label\nend\n#let(result = outer() .. \"/\" .. label)\n#paragraph[#result]",
+            "second/false/second/second",
+        ),
+        (
+            "a callee that assigns a Lua global that is no binding",
+            "#let(label = \"first\")\n#function inner()\n  marker = \"assigned\"\n  return label\nend\n#let(label = \"second\")\n#function outer()\n  return inner() .. \"/\" .. marker .. \"/\" .. label\nend\n#let(result = outer() .. \"/\" .. marker .. \"/\" .. label)\n#paragraph[#result]",
+            "first/assigned/second/assigned/second",
+        ),
+    ] {
+        assert_eq!(text(source), expected, "{case}");
+    }
 }

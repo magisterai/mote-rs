@@ -564,6 +564,11 @@
       "lua": true
     },
     {
+      "example": "functions/6",
+      "model": "functions-6",
+      "lua": true
+    },
+    {
       "example": "document-constructors/1",
       "model": "document-constructors-1",
       "lua": true
@@ -7839,6 +7844,46 @@
       ]
     },
     "functions-4": {
+      "page": {},
+      "margin": {},
+      "columns": {},
+      "sections": [
+        {
+          "section_properties": {},
+          "page_numbering": {},
+          "page": {},
+          "margin": {},
+          "columns": {},
+          "header_properties": {},
+          "footer_properties": {},
+          "content": [
+            {
+              "kind": "paragraph",
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Final (Draft: Report) Final"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "content": [
+        {
+          "kind": "paragraph",
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "Final (Draft: Report) Final"
+            }
+          ]
+        }
+      ]
+    },
+    "functions-5": {
       "columns": {},
       "content": [
         {
@@ -7966,7 +8011,7 @@
         }
       ]
     },
-    "functions-5": {
+    "functions-6": {
       "columns": {},
       "content": [
         {

@@ -14,7 +14,7 @@ use crate::{
 };
 use mlua::{HookTriggers, Lua, LuaOptions, StdLib, VmState};
 use std::{
-    cell::{Cell, RefCell},
+    cell::RefCell,
     collections::{BTreeMap, BTreeSet},
     rc::Rc,
     time::{Duration, Instant},
@@ -50,8 +50,6 @@ pub(super) struct Runtime {
     exposed_values: RefCell<BTreeSet<String>>,
     exposed_functions: RefCell<BTreeSet<String>>,
     functions: RefCell<BTreeMap<usize, Rc<DocumentFunction>>>,
-    /// The number of document functions whose bodies are running.
-    function_depth: Cell<usize>,
 }
 impl Runtime {
     fn new(timeout: Option<Duration>) -> mlua::Result<Self> {
@@ -93,7 +91,6 @@ impl Runtime {
             exposed_values: RefCell::new(BTreeSet::new()),
             exposed_functions: RefCell::new(BTreeSet::new()),
             functions: RefCell::new(BTreeMap::new()),
-            function_depth: Cell::new(0),
         })
     }
 
@@ -182,15 +179,7 @@ impl Runtime {
         arguments: Vec<Value>,
         state: &RefCell<&mut EvaluationState<'_>>,
     ) -> mlua::Result<Value> {
-        // A call made by a function body leaves the globals of the callee in
-        // place, as the language chapter on functions states; an expression
-        // outside any body receives its own globals again.
-        let caller_globals = if self.function_depth.get() == 0 {
-            Some(self.exposed_globals()?)
-        } else {
-            None
-        };
-        self.function_depth.set(self.function_depth.get() + 1);
+        let caller_globals = self.exposed_globals()?;
         let caller_bindings = std::mem::replace(
             &mut state.borrow_mut().bindings,
             function.environment.clone(),
@@ -221,9 +210,7 @@ impl Runtime {
         })();
         state.borrow_mut().bindings = caller_bindings;
         state.borrow_mut().source = caller_source;
-        self.function_depth.set(self.function_depth.get() - 1);
-        let restored =
-            caller_globals.map_or(Ok(()), |globals| self.restore_exposed_globals(globals));
+        let restored = self.restore_exposed_globals(caller_globals);
         let value = result.map_err(|error| {
             mlua::Error::external(
                 diagnostic_from_lua(&error, function.span).with_source(function.source.clone()),

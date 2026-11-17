@@ -84,17 +84,32 @@ end
 This produces `Draft: Report`.
 
 The Lua runtime is shared across a compilation. A function call synchronizes
-Lua globals to the callee's captured values. An expression outside any function
-body receives its own globals again when the call returns or fails, so that
-every value and function visible at the expression remains visible throughout
-it, whatever functions it calls and in whatever order.
+Lua globals to the callee's captured values. The caller receives its own globals
+again when the call returns or fails, whether the caller is an expression
+outside any function body or the body of another function. Every value and
+function visible at an expression therefore remains visible throughout it, and
+every value and function captured by a function remains visible throughout its
+body, whatever functions are called and in whatever order.
 
-A nested call is a call made by a function body. A nested call currently leaves
-the callee's captured values in the Lua globals without restoring the calling
-body's globals afterward. Save any captured value needed after a nested call in
-a Lua `local` before that call. Function arguments are local Lua parameters and
-are unaffected. Retained function aliases continue to call the definition that
-created them.
+```mote
+#let(label = "Draft")
+#function status(name)
+  return label .. ": " .. name
+end
+#let(label = "Final")
+#function summary(name)
+  return label .. " (" .. status(name) .. ") " .. label
+end
+#summary("Report")
+```
+
+This produces `Final (Draft: Report) Final`.
+
+Function arguments are local Lua parameters and are unaffected by a call. A Lua
+global that names no value or function visible to the caller or to the callee
+is not synchronized, so an assignment to one persists after the function that
+made it returns. Retained
+function aliases continue to call the definition that created them.
 
 ## Data results
 

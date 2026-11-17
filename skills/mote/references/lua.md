@@ -70,9 +70,8 @@ end
 - A function call may stand inside a larger expression, such as
   `{ categories = column(rows, "region"), values = revenue }`: the bindings
   visible at the expression remain visible after the call.
-- A function body sees the bindings made before its definition. If the body
-  calls another function, a captured value needed after that call is first
-  saved in a `local`.
+- A function body sees the bindings made before its definition, and sees them
+  still after it calls another function.
 
 ## Libraries
 
