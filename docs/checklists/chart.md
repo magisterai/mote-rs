@@ -25,6 +25,9 @@ and [value-domain](attributes/values.md) inventories.
 - [x] `data.series`: ordered property tables with `name` and `values`;
   default series names, numeric conversions and differing series lengths.
 - [x] Single-series shorthand `data.values` and `data.name`.
+- [x] A warning from every output for a stated data member that is not the array
+  the chart reads, and for a value that is not numeric; the chart is still
+  drawn. See [tests](../../tests/lua_data.rs).
 - [x] `legend`: boolean, position string or property table.
   `legend.enabled` and `legend.position`: right→r, left→l, top→t, bottom→b.
   The short legend positions are output model values, not accepted inputs.

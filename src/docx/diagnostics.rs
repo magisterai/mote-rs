@@ -115,6 +115,13 @@ fn visit(content: &[Content], cell_depth: usize, flattened: bool, warnings: &mut
                     }
                 }
             }
+            ElementKind::Chart => {
+                if let Some(data) = nested(attributes, "data") {
+                    for message in crate::charts::data_warnings(data, "chart") {
+                        report(element, message, warnings);
+                    }
+                }
+            }
             _ => {}
         }
         if flattened

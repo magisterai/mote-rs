@@ -9,7 +9,8 @@ feed the already inventoried attributes of the receiving directives.
 - [x] No body; empty binding lists allowed; positional arguments rejected.
 - [x] Scalar, length, color, object, and array values retain their types.
 - [x] Rebinding replaces the current local value; bodies have child scopes.
-- [x] Dotted object paths and zero-based array paths in expressions.
+- [x] Dotted object paths and zero-based array paths in expressions, with the
+  same meaning when [Lua is enabled](../../tests/lua_data.rs).
 - [x] Value insertion in content and sentence punctuation after paths.
 - [x] Unknown names, missing properties, invalid indices and scalar traversal fail with source locations.
 - [x] Bindings remain evaluation state, separate from the emitted document model.

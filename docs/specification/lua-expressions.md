@@ -9,8 +9,23 @@ conditions, and iterable expressions can use Lua 5.1 expression syntax.
 
 Arithmetic (`+`, `-`, `*`, `/`), comparisons (`==`, `~=`, `<`, `>`), logical
 operators (`and`, `or`, `not`), and string concatenation (`..`) are evaluated by
-Lua. Square-bracket array indexing is one-based. Dotted Mote paths that resolve
-directly still use the zero-based path rules from the bindings chapter.
+Lua. Square-bracket array indexing is one-based.
+
+A zero-based static path from the bindings chapter keeps its meaning with Lua
+enabled, so that a source that compiles without Lua compiles with it. A numeric
+segment that directly follows a name or a named segment, as in `rows.0.name` or
+`inch(rows.0.width)`, selects by the rules of that chapter wherever a Lua
+expression is accepted: in a binding value, a directive or helper argument, a
+condition, an iterable, and an entry of a table constructor. No valid Lua
+expression contains a name followed by a period and a digit, so that the
+recognition changes no Lua expression. A segment that selects nothing is an
+error.
+
+A numeric segment that follows any other expression, as in `(rows).0` or
+`rows[1].0`, is not recognized, and neither is one within a function body. The
+error states that a zero-based static path is not Lua and suggests `rows[1]`. A
+numeric segment in content is text with Lua enabled as without it: `#rows.0`
+inserts `rows` followed by `.0`.
 
 This example requires Lua:
 

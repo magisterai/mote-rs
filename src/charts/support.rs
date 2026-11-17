@@ -37,6 +37,9 @@ pub(crate) fn warnings(
         "overlap",
         "name",
     ];
+    if let Some(data) = crate::properties::object(attributes, "data") {
+        warnings.extend(crate::charts::data_warnings(data, path));
+    }
     if flattened {
         warnings.insert(format!(
             "{path} chart geometry is omitted from flattened native stories"

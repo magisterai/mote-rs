@@ -46,6 +46,80 @@ pub(super) fn resolve(data: Option<&Properties>) -> Result<(Vec<String>, Vec<Ser
     }
     Ok((categories, series))
 }
+/// The stated members of the data that the chart cannot read. Each is passed
+/// over or charted as zero, so that without a warning the chart would be drawn
+/// empty or flat with no account of the cause.
+pub(crate) fn warnings(data: &Properties, path: &str) -> Vec<String> {
+    let mut warnings = Vec::new();
+    let category_members = ["categories", "labels"].map(|name| (name, stated(data, name)));
+    if !category_members
+        .iter()
+        .any(|(_, value)| matches!(value, Some(Value::Array(_))))
+    {
+        for (name, _) in category_members.iter().filter(|(_, value)| value.is_some()) {
+            warnings.push(format!(
+                "{path}.data.{name} is not an array and gives the chart no categories"
+            ));
+        }
+    }
+    match stated(data, "series") {
+        Some(Value::Array(series)) => {
+            for (index, entry) in series.iter().enumerate() {
+                let path = format!("{path}.data.series entry {}", index + 1);
+                match entry {
+                    Value::Object(fields) => values_warnings(
+                        &format!("{path} values"),
+                        fields.get("values"),
+                        &mut warnings,
+                    ),
+                    _ => warnings.push(format!(
+                        "{path} is not a table with a values array and gives the chart no series"
+                    )),
+                }
+            }
+        }
+        // A series member that is no array yields to the single-series form.
+        series => match stated(data, "values") {
+            Some(values) => {
+                values_warnings(&format!("{path}.data.values"), Some(values), &mut warnings)
+            }
+            None if series.is_some() => warnings.push(format!(
+                "{path}.data.series is not an array and gives the chart no series"
+            )),
+            None => {}
+        },
+    }
+    warnings
+}
+
+fn stated<'value>(fields: &'value Properties, name: &str) -> Option<&'value Value> {
+    fields.get(name).filter(|value| **value != Value::Nil)
+}
+
+fn values_warnings(path: &str, values: Option<&Value>, warnings: &mut Vec<String>) {
+    let Some(Value::Array(values)) = values else {
+        warnings.push(format!(
+            "{path} is not an array and gives the chart no series"
+        ));
+        return;
+    };
+    for (index, value) in values.iter().enumerate() {
+        if number(value).is_none() {
+            warnings.push(format!(
+                "{path} entry {} is not a number and is charted as zero",
+                index + 1
+            ));
+        }
+    }
+}
+
+fn number(value: &Value) -> Option<f64> {
+    match value {
+        Value::Number(number) => Some(*number),
+        _ => value.to_text().trim().parse().ok(),
+    }
+}
+
 fn array(value: Option<&Value>) -> Option<&[Value]> {
     match value? {
         Value::Array(values) => Some(values),
@@ -57,10 +131,7 @@ fn resolve_series(name: String, values: &[Value]) -> Result<Series, Error> {
         .iter()
         .enumerate()
         .map(|(index, value)| {
-            let number = match value {
-                Value::Number(number) => *number,
-                _ => value.to_text().trim().parse::<f64>().unwrap_or_default(),
-            };
+            let number = number(value).unwrap_or_default();
             if number.is_finite() {
                 Ok(number)
             } else {

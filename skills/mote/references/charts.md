@@ -26,7 +26,8 @@ sequence of values, one for each category.
 ```
 
 - A single series may be written `data = { name = "Sales", values = { 4, 7 } }`.
-- A value is a number or a numeric string; any other value counts as zero.
+- A value is a number or a numeric string; any other value counts as zero, with
+  a warning, as does a `values` or `categories` member that is not an array.
 - The data may be a binding, such as a JSON resource loaded with `json(...)`.
 
 ## Kinds

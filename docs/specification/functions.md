@@ -33,10 +33,14 @@ retaining inline and block content. In a preformatted context it preserves
 whitespace.
 
 A return value can be text, a number, a boolean, a typed length or color, an
-object, or document content. `nil` inserts nothing. A dense Lua array returned by
-a function becomes a sequence of content: nested arrays flatten, strings become
-text, and existing elements retain their structure and attributes. This differs
-from an ordinary array-valued expression, which retains its array value.
+object, an array, or document content. `nil` inserts nothing.
+
+A function result is a value, and [data results](#data-results) describes an
+array result that is used as one.
+
+A function called in content inserts its result. An array result is there a
+sequence of content: nested arrays flatten, strings and numbers become text, and
+existing elements retain their structure and attributes.
 
 ```mote
 #function surround(prefix, body)
@@ -44,6 +48,11 @@ from an ordinary array-valued expression, which retains its array value.
 end
 #surround("Start: ")[**Important** text.]
 ```
+
+A reference to a binding that holds an array result inserts the same sequence
+if the array holds document content at any depth. An array of data alone is
+inserted as every array value is, as the text of its entries separated by a
+comma and a space.
 
 The resulting content follows the surrounding directive's rules. Returning a
 heading inside a paragraph is an error because paragraphs accept inline content.
@@ -80,6 +89,31 @@ caller's globals afterward. Save any captured value needed after a nested call
 in a Lua `local` before that call. Function arguments are local Lua parameters
 and are unaffected. Retained function aliases continue to call the definition
 that created them.
+
+## Data results
+
+A function result is a value. A dense Lua array remains an array: its numbers
+remain numbers, its strings remain strings, and its nested tables keep their
+shape. An array result can therefore be bound with `let`, indexed, measured with
+`#`, traversed by `for`, and given to a chart or to another function, exactly as
+an array nested in a returned object can.
+
+```mote
+#function squares(count)
+  local values = {}
+  for index = 1, count do values[index] = index * index end
+  return values
+end
+#let(values = squares(3), count = #values)
+#for value in values {#paragraph[#value of #count]}
+```
+
+The example produces three paragraphs, `1 of 3`, `4 of 3` and `9 of 3`.
+
+The result above is bound before it is used. A function call within a larger
+expression is a nested call in the sense of
+[lexical definitions](#lexical-definitions), so that a binding made after the
+function was defined is absent from the remainder of that expression.
 
 Functions share the Lua execution budget, restricted global environment, and
 source-relative JSON resolver described in the preceding chapter. Their return

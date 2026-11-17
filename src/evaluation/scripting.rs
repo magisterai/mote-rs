@@ -1,6 +1,7 @@
 //! Opt-in Lua execution with a compilation-wide clock and scoped host callbacks.
 mod constructors;
 mod library;
+mod static_paths;
 mod values;
 use super::{
     EvaluationState,
@@ -69,6 +70,7 @@ impl Runtime {
             lua.globals().set(name, mlua::Nil)?;
         }
         library::install(&lua)?;
+        lua.load(static_paths::INDEX_FUNCTION).exec()?;
         let initial_globals = lua.create_table()?;
         for pair in lua.globals().pairs::<mlua::Value, mlua::Value>() {
             let (name, value) = pair?;
@@ -203,7 +205,7 @@ impl Runtime {
                 .collect::<mlua::Result<mlua::MultiValue>>()?;
             let value: mlua::Value = callable.call(arguments)?;
             check_deadline(self.deadline)?;
-            values::from_function_return(value)
+            values::from_lua(value)
         })();
         state.borrow_mut().bindings = caller_bindings;
         state.borrow_mut().source = caller_source;
@@ -337,7 +339,7 @@ pub(super) fn evaluate(
             .unwrap_or_else(|| "expression".into());
         let results: mlua::MultiValue = runtime
             .lua
-            .load(format!("return {source}"))
+            .load(format!("return {}", static_paths::rewrite(source)))
             .set_name(name)
             .eval()?;
         check_deadline(runtime.deadline)?;
@@ -353,18 +355,47 @@ pub(super) fn call(
         runtime.execute_function(function, arguments, state)
     })
 }
+/// The content a referenced value inserts. An array that holds document content
+/// is inserted in order, and an array of data alone is inserted as its text.
 pub(super) fn value_content(value: Value) -> Vec<Content> {
     match value {
-        Value::Nil => Vec::new(),
-        Value::Content(content) => content,
-        Value::Element(element) => vec![Content::Element(*element)],
-        value => vec![Content::Text(value.to_text())],
+        Value::Array(_) if !holds_content(&value) => vec![Content::Text(value.to_text())],
+        value => values::into_content(value),
+    }
+}
+
+/// The content a function called in content inserts: an array is a sequence of
+/// content to insert in order, whatever its entries are.
+pub(super) fn function_result_content(value: Value) -> Vec<Content> {
+    values::into_content(value)
+}
+
+fn holds_content(value: &Value) -> bool {
+    match value {
+        Value::Content(_) | Value::Element(_) => true,
+        Value::Array(values) => values.iter().any(holds_content),
+        _ => false,
     }
 }
 
 fn diagnostic_from_lua(error: &mlua::Error, span: Span) -> Diagnostic {
-    error
-        .downcast_ref::<Diagnostic>()
-        .cloned()
-        .unwrap_or_else(|| Diagnostic::new(span, error.to_string()))
+    error.downcast_ref::<Diagnostic>().cloned().unwrap_or_else(|| {
+        let message = error.to_string();
+        // Lua reports a numeric segment as a malformed number, or as an
+        // unexpected number where the segment ends the expression.
+        let numeric_segment = message
+            .split("near '.")
+            .nth(1)
+            .is_some_and(|rest| rest.starts_with(|character: char| character.is_ascii_digit()));
+        Diagnostic::new(
+            span,
+            if numeric_segment {
+                format!(
+                    "{message}; a zero-based static path such as rows.0 is not Lua and is recognized only directly after a name: write rows[1], which counts from one"
+                )
+            } else {
+                message
+            },
+        )
+    })
 }

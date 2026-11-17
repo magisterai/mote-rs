@@ -2,6 +2,7 @@
 pub(crate) mod appearance;
 mod data;
 pub(crate) use data::validate_document;
+pub(crate) use data::warnings as data_warnings;
 pub(crate) mod drawingml;
 pub(crate) mod support;
 pub(crate) mod workbook;

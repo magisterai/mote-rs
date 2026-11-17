@@ -48,6 +48,12 @@ An existing series array takes precedence over this shorthand, even when empty.
 
 Numeric values remain numeric; numeric text is parsed after trimming. Other
 unparseable values become zero. Non-finite values are rejected during output.
+
+A chart that loses data by these rules is still drawn, and every output reports
+the loss by a warning: a `categories` or `labels` member where neither is an
+array, a `series` entry that is not a table with a `values` array, a `series` or
+`values` member that leaves the chart without a series because it is not an
+array, and a value that is not numeric.
 Arrays retain their different lengths. Editable workbook columns preserve exactly
 the supplied category and series entries, matching their chart caches; missing
 cells stay absent. Native Cartesian plots use zero for a missing category value

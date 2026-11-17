@@ -253,15 +253,6 @@ pub(super) fn into_content(value: Value) -> Vec<Content> {
     }
 }
 
-pub(super) fn from_function_return(value: LuaValue) -> mlua::Result<Value> {
-    let value = from_lua(value)?;
-    Ok(if matches!(value, Value::Array(_)) {
-        Value::Content(into_content(value))
-    } else {
-        value
-    })
-}
-
 fn content_sequence(value: LuaValue, depth: usize) -> mlua::Result<Vec<Content>> {
     let value = convert(value, depth)?;
     if matches!(&value, Value::Object(fields) if fields.is_empty()) {

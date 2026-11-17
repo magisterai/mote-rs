@@ -19,7 +19,8 @@ Total revenue was #total million, of which North earned #share%.
 - The operators are `+`, `-`, `*`, `/`, `..` (concatenation), `==`, `~=`, `<`,
   `>`, `and`, `or` and `not`.
 - An index in square brackets counts from one, as in `sales.regions[1]`; a
-  dotted Mote path such as `sales.regions.0` counts from zero.
+  dotted Mote path directly after a name, such as `sales.regions.0`, counts from
+  zero.
 - Every binding in scope is visible to Lua, and the value helpers, such as
   `format_number` and `upper`, are Lua functions.
 - An expression is not written inline in text: its value is bound with `#let` and
@@ -48,6 +49,27 @@ North earned #percent(62, 109) of revenue.
 - A function may return text, a number, a value, or content built with the
   `document` constructors, such as `document.paragraph`, `document.strong` or
   `document.table`; an array of content is inserted in order.
+
+## Data from functions
+
+A function may return an array or object of data. A binding holds the result
+for a loop, a table or a chart.
+
+```mote lua
+#function column(rows, name)
+  local values = {}
+  for index, row in ipairs(rows) do values[index] = row[name] end
+  return values
+end
+#let(rows = csv("sales.csv"))
+#let(regions = column(rows, "region"), revenue = column(rows, "revenue"))
+
+#chart(kind = "bar", title = "Revenue", data = { categories = regions, values = revenue })
+```
+
+- Each result is bound by its own `#let` argument before use: a function call
+  inside a larger expression hides the bindings made after the function was
+  defined from the rest of that expression.
 
 ## Libraries
 

@@ -300,7 +300,7 @@ fn evaluate_nodes(
         {
             let value = functions::evaluate(&function, call, node.span, context, document)?;
             skip_declaration_trivia = value == Value::Nil;
-            for child in scripting::value_content(value) {
+            for child in scripting::function_result_content(value) {
                 append_evaluated_content(
                     child,
                     mode,
@@ -779,10 +779,16 @@ fn evaluate_call(
         return constructors::evaluate(signature, call, span, context, document);
     }
     if !call.bodies.is_empty() {
-        return Err(Diagnostic::new(
-            span,
-            format!("unsupported directive: {}", call.name),
-        ));
+        let root = call.name.split('.').next().unwrap_or_default();
+        let message = if document.bindings.resolve_bound_path(root).is_some() {
+            format!(
+                "unsupported directive: {name}; {root} is a value, which takes no bracketed body. An indexed element is bound in an expression first, as in #let(first = {root}.0), or #let(first = {root}[1]) with Lua enabled",
+                name = call.name
+            )
+        } else {
+            format!("unsupported directive: {}", call.name)
+        };
+        return Err(Diagnostic::new(span, message));
     }
     Ok(Content::Text(value_as_text(
         &evaluate_helper(&call.name, &call.arguments, span, document)?,

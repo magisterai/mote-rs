@@ -60,7 +60,9 @@ Content references consume identifier segments only. The final period in
 in content: `#rows.0` inserts `rows` followed by literal `.0`. Bind the indexed
 value in an expression first, then insert its name as above. Bracket indexing,
 operators, and arbitrary expression interpolation are not part of this static
-expression subset.
+expression subset. A value followed by a bracketed body, as in `#rows[1]`, is an
+error, since a value takes no body. The path rules of this section hold
+unchanged when [Lua expressions](lua-expressions.md) are enabled.
 
 Helper names and value names occupy separate namespaces. A binding named `upper`
 does not replace the `upper(...)` helper. Prefer descriptive names over `true`,
