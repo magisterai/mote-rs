@@ -554,12 +554,8 @@ fn content(
                 }
             }
         }
-        if in_cell && matches!(element.kind, ElementKind::Paragraph | ElementKind::Heading) {
-            for property in ["border", "fill"] {
-                if attributes.contains_key(property) {
-                    warnings.insert(format!("{path}.{property} does not paint a native paragraph band inside a cell; inline highlighting remains visible"));
-                }
-            }
+        if in_cell && element.kind == ElementKind::ListItem && attributes.contains_key("fill") {
+            warnings.insert(format!("{path}.fill is not painted on a list item inside a cell; apply fill to a paragraph of the item"));
         }
         if element.kind == ElementKind::Caption
             && attributes.contains_key("numbering")

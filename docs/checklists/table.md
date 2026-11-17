@@ -25,6 +25,8 @@ Language/model and editable DOCX support are verified by captured packages.
 
 Native PDF/PNG supports width selection, alignment, cell defaults, row-based
 conditional styling, nested tables, shared physical borders and page/column flow.
+The fill and the borders of a paragraph in a cell are painted as the
+[cell checklist](cell.md) describes.
 `indent`, `cell_spacing` and `layout` affect editable DOCX only; native output warns
 that these properties have no effect. First/last-column regions and column banding
 also remain editable-output capabilities. See the [capture notes](../../tests/fixtures/tables/README.md)

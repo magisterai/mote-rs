@@ -229,7 +229,12 @@ pub(super) fn prepare_content(
             values::boolean(&element.attributes, super::captions::KEEP_WITH_NEXT),
         );
     }
-    join_identical_borders(&mut builder.blocks);
+    // The content of a cell is prepared one node at a time, and its paragraphs
+    // are joined once the blocks of the whole cell are gathered: a second pass
+    // would take the rules that the first removed for a difference of borders.
+    if !in_cell {
+        join_identical_borders(&mut builder.blocks);
+    }
     for (block, kept) in builder.blocks.iter().zip(&mut kept_with_next) {
         if let Block::Paragraph(paragraph) = block {
             *kept |= paragraph.text.style.keep_with_next;
@@ -246,7 +251,7 @@ pub(super) fn prepare_content(
 /// rules through the space between the two. Two shaded paragraphs without
 /// borders whose boxes are identical are joined likewise, and have no rule to
 /// remove.
-fn join_identical_borders(blocks: &mut [Block]) {
+pub(super) fn join_identical_borders(blocks: &mut [Block]) {
     let authored: Vec<_> = blocks
         .iter()
         .map(|block| match block {

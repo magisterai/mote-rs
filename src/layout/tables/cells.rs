@@ -228,9 +228,13 @@ fn inherit_list_items(list: &mut Element, attributes: &Properties) {
                 {
                     let authored =
                         tables::cell_defaults(&paragraph.attributes, &item.attributes, false);
+                    let authored_fill = paragraph.attributes.get("fill").cloned();
                     paragraph.attributes =
                         tables::cell_defaults(&paragraph.attributes, &paragraph_defaults, false);
                     paragraph.attributes.remove("fill");
+                    paragraph
+                        .attributes
+                        .extend(authored_fill.map(|fill| (String::from("fill"), fill)));
                     paragraph.attributes.remove("width");
                     for (name, fallback) in [("before", 0.0), ("after", item_geometry.after)] {
                         if !explicit_spacing(&authored, name) {

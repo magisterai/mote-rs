@@ -383,6 +383,7 @@ fn place_cell(
         - window.offset
         + window.inset;
     let content_left = left + cell.margins[3];
+    let mut painting = ParagraphPainting::default();
     for (index, block) in cell.blocks.iter().enumerate() {
         let mut block_top = top + vertical + cell.content_tops[index];
         let object_left = content_left + cell.block_frames[index].x;
@@ -393,7 +394,9 @@ fn place_cell(
         }
         match block {
             Block::Paragraph(paragraph) => {
-                let mut painting = ParagraphPainting::default();
+                if paragraph.clear_fill_before {
+                    painting.clear_fill();
+                }
                 for (line_index, line) in paragraph.text.lines.iter().enumerate() {
                     if block_top + line.height <= clip_top + 0.01 || block_top >= clip_bottom - 0.01
                     {
@@ -422,6 +425,10 @@ fn place_cell(
                     );
                     block_top += line.height;
                 }
+                if paragraph.clear_fill_after {
+                    painting.clear_fill();
+                }
+                continue;
             }
             Block::Divider(divider) => divider.place(page, object_left, block_top, object_width),
             Block::Image(image) => {
@@ -455,6 +462,7 @@ fn place_cell(
             }
             Block::Break(_) => {}
         }
+        painting.clear_fill();
     }
     page.operations.push(PageOperation::PopClip);
     Ok(())

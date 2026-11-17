@@ -49,6 +49,9 @@ The `#table`, `#row` and `#cell` directives give full control.
 - A cell accepts `width`, `colspan`, `rowspan`, `fill`, `alignment`,
   `vertical_alignment` (`top`, `center` or `bottom`), `margin` and `borders`. The
   `margin` table gives `all`, `vertical`, `horizontal`, or individual edges.
+- A paragraph in a cell takes `fill` and `border` as in body text. The shading
+  and the rules are measured from the text of the cell, lie above the fill of
+  the cell, and end at the edge of the cell.
 
 ## Defaults for every table
 

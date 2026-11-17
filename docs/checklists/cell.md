@@ -27,8 +27,14 @@ Language/model and editable DOCX support are verified by captured packages.
 
 Native PDF/PNG supports column/row spans, width, margins, fill, horizontal and
 vertical alignment, shared borders, and structured text, links, images, lists and
-nested tables. Cell content is clipped to its physical fragment. Paragraph bands
-and paragraph borders inside cells are omitted; inline highlights remain visible.
+nested tables. Cell content is clipped to its physical fragment. The fill and
+the borders of a paragraph in a cell are painted above the fill of the cell by
+the rule of body text, measured from the text area of the cell, and are cut off
+at the edge of the cell; the [paragraph checklist](paragraph.md) states the rule
+and the [cell paragraph tests](../../tests/cell_paragraphs.rs) cover a repeated
+header row, a merged cell, a vertically aligned cell, a nested table and a row
+split between pages. The fill of a list item in a cell is not painted, and is
+reported.
 `text_direction` and `no_wrap` affect editable DOCX only and produce native support warnings.
 
 Microsoft Word visual review remains unreviewed.

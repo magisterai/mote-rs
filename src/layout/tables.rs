@@ -236,12 +236,7 @@ pub(super) fn prepare(
                     .extend(std::iter::repeat_n(frame, blocks.len()));
                 cell.blocks.extend(blocks);
             }
-            for block in &mut cell.blocks {
-                if let Block::Paragraph(paragraph) = block {
-                    paragraph.text.style.fill = None;
-                    paragraph.text.borders = Default::default();
-                }
-            }
+            super::blocks::join_identical_borders(&mut cell.blocks);
             let mut previous_after: f64 = 0.0;
             for block in &cell.blocks {
                 let (height, before, after) = cells::block_geometry(block);

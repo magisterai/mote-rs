@@ -62,6 +62,11 @@ support. Border conflicts are resolved once per shared physical edge.
 Nested cell content uses the definitions from earlier chapters: paragraphs,
 headings, spans, links, lists, quotes and images. Tables can also be nested in
 cells. Retained properties without a native effect produce diagnostics.
+The box of a paragraph in a cell, as the
+[formatting chapter](formatting-attributes.md) defines it, is measured within the
+text area of the cell: the cell less its margins. The borders and the shading of
+the paragraph follow the rules of that chapter, lie above the fill of the cell,
+and end at the edge of the cell.
 
 A Markdown table requires a header line and a matching delimiter line with at
 least two pipe-separated cells. Delimiters contain at least three hyphens;

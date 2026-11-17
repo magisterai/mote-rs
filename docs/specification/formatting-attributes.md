@@ -185,7 +185,9 @@ line. Consecutive paragraphs whose borders are identical on every side, and
 whose boxes are equal, are joined: no border is drawn between them, and
 the side borders and the shading of the upper paragraph cross the space between
 them. The shading of a paragraph without borders crosses the space between it
-and a following shaded paragraph without borders whose box is equal. Evaluation
+and a following shaded paragraph without borders whose box is equal. The same
+rules hold for the paragraphs of a table cell, as the
+[tables chapter](tables.md) states. Evaluation
 checks that an outer `border` argument is an object, then retains its contents
 without validating individual sides or values. For DOCX, an empty style in a
 property object falls through to `val`, then to `single`; an empty color uses the

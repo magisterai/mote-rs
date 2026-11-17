@@ -139,11 +139,19 @@ crosses the space after it only to a paragraph that shares its box: one with
 identical borders and an equal box, or a shaded paragraph without borders after
 another whose box is equal. The space before the lower paragraph that exceeds
 the space after the upper one takes the lower shading. Word shades a paragraph
-in a table cell by the same rule; native output does not paint a paragraph fill
-or border inside a cell. A list item's fill is not written to DOCX, and its
-native band is not measured against Word. Styles other than
-single and thick are drawn as a single line and reported; borders inside table
-cells are not painted. See the [native block tests](../../tests/native_blocks.rs).
+in a table cell by the same rule, measured from the text area of the cell: a
+shading from 78.72 to 265.68 points was measured about cell text from 80.25 to
+264.25 points. Native output paints the fill and the borders of a paragraph in a
+cell by that rule, joins and bridges the adjacent paragraphs of one cell as in
+body text, leaves a box open where its row splits between pages, and cuts the
+shading and the rules off at the edge of the cell; see the
+[cell paragraph tests](../../tests/cell_paragraphs.rs). The rules and the joined
+boxes of a paragraph in a cell, and the cut at the edge of the cell, are not
+measured against Word. A list item's fill is not written to DOCX, and its
+native band is not measured against Word; native output does not paint the fill
+of a list item in a cell, and reports it. Styles other than
+single and thick are drawn as a single line and reported. See the
+[native block tests](../../tests/native_blocks.rs).
 List item child blocks and quote child blocks flatten to inline text; nested lists
 inside list items retain their own markers. See the
 [native block captures](../../tests/fixtures/native-blocks/README.md) and
