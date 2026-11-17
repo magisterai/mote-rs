@@ -1,0 +1,77 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(16) } } }
+)
+
+#set paragraph(style = "Normal")
+
+NESTED TABLE AT THE END OF A CELL: a cell whose content ends with a nested table is closed in the package by an empty paragraph, to which Word gives no height, so the row after it lies where the nested table alone requires.
+
+#table[
+  #row[
+    #cell[
+      #paragraph[Control before]
+      #paragraph[Control last paragraph]
+    ]
+    #cell[Control beside]
+  ]
+  #row[#cell[Row after control]#cell[Beside]]
+  #row[
+    #cell[
+      #paragraph[One before]
+      #table[
+        #row[#cell[One inner first]#cell[One inner second]]
+      ]
+    ]
+    #cell[One beside]
+  ]
+  #row[#cell[Row after one]#cell[Beside]]
+  #row[
+    #cell[
+      #table[
+        #row[#cell[Two inner first]#cell[Two inner second]]
+        #row[#cell[Two inner third]#cell[Two inner fourth]]
+      ]
+    ]
+    #cell[Two beside]
+  ]
+  #row[#cell[Row after two]#cell[Beside]]
+  #row[
+    #cell[
+      #paragraph[Three before]
+      #table[
+        #row[
+          #cell[
+            #paragraph[Three middle]
+            #table[
+              #row[#cell[Three innermost]]
+            ]
+          ]
+        ]
+      ]
+    ]
+    #cell[Three beside]
+  ]
+  #row[#cell[Row after three]#cell[Beside]]
+  #row[
+    #cell[
+      #table[
+        #row[#cell[Four inner]]
+      ]
+      #paragraph[Four closing paragraph]
+    ]
+    #cell[Four beside]
+  ]
+  #row[#cell[Row after four]#cell[Beside]]
+]
+
+The line after the table.

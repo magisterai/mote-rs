@@ -1,0 +1,162 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 84.96,
+          "text": "NESTED TABLE AT THE END OF A CELL: a cell whose content ends with a nested table is",
+          "x": 72.0
+        },
+        {
+          "baseline": 100.8,
+          "text": "closed in the package by an empty paragraph, to which W ord gives no height, so the row after it",
+          "x": 72.0
+        },
+        {
+          "baseline": 116.88,
+          "text": "lies where the nested table alone requires.",
+          "x": 72.0
+        },
+        {
+          "baseline": 137.28,
+          "text": "Control before",
+          "x": 78.24
+        },
+        {
+          "baseline": 137.28,
+          "text": "Control beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 153.36,
+          "text": "Control last paragraph",
+          "x": 78.24
+        },
+        {
+          "baseline": 177.84,
+          "text": "Row after control",
+          "x": 78.24
+        },
+        {
+          "baseline": 177.84,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 202.32,
+          "text": "One before",
+          "x": 78.24
+        },
+        {
+          "baseline": 202.32,
+          "text": "One beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 222.96,
+          "text": "One inner first One inner second",
+          "x": 84.48
+        },
+        {
+          "baseline": 252.0,
+          "text": "Row after one",
+          "x": 78.24
+        },
+        {
+          "baseline": 252.0,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 276.48,
+          "text": "Two beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 280.8,
+          "text": "Two inner first Two inner second",
+          "x": 84.48
+        },
+        {
+          "baseline": 305.28,
+          "text": "Two inner third Two inner fourth",
+          "x": 84.48
+        },
+        {
+          "baseline": 334.32,
+          "text": "Row after two",
+          "x": 78.24
+        },
+        {
+          "baseline": 334.32,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 358.8,
+          "text": "Three before",
+          "x": 78.24
+        },
+        {
+          "baseline": 358.8,
+          "text": "Three beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 379.44,
+          "text": "Three middle",
+          "x": 84.48
+        },
+        {
+          "baseline": 399.84,
+          "text": "Three innermost",
+          "x": 90.72
+        },
+        {
+          "baseline": 433.44,
+          "text": "Row after three",
+          "x": 78.24
+        },
+        {
+          "baseline": 433.44,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 457.92,
+          "text": "Four beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 462.48,
+          "text": "Four inner",
+          "x": 84.48
+        },
+        {
+          "baseline": 482.88,
+          "text": "Four closing paragraph",
+          "x": 78.24
+        },
+        {
+          "baseline": 507.36,
+          "text": "Row after four",
+          "x": 78.24
+        },
+        {
+          "baseline": 507.36,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 528.0,
+          "text": "The line after the table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "c2679f52b09a8efe76d4f4856fc220a3a1ab1e2c6f2d63a7255cf888a0fc236c"
+}

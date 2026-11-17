@@ -26,7 +26,10 @@ those fields does not make them part of the Mote attribute vocabulary.
 Language/model and editable DOCX support are verified by captured packages.
 WordprocessingML requires a cell to end with a paragraph. A cell whose content
 ends with a nested table is therefore closed in DOCX by an empty paragraph with
-an exact line of one point, which native layout does not reserve; the
+an exact line of one point. Word gives that paragraph no height, as its export
+of the
+[nested-table-cell-end probe](../../tests/office/probes/nested-table-cell-end.mote)
+shows, and native layout reserves none; the
 [table tests](../../tests/tables.rs) cover the closing paragraph at two depths.
 
 Native PDF/PNG supports column/row spans, width, margins, fill, horizontal and

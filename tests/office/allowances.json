@@ -335,6 +335,13 @@
     "unmatched": 0,
     "vertical": 0.4
   },
+  "probes/nested-table-cell-end": {
+    "horizontal": 0.5,
+    "median": 1.0,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 2.8
+  },
   "probes/page-foot": {
     "horizontal": 0.2,
     "median": 0.1,
