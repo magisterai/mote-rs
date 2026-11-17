@@ -288,10 +288,10 @@
   },
   "probes/equation-line-multiple-150": {
     "horizontal": 4.6,
-    "median": 0.9,
-    "page_moves": 3,
+    "median": 0.8,
+    "page_moves": 0,
     "unmatched": 26,
-    "vertical": 28.7
+    "vertical": 3.0
   },
   "probes/exact-line-baseline": {
     "horizontal": 0.0,
@@ -327,6 +327,13 @@
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 0.4
+  },
+  "probes/page-foot": {
+    "horizontal": 0.2,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.6
   },
   "probes/paragraph-borders": {
     "horizontal": 0.1,

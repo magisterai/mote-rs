@@ -1,0 +1,556 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } } }
+)
+
+PAGE FOOT: Word keeps a line at the foot of a page when the page holds the line less the space that a line multiple above one adds beneath its descender. The space before a paragraph must fit and the space after it need not. A table row must fit whole, and the foot of a column is the foot of a page. Each sample follows a filler line of exact height at the head of its page, once with the tallest filler that leaves the sample on the page and once with the shortest that moves it.
+
+#style(
+  name = "S1",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.75) } })[Filler 634.75.]
+
+#paragraph(style = "S1")[Helvetica 11 multiple 1.0 below 634.75.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.85) } })[Filler 634.85.]
+
+#paragraph(style = "S1")[Helvetica 11 multiple 1.0 below 634.85.]
+
+#style(
+  name = "S2",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.75) } })[Filler 634.75.]
+
+#paragraph(style = "S2")[Helvetica 11 multiple 1.5 below 634.75.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.85) } })[Filler 634.85.]
+
+#paragraph(style = "S2")[Helvetica 11 multiple 1.5 below 634.85.]
+
+#style(
+  name = "S3",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.55) } })[Filler 634.55.]
+
+#paragraph(style = "S3")[Aptos 11 multiple 1.0 below 634.55.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.6) } })[Filler 634.6.]
+
+#paragraph(style = "S3")[Aptos 11 multiple 1.0 below 634.6.]
+
+#style(
+  name = "S4",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.55) } })[Filler 634.55.]
+
+#paragraph(style = "S4")[Aptos 11 multiple 1.15 below 634.55.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.6) } })[Filler 634.6.]
+
+#paragraph(style = "S4")[Aptos 11 multiple 1.15 below 634.6.]
+
+#style(
+  name = "S5",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.55) } })[Filler 634.55.]
+
+#paragraph(style = "S5")[Aptos 11 multiple 1.5 below 634.55.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.6) } })[Filler 634.6.]
+
+#paragraph(style = "S5")[Aptos 11 multiple 1.5 below 634.6.]
+
+#style(
+  name = "S6",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 2.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.55) } })[Filler 634.55.]
+
+#paragraph(style = "S6")[Aptos 11 multiple 2.0 below 634.55.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.6) } })[Filler 634.6.]
+
+#paragraph(style = "S6")[Aptos 11 multiple 2.0 below 634.6.]
+
+#style(
+  name = "S7",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(12) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(633.35) } })[Filler 633.35.]
+
+#paragraph(style = "S7")[Aptos 12 multiple 1.0 below 633.35.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(633.4) } })[Filler 633.4.]
+
+#paragraph(style = "S7")[Aptos 12 multiple 1.0 below 633.4.]
+
+#style(
+  name = "S8",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(12) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(633.35) } })[Filler 633.35.]
+
+#paragraph(style = "S8")[Aptos 12 multiple 1.5 below 633.35.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(633.4) } })[Filler 633.4.]
+
+#paragraph(style = "S8")[Aptos 12 multiple 1.5 below 633.4.]
+
+#style(
+  name = "S9",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(10) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(636.5) } })[Filler 636.5.]
+
+#paragraph(style = "S9")[Arial 10 multiple 1.0 below 636.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(636.55) } })[Filler 636.55.]
+
+#paragraph(style = "S9")[Arial 10 multiple 1.0 below 636.55.]
+
+#style(
+  name = "S10",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(10) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(636.5) } })[Filler 636.5.]
+
+#paragraph(style = "S10")[Arial 10 multiple 1.5 below 636.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(636.55) } })[Filler 636.55.]
+
+#paragraph(style = "S10")[Arial 10 multiple 1.5 below 636.55.]
+
+#style(
+  name = "S11",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(12) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.2) } })[Filler 634.2.]
+
+#paragraph(style = "S11")[Arial 12 multiple 1.0 below 634.2.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.25) } })[Filler 634.25.]
+
+#paragraph(style = "S11")[Arial 12 multiple 1.0 below 634.25.]
+
+#style(
+  name = "S12",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Arial", size = pt(12) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.2) } })[Filler 634.2.]
+
+#paragraph(style = "S12")[Arial 12 multiple 1.5 below 634.2.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.25) } })[Filler 634.25.]
+
+#paragraph(style = "S12")[Arial 12 multiple 1.5 below 634.25.]
+
+#style(
+  name = "S13",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(12) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.2) } })[Filler 634.2.]
+
+#paragraph(style = "S13")[Times New Roman 12 multiple 1.0 below 634.2.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.25) } })[Filler 634.25.]
+
+#paragraph(style = "S13")[Times New Roman 12 multiple 1.0 below 634.25.]
+
+#style(
+  name = "S14",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Times New Roman", size = pt(12) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.2) } })[Filler 634.2.]
+
+#paragraph(style = "S14")[Times New Roman 12 multiple 1.5 below 634.2.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.25) } })[Filler 634.25.]
+
+#paragraph(style = "S14")[Times New Roman 12 multiple 1.5 below 634.25.]
+
+#style(
+  name = "S15",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(618.7) } })[Filler 618.7.]
+
+#paragraph(style = "S15")[Aptos 24 multiple 1.0 below 618.7.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(618.75) } })[Filler 618.75.]
+
+#paragraph(style = "S15")[Aptos 24 multiple 1.0 below 618.75.]
+
+#style(
+  name = "S16",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(24) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(618.7) } })[Filler 618.7.]
+
+#paragraph(style = "S16")[Aptos 24 multiple 1.5 below 618.7.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(618.75) } })[Filler 618.75.]
+
+#paragraph(style = "S16")[Aptos 24 multiple 1.5 below 618.75.]
+
+#style(
+  name = "S17",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 0.8 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(637) } })[Filler 637.]
+
+#paragraph(style = "S17")[Aptos 11 multiple 0.8 below 637.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(637.5) } })[Filler 637.5.]
+
+#paragraph(style = "S17")[Aptos 11 multiple 0.8 below 637.5.]
+
+#style(
+  name = "S18",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(14) } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634) } })[Filler 634.]
+
+#paragraph(style = "S18")[Aptos 11 exact 14 below 634.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.5) } })[Filler 634.5.]
+
+#paragraph(style = "S18")[Aptos 11 exact 14 below 634.5.]
+
+#style(
+  name = "S19",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "at_least", value = pt(24) } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(624) } })[Filler 624.]
+
+#paragraph(style = "S19")[Aptos 11 at least 24 below 624.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(624.5) } })[Filler 624.5.]
+
+#paragraph(style = "S19")[Aptos 11 at least 24 below 624.5.]
+
+#style(
+  name = "S20",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(12), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.5) } })[Filler 634.5.]
+
+#paragraph(style = "S20")[Aptos 11 after 12 below 634.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(635) } })[Filler 635.]
+
+#paragraph(style = "S20")[Aptos 11 after 12 below 635.]
+
+#style(
+  name = "S21",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(8), line = { rule = "multiple", value = 1.15 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.5) } })[Filler 634.5.]
+
+#paragraph(style = "S21")[Aptos 11 multiple 1.15 after 8 below 634.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(635) } })[Filler 635.]
+
+#paragraph(style = "S21")[Aptos 11 multiple 1.15 after 8 below 635.]
+
+#style(
+  name = "S22",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(8), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(626.5) } })[Filler 626.5.]
+
+#paragraph(style = "S22")[Aptos 11 before 8 below 626.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(627) } })[Filler 627.]
+
+#paragraph(style = "S22")[Aptos 11 before 8 below 627.]
+
+#style(
+  name = "S23",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(8), after = pt(0), line = { rule = "multiple", value = 1.0 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { after = pt(12), line = { rule = "exact", value = pt(622.5) } })[Filler 622.5.]
+
+#paragraph(style = "S23")[Aptos 11 before 8 below after 12 below 622.5.]
+
+#paragraph(page_break_before = true, spacing = { after = pt(12), line = { rule = "exact", value = pt(623) } })[Filler 623.]
+
+#paragraph(style = "S23")[Aptos 11 before 8 below after 12 below 623.]
+
+#style(
+  name = "S24",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { widow_control = false, spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(594) } })[Filler 594.]
+
+#paragraph(style = "S24")[Three lines without widow control below 594 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(594.5) } })[Filler 594.5.]
+
+#paragraph(style = "S24")[Three lines without widow control below 594.5 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(614) } })[Filler 614.]
+
+#paragraph(style = "S24")[Three lines without widow control below 614 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(614.5) } })[Filler 614.5.]
+
+#paragraph(style = "S24")[Three lines without widow control below 614.5 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.5) } })[Filler 634.5.]
+
+#paragraph(style = "S24")[Three lines without widow control below 634.5 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(635) } })[Filler 635.]
+
+#paragraph(style = "S24")[Three lines without widow control below 635 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#style(
+  name = "S25",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(594) } })[Filler 594.]
+
+#paragraph(style = "S25")[Three lines with widow control below 594 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(594.5) } })[Filler 594.5.]
+
+#paragraph(style = "S25")[Three lines with widow control below 594.5 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires.]
+
+#style(
+  name = "S26",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(554) } })[Filler 554.]
+
+#paragraph(style = "S26")[Five lines with widow control below 554 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires. A further sentence lengthens the paragraph to five lines, so that the control of widows and orphans has a choice of places at which the paragraph may be divided between two pages of the document.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(554.5) } })[Filler 554.5.]
+
+#paragraph(style = "S26")[Five lines with widow control below 554.5 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires. A further sentence lengthens the paragraph to five lines, so that the control of widows and orphans has a choice of places at which the paragraph may be divided between two pages of the document.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(594) } })[Filler 594.]
+
+#paragraph(style = "S26")[Five lines with widow control below 594 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires. A further sentence lengthens the paragraph to five lines, so that the control of widows and orphans has a choice of places at which the paragraph may be divided between two pages of the document.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(594.5) } })[Filler 594.5.]
+
+#paragraph(style = "S26")[Five lines with widow control below 594.5 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires. A further sentence lengthens the paragraph to five lines, so that the control of widows and orphans has a choice of places at which the paragraph may be divided between two pages of the document.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(614) } })[Filler 614.]
+
+#paragraph(style = "S26")[Five lines with widow control below 614 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires. A further sentence lengthens the paragraph to five lines, so that the control of widows and orphans has a choice of places at which the paragraph may be divided between two pages of the document.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(614.5) } })[Filler 614.5.]
+
+#paragraph(style = "S26")[Five lines with widow control below 614.5 begins a paragraph of several lines, whose words continue far enough that the text must wrap at the right margin twice and occupy three lines in either renderer, as the measurement of the foot of a page requires. A further sentence lengthens the paragraph to five lines, so that the control of widows and orphans has a choice of places at which the paragraph may be divided between two pages of the document.]
+
+#style(
+  name = "S27",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { keep_with_next = true, spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(614.5) } })[Filler 614.5.]
+
+#paragraph(style = "S27")[Kept paragraph below 614.5.]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.5 } })[The paragraph after Kept paragraph below 614.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(615) } })[Filler 615.]
+
+#paragraph(style = "S27")[Kept paragraph below 615.]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.5 } })[The paragraph after Kept paragraph below 615.]
+
+#style(
+  name = "S28",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(8), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(606.5) } })[Filler 606.5.]
+
+#paragraph(style = "S28")[Paragraph with space after below 606.5.]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.5 } })[The paragraph after Paragraph with space after below 606.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(607) } })[Filler 607.]
+
+#paragraph(style = "S28")[Paragraph with space after below 607.]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.5 } })[The paragraph after Paragraph with space after below 607.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(634.5) } })[Filler 634.5.]
+
+#paragraph(style = "S28")[Paragraph with space after below 634.5.]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.5 } })[The paragraph after Paragraph with space after below 634.5.]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(635) } })[Filler 635.]
+
+#paragraph(style = "S28")[Paragraph with space after below 635.]
+
+#paragraph(spacing = { line = { rule = "multiple", value = 1.5 } })[The paragraph after Paragraph with space after below 635.]
+
+#style(
+  name = "S29",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(618.5) } })[Filler 618.5.]
+
+#table[
+  #row[#cell[#paragraph(style = "S29")[Table of multiple 1.5 below 618.5, first row.]]]
+  #row[#cell[#paragraph(style = "S29")[Table of multiple 1.5 below 618.5, second row.]]]
+]
+
+#paragraph(page_break_before = true, spacing = { line = { rule = "exact", value = pt(619) } })[Filler 619.]
+
+#table[
+  #row[#cell[#paragraph(style = "S29")[Table of multiple 1.5 below 619, first row.]]]
+  #row[#cell[#paragraph(style = "S29")[Table of multiple 1.5 below 619, second row.]]]
+]
+
+#style(
+  name = "Column",
+  type = "paragraph",
+  based_on = "Normal",
+  run = { font = "Aptos", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "multiple", value = 1.5 } } }
+)
+
+#section(columns = { count = 2, gap = pt(18) })[
+#paragraph(spacing = { line = { rule = "exact", value = pt(634.55) } })[Filler 634.55 in a column.]
+
+#paragraph(style = "Column")[Column foot below 634.55.]
+]
+
+#section(columns = { count = 2, gap = pt(18) })[
+#paragraph(spacing = { line = { rule = "exact", value = pt(634.6) } })[Filler 634.6 in a column.]
+
+#paragraph(style = "Column")[Column foot below 634.6.]
+]

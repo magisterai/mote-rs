@@ -1,9 +1,12 @@
 use super::{
     DocumentTextPlan, FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError,
     LayoutStyleResolver, LineBreak, LineFrame, PageGeometry, PlacedTextLine, TextLine, TextPage,
-    minimum_start_height, plan_paragraph_flow,
+    plan_paragraph_flow, widows::minimum_start_line_count,
 };
-use super::{blocks::Block, columns::ColumnSeparators};
+use super::{
+    blocks::{Block, PreparedParagraph},
+    columns::ColumnSeparators,
+};
 use crate::{
     measurement::TextMeasurer,
     model::{Document, Element, ElementKind, Properties},
@@ -201,6 +204,7 @@ pub(super) fn place_blocks(
                             x: geometry.column_left(cursor.column_index) + frame.x,
                             baseline: cursor.y + style.line_height * 0.8,
                             height: style.line_height,
+                            trailing_space: 0.0,
                             width: frame.width,
                             line_break: LineBreak::Final,
                             fragments: Vec::new(),
@@ -354,12 +358,21 @@ pub(super) fn place_blocks(
                         minimum_start_space: minimum,
                         keep_together: paragraph.style.keep_together,
                         widow_control: paragraph.style.widow_control,
+                        trailing_spaces: paragraph
+                            .lines
+                            .iter()
+                            .map(|line| line.trailing_space)
+                            .collect(),
                         ..Default::default()
                     },
                     |page_number| {
                         let mut area = FlowArea::from(geometry);
                         area.content_bottom =
                             page_content_bottom(pages, geometry, boundary, page_number);
+                        area.whole_lines = boundary.is_some_and(|boundary| {
+                            boundary.page == page_number
+                                && boundary.bottom < geometry.content_bottom()
+                        });
                         if page_number == cursor.page_number {
                             // A section that begins at the foot of a full page
                             // leaves no room there, so its first line moves on.
@@ -450,6 +463,22 @@ pub(super) fn next_area(
         new_page(cursor, pages, columns, geometry);
     }
 }
+/// Returns the height that a page must hold of `lines` if they are the last
+/// lines on it: their whole height less the trailing space of the last line.
+pub(super) fn fitting_height(lines: &[TextLine]) -> f64 {
+    lines.iter().map(|line| line.height).sum::<f64>()
+        - lines.last().map_or(0.0, |line| line.trailing_space)
+}
+/// Returns the height that the page on which a paragraph starts must hold.
+fn start_height(prepared: &PreparedParagraph) -> f64 {
+    let paragraph = &prepared.text;
+    let count = minimum_start_line_count(
+        paragraph.lines.len(),
+        paragraph.style.widow_control,
+        paragraph.style.keep_together,
+    );
+    fitting_height(&paragraph.lines[..count]).max(prepared.minimum_start())
+}
 fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
     let Some(Block::Paragraph(first)) = blocks.first() else {
         return 0.0;
@@ -471,17 +500,11 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
         }
         count += 1;
         required += previous_after.max(paragraph.style.spacing_before);
-        let heights: Vec<_> = paragraph.lines.iter().map(|line| line.height).collect();
         if paragraph.style.keep_with_next {
-            required += heights.iter().sum::<f64>();
+            required += paragraph.lines.iter().map(|line| line.height).sum::<f64>();
             previous_after = paragraph.style.spacing_after;
         } else {
-            required += minimum_start_height(
-                &heights,
-                paragraph.style.widow_control,
-                paragraph.style.keep_together,
-            )
-            .max(prepared.minimum_start());
+            required += start_height(prepared);
             break;
         }
     }
@@ -519,16 +542,10 @@ fn kept_blocks_height(
             }
             Block::Paragraph(prepared) => {
                 let paragraph = &prepared.text;
-                let heights: Vec<_> = paragraph.lines.iter().map(|line| line.height).collect();
                 let height = if *kept {
-                    heights.iter().sum()
+                    paragraph.lines.iter().map(|line| line.height).sum()
                 } else {
-                    minimum_start_height(
-                        &heights,
-                        paragraph.style.widow_control,
-                        paragraph.style.keep_together,
-                    )
-                    .max(prepared.minimum_start())
+                    start_height(prepared)
                 };
                 (
                     height,

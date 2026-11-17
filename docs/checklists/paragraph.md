@@ -27,6 +27,10 @@ style resolution and output remain separate.
 - [x] `spacing.after`: a non-negative unit-bearing length.
 - [x] `spacing.line`: line spacing as a length or an object with `rule` and
   `value`; rules are `multiple`, `exact`, and `at_least`.
+  Native layout keeps a line at the foot of a page or column that holds the
+  line less the space a multiple above one adds beneath it. See the
+  [page foot tests](../../tests/page_foot.rs) and the
+  [page-foot probe](../../tests/office/probes/page-foot.mote).
 - [x] `spacing_before`, `spacing_after`, `line_spacing`: flat spacing aliases,
   including their precedence relative to `spacing` fields.
 - [x] `indent`: `left`, `right`, `first_line`, and `hanging` lengths.

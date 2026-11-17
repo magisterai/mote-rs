@@ -21,6 +21,9 @@ pub struct FlowArea {
     pub content_bottom: f64,
     pub page_start: f64,
     pub bottom_slack: f64,
+    /// Holds whether the area must hold the trailing space of its last line,
+    /// as the height of balanced columns must.
+    pub whole_lines: bool,
 }
 impl From<PageGeometry> for FlowArea {
     fn from(geometry: PageGeometry) -> Self {
@@ -29,6 +32,7 @@ impl From<PageGeometry> for FlowArea {
             content_bottom: geometry.content_bottom(),
             page_start: geometry.margin_top,
             bottom_slack: 0.0,
+            whole_lines: false,
             geometry,
         }
     }
@@ -43,6 +47,9 @@ pub struct FlowOptions {
     pub widow_control: bool,
     pub fresh_fit_tolerance: f64,
     pub keep_fit_tolerance: f64,
+    /// Holds, for each line, the space at its foot that an area need not hold.
+    /// An empty vector states that every line must fit whole.
+    pub trailing_spaces: Vec<f64>,
 }
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct LinePlacement {
@@ -73,6 +80,12 @@ pub fn plan_paragraph_flow(
     area_for_page: impl Fn(usize) -> FlowArea,
 ) -> Result<ParagraphFlow, LayoutError> {
     if heights.len() != frames.len()
+        || (!options.trailing_spaces.is_empty() && options.trailing_spaces.len() != heights.len())
+        || options
+            .trailing_spaces
+            .iter()
+            .zip(heights)
+            .any(|(space, height)| !(0.0..=*height).contains(space))
         || heights
             .iter()
             .any(|height| !height.is_finite() || *height < 0.0)
@@ -96,6 +109,14 @@ pub fn plan_paragraph_flow(
             "flow requires matching finite line heights, frames and spacing",
         ));
     }
+    let no_trailing_spaces = vec![0.0; heights.len()];
+    let trailing_spaces = |area: &FlowArea| {
+        if area.whole_lines || options.trailing_spaces.is_empty() {
+            no_trailing_spaces.as_slice()
+        } else {
+            options.trailing_spaces.as_slice()
+        }
+    };
     let mut planner = FlowPlanner {
         cursor,
         steps: Vec::new(),
@@ -109,8 +130,9 @@ pub fn plan_paragraph_flow(
     if !heights.is_empty() {
         if options.leading_space > 0.0 {
             let previous = planner.cursor;
+            let trailing_space = trailing_spaces(&planner.area()?)[0];
             planner.ensure_space(
-                options.leading_space + heights[0],
+                options.leading_space + heights[0] - trailing_space,
                 options.leading_fit_slack,
                 0.0,
                 false,
@@ -124,11 +146,12 @@ pub fn plan_paragraph_flow(
         if options.minimum_start_space > 0.0 {
             planner.ensure_fresh(options.minimum_start_space, options.fresh_fit_tolerance)?;
         }
-        let full_height: f64 = heights.iter().sum();
+        let area = planner.area()?;
+        let full_height: f64 =
+            heights.iter().sum::<f64>() - trailing_spaces(&area)[heights.len() - 1];
         if !full_height.is_finite() {
             return Err(LayoutError::InvalidGeometry("paragraph height overflowed"));
         }
-        let area = planner.area()?;
         if options.keep_together
             && options.keep_fit_leading_space + full_height
                 <= area.content_bottom - area.content_top
@@ -149,6 +172,7 @@ pub fn plan_paragraph_flow(
             let count = if options.widow_control {
                 widows::line_count(
                     &heights[index..],
+                    &trailing_spaces(&area)[index..],
                     area.content_bottom + area.bottom_slack - planner.cursor.y,
                     area.content_bottom + area.bottom_slack - area.content_top,
                     at_start,
@@ -172,7 +196,12 @@ pub fn plan_paragraph_flow(
             while index < end {
                 if !options.widow_control {
                     let area = planner.area()?;
-                    planner.ensure_space(heights[index], area.bottom_slack, 0.0, false)?;
+                    planner.ensure_space(
+                        heights[index] - trailing_spaces(&area)[index],
+                        area.bottom_slack,
+                        0.0,
+                        false,
+                    )?;
                 }
                 let area = planner.area()?;
                 let mut frame = frames[index];

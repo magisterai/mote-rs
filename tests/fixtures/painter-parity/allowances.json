@@ -46,6 +46,7 @@
   "probes/footnote-spacing": 0.003,
   "probes/keep-with-next-blocks": 0.006,
   "probes/line-baseline": 0.006,
+  "probes/page-foot": 0.016,
   "probes/paragraph-borders": 0.003,
   "probes/paragraph-shading": 0.001,
   "probes/paragraph-spacing": 0.002,

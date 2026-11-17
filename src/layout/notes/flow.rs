@@ -4,7 +4,7 @@ use crate::layout::{FlowCursor, LayoutError, LinePlacement, PageGeometry, TextPa
 use crate::layout::{
     blocks::PreparedParagraph,
     columns::ColumnSeparators,
-    document::{ensure_space, next_area, page_content_bottom},
+    document::{ensure_space, fitting_height, next_area, page_content_bottom},
     painting::ParagraphPainting,
     sections::FlowBoundary,
 };
@@ -43,7 +43,7 @@ impl NoteLayout {
                 .content_bottom()
         };
         let paragraph = &prepared.text;
-        let height: f64 = paragraph.lines.iter().map(|line| line.height).sum();
+        let height = fitting_height(&paragraph.lines);
         let unassigned: Vec<_> = paragraph
             .lines
             .iter()
@@ -69,7 +69,7 @@ impl NoteLayout {
         {
             warnings.push("native footnote reservation takes precedence over paragraph keep and widow/orphan preferences".into());
         }
-        let first_height = paragraph.lines[0].height;
+        let first_height = paragraph.lines[0].height - paragraph.lines[0].trailing_space;
         if leading > 0.0 {
             let previous_page = cursor.page_number;
             ensure_space(
@@ -102,7 +102,14 @@ impl NoteLayout {
                 .filter(|number| !self.assigned.contains(number))
                 .collect();
             if numbers.is_empty() {
-                ensure_space(cursor, pages, columns, geometry, boundary, line.height);
+                ensure_space(
+                    cursor,
+                    pages,
+                    columns,
+                    geometry,
+                    boundary,
+                    line.height - line.trailing_space,
+                );
             } else {
                 // The second attempt is always a fresh frame. An oversized note is
                 // retained visibly with a warning rather than causing a retry loop.
@@ -118,7 +125,7 @@ impl NoteLayout {
                         }
                     }
                     let bottom = self.body_bottom(&candidate, foot(pages, cursor.page_number));
-                    let fits = cursor.y + line.height <= bottom + 0.001;
+                    let fits = cursor.y + line.height - line.trailing_space <= bottom + 0.001;
                     let fresh = cursor.y <= geometry.margin_top + 0.001;
                     if fits || fresh || attempt == 1 {
                         if !fits {

@@ -149,6 +149,11 @@ Both directives record four optional pagination booleans:
 | `page_break_before` | Begin the block on a new page. |
 | `widow_control` | Avoid isolated first or last paragraph lines across pages. |
 
+A line lies on a page or in a column that holds the line less its trailing
+space, which is the space that a `multiple` above one adds beneath the line. The
+spacing before a paragraph must fit together with the first line, and the
+spacing after a paragraph need not fit. A table row must fit whole.
+
 These requests do not calculate breaks during evaluation. Both also normalize
 `outline_level`, a non-negative integer, and `fill`, a shading color
 normalized to a typed color. Heading hierarchy uses its existing `level` attribute.

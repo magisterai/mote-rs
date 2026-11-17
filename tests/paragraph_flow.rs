@@ -162,3 +162,59 @@ fn invalid_flow_areas_and_line_geometry_fail_without_looping() {
         .is_err()
     );
 }
+#[test]
+fn a_line_fits_an_area_that_holds_it_less_its_trailing_space() {
+    let geometry = PageGeometry {
+        width: 300.0,
+        height: 180.0,
+        margin_top: 20.0,
+        margin_bottom: 20.0,
+        margin_left: 20.0,
+        margin_right: 20.0,
+        ..Default::default()
+    };
+    let frames = [LineFrame {
+        x: 0.0,
+        width: 60.0,
+    }; 3];
+    let cursor = FlowCursor {
+        page_number: 1,
+        current_top: 20.0,
+        y: 100.0,
+        body_started: true,
+        ..Default::default()
+    };
+    let pages = |heights: &[f64], trailing_spaces: &[f64], widow_control: bool| {
+        let options = FlowOptions {
+            widow_control,
+            trailing_spaces: trailing_spaces.to_vec(),
+            ..Default::default()
+        };
+        plan_paragraph_flow(cursor, heights, &frames[..heights.len()], &options, |_| {
+            FlowArea::from(geometry)
+        })
+        .map(|plan| {
+            plan.steps
+                .iter()
+                .filter_map(|step| match step {
+                    FlowStep::Line(line) => Some(line.page_number),
+                    FlowStep::Advance(_) => None,
+                })
+                .collect::<Vec<_>>()
+        })
+    };
+    // The area ends 60 points below the cursor.
+    for widow_control in [false, true] {
+        assert_eq!(pages(&[64.0], &[4.0], widow_control).unwrap(), [1]);
+        assert_eq!(pages(&[64.0], &[3.9], widow_control).unwrap(), [2]);
+        assert_eq!(pages(&[64.0], &[], widow_control).unwrap(), [2]);
+    }
+    let heights = [22.0, 22.0, 22.0];
+    assert_eq!(pages(&heights, &[6.0, 6.0, 6.0], false).unwrap(), [1, 1, 1]);
+    assert_eq!(pages(&heights, &[5.0, 5.0, 5.0], false).unwrap(), [1, 1, 2]);
+    assert_eq!(pages(&heights, &[6.0, 6.0, 6.0], true).unwrap(), [1, 1, 1]);
+    assert_eq!(pages(&heights, &[5.0, 5.0, 5.0], true).unwrap(), [2, 2, 2]);
+    assert!(pages(&heights, &[1.0], false).is_err());
+    assert!(pages(&heights, &[1.0, 23.0, 1.0], false).is_err());
+    assert!(pages(&heights, &[1.0, -1.0, 1.0], false).is_err());
+}

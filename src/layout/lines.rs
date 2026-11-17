@@ -108,6 +108,12 @@ pub fn plan_text(
             height = base_style.measurement.size_points * 1.18 * 1.15 * 1.02;
             base_height = height;
         }
+        let trailing_space = match options.spacing {
+            LineSpacing::Multiple(multiple) if options.word_exact_baseline && multiple > 1.0 => {
+                height - height / multiple
+            }
+            _ => 0.0,
+        };
         let word_exact =
             options.word_exact_baseline && matches!(options.spacing, LineSpacing::Exact(_));
         // Word sets an automatic line's baseline below the line gap and
@@ -312,6 +318,7 @@ pub fn plan_text(
             x,
             baseline,
             height,
+            trailing_space,
             width,
             line_break: wrapped.line_break,
             fragments,

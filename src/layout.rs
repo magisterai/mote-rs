@@ -354,6 +354,10 @@ pub struct TextLine {
     pub x: f64,
     pub baseline: f64,
     pub height: f64,
+    /// The space at the foot of the line that a page or column need not hold:
+    /// the space that a line multiple above one adds beneath the descender in
+    /// a Word document. The line fits wherever the rest of its height fits.
+    pub trailing_space: f64,
     pub width: f64,
     pub line_break: LineBreak,
     pub fragments: Vec<TextFragment>,

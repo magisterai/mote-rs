@@ -1,0 +1,1637 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "PAGE FOOT: W ord keeps a line at the foot of a page when the page holds the line less the",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "space that a line multiple above one adds beneath its descender. The space before a paragraph",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "must fit and the space after it need not. A table row must fit whole, and the foot of a column is",
+          "x": 72.0
+        },
+        {
+          "baseline": 148.08,
+          "text": "the foot of a page. Each sample follows a filler line of exact height at the head of its page, once",
+          "x": 72.0
+        },
+        {
+          "baseline": 168.0,
+          "text": "with the tallest filler that leaves the sample on the page and once with the shortest that moves it.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.84,
+          "text": "Filler 634.75.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.36,
+          "text": "Helvetica 11 multiple 1.0 below 634.75.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.84,
+          "text": "Filler 634.85.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Helvetica 11 multiple 1.0 below 634.85.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.84,
+          "text": "Filler 634.75.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.36,
+          "text": "Helvetica 11 multiple 1.5 below 634.75.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.84,
+          "text": "Filler 634.85.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Helvetica 11 multiple 1.5 below 634.85.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.55.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 multiple 1.0 below 634.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 multiple 1.0 below 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.55.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 multiple 1.15 below 634.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 multiple 1.15 below 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.55.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 multiple 1.5 below 634.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 multiple 1.5 below 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.55.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 multiple 2.0 below 634.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 multiple 2.0 below 634.6.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 578.64,
+          "text": "Filler 633.35.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.64,
+          "text": "Aptos 12 multiple 1.0 below 633.35.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 578.64,
+          "text": "Filler 633.4.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 83.28,
+          "text": "Aptos 12 multiple 1.0 below 633.4.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 578.64,
+          "text": "Filler 633.35.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.64,
+          "text": "Aptos 12 multiple 1.5 below 633.35.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 578.64,
+          "text": "Filler 633.4.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 83.28,
+          "text": "Aptos 12 multiple 1.5 below 633.4.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 581.28,
+          "text": "Filler 636.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.84,
+          "text": "Arial 10 multiple 1.0 below 636.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 581.28,
+          "text": "Filler 636.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.36,
+          "text": "Arial 10 multiple 1.0 below 636.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 581.28,
+          "text": "Filler 636.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.84,
+          "text": "Arial 10 multiple 1.5 below 636.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 581.28,
+          "text": "Filler 636.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.36,
+          "text": "Arial 10 multiple 1.5 below 636.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.36,
+          "text": "Arial 12 multiple 1.0 below 634.2.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 83.28,
+          "text": "Arial 12 multiple 1.0 below 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.36,
+          "text": "Arial 12 multiple 1.5 below 634.2.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 83.28,
+          "text": "Arial 12 multiple 1.5 below 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.12,
+          "text": "Times New Roman 12 multiple 1.0 below 634.2.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 83.04,
+          "text": "Times New Roman 12 multiple 1.0 below 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.2.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.36,
+          "text": "Times New Roman 12 multiple 1.5 below 634.2.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 83.28,
+          "text": "Times New Roman 12 multiple 1.5 below 634.25.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 566.88,
+          "text": "Filler 618.7.",
+          "x": 72.0
+        },
+        {
+          "baseline": 713.28,
+          "text": "Aptos 24 multiple 1.0 below 618.7.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 566.88,
+          "text": "Filler 618.75.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 94.56,
+          "text": "Aptos 24 multiple 1.0 below 618.75.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 566.88,
+          "text": "Filler 618.7.",
+          "x": 72.0
+        },
+        {
+          "baseline": 713.28,
+          "text": "Aptos 24 multiple 1.5 below 618.7.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 566.88,
+          "text": "Filler 618.75.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 94.56,
+          "text": "Aptos 24 multiple 1.5 below 618.75.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 581.52,
+          "text": "Filler 637.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.36,
+          "text": "Aptos 11 multiple 0.8 below 637.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 582.0,
+          "text": "Filler 637.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.4,
+          "text": "Aptos 11 multiple 0.8 below 637.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.36,
+          "text": "Filler 634.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.36,
+          "text": "Aptos 11 exact 14 below 634.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 83.28,
+          "text": "Aptos 11 exact 14 below 634.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 571.2,
+          "text": "Filler 624.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 at least 24 below 624.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 571.68,
+          "text": "Filler 624.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 92.88,
+          "text": "Aptos 11 at least 24 below 624.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 after 12 below 634.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 580.08,
+          "text": "Filler 635.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 after 12 below 635.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 multiple 1.15 after 8 below 634.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 580.08,
+          "text": "Filler 635.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 multiple 1.15 after 8 below 635.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 573.12,
+          "text": "Filler 626.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.64,
+          "text": "Aptos 11 before 8 below 626.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 573.84,
+          "text": "Filler 627.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 before 8 below 627.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 570.0,
+          "text": "Filler 622.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Aptos 11 before 8 below after 12 below 622.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 570.48,
+          "text": "Filler 623.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Aptos 11 before 8 below after 12 below 623.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 547.2,
+          "text": "Filler 594.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.32,
+          "text": "Three lines without widow control below 594 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.48,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.64,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 547.68,
+          "text": "Filler 594.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.8,
+          "text": "Three lines without widow control below 594.5 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.96,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 563.28,
+          "text": "Filler 614.",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.24,
+          "text": "Three lines without widow control below 614 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.4,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 563.52,
+          "text": "Filler 614.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.72,
+          "text": "Three lines without widow control below 614.5 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Three lines without widow control below 634.5 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 580.08,
+          "text": "Filler 635.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Three lines without widow control below 635 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.64,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 547.2,
+          "text": "Filler 594.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.32,
+          "text": "Three lines with widow control below 594 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.48,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.64,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 547.68,
+          "text": "Filler 594.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Three lines with widow control below 594.5 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.64,
+          "text": "either renderer, as the measurement of the foot of a page requires.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 515.28,
+          "text": "Filler 554.",
+          "x": 72.0
+        },
+        {
+          "baseline": 636.24,
+          "text": "Five lines with widow control below 554 begins a paragraph of several lines, whose words continue",
+          "x": 72.0
+        },
+        {
+          "baseline": 656.4,
+          "text": "far enough that the text must wrap at the right margin twice and occupy three lines in either",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.56,
+          "text": "renderer, as the measurement of the foot of a page requires. A further sentence lengthens the",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.72,
+          "text": "paragraph to five lines, so that the control of widows and orphans has a choice of places at which",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "the paragraph may be divided between two pages of the document.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 515.52,
+          "text": "Filler 554.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 636.72,
+          "text": "Five lines with widow control below 554.5 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 656.88,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 677.04,
+          "text": "either renderer, as the measurement of the foot of a page requires. A further sentence lengthens",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "the paragraph to five lines, so that the control of widows and orphans has a choice of places at",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "which the paragraph may be divided between two pages of the document.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 547.2,
+          "text": "Filler 594.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.32,
+          "text": "Five lines with widow control below 594 begins a paragraph of several lines, whose words continue",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.48,
+          "text": "far enough that the text must wrap at the right margin twice and occupy three lines in either",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.64,
+          "text": "renderer, as the measurement of the foot of a page requires. A further sentence lengthens the",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "paragraph to five lines, so that the control of widows and orphans has a choice of places at which",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "the paragraph may be divided between two pages of the document.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 547.68,
+          "text": "Filler 594.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 676.8,
+          "text": "Five lines with widow control below 594.5 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.96,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "either renderer, as the measurement of the foot of a page requires. A further sentence lengthens",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "the paragraph to five lines, so that the control of widows and orphans has a choice of places at",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.64,
+          "text": "which the paragraph may be divided between two pages of the document.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 563.28,
+          "text": "Filler 614.",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.24,
+          "text": "Five lines with widow control below 614 begins a paragraph of several lines, whose words continue",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.4,
+          "text": "far enough that the text must wrap at the right margin twice and occupy three lines in either",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "renderer, as the measurement of the foot of a page requires. A further sentence lengthens the",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "paragraph to five lines, so that the control of widows and orphans has a choice of places at which",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.64,
+          "text": "the paragraph may be divided between two pages of the document.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 563.52,
+          "text": "Filler 614.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Five lines with widow control below 614.5 begins a paragraph of several lines, whose words",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.48,
+          "text": "continue far enough that the text must wrap at the right margin twice and occupy three lines in",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.64,
+          "text": "either renderer, as the measurement of the foot of a page requires. A further sentence lengthens",
+          "x": 72.0
+        },
+        {
+          "baseline": 142.8,
+          "text": "the paragraph to five lines, so that the control of widows and orphans has a choice of places at",
+          "x": 72.0
+        },
+        {
+          "baseline": 162.96,
+          "text": "which the paragraph may be divided between two pages of the document.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 563.52,
+          "text": "Filler 614.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 696.72,
+          "text": "Kept paragraph below 614.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.12,
+          "text": "The paragraph after Kept paragraph below 614.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 564.0,
+          "text": "Filler 615.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Kept paragraph below 615.",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.72,
+          "text": "The paragraph after Kept paragraph below 615.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 557.28,
+          "text": "Filler 606.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 688.8,
+          "text": "Paragraph with space after below 606.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 717.12,
+          "text": "The paragraph after Paragraph with space after below 606.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 557.52,
+          "text": "Filler 607.",
+          "x": 72.0
+        },
+        {
+          "baseline": 689.28,
+          "text": "Paragraph with space after below 607.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The paragraph after Paragraph with space after below 607.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Paragraph with space after below 634.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The paragraph after Paragraph with space after below 634.5.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 580.08,
+          "text": "Filler 635.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Paragraph with space after below 635.",
+          "x": 72.0
+        },
+        {
+          "baseline": 110.64,
+          "text": "The paragraph after Paragraph with space after below 635.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 566.88,
+          "text": "Filler 618.5.",
+          "x": 72.0
+        },
+        {
+          "baseline": 705.36,
+          "text": "Table of multiple 1.5 below 618.5, first row.",
+          "x": 78.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 86.88,
+          "text": "Table of multiple 1.5 below 618.5, second row.",
+          "x": 78.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 567.12,
+          "text": "Filler 619.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 86.88,
+          "text": "Table of multiple 1.5 below 619, first row.",
+          "x": 78.24
+        },
+        {
+          "baseline": 115.44,
+          "text": "Table of multiple 1.5 below 619, second row.",
+          "x": 78.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.55 in a column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 716.88,
+          "text": "Column foot below 634.55.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.32,
+          "text": "Column foot below 634.6.",
+          "x": 315.12
+        },
+        {
+          "baseline": 579.6,
+          "text": "Filler 634.6 in a column.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "aacd0921f1b2857b6af7c75aa1e2a1847cafbb44cc4820635d5a8967f89d5ec0"
+}
