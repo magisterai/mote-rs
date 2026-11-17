@@ -159,3 +159,37 @@ fn excessive_table_grids_fail_before_package_allocation() {
             .contains("grid limit")
     );
 }
+#[test]
+fn a_cell_that_ends_with_a_nested_table_is_closed_by_a_collapsed_paragraph() {
+    let document = mote::compile(
+        "#table[\n  #row[\n    #cell[\n      #paragraph[Before]\n      #table[\n        #row[\n          #cell[\n            #table[\n              #row[\n                #cell[Innermost]\n              ]\n            ]\n          ]\n        ]\n      ]\n    ]\n    #cell[Plain]\n  ]\n]\n",
+    )
+    .unwrap();
+    let resolver = FileAssetResolver::new(fixtures()).unwrap();
+    let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+    assert!(generated.warnings.is_empty(), "{:?}", generated.warnings);
+    let parts = xml_support::unpack(generated.bytes);
+    let package = roxmltree::Document::parse(&parts["word/document.xml"]).unwrap();
+    let namespace = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+    let cells: Vec<_> = package
+        .descendants()
+        .filter(|node| node.has_tag_name((namespace, "tc")))
+        .collect();
+    assert_eq!(cells.len(), 4);
+    let mut closed_after_table = 0;
+    for cell in cells {
+        let last = cell.last_element_child().unwrap();
+        assert!(last.has_tag_name((namespace, "p")));
+        let before = last.prev_sibling_element().unwrap();
+        if before.has_tag_name((namespace, "tbl")) {
+            closed_after_table += 1;
+            let spacing = last
+                .descendants()
+                .find(|node| node.has_tag_name((namespace, "spacing")))
+                .unwrap();
+            assert_eq!(spacing.attribute((namespace, "line")), Some("20"));
+            assert_eq!(spacing.attribute((namespace, "lineRule")), Some("exact"));
+        }
+    }
+    assert_eq!(closed_after_table, 2);
+}

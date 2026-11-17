@@ -14,11 +14,11 @@ pub(super) struct StoryPart {
     pub relationships: Option<String>,
 }
 
-/// Word ends every story with a paragraph and inserts one in the style's spacing
-/// after a final table, which native layout does not. The inserted paragraph is
-/// therefore written explicitly, collapsed to a negligible height, so that it
-/// cannot carry the document onto a further page.
-const CLOSING_PARAGRAPH: &str = r#"<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/><w:szCs w:val="2"/></w:rPr></w:pPr></w:p>"#;
+/// Word ends every story and every table cell with a paragraph and inserts one in
+/// the style's spacing after a final table, which native layout does not. The
+/// inserted paragraph is therefore written explicitly, collapsed to a negligible
+/// height, so that it cannot carry the document onto a further page.
+pub(super) const CLOSING_PARAGRAPH: &str = r#"<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/><w:szCs w:val="2"/></w:rPr></w:pPr></w:p>"#;
 
 fn close_final_table(body: &mut String) {
     if body.ends_with("</w:tbl>") {

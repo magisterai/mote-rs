@@ -4,7 +4,7 @@ mod styles;
 use super::{
     Error,
     document::{self, DocumentState},
-    paragraphs,
+    paragraphs, sections,
     styles::Styles,
     values, xml,
 };
@@ -161,7 +161,13 @@ pub(super) fn write(
                 let result = write_cell_content(&cell.element.children, &attributes, styles, state);
                 state.table_cell_depth -= 1;
                 state.resources.active_text = previous;
-                output.push_str(&result?);
+                let content = result?;
+                output.push_str(&content);
+                // WordprocessingML requires the last child of a cell to be a paragraph;
+                // Word misplaces a nested table that closes its cell.
+                if !content.ends_with("</w:p>") {
+                    output.push_str(sections::CLOSING_PARAGRAPH);
+                }
             } else {
                 output.push_str(
                     "<w:p><w:pPr><w:spacing w:before=\"0\" w:after=\"0\"/></w:pPr></w:p>",

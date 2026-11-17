@@ -24,6 +24,10 @@ shading patterns, revision metadata and unsupported text-flow controls. Listing
 those fields does not make them part of the Mote attribute vocabulary.
 
 Language/model and editable DOCX support are verified by captured packages.
+WordprocessingML requires a cell to end with a paragraph. A cell whose content
+ends with a nested table is therefore closed in DOCX by an empty paragraph with
+an exact line of one point, which native layout does not reserve; the
+[table tests](../../tests/tables.rs) cover the closing paragraph at two depths.
 
 Native PDF/PNG supports column/row spans, width, margins, fill, horizontal and
 vertical alignment, shared borders, and structured text, links, images, lists and
