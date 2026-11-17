@@ -1,5 +1,5 @@
 //! Repository tasks: the review catalogue, README generation, package validation, fixture verification,
-//! output and Office comparison and the specification attribute inventory.
+//! output and Office comparison, the specification attribute inventory and the verification of a change.
 mod arguments;
 mod captures;
 mod compare_measurements;
@@ -16,6 +16,7 @@ mod review;
 #[cfg(test)]
 mod testing;
 mod validate;
+mod verify;
 
 use arguments::Arguments;
 use std::{
@@ -26,6 +27,7 @@ use std::{
 const HELP: &str = "Usage: cargo xtask COMMAND [OPTIONS]
 
 Commands:
+  verify                 Run the formatting check, the lints and every test.
   review                 Render the review catalogue to target/review/.
   readme                 Regenerate the README examples and their previews.
   validate PACKAGE...    Validate DOCX and PPTX parts against ECMA-376.
@@ -64,6 +66,7 @@ fn main() -> ExitCode {
         Some("compare-measurements") => compare_measurements::run(arguments),
         Some("office-compare") => office::run(arguments),
         Some("painter-parity") => parity::run(arguments),
+        Some("verify") => verify::run(arguments),
         None | Some("--help" | "-h" | "help") => {
             print!("{HELP}");
             Ok(ExitCode::SUCCESS)

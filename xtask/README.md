@@ -3,7 +3,30 @@
 The repository tasks are a Rust crate in this directory, run as
 `cargo xtask COMMAND`; `cargo xtask --help` lists the commands. The crate
 depends on the Mote library and on no library that Mote does not already use.
-`cargo test --workspace` runs its tests with those of the library.
+
+## Verification
+
+`cargo xtask verify`, or `cargo verify`, runs every check that a change must pass
+before it is pushed. The command runs three checks in order:
+
+```sh
+cargo fmt --all --check
+cargo clippy --workspace --all-targets -- -D warnings
+cargo test --workspace --no-fail-fast
+```
+
+A check runs even if an earlier one failed. A summary follows the last check: it
+names each check with its result and duration, and gives the numbers of tests
+that passed, failed and were ignored, with the name of every failed test. The
+exit status is nonzero unless every check passed. The command has no option that
+omits a check, and it removes `MOTE_REFRESH_CAPTURES` from the environment of the
+checks, so that no capture is refreshed in place of being compared.
+
+The third check runs the tests of the library and of this crate together. The
+command `cargo test` alone, run in the root of the repository, omits the tests of
+this crate, which alone hold every native capture to its recorded digest, every
+stored part file to a manifest, and every subject to its Office and painter
+parity allowances.
 
 ## Rendering test cases
 
@@ -214,4 +237,5 @@ separate outcomes. This projection does not serialize PDF/PNG or claim that all
 painted properties are represented. The fixture regression test compares this
 same export format with captured expectations.
 
-Run all task checks with `cargo test -p xtask`.
+Run the checks of the tasks alone with `cargo test -p xtask`; `cargo verify` runs
+them with every other check.

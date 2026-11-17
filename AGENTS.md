@@ -161,6 +161,23 @@ and any explicitly named Office reference exports belong in the complete tree. A
 native output is never replaced by an Office export, nor presented as
 Office-reviewed.
 
+## Verification
+
+The command `cargo verify`, the alias of `cargo xtask verify`, is run before
+every commit that is to be pushed, and the commit is pushed only if the command
+passes. The command runs three checks in order: `cargo fmt --all --check`,
+`cargo clippy --workspace --all-targets -- -D warnings`, and
+`cargo test --workspace --no-fail-fast`. A check runs even if an earlier one
+failed. A summary of the checks and of the test counts follows the last check,
+and the exit status is nonzero unless every check passed.
+
+The command `cargo test` alone, run in the root of the repository, is
+insufficient, because it omits the tests of the `xtask` crate. Those tests alone
+hold every native capture to its recorded digest, every stored part file to a
+manifest that names it, every native layout to its
+[Office allowance](tests/office/README.md), and the two native painters to
+their [parity allowances](tests/fixtures/painter-parity/README.md).
+
 ## Commits
 
 An agent asks before committing or pushing, unless the user has explicitly

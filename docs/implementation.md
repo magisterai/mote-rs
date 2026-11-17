@@ -365,13 +365,20 @@ from JSON inspection.
 
 ## Development
 
-Use a Rust toolchain supporting edition 2024:
+Use a Rust toolchain supporting edition 2024, and verify a change before it is
+pushed:
 
 ```sh
-cargo test
-cargo fmt --check
-cargo clippy --all-targets -- -D warnings
+cargo verify
 ```
+
+The command is the alias of
+[`cargo xtask verify`](../xtask/README.md#verification). It runs
+`cargo fmt --all --check`, `cargo clippy --workspace --all-targets -- -D warnings`
+and `cargo test --workspace --no-fail-fast`, and fails unless all three pass.
+The command `cargo test` alone omits the tests of the repository tasks, which
+hold the stored captures to their digests and the native layout to its Office
+and painter parity allowances.
 
 The conformance test reads the fenced Mote examples directly from the
 specification and checks their declared outcomes in

@@ -1,3 +1,4 @@
 [alias]
 review = "run --quiet --package xtask -- review"
+verify = "run --quiet --package xtask -- verify"
 xtask = "run --quiet --package xtask --"
