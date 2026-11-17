@@ -25,10 +25,13 @@ pub(super) struct PreparedParagraph {
     pub marker: Option<PreparedMarker>,
     pub clear_fill_before: bool,
     pub clear_fill_after: bool,
-    /// Holds whether the paragraph shares the box of the paragraph before it.
+    /// Holds whether the paragraph shares the box of the paragraph before it:
+    /// the two have identical borders, or are shaded without borders, and their
+    /// boxes are identical.
     pub joined_above: bool,
-    /// Holds whether the borders of the paragraph part it from the paragraph
-    /// before it, so that no shading crosses the space between the two.
+    /// Holds whether the borders or the box of the paragraph part it from the
+    /// paragraph before it, so that no shading crosses the space between the
+    /// two.
     pub separate_above: bool,
 }
 pub(super) struct PreparedMarker {
@@ -237,10 +240,12 @@ pub(super) fn prepare_content(
         kept_with_next,
     })
 }
-/// Joins consecutive paragraphs whose borders and side indents are identical
-/// into one box, as Word does: the bottom rule of the first and the top rule of
-/// the second, each with its space, are removed, and painting carries the side
-/// rules through the space between the two.
+/// Joins consecutive paragraphs whose borders and boxes are identical into one
+/// box, as Word does: the bottom rule of the first and the top rule of the
+/// second, each with its space, are removed, and painting carries the side
+/// rules through the space between the two. Two shaded paragraphs without
+/// borders whose boxes are identical are joined likewise, and have no rule to
+/// remove.
 fn join_identical_borders(blocks: &mut [Block]) {
     let authored: Vec<_> = blocks
         .iter()
@@ -257,18 +262,17 @@ fn join_identical_borders(blocks: &mut [Block]) {
             continue;
         };
         let (upper, lower) = (&first.text, &second.text);
-        let unbordered = Some(crate::layout::ParagraphBorders::default());
-        if authored[index] == unbordered && authored[index - 1] == unbordered {
-            continue;
-        }
         if authored[index] != authored[index - 1]
             || upper.is_empty
             || lower.is_empty
             || lower.style.page_break_before
-            || upper.style.indent_left != lower.style.indent_left
-            || upper.style.indent_right != lower.style.indent_right
+            || upper.box_frame() != lower.box_frame()
         {
             second.separate_above = true;
+            continue;
+        }
+        if authored[index] == Some(crate::layout::ParagraphBorders::default()) {
+            second.joined_above = upper.style.fill.is_some() && lower.style.fill.is_some();
             continue;
         }
         let bottom = first.text.borders.bottom_outset();

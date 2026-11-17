@@ -1,0 +1,144 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+PARAGRAPH SHADING: the box of a paragraph runs from its first line or its later lines, whichever begin further left, to its right indent. The shading passes the box by 1.5 points on each side. A right rule draws the shading out to itself, and draws it as far beyond the left edge where a left rule stands. A top or bottom rule runs to the outer edge of a side rule, and 1.5 points beyond the box on a side without one. Shading crosses the space between two paragraphs whose boxes and borders are identical. Each sample states the extent of its shading in Word, in points from the left edge of the page, whose text runs from 72 to 540.
+
+The rules of the samples that follow are 3 points wide and 4 points from the text.
+
+#paragraph(fill = "#10E0F0")[No rule: 70.56 to 541.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#16E0F0", border = { top = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) }, bottom = { style = "single", width = pt(3), color = "#9333ea", space = pt(4) } })[Top and bottom rules, which span the shading: 70.56 to 541.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#1CE0F0", border = { left = { style = "single", width = pt(3), color = "#dc2626", space = pt(4) } })[A left rule, which the shading does not reach: 70.56 to 541.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#22E0F0", border = { right = { style = "single", width = pt(3), color = "#16a34a", space = pt(4) } })[A right rule, which the shading reaches: 70.56 to 545.28.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#28E0F0", border = { left = { style = "single", width = pt(3), color = "#dc2626", space = pt(4) }, right = { style = "single", width = pt(3), color = "#16a34a", space = pt(4) } })[Left and right rules: 66.72 to 545.28.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#2EE0F0", border = { left = { style = "single", width = pt(3), color = "#dc2626", space = pt(4) }, right = { style = "single", width = pt(3), color = "#16a34a", space = pt(4) }, top = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) }, bottom = { style = "single", width = pt(3), color = "#9333ea", space = pt(4) } })[Four rules: 66.72 to 545.28.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#34E0F0", border = { left = { style = "single", width = pt(3), color = "#dc2626", space = pt(4) }, top = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) }, bottom = { style = "single", width = pt(3), color = "#9333ea", space = pt(4) } })[Left, top and bottom rules; the top rule ends at 541.44: 70.56 to 541.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#3AE0F0", border = { right = { style = "single", width = pt(3), color = "#16a34a", space = pt(4) }, top = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) }, bottom = { style = "single", width = pt(3), color = "#9333ea", space = pt(4) } })[Right, top and bottom rules; the top rule begins at 70.56: 70.56 to 545.28.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#40E0F0", border = { left = { style = "single", width = pt(1), color = "#dc2626", space = pt(4) }, right = { style = "single", width = pt(2), color = "#16a34a", space = pt(12) } })[A left rule 4 points and a right rule 12 points from the text: 58.56 to 553.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#46E0F0", border = { left = { style = "single", width = pt(1), color = "#dc2626", space = pt(12) }, right = { style = "single", width = pt(2), color = "#16a34a", space = pt(4) } })[A left rule 12 points and a right rule 4 points from the text: 66.72 to 545.28.]
+
+#break()
+
+The samples that follow are indented.
+
+#paragraph(fill = "#4CE0F0", indent = { left = pt(30) })[A left indent of 30 points: 100.56 to 541.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#52E0F0", indent = { right = pt(30) })[A right indent of 30 points: 70.56 to 511.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#58E0F0", indent = { left = pt(30), first_line = pt(20) })[A left indent of 30 points and a first line indent of 20 points: 100.56 to 541.44. The text runs on to a second line, so that the first line and the line after it are both measured against the box of the paragraph.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#5EE0F0", indent = { left = pt(30), hanging = pt(20) })[A left indent of 30 points and a hanging indent of 20 points: 80.64 to 541.44. The text runs on to a second line, so that the first line and the line after it are both measured against the box of the paragraph.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#64E0F0", indent = { hanging = pt(20) })[A hanging indent of 20 points, which begins in the margin: 50.64 to 541.44.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#6AE0F0", indent = { left = pt(30), right = pt(40), hanging = pt(20) }, border = { top = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) }, bottom = { style = "single", width = pt(3), color = "#9333ea", space = pt(4) } })[Indents of 30 and 40 points, a hanging indent of 20 points, and top and bottom rules: 80.64 to 501.36.]
+
+A paragraph between samples.
+
+#paragraph(fill = "#70E0F0", indent = { left = pt(30), hanging = pt(20) }, border = { left = { style = "single", width = pt(3), color = "#dc2626", space = pt(4) }, right = { style = "single", width = pt(3), color = "#16a34a", space = pt(4) }, top = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) }, bottom = { style = "single", width = pt(3), color = "#9333ea", space = pt(4) } })[Four rules about a hanging indent of 20 points within a left indent of 30 points: 76.80 to 545.28.]
+
+A paragraph between samples.
+
+#heading(fill = "#76E0F0", level = 2)[A shaded heading: 70.56 to 541.44.]
+
+A paragraph between samples.
+
+#blockquote(fill = "#7CE0F0", indent = { left = pt(24) })[A shaded quotation with a left indent of 24 points: 94.56 to 541.44.]
+
+#break()
+
+The pairs that follow have 12 points of space after each paragraph.
+
+#paragraph(fill = "#82E0F0", spacing = { after = pt(12) })[The first of two shaded paragraphs with one box, whose shading crosses the space after it: 70.56 to 541.44.]
+
+#paragraph(fill = "#88E0F0", spacing = { after = pt(12) })[The second of two shaded paragraphs with one box: 70.56 to 541.44.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#8EE0F0", spacing = { after = pt(12) })[A shaded paragraph whose shading stops at its last line: 70.56 to 541.44.]
+
+#paragraph(fill = "#94E0F0", spacing = { after = pt(12) }, indent = { left = pt(20) })[A shaded paragraph with another left indent: 90.48 to 541.44.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#9AE0F0", spacing = { after = pt(12) }, indent = { left = pt(30) })[A shaded paragraph whose shading stops at its last line: 100.56 to 541.44.]
+
+#paragraph(fill = "#A0E0F0", spacing = { after = pt(12) }, indent = { left = pt(30), hanging = pt(20) })[A shaded paragraph with the same left indent and a hanging indent: 80.64 to 541.44.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#A6E0F0", spacing = { after = pt(12) }, indent = { left = pt(30), hanging = pt(20) })[A shaded paragraph with a hanging indent, whose shading crosses the space after it: 80.64 to 541.44.]
+
+#paragraph(fill = "#ACE0F0", spacing = { after = pt(12) }, indent = { left = pt(10) })[A shaded paragraph with another left indent and the same box: 80.64 to 541.44.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#B2E0F0", spacing = { after = pt(12) }, indent = { left = pt(30) })[A shaded paragraph whose shading crosses the space after it: 100.56 to 541.44.]
+
+#paragraph(fill = "#B8E0F0", spacing = { after = pt(12) }, indent = { left = pt(30), first_line = pt(20) })[A shaded paragraph with the same left indent and a first line indent: 100.56 to 541.44.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#BEE0F0", spacing = { after = pt(4) })[A shaded paragraph with 4 points of space after it, which its shading crosses: 70.56 to 541.44.]
+
+#paragraph(fill = "#C4E0F0", spacing = { before = pt(14), after = pt(12) })[A shaded paragraph with 14 points of space before it, whose shading takes the remaining 10 points: 70.56 to 541.44.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#CAE0F0", indent = { left = pt(30), hanging = pt(20) }, border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[The first of two paragraphs in one box, with a hanging indent: 76.80 to 545.28.]
+
+#paragraph(fill = "#D0E0F0", indent = { left = pt(10) }, border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[The second of two paragraphs in one box, with another left indent and the same box: 76.80 to 545.28.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#D6E0F0", indent = { left = pt(30) }, border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[A paragraph with a box of its own: 96.72 to 545.28.]
+
+#paragraph(fill = "#DCE0F0", indent = { left = pt(30), hanging = pt(20) }, border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[A paragraph with a box of its own, an identical border and a hanging indent: 76.80 to 545.28.]
+
+A paragraph between pairs.
+
+#paragraph(fill = "#E2E0F0", spacing = { after = pt(12) }, border = { right = { style = "single", width = pt(2), color = "#16a34a", space = pt(6) } })[The first of two paragraphs with a right rule, whose shading crosses the space after it: 70.56 to 547.44.]
+
+#paragraph(fill = "#E8E0F0", spacing = { after = pt(12) }, border = { right = { style = "single", width = pt(2), color = "#16a34a", space = pt(6) } })[The second of two paragraphs with a right rule: 70.56 to 547.44.]
+
+The last paragraph.

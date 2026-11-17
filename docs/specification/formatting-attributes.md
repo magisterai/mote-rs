@@ -172,15 +172,20 @@ Each side is a border-style string or a property object with these fields:
 | `style`, `val` | Border-style spelling; a nonempty `style` takes precedence over its alias `val`. |
 | `size` | Non-negative integer width in eighths of a point. |
 | `width` | Non-negative length; takes precedence over `size`; a bare number denotes points for this field. |
-| `space` | The distance of the border from the text: a length, or a bare number of points, from 0 to 31 points, kept as a whole number of points. Another value is invalid on a paragraph or a heading. The shading of a paragraph with a border on either side reaches those borders across this distance. |
+| `space` | The distance of the border from the text: a length, or a bare number of points, from 0 to 31 points, kept as a whole number of points. Another value is invalid on a paragraph or a heading. |
 | `color` | Hexadecimal string or typed color. |
 
 `all` supplies sides that are not authored individually. `single` requests a
 single stroke; `none` or `nil` as strings requests no visible border.
-Consecutive paragraphs whose borders are identical on every side, and whose left
-and right indents are equal, share one box: no border is drawn between them, and
+The **box** of a paragraph extends from its first line or its later lines,
+whichever begin further left, to its right indent: a first-line indent leaves
+the box unchanged, and a hanging indent widens it. The side borders lie outside
+the box, the top and bottom borders span it, and the shading covers it on every
+line. Consecutive paragraphs whose borders are identical on every side, and
+whose boxes are equal, are joined: no border is drawn between them, and
 the side borders and the shading of the upper paragraph cross the space between
-them. Evaluation
+them. The shading of a paragraph without borders crosses the space between it
+and a following shaded paragraph without borders whose box is equal. Evaluation
 checks that an outer `border` argument is an object, then retains its contents
 without validating individual sides or values. For DOCX, an empty style in a
 property object falls through to `val`, then to `single`; an empty color uses the

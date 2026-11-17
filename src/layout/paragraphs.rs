@@ -23,6 +23,20 @@ pub struct ParagraphText {
     pub lines: Vec<TextLine>,
 }
 
+impl ParagraphText {
+    /// Returns the box of the paragraph, which its shading and its borders
+    /// follow on every line: the box begins at the first line or at the
+    /// continuation lines, whichever begin further left, and ends at the right
+    /// indent.
+    pub fn box_frame(&self) -> LineFrame {
+        let left = self.first_frame.x.min(self.continuation_frame.x);
+        LineFrame {
+            x: left,
+            width: self.continuation_frame.x + self.continuation_frame.width - left,
+        }
+    }
+}
+
 /// Resolve and measure one paragraph or heading before pagination and decoration.
 /// Borders, tab stops, numbering and page requests require the document planner.
 pub fn plan_paragraph_text(

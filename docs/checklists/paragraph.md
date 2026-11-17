@@ -37,18 +37,24 @@ style resolution and output remain separate.
   The outer argument's object type and the `space` of each side are checked; other
   side contents remain metadata.
 - [x] `border` side `space`: a length or a bare number of points from 0 to 31,
-  kept as whole points; the native shading of a paragraph with a rule on either
-  side reaches those rules across it, as Word's does. See the
+  kept as whole points; the native shading of a paragraph with a right rule
+  reaches that rule across it, as Word's does. See the
   [border tests](../../tests/paragraph_borders.rs).
-- [x] Consecutive paragraphs with identical borders and identical left and
-  right indents share one box, as in Word: no rule and no border space lies
-  between them, the side rules cross the space between them, and the shading of
-  the upper paragraph crosses the space after it. Word joins the paragraphs of
-  the DOCX itself; native layout joins those of one flow, and leaves the box open
-  where a page divides it. See the
+- [x] Consecutive paragraphs with identical borders and equal boxes share one
+  box, as in Word: no rule and no border space lies between them, the side rules
+  cross the space between them, and the shading of the upper paragraph crosses
+  the space after it. The box of a paragraph runs from its first line or its
+  later lines, whichever begin further left, to its right indent, so that a
+  first-line indent leaves the box unchanged and a hanging indent widens it.
+  Word joins the paragraphs of the DOCX itself; native layout joins those of one
+  flow, and leaves the box open where a page divides it. See the
   [border tests](../../tests/paragraph_borders.rs) and the
   [paragraph-borders probe](../../tests/office/probes/paragraph-borders.mote).
-- [x] `fill`: paragraph shading color.
+- [x] `fill`: paragraph shading color. The native shading covers the box of the
+  paragraph on every line and passes it by 1.5 points on each side, as Word's
+  does; see [Native output evidence](#native-output-evidence), the
+  [border tests](../../tests/paragraph_borders.rs) and the
+  [paragraph-shading probe](../../tests/office/probes/paragraph-shading.mote).
 - [x] `tabs`: a tab-stop object or array of objects, with `position`, `alignment`,
   and optional `leader`; include the single-entry alignment/position shorthand.
   Only the outer collection type is checked; stop contents remain metadata.
@@ -112,16 +118,30 @@ without rewriting authored metadata.
 
 PDF and PNG use the shared block plan, including list and heading numbering,
 quote text, and paragraph fills. Native paragraph borders paint each resolved
-side as a solid rule outside the text, with the width and colour defaults of the
-DOCX writer (0.5 points, `BFBFBF`). A side rule lies its `space` and a further
-1.5 points from the text, as Word's does at every width and space measured. A
-top or bottom border and its spacing add to the paragraph's height, as in Word.
-The shading of a paragraph crosses the space after it only to a paragraph that
-shares its borders, or from one unbordered paragraph to another. Word sets the
-shading of a paragraph without a rule on either side, and its top and bottom
-rules, 1.5 points beyond the text on each side, and begins the shading of a
-first line at the left indent; native output sets all three at the text edge of
-the line. Styles other than
+side as a solid rule outside the box of the paragraph, with the width and colour
+defaults of the DOCX writer (0.5 points, `BFBFBF`). A side rule lies its `space`
+and a further 1.5 points from the box, as Word's does at every width and space
+measured. A top or bottom rule runs to the outer edge of a side rule, and 1.5
+points beyond the box on a side without one. A top or bottom border and its
+spacing add to the paragraph's height, as in Word.
+
+The shading follows the rule that Word's PDF export shows in the
+[paragraph-shading probe](../../tests/office/probes/paragraph-shading.mote),
+whose every sample states its measured extent. The shading covers the box on
+every line and passes it by 1.5 points on each side. A right rule draws the
+shading out to its inner edge, and draws the shading as far beyond the left edge
+of the box, by the space of the right rule, where a left rule stands; a left
+rule alone, or a top or bottom rule, does not move the shading. The shading
+therefore meets both side rules only where their spaces are equal. The native
+shading passes half the width of a rule beneath a rule that it meets, where
+Word's ends at the inner edge; the ink is the same. The shading of a paragraph
+crosses the space after it only to a paragraph that shares its box: one with
+identical borders and an equal box, or a shaded paragraph without borders after
+another whose box is equal. The space before the lower paragraph that exceeds
+the space after the upper one takes the lower shading. Word shades a paragraph
+in a table cell by the same rule; native output does not paint a paragraph fill
+or border inside a cell. A list item's fill is not written to DOCX, and its
+native band is not measured against Word. Styles other than
 single and thick are drawn as a single line and reported; borders inside table
 cells are not painted. See the [native block tests](../../tests/native_blocks.rs).
 List item child blocks and quote child blocks flatten to inline text; nested lists

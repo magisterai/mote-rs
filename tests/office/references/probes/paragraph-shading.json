@@ -1,0 +1,450 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "PARAGRAPH SHADING: the box of a paragraph runs from its first line or its later lines,",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "whichever begin further left, to its right indent. The shading passes the box by 1.5 points on",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "each side. A right rule draws the shading out to itself, and draws it as far beyond the left edge",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "where a left rule stands. A top or bottom rule runs to the outer edge of a side rule, and 1.5",
+          "x": 72.0
+        },
+        {
+          "baseline": 143.28,
+          "text": "points beyond the box on a side without one. Shading crosses the space between two",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.4,
+          "text": "paragraphs whose boxes and borders are identical. Each sample states the extent of its",
+          "x": 72.0
+        },
+        {
+          "baseline": 173.76,
+          "text": "shading in W ord, in points from the left edge of the page, whose text runs from 72 to 540.",
+          "x": 72.0
+        },
+        {
+          "baseline": 196.8,
+          "text": "The rules of the samples that follow are 3 points wide and 4 points from the text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 220.08,
+          "text": "No rule: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 243.36,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 273.36,
+          "text": "Top and bottom rules, which span the shading: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 303.6,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 326.88,
+          "text": "A left rule, which the shading does not reach: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 349.92,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 373.2,
+          "text": "A right rule, which the shading reaches: 70.56 to 545.28.",
+          "x": 72.0
+        },
+        {
+          "baseline": 396.48,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 419.52,
+          "text": "Left and right rules: 66.72 to 545.28.",
+          "x": 72.0
+        },
+        {
+          "baseline": 442.8,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 472.8,
+          "text": "Four rules: 66.72 to 545.28.",
+          "x": 72.0
+        },
+        {
+          "baseline": 503.04,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 533.28,
+          "text": "Left, top and bottom rules; the top rule ends at 541.44: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 563.52,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 593.76,
+          "text": "Right, top and bottom rules; the top rule begins at 70.56: 70.56 to 545.28.",
+          "x": 72.0
+        },
+        {
+          "baseline": 624.0,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 647.04,
+          "text": "A left rule 4 points and a right rule 12 points from the text: 58.56 to 553.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 670.32,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 693.36,
+          "text": "A left rule 12 points and a right rule 4 points from the text: 66.72 to 545.28.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The samples that follow are indented.",
+          "x": 72.0
+        },
+        {
+          "baseline": 105.84,
+          "text": "A left indent of 30 points: 100.56 to 541.44.",
+          "x": 102.0
+        },
+        {
+          "baseline": 128.88,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 152.16,
+          "text": "A right indent of 30 points: 70.56 to 511.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 175.2,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 198.48,
+          "text": "A left indent of 30 points and a first line indent of 20 points: 100.56 to 541.44. The text",
+          "x": 122.0
+        },
+        {
+          "baseline": 213.6,
+          "text": "runs on to a second line, so that the first line and the line after it are both measured",
+          "x": 102.0
+        },
+        {
+          "baseline": 228.96,
+          "text": "against the box of the paragraph.",
+          "x": 102.0
+        },
+        {
+          "baseline": 252.0,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 275.28,
+          "text": "A left indent of 30 points and a hanging indent of 20 points: 80.64 to 541.44. The text runs on",
+          "x": 82.0
+        },
+        {
+          "baseline": 290.4,
+          "text": "to a second line, so that the first line and the line after it are both measured against the",
+          "x": 102.0
+        },
+        {
+          "baseline": 305.52,
+          "text": "box of the paragraph.",
+          "x": 102.0
+        },
+        {
+          "baseline": 328.8,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 352.08,
+          "text": "A hanging indent of 20 points, which begins in the margin: 50.64 to 541.44.",
+          "x": 52.0
+        },
+        {
+          "baseline": 375.12,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 405.36,
+          "text": "Indents of 30 and 40 points, a hanging indent of 20 points, and top and bottom rules:",
+          "x": 82.0
+        },
+        {
+          "baseline": 420.48,
+          "text": "80.64 to 501.36.",
+          "x": 102.0
+        },
+        {
+          "baseline": 450.72,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 480.96,
+          "text": "Four rules about a hanging indent of 20 points within a left indent of 30 points: 76.80 to",
+          "x": 82.0
+        },
+        {
+          "baseline": 496.08,
+          "text": "545.28.",
+          "x": 102.0
+        },
+        {
+          "baseline": 526.32,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 552.72,
+          "text": "A shaded heading: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 574.32,
+          "text": "A paragraph between samples.",
+          "x": 72.0
+        },
+        {
+          "baseline": 597.6,
+          "text": "A shaded quotation with a left indent of 24 points: 94.56 to 541.44.",
+          "x": 96.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The pairs that follow have 12 points of space after each paragraph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 105.84,
+          "text": "The first of two shaded paragraphs with one box, whose shading crosses the space after it:",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 148.08,
+          "text": "The second of two shaded paragraphs with one box: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 175.2,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 198.48,
+          "text": "A shaded paragraph whose shading stops at its last line: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 225.6,
+          "text": "A shaded paragraph with another left indent: 90.48 to 541.44.",
+          "x": 92.0
+        },
+        {
+          "baseline": 252.96,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 276.0,
+          "text": "A shaded paragraph whose shading stops at its last line: 100.56 to 541.44.",
+          "x": 102.0
+        },
+        {
+          "baseline": 303.36,
+          "text": "A shaded paragraph with the same left indent and a hanging indent: 80.64 to 541.44.",
+          "x": 82.0
+        },
+        {
+          "baseline": 330.48,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 353.52,
+          "text": "A shaded paragraph with a hanging indent, whose shading crosses the space after it: 80.64 to",
+          "x": 82.0
+        },
+        {
+          "baseline": 368.88,
+          "text": "541.44.",
+          "x": 102.0
+        },
+        {
+          "baseline": 396.0,
+          "text": "A shaded paragraph with another left indent and the same box: 80.64 to 541.44.",
+          "x": 82.0
+        },
+        {
+          "baseline": 423.12,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 446.4,
+          "text": "A shaded paragraph whose shading crosses the space after it: 100.56 to 541.44.",
+          "x": 102.0
+        },
+        {
+          "baseline": 473.52,
+          "text": "A shaded paragraph with the same left indent and a first line indent: 100.56 to 541.44.",
+          "x": 122.0
+        },
+        {
+          "baseline": 500.88,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 523.92,
+          "text": "A shaded paragraph with 4 points of space after it, which its shading crosses: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 553.2,
+          "text": "A shaded paragraph with 14 points of space before it, whose shading takes the remaining 10",
+          "x": 72.0
+        },
+        {
+          "baseline": 568.32,
+          "text": "points: 70.56 to 541.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 595.44,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 623.76,
+          "text": "The first of two paragraphs in one box, with a hanging indent: 76.80 to 545.28.",
+          "x": 82.0
+        },
+        {
+          "baseline": 646.8,
+          "text": "The second of two paragraphs in one box, with another left indent and the same box: 76.80 to",
+          "x": 82.0
+        },
+        {
+          "baseline": 662.16,
+          "text": "545.28.",
+          "x": 82.0
+        },
+        {
+          "baseline": 690.24,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "A paragraph with a box of its own: 96.72 to 545.28.",
+          "x": 102.0
+        },
+        {
+          "baseline": 120.72,
+          "text": "A paragraph with a box of its own, an identical border and a hanging indent: 76.80 to 545.28.",
+          "x": 82.0
+        },
+        {
+          "baseline": 149.04,
+          "text": "A paragraph between pairs.",
+          "x": 72.0
+        },
+        {
+          "baseline": 172.08,
+          "text": "The first of two paragraphs with a right rule, whose shading crosses the space after it: 70.56 to",
+          "x": 72.0
+        },
+        {
+          "baseline": 187.2,
+          "text": "547.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 214.56,
+          "text": "The second of two paragraphs with a right rule: 70.56 to 547.44.",
+          "x": 72.0
+        },
+        {
+          "baseline": 241.68,
+          "text": "The last paragraph.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "ca4f57dc2ed2c5646f32f97feafe8ab4657a0c27ae15c68a43773186f3e4372e"
+}

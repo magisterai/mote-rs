@@ -319,17 +319,12 @@ impl ParagraphPainting {
             }
             self.pending_fill = None;
             if let Some(color) = &paragraph.style.fill {
-                // Word carries the shading of a paragraph out to its side rules
-                // only where the paragraph has a rule on either side.
-                let [left, right] = match (&paragraph.borders.left, &paragraph.borders.right) {
-                    (Some(left), Some(right)) => [left, right]
-                        .map(|side| SIDE_RULE_CLEARANCE + side.space + side.width / 2.0),
-                    _ => [0.0; 2],
-                };
+                let box_frame = paragraph.box_frame();
+                let [left, right] = shading_reach(&paragraph.borders);
                 let rectangle = HighlightRectangle {
-                    x: placement.frame.x - left,
+                    x: horizontal + box_frame.x - left,
                     top: placement.top,
-                    width: placement.frame.width + left + right,
+                    width: box_frame.width + left + right,
                     height: placement.height,
                     color: color.clone(),
                 };
@@ -394,14 +389,41 @@ impl ParagraphPainting {
     }
 }
 
-/// The distance that Word leaves between the text edge and the space of a side
-/// rule, whatever the width of the rule. Word's PDF export, whose device unit is
-/// 0.48 point, shows three units at every width from 0.5 to 6 points and every
-/// space from 0 to 20 points; 1.5 points is the round length within that unit.
+/// The distance that Word leaves between the box of a paragraph and the space of
+/// a side rule, whatever the width of the rule, and the distance by which the
+/// shading and the top and bottom rules pass the box on a side without a rule.
+/// Word's PDF export, whose device unit is 0.48 point, shows three units at
+/// every width from 0.5 to 6 points and every space from 0 to 20 points; 1.5
+/// points is the round length within that unit.
 const SIDE_RULE_CLEARANCE: f64 = 1.5;
 
-/// Side rules sit outside the text by their clearance and their spacing; top and
-/// bottom rules occupy the height that paragraph planning reserved for them.
+/// Returns the distances by which the shading passes the left and the right
+/// edge of the box of a paragraph. Word measures both from the right rule: the
+/// shading reaches that rule, passes the left edge by the space of that rule
+/// only where a left rule stands, and otherwise keeps the clearance alone. The
+/// shading passes under a rule whose inner edge it meets, so that no seam shows
+/// between the two.
+fn shading_reach(borders: &crate::layout::ParagraphBorders) -> [f64; 2] {
+    let Some(right) = &borders.right else {
+        return [SIDE_RULE_CLEARANCE; 2];
+    };
+    let left = borders.left.as_ref().map_or(0.0, |left| {
+        right.space
+            + if left.space == right.space {
+                left.width / 2.0
+            } else {
+                0.0
+            }
+    });
+    [
+        SIDE_RULE_CLEARANCE + left,
+        SIDE_RULE_CLEARANCE + right.space + right.width / 2.0,
+    ]
+}
+
+/// Side rules sit outside the box of the paragraph by their clearance and their
+/// spacing; top and bottom rules occupy the height that paragraph planning
+/// reserved for them.
 fn paint_borders(
     page: &mut super::TextPage,
     paragraph: &super::paragraphs::ParagraphText,
@@ -412,8 +434,9 @@ fn paint_borders(
     let borders = &paragraph.borders;
     let first = placement.line_index == 0;
     let last = placement.line_index + 1 == paragraph.lines.len();
-    let left = horizontal + paragraph.continuation_frame.x;
-    let right = left + paragraph.continuation_frame.width;
+    let box_frame = paragraph.box_frame();
+    let left = horizontal + box_frame.x;
+    let right = left + box_frame.width;
     let top = placement.top;
     let bottom = placement.top + placement.height;
     let mut rule = |start: [f64; 2], end: [f64; 2], side: &crate::layout::BorderSide| {
@@ -426,8 +449,7 @@ fn paint_borders(
         }));
     };
     let reach = |side: &Option<crate::layout::BorderSide>| {
-        side.as_ref()
-            .map_or(0.0, |side| SIDE_RULE_CLEARANCE + side.outset())
+        SIDE_RULE_CLEARANCE + side.as_ref().map_or(0.0, crate::layout::BorderSide::outset)
     };
     let left_edge = left - reach(&borders.left);
     let right_edge = right + reach(&borders.right);

@@ -102,9 +102,9 @@ and [specification examples](../../tests/conformance.rs) cover the checked items
 ## Native output evidence
 
 PDF and PNG use the shared block plan, including list and heading numbering,
-quote text, and paragraph fills. Native paragraph borders currently use the
-resolved `all.color` or `bottom.color` for a 0.35-point bottom rule on each line;
-other sides, widths, and border styles are outside that painting behavior.
+quote text, and paragraph fills. The shading and the borders of a heading are
+painted as those of a paragraph are; the
+[paragraph checklist](paragraph.md#native-output-evidence) states the rule.
 List item child blocks and quote child blocks flatten to inline text; nested lists
 inside list items retain their own markers. See the
 [native block captures](../../tests/fixtures/native-blocks/README.md) and
