@@ -117,7 +117,13 @@ impl ChartPlanner<'_, '_> {
         }
         let paragraph = self.measurement.fit_text(text, size, alignment, bounds)?;
         let height = text_height(&paragraph);
-        let mut top = bounds.top + ((bounds.height - height) / 2.0).max(0.0);
+        let mut top = bounds.top
+            + ((bounds.height - height) / 2.0).max(0.0)
+            + if self.slide {
+                slide_text_drop(size)
+            } else {
+                0.0
+            };
         for mut line in paragraph.lines {
             let height = line.height;
             line.translate(bounds.left, top);
@@ -171,13 +177,16 @@ impl ChartPlanner<'_, '_> {
         }
         Ok(())
     }
+    /// Draws a chart title or an axis title in its own font, color and weight.
     pub(super) fn title(
         &mut self,
         bounds: Rectangle,
-        chart: &crate::charts::Chart,
+        text: &str,
+        style: &crate::charts::TitleStyle,
+        size: f64,
+        rotation: f64,
     ) -> Result<(), LayoutError> {
         use crate::measurement::FontVariant;
-        let style = &chart.title_style;
         let variant = match (style.bold.unwrap_or(false), style.italic.unwrap_or(false)) {
             (true, true) => FontVariant::BoldItalic,
             (true, false) => FontVariant::Bold,
@@ -197,13 +206,7 @@ impl ChartPlanner<'_, '_> {
             std::mem::replace(&mut self.measurement.color, color),
             std::mem::replace(&mut self.measurement.variant, variant),
         );
-        let result = self.text(
-            bounds,
-            &chart.title,
-            super::geometry::title_size(chart),
-            "center",
-            0.0,
-        );
+        let result = self.text(bounds, text, size, "center", rotation);
         (
             self.measurement.font,
             self.measurement.color,
@@ -256,4 +259,12 @@ pub(crate) fn reduced_labels_warning(
     Some(format!(
         "the {list} of {described} are reduced below the chart's text size to fit; shorten the labels, widen the chart or reduce text.size"
     ))
+}
+
+/// The distance by which PowerPoint sets chart text below the place Word gives
+/// it. PowerPoint exports show text of 9 and 10 points 0.4 point higher than the
+/// native place, text of 14 points 0.2 point higher, and text of 18 points at
+/// the native place.
+fn slide_text_drop(size: f64) -> f64 {
+    -0.05 * (crate::charts::MEASURED_TITLE_SIZE - size).clamp(0.0, 8.0)
 }

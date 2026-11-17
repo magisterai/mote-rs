@@ -64,9 +64,14 @@
           "x": 72.0
         },
         {
-          "baseline": 296.4,
+          "baseline": 292.8,
           "text": "Column chart",
-          "x": 153.57
+          "x": 165.44
+        },
+        {
+          "baseline": 311.28,
+          "text": "20",
+          "x": 78.5
         },
         {
           "baseline": 314.16,
@@ -74,17 +79,12 @@
           "x": 373.68
         },
         {
-          "baseline": 316.56,
-          "text": "20",
-          "x": 78.5
-        },
-        {
           "baseline": 332.16,
           "text": "chart. Its position is fixed to the",
           "x": 373.68
         },
         {
-          "baseline": 340.32,
+          "baseline": 336.72,
           "text": "15",
           "x": 78.5
         },
@@ -94,7 +94,7 @@
           "x": 373.68
         },
         {
-          "baseline": 364.08,
+          "baseline": 362.16,
           "text": "10",
           "x": 78.5
         },
@@ -104,34 +104,34 @@
           "x": 373.68
         },
         {
-          "baseline": 387.84,
+          "baseline": 387.6,
           "text": "5",
-          "x": 83.84
+          "x": 83.31
         },
         {
-          "baseline": 411.6,
+          "baseline": 413.04,
           "text": "0",
-          "x": 83.84
+          "x": 83.31
         },
         {
-          "baseline": 424.56,
+          "baseline": 424.8,
           "text": "Q1",
-          "x": 121.15
+          "x": 120.05
         },
         {
-          "baseline": 424.56,
+          "baseline": 424.8,
           "text": "Q2",
-          "x": 179.3
+          "x": 178.69
         },
         {
-          "baseline": 424.56,
+          "baseline": 424.8,
           "text": "Q3",
-          "x": 237.45
+          "x": 237.34
         },
         {
-          "baseline": 424.56,
+          "baseline": 424.8,
           "text": "Q4",
-          "x": 295.59
+          "x": 295.98
         },
         {
           "baseline": 448.32,
@@ -205,9 +205,9 @@
           "x": 72.0
         },
         {
-          "baseline": 206.4,
+          "baseline": 202.8,
           "text": "Pie chart",
-          "x": 172.69
+          "x": 180.32
         },
         {
           "baseline": 266.4,
@@ -215,19 +215,19 @@
           "x": 416.2
         },
         {
-          "baseline": 271.92,
+          "baseline": 270.24,
           "text": "New",
-          "x": 287.16
+          "x": 291.65
         },
         {
-          "baseline": 289.92,
+          "baseline": 287.28,
           "text": "Expansion",
-          "x": 287.16
+          "x": 291.65
         },
         {
-          "baseline": 308.16,
+          "baseline": 304.08,
           "text": "Renewal",
-          "x": 287.16
+          "x": 291.65
         },
         {
           "baseline": 376.32,

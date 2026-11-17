@@ -19,114 +19,114 @@
           "x": 66.0
         },
         {
-          "baseline": 159.6,
+          "baseline": 156.0,
           "text": "Monthly JSON Output",
-          "x": 205.68
+          "x": 224.24
         },
         {
-          "baseline": 180.0,
+          "baseline": 174.72,
           "text": "60",
-          "x": 103.47
+          "x": 93.71
         },
         {
-          "baseline": 201.6,
+          "baseline": 199.2,
           "text": "50",
-          "x": 103.47
+          "x": 93.71
         },
         {
-          "baseline": 223.2,
+          "baseline": 223.92,
           "text": "40",
-          "x": 103.47
+          "x": 93.71
         },
         {
-          "baseline": 230.5,
+          "baseline": 239.8,
           "text": "s",
-          "x": 95.3
+          "x": 87.86
         },
         {
-          "baseline": 236.32,
+          "baseline": 243.04,
           "text": "t",
-          "x": 95.3
+          "x": 87.86
         },
         {
-          "baseline": 240.62,
+          "baseline": 245.43,
           "text": "i",
-          "x": 95.3
+          "x": 87.86
         },
         {
-          "baseline": 245.04,
+          "baseline": 248.4,
           "text": "30",
-          "x": 103.47
+          "x": 93.71
         },
         {
-          "baseline": 250.54,
+          "baseline": 250.95,
           "text": "n",
-          "x": 95.3
+          "x": 87.86
         },
         {
-          "baseline": 262.8,
+          "baseline": 257.76,
           "text": "U",
-          "x": 95.3
+          "x": 87.86
         },
         {
-          "baseline": 266.64,
+          "baseline": 273.12,
           "text": "20",
-          "x": 103.47
+          "x": 93.71
         },
         {
-          "baseline": 288.24,
+          "baseline": 297.84,
           "text": "10",
-          "x": 103.47
+          "x": 93.71
         },
         {
-          "baseline": 309.84,
+          "baseline": 322.32,
           "text": "0",
-          "x": 108.81
+          "x": 98.52
         },
         {
-          "baseline": 323.04,
+          "baseline": 334.08,
           "text": "Jan",
-          "x": 154.11
+          "x": 144.25
         },
         {
-          "baseline": 323.04,
+          "baseline": 334.08,
           "text": "Feb",
-          "x": 228.73
+          "x": 221.31
         },
         {
-          "baseline": 323.04,
+          "baseline": 334.08,
           "text": "Mar",
-          "x": 304.11
+          "x": 299.07
         },
         {
-          "baseline": 323.04,
+          "baseline": 334.08,
           "text": "Apr",
-          "x": 380.57
+          "x": 377.79
         },
         {
-          "baseline": 323.04,
+          "baseline": 334.08,
           "text": "May",
-          "x": 454.73
+          "x": 454.44
         },
         {
-          "baseline": 345.6,
+          "baseline": 349.2,
           "text": "Month",
-          "x": 287.48
+          "x": 292.68
         },
         {
-          "baseline": 374.88,
+          "baseline": 375.12,
           "text": "Actual",
-          "x": 230.75
+          "x": 235.08
         },
         {
-          "baseline": 374.88,
+          "baseline": 375.12,
           "text": "Plan",
-          "x": 290.16
+          "x": 291.3
         },
         {
-          "baseline": 374.88,
+          "baseline": 375.12,
           "text": "Stretch",
-          "x": 340.9
+          "x": 339.72
         },
         {
           "baseline": 402.72,

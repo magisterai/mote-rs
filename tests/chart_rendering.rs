@@ -56,11 +56,20 @@ fn default_chart_sectors_preserve_sampling_at_five_degree_boundaries() {
             _ => None,
         })
         .collect();
-    capture::compare(
-        &serde_json::to_value(sectors).unwrap(),
-        &serde_json::from_slice(&expected).unwrap(),
-        "default radial sectors",
-    );
+    let sectors = serde_json::to_value(sectors).unwrap();
+    let expected = serde_json::from_slice(&expected).unwrap();
+    if capture::refreshing() {
+        if capture::mismatch(&sectors, &expected, "default radial sectors").is_some() {
+            capture::replace_json_recorded(
+                &folder,
+                "capture.json",
+                "radial-geometry.json",
+                &sectors,
+            );
+        }
+    } else {
+        capture::compare(&sectors, &expected, "default radial sectors");
+    }
 }
 
 fn compare_captures(collection: &str, cases: &[&str]) {

@@ -154,7 +154,7 @@ fn label_rectangles(page: &mote::layout::TextPage) -> Vec<(String, f64, [f64; 4]
 fn chart_text_size_sets_every_label_and_leaves_the_titles() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for kind in ["column", "bar", "line", "pie", "stacked_column", "doughnut"] {
-        for (argument, expected) in [("", 10.0), (",text={size=pt(14)}", 14.0)] {
+        for (argument, expected) in [("", 9.0), (",text={size=pt(14)}", 14.0)] {
             let source = format!(
                 "#presentation(size='wide')\n#slide[#box(position={{x=pt(40),y=pt(40),width=pt(640),height=pt(400)}})[#chart(kind='{kind}',title='Totals',legend='bottom',data_labels=true,axis={{category={{title='Regions'}},value={{title='Units'}}}},data={{categories={{'North','South','East'}},series={{{{name='First',values={{4,7,5}}}},{{name='Second',values={{6,3,8}}}}}}}}{argument})]]"
             );
@@ -183,7 +183,16 @@ fn chart_text_size_sets_every_label_and_leaves_the_titles() {
             for placed in &page.lines {
                 for fragment in &placed.line.fragments {
                     if TITLES.contains(&fragment.text.as_str()) {
-                        assert_eq!(fragment.style.measurement.size_points, 18.0, "{kind}");
+                        let expected = if fragment.text == "Totals" {
+                            14.0
+                        } else {
+                            10.0
+                        };
+                        assert_eq!(
+                            fragment.style.measurement.size_points, expected,
+                            "{kind}: {}",
+                            fragment.text
+                        );
                     }
                 }
             }
@@ -558,4 +567,126 @@ fn a_label_reduced_below_the_chart_text_size_is_reported_once_for_its_chart() {
             .starts_with("the category labels of content[0].slide[0].box[0].chart are reduced"),
         "{on_slide:?}"
     );
+}
+
+#[test]
+fn an_axis_title_table_sets_the_size_weight_and_color_of_the_title() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for kind in ["column", "bar", "line"] {
+        let source = format!(
+            "#chart(kind='{kind}',legend=false,border=true,axis={{category={{title={{text='Regions',size=pt(13),italic=true}}}},value={{title={{text='Tonnes',size=pt(12),bold=true,color='#334155'}}}}}},data={{categories={{'A','B'}},values={{1,2}}}})"
+        );
+        let planned = render::plan(&mote::compile(&source).unwrap(), &resolver, None).unwrap();
+        assert_eq!(planned.warnings, Vec::<String>::new(), "{kind}");
+        let page = &planned.output.pages[0];
+        let fragment = |text: &str| {
+            page.lines
+                .iter()
+                .flat_map(|placed| &placed.line.fragments)
+                .find(|fragment| fragment.text == text)
+                .unwrap_or_else(|| panic!("{kind}: {text} is not drawn"))
+        };
+        let value = fragment("Tonnes");
+        assert_eq!(value.style.measurement.size_points, 12.0, "{kind}");
+        assert_eq!(value.style.color, "334155", "{kind}");
+        assert_eq!(
+            value.style.measurement.variant,
+            mote::measurement::FontVariant::Bold,
+            "{kind}"
+        );
+        let category = fragment("Regions");
+        assert_eq!(category.style.measurement.size_points, 13.0, "{kind}");
+        assert_eq!(category.style.color, "000000", "{kind}");
+        assert_eq!(
+            category.style.measurement.variant,
+            mote::measurement::FontVariant::Italic,
+            "{kind}"
+        );
+    }
+}
+
+#[test]
+fn default_ticks_of_small_whole_values_are_even_and_a_stated_range_replaces_them() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    let ticks = |arguments: &str| {
+        let source = format!(
+            "#presentation(size='wide')\n#slide[#box(position={{x=pt(400),y=pt(120),width=pt(480),height=pt(360)}})[#chart(kind='line',title='Outputs',data_labels={{value=true,position='top'}},plot_area={{border=true}},data={{categories={{'PPTX','PDF','PNG'}},series={{{{name='Objects',values={{8,8,8}}}}}}}}{arguments})]]"
+        );
+        let planned = render::plan(&mote::compile(&source).unwrap(), &resolver, None).unwrap();
+        let page = &planned.output.pages[0];
+        let plot = page
+            .operations
+            .iter()
+            .find_map(|operation| match operation {
+                PageOperation::OutlineRectangle { bounds, .. } => Some(*bounds),
+                _ => None,
+            })
+            .unwrap();
+        let mut gridlines: Vec<f64> = page
+            .operations
+            .iter()
+            .filter_map(|operation| match operation {
+                PageOperation::Rule(rule) if rule.role == RuleRole::ChartGridline => {
+                    Some(rule.start[1])
+                }
+                _ => None,
+            })
+            .collect();
+        gridlines.sort_by(f64::total_cmp);
+        let mut labels: Vec<f64> = page
+            .lines
+            .iter()
+            .filter_map(|placed| {
+                let fragment = &placed.line.fragments[0];
+                // The labels of the value axis lie to the left of the plot.
+                (fragment.x < plot[0])
+                    .then(|| fragment.text.parse::<f64>().ok())
+                    .flatten()
+            })
+            .collect();
+        labels.sort_by(f64::total_cmp);
+        assert_eq!(gridlines.len(), labels.len(), "{arguments}");
+        let interval = plot[3] / (gridlines.len() - 1) as f64;
+        for (index, gridline) in gridlines.iter().enumerate() {
+            assert_close(*gridline, plot[1] + index as f64 * interval, arguments);
+        }
+        labels
+    };
+    let whole = |last: u8| (0..=last).map(f64::from).collect::<Vec<_>>();
+    // PowerPoint draws this chart, whose range is automatic, with a tick at every
+    // whole number from 0 to 9.
+    assert_eq!(ticks(""), whole(9));
+    assert_eq!(ticks(",axis={value={minimum=0,maximum=10}}"), whole(10));
+    assert_eq!(
+        ticks(",axis={value={minimum=0,maximum=4,step=1}}"),
+        whole(4)
+    );
+}
+
+#[test]
+fn the_plot_moves_continuously_through_the_default_and_measured_text_sizes() {
+    let plot = |kind: &str, label_size: f64, title_size: f64| {
+        plan_bordered_chart(&format!(
+            "kind='{kind}',title={{text='Totals',size=pt({title_size})}},text={{size=pt({label_size})}},axis={{category={{title={{text='Regions',size=pt({title_size})}}}},value={{title={{text='Units',size=pt({title_size})}}}}}},data={{categories={{'North','South'}},values={{41,87}}}}"
+        ))
+        .plot
+    };
+    for kind in ["column", "bar", "line"] {
+        for size in [9.0, 10.0, 14.0, 18.0] {
+            for (below, above) in [
+                (
+                    plot(kind, size - 0.005, 14.0),
+                    plot(kind, size + 0.005, 14.0),
+                ),
+                (plot(kind, 9.0, size - 0.005), plot(kind, 9.0, size + 0.005)),
+            ] {
+                for (first, second) in below.iter().zip(above) {
+                    assert!(
+                        (first - second).abs() < 0.1,
+                        "{kind} at {size} points: {below:?} and {above:?}"
+                    );
+                }
+            }
+        }
+    }
 }

@@ -161,7 +161,8 @@ fn vertical_label(
         "inBase" if negative => bar.top + 2.0,
         "inBase" => bar.top + bar.height - 18.0 * label_scale,
         _ if negative => bar.top + bar.height + 1.0,
-        _ => bar.top - 17.0 * label_scale,
+        // Office keeps the gap above a bar under small labels.
+        _ => bar.top - 17.0 * label_scale - 12.0 * (1.0 - label_scale).max(0.0),
     };
     (
         Rectangle::new(

@@ -74,7 +74,7 @@ impl Scale {
             chart.value_minimum,
             chart.value_maximum,
             chart.value_step,
-            length / chart.label_scale(),
+            measured_length(chart, length),
             horizontal,
         )
     }
@@ -133,9 +133,7 @@ impl Scale {
         if !minimum.is_finite() || !maximum.is_finite() {
             return Self::automatic(minimum, maximum, 0.0);
         }
-        // The step rules were measured for default labels, so a larger label
-        // sees a proportionally shorter axis.
-        let length = length / chart.label_scale();
+        let length = measured_length(chart, length);
         if percent {
             let (minimum, maximum, step) = match (minimum < 0.0, maximum > 0.0) {
                 (true, true) => (-100.0, 100.0, 20.0),
@@ -144,8 +142,9 @@ impl Scale {
             };
             // A default chart keeps its percentage step at every height; larger
             // labels on a vertical axis take the finest step that separates them.
-            let enlarged =
-                !horizontal && chart.label_size > crate::charts::DEFAULT_LABEL_SIZE && length > 0.0;
+            let enlarged = !horizontal
+                && chart.label_size > crate::charts::MEASURED_LABEL_SIZE
+                && length > 0.0;
             let step = [step, 20.0, 50.0]
                 .into_iter()
                 .find(|candidate| {
@@ -201,6 +200,21 @@ impl Scale {
             ));
         }
         Ok(self)
+    }
+}
+/// The length of an axis as the step rules see it, which were measured for
+/// labels of 10 points. A larger label sees a proportionally shorter axis. A
+/// smaller label sees an axis longer by 10.4 points for each point of size, as
+/// the steps of Word and PowerPoint charts with labels of 9 points show.
+fn measured_length(chart: &Chart, length: f64) -> f64 {
+    if length <= 0.0 {
+        return length;
+    }
+    let scale = chart.label_scale();
+    if scale < 1.0 {
+        length + 10.4 * (crate::charts::MEASURED_LABEL_SIZE - chart.label_size)
+    } else {
+        length / scale
     }
 }
 fn extents(chart: &Chart, stacked: bool) -> (f64, f64) {

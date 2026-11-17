@@ -4,9 +4,18 @@ use super::{
     scale::{Scale, axis_label},
 };
 use crate::{
-    charts::{RULE_COLOR, RULE_WIDTH},
+    charts::{RULE_COLOR, RULE_WIDTH, title_distance},
     layout::RuleRole,
 };
+
+/// The points by which the middle of an axis title nears the edge it is measured
+/// from for each point of size below 18.
+const AXIS_TITLE_MIDDLE: f64 = 0.55;
+/// Office sets a turned axis title of 10 points 0.6 point below the middle of
+/// the plot, and one of 18 points at the middle.
+fn rotated_title_drop(size: f64) -> f64 {
+    (0.075 * (crate::charts::MEASURED_TITLE_SIZE - size)).max(0.0)
+}
 
 impl ChartPlanner<'_, '_> {
     pub(super) fn axes(
@@ -100,7 +109,7 @@ impl ChartPlanner<'_, '_> {
             } else {
                 (
                     Rectangle::new(
-                        plot.left - 37.0 * label_scale,
+                        plot.left - 37.0 * label_scale - chart.small_label_shift(1.9),
                         plot.top + plot.height * (1.0 - ratio) - 8.0 * label_scale,
                         28.0 * label_scale,
                         16.0 * label_scale,
@@ -144,7 +153,10 @@ impl ChartPlanner<'_, '_> {
                 let slot = plot.height / count.max(1) as f64;
                 (
                     Rectangle::new(
-                        plot.left - layout.category_label_width - 9.0 * label_scale,
+                        plot.left
+                            - layout.category_label_width
+                            - 9.0 * label_scale
+                            - chart.small_label_shift(2.1),
                         plot.top + (count - 1 - index) as f64 * slot + slot / 2.0
                             - 8.0 * label_scale,
                         layout.category_label_width,
@@ -172,69 +184,90 @@ impl ChartPlanner<'_, '_> {
                 alignment,
             )?;
         }
+        // The frames and offsets of the axis titles were measured for titles of
+        // 18 points. A frame follows the size of its title in proportion, and its
+        // middle moves as Office moves the title.
+        let category_style = &chart.category_title_style;
+        let value_style = &chart.value_title_style;
+        let (category_scale, value_scale) = (
+            category_style.axis_title_scale(),
+            value_style.axis_title_scale(),
+        );
         if horizontal {
-            self.text(
+            self.title(
                 Rectangle::new(
                     plot.left,
-                    plot.top + plot.height + 21.0 * label_scale,
+                    plot.top
+                        + plot.height
+                        + 21.0 * label_scale
+                        + title_distance(12.0, AXIS_TITLE_MIDDLE, value_style.axis_title_size())
+                        - 12.0 * value_scale,
                     plot.width,
-                    24.0,
+                    24.0 * value_scale,
                 ),
                 &chart.value_title,
-                18.0,
-                "center",
+                value_style,
+                value_style.axis_title_size(),
                 0.0,
             )?;
-            let offset = if chart.legend.enabled
-                && matches!(super::legend::position(chart), "left" | "right")
-            {
-                21.5
-            } else {
-                29.0
-            } + 9.0 * (label_scale - 1.0);
+            let offset =
+                if chart.legend.enabled
+                    && matches!(super::legend::position(chart), "left" | "right")
+                {
+                    7.5
+                } else {
+                    15.0
+                } + title_distance(14.0, AXIS_TITLE_MIDDLE, category_style.axis_title_size())
+                    + 9.0 * (label_scale - 1.0);
             let center_left = plot.left - layout.category_label_width - offset;
-            self.text(
+            self.title(
                 Rectangle::new(
                     center_left - plot.height / 2.0,
-                    plot.top + plot.height / 2.0 - 14.0,
+                    plot.top + plot.height / 2.0 - 14.0 * category_scale
+                        + rotated_title_drop(category_style.axis_title_size()),
                     plot.height,
-                    28.0,
+                    28.0 * category_scale,
                 ),
                 &chart.category_title,
-                18.0,
-                "center",
+                category_style,
+                category_style.axis_title_size(),
                 -90.0,
             )?;
         } else {
-            self.text(
+            self.title(
                 Rectangle::new(
                     plot.left,
-                    plot.top + plot.height + 20.5 * label_scale,
+                    plot.top
+                        + plot.height
+                        + 20.5 * label_scale
+                        + title_distance(12.5, AXIS_TITLE_MIDDLE, category_style.axis_title_size())
+                        - 12.5 * category_scale,
                     plot.width,
-                    25.0,
+                    25.0 * category_scale,
                 ),
                 &chart.category_title,
-                18.0,
-                "center",
+                category_style,
+                category_style.axis_title_size(),
                 0.0,
             )?;
-            self.text(
+            self.title(
                 Rectangle::new(
                     layout.chart.left
-                        + 23.25
+                        + title_distance(23.25, AXIS_TITLE_MIDDLE, value_style.axis_title_size())
                         + if chart.legend.enabled && super::legend::position(chart) == "left" {
                             layout.legend.width + 6.0
                         } else {
                             0.0
                         }
                         - plot.height / 2.0,
-                    plot.top + plot.height / 2.0 - 14.0,
+                    plot.top + plot.height / 2.0 - 14.0 * value_scale
+                        + rotated_title_drop(value_style.axis_title_size()),
                     plot.height,
-                    28.0,
+                    28.0 * value_scale,
                 ),
                 &chart.value_title,
-                18.0,
-                "center",
+                value_style,
+                value_style.axis_title_size(),
                 -90.0,
             )?;
         }

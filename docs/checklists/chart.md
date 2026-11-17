@@ -29,7 +29,19 @@ and [value-domain](attributes/values.md) inventories.
   `legend.enabled` and `legend.position`: right→r, left→l, top→t, bottom→b.
   The short legend positions are output model values, not accepted inputs.
 - [x] Kind- and series-count-dependent legend output defaults.
-- [x] `axis.category.title`/`name` and `axis.value.title`/`name`.
+- [x] `axis.category.title`/`name` and `axis.value.title`/`name`. A title is a
+  string or a table with the `text`, `size`, `bold`, `italic`, `color` and `font`
+  of the chart title, honoured by editable and native output; see the
+  [package test](../../tests/charts.rs) and the
+  [native test](../../tests/chart_axis_labels.rs).
+- [x] Default text sizes of chart style 201, which Office gives a new chart: a
+  chart title of 14 pt, an axis title of 10 pt and labels of 9 pt. Editable
+  output states each size, since Word and PowerPoint draw a title run of no
+  stated size at 18 pt. Native output fits its frames and reserves to Word and
+  PowerPoint exports at these sizes, and keeps those measured for 18 pt titles
+  and 10 pt labels at those sizes; the placement of pie data labels is not
+  fitted. The style's grey for titles, legend entries
+  and data labels is not applied; they keep the text color.
 - [x] `axis.value.minimum` and `axis.value.maximum`: finite numbers, either alone
   or both with the minimum less than the maximum, written as the `min` and `max`
   of the value axis [scaling](attributes/charts.md#c-ct_scaling). Native output
@@ -71,14 +83,14 @@ and [value-domain](attributes/values.md) inventories.
   [specification](../specification/charts.md#dimensions-and-appearance), the
   [package test](../../tests/charts.rs) and the
   [native test](../../tests/chart_axis_labels.rs). An attribute for axis lines or
-  tick marks is not defined. The Office default axis label size of 9 pt is not
-  applied; labels are 10 pt unless `text.size` states another size.
+  tick marks is not defined. Labels are 9 pt, the Office default, unless
+  `text.size` states another size.
 - [x] `data_labels`: boolean or property table with enabled, value, category,
   series, percent/percentage and position. Position aliases: center/ctr,
   inside_base/inBase, inside_end/inEnd, outside_end/outEnd, best_fit/bestFit,
   left/l, right/r, top/t and bottom/b.
 - [x] `text`: a property table whose only member is `size`, a positive length
-  that defaults to 10 pt. The size governs the axis tick labels, the category
+  that defaults to 9 pt. The size governs the axis tick labels, the category
   labels, the legend entries and the data labels, and leaves the chart title and
   the axis titles at their own sizes. Editable output writes the size as
   `a:defRPr@sz` in the `c:txPr` of each axis, of the legend and of the data

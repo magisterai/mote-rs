@@ -1,28 +1,44 @@
 use super::super::{
-    DEFAULT_LABEL_SIZE, RULE_COLOR, RULE_WIDTH, TitleStyle,
+    DEFAULT_AXIS_TITLE_SIZE, DEFAULT_LABEL_SIZE, DEFAULT_TITLE_SIZE, RULE_COLOR, RULE_WIDTH,
+    TitleStyle,
     appearance::{Border, DataLabels, Gridlines, ShapeProperties},
 };
 use super::{Chart, Error, Options};
 use crate::xml::escape;
 
-pub(super) fn title(text: &str, options: &Options) -> Result<String, Error> {
-    styled_title(text, &TitleStyle::default(), options)
+pub(super) fn axis_title(
+    text: &str,
+    style: &TitleStyle,
+    options: &Options,
+) -> Result<String, Error> {
+    styled_title(text, style, DEFAULT_AXIS_TITLE_SIZE, options)
 }
 pub(super) fn chart_title(chart: &Chart, options: &Options) -> Result<String, Error> {
     if chart.title.is_empty() {
         return Ok(r#"<c:autoTitleDeleted val="1"/>"#.into());
     }
-    styled_title(&chart.title, &chart.title_style, options)
+    styled_title(
+        &chart.title,
+        &chart.title_style,
+        DEFAULT_TITLE_SIZE,
+        options,
+    )
 }
-// Office draws rich title text in its own default typeface and colour unless the run names them.
-fn styled_title(text: &str, style: &TitleStyle, options: &Options) -> Result<String, Error> {
+// Office draws rich title text at 18 points and in its own default typeface and
+// colour unless the run names them, so the run names all three.
+fn styled_title(
+    text: &str,
+    style: &TitleStyle,
+    default_size: f64,
+    options: &Options,
+) -> Result<String, Error> {
     if text.is_empty() {
         return Ok(String::new());
     }
-    let mut attributes = String::new();
-    if let Some(size) = style.size {
-        attributes.push_str(&format!(r#" sz="{}""#, (size * 100.0).round() as i64));
-    }
+    let mut attributes = format!(
+        r#" sz="{}""#,
+        (style.size.unwrap_or(default_size) * 100.0).round() as i64
+    );
     for (name, value) in [("b", style.bold), ("i", style.italic)] {
         if let Some(value) = value {
             attributes.push_str(&format!(r#" {name}="{}""#, u8::from(value)));
@@ -134,7 +150,7 @@ pub(super) fn axes(chart: &Chart, options: &Options) -> Result<String, Error> {
     let category_line = rule_line(RULE_WIDTH, RULE_COLOR)?;
     let mut output = format!(
         r#"<c:catAx><c:axId val="{category}"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="b"/>{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="{}"/><c:spPr><a:noFill/>{category_line}</c:spPr>{labels}<c:crossAx val="{value}"/><c:crosses val="autoZero"/><c:auto val="1"/><c:lblAlgn val="ctr"/><c:lblOffset val="100"/><c:noMultiLvlLbl val="0"/></c:catAx>"#,
-        title(&chart.category_title, options)?,
+        axis_title(&chart.category_title, &chart.category_title_style, options)?,
         chart.category_label_position()
     );
     // The schema places the maximum before the minimum.
@@ -146,7 +162,7 @@ pub(super) fn axes(chart: &Chart, options: &Options) -> Result<String, Error> {
         .value_step
         .map(|step| format!(r#"<c:majorUnit val="{step}"/>"#))
         .unwrap_or_default();
-    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/>{range}</c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/>{major_unit}</c:valAx>"#, gridlines(&chart.gridlines)?, title(&chart.value_title, options)?));
+    output.push_str(&format!(r#"<c:valAx><c:axId val="{value}"/><c:scaling><c:orientation val="minMax"/>{range}</c:scaling><c:delete val="0"/><c:axPos val="l"/>{}{}<c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr>{labels}<c:crossAx val="{category}"/><c:crosses val="autoZero"/><c:crossBetween val="between"/>{major_unit}</c:valAx>"#, gridlines(&chart.gridlines)?, axis_title(&chart.value_title, &chart.value_title_style, options)?));
     Ok(output)
 }
 fn gridlines(gridlines: &Gridlines) -> Result<String, Error> {

@@ -64,39 +64,44 @@
           "x": 54.0
         },
         {
-          "baseline": 256.32,
+          "baseline": 252.72,
           "text": "Native DOCX Chart",
-          "x": 94.66
+          "x": 111.22
         },
         {
-          "baseline": 276.48,
-          "text": "10",
+          "baseline": 271.2,
+          "text": "6",
           "x": 60.5
         },
         {
-          "baseline": 295.2,
-          "text": "5",
-          "x": 65.84
+          "baseline": 286.08,
+          "text": "4",
+          "x": 60.5
         },
         {
-          "baseline": 313.92,
+          "baseline": 300.72,
+          "text": "2",
+          "x": 60.5
+        },
+        {
+          "baseline": 315.36,
           "text": "0",
-          "x": 65.84
+          "x": 60.5
         },
         {
-          "baseline": 327.12,
+          "baseline": 327.36,
           "text": "A",
-          "x": 109.63
+          "x": 104.26
         },
         {
-          "baseline": 327.12,
+          "baseline": 327.36,
           "text": "B",
-          "x": 173.89
+          "x": 170.79
         },
         {
-          "baseline": 327.12,
+          "baseline": 327.36,
           "text": "C",
-          "x": 237.77
+          "x": 236.99
         },
         {
           "baseline": 354.0,

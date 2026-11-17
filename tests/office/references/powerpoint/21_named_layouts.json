@@ -236,74 +236,74 @@
           "x": 50.4
         },
         {
-          "baseline": 125.28,
+          "baseline": 121.2,
           "text": "Layout Adoption",
-          "x": 416.57
+          "x": 430.66
         },
         {
-          "baseline": 144.96,
+          "baseline": 139.68,
           "text": "12",
           "x": 56.9
         },
         {
-          "baseline": 157.2,
+          "baseline": 152.88,
           "text": "11",
-          "x": 756.29
+          "x": 756.49
         },
         {
-          "baseline": 188.88,
+          "baseline": 184.8,
           "text": "10",
           "x": 56.9
         },
         {
-          "baseline": 233.04,
+          "baseline": 229.92,
           "text": "8",
-          "x": 62.24
+          "x": 61.71
         },
         {
-          "baseline": 245.04,
+          "baseline": 243.12,
           "text": "7",
-          "x": 485.03
+          "x": 484.31
         },
         {
-          "baseline": 276.96,
+          "baseline": 274.8,
           "text": "6",
-          "x": 62.24
+          "x": 61.71
         },
         {
-          "baseline": 320.88,
+          "baseline": 319.92,
           "text": "4",
-          "x": 62.24
+          "x": 61.71
         },
         {
-          "baseline": 332.88,
+          "baseline": 333.12,
           "text": "3",
-          "x": 211.1
+          "x": 209.72
         },
         {
-          "baseline": 364.8,
+          "baseline": 365.04,
           "text": "2",
-          "x": 62.24
+          "x": 61.71
         },
         {
-          "baseline": 408.72,
+          "baseline": 410.16,
           "text": "0",
-          "x": 62.24
+          "x": 61.71
         },
         {
-          "baseline": 421.68,
+          "baseline": 421.92,
           "text": "Draft",
-          "x": 202.89
+          "x": 202.33
         },
         {
-          "baseline": 421.68,
+          "baseline": 421.92,
           "text": "Review",
-          "x": 472.35
+          "x": 472.89
         },
         {
-          "baseline": 421.68,
+          "baseline": 421.92,
           "text": "Published",
-          "x": 740.03
+          "x": 741.86
         },
         {
           "baseline": 478.56,
@@ -332,9 +332,9 @@
           "x": 64.4
         },
         {
-          "baseline": 121.68,
+          "baseline": 117.6,
           "text": "Shared Resolution",
-          "x": 631.01
+          "x": 646.86
         },
         {
           "baseline": 132.72,
@@ -342,7 +342,7 @@
           "x": 66.4
         },
         {
-          "baseline": 141.36,
+          "baseline": 136.08,
           "text": "10",
           "x": 498.26
         },
@@ -352,19 +352,24 @@
           "x": 66.4
         },
         {
-          "baseline": 162.24,
+          "baseline": 158.16,
           "text": "9",
-          "x": 579.46
+          "x": 578.08
         },
         {
-          "baseline": 162.24,
+          "baseline": 158.16,
           "text": "9",
-          "x": 707.39
+          "x": 706.67
         },
         {
-          "baseline": 162.24,
+          "baseline": 158.16,
           "text": "9",
-          "x": 835.32
+          "x": 835.26
+        },
+        {
+          "baseline": 169.92,
+          "text": "9",
+          "x": 503.07
         },
         {
           "baseline": 174.72,
@@ -372,74 +377,69 @@
           "x": 66.4
         },
         {
-          "baseline": 174.72,
-          "text": "9",
-          "x": 503.6
-        },
-        {
           "baseline": 194.88,
           "text": "and a different footer.",
           "x": 66.4
         },
         {
-          "baseline": 208.08,
+          "baseline": 204.0,
           "text": "8",
-          "x": 503.6
+          "x": 503.07
         },
         {
-          "baseline": 241.2,
+          "baseline": 237.84,
           "text": "7",
-          "x": 503.6
+          "x": 503.07
         },
         {
-          "baseline": 274.56,
+          "baseline": 271.92,
           "text": "6",
-          "x": 503.6
+          "x": 503.07
         },
         {
-          "baseline": 307.68,
+          "baseline": 305.76,
           "text": "5",
-          "x": 503.6
+          "x": 503.07
         },
         {
-          "baseline": 341.04,
+          "baseline": 339.6,
           "text": "4",
-          "x": 503.6
+          "x": 503.07
         },
         {
-          "baseline": 374.16,
+          "baseline": 373.68,
           "text": "3",
-          "x": 503.6
+          "x": 503.07
         },
         {
           "baseline": 407.52,
           "text": "2",
-          "x": 503.6
+          "x": 503.07
         },
         {
-          "baseline": 440.88,
+          "baseline": 441.6,
           "text": "1",
-          "x": 503.6
+          "x": 503.07
         },
         {
-          "baseline": 474.0,
+          "baseline": 475.44,
           "text": "0",
-          "x": 503.6
+          "x": 503.07
         },
         {
           "baseline": 487.2,
           "text": "PPTX",
-          "x": 571.21
+          "x": 570.65
         },
         {
           "baseline": 487.2,
           "text": "PDF",
-          "x": 701.13
+          "x": 701.03
         },
         {
           "baseline": 487.2,
           "text": "PNG",
-          "x": 828.04
+          "x": 828.7
         },
         {
           "baseline": 518.88,

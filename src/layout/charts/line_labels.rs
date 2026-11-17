@@ -1,6 +1,6 @@
 //! Keep line labels near their points without covering other labels or marks.
 use super::{ChartPlanner, LayoutError, geometry::Rectangle, text::text_height};
-use crate::charts::DEFAULT_LABEL_SIZE;
+use crate::charts::MEASURED_LABEL_SIZE;
 
 pub(super) struct LineLabel {
     pub point: [f64; 2],
@@ -16,8 +16,8 @@ impl ChartPlanner<'_, '_> {
         label_size: f64,
     ) -> Result<(), LayoutError> {
         let frame = [
-            FRAME[0] * label_size / DEFAULT_LABEL_SIZE,
-            FRAME[1] * label_size / DEFAULT_LABEL_SIZE,
+            FRAME[0] * label_size / MEASURED_LABEL_SIZE,
+            FRAME[1] * label_size / MEASURED_LABEL_SIZE,
         ];
         // Place the higher point first, regardless of series order, so a nearby
         // lower point can put its label below instead of between the two marks.

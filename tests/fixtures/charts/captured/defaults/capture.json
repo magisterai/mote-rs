@@ -47,28 +47,28 @@
       "sha256": "8e60f87a1e2d489a4e395d31f9cf2a2e657280f83c8547e13bb8cceeb3f549ab"
     },
     "word/charts/chart1.xml": {
-      "path": "parts/ca4bb52646332ab9bdecb619d9869d80bfe62cbd6fe1ebcee767a65c17668e95.xml",
-      "sha256": "ca4bb52646332ab9bdecb619d9869d80bfe62cbd6fe1ebcee767a65c17668e95"
+      "path": "parts/5566f8c4472964c491a1274065f1426c0b3440276051dc9251899284ae9b66ea.xml",
+      "sha256": "5566f8c4472964c491a1274065f1426c0b3440276051dc9251899284ae9b66ea"
     },
     "word/charts/chart2.xml": {
-      "path": "parts/517c10c0f4826cacb3ed33b0c1aae9da928c67f86ff8ea9fda7c773fd639a8a5.xml",
-      "sha256": "517c10c0f4826cacb3ed33b0c1aae9da928c67f86ff8ea9fda7c773fd639a8a5"
+      "path": "parts/c9b947f30be495c89b7e627832a0be709554f3f63b42d6c5a306fe6c2226da00.xml",
+      "sha256": "c9b947f30be495c89b7e627832a0be709554f3f63b42d6c5a306fe6c2226da00"
     },
     "word/charts/chart3.xml": {
-      "path": "parts/40ea21f41fc5334b0891cafe7043a4d726df82369be625d7ec5dfde19f0c4169.xml",
-      "sha256": "40ea21f41fc5334b0891cafe7043a4d726df82369be625d7ec5dfde19f0c4169"
+      "path": "parts/5ace81df7a4b3c2470b91f665d9f334f66f02d6d865333ad155df1262131ac23.xml",
+      "sha256": "5ace81df7a4b3c2470b91f665d9f334f66f02d6d865333ad155df1262131ac23"
     },
     "word/charts/chart4.xml": {
-      "path": "parts/8165bf71d972662460220cba474d904abf140e75b1bee11d2993acbffdbf78a0.xml",
-      "sha256": "8165bf71d972662460220cba474d904abf140e75b1bee11d2993acbffdbf78a0"
+      "path": "parts/5d520c1441c7df5caa1c53292897b71861e5d73585b41bcb038f52502c1da9fe.xml",
+      "sha256": "5d520c1441c7df5caa1c53292897b71861e5d73585b41bcb038f52502c1da9fe"
     },
     "word/charts/chart5.xml": {
-      "path": "parts/0628d079addb9768dbe774f0b8adcf705a43fc8836449827f57f547ed875b399.xml",
-      "sha256": "0628d079addb9768dbe774f0b8adcf705a43fc8836449827f57f547ed875b399"
+      "path": "parts/0c0a3033730c87e97d8307ad0222587face0a2cb54f2bfd578b819d7e1dc71dc.xml",
+      "sha256": "0c0a3033730c87e97d8307ad0222587face0a2cb54f2bfd578b819d7e1dc71dc"
     },
     "word/charts/chart6.xml": {
-      "path": "parts/7fddde9467f205bb3b75346875ff3e7c4ce8f934925d691e1d5bff3e8b2de277.xml",
-      "sha256": "7fddde9467f205bb3b75346875ff3e7c4ce8f934925d691e1d5bff3e8b2de277"
+      "path": "parts/3dde39d06a81c1cdf793b92ba9dedf7fc943605146bc205449001ee57533c803.xml",
+      "sha256": "3dde39d06a81c1cdf793b92ba9dedf7fc943605146bc205449001ee57533c803"
     },
     "word/document.xml": {
       "path": "parts/fd90331cf0588c8b0a8f047873e5c09401a73929b99b113a730f770bf272b118.xml",
@@ -356,5 +356,5 @@
     }
   },
   "office_review": "unreviewed",
-  "radial_geometry_sha256": "bdff824140954d7d0cda7bfde6a253ab5f664eed6ae69692d6fddf77e49e3a5f"
+  "radial_geometry_sha256": "62421471d2e113523d99bd8bb4ab85c08cd436c326b1f414146eaf8c5591c128"
 }

@@ -84,6 +84,8 @@ pub(crate) struct Chart {
     pub legend: Legend,
     pub category_title: String,
     pub value_title: String,
+    pub category_title_style: TitleStyle,
+    pub value_title_style: TitleStyle,
     pub value_minimum: Option<f64>,
     pub value_maximum: Option<f64>,
     pub value_step: Option<f64>,
@@ -105,17 +107,24 @@ impl Chart {
         let (categories, series) = data::resolve(object(attributes, "data"))?;
         let kind = text_or(attributes.get("kind"), "column");
         let axis = object(attributes, "axis");
+        let axis_table = |name| axis.and_then(|axis| object(axis, name));
         let axis_title = |name| {
-            axis.and_then(|axis| object(axis, name))
+            axis_table(name)
                 .map(|axis| {
-                    ["title", "name"]
-                        .into_iter()
-                        .map(|key| text(axis.get(key)))
-                        .find(|title| !title.is_empty())
-                        .unwrap_or_default()
+                    let title = match axis.get("title") {
+                        Some(Value::Object(fields)) => text(fields.get("text")),
+                        value => text(value),
+                    };
+                    if title.is_empty() {
+                        text(axis.get("name"))
+                    } else {
+                        title
+                    }
                 })
                 .unwrap_or_default()
         };
+        let axis_title_style =
+            |name| TitleStyle::from_value(axis_table(name).and_then(|axis| axis.get("title")));
         // A percentage scale and a chart without axes have no free value range.
         let ranged =
             !kind.contains("percent_stacked") && !matches!(kind.as_str(), "pie" | "doughnut");
@@ -137,6 +146,8 @@ impl Chart {
             title_style: TitleStyle::from_value(attributes.get("title")),
             category_title: axis_title("category"),
             value_title: axis_title("value"),
+            category_title_style: axis_title_style("category"),
+            value_title_style: axis_title_style("value"),
             colors: appearance::colors(attributes.get("colors")),
             chart_area: ShapeProperties {
                 fill: color(attributes.get("background")),
@@ -168,10 +179,20 @@ impl Chart {
             .filter(|color| !color.is_empty())
             .unwrap_or(PALETTE[index % PALETTE.len()])
     }
-    /// The ratio of the label size to the default, by which native output scales
-    /// the frames and reserves that were measured for default labels.
+    /// The ratio of the label size to the size for which the frames and
+    /// reserves of native output were measured, by which native output scales
+    /// them.
     pub fn label_scale(&self) -> f64 {
-        self.label_size / DEFAULT_LABEL_SIZE
+        self.label_size / MEASURED_LABEL_SIZE
+    }
+    /// The part of a point by which labels smaller than those measured change a
+    /// distance that Word and PowerPoint do not scale with the label size. The
+    /// distances were measured in exports of charts with labels of 9 points.
+    pub fn small_label_shift(&self, points_per_scale: f64) -> f64 {
+        points_per_scale * (1.0 - self.label_scale()).max(0.0)
+    }
+    pub fn title_size(&self) -> f64 {
+        self.title_style.size.unwrap_or(DEFAULT_TITLE_SIZE)
     }
     pub fn category_label_position(&self) -> &'static str {
         if self
@@ -185,7 +206,34 @@ impl Chart {
         }
     }
 }
-pub(crate) const DEFAULT_LABEL_SIZE: f64 = 10.0;
+pub(crate) const DEFAULT_LABEL_SIZE: f64 = 9.0;
+/// The label size at which the label frames and reserves of native output were
+/// measured against Office.
+pub(crate) const MEASURED_LABEL_SIZE: f64 = 10.0;
+/// The sizes that chart style 201, which Office gives a new chart, states for the
+/// chart title and for an axis title.
+pub(crate) const DEFAULT_TITLE_SIZE: f64 = 14.0;
+pub(crate) const DEFAULT_AXIS_TITLE_SIZE: f64 = 10.0;
+/// The title size at which the title frames and reserves of native output were
+/// measured against Office, which draws a title of no stated size at 18 points.
+pub(crate) const MEASURED_TITLE_SIZE: f64 = 18.0;
+impl TitleStyle {
+    pub fn axis_title_size(&self) -> f64 {
+        self.size.unwrap_or(DEFAULT_AXIS_TITLE_SIZE)
+    }
+    /// The ratio by which native output scales the frame of an axis title.
+    pub fn axis_title_scale(&self) -> f64 {
+        self.axis_title_size() / MEASURED_TITLE_SIZE
+    }
+}
+/// A distance of native output that was measured against Office for a title of
+/// 18 points, at a title of the given size. Word and PowerPoint exports of
+/// titles of 10 and 14 points give the part of a point by which the distance
+/// changes for each point of size, which is less than the proportion of the
+/// sizes would give.
+pub(crate) fn title_distance(measured: f64, points_per_point: f64, size: f64) -> f64 {
+    (measured - points_per_point * (MEASURED_TITLE_SIZE - size)).max(0.6 * size)
+}
 /// The colour and width of an unstyled gridline or category axis line in Office's
 /// default chart style, which tints black text to 15% luminance offset by 85%.
 pub(crate) const RULE_COLOR: &str = "D9D9D9";

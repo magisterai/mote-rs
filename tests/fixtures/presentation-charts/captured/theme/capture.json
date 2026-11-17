@@ -84,8 +84,8 @@
       "sha256": "68b4f5d291220b8b33db379c778f52fea5f8e138bf361c8c18f96c9f84c898b7"
     },
     "ppt/charts/chart1.xml": {
-      "path": "captured/parts/6c09abb1866c2eb1c31f9d60a8f46fb1bec927ccda4b0218785c28124463aefe.xml",
-      "sha256": "6c09abb1866c2eb1c31f9d60a8f46fb1bec927ccda4b0218785c28124463aefe"
+      "path": "captured/parts/bd5395f2370b05bc3d7d07068ffb415ca8cea057292244d154f4594b2b4c07a9.xml",
+      "sha256": "bd5395f2370b05bc3d7d07068ffb415ca8cea057292244d154f4594b2b4c07a9"
     },
     "ppt/embeddings/chart1.xlsx": {
       "parts": {
@@ -132,8 +132,8 @@
       }
     },
     "ppt/charts/chart2.xml": {
-      "path": "captured/parts/7ee76231543ba7aa44029764544d8ef3e2672093476cff37842b15bb90cac286.xml",
-      "sha256": "7ee76231543ba7aa44029764544d8ef3e2672093476cff37842b15bb90cac286"
+      "path": "captured/parts/db31ee3aeda43c0f37b8d658d91b85d6f6f39a1c840f8d0808a4f517d23cd89e.xml",
+      "sha256": "db31ee3aeda43c0f37b8d658d91b85d6f6f39a1c840f8d0808a4f517d23cd89e"
     },
     "ppt/embeddings/chart2.xlsx": {
       "parts": {
@@ -180,8 +180,8 @@
       }
     },
     "ppt/charts/chart3.xml": {
-      "path": "captured/parts/22780080fb4cc04b7177fc6c265a777db0743ed0eae488f2c40ed27e346e9351.xml",
-      "sha256": "22780080fb4cc04b7177fc6c265a777db0743ed0eae488f2c40ed27e346e9351"
+      "path": "captured/parts/655d2e141aeeda3d4c327d53e7595e003cb71633ad73c67ed3a7d81f3e4cc0b2.xml",
+      "sha256": "655d2e141aeeda3d4c327d53e7595e003cb71633ad73c67ed3a7d81f3e4cc0b2"
     },
     "ppt/embeddings/chart3.xlsx": {
       "parts": {
@@ -228,9 +228,9 @@
       }
     }
   },
-  "geometry_sha256": "23b355aa9a51d8e2ea446619f510b5eb6cae4e7e2c1aff9a8639f563058a6120",
+  "geometry_sha256": "7089bf3bb506c6a41241572d183949eeaa592514913673625064c59fe8846550",
   "native_png_files": {
-    "reference-1.png": "be78b9bb7ba4e51fcfb95782dc46e277775317d9cc36822668a099eb1fca8cd2"
+    "reference-1.png": "aac3a6340b540b36e25836373527c83458971f48bab0be59f3af797afbf7136f"
   },
   "native_pdf_comparison": [
     {

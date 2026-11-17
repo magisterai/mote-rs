@@ -103,28 +103,38 @@ fn integer(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
 }
 
 fn title(value: Value, span: Span) -> Result<Value, Diagnostic> {
-    let Value::Object(mut fields) = value else {
+    let Value::Object(fields) = value else {
         return normalize_identifier(value, span, "title").map(Value::String);
     };
+    title_table(fields, span, "title")
+}
+
+fn title_table(mut fields: Properties, span: Span, path: &str) -> Result<Value, Diagnostic> {
     if let Some(value) = fields.remove("text") {
         fields.insert(
             "text".into(),
-            Value::String(normalize_identifier(value, span, "title.text")?),
+            Value::String(normalize_identifier(value, span, &format!("{path}.text"))?),
         );
     }
     if let Some(value) = fields.remove("size") {
-        fields.insert("size".into(), normalize_length(value, span, "title.size")?);
+        fields.insert(
+            "size".into(),
+            normalize_length(value, span, &format!("{path}.size"))?,
+        );
     }
     for name in ["bold", "italic"] {
         if let Some(value) = fields.remove(name) {
             fields.insert(
                 name.into(),
-                normalize_boolean(value, span, &format!("title.{name}"))?,
+                normalize_boolean(value, span, &format!("{path}.{name}"))?,
             );
         }
     }
     if let Some(value) = fields.remove("color") {
-        fields.insert("color".into(), normalize_color(value, span, "title.color")?);
+        fields.insert(
+            "color".into(),
+            normalize_color(value, span, &format!("{path}.color"))?,
+        );
     }
     Ok(Value::Object(fields))
 }
@@ -255,6 +265,17 @@ fn axis(value: Value, span: Span) -> Result<Value, Diagnostic> {
     let Value::Object(mut fields) = value else {
         return Ok(value);
     };
+    for name in ["category", "value"] {
+        if let Some(Value::Object(axis)) = fields.get_mut(name)
+            && matches!(axis.get("title"), Some(Value::Object(_)))
+            && let Some(Value::Object(title)) = axis.remove("title")
+        {
+            axis.insert(
+                "title".into(),
+                title_table(title, span, &format!("axis.{name}.title"))?,
+            );
+        }
+    }
     let Some(Value::Object(mut value_axis)) = fields.remove("value") else {
         return Ok(Value::Object(fields));
     };

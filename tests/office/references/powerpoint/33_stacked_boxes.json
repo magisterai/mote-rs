@@ -79,8 +79,13 @@
           "x": 68.7
         },
         {
-          "baseline": 338.64,
-          "text": "20",
+          "baseline": 338.16,
+          "text": "16",
+          "x": 49.7
+        },
+        {
+          "baseline": 350.4,
+          "text": "14",
           "x": 49.7
         },
         {
@@ -90,33 +95,48 @@
         },
         {
           "baseline": 362.88,
-          "text": "15",
+          "text": "12",
           "x": 49.7
         },
         {
-          "baseline": 387.12,
+          "baseline": 375.12,
           "text": "10",
           "x": 49.7
         },
         {
-          "baseline": 411.36,
-          "text": "5",
-          "x": 55.04
+          "baseline": 387.6,
+          "text": "8",
+          "x": 54.51
         },
         {
-          "baseline": 435.6,
+          "baseline": 399.84,
+          "text": "6",
+          "x": 54.51
+        },
+        {
+          "baseline": 412.32,
+          "text": "4",
+          "x": 54.51
+        },
+        {
+          "baseline": 424.56,
+          "text": "2",
+          "x": 54.51
+        },
+        {
+          "baseline": 437.04,
           "text": "0",
-          "x": 55.04
+          "x": 54.51
         },
         {
-          "baseline": 448.56,
+          "baseline": 448.8,
           "text": "North",
-          "x": 152.32
+          "x": 152.07
         },
         {
-          "baseline": 448.56,
+          "baseline": 448.8,
           "text": "South",
-          "x": 342.0
+          "x": 342.78
         },
         {
           "baseline": 488.64,

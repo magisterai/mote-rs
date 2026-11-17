@@ -85,10 +85,10 @@
   },
   "powerpoint/13_chart_lua_json": {
     "horizontal": 2.5,
-    "median": 0.3,
+    "median": 0.2,
     "page_moves": 0,
-    "unmatched": 4,
-    "vertical": 1.5
+    "unmatched": 0,
+    "vertical": 4.6
   },
   "powerpoint/14_standard_auto_layout": {
     "horizontal": 0.9,

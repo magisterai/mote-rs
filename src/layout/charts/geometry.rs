@@ -74,7 +74,8 @@ impl ChartMeasurement<'_, '_> {
                         .max(self.text_width(&axis_label(tick, unit, percent), chart.label_size)?);
                 }
             }
-            (width - self.text_width("80", chart.label_size)?).max(0.0)
+            // Office keeps less space for labels of one digit than for two.
+            width - self.text_width("80", chart.label_size)?
         };
         let mut layout = resolve(bounds, chart, category_width, legend_width, value_extra);
         self.arrange_legend(chart, &mut layout)?;
@@ -92,7 +93,7 @@ fn resolve(
     let label_scale = chart.label_scale();
     let mut top = bounds.top
         + if title_height > 0.0 {
-            TITLE_TOP + title_height + TITLE_GAP
+            TITLE_TOP + title_distance(28.0, CHART_TITLE_RESERVE, chart.title_size()) + TITLE_GAP
         } else {
             UNTITLED_TOP
         };
@@ -102,17 +103,22 @@ fn resolve(
     if chart.legend.enabled {
         match position {
             "bottom" => {
-                legend_reserve = 24.0 * label_scale;
+                legend_reserve = 24.0 * label_scale + chart.small_label_shift(13.0);
                 legend = Rectangle::new(
                     bounds.left,
-                    bounds.top + bounds.height - legend_reserve,
+                    bounds.top + bounds.height - 24.0 * label_scale - chart.small_label_shift(5.5),
                     bounds.width,
                     18.0 * label_scale,
                 );
             }
             "top" => {
-                legend = Rectangle::new(bounds.left, top - 4.2, bounds.width, 18.0 * label_scale);
-                top += 24.0 * label_scale;
+                legend = Rectangle::new(
+                    bounds.left,
+                    top - 4.2 + chart.small_label_shift(4.1),
+                    bounds.width,
+                    18.0 * label_scale,
+                );
+                top += 24.0 * label_scale + chart.small_label_shift(12.5);
             }
             _ => {}
         }
@@ -122,21 +128,29 @@ fn resolve(
             11.0 * label_scale
         } else {
             15.75 * label_scale
-        };
+        } + chart.small_label_shift(6.4);
         (
             category_width.max(1.0)
                 + category_inset
                 + if chart.category_title.is_empty() {
                     0.0
                 } else {
-                    30.0
+                    title_distance(
+                        30.0,
+                        AXIS_TITLE_RESERVE,
+                        chart.category_title_style.axis_title_size(),
+                    )
                 },
-            16.0 * label_scale + value_extra.max(0.0) / 2.0,
+            16.0 * label_scale.max(1.0) + value_extra.max(0.0) / 2.0,
             24.0 * label_scale
                 + if chart.value_title.is_empty() {
                     0.0
                 } else {
-                    31.0
+                    title_distance(
+                        31.0,
+                        BOTTOM_TITLE_RESERVE,
+                        chart.value_title_style.axis_title_size(),
+                    )
                 },
         )
     } else if matches!(chart.kind.as_str(), "pie" | "doughnut") {
@@ -144,44 +158,79 @@ fn resolve(
     } else {
         (
             26.5 * label_scale
-                + value_extra.max(0.0)
+                + chart.small_label_shift(5.5)
+                + value_extra
                 + if chart.value_title.is_empty() {
                     0.0
                 } else {
-                    29.5
+                    title_distance(
+                        29.5,
+                        AXIS_TITLE_RESERVE,
+                        chart.value_title_style.axis_title_size(),
+                    )
                 },
             11.0,
             25.5 * label_scale
                 + if chart.category_title.is_empty() {
                     0.0
                 } else {
-                    31.0
+                    title_distance(
+                        31.0,
+                        BOTTOM_TITLE_RESERVE,
+                        chart.category_title_style.axis_title_size(),
+                    )
                 },
         )
     };
+    // A side legend is centred beneath the space of the chart title.
+    let side_legend_top = if title_height > 0.0 {
+        title_distance(31.0, 0.94, chart.title_size())
+    } else {
+        31.0
+    };
     if chart.legend.enabled && matches!(position, "left" | "right") {
-        let reserve = (legend_width + super::legend::key_width(chart) + 17.0 * label_scale)
-            .max(56.0)
-            .min(bounds.width * 0.28);
+        let reserve = (legend_width
+            + super::legend::key_width(chart)
+            + 17.0 * label_scale
+            + chart.small_label_shift(4.5))
+        .max(56.0)
+        .min(bounds.width * 0.28);
         if position == "left" {
             legend = Rectangle::new(
                 bounds.left + 9.0,
-                bounds.top + 31.0,
+                bounds.top + side_legend_top,
                 reserve - 4.0,
-                bounds.height - 31.0,
+                bounds.height - side_legend_top,
             );
             left += reserve + 2.0;
         } else {
             legend = Rectangle::new(
                 bounds.left + bounds.width - reserve + 2.0,
-                bounds.top + 31.0,
+                bounds.top + side_legend_top,
                 reserve - 4.0,
-                bounds.height - 31.0,
+                bounds.height - side_legend_top,
             );
             right += reserve;
         }
     }
-    let bottom = bounds.top + bounds.height - legend_reserve - piece_reserve;
+    // Office raises the plot of a chart with small labels by more at its top
+    // than at its foot.
+    let cartesian = !matches!(chart.kind.as_str(), "pie" | "doughnut");
+    // A chart title fixes the top of the plot whatever the size of the labels.
+    if cartesian && title_height == 0.0 {
+        top -= chart.small_label_shift(15.0);
+    }
+    if super::horizontal(chart) {
+        top -= chart.small_label_shift(14.0);
+    }
+    let bottom = bounds.top + bounds.height
+        - legend_reserve
+        - piece_reserve
+        - if cartesian {
+            chart.small_label_shift(6.0)
+        } else {
+            0.0
+        };
     ChartLayout {
         chart: bounds,
         plot: Rectangle::new(
@@ -192,7 +241,8 @@ fn resolve(
         ),
         title: Rectangle::new(
             bounds.left,
-            bounds.top + TITLE_TOP,
+            bounds.top + title_distance(TITLE_TOP + 14.0, CHART_TITLE_MIDDLE, chart.title_size())
+                - title_height / 2.0,
             bounds.width,
             title_height,
         ),
@@ -202,19 +252,24 @@ fn resolve(
     }
 }
 
-const TITLE_SIZE: f64 = 18.0;
+use crate::charts::{MEASURED_TITLE_SIZE as TITLE_SIZE, title_distance};
+/// The points of space that a chart title and an axis title give up for each
+/// point of size below 18.
+const CHART_TITLE_RESERVE: f64 = 1.31;
+const AXIS_TITLE_RESERVE: f64 = 1.05;
+/// The same for an axis title beneath the plot.
+const BOTTOM_TITLE_RESERVE: f64 = 1.21;
+/// The points by which the middle of a chart title rises for each point of size
+/// below 18.
+const CHART_TITLE_MIDDLE: f64 = 0.665;
 const TITLE_TOP: f64 = 5.1;
 const TITLE_GAP: f64 = 8.8;
 const UNTITLED_TOP: f64 = 12.0;
-
-pub(super) fn title_size(chart: &Chart) -> f64 {
-    chart.title_style.size.unwrap_or(TITLE_SIZE)
-}
 
 fn title_height(chart: &Chart) -> f64 {
     if chart.title.trim().is_empty() {
         0.0
     } else {
-        28.0 * title_size(chart) / TITLE_SIZE
+        28.0 * chart.title_size() / TITLE_SIZE
     }
 }

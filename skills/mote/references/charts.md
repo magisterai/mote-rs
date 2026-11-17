@@ -55,7 +55,10 @@ arguments require units.
   border = { color = "#cbd5e1", width = pt(1) },
   plot_area = { fill = "#f8fafc" },
   gridlines = { major = true, minor = false },
-  axis = { category = { title = "Region" }, value = { title = "Percent" } },
+  axis = {
+    category = { title = "Region" },
+    value = { title = { text = "Percent", size = pt(11), bold = true } }
+  },
   legend = "bottom",
   data_labels = { value = true, position = "outside_end" },
   gap_width = 80,
@@ -79,7 +82,9 @@ arguments require units.
   draws its label and no bar.
 - The `text` argument is a table whose only member is `size`, as in
   `text = { size = pt(14) }`. The size applies to the axis labels, the legend and
-  the data labels, and defaults to 10 points; the titles keep their own sizes. A
+  the data labels; the titles keep their own sizes. The defaults are Office's: 14
+  points for the chart title, 10 for an axis title and 9 for the labels. An axis
+  title takes a string or the same table as `title`. A
   chart on a slide deserves 14 points or more and a large box.
 - The axis labels, legend and data labels take the `text` color of the deck's
   theme, and no chart argument colors them. A chart on a dark slide is legible

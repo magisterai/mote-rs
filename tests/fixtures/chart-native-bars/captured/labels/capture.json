@@ -1,11 +1,11 @@
 {
   "source_sha256": "d09257fc16de046fbaefebd9de250411b1642f01477d9f5d7ed60faf428df279",
-  "geometry_sha256": "5f758bde89424dc130fc46b970f410a26c3d6c629e3cafd8152807ef3aa733d2",
+  "geometry_sha256": "25450a63ba3597369803909c5af04e3f1c8e22044431502b8c456c4eee0acad0",
   "native_png_files": {
-    "reference-1.png": "d54fbd8e8b2d6a4837d36674f6ee92aac28d8bc50455a0e7e4e48a4cf126cdf3",
-    "reference-2.png": "913981c8b0e87ce21014a8915a2cca56898cf217312c14b300add638f7f5d48a",
-    "reference-3.png": "d6028ab1dbcb0f0961f39137327d4f1e28e2c5cd2c802f9aef674ae973830dc6",
-    "reference-4.png": "1c2da33abd88e912dd8931039cf0bf48c409125b1102bd09f169faa82b82c496"
+    "reference-1.png": "eb15056771583843bc7018cab0ec830f6763509b32376275d25108bd8f6c6dca",
+    "reference-2.png": "7049ea3bff236e45f826986c82774b864d70de6a6b10840d9bdb4ea209d12c16",
+    "reference-3.png": "da54df0aae9c7fa903d0155669c97dbf47908c19d974e645f986aad3dd7447e7",
+    "reference-4.png": "9c26fbc0e64579eeedd95da75d28105634c7b4cb0d0b795d15fe73ddbcc59ce9"
   },
   "native_png_dpi": 72,
   "native_pdf_comparison_dpi": 144,

@@ -112,6 +112,56 @@ fn common_subsequence(first: &[Word], second: &[Word]) -> Vec<(usize, usize)> {
     pairs
 }
 
+/// The common subsequence pairs equal lines in reading order, and two renderings
+/// may order equal lines of one page differently, such as the same label in
+/// two charts side by side. Equal lines therefore exchange partners wherever
+/// the exchange brings both pairs nearer.
+fn exchange_nearer_partners(
+    pairs: &mut [(usize, usize, Option<f64>)],
+    office_lines: &[LineEntry<'_>],
+    native_lines: &[LineEntry<'_>],
+) {
+    let distance = |office: usize, native: usize| {
+        let (office, native) = (&office_lines[office], &native_lines[native]);
+        (office.x - native.x).hypot(office.baseline - native.baseline)
+    };
+    let mut exchanged = true;
+    while exchanged {
+        exchanged = false;
+        for first in 0..pairs.len() {
+            for second in first + 1..pairs.len() {
+                let (first_pair, second_pair) = (pairs[first], pairs[second]);
+                let (first_office, second_office) =
+                    (&office_lines[first_pair.0], &office_lines[second_pair.0]);
+                let (first_native, second_native) =
+                    (&native_lines[first_pair.1], &native_lines[second_pair.1]);
+                let equal = first_office.page == second_office.page
+                    && first_native.page == second_native.page
+                    && first_office.page == first_native.page
+                    && first_office.text == second_office.text
+                    && first_native.text == second_native.text
+                    && first_pair.2.is_some()
+                    && second_pair.2.is_some();
+                if equal
+                    && distance(first_pair.0, second_pair.1)
+                        + distance(second_pair.0, first_pair.1)
+                        + 1e-9
+                        < distance(first_pair.0, first_pair.1)
+                            + distance(second_pair.0, second_pair.1)
+                {
+                    pairs[first].1 = second_pair.1;
+                    pairs[second].1 = first_pair.1;
+                    for index in [first, second] {
+                        pairs[index].2 =
+                            Some(office_lines[pairs[index].0].x - native_lines[pairs[index].1].x);
+                    }
+                    exchanged = true;
+                }
+            }
+        }
+    }
+}
+
 pub(crate) fn compare(office: &[Page], native: &[Page]) -> Comparison {
     let (office_lines, office_words) = words(office);
     let (native_lines, native_words) = words(native);
@@ -143,6 +193,7 @@ pub(crate) fn compare(office: &[Page], native: &[Page]) -> Comparison {
             line_pairs.push((office_word.line, native_word.line, horizontal));
         }
     }
+    exchange_nearer_partners(&mut line_pairs, &office_lines, &native_lines);
     let matched_native: BTreeSet<usize> = pairs
         .iter()
         .map(|&(_, index)| native_words[index].line)
@@ -242,6 +293,16 @@ mod tests {
         let comparison = compare(&office, &native);
         assert_eq!(comparison.unmatched, 0);
         assert_eq!(comparison.maximum_vertical, 0.0);
+    }
+
+    #[test]
+    fn equal_lines_of_a_page_pair_with_their_nearest_partners() {
+        let office = [page(&[("30%", 282.0, 357.8), ("30%", 717.0, 356.9)])];
+        let native = [page(&[("30%", 719.0, 355.5), ("30%", 281.0, 357.4)])];
+        let comparison = compare(&office, &native);
+        assert_eq!(comparison.unmatched, 0);
+        assert!(comparison.maximum_horizontal <= 2.0);
+        assert!(comparison.maximum_vertical <= 1.5);
     }
 
     #[test]

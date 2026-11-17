@@ -60,8 +60,8 @@ impl ChartBlock {
             [0.0, 0.0, round_coordinate(width), round_coordinate(height)],
             "Aptos",
             crate::charts::WORD_TEXT_COLOR,
-            &crate::charts::axis_label_color(crate::charts::WORD_TEXT_COLOR),
             "FFFFFF",
+            false,
             measurer,
         )?;
         let paragraph = styles.paragraph(&Element {
@@ -121,8 +121,8 @@ pub(crate) fn plan_slide(
         bounds,
         font,
         &theme.colors[0],
-        &crate::charts::axis_label_color(&theme.colors[0]),
         &theme.colors[1],
+        true,
         measurer,
     )
 }
@@ -170,8 +170,8 @@ fn plan_chart(
     bounds: [f64; 4],
     font: &str,
     text_color: &str,
-    axis_label_color: &str,
     background: &str,
+    slide: bool,
     measurer: &mut TextMeasurer<'_>,
 ) -> Result<PlannedChart, LayoutError> {
     if !matches!(
@@ -197,8 +197,9 @@ fn plan_chart(
     let mut planner = ChartPlanner {
         measurement: ChartMeasurement::new(font, text_color, measurer),
         leader_color: text_color.into(),
-        axis_label_color: axis_label_color.into(),
+        axis_label_color: crate::charts::axis_label_color(text_color),
         background: background.into(),
+        slide,
         page: TextPage::default(),
         reduced_labels: Default::default(),
     };
@@ -220,7 +221,13 @@ fn plan_chart(
         "area" | "stacked_area" | "percent_stacked_area" => planner.area_chart(chart, &layout)?,
         _ => planner.bars(chart, &layout)?,
     }
-    planner.title(layout.title, chart)?;
+    planner.title(
+        layout.title,
+        &chart.title,
+        &chart.title_style,
+        chart.title_size(),
+        0.0,
+    )?;
     planner.legend(chart, &layout)?;
     let original_lines = std::mem::take(&mut planner.page.lines);
     for operation in &mut planner.page.operations {
@@ -250,6 +257,8 @@ struct ChartPlanner<'planner, 'assets> {
     leader_color: String,
     axis_label_color: String,
     background: String,
+    /// PowerPoint sets the text of a chart at other heights than Word does.
+    slide: bool,
     page: TextPage,
     reduced_labels: std::collections::BTreeSet<text::LabelKind>,
 }

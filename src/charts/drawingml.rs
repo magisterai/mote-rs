@@ -46,7 +46,8 @@ pub(crate) fn write(chart: &Chart, options: &Options) -> Result<String, Error> {
     output.push_str(r#"<c:plotVisOnly val="1"/><c:dispBlanksAs val="gap"/><c:showDLblsOverMax val="0"/></c:chart>"#);
     output.push_str(&shape_properties(&chart.chart_area)?);
     output.push_str(&format!(
-        r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="1000"><a:solidFill><a:srgbClr val="{}"/></a:solidFill><a:latin typeface="{}"/></a:defRPr></a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#,
+        r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="{}"><a:solidFill><a:srgbClr val="{}"/></a:solidFill><a:latin typeface="{}"/></a:defRPr></a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#,
+        (super::DEFAULT_LABEL_SIZE * 100.0).round() as i64,
         escape(&options.text_color)?,
         escape(&options.font)?
     ));

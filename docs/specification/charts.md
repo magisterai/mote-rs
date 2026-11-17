@@ -58,18 +58,20 @@ and ignore values beyond the category labels.
 `title` accepts a string or number and normalizes it to text. A title object
 instead supplies `text` together with optional formatting: `size` (a length),
 `bold` and `italic` (booleans), `color` (a hex color), and `font` (a typeface
-name). An omitted field keeps the output's default title formatting.
+name). An omitted field keeps the default title formatting.
 
-Chart text defaults to 10 points in the body typeface and the text colour: Aptos
-and black in a Word document, and the theme's body font and dark text colour on
-a slide. Editable output writes this typeface and colour into the chart's text
-properties and into every title run, since Office otherwise draws title runs in
-its own default typeface.
+Chart text defaults to the body typeface and the text colour: Aptos and black in
+a Word document, and the theme's body font and dark text colour on a slide. The
+default sizes are those of the chart style that Office gives a new chart: 14
+points for the chart title, 10 points for an axis title and 9 points for a
+label. Editable output writes the typeface, the colour and the size into the
+chart's text properties and into every title run, since Office otherwise draws a
+title run at 18 points in its own default typeface.
 
 A **label** of a chart is an axis tick label, a category label, a legend entry
 or a data label. `text` accepts a property table whose only member is `size`, a
 positive length with a unit, as in `text = {size = pt(14)}`; the size replaces
-the default of 10 points for every label. The chart title and the axis titles
+the default of 9 points for every label. The chart title and the axis titles
 are not labels and keep their own sizes. Any other member of the table is an
 evaluation error, and a value that is not a property table is a type error.
 
@@ -95,7 +97,10 @@ order. Property tables use consecutive `series1`, `series2`, and so on, stopping
 at the first missing entry. Remaining colors use the repeating palette `#2563EB`,
 `#059669`, `#D97706`, `#DC2626`, `#7C3AED`, `#0891B2`. Pie and doughnut colors
 apply to points in the first series. Axis tables use `category.title` and
-`value.title`, with `name` as a fallback for an empty title.
+`value.title`, with `name` as a fallback for an empty title. An axis title
+accepts a string or a title object with the members and rules of the chart
+`title`, as in `axis = {value = {title = {text = "Tonnes", size = pt(12), bold =
+true}}}`; an omitted `size` is 10 points.
 
 The value axis has an automatic range, chosen from the data. A stated range
 replaces it: `axis.value.minimum` and `axis.value.maximum` each accept a finite

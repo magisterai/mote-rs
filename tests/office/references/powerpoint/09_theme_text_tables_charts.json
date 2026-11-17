@@ -114,89 +114,104 @@
           "x": 866.15
         },
         {
-          "baseline": 301.68,
+          "baseline": 297.6,
           "text": "Backend Coverage",
-          "x": 405.99
+          "x": 422.17
         },
         {
-          "baseline": 321.36,
-          "text": "150",
-          "x": 95.07
+          "baseline": 316.08,
+          "text": "120",
+          "x": 85.31
         },
         {
           "baseline": 331.68,
-          "text": "e",
-          "x": 87.1
-        },
-        {
-          "baseline": 340.4,
-          "text": "g",
-          "x": 87.1
-        },
-        {
-          "baseline": 346.8,
           "text": "100",
-          "x": 95.07
+          "x": 85.31
         },
         {
-          "baseline": 349.96,
+          "baseline": 346.81,
+          "text": "e 80",
+          "x": 79.1
+        },
+        {
+          "baseline": 350.71,
+          "text": "g",
+          "x": 79.1
+        },
+        {
+          "baseline": 356.02,
           "text": "a",
-          "x": 87.1
+          "x": 79.1
         },
         {
-          "baseline": 355.99,
+          "baseline": 359.37,
           "text": "r",
-          "x": 87.1
+          "x": 79.1
         },
         {
-          "baseline": 365.46,
+          "baseline": 362.88,
+          "text": "60",
+          "x": 90.12
+        },
+        {
+          "baseline": 364.64,
           "text": "e",
-          "x": 87.1
+          "x": 79.1
         },
         {
-          "baseline": 372.0,
-          "text": "50",
-          "x": 100.41
-        },
-        {
-          "baseline": 373.61,
+          "baseline": 369.16,
           "text": "v",
-          "x": 87.1
+          "x": 79.1
         },
         {
-          "baseline": 383.54,
+          "baseline": 374.68,
           "text": "o",
-          "x": 87.1
+          "x": 79.1
         },
         {
-          "baseline": 396.72,
-          "text": "C 0",
-          "x": 87.1
+          "baseline": 378.48,
+          "text": "40",
+          "x": 90.12
         },
         {
-          "baseline": 410.4,
+          "baseline": 381.6,
+          "text": "C",
+          "x": 79.1
+        },
+        {
+          "baseline": 394.08,
+          "text": "20",
+          "x": 90.12
+        },
+        {
+          "baseline": 409.68,
+          "text": "0",
+          "x": 94.93
+        },
+        {
+          "baseline": 421.68,
           "text": "DOCX",
-          "x": 235.11
+          "x": 226.22
         },
         {
-          "baseline": 410.4,
+          "baseline": 421.68,
           "text": "PPTX",
-          "x": 493.73
+          "x": 488.69
         },
         {
-          "baseline": 410.4,
+          "baseline": 421.68,
           "text": "Charts",
-          "x": 746.29
+          "x": 745.71
         },
         {
-          "baseline": 433.68,
+          "baseline": 436.56,
           "text": "Backend",
-          "x": 470.58
+          "x": 479.59
         },
         {
-          "baseline": 462.24,
+          "baseline": 462.48,
           "text": "Current Target",
-          "x": 446.44
+          "x": 449.72
         },
         {
           "baseline": 518.88,

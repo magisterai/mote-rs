@@ -54,16 +54,16 @@
       "sha256": "772f67f7ca8143d9576b1749d6727c7219ab8bd78e78d231662a0d845b7c8939"
     },
     "word/charts/chart1.xml": {
-      "path": "parts/74a3c557badbdfbf12ac92eb8fb39c8ec40e7204c3ed6ccfe3577f6ba7c1c542.xml",
-      "sha256": "74a3c557badbdfbf12ac92eb8fb39c8ec40e7204c3ed6ccfe3577f6ba7c1c542"
+      "path": "parts/20616379eab83bb26b6c5350ed70d4b2fa1eea70ecf790b4c0a3f79023a43f4f.xml",
+      "sha256": "20616379eab83bb26b6c5350ed70d4b2fa1eea70ecf790b4c0a3f79023a43f4f"
     },
     "word/embeddings/chart1.xlsx": {
       "path": "parts/1a51a986dcda57aed54003cf5a66ea302f22a831c85010198077cd9439ab2c58.xlsx",
       "sha256": "1a51a986dcda57aed54003cf5a66ea302f22a831c85010198077cd9439ab2c58"
     },
     "word/charts/chart2.xml": {
-      "path": "parts/241d6618c8a2b8626b75fe1d3decb19eb26f3eeed5df254c3f52a03fc264265f.xml",
-      "sha256": "241d6618c8a2b8626b75fe1d3decb19eb26f3eeed5df254c3f52a03fc264265f"
+      "path": "parts/77c6e586f53eaea5f7b5ff6303e871abf96e94fb577020228c2a71f15eb6a2bb.xml",
+      "sha256": "77c6e586f53eaea5f7b5ff6303e871abf96e94fb577020228c2a71f15eb6a2bb"
     },
     "word/embeddings/chart2.xlsx": {
       "path": "parts/08fde5946cb2460fc5c01e9cf4e12fb549e1b2df5b29847305f9202a7073bfe0.xlsx",
@@ -73,7 +73,7 @@
   "pages": [
     {
       "path": "page-1.png",
-      "sha256": "e4e75242df042835bed6a887f6a5827a1c4a2904e008cd3cc143005413c4adfa",
+      "sha256": "dae120c3df2fa14072e3031e47116f0782327cd6edc7b70f4ce3a9173a4330f1",
       "maximum": 48,
       "mean": 6.25,
       "outliers": 0
@@ -82,6 +82,6 @@
   "warnings": [],
   "text_geometry": {
     "path": "text-geometry.json",
-    "sha256": "4118708cf6bacaed19f45d40401ce91af885b5770f9b4a2086d2991bb35cf647"
+    "sha256": "acf93f1e13405e2205bcfc90f693477d789db3c260485257c8c6f428d567684f"
   }
 }

@@ -23,8 +23,12 @@ pub(super) fn position(chart: &Chart) -> &'static str {
     }
 }
 pub(super) fn key_width(chart: &Chart) -> f64 {
-    let width = if chart.kind == "line" { 21.2 } else { 5.6 };
-    width * chart.label_scale()
+    // Office keeps the length of a line key under small labels.
+    if chart.kind == "line" {
+        21.2 * chart.label_scale().max(1.0)
+    } else {
+        5.6 * chart.label_scale()
+    }
 }
 /// The distance from a key's left edge to its label, as Word and PowerPoint draw it.
 fn label_offset(chart: &Chart) -> f64 {
@@ -64,8 +68,10 @@ impl ChartMeasurement<'_, '_> {
         let side = matches!(position, "left" | "right");
         let offset = label_offset(chart);
         let label_scale = chart.label_scale();
-        let row_height = 18.0 * label_scale;
-        let entry_gap = ENTRY_GAP * label_scale;
+        // Under small labels Office keeps the gap between entries, and takes
+        // from a row only the height that its line of text loses.
+        let row_height = 18.0 * label_scale + chart.small_label_shift(6.0);
+        let entry_gap = ENTRY_GAP * label_scale.max(1.0);
         let mut widths = labels
             .iter()
             .map(|label| {
@@ -77,8 +83,13 @@ impl ChartMeasurement<'_, '_> {
             + widths.iter().map(|width| offset + width).sum::<f64>();
         if !side && total_width <= bounds.width {
             // Trailing text padding does not participate in centering.
-            let mut left =
-                bounds.left + (bounds.width - (total_width - 2.0 * labels.len() as f64)) / 2.0;
+            let mut left = bounds.left
+                + (bounds.width - (total_width - 2.0 * labels.len() as f64)) / 2.0
+                + if matches!(chart.kind.as_str(), "line" | "pie" | "doughnut") {
+                    0.0
+                } else {
+                    chart.small_label_shift(17.5)
+                };
             for (index, width) in widths.iter().enumerate() {
                 layout.legend_entries.push(LegendEntry {
                     index,
@@ -170,12 +181,17 @@ impl ChartPlanner<'_, '_> {
         if chart.kind == "line" {
             self.rule(
                 [left, middle],
-                [left + 21.2 * label_scale, middle],
+                [left + key_width(chart), middle],
                 2.0,
                 color,
                 crate::layout::RuleRole::Generic,
             );
-            self.ellipse([left + 10.6 * label_scale, middle], [5.0, 5.0], 16, color);
+            self.ellipse(
+                [left + key_width(chart) / 2.0, middle],
+                [5.0, 5.0],
+                16,
+                color,
+            );
         } else {
             self.fill(
                 Rectangle::new(

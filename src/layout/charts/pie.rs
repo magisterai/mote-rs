@@ -49,7 +49,11 @@ impl ChartPlanner<'_, '_> {
                     middle,
                     sweep,
                     bounds: Rectangle::new(
-                        center[0] + middle.cos() * label_radius - width / 2.0,
+                        // The percentage labels of five Office pies with labels
+                        // of 9 points lie 1.2 points to the left of this place.
+                        center[0] + middle.cos() * label_radius
+                            - width / 2.0
+                            - chart.small_label_shift(12.0),
                         center[1] + middle.sin() * label_radius - height / 2.0,
                         width,
                         height,

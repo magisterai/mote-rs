@@ -292,12 +292,25 @@ fn chart_text_size_sets_the_label_size_of_editable_charts() {
             chart_part(&slides.bytes, "ppt/charts/chart1.xml"),
         ]
     };
-    for xml in parts("") {
-        assert_eq!(xml.matches(" sz=").count(), 1, "{xml}");
-        assert!(xml.contains(r#"<a:defRPr sz="1000">"#), "{xml}");
-    }
-    for xml in parts(",text={size=pt(10)}") {
-        assert_eq!(xml.matches(" sz=").count(), 1, "{xml}");
+    // The defaults are those of the chart style Office gives a new chart: labels of
+    // 9 points from the chart space, a title of 14 and an axis title of 10.
+    for arguments in ["", ",text={size=pt(9)}"] {
+        for xml in parts(arguments) {
+            assert_eq!(xml.matches(" sz=").count(), 3, "{xml}");
+            assert!(xml.contains(r#"<a:defRPr sz="900">"#), "{xml}");
+            assert_eq!(
+                xml.matches(r#"<a:rPr lang="en-US" sz="1400"><a:solidFill>"#)
+                    .count(),
+                1,
+                "{xml}"
+            );
+            assert_eq!(
+                xml.matches(r#"<a:rPr lang="en-US" sz="1000"><a:solidFill>"#)
+                    .count(),
+                1,
+                "{xml}"
+            );
+        }
     }
     for xml in parts(",text={size=pt(14)}") {
         // The two axes carry the axis label colour; the legend and the data
@@ -314,17 +327,48 @@ fn chart_text_size_sets_the_label_size_of_editable_charts() {
             xml.contains(r#"<c:dLbls><c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="1400"/></a:pPr>"#),
             "{xml}"
         );
-        assert_eq!(xml.matches(r#" sz="1400""#).count(), 4, "{xml}");
+        assert_eq!(xml.matches(r#"<a:defRPr sz="1400""#).count(), 4, "{xml}");
         // The chart space default and the title runs are as they are without the argument.
-        assert!(xml.contains(r#"<a:defRPr sz="1000">"#), "{xml}");
+        assert!(xml.contains(r#"<a:defRPr sz="900">"#), "{xml}");
         assert_eq!(
-            xml.matches(r#"<a:rPr lang="en-US"><a:solidFill>"#).count(),
-            2
+            xml.matches(r#"<a:rPr lang="en-US" sz="1400"><a:solidFill>"#)
+                .count(),
+            1
+        );
+        assert_eq!(
+            xml.matches(r#"<a:rPr lang="en-US" sz="1000"><a:solidFill>"#)
+                .count(),
+            1
         );
     }
     for xml in parts(",text={size=pt(14)},title={text='Totals',size=pt(20)}") {
         assert_eq!(xml.matches(r#"<a:rPr lang="en-US" sz="2000">"#).count(), 1);
         assert_eq!(xml.matches(r#" sz="1400""#).count(), 4, "{xml}");
+    }
+    let axis_titles = ",axis={category={title={text='Regions',size=pt(12),bold=true,italic=false,color='#334155',font='Georgia'}},value={title={text='Units',size='11pt'}}}";
+    for xml in parts(axis_titles) {
+        assert!(
+            xml.contains(r#"<a:rPr lang="en-US" sz="1200" b="1" i="0"><a:solidFill><a:srgbClr val="334155"/></a:solidFill><a:latin typeface="Georgia"/></a:rPr><a:t>Regions</a:t>"#),
+            "{xml}"
+        );
+        assert!(
+            xml.contains(r#"<a:rPr lang="en-US" sz="1100"><a:solidFill>"#),
+            "{xml}"
+        );
+        assert!(xml.contains("<a:t>Units</a:t>"), "{xml}");
+    }
+    for title in [
+        "{text='Units',size=-1}",
+        "{text='Units',bold=1}",
+        "{text='Units',color='red'}",
+        "{text=true}",
+    ] {
+        for axis in ["category", "value"] {
+            let source = format!("#chart({DATA},axis={{{axis}={{title={title}}}}})");
+            assert!(mote::compile(&source).is_err(), "{source}");
+        }
+        let source = format!("#chart({DATA},title={title})");
+        assert!(mote::compile(&source).is_err(), "{source}");
     }
 }
 
