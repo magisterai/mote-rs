@@ -67,9 +67,12 @@ end
 #chart(kind = "bar", title = "Revenue", data = { categories = regions, values = revenue })
 ```
 
-- Each result is bound by its own `#let` argument before use: a function call
-  inside a larger expression hides the bindings made after the function was
-  defined from the rest of that expression.
+- A function call may stand inside a larger expression, such as
+  `{ categories = column(rows, "region"), values = revenue }`: the bindings
+  visible at the expression remain visible after the call.
+- A function body sees the bindings made before its definition. If the body
+  calls another function, a captured value needed after that call is first
+  saved in a `local`.
 
 ## Libraries
 

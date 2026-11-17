@@ -83,12 +83,18 @@ end
 
 This produces `Draft: Report`.
 
-The Lua runtime is shared across a compilation. A nested function call currently
-synchronizes Lua globals to the callee's captured values without restoring the
-caller's globals afterward. Save any captured value needed after a nested call
-in a Lua `local` before that call. Function arguments are local Lua parameters
-and are unaffected. Retained function aliases continue to call the definition
-that created them.
+The Lua runtime is shared across a compilation. A function call synchronizes
+Lua globals to the callee's captured values. An expression outside any function
+body receives its own globals again when the call returns or fails, so that
+every value and function visible at the expression remains visible throughout
+it, whatever functions it calls and in whatever order.
+
+A nested call is a call made by a function body. A nested call currently leaves
+the callee's captured values in the Lua globals without restoring the calling
+body's globals afterward. Save any captured value needed after a nested call in
+a Lua `local` before that call. Function arguments are local Lua parameters and
+are unaffected. Retained function aliases continue to call the definition that
+created them.
 
 ## Data results
 
@@ -110,10 +116,23 @@ end
 
 The example produces three paragraphs, `1 of 3`, `4 of 3` and `9 of 3`.
 
-The result above is bound before it is used. A function call within a larger
-expression is a nested call in the sense of
-[lexical definitions](#lexical-definitions), so that a binding made after the
-function was defined is absent from the remainder of that expression.
+A result need not be bound before it is used: a function call within a larger
+expression leaves the bindings of that expression visible, as
+[lexical definitions](#lexical-definitions) states.
+
+```mote
+#function names()
+  return { "A", "B" }
+end
+#let(values = { 1, 2 })
+#let(data = { categories = names(), values = values })
+#let(first = data.categories[1], last = data.values[2])
+#paragraph[#first #last]
+```
+
+The example produces the paragraph `A 2`: the object `data` holds both
+`categories` and `values`, although `values` was bound after `names` was
+defined.
 
 Functions share the Lua execution budget, restricted global environment, and
 source-relative JSON resolver described in the preceding chapter. Their return

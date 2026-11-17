@@ -362,3 +362,96 @@ fn an_unresolved_or_unrecognized_static_numeric_path_is_explained() {
         );
     }
 }
+
+const NAMES: &str = "#function names()\n  return { \"A\", \"B\" }\nend\n";
+
+#[test]
+fn a_function_call_leaves_the_bindings_of_its_expression_visible() {
+    let document = compile(&format!(
+        "{NAMES}#let(values = {{ 1, 2 }})\n#let(data = {{ categories = names(), values = values }})\n#chart(kind = \"bar\", title = \"Totals\", data = data)"
+    ))
+    .unwrap();
+    let xml = chart_xml(&document);
+    for expected in [
+        "<c:v>A</c:v>",
+        "<c:v>B</c:v>",
+        "<c:v>1</c:v>",
+        "<c:v>2</c:v>",
+    ] {
+        assert!(xml.contains(expected), "{expected}: {xml}");
+    }
+
+    for (case, source, expected) in [
+        (
+            "a binding made after the definition, read after the call",
+            "#let(values = { 1, 2 })\n#let(result = #names() + #values)\n#paragraph[#result]",
+            "4",
+        ),
+        (
+            "a binding made after the definition, read before the call",
+            "#let(values = { 1, 2, 3 })\n#let(result = #values + #names())\n#paragraph[#result]",
+            "5",
+        ),
+        (
+            "a binding made by an earlier argument of the same let",
+            "#let(count = 7, result = #names() + count)\n#paragraph[#result]",
+            "9",
+        ),
+        (
+            "two calls in one expression",
+            "#let(count = 7)\n#let(result = #names() + #names() + count)\n#paragraph[#result]",
+            "11",
+        ),
+        (
+            "a loop variable",
+            "#for item in { 10, 20 } {#let(result = #names() + item)#paragraph[#result]}",
+            "12\n22",
+        ),
+        (
+            "a directive argument",
+            "#let(count = 2)\n#if(#names() == count)[#paragraph[equal]] else [#paragraph[unequal]]",
+            "equal",
+        ),
+        (
+            "a function defined after the function called",
+            "#function double(value)\n  return value * 2\nend\n#let(result = #names() + double(3))\n#paragraph[#result]",
+            "8",
+        ),
+        (
+            "a call that is the argument of a later function",
+            "#function size(values)\n  return #values\nend\n#let(count = 7)\n#let(result = size(names()) + count)\n#paragraph[#result]",
+            "9",
+        ),
+        (
+            "a call that itself calls a function",
+            "#function size()\n  return #names()\nend\n#let(count = 7)\n#let(result = size() + count)\n#paragraph[#result]",
+            "9",
+        ),
+        (
+            "a call that fails within a protected call",
+            "#function failure()\n  error(\"failure\")\nend\n#let(count = 7)\n#let(result = tostring(pcall(failure)) .. count)\n#paragraph[#result]",
+            "false7",
+        ),
+    ] {
+        assert_eq!(text(&format!("{NAMES}{source}")), expected, "{case}");
+    }
+}
+
+#[test]
+fn a_function_body_keeps_its_captured_bindings_and_its_parameters() {
+    assert_eq!(
+        text(
+            "#let(label = \"first\")\n#function captured(suffix)\n  return label .. suffix\nend\n#let(label = \"second\", later = \"later\")\n#function absent()\n  return tostring(later)\nend\n#let(later = \"changed\")\n#let(result = captured(\"!\") .. \" \" .. label .. \" \" .. absent() .. \" \" .. later)\n#paragraph[#result]"
+        ),
+        "first! second later changed"
+    );
+    // A call made by a function body leaves the captured values of the callee
+    // in the globals for the remainder of that body, and a parameter is a
+    // local that the call cannot reach.
+    assert_eq!(
+        text(
+            "#let(label = \"first\")\n#function inner()\n  return label\nend\n#let(label = \"second\")\n#function outer(parameter)\n  local saved = label\n  return saved .. \"/\" .. inner() .. \"/\" .. label .. \"/\" .. parameter\nend\n#let(result = outer(\"given\") .. \"/\" .. label)\n#paragraph[#result]"
+        ),
+        "second/first/first/given/second"
+    );
+}

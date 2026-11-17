@@ -559,6 +559,11 @@
       "lua": true
     },
     {
+      "example": "functions/5",
+      "model": "functions-5",
+      "lua": true
+    },
+    {
       "example": "document-constructors/1",
       "model": "document-constructors-1",
       "lua": true
@@ -7947,6 +7952,62 @@
                 {
                   "kind": "text",
                   "text": "3"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "functions-5": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "kind": "text",
+              "text": "A"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "text",
+              "text": "2"
+            }
+          ],
+          "kind": "paragraph"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "A"
+                },
+                {
+                  "kind": "text",
+                  "text": " "
+                },
+                {
+                  "kind": "text",
+                  "text": "2"
                 }
               ],
               "kind": "paragraph"

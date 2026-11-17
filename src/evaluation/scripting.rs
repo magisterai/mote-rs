@@ -14,7 +14,7 @@ use crate::{
 };
 use mlua::{HookTriggers, Lua, LuaOptions, StdLib, VmState};
 use std::{
-    cell::RefCell,
+    cell::{Cell, RefCell},
     collections::{BTreeMap, BTreeSet},
     rc::Rc,
     time::{Duration, Instant},
@@ -50,6 +50,8 @@ pub(super) struct Runtime {
     exposed_values: RefCell<BTreeSet<String>>,
     exposed_functions: RefCell<BTreeSet<String>>,
     functions: RefCell<BTreeMap<usize, Rc<DocumentFunction>>>,
+    /// The number of document functions whose bodies are running.
+    function_depth: Cell<usize>,
 }
 impl Runtime {
     fn new(timeout: Option<Duration>) -> mlua::Result<Self> {
@@ -91,6 +93,7 @@ impl Runtime {
             exposed_values: RefCell::new(BTreeSet::new()),
             exposed_functions: RefCell::new(BTreeSet::new()),
             functions: RefCell::new(BTreeMap::new()),
+            function_depth: Cell::new(0),
         })
     }
 
@@ -179,6 +182,15 @@ impl Runtime {
         arguments: Vec<Value>,
         state: &RefCell<&mut EvaluationState<'_>>,
     ) -> mlua::Result<Value> {
+        // A call made by a function body leaves the globals of the callee in
+        // place, as the language chapter on functions states; an expression
+        // outside any body receives its own globals again.
+        let caller_globals = if self.function_depth.get() == 0 {
+            Some(self.exposed_globals()?)
+        } else {
+            None
+        };
+        self.function_depth.set(self.function_depth.get() + 1);
         let caller_bindings = std::mem::replace(
             &mut state.borrow_mut().bindings,
             function.environment.clone(),
@@ -209,12 +221,63 @@ impl Runtime {
         })();
         state.borrow_mut().bindings = caller_bindings;
         state.borrow_mut().source = caller_source;
-        result.map_err(|error| {
+        self.function_depth.set(self.function_depth.get() - 1);
+        let restored =
+            caller_globals.map_or(Ok(()), |globals| self.restore_exposed_globals(globals));
+        let value = result.map_err(|error| {
             mlua::Error::external(
                 diagnostic_from_lua(&error, function.span).with_source(function.source.clone()),
             )
+        })?;
+        restored?;
+        Ok(value)
+    }
+
+    /// The globals that `prepare` manages, as the running expression sees them.
+    fn exposed_globals(&self) -> mlua::Result<ExposedGlobals> {
+        let globals = self.lua.globals();
+        let values = self.exposed_values.borrow().clone();
+        let functions = self.exposed_functions.borrow().clone();
+        let entries = values
+            .iter()
+            .chain(&functions)
+            .map(String::as_str)
+            .chain(["document"])
+            .map(|name| Ok((name.to_owned(), globals.raw_get(name)?)))
+            .collect::<mlua::Result<_>>()?;
+        Ok(ExposedGlobals {
+            entries,
+            values,
+            functions,
         })
     }
+
+    /// Returns the globals to the state a caller recorded before a function
+    /// call exposed the captured environment of that function in their place.
+    fn restore_exposed_globals(&self, caller: ExposedGlobals) -> mlua::Result<()> {
+        let globals = self.lua.globals();
+        for name in self
+            .exposed_values
+            .borrow()
+            .iter()
+            .chain(self.exposed_functions.borrow().iter())
+        {
+            let initial: mlua::Value = self.initial_globals.raw_get(name.as_str())?;
+            globals.raw_set(name.as_str(), initial)?;
+        }
+        for (name, value) in caller.entries {
+            globals.raw_set(name, value)?;
+        }
+        *self.exposed_values.borrow_mut() = caller.values;
+        *self.exposed_functions.borrow_mut() = caller.functions;
+        Ok(())
+    }
+}
+
+struct ExposedGlobals {
+    entries: Vec<(String, mlua::Value)>,
+    values: BTreeSet<String>,
+    functions: BTreeSet<String>,
 }
 fn check_deadline(deadline: Option<Instant>) -> mlua::Result<()> {
     if deadline.is_some_and(|deadline| Instant::now() >= deadline) {

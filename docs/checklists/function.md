@@ -43,7 +43,8 @@ Expression support: [language](../specification/lua-expressions.md),
 Function definitions and content returns: [language](../specification/functions.md),
 [implementation](../../src/evaluation/functions.rs), [tests](../../tests/functions.rs),
 [data results and static paths](../../tests/lua_data.rs),
-and [captured models/packages](../../tests/function_captures.rs). Empty tagged content remains empty; nested-call global behavior retains the
+and [captured models/packages](../../tests/function_captures.rs). Empty tagged content remains empty; an expression outside a function body
+keeps its bindings across the functions it calls, and a call made by a function body retains the
 explicit limits in the language chapter. Constructors: [language](../specification/document-constructors.md),
 [shared validation](../../src/evaluation/constructors.rs),
 [tests](../../tests/constructors.rs), and
