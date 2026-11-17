@@ -107,28 +107,12 @@ fn a_wipe_takes_an_edge_and_no_other_effect_does() {
 
     for (animate, message) in [
         (
-            "{effect='fade_in',from='left'}",
-            "animate fade_in does not accept from",
-        ),
-        (
-            "{effect='move',by={x=pt(1)},from='left'}",
-            "animate move does not accept from",
-        ),
-        (
-            "{effect='appear',from='top'}",
-            "animate appear does not accept from",
-        ),
-        (
             "{effect='wipe_in',from='center'}",
             "animate from must be one of left, right, top, bottom",
         ),
         (
             "{effect='wipe_out',from=1}",
             "animate from must be one of left, right, top, bottom",
-        ),
-        (
-            "{effect='wipe_in',by={x=pt(1)}}",
-            "animate wipe_in does not accept by",
         ),
         (
             "{effect='wipe_out',duration=-1}",

@@ -106,8 +106,6 @@ fn invalid_chart_signatures_and_formatting_are_rejected_before_output() {
         "#chart(data={values={1}},text={size=pt(0)})",
         "#chart(data={values={1}},text={size=14})",
         "#chart(data={values={1}},text={size='large'})",
-        "#chart(data={values={1}},text={size=pt(14),color='#ff0000'})",
-        "#chart(data={values={1}},text={font='Aptos'})",
     ] {
         assert!(mote::compile(source).is_err(), "{source}");
     }
@@ -240,12 +238,20 @@ fn chart_text_size_is_a_positive_length_and_the_only_member() {
     assert_eq!(text.len(), 1);
     assert_eq!(text["size"].to_text(), "14pt");
 
-    let unknown_member = mote::compile("#chart(data={values={1}},text={size=pt(14),bold=true})")
-        .unwrap_err()
-        .to_string();
+    // An unknown member is retained, and the output reports it.
+    let unknown_member = mote::compile(
+        "#slide[#box(position={width=pt(300),height=pt(200)})[\
+         #chart(data={values={1}},text={size=pt(14),bold=true})]]",
+    )
+    .unwrap();
+    let warnings = mote::pptx::emit_with_warnings(&unknown_member)
+        .unwrap()
+        .warnings;
     assert!(
-        unknown_member.contains("chart text accepts only size, not bold"),
-        "{unknown_member}"
+        warnings
+            .iter()
+            .any(|warning| warning.contains("chart.text.bold is retained")),
+        "{warnings:?}"
     );
     let wrong_size = mote::compile("#chart(data={values={1}},text={size=pt(0)})")
         .unwrap_err()

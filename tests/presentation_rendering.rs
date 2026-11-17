@@ -1614,3 +1614,33 @@ fn the_footer_fields_take_the_field_text_of_the_deck_and_of_the_slide() {
         assert_eq!(fields, [(14.0, color), (14.0, color)]);
     }
 }
+
+#[test]
+fn unknown_members_of_effects_displacements_and_field_text_warn_and_still_render() {
+    let document = mote::compile(
+        "#presentation(footer='F',field_text={size=pt(12),weight=700})\
+         #slide(field_text={shade='dark'})[\
+         #shape(position={x=pt(10),y=pt(10),width=pt(40),height=pt(20)},fill='#2563eb',animate={\
+         {effect='fade_in',to=2},\
+         {effect='move',by={x=pt(10),z=pt(10)},from='left'},\
+         {effect='appear',duration=1}})\
+         #group(offset={x=pt(10),depth=pt(10)})[\
+         #shape(position={x=pt(100),y=pt(10),width=pt(40),height=pt(20)})]]",
+    )
+    .unwrap();
+    let package = mote::pptx::emit_with_warnings(&document).unwrap();
+    let expected = [
+        "content[0].slide.field_text.shade",
+        "content[0].slide[0].shape.animate[0].to",
+        "content[0].slide[0].shape.animate[1].by.z",
+        "content[0].slide[0].shape.animate[1].from",
+        "content[0].slide[0].shape.animate[2].duration",
+        "content[0].slide[1].group.offset.depth",
+        "presentation.field_text.weight",
+    ]
+    .map(|path| format!("{path} is retained without a presentation output effect"));
+    assert_eq!(package.warnings, expected);
+    let xml = slide_xml(package.bytes);
+    assert_eq!(xml.matches("presetID=").count(), 3);
+    assert!(xml.contains(r#"sz="1200""#));
+}

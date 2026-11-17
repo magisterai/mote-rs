@@ -207,12 +207,8 @@ pub(super) fn field_text(value: Value, span: Span) -> Result<Value, Diagnostic> 
                 "color" => normalize_color(value, span, "field_text.color")?,
                 "bold" | "italic" => normalize_boolean(value, span, &name)?,
                 "font" => Value::String(value.to_text()),
-                _ => {
-                    return Err(Diagnostic::new(
-                        span,
-                        format!("field_text does not accept {name}"),
-                    ));
-                }
+                // An unknown member is retained, and the output reports it.
+                _ => value,
             };
             Ok((name, value))
         })
@@ -256,12 +252,7 @@ pub(super) fn animation(value: Value, span: Span) -> Result<Value, Diagnostic> {
             for (name, value) in fields {
                 let value = match (name.as_str(), effect.to_text().as_str()) {
                     ("start", _) => seconds(value, span, "animate start")?,
-                    ("duration", "appear" | "disappear") => {
-                        return Err(Diagnostic::new(
-                            span,
-                            "animate appear and disappear take no duration",
-                        ));
-                    }
+                    ("duration", "appear" | "disappear") => value,
                     ("duration", _) => seconds(value, span, "animate duration")?,
                     ("easing", _) => normalize_enum(value, span, "animate easing", &EASING_NAMES)?,
                     ("from", "wipe_in" | "wipe_out") => {
@@ -278,12 +269,9 @@ pub(super) fn animation(value: Value, span: Span) -> Result<Value, Diagnostic> {
                             ));
                         }
                     },
-                    _ => {
-                        return Err(Diagnostic::new(
-                            span,
-                            format!("animate {} does not accept {name}", effect.to_text()),
-                        ));
-                    }
+                    // An argument the effect does not take is retained, and
+                    // the output reports it.
+                    _ => value,
                 };
                 normalized.insert(name, value);
             }
@@ -318,13 +306,13 @@ fn finite(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
 /// where an omitted one is zero.
 pub(super) fn displacement(value: Value, span: Span) -> Result<Value, Diagnostic> {
     let fields = require_object(value, span, "displacement")?;
-    for (name, value) in &fields {
-        if !matches!(name.as_str(), "x" | "y")
-            || crate::drawings::length_in_drawing_units(Some(value)).is_none()
+    for name in ["x", "y"] {
+        if let Some(value) = fields.get(name)
+            && crate::drawings::length_in_drawing_units(Some(value)).is_none()
         {
             return Err(Diagnostic::new(
                 span,
-                "a displacement holds the lengths x and y only",
+                format!("displacement {name} must be a length"),
             ));
         }
     }

@@ -283,10 +283,6 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
             "animate duration must be a number of seconds, not negative",
         ),
         (
-            object("animate={effect='appear',duration=1}"),
-            "animate appear and disappear take no duration",
-        ),
-        (
             object("animate={effect='fade_in',easing='bounce'}"),
             "animate easing",
         ),
@@ -295,20 +291,12 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
             "animate move requires by",
         ),
         (
-            object("animate={effect='move',by={z=pt(1)}}"),
-            "a displacement holds the lengths x and y only",
-        ),
-        (
             object("animate={effect='rotate',by={x=pt(1)}}"),
             "animate rotate by must be a number",
         ),
         (
             object("animate={effect='scale',to=0}"),
             "animate scale to must be a positive number",
-        ),
-        (
-            object("animate={effect='fade_in',to=2}"),
-            "animate fade_in does not accept to",
         ),
         (
             "#slide(duration=-1)[]".to_owned(),
@@ -320,10 +308,6 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
         ),
         ("#presentation(render_at='end')".to_owned(), "render_at"),
         (
-            "#presentation(field_text={weight=1})".to_owned(),
-            "field_text does not accept weight",
-        ),
-        (
             "#slide(field_text={size=pt(-1)})[]".to_owned(),
             "field_text.size",
         ),
@@ -331,11 +315,6 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
             "#slide[#group(rotation='quarter')[#shape(position={width=pt(4),height=pt(4)})]]"
                 .to_owned(),
             "group rotation must be a number of degrees",
-        ),
-        (
-            "#slide[#group(offset={z=pt(1)})[#shape(position={width=pt(4),height=pt(4)})]]"
-                .to_owned(),
-            "a displacement holds the lengths x and y only",
         ),
     ] {
         let error = mote::compile(&source).unwrap_err().to_string();

@@ -120,6 +120,9 @@ pub(super) fn warnings(document: &Document, slides: &[Element]) -> BTreeSet<Stri
         unknown(&style.properties, &allowed, &path, &mut warnings);
         formatting(&style.properties, &path, &mut warnings);
     }
+    if let Some(fields) = object(&document.presentation.properties, "field_text") {
+        unknown(fields, FIELD_TEXT, "presentation.field_text", &mut warnings);
+    }
     for (index, slide) in slides.iter().enumerate() {
         inspect(slide, &format!("content[{index}].slide"), &mut warnings);
     }
@@ -136,9 +139,44 @@ fn content(nodes: &[Content], path: &str, warnings: &mut BTreeSet<String>) {
         }
     }
 }
+const FIELD_TEXT: &[&str] = &["size", "color", "font", "bold", "italic"];
+
+/// Reports the arguments that an effect of an object does not take.
+fn effects(attributes: &Properties, path: &str, warnings: &mut BTreeSet<String>) {
+    let Some(crate::model::Value::Array(entries)) = attributes.get("animate") else {
+        return;
+    };
+    for (index, entry) in entries.iter().enumerate() {
+        let crate::model::Value::Object(fields) = entry else {
+            continue;
+        };
+        let mut allowed = vec!["effect", "start", "easing"];
+        allowed.extend(match text(fields, "effect").as_str() {
+            "appear" | "disappear" => &[][..],
+            "move" | "rotate" => &["duration", "by"][..],
+            "scale" => &["duration", "to"][..],
+            "wipe_in" | "wipe_out" => &["duration", "from"][..],
+            _ => &["duration"][..],
+        });
+        let path = format!("{path}.animate[{index}]");
+        unknown(fields, &allowed, &path, warnings);
+        if let Some(by) = object(fields, "by") {
+            unknown(by, &["x", "y"], &format!("{path}.by"), warnings);
+        }
+    }
+}
+
 fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
     let attributes = &element.attributes;
     let mut allowed = Vec::new();
+    effects(attributes, path, warnings);
+    for (name, fields) in [("offset", &["x", "y"][..]), ("field_text", FIELD_TEXT)] {
+        if matches!(element.kind, ElementKind::Group | ElementKind::Slide)
+            && let Some(nested) = object(attributes, name)
+        {
+            unknown(nested, fields, &format!("{path}.{name}"), warnings);
+        }
+    }
     match element.kind {
         ElementKind::Checkbox | ElementKind::Field | ElementKind::Comment => {
             allowed.extend([

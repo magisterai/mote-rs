@@ -143,11 +143,9 @@ fn text(value: Value, span: Span) -> Result<Value, Diagnostic> {
     require_object(value, span, "text")?
         .into_iter()
         .map(|(name, value)| {
+            // An unknown member is retained, and the output reports it.
             if name != "size" {
-                return Err(Diagnostic::new(
-                    span,
-                    format!("chart text accepts only size, not {name}"),
-                ));
+                return Ok((name, value));
             }
             match normalize_length(value, span, "text.size")? {
                 size @ Value::Length { value, .. } if value > 0.0 => Ok((name, size)),

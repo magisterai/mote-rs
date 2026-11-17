@@ -72,8 +72,9 @@ A **label** of a chart is an axis tick label, a category label, a legend entry
 or a data label. `text` accepts a property table whose only member is `size`, a
 positive length with a unit, as in `text = {size = pt(14)}`; the size replaces
 the default of 9 points for every label. The chart title and the axis titles
-are not labels and keep their own sizes. Any other member of the table is an
-evaluation error, and a value that is not a property table is a type error.
+are not labels and keep their own sizes. Any other member of the table is
+retained without effect, and output reports it in a warning; a value that is
+not a property table is a type error.
 
 ```mote
 #chart(kind = "column",

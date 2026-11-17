@@ -30,8 +30,8 @@ suppress it. An automatic date uses the generation date with the full English
 month name, day and year. `slide_number` normalizes a boolean and displays the
 one-based slide index when enabled. `field_text` is a table that formats the
 footer, the date and the slide number: `size` is a length, `color` a color,
-`font` a font name, and `bold` and `italic` are booleans; any other member is
-invalid. Where it is omitted the three are set in grey at 10 points. `render_at` is a number of seconds, not
+`font` a font name, and `bold` and `italic` are booleans. Any other member is
+retained without effect, and output reports it in a warning. Where it is omitted the three are set in grey at 10 points. `render_at` is a number of seconds, not
 negative: the time at which the deck is rendered, as [animation](#animation)
 defines it.
 
@@ -290,7 +290,8 @@ that is a fraction complete hides that part and shows the rest.
 An object whose first effect upon its visibility is `fade_in`, `wipe_in` or
 `appear` is out of view until that effect begins. The effects of one object accumulate: a
 second `move` begins where the first ended. An effect on a group acts upon the
-group as one object. An argument that an effect does not take is invalid.
+group as one object. An argument that an effect does not take, or a member of a displacement other
+than `x` and `y`, is retained without effect, and output reports it in a warning.
 
 The binding `time` holds the time at which the source is rendered. Its value is
 that of the `--time` option of the command line where one is given, otherwise
