@@ -1,0 +1,54 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+KEEP WITH NEXT: a paragraph or heading kept with the next block moves to the page of a chart, a picture or the first row of a table that does not fit below it.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(600) } })[Case one: a kept paragraph above a chart.]
+
+#paragraph(keep_with_next = true)[The kept paragraph above the chart.]
+
+#chart(kind = "column", width = pt(400), height = pt(150), legend = false, data = { categories = { "North", "South" }, series = { { name = "Cover", values = { 12, 31 } } } })
+
+The text after the chart.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(600) } })[Case two: a kept paragraph above a table.]
+
+#paragraph(keep_with_next = true)[The kept paragraph above the table.]
+
+#table[
+  #row[#cell[Alpha] #cell[Beta]]
+  #row[#cell[Gamma] #cell[Delta]]
+]
+
+The text after the table.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(600) } })[Case three: a kept paragraph above a picture.]
+
+#paragraph(keep_with_next = true)[The kept paragraph above the picture.]
+
+#image("../../cases/assets/mote-logo.png", width = pt(400))
+
+The text after the picture.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(596) } })[Case four: a kept heading above a table.]
+
+## The kept heading above the table
+
+#table[
+  #row[#cell[First] #cell[Second]]
+  #row[#cell[Third] #cell[Fourth]]
+]
+
+The text after the second table.

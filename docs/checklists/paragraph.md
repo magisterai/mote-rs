@@ -37,14 +37,27 @@ style resolution and output remain separate.
   The outer argument's object type and the `space` of each side are checked; other
   side contents remain metadata.
 - [x] `border` side `space`: a length or a bare number of points from 0 to 31,
-  kept as whole points; the native shading of a paragraph reaches its side
-  rules across it, as Word's does. See the
+  kept as whole points; the native shading of a paragraph with a rule on either
+  side reaches those rules across it, as Word's does. See the
   [border tests](../../tests/paragraph_borders.rs).
+- [x] Consecutive paragraphs with identical borders and identical left and
+  right indents share one box, as in Word: no rule and no border space lies
+  between them, the side rules cross the space between them, and the shading of
+  the upper paragraph crosses the space after it. Word joins the paragraphs of
+  the DOCX itself; native layout joins those of one flow, and leaves the box open
+  where a page divides it. See the
+  [border tests](../../tests/paragraph_borders.rs) and the
+  [paragraph-borders probe](../../tests/office/probes/paragraph-borders.mote).
 - [x] `fill`: paragraph shading color.
 - [x] `tabs`: a tab-stop object or array of objects, with `position`, `alignment`,
   and optional `leader`; include the single-entry alignment/position shorthand.
   Only the outer collection type is checked; stop contents remain metadata.
-- [x] `keep_with_next`: boolean pagination request recorded in the model.
+- [x] `keep_with_next`: boolean pagination request recorded in the model. DOCX
+  writes `w:keepNext`. Native layout keeps the paragraph on the page of the
+  start of the block after it: the first lines of a paragraph, the first row of
+  a table, or the whole of a chart or a picture. See the
+  [pagination tests](../../tests/figure_pagination.rs) and the
+  [keep-with-next-blocks probe](../../tests/office/probes/keep-with-next-blocks.mote).
 - [x] `keep_together`: boolean pagination request recorded in the model.
 - [x] `page_break_before`: boolean pagination request recorded in the model.
 - [x] `widow_control`: boolean pagination request recorded in the model.
@@ -99,9 +112,16 @@ without rewriting authored metadata.
 
 PDF and PNG use the shared block plan, including list and heading numbering,
 quote text, and paragraph fills. Native paragraph borders paint each resolved
-side as a solid rule outside the text, offset by its `space`, with the width and
-colour defaults of the DOCX writer (0.5 points, `BFBFBF`). A top or bottom border
-and its spacing add to the paragraph's height, as in Word. Styles other than
+side as a solid rule outside the text, with the width and colour defaults of the
+DOCX writer (0.5 points, `BFBFBF`). A side rule lies its `space` and a further
+1.5 points from the text, as Word's does at every width and space measured. A
+top or bottom border and its spacing add to the paragraph's height, as in Word.
+The shading of a paragraph crosses the space after it only to a paragraph that
+shares its borders, or from one unbordered paragraph to another. Word sets the
+shading of a paragraph without a rule on either side, and its top and bottom
+rules, 1.5 points beyond the text on each side, and begins the shading of a
+first line at the left indent; native output sets all three at the text edge of
+the line. Styles other than
 single and thick are drawn as a single line and reported; borders inside table
 cells are not painted. See the [native block tests](../../tests/native_blocks.rs).
 List item child blocks and quote child blocks flatten to inline text; nested lists

@@ -247,10 +247,14 @@ impl ListMarker {
 #[derive(Default)]
 pub(super) struct ParagraphPainting {
     pending_fill: Option<(usize, usize, HighlightRectangle, f64)>,
+    /// The page, the column and the bottom of the last line placed, and the
+    /// space after its paragraph.
+    previous_line: Option<(usize, usize, f64, f64)>,
 }
 impl ParagraphPainting {
     pub fn clear_fill(&mut self) {
         self.pending_fill = None;
+        self.previous_line = None;
     }
     pub fn place_line(
         &mut self,
@@ -270,32 +274,58 @@ impl ParagraphPainting {
         };
         let horizontal = placement.frame.x - relative_frame.x;
         line.translate(horizontal, placement.top);
+        // The box of a paragraph joined to the one before it begins where that
+        // paragraph ended, if both lie in one column of one page.
+        let joined_top =
+            self.previous_line
+                .filter(|(previous_page, previous_column, bottom, _)| {
+                    placement.line_index == 0
+                        && prepared.joined_above
+                        && *previous_page == placement.page_number
+                        && *previous_column == placement.column_index
+                        && *bottom < placement.top
+                });
+        // The space after the paragraph above belongs to that paragraph, and
+        // any further space before this one takes the shading of this one.
+        let shaded_from = joined_top.map(|(_, _, bottom, spacing_after)| {
+            bottom + (placement.top - bottom).min(spacing_after.max(0.0))
+        });
+        let joined_top = joined_top.map(|(_, _, bottom, _)| bottom);
         if !paragraph.is_empty {
-            if let Some(color) = &paragraph.style.fill {
-                if let Some((previous_page, previous_column, previous, spacing_after)) =
+            self.previous_line = Some((
+                placement.page_number,
+                placement.column_index,
+                placement.top + placement.height,
+                paragraph.style.spacing_after,
+            ));
+            // Word carries the shading of a paragraph across the space after
+            // it only to a paragraph with which it shares its borders.
+            if (paragraph.style.fill.is_some() || joined_top.is_some())
+                && !prepared.separate_above
+                && let Some((previous_page, previous_column, previous, spacing_after)) =
                     self.pending_fill.take()
-                    && previous_page == placement.page_number
-                    && previous_column == placement.column_index
-                {
-                    let gap = placement.top - previous.top - previous.height;
-                    if gap > 0.001 && spacing_after > 0.0 {
-                        page.operations
-                            .push(PageOperation::Rectangle(HighlightRectangle {
-                                top: previous.top + previous.height,
-                                height: gap.min(spacing_after),
-                                ..previous
-                            }));
-                    }
+                && previous_page == placement.page_number
+                && previous_column == placement.column_index
+            {
+                let gap = placement.top - previous.top - previous.height;
+                if gap > 0.001 && spacing_after > 0.0 {
+                    page.operations
+                        .push(PageOperation::Rectangle(HighlightRectangle {
+                            top: previous.top + previous.height,
+                            height: gap.min(spacing_after),
+                            ..previous
+                        }));
                 }
-                // Word carries the shading of a paragraph out to its side rules.
-                let reach = |side: &Option<crate::layout::BorderSide>| {
-                    side.as_ref()
-                        .map_or(0.0, |side| side.space + side.width / 2.0)
+            }
+            self.pending_fill = None;
+            if let Some(color) = &paragraph.style.fill {
+                // Word carries the shading of a paragraph out to its side rules
+                // only where the paragraph has a rule on either side.
+                let [left, right] = match (&paragraph.borders.left, &paragraph.borders.right) {
+                    (Some(left), Some(right)) => [left, right]
+                        .map(|side| SIDE_RULE_CLEARANCE + side.space + side.width / 2.0),
+                    _ => [0.0; 2],
                 };
-                let [left, right] = [
-                    reach(&paragraph.borders.left),
-                    reach(&paragraph.borders.right),
-                ];
                 let rectangle = HighlightRectangle {
                     x: placement.frame.x - left,
                     top: placement.top,
@@ -303,6 +333,16 @@ impl ParagraphPainting {
                     height: placement.height,
                     color: color.clone(),
                 };
+                // The space before a joined paragraph that exceeds the space
+                // after the paragraph above it takes the lower shading.
+                if let Some(top) = shaded_from.filter(|top| placement.top - top > 0.001) {
+                    page.operations
+                        .push(PageOperation::Rectangle(HighlightRectangle {
+                            top,
+                            height: placement.top - top,
+                            ..rectangle.clone()
+                        }));
+                }
                 page.operations
                     .push(PageOperation::Rectangle(rectangle.clone()));
                 self.pending_fill = Some((
@@ -311,12 +351,11 @@ impl ParagraphPainting {
                     rectangle,
                     paragraph.style.spacing_after,
                 ));
-            } else {
-                self.pending_fill = None;
             }
-            paint_borders(page, paragraph, &placement, horizontal);
+            paint_borders(page, paragraph, &placement, horizontal, joined_top);
         } else {
             self.pending_fill = None;
+            self.previous_line = None;
         }
         if placement.line_index == 0
             && let Some(prepared_marker) = &prepared.marker
@@ -355,13 +394,20 @@ impl ParagraphPainting {
     }
 }
 
-/// Side rules sit outside the text by their spacing; top and bottom rules occupy
-/// the height that paragraph planning reserved for them.
+/// The distance that Word leaves between the text edge and the space of a side
+/// rule, whatever the width of the rule. Word's PDF export, whose device unit is
+/// 0.48 point, shows three units at every width from 0.5 to 6 points and every
+/// space from 0 to 20 points; 1.5 points is the round length within that unit.
+const SIDE_RULE_CLEARANCE: f64 = 1.5;
+
+/// Side rules sit outside the text by their clearance and their spacing; top and
+/// bottom rules occupy the height that paragraph planning reserved for them.
 fn paint_borders(
     page: &mut super::TextPage,
     paragraph: &super::paragraphs::ParagraphText,
     placement: &super::LinePlacement,
     horizontal: f64,
+    joined_top: Option<f64>,
 ) {
     let borders = &paragraph.borders;
     let first = placement.line_index == 0;
@@ -379,15 +425,20 @@ fn paint_borders(
             color: side.color.clone(),
         }));
     };
-    let left_edge = left - borders.left.as_ref().map_or(0.0, |side| side.outset());
-    let right_edge = right + borders.right.as_ref().map_or(0.0, |side| side.outset());
+    let reach = |side: &Option<crate::layout::BorderSide>| {
+        side.as_ref()
+            .map_or(0.0, |side| SIDE_RULE_CLEARANCE + side.outset())
+    };
+    let left_edge = left - reach(&borders.left);
+    let right_edge = right + reach(&borders.right);
+    let side_top = joined_top.unwrap_or(top);
     if let Some(side) = &borders.left {
-        let x = left - side.space - side.width / 2.0;
-        rule([x, top], [x, bottom], side);
+        let x = left - SIDE_RULE_CLEARANCE - side.space - side.width / 2.0;
+        rule([x, side_top], [x, bottom], side);
     }
     if let Some(side) = &borders.right {
-        let x = right + side.space + side.width / 2.0;
-        rule([x, top], [x, bottom], side);
+        let x = right + SIDE_RULE_CLEARANCE + side.space + side.width / 2.0;
+        rule([x, side_top], [x, bottom], side);
     }
     if first && let Some(side) = &borders.top {
         let y = top + side.width / 2.0;

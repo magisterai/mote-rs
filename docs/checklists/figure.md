@@ -17,7 +17,9 @@
   next column or page when the remaining space cannot hold the kept blocks and
   the start of the last block. A figure inside a table cell is not kept
   together in native layout. See the
-  [pagination tests](../../tests/figure_pagination.rs).
+  [pagination tests](../../tests/figure_pagination.rs) and the
+  [figure-keep probe](../../tests/office/probes/figure-keep.mote), in which
+  Word and native layout place every figure on the same page.
 
 The placement object inventories `width`, `height`, `x`, `y`, `margin`, `align`,
 `type`, `float`, `wrap`, `anchor`, `allow_overlap`, `behind_text`, `layout_in_cell`,

@@ -1,0 +1,132 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "PARAGRAPH BORDERS: consecutive paragraphs with identical borders and identical side",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "indents share one box, which holds the space between them and no rule there. A top or bottom",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "border adds its space and its width to the height of a paragraph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 136.08,
+          "text": "The paragraph before the boxes.",
+          "x": 72.0
+        },
+        {
+          "baseline": 166.8,
+          "text": "The first of two paragraphs with identical borders.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.08,
+          "text": "The second of two paragraphs with identical borders.",
+          "x": 72.0
+        },
+        {
+          "baseline": 220.8,
+          "text": "The paragraph between the boxes.",
+          "x": 72.0
+        },
+        {
+          "baseline": 253.92,
+          "text": "A single paragraph with a border eight points from its text.",
+          "x": 72.0
+        },
+        {
+          "baseline": 287.04,
+          "text": "The paragraph after the single box.",
+          "x": 72.0
+        },
+        {
+          "baseline": 317.76,
+          "text": "A paragraph with a blue border.",
+          "x": 72.0
+        },
+        {
+          "baseline": 355.92,
+          "text": "A paragraph with a border of another colour.",
+          "x": 72.0
+        },
+        {
+          "baseline": 386.64,
+          "text": "The paragraph after the boxes.",
+          "x": 72.0
+        },
+        {
+          "baseline": 414.96,
+          "text": "The first of three paragraphs in one box.",
+          "x": 72.0
+        },
+        {
+          "baseline": 438.0,
+          "text": "The second of three paragraphs in one box, without a fill.",
+          "x": 72.0
+        },
+        {
+          "baseline": 465.36,
+          "text": "The third of three paragraphs in one box, with spacing of its own.",
+          "x": 158.24
+        },
+        {
+          "baseline": 488.4,
+          "text": "The paragraph after the box of three.",
+          "x": 72.0
+        },
+        {
+          "baseline": 516.72,
+          "text": "A paragraph with a box at the margin.",
+          "x": 72.0
+        },
+        {
+          "baseline": 549.84,
+          "text": "A paragraph with an identical border and another left indent.",
+          "x": 92.0
+        },
+        {
+          "baseline": 582.96,
+          "text": "A paragraph with an identical border and another right indent.",
+          "x": 92.0
+        },
+        {
+          "baseline": 611.04,
+          "text": "The paragraph after the indented boxes.",
+          "x": 72.0
+        },
+        {
+          "baseline": 634.32,
+          "text": "The first of two paragraphs with a rule on the left.",
+          "x": 72.0
+        },
+        {
+          "baseline": 657.6,
+          "text": "The second of two paragraphs with a rule on the left.",
+          "x": 72.0
+        },
+        {
+          "baseline": 680.64,
+          "text": "A paragraph with a further rule below.",
+          "x": 72.0
+        },
+        {
+          "baseline": 711.84,
+          "text": "The last paragraph.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "141454a410e4737029a82a062009cdd049efe3510e0ce8c1a34947e6b2a5703e"
+}

@@ -29,7 +29,9 @@ style resolution and output remain separate.
 - [x] `line_spacing`: flat line-spacing control for presentation text.
 - [x] `indent`: `left`, `right`, `first_line`, and `hanging` lengths.
 - [x] `style`: heading paragraph-style reference, preserving omission without inserting a default.
-- [x] `keep_with_next`: pagination boolean recorded in the model.
+- [x] `keep_with_next`: pagination boolean recorded in the model; native layout
+  keeps the heading with a paragraph, table, chart or picture after it, as
+  described in the [paragraph checklist](paragraph.md).
 - [x] `page_break_before`: pagination boolean recorded in the model.
 - [x] `widow_control`: pagination boolean recorded in the model.
 - [x] `keep_together`: normalize and retain the existing pagination request;

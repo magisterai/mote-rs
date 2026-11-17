@@ -1,5 +1,6 @@
 //! A figure keeps its content and its caption on one page in native and
-//! editable output.
+//! editable output, and a paragraph kept with the next block shares the page of
+//! the chart, the table or the picture after it.
 use mote::{
     layout::{DocumentTextPlan, PageOperation},
     render,
@@ -52,10 +53,15 @@ fn planned(source: &str) -> DocumentTextPlan {
     let document = mote::compile(source).unwrap();
     let resolver = FileAssetResolver::new(assets()).unwrap();
     let rendered = render::plan_with_fonts(&document, &resolver, None, None).unwrap();
+    // The text of a chart is set in Aptos, which no font resolver supplies here.
+    let warnings: Vec<_> = rendered
+        .warnings
+        .iter()
+        .filter(|warning| !warning.starts_with("font \"Aptos\" regular was substituted"))
+        .collect();
     assert!(
-        rendered.warnings.is_empty() && rendered.output.warnings.is_empty(),
-        "{:?} {:?}",
-        rendered.warnings,
+        warnings.is_empty() && rendered.output.warnings.is_empty(),
+        "{warnings:?} {:?}",
         rendered.output.warnings
     );
     rendered.output
@@ -176,6 +182,71 @@ fn a_table_and_the_caption_below_it_share_a_page() {
             captions,
             "{count} preceding lines"
         );
+    }
+}
+
+const CHART: &str = r#"#chart(kind = "column", width = inch(5), height = inch(2), legend = false, data = { categories = { "North", "South" }, series = { { name = "Cover", values = { 12, 31 } } } })
+"#;
+const TABLE: &str =
+    "#table[\n  #row[#cell[Alpha] #cell[Beta]]\n  #row[#cell[Gamma] #cell[Delta]]\n]\n";
+const PICTURE: &str = "#image(\"photo.png\", width = inch(3))\n";
+
+#[test]
+fn a_paragraph_kept_with_the_next_block_shares_the_page_of_that_block() {
+    for (kept, block) in [
+        (
+            "#paragraph(keep_with_next = true)[The kept paragraph.]",
+            CHART,
+        ),
+        (
+            "#paragraph(keep_with_next = true)[The kept paragraph.]",
+            TABLE,
+        ),
+        (
+            "#paragraph(keep_with_next = true)[The kept paragraph.]",
+            PICTURE,
+        ),
+        ("## The kept paragraph.", CHART),
+        ("## The kept paragraph.", TABLE),
+        ("## The kept paragraph.", PICTURE),
+    ] {
+        let mut moved_together = false;
+        for count in 1..=50 {
+            let plan = planned(&document_with_preceding_lines(
+                count,
+                &format!("{kept}\n\n{block}"),
+            ));
+            let paragraph = pages_with_text(&plan, "The kept paragraph.");
+            let block_start = if block == CHART {
+                pages_with_text(&plan, "North")
+            } else if block == TABLE {
+                pages_with_text(&plan, "Alpha")
+            } else {
+                pages_with_pictures(&plan)
+            };
+            assert_eq!(
+                paragraph, block_start,
+                "{count} preceding lines before {kept} and {block}"
+            );
+            let last_line = pages_with_text(&plan, &format!("Preceding line {count}."));
+            moved_together |= last_line == [1] && paragraph == [2];
+        }
+        assert!(moved_together, "{kept} and {block}");
+    }
+}
+
+#[test]
+fn a_paragraph_that_is_not_kept_leaves_the_next_block_to_move_alone() {
+    for block in [CHART, TABLE, PICTURE] {
+        let separated = (1..=50).any(|count| {
+            let plan = planned(&document_with_preceding_lines(
+                count,
+                &format!("#paragraph(keep_with_next = false)[The free paragraph.]\n\n{block}"),
+            ));
+            pages_with_text(&plan, "The free paragraph.") == [1]
+                && pages_with_text(&plan, "The text after the figure.") == [2]
+        });
+        assert!(separated, "{block}");
     }
 }
 

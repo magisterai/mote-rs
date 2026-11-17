@@ -293,6 +293,13 @@
     "unmatched": 0,
     "vertical": 0.1
   },
+  "probes/figure-keep": {
+    "horizontal": 0.1,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.3
+  },
   "probes/footnote-spacing": {
     "horizontal": 0.1,
     "median": 0.2,
@@ -300,12 +307,26 @@
     "unmatched": 0,
     "vertical": 0.3
   },
+  "probes/keep-with-next-blocks": {
+    "horizontal": 0.1,
+    "median": 0.2,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
+  },
   "probes/line-baseline": {
     "horizontal": 0.0,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 0.4
+  },
+  "probes/paragraph-borders": {
+    "horizontal": 0.1,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
   },
   "probes/paragraph-spacing": {
     "horizontal": 0.0,
@@ -334,6 +355,20 @@
     "page_moves": 0,
     "unmatched": 1,
     "vertical": 1.5
+  },
+  "probes/section-endnotes": {
+    "horizontal": 0.2,
+    "median": 0.2,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.3
+  },
+  "probes/section-footnotes": {
+    "horizontal": 0.2,
+    "median": 0.2,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.3
   },
   "probes/shape-text": {
     "horizontal": 0.2,

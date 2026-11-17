@@ -32,6 +32,9 @@ ending within a paragraph supplies a space. A heading is written in Markdown as
   and `space`, the distance of the rule from the text, at most 31 points. A
   boxed pull-quote is
   `#paragraph(fill = "#eef4ff", border = { all = { width = pt(1), color = "#2563eb", space = pt(8) } })[...]`.
+  Consecutive paragraphs with identical borders and equal left and right indents
+  share one box, with no rule between them; a different border on any side
+  gives each paragraph its own box.
 - The booleans `keep_with_next`, `keep_together`, `page_break_before` and
   `widow_control` govern pagination.
 

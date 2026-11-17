@@ -1,0 +1,28 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+SECTION FOOTNOTES: a footnote lies at the foot of the page that cites it, within the margins of its section, and the numbering continues through every section.
+
+The first section makes a claim#footnote[Note alpha, of the first section.] and another#footnote[Note beta, of the first section.].
+
+#section(page = { orientation = "landscape" }, margin = { left = inch(1.5), right = inch(1.5), bottom = inch(1.25) })[
+  The landscape section makes a claim#footnote[Note gamma is long enough to pass the text width of a portrait page, so that its lines show the width of the note area of the landscape section in which the note is set.] of its own.
+]
+
+The portrait page after the landscape section makes a claim#footnote[Note delta, of the section with the bottom margin of the document.].
+
+#section(properties = { start = "continuous" }, margin = { bottom = inch(2) })[
+  The continuous section with a deeper bottom margin makes a claim#footnote[Note epsilon, of the continuous section.] on the same page.
+]
+
+#section(margin = { bottom = inch(2) })[
+  The first of two further sections makes a claim#footnote[Note zeta, of the section with the deeper bottom margin.].
+]
+
+#section(properties = { start = "continuous" })[
+  The continuous section with the bottom margin of the document makes a claim#footnote[Note eta, of the last section.] on the same page.
+]

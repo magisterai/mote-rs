@@ -25,6 +25,11 @@ pub(super) struct PreparedParagraph {
     pub marker: Option<PreparedMarker>,
     pub clear_fill_before: bool,
     pub clear_fill_after: bool,
+    /// Holds whether the paragraph shares the box of the paragraph before it.
+    pub joined_above: bool,
+    /// Holds whether the borders of the paragraph part it from the paragraph
+    /// before it, so that no shading crosses the space between the two.
+    pub separate_above: bool,
 }
 pub(super) struct PreparedMarker {
     pub level: usize,
@@ -221,10 +226,64 @@ pub(super) fn prepare_content(
             values::boolean(&element.attributes, super::captions::KEEP_WITH_NEXT),
         );
     }
+    join_identical_borders(&mut builder.blocks);
+    for (block, kept) in builder.blocks.iter().zip(&mut kept_with_next) {
+        if let Block::Paragraph(paragraph) = block {
+            *kept |= paragraph.text.style.keep_with_next;
+        }
+    }
     Ok(PreparedContent {
         blocks: builder.blocks,
         kept_with_next,
     })
+}
+/// Joins consecutive paragraphs whose borders and side indents are identical
+/// into one box, as Word does: the bottom rule of the first and the top rule of
+/// the second, each with its space, are removed, and painting carries the side
+/// rules through the space between the two.
+fn join_identical_borders(blocks: &mut [Block]) {
+    let authored: Vec<_> = blocks
+        .iter()
+        .map(|block| match block {
+            Block::Paragraph(paragraph) => Some(paragraph.text.borders.clone()),
+            _ => None,
+        })
+        .collect();
+    for index in 1..blocks.len() {
+        let (before, after) = blocks.split_at_mut(index);
+        let (Some(Block::Paragraph(first)), Block::Paragraph(second)) =
+            (before.last_mut(), &mut after[0])
+        else {
+            continue;
+        };
+        let (upper, lower) = (&first.text, &second.text);
+        let unbordered = Some(crate::layout::ParagraphBorders::default());
+        if authored[index] == unbordered && authored[index - 1] == unbordered {
+            continue;
+        }
+        if authored[index] != authored[index - 1]
+            || upper.is_empty
+            || lower.is_empty
+            || lower.style.page_break_before
+            || upper.style.indent_left != lower.style.indent_left
+            || upper.style.indent_right != lower.style.indent_right
+        {
+            second.separate_above = true;
+            continue;
+        }
+        let bottom = first.text.borders.bottom_outset();
+        if let Some(last) = first.text.lines.last_mut() {
+            last.height -= bottom;
+        }
+        first.text.borders.bottom = None;
+        let top = second.text.borders.top_outset();
+        if let Some(line) = second.text.lines.first_mut() {
+            line.translate(0.0, -top);
+            line.height -= top;
+        }
+        second.text.borders.top = None;
+        second.joined_above = true;
+    }
 }
 struct BlockBuilder<'builder, 'document, 'assets> {
     width: f64,
@@ -359,6 +418,8 @@ impl BlockBuilder<'_, '_, '_> {
                 marker: None,
                 clear_fill_before: values::boolean(&element.attributes, super::captions::BEFORE),
                 clear_fill_after: values::boolean(&element.attributes, super::captions::AFTER),
+                joined_above: false,
+                separate_above: false,
             })));
         self.flow_start = false;
         Ok(())
@@ -535,6 +596,8 @@ impl BlockBuilder<'_, '_, '_> {
                         }),
                         clear_fill_before: false,
                         clear_fill_after: false,
+                        joined_above: false,
+                        separate_above: false,
                     })));
                 unit_index += 1;
             }

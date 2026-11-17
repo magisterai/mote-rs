@@ -511,9 +511,12 @@ fn kept_blocks_height(
     }
     let mut required: f64 = 0.0;
     let mut previous_after: Option<f64> = None;
-    for (block, kept) in blocks.iter().zip(kept_with_next) {
+    for (index, (block, kept)) in blocks.iter().zip(kept_with_next).enumerate() {
         let (height, before, after) = match block {
             Block::Break(_) => return 0.0,
+            Block::Paragraph(prepared) if index > 0 && prepared.text.style.page_break_before => {
+                return 0.0;
+            }
             Block::Paragraph(prepared) => {
                 let paragraph = &prepared.text;
                 let heights: Vec<_> = paragraph.lines.iter().map(|line| line.height).collect();

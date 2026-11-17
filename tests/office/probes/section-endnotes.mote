@@ -1,0 +1,16 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+SECTION ENDNOTES: the endnotes follow the content of the last section, in the page geometry of that section, and their numbering continues through every section.
+
+The first section cites a source#endnote[Endnote alpha, of the first section.] and makes a claim#footnote[Note alpha, of the first section.].
+
+#section(page = { orientation = "landscape" }, margin = { left = inch(1.5), right = inch(1.5), bottom = inch(1.25) })[
+  The landscape section cites an archive#endnote[Endnote beta is long enough to pass the text width of a portrait page, so that its lines show the width of the page of the landscape section in which the endnotes are set.] of its own.
+
+  The last paragraph of the landscape section.
+]

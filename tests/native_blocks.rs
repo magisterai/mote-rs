@@ -66,7 +66,8 @@ fn paragraph_borders_paint_each_side_outside_the_text_and_reserve_their_height()
         .collect();
     assert_eq!(rules.len(), 3);
     let left = rules.iter().find(|rule| rule.color == "E0902F").unwrap();
-    assert_eq!(left.start[0], 72.0 - 6.0 - 1.5);
+    // The rule lies its space and Word's clearance of 1.5 points from the text.
+    assert_eq!(left.start[0], 72.0 - 1.5 - 6.0 - 1.5);
     assert_eq!(left.width, 3.0);
     let top = rules.iter().find(|rule| rule.width == 1.0).unwrap();
     assert_eq!(top.start[1], 72.0 + 0.5);

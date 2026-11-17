@@ -30,7 +30,9 @@ not authoring attributes. See the standard inventory for unsupported properties.
 
 Evidence: [language](../specification/notes.md), [tests](../../tests/notes.rs),
 and [captures](../../tests/fixtures/notes/README.md). Native geometry and PNG evidence: [rendering tests](../../tests/note_rendering.rs).
-Placement in documents with sections: [section note tests](../../tests/section_notes.rs).
+Placement in documents with sections: [section note tests](../../tests/section_notes.rs),
+and the [section-endnotes probe](../../tests/office/probes/section-endnotes.mote),
+in which every endnote lies within 0.3 point of Word.
 
 [Combined rendering captures](../../tests/fixtures/rendering-audit/README.md)
 also cover definition endnotes alongside formatted footnotes and document kerning.

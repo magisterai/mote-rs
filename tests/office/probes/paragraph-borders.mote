@@ -1,0 +1,50 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+PARAGRAPH BORDERS: consecutive paragraphs with identical borders and identical side indents share one box, which holds the space between them and no rule there. A top or bottom border adds its space and its width to the height of a paragraph.
+
+The paragraph before the boxes.
+
+#paragraph(fill = "#eef4ff", border = { all = { style = "single", width = pt(1.5), color = "#2563eb", space = pt(6) } })[The first of two paragraphs with identical borders.]
+
+#paragraph(fill = "#eef4ff", border = { all = { style = "single", width = pt(1.5), color = "#2563eb", space = pt(6) } })[The second of two paragraphs with identical borders.]
+
+The paragraph between the boxes.
+
+#paragraph(fill = "#fff4e5", border = { all = { style = "single", width = pt(2), color = "#b45309", space = pt(8) } })[A single paragraph with a border eight points from its text.]
+
+The paragraph after the single box.
+
+#paragraph(fill = "#eef4ff", border = { all = { style = "single", width = pt(1.5), color = "#2563eb", space = pt(6) } })[A paragraph with a blue border.]
+
+#paragraph(fill = "#fff4e5", border = { all = { style = "single", width = pt(1.5), color = "#b45309", space = pt(6) } })[A paragraph with a border of another colour.]
+
+The paragraph after the boxes.
+
+#paragraph(fill = "#eef4ff", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[The first of three paragraphs in one box.]
+
+#paragraph(border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[The second of three paragraphs in one box, without a fill.]
+
+#paragraph(fill = "#fff4e5", alignment = "center", spacing = { before = pt(12), after = pt(3) }, indent = { first_line = pt(20) }, border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[The third of three paragraphs in one box, with spacing of its own.]
+
+The paragraph after the box of three.
+
+#paragraph(fill = "#eef4ff", border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[A paragraph with a box at the margin.]
+
+#paragraph(fill = "#eef4ff", indent = { left = pt(20) }, border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[A paragraph with an identical border and another left indent.]
+
+#paragraph(fill = "#eef4ff", indent = { left = pt(20), right = pt(20) }, border = { all = { style = "single", width = pt(1), color = "#2563eb", space = pt(4) } })[A paragraph with an identical border and another right indent.]
+
+The paragraph after the indented boxes.
+
+#paragraph(fill = "#eef4ff", border = { left = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) } })[The first of two paragraphs with a rule on the left.]
+
+#paragraph(fill = "#eef4ff", border = { left = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) } })[The second of two paragraphs with a rule on the left.]
+
+#paragraph(fill = "#eef4ff", border = { left = { style = "single", width = pt(3), color = "#2563eb", space = pt(4) }, bottom = { style = "single", width = pt(2), color = "#2563eb", space = pt(6) } })[A paragraph with a further rule below.]
+
+The last paragraph.

@@ -144,7 +144,7 @@ Both directives record four optional pagination booleans:
 
 | Attribute | Requested behaviour |
 | --- | --- |
-| `keep_with_next` | Keep this block with the next block. |
+| `keep_with_next` | Keep this block on the page of the start of the next block: the first lines of a paragraph, the first row of a table, or the whole of a chart or an image. |
 | `keep_together` | Keep the block's lines together. |
 | `page_break_before` | Begin the block on a new page. |
 | `widow_control` | Avoid isolated first or last paragraph lines across pages. |
@@ -172,11 +172,15 @@ Each side is a border-style string or a property object with these fields:
 | `style`, `val` | Border-style spelling; a nonempty `style` takes precedence over its alias `val`. |
 | `size` | Non-negative integer width in eighths of a point. |
 | `width` | Non-negative length; takes precedence over `size`; a bare number denotes points for this field. |
-| `space` | The distance of the border from the text: a length, or a bare number of points, from 0 to 31 points, kept as a whole number of points. Another value is invalid on a paragraph or a heading. The shading of the paragraph reaches a side border across this distance. |
+| `space` | The distance of the border from the text: a length, or a bare number of points, from 0 to 31 points, kept as a whole number of points. Another value is invalid on a paragraph or a heading. The shading of a paragraph with a border on either side reaches those borders across this distance. |
 | `color` | Hexadecimal string or typed color. |
 
 `all` supplies sides that are not authored individually. `single` requests a
-single stroke; `none` or `nil` as strings requests no visible border. Evaluation
+single stroke; `none` or `nil` as strings requests no visible border.
+Consecutive paragraphs whose borders are identical on every side, and whose left
+and right indents are equal, share one box: no border is drawn between them, and
+the side borders and the shading of the upper paragraph cross the space between
+them. Evaluation
 checks that an outer `border` argument is an object, then retains its contents
 without validating individual sides or values. For DOCX, an empty style in a
 property object falls through to `val`, then to `single`; an empty color uses the

@@ -1,0 +1,58 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+FIGURE KEEP: the content of a figure and its caption stay on one page, so that a figure whose caption does not fit at the foot of a page begins the next page.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(483) } })[Case one: a picture above its caption.]
+
+#figure(numbering = { enabled = true })[
+  #image("../../cases/assets/mote-logo.png", width = pt(400))
+  #caption[The caption below the picture.]
+]
+
+The text after the picture.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(618) } })[Case two: a caption above its table.]
+
+#figure(kind = "table", numbering = { enabled = true })[
+  #caption(position = "above")[The caption above the table.]
+  #table[
+    #row[#cell[Alpha] #cell[Beta]]
+    #row[#cell[Gamma] #cell[Delta]]
+  ]
+]
+
+The text after the first table.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(585) } })[Case three: a table above its caption.]
+
+#figure(kind = "table", numbering = { enabled = true })[
+  #table[
+    #row[#cell[First] #cell[Second]]
+    #row[#cell[Third] #cell[Fourth]]
+  ]
+  #caption[The caption below the table.]
+]
+
+The text after the second table.
+
+#break()
+
+#paragraph(spacing = { line = { rule = "exact", value = pt(483) } })[Case four: a chart above its caption.]
+
+#figure(numbering = { enabled = true })[
+  #chart(kind = "column", width = pt(400), height = pt(150), legend = false, data = { categories = { "North", "South" }, series = { { name = "Cover", values = { 12, 31 } } } })
+  #caption[The caption below the chart.]
+]
+
+The text after the chart.

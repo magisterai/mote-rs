@@ -1,0 +1,150 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "SECTION FOOTNOTES: a footnote lies at the foot of the page that cites it, within the margins of",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "its section, and the numbering continues through every section.",
+          "x": 72.0
+        },
+        {
+          "baseline": 117.84,
+          "text": "1",
+          "x": 222.96
+        },
+        {
+          "baseline": 117.84,
+          "text": "2",
+          "x": 288.72
+        },
+        {
+          "baseline": 120.96,
+          "text": "The first section makes a claim and another.",
+          "x": 72.0
+        },
+        {
+          "baseline": 684.24,
+          "text": "1 Note alpha, of the first section.",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.28,
+          "text": "2 Note beta, of the first section.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 612.0,
+      "lines": [
+        {
+          "baseline": 79.44,
+          "text": "3",
+          "x": 291.36
+        },
+        {
+          "baseline": 82.56,
+          "text": "The landscape section makes a claim of its own.",
+          "x": 108.0
+        },
+        {
+          "baseline": 494.16,
+          "text": "3 Note gamma is long enough to pass the text width of a portrait page, so that its lines show the width of the note area",
+          "x": 108.0
+        },
+        {
+          "baseline": 509.28,
+          "text": "of the landscape section in which the note is set.",
+          "x": 108.0
+        }
+      ],
+      "width": 792.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 79.44,
+          "text": "4",
+          "x": 363.6
+        },
+        {
+          "baseline": 82.56,
+          "text": "The portrait page after the landscape section makes a claim .",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.72,
+          "text": "5",
+          "x": 401.04
+        },
+        {
+          "baseline": 105.84,
+          "text": "The continuous section with a deeper bottom margin makes a claim on the same page.",
+          "x": 72.0
+        },
+        {
+          "baseline": 684.24,
+          "text": "4 Note delta, of the section with the bottom margin of the document.",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.28,
+          "text": "5 Note epsilon, of the continuous section.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 79.44,
+          "text": "6",
+          "x": 295.68
+        },
+        {
+          "baseline": 82.56,
+          "text": "The first of two further sections makes a claim .",
+          "x": 72.0
+        },
+        {
+          "baseline": 102.72,
+          "text": "7",
+          "x": 454.8
+        },
+        {
+          "baseline": 105.84,
+          "text": "The continuous section with the bottom margin of the document makes a claim on the same",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "page.",
+          "x": 72.0
+        },
+        {
+          "baseline": 612.24,
+          "text": "6 Note zeta, of the section with the deeper bottom margin.",
+          "x": 72.0
+        },
+        {
+          "baseline": 635.28,
+          "text": "7 Note eta, of the last section.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "c10ac113c30c3a163501f2ff88af41735ed5cee7adcdd706fe9353aa818a27ff"
+}

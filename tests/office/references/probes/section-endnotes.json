@@ -1,0 +1,78 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "SECTION ENDNOTES: the endnotes follow the content of the last section, in the page",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "geometry of that section, and their numbering continues through every section.",
+          "x": 72.0
+        },
+        {
+          "baseline": 117.84,
+          "text": "i",
+          "x": 220.56
+        },
+        {
+          "baseline": 117.84,
+          "text": "1",
+          "x": 317.04
+        },
+        {
+          "baseline": 120.96,
+          "text": "The first section cites a source and makes a claim .",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.28,
+          "text": "1 Note alpha, of the first section.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 612.0,
+      "lines": [
+        {
+          "baseline": 79.44,
+          "text": "ii",
+          "x": 297.6
+        },
+        {
+          "baseline": 82.56,
+          "text": "The landscape section cites an archive of its own.",
+          "x": 108.0
+        },
+        {
+          "baseline": 105.84,
+          "text": "The last paragraph of the landscape section.",
+          "x": 108.0
+        },
+        {
+          "baseline": 152.16,
+          "text": "i Endnote alpha, of the first section.",
+          "x": 108.0
+        },
+        {
+          "baseline": 175.2,
+          "text": "ii Endnote beta is long enough to pass the text width of a portrait page, so that its lines show the width of the page of",
+          "x": 108.0
+        },
+        {
+          "baseline": 190.56,
+          "text": "the landscape section in which the endnotes are set.",
+          "x": 108.0
+        }
+      ],
+      "width": 792.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "951d70486b0c9fcd79971bd6299da79a646d8c9cd456dd21d65d239ad3f64346"
+}

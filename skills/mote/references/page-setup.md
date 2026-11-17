@@ -66,7 +66,8 @@ Portrait text resumes on a new page.
 
 The directive `#break()` begins a new page, and `#break(type = "column")` a new
 column. A paragraph or heading with `page_break_before = true` begins a page, and
-`keep_with_next = true` keeps a heading on the page of the paragraph after it.
+`keep_with_next = true` keeps a paragraph or heading on the page of the block
+after it, whether a paragraph, a table, a chart or an image.
 
 ## Limits
 

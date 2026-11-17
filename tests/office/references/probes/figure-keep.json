@@ -1,0 +1,200 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "FIGURE KEEP: the content of a figure and its caption stay on one page, so that a figure whose",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "caption does not fit at the foot of a page begins the next page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 458.64,
+          "text": "Case one: a picture above its caption.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 240.48,
+          "text": "Figure 1. The caption below the picture.",
+          "x": 72.0
+        },
+        {
+          "baseline": 263.76,
+          "text": "The text after the picture.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 566.4,
+          "text": "Case two: a caption above its table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Table 1. The caption above the table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 110.16,
+          "text": "Alpha Beta",
+          "x": 78.24
+        },
+        {
+          "baseline": 133.92,
+          "text": "Gamma Delta",
+          "x": 78.24
+        },
+        {
+          "baseline": 153.6,
+          "text": "The text after the first table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 540.0,
+          "text": "Case three: a table above its caption.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "First Second",
+          "x": 78.24
+        },
+        {
+          "baseline": 110.64,
+          "text": "Third Fourth",
+          "x": 78.24
+        },
+        {
+          "baseline": 130.32,
+          "text": "Table 2. The caption below the table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 153.6,
+          "text": "The text after the second table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 458.64,
+          "text": "Case four: a chart above its caption.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.2,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 101.76,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 118.32,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 134.88,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 151.44,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 168.0,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 184.56,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 201.12,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 212.88,
+          "text": "North",
+          "x": 176.47
+        },
+        {
+          "baseline": 212.88,
+          "text": "South",
+          "x": 358.38
+        },
+        {
+          "baseline": 240.48,
+          "text": "Figure 2. The caption below the chart.",
+          "x": 72.0
+        },
+        {
+          "baseline": 263.76,
+          "text": "The text after the chart.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "2f5f5559c9c8def56a784f7b60a7b5c8622e7835366212f67a00e41065bc156c"
+}

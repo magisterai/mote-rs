@@ -1,0 +1,200 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "KEEP W ITH NEXT: a paragraph or heading kept with the next block moves to the page of a",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "chart, a picture or the first row of a table that does not fit below it.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 552.0,
+          "text": "Case one: a kept paragraph above a chart.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The kept paragraph above the chart.",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.48,
+          "text": "35",
+          "x": 78.5
+        },
+        {
+          "baseline": 125.04,
+          "text": "30",
+          "x": 78.5
+        },
+        {
+          "baseline": 141.6,
+          "text": "25",
+          "x": 78.5
+        },
+        {
+          "baseline": 157.92,
+          "text": "20",
+          "x": 78.5
+        },
+        {
+          "baseline": 174.48,
+          "text": "15",
+          "x": 78.5
+        },
+        {
+          "baseline": 191.04,
+          "text": "10",
+          "x": 78.5
+        },
+        {
+          "baseline": 207.6,
+          "text": "5",
+          "x": 83.31
+        },
+        {
+          "baseline": 224.16,
+          "text": "0",
+          "x": 83.31
+        },
+        {
+          "baseline": 236.16,
+          "text": "North",
+          "x": 176.47
+        },
+        {
+          "baseline": 236.16,
+          "text": "South",
+          "x": 358.38
+        },
+        {
+          "baseline": 263.76,
+          "text": "The text after the chart.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 552.0,
+          "text": "Case two: a kept paragraph above a table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The kept paragraph above the table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 110.16,
+          "text": "Alpha Beta",
+          "x": 78.24
+        },
+        {
+          "baseline": 133.92,
+          "text": "Gamma Delta",
+          "x": 78.24
+        },
+        {
+          "baseline": 153.6,
+          "text": "The text after the table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 552.0,
+          "text": "Case three: a kept paragraph above a picture.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The kept paragraph above the picture.",
+          "x": 72.0
+        },
+        {
+          "baseline": 263.76,
+          "text": "The text after the picture.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 548.88,
+          "text": "Case four: a kept heading above a table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.68,
+          "text": "The kept heading above the table",
+          "x": 72.0
+        },
+        {
+          "baseline": 111.84,
+          "text": "First Second",
+          "x": 78.24
+        },
+        {
+          "baseline": 135.6,
+          "text": "Third Fourth",
+          "x": 78.24
+        },
+        {
+          "baseline": 155.28,
+          "text": "The text after the second table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "ddb4609d1869896b73507baf97c95957f384452b2ba8d5c876e673aa5765f64c"
+}
