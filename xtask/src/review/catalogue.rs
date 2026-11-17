@@ -160,14 +160,14 @@ mod tests {
                 .iter()
                 .filter(|case| case.application == Application::Word)
                 .count(),
-            64
+            69
         );
         assert_eq!(
             cases
                 .iter()
                 .filter(|case| case.application == Application::PowerPoint)
                 .count(),
-            31
+            34
         );
         assert_eq!(cases.iter().filter(|case| case.enable_lua).count(), 3);
         for case in cases {
