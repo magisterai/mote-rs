@@ -4,8 +4,10 @@
 
 A **note** has an inline reference in the surrounding text and its own block
 content. A footnote belongs at the bottom of the reference page; an endnote
-belongs at the end of the document. Each kind has an independent numbering
-sequence. Authored `id` metadata does not select, reuse, or restart that sequence.
+belongs at the end of the document, after the content of the last section. Each
+kind has an independent numbering sequence, which runs through the whole
+document and does not restart at a section. Authored `id` metadata does not
+select, reuse, or restart that sequence.
 
 ## Directives
 

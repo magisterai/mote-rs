@@ -34,6 +34,14 @@ impl NoteLayout {
             boundary,
             warnings,
         } = context;
+        // The foot of a page belongs to the section that owns the page, which
+        // is an earlier section if a continuous section shares the page.
+        let foot = |pages: &[TextPage], page_number: usize| {
+            pages[page_number - 1]
+                .geometry
+                .unwrap_or(geometry)
+                .content_bottom()
+        };
         let paragraph = &prepared.text;
         let height: f64 = paragraph.lines.iter().map(|line| line.height).sum();
         let unassigned: Vec<_> = paragraph
@@ -56,7 +64,8 @@ impl NoteLayout {
         if (minimum > 0.0
             || paragraph.lines.len() > 1
                 && (paragraph.style.keep_together || paragraph.style.widow_control))
-            && cursor.y + leading + height > self.body_bottom(&candidate, geometry) + 0.001
+            && cursor.y + leading + height
+                > self.body_bottom(&candidate, foot(pages, cursor.page_number)) + 0.001
         {
             warnings.push("native footnote reservation takes precedence over paragraph keep and widow/orphan preferences".into());
         }
@@ -108,7 +117,7 @@ impl NoteLayout {
                             candidate.push(*number);
                         }
                     }
-                    let bottom = self.body_bottom(&candidate, geometry);
+                    let bottom = self.body_bottom(&candidate, foot(pages, cursor.page_number));
                     let fits = cursor.y + line.height <= bottom + 0.001;
                     let fresh = cursor.y <= geometry.margin_top + 0.001;
                     if fits || fresh || attempt == 1 {

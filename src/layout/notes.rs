@@ -18,6 +18,56 @@ struct Note {
     height: f64,
     /// The space after the note's paragraph, which Word keeps below each note.
     after: f64,
+    /// The left edge of the text area of the section that holds the reference.
+    left: f64,
+    /// The width of the text area of the section that holds the reference.
+    width: f64,
+}
+/// A context in which a note story cannot be placed, so that the note keeps
+/// its content inline.
+#[derive(Clone, Copy)]
+enum Obstacle {
+    Header,
+    Footer,
+    TableCell,
+    SectionColumns,
+    LastSectionColumns,
+    EnclosingNote,
+    Container(ElementKind),
+    OutsideParagraph,
+    UnstableContent,
+}
+impl Obstacle {
+    fn reason(self) -> String {
+        match self {
+            Self::Header => "a note story cannot be placed in a header".into(),
+            Self::Footer => "a note story cannot be placed in a footer".into(),
+            Self::TableCell => "a note story cannot be placed in a table cell".into(),
+            Self::SectionColumns => {
+                "a note story cannot be placed in a section with more than one column".into()
+            }
+            Self::LastSectionColumns => {
+                "the endnotes cannot be placed after a last section with more than one column"
+                    .into()
+            }
+            Self::EnclosingNote => "a note story cannot be placed inside another note".into(),
+            Self::Container(kind) => {
+                let name = kind.as_text().replace('_', " ");
+                let article = if name.starts_with(['a', 'e', 'i', 'o', 'u']) {
+                    "an"
+                } else {
+                    "a"
+                };
+                format!("a note story cannot be placed inside {article} {name}")
+            }
+            Self::OutsideParagraph => {
+                "a note story cannot be placed outside the text of a paragraph".into()
+            }
+            Self::UnstableContent => {
+                "a note story cannot hold a block, a page number or a reference".into()
+            }
+        }
+    }
 }
 #[derive(Default)]
 pub(super) struct NoteLayout {
@@ -27,6 +77,9 @@ pub(super) struct NoteLayout {
     /// paragraph of the default style with its space after.
     endnote_band: f64,
     endnote_footer_heights: Vec<f64>,
+    /// The geometry of the last section, in which the endnotes are set.
+    endnote_geometry: PageGeometry,
+    endnote_obstacle: Option<Obstacle>,
     pages: BTreeMap<usize, Vec<usize>>,
     assigned: BTreeSet<usize>,
     pub warnings: Vec<String>,
@@ -41,37 +94,32 @@ impl NoteLayout {
         let mut layout = Self::default();
         let separator = styles.paragraph(&empty_paragraph());
         layout.endnote_band = separator.line_height + separator.spacing_after.max(0.0);
-        let eligible = sections.len() == 1 && sections[0].columns.count.unwrap_or(1) <= 1;
-        for section in sections {
+        if let Some(last) = sections.last() {
+            layout.endnote_geometry = PageGeometry::from_section(last)?;
+            if layout.endnote_geometry.column_count > 1 {
+                layout.endnote_obstacle = Some(Obstacle::LastSectionColumns);
+            }
+        }
+        for section in sections.iter_mut() {
             let geometry = PageGeometry::from_section(section)?;
-            layout.select(
-                &mut section.content,
-                eligible,
-                false,
+            let section_obstacle = (geometry.column_count > 1).then_some(Obstacle::SectionColumns);
+            for (content, obstacle) in [
+                (&mut section.content, section_obstacle),
+                (&mut section.header.content, Some(Obstacle::Header)),
+                (&mut section.footer.content, Some(Obstacle::Footer)),
+            ] {
+                layout.select(content, obstacle, false, styles, measurer, geometry)?;
+            }
+        }
+        if let Some(last) = sections.last()
+            && !layout.endnotes.is_empty()
+        {
+            layout.endnote_footer_heights = super::stories::footer_heights(
+                last,
+                layout.endnote_geometry,
+                total,
                 styles,
                 measurer,
-                geometry,
-            )?;
-            layout.endnote_footer_heights = if eligible && !layout.endnotes.is_empty() {
-                super::stories::footer_heights(section, geometry, total, styles, measurer)?
-            } else {
-                Vec::new()
-            };
-            layout.select(
-                &mut section.header.content,
-                false,
-                false,
-                styles,
-                measurer,
-                geometry,
-            )?;
-            layout.select(
-                &mut section.footer.content,
-                false,
-                false,
-                styles,
-                measurer,
-                geometry,
             )?;
         }
         Ok(layout)
@@ -79,7 +127,7 @@ impl NoteLayout {
     fn select(
         &mut self,
         content: &mut [Content],
-        eligible: bool,
+        obstacle: Option<Obstacle>,
         inline: bool,
         styles: &LayoutStyleResolver<'_>,
         measurer: &mut TextMeasurer<'_>,
@@ -94,13 +142,28 @@ impl NoteLayout {
                 // Nested notes are terminal for selection, but their fallback still warns.
                 self.select(
                     &mut element.children,
-                    false,
+                    Some(Obstacle::EnclosingNote),
                     true,
                     styles,
                     measurer,
                     geometry,
                 )?;
-                if eligible && inline && stable_content(&element.children) {
+                let (geometry, kind_obstacle) = if element.kind == ElementKind::Footnote {
+                    (geometry, None)
+                } else {
+                    (self.endnote_geometry, self.endnote_obstacle)
+                };
+                let obstacle = obstacle
+                    .or((!inline).then_some(Obstacle::OutsideParagraph))
+                    .or(kind_obstacle)
+                    .or((!stable_content(&element.children)).then_some(Obstacle::UnstableContent));
+                if let Some(obstacle) = obstacle {
+                    self.warnings.push(format!(
+                        "native {} content is flattened inline because {}",
+                        element.kind.as_text(),
+                        obstacle.reason()
+                    ));
+                } else {
                     let sequence = if element.kind == ElementKind::Footnote {
                         &mut self.footnotes
                     } else {
@@ -130,15 +193,22 @@ impl NoteLayout {
                             self.warnings.push("native footnotes use left alignment instead of document paragraph alignment".into());
                         }
                     }
-                } else {
-                    self.warnings.push(format!("native {} content is flattened inline because a note story cannot be placed in this context", element.kind.as_text()));
                 }
                 continue;
             }
             let (children_inline, visible) = child_flow(element.kind, inline);
+            let inner_obstacle = if element.kind == ElementKind::Cell {
+                Some(Obstacle::TableCell)
+            } else if visible {
+                None
+            } else if children_inline {
+                Some(Obstacle::OutsideParagraph)
+            } else {
+                Some(Obstacle::Container(element.kind))
+            };
             self.select(
                 &mut element.children,
-                eligible && visible && element.kind != ElementKind::Cell,
+                obstacle.or(inner_obstacle),
                 children_inline,
                 styles,
                 measurer,
@@ -153,12 +223,14 @@ impl NoteLayout {
             .map(|number| self.footnotes[number - 1].height + self.footnotes[number - 1].after)
             .sum::<f64>()
     }
-    fn body_bottom(&self, numbers: &[usize], geometry: PageGeometry) -> f64 {
+    /// Returns the lowest position of body text above the given footnotes on
+    /// a page whose text area ends at `content_bottom`.
+    fn body_bottom(&self, numbers: &[usize], content_bottom: f64) -> f64 {
         let height = self.stack_height(numbers);
         if height <= 0.0 {
-            geometry.content_bottom()
+            content_bottom
         } else {
-            geometry.content_bottom() - height - SEPARATOR_BAND - BODY_GAP
+            content_bottom - height - SEPARATOR_BAND - BODY_GAP
         }
     }
 }
@@ -254,8 +326,9 @@ fn measure(
         };
         runs.extend(super::resolve_inline(children, &style.text, styles));
     }
+    let width = geometry.width - geometry.margin_left - geometry.margin_right;
     let options = LineOptions {
-        width: geometry.width - geometry.margin_left - geometry.margin_right,
+        width,
         base_style: style.text,
         base_line_height: Some(style.line_height),
         spacing: style.line_spacing,
@@ -275,5 +348,7 @@ fn measure(
         lines,
         height,
         after: style.spacing_after.max(0.0),
+        left: geometry.margin_left,
+        width,
     })
 }

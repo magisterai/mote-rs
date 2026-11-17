@@ -19,7 +19,11 @@ A measured result[^method].
 The directives `#footnote` and `#endnote` take block content at the point of
 citation. The Markdown form `[^name]` cites a footnote defined on its own line as
 `[^name]: text`, anywhere in the document. Footnotes and endnotes are numbered
-separately.
+separately, and each numbering continues through every section.
+
+The PDF and PNG outputs cannot place a note that is cited in a table cell, a
+header, a footer, a figure or a section with more than one column: the text of
+such a note stays inline at the citation, and a warning names the context.
 
 ## Links
 

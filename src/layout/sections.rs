@@ -164,7 +164,13 @@ fn balanced_pass(
         } else {
             flow.geometry.margin_top
         };
-        let maximum = flow.geometry.content_bottom() - top;
+        let mut bottom = flow.geometry.content_bottom();
+        if page_offset == 0
+            && let Some(note_bottom) = best.plan.pages[flow.start.page_number - 1].note_body_bottom
+        {
+            bottom = bottom.min(note_bottom);
+        }
+        let maximum = bottom - top;
         let end_height = flow.end.y - top + flow.trailing;
         let height = (flow.end.column_index as f64 * maximum + end_height)
             / flow.geometry.column_count as f64;

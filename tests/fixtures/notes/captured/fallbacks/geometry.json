@@ -51,48 +51,55 @@
             {
               "advance": 36.13,
               "baseline": 46.4,
-              "size": 10,
+              "size": 10.0,
               "text": "Section ",
-              "x": 36
+              "x": 36.0
             },
             {
-              "advance": 78.37,
+              "advance": 42.24,
               "baseline": 46.4,
-              "size": 10,
-              "text": "referenceSection ",
+              "size": 10.0,
+              "text": "reference",
               "x": 72.13
             },
             {
-              "advance": 36.68,
+              "advance": 1.443,
+              "baseline": 43.65,
+              "size": 6.5,
+              "text": "i",
+              "x": 114.37
+            },
+            {
+              "advance": 2.78,
               "baseline": 46.4,
-              "size": 10,
-              "text": "fallback.",
-              "x": 150.5
+              "size": 10.0,
+              "text": ".",
+              "x": 115.813
             }
           ],
-          "height": 13,
-          "top": 36,
-          "width": 151.18,
-          "x": 36
+          "height": 13.0,
+          "top": 36.0,
+          "width": 82.593,
+          "x": 36.0
         },
         {
           "fragments": [
             {
               "advance": 37.22,
               "baseline": 66.9,
-              "size": 10,
+              "size": 10.0,
               "text": "CellCell ",
               "x": 42.25
             },
             {
               "advance": 33.9,
               "baseline": 66.9,
-              "size": 10,
+              "size": 10.0,
               "text": "fallback",
               "x": 79.47
             }
           ],
-          "height": 13,
+          "height": 13.0,
           "top": 56.5,
           "width": 71.12,
           "x": 42.25
@@ -102,22 +109,51 @@
             {
               "advance": 59.46,
               "baseline": 84.4,
-              "size": 10,
+              "size": 10.0,
               "text": "FigureFigure ",
-              "x": 36
+              "x": 36.0
             },
             {
               "advance": 33.9,
               "baseline": 84.4,
-              "size": 10,
+              "size": 10.0,
               "text": "fallback",
               "x": 95.46000000000001
             }
           ],
-          "height": 13,
+          "height": 13.0,
           "top": 74.0,
           "width": 93.36,
-          "x": 36
+          "x": 36.0
+        },
+        {
+          "fragments": [
+            {
+              "advance": 5.0,
+              "baseline": 116.4,
+              "size": 10.0,
+              "text": "i ",
+              "x": 36.0
+            },
+            {
+              "advance": 36.13,
+              "baseline": 116.4,
+              "size": 10.0,
+              "text": "Section ",
+              "x": 41.0
+            },
+            {
+              "advance": 33.9,
+              "baseline": 116.4,
+              "size": 10.0,
+              "text": "fallback",
+              "x": 77.13
+            }
+          ],
+          "height": 13.0,
+          "top": 106.0,
+          "width": 75.03,
+          "x": 36.0
         }
       ],
       "rules": [
@@ -170,6 +206,19 @@
           "start": [
             119.4,
             52.5
+          ],
+          "width": 0.5
+        },
+        {
+          "color": "111827",
+          "dash": [],
+          "end": [
+            180.0,
+            90.0
+          ],
+          "start": [
+            36.0,
+            90.0
           ],
           "width": 0.5
         }

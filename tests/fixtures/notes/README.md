@@ -18,3 +18,7 @@ warn and can overlap the reference line.
 `endnote-flow` verifies measured footer reservation when no height is declared.
 The independent `endnote-footer` case retains a larger explicit reservation.
 Both continue naturally without overlapping footer text. Sources remain unchanged.
+
+`fallbacks` holds a two-column section and a single-column section. The notes in
+the columns, in the table cell and in the figure stay inline; the endnote of the
+single-column section is placed after the content of that last section.

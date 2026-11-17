@@ -27,17 +27,20 @@ impl NoteLayout {
     ) {
         for (number, notes) in &self.pages {
             let page = &mut pages[number - 1];
-            let mut top = geometry.content_bottom() - self.stack_height(notes);
+            let mut top =
+                page.geometry.unwrap_or(geometry).content_bottom() - self.stack_height(notes);
+            let first = &self.footnotes[notes[0] - 1];
             separator(
                 page,
-                geometry.margin_left,
+                first.left,
                 top - SEPARATOR_BAND,
-                (geometry.width - geometry.margin_left - geometry.margin_right).min(144.0),
+                first.width.min(144.0),
             );
             for number in notes {
+                let left = self.footnotes[number - 1].left;
                 for line in &self.footnotes[number - 1].lines {
                     let mut line = line.clone();
-                    line.translate(geometry.margin_left, top);
+                    line.translate(left, top);
                     top += line.height;
                     page.push_line(PlacedTextLine {
                         top: top - line.height,

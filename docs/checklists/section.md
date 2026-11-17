@@ -21,4 +21,8 @@ section vertical alignment, and odd/even or next-column section starts retain
 editable DOCX mappings but warn about native limits. Header/footer tables and
 images use visible native text fallbacks; overflow omits trailing lines with a
 warning. Next-page and continuous sections, equal columns, numbering restarts,
-local stories and mixed physical page sizes render natively.
+local stories and mixed physical page sizes render natively. A footnote in a
+single-column section is placed at the foot of its page in the geometry of that
+section, and endnotes follow the last section; a note in a section with more
+than one column retains an inline fallback with a warning, as the
+[section note tests](../../tests/section_notes.rs) verify.
