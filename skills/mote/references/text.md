@@ -28,7 +28,10 @@ ending within a paragraph supplies a space. A heading is written in Markdown as
   length accordingly.
 - The `indent` table gives `left`, `right`, `first_line` and `hanging` lengths.
 - The `fill` argument shades the paragraph, and `border` draws rules: a table of
-  `top`, `right`, `bottom`, `left` or `all`, each with `style`, `width` and `color`.
+  `top`, `right`, `bottom`, `left` or `all`, each with `style`, `width`, `color`
+  and `space`, the distance of the rule from the text, at most 31 points. A
+  boxed pull-quote is
+  `#paragraph(fill = "#eef4ff", border = { all = { width = pt(1), color = "#2563eb", space = pt(8) } })[...]`.
 - The booleans `keep_with_next`, `keep_together`, `page_break_before` and
   `widow_control` govern pagination.
 

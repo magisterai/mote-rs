@@ -172,7 +172,7 @@ Each side is a border-style string or a property object with these fields:
 | `style`, `val` | Border-style spelling; a nonempty `style` takes precedence over its alias `val`. |
 | `size` | Non-negative integer width in eighths of a point. |
 | `width` | Non-negative length; takes precedence over `size`; a bare number denotes points for this field. |
-| `space` | Non-negative integer border separation in points. |
+| `space` | The distance of the border from the text: a length, or a bare number of points, from 0 to 31 points, kept as a whole number of points. Another value is invalid on a paragraph or a heading. The shading of the paragraph reaches a side border across this distance. |
 | `color` | Hexadecimal string or typed color. |
 
 `all` supplies sides that are not authored individually. `single` requests a

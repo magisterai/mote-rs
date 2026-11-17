@@ -761,7 +761,11 @@ fn border_side(value: &Value) -> Option<BorderSide> {
         width: width
             .filter(|width| *width > 0.0)
             .unwrap_or(DEFAULT_BORDER_WIDTH),
-        space: fields.get("space").and_then(values::number).unwrap_or(0.0),
+        space: match fields.get("space") {
+            Some(Value::Number(points)) => *points,
+            Some(space) => values::points(space).unwrap_or(0.0),
+            None => 0.0,
+        },
         color: values::color(fields, "color").unwrap_or_else(|| DEFAULT_BORDER_COLOR.into()),
     })
 }

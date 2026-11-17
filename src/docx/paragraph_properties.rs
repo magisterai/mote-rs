@@ -276,13 +276,11 @@ fn borders(value: &Value) -> Result<String, Error> {
             };
         }
         let size = values::rounded(size)?;
-        let space = values::rounded(
-            properties
-                .get("space")
-                .map(values::number)
-                .transpose()?
-                .unwrap_or(0.0),
-        )?;
+        let space = values::rounded(match properties.get("space") {
+            Some(Value::Number(points)) => *points,
+            Some(space) => values::twips(space)? as f64 / 20.0,
+            None => 0.0,
+        })?;
         let color = properties
             .get("color")
             .filter(|value| !value.to_text().trim().trim_start_matches('#').is_empty())

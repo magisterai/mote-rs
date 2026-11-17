@@ -34,7 +34,12 @@ style resolution and output remain separate.
   [style checklist](style.md).
 - [x] `border`: `top`, `right`, `bottom`, `left`, and `all`; each side accepts a
   style string or `style`/`val`, `size`/`width`, `space`, and `color` fields.
-  Only the outer argument's object type is checked; side contents remain metadata.
+  The outer argument's object type and the `space` of each side are checked; other
+  side contents remain metadata.
+- [x] `border` side `space`: a length or a bare number of points from 0 to 31,
+  kept as whole points; the native shading of a paragraph reaches its side
+  rules across it, as Word's does. See the
+  [border tests](../../tests/paragraph_borders.rs).
 - [x] `fill`: paragraph shading color.
 - [x] `tabs`: a tab-stop object or array of objects, with `position`, `alignment`,
   and optional `leader`; include the single-entry alignment/position shorthand.

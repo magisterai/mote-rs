@@ -500,6 +500,7 @@ pub(super) fn normalize_attribute(
                 normalize_boolean(value, span, name)
             }
             "fill" => normalize_color(value, span, name),
+            "border" => normalize_border_spaces(value, span),
             "outline_level" => normalize_integer(value, span, name, 0),
             "alignment" => normalize_enum(value, span, name, ALIGNMENTS),
             "level" if kind == Heading => normalize_integer(value, span, "heading level", 1),
@@ -566,6 +567,40 @@ pub(super) fn normalize_attribute(
         }
         _ => Ok(value),
     }
+}
+
+/// Checks the distance from the text of each side of a paragraph border. Word
+/// admits a whole number of points from 0 to 31; a bare number is in points.
+fn normalize_border_spaces(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    let Value::Object(mut sides) = value else {
+        return Ok(value);
+    };
+    for side in sides.values_mut() {
+        let Value::Object(fields) = side else {
+            continue;
+        };
+        let Some(space) = fields.get("space") else {
+            continue;
+        };
+        let points = match space {
+            Value::Number(points) => Some(*points),
+            Value::Length { .. } => crate::drawings::length_in_drawing_units(Some(space))
+                .map(|units| units as f64 / 12700.0),
+            _ => None,
+        };
+        match points {
+            Some(points) if (0.0..=31.0).contains(&points) => {
+                fields.insert("space".into(), Value::Number(points.round()));
+            }
+            _ => {
+                return Err(Diagnostic::new(
+                    span,
+                    "border space must be a length from 0 to 31 points",
+                ));
+            }
+        }
+    }
+    Ok(Value::Object(sides))
 }
 
 pub(super) fn normalize_length_map(

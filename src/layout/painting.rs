@@ -287,10 +287,19 @@ impl ParagraphPainting {
                             }));
                     }
                 }
+                // Word carries the shading of a paragraph out to its side rules.
+                let reach = |side: &Option<crate::layout::BorderSide>| {
+                    side.as_ref()
+                        .map_or(0.0, |side| side.space + side.width / 2.0)
+                };
+                let [left, right] = [
+                    reach(&paragraph.borders.left),
+                    reach(&paragraph.borders.right),
+                ];
                 let rectangle = HighlightRectangle {
-                    x: placement.frame.x,
+                    x: placement.frame.x - left,
                     top: placement.top,
-                    width: placement.frame.width,
+                    width: placement.frame.width + left + right,
                     height: placement.height,
                     color: color.clone(),
                 };
