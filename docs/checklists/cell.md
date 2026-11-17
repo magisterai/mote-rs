@@ -44,10 +44,12 @@ split between pages. Word's PDF export shows the same behaviour in each of these
 cases in the
 [cell-paragraph-shading probe](../../tests/office/probes/cell-paragraph-shading.mote):
 the shading ends at the borders of the cell, no part of a rule is drawn beyond
-the cell, and the lines lie within half a point of the native lines. The lines
-of a nested table lie up to 0.75 point below the native lines, and those of
-the rows on a page to which a table continues lie half a point below them,
-whether or not a paragraph is shaded. The fill of a list item in a cell is not painted, and is reported.
+the cell, and the lines lie within half a point of the native lines.
+A nested table lies the width of its top border below the content above it, and
+the row that begins a page lies the width of its top border below the top of the
+text area, as Word's export of the
+[nested-table-cell-end probe](../../tests/office/probes/nested-table-cell-end.mote)
+shows and the [top border tests](../../tests/table_top_borders.rs) hold. The fill of a list item in a cell is not painted, and is reported.
 `text_direction` and `no_wrap` affect editable DOCX only and produce native support warnings.
 
 Microsoft Word visual review remains unreviewed.

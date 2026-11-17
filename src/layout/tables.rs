@@ -52,7 +52,12 @@ impl TablePlan {
     /// Returns the width of the table's top border, which Word sets above the
     /// first row.
     pub fn top_border(&self) -> f64 {
-        self.rows.first().map_or(0.0, |row| {
+        self.row_top_border(0)
+    }
+    /// Returns the width of the top border of a row, which Word sets above the
+    /// row that begins a page.
+    pub fn row_top_border(&self, row: usize) -> f64 {
+        self.rows.get(row).map_or(0.0, |row| {
             row.cells
                 .iter()
                 .map(|cell| cell.borders[0].width)
@@ -241,6 +246,11 @@ pub(super) fn prepare(
             for block in &cell.blocks {
                 let (height, before, after) = cells::block_geometry(block);
                 cell.content_height += before.max(previous_after);
+                // Word sets the top border of a nested table above its first row,
+                // as it does for a table in the body.
+                if let Block::Table(nested) = block {
+                    cell.content_height += nested.top_border();
+                }
                 cell.content_tops.push(cell.content_height);
                 cell.content_height += height;
                 previous_after = after;

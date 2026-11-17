@@ -14,7 +14,7 @@
 
 #set paragraph(style = "Normal")
 
-NESTED TABLE AT THE END OF A CELL: a cell whose content ends with a nested table is closed in the package by an empty paragraph, to which Word gives no height, so the row after it lies where the nested table alone requires.
+NESTED TABLE AT THE END OF A CELL: a cell whose content ends with a nested table is closed in the package by an empty paragraph, to which Word gives no height, so the row after it lies where the nested table alone requires. A nested table lies its top border below the content above it, as a table in the body does.
 
 #table[
   #row[
@@ -72,6 +72,36 @@ NESTED TABLE AT THE END OF A CELL: a cell whose content ends with a nested table
     #cell[Four beside]
   ]
   #row[#cell[Row after four]#cell[Beside]]
+  #row[
+    #cell[
+      #table(borders = { all = { style = "single", width = 3, color = "#000000" } })[
+        #row[#cell[Five inner wide border]]
+      ]
+    ]
+    #cell[Five beside]
+  ]
+  #row[#cell[Row after five]#cell[Beside]]
+  #row[
+    #cell[
+      #paragraph[Six before]
+      #table(borders = { all = { style = "single", width = 6, color = "#000000" } })[
+        #row[#cell[Six inner wider border]]
+      ]
+      #paragraph[Six after]
+    ]
+    #cell[Six beside]
+  ]
+  #row[#cell[Row after six]#cell[Beside]]
+  #row[
+    #cell[
+      #paragraph[Seven before]
+      #table(borders = { all = { style = "none" } })[
+        #row[#cell[Seven inner no border]]
+      ]
+    ]
+    #cell[Seven beside]
+  ]
+  #row[#cell[Row after seven]#cell[Beside]]
 ]
 
 The line after the table.

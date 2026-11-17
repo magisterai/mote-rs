@@ -15,141 +15,227 @@
         },
         {
           "baseline": 116.88,
-          "text": "lies where the nested table alone requires.",
+          "text": "lies where the nested table alone requires. A nested table lies its top border below the content",
           "x": 72.0
         },
         {
-          "baseline": 137.28,
+          "baseline": 132.96,
+          "text": "above it, as a table in the body does.",
+          "x": 72.0
+        },
+        {
+          "baseline": 153.36,
           "text": "Control before",
           "x": 78.24
         },
         {
-          "baseline": 137.28,
+          "baseline": 153.36,
           "text": "Control beside",
           "x": 274.32
         },
         {
-          "baseline": 153.36,
+          "baseline": 169.44,
           "text": "Control last paragraph",
           "x": 78.24
         },
         {
-          "baseline": 177.84,
+          "baseline": 193.92,
           "text": "Row after control",
           "x": 78.24
         },
         {
-          "baseline": 177.84,
+          "baseline": 193.92,
           "text": "Beside",
           "x": 274.32
         },
         {
-          "baseline": 202.32,
+          "baseline": 218.4,
           "text": "One before",
           "x": 78.24
         },
         {
-          "baseline": 202.32,
+          "baseline": 218.4,
           "text": "One beside",
           "x": 274.32
         },
         {
-          "baseline": 222.96,
+          "baseline": 238.8,
           "text": "One inner first One inner second",
           "x": 84.48
         },
         {
-          "baseline": 252.0,
+          "baseline": 267.84,
           "text": "Row after one",
           "x": 78.24
         },
         {
-          "baseline": 252.0,
+          "baseline": 267.84,
           "text": "Beside",
           "x": 274.32
         },
         {
-          "baseline": 276.48,
+          "baseline": 292.32,
           "text": "Two beside",
           "x": 274.32
         },
         {
-          "baseline": 280.8,
+          "baseline": 296.88,
           "text": "Two inner first Two inner second",
           "x": 84.48
         },
         {
-          "baseline": 305.28,
+          "baseline": 321.36,
           "text": "Two inner third Two inner fourth",
           "x": 84.48
         },
         {
-          "baseline": 334.32,
+          "baseline": 350.4,
           "text": "Row after two",
           "x": 78.24
         },
         {
-          "baseline": 334.32,
+          "baseline": 350.4,
           "text": "Beside",
           "x": 274.32
         },
         {
-          "baseline": 358.8,
+          "baseline": 374.88,
           "text": "Three before",
           "x": 78.24
         },
         {
-          "baseline": 358.8,
+          "baseline": 374.88,
           "text": "Three beside",
           "x": 274.32
         },
         {
-          "baseline": 379.44,
+          "baseline": 395.28,
           "text": "Three middle",
           "x": 84.48
         },
         {
-          "baseline": 399.84,
+          "baseline": 415.92,
           "text": "Three innermost",
           "x": 90.72
         },
         {
-          "baseline": 433.44,
+          "baseline": 449.28,
           "text": "Row after three",
           "x": 78.24
         },
         {
-          "baseline": 433.44,
+          "baseline": 449.28,
           "text": "Beside",
           "x": 274.32
         },
         {
-          "baseline": 457.92,
+          "baseline": 474.0,
           "text": "Four beside",
           "x": 274.32
         },
         {
-          "baseline": 462.48,
+          "baseline": 478.32,
           "text": "Four inner",
           "x": 84.48
         },
         {
-          "baseline": 482.88,
+          "baseline": 498.96,
           "text": "Four closing paragraph",
           "x": 78.24
         },
         {
-          "baseline": 507.36,
+          "baseline": 523.44,
           "text": "Row after four",
           "x": 78.24
         },
         {
-          "baseline": 507.36,
+          "baseline": 523.44,
           "text": "Beside",
           "x": 274.32
         },
         {
-          "baseline": 528.0,
+          "baseline": 547.92,
+          "text": "Five beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 554.88,
+          "text": "Five inner wide border",
+          "x": 85.68
+        },
+        {
+          "baseline": 586.32,
+          "text": "Row after five",
+          "x": 78.24
+        },
+        {
+          "baseline": 586.32,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 610.8,
+          "text": "Six before",
+          "x": 78.24
+        },
+        {
+          "baseline": 610.8,
+          "text": "Six beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 636.96,
+          "text": "Six inner wider border",
+          "x": 87.36
+        },
+        {
+          "baseline": 662.88,
+          "text": "Six after",
+          "x": 78.24
+        },
+        {
+          "baseline": 687.36,
+          "text": "Row after six",
+          "x": 78.24
+        },
+        {
+          "baseline": 687.36,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 711.84,
+          "text": "Seven before",
+          "x": 78.24
+        },
+        {
+          "baseline": 711.84,
+          "text": "Seven beside",
+          "x": 274.32
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 93.36,
+          "text": "Seven inner no border",
+          "x": 84.24
+        },
+        {
+          "baseline": 121.92,
+          "text": "Row after seven",
+          "x": 78.24
+        },
+        {
+          "baseline": 121.92,
+          "text": "Beside",
+          "x": 274.32
+        },
+        {
+          "baseline": 142.32,
           "text": "The line after the table.",
           "x": 72.0
         }
@@ -158,5 +244,5 @@
     }
   ],
   "renderer": "Microsoft Word 16.114.1",
-  "source_sha256": "c2679f52b09a8efe76d4f4856fc220a3a1ab1e2c6f2d63a7255cf888a0fc236c"
+  "source_sha256": "ff96e1c5498aafeae9c323b19e62fdabb54b940770bfb5f24724262e1d8de219"
 }

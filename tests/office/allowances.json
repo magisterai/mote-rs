@@ -56,39 +56,39 @@
     "vertical": 2.1
   },
   "powerpoint/09_theme_text_tables_charts": {
+    "horizontal": 0.9,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 1.1
+  },
+  "powerpoint/10_chart_properties": {
     "horizontal": 1.7,
     "median": 0.1,
     "page_moves": 0,
-    "unmatched": 11,
-    "vertical": 12.2
-  },
-  "powerpoint/10_chart_properties": {
-    "horizontal": 2.6,
-    "median": 0.4,
-    "page_moves": 0,
-    "unmatched": 2,
-    "vertical": 4.5
+    "unmatched": 0,
+    "vertical": 3.4
   },
   "powerpoint/11_chart_exhaustive": {
-    "horizontal": 7.8,
-    "median": 0.3,
-    "page_moves": 0,
-    "unmatched": 23,
-    "vertical": 8.5
-  },
-  "powerpoint/12_chart_defaults": {
-    "horizontal": 2.4,
-    "median": 0.4,
+    "horizontal": 6.0,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 4,
-    "vertical": 2.2
+    "vertical": 7.3
+  },
+  "powerpoint/12_chart_defaults": {
+    "horizontal": 1.4,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 2,
+    "vertical": 2.1
   },
   "powerpoint/13_chart_lua_json": {
     "horizontal": 2.5,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 4.6
+    "vertical": 4.5
   },
   "powerpoint/14_standard_auto_layout": {
     "horizontal": 0.9,
@@ -126,11 +126,11 @@
     "vertical": 3.5
   },
   "powerpoint/19_shape_text_bounds": {
-    "horizontal": 582.9,
+    "horizontal": 211.4,
     "median": 1.0,
     "page_moves": 0,
     "unmatched": 29,
-    "vertical": 2.6
+    "vertical": 1.7
   },
   "powerpoint/20_international_text": {
     "horizontal": 1.0,
@@ -141,17 +141,17 @@
   },
   "powerpoint/21_named_layouts": {
     "horizontal": 1.1,
-    "median": 0.2,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 2.1
+    "vertical": 1.8
   },
   "powerpoint/22_named_layouts_lua_json": {
-    "horizontal": 5.7,
-    "median": 0.5,
+    "horizontal": 0.9,
+    "median": 0.1,
     "page_moves": 0,
-    "unmatched": 2,
-    "vertical": 2.0
+    "unmatched": 0,
+    "vertical": 1.7
   },
   "powerpoint/23_markdown_core": {
     "horizontal": 13.6,
@@ -162,7 +162,7 @@
   },
   "powerpoint/24_media_charts": {
     "horizontal": 1.3,
-    "median": 0.3,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 1.1
@@ -182,11 +182,11 @@
     "vertical": 0.2
   },
   "powerpoint/27_default_style": {
-    "horizontal": 1.3,
+    "horizontal": 0.6,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.9
+    "vertical": 1.2
   },
   "powerpoint/28_table_alignment": {
     "horizontal": 0.3,
@@ -224,11 +224,11 @@
     "vertical": 0.8
   },
   "powerpoint/33_stacked_boxes": {
-    "horizontal": 0.4,
+    "horizontal": 0.1,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.8
+    "vertical": 1.1
   },
   "powerpoint/34_animation": {
     "horizontal": 0.1,
@@ -256,7 +256,7 @@
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.8
+    "vertical": 0.5
   },
   "probes/chart-axis-floor": {
     "horizontal": 4.0,
@@ -266,11 +266,11 @@
     "vertical": 3.2
   },
   "probes/chart-value-axis": {
-    "horizontal": 0.4,
-    "median": 0.3,
+    "horizontal": 0.1,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.5
+    "vertical": 0.3
   },
   "probes/east-asian-line-height": {
     "horizontal": 0.0,
@@ -337,17 +337,17 @@
   },
   "probes/nested-table-cell-end": {
     "horizontal": 0.5,
-    "median": 1.0,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 2.8
+    "vertical": 0.2
   },
   "probes/page-foot": {
     "horizontal": 0.2,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.6
+    "vertical": 0.3
   },
   "probes/paragraph-borders": {
     "horizontal": 0.1,
@@ -462,11 +462,11 @@
     "vertical": 0.2
   },
   "word/07_warning_authority": {
-    "horizontal": 0.4,
+    "horizontal": 0.2,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 3,
-    "vertical": 0.5
+    "vertical": 0.3
   },
   "word/08_lists": {
     "horizontal": 0.0,
@@ -714,32 +714,32 @@
     "vertical": 0.2
   },
   "word/43_chart_properties": {
-    "horizontal": 1.9,
-    "median": 0.3,
-    "page_moves": 0,
-    "unmatched": 1,
-    "vertical": 3.5
-  },
-  "word/44_chart_defaults": {
-    "horizontal": 2.5,
-    "median": 0.3,
-    "page_moves": 0,
-    "unmatched": 0,
-    "vertical": 4.9
-  },
-  "word/45_chart_lua_json": {
-    "horizontal": 1.3,
+    "horizontal": 1.2,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.6
+    "vertical": 3.5
+  },
+  "word/44_chart_defaults": {
+    "horizontal": 1.9,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 4.4
+  },
+  "word/45_chart_lua_json": {
+    "horizontal": 0.3,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
   },
   "word/46_longform_tables": {
     "horizontal": 2.0,
-    "median": 0.5,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.9
+    "vertical": 0.4
   },
   "word/47_table_feature_overview": {
     "horizontal": 0.1,
@@ -757,10 +757,10 @@
   },
   "word/49_spanning_table_components": {
     "horizontal": 0.2,
-    "median": 0.2,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.0
+    "vertical": 0.5
   },
   "word/50_table_column_widths": {
     "horizontal": 0.1,
@@ -785,24 +785,24 @@
   },
   "word/53_table_multi_page": {
     "horizontal": 0.0,
-    "median": 0.6,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.7
+    "vertical": 0.2
   },
   "word/54_table_row_splitting": {
     "horizontal": 0.0,
-    "median": 0.2,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.6
+    "vertical": 0.2
   },
   "word/55_table_row_splitting_mixed_cells": {
     "horizontal": 0.0,
-    "median": 0.2,
+    "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.6
+    "vertical": 0.3
   },
   "word/56_table_autofit_vs_fixed": {
     "horizontal": 1.1,
@@ -816,21 +816,21 @@
     "median": 0.3,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.6
+    "vertical": 0.5
   },
   "word/58_nested_table_content": {
     "horizontal": 0.1,
-    "median": 0.3,
+    "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.5
+    "vertical": 0.3
   },
   "word/59_nested_table_row_splitting": {
     "horizontal": 0.1,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 1.1
+    "vertical": 0.6
   },
   "word/60_table_style_effective_runs": {
     "horizontal": 0.1,
@@ -861,11 +861,11 @@
     "vertical": 0.2
   },
   "word/64_drawings_and_charts_in_flow": {
-    "horizontal": 0.6,
+    "horizontal": 0.5,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
-    "vertical": 0.7
+    "vertical": 0.3
   },
   "word/65_display_equations": {
     "horizontal": 105.5,
@@ -876,7 +876,7 @@
   },
   "word/66_inline_equations_flow": {
     "horizontal": 25.7,
-    "median": 0.7,
+    "median": 0.6,
     "page_moves": 0,
     "unmatched": 121,
     "vertical": 15.1

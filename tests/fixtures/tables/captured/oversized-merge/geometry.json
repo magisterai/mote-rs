@@ -164,28 +164,28 @@
           "fragments": [
             {
               "advance": 40.359,
-              "baseline": 50.67,
+              "baseline": 51.17,
               "size": 11,
               "text": "Second ",
               "x": 156.25
             },
             {
               "advance": 20.779,
-              "baseline": 50.67,
+              "baseline": 51.17,
               "size": 11,
               "text": "row ",
               "x": 196.609
             },
             {
               "advance": 39.116,
-              "baseline": 50.67,
+              "baseline": 51.17,
               "size": 11,
               "text": "remains",
               "x": 217.388
             }
           ],
           "height": 15.179999999999998,
-          "top": 40,
+          "top": 40.5,
           "width": 100.254,
           "x": 156.25
         },
@@ -193,28 +193,28 @@
           "fragments": [
             {
               "advance": 39.743,
-              "baseline": 65.85,
+              "baseline": 66.35,
               "size": 11,
               "text": "present ",
               "x": 156.25
             },
             {
               "advance": 29.348,
-              "baseline": 65.85,
+              "baseline": 66.35,
               "size": 11,
               "text": "when ",
               "x": 195.993
             },
             {
               "advance": 15.29,
-              "baseline": 65.85,
+              "baseline": 66.35,
               "size": 11,
               "text": "the",
               "x": 225.341
             }
           ],
           "height": 15.179999999999998,
-          "top": 55.18,
+          "top": 55.68,
           "width": 84.381,
           "x": 156.25
         },
@@ -222,28 +222,28 @@
           "fragments": [
             {
               "advance": 40.348,
-              "baseline": 81.03,
+              "baseline": 81.53,
               "size": 11,
               "text": "merged ",
               "x": 156.25
             },
             {
               "advance": 31.185,
-              "baseline": 81.03,
+              "baseline": 81.53,
               "size": 11,
               "text": "group ",
               "x": 196.598
             },
             {
               "advance": 33.022,
-              "baseline": 81.03,
+              "baseline": 81.53,
               "size": 11,
               "text": "cannot",
               "x": 227.78300000000002
             }
           ],
           "height": 15.179999999999998,
-          "top": 70.36,
+          "top": 70.86,
           "width": 104.555,
           "x": 156.25
         },
@@ -251,14 +251,14 @@
           "fragments": [
             {
               "advance": 11.616,
-              "baseline": 96.21,
+              "baseline": 96.71,
               "size": 11,
               "text": "fit.",
               "x": 156.25
             }
           ],
           "height": 15.179999999999998,
-          "top": 85.53999999999999,
+          "top": 86.03999999999999,
           "width": 11.616,
           "x": 156.25
         }
@@ -269,11 +269,11 @@
           "dash": [],
           "end": [
             280.25,
-            36
+            36.5
           ],
           "start": [
             150.25,
-            36
+            36.5
           ],
           "width": 0.5
         },
@@ -282,11 +282,11 @@
           "dash": [],
           "end": [
             280.25,
-            184.14
+            184.64
           ],
           "start": [
             150.25,
-            184.14
+            184.64
           ],
           "width": 0.5
         },
@@ -295,11 +295,11 @@
           "dash": [],
           "end": [
             150.25,
-            184.14
+            184.64
           ],
           "start": [
             150.25,
-            36
+            36.5
           ],
           "width": 0.5
         },
@@ -308,11 +308,11 @@
           "dash": [],
           "end": [
             280.25,
-            184.14
+            184.64
           ],
           "start": [
             280.25,
-            36
+            36.5
           ],
           "width": 0.5
         }

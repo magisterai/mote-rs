@@ -73,11 +73,14 @@ pub(in crate::layout) fn place(
                     boundary,
                     cursor.page_number,
                 ) - cursor.current_top
-                    - header_height)
+                    - header_height
+                    - border)
                     .max(0.0),
             );
         }
-        available.push((geometry.content_bottom() - geometry.margin_top - header_height).max(0.0));
+        available.push(
+            (geometry.content_bottom() - geometry.margin_top - header_height - border).max(0.0),
+        );
         if let Some(slices) = pagination::plan(table, start, end, header_count, &available) {
             let mut frame = 0;
             for slice in slices {
@@ -85,6 +88,11 @@ pub(in crate::layout) fn place(
                 while frame < slice.frame {
                     next_area(cursor, pages, columns, geometry);
                     frame += 1;
+                }
+                // Word sets the top border of the row that begins a page below the
+                // top of the text area, as it does for the first row of the table.
+                if advanced {
+                    cursor.y += table.row_top_border(slice.row);
                 }
                 if advanced
                     && header_height + slice.height
@@ -187,6 +195,9 @@ pub(in crate::layout) fn place(
                     };
                     let before = (cursor.page_number, cursor.column_index);
                     ensure_space(cursor, pages, columns, geometry, boundary, required);
+                    if before != (cursor.page_number, cursor.column_index) {
+                        cursor.y += table.row_top_border(row);
+                    }
                     if before != (cursor.page_number, cursor.column_index)
                         && row >= header_count
                         && header_height + required
