@@ -7,7 +7,7 @@ use hayro::hayro_interpret::{
     interpret_page, util::TransformExt,
 };
 use hayro::hayro_syntax::Pdf;
-use hayro::kurbo::{Affine, BezPath, Rect, Shape, Stroke};
+use hayro::kurbo::{Affine, BezPath, Rect, Stroke};
 use hayro::vello_cpu::{
     Pixmap, RasterizerSettings, RenderContext, Resources, TargetInit,
     color::{AlphaColor, Srgb, palette::css::WHITE},
@@ -18,7 +18,9 @@ use std::io::Cursor;
 /// A page is painted at two pixels to the point and kept at one, each kept
 /// pixel the mean of four, so that a rule half a point wide leaves a trace.
 const SCALE: f64 = 2.0;
-/// The grey of the frame of an opaque image, whose content is not compared.
+/// The size in points below which an image is taken for a glyph.
+const GLYPH: f64 = 24.0;
+/// The grey of the frame of an image, whose content is not compared.
 const IMAGE: [u8; 3] = [128, 128, 128];
 /// The difference in a channel by which a point may lie outside the range of
 /// its neighbours in the other picture. A hairline of the lightest default
@@ -101,26 +103,75 @@ impl<'a> Device<'a> for Marks {
     fn push_transparency_group(&mut self, _: f32, _: Option<SoftMask<'a>>, _: BlendMode) {}
     fn draw_glyph_run(&mut self, _: &GlyphRun<'_, 'a>, _: DrawProps<'a>, _: &DrawMode) {}
     fn draw_image(&mut self, image: Image<'a, '_>, props: ImageDrawProps<'a>) {
-        // An image with transparency is no frame: Word draws a shadow, and
-        // text that is not opaque, as such an image.
-        let mut opaque = false;
-        if let (Image::Raster(raster), None) = (&image, &props.soft_mask) {
-            raster.with_rgba(|_, alpha| opaque = alpha.is_none(), Some((1, 1)));
+        let (Image::Raster(raster), None) = (&image, &props.soft_mask) else {
+            return;
+        };
+        let (width, height) = (f64::from(image.width()), f64::from(image.height()));
+        // An image no larger than a line of text is a glyph, such as an emoji,
+        // which one renderer draws as an image and another as text.
+        let frame = props
+            .transform
+            .transform_rect_bbox(Rect::new(0.0, 0.0, width, height));
+        if frame.width().max(frame.height()) < GLYPH * SCALE {
+            return;
         }
-        if !opaque {
+        // The frame of an image with transparency is what it covers of each of
+        // its rows. Word draws a turned image so, and draws a shadow, and text
+        // that is not opaque, as an image that covers little of its frame;
+        // such an image is no frame and is left out.
+        let mut rows = vec![Rect::new(0.0, 0.0, width, height)];
+        raster.with_rgba(
+            |_, alpha| {
+                let Some(alpha) = alpha else { return };
+                let (columns, lines) = (alpha.width as usize, alpha.height as usize);
+                let scale = (width / columns as f64, height / lines as f64);
+                let covered = alpha.data.iter().filter(|value| **value > 127).count();
+                rows.clear();
+                if covered * 2 < alpha.data.len() {
+                    return;
+                }
+                for line in 0..lines {
+                    let row = &alpha.data[line * columns..(line + 1) * columns];
+                    let (Some(first), Some(last)) = (
+                        row.iter().position(|value| *value > 127),
+                        row.iter().rposition(|value| *value > 127),
+                    ) else {
+                        continue;
+                    };
+                    rows.push(Rect::new(
+                        first as f64 * scale.0,
+                        line as f64 * scale.1,
+                        (last + 1) as f64 * scale.0,
+                        (line + 1) as f64 * scale.1,
+                    ));
+                }
+            },
+            None,
+        );
+        if rows.is_empty() {
             return;
         }
         self.context.set_transform(props.transform);
         self.context.set_paint(AlphaColor::<Srgb>::from_rgba8(
             IMAGE[0], IMAGE[1], IMAGE[2], 255,
         ));
-        let frame = Rect::new(
-            0.0,
-            0.0,
-            f64::from(image.width()),
-            f64::from(image.height()),
-        );
-        self.fill(&frame.to_path(0.1), FillRule::NonZero);
+        // The rows are filled as one outline, down their left ends and up
+        // their right ends, so that no seam shows between them.
+        let mut outline = BezPath::new();
+        for (index, row) in rows.iter().enumerate() {
+            if index == 0 {
+                outline.move_to((row.x0, row.y0));
+            } else {
+                outline.line_to((row.x0, row.y0));
+            }
+            outline.line_to((row.x0, row.y1));
+        }
+        for row in rows.iter().rev() {
+            outline.line_to((row.x1, row.y1));
+            outline.line_to((row.x1, row.y0));
+        }
+        outline.close_path();
+        self.fill(&outline, FillRule::NonZero);
     }
     fn pop_clip(&mut self) {
         self.context.pop_clip();
