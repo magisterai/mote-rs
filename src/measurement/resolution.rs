@@ -60,9 +60,18 @@ pub struct TextMeasurer<'source> {
     font_resolver: Option<&'source dyn FontResolver>,
     font_data: RefCell<BTreeMap<OsString, Arc<[u8]>>>,
     selections: BTreeMap<(String, FontVariant), FontSelection>,
+    /// Holds the measurements already taken, by font, variant, size, kerning and
+    /// text. Layout measures the same words many times, and a font file is
+    /// parsed anew for each measurement that is not found here.
+    measurements: BTreeMap<MeasurementKey, TextMeasurement>,
     math_font: Option<Option<FontSelection>>,
     warnings: BTreeSet<String>,
 }
+
+type MeasurementKey = (String, FontVariant, u64, bool, String);
+
+/// Bounds the memory of the measurement cache, which is emptied when full.
+const MEASUREMENT_CACHE_LIMIT: usize = 200_000;
 
 impl<'source> TextMeasurer<'source> {
     pub fn new(
@@ -75,6 +84,7 @@ impl<'source> TextMeasurer<'source> {
             source_name,
             resolver: CachingAssetResolver::new(resolver),
             selections: BTreeMap::new(),
+            measurements: BTreeMap::new(),
             font_resolver: None,
             font_data: RefCell::new(BTreeMap::new()),
             math_font: None,
@@ -86,6 +96,7 @@ impl<'source> TextMeasurer<'source> {
     pub fn with_font_resolver(mut self, resolver: &'source dyn FontResolver) -> Self {
         self.font_resolver = Some(resolver);
         self.selections.clear();
+        self.measurements.clear();
         self.math_font = None;
         self
     }
@@ -136,12 +147,29 @@ impl<'source> TextMeasurer<'source> {
         layout_kerning: bool,
     ) -> Result<MeasuredText, MeasurementError> {
         let font = self.resolve(&style.font, style.variant);
+        let key = (
+            style.font.clone(),
+            style.variant,
+            style.size_points.to_bits(),
+            layout_kerning,
+            text.to_owned(),
+        );
+        if let Some(measurement) = self.measurements.get(&key) {
+            return Ok(MeasuredText {
+                font,
+                measurement: measurement.clone(),
+            });
+        }
         let measurement = match &font.bytes {
             Some(bytes) => {
                 OpenTypeFont::parse(bytes)?.measure(text, style.size_points, layout_kerning)?
             }
             None => font.core.measure(text, style.size_points, style.variant)?,
         };
+        if self.measurements.len() >= MEASUREMENT_CACHE_LIMIT {
+            self.measurements.clear();
+        }
+        self.measurements.insert(key, measurement.clone());
         Ok(MeasuredText { font, measurement })
     }
 
