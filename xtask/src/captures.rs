@@ -175,7 +175,24 @@ fn captures(fixtures: &Path) -> Result<Vec<Capture>, String> {
                     (directory.join(source), Layout::Package)
                 }
                 Some(source) => (directory.join(source), Layout::FormattedPackage),
-                None => continue,
+                // A manifest that names no source stands, below the folder
+                // `captured`, where its source stands above that folder.
+                None => {
+                    let Some(captured) = directory
+                        .ancestors()
+                        .find(|ancestor| ancestor.ends_with("captured"))
+                    else {
+                        continue;
+                    };
+                    let case = directory
+                        .strip_prefix(captured)
+                        .expect("the folder is an ancestor");
+                    let group_root = captured.parent().expect("a group holds the folder");
+                    (
+                        group_root.join(case).with_extension("mote"),
+                        Layout::Package,
+                    )
+                }
             },
             _ => continue,
         };
