@@ -17,7 +17,8 @@ pub(super) struct ReviewInputs {
 impl ReviewInputs {
     pub fn new(repository: &Path) -> io::Result<Self> {
         Ok(Self {
-            files: FileAssetResolver::new(repository)?,
+            // A review case may name a font of the system by its absolute path.
+            files: FileAssetResolver::unconfined(repository)?,
             snapshots: RefCell::default(),
         })
     }

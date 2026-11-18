@@ -34,6 +34,22 @@ callers can supply files, in-memory data, or resources with logical URI names.
 The filesystem resolver does not fetch network resources. A custom resolver's
 failure is final; evaluation does not retry it through the filesystem.
 
+The filesystem resolver of the library, `FileAssetResolver::new`, is confined
+to a root directory. A path is accepted only if, after its `..` segments and
+symbolic links are resolved, it lies within the root; an absolute path is
+accepted on the same condition. A confined resolver reads regular files alone
+and refuses a file larger than 64 MiB, a limit that
+`FileAssetResolver::with_maximum_size` replaces. A refused path is an error at
+the expression that requested it, or, for an image, the warning of a missing
+asset. The rule holds for every resource a source names: JSON and CSV data,
+imported sources, images, and font files. An import path is sought through the
+same resolver, and so lies within the root.
+
+The command line trusts its source and is not confined: a path is read wherever
+it leads, as `FileAssetResolver::unconfined` provides. The functions
+`docx::emit` and `pptx::emit`, which take no resolver, read through a resolver
+confined to the working directory of the process.
+
 Repeated requests use a snapshot within one compilation. Two requests that
 resolve to the same logical name must provide identical bytes. Invalid JSON,
 missing resources, and conflicting bytes fail evaluation with the source

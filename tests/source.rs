@@ -76,7 +76,7 @@ fn filesystem_absolute_references_override_the_referring_source() {
     let directory = TestDirectory::new();
     let path = directory.0.join("source.mote");
     fs::write(&path, "Absolute input.").unwrap();
-    let resolver = FileAssetResolver::new(directory.0.join("unused")).unwrap();
+    let resolver = FileAssetResolver::new(&directory.0).unwrap();
     let reference = directory.0.join("absent/../source.mote");
     let source = load_source(
         &resolver,
@@ -423,4 +423,278 @@ fn custom_names_preserve_non_utf8_bytes_without_lossy_conversion() {
     .unwrap();
     assert_eq!(source.name, PathBuf::from("bundle").join(filename));
     assert!(mote::compile(&source.text).is_ok());
+}
+
+/// A directory tree with a root for a confined resolver and a file beside the
+/// root that no source compiled within the root may read.
+struct ConfinedTree {
+    directory: TestDirectory,
+}
+
+impl ConfinedTree {
+    fn new() -> Self {
+        let directory = TestDirectory::new();
+        fs::create_dir_all(directory.0.join("root/reports")).unwrap();
+        fs::write(directory.0.join("root/inside.txt"), "inside").unwrap();
+        fs::write(directory.0.join("root/reports/main.mote"), "Source.").unwrap();
+        fs::write(directory.0.join("outside.txt"), "outside").unwrap();
+        Self { directory }
+    }
+
+    fn root(&self) -> PathBuf {
+        self.directory.0.join("root")
+    }
+
+    fn outside(&self) -> PathBuf {
+        self.directory.0.join("outside.txt")
+    }
+}
+
+fn resolve_from(
+    resolver: &FileAssetResolver,
+    reference: impl AsRef<OsStr>,
+    source_name: Option<&str>,
+) -> io::Result<ResolvedAsset> {
+    resolver.resolve_asset(AssetRequest {
+        reference: reference.as_ref(),
+        source_name: source_name.map(OsStr::new),
+    })
+}
+
+fn assert_refused_as_outside_the_root(result: io::Result<ResolvedAsset>) {
+    let error = result.unwrap_err();
+    assert_eq!(error.kind(), io::ErrorKind::PermissionDenied);
+    assert!(
+        error.to_string().contains("outside the asset root"),
+        "{error}"
+    );
+}
+
+#[test]
+fn a_confined_resolver_refuses_a_path_that_leaves_its_root() {
+    let tree = ConfinedTree::new();
+    let resolver = FileAssetResolver::new(tree.root()).unwrap();
+    assert_eq!(
+        resolve_from(&resolver, "inside.txt", None).unwrap().bytes,
+        b"inside"
+    );
+    assert_eq!(
+        resolve_from(&resolver, "../inside.txt", Some("reports/main.mote"))
+            .unwrap()
+            .bytes,
+        b"inside"
+    );
+    for (reference, source_name) in [
+        ("../outside.txt", None),
+        ("reports/../../outside.txt", None),
+        ("../../outside.txt", Some("reports/main.mote")),
+        ("outside.txt", Some("../main.mote")),
+        // A file that does not exist is refused alike, so that the error
+        // discloses nothing of what lies outside the root.
+        ("../absent.txt", None),
+    ] {
+        assert_refused_as_outside_the_root(resolve_from(&resolver, reference, source_name));
+    }
+}
+
+#[test]
+fn a_confined_resolver_accepts_an_absolute_path_only_within_its_root() {
+    let tree = ConfinedTree::new();
+    let resolver = FileAssetResolver::new(tree.root()).unwrap();
+    assert_eq!(
+        resolve_from(&resolver, tree.root().join("inside.txt"), None)
+            .unwrap()
+            .bytes,
+        b"inside"
+    );
+    assert_refused_as_outside_the_root(resolve_from(&resolver, tree.outside(), None));
+    assert_refused_as_outside_the_root(resolve_from(
+        &resolver,
+        tree.outside(),
+        Some("reports/main.mote"),
+    ));
+    let absolute_source = tree.outside().with_file_name("main.mote");
+    assert_refused_as_outside_the_root(resolver.resolve_asset(AssetRequest {
+        reference: OsStr::new("outside.txt"),
+        source_name: Some(absolute_source.as_os_str()),
+    }));
+}
+
+#[cfg(unix)]
+#[test]
+fn a_confined_resolver_refuses_a_symbolic_link_that_leaves_its_root() {
+    use std::os::unix::fs::symlink;
+
+    let tree = ConfinedTree::new();
+    symlink(tree.outside(), tree.root().join("escaping-file.txt")).unwrap();
+    symlink(&tree.directory.0, tree.root().join("escaping-directory")).unwrap();
+    symlink(
+        tree.root().join("inside.txt"),
+        tree.root().join("alias.txt"),
+    )
+    .unwrap();
+    let resolver = FileAssetResolver::new(tree.root()).unwrap();
+    assert_refused_as_outside_the_root(resolve_from(&resolver, "escaping-file.txt", None));
+    assert_refused_as_outside_the_root(resolve_from(
+        &resolver,
+        "escaping-directory/outside.txt",
+        None,
+    ));
+    assert_eq!(
+        resolve_from(&resolver, "alias.txt", None).unwrap().bytes,
+        b"inside"
+    );
+
+    // A root that is itself reached through a symbolic link confines as the
+    // directory it names.
+    symlink(tree.root(), tree.directory.0.join("linked-root")).unwrap();
+    let linked = FileAssetResolver::new(tree.directory.0.join("linked-root")).unwrap();
+    assert_eq!(
+        resolve_from(&linked, "inside.txt", None).unwrap().bytes,
+        b"inside"
+    );
+    assert_refused_as_outside_the_root(resolve_from(&linked, "escaping-file.txt", None));
+}
+
+#[test]
+fn a_confined_resolver_refuses_a_file_larger_than_its_limit() {
+    let tree = ConfinedTree::new();
+    fs::write(tree.root().join("eight.bin"), [0; 8]).unwrap();
+    fs::write(tree.root().join("nine.bin"), [0; 9]).unwrap();
+    let resolver = FileAssetResolver::new(tree.root())
+        .unwrap()
+        .with_maximum_size(Some(8));
+    assert_eq!(
+        resolve_from(&resolver, "eight.bin", None).unwrap().bytes,
+        [0; 8]
+    );
+    let error = resolve_from(&resolver, "nine.bin", None).unwrap_err();
+    assert_eq!(error.kind(), io::ErrorKind::FileTooLarge);
+    assert!(
+        error
+            .to_string()
+            .contains("larger than the limit of 8 bytes"),
+        "{error}"
+    );
+    assert_eq!(FileAssetResolver::DEFAULT_MAXIMUM_SIZE, 64 * 1024 * 1024);
+    let unlimited = FileAssetResolver::new(tree.root())
+        .unwrap()
+        .with_maximum_size(None);
+    assert_eq!(
+        resolve_from(&unlimited, "nine.bin", None).unwrap().bytes,
+        [0; 9]
+    );
+}
+
+#[test]
+fn a_confined_resolver_reads_regular_files_alone() {
+    let tree = ConfinedTree::new();
+    let resolver = FileAssetResolver::new(tree.root()).unwrap();
+    let error = resolve_from(&resolver, "reports", None).unwrap_err();
+    assert_eq!(error.kind(), io::ErrorKind::InvalidInput);
+    assert!(error.to_string().contains("regular file"), "{error}");
+}
+
+#[cfg(unix)]
+#[test]
+fn a_confined_resolver_refuses_a_named_pipe_without_blocking() {
+    let tree = ConfinedTree::new();
+    let pipe = tree.root().join("pipe");
+    let created = std::process::Command::new("mkfifo")
+        .arg(&pipe)
+        .status()
+        .unwrap();
+    assert!(created.success());
+    let resolver = FileAssetResolver::new(tree.root()).unwrap();
+    // To open a pipe without a writer blocks. The read runs on a second
+    // thread, so that a resolver which opens the pipe fails the test and does
+    // not hang it.
+    let (sender, receiver) = std::sync::mpsc::channel();
+    std::thread::spawn(move || {
+        let _ = sender.send(resolve_from(&resolver, "pipe", None));
+    });
+    let error = receiver
+        .recv_timeout(std::time::Duration::from_secs(10))
+        .expect("the resolver blocked on a named pipe")
+        .unwrap_err();
+    assert_eq!(error.kind(), io::ErrorKind::InvalidInput);
+    assert!(error.to_string().contains("regular file"), "{error}");
+}
+
+#[test]
+fn an_unconfined_resolver_reads_wherever_a_reference_leads() {
+    let tree = ConfinedTree::new();
+    fs::write(tree.root().join("nine.bin"), [0; 9]).unwrap();
+    let resolver = FileAssetResolver::unconfined(tree.root()).unwrap();
+    for (reference, source_name) in [
+        (OsString::from("../outside.txt"), None),
+        (
+            OsString::from("../../outside.txt"),
+            Some("reports/main.mote"),
+        ),
+        (tree.outside().into_os_string(), None),
+    ] {
+        assert_eq!(
+            resolve_from(&resolver, &reference, source_name)
+                .unwrap()
+                .bytes,
+            b"outside"
+        );
+    }
+    #[cfg(unix)]
+    {
+        std::os::unix::fs::symlink(tree.outside(), tree.root().join("escaping-file.txt")).unwrap();
+        assert_eq!(
+            resolve_from(&resolver, "escaping-file.txt", None)
+                .unwrap()
+                .bytes,
+            b"outside"
+        );
+    }
+    assert_eq!(
+        resolve_from(&resolver, "nine.bin", None).unwrap().bytes,
+        [0; 9]
+    );
+    let limited = resolver.with_maximum_size(Some(8));
+    assert_eq!(
+        resolve_from(&limited, "nine.bin", None).unwrap_err().kind(),
+        io::ErrorKind::FileTooLarge
+    );
+}
+
+#[test]
+fn a_source_compiled_with_a_confined_resolver_cannot_read_beside_the_root() {
+    let tree = ConfinedTree::new();
+    fs::write(tree.directory.0.join("secret.json"), "{\"key\": 1}").unwrap();
+    fs::write(tree.root().join("data.json"), "{\"key\": 2}").unwrap();
+    let resolver = FileAssetResolver::new(tree.root()).unwrap();
+    let compile = |source: &str| {
+        mote::compile_with_assets(source, &resolver, Some(OsStr::new("reports/main.mote")))
+    };
+    assert!(compile("#let(data = json(\"../data.json\"))\n#data.key").is_ok());
+    let secret = tree.directory.0.join("secret.json");
+    for source in [
+        "#let(data = json(\"../../secret.json\"))".to_owned(),
+        format!("#let(data = json({:?}))", secret.to_str().unwrap()),
+        "#import(\"../../outside.txt\")".to_owned(),
+    ] {
+        let diagnostic = compile(&source).unwrap_err();
+        assert!(
+            diagnostic.message.contains("outside the asset root"),
+            "{}",
+            diagnostic.message
+        );
+    }
+    let document = compile(&format!("![Secret]({})", secret.to_str().unwrap())).unwrap();
+    let package =
+        mote::docx::emit_with_assets(&document, &resolver, Some(OsStr::new("reports/main.mote")))
+            .unwrap();
+    assert!(
+        package
+            .warnings
+            .iter()
+            .any(|warning| warning.contains("outside the asset root")),
+        "{:?}",
+        package.warnings
+    );
 }

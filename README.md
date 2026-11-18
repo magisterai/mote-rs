@@ -358,7 +358,10 @@ mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [OPTIONS] [SOURCE|-]
 
 Mote reads the source from the named file, or from standard input when the name
 is `-` or absent. Imports, JSON and CSV data, images and font files resolve
-relative to the source file. PNG output writes one image per page: `-o
+relative to the source file. The command trusts its source: a path in the
+source, relative or absolute, is read wherever it leads. A service that
+compiles a source it does not trust uses the library, whose filesystem resolver
+is confined to a root directory. PNG output writes one image per page: `-o
 pages/note` produces `pages/note-1.png`, `pages/note-2.png` and so on, and a
 directory path produces `page-1.png` within it.
 

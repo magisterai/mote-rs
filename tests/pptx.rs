@@ -52,7 +52,7 @@ fn compare_captured_packages(directory: &str, cases: &[&str]) {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("tests/fixtures")
         .join(directory);
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     for case in cases {
         let path = root.join(format!("{case}.mote"));
         let source = fs::read_to_string(&path).unwrap();
@@ -292,7 +292,7 @@ fn footer_fields_and_speaker_notes_match_captured_editable_packages() {
 #[test]
 fn automatic_dates_keep_editable_fields_and_paint_the_current_calendar_date() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-fields");
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     let path = root.join("automatic.mote");
     let source = concat!(
         "#font(name='body',latin='Source Sans 3',files={regular='../measurements/fonts/SourceSans3-Regular.ttf'})",

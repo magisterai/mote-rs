@@ -12,7 +12,7 @@ fn fixtures() -> PathBuf {
 
 fn compile_case(name: &str) -> (mote::model::Document, FileAssetResolver, PathBuf) {
     let path = fixtures().join(format!("{name}.mote"));
-    let resolver = FileAssetResolver::new(fixtures()).unwrap();
+    let resolver = FileAssetResolver::unconfined(fixtures()).unwrap();
     let document = mote::compile_with_options(
         &fs::read_to_string(&path).unwrap(),
         EvaluationOptions {

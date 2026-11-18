@@ -213,7 +213,7 @@ pub(crate) fn render(source: &Path, lua: bool, presentation: bool) -> Result<Vec
     let text =
         fs::read_to_string(source).map_err(|error| format!("{}: {error}", source.display()))?;
     let directory = source.parent().expect("a source lies in a directory");
-    let files = FileAssetResolver::new(directory).map_err(|error| error.to_string())?;
+    let files = FileAssetResolver::unconfined(directory).map_err(|error| error.to_string())?;
     let resolver = CachingAssetResolver::new(&files);
     let compile = |enable_lua| {
         mote::compile_with_options(

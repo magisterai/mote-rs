@@ -12,7 +12,9 @@ no content body. A positional source overrides `properties.src`.
 "Diagram"`, and `title = "Overview"`. The alternative text is the evaluated
 inline label flattened to text. File paths resolve relative to the source file;
 custom asset resolvers can supply named bytes without filesystem access. The
-filesystem resolver does not fetch network URLs. PNG, JPEG and GIF are supported;
+filesystem resolver does not fetch network URLs, and the confined filesystem
+resolver of the library refuses a path outside its root, as the
+[JSON chapter](json-data.md) defines. PNG, JPEG and GIF are supported;
 GIF uses its first frame for native rendering.
 
 `width` and `height` accept nonnegative lengths. With neither, the natural size

@@ -25,7 +25,7 @@ fn normalize_numbers(value: &mut serde_json::Value) {
 }
 #[test]
 fn tables_preserve_models_and_complete_editable_packages() {
-    let resolver = FileAssetResolver::new(fixtures()).unwrap();
+    let resolver = FileAssetResolver::unconfined(fixtures()).unwrap();
     for case in [
         "basic",
         "attributes",
@@ -165,7 +165,7 @@ fn a_cell_that_ends_with_a_nested_table_is_closed_by_a_collapsed_paragraph() {
         "#table[\n  #row[\n    #cell[\n      #paragraph[Before]\n      #table[\n        #row[\n          #cell[\n            #table[\n              #row[\n                #cell[Innermost]\n              ]\n            ]\n          ]\n        ]\n      ]\n    ]\n    #cell[Plain]\n  ]\n]\n",
     )
     .unwrap();
-    let resolver = FileAssetResolver::new(fixtures()).unwrap();
+    let resolver = FileAssetResolver::unconfined(fixtures()).unwrap();
     let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
     assert!(generated.warnings.is_empty(), "{:?}", generated.warnings);
     let parts = xml_support::unpack(generated.bytes);
@@ -197,7 +197,7 @@ fn a_cell_that_ends_with_a_nested_table_is_closed_by_a_collapsed_paragraph() {
 fn a_shape_in_a_table_cell_is_drawn_at_its_own_place_on_the_page() {
     let shape = "#shape(position = { x = inch(3), y = inch(4), width = inch(1), height = inch(0.5) }, fill = \"#2563eb\")[Shape]";
     let paths = |source: &str| {
-        let resolver = FileAssetResolver::new(fixtures()).unwrap();
+        let resolver = FileAssetResolver::unconfined(fixtures()).unwrap();
         let document = mote::compile(source).unwrap();
         let planned = mote::render::plan(&document, &resolver, None).unwrap();
         assert_eq!(planned.warnings, Vec::<String>::new());

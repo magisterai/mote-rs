@@ -147,7 +147,9 @@ pub(crate) struct Native {
 pub(crate) fn native(subject: &Subject) -> Result<Native, String> {
     let source = fs::read_to_string(&subject.source)
         .map_err(|error| format!("{}: {error}", subject.source.display()))?;
-    let resolver = FileAssetResolver::new(repository()).map_err(|error| error.to_string())?;
+    // A review case may name a font of the system by its absolute path.
+    let resolver =
+        FileAssetResolver::unconfined(repository()).map_err(|error| error.to_string())?;
     let name = subject.source.as_os_str();
     let document = mote::compile_with_options(
         &source,

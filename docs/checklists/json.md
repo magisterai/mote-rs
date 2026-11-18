@@ -10,6 +10,11 @@ attribute inventories of the receiving directives.
 - [x] Duplicate object keys use the last value; non-finite numbers are rejected.
 - [x] Relative paths resolve against the referring source; standard input uses the working directory.
 - [x] Custom resolvers supply bytes and logical names without filesystem fallback.
+- [x] The filesystem resolver of the library is confined to a root: a path that
+  leaves the root by `..`, an absolute path, or a symbolic link is refused, as
+  is a file that is not regular or exceeds the size limit. The unconfined
+  resolver, which the command line uses, is a
+  [separate constructor](../../tests/source.rs).
 - [x] Repeated reads use one compilation snapshot; conflicting bytes for one logical name fail.
 - [x] Resolution and JSON errors identify the source expression and data resource.
 - [x] Direct helper content uses the same textual representation as a bound value.

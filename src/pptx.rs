@@ -40,9 +40,14 @@ pub struct GeneratedPackage {
     pub bytes: Vec<u8>,
     pub warnings: Vec<String>,
 }
+/// Generates a package whose images and font assets are read through a
+/// resolver confined to the current process directory. A caller that compiles
+/// untrusted source, or whose directory holds anything a source must not read,
+/// calls [`emit_with_assets`] with the resolver of the compilation instead.
 pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
     Ok(emit_with_warnings(document)?.bytes)
 }
+/// Generates a package as [`emit`] does and returns its warnings.
 pub fn emit_with_warnings(document: &Document) -> Result<GeneratedPackage, Error> {
     let resolver = crate::source::FileAssetResolver::from_current_directory()?;
     emit_with_assets(document, &resolver, None)

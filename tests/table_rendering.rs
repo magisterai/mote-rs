@@ -22,7 +22,7 @@ fn planned_with_fonts(case: &str, installed: bool) -> render::Rendered<DocumentT
     let path = fixtures().join(format!("{case}.mote"));
     let document = mote::compile(&fs::read_to_string(&path).unwrap()).unwrap();
     let original = document.clone();
-    let resolver = FileAssetResolver::new(fixtures()).unwrap();
+    let resolver = FileAssetResolver::unconfined(fixtures()).unwrap();
     let planned = if installed {
         render::plan(&document, &resolver, Some(path.as_os_str())).unwrap()
     } else {

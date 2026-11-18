@@ -15,7 +15,8 @@ fn catalogue_cases_preserve_page_counts_and_emit_well_formed_editable_packages()
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/cases");
     let cases: serde_json::Value =
         serde_json::from_str(include_str!("cases/catalogue.json")).unwrap();
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    // A review case may name a font of the system by its absolute path.
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     let mut failures = Vec::new();
     for case in cases.as_array().unwrap() {
         let identifier = case["identifier"].as_str().unwrap();

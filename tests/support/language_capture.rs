@@ -75,7 +75,9 @@ pub fn compare(group: &str, cases: &[&str]) {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("tests/fixtures")
         .join(group);
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    // A fixture group reads the fonts and images of its sibling groups, which
+    // lie outside the root of a confined resolver.
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     for &case in cases {
         let path = root.join(format!("{case}.mote"));
         let source = fs::read_to_string(&path).unwrap();

@@ -115,9 +115,25 @@ resources. A relative reference from an opaque URI requires a resolver-supplied 
 Root relative references use that directory. Nested references use the directory
 of their referring source, with a relative source name anchored to the captured
 working directory. Absolute references retain their own location. Names are
-normalized lexically, including `.` and `..`; symlinks are not canonicalized.
+normalized lexically, including `.` and `..`; the name of an asset is never
+canonicalized.
 The filesystem resolver rejects URI references and relative references whose
 source name is a URI. Such references require a custom resolver.
+
+`FileAssetResolver::new` is confined to its directory, the root. The path to be
+read is canonicalized, so that symbolic links are resolved, and is refused
+unless the result lies within the canonical root. A path that lies outside the
+root as written is refused before the filesystem is consulted, so that the
+error does not disclose whether a file outside the root exists. A confined
+resolver examines the kind of a file before it opens the file, reads regular
+files alone, and refuses a file larger than `DEFAULT_MAXIMUM_SIZE`, 64 MiB,
+unless `with_maximum_size` sets another limit. `FileAssetResolver::unconfined`
+omits the three checks and is used by the command line, which trusts its
+source. `docx::emit` and `pptx::emit` take no resolver and use one confined to
+the working directory of the process; a caller with untrusted source uses
+`emit_with_assets`. [The resolver tests](../tests/source.rs) cover traversal,
+absolute paths, symbolic links, size, named pipes, and the unconfined
+constructor.
 
 References and names use native OS strings to avoid losing filesystem filename
 bytes; source contents must be UTF-8. Loading failures retain the requested name,

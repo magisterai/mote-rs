@@ -78,6 +78,11 @@ impl From<zip::result::ZipError> for Error {
 
 /// Generate a complete package in memory. Unsupported content fails before a
 /// caller needs to create or replace an output file. The authored model is unchanged.
+///
+/// An image is read through a resolver confined to the current process
+/// directory. A caller that compiles untrusted source, or whose directory holds
+/// anything a source must not read, calls [`emit_with_assets`] with the
+/// resolver of the compilation instead.
 pub fn emit(document: &Document) -> Result<Vec<u8>, Error> {
     let resolver = crate::source::FileAssetResolver::new(".")?;
     Ok(emit_with_assets(document, &resolver, None)?.bytes)

@@ -20,7 +20,7 @@ fn text_box_shadows_preserve_native_layout_and_report_the_output_limit() {
         },
     )
     .unwrap();
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     let shadowed = render::plan(&document, &resolver, None).unwrap();
     assert!(
         shadowed
@@ -110,7 +110,7 @@ fn compare_captured_slides(directory: &str, cases: &[(&str, u8, f64, usize)]) {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("tests/fixtures")
         .join(directory);
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     for &(case, maximum_limit, mean_limit, edge_limit) in cases {
         let path = root.join(format!("{case}.mote"));
         let source = fs::read_to_string(&path).unwrap();
@@ -379,7 +379,7 @@ fn slide_pictures_cache_source_relative_assets_and_freeze_them_before_painting()
 #[test]
 fn missing_slide_pictures_have_truthful_diagnostics_and_rotated_pdf_links_follow_pictures() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-images");
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     for case in ["missing", "transforms"] {
         let path = root.join(format!("{case}.mote"));
         let document = mote::compile(&fs::read_to_string(&path).unwrap()).unwrap();
@@ -551,7 +551,7 @@ fn footer_fields_match_captured_native_geometry_and_rasters() {
 #[test]
 fn speaker_notes_do_not_change_native_slide_content() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-fields");
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     let path = root.join("notes.mote");
     let mut document = mote::compile(&fs::read_to_string(&path).unwrap()).unwrap();
     let with_notes = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
@@ -770,7 +770,7 @@ fn cropped_contain_and_cover_preserve_the_cropped_aspect_ratio() {
     use mote::layout::PageOperation;
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/presentation-images");
     let path = root.join("transforms.mote");
-    let resolver = FileAssetResolver::new(&root).unwrap();
+    let resolver = FileAssetResolver::unconfined(&root).unwrap();
     let document = mote::compile(&fs::read_to_string(&path).unwrap()).unwrap();
     let plan = render::plan(&document, &resolver, Some(path.as_os_str())).unwrap();
     let pictures: Vec<_> = plan.output.pages[0]

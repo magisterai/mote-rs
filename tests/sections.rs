@@ -22,7 +22,7 @@ fn normalize_numbers(value: &mut serde_json::Value) {
 }
 #[test]
 fn sections_preserve_models_and_complete_editable_packages() {
-    let resolver = FileAssetResolver::new(fixtures()).unwrap();
+    let resolver = FileAssetResolver::unconfined(fixtures()).unwrap();
     for case in [
         "balanced",
         "basic",
