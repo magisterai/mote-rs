@@ -37,7 +37,10 @@ pub(super) fn write(
             .unwrap_or_default(),
         false,
     );
-    let widths = grid::widths(table, &grid, &grid_defaults, fixed)?;
+    // Word takes the width and the alignment of a table from the table and
+    // not from its style, so both are written on the table.
+    let width = tables::styles::table_property(table, &table_style, "width");
+    let widths = grid::widths(table, width, &grid, &grid_defaults, fixed)?;
     let mut output = String::from("<w:tbl><w:tblPr>");
     // A table that names an undeclared style is written as one that names none.
     let style = Some(property_values::text(attributes, "style"))
@@ -49,7 +52,7 @@ pub(super) fn write(
             xml::escape(identifier)?
         ));
     }
-    if let Some(width) = attributes.get("width") {
+    if let Some(width) = width {
         output.push_str(&format!(
             "<w:tblW w:w=\"{}\" w:type=\"dxa\"/>",
             values::twips(width)?
@@ -57,7 +60,9 @@ pub(super) fn write(
     } else {
         output.push_str("<w:tblW w:w=\"0\" w:type=\"auto\"/>");
     }
-    let alignment = property_values::text(attributes, "alignment");
+    let alignment = tables::styles::table_property(table, &table_style, "alignment")
+        .map(Value::to_text)
+        .unwrap_or_default();
     let alignment = if matches!(alignment.as_str(), "center" | "right") {
         alignment.as_str()
     } else {

@@ -144,12 +144,18 @@ pub(super) fn prepare(
 ) -> Result<TablePlan, LayoutError> {
     let grid = tables::grid(table).map_err(LayoutError::Unsupported)?;
     let defaults = cells::defaults(styles.document, table);
+    let style = tables::styles::resolved(
+        styles.document,
+        &property_values::text(&table.attributes, "style"),
+    );
     let source_rows = tables::rows(table);
     let mut plan = TablePlan {
         anchors: Vec::new(),
         rows: Vec::new(),
         widths: Vec::new(),
-        alignment: property_values::text(&table.attributes, "alignment"),
+        alignment: tables::styles::table_property(table, &style, "alignment")
+            .map(crate::model::Value::to_text)
+            .unwrap_or_default(),
     };
     if grid.column_count == 0 {
         return Ok(plan);
@@ -258,7 +264,7 @@ pub(super) fn prepare(
     plan.widths = columns::resolve(
         grid.column_count,
         available,
-        cells::points(table.attributes.get("width")).unwrap_or(0.0),
+        cells::points(tables::styles::table_property(table, &style, "width")).unwrap_or(0.0),
         default_width,
         &constraints,
     );

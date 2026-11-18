@@ -1,12 +1,13 @@
 use super::super::{Error, values};
 use crate::{
-    model::{Element, Properties},
+    model::{Element, Properties, Value},
     properties as property_values,
     tables::{self, TableGrid},
 };
 
 pub(super) fn widths(
     table: &Element,
+    table_width: Option<&Value>,
     grid: &TableGrid,
     defaults: &Properties,
     fixed: bool,
@@ -35,7 +36,7 @@ pub(super) fn widths(
         }
     }
     if !explicit {
-        if let Some(width) = table.attributes.get("width") {
+        if let Some(width) = table_width {
             let width = values::twips(width)?;
             if width > 0 {
                 return Ok(vec![width / grid.column_count as i64; grid.column_count]);

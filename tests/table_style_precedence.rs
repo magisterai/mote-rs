@@ -180,3 +180,33 @@ fn the_vertical_alignment_of_a_style_outranks_that_of_a_region() {
     assert_near(region.0, bottom.0);
     assert_near(region.1, top.1);
 }
+
+#[test]
+fn a_table_takes_its_width_and_its_alignment_from_its_style_unless_it_states_them() {
+    let style = "#style(name = 'Wide', type = 'table', table = { width = pt(300), alignment = 'center' })\n";
+    let cells = "[\n#row[#cell[First]#cell[Second]]\n]\n";
+    let lefts = |table: &str| -> Vec<f64> {
+        painted(&format!("{style}#table({table}){cells}"))
+            .lines
+            .iter()
+            .map(|line| line.1)
+            .collect()
+    };
+    // The table of 300 points lies at the centre of a text area of 468 points
+    // that begins 72 points from the edge of the page, and its text is not
+    // centred in its cells.
+    let stated = lefts("width = pt(300), alignment = 'center'");
+    assert_near(stated[1] - stated[0], 150.0);
+    assert!(stated[0] > 72.0 + 84.0 && stated[0] < 72.0 + 84.0 + 10.0);
+    assert_eq!(lefts("style = 'Wide'"), stated);
+    let own = lefts("style = 'Wide', width = pt(200), alignment = 'left'");
+    assert_near(own[1] - own[0], 100.0);
+    assert!(own[0] < 72.0 + 10.0);
+
+    // Word takes neither from the style, so DOCX writes both on the table.
+    let package = xml_support::package(&format!("{style}#table(style = 'Wide'){cells}"));
+    assert!(
+        package["word/document.xml"]
+            .contains("<w:tblW w:w=\"6000\" w:type=\"dxa\"/><w:jc w:val=\"center\"/>")
+    );
+}

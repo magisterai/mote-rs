@@ -54,7 +54,10 @@ last row takes precedence over the band on which it lies. A `margin` is resolved
 side by side in that order, except that the margin of a region takes precedence
 over the margin of the table; a side that nothing states is 4 points above and
 below and 6 points at the sides. The `vertical_alignment` that the style gives
-every cell takes precedence over that of a region.
+every cell takes precedence over that of a region. A table takes its `width`
+and its `alignment` from its style unless it states them; the `alignment` of a
+table style places the table, and the `alignment` of its `cell` object places
+the text of the cells.
 
 Table and cell `borders` objects specify physical edges: top, right, bottom and
 left, plus table inside_h and inside_v. Each edge records style, width or size,

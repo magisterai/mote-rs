@@ -1,5 +1,5 @@
 use crate::{
-    model::{Document, Element, Properties, StyleDeclaration},
+    model::{Document, Element, Properties, StyleDeclaration, Value},
     properties as property_values,
 };
 use std::collections::BTreeSet;
@@ -32,6 +32,15 @@ pub(crate) fn resolved(document: &Document, name: &str) -> Properties {
         property_values::merge(&mut properties, &declared(style));
     }
     properties
+}
+/// Returns a property of a table as a whole, its width or its alignment: the
+/// value that the table states, or else the value that its style states.
+pub(crate) fn table_property<'table>(
+    table: &'table Element,
+    style: &'table Properties,
+    name: &str,
+) -> Option<&'table Value> {
+    table.attributes.get(name).or_else(|| style.get(name))
 }
 pub(crate) fn bands(properties: &Properties) -> (bool, bool) {
     let Some(banding) = property_values::object(properties, "banding") else {

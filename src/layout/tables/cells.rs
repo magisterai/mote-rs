@@ -34,7 +34,12 @@ fn flatten(properties: &Properties) -> Properties {
     output
 }
 pub(super) fn defaults(document: &Document, table: &Element) -> Properties {
-    let base = table_styles::resolved(document, &property_values::text(&table.attributes, "style"));
+    let mut base =
+        table_styles::resolved(document, &property_values::text(&table.attributes, "style"));
+    // The width and the alignment that a table style states are those of the
+    // table, and not of its cells.
+    base.remove("width");
+    base.remove("alignment");
     let mut defaults = flatten(&base);
     if property_values::object(&base, "cell").is_none_or(|cell| !cell.contains_key("borders")) {
         defaults.remove("borders");

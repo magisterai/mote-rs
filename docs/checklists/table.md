@@ -49,7 +49,10 @@ the band on which it lies. A margin is resolved side by side, and a side that
 nothing states is 4 points above and below and 6 points at the sides; DOCX
 writes the resolved margins on the table, since Word gives a cell no margin on a
 side that neither the table nor its style states and does not take the margin of
-a style from the style on which it is based. The
+a style from the style on which it is based. A table takes its width and its
+alignment from its style unless it states them, and DOCX writes both on the
+table, since Word takes neither from a style; the alignment that a style gives
+the table is not the alignment of the text of its cells. The
 [precedence tests](../../tests/table_style_precedence.rs) hold these rules, which
 Word's export of the
 [table-style-precedence probe](../../tests/office/probes/table-style-precedence.mote)

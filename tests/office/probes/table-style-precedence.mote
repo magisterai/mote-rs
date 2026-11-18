@@ -56,6 +56,10 @@
   }
 )
 
+#style(name = "Wide", type = "table", table = { width = pt(300), alignment = "center" })
+#style(name = "Right", type = "table", table = { alignment = "right", cell = { alignment = "center" } })
+#style(name = "Narrow", type = "table", based_on = "Wide", table = { width = pt(200) })
+
 #set paragraph(style = "Normal")
 
 MARGINS OF A STYLE: a style that states no margin leaves the margins of a plain table.
@@ -140,6 +144,32 @@ TEXT AND FILL: a region outranks the text, the alignment and the fill of the sty
   #row[#cell[Text odd one]#cell[Text odd two]]
   #row[#cell[Text even one]#cell[Text even two]]
   #row[#cell[Text last one]#cell[Text last two]]
+]
+
+#break(type = "page")
+
+WIDTH AND ALIGNMENT: a table takes its width and its alignment from its style unless it states them.
+
+#table(style = "Wide")[
+  #row[#cell[Wide one]#cell[Wide two]]
+]
+
+A style that aligns the table at the right and the text of its cells at the centre.
+
+#table(style = "Right", width = pt(240))[
+  #row[#cell[Right one]#cell[Right two]]
+]
+
+A style based on a style, of which it replaces the width.
+
+#table(style = "Narrow")[
+  #row[#cell[Narrow one]#cell[Narrow two]]
+]
+
+A table that states a width and an alignment over those of its style.
+
+#table(style = "Wide", width = pt(150), alignment = "left")[
+  #row[#cell[Own one]#cell[Own two]]
 ]
 
 End of the probe.

@@ -233,9 +233,80 @@
           "baseline": 660.48,
           "text": "Text last two",
           "x": 278.16
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 84.96,
+          "text": "W IDTH AND ALIGNMENT: a table takes its width and its alignment from its style unless it states",
+          "x": 72.0
         },
         {
-          "baseline": 680.88,
+          "baseline": 100.8,
+          "text": "them.",
+          "x": 72.0
+        },
+        {
+          "baseline": 121.44,
+          "text": "W ide one",
+          "x": 162.0
+        },
+        {
+          "baseline": 121.44,
+          "text": "W ide two",
+          "x": 312.0
+        },
+        {
+          "baseline": 141.84,
+          "text": "A style that aligns the table at the right and the text of its cells at the centre.",
+          "x": 72.0
+        },
+        {
+          "baseline": 162.48,
+          "text": "Right one",
+          "x": 336.22
+        },
+        {
+          "baseline": 162.48,
+          "text": "Right two",
+          "x": 456.83
+        },
+        {
+          "baseline": 182.88,
+          "text": "A style based on a style, of which it replaces the width.",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.28,
+          "text": "Narrow one",
+          "x": 211.92
+        },
+        {
+          "baseline": 203.28,
+          "text": "Narrow two",
+          "x": 312.0
+        },
+        {
+          "baseline": 223.92,
+          "text": "A table that states a width and an alignment over those of its style.",
+          "x": 72.0
+        },
+        {
+          "baseline": 244.32,
+          "text": "Own one",
+          "x": 78.24
+        },
+        {
+          "baseline": 244.32,
+          "text": "Own two",
+          "x": 153.36
+        },
+        {
+          "baseline": 264.96,
           "text": "End of the probe.",
           "x": 72.0
         }
@@ -244,5 +315,5 @@
     }
   ],
   "renderer": "Microsoft Word 16.114.1",
-  "source_sha256": "1c38456a72dd17bff3afffdb47b35ac074c41d8982d65488569b48128403bb5a"
+  "source_sha256": "28d07a1af594f35e16c3f5dba43a03cad8f190178ec71ecf12c78410be9ba556"
 }
