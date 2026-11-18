@@ -4,9 +4,10 @@
 
 /// The excess over the room in an area that a block may have and stay in the
 /// area, which is none. The tolerance holds for a block of the body and the
-/// space above it, for the blocks kept together on a page, for a line of a
-/// paragraph without widow control, for a line without a footnote reference
-/// in a paragraph that has one, and for a line of the endnotes.
+/// space above it, for the blocks kept together on a page, for the header
+/// rows repeated above a row of a table, for a line of a paragraph without
+/// widow control, for a line without a footnote reference in a paragraph that
+/// has one, and for a line of the endnotes.
 pub(super) const BLOCK_FIT_TOLERANCE: f64 = 0.0;
 
 /// The excess over the room in an area that a line may have and stay in the

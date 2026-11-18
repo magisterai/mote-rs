@@ -17,15 +17,17 @@ pub(super) enum LeadingDrop {
 }
 
 impl FlowCursor {
+    /// Returns whether the cursor stands in the page and the column of
+    /// `previous`.
+    pub(super) fn is_in_area_of(&self, previous: &FlowCursor) -> bool {
+        self.page_number == previous.page_number && self.column_index == previous.column_index
+    }
     /// Returns whether a block keeps the space above it, where `previous` is
     /// the cursor before room was sought for the block and `self` is the
     /// cursor after.
     pub(super) fn keeps_leading(&self, previous: &FlowCursor, dropped: LeadingDrop) -> bool {
         match dropped {
-            LeadingDrop::InNewPageOrColumn => {
-                self.page_number == previous.page_number
-                    && self.column_index == previous.column_index
-            }
+            LeadingDrop::InNewPageOrColumn => self.is_in_area_of(previous),
             LeadingDrop::InNewPageOnly => self.page_number == previous.page_number,
             LeadingDrop::Never => true,
         }

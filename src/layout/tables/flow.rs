@@ -2,7 +2,7 @@ use super::super::{
     FlowCursor, HighlightRectangle, LineFrame, LinePlacement, PageGeometry, PageOperation,
     TextPage,
     columns::ColumnSeparators,
-    document::{LeadingSpace, ensure_space, next_area, place_leading},
+    document::{LeadingSpace, ensure_space, next_area, page_content_bottom, place_leading},
     drawings::Drawing,
     painting::ParagraphPainting,
     spacing::LeadingDrop,
@@ -45,15 +45,7 @@ pub(in crate::layout) fn place(
     );
     cursor.y += border;
     warn_of_cut_off_rows(table, cursor.page_number, false, &mut warnings);
-    let header_count = table
-        .rows
-        .iter()
-        .take_while(|row| row.repeat_header)
-        .count();
-    let header_height: f64 = table.rows[..header_count]
-        .iter()
-        .map(|row| row.height)
-        .sum();
+    let headers = HeaderRows::of(table);
     let mut collector = borders::Collector::default();
     let mut start = 0;
     let mut anchored = false;
@@ -62,34 +54,26 @@ pub(in crate::layout) fn place(
         let height: f64 = table.rows[start..end].iter().map(|row| row.height).sum();
         let closing = table.closing_border_excess(end - 1);
         let mut available = vec![
-            (super::super::document::page_content_bottom(
-                pages,
-                geometry,
-                boundary,
-                cursor.page_number,
-            ) - cursor.y
+            (page_content_bottom(pages, geometry, boundary, cursor.page_number)
+                - cursor.y
                 - closing)
                 .max(0.0),
         ];
         for _ in cursor.column_index + 1..geometry.column_count {
             available.push(
-                (super::super::document::page_content_bottom(
-                    pages,
-                    geometry,
-                    boundary,
-                    cursor.page_number,
-                ) - cursor.current_top
-                    - header_height
+                (page_content_bottom(pages, geometry, boundary, cursor.page_number)
+                    - cursor.current_top
+                    - headers.height
                     - border
                     - closing)
                     .max(0.0),
             );
         }
         available.push(
-            (geometry.content_bottom() - geometry.margin_top - header_height - border - closing)
+            (geometry.content_bottom() - geometry.margin_top - headers.height - border - closing)
                 .max(0.0),
         );
-        if let Some(slices) = pagination::plan(table, start, end, header_count, &available) {
+        if let Some(slices) = pagination::plan(table, start, end, headers.count, &available) {
             let mut frame = 0;
             for slice in slices {
                 let advanced = slice.frame > frame;
@@ -97,47 +81,21 @@ pub(in crate::layout) fn place(
                     next_area(cursor, pages, columns, geometry);
                     frame += 1;
                 }
-                let repeats_headers = advanced
-                    && header_count > 0
-                    && header_height + slice.height
-                        <= super::super::document::page_content_bottom(
-                            pages,
-                            geometry,
-                            boundary,
-                            cursor.page_number,
-                        ) - cursor.current_top;
-                // Word sets the top border of the row that begins a page below the
-                // top of the text area, as it does for the first row of the table.
                 if advanced {
-                    cursor.y += table.row_top_border(if repeats_headers { 0 } else { slice.row });
+                    headers.begin_area(
+                        AreaStart {
+                            row: slice.row,
+                            height: slice.height,
+                            repeat: HeaderRepeat::BeforeAnyRow,
+                        },
+                        cursor,
+                        pages,
+                        geometry,
+                        boundary,
+                        &mut collector,
+                    )?;
                 }
-                if repeats_headers {
-                    for row in 0..header_count {
-                        place_row(
-                            table,
-                            row,
-                            RowPlacement {
-                                origin: [
-                                    table.left(
-                                        geometry.column_left(cursor.column_index),
-                                        geometry.column_width(),
-                                    ),
-                                    cursor.y,
-                                ],
-                                paint_rowspans: true,
-                                outer_clip: None,
-                            },
-                            &mut pages[cursor.page_number - 1],
-                            &mut collector,
-                            cursor.page_number - 1,
-                        )?;
-                        cursor.y += table.rows[row].height;
-                    }
-                }
-                let left = table.left(
-                    geometry.column_left(cursor.column_index),
-                    geometry.column_width(),
-                );
+                let left = left_edge(table, geometry, cursor);
                 if !anchored {
                     pages[cursor.page_number - 1].place_anchors(&table.anchors, [left, cursor.y]);
                     anchored = true;
@@ -203,7 +161,7 @@ pub(in crate::layout) fn place(
                     } else {
                         height
                     };
-                    let before = (cursor.page_number, cursor.column_index);
+                    let previous = *cursor;
                     ensure_space(
                         cursor,
                         pages,
@@ -212,68 +170,31 @@ pub(in crate::layout) fn place(
                         boundary,
                         required + closing,
                     );
-                    let moved = before != (cursor.page_number, cursor.column_index);
-                    let repeats_headers = moved
-                        && row >= header_count
-                        && header_count > 0
-                        && header_height + required
-                            <= super::super::document::page_content_bottom(
-                                pages,
-                                geometry,
-                                boundary,
-                                cursor.page_number,
-                            ) - cursor.current_top;
-                    if moved {
-                        cursor.y += table.row_top_border(if repeats_headers { 0 } else { row });
-                    }
-                    if repeats_headers {
-                        for header in 0..header_count {
-                            place_row(
-                                table,
-                                header,
-                                RowPlacement {
-                                    origin: [
-                                        table.left(
-                                            geometry.column_left(cursor.column_index),
-                                            geometry.column_width(),
-                                        ),
-                                        cursor.y,
-                                    ],
-                                    paint_rowspans: true,
-                                    outer_clip: None,
-                                },
-                                &mut pages[cursor.page_number - 1],
-                                &mut collector,
-                                cursor.page_number - 1,
-                            )?;
-                            cursor.y += table.rows[header].height;
-                        }
+                    if !cursor.is_in_area_of(&previous) {
+                        headers.begin_area(
+                            AreaStart {
+                                row,
+                                height: required,
+                                repeat: HeaderRepeat::BeforeBodyRowsOnly,
+                            },
+                            cursor,
+                            pages,
+                            geometry,
+                            boundary,
+                            &mut collector,
+                        )?;
                     }
                 }
+                let left = left_edge(table, geometry, cursor);
                 if !anchored {
-                    pages[cursor.page_number - 1].place_anchors(
-                        &table.anchors,
-                        [
-                            table.left(
-                                geometry.column_left(cursor.column_index),
-                                geometry.column_width(),
-                            ),
-                            cursor.y,
-                        ],
-                    );
+                    pages[cursor.page_number - 1].place_anchors(&table.anchors, [left, cursor.y]);
                     anchored = true;
                 }
                 place_row(
                     table,
                     row,
                     RowPlacement {
-                        origin: [
-                            table.left(
-                                geometry.column_left(cursor.column_index),
-                                geometry.column_width(),
-                            ),
-                            cursor.y,
-                        ],
+                        origin: [left, cursor.y],
                         paint_rowspans: !degrade_rowspans,
                         outer_clip: None,
                     },
@@ -291,6 +212,98 @@ pub(in crate::layout) fn place(
     collector.append(pages);
     cursor.body_started = true;
     Ok(warnings)
+}
+fn left_edge(table: &TablePlan, geometry: PageGeometry, cursor: &FlowCursor) -> f64 {
+    table.left(
+        geometry.column_left(cursor.column_index),
+        geometry.column_width(),
+    )
+}
+/// States the rows before which the header rows are repeated in a new area.
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum HeaderRepeat {
+    /// The header rows are repeated before any row that begins an area, a
+    /// header row included. The rows that a plan of slices places follow the
+    /// rule.
+    BeforeAnyRow,
+    /// The header rows are repeated before a row below them only. The rows
+    /// that are placed whole, for want of such a plan, follow the rule.
+    BeforeBodyRowsOnly,
+}
+/// The row that begins an area to which the table has moved, and the height
+/// of the row, or of its first part, that the area must hold below the header
+/// rows if they are to be repeated.
+struct AreaStart {
+    row: usize,
+    height: f64,
+    repeat: HeaderRepeat,
+}
+/// The leading rows of a table that are repeated in each area to which the
+/// table moves.
+struct HeaderRows<'plan> {
+    table: &'plan TablePlan,
+    count: usize,
+    height: f64,
+}
+impl<'plan> HeaderRows<'plan> {
+    fn of(table: &'plan TablePlan) -> Self {
+        let count = table
+            .rows
+            .iter()
+            .take_while(|row| row.repeat_header)
+            .count();
+        Self {
+            table,
+            count,
+            height: table.rows[..count].iter().map(|row| row.height).sum(),
+        }
+    }
+    /// Begins an area to which the table has moved: sets the top border of the
+    /// row at the top of the area, and repeats the header rows if the area
+    /// holds them above the row that begins it.
+    fn begin_area(
+        &self,
+        start: AreaStart,
+        cursor: &mut FlowCursor,
+        pages: &mut [TextPage],
+        geometry: PageGeometry,
+        boundary: Option<super::super::sections::FlowBoundary>,
+        collector: &mut borders::Collector,
+    ) -> Result<(), LayoutError> {
+        let eligible = match start.repeat {
+            HeaderRepeat::BeforeAnyRow => true,
+            HeaderRepeat::BeforeBodyRowsOnly => start.row >= self.count,
+        };
+        let repeats_headers = eligible
+            && self.count > 0
+            && self.height + start.height
+                <= page_content_bottom(pages, geometry, boundary, cursor.page_number)
+                    - cursor.current_top
+                    + BLOCK_FIT_TOLERANCE;
+        // Word sets the top border of the row that begins a page below the
+        // top of the text area, as it does for the first row of the table.
+        cursor.y += self
+            .table
+            .row_top_border(if repeats_headers { 0 } else { start.row });
+        if repeats_headers {
+            for row in 0..self.count {
+                place_row(
+                    self.table,
+                    row,
+                    RowPlacement {
+                        origin: [left_edge(self.table, geometry, cursor), cursor.y],
+                        paint_rowspans: true,
+                        outer_clip: None,
+                    },
+                    &mut pages[cursor.page_number - 1],
+                    collector,
+                    cursor.page_number - 1,
+                )?;
+                cursor.y += self.table.rows[row].height;
+            }
+        }
+        Ok(())
+    }
 }
 /// Places a row and returns the drawings of a nested table's cells, which the
 /// enclosing cell places once its clip is lifted.
