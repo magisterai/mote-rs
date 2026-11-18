@@ -587,7 +587,7 @@ fn kept_blocks_height(
                     + if *kept {
                         table.height()
                     } else {
-                        table.rows.first().map_or(0.0, |row| row.height)
+                        table.opening_height()
                     },
                 0.0,
                 0.0,

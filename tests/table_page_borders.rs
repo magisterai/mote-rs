@@ -1,7 +1,9 @@
 //! The borders of a table at the head and the foot of a page. Word sets the top
 //! border above the first row of a nested table and above the row that begins a
 //! page, and draws the bottom border of the table beneath the last row on a
-//! page, as the nested-table-cell-end and table-page-borders probes show.
+//! page, as the nested-table-cell-end and table-page-borders probes show. Word
+//! keeps the header rows of a table on the page of the row that follows them,
+//! as the table-header-rows probe shows.
 
 use mote::{render, source::FileAssetResolver};
 
@@ -120,4 +122,84 @@ fn a_row_leaves_room_at_the_foot_of_a_page_for_the_bottom_border_of_the_table() 
     assert_eq!(lines_on_first_page("0.5"), lines_on_first_page("0.25"));
     // A bottom border taller than a row cannot follow the last row that fits.
     assert!(lines_on_first_page("30") < lines_on_first_page("0.5"));
+}
+
+/// Returns the texts of the lines of each page.
+fn line_texts(source: &str) -> Vec<Vec<String>> {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let document = mote::compile(source).unwrap();
+    let planned = render::plan(&document, &resolver, None).unwrap();
+    planned
+        .output
+        .pages
+        .iter()
+        .map(|page| {
+            page.lines
+                .iter()
+                .map(|placed| {
+                    placed
+                        .line
+                        .fragments
+                        .iter()
+                        .map(|fragment| fragment.text.as_str())
+                        .collect()
+                })
+                .collect()
+        })
+        .collect()
+}
+
+/// Returns a table that follows a filler line of exact height `filler` on a
+/// Letter page with a text area of 648 points. Each row is 28 points high.
+fn table_below_filler(filler: f64, rows: &str) -> String {
+    format!(
+        "#paragraph(spacing = {{ before = pt(0), after = pt(0), line = {{ rule = 'exact', value = pt({filler}) }} }})[Filler.]\n\n#table[\n{rows}]\n"
+    )
+}
+
+#[test]
+fn the_header_rows_lie_on_the_page_of_the_row_that_follows_them() {
+    let row = "height = pt(24), height_rule = 'exact'";
+    let body = format!("#row({row})[#cell[Body one]]\n#row({row})[#cell[Body two]]\n");
+    let header = |name: &str| format!("#row(repeat_header = true, {row})[#cell[{name}]]\n");
+    let whole = ["Head one", "Head two", "Body one", "Body two"];
+    // The page holds one row, and then two rows, below the filler: the header
+    // rows fit there and the first row of the body does not.
+    for filler in [610.0, 590.0] {
+        let pages = line_texts(&table_below_filler(
+            filler,
+            &format!("{}{}{body}", header("Head one"), header("Head two")),
+        ));
+        assert_eq!(pages[0], ["Filler."]);
+        assert_eq!(pages[1], whole);
+    }
+    // The page holds the header rows and the first row of the body.
+    let pages = line_texts(&table_below_filler(
+        560.0,
+        &format!("{}{}{body}", header("Head one"), header("Head two")),
+    ));
+    assert_eq!(pages[0], ["Filler.", "Head one", "Head two", "Body one"]);
+    assert_eq!(pages[1], ["Head one", "Head two", "Body two"]);
+    // A table without header rows begins with the row that fits.
+    let pages = line_texts(&table_below_filler(610.0, &body));
+    assert_eq!(pages[0], ["Filler.", "Body one"]);
+}
+
+#[test]
+fn a_header_row_that_begins_a_page_is_not_preceded_by_the_header_rows() {
+    let row = "height = pt(400), height_rule = 'exact'";
+    let pages = line_texts(&table_below_filler(
+        100.0,
+        &format!(
+            "#row(repeat_header = true, {row})[#cell[Head one]]\n#row(repeat_header = true, {row})[#cell[Head two]]\n#row[#cell[Body]]\n"
+        ),
+    ));
+    let count = |text: &str| pages.iter().flatten().filter(|line| *line == text).count();
+    // The header rows exceed a page, so the second header row begins a page,
+    // where the first is not repeated above it.
+    assert_eq!(pages[0], ["Filler."]);
+    assert_eq!(pages[1], ["Head one"]);
+    assert_eq!(pages[2][0], "Head two");
+    assert_eq!(count("Head one"), 1);
+    assert_eq!(count("Head two"), 1);
 }

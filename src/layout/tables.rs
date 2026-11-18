@@ -58,6 +58,26 @@ impl TablePlan {
     pub fn top_border(&self) -> f64 {
         self.row_top_border(0)
     }
+    /// Returns the number of rows that the area in which the table begins must
+    /// hold: Word keeps the header rows of a table on the page of the row
+    /// that follows them, as its export of the table-header-rows probe shows.
+    pub fn opening_rows(&self) -> usize {
+        let headers = self.rows.iter().take_while(|row| row.repeat_header).count();
+        if headers < self.rows.len() {
+            headers + 1
+        } else {
+            1
+        }
+    }
+    /// Returns the height of the rows that the area in which the table begins
+    /// must hold.
+    pub fn opening_height(&self) -> f64 {
+        self.rows
+            .iter()
+            .take(self.opening_rows())
+            .map(|row| row.height)
+            .sum()
+    }
     /// Word draws the table's bottom border beneath the last row on every page,
     /// in place of that row's own bottom border. The function returns the room
     /// the row needs at the foot of a page beyond its own height: the excess of

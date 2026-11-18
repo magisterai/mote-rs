@@ -16,6 +16,12 @@ standard properties remain in the linked inventory without invented Mote names.
 Language/model and editable DOCX support are verified by captured packages.
 
 Native PDF/PNG repeats contiguous leading header rows and honors `cant_split`.
+The header rows lie on the page of the row that follows them: a table begins
+on a page only if the page holds its header rows and the row below them, as
+Word's export of the
+[table-header-rows probe](../../tests/office/probes/table-header-rows.mote) shows
+and the [page border tests](../../tests/table_page_borders.rs) hold. A header
+row that begins a page is not preceded by the header rows.
 Repeated headers have distinct placements in successive columns on the same
 page; the two-column fixture has captured native geometry and rasters.
 Ordinary rows and merged groups can continue across pages and columns at safe

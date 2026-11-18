@@ -32,7 +32,8 @@ pub(in crate::layout) fn place(
         return Ok(warnings);
     }
     let border = table.top_border();
-    let closing = table.closing_border_excess(0);
+    let opening = table.opening_rows();
+    let closing = table.closing_border_excess(opening - 1);
     place_leading(
         cursor,
         pages,
@@ -41,7 +42,7 @@ pub(in crate::layout) fn place(
         boundary,
         LeadingSpace {
             height: pending,
-            fit_height: pending + border + table.rows[0].height + closing,
+            fit_height: pending + border + table.opening_height() + closing,
             dropped: LeadingDrop::InNewPageOrColumn,
         },
     );
@@ -88,7 +89,6 @@ pub(in crate::layout) fn place(
                         AreaStart {
                             row: slice.row,
                             height: slice.height,
-                            repeat: HeaderRepeat::BeforeAnyRow,
                         },
                         cursor,
                         pages,
@@ -175,7 +175,6 @@ pub(in crate::layout) fn place(
                             AreaStart {
                                 row,
                                 height: required,
-                                repeat: HeaderRepeat::BeforeBodyRowsOnly,
                             },
                             cursor,
                             pages,
@@ -219,24 +218,12 @@ fn left_edge(table: &TablePlan, geometry: PageGeometry, cursor: &FlowCursor) -> 
         geometry.column_width(),
     )
 }
-/// States the rows before which the header rows are repeated in a new area.
-#[derive(Clone, Copy, PartialEq, Eq)]
-enum HeaderRepeat {
-    /// The header rows are repeated before any row that begins an area, a
-    /// header row included. The rows that a plan of slices places follow the
-    /// rule.
-    BeforeAnyRow,
-    /// The header rows are repeated before a row below them only. The rows
-    /// that are placed whole, for want of such a plan, follow the rule.
-    BeforeBodyRowsOnly,
-}
 /// The row that begins an area to which the table has moved, and the height
 /// of the row, or of its first part, that the area must hold below the header
 /// rows if they are to be repeated.
 struct AreaStart {
     row: usize,
     height: f64,
-    repeat: HeaderRepeat,
 }
 /// The leading rows of a table that are repeated in each area to which the
 /// table moves.
@@ -270,11 +257,8 @@ impl<'plan> HeaderRows<'plan> {
         boundary: Option<super::super::sections::FlowBoundary>,
         collector: &mut borders::Collector,
     ) -> Result<(), LayoutError> {
-        let eligible = match start.repeat {
-            HeaderRepeat::BeforeAnyRow => true,
-            HeaderRepeat::BeforeBodyRowsOnly => start.row >= self.count,
-        };
-        let repeats_headers = eligible
+        // A header row that begins an area is not preceded by itself.
+        let repeats_headers = start.row >= self.count
             && self.count > 0
             && self.height + start.height
                 <= page_content_bottom(pages, geometry, boundary, cursor.page_number)

@@ -1,0 +1,83 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } })[HEADER ROWS: the header rows of a table lie on the page of the row that follows them.]
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(590) } })[Filler One of 590 points.]
+
+#table[
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[One head 1] #cell[One head right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[One body 1] #cell[One body right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[One body 2] #cell[One body right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[One body 3] #cell[One body right 3]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(610) } })[Filler Two of 610 points.]
+
+#table[
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Two head 1] #cell[Two head right 1]]
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Two head 2] #cell[Two head right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Two body 1] #cell[Two body right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Two body 2] #cell[Two body right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Two body 3] #cell[Two body right 3]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(590) } })[Filler Three of 590 points.]
+
+#table[
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Three head 1] #cell[Three head right 1]]
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Three head 2] #cell[Three head right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Three body 1] #cell[Three body right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Three body 2] #cell[Three body right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Three body 3] #cell[Three body right 3]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(610) } })[Filler Four of 610 points.]
+
+#table[
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell(rowspan = 2)[Four head] #cell[Four head 1]]
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Four head 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Four body 1] #cell[Four body right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Four body 2] #cell[Four body right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Four body 3] #cell[Four body right 3]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(590) } })[Filler Five of 590 points.]
+
+#table[
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell(rowspan = 2)[Five head] #cell[Five head 1]]
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Five head 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Five body 1] #cell[Five body right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Five body 2] #cell[Five body right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Five body 3] #cell[Five body right 3]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(565) } })[Filler Six of 565 points.]
+
+#table[
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Six head 1] #cell[Six head right 1]]
+  #row(repeat_header = true, height = pt(24), height_rule = "exact")[#cell[Six head 2] #cell[Six head right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Six body 1] #cell[Six body right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Six body 2] #cell[Six body right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Six body 3] #cell[Six body right 3]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(610) } })[Filler Seven of 610 points.]
+
+#table[
+  #row(height = pt(24), height_rule = "exact")[#cell[Seven body 1] #cell[Seven body right 1]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Seven body 2] #cell[Seven body right 2]]
+  #row(height = pt(24), height_rule = "exact")[#cell[Seven body 3] #cell[Seven body right 3]]
+]
+

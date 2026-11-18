@@ -263,7 +263,9 @@ fn a_box_that_splits_with_its_row_is_left_open_at_the_break() {
 
 #[test]
 fn a_repeated_header_a_merged_cell_and_a_nested_table_shade_their_paragraphs() {
-    let filler = "Filler.\n\n".repeat(26);
+    // The first page holds the header row and the first rows of the body below
+    // the filler.
+    let filler = "Filler.\n\n".repeat(25);
     let rows = "#row[#cell[Body.]#cell[Body.]]\n".repeat(6);
     let source = format!(
         "{filler}{TABLE}[\n#row(repeat_header = true)[#cell(colspan = 2)[#paragraph(fill = '#10e0f0')[Header.]]]\n{rows}#row[#cell(rowspan = 2, vertical_alignment = 'bottom')[#paragraph(fill = '#16e0f0')[Merged.]]#cell[Body.]]\n#row[#cell[#table[#row[#cell[#paragraph(fill = '#1ce0f0')[Nested.]]]]]]\n]\n"
