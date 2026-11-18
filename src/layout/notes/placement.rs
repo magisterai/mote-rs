@@ -5,7 +5,8 @@ use crate::layout::{
 };
 use crate::layout::{
     columns::ColumnSeparators,
-    document::{next_area, page_content_bottom},
+    document::{ensure_space, next_area, page_content_bottom},
+    spacing::LeadingDrop,
 };
 
 impl NoteLayout {
@@ -71,19 +72,15 @@ impl NoteLayout {
             .unwrap_or(0.0);
         let required = self.endnote_band + first_height;
         if pending_spacing > 0.0 {
-            let previous_page = cursor.page_number;
+            let previous = *cursor;
             if cursor.y + pending_spacing + required
                 > page_content_bottom(pages, geometry, None, cursor.page_number)
             {
                 next_area(cursor, pages, columns, geometry);
             }
-            if cursor.page_number == previous_page {
-                cursor.y += pending_spacing;
-            }
+            cursor.add_leading(&previous, pending_spacing, LeadingDrop::InNewPageOnly);
         }
-        if cursor.y + required > page_content_bottom(pages, geometry, None, cursor.page_number) {
-            next_area(cursor, pages, columns, geometry);
-        }
+        ensure_space(cursor, pages, columns, geometry, None, required);
         separator(
             &mut pages[cursor.page_number - 1],
             geometry.margin_left,

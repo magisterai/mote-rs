@@ -6,7 +6,8 @@ use super::{
 use super::{
     blocks::{BlockNumbers, prepare_content},
     columns::ColumnSeparators,
-    document::{PlacementContext, ensure_space, place_blocks},
+    document::{LeadingSpace, PlacementContext, ensure_space, place_blocks, place_leading},
+    spacing::LeadingDrop,
 };
 use crate::{
     measurement::TextMeasurer,
@@ -466,18 +467,18 @@ fn advance_boundary(
     style: &ParagraphStyle,
 ) {
     let leading = pending.max(style.spacing_before);
-    let previous = (cursor.page_number, cursor.column_index);
-    ensure_space(
+    place_leading(
         cursor,
         pages,
         columns,
         geometry,
         boundary,
-        leading + style.line_height,
+        LeadingSpace {
+            height: leading,
+            fit_height: leading + style.line_height,
+            dropped: LeadingDrop::InNewPageOrColumn,
+        },
     );
-    if previous == (cursor.page_number, cursor.column_index) {
-        cursor.y += leading;
-    }
     ensure_space(
         cursor,
         pages,
@@ -489,18 +490,20 @@ fn advance_boundary(
     cursor.y += style.line_height;
     cursor.body_started = true;
     columns.note(cursor, geometry);
-    let previous = (cursor.page_number, cursor.column_index);
-    ensure_space(
+    // The space after the paragraph is the space above whatever follows it,
+    // and is dropped as that space is.
+    place_leading(
         cursor,
         pages,
         columns,
         geometry,
         boundary,
-        style.spacing_after,
+        LeadingSpace {
+            height: style.spacing_after,
+            fit_height: style.spacing_after,
+            dropped: LeadingDrop::InNewPageOrColumn,
+        },
     );
-    if previous == (cursor.page_number, cursor.column_index) {
-        cursor.y += style.spacing_after;
-    }
 }
 fn has_column_break(content: &[Content]) -> bool {
     content.iter().any(|child| matches!(child, Content::Element(element) if (element.kind == ElementKind::Break && crate::properties::text(&element.attributes, "type") == "column") || has_column_break(&element.children)))

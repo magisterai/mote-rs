@@ -4,9 +4,12 @@ use crate::layout::{FlowCursor, LayoutError, LinePlacement, PageGeometry, TextPa
 use crate::layout::{
     blocks::PreparedParagraph,
     columns::ColumnSeparators,
-    document::{ensure_space, fitting_height, next_area, page_content_bottom},
+    document::{
+        LeadingSpace, ensure_space, fitting_height, next_area, page_content_bottom, place_leading,
+    },
     painting::ParagraphPainting,
     sections::FlowBoundary,
+    spacing::LeadingDrop,
 };
 
 pub(in crate::layout) struct NoteFlowContext<'scope> {
@@ -71,18 +74,18 @@ impl NoteLayout {
         }
         let first_height = paragraph.lines[0].height - paragraph.lines[0].trailing_space;
         if leading > 0.0 {
-            let previous_page = cursor.page_number;
-            ensure_space(
+            place_leading(
                 cursor,
                 pages,
                 columns,
                 geometry,
                 boundary,
-                leading + first_height,
+                LeadingSpace {
+                    height: leading,
+                    fit_height: leading + first_height,
+                    dropped: LeadingDrop::InNewPageOnly,
+                },
             );
-            if cursor.page_number == previous_page {
-                cursor.y += leading;
-            }
         }
         let available =
             page_content_bottom(pages, geometry, boundary, cursor.page_number) - cursor.current_top;

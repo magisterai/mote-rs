@@ -19,6 +19,7 @@ mod numbering;
 pub(crate) mod overflow;
 pub(crate) mod references;
 mod sections;
+mod spacing;
 mod stories;
 mod tables;
 pub use decorations::{DecorationKind, HighlightRectangle, TextDecoration};

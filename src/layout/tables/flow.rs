@@ -2,9 +2,10 @@ use super::super::{
     FlowCursor, HighlightRectangle, LineFrame, LinePlacement, PageGeometry, PageOperation,
     TextPage,
     columns::ColumnSeparators,
-    document::{ensure_space, next_area},
+    document::{LeadingSpace, ensure_space, next_area, place_leading},
     drawings::Drawing,
     painting::ParagraphPainting,
+    spacing::LeadingDrop,
 };
 use super::*;
 
@@ -29,18 +30,18 @@ pub(in crate::layout) fn place(
     }
     let border = table.top_border();
     let closing = table.closing_border_excess(0);
-    let previous = (cursor.page_number, cursor.column_index);
-    ensure_space(
+    place_leading(
         cursor,
         pages,
         columns,
         geometry,
         boundary,
-        pending + border + table.rows[0].height + closing,
+        LeadingSpace {
+            height: pending,
+            fit_height: pending + border + table.rows[0].height + closing,
+            dropped: LeadingDrop::InNewPageOrColumn,
+        },
     );
-    if previous == (cursor.page_number, cursor.column_index) {
-        cursor.y += pending;
-    }
     cursor.y += border;
     warn_of_cut_off_rows(table, cursor.page_number, false, &mut warnings);
     let header_count = table

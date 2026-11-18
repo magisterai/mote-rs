@@ -6,6 +6,7 @@ use super::{
 use super::{
     blocks::{Block, PreparedParagraph},
     columns::ColumnSeparators,
+    spacing::LeadingDrop,
 };
 use crate::{
     measurement::TextMeasurer,
@@ -87,21 +88,9 @@ pub(super) fn place_blocks(
                 }
                 let leading = (*pending_spacing).max(divider.before);
                 let required = divider.width.max(kept_height(leading));
-                if leading > 0.0 {
-                    let previous = (cursor.page_number, cursor.column_index);
-                    ensure_space(
-                        cursor,
-                        pages,
-                        columns,
-                        geometry,
-                        boundary,
-                        leading + required,
-                    );
-                    if previous == (cursor.page_number, cursor.column_index) {
-                        cursor.y += leading;
-                    }
-                }
-                ensure_space(cursor, pages, columns, geometry, boundary, required);
+                seek_room_below_leading(
+                    cursor, pages, columns, geometry, boundary, leading, required,
+                );
                 divider.place(
                     &mut pages[cursor.page_number - 1],
                     geometry.column_left(cursor.column_index),
@@ -120,21 +109,9 @@ pub(super) fn place_blocks(
                 }
                 let leading = (*pending_spacing).max(chart.before);
                 let required = chart.height.max(kept_height(leading));
-                if leading > 0.0 {
-                    let previous = (cursor.page_number, cursor.column_index);
-                    ensure_space(
-                        cursor,
-                        pages,
-                        columns,
-                        geometry,
-                        boundary,
-                        leading + required,
-                    );
-                    if previous == (cursor.page_number, cursor.column_index) {
-                        cursor.y += leading;
-                    }
-                }
-                ensure_space(cursor, pages, columns, geometry, boundary, required);
+                seek_room_below_leading(
+                    cursor, pages, columns, geometry, boundary, leading, required,
+                );
                 chart.place(
                     &mut pages[cursor.page_number - 1],
                     geometry.column_left(cursor.column_index),
@@ -149,8 +126,18 @@ pub(super) fn place_blocks(
             Block::Drawing(drawing) => {
                 painting.clear_fill();
                 if *pending_spacing > 0.0 {
-                    ensure_space(cursor, pages, columns, geometry, boundary, *pending_spacing);
-                    cursor.y += *pending_spacing;
+                    place_leading(
+                        cursor,
+                        pages,
+                        columns,
+                        geometry,
+                        boundary,
+                        LeadingSpace {
+                            height: *pending_spacing,
+                            fit_height: *pending_spacing,
+                            dropped: LeadingDrop::Never,
+                        },
+                    );
                 }
                 *pending_spacing = 0.0;
                 ensure_space(
@@ -186,8 +173,18 @@ pub(super) fn place_blocks(
                         ));
                     }
                     if *pending_spacing > 0.0 {
-                        ensure_space(cursor, pages, columns, geometry, boundary, *pending_spacing);
-                        cursor.y += *pending_spacing;
+                        place_leading(
+                            cursor,
+                            pages,
+                            columns,
+                            geometry,
+                            boundary,
+                            LeadingSpace {
+                                height: *pending_spacing,
+                                fit_height: *pending_spacing,
+                                dropped: LeadingDrop::Never,
+                            },
+                        );
                     }
                     ensure_space(
                         cursor,
@@ -226,21 +223,9 @@ pub(super) fn place_blocks(
                 painting.clear_fill();
                 let leading = (*pending_spacing).max(image.before);
                 let required = image.height().max(kept_height(leading));
-                if leading > 0.0 {
-                    let previous = (cursor.page_number, cursor.column_index);
-                    ensure_space(
-                        cursor,
-                        pages,
-                        columns,
-                        geometry,
-                        boundary,
-                        leading + required,
-                    );
-                    if previous == (cursor.page_number, cursor.column_index) {
-                        cursor.y += leading;
-                    }
-                }
-                ensure_space(cursor, pages, columns, geometry, boundary, required);
+                seek_room_below_leading(
+                    cursor, pages, columns, geometry, boundary, leading, required,
+                );
                 pages[cursor.page_number - 1].place_anchors(
                     &image.anchors,
                     [geometry.column_left(cursor.column_index), cursor.y],
@@ -259,7 +244,7 @@ pub(super) fn place_blocks(
                 painting.clear_fill();
                 let required = kept_height(*pending_spacing);
                 if required > 0.0 {
-                    let previous = (cursor.page_number, cursor.column_index);
+                    let previous = *cursor;
                     ensure_space(
                         cursor,
                         pages,
@@ -268,8 +253,9 @@ pub(super) fn place_blocks(
                         boundary,
                         *pending_spacing + required,
                     );
-                    // A table that moves to a fresh area drops the space above it.
-                    if previous != (cursor.page_number, cursor.column_index) {
+                    // The table sets the space above it once it has sought room
+                    // for its first row, so the space is here only dropped.
+                    if !cursor.keeps_leading(&previous, LeadingDrop::InNewPageOrColumn) {
                         *pending_spacing = 0.0;
                     }
                 }
@@ -448,6 +434,62 @@ pub(super) fn ensure_space(
     if cursor.y + height > page_content_bottom(pages, geometry, boundary, cursor.page_number) {
         next_area(cursor, pages, columns, geometry);
     }
+}
+/// The space above a block of the body.
+pub(super) struct LeadingSpace {
+    pub height: f64,
+    /// The height that the area must hold below the cursor if the block is to
+    /// stay in the area: the space and whatever must share the area with it.
+    pub fit_height: f64,
+    pub dropped: LeadingDrop,
+}
+/// Seeks room for the space above a block, and sets the space unless the move
+/// of the block drops it.
+pub(super) fn place_leading(
+    cursor: &mut FlowCursor,
+    pages: &mut Vec<TextPage>,
+    columns: &mut ColumnSeparators,
+    geometry: PageGeometry,
+    boundary: Option<super::sections::FlowBoundary>,
+    leading: LeadingSpace,
+) {
+    let previous = *cursor;
+    ensure_space(
+        cursor,
+        pages,
+        columns,
+        geometry,
+        boundary,
+        leading.fit_height,
+    );
+    cursor.add_leading(&previous, leading.height, leading.dropped);
+}
+/// Seeks room for a divider, a chart or an image: for the space above it
+/// together with the height `required`, and then for that height alone.
+fn seek_room_below_leading(
+    cursor: &mut FlowCursor,
+    pages: &mut Vec<TextPage>,
+    columns: &mut ColumnSeparators,
+    geometry: PageGeometry,
+    boundary: Option<super::sections::FlowBoundary>,
+    leading: f64,
+    required: f64,
+) {
+    if leading > 0.0 {
+        place_leading(
+            cursor,
+            pages,
+            columns,
+            geometry,
+            boundary,
+            LeadingSpace {
+                height: leading,
+                fit_height: leading + required,
+                dropped: LeadingDrop::InNewPageOrColumn,
+            },
+        );
+    }
+    ensure_space(cursor, pages, columns, geometry, boundary, required);
 }
 pub(super) fn next_area(
     cursor: &mut FlowCursor,

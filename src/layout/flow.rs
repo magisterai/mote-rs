@@ -1,4 +1,4 @@
-use super::{LayoutError, LineFrame, PageGeometry, widows};
+use super::{LayoutError, LineFrame, PageGeometry, spacing::LeadingDrop, widows};
 
 #[derive(Debug, Clone, Copy, Default, PartialEq)]
 pub struct FlowCursor {
@@ -137,11 +137,11 @@ pub fn plan_paragraph_flow(
                 0.0,
                 false,
             )?;
-            if planner.cursor.page_number == previous.page_number
-                && planner.cursor.column_index == previous.column_index
-            {
-                planner.cursor.y += options.leading_space;
-            }
+            planner.cursor.add_leading(
+                &previous,
+                options.leading_space,
+                LeadingDrop::InNewPageOrColumn,
+            );
         }
         if options.minimum_start_space > 0.0 {
             planner.ensure_fresh(options.minimum_start_space, options.fresh_fit_tolerance)?;
