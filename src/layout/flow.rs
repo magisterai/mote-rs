@@ -1,7 +1,6 @@
 use super::{
     LayoutError, LineFrame, PageGeometry,
-    spacing::LeadingDrop,
-    tolerances::{AREA_START_TOLERANCE, BLOCK_FIT_TOLERANCE},
+    tolerances::{AREA_START_TOLERANCE, FIT_TOLERANCE},
     widows,
 };
 
@@ -25,7 +24,6 @@ pub struct FlowArea {
     pub content_top: f64,
     pub content_bottom: f64,
     pub page_start: f64,
-    pub bottom_slack: f64,
     /// Holds whether the area must hold the trailing space of its last line,
     /// as the height of balanced columns must.
     pub whole_lines: bool,
@@ -36,7 +34,6 @@ impl From<PageGeometry> for FlowArea {
             content_top: geometry.margin_top,
             content_bottom: geometry.content_bottom(),
             page_start: geometry.margin_top,
-            bottom_slack: 0.0,
             whole_lines: false,
             geometry,
         }
@@ -45,13 +42,9 @@ impl From<PageGeometry> for FlowArea {
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct FlowOptions {
     pub leading_space: f64,
-    pub leading_fit_slack: f64,
-    pub keep_fit_leading_space: f64,
     pub minimum_start_space: f64,
     pub keep_together: bool,
     pub widow_control: bool,
-    pub fresh_fit_tolerance: f64,
-    pub keep_fit_tolerance: f64,
     /// Holds, for each line, the space at its foot that an area need not hold.
     /// An empty vector states that every line must fit whole.
     pub trailing_spaces: Vec<f64>,
@@ -101,11 +94,7 @@ pub fn plan_paragraph_flow(
             cursor.current_top,
             cursor.y,
             options.leading_space,
-            options.leading_fit_slack,
-            options.keep_fit_leading_space,
             options.minimum_start_space,
-            options.fresh_fit_tolerance,
-            options.keep_fit_tolerance,
         ]
         .iter()
         .any(|value| !value.is_finite())
@@ -136,20 +125,11 @@ pub fn plan_paragraph_flow(
         if options.leading_space > 0.0 {
             let previous = planner.cursor;
             let trailing_space = trailing_spaces(&planner.area()?)[0];
-            planner.ensure_space(
-                options.leading_space + heights[0] - trailing_space,
-                options.leading_fit_slack,
-                BLOCK_FIT_TOLERANCE,
-                false,
-            )?;
-            planner.cursor.add_leading(
-                &previous,
-                options.leading_space,
-                LeadingDrop::InNewPageOrColumn,
-            );
+            planner.ensure_space(options.leading_space + heights[0] - trailing_space, false)?;
+            planner.cursor.add_leading(&previous, options.leading_space);
         }
         if options.minimum_start_space > 0.0 {
-            planner.ensure_fresh(options.minimum_start_space, options.fresh_fit_tolerance)?;
+            planner.ensure_fresh(options.minimum_start_space)?;
         }
         let area = planner.area()?;
         let full_height: f64 =
@@ -158,12 +138,10 @@ pub fn plan_paragraph_flow(
             return Err(LayoutError::InvalidGeometry("paragraph height overflowed"));
         }
         if options.keep_together
-            && options.keep_fit_leading_space + full_height
-                <= area.content_bottom - area.content_top
-                    + area.bottom_slack
-                    + options.keep_fit_tolerance
+            && options.leading_space + full_height
+                <= area.content_bottom - area.content_top + FIT_TOLERANCE
         {
-            planner.ensure_fresh(full_height, options.fresh_fit_tolerance)?;
+            planner.ensure_fresh(full_height)?;
         }
         if initial.page_number != planner.cursor.page_number
             || initial.column_index != planner.cursor.column_index
@@ -178,8 +156,8 @@ pub fn plan_paragraph_flow(
                 widows::line_count(
                     &heights[index..],
                     &trailing_spaces(&area)[index..],
-                    area.content_bottom + area.bottom_slack - planner.cursor.y,
-                    area.content_bottom + area.bottom_slack - area.content_top,
+                    area.content_bottom - planner.cursor.y,
+                    area.content_bottom - area.content_top,
                     at_start,
                 )
             } else {
@@ -201,12 +179,7 @@ pub fn plan_paragraph_flow(
             while index < end {
                 if !options.widow_control {
                     let area = planner.area()?;
-                    planner.ensure_space(
-                        heights[index] - trailing_spaces(&area)[index],
-                        area.bottom_slack,
-                        BLOCK_FIT_TOLERANCE,
-                        false,
-                    )?;
+                    planner.ensure_space(heights[index] - trailing_spaces(&area)[index], false)?;
                 }
                 let area = planner.area()?;
                 let mut frame = frames[index];
@@ -253,14 +226,9 @@ impl<Resolver: Fn(usize) -> FlowArea> FlowPlanner<Resolver> {
                 "flow cursor column is outside the page",
             ));
         }
-        if [
-            area.content_top,
-            area.content_bottom,
-            area.page_start,
-            area.bottom_slack,
-        ]
-        .iter()
-        .any(|value| !value.is_finite())
+        if [area.content_top, area.content_bottom, area.page_start]
+            .iter()
+            .any(|value| !value.is_finite())
             || area.content_bottom <= area.content_top
             || area.page_start < area.content_top
             || area.page_start >= area.content_bottom
@@ -310,28 +278,21 @@ impl<Resolver: Fn(usize) -> FlowArea> FlowPlanner<Resolver> {
                 && self.cursor.y <= area.content_top + AREA_START_TOLERANCE,
         )
     }
-    fn ensure_space(
-        &mut self,
-        height: f64,
-        slack: f64,
-        tolerance: f64,
-        fresh: bool,
-    ) -> Result<bool, LayoutError> {
+    fn ensure_space(&mut self, height: f64, fresh: bool) -> Result<bool, LayoutError> {
         let area = self.area()?;
-        if (fresh && height > area.content_bottom - area.content_top + slack + tolerance)
-            || self.cursor.y + height <= area.content_bottom + slack + tolerance
+        if (fresh && height > area.content_bottom - area.content_top + FIT_TOLERANCE)
+            || self.cursor.y + height <= area.content_bottom + FIT_TOLERANCE
         {
             return Ok(false);
         }
         self.advance_next()?;
         Ok(true)
     }
-    fn ensure_fresh(&mut self, height: f64, tolerance: f64) -> Result<(), LayoutError> {
+    fn ensure_fresh(&mut self, height: f64) -> Result<(), LayoutError> {
         // A caller-supplied area may vary by page; reject a non-progressing series.
         let limit = self.area()?.geometry.column_count.saturating_add(2);
         for _ in 0..limit {
-            let area = self.area()?;
-            if !self.ensure_space(height, area.bottom_slack, tolerance, true)? {
+            if !self.ensure_space(height, true)? {
                 return Ok(());
             }
         }

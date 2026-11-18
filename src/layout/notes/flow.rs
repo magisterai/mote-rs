@@ -10,8 +10,7 @@ use crate::layout::{
     },
     painting::ParagraphPainting,
     sections::FlowBoundary,
-    spacing::LeadingDrop,
-    tolerances::{AREA_START_TOLERANCE, LINE_FIT_TOLERANCE},
+    tolerances::{AREA_START_TOLERANCE, FIT_TOLERANCE},
 };
 
 pub(in crate::layout) struct NoteFlowContext<'scope> {
@@ -70,7 +69,7 @@ impl NoteLayout {
             || paragraph.lines.len() > 1
                 && (paragraph.style.keep_together || paragraph.style.widow_control))
             && cursor.y + leading + height
-                > self.body_bottom(&candidate, foot(pages, cursor.page_number)) + LINE_FIT_TOLERANCE
+                > self.body_bottom(&candidate, foot(pages, cursor.page_number)) + FIT_TOLERANCE
         {
             warnings.push("native footnote reservation takes precedence over paragraph keep and widow/orphan preferences".into());
         }
@@ -85,19 +84,17 @@ impl NoteLayout {
                 LeadingSpace {
                     height: leading,
                     fit_height: leading + first_height,
-                    dropped: LeadingDrop::InNewPageOnly,
                 },
             );
         }
         let available =
             page_content_bottom(pages, geometry, boundary, cursor.page_number) - cursor.current_top;
-        let required = if paragraph.style.keep_together
-            && leading + height <= available + LINE_FIT_TOLERANCE
-        {
-            minimum.max(height)
-        } else {
-            minimum
-        };
+        let required =
+            if paragraph.style.keep_together && leading + height <= available + FIT_TOLERANCE {
+                minimum.max(height)
+            } else {
+                minimum
+            };
         if required > 0.0 && cursor.y > cursor.current_top + AREA_START_TOLERANCE {
             ensure_space(cursor, pages, columns, geometry, boundary, required);
         }
@@ -133,7 +130,7 @@ impl NoteLayout {
                     }
                     let bottom = self.body_bottom(&candidate, foot(pages, cursor.page_number));
                     let fits =
-                        cursor.y + line.height - line.trailing_space <= bottom + LINE_FIT_TOLERANCE;
+                        cursor.y + line.height - line.trailing_space <= bottom + FIT_TOLERANCE;
                     let fresh = cursor.y <= geometry.margin_top + AREA_START_TOLERANCE;
                     if fits || fresh || attempt == 1 {
                         if !fits {

@@ -5,8 +5,8 @@ use super::{
 use super::{
     blocks::{Block, PreparedParagraph},
     columns::ColumnSeparators,
-    spacing::{LeadingDrop, NegativeSpaceAfter, carried_spacing, collapsed_spacing},
-    tolerances::{BLOCK_FIT_TOLERANCE, LEAST_AREA_HEIGHT},
+    spacing::collapsed_spacing,
+    tolerances::{FIT_TOLERANCE, LEAST_AREA_HEIGHT},
 };
 use crate::{
     measurement::TextMeasurer,
@@ -105,7 +105,7 @@ pub(super) fn place_blocks(
                     geometry.column_width(),
                 );
                 pass_block(cursor, columns, geometry, divider.width);
-                *pending_spacing = carried_spacing(divider.after, NegativeSpaceAfter::TakenAsNone);
+                *pending_spacing = divider.after;
             }
             Block::Chart(chart) => {
                 painting.clear_fill();
@@ -125,7 +125,7 @@ pub(super) fn place_blocks(
                 );
                 warnings.extend(chart.reduced_labels_warning(cursor.page_number));
                 pass_block(cursor, columns, geometry, chart.height);
-                *pending_spacing = carried_spacing(chart.after, NegativeSpaceAfter::TakenAsNone);
+                *pending_spacing = chart.after;
             }
             Block::Drawing(drawing) if drawing.flow.is_some() => {
                 let flow = drawing.flow.as_ref().unwrap();
@@ -149,10 +149,7 @@ pub(super) fn place_blocks(
                         .map(|cut_off| cut_off.warning(cursor.page_number)),
                 );
                 pass_block(cursor, columns, geometry, flow.height);
-                *pending_spacing = carried_spacing(
-                    super::drawings::Flow::AFTER,
-                    NegativeSpaceAfter::TakenAsNone,
-                );
+                *pending_spacing = super::drawings::Flow::AFTER;
             }
             Block::Drawing(drawing) => {
                 painting.clear_fill();
@@ -199,7 +196,7 @@ pub(super) fn place_blocks(
                     cursor.y,
                 )?);
                 pass_block(cursor, columns, geometry, image.height());
-                *pending_spacing = carried_spacing(image.after, NegativeSpaceAfter::TakenAsNone);
+                *pending_spacing = image.after;
             }
             Block::Table(table) => {
                 painting.clear_fill();
@@ -216,7 +213,7 @@ pub(super) fn place_blocks(
                     );
                     // The table sets the space above it once it has sought room
                     // for its first row, so the space is here only dropped.
-                    if !cursor.keeps_leading(&previous, LeadingDrop::InNewPageOrColumn) {
+                    if !cursor.is_in_area_of(&previous) {
                         *pending_spacing = 0.0;
                     }
                 }
@@ -286,10 +283,7 @@ pub(super) fn place_blocks(
                         },
                         &mut painting,
                     )?;
-                    *pending_spacing = carried_spacing(
-                        paragraph.style.spacing_after,
-                        NegativeSpaceAfter::TakenAsNone,
-                    );
+                    *pending_spacing = paragraph.style.spacing_after;
                     if prepared.clear_fill_after {
                         painting.clear_fill();
                     }
@@ -305,7 +299,6 @@ pub(super) fn place_blocks(
                     &frames,
                     &FlowOptions {
                         leading_space: leading,
-                        keep_fit_leading_space: leading,
                         minimum_start_space: minimum,
                         keep_together: paragraph.style.keep_together,
                         widow_control: paragraph.style.widow_control,
@@ -314,7 +307,6 @@ pub(super) fn place_blocks(
                             .iter()
                             .map(|line| line.trailing_space)
                             .collect(),
-                        ..Default::default()
                     },
                     |page_number| {
                         let mut area = FlowArea::from(geometry);
@@ -358,10 +350,7 @@ pub(super) fn place_blocks(
                     }
                 }
                 *cursor = flow.final_cursor;
-                *pending_spacing = carried_spacing(
-                    paragraph.style.spacing_after,
-                    NegativeSpaceAfter::TakenAsNone,
-                );
+                *pending_spacing = paragraph.style.spacing_after;
                 if prepared.clear_fill_after {
                     painting.clear_fill();
                 }
@@ -394,7 +383,7 @@ pub(super) fn ensure_space(
     height: f64,
 ) {
     if cursor.y + height
-        > page_content_bottom(pages, geometry, boundary, cursor.page_number) + BLOCK_FIT_TOLERANCE
+        > page_content_bottom(pages, geometry, boundary, cursor.page_number) + FIT_TOLERANCE
     {
         next_area(cursor, pages, columns, geometry);
     }
@@ -405,7 +394,6 @@ pub(super) struct LeadingSpace {
     /// The height that the area must hold below the cursor if the block is to
     /// stay in the area: the space and whatever must share the area with it.
     pub fit_height: f64,
-    pub dropped: LeadingDrop,
 }
 /// Seeks room for the space above a block, and sets the space unless the move
 /// of the block drops it.
@@ -426,7 +414,7 @@ pub(super) fn place_leading(
         boundary,
         leading.fit_height,
     );
-    cursor.add_leading(&previous, leading.height, leading.dropped);
+    cursor.add_leading(&previous, leading.height);
 }
 /// Seeks room for a divider, a chart or an image: for the space above it
 /// together with the height `required`, and then for that height alone.
@@ -449,7 +437,6 @@ fn seek_room_below_leading(
             LeadingSpace {
                 height: leading,
                 fit_height: leading + required,
-                dropped: LeadingDrop::InNewPageOrColumn,
             },
         );
     }
@@ -507,7 +494,7 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
     }
     let mut count = 1;
     let mut required: f64 = first.lines.iter().map(|line| line.height).sum();
-    let mut previous_after = carried_spacing(first.style.spacing_after, NegativeSpaceAfter::Kept);
+    let mut previous_after = first.style.spacing_after;
     for block in &blocks[1..] {
         let Block::Paragraph(prepared) = block else {
             break;
@@ -520,14 +507,13 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
         required += collapsed_spacing(previous_after, paragraph.style.spacing_before);
         if paragraph.style.keep_with_next {
             required += paragraph.lines.iter().map(|line| line.height).sum::<f64>();
-            previous_after =
-                carried_spacing(paragraph.style.spacing_after, NegativeSpaceAfter::Kept);
+            previous_after = paragraph.style.spacing_after;
         } else {
             required += start_height(prepared);
             break;
         }
     }
-    if count < 2 || first.style.spacing_before + required > maximum + BLOCK_FIT_TOLERANCE {
+    if count < 2 || first.style.spacing_before + required > maximum + FIT_TOLERANCE {
         0.0
     } else {
         required
@@ -595,13 +581,13 @@ fn kept_blocks_height(
                 required += collapsed_spacing(previous_after, before);
             }
             required += height;
-            previous_after = Some(carried_spacing(after, NegativeSpaceAfter::TakenAsNone));
+            previous_after = Some(after);
         }
         if !kept {
             break;
         }
     }
-    if leading + required > maximum + BLOCK_FIT_TOLERANCE {
+    if leading + required > maximum + FIT_TOLERANCE {
         0.0
     } else {
         required

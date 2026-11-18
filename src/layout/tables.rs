@@ -4,11 +4,7 @@ mod cells;
 mod columns;
 pub(super) mod flow;
 mod pagination;
-use super::{
-    LayoutError, LayoutStyleResolver,
-    blocks::Block,
-    spacing::{NegativeSpaceAfter, carried_spacing, collapsed_spacing},
-};
+use super::{LayoutError, LayoutStyleResolver, blocks::Block, spacing::collapsed_spacing};
 use crate::{
     measurement::TextMeasurer,
     media::ImageCatalog,
@@ -306,7 +302,7 @@ pub(super) fn prepare(
                 }
                 cell.content_tops.push(cell.content_height);
                 cell.content_height += height;
-                previous_after = carried_spacing(after, NegativeSpaceAfter::Kept);
+                previous_after = after;
             }
             cell.content_height += previous_after;
             let height = (cell.content_height + cell.margins[0] + cell.margins[2])

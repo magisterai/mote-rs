@@ -9,7 +9,7 @@ use super::{
     document::{
         LeadingSpace, PlacementContext, ensure_space, pass_block, place_blocks, place_leading,
     },
-    spacing::{LeadingDrop, collapsed_spacing},
+    spacing::collapsed_spacing,
     tolerances::BALANCE_TOLERANCE,
 };
 use crate::{
@@ -478,7 +478,6 @@ fn advance_boundary(
         LeadingSpace {
             height: leading,
             fit_height: leading + style.line_height,
-            dropped: LeadingDrop::InNewPageOrColumn,
         },
     );
     ensure_space(
@@ -501,7 +500,6 @@ fn advance_boundary(
         LeadingSpace {
             height: style.spacing_after,
             fit_height: style.spacing_after,
-            dropped: LeadingDrop::InNewPageOrColumn,
         },
     );
 }

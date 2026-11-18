@@ -1,5 +1,5 @@
 //! Line-safe row fragments. Each cell advances independently within a shared physical row.
-use super::super::tolerances::{ROW_FIT_TOLERANCE, TABLE_POSITION_TOLERANCE};
+use super::super::tolerances::{FIT_TOLERANCE, TABLE_POSITION_TOLERANCE};
 use super::*;
 #[derive(Clone, Copy, Default)]
 pub(super) struct Window {
@@ -186,7 +186,7 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
         .any(|((_, end), cursor)| end - cursor > TABLE_POSITION_TOLERANCE)
     {
         let available_height = capacity(available, frame);
-        if output.is_empty() && row.height <= available_height + ROW_FIT_TOLERANCE {
+        if output.is_empty() && row.height <= available_height + FIT_TOLERANCE {
             return Some(vec![Slice {
                 row: row_index,
                 frame,
@@ -208,7 +208,7 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
         // holds that height.
         if output.is_empty()
             && let Some((least, false)) = row.authored_height
-            && least.min(row.height) > available_height + ROW_FIT_TOLERANCE
+            && least.min(row.height) > available_height + FIT_TOLERANCE
         {
             if frame < available.len() - 1 {
                 frame += 1;
@@ -243,7 +243,7 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
                     } else {
                         0.0
                     };
-                if candidate_height > available_height + ROW_FIT_TOLERANCE {
+                if candidate_height > available_height + FIT_TOLERANCE {
                     break;
                 }
                 cut = *candidate;
@@ -383,14 +383,14 @@ pub(super) fn plan(
                 remaining -= height;
             }
         } else {
-            if row.height > remaining + ROW_FIT_TOLERANCE {
-                if row.height > capacity(available, available.len() - 1) + ROW_FIT_TOLERANCE {
+            if row.height > remaining + FIT_TOLERANCE {
+                if row.height > capacity(available, available.len() - 1) + FIT_TOLERANCE {
                     return None;
                 }
                 loop {
                     frame += 1;
                     remaining = capacity(available, frame);
-                    if row.height <= remaining + ROW_FIT_TOLERANCE {
+                    if row.height <= remaining + FIT_TOLERANCE {
                         break;
                     }
                 }
@@ -441,7 +441,7 @@ pub(super) fn plan(
             }
             let alignment = groups.first()?.2;
             let top_aligned = cell.margins[0] + cell.content_height + cell.margins[2] + 0.5
-                > alignment + ROW_FIT_TOLERANCE;
+                > alignment + FIT_TOLERANCE;
             let mut offset = 0.0;
             for (index, (slice, _, height)) in groups.iter().enumerate() {
                 if index > 0 && !break_allowed(cell, alignment, offset) {

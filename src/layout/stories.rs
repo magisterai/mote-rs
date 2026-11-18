@@ -1,8 +1,7 @@
 //! Header/footer text uses full-width story bands independently of body columns.
 use super::{
     DocumentTextPlan, LayoutError, LayoutStyleResolver, PlacedTextLine, TextLine,
-    spacing::{NegativeSpaceAfter, carried_spacing, collapsed_spacing},
-    tolerances::LINE_FIT_TOLERANCE,
+    spacing::collapsed_spacing, tolerances::FIT_TOLERANCE,
 };
 use crate::{
     measurement::TextMeasurer,
@@ -87,7 +86,7 @@ fn fitting_line_count(lines: &[StoryLine], available: f64) -> usize {
         .iter()
         .take_while(|line| {
             height += line.height();
-            height <= available + LINE_FIT_TOLERANCE
+            height <= available + FIT_TOLERANCE
         })
         .count()
 }
@@ -159,7 +158,7 @@ fn measure(
         style.first_line = 0.0;
         let runs = super::resolve_inline(&paragraph.children, &style.text, styles);
         let before = style.spacing_before;
-        let after = carried_spacing(style.spacing_after, NegativeSpaceAfter::Kept);
+        let after = style.spacing_after;
         let borders = styles.borders(&paragraph);
         let paragraph = super::paragraphs::plan_resolved_paragraph(
             style,

@@ -67,7 +67,6 @@ fn paragraph_pagination_matches_captured_flow_cases() {
             .collect();
         let options = FlowOptions {
             leading_space: case["leading"].as_f64().unwrap(),
-            keep_fit_leading_space: case["leading"].as_f64().unwrap(),
             minimum_start_space: case["minimum_start"].as_f64().unwrap(),
             keep_together: case["keep_together"].as_bool().unwrap(),
             widow_control: case["widow_control"].as_bool().unwrap(),

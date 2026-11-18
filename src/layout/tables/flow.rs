@@ -7,8 +7,7 @@ use super::super::{
     },
     drawings::Drawing,
     painting::ParagraphPainting,
-    spacing::LeadingDrop,
-    tolerances::{BLOCK_FIT_TOLERANCE, TABLE_POSITION_TOLERANCE},
+    tolerances::{FIT_TOLERANCE, TABLE_POSITION_TOLERANCE},
 };
 use super::*;
 
@@ -48,7 +47,6 @@ pub(in crate::layout) fn place(
         LeadingSpace {
             height: pending,
             fit_height: pending + border + headers.opening_height(room) + closing,
-            dropped: LeadingDrop::InNewPageOrColumn,
         },
     );
     cursor.y += border;
@@ -151,7 +149,7 @@ pub(in crate::layout) fn place(
             }
         } else {
             let oversized =
-                height > geometry.content_bottom() - geometry.margin_top + BLOCK_FIT_TOLERANCE;
+                height > geometry.content_bottom() - geometry.margin_top + FIT_TOLERANCE;
             let degrade_rowspans = oversized && end > start + 1;
             if degrade_rowspans {
                 warnings.push(format!("table row group {} exceeds a complete frame and has no safe continuation; rowspans are reduced to individual rows and content may be clipped", start + 1));
@@ -299,7 +297,7 @@ impl<'plan> HeaderRows<'plan> {
             && self.height + start.height
                 <= page_content_bottom(pages, geometry, boundary, cursor.page_number)
                     - cursor.current_top
-                    + BLOCK_FIT_TOLERANCE;
+                    + FIT_TOLERANCE;
         // Word sets the top border of the row that begins a page below the
         // top of the text area, as it does for the first row of the table.
         cursor.y += self

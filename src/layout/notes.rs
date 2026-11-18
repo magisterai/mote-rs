@@ -1,8 +1,5 @@
 //! Stable note selection, numbering, and page reservations for native document flow.
-use super::{
-    LayoutError, LayoutStyleResolver, LineOptions, PageGeometry, TextLine, TextRun,
-    spacing::{NegativeSpaceAfter, carried_spacing},
-};
+use super::{LayoutError, LayoutStyleResolver, LineOptions, PageGeometry, TextLine, TextRun};
 use crate::{
     measurement::TextMeasurer,
     model::{Content, Element, ElementKind, Properties, Section, Value},
@@ -96,8 +93,7 @@ impl NoteLayout {
     ) -> Result<Self, LayoutError> {
         let mut layout = Self::default();
         let separator = styles.paragraph(&empty_paragraph());
-        layout.endnote_band = separator.line_height
-            + carried_spacing(separator.spacing_after, NegativeSpaceAfter::TakenAsNone);
+        layout.endnote_band = separator.line_height + separator.spacing_after;
         if let Some(last) = sections.last() {
             layout.endnote_geometry = PageGeometry::from_section(last)?;
             if layout.endnote_geometry.column_count > 1 {
@@ -351,7 +347,7 @@ fn measure(
     Ok(Note {
         lines,
         height,
-        after: carried_spacing(style.spacing_after, NegativeSpaceAfter::TakenAsNone),
+        after: style.spacing_after,
         left: geometry.margin_left,
         width,
     })

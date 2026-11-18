@@ -1,4 +1,4 @@
-use super::tolerances::LINE_FIT_TOLERANCE;
+use super::tolerances::FIT_TOLERANCE;
 
 /// Counts the leading lines that `available` holds. The trailing space of the
 /// last of them need not fit, since Word requires of a line at the foot of a
@@ -6,7 +6,7 @@ use super::tolerances::LINE_FIT_TOLERANCE;
 pub(super) fn fitting_lines(heights: &[f64], trailing_spaces: &[f64], available: f64) -> usize {
     let mut used = 0.0;
     for (index, height) in heights.iter().enumerate() {
-        if used + height - trailing_spaces[index] > available + LINE_FIT_TOLERANCE {
+        if used + height - trailing_spaces[index] > available + FIT_TOLERANCE {
             return index;
         }
         used += height;
@@ -51,7 +51,7 @@ fn fresh_partitions(heights: &[f64], trailing_spaces: &[f64], maximum: f64) -> V
         let mut height = 0.0;
         for end in start..heights.len() {
             height += heights[end];
-            if height - trailing_spaces[end] > maximum + LINE_FIT_TOLERANCE {
+            if height - trailing_spaces[end] > maximum + FIT_TOLERANCE {
                 break;
             }
             if end - start + 1 >= 2 && (end == heights.len() - 1 || possible[end + 1]) {

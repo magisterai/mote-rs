@@ -6,8 +6,7 @@ use crate::layout::{
 use crate::layout::{
     columns::ColumnSeparators,
     document::{ensure_space, next_area, page_content_bottom, pass_block},
-    spacing::LeadingDrop,
-    tolerances::{BLOCK_FIT_TOLERANCE, LINE_FIT_TOLERANCE},
+    tolerances::FIT_TOLERANCE,
 };
 
 impl NoteLayout {
@@ -75,12 +74,11 @@ impl NoteLayout {
         if pending_spacing > 0.0 {
             let previous = *cursor;
             if cursor.y + pending_spacing + required
-                > page_content_bottom(pages, geometry, None, cursor.page_number)
-                    + BLOCK_FIT_TOLERANCE
+                > page_content_bottom(pages, geometry, None, cursor.page_number) + FIT_TOLERANCE
             {
                 next_area(cursor, pages, columns, geometry);
             }
-            cursor.add_leading(&previous, pending_spacing, LeadingDrop::InNewPageOnly);
+            cursor.add_leading(&previous, pending_spacing);
         }
         ensure_space(cursor, pages, columns, geometry, None, required);
         separator(
@@ -106,12 +104,12 @@ impl NoteLayout {
                 let bottom = pages[cursor.page_number - 1]
                     .note_body_bottom
                     .map_or(ordinary_bottom, |bottom| bottom.min(ordinary_bottom));
-                if cursor.y + leading + line.height > bottom + BLOCK_FIT_TOLERANCE {
+                if cursor.y + leading + line.height > bottom + FIT_TOLERANCE {
                     let available = self
                         .endnote_continuation_bottom(geometry, cursor.page_number + 1)
                         - geometry.margin_top
                         - self.endnote_band;
-                    if line.height > available + LINE_FIT_TOLERANCE {
+                    if line.height > available + FIT_TOLERANCE {
                         warnings.push(
                             "native oversized endnote line exceeds its continuation page".into(),
                         );
