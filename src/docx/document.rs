@@ -96,12 +96,19 @@ pub(super) fn write_blocks(
         }
         after_paragraph = false;
         let leading_column_break = std::mem::take(&mut pending_column_break);
-        if leading_column_break
-            && !matches!(
-                element.kind,
-                ElementKind::Paragraph | ElementKind::Heading | ElementKind::Blockquote
-            )
-        {
+        // A block that is written as a paragraph begins with the break. A
+        // paragraph that holds the break alone leaves its mark, an empty line,
+        // at the head of the next column in Word.
+        let begins_with_break = matches!(
+            element.kind,
+            ElementKind::Paragraph
+                | ElementKind::Heading
+                | ElementKind::Blockquote
+                | ElementKind::Raw
+                | ElementKind::Divider
+                | ElementKind::DefinitionList
+        ) || crate::drawings::flows(element);
+        if leading_column_break && !begins_with_break {
             body.push_str(break_paragraph("column")?);
         }
         let mut numbering_reference = None;
@@ -163,7 +170,12 @@ pub(super) fn write_blocks(
                 continue;
             }
             ElementKind::Shape | ElementKind::Group => {
-                body.push_str(&super::shapes::write(element, styles, state)?);
+                body.push_str(&super::shapes::write(
+                    element,
+                    styles,
+                    state,
+                    leading_column_break,
+                )?);
                 at_flow_start = false;
                 continue;
             }

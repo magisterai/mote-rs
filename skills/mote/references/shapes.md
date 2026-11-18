@@ -61,7 +61,8 @@ The plan has two stages.
   the text is as wide and as tall as its objects reach from that corner;
   `position = { width = inch(5), height = inch(2) }` states the frame instead.
 - The `alignment` of a group in the text is `left`, `center` or `right`.
-- A shape or a group in the text is not divided between pages.
+- A shape or a group in the text is not divided between pages or columns, and
+  takes its room in a table cell as it does in the body.
 
 In a document, a shape or a group **with** `x` and `y` is fixed: the coordinates
 are measured from the top-left corner of the page on which the directive falls,

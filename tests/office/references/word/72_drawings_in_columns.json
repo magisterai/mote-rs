@@ -1,0 +1,300 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "DRAW INGS IN COLUMNS: a drawing in the text moves to the next column, begins with a",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "column break before it, and is balanced with the text of a continuous section.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.11,
+          "text": "Alpha sentence fills its column with words that Shape A2 moves to the second",
+          "x": 72.0
+        },
+        {
+          "baseline": 93.6,
+          "text": "column",
+          "x": 315.12
+        },
+        {
+          "baseline": 97.68,
+          "text": "wrap. Alpha sentence fills its column with",
+          "x": 101.96
+        },
+        {
+          "baseline": 113.04,
+          "text": "words that wrap. Alpha sentence fills its",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "column with words that wrap.",
+          "x": 72.0
+        },
+        {
+          "baseline": 150.0,
+          "text": "Shape A1 in a column",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.56,
+          "text": "Gamma sentence fills its column with words",
+          "x": 315.12
+        },
+        {
+          "baseline": 205.68,
+          "text": "that wrap. Gamma sentence fills its column",
+          "x": 315.12
+        },
+        {
+          "baseline": 219.36,
+          "text": "Beta sentence fills its column with words that",
+          "x": 72.0
+        },
+        {
+          "baseline": 221.04,
+          "text": "with words that wrap. Gamma sentence fills",
+          "x": 315.12
+        },
+        {
+          "baseline": 234.48,
+          "text": "wrap. Beta sentence fills its column with",
+          "x": 101.96
+        },
+        {
+          "baseline": 236.16,
+          "text": "its column with words that wrap.",
+          "x": 315.12
+        },
+        {
+          "baseline": 249.6,
+          "text": "words that wrap. Beta sentence fills its",
+          "x": 72.0
+        },
+        {
+          "baseline": 257.04,
+          "text": "Group A3",
+          "x": 362.64
+        },
+        {
+          "baseline": 264.96,
+          "text": "column with words that wrap.",
+          "x": 72.0
+        },
+        {
+          "baseline": 327.36,
+          "text": "Delta sentence fills its column with words that",
+          "x": 315.12
+        },
+        {
+          "baseline": 342.48,
+          "text": "wrap. Delta sentence fills its column with",
+          "x": 345.08
+        },
+        {
+          "baseline": 357.6,
+          "text": "words that wrap. Delta sentence fills its",
+          "x": 315.12
+        },
+        {
+          "baseline": 372.96,
+          "text": "column with words that wrap.",
+          "x": 315.12
+        },
+        {
+          "baseline": 393.84,
+          "text": "Group A4",
+          "x": 410.4
+        },
+        {
+          "baseline": 464.16,
+          "text": "Epsilon sentence fills its column with words",
+          "x": 315.12
+        },
+        {
+          "baseline": 479.28,
+          "text": "that wrap. Epsilon sentence fills its column",
+          "x": 315.12
+        },
+        {
+          "baseline": 494.4,
+          "text": "with words that wrap. Epsilon sentence fills its",
+          "x": 315.12
+        },
+        {
+          "baseline": 509.52,
+          "text": "column with words that wrap.",
+          "x": 315.12
+        },
+        {
+          "baseline": 597.6,
+          "text": "Filler A of 400 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.09,
+          "text": "Zeta sentence fills its column with words that Shape B2 after a column break",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "wrap. Zeta sentence fills its column with",
+          "x": 101.96
+        },
+        {
+          "baseline": 113.04,
+          "text": "words that wrap. Zeta sentence fills its column",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "with words that wrap.",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.64,
+          "text": "Theta sentence fills its column with words that",
+          "x": 315.12
+        },
+        {
+          "baseline": 150.0,
+          "text": "Shape B1 wider than its column",
+          "x": 72.0
+        },
+        {
+          "baseline": 155.76,
+          "text": "wrap. Theta sentence fills its column with",
+          "x": 345.08
+        },
+        {
+          "baseline": 170.88,
+          "text": "words that wrap. Theta sentence fills its",
+          "x": 315.12
+        },
+        {
+          "baseline": 186.24,
+          "text": "column with words that wrap.",
+          "x": 315.12
+        },
+        {
+          "baseline": 209.28,
+          "text": "Eta sentence fills its column with words that",
+          "x": 72.0
+        },
+        {
+          "baseline": 224.4,
+          "text": "wrap. Eta sentence fills its column with words",
+          "x": 101.96
+        },
+        {
+          "baseline": 239.76,
+          "text": "that wrap. Eta sentence fills its column with",
+          "x": 72.0
+        },
+        {
+          "baseline": 254.88,
+          "text": "words that wrap.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Text before the balanced columns.",
+          "x": 72.0
+        },
+        {
+          "baseline": 105.38,
+          "text": "Iota sentence fills its column with words that Shape C2 in balanced columns",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "wrap. Iota sentence fills its column with words",
+          "x": 101.96
+        },
+        {
+          "baseline": 136.08,
+          "text": "that wrap.",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.16,
+          "text": "Shape C1 in balanced columns",
+          "x": 72.0
+        },
+        {
+          "baseline": 183.84,
+          "text": "Lambda sentence runs down its own column",
+          "x": 315.12
+        },
+        {
+          "baseline": 198.96,
+          "text": "and wraps there. Lambda sentence runs",
+          "x": 315.12
+        },
+        {
+          "baseline": 214.08,
+          "text": "down its own column and wraps there.",
+          "x": 315.12
+        },
+        {
+          "baseline": 237.36,
+          "text": "Kappa sentence goes down its own column",
+          "x": 72.0
+        },
+        {
+          "baseline": 252.48,
+          "text": "and wraps there. Kappa sentence goes down",
+          "x": 72.0
+        },
+        {
+          "baseline": 267.6,
+          "text": "its own column and wraps there.",
+          "x": 72.0
+        },
+        {
+          "baseline": 290.88,
+          "text": "Text after the balanced columns.",
+          "x": 72.0
+        },
+        {
+          "baseline": 312.96,
+          "text": "Shape D1 after the columns",
+          "x": 72.0
+        },
+        {
+          "baseline": 362.16,
+          "text": "Closing text of the sweep.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "50776b2c58a6d00f97001f84e49523169615a0db086c5e12409dad7e7bcd2c65"
+}

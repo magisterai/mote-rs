@@ -135,5 +135,9 @@
   "word/66_inline_equations_flow": 0.001,
   "word/67_equation_page_breaks": 0.002,
   "word/68_stacked_fractions": 0.002,
-  "word/69_equation_columns": 0.002
+  "word/69_equation_columns": 0.002,
+  "word/70_drawings_in_text": 0.006,
+  "word/71_drawings_under_a_style": 0.003,
+  "word/72_drawings_in_columns": 0.004,
+  "word/73_continuous_sections": 0.005
 }

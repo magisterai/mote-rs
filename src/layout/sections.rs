@@ -164,7 +164,7 @@ fn balanced_pass(
         }
         let page_offset = flow.end.page_number - flow.start.page_number;
         let top = if page_offset == 0 {
-            flow.start.y
+            flow.start.current_top
         } else {
             flow.geometry.margin_top
         };
@@ -288,16 +288,16 @@ fn plan_pass(
             pending_spacing = 0.0;
         } else {
             // Word begins every column of a continuous section below the spacing
-            // after the preceding paragraph.
+            // after the preceding paragraph, with which the space before the
+            // first block of the section collapses.
             cursor.column_index = 0;
             cursor.current_top = (cursor.y + pending_spacing).max(geometry.margin_top);
-            cursor.y = cursor.current_top;
-            pending_spacing = 0.0;
+            cursor.y = cursor.current_top - pending_spacing;
         }
         let start = cursor;
         let boundary = inputs.targets.get(&section_index).and_then(|target| {
             let top = if target.page_offset == 0 {
-                start.y
+                start.current_top
             } else {
                 geometry.margin_top
             };
@@ -334,7 +334,7 @@ fn plan_pass(
             &mut numbers,
             false,
         )?;
-        place_blocks(
+        let left_columns = place_blocks(
             &prepared.blocks,
             PlacementContext {
                 kept_with_next: &prepared.kept_with_next,
@@ -366,15 +366,16 @@ fn plan_pass(
             if next.start == "continuous" && same_page(geometry, PageGeometry::from_section(next)?)
             {
                 // Word gives the paragraph that carries a continuous section break
-                // no height, so the next section begins at the previous content and
-                // inherits its pending paragraph spacing. A balanced column height
-                // already includes that spacing.
+                // no height, so the next section inherits the pending paragraph
+                // spacing of the previous content. It begins below the lowest of
+                // the balanced columns, each with the space after its last block.
                 if let Some(boundary) = boundary
                     && boundary.page == cursor.page_number
                 {
-                    let bottom = cursor.y.max(boundary.bottom);
-                    pending_spacing = (cursor.y + pending_spacing - bottom).max(0.0);
-                    cursor.y = bottom;
+                    let lowest = left_columns
+                        .filter(|(page, _)| *page == cursor.page_number)
+                        .map_or(boundary.bottom, |(_, reach)| reach.max(boundary.bottom));
+                    cursor.y = (cursor.y + pending_spacing).max(lowest) - pending_spacing;
                 }
                 balance_end = cursor;
             } else {

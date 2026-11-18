@@ -1,0 +1,107 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "CONTINUOUS SECTIONS: the columns of a continuous section begin below the space after",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "the paragraph above them, with which the space before their first paragraph collapses; the next",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "section begins below the lowest column with the space after its last paragraph, and a paragraph",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "is not divided against widow control to balance the columns.",
+          "x": 72.0
+        },
+        {
+          "baseline": 151.2,
+          "text": "Beta ends the first columns and runs on over",
+          "x": 315.12
+        },
+        {
+          "baseline": 166.56,
+          "text": "several lines of its narrow column to the end.",
+          "x": 315.12
+        },
+        {
+          "baseline": 173.28,
+          "text": "Alpha begins the first columns with thirty",
+          "x": 72.0
+        },
+        {
+          "baseline": 188.4,
+          "text": "points before it and runs on over several lines",
+          "x": 72.0
+        },
+        {
+          "baseline": 203.76,
+          "text": "of its column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 248.88,
+          "text": "Gamma begins one column with thirty points before it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 272.16,
+          "text": "Delta ends one column with twenty points after it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 307.2,
+          "text": "Epsilon begins the second columns with",
+          "x": 72.0
+        },
+        {
+          "baseline": 307.2,
+          "text": "Zeta ends the second columns with twenty",
+          "x": 315.12
+        },
+        {
+          "baseline": 322.56,
+          "text": "nothing before it and runs on over several",
+          "x": 72.0
+        },
+        {
+          "baseline": 322.56,
+          "text": "after it and runs on over several lines of its",
+          "x": 315.12
+        },
+        {
+          "baseline": 337.68,
+          "text": "lines of its column.",
+          "x": 72.0
+        },
+        {
+          "baseline": 337.68,
+          "text": "narrow column to the end.",
+          "x": 315.12
+        },
+        {
+          "baseline": 372.72,
+          "text": "Eta begins one column with nothing before it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 396.0,
+          "text": "Theta ends the sweep.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "5b467a5a735df69063d2a6bc200a2a69f5f6de5014b1f0c0f7c2eaa88b7b3f27"
+}

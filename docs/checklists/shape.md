@@ -55,7 +55,18 @@ paragraph of its own for a shape set in the text, with editable Word shape text,
 transforms, fills, borders, opacity, shadows, text margins and fit settings.
 Native document output paints preset paths, transforms, fills, borders, opacity
 and shadows, with one-point anchor flow for a fixed shape and the height of the
-frame and eight points beneath it for a shape set in the text. Shape text supports preset-specific text
+frame for a shape set in the text. The paragraph that holds a shape set in the
+text is of the default paragraph style in DOCX, and native output gives the
+shape the space before and after of that style, in the body and in a table
+cell alike. Such a shape moves whole to the next column or page, stays at the
+head of a page that cannot hold it, and begins with a column break that
+precedes it, since a paragraph that holds a column break alone leaves an empty
+line at the head of the next column in Word. Word's exports of the review cases
+[drawings in text](../../tests/cases/word-70-drawings-in-text.mote),
+[drawings under a style](../../tests/cases/word-71-drawings-under-style.mote) and
+[drawings in columns](../../tests/cases/word-72-drawings-in-columns.mote) show
+these rules, and the [drawing tests](../../tests/document_drawings.rs) hold
+them. Shape text supports preset-specific text
 bounds, nested text defaults, paragraph and inline formatting, lists and task
 markers, margins, alignment, clipping, shrink-to-fit, text-height growth, and
 rotation. Text-height growth extends the content clip without enlarging the

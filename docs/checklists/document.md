@@ -64,5 +64,13 @@ Rules appear only between used columns and extend to their deepest content.
 Explicit column breaks advance through the configured columns; page breaks start
 new physical pages. A multi-column section is balanced only where a continuous
 section break ends it, as Word balances it; a section followed by a page break, and
-the final implicit section, are not balanced. Unequal widths
+the final implicit section, are not balanced. The columns of a continuous
+section begin below the space after the paragraph above them, and the space
+before the first block of the section collapses with that space. The section
+after balanced columns begins below the lowest of them, each with the space
+after its last block. Balanced columns grow where a lower height would divide a
+paragraph against widow control. Word's export of the review case
+[continuous sections](../../tests/cases/word-73-continuous-sections.mote)
+shows these rules, and the
+[continuous section tests](../../tests/continuous_sections.rs) hold them. Unequal widths
 remain unsupported. See the [column captures](../../tests/fixtures/native-columns/README.md).

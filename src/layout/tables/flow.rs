@@ -522,7 +522,12 @@ fn place_cell<'plan>(
                 }
                 borders.append(std::slice::from_mut(page));
             }
-            Block::Drawing(drawing) => drawings.push(drawing),
+            Block::Drawing(drawing) => match &drawing.flow {
+                Some(flow) => {
+                    drawing.place_in_flow(flow, page, object_left, object_width, block_top)
+                }
+                None => drawings.push(drawing),
+            },
             // Cell content holds a chart as its fallback paragraph.
             Block::Chart(_) | Block::Break(_) => {}
         }

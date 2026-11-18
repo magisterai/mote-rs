@@ -957,5 +957,33 @@
     "page_moves": 0,
     "unmatched": 49,
     "vertical": 8.3
+  },
+  "word/70_drawings_in_text": {
+    "horizontal": 0.2,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.4
+  },
+  "word/71_drawings_under_a_style": {
+    "horizontal": 0.1,
+    "median": 0.2,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.4
+  },
+  "word/72_drawings_in_columns": {
+    "horizontal": 0.2,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
+  },
+  "word/73_continuous_sections": {
+    "horizontal": 0.2,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
   }
 }

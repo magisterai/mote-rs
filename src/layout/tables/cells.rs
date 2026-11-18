@@ -338,7 +338,10 @@ pub(super) fn block_geometry(block: &Block) -> (f64, f64, f64) {
         Block::Image(image) => (image.height(), image.before, image.after),
         Block::Table(table) => (table.height(), 0.0, 0.0),
         Block::Chart(chart) => (chart.height, chart.before, chart.after),
-        Block::Drawing(_) => (super::super::document::DRAWING_HEIGHT, 0.0, 0.0),
+        Block::Drawing(drawing) => match &drawing.flow {
+            Some(flow) => (flow.height, flow.before, flow.after),
+            None => (super::super::document::DRAWING_HEIGHT, 0.0, 0.0),
+        },
         Block::Break(_) => (0.0, 0.0, 0.0),
     }
 }

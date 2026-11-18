@@ -19,10 +19,12 @@ pub(super) struct Flow {
     pub width: f64,
     pub height: f64,
     pub alignment: String,
+    /// The space before and after the paragraph that holds the drawing in
+    /// DOCX, which is a paragraph of the default style.
+    pub before: f64,
+    pub after: f64,
 }
 impl Flow {
-    /// The space that Word sets beneath the paragraph of an inline drawing.
-    pub const AFTER: f64 = 8.0;
     fn left(&self, column_left: f64, column_width: f64) -> f64 {
         column_left
             + match self.alignment.as_str() {
@@ -63,6 +65,13 @@ impl Drawing {
             let bounds = geometry::rectangle(&element.attributes);
             ([bounds[0], bounds[1]], [bounds[2], bounds[3]])
         };
+        let paragraph = styles.paragraph(&Element {
+            source_name: None,
+            source_location: None,
+            kind: ElementKind::Paragraph,
+            attributes: Default::default(),
+            children: Vec::new(),
+        });
         Ok(Self {
             content,
             cut_off_text,
@@ -71,6 +80,8 @@ impl Drawing {
             flow: crate::drawings::flows(element).then(|| Flow {
                 width: size[0],
                 height: size[1],
+                before: paragraph.spacing_before,
+                after: paragraph.spacing_after,
                 // The alignment of a shape is that of its text.
                 alignment: if element.kind == ElementKind::Group {
                     crate::properties::text(&element.attributes, "alignment")

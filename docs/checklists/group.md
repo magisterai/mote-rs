@@ -51,8 +51,8 @@ omitted with a warning, since a document sets no box. The namespace of the
 group shape is declared on the drawing and marked ignorable, as the namespace
 of a shape is on the document, and no fallback is written. Native document
 output paints the objects about the corner, and gives a group set in the text
-the height of its frame and eight points beneath it, the space of the paragraph
-that holds the drawing in Word. A rotation turns a group of a document about
+the height of its frame and the space of the paragraph that holds the drawing
+in Word, as the [shape checklist](shape.md) states for a shape. A rotation turns a group of a document about
 the centre of its frame.
 
 Word opens the

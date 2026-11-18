@@ -13,12 +13,18 @@ pub(super) fn fitting_lines(heights: &[f64], trailing_spaces: &[f64], available:
     }
     heights.len()
 }
+/// Counts the lines of a paragraph under widow control that an area takes.
+/// Where no division of the paragraph keeps two lines on each side, the area
+/// takes what fits if `yields` is set and the paragraph has nowhere better to
+/// go, and takes nothing otherwise. An area of balanced columns does not
+/// yield: Word makes the columns taller instead.
 pub(super) fn line_count(
     heights: &[f64],
     trailing_spaces: &[f64],
     available: f64,
     maximum: f64,
     at_start: bool,
+    yields: bool,
 ) -> usize {
     if heights.is_empty() {
         return 0;
@@ -28,7 +34,7 @@ pub(super) fn line_count(
         return natural;
     }
     if natural == 0 {
-        return usize::from(at_start);
+        return usize::from(at_start && yields);
     }
     let partitions = fresh_partitions(heights, trailing_spaces, maximum);
     let maximum_current = natural.min(heights.len().saturating_sub(2));
@@ -37,7 +43,10 @@ pub(super) fn line_count(
             return count;
         }
     }
-    if !at_start && (partitions[0] || fitting_lines(heights, trailing_spaces, maximum) > natural) {
+    if !yields
+        || (!at_start
+            && (partitions[0] || fitting_lines(heights, trailing_spaces, maximum) > natural))
+    {
         return 0;
     }
     natural

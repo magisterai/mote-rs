@@ -159,6 +159,7 @@ pub fn plan_paragraph_flow(
                     area.content_bottom - planner.cursor.y,
                     area.content_bottom - area.content_top,
                     at_start,
+                    !area.whole_lines,
                 )
             } else {
                 1

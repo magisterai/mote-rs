@@ -806,71 +806,71 @@
           "fragments": [
             {
               "advance": 20.174,
-              "baseline": 58.67,
+              "baseline": 89.03,
               "size": 11,
               "text": "line ",
-              "x": 189
+              "x": 24.0
             },
             {
               "advance": 28.732,
-              "baseline": 58.67,
+              "baseline": 89.03,
               "size": 11,
               "text": "width.",
-              "x": 209.174
+              "x": 44.174
             }
           ],
           "height": 15.179999999999998,
-          "top": 48,
+          "top": 78.36,
           "width": 48.906,
-          "x": 189
+          "x": 24.0
         },
         {
           "fragments": [
             {
               "advance": 21.384,
-              "baseline": 89.03133056640625,
+              "baseline": 112.21,
               "size": 11,
               "text": "Full-",
               "x": 24
             },
             {
               "advance": 28.732,
-              "baseline": 89.03133056640625,
+              "baseline": 112.21,
               "size": 11,
               "text": "width ",
               "x": 45.384
             },
             {
               "advance": 55.022,
-              "baseline": 89.03133056640625,
+              "baseline": 112.21,
               "size": 11,
               "text": "conclusion ",
               "x": 74.116
             },
             {
               "advance": 25.069,
-              "baseline": 89.03133056640625,
+              "baseline": 112.21,
               "size": 11,
               "text": "after ",
               "x": 129.138
             },
             {
               "advance": 18.348,
-              "baseline": 89.03133056640625,
+              "baseline": 112.21,
               "size": 11,
               "text": "the ",
               "x": 154.207
             },
             {
               "advance": 44.011,
-              "baseline": 89.03133056640625,
+              "baseline": 112.21,
               "size": 11,
               "text": "columns.",
               "x": 172.555
             }
           ],
           "height": 15.179999999999998,
-          "top": 78.36133056640625,
+          "top": 101.53999999999999,
           "width": 192.566,
           "x": 24
         },
@@ -940,21 +940,7 @@
           "x": 24
         }
       ],
-      "rules": [
-        {
-          "color": "000000",
-          "dash": [],
-          "end": [
-            180,
-            78.36
-          ],
-          "start": [
-            180,
-            48
-          ],
-          "width": 1
-        }
-      ]
+      "rules": []
     }
   ]
 }

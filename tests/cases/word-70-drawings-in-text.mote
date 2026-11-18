@@ -1,0 +1,152 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+DRAWING FLOW: a shape or a group in the text takes the room of its frame in a paragraph of the default style, moves whole to the next page, and stays with a heading that is kept with it.
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(520) } })[Filler one of 520 points.]
+
+#shape(position = { width = inch(3), height = pt(100) }, fill = "#dcfce7", text = { size = pt(10) })[Shape one moves to the next page]
+
+Text one after the shape.
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(500) } })[Filler two of 500 points.]
+
+#shape(position = { width = inch(3), height = pt(100) }, fill = "#dcfce7", text = { size = pt(10) })[Shape two stays on the page]
+
+Text two after the shape.
+
+#break(type = "page")
+
+#paragraph(spacing = { after = pt(24) })[Text three with 24 points after it.]
+
+#shape(position = { width = inch(3), height = pt(60) }, fill = "#dcfce7", text = { size = pt(10) })[Shape three between spacings]
+
+#paragraph(spacing = { before = pt(30) })[Text three with 30 points before it.]
+
+#shape(position = { width = inch(3), height = pt(40) }, fill = "#dcfce7", text = { size = pt(10) })[Shape four A]
+
+#shape(position = { width = inch(3), height = pt(40) }, fill = "#dcfce7", text = { size = pt(10) })[Shape four B]
+
+#group(alignment = "center")[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(2), height = pt(40) }, fill = "#2563eb", text = { size = pt(9), color = "#ffffff" })[Group four C]
+  #shape(position = { x = inch(1), y = pt(50), width = inch(2), height = pt(30) }, fill = "#059669")
+]
+
+Text four after three drawings.
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(540) } })[Filler five of 540 points.]
+
+## Heading five kept with the shape
+
+#shape(position = { width = inch(3), height = pt(100) }, fill = "#dcfce7", text = { size = pt(10) })[Shape five below its heading]
+
+Text five after the shape.
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(580) } })[Filler seven of 580 points.]
+
+#group(alignment = "right")[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(2), height = pt(40) }, fill = "#2563eb", text = { size = pt(9), color = "#ffffff" })[Group seven moves]
+  #shape(position = { x = inch(1), y = pt(50), width = inch(2), height = pt(30) }, fill = "#059669")
+]
+
+Text seven after the group.
+
+#break(type = "page")
+
+#shape(position = { width = inch(3), height = pt(50) }, fill = "#dcfce7", text = { size = pt(10) })[Shape eight at the head of a page]
+
+Text eight after the shape.
+
+#shape(position = { width = inch(3), height = pt(50) }, fill = "#dcfce7", text = { size = pt(10) })[Shape eight before a break]
+
+#break(type = "page")
+
+Text nine after the break.
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(480) } })[Filler ten of 480 points.]
+
+Text ten cites a note#footnote[The note of text ten, which takes room at the foot of the page.] here.
+
+#shape(position = { width = inch(3), height = pt(120) }, fill = "#dcfce7", text = { size = pt(10) })[Shape ten beside a footnote]
+
+Text ten after the shape.
+
+#break(type = "page")
+
+Text before the table.
+
+#table(width = pt(400))[
+  #row[
+    #cell(width = pt(200))[
+      Cell text above the shape.
+
+      #shape(position = { width = inch(1.5), height = pt(40) }, fill = "#dcfce7", text = { size = pt(9) })[Shape in a cell]
+
+      Cell text below the shape.
+    ]
+    #cell(width = pt(200))[Plain cell beside it.]
+  ]
+  #row[
+    #cell[
+      #group(alignment = "center")[
+        #shape(position = { x = inch(0), y = inch(0), width = inch(1), height = pt(24) }, fill = "#2563eb", text = { size = pt(9), color = "#ffffff" })[Group in a cell]
+        #shape(position = { x = inch(0.5), y = pt(30), width = inch(1), height = pt(20) }, fill = "#059669")
+      ]
+    ]
+    #cell[Second plain cell.]
+  ]
+]
+
+Text after the table.
+
+> A quotation before a shape.
+
+#shape(position = { width = inch(2), height = pt(30) }, fill = "#fde68a", text = { size = pt(9) })[Shape after a quotation]
+
+1. First item of a list.
+2. Second item of a list.
+
+#shape(position = { width = inch(2), height = pt(30) }, fill = "#fde68a", text = { size = pt(9) })[Shape after a list]
+
+Closing text.
+
+#break(type = "page")
+
+Text before the automatic table.
+
+#table[
+  #row[
+    #cell[#shape(position = { width = inch(3), height = pt(30) }, fill = "#dcfce7", text = { size = pt(9) })[Wide shape in an automatic column]]
+    #cell[Short]
+  ]
+  #row[#cell[Left]#cell[Right]]
+]
+
+Text before the rotated shape.
+
+#shape(position = { width = inch(2), height = pt(40) }, rotation = 30, fill = "#fde68a", text = { size = pt(9) })[Rotated]
+
+Text after the rotated shape.
+
+#shape(position = { width = inch(2), height = pt(40) }, fill = "#e0e7ff", border = { width = pt(8), color = "#1d4ed8" }, text = { size = pt(9) })[Thick border]
+
+Text after the bordered shape.
+
+#shape(position = { width = inch(2), height = pt(40) }, fill = "#e0e7ff", shadow = { color = "#000000", blur = pt(6), distance = pt(6), angle = 90, opacity = 50 }, text = { size = pt(9) })[Shadow]
+
+Text after the shadowed shape.
+
+#shape(position = { width = inch(7), height = pt(30) }, fill = "#fecaca", text = { size = pt(9) })[Wider than the text area]
+
+Text after the wide shape.
+
+#shape(position = { width = inch(2), height = pt(700) }, fill = "#f1f5f9", text = { size = pt(9) })[Taller than a page]
+
+Text after the tall shape.

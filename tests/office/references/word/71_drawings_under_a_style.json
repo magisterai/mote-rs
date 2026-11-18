@@ -1,0 +1,158 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 90.96,
+          "text": "DRAW ING FLOW UNDER A STYLE: the paragraph of a drawing in the text has the spacing of",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.04,
+          "text": "the Normal style.",
+          "x": 72.0
+        },
+        {
+          "baseline": 134.88,
+          "text": "Text one in the Normal style, six before and twelve after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 162.96,
+          "text": "Shape one under a Normal style",
+          "x": 72.0
+        },
+        {
+          "baseline": 234.96,
+          "text": "Text two after the shape.",
+          "x": 72.0
+        },
+        {
+          "baseline": 263.04,
+          "text": "Shape two A",
+          "x": 72.0
+        },
+        {
+          "baseline": 314.88,
+          "text": "Shape two B",
+          "x": 72.0
+        },
+        {
+          "baseline": 366.96,
+          "text": "Text three after two shapes.",
+          "x": 72.0
+        },
+        {
+          "baseline": 395.04,
+          "text": "Group three",
+          "x": 198.0
+        },
+        {
+          "baseline": 486.96,
+          "text": "Text four after the group.",
+          "x": 72.0
+        },
+        {
+          "baseline": 514.8,
+          "text": "Text five with nothing after it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 536.88,
+          "text": "Shape five",
+          "x": 72.0
+        },
+        {
+          "baseline": 608.88,
+          "text": "Text six with nothing before it.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Heading seven",
+          "x": 72.0
+        },
+        {
+          "baseline": 112.08,
+          "text": "Shape seven under a heading",
+          "x": 72.0
+        },
+        {
+          "baseline": 184.8,
+          "text": "Heading eight after a shape",
+          "x": 72.0
+        },
+        {
+          "baseline": 209.04,
+          "text": "Text eight.",
+          "x": 72.0
+        },
+        {
+          "baseline": 236.88,
+          "text": "• Item nine A",
+          "x": 108.0
+        },
+        {
+          "baseline": 258.96,
+          "text": "• Item nine B",
+          "x": 108.0
+        },
+        {
+          "baseline": 281.04,
+          "text": "Shape nine after a list",
+          "x": 72.0
+        },
+        {
+          "baseline": 353.04,
+          "text": "• Item ten A",
+          "x": 108.0
+        },
+        {
+          "baseline": 375.12,
+          "text": "• Item ten B",
+          "x": 108.0
+        },
+        {
+          "baseline": 397.44,
+          "text": "Cell Cell",
+          "x": 78.24
+        },
+        {
+          "baseline": 421.92,
+          "text": "Eleven Table",
+          "x": 78.24
+        },
+        {
+          "baseline": 448.56,
+          "text": "Shape eleven after a table",
+          "x": 72.0
+        },
+        {
+          "baseline": 524.88,
+          "text": "Cell Cell",
+          "x": 78.24
+        },
+        {
+          "baseline": 549.36,
+          "text": "Twelve Table",
+          "x": 78.24
+        },
+        {
+          "baseline": 576.0,
+          "text": "Text thirteen at the end.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "dc547d62ea961335ed1f585146d9a7579bec97842dfebbaa176937143a8cc3ab"
+}

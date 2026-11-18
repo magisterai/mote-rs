@@ -1,0 +1,427 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "DRAW ING FLOW : a shape or a group in the text takes the room of its frame in a paragraph of",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "the default style, moves whole to the next page, and stays with a heading that is kept with it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 526.56,
+          "text": "Filler one of 520 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.36,
+          "text": "Shape one moves to the next page",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.56,
+          "text": "Text one after the shape.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 472.08,
+          "text": "Filler two of 500 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 581.28,
+          "text": "Shape two stays on the page",
+          "x": 72.0
+        },
+        {
+          "baseline": 690.48,
+          "text": "Text two after the shape.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Text three with 24 points after it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.48,
+          "text": "Shape three between spacings",
+          "x": 72.0
+        },
+        {
+          "baseline": 211.92,
+          "text": "Text three with 30 points before it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 233.76,
+          "text": "Shape four A",
+          "x": 72.0
+        },
+        {
+          "baseline": 281.76,
+          "text": "Shape four B",
+          "x": 72.0
+        },
+        {
+          "baseline": 328.8,
+          "text": "Group four C",
+          "x": 198.0
+        },
+        {
+          "baseline": 419.04,
+          "text": "Text four after three drawings.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 504.0,
+          "text": "Filler five of 540 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.92,
+          "text": "Heading five kept with the shape",
+          "x": 72.0
+        },
+        {
+          "baseline": 106.08,
+          "text": "Shape five below its heading",
+          "x": 72.0
+        },
+        {
+          "baseline": 215.28,
+          "text": "Text five after the shape.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 536.16,
+          "text": "Filler seven of 580 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.4,
+          "text": "Group seven moves",
+          "x": 324.0
+        },
+        {
+          "baseline": 170.64,
+          "text": "Text seven after the group.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.36,
+          "text": "Shape eight at the head of a page",
+          "x": 72.0
+        },
+        {
+          "baseline": 140.64,
+          "text": "Text eight after the shape.",
+          "x": 72.0
+        },
+        {
+          "baseline": 162.48,
+          "text": "Shape eight before a break",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Text nine after the break.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 456.0,
+          "text": "Filler ten of 480 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 559.44,
+          "text": "1",
+          "x": 171.12
+        },
+        {
+          "baseline": 562.56,
+          "text": "Text ten cites a note here.",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.28,
+          "text": "1 The note of text ten, which takes room at the foot of the page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 81.36,
+          "text": "Shape ten beside a footnote",
+          "x": 72.0
+        },
+        {
+          "baseline": 210.48,
+          "text": "Text ten after the shape.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Text before the table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 110.16,
+          "text": "Cell text above the shape.",
+          "x": 78.24
+        },
+        {
+          "baseline": 110.16,
+          "text": "Plain cell beside it.",
+          "x": 278.16
+        },
+        {
+          "baseline": 123.36,
+          "text": "Shape in a cell",
+          "x": 78.24
+        },
+        {
+          "baseline": 173.52,
+          "text": "Cell text below the shape.",
+          "x": 78.24
+        },
+        {
+          "baseline": 194.88,
+          "text": "Group in a cell",
+          "x": 118.32
+        },
+        {
+          "baseline": 197.04,
+          "text": "Second plain cell.",
+          "x": 278.16
+        },
+        {
+          "baseline": 259.68,
+          "text": "Text after the table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 282.72,
+          "text": "A quotation before a shape.",
+          "x": 108.0
+        },
+        {
+          "baseline": 301.92,
+          "text": "Shape after a quotation",
+          "x": 72.0
+        },
+        {
+          "baseline": 342.0,
+          "text": "1. First item of a list.",
+          "x": 108.0
+        },
+        {
+          "baseline": 359.28,
+          "text": "2. Second item of a list.",
+          "x": 108.0
+        },
+        {
+          "baseline": 374.16,
+          "text": "Shape after a list",
+          "x": 72.0
+        },
+        {
+          "baseline": 414.48,
+          "text": "Closing text.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Text before the automatic table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "Wide shape in an automatic column",
+          "x": 78.24
+        },
+        {
+          "baseline": 110.16,
+          "text": "Short",
+          "x": 306.24
+        },
+        {
+          "baseline": 156.72,
+          "text": "Left",
+          "x": 78.24
+        },
+        {
+          "baseline": 156.72,
+          "text": "Right",
+          "x": 306.24
+        },
+        {
+          "baseline": 162.96,
+          "text": "R",
+          "x": 87.45
+        },
+        {
+          "baseline": 165.72,
+          "text": "o",
+          "x": 92.23
+        },
+        {
+          "baseline": 168.96,
+          "text": "ta",
+          "x": 96.59
+        },
+        {
+          "baseline": 172.8,
+          "text": "te",
+          "x": 103.24
+        },
+        {
+          "baseline": 176.38,
+          "text": "Text befdore the rotated shape.",
+          "x": 72.0
+        },
+        {
+          "baseline": 247.68,
+          "text": "Text after the rotated shape.",
+          "x": 72.0
+        },
+        {
+          "baseline": 272.64,
+          "text": "Thick border",
+          "x": 76.08
+        },
+        {
+          "baseline": 318.72,
+          "text": "Text after the bordered shape.",
+          "x": 72.0
+        },
+        {
+          "baseline": 339.84,
+          "text": "Shadow",
+          "x": 72.0
+        },
+        {
+          "baseline": 390.0,
+          "text": "Text after the shadowed shape.",
+          "x": 72.0
+        },
+        {
+          "baseline": 411.12,
+          "text": "Wider than the text area",
+          "x": 72.0
+        },
+        {
+          "baseline": 451.2,
+          "text": "Text after the wide shape.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 80.4,
+          "text": "Taller than a page",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Text after the tall shape.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "5c77edf823a1f3ef1dc6b4d49b983c13367cd0f45ea1db77d5d217b600f2f3d0"
+}

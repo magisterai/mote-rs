@@ -98,6 +98,7 @@ Cases may deliberately exercise unsupported values; inspect their warning manife
 | `word-notes-two-page` | Document | 2 | [notes two page](word-35-notes-two-page.mote) |
 | `word-footnote-page-pressure` | Document | 2 | [footnote page pressure](word-36-footnote-page-pressure.mote) |
 | `word-endnote-page-pressure` | Document | 2 | [endnote page pressure](word-37-endnote-page-pressure.mote) |
+| `word-continuous-sections` | Document | 1 | [continuous sections](word-73-continuous-sections.mote) |
 
 ## Media
 
@@ -117,6 +118,9 @@ Cases may deliberately exercise unsupported values; inspect their warning manife
 | `word-equation-page-breaks` | Document | 2 | [equation page breaks](word-67-equation-page-breaks.mote) |
 | `word-stacked-fractions` | Document | 3 | [stacked fractions](word-68-stacked-fractions.mote) |
 | `word-equation-columns` | Document | 2 | [equation columns](word-69-equation-columns.mote) |
+| `word-drawings-in-text` | Document | 16 | [drawings in text](word-70-drawings-in-text.mote) |
+| `word-drawings-under-style` | Document | 2 | [drawings under a style](word-71-drawings-under-style.mote) |
+| `word-drawings-in-columns` | Document | 4 | [drawings in columns](word-72-drawings-in-columns.mote) |
 | `powerpoint-shapes-lines` | Presentation | 2 | [shapes lines](powerpoint-07-shapes-lines.mote) |
 | `powerpoint-theme-text-tables-charts` | Presentation | 1 | [theme text tables charts](powerpoint-09-theme-text-tables-charts.mote) |
 | `powerpoint-chart-properties` | Presentation | 3 | [chart properties](powerpoint-10-chart-properties.mote) |

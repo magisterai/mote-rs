@@ -1,0 +1,27 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+CONTINUOUS SECTIONS: the columns of a continuous section begin below the space after the paragraph above them, with which the space before their first paragraph collapses; the next section begins below the lowest column with the space after its last paragraph, and a paragraph is not divided against widow control to balance the columns.
+
+#section(columns = { count = 2, gap = pt(18) }, properties = { start = "continuous" })[
+#paragraph(spacing = { before = pt(30) })[Alpha begins the first columns with thirty points before it and runs on over several lines of its column.]
+
+Beta ends the first columns and runs on over several lines of its narrow column to the end.
+]
+
+#section(columns = { count = 1 }, properties = { start = "continuous" })[
+#paragraph(spacing = { before = pt(30) })[Gamma begins one column with thirty points before it.]
+
+#paragraph(spacing = { after = pt(20) })[Delta ends one column with twenty points after it.]
+]
+
+#section(columns = { count = 2, gap = pt(18) }, properties = { start = "continuous" })[
+Epsilon begins the second columns with nothing before it and runs on over several lines of its column.
+
+#paragraph(spacing = { after = pt(20) })[Zeta ends the second columns with twenty after it and runs on over several lines of its narrow column to the end.]
+]
+
+#section(columns = { count = 1 }, properties = { start = "continuous" })[
+Eta begins one column with nothing before it.
+
+Theta ends the sweep.
+]

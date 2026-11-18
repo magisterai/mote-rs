@@ -37,7 +37,12 @@ page before the break has none; Word's export of the
 pages before the break was written so, and has none now. A page break that
 follows another is written in a paragraph of its own, so that the page between
 them stays empty. DOCX writes a block line break as an empty paragraph, since a
-paragraph that holds a line break alone occupies two lines in Word.
+paragraph that holds a line break alone occupies two lines in Word. A column
+break begins the block after it where that block is written as a paragraph: a
+paragraph, a heading, a quotation, a literal block, a divider, a definition
+list, or a shape or group set in the text. Before another block the break is
+written in a paragraph of its own, whose mark Word sets as an empty line at the
+head of the next column.
 
 Native PDF/PNG applies page and column breaks to the shared flow cursor, and
 lays out a block line break as an empty paragraph. The block that a page break

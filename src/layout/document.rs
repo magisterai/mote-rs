@@ -6,7 +6,7 @@ use super::{
     blocks::{Block, PreparedParagraph},
     columns::ColumnSeparators,
     spacing::collapsed_spacing,
-    tolerances::{FIT_TOLERANCE, LEAST_AREA_HEIGHT},
+    tolerances::{AREA_START_TOLERANCE, FIT_TOLERANCE, LEAST_AREA_HEIGHT},
 };
 use crate::{
     measurement::TextMeasurer,
@@ -50,6 +50,9 @@ pub(super) struct PlacementContext<'scope> {
     /// block after it.
     pub kept_with_next: &'scope [bool],
 }
+/// Places the blocks of a flow, and returns the page on which the flow last
+/// left a column together with the lowest point that such a column of the page
+/// reaches with the space after its last block.
 pub(super) fn place_blocks(
     blocks: &[Block],
     context: PlacementContext<'_>,
@@ -58,7 +61,7 @@ pub(super) fn place_blocks(
     columns: &mut ColumnSeparators,
     pending_spacing: &mut f64,
     warnings: &mut Vec<String>,
-) -> Result<(), LayoutError> {
+) -> Result<Option<(usize, f64)>, LayoutError> {
     let PlacementContext {
         geometry,
         boundary,
@@ -67,7 +70,20 @@ pub(super) fn place_blocks(
     } = context;
     let mut painting = super::painting::ParagraphPainting::default();
     let mut heads_page = false;
+    let mut left_columns: Option<(usize, f64)> = None;
+    let mut note_left_column = |before: &(FlowCursor, f64), cursor: &FlowCursor| {
+        if !cursor.is_in_area_of(&before.0) {
+            let reach = before.0.y + before.1;
+            left_columns = Some(match left_columns {
+                Some((page, lowest)) if page == before.0.page_number => (page, lowest.max(reach)),
+                _ => (before.0.page_number, reach),
+            });
+        }
+    };
+    let mut before_block = (*cursor, *pending_spacing);
     for (index, block) in blocks.iter().enumerate() {
+        note_left_column(&before_block, cursor);
+        before_block = (*cursor, *pending_spacing);
         // Word leaves out the space before a block that an explicit page break
         // sets at the head of a page.
         let mut after_page_break = std::mem::take(&mut heads_page);
@@ -130,7 +146,8 @@ pub(super) fn place_blocks(
             Block::Drawing(drawing) if drawing.flow.is_some() => {
                 let flow = drawing.flow.as_ref().unwrap();
                 painting.clear_fill();
-                let leading = collapsed_spacing(*pending_spacing, 0.0);
+                let before = if after_page_break { 0.0 } else { flow.before };
+                let leading = collapsed_spacing(*pending_spacing, before);
                 let required = flow.height.max(kept_height(leading));
                 seek_room_below_leading(
                     cursor, pages, columns, geometry, boundary, leading, required,
@@ -149,7 +166,7 @@ pub(super) fn place_blocks(
                         .map(|cut_off| cut_off.warning(cursor.page_number)),
                 );
                 pass_block(cursor, columns, geometry, flow.height);
-                *pending_spacing = super::drawings::Flow::AFTER;
+                *pending_spacing = flow.after;
             }
             Block::Drawing(drawing) => {
                 painting.clear_fill();
@@ -357,7 +374,8 @@ pub(super) fn place_blocks(
             }
         }
     }
-    Ok(())
+    note_left_column(&before_block, cursor);
+    Ok(left_columns)
 }
 fn new_page(
     cursor: &mut FlowCursor,
@@ -382,8 +400,13 @@ pub(super) fn ensure_space(
     boundary: Option<super::sections::FlowBoundary>,
     height: f64,
 ) {
-    if cursor.y + height
-        > page_content_bottom(pages, geometry, boundary, cursor.page_number) + FIT_TOLERANCE
+    // A block that a whole page cannot hold gains nothing by a move from the
+    // head of a page, and stays there as it does in Word.
+    let heads_whole_page = cursor.y <= geometry.margin_top + AREA_START_TOLERANCE
+        && boundary.is_none_or(|boundary| boundary.page != cursor.page_number);
+    if !heads_whole_page
+        && cursor.y + height
+            > page_content_bottom(pages, geometry, boundary, cursor.page_number) + FIT_TOLERANCE
     {
         next_area(cursor, pages, columns, geometry);
     }
@@ -561,7 +584,7 @@ fn kept_blocks_height(
             Block::Divider(divider) => (divider.width, divider.before, divider.after),
             Block::Chart(chart) => (chart.height, chart.before, chart.after),
             Block::Drawing(drawing) => match &drawing.flow {
-                Some(flow) => (flow.height, 0.0, super::drawings::Flow::AFTER),
+                Some(flow) => (flow.height, flow.before, flow.after),
                 None => (DRAWING_HEIGHT, 0.0, 0.0),
             },
             Block::Image(image) => (image.height(), image.before, image.after),

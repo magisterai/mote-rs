@@ -1,0 +1,65 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(6), after = pt(12), line = { rule = "exact", value = pt(16) } } }
+)
+
+DRAWING FLOW UNDER A STYLE: the paragraph of a drawing in the text has the spacing of the Normal style.
+
+Text one in the Normal style, six before and twelve after.
+
+#shape(position = { width = inch(3), height = pt(60) }, fill = "#dcfce7", text = { size = pt(10) })[Shape one under a Normal style]
+
+Text two after the shape.
+
+#shape(position = { width = inch(3), height = pt(40) }, fill = "#dcfce7", text = { size = pt(10) })[Shape two A]
+
+#shape(position = { width = inch(3), height = pt(40) }, fill = "#dcfce7", text = { size = pt(10) })[Shape two B]
+
+Text three after two shapes.
+
+#group(alignment = "center")[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(2), height = pt(40) }, fill = "#2563eb", text = { size = pt(9), color = "#ffffff" })[Group three]
+  #shape(position = { x = inch(1), y = pt(50), width = inch(2), height = pt(30) }, fill = "#059669")
+]
+
+Text four after the group.
+
+#paragraph(spacing = { after = pt(0) })[Text five with nothing after it.]
+
+#shape(position = { width = inch(3), height = pt(60) }, fill = "#dcfce7", text = { size = pt(10) })[Shape five]
+
+#paragraph(spacing = { before = pt(0) })[Text six with nothing before it.]
+
+#break(type = "page")
+
+# Heading seven
+
+#shape(position = { width = inch(3), height = pt(60) }, fill = "#dcfce7", text = { size = pt(10) })[Shape seven under a heading]
+
+## Heading eight after a shape
+
+Text eight.
+
+- Item nine A
+- Item nine B
+
+#shape(position = { width = inch(3), height = pt(60) }, fill = "#dcfce7", text = { size = pt(10) })[Shape nine after a list]
+
+- Item ten A
+- Item ten B
+
+| Cell | Cell |
+| --- | --- |
+| Eleven | Table |
+
+#shape(position = { width = inch(3), height = pt(60) }, fill = "#dcfce7", text = { size = pt(10) })[Shape eleven after a table]
+
+| Cell | Cell |
+| --- | --- |
+| Twelve | Table |
+
+Text thirteen at the end.

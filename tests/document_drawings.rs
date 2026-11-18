@@ -295,3 +295,79 @@ fn a_group_position_is_normalized_and_an_offset_is_an_unknown_argument() {
         "{warnings:?}"
     );
 }
+
+const BOX: &str = "#shape(position={width=pt(144),height=pt(60)},fill='#dcfce7')";
+
+#[test]
+fn the_paragraph_of_a_drawing_in_the_text_has_the_spacing_of_the_default_style() {
+    // Word sets the drawing in a paragraph of the Normal style, as the review
+    // case of drawings under a style shows.
+    let style = "#style(name='Normal',type='paragraph',paragraph={spacing={before=pt(6),after=pt(12),line={rule='exact',value=pt(16)}}})\n";
+    let (plan, warnings) = planned(&format!(
+        "{style}#paragraph(spacing={{after=pt(0)}})[Above]\n\n{BOX}\n\n#paragraph(spacing={{before=pt(0)}})[Below]\n"
+    ));
+    assert_eq!(warnings, Vec::<String>::new());
+    let above = top_of_line(&plan, "Above");
+    let frame = painted_bounds(&plan)[0];
+    assert!(close(frame[1], above + 16.0 + 6.0), "{frame:?}");
+    assert!(close(top_of_line(&plan, "Below"), frame[3] + 12.0));
+    // The default style of a document without a Normal style sets 8 points
+    // after a paragraph and none before it.
+    let (plan, _) = planned(&format!("Above\n\n{BOX}\n\n{BOX}\n\nBelow\n"));
+    let frames = painted_bounds(&plan);
+    assert!(close(frames[1][1], frames[0][3] + 8.0), "{frames:?}");
+}
+
+#[test]
+fn a_drawing_in_the_text_of_a_table_cell_takes_the_room_of_its_frame() {
+    let (plan, warnings) = planned(&format!(
+        "#table(width=pt(400))[#row[#cell(width=pt(200))[\nAbove\n\n{BOX}\n\nBelow\n]#cell(width=pt(200))[Beside]]#row[#cell[Next]#cell[Row]]]\n"
+    ));
+    assert_eq!(warnings, Vec::<String>::new());
+    let frame = painted_bounds(&plan)[0];
+    let (above, below) = (top_of_line(&plan, "Above"), top_of_line(&plan, "Below"));
+    // The frame lies in the cell below the first paragraph, and the paragraph
+    // after it lies below the frame and the space after its paragraph.
+    assert!(
+        frame[1] > above && frame[0] > 72.0 && frame[2] < 72.0 + 200.0,
+        "{frame:?}"
+    );
+    assert!(close(frame[3] - frame[1], 60.0));
+    assert!(close(below, frame[3] + 8.0), "{below} {frame:?}");
+    assert!(top_of_line(&plan, "Next") > below);
+}
+
+#[test]
+fn a_drawing_taller_than_a_page_stays_at_the_head_of_the_next_page() {
+    let (plan, _) = planned(
+        "Above\n\n#shape(position={width=pt(144),height=pt(700)},fill='#dcfce7')\n\nBelow\n",
+    );
+    // No page is left empty between the text above the drawing and the drawing.
+    assert_eq!(plan.pages.len(), 3);
+    assert!(
+        plan.pages[1]
+            .operations
+            .iter()
+            .any(|operation| matches!(operation, PageOperation::Path(path) if path.fill.is_some()))
+    );
+    assert_eq!(plan.pages[2].lines.len(), 1);
+}
+
+#[test]
+fn docx_begins_the_paragraph_of_a_drawing_with_a_column_break_before_it() {
+    // A paragraph that holds a column break alone leaves an empty line at the
+    // head of the next column in Word.
+    let columns = "#document(columns={count=2})\n\nAbove\n\n#break(type='column')\n\n";
+    for block in [BOX, "---", "#raw[code]"] {
+        let (xml, _) = document_xml(&format!("{columns}{block}\n\nBelow\n"));
+        assert_eq!(
+            xml.matches("<w:br w:type=\"column\"/>").count(),
+            1,
+            "{block}"
+        );
+        assert!(
+            !xml.contains("<w:p><w:r><w:br w:type=\"column\"/></w:r></w:p>"),
+            "{block}"
+        );
+    }
+}

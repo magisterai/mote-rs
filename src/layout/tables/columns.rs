@@ -90,6 +90,12 @@ pub(super) fn intrinsic(
                     preferred = preferred.max(image.width + inset).max(floor);
                     minimum = minimum.max(floor);
                 }
+                Block::Drawing(drawing) => {
+                    if let Some(flow) = &drawing.flow {
+                        preferred = preferred.max(flow.width + inset);
+                        minimum = minimum.max(flow.width + inset);
+                    }
+                }
                 _ => {}
             }
         }

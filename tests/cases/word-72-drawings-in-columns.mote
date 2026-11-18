@@ -1,0 +1,70 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+DRAWINGS IN COLUMNS: a drawing in the text moves to the next column, begins with a column break before it, and is balanced with the text of a continuous section.
+
+#section(columns = { count = 2, gap = pt(18) })[
+Alpha sentence fills its column with words that wrap. Alpha sentence fills its column with words that wrap. Alpha sentence fills its column with words that wrap.
+
+#shape(position = { width = inch(2), height = pt(60) }, fill = "#dcfce7", text = { size = pt(10) })[Shape A1 in a column]
+
+Beta sentence fills its column with words that wrap. Beta sentence fills its column with words that wrap. Beta sentence fills its column with words that wrap.
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(400) } })[Filler A of 400 points.]
+
+#shape(position = { width = inch(2), height = pt(100) }, fill = "#dcfce7", text = { size = pt(10) })[Shape A2 moves to the second column]
+
+Gamma sentence fills its column with words that wrap. Gamma sentence fills its column with words that wrap. Gamma sentence fills its column with words that wrap.
+
+#group(alignment = "center")[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(1.2), height = pt(30) }, fill = "#2563eb", text = { size = pt(9), color = "#ffffff" })[Group A3]
+  #shape(position = { x = inch(0.6), y = pt(36), width = inch(1.2), height = pt(24) }, fill = "#059669")
+]
+
+Delta sentence fills its column with words that wrap. Delta sentence fills its column with words that wrap. Delta sentence fills its column with words that wrap.
+
+#group(alignment = "right")[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(1.2), height = pt(30) }, fill = "#2563eb", text = { size = pt(9), color = "#ffffff" })[Group A4]
+  #shape(position = { x = inch(0.6), y = pt(36), width = inch(1.2), height = pt(24) }, fill = "#059669")
+]
+
+Epsilon sentence fills its column with words that wrap. Epsilon sentence fills its column with words that wrap. Epsilon sentence fills its column with words that wrap.
+
+]
+
+#section(columns = { count = 2, gap = pt(18) })[
+Zeta sentence fills its column with words that wrap. Zeta sentence fills its column with words that wrap. Zeta sentence fills its column with words that wrap.
+
+#shape(position = { width = inch(4), height = pt(50) }, fill = "#dcfce7", text = { size = pt(10) })[Shape B1 wider than its column]
+
+Eta sentence fills its column with words that wrap. Eta sentence fills its column with words that wrap. Eta sentence fills its column with words that wrap.
+
+#break(type = "column")
+
+#shape(position = { width = inch(2), height = pt(50) }, fill = "#dcfce7", text = { size = pt(10) })[Shape B2 after a column break]
+
+Theta sentence fills its column with words that wrap. Theta sentence fills its column with words that wrap. Theta sentence fills its column with words that wrap.
+
+]
+
+Text before the balanced columns.
+
+#section(columns = { count = 2, gap = pt(18) }, properties = { start = "continuous" })[
+Iota sentence fills its column with words that wrap. Iota sentence fills its column with words that wrap.
+
+#shape(position = { width = inch(2), height = pt(70) }, fill = "#dcfce7", text = { size = pt(10) })[Shape C1 in balanced columns]
+
+Kappa sentence goes down its own column and wraps there. Kappa sentence goes down its own column and wraps there.
+
+#shape(position = { width = inch(2), height = pt(70) }, fill = "#dcfce7", text = { size = pt(10) })[Shape C2 in balanced columns]
+
+Lambda sentence runs down its own column and wraps there. Lambda sentence runs down its own column and wraps there.
+
+]
+
+#section(columns = { count = 1 }, properties = { start = "continuous" })[
+Text after the balanced columns.
+
+#shape(position = { width = inch(2), height = pt(40) }, fill = "#dcfce7", text = { size = pt(10) })[Shape D1 after the columns]
+
+Closing text of the sweep.
+]

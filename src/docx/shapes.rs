@@ -19,6 +19,7 @@ pub(super) fn write(
     element: &Element,
     styles: &Styles<'_>,
     state: &mut DocumentState,
+    leading_column_break: bool,
 ) -> Result<String, Error> {
     let attributes = &element.attributes;
     let identifier = state.resources.next_drawing();
@@ -88,8 +89,13 @@ pub(super) fn write(
         }
         super::paragraph_properties::fit_drawing(&mut paragraph);
         let paragraph = super::paragraph_properties::write(&paragraph)?;
+        let column_break = if leading_column_break {
+            "<w:r><w:br w:type=\"column\"/></w:r>"
+        } else {
+            ""
+        };
         return Ok(format!(
-            r#"<w:p><w:pPr>{paragraph}</w:pPr>{bookmarks}<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0">{described}{graphic}</wp:inline></w:drawing></w:r>{bookmark_ends}</w:p>"#
+            r#"<w:p><w:pPr>{paragraph}</w:pPr>{bookmarks}{column_break}<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0">{described}{graphic}</wp:inline></w:drawing></w:r>{bookmark_ends}</w:p>"#
         ));
     }
     Ok(format!(
