@@ -1,4 +1,5 @@
 {
+  "package_sha256": "bb648cf92f82a86db25485b2b2f26c3db12ea69515ad98310b9d42bb84d10dba",
   "pages": [
     {
       "height": 540.0,
@@ -148,6 +149,5 @@
       "width": 960.0
     }
   ],
-  "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "a15907fee1a6363014bc2962d802a6d7825c224b4320aa20b26436ee81ebc63c"
+  "renderer": "Microsoft PowerPoint 16.114.1"
 }

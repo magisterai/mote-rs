@@ -1,4 +1,5 @@
 {
+  "package_sha256": "d83a0fb6f58933eefdeb7b6acebd3ea6e79405702fe126098854b114083d1ed4",
   "pages": [
     {
       "height": 540.0,
@@ -21,7 +22,7 @@
         {
           "baseline": 121.68,
           "text": "60",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 161.28,
@@ -31,12 +32,12 @@
         {
           "baseline": 164.88,
           "text": "50",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 208.08,
           "text": "40",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 233.28,
@@ -59,9 +60,9 @@
           "x": 71.9
         },
         {
-          "baseline": 251.28,
+          "baseline": 251.52,
           "text": "30",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 254.07,
@@ -89,14 +90,14 @@
           "x": 867.69
         },
         {
-          "baseline": 287.76,
+          "baseline": 288.0,
           "text": "Partners",
           "x": 867.69
         },
         {
-          "baseline": 294.48,
+          "baseline": 294.72,
           "text": "20",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 304.8,
@@ -104,14 +105,14 @@
           "x": 867.69
         },
         {
-          "baseline": 337.68,
+          "baseline": 337.92,
           "text": "10",
-          "x": 78.11
+          "x": 78.1
         },
         {
-          "baseline": 380.88,
+          "baseline": 381.12,
           "text": "0",
-          "x": 82.92
+          "x": 82.91
         },
         {
           "baseline": 380.4,
@@ -131,7 +132,7 @@
         {
           "baseline": 392.88,
           "text": "Mar",
-          "x": 269.07
+          "x": 269.06
         },
         {
           "baseline": 392.88,
@@ -146,20 +147,20 @@
         {
           "baseline": 407.76,
           "text": "Month",
-          "x": 262.68
+          "x": 262.67
         },
         {
-          "baseline": 433.68,
+          "baseline": 433.92,
           "text": "Actual",
           "x": 205.08
         },
         {
-          "baseline": 433.68,
+          "baseline": 433.92,
           "text": "Plan",
           "x": 261.3
         },
         {
-          "baseline": 433.68,
+          "baseline": 433.92,
           "text": "Stretch",
           "x": 309.72
         },
@@ -177,6 +178,5 @@
       "width": 960.0
     }
   ],
-  "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "af5465b4d812a9112c0ec60eb4a63e88e158a263c65885b0ca36fc29eb251b68"
+  "renderer": "Microsoft PowerPoint 16.114.1"
 }

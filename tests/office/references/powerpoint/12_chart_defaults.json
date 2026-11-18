@@ -1,4 +1,5 @@
 {
+  "package_sha256": "a2c858fe284500890d0327ec11b3678a949aeb075ccdcd6624920190d175a203",
   "pages": [
     {
       "height": 540.0,
@@ -21,47 +22,47 @@
         {
           "baseline": 121.68,
           "text": "60",
-          "x": 78.11
+          "x": 78.1
         },
         {
-          "baseline": 125.04,
+          "baseline": 125.28,
           "text": "Actual",
           "x": 647.88
         },
         {
-          "baseline": 125.04,
+          "baseline": 125.28,
           "text": "Plan",
           "x": 704.1
         },
         {
-          "baseline": 125.04,
+          "baseline": 125.28,
           "text": "Stretch",
           "x": 752.52
         },
         {
-          "baseline": 144.48,
+          "baseline": 144.72,
           "text": "60",
-          "x": 520.91
+          "x": 520.9
         },
         {
           "baseline": 164.88,
           "text": "50",
-          "x": 78.11
+          "x": 78.1
         },
         {
-          "baseline": 187.68,
+          "baseline": 187.92,
           "text": "50",
-          "x": 520.91
+          "x": 520.9
         },
         {
           "baseline": 208.08,
           "text": "40",
-          "x": 78.11
+          "x": 78.1
         },
         {
-          "baseline": 230.88,
+          "baseline": 231.12,
           "text": "40",
-          "x": 520.91
+          "x": 520.9
         },
         {
           "baseline": 242.94,
@@ -79,9 +80,9 @@
           "x": 71.9
         },
         {
-          "baseline": 251.28,
+          "baseline": 251.52,
           "text": "30",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 254.07,
@@ -111,7 +112,7 @@
         {
           "baseline": 274.32,
           "text": "30",
-          "x": 520.91
+          "x": 520.9
         },
         {
           "baseline": 277.11,
@@ -124,29 +125,29 @@
           "x": 514.7
         },
         {
-          "baseline": 294.48,
+          "baseline": 294.72,
           "text": "20",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 317.52,
           "text": "20",
-          "x": 520.91
+          "x": 520.9
         },
         {
-          "baseline": 337.68,
+          "baseline": 337.92,
           "text": "10",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 360.72,
           "text": "10",
-          "x": 520.91
+          "x": 520.9
         },
         {
-          "baseline": 380.88,
+          "baseline": 381.12,
           "text": "0",
-          "x": 82.92
+          "x": 82.91
         },
         {
           "baseline": 392.88,
@@ -161,7 +162,7 @@
         {
           "baseline": 392.88,
           "text": "Mar",
-          "x": 269.07
+          "x": 269.06
         },
         {
           "baseline": 392.88,
@@ -176,12 +177,12 @@
         {
           "baseline": 403.92,
           "text": "0",
-          "x": 525.72
+          "x": 525.71
         },
         {
           "baseline": 407.76,
           "text": "Month",
-          "x": 262.68
+          "x": 262.67
         },
         {
           "baseline": 415.68,
@@ -196,7 +197,7 @@
         {
           "baseline": 415.68,
           "text": "Mar",
-          "x": 711.87
+          "x": 711.86
         },
         {
           "baseline": 415.68,
@@ -211,10 +212,10 @@
         {
           "baseline": 430.8,
           "text": "Month",
-          "x": 705.48
+          "x": 705.47
         },
         {
-          "baseline": 433.68,
+          "baseline": 433.92,
           "text": "Actual Plan Stretch",
           "x": 214.26
         },
@@ -252,12 +253,12 @@
         {
           "baseline": 121.68,
           "text": "50",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 150.0,
           "text": "45",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 159.12,
@@ -267,12 +268,12 @@
         {
           "baseline": 178.08,
           "text": "40",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 206.4,
           "text": "35",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 225.84,
@@ -280,9 +281,9 @@
           "x": 588.45
         },
         {
-          "baseline": 234.48,
+          "baseline": 234.72,
           "text": "30",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 249.84,
@@ -307,7 +308,7 @@
         {
           "baseline": 262.8,
           "text": "25",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 265.59,
@@ -320,19 +321,19 @@
           "x": 71.9
         },
         {
-          "baseline": 290.88,
+          "baseline": 291.12,
           "text": "20",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 319.2,
           "text": "15",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 347.52,
           "text": "10",
-          "x": 78.11
+          "x": 78.1
         },
         {
           "baseline": 360.0,
@@ -340,14 +341,14 @@
           "x": 628.2
         },
         {
-          "baseline": 375.6,
+          "baseline": 375.84,
           "text": "5",
-          "x": 82.92
+          "x": 82.91
         },
         {
           "baseline": 403.92,
           "text": "0",
-          "x": 82.92
+          "x": 82.91
         },
         {
           "baseline": 415.68,
@@ -362,7 +363,7 @@
         {
           "baseline": 415.68,
           "text": "Mar",
-          "x": 269.07
+          "x": 269.06
         },
         {
           "baseline": 415.68,
@@ -377,10 +378,10 @@
         {
           "baseline": 430.8,
           "text": "Month",
-          "x": 262.68
+          "x": 262.67
         },
         {
-          "baseline": 433.68,
+          "baseline": 433.92,
           "text": "Product Services Partners Other",
           "x": 623.49
         },
@@ -398,6 +399,5 @@
       "width": 960.0
     }
   ],
-  "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "52532aacce1a52f28164f32f9e803311efe0838a5f39303839f41d570600bb5f"
+  "renderer": "Microsoft PowerPoint 16.114.1"
 }

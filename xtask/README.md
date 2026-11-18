@@ -115,11 +115,13 @@ since two tests of a binary refresh files that one manifest records.
 `cargo xtask office-compare` compares the native layout of every review case and
 probe with its Word or PowerPoint reference and reports, for each, the lines that
 moved to another page, the lines without a partner, and the largest and median
-vertical offsets and largest horizontal offset of matched lines. The
+vertical offsets and largest horizontal offset of matched lines, and the number
+of points at which the marks that are not text differ. The
 [Office comparison guide](../tests/office/README.md) describes the references,
 the allowances and the probes. `--case NAME` and `--probe NAME` select subjects,
-and `--detail` lists every unmatched line and every line more than half a point
-from Office.
+`--detail` lists every unmatched line and every line more than half a point
+from Office, and `--marks DIRECTORY` writes the pictures of the marks of each
+page and a map of their differences.
 
 `--record` exports the selected subjects through Microsoft Word or PowerPoint on
 macOS and replaces their references; the applications must be installed and may

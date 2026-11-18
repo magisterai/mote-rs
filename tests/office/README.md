@@ -10,29 +10,48 @@ Office installed.
 A reference in [references/](references/) records the text lines of one Office PDF
 export: each line's text, the position of its first glyph after any list marker,
 and its baseline, in points from the top-left corner of the page. The reference
-also records the SHA-256 digest of the source it was exported from and the
-version of the application that exported it. A reference whose source has
-changed fails the comparison until it is recorded again, since an edited source
-has no Office evidence.
+also records the SHA-256 digest of the package it was exported from and the
+version of the application that exported it. The digest covers every part but
+the core properties, which state the time of writing, and leaves out the text
+that a date field shows until Office replaces it. A reference whose package has
+changed fails the comparison until it is recorded again, whether the source or
+the writer changed it, since Office has laid out no other package.
+
+Beside each reference lies a picture of the marks of every page that are not
+text, named `SUBJECT.marks-PAGE.png`: the fills, the strokes and the frames of
+the opaque images, painted without the glyphs at one pixel to the point. The
+text lines say where the text lies, and the picture says what is drawn about
+it: a border, a shading, a rule or a shape. An image with transparency is left
+out, since Word draws a shadow, and text that is not opaque, as such an image.
 
 `cargo xtask office-compare --record` builds each subject's DOCX or PPTX, exports
 it through Word or PowerPoint on macOS and replaces the reference. The command is
 described in the [repository task guide](../../xtask/README.md#office-comparison).
 If the environment variable `MOTE_OFFICE_EXPORTS` names a directory, the command
-also leaves there a copy of each exported PDF, for the inspection of what the
-positions of lines do not show, such as a fill.
+also leaves there a copy of each exported PDF.
 
 The native side is read from Mote's own PDF with the same extractor, and the two
 renderings are paired word by word, since two renderers may divide a row of text
 into lines differently where a wide gap separates its parts. Chart and equation
 text differs by design, because Office lays it out with its own engines.
 
+The marks of the native PDF are painted likewise and compared with the picture
+point by point, each point by the mean of the points within one point of it, so
+that a hairline counts alike wherever it falls among the pixels. A point
+differs if it lies outside the range of the points within one point of the same
+place in the other picture, by more than twelve of 255 in a channel: a mark
+shifted by less than a point agrees, and a mark that is moved, absent, of
+another width or of another colour does not. A page that one rendering lacks
+counts by its marked points. `--marks DIRECTORY` writes the two pictures of
+every page and a map of the points at which they differ.
+
 ## Allowances
 
 [allowances.json](allowances.json) records, for each subject, how far the native
 layout may at present lie from its reference: the lines on another page, the lines
-without a partner, and the largest and median vertical and largest horizontal
-offsets in points. A test fails when any subject exceeds its allowance.
+without a partner, the largest and median vertical and largest horizontal
+offsets in points, and the greatest number of points on a page at which the
+marks differ. A test fails when any subject exceeds its allowance.
 
 An allowance records the present state, not an acceptable one. A layout fix
 lowers the allowances it improves, through `--allow`, and an allowance is raised

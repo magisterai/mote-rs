@@ -1,4 +1,5 @@
 {
+  "package_sha256": "11a1f23d167d840e6524c0accf00134789ff850e707fd5efd153c5586210357e",
   "pages": [
     {
       "height": 540.0,
@@ -81,22 +82,22 @@
         {
           "baseline": 272.88,
           "text": "100",
-          "x": 85.31
+          "x": 85.3
         },
         {
           "baseline": 284.4,
           "text": "90",
-          "x": 90.12
+          "x": 90.11
         },
         {
           "baseline": 295.92,
           "text": "80",
-          "x": 90.12
+          "x": 90.11
         },
         {
           "baseline": 307.44,
           "text": "70",
-          "x": 90.12
+          "x": 90.11
         },
         {
           "baseline": 313.46,
@@ -104,7 +105,7 @@
           "x": 79.1
         },
         {
-          "baseline": 318.74,
+          "baseline": 318.9,
           "text": "g 60",
           "x": 79.1
         },
@@ -119,9 +120,9 @@
           "x": 79.1
         },
         {
-          "baseline": 330.48,
+          "baseline": 330.72,
           "text": "50",
-          "x": 90.12
+          "x": 90.11
         },
         {
           "baseline": 332.24,
@@ -134,7 +135,7 @@
           "x": 79.1
         },
         {
-          "baseline": 342.09,
+          "baseline": 342.25,
           "text": "o 40",
           "x": 79.1
         },
@@ -144,24 +145,24 @@
           "x": 79.1
         },
         {
-          "baseline": 353.52,
+          "baseline": 353.76,
           "text": "30",
-          "x": 90.12
+          "x": 90.11
         },
         {
-          "baseline": 365.04,
+          "baseline": 365.28,
           "text": "20",
-          "x": 90.12
+          "x": 90.11
         },
         {
-          "baseline": 376.56,
+          "baseline": 376.8,
           "text": "10",
-          "x": 90.12
+          "x": 90.11
         },
         {
-          "baseline": 388.08,
+          "baseline": 388.32,
           "text": "0",
-          "x": 94.93
+          "x": 94.92
         },
         {
           "baseline": 400.08,
@@ -189,12 +190,12 @@
           "x": 481.81
         },
         {
-          "baseline": 440.88,
+          "baseline": 441.12,
           "text": "DOCX",
           "x": 454.3
         },
         {
-          "baseline": 440.88,
+          "baseline": 441.12,
           "text": "PPTX",
           "x": 508.38
         },
@@ -212,6 +213,5 @@
       "width": 960.0
     }
   ],
-  "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "0378712341ee3d7070a936114697571d012a3a21e06832c708e00de871189e7d"
+  "renderer": "Microsoft PowerPoint 16.114.1"
 }

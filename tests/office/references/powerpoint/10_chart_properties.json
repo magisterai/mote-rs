@@ -1,4 +1,5 @@
 {
+  "package_sha256": "777f4802c20b77882225974706c51328370b0199434390fe661a845b8947abb5",
   "pages": [
     {
       "height": 540.0,
@@ -16,7 +17,7 @@
         {
           "baseline": 118.08,
           "text": "25",
-          "x": 88.91
+          "x": 88.9
         },
         {
           "baseline": 163.92,
@@ -26,7 +27,7 @@
         {
           "baseline": 174.24,
           "text": "20",
-          "x": 88.91
+          "x": 88.9
         },
         {
           "baseline": 172.8,
@@ -41,7 +42,7 @@
         {
           "baseline": 208.8,
           "text": "16.1",
-          "x": 545.38
+          "x": 545.37
         },
         {
           "baseline": 218.88,
@@ -54,7 +55,7 @@
           "x": 352.53
         },
         {
-          "baseline": 230.4,
+          "baseline": 230.56,
           "text": ")15",
           "x": 82.7
         },
@@ -71,7 +72,7 @@
         {
           "baseline": 243.6,
           "text": "13",
-          "x": 233.51
+          "x": 233.5
         },
         {
           "baseline": 246.56,
@@ -114,19 +115,19 @@
           "x": 82.7
         },
         {
-          "baseline": 286.4,
+          "baseline": 286.56,
           "text": "R10",
           "x": 82.7
         },
         {
-          "baseline": 342.72,
+          "baseline": 342.96,
           "text": "5",
-          "x": 93.72
+          "x": 93.71
         },
         {
-          "baseline": 398.88,
+          "baseline": 399.12,
           "text": "0",
-          "x": 93.72
+          "x": 93.71
         },
         {
           "baseline": 410.88,
@@ -136,7 +137,7 @@
         {
           "baseline": 410.88,
           "text": "Q2",
-          "x": 390.4
+          "x": 390.39
         },
         {
           "baseline": 410.88,
@@ -154,7 +155,7 @@
           "x": 475.81
         },
         {
-          "baseline": 451.68,
+          "baseline": 451.92,
           "text": "Actual Forecast",
           "x": 443.28
         },
@@ -205,7 +206,7 @@
           "x": 423.3
         },
         {
-          "baseline": 451.68,
+          "baseline": 451.92,
           "text": "New Expansion Renewal Services",
           "x": 397.36
         },
@@ -266,22 +267,22 @@
           "x": 492.5
         },
         {
-          "baseline": 252.24,
+          "baseline": 252.48,
           "text": "25",
           "x": 492.5
         },
         {
-          "baseline": 269.04,
+          "baseline": 269.28,
           "text": "Emitter",
           "x": 56.9
         },
         {
-          "baseline": 285.84,
+          "baseline": 286.08,
           "text": "20",
           "x": 492.5
         },
         {
-          "baseline": 319.44,
+          "baseline": 319.68,
           "text": "15",
           "x": 492.5
         },
@@ -371,12 +372,12 @@
           "x": 818.45
         },
         {
-          "baseline": 451.68,
+          "baseline": 451.92,
           "text": "Open Closed",
           "x": 230.96
         },
         {
-          "baseline": 451.68,
+          "baseline": 451.92,
           "text": "Teams Projects",
           "x": 661.81
         },
@@ -394,6 +395,5 @@
       "width": 960.0
     }
   ],
-  "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "fb4ea11e27cc4c156a03c0adac4f5e7751824c1dd58b17f3972163570202f67e"
+  "renderer": "Microsoft PowerPoint 16.114.1"
 }

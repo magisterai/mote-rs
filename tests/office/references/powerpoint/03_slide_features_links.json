@@ -1,4 +1,5 @@
 {
+  "package_sha256": "b422dc792f4564e0606313c5b21fc551eaec9b3299783955215fd91284841111",
   "pages": [
     {
       "height": 540.0,
@@ -40,8 +41,8 @@
         },
         {
           "baseline": 518.88,
-          "text": "November 4, 2026",
-          "x": 440.63
+          "text": "November 18, 2026",
+          "x": 437.94
         },
         {
           "baseline": 518.88,
@@ -78,6 +79,5 @@
       "width": 960.0
     }
   ],
-  "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "6a84f5ce66dd7a441db2e71a3a3968a86d6e01806ae9181e58cc4ef9bdf45bb4"
+  "renderer": "Microsoft PowerPoint 16.114.1"
 }

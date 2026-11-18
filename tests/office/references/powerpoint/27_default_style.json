@@ -1,4 +1,5 @@
 {
+  "package_sha256": "ca16a50a238dccc9f9f4ab2687f7b72d2f94fce87f0fdd0f65dff9a8c44b6f78",
   "pages": [
     {
       "height": 540.0,
@@ -176,19 +177,19 @@
           "x": 50.4
         },
         {
-          "baseline": 113.52,
+          "baseline": 113.76,
           "text": "120",
-          "x": 78.11
+          "x": 78.1
         },
         {
-          "baseline": 159.12,
+          "baseline": 159.36,
           "text": "100",
-          "x": 78.11
+          "x": 78.1
         },
         {
-          "baseline": 204.72,
+          "baseline": 204.96,
           "text": "80",
-          "x": 82.92
+          "x": 82.91
         },
         {
           "baseline": 241.25,
@@ -196,7 +197,7 @@
           "x": 71.9
         },
         {
-          "baseline": 250.14,
+          "baseline": 250.3,
           "text": "m 60",
           "x": 71.9
         },
@@ -216,19 +217,19 @@
           "x": 71.9
         },
         {
-          "baseline": 295.92,
+          "baseline": 296.16,
           "text": "40",
-          "x": 82.92
+          "x": 82.91
         },
         {
-          "baseline": 341.52,
+          "baseline": 341.76,
           "text": "20",
-          "x": 82.92
+          "x": 82.91
         },
         {
-          "baseline": 387.12,
+          "baseline": 387.36,
           "text": "0",
-          "x": 87.73
+          "x": 87.72
         },
         {
           "baseline": 399.12,
@@ -264,6 +265,5 @@
       "width": 960.0
     }
   ],
-  "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "01e0a7ed94fafd65ce17ad7e474078b66e8cc529340fc3558ebde6eea7ee79d0"
+  "renderer": "Microsoft PowerPoint 16.114.1"
 }

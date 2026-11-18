@@ -1,4 +1,5 @@
 {
+  "package_sha256": "8895b7a6d3010774ec84b97ae64c05af15886189829188a2dc378eba755082b0",
   "pages": [
     {
       "height": 792.0,
@@ -1767,6 +1768,5 @@
       "width": 612.0
     }
   ],
-  "renderer": "Microsoft Word 16.114.1",
-  "source_sha256": "2511c092390aec7bdc52af5871cf070bad3e8266b1488e3c16ae13d23fc0f3c0"
+  "renderer": "Microsoft Word 16.114.1"
 }

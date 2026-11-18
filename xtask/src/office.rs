@@ -5,6 +5,7 @@
 //! its reference. The test below holds every native layout within its allowance on
 //! any platform; recording a reference requires Office on macOS.
 mod export;
+mod graphics;
 pub(crate) mod lines;
 mod matching;
 
@@ -27,11 +28,12 @@ use std::{
     process::ExitCode,
 };
 
-const HELP: &str = "Usage: cargo xtask office-compare [--case NAME]... [--probe NAME]... [--record] [--allow [--raise SUBJECT]...] [--detail]
+const HELP: &str = "Usage: cargo xtask office-compare [--case NAME]... [--probe NAME]... [--record] [--allow [--raise SUBJECT]...] [--detail] [--marks DIRECTORY]
 
 Compare the native layout of review cases and probes with their recorded Word or
 PowerPoint references in tests/office/references/, and report each subject whose
-line positions exceed its allowance in tests/office/allowances.json.
+line positions, or whose marks other than text, exceed its allowance in
+tests/office/allowances.json.
 --case NAME selects a review case by identifier; --probe NAME selects a probe.
 Without a selection, every case and probe is selected.
 --record exports the selected subjects through Word or PowerPoint (macOS only)
@@ -42,6 +44,8 @@ whose present result exceeds its allowance is refused, and the command fails.
 --raise SUBJECT, with --allow, lets the allowance of one subject rise to its
 present result; SUBJECT is a case identifier or probe:NAME.
 --detail lists unmatched lines and every line more than half a point from Office.
+--marks DIRECTORY writes there, for each page, the marks of Office, the native
+marks, and a map of the points at which they differ.
 ";
 
 /// An offset is stored in tenths of a point. A small margin above the stored
@@ -182,9 +186,8 @@ pub(crate) fn native(subject: &Subject) -> Result<Native, String> {
     Ok(Native { package, plan })
 }
 
-fn native_pages(native: &Native, key: &str) -> Result<Vec<Page>, String> {
-    let pdf = render::paint_pdf(&native.plan).map_err(|error| format!("{key}: {error}"))?;
-    lines::read(pdf)
+fn native_pdf(native: &Native, key: &str) -> Result<Vec<u8>, String> {
+    render::paint_pdf(&native.plan).map_err(|error| format!("{key}: {error}"))
 }
 
 fn rounded(value: f64) -> Value {
@@ -197,9 +200,56 @@ fn reference_path(subject: &Subject) -> PathBuf {
         .join(format!("{}.json", subject.key))
 }
 
+/// The picture of the marks of one page of a reference, numbered from one.
+fn marks_path(subject: &Subject, page: usize) -> PathBuf {
+    repository()
+        .join("tests/office/references")
+        .join(format!("{}.marks-{page}.png", subject.key))
+}
+
 struct Reference {
-    source_sha256: String,
+    package_sha256: String,
     pages: Vec<Page>,
+}
+
+/// Returns the digest of what Office lays out of a package: every part but the
+/// core properties, which state the time of writing. The text that a date field
+/// shows until Office replaces it by the day of opening is left out.
+fn package_digest(package: &[u8]) -> Result<String, String> {
+    let mut content = Vec::new();
+    for part in crate::package::parts(package)? {
+        if part.name == "docProps/core.xml" {
+            continue;
+        }
+        content.extend_from_slice(part.name.as_bytes());
+        content.push(0);
+        match std::str::from_utf8(&part.bytes) {
+            Ok(text) => content.extend_from_slice(without_shown_dates(text).as_bytes()),
+            Err(_) => content.extend_from_slice(&part.bytes),
+        }
+        content.push(0);
+    }
+    Ok(digest::digest(&content))
+}
+
+/// Returns the text of a part without the text that its date fields show.
+fn without_shown_dates(text: &str) -> String {
+    let mut output = String::with_capacity(text.len());
+    let mut rest = text;
+    while let Some(start) = rest.find("<a:fld ") {
+        let end = rest[start..]
+            .find("</a:fld>")
+            .map_or(rest.len(), |end| start + end);
+        let field = &rest[start..end];
+        let shown = field
+            .contains("type=\"datetime")
+            .then(|| field.find("<a:t>"))
+            .flatten()
+            .map_or(end, |shown| start + shown);
+        output.push_str(&rest[..shown]);
+        rest = &rest[end..];
+    }
+    output + rest
 }
 
 fn read_reference(path: &Path) -> Result<Reference, String> {
@@ -226,7 +276,7 @@ fn read_reference(path: &Path) -> Result<Reference, String> {
         })
         .collect();
     Ok(Reference {
-        source_sha256: value["source_sha256"]
+        package_sha256: value["package_sha256"]
             .as_str()
             .unwrap_or_default()
             .to_owned(),
@@ -238,10 +288,10 @@ fn record(subject: &Subject) -> Result<(), String> {
     let native = native(subject)?;
     let stem = subject.key.replace('/', "-");
     let pdf = subject.application.export(&stem, &native.package)?;
+    let pictures = graphics::read(pdf.clone())?;
     let pages = lines::read(pdf)?;
-    let source = fs::read(&subject.source).map_err(|error| error.to_string())?;
     let value = json!({
-        "source_sha256": digest::digest(&source),
+        "package_sha256": package_digest(&native.package)?,
         "renderer": subject.application.version()?,
         "pages": pages.iter().map(|page| json!({
             "width": rounded(page.width),
@@ -256,7 +306,19 @@ fn record(subject: &Subject) -> Result<(), String> {
     let path = reference_path(subject);
     fs::create_dir_all(path.parent().unwrap()).map_err(|error| error.to_string())?;
     fs::write(&path, serde_json::to_string_pretty(&value).unwrap() + "\n")
-        .map_err(|error| format!("{}: {error}", path.display()))
+        .map_err(|error| format!("{}: {error}", path.display()))?;
+    for (index, picture) in pictures.iter().enumerate() {
+        let path = marks_path(subject, index + 1);
+        fs::write(&path, picture.encode()?)
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+    }
+    // An earlier reference may have had more pages.
+    for page in pictures.len() + 1.. {
+        if fs::remove_file(marks_path(subject, page)).is_err() {
+            break;
+        }
+    }
+    Ok(())
 }
 
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -266,11 +328,12 @@ struct Allowance {
     vertical: f64,
     median: f64,
     horizontal: f64,
+    marks: usize,
 }
 
 impl Allowance {
     /// The measurements that an allowance bounds, in the order of `values`.
-    fn fields(comparison: &Comparison) -> [Field; 5] {
+    fn fields(comparison: &Comparison) -> [Field; 6] {
         let field = |name, scale, measured| Field {
             name,
             scale,
@@ -282,16 +345,18 @@ impl Allowance {
             field("vertical", OFFSET, comparison.maximum_vertical),
             field("median", OFFSET, comparison.median_vertical),
             field("horizontal", OFFSET, comparison.maximum_horizontal),
+            field("marks", Scale::COUNT, comparison.marks as f64),
         ]
     }
 
-    fn values(&self) -> [f64; 5] {
+    fn values(&self) -> [f64; 6] {
         [
             self.page_moves as f64,
             self.unmatched as f64,
             self.vertical,
             self.median,
             self.horizontal,
+            self.marks as f64,
         ]
     }
 
@@ -302,6 +367,7 @@ impl Allowance {
             vertical: values[2],
             median: values[3],
             horizontal: values[4],
+            marks: values[5] as usize,
         }
     }
 
@@ -314,6 +380,10 @@ impl Allowance {
             failures.push(match field.name {
                 "page_moves" => format!("{} lines on another page", comparison.page_moves),
                 "unmatched" => format!("{} unmatched lines", comparison.unmatched),
+                "marks" => format!(
+                    "marks differ at {} points, above {}",
+                    comparison.marks, allowed as usize
+                ),
                 name => format!("{name} {:.2}pt exceeds {allowed:.1}pt", field.measured),
             });
         }
@@ -355,6 +425,7 @@ fn read_allowances() -> Result<BTreeMap<String, Allowance>, String> {
                     vertical: number("vertical"),
                     median: number("median"),
                     horizontal: number("horizontal"),
+                    marks: number("marks") as usize,
                 },
             )
         })
@@ -373,6 +444,7 @@ fn write_allowances(allowances: &BTreeMap<String, Allowance>) -> Result<(), Stri
                     "vertical": allowance.vertical,
                     "median": allowance.median,
                     "horizontal": allowance.horizontal,
+                    "marks": allowance.marks,
                 }),
             )
         })
@@ -385,22 +457,53 @@ fn write_allowances(allowances: &BTreeMap<String, Allowance>) -> Result<(), Stri
 }
 
 /// Compares a subject's native layout with its reference, which must have been
-/// recorded from the present source.
-fn compare(subject: &Subject) -> Result<Option<Comparison>, String> {
+/// recorded from the package that the subject gives at present: Office has
+/// laid out no other.
+/// The pictures of the marks are written to `directory` if one is given.
+fn compare(subject: &Subject, directory: Option<&Path>) -> Result<Option<Comparison>, String> {
     let path = reference_path(subject);
     if !path.is_file() {
         return Ok(None);
     }
     let reference = read_reference(&path)?;
-    let source = fs::read(&subject.source).map_err(|error| error.to_string())?;
-    if digest::digest(&source) != reference.source_sha256 {
+    let native = native(subject)?;
+    if package_digest(&native.package)? != reference.package_sha256 {
         return Err(format!(
-            "{}: the source changed after its Office reference was recorded; record it again",
+            "{}: the package changed after its Office reference was recorded; record it again",
             subject.key
         ));
     }
-    let pages = native_pages(&native(subject)?, &subject.key)?;
-    Ok(Some(matching::compare(&reference.pages, &pages)))
+    let pdf = native_pdf(&native, &subject.key)?;
+    let pictures = graphics::read(pdf.clone())?;
+    let mut comparison = matching::compare(&reference.pages, &lines::read(pdf)?);
+    for page in 1..=reference.pages.len().max(pictures.len()) {
+        let office = fs::read(marks_path(subject, page))
+            .ok()
+            .map(|bytes| graphics::Picture::decode(&bytes))
+            .transpose()?;
+        let points = match (&office, pictures.get(page - 1)) {
+            (Some(office), Some(native)) => {
+                let difference = graphics::compare(office, native);
+                if let Some(directory) = directory {
+                    let stem = format!("{}-{page}", subject.key.replace('/', "-"));
+                    for (name, picture) in [
+                        ("office", office),
+                        ("native", native),
+                        ("map", &difference.map),
+                    ] {
+                        let path = directory.join(format!("{stem}-{name}.png"));
+                        fs::write(&path, picture.encode()?)
+                            .map_err(|error| format!("{}: {error}", path.display()))?;
+                    }
+                }
+                difference.points
+            }
+            (Some(alone), None) | (None, Some(alone)) => alone.marked(),
+            (None, None) => 0,
+        };
+        comparison.marks = comparison.marks.max(points);
+    }
+    Ok(Some(comparison))
 }
 
 pub(crate) fn run(mut arguments: Arguments) -> Outcome {
@@ -408,6 +511,7 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
     let mut selected = Vec::new();
     let mut raised = Vec::new();
     let (mut recording, mut allowing, mut detailed) = (false, false, false);
+    let mut marks_directory = None;
     while let Some(argument) = arguments.next() {
         match argument.as_str() {
             "--help" | "-h" => {
@@ -436,6 +540,12 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
             "--record" => recording = true,
             "--allow" => allowing = true,
             "--detail" => detailed = true,
+            "--marks" => {
+                let directory = PathBuf::from(arguments.value("--marks")?);
+                fs::create_dir_all(&directory)
+                    .map_err(|error| format!("{}: {error}", directory.display()))?;
+                marks_directory = Some(directory);
+            }
             other => return Err(format!("unknown option: {other}; use --help")),
         }
     }
@@ -455,16 +565,18 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
     let mut ledger = Ledger::default();
     let mut failed = false;
     println!(
-        "subject | pages | moved | unmatched | vertical | median | horizontal | first difference"
+        "subject | pages | moved | unmatched | vertical | median | horizontal | marks | first difference"
     );
-    let comparisons = in_parallel(&subjects, compare);
+    let comparisons = in_parallel(&subjects, |subject| {
+        compare(subject, marks_directory.as_deref())
+    });
     for ((subject, identifier), comparison) in subjects.iter().zip(identifiers).zip(comparisons) {
         let Some(comparison) = comparison? else {
             println!("{} | no reference", subject.key);
             continue;
         };
         println!(
-            "{} | {}/{} | {} | {} | {:.2} | {:.2} | {:.2} | {}",
+            "{} | {}/{} | {} | {} | {:.2} | {:.2} | {:.2} | {} | {}",
             subject.key,
             comparison.office_pages,
             comparison.native_pages,
@@ -473,6 +585,7 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
             comparison.maximum_vertical,
             comparison.median_vertical,
             comparison.maximum_horizontal,
+            comparison.marks,
             comparison.first_difference.as_deref().unwrap_or("")
         );
         if detailed {
@@ -486,7 +599,7 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
                 &subject.key,
                 identifier,
                 &Allowance::fields(&comparison),
-                stored.as_ref().map(<[f64; 5]>::as_slice),
+                stored.as_ref().map(<[f64; 6]>::as_slice),
                 raised.contains(identifier),
             ) {
                 allowances.insert(subject.key.clone(), Allowance::from_values(&values));
@@ -523,13 +636,30 @@ mod tests {
     use super::*;
 
     #[test]
+    fn a_package_digest_leaves_out_the_text_that_a_date_field_shows() {
+        let slide = |date: &str, title: &str| {
+            format!(
+                "<a:p><a:fld id=\"1\" type=\"datetime4\"><a:rPr/><a:t>{date}</a:t></a:fld>\
+                 <a:fld id=\"2\" type=\"slidenum\"><a:t>3</a:t></a:fld><a:r><a:t>{title}</a:t></a:r></a:p>"
+            )
+        };
+        let shown = without_shown_dates(&slide("November 18, 2026", "Title"));
+        assert_eq!(shown, without_shown_dates(&slide("May 1, 2027", "Title")));
+        assert_ne!(shown, without_shown_dates(&slide("May 1, 2027", "Other")));
+        assert!(shown.contains("<a:t>3</a:t>") && !shown.contains("2026"));
+    }
+
+    #[test]
     fn every_recorded_subject_stays_within_its_office_allowance() {
         let allowances = read_allowances().unwrap();
         let mut failures = Vec::new();
         let mut compared = 0;
         let all = subjects().unwrap();
         let selected: Vec<&Subject> = all.iter().map(|(_, subject)| subject).collect();
-        for (subject, comparison) in selected.iter().zip(in_parallel(&selected, compare)) {
+        for (subject, comparison) in selected
+            .iter()
+            .zip(in_parallel(&selected, |subject| compare(subject, None)))
+        {
             let Some(comparison) = comparison.unwrap() else {
                 continue;
             };
@@ -565,6 +695,7 @@ mod tests {
             vertical: 0.3,
             median: 0.1,
             horizontal: 0.5,
+            marks: 0,
         };
         for (result, exceeds) in [
             (comparison([1, 2], [0.3, 0.1, 0.5]), false),
@@ -612,6 +743,7 @@ mod tests {
             vertical: 0.3,
             median: 0.1,
             horizontal: 0.5,
+            marks: 0,
         };
         let allowed = Ledger::default()
             .allow(

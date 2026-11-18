@@ -27,6 +27,9 @@ pub(crate) struct Comparison {
     pub maximum_vertical: f64,
     pub median_vertical: f64,
     pub maximum_horizontal: f64,
+    /// The greatest number, among the pages, of points at which the marks that
+    /// are not text differ. A page that one rendering lacks counts whole.
+    pub marks: usize,
     /// The first line that lies more than half a point from Office.
     pub first_difference: Option<String>,
     /// Unmatched lines, and matched lines more than half a point apart, for
