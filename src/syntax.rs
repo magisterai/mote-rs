@@ -232,11 +232,11 @@ impl Parser<'_> {
         }
     }
     fn is_at_line_start(&self) -> bool {
-        self.source[..self.position]
-            .rsplit(['\r', '\n'])
-            .next()
-            .unwrap_or_default()
-            .bytes()
-            .all(|byte| matches!(byte, b' ' | b'\t'))
+        // The scan runs backward so that its cost does not grow with the line.
+        self.source.as_bytes()[..self.position]
+            .iter()
+            .rev()
+            .find(|byte| !matches!(byte, b' ' | b'\t'))
+            .is_none_or(|byte| matches!(byte, b'\r' | b'\n'))
     }
 }

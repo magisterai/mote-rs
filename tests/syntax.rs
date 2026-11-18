@@ -185,3 +185,14 @@ fn arrays_preserve_entry_order_spans_and_empty_collection_identity() {
             .contains("nesting limit")
     );
 }
+
+#[test]
+fn the_time_to_parse_a_line_does_not_grow_with_the_square_of_its_length() {
+    // A parser that looked back to the start of the line at every character
+    // took minutes over a line of this length.
+    let line = "word ".repeat(200_000);
+    let started = std::time::Instant::now();
+    let document = mote::compile(&format!("{line}\n\nSecond paragraph.\n")).unwrap();
+    assert_eq!(document.content.len(), 2);
+    assert!(started.elapsed() < std::time::Duration::from_secs(20));
+}
