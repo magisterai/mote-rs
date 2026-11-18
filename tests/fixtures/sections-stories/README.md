@@ -22,6 +22,11 @@ checks disable installed-font discovery. No proprietary font files are included.
 All 41 native PDF pages were visually inspected. Microsoft Word review remains
 unreviewed; these captures do not establish Office conformance.
 
+[closing-tables.mote](closing-tables.mote) ends a header, a footer, a footnote,
+an endnote, a comment, a text box and a table cell with a table. Word ends each
+of these with a paragraph, so DOCX closes each with a collapsed paragraph, as
+the [package tests](../../docx.rs) require. The source has no capture.
+
 The deliberate limit cases remain intact: native page fields use decimal text,
 vertical section alignment is ignored, and parity/next-column section starts
 advance to a page. Story images use visible placeholders. Overflow removes whole

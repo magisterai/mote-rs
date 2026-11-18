@@ -1,5 +1,53 @@
-use super::{Error, check_attributes, diagnostics, values, xml};
-use crate::model::{Properties, Value};
+use super::{Error, check_attributes, diagnostics, values};
+use crate::{
+    model::{Properties, Value},
+    xml::OrderedChildren,
+};
+
+/// The children of `w:pPr` in the sequence of CT_PPrBase and CT_PPr.
+const SEQUENCE: &[&str] = &[
+    "w:pStyle",
+    "w:keepNext",
+    "w:keepLines",
+    "w:pageBreakBefore",
+    "w:framePr",
+    "w:widowControl",
+    "w:numPr",
+    "w:suppressLineNumbers",
+    "w:pBdr",
+    "w:shd",
+    "w:tabs",
+    "w:suppressAutoHyphens",
+    "w:kinsoku",
+    "w:wordWrap",
+    "w:overflowPunct",
+    "w:topLinePunct",
+    "w:autoSpaceDE",
+    "w:autoSpaceDN",
+    "w:bidi",
+    "w:adjustRightInd",
+    "w:snapToGrid",
+    "w:spacing",
+    "w:ind",
+    "w:contextualSpacing",
+    "w:mirrorIndents",
+    "w:suppressOverlap",
+    "w:jc",
+    "w:textDirection",
+    "w:textAlignment",
+    "w:textboxTightWrap",
+    "w:outlineLvl",
+    "w:divId",
+    "w:cnfStyle",
+    "w:rPr",
+    "w:sectPr",
+    "w:pPrChange",
+];
+
+/// The children of one `w:pPr`, to which any writer may add.
+pub(super) fn children() -> OrderedChildren {
+    OrderedChildren::new(SEQUENCE)
+}
 
 pub(super) const ATTRIBUTES: &[&str] = &[
     "alignment",
@@ -19,14 +67,30 @@ pub(super) const ATTRIBUTES: &[&str] = &[
 ];
 
 pub(super) fn write(properties: &Properties) -> Result<String, Error> {
-    write_properties(properties, false)
+    let mut children = children();
+    collect(properties, &mut children)?;
+    Ok(children.write())
 }
 
 pub(super) fn write_declaration(properties: &Properties) -> Result<String, Error> {
-    write_properties(properties, true)
+    let mut children = children();
+    collect_properties(properties, true, &mut children)?;
+    Ok(children.write())
 }
 
-fn write_properties(properties: &Properties, declaration: bool) -> Result<String, Error> {
+/// Adds the direct properties of a paragraph to the children of its `w:pPr`.
+pub(super) fn collect(
+    properties: &Properties,
+    children: &mut OrderedChildren,
+) -> Result<(), Error> {
+    collect_properties(properties, false, children)
+}
+
+fn collect_properties(
+    properties: &Properties,
+    declaration: bool,
+    children: &mut OrderedChildren,
+) -> Result<(), Error> {
     let mut supported = ATTRIBUTES.to_vec();
     supported.push("text_direction");
     if declaration {
@@ -40,30 +104,29 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
         diagnostics::construct("paragraph")
     };
     check_attributes(properties, &supported, path);
-    let mut result = pagination(properties)?;
+    pagination(properties, children)?;
     if let Some(border) = properties.get("border") {
-        result.push_str(&borders(border)?);
+        children.push(borders(border)?);
     }
     let fills: &[&str] = if declaration {
         &["fill", "background"]
     } else {
         &["fill"]
     };
-    for name in fills {
-        if let Some(fill) = properties.get(*name) {
-            result.push_str(&shading(fill)?);
-        }
+    // The schema admits one `w:shd`, so the first fill that is stated is written.
+    if let Some(fill) = fills.iter().find_map(|name| properties.get(*name)) {
+        children.push(shading(fill)?);
     }
     if let Some(stops) = properties.get("tabs") {
-        result.push_str(&tabs(stops)?);
+        children.push(tabs(stops)?);
     }
     if properties
         .get("text_direction")
         .is_some_and(|value| value.to_text() == "rtl")
     {
-        result.push_str("<w:bidi/>");
+        children.push("<w:bidi/>");
     }
-    result.push_str(&spacing(properties)?);
+    children.push(spacing(properties)?);
     let mut indentation = properties
         .get("indent")
         .map(values::object)
@@ -89,7 +152,7 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
             &["left", "right", "first_line", "hanging"],
             "indent",
         );
-        result.push_str("<w:ind");
+        let mut indent = String::from("<w:ind");
         for (name, word_name) in [
             ("left", "left"),
             ("right", "right"),
@@ -97,10 +160,11 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
             ("hanging", "hanging"),
         ] {
             if let Some(value) = indentation.get(name) {
-                result.push_str(&format!(" w:{word_name}=\"{}\"", values::twips(value)?));
+                indent.push_str(&format!(" w:{word_name}=\"{}\"", values::twips(value)?));
             }
         }
-        result.push_str("/>");
+        indent.push_str("/>");
+        children.push(indent);
     }
     if let Some(alignment) = properties.get("alignment") {
         let alignment = alignment.to_text();
@@ -113,7 +177,7 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
                 )));
             }
         };
-        result.push_str(&format!("<w:jc w:val=\"{word_alignment}\"/>"));
+        children.push(format!("<w:jc w:val=\"{word_alignment}\"/>"));
     }
     if let Some(level) = properties.get("outline_level") {
         let level = values::number(level)?;
@@ -122,9 +186,9 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
                 "Word outline levels must be integers from 0 through 9".into(),
             ));
         }
-        result.push_str(&format!("<w:outlineLvl w:val=\"{level}\"/>"));
+        children.push(format!("<w:outlineLvl w:val=\"{level}\"/>"));
     }
-    Ok(result)
+    Ok(())
 }
 
 /// Word clips an inline drawing to an exact line height inherited from the
@@ -151,8 +215,7 @@ pub(super) fn fit_drawing(properties: &mut Properties) {
     }
 }
 
-pub(super) fn pagination(properties: &Properties) -> Result<String, Error> {
-    let mut result = String::new();
+fn pagination(properties: &Properties, children: &mut OrderedChildren) -> Result<(), Error> {
     for (name, word_name) in [
         ("keep_with_next", "keepNext"),
         ("keep_together", "keepLines"),
@@ -160,14 +223,14 @@ pub(super) fn pagination(properties: &Properties) -> Result<String, Error> {
         ("widow_control", "widowControl"),
     ] {
         if let Some(value) = properties.get(name) {
-            result.push_str(&if values::boolean(value)? {
+            children.push(if values::boolean(value)? {
                 format!("<w:{word_name}/>")
             } else {
                 format!("<w:{word_name} w:val=\"0\"/>")
             });
         }
     }
-    Ok(result)
+    Ok(())
 }
 
 fn spacing(properties: &Properties) -> Result<String, Error> {
@@ -296,7 +359,7 @@ fn borders(value: &Value) -> Result<String, Error> {
             .unwrap_or_else(|| "BFBFBF".into());
         result.push_str(&format!(
             "<w:{side} w:val=\"{}\" w:sz=\"{size}\" w:space=\"{space}\" w:color=\"{color}\"/>",
-            xml::escape(&style)?
+            values::border_style(&style, &format!("border.{side}"))
         ));
     }
     Ok(if result.is_empty() {
@@ -350,11 +413,13 @@ fn tabs(value: &Value) -> Result<String, Error> {
             values::first_text(&stop, &["alignment", "align"]).unwrap_or_else(|| "left".into());
         result.push_str(&format!(
             "<w:tab w:val=\"{}\" w:pos=\"{}\"",
-            xml::escape(&alignment)?,
+            values::tab_alignment(&alignment),
             values::twips(position)?
         ));
-        if let Some(leader) = values::first_text(&stop, &["leader"]) {
-            result.push_str(&format!(" w:leader=\"{}\"", xml::escape(&leader)?));
+        if let Some(leader) =
+            values::first_text(&stop, &["leader"]).and_then(|leader| values::tab_leader(&leader))
+        {
+            result.push_str(&format!(" w:leader=\"{leader}\""));
         }
         result.push_str("/>");
     }

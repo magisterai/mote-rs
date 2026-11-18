@@ -1,12 +1,7 @@
 //! Note references and independently related note stories.
 use super::{
-    Error,
-    document::{DocumentState, write_blocks},
-    resources::Resources,
-    run_properties::RunFormatting,
-    runs,
-    styles::Styles,
-    xml,
+    Error, document::DocumentState, resources::Resources, run_properties::RunFormatting, runs,
+    sections::write_story_blocks, styles::Styles, xml,
 };
 use crate::model::{Content, Element, ElementKind};
 
@@ -91,7 +86,7 @@ pub(super) fn write_parts(styles: &Styles<'_>, state: &mut DocumentState) -> Res
             }
             content.push_str("</w:p>");
             let remaining = crate::model::wrap_block_content(remaining);
-            content.push_str(&write_blocks(&remaining, styles, state)?);
+            content.push_str(&write_story_blocks(&remaining, styles, state)?);
             content.push_str(&format!("</w:{kind}>"));
         }
         content.push_str(&format!("</w:{plural}>"));

@@ -67,3 +67,54 @@ pub(crate) fn merge(target: &mut Properties, source: &Properties) {
         }
     }
 }
+
+/// The underline styles of the language, with the name of each in the editable
+/// formats.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum UnderlineStyle {
+    Single,
+    Double,
+    Dotted,
+    Dashed,
+    Wave,
+    None,
+}
+
+impl UnderlineStyle {
+    /// An empty name leaves the style unstated, which is a single line.
+    pub(crate) fn from_name(name: &str) -> Option<Self> {
+        Some(match name {
+            "" | "single" => Self::Single,
+            "double" => Self::Double,
+            "dotted" => Self::Dotted,
+            "dashed" => Self::Dashed,
+            "wave" => Self::Wave,
+            "none" => Self::None,
+            _ => return None,
+        })
+    }
+
+    /// The member of ST_Underline in WordprocessingML.
+    pub(crate) fn word(self) -> &'static str {
+        match self {
+            Self::Single => "single",
+            Self::Double => "double",
+            Self::Dotted => "dotted",
+            Self::Dashed => "dash",
+            Self::Wave => "wave",
+            Self::None => "none",
+        }
+    }
+
+    /// The member of ST_TextUnderlineType in DrawingML.
+    pub(crate) fn drawing(self) -> &'static str {
+        match self {
+            Self::Single => "sng",
+            Self::Double => "dbl",
+            Self::Dotted => "dotted",
+            Self::Dashed => "dash",
+            Self::Wave => "wavy",
+            Self::None => "none",
+        }
+    }
+}

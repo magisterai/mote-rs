@@ -36,7 +36,7 @@ pub(super) fn write(
         let style = &metadata.text;
         let mut properties = format!(
             r#"<a:rPr lang="en-US" sz="{}""#,
-            (style.size * 100.0).round() as i64
+            crate::xml::drawing_font_size(style.size)
         );
         for (name, stated) in [("b", style.bold), ("i", style.italic)] {
             if stated {

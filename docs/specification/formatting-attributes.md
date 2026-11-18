@@ -199,7 +199,9 @@ property object falls through to `val`, then to `single`; an empty color uses th
 default border color. An empty string or `nil` side produces no border for that
 side and still overrides `all`. A border supplied through
 `properties` is retained without that outer type check. Output support for individual border-style spellings must be
-verified separately; a stored string is not a conformance claim.
+verified separately; a stored string is not a conformance claim. DOCX writes the
+line styles that Word defines, and draws a single line, with a warning, for any
+other spelling.
 
 `tabs` accepts one tab-stop object, an array of such objects, or `{}` for an empty
 array. For formatting, a tab stop uses a position length: `position` or its alias `pos`.
@@ -210,6 +212,8 @@ such as `{ right = pt(72) }` is alignment/position shorthand. Stops retain their
 order and authored fields; no sorting, merging, or tab insertion occurs.
 An empty alignment falls through to `align`, then to left alignment; an empty
 leader supplies no leader. Evaluation checks only the outer collection type, not stop fields or positions.
+DOCX aligns a stop left where Word does not define its alignment, and omits a
+leader that Word does not define, each with a warning.
 A `tabs` value supplied through `properties` is retained as supplied.
 
 ```mote

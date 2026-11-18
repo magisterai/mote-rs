@@ -257,12 +257,10 @@ impl RunFormatting {
         }
         if let Some(underline) = self.properties.get("underline") {
             let enabled = values::boolean(underline)?;
-            let underline = if !enabled {
-                "none"
-            } else if self.underline_style.is_empty() {
-                "single"
+            let underline = if enabled {
+                values::underline_style(&self.underline_style)
             } else {
-                &self.underline_style
+                "none"
             };
             let color = if enabled && !self.underline_color.is_empty() {
                 format!(" w:color=\"{}\"", xml::escape(&self.underline_color)?)

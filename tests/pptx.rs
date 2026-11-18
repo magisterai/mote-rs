@@ -398,3 +398,57 @@ fn custom_layouts_match_captured_models_and_editable_packages() {
         &["inheritance", "backgrounds", "replacement", "lua-json"],
     );
 }
+
+fn first_slide(source: &str) -> String {
+    let bytes = mote::pptx::emit(&mote::compile(source).unwrap()).unwrap();
+    let mut archive = zip::ZipArchive::new(Cursor::new(bytes)).unwrap();
+    let mut slide = String::new();
+    archive
+        .by_name("ppt/slides/slide1.xml")
+        .unwrap()
+        .read_to_string(&mut slide)
+        .unwrap();
+    slide
+}
+
+#[test]
+fn run_properties_follow_the_sequence_of_the_schema() {
+    let slide = first_slide(
+        r##"#slide[#box(position={width=inch(6),height=inch(1)})[#span(font="Arial",color="#112233",highlight="#ffff00")[#underline(style="dashed",color="#ff0000")[#link("https://example.com")[Text]]]]]"##,
+    );
+    let slide = roxmltree::Document::parse(&slide).unwrap();
+    let properties = slide
+        .descendants()
+        .filter(|node| node.tag_name().name() == "rPr")
+        .find(|node| {
+            node.children()
+                .any(|child| child.tag_name().name() == "uFill")
+        })
+        .unwrap();
+    let children: Vec<_> = properties
+        .children()
+        .filter(roxmltree::Node::is_element)
+        .map(|child| child.tag_name().name())
+        .collect();
+    assert_eq!(
+        children,
+        ["solidFill", "highlight", "uFill", "latin", "hlinkClick"]
+    );
+    assert_eq!(properties.attribute("u"), Some("dash"));
+}
+
+#[test]
+fn a_run_size_stays_within_the_range_of_the_schema() {
+    let slide = first_slide(
+        "#slide[#box(position={width=inch(6),height=inch(1)})[#span(size=pt(0.5))[Small]]]",
+    );
+    assert!(slide.contains(r#" sz="100""#), "{slide}");
+}
+
+#[test]
+fn a_signed_shadow_direction_becomes_a_positive_angle() {
+    let slide = first_slide(
+        "#slide[#box(position={width=inch(2),height=inch(1)},shadow={angle=-90})[Text]]",
+    );
+    assert!(slide.contains(r#" dir="16200000""#), "{slide}");
+}

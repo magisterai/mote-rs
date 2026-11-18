@@ -62,6 +62,18 @@ its schema, so a package can render natively yet lose a chart in Office; the
 validator reports such parts before review. The README task runs it on every
 package it publishes.
 
+A test of the task generates the editable package of every
+[review case](../tests/cases/README.md), of every
+[Office probe](../tests/office/README.md) and of every source under
+`tests/fixtures`, and requires each to validate. A review case or a probe is
+generated in the format of its application. A fixture source is generated as
+DOCX and as PPTX, and a format that refuses the source is passed over provided
+that the other accepts it. The test names the source, the format, the part and
+the schema error of every violation, and fails when `xmllint` is not installed.
+A captured package is compared only with an earlier generation, so that the
+captures alone would record a schema violation as an expectation. The test runs
+with `cargo test -p xtask generated_packages`.
+
 The retained schemas import the XML namespace without a location, and `xmllint`
 then fails to compile them and reports no validity errors at all. The validator
 therefore loads each schema through a wrapper, written under

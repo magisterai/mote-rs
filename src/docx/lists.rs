@@ -58,7 +58,7 @@ pub(super) fn write(
         let (mut inline, nested) = split_item_children(&item.children);
         let bookmarks = std::mem::take(&mut state.resources.pending_bookmarks);
         inline.splice(0..0, bookmarks.into_iter().map(Content::Element));
-        output.push_str("<w:p><w:pPr>");
+        let mut properties = super::paragraph_properties::children();
         if checked.is_none() {
             let identifier = match numbering_identifier {
                 Some(identifier) => identifier,
@@ -68,20 +68,18 @@ pub(super) fn write(
                     identifier
                 }
             };
-            output.push_str(&numbering::paragraph_reference(identifier, item_level));
+            properties.push(numbering::paragraph_reference(identifier, item_level));
         }
         if checked.is_some()
             || ["indent", "spacing", "tight"]
                 .iter()
                 .any(|name| item.attributes.contains_key(*name))
         {
-            output.push_str(
-                &layout
-                    .for_item(&item.attributes, item_level)?
-                    .write_paragraph_properties(),
-            );
+            layout
+                .for_item(&item.attributes, item_level)?
+                .collect_paragraph_properties(&mut properties);
         }
-        output.push_str("</w:pPr>");
+        output.push_str(&format!("<w:p><w:pPr>{}</w:pPr>", properties.write()));
         if let Some(checked) = checked {
             output.push_str(&state.resources.controls.write_checkbox(
                 &checkbox,

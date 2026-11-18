@@ -203,10 +203,10 @@ impl Node {
                     },
                     options
                 ),
+                // The schema requires `m:deg`, which is empty where the degree is hidden.
                 degree
                     .as_ref()
-                    .map(|degree| part("deg", degree))
-                    .unwrap_or_default(),
+                    .map_or_else(|| "<m:deg/>".into(), |degree| part("deg", degree)),
                 part("e", radicand)
             ),
             Self::Script {

@@ -5,6 +5,7 @@ use crate::{
     measurement::FontVariant,
     model::{Content, Document, Properties},
     presentation::font_name,
+    xml::{DRAWING_RUN_PROPERTIES, OrderedChildren},
 };
 use std::collections::BTreeMap;
 
@@ -201,14 +202,9 @@ fn run_xml(
         output.push_str(" i=\"1\"");
     }
     if style.underline {
-        let underline = match style.underline_style.as_str() {
-            "double" => "dbl",
-            "dotted" => "dotted",
-            "dashed" => "dash",
-            "wave" => "wavy",
-            "none" => "none",
-            _ => "sng",
-        };
+        let underline = crate::properties::UnderlineStyle::from_name(&style.underline_style)
+            .unwrap_or(crate::properties::UnderlineStyle::Single)
+            .drawing();
         output.push_str(&format!(" u=\"{underline}\""));
     }
     if style.double_strike {
@@ -228,30 +224,31 @@ fn run_xml(
     if style.measurement.size_points > 0.0 {
         output.push_str(&format!(
             " sz=\"{}\"",
-            (style.measurement.size_points * 100.0).round() as i64
+            crate::xml::drawing_font_size(style.measurement.size_points)
         ));
     }
     output.push('>');
+    let mut children = OrderedChildren::new(DRAWING_RUN_PROPERTIES);
     if !style.color.is_empty() {
-        output.push_str(&format!(
+        children.push(format!(
             "<a:solidFill><a:srgbClr val=\"{}\"/></a:solidFill>",
             escape(&style.color)?
         ));
     }
     if style.underline && !style.underline_color.is_empty() {
-        output.push_str(&format!(
+        children.push(format!(
             "<a:uFill><a:solidFill><a:srgbClr val=\"{}\"/></a:solidFill></a:uFill>",
             escape(&style.underline_color)?
         ));
     }
     if let Some(color) = &style.highlight {
-        output.push_str(&format!(
+        children.push(format!(
             "<a:highlight><a:srgbClr val=\"{}\"/></a:highlight>",
             escape(color)?
         ));
     }
     if !style.measurement.font.is_empty() {
-        output.push_str(&format!(
+        children.push(format!(
             "<a:latin typeface=\"{}\"/>",
             escape(&font_name(document, &style.measurement.font))?
         ));
@@ -261,10 +258,9 @@ fn run_xml(
             Some(tooltip) => format!(" tooltip=\"{}\"", escape(tooltip)?),
             None => String::new(),
         };
-        output.push_str(&format!(
-            "<a:hlinkClick r:id=\"rId{identifier}\"{tooltip}/>"
-        ));
+        children.push(format!("<a:hlinkClick r:id=\"rId{identifier}\"{tooltip}/>"));
     }
+    output.push_str(&children.write());
     output.push_str("</a:rPr><a:t>");
     output.push_str(&escape(&run.text)?);
     output.push_str("</a:t></a:r>");

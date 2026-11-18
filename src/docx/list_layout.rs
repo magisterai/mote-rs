@@ -78,11 +78,12 @@ impl ListLayout {
         Ok(self)
     }
 
-    pub fn write_paragraph_properties(self) -> String {
-        format!(
-            "<w:spacing w:after=\"{}\"/><w:ind w:left=\"{}\" w:hanging=\"{}\"/>",
-            self.spacing_after, self.left, self.hanging
-        )
+    pub fn collect_paragraph_properties(self, children: &mut crate::xml::OrderedChildren) {
+        children.push(format!("<w:spacing w:after=\"{}\"/>", self.spacing_after));
+        children.push(format!(
+            "<w:ind w:left=\"{}\" w:hanging=\"{}\"/>",
+            self.left, self.hanging
+        ));
     }
 }
 

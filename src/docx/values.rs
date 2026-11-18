@@ -1,5 +1,5 @@
 //! Output unit conversion. Unitless paragraph distances are twips.
-use super::Error;
+use super::{Error, diagnostics};
 use crate::model::{Properties, Unit, Value};
 
 pub(super) fn first<'value>(
@@ -124,5 +124,135 @@ pub(super) fn half_points(value: &Value) -> Result<i64, Error> {
         Value::Length { .. } => rounded(twips(value)? as f64 / 10.0),
         Value::String(text) if text.contains("pt") => rounded(twips(value)? as f64 / 10.0),
         _ => rounded(number(value)? * 2.0),
+    }
+}
+
+/// The line styles of ST_Border. The remaining members of the enumeration are
+/// the art borders of a page.
+const BORDER_STYLES: &[&str] = &[
+    "nil",
+    "none",
+    "single",
+    "thick",
+    "double",
+    "dotted",
+    "dashed",
+    "dotDash",
+    "dotDotDash",
+    "triple",
+    "thinThickSmallGap",
+    "thickThinSmallGap",
+    "thinThickThinSmallGap",
+    "thinThickMediumGap",
+    "thickThinMediumGap",
+    "thinThickThinMediumGap",
+    "thinThickLargeGap",
+    "thickThinLargeGap",
+    "thinThickThinLargeGap",
+    "wave",
+    "doubleWave",
+    "dashSmallGap",
+    "dashDotStroked",
+    "threeDEmboss",
+    "threeDEngrave",
+    "outset",
+    "inset",
+];
+const TAB_ALIGNMENTS: &[&str] = &[
+    "left", "center", "right", "decimal", "start", "end", "bar", "num", "clear",
+];
+const TAB_LEADERS: &[&str] = &["none", "dot", "hyphen", "underscore", "heavy", "middleDot"];
+
+/// The member of an enumeration that an authored name spells. A name that
+/// spells no member is reported under `path` and `attribute` with `effect`,
+/// which states what Word shows in its place, and yields nothing.
+fn member(
+    members: &'static [&'static str],
+    name: &str,
+    path: &str,
+    attribute: &str,
+    effect: &str,
+) -> Option<&'static str> {
+    let member = members.iter().find(|member| **member == name).copied();
+    if member.is_none() {
+        diagnostics::ignore(
+            path,
+            attribute,
+            &format!("{name:?} is not among its values, so {effect}"),
+        );
+    }
+    member
+}
+
+/// ST_Border, for the border of a paragraph, a table or a cell.
+pub(super) fn border_style(name: &str, path: &str) -> &'static str {
+    member(BORDER_STYLES, name, path, "style", "a single line is drawn").unwrap_or("single")
+}
+
+/// ST_TabJc.
+pub(super) fn tab_alignment(name: &str) -> &'static str {
+    member(
+        TAB_ALIGNMENTS,
+        name,
+        "tabs",
+        "alignment",
+        "the stop is aligned left",
+    )
+    .unwrap_or("left")
+}
+
+/// ST_TabTlc.
+pub(super) fn tab_leader(name: &str) -> Option<&'static str> {
+    member(
+        TAB_LEADERS,
+        name,
+        "tabs",
+        "leader",
+        "the stop has no leader",
+    )
+}
+
+/// ST_VerticalJc, for a table cell or a section. The language also names the
+/// centre `middle` and the justified alignment `justified`.
+pub(super) fn vertical_alignment(name: &str, path: &str) -> Option<&'static str> {
+    match name {
+        "middle" => Some("center"),
+        "justified" => Some("both"),
+        _ => member(
+            &["top", "center", "both", "bottom"],
+            name,
+            path,
+            "vertical_alignment",
+            "the alignment is left to Word",
+        ),
+    }
+}
+
+/// ST_HeightRule, for the height of a table row.
+pub(super) fn height_rule(name: &str) -> Option<&'static str> {
+    match name {
+        "at_least" => Some("atLeast"),
+        _ => member(
+            &["auto", "exact", "atLeast"],
+            name,
+            "row",
+            "height_rule",
+            "the height is a minimum",
+        ),
+    }
+}
+
+/// ST_Underline, for an underline style of the language.
+pub(super) fn underline_style(name: &str) -> &'static str {
+    match crate::properties::UnderlineStyle::from_name(name) {
+        Some(style) => style.word(),
+        None => {
+            diagnostics::ignore(
+                "underline",
+                "style",
+                &format!("{name:?} is not among its values, so a single line is drawn"),
+            );
+            "single"
+        }
     }
 }

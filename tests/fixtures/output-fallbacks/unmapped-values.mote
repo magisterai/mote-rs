@@ -1,0 +1,15 @@
+#style(name = "Shaded", fill = "#ff0000", background = "#00ff00", size = pt(12), underline = true)
+#style(name = "Grid", type = "table", cell = { vertical_alignment = "weird" })
+
+#paragraph(style = "Shaded", keep_with_next = true, border = { top = "zigzag", bottom = { style = "dashed" }, left = "double" }, tabs = { { position = inch(1), alignment = "middle", leader = "stars" }, { position = inch(2), alignment = "decimal", leader = "dot" }, { position = inch(3), alignment = "end" } })[Text #underline(style = "dashed")[dashed] #underline(style = "wave", color = "#ff0000")[wave] #highlight(fill = "#ffff00")[#superscript[up]]]
+
+#heading(level = 1, keep_with_next = true, keep_together = true, page_break_before = false, widow_control = true, numbering = { enabled = true })[Numbered heading]
+
+#table(style = "Grid", borders = { all = "frilly" })[
+#row(height = pt(30), height_rule = "at_least")[#cell(vertical_alignment = "middle", borders = { top = "squiggle" })[Middle]#cell(vertical_alignment = "bottom")[Bottom]]
+#row(height = pt(30), height_rule = "exact")[#cell(vertical_alignment = "center")[Center]#cell(vertical_alignment = "top")[Top]]
+]
+
+#shape(position = { width = inch(2), height = inch(1) }, rotation = -15, shadow = { angle = -45 })[Shadow]
+
+Radical $\sqrt{y}$ and $\sqrt[3]{x}$ with #span(size = pt(0.5))[minute text].

@@ -28,7 +28,8 @@ Compatibility observations retained by the captures:
 - Gridlines and the category axis carry the explicit `#D9D9D9` 0.75 pt line of
   Office's default chart style, because Word draws a bare `c:majorGridlines` in
   black at one point. The value axis has no line, and neither axis has tick marks.
-- Authored gap and overlap values are retained without percentage-range clamping.
+- An authored gap is confined to the range from 0 to 500 and an authored overlap
+  to the range from -100 to 100, which the chart schema requires.
 
 Non-finite numeric data is separately tested as an output error. These captures
 establish model and package agreement; native chart geometry and Office visual

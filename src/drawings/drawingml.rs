@@ -134,7 +134,8 @@ pub(crate) fn shadow(attributes: &Properties) -> Result<String, String> {
     let opacity = number(shadow, "opacity").map(alpha).unwrap_or(35000);
     let blur = length(shadow, "blur", 50800)?;
     let distance = length(shadow, "distance", 25400)?;
-    let direction = angle(number(shadow, "angle").unwrap_or(270.0))?;
+    // ST_PositiveFixedAngle runs from 0 up to, but not including, 360 degrees.
+    let direction = angle(number(shadow, "angle").unwrap_or(270.0))?.rem_euclid(21_600_000);
     Ok(format!(
         "<a:effectLst><a:outerShdw blurRad=\"{blur}\" dist=\"{distance}\" dir=\"{direction}\" algn=\"tl\" rotWithShape=\"0\"><a:srgbClr val=\"{color}\"><a:alpha val=\"{opacity}\"/></a:srgbClr></a:outerShdw></a:effectLst>"
     ))

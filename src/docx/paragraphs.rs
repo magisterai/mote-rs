@@ -75,22 +75,23 @@ pub(super) fn opening(
     for field in remove_run_attributes(&mut attributes) {
         resources.warnings.push(format!("paragraph.{field} is retained but has no editable paragraph effect; use an inline span or a named style"));
     }
-    let mut properties = String::new();
+    let mut properties = paragraph_properties::children();
     if let Some(name) = attributes
         .remove("style")
         .map(|value| value.to_text())
         .filter(|name| !name.is_empty())
         && let Some(identifier) = styles.reference(&name, "style")
     {
-        properties.push_str(&format!(
+        properties.push(format!(
             "<w:pStyle w:val=\"{}\"/>",
             xml::escape(identifier)?
         ));
     }
     if let Some((identifier, level)) = numbering_reference {
-        properties.push_str(&numbering::paragraph_reference(identifier, level));
+        properties.push(numbering::paragraph_reference(identifier, level));
     }
-    properties.push_str(&paragraph_properties::write(&attributes)?);
+    paragraph_properties::collect(&attributes, &mut properties)?;
+    let properties = properties.write();
     let mut paragraph = String::from("<w:p>");
     if !properties.is_empty() {
         paragraph.push_str(&format!("<w:pPr>{properties}</w:pPr>"));

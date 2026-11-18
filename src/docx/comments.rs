@@ -1,12 +1,7 @@
 //! Comment ranges and their independently related annotation story.
 use super::{
-    Error,
-    document::{DocumentState, write_blocks},
-    resources::Resources,
-    run_properties::RunFormatting,
-    runs,
-    styles::Styles,
-    xml,
+    Error, document::DocumentState, resources::Resources, run_properties::RunFormatting, runs,
+    sections::write_story_blocks, styles::Styles, xml,
 };
 use crate::{
     model::{Content, Element},
@@ -77,7 +72,7 @@ pub(super) fn write_part(styles: &Styles<'_>, state: &mut DocumentState) -> Resu
         if comment.children.is_empty() {
             content.push_str("<w:p/>");
         } else {
-            content.push_str(&write_blocks(
+            content.push_str(&write_story_blocks(
                 &crate::model::wrap_block_content(&comment.children),
                 styles,
                 state,

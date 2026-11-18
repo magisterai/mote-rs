@@ -32,7 +32,7 @@ any longer are removed.
 
 /// The fixture groups whose test harnesses always evaluate with Lua. Evaluation
 /// differs with Lua enabled, so a capture is refreshed under its harness's setting.
-const LUA_GROUPS: [&str; 10] = [
+pub(crate) const LUA_GROUPS: [&str; 10] = [
     "charts",
     "constructors",
     "drawings",
@@ -192,7 +192,7 @@ fn captures(fixtures: &Path) -> Result<Vec<Capture>, String> {
 /// Sources are rendered as the tests render them: from their own directory, with
 /// Lua where the group's harness enables it, and otherwise with Lua only when
 /// evaluation without it fails.
-fn render(source: &Path, lua: bool, presentation: bool) -> Result<Vec<u8>, String> {
+pub(crate) fn render(source: &Path, lua: bool, presentation: bool) -> Result<Vec<u8>, String> {
     let text =
         fs::read_to_string(source).map_err(|error| format!("{}: {error}", source.display()))?;
     let directory = source.parent().expect("a source lies in a directory");

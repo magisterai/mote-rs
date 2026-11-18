@@ -454,13 +454,14 @@ fn leaf_controls_ignore_model_children_and_labels_remain_zero_width() {
 }
 
 #[test]
-fn shape_rotation_and_shadow_direction_accept_signed_angles() {
+fn a_signed_rotation_is_kept_and_a_signed_shadow_direction_becomes_a_positive_angle() {
     let package = support::package(
         "#shape(position={width=inch(2),height=inch(1)},rotation=-15,shadow={angle=-45})",
     );
     let document = &package["word/document.xml"];
     assert!(document.contains("rot=\"-900000\""));
-    assert!(document.contains("dir=\"-2700000\""));
+    // ST_PositiveFixedAngle admits no negative direction: -45 degrees is 315.
+    assert!(document.contains("dir=\"18900000\""));
 }
 
 #[test]
@@ -476,4 +477,192 @@ fn task_controls_inherit_drawing_text_without_changing_following_lists() {
     let spacer = "<w:rPr><w:rFonts w:ascii=\"Aptos\" w:hAnsi=\"Aptos\"/><w:color w:val=\"112233\"/><w:sz w:val=\"28\"/><w:szCs w:val=\"28\"/></w:rPr><w:t xml:space=\"preserve\"> </w:t>";
     assert_eq!(document.matches(spacer).count(), 2);
     assert!(document.contains("<w:rPr><w:rFonts w:ascii=\"MS Gothic\" w:hAnsi=\"MS Gothic\"/></w:rPr><w:t xml:space=\"preserve\">☒</w:t>"));
+}
+
+const WORD_NAMESPACE: &str = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+
+fn child_names(parent: roxmltree::Node<'_, '_>) -> Vec<String> {
+    parent
+        .children()
+        .filter(roxmltree::Node::is_element)
+        .map(|child| child.tag_name().name().to_owned())
+        .collect()
+}
+
+#[test]
+fn paragraph_properties_follow_the_sequence_of_the_schema() {
+    let package = support::package(
+        r##"#style(name="Lead", bold=true)
+#heading(level=1, style="Lead", numbering={enabled=true}, keep_with_next=true, keep_together=true, page_break_before=false, widow_control=true, border={top="single"}, fill="#eeeeee", tabs={ {position=inch(1)} }, spacing_before=pt(6), indent={left=pt(12)}, alignment="center", outline_level=2)[Numbered]
+#list[#item(indent={left=pt(20)})[Item]]"##,
+    );
+    let document = roxmltree::Document::parse(&package["word/document.xml"]).unwrap();
+    let properties: Vec<_> = document
+        .descendants()
+        .filter(|node| node.has_tag_name((WORD_NAMESPACE, "pPr")))
+        .map(child_names)
+        .collect();
+    assert_eq!(
+        properties[0],
+        [
+            "pStyle",
+            "keepNext",
+            "keepLines",
+            "pageBreakBefore",
+            "widowControl",
+            "numPr",
+            "pBdr",
+            "shd",
+            "tabs",
+            "spacing",
+            "ind",
+            "jc",
+            "outlineLvl"
+        ]
+    );
+    assert_eq!(properties[1], ["numPr", "spacing", "ind"]);
+}
+
+#[test]
+fn a_declared_style_with_two_fills_writes_one_paragraph_shading() {
+    let package = support::package(
+        r##"#style(name="Shaded", fill="#ff0000", background="#00ff00")
+#paragraph(style="Shaded")[Text]"##,
+    );
+    let styles = roxmltree::Document::parse(&package["word/styles.xml"]).unwrap();
+    let properties = styles
+        .descendants()
+        .find(|node| {
+            node.has_tag_name((WORD_NAMESPACE, "style"))
+                && node.attribute((WORD_NAMESPACE, "styleId")) == Some("Shaded")
+        })
+        .and_then(|style| {
+            style
+                .children()
+                .find(|child| child.has_tag_name((WORD_NAMESPACE, "pPr")))
+        })
+        .unwrap();
+    let shadings: Vec<_> = properties
+        .children()
+        .filter(|child| child.has_tag_name((WORD_NAMESPACE, "shd")))
+        .map(|shading| shading.attribute((WORD_NAMESPACE, "fill")).unwrap())
+        .collect();
+    assert_eq!(shadings, ["FF0000"]);
+}
+
+#[test]
+fn underline_styles_are_written_as_members_of_the_word_enumeration() {
+    for (style, word) in [
+        ("single", "single"),
+        ("double", "double"),
+        ("dotted", "dotted"),
+        ("dashed", "dash"),
+        ("wave", "wave"),
+        ("none", "none"),
+    ] {
+        let package = support::package(&format!("#underline(style=\"{style}\")[Text]"));
+        assert!(
+            package["word/document.xml"].contains(&format!("<w:u w:val=\"{word}\"/>")),
+            "{style}"
+        );
+    }
+}
+
+#[test]
+fn a_value_outside_a_word_enumeration_warns_and_gives_way_to_a_member() {
+    let (parts, warnings) = support::package_with_warnings(include_str!(
+        "fixtures/output-fallbacks/unmapped-values.mote"
+    ));
+    for expected in [
+        "DOCX ignores border.top.style; \"zigzag\" is not among its values, so a single line is drawn",
+        "DOCX ignores tabs.alignment; \"middle\" is not among its values, so the stop is aligned left",
+        "DOCX ignores tabs.leader; \"stars\" is not among its values, so the stop has no leader",
+        "DOCX ignores borders.insideH.style; \"frilly\" is not among its values, so a single line is drawn",
+        "DOCX ignores borders.top.style; \"squiggle\" is not among its values, so a single line is drawn",
+        "DOCX ignores cell.vertical_alignment; \"weird\" is not among its values, so the alignment is left to Word",
+    ] {
+        assert!(
+            warnings.iter().any(|warning| warning.starts_with(expected)),
+            "{expected}: {warnings:?}"
+        );
+    }
+    let document = &parts["word/document.xml"];
+    for expected in [
+        r#"<w:top w:val="single" w:sz="4" w:space="0" w:color="BFBFBF"/><w:left w:val="double""#,
+        r#"<w:bottom w:val="dashed""#,
+        r#"<w:tab w:val="left" w:pos="1440"/><w:tab w:val="decimal" w:pos="2880" w:leader="dot"/><w:tab w:val="end" w:pos="4320"/>"#,
+        r#"<w:insideH w:val="single""#,
+        r#"<w:trHeight w:val="600" w:hRule="atLeast"/>"#,
+        r#"<w:trHeight w:val="600" w:hRule="exact"/>"#,
+        r#"<w:vAlign w:val="center"/>"#,
+        r#"<m:rad><m:radPr><m:degHide m:val="1"/></m:radPr><m:deg/><m:e>"#,
+        r#"<m:rad><m:deg><m:r>"#,
+    ] {
+        assert!(document.contains(expected), "{expected}");
+    }
+    for unknown in ["zigzag", "middle", "stars", "frilly", "squiggle"] {
+        assert!(!document.contains(unknown), "{unknown}");
+    }
+    assert!(!parts["word/styles.xml"].contains("weird"));
+}
+
+#[test]
+fn every_story_that_ends_with_a_table_is_closed_by_a_paragraph() {
+    let package = support::package(include_str!(
+        "fixtures/sections-stories/closing-tables.mote"
+    ));
+    let mut closed = Vec::new();
+    for part in [
+        "word/document.xml",
+        "word/header1.xml",
+        "word/footer1.xml",
+        "word/footnotes.xml",
+        "word/endnotes.xml",
+        "word/comments.xml",
+    ] {
+        let document = roxmltree::Document::parse(&package[part]).unwrap();
+        for container in document.descendants().filter(|node| {
+            [
+                "hdr",
+                "ftr",
+                "footnote",
+                "endnote",
+                "comment",
+                "txbxContent",
+                "tc",
+            ]
+            .iter()
+            .any(|name| node.has_tag_name((WORD_NAMESPACE, *name)))
+        }) {
+            let children = child_names(container);
+            assert_eq!(
+                children.last().map(String::as_str),
+                Some("p"),
+                "{part}: {children:?}"
+            );
+            if children.iter().any(|child| child == "tbl") {
+                closed.push(container.tag_name().name().to_owned());
+            }
+        }
+        let body = document
+            .descendants()
+            .find(|node| node.has_tag_name((WORD_NAMESPACE, "body")));
+        if let Some(body) = body {
+            let children = child_names(body);
+            assert_eq!(children[children.len() - 2..], ["p", "sectPr"]);
+        }
+    }
+    closed.sort();
+    assert_eq!(
+        closed,
+        [
+            "comment",
+            "endnote",
+            "footnote",
+            "ftr",
+            "hdr",
+            "tc",
+            "txbxContent"
+        ]
+    );
 }

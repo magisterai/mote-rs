@@ -20,10 +20,24 @@ pub(super) struct StoryPart {
 /// height, so that it cannot carry the document onto a further page.
 pub(super) const CLOSING_PARAGRAPH: &str = r#"<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/><w:szCs w:val="2"/></w:rPr></w:pPr></w:p>"#;
 
-fn close_final_table(body: &mut String) {
-    if body.ends_with("</w:tbl>") {
-        body.push_str(CLOSING_PARAGRAPH);
+/// Closes the blocks of a story that end with a table. A table cell is closed
+/// by its own writer, since a cell may not be empty either.
+pub(super) fn close_final_table(blocks: &mut String) {
+    if blocks.ends_with("</w:tbl>") {
+        blocks.push_str(CLOSING_PARAGRAPH);
     }
+}
+
+/// Writes the blocks of a story other than the body: a header, a footer, a note,
+/// a comment or a text box.
+pub(super) fn write_story_blocks(
+    content: &[Content],
+    styles: &Styles<'_>,
+    state: &mut DocumentState,
+) -> Result<String, Error> {
+    let mut blocks = write_blocks(content, styles, state)?;
+    close_final_table(&mut blocks);
+    Ok(blocks)
 }
 
 pub(super) fn write(
@@ -70,15 +84,12 @@ pub(super) fn write(
         let numbering = page_numbering(section)?;
         let alignment = crate::properties::text(&section.section_properties, "vertical_alignment");
         let suffix = if alignment.is_empty() {
-            String::new()
+            None
         } else {
-            let alignment = if alignment == "justified" {
-                "both"
-            } else {
-                &alignment
-            };
-            format!(r#"<w:vAlign w:val="{}"/>"#, xml::escape(alignment)?)
-        };
+            values::vertical_alignment(&alignment, "section")
+        }
+        .map(|alignment| format!(r#"<w:vAlign w:val="{alignment}"/>"#))
+        .unwrap_or_default();
         let properties = configuration::section_geometry(&geometry, &prefix, &numbering, &suffix)?;
         if index + 1 == document.sections.len() {
             close_final_table(&mut body);
@@ -199,7 +210,7 @@ fn write_story(
                 .insert("style".into(), Value::String(style.into()));
         }
     }
-    let written = write_blocks(&content, styles, state);
+    let written = write_story_blocks(&content, styles, state);
     let relationships = state.resources.leave_story(parent)?;
     let content = format!(
         "{}<w:{tag}{}>{}</w:{tag}>",

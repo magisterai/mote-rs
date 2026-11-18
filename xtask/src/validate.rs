@@ -1,6 +1,9 @@
 //! Schema validation of package parts against the retained ECMA-376 transitional
 //! schemas. Word and PowerPoint may silently omit a part that violates its schema,
 //! so a package can render natively yet lose a chart in Office.
+#[cfg(test)]
+mod generated;
+
 use crate::{
     Outcome,
     arguments::{Arguments, unknown},

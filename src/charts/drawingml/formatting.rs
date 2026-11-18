@@ -37,7 +37,7 @@ fn styled_title(
     }
     let mut attributes = format!(
         r#" sz="{}""#,
-        (style.size.unwrap_or(default_size) * 100.0).round() as i64
+        crate::xml::drawing_font_size(style.size.unwrap_or(default_size))
     );
     for (name, value) in [("b", style.bold), ("i", style.italic)] {
         if let Some(value) = value {
@@ -95,10 +95,9 @@ pub(super) fn label_text(chart: &Chart, color: &str) -> Result<String, Error> {
     let size = if chart.label_size == DEFAULT_LABEL_SIZE {
         String::new()
     } else {
-        // DrawingML admits a run size from 1 to 4000 points, in hundredths of a point.
         format!(
             r#" sz="{}""#,
-            ((chart.label_size * 100.0).round() as i64).clamp(100, 400000)
+            crate::xml::drawing_font_size(chart.label_size)
         )
     };
     if color.is_empty() && size.is_empty() {

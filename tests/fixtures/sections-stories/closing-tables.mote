@@ -1,0 +1,32 @@
+#header[
+Head
+
+#table[#row[#cell[H1]#cell[H2]]]
+]
+#footer[
+#table[#row[#cell[F1]#cell[F2]]]
+]
+
+Body#footnote[
+Note text
+
+#table[#row[#cell[N1]#cell[N2]]]
+] and#endnote[
+#table[#row[#cell[E1]]]
+] and #comment(author="Ada")[
+Comment
+
+#table[#row[#cell[C1]]]
+] end.
+
+#shape(position = {width = inch(3), height = inch(2)}, kind = "round_rect")[
+Inside
+
+#table[#row[#cell[S1]#cell[S2]]]
+]
+
+#table[#row[#cell[
+Cell
+
+#table[#row[#cell[Inner]]]
+]]]

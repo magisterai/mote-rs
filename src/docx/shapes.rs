@@ -1,10 +1,6 @@
 //! Absolute Word shapes with editable text and DrawingML visual properties.
 use super::{
-    Error,
-    document::{self, DocumentState},
-    images, paragraphs, run_properties,
-    styles::Styles,
-    values, xml,
+    Error, document::DocumentState, images, paragraphs, run_properties, styles::Styles, values, xml,
 };
 use crate::{
     drawings,
@@ -129,7 +125,7 @@ fn text_box(
                 }
             }
         }
-        document::write_blocks(&children, styles, state)
+        super::sections::write_story_blocks(&children, styles, state)
     };
     state.resources.active_text = previous;
     Ok(format!(

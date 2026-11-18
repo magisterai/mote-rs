@@ -49,7 +49,8 @@ the model. `flip_horizontal` and `flip_vertical` use the boolean rules.
 `opacity` is retained as text after removing an optional percent suffix.
 
 `shadow` contains `color`, `blur`, `distance`, `opacity`, and `angle`. Blur and
-distance are lengths; angle follows the rotation rule. Unknown nested properties
+distance are lengths; angle follows the rotation rule, and the editable formats
+write the direction as the equivalent angle from 0 up to 360 degrees. Unknown nested properties
 are retained as metadata without implied output behavior.
 
 ## Shape text

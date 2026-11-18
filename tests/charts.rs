@@ -606,3 +606,27 @@ fn a_stated_value_step_is_normalized_and_written_as_the_major_unit() {
         );
     }
 }
+
+#[test]
+fn gap_and_overlap_are_confined_to_the_ranges_of_the_chart_schema() {
+    for (gap, overlap, written_gap, written_overlap) in [
+        (900, -250, 500, -100),
+        (-12, 125, 0, 100),
+        (75, -25, 75, -25),
+    ] {
+        let document = mote::compile(&format!(
+            "#chart(kind=\"column\",data={{values={{1,2}}}},gap_width={gap},overlap={overlap})"
+        ))
+        .unwrap();
+        let xml = chart_part(
+            &mote::docx::emit(&document).unwrap(),
+            "word/charts/chart1.xml",
+        );
+        assert!(
+            xml.contains(&format!(
+                r#"<c:gapWidth val="{written_gap}"/><c:overlap val="{written_overlap}"/>"#
+            )),
+            "{gap} {overlap}"
+        );
+    }
+}

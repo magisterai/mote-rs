@@ -106,7 +106,9 @@ and [value-domain](attributes/values.md) inventories.
   [evaluation and package tests](../../tests/charts.rs) and the
   [native tests](../../tests/chart_axis_labels.rs).
 - [x] `gap_width`, `overlap`: signed integer normalization.
-- [x] Gap and overlap output range handling.
+- [x] Gap and overlap output range handling: the editable chart confines the
+  gap to 0 through 500 and the overlap to -100 through 100, as
+  [the chart tests](../../tests/charts.rs) require.
 - [x] `style`: retained name; retained metadata alone has no formatting effect.
 - [x] Lua `document.chart` uses the shared constructor and typed JSON values.
 

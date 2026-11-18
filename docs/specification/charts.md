@@ -165,7 +165,8 @@ plot area has no appearance effect.
 `minor` as booleans, `color` as a color, and `width` as a length. `gap_width` and
 `overlap` accept signed integers or integer strings and normalize to numbers;
 evaluation does not apply an output-specific percentage range. Editable bar and
-column charts retain authored gap and overlap values without clamping; stacked
+column charts confine the gap to the range from 0 to 500 and the overlap to the
+range from -100 to 100, which are the ranges of the chart format; stacked
 variants default to 100% overlap. Omitted gridlines enable major lines and disable
 minor lines; a boolean controls major lines.
 

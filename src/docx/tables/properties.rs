@@ -1,4 +1,4 @@
-use super::super::{Error, values, xml};
+use super::super::{Error, values};
 use crate::{
     model::{Properties, Value},
     properties as property_values, tables,
@@ -53,12 +53,12 @@ pub(super) fn borders(name: &str, properties: &Properties, table: bool) -> Resul
             })
             .or_else(|| properties.get("all"));
         if let Some(value) = border {
-            contents.push_str(&border_side(side, value)?);
+            contents.push_str(&border_side("borders", side, value)?);
         }
     }
     Ok(wrap(name, contents))
 }
-fn border_side(side: &str, value: &Value) -> Result<String, Error> {
+fn border_side(path: &str, side: &str, value: &Value) -> Result<String, Error> {
     let attributes = match value {
         Value::Object(properties) => properties.clone(),
         _ => Properties::from([("style".into(), value.clone())]),
@@ -87,7 +87,7 @@ fn border_side(side: &str, value: &Value) -> Result<String, Error> {
         .trunc() as i64;
     Ok(format!(
         "<w:{side} w:val=\"{}\" w:sz=\"{size}\" w:space=\"{space}\" w:color=\"{color}\"/>",
-        xml::escape(&style)?
+        values::border_style(&style, &format!("{path}.{side}"))
     ))
 }
 pub(super) fn default_borders() -> String {
@@ -112,9 +112,10 @@ pub(super) fn row(attributes: &Properties) -> Result<String, Error> {
     if let Some(height) = attributes.get("height") {
         contents.push_str(&format!("<w:trHeight w:val=\"{}\"", values::twips(height)?));
         let rule = property_values::text(attributes, "height_rule");
-        let rule = if rule == "at_least" { "atLeast" } else { &rule };
-        if !rule.is_empty() {
-            contents.push_str(&format!(" w:hRule=\"{}\"", xml::escape(rule)?));
+        if !rule.is_empty()
+            && let Some(rule) = values::height_rule(&rule)
+        {
+            contents.push_str(&format!(" w:hRule=\"{rule}\""));
         }
         contents.push_str("/>");
     }
@@ -150,11 +151,10 @@ pub(super) fn cell(attributes: &Properties) -> Result<String, Error> {
         contents.push_str(&format!("<w:textDirection w:val=\"{direction}\"/>"));
     }
     let alignment = property_values::text(attributes, "vertical_alignment");
-    if !alignment.is_empty() {
-        contents.push_str(&format!(
-            "<w:vAlign w:val=\"{}\"/>",
-            xml::escape(&alignment)?
-        ));
+    if !alignment.is_empty()
+        && let Some(alignment) = values::vertical_alignment(&alignment, "cell")
+    {
+        contents.push_str(&format!("<w:vAlign w:val=\"{alignment}\"/>"));
     }
     Ok(contents)
 }

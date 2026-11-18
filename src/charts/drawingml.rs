@@ -47,7 +47,7 @@ pub(crate) fn write(chart: &Chart, options: &Options) -> Result<String, Error> {
     output.push_str(&shape_properties(&chart.chart_area)?);
     output.push_str(&format!(
         r#"<c:txPr><a:bodyPr/><a:lstStyle/><a:p><a:pPr><a:defRPr sz="{}"><a:solidFill><a:srgbClr val="{}"/></a:solidFill><a:latin typeface="{}"/></a:defRPr></a:pPr><a:endParaRPr lang="en-US"/></a:p></c:txPr>"#,
-        (super::DEFAULT_LABEL_SIZE * 100.0).round() as i64,
+        crate::xml::drawing_font_size(super::DEFAULT_LABEL_SIZE),
         escape(&options.text_color)?,
         escape(&options.font)?
     ));
@@ -86,14 +86,19 @@ fn write_cartesian(chart: &Chart, options: &Options) -> Result<String, Error> {
     }
     output.push_str(&data_labels(chart)?);
     if series_kind == series::Kind::Bar {
+        // ST_GapAmount runs from 0 to 500 and ST_Overlap from -100 to 100. Office
+        // may discard a chart part that violates its schema.
         if let Some(gap) = chart.gap_width {
-            output.push_str(&format!(r#"<c:gapWidth val="{gap}"/>"#));
+            output.push_str(&format!(r#"<c:gapWidth val="{}"/>"#, gap.clamp(0, 500)));
         }
         if let Some(overlap) = chart
             .overlap
             .or_else(|| (grouping != "clustered").then_some(100))
         {
-            output.push_str(&format!(r#"<c:overlap val="{overlap}"/>"#));
+            output.push_str(&format!(
+                r#"<c:overlap val="{}"/>"#,
+                overlap.clamp(-100, 100)
+            ));
         }
     }
     if series_kind == series::Kind::Line {
