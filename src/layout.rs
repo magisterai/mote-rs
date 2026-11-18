@@ -22,6 +22,7 @@ mod sections;
 mod spacing;
 mod stories;
 mod tables;
+mod tolerances;
 pub use decorations::{DecorationKind, HighlightRectangle, TextDecoration};
 mod flow;
 mod page;

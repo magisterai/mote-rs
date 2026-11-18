@@ -1,4 +1,9 @@
-use super::{LayoutError, LineFrame, PageGeometry, spacing::LeadingDrop, widows};
+use super::{
+    LayoutError, LineFrame, PageGeometry,
+    spacing::LeadingDrop,
+    tolerances::{AREA_START_TOLERANCE, BLOCK_FIT_TOLERANCE},
+    widows,
+};
 
 #[derive(Debug, Clone, Copy, Default, PartialEq)]
 pub struct FlowCursor {
@@ -134,7 +139,7 @@ pub fn plan_paragraph_flow(
             planner.ensure_space(
                 options.leading_space + heights[0] - trailing_space,
                 options.leading_fit_slack,
-                0.0,
+                BLOCK_FIT_TOLERANCE,
                 false,
             )?;
             planner.cursor.add_leading(
@@ -199,7 +204,7 @@ pub fn plan_paragraph_flow(
                     planner.ensure_space(
                         heights[index] - trailing_spaces(&area)[index],
                         area.bottom_slack,
-                        0.0,
+                        BLOCK_FIT_TOLERANCE,
                         false,
                     )?;
                 }
@@ -300,8 +305,10 @@ impl<Resolver: Fn(usize) -> FlowArea> FlowPlanner<Resolver> {
     }
     fn at_start(&self) -> Result<bool, LayoutError> {
         let area = self.area()?;
-        Ok(self.cursor.current_top <= area.content_top + 0.001
-            && self.cursor.y <= area.content_top + 0.001)
+        Ok(
+            self.cursor.current_top <= area.content_top + AREA_START_TOLERANCE
+                && self.cursor.y <= area.content_top + AREA_START_TOLERANCE,
+        )
     }
     fn ensure_space(
         &mut self,

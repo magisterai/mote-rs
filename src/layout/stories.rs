@@ -1,5 +1,8 @@
 //! Header/footer text uses full-width story bands independently of body columns.
-use super::{DocumentTextPlan, LayoutError, LayoutStyleResolver, PlacedTextLine, TextLine};
+use super::{
+    DocumentTextPlan, LayoutError, LayoutStyleResolver, PlacedTextLine, TextLine,
+    tolerances::LINE_FIT_TOLERANCE,
+};
 use crate::{
     measurement::TextMeasurer,
     model::{Content, Document, Element, ElementKind, Section, Value},
@@ -83,7 +86,7 @@ fn fitting_line_count(lines: &[StoryLine], available: f64) -> usize {
         .iter()
         .take_while(|line| {
             height += line.height();
-            height <= available + 0.001
+            height <= available + LINE_FIT_TOLERANCE
         })
         .count()
 }

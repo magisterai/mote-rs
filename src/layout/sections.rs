@@ -8,6 +8,7 @@ use super::{
     columns::ColumnSeparators,
     document::{LeadingSpace, PlacementContext, ensure_space, place_blocks, place_leading},
     spacing::LeadingDrop,
+    tolerances::BALANCE_TOLERANCE,
 };
 use crate::{
     measurement::TextMeasurer,
@@ -175,7 +176,7 @@ fn balanced_pass(
         let end_height = flow.end.y - top + flow.trailing;
         let height = (flow.end.column_index as f64 * maximum + end_height)
             / flow.geometry.column_count as f64;
-        if height <= 0.0 || height >= maximum - 0.01 {
+        if height <= 0.0 || height >= maximum - BALANCE_TOLERANCE {
             continue;
         }
         searches.insert(
@@ -213,7 +214,7 @@ fn balanced_pass(
                 all_fit = false;
                 search.failed_low = true;
                 search.low = search.target.height;
-                if search.high - search.low <= 0.01 {
+                if search.high - search.low <= BALANCE_TOLERANCE {
                     changed |= search.target.height != search.high;
                     search.target.height = search.high;
                     search.done = true;
@@ -225,7 +226,7 @@ fn balanced_pass(
                 search.done = true;
             } else {
                 search.high = search.target.height;
-                if search.high - search.low <= 0.01 {
+                if search.high - search.low <= BALANCE_TOLERANCE {
                     search.done = true;
                 } else {
                     search.target.height = (search.low + search.high) / 2.0;

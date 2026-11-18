@@ -7,6 +7,7 @@ use super::{
     blocks::{Block, PreparedParagraph},
     columns::ColumnSeparators,
     spacing::LeadingDrop,
+    tolerances::{BLOCK_FIT_TOLERANCE, LEAST_AREA_HEIGHT},
 };
 use crate::{
     measurement::TextMeasurer,
@@ -362,7 +363,9 @@ pub(super) fn place_blocks(
                         if page_number == cursor.page_number {
                             // A section that begins at the foot of a full page
                             // leaves no room there, so its first line moves on.
-                            let top = cursor.current_top.min(area.content_bottom - 0.01);
+                            let top = cursor
+                                .current_top
+                                .min(area.content_bottom - LEAST_AREA_HEIGHT);
                             area.content_top = top;
                             area.page_start = top;
                         }
@@ -431,7 +434,9 @@ pub(super) fn ensure_space(
     boundary: Option<super::sections::FlowBoundary>,
     height: f64,
 ) {
-    if cursor.y + height > page_content_bottom(pages, geometry, boundary, cursor.page_number) {
+    if cursor.y + height
+        > page_content_bottom(pages, geometry, boundary, cursor.page_number) + BLOCK_FIT_TOLERANCE
+    {
         next_area(cursor, pages, columns, geometry);
     }
 }
@@ -550,7 +555,7 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
             break;
         }
     }
-    if count < 2 || first.style.spacing_before + required > maximum {
+    if count < 2 || first.style.spacing_before + required > maximum + BLOCK_FIT_TOLERANCE {
         0.0
     } else {
         required
@@ -621,7 +626,7 @@ fn kept_blocks_height(
             break;
         }
     }
-    if leading + required > maximum {
+    if leading + required > maximum + BLOCK_FIT_TOLERANCE {
         0.0
     } else {
         required

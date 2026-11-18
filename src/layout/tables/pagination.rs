@@ -1,4 +1,5 @@
 //! Line-safe row fragments. Each cell advances independently within a shared physical row.
+use super::super::tolerances::{ROW_FIT_TOLERANCE, TABLE_POSITION_TOLERANCE};
 use super::*;
 #[derive(Clone, Copy, Default)]
 pub(super) struct Window {
@@ -86,7 +87,7 @@ fn resumed_border(cell: &CellPlan, resumed_at: f64) -> f64 {
         let mut top = cell.margins[0] + cell.content_tops[index];
         let mut row = 0;
         while row < table.rows.len() {
-            if row > 0 && (top - resumed_at).abs() <= 0.01 {
+            if row > 0 && (top - resumed_at).abs() <= TABLE_POSITION_TOLERANCE {
                 return table.row_top_border(row);
             }
             let end = block_end(table, row);
@@ -116,10 +117,10 @@ fn break_allowed(cell: &CellPlan, height: f64, cut: f64) -> bool {
     for segment in segments(cell) {
         let top = offset + segment.top;
         let bottom = offset + segment.bottom;
-        if cut > top + 0.01 && cut < bottom - 0.01 {
+        if cut > top + TABLE_POSITION_TOLERANCE && cut < bottom - TABLE_POSITION_TOLERANCE {
             return false;
         }
-        if bottom <= cut + 0.01 {
+        if bottom <= cut + TABLE_POSITION_TOLERANCE {
             previous = Some(segment.break_after);
         } else {
             following = true;
@@ -134,16 +135,16 @@ fn offsets(cell: &CellPlan, row_height: f64) -> (Vec<f64>, f64) {
         .take(segments.len().saturating_sub(1))
         .filter(|segment| segment.break_after)
         .map(|segment| (cell.margins[0] + segment.bottom).max(0.0).min(row_height))
-        .filter(|offset| *offset > 0.01)
+        .filter(|offset| *offset > TABLE_POSITION_TOLERANCE)
         .collect();
     let end = (cell.margins[0] + cell.content_height + cell.margins[2] + 0.5)
         .max(0.0)
         .min(row_height);
-    if end > 0.01 {
+    if end > TABLE_POSITION_TOLERANCE {
         offsets.push(end);
     }
     offsets.sort_by(f64::total_cmp);
-    offsets.dedup_by(|left, right| (*left - *right).abs() <= 0.01);
+    offsets.dedup_by(|left, right| (*left - *right).abs() <= TABLE_POSITION_TOLERANCE);
     (offsets, end)
 }
 fn capacity(available: &[f64], frame: usize) -> f64 {
@@ -165,9 +166,9 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
         .filter(|(_, cell)| cell.row_span == 1)
         .collect();
     if ordinary.is_empty()
-        || ordinary
-            .iter()
-            .any(|(_, cell)| cells::points(cell.attributes.get("height")).unwrap_or(0.0) > 0.01)
+        || ordinary.iter().any(|(_, cell)| {
+            cells::points(cell.attributes.get("height")).unwrap_or(0.0) > TABLE_POSITION_TOLERANCE
+        })
     {
         return None;
     }
@@ -182,10 +183,10 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
     while plans
         .iter()
         .zip(&cursors)
-        .any(|((_, end), cursor)| end - cursor > 0.01)
+        .any(|((_, end), cursor)| end - cursor > TABLE_POSITION_TOLERANCE)
     {
         let available_height = capacity(available, frame);
-        if output.is_empty() && row.height <= available_height + 0.01 {
+        if output.is_empty() && row.height <= available_height + ROW_FIT_TOLERANCE {
             return Some(vec![Slice {
                 row: row_index,
                 frame,
@@ -209,10 +210,10 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
         let mut blocked = false;
         for (index, ((column, cell), (offsets, end))) in ordinary.iter().zip(&plans).enumerate() {
             let cursor = cursors[index];
-            if end - cursor <= 0.01 {
+            if end - cursor <= TABLE_POSITION_TOLERANCE {
                 continue;
             }
-            let inset = if cursor > 0.01 {
+            let inset = if cursor > TABLE_POSITION_TOLERANCE {
                 cell.margins[0].max(0.0) + resumed_border(cell, cursor)
             } else {
                 0.0
@@ -220,23 +221,23 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
             let mut cut = cursor;
             let mut required = 0.0;
             for candidate in offsets {
-                if *candidate <= cursor + 0.01 {
+                if *candidate <= cursor + TABLE_POSITION_TOLERANCE {
                     continue;
                 }
                 let candidate_height = candidate - cursor
                     + inset
-                    + if *candidate < end - 0.01 {
+                    + if *candidate < end - TABLE_POSITION_TOLERANCE {
                         cell.margins[2] + 0.5
                     } else {
                         0.0
                     };
-                if candidate_height > available_height + 0.01 {
+                if candidate_height > available_height + ROW_FIT_TOLERANCE {
                     break;
                 }
                 cut = *candidate;
                 required = candidate_height;
             }
-            if cut <= cursor + 0.01 {
+            if cut <= cursor + TABLE_POSITION_TOLERANCE {
                 blocked = true;
                 continue;
             }
@@ -249,7 +250,7 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
             next[index] = cut;
             height = height.max(required);
         }
-        if blocked || height <= 0.01 {
+        if blocked || height <= TABLE_POSITION_TOLERANCE {
             if frame < available.len() - 1 {
                 frame += 1;
                 continue;
@@ -274,13 +275,13 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
             .map(|index| {
                 output
                     .iter()
-                    .filter(|slice| slice.cells[index].height > 0.01)
+                    .filter(|slice| slice.cells[index].height > TABLE_POSITION_TOLERANCE)
                     .count()
             })
             .collect();
         for slice in &mut output {
             for (index, window) in slice.cells.iter_mut().enumerate() {
-                if window.height <= 0.01 {
+                if window.height <= TABLE_POSITION_TOLERANCE {
                     continue;
                 }
                 window.alignment = alignment;
@@ -344,12 +345,12 @@ pub(super) fn plan(
                 painted += slice.height;
             }
             output.extend(slices);
-            while row.height - painted > 0.01 {
-                if remaining <= 0.01 {
+            while row.height - painted > TABLE_POSITION_TOLERANCE {
+                if remaining <= TABLE_POSITION_TOLERANCE {
                     frame += 1;
                     remaining = capacity(available, frame);
                 }
-                if remaining <= 0.01 {
+                if remaining <= TABLE_POSITION_TOLERANCE {
                     return None;
                 }
                 let height = (row.height - painted).min(remaining);
@@ -365,14 +366,14 @@ pub(super) fn plan(
                 remaining -= height;
             }
         } else {
-            if row.height > remaining + 0.01 {
-                if row.height > capacity(available, available.len() - 1) + 0.01 {
+            if row.height > remaining + ROW_FIT_TOLERANCE {
+                if row.height > capacity(available, available.len() - 1) + ROW_FIT_TOLERANCE {
                     return None;
                 }
                 loop {
                     frame += 1;
                     remaining = capacity(available, frame);
-                    if row.height <= remaining + 0.01 {
+                    if row.height <= remaining + ROW_FIT_TOLERANCE {
                         break;
                     }
                 }
@@ -422,8 +423,8 @@ pub(super) fn plan(
                 }
             }
             let alignment = groups.first()?.2;
-            let top_aligned =
-                cell.margins[0] + cell.content_height + cell.margins[2] + 0.5 > alignment + 0.01;
+            let top_aligned = cell.margins[0] + cell.content_height + cell.margins[2] + 0.5
+                > alignment + ROW_FIT_TOLERANCE;
             let mut offset = 0.0;
             for (index, (slice, _, height)) in groups.iter().enumerate() {
                 if index > 0 && !break_allowed(cell, alignment, offset) {

@@ -7,6 +7,7 @@ use crate::layout::{
     columns::ColumnSeparators,
     document::{ensure_space, next_area, page_content_bottom},
     spacing::LeadingDrop,
+    tolerances::{BLOCK_FIT_TOLERANCE, LINE_FIT_TOLERANCE},
 };
 
 impl NoteLayout {
@@ -75,6 +76,7 @@ impl NoteLayout {
             let previous = *cursor;
             if cursor.y + pending_spacing + required
                 > page_content_bottom(pages, geometry, None, cursor.page_number)
+                    + BLOCK_FIT_TOLERANCE
             {
                 next_area(cursor, pages, columns, geometry);
             }
@@ -104,12 +106,12 @@ impl NoteLayout {
                 let bottom = pages[cursor.page_number - 1]
                     .note_body_bottom
                     .map_or(ordinary_bottom, |bottom| bottom.min(ordinary_bottom));
-                if cursor.y + leading + line.height > bottom {
+                if cursor.y + leading + line.height > bottom + BLOCK_FIT_TOLERANCE {
                     let available = self
                         .endnote_continuation_bottom(geometry, cursor.page_number + 1)
                         - geometry.margin_top
                         - self.endnote_band;
-                    if line.height > available + 0.001 {
+                    if line.height > available + LINE_FIT_TOLERANCE {
                         warnings.push(
                             "native oversized endnote line exceeds its continuation page".into(),
                         );

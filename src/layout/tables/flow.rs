@@ -6,6 +6,7 @@ use super::super::{
     drawings::Drawing,
     painting::ParagraphPainting,
     spacing::LeadingDrop,
+    tolerances::{BLOCK_FIT_TOLERANCE, TABLE_POSITION_TOLERANCE},
 };
 use super::*;
 
@@ -177,7 +178,7 @@ pub(in crate::layout) fn place(
                         cursor.page_number - 1,
                         bounds,
                         &cell.borders,
-                        slice.offset <= 0.01,
+                        slice.offset <= TABLE_POSITION_TOLERANCE,
                         // Word closes the part of a split row on each page.
                         true,
                     );
@@ -187,7 +188,8 @@ pub(in crate::layout) fn place(
                 columns.note(cursor, geometry);
             }
         } else {
-            let oversized = height > geometry.content_bottom() - geometry.margin_top;
+            let oversized =
+                height > geometry.content_bottom() - geometry.margin_top + BLOCK_FIT_TOLERANCE;
             let degrade_rowspans = oversized && end > start + 1;
             if degrade_rowspans {
                 warnings.push(format!("table row group {} exceeds a complete frame and has no safe continuation; rowspans are reduced to individual rows and content may be clipped", start + 1));
@@ -404,7 +406,7 @@ fn place_cell<'plan>(
         clip_top = clip_top.max(outer_top);
         clip_bottom = clip_bottom.min(outer_top + outer_height);
     }
-    if clip_bottom <= clip_top + 0.01 || clip_right <= clip_left {
+    if clip_bottom <= clip_top + TABLE_POSITION_TOLERANCE || clip_right <= clip_left {
         return Ok(drawings);
     }
     let content_clip = [
@@ -424,7 +426,9 @@ fn place_cell<'plan>(
         let object_left = content_left + cell.block_frames[index].x;
         let object_width = cell.block_frames[index].width;
         let block_height = cells::block_geometry(block).0;
-        if block_top + block_height <= clip_top + 0.01 || block_top >= clip_bottom - 0.01 {
+        if block_top + block_height <= clip_top + TABLE_POSITION_TOLERANCE
+            || block_top >= clip_bottom - TABLE_POSITION_TOLERANCE
+        {
             continue;
         }
         match block {
@@ -433,7 +437,8 @@ fn place_cell<'plan>(
                     painting.clear_fill();
                 }
                 for (line_index, line) in paragraph.text.lines.iter().enumerate() {
-                    if block_top + line.height <= clip_top + 0.01 || block_top >= clip_bottom - 0.01
+                    if block_top + line.height <= clip_top + TABLE_POSITION_TOLERANCE
+                        || block_top >= clip_bottom - TABLE_POSITION_TOLERANCE
                     {
                         block_top += line.height;
                         continue;
