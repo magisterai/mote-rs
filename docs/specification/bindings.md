@@ -21,6 +21,13 @@ The binding `time` exists in every source. It holds the time in seconds at
 which the source is rendered, as [animation](presentations.md#animation)
 defines it, and is zero where no time is given. A later `let` may replace it.
 
+The binding `today` exists in every source. It holds a date: the one that the
+caller states, with `--today` on the command line, or else the local calendar
+date of the compilation, and the date in UTC where the local time zone cannot
+be determined. A later `let` may replace it, which fixes the date in the source
+itself. A source that reads `today` without a stated date compiles differently
+on different days.
+
 ```mote
 #let(title="Quarterly report", size=pt(12), shade=color("#123456"))
 #heading[#title]

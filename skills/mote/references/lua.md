@@ -22,7 +22,8 @@ Total revenue was #total million, of which North earned #share%.
   dotted Mote path directly after a name, such as `sales.regions.0`, counts from
   zero.
 - Every binding in scope is visible to Lua, and the value helpers, such as
-  `format_number` and `upper`, are Lua functions.
+  `format_number`, `upper` and the date helpers `days_between` and `add_days`,
+  are Lua functions.
 - An expression is not written inline in text: its value is bound with `#let` and
   the binding inserted.
 

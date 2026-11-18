@@ -1,4 +1,5 @@
 //! Scalar formatting and typed value helpers shared by static and Lua calls.
+mod dates;
 use super::{expressions::EvaluatedArguments, values::numeric_value};
 use crate::{
     diagnostics::{Diagnostic, Span},
@@ -14,6 +15,11 @@ pub(super) const SCALAR_HELPERS: &[&str] = &[
     "format_number",
     "length",
     "date",
+    "days_between",
+    "add_days",
+    "add_months",
+    "date_part",
+    "format_date",
 ];
 
 pub(super) fn evaluate(
@@ -21,7 +27,24 @@ pub(super) fn evaluate(
     mut arguments: EvaluatedArguments,
     span: Span,
 ) -> Result<Value, Diagnostic> {
-    let maximum = if matches!(name, "length" | "format_money" | "format_number") {
+    if matches!(
+        name,
+        "days_between" | "add_days" | "add_months" | "date_part"
+    ) {
+        if arguments.positional.len() != 2 || !arguments.named.is_empty() {
+            return Err(Diagnostic::new(
+                span,
+                format!("{name} requires two positional arguments"),
+            ));
+        }
+        let second = arguments.positional.remove(1);
+        let first = arguments.positional.remove(0);
+        return dates::evaluate(name, first, second);
+    }
+    let maximum = if matches!(
+        name,
+        "length" | "format_money" | "format_number" | "format_date"
+    ) {
         2
     } else {
         1
@@ -36,6 +59,7 @@ pub(super) fn evaluate(
     let (second, named): (&str, &[&str]) = match name {
         "format_money" => ("currency", &["currency"]),
         "format_number" => ("decimals", &["decimals", "grouping"]),
+        "format_date" => ("pattern", &["pattern"]),
         _ => ("", &[]),
     };
     if arguments.positional.is_empty()
@@ -58,6 +82,27 @@ pub(super) fn evaluate(
             name == "upper",
         ))),
         "date" => date(first.value, first.span),
+        "format_date" => {
+            let pattern = arguments
+                .named
+                .get("pattern")
+                .or_else(|| arguments.positional.first());
+            let pattern = match pattern {
+                None => "D MMMM YYYY".to_owned(),
+                Some(argument) => match &argument.value {
+                    Value::String(pattern) => pattern.clone(),
+                    _ => {
+                        return Err(Diagnostic::new(
+                            argument.span,
+                            "format_date pattern must be a string",
+                        ));
+                    }
+                },
+            };
+            dates::format(dates::calendar_date(first.value, first.span)?, &pattern)
+                .map(Value::String)
+                .map_err(|message| Diagnostic::new(span, message))
+        }
         "length" => {
             let unit = arguments.positional.first().map(|argument| &argument.value);
             if unit.is_some_and(|value| !matches!(value, Value::String(_))) {

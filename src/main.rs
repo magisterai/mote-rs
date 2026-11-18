@@ -9,7 +9,7 @@ use mote::source::{
     AssetRequest, CachingAssetResolver, FileAssetResolver, SourceFile, load_source,
 };
 
-const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [--time SECONDS] [--frames RATE [--from SECONDS] [--to SECONDS]] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX, PPTX, PDF and PNG require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--time SECONDS renders at a time: the binding `time` holds it, and the effects of slide objects are drawn as they stand then.\n--frames RATE writes PNG frames PREFIX-0001.png, PREFIX-0002.png, ... at RATE frames a second, from --from (default 0) to --to (default the end of the animation).\n--layout document|presentation selects native layout explicitly.\nWithout --layout, an explicit presentation declaration selects slide layout.\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
+const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [--time SECONDS] [--frames RATE [--from SECONDS] [--to SECONDS]] [--today DATE] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX, PPTX, PDF and PNG require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--time SECONDS renders at a time: the binding `time` holds it, and the effects of slide objects are drawn as they stand then.\n--frames RATE writes PNG frames PREFIX-0001.png, PREFIX-0002.png, ... at RATE frames a second, from --from (default 0) to --to (default the end of the animation).\n--today DATE sets the date that the binding `today` holds (default the local date).\n--layout document|presentation selects native layout explicitly.\nWithout --layout, an explicit presentation declaration selects slide layout.\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
 
 fn main() -> ExitCode {
     match run_command() {
@@ -31,6 +31,7 @@ fn run_command() -> Result<(), String> {
     let mut layout = mote::render::LayoutMode::Automatic;
     let mut enable_lua = false;
     let mut lua_timeout = Some(std::time::Duration::from_secs(10));
+    let mut today = None;
     let mut time = None;
     let mut frame_rate = None;
     let mut frames_from = None;
@@ -51,6 +52,14 @@ fn run_command() -> Result<(), String> {
                     "--from" => frames_from = Some(seconds),
                     _ => frames_to = Some(seconds),
                 }
+            }
+            Some("--today") => {
+                today = Some(
+                    arguments
+                        .next()
+                        .and_then(|value| value.into_string().ok())
+                        .ok_or("--today requires a date (YYYY-MM-DD)")?,
+                );
             }
             Some("--help" | "-h") => return write_stdout(HELP),
             Some("--") => literal_arguments = true,
@@ -171,6 +180,7 @@ fn run_command() -> Result<(), String> {
                 enable_lua,
                 lua_timeout,
                 time,
+                today: today.as_deref(),
             },
         )
         .map_err(|error| {

@@ -243,7 +243,7 @@ fn scalar_helper(
         .peekable();
     let mut arguments = EvaluatedArguments::default();
     if document_namespace
-        && matches!(name, "format_money" | "format_number")
+        && matches!(name, "format_money" | "format_number" | "format_date")
         && matches!(values.peek(), Some(Value::Object(_)))
     {
         let Some(Value::Object(properties)) = values.next() else {

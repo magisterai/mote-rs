@@ -70,6 +70,29 @@ The #report.quarter total is #span(color = accent)[#format_money(total)], and th
   another currency.
 - `date("2026-11-04")` is a date, and `length(12, "pt")` a length.
 
+## Dates
+
+A date helper takes a date or a `YYYY-MM-DD` string. The binding `today` holds
+the date of the compilation, as in `#days_between(today, finish)`; a document
+that must not change from day to day states its own date instead.
+
+```mote
+#let(start = date("2026-01-31"), finish = "2026-03-14")
+
+The work runs from #format_date(start) to #format_date(finish, "ddd D MMM"):
+#days_between(start, finish) days, reviewed on #add_days(start, 14) and again on
+#add_months(start, 1), in week #date_part(finish, "week").
+```
+
+- `days_between(start, end)` is a whole number, negative if `end` is earlier.
+- `add_days(date, count)` and `add_months(date, count)` give a date; a month
+  without the day gives its last day, so the second review above is `2026-02-28`.
+- `date_part(date, part)` gives a number; the part is `year`, `month`, `day`,
+  `weekday` (1 for Monday to 7 for Sunday), `day_of_year` or `week`.
+- `format_date(date, pattern)` gives text, by default `31 January 2026`. The
+  tokens are `YYYY`, `YY`, `MMMM` (January), `MMM` (Jan), `MM`, `M`, `DD`, `D`,
+  `dddd` (Saturday) and `ddd` (Sat); text in square brackets stands as written.
+
 ## Limits
 
 - Arithmetic and comparison, such as `total * 1.2` or `count > 3`, require Lua,

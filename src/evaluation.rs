@@ -48,6 +48,9 @@ pub struct EvaluationOptions<'resolver> {
     /// The time in seconds at which the document is rendered. The binding
     /// `time` holds it, or zero where none is given.
     pub time: Option<f64>,
+    /// The date that the binding `today` holds, as `YYYY-MM-DD`. None takes
+    /// the local calendar date of the compilation.
+    pub today: Option<&'resolver str>,
 }
 impl Default for EvaluationOptions<'_> {
     fn default() -> Self {
@@ -57,6 +60,7 @@ impl Default for EvaluationOptions<'_> {
             enable_lua: false,
             lua_timeout: Some(std::time::Duration::from_secs(10)),
             time: None,
+            today: None,
         }
     }
 }
@@ -121,6 +125,30 @@ fn evaluate_at(
     state
         .bindings
         .set("time".into(), Value::Number(time.unwrap_or(0.0)));
+    let today = match &options.today {
+        Some(today) => helpers::date(
+            Value::String((*today).to_owned()),
+            crate::diagnostics::Span { start: 0, end: 0 },
+        )
+        .map_err(|error| {
+            Diagnostic::new(
+                error.span,
+                "the today option must be a valid ISO calendar date (YYYY-MM-DD)",
+            )
+        })?,
+        None => {
+            let date = time::OffsetDateTime::now_local()
+                .unwrap_or_else(|_| time::OffsetDateTime::now_utc())
+                .date();
+            Value::Date(format!(
+                "{:04}-{:02}-{:02}",
+                date.year(),
+                u8::from(date.month()),
+                date.day()
+            ))
+        }
+    };
+    state.bindings.set("today".into(), today);
     let mut document = evaluate_with_state(tree, state)?;
     document.time = time;
     Ok(document)
