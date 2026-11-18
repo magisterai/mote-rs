@@ -5,8 +5,6 @@
       <w:r>
         <w:t xml:space="preserve">Before a page break.</w:t>
       </w:r>
-    </w:p>
-    <w:p>
       <w:r>
         <w:br w:type="page"/>
       </w:r>
@@ -16,21 +14,14 @@
         <w:pStyle w:val="Heading1"/>
       </w:pPr>
       <w:r>
-        <w:lastRenderedPageBreak/>
         <w:t xml:space="preserve">After page break</w:t>
       </w:r>
     </w:p>
-    <w:p>
-      <w:r>
-        <w:br/>
-      </w:r>
-    </w:p>
+    <w:p/>
     <w:p>
       <w:r>
         <w:t xml:space="preserve">After a block line break.</w:t>
       </w:r>
-    </w:p>
-    <w:p>
       <w:r>
         <w:br w:type="page"/>
       </w:r>

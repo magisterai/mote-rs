@@ -28,8 +28,23 @@ DrawingML break/run properties remain in
 block line breaks, column prefixes, consecutive/trailing breaks, heading spacing,
 metadata and invalid calls. Nested breaks remain model-only and fail DOCX output.
 Explicit breaks are not pagination estimates.
-Native layout and real Word visual review remain unreviewed.
 
-Native PDF/PNG applies page, column, and block line breaks to the shared flow
-cursor. A column break advances to the next column, then to the next page when
+DOCX writes a page break that follows a paragraph or a heading at the end of
+that paragraph, and otherwise in a paragraph of its own. A paragraph that holds
+the break alone needs a line of room, and Word leaves a page empty where the
+page before the break has none; Word's export of the
+[page-break probe](../../tests/office/probes/page-break.mote) had three such
+pages before the break was written so, and has none now. A page break that
+follows another is written in a paragraph of its own, so that the page between
+them stays empty. DOCX writes a block line break as an empty paragraph, since a
+paragraph that holds a line break alone occupies two lines in Word.
+
+Native PDF/PNG applies page and column breaks to the shared flow cursor, and
+lays out a block line break as an empty paragraph. The block that a page break
+sets at the head of a page lies there without the space before it, as in Word,
+whether the break is a `break` or the `page_break_before` of a paragraph. Two
+adjacent tables are parted by an empty paragraph, which DOCX must write between
+them. Word's exports of the page-break probe and of the
+[block-gaps probe](../../tests/office/probes/block-gaps.mote) show these rules,
+and the [break tests](../../tests/breaks.rs) hold them. A column break advances to the next column, then to the next page when
 no column remains. See the [column captures](../../tests/fixtures/native-columns/README.md).

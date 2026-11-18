@@ -1,0 +1,41 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+BLOCK GAPS: a line break between blocks and the gap between two adjacent tables are each an empty paragraph.
+
+#paragraph[]
+
+Beta paragraph after an empty paragraph.
+
+#break(type = "line")
+
+Gamma paragraph after a line break.
+
+#table[
+  #row[#cell[One]#cell[Two]]
+]
+
+#table[
+  #row[#cell[Three]#cell[Four]]
+]
+
+Delta paragraph after two tables.
+
+#paragraph(spacing = { before = pt(30), after = pt(20) })[Epsilon with thirty before and twenty after.]
+
+#break(type = "line")
+
+#paragraph(spacing = { before = pt(30), after = pt(20) })[Zeta with thirty before and twenty after.]
+
+#table[
+  #row[#cell[Five]#cell[Six]]
+]
+
+#table[
+  #row[#cell[Seven]#cell[Eight]]
+]
+
+#paragraph(spacing = { before = pt(30), after = pt(20) })[Eta with thirty before and twenty after.]
+
+#paragraph[]
+
+#paragraph(spacing = { before = pt(30), after = pt(20) })[Theta with thirty before and twenty after.]

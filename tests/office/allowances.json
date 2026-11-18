@@ -244,6 +244,13 @@
     "unmatched": 0,
     "vertical": 0.6
   },
+  "probes/block-gaps": {
+    "horizontal": 0.1,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
+  },
   "probes/break-opportunities": {
     "horizontal": 0.1,
     "median": 0.2,
@@ -342,6 +349,13 @@
     "unmatched": 0,
     "vertical": 0.2
   },
+  "probes/page-break": {
+    "horizontal": 0.1,
+    "median": 0.2,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.4
+  },
   "probes/page-foot": {
     "horizontal": 0.2,
     "median": 0.1,
@@ -427,6 +441,13 @@
     "vertical": 0.3
   },
   "probes/table-page-borders": {
+    "horizontal": 0.1,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.3
+  },
+  "probes/table-row-division": {
     "horizontal": 0.1,
     "median": 0.1,
     "page_moves": 0,

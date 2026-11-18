@@ -54,6 +54,9 @@ a style from the style on which it is based. The
 Word's export of the
 [table-style-precedence probe](../../tests/office/probes/table-style-precedence.mote)
 shows.
+Two adjacent tables are parted by an empty paragraph in DOCX, without which
+Word would join them, and native output sets the same paragraph between them
+([block-gaps probe](../../tests/office/probes/block-gaps.mote)).
 `indent`, `cell_spacing` and `layout` affect editable DOCX only; native output warns
 that these properties have no effect. First/last-column regions and column banding
 also remain editable-output capabilities. See the [capture notes](../../tests/fixtures/tables/README.md)

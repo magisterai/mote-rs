@@ -8,12 +8,13 @@
   "office_review_status": "unreviewed",
   "captured_at_utc": "2026-10-29T12:16:42.657413+00:00",
   "native_reference_status": "captured",
-  "pages": 1,
+  "pages": 2,
   "pdf_comparison_dpi": 144,
   "pdf_changed_pixels": 0,
   "files": {
-    "geometry.json": "9b8dece0c8f36f02c93e8e7be19381e721cd61b0f19cfc8b446fe085d964c791",
-    "reference-1.png": "0e3c64d42a7bf729210623697d0197bf839900dd70351c1c2023b4e80be5603c"
+    "geometry.json": "f55ebc88270fca0887080ec6a77503ba89b2c088e18cb8da9b8c85e129642984",
+    "reference-1.png": "63eafbc852d623980922b6d6e06cbd7b596152cb1c4caede4135faa7dd333a3c",
+    "reference-2.png": "9d1b5a70276140b03be5ef5d47daea3a36e581e3aae517000cb23573db069372"
   },
   "geometry_font_discovery": "disabled",
   "raster_font_discovery": "installed",

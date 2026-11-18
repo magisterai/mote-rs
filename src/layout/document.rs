@@ -1,18 +1,16 @@
 use super::{
-    DocumentTextPlan, FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError,
-    LayoutStyleResolver, LineBreak, PageGeometry, PlacedTextLine, TextLine, TextPage,
-    plan_paragraph_flow, widows::minimum_start_line_count,
+    DocumentTextPlan, FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError, PageGeometry,
+    TextLine, TextPage, plan_paragraph_flow, widows::minimum_start_line_count,
 };
 use super::{
     blocks::{Block, PreparedParagraph},
     columns::ColumnSeparators,
-    paragraphs::LineFrames,
     spacing::{LeadingDrop, NegativeSpaceAfter, carried_spacing, collapsed_spacing},
     tolerances::{BLOCK_FIT_TOLERANCE, LEAST_AREA_HEIGHT},
 };
 use crate::{
     measurement::TextMeasurer,
-    model::{Document, Element, ElementKind, Properties},
+    model::{Document, ElementKind},
 };
 
 /// Resolve block content and assemble ordered native painting operations.
@@ -44,8 +42,7 @@ pub(crate) fn plan_document_with_images(
     super::sections::plan(document, measurer, images)
 }
 
-pub(super) struct PlacementContext<'scope, 'document> {
-    pub styles: &'scope LayoutStyleResolver<'document>,
+pub(super) struct PlacementContext<'scope> {
     pub geometry: PageGeometry,
     pub boundary: Option<super::sections::FlowBoundary>,
     pub notes: &'scope mut super::notes::NoteLayout,
@@ -55,7 +52,7 @@ pub(super) struct PlacementContext<'scope, 'document> {
 }
 pub(super) fn place_blocks(
     blocks: &[Block],
-    context: PlacementContext<'_, '_>,
+    context: PlacementContext<'_>,
     pages: &mut Vec<TextPage>,
     cursor: &mut FlowCursor,
     columns: &mut ColumnSeparators,
@@ -63,14 +60,17 @@ pub(super) fn place_blocks(
     warnings: &mut Vec<String>,
 ) -> Result<(), LayoutError> {
     let PlacementContext {
-        styles,
         geometry,
         boundary,
         notes,
         kept_with_next,
     } = context;
     let mut painting = super::painting::ParagraphPainting::default();
+    let mut heads_page = false;
     for (index, block) in blocks.iter().enumerate() {
+        // Word leaves out the space before a block that an explicit page break
+        // sets at the head of a page.
+        let mut after_page_break = std::mem::take(&mut heads_page);
         let kept_height = |leading: f64| {
             kept_blocks_height(
                 &blocks[index..],
@@ -88,7 +88,12 @@ pub(super) fn place_blocks(
                 if divider.width <= 0.0 {
                     continue;
                 }
-                let leading = collapsed_spacing(*pending_spacing, divider.before);
+                let before = if after_page_break {
+                    0.0
+                } else {
+                    divider.before
+                };
+                let leading = collapsed_spacing(*pending_spacing, before);
                 let required = divider.width.max(kept_height(leading));
                 seek_room_below_leading(
                     cursor, pages, columns, geometry, boundary, leading, required,
@@ -107,7 +112,8 @@ pub(super) fn place_blocks(
                 if chart.height <= 0.0 {
                     continue;
                 }
-                let leading = collapsed_spacing(*pending_spacing, chart.before);
+                let before = if after_page_break { 0.0 } else { chart.before };
+                let leading = collapsed_spacing(*pending_spacing, before);
                 let required = chart.height.max(kept_height(leading));
                 seek_room_below_leading(
                     cursor, pages, columns, geometry, boundary, leading, required,
@@ -137,67 +143,18 @@ pub(super) fn place_blocks(
 
             Block::Break(kind) => {
                 painting.clear_fill();
-                if kind == "line" {
-                    let style = styles.paragraph(&Element {
-                        source_name: None,
-                        source_location: None,
-                        kind: ElementKind::Paragraph,
-                        attributes: Properties::new(),
-                        children: Vec::new(),
-                    });
-                    if !style.line_height.is_finite() || style.line_height <= 0.0 {
-                        return Err(LayoutError::InvalidGeometry(
-                            "hard-break line height must be positive and finite",
-                        ));
-                    }
-                    if *pending_spacing > 0.0 {
-                        place_leading(
-                            cursor,
-                            pages,
-                            columns,
-                            geometry,
-                            boundary,
-                            LeadingSpace {
-                                height: *pending_spacing,
-                                fit_height: *pending_spacing,
-                                dropped: LeadingDrop::Never,
-                            },
-                        );
-                    }
-                    ensure_space(
-                        cursor,
-                        pages,
-                        columns,
-                        geometry,
-                        boundary,
-                        style.line_height,
-                    );
-                    let frame = LineFrames::within(&style, geometry.column_width()).first;
-                    pages[cursor.page_number - 1].push_line(PlacedTextLine {
-                        top: cursor.y,
-                        line: TextLine {
-                            x: geometry.column_left(cursor.column_index) + frame.x,
-                            baseline: cursor.y + style.line_height * 0.8,
-                            height: style.line_height,
-                            trailing_space: 0.0,
-                            width: frame.width,
-                            line_break: LineBreak::Final,
-                            fragments: Vec::new(),
-                            highlights: Vec::new(),
-                            decorations: Vec::new(),
-                        },
-                    });
-                    pass_block(cursor, columns, geometry, style.line_height);
-                } else if kind == "column" || kind == "next_column" {
+                if kind == "column" || kind == "next_column" {
                     next_area(cursor, pages, columns, geometry);
                 } else {
                     new_page(cursor, pages, columns, geometry);
+                    heads_page = true;
                 }
                 *pending_spacing = 0.0;
             }
             Block::Image(image) => {
                 painting.clear_fill();
-                let leading = collapsed_spacing(*pending_spacing, image.before);
+                let before = if after_page_break { 0.0 } else { image.before };
+                let leading = collapsed_spacing(*pending_spacing, before);
                 let required = image.height().max(kept_height(leading));
                 seek_room_below_leading(
                     cursor, pages, columns, geometry, boundary, leading, required,
@@ -251,6 +208,7 @@ pub(super) fn place_blocks(
                         &prepared.anchors,
                         [geometry.column_left(cursor.column_index), cursor.y],
                     );
+                    heads_page = after_page_break;
                     continue;
                 }
                 if prepared.clear_fill_before {
@@ -264,8 +222,14 @@ pub(super) fn place_blocks(
                     new_page(cursor, pages, columns, geometry);
                     *pending_spacing = 0.0;
                     painting.clear_fill();
+                    after_page_break = true;
                 }
-                let leading = collapsed_spacing(*pending_spacing, paragraph.style.spacing_before);
+                let before = if after_page_break {
+                    0.0
+                } else {
+                    paragraph.style.spacing_before
+                };
+                let leading = collapsed_spacing(*pending_spacing, before);
                 let minimum = keep_height(
                     &blocks[index..],
                     geometry.content_bottom() - geometry.margin_top,

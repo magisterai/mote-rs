@@ -1,0 +1,77 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "BLOCK GAPS: a line break between blocks and the gap between two adjacent tables are each",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "an empty paragraph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 144.24,
+          "text": "Beta paragraph after an empty paragraph.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.56,
+          "text": "Gamma paragraph after a line break.",
+          "x": 72.0
+        },
+        {
+          "baseline": 218.16,
+          "text": "One Two",
+          "x": 78.24
+        },
+        {
+          "baseline": 265.68,
+          "text": "Three Four",
+          "x": 78.24
+        },
+        {
+          "baseline": 285.36,
+          "text": "Delta paragraph after two tables.",
+          "x": 72.0
+        },
+        {
+          "baseline": 330.48,
+          "text": "Epsilon with thirty before and twenty after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 410.88,
+          "text": "Zeta with thirty before and twenty after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 450.48,
+          "text": "Five Six",
+          "x": 78.24
+        },
+        {
+          "baseline": 498.0,
+          "text": "Seven Eight",
+          "x": 78.24
+        },
+        {
+          "baseline": 547.68,
+          "text": "Eta with thirty before and twenty after.",
+          "x": 72.0
+        },
+        {
+          "baseline": 628.08,
+          "text": "Theta with thirty before and twenty after.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "62d9f7e1dafdf55b1a93ed2d06903fc6367e62a1bc7e3636bea7335e3e2a0005"
+}

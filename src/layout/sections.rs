@@ -338,7 +338,6 @@ fn plan_pass(
             &prepared.blocks,
             PlacementContext {
                 kept_with_next: &prepared.kept_with_next,
-                styles: &styles,
                 geometry,
                 boundary,
                 notes: &mut notes,

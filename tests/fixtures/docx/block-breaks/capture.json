@@ -16,8 +16,5 @@
   "source_sha256": "e89a0f30bf7d2dc8b86704ac1087be31fe71ba66116221f7fbf9d3487390ad88",
   "captured_at_utc": "2026-10-29T04:14:51.738623+00:00",
   "word_review_status": "unreviewed",
-  "normalization": "XML pretty-printing only; namespaces, attributes, element order, and text values retained.",
-  "omitted_advisory_page_breaks": {
-    "word/document.xml": 1
-  }
+  "normalization": "XML pretty-printing only; namespaces, attributes, element order, and text values retained."
 }

@@ -66,6 +66,15 @@ pub(super) struct PreparedContent {
     /// block after it.
     pub kept_with_next: Vec<bool>,
 }
+fn empty_paragraph() -> Element {
+    Element {
+        source_name: None,
+        source_location: None,
+        kind: ElementKind::Paragraph,
+        attributes: Properties::new(),
+        children: Vec::new(),
+    }
+}
 pub(super) fn prepare_content(
     content: &[Content],
     width: f64,
@@ -164,6 +173,11 @@ pub(super) fn prepare_content(
                 builder.flow_start = false;
             }
             ElementKind::Table => {
+                // DOCX parts two adjacent tables by an empty paragraph, without
+                // which Word would join them.
+                if !in_cell && matches!(builder.blocks.last(), Some(Block::Table(_))) {
+                    builder.paragraph(&empty_paragraph())?;
+                }
                 let mut table = super::tables::prepare(
                     element,
                     width,
@@ -179,8 +193,15 @@ pub(super) fn prepare_content(
             ElementKind::Break => {
                 builder.pending_anchors.clear();
                 let kind = values::text(&element.attributes, "type");
-                builder.flow_start = kind != "line";
-                builder.blocks.push(Block::Break(kind));
+                if kind == "line" {
+                    // DOCX writes a line break between blocks as an empty
+                    // paragraph.
+                    builder.paragraph(&empty_paragraph())?;
+                    builder.flow_start = false;
+                } else {
+                    builder.flow_start = true;
+                    builder.blocks.push(Block::Break(kind));
+                }
             }
             ElementKind::Math => {
                 let mut paragraph = element.clone();

@@ -6,9 +6,11 @@
 arguments. It interrupts block flow and creates a `break` element in the model.
 Its `type` is `"page"`, `"column"`, or `"line"`; omission explicitly stores
 `"page"`. A page break requests a new page. A column break requests the next
-column in the configured column layout. A block line break creates a separate
-break paragraph, while the earlier `line_break` directive stays inside its
-paragraph. Neither kind estimates where content would otherwise paginate.
+column in the configured column layout. A block line break creates an empty
+paragraph, while the earlier `line_break` directive stays inside its
+paragraph. Neither kind estimates where content would otherwise paginate. The
+block that a page break sets at the head of a page lies there without the space
+before it.
 
 ```mote
 #paragraph[Before the page break.]
@@ -27,7 +29,8 @@ create columns or change document geometry:
 #paragraph[Next column.]
 ```
 
-A block line break introduces a separate break paragraph:
+A block line break introduces an empty paragraph, which has the height and the
+spacing of a paragraph without text:
 
 ```mote
 #paragraph[Before.]

@@ -1,0 +1,167 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "PAGE BREAK: a page break below a full page leaves no page empty, and the block after a",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "page break lies at the head of its page without the space before it.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 568.08,
+          "text": "Filler one of 620 points, which fills the page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Paragraph two after a break below a full page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.6,
+          "text": "Heading three after a break",
+          "x": 72.0
+        },
+        {
+          "baseline": 109.68,
+          "text": "Paragraph three below the heading.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Paragraph four with thirty points before it.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Table five after a break",
+          "x": 78.24
+        },
+        {
+          "baseline": 106.8,
+          "text": "Paragraph five below the table.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Paragraph seven after two breaks.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "• List item eight after a break",
+          "x": 108.0
+        },
+        {
+          "baseline": 99.84,
+          "text": "• Second item",
+          "x": 108.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 584.16,
+          "text": "Filler nine of 640 points, which fills the page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.92,
+          "text": "Heading ten after a break below a full page",
+          "x": 72.0
+        },
+        {
+          "baseline": 107.28,
+          "text": "Paragraph ten whose words run to the very end of the last line of the page before the break, so",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.64,
+          "text": "that the break follows a line that is full of text to its end, to the right margin, yes.",
+          "x": 72.0
+        },
+        {
+          "baseline": 599.28,
+          "text": "Filler eleven of 580 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "Paragraph twelve after a break below a full line.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "5fdf29ec9d2b359978c6cde181bb4c3e9e489771b2eeb71dc9217f1b48360c79"
+}

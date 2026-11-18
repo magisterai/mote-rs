@@ -12,8 +12,6 @@ pub(super) enum LeadingDrop {
     /// The space is dropped if the block moves to a new page, and is kept if
     /// the block moves to a new column of the same page.
     InNewPageOnly,
-    /// The space is kept wherever the block moves.
-    Never,
 }
 
 impl FlowCursor {
@@ -29,7 +27,6 @@ impl FlowCursor {
         match dropped {
             LeadingDrop::InNewPageOrColumn => self.is_in_area_of(previous),
             LeadingDrop::InNewPageOnly => self.page_number == previous.page_number,
-            LeadingDrop::Never => true,
         }
     }
     /// Moves the cursor past the space above a block unless the move from

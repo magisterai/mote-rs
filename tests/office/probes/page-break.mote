@@ -1,0 +1,54 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } })[PAGE BREAK: a page break below a full page leaves no page empty, and the block after a page break lies at the head of its page without the space before it.]
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(620) } })[Filler one of 620 points, which fills the page.]
+
+#break(type = "page")
+
+Paragraph two after a break below a full page.
+
+#break(type = "page")
+
+# Heading three after a break
+
+Paragraph three below the heading.
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(30), after = pt(20) })[Paragraph four with thirty points before it.]
+
+#break(type = "page")
+
+#table[
+  #row[#cell[Table five]#cell[after a break]]
+]
+
+Paragraph five below the table.
+
+#break(type = "page")
+
+#break(type = "page")
+
+Paragraph seven after two breaks.
+
+#break(type = "page")
+
+- List item eight after a break
+- Second item
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(640) } })[Filler nine of 640 points, which fills the page.]
+
+#break(type = "page")
+
+## Heading ten after a break below a full page
+
+Paragraph ten whose words run to the very end of the last line of the page before the break, so that the break follows a line that is full of text to its end, to the right margin, yes.
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(580) } })[Filler eleven of 580 points.]
+
+#break(type = "page")
+
+Paragraph twelve after a break below a full line.

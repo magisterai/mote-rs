@@ -35,6 +35,10 @@ pub(super) fn write_blocks(
         state.table_cell_depth == 0 && state.figure_depth == 0 && !state.resources.notes.writing;
     let mut previous_table = false;
     let mut pending_column_break = false;
+    // A page break that follows a paragraph or a heading is written at its
+    // end. A paragraph that holds the break alone needs a line of room, and
+    // Word leaves a page empty where the page before the break has none.
+    let mut after_paragraph = false;
     if content.iter().any(|content| matches!(content, Content::Element(element) if element.kind == ElementKind::Group)) {
         state
             .resources
@@ -83,11 +87,20 @@ pub(super) fn write_blocks(
             }
             pending_column_break = kind == "column";
             if !pending_column_break {
-                body.push_str(paragraph);
+                if kind == "page" && after_paragraph && body.ends_with("</w:p>") {
+                    body.insert_str(
+                        body.len() - "</w:p>".len(),
+                        "<w:r><w:br w:type=\"page\"/></w:r>",
+                    );
+                } else {
+                    body.push_str(paragraph);
+                }
                 at_flow_start = false;
             }
+            after_paragraph = false;
             continue;
         }
+        after_paragraph = false;
         let leading_column_break = std::mem::take(&mut pending_column_break);
         if leading_column_break
             && !matches!(
@@ -219,6 +232,7 @@ pub(super) fn write_blocks(
             &mut state.resources,
         )?);
         at_flow_start = false;
+        after_paragraph = true;
     }
     if pending_column_break {
         body.push_str(break_paragraph("column")?);
@@ -240,7 +254,8 @@ fn break_paragraph(kind: &str) -> Result<&'static str, Error> {
     match kind {
         "page" => Ok("<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>"),
         "column" => Ok("<w:p><w:r><w:br w:type=\"column\"/></w:r></w:p>"),
-        "line" => Ok("<w:p><w:r><w:br/></w:r></w:p>"),
+        // A paragraph that holds a line break alone occupies two lines in Word.
+        "line" => Ok("<w:p/>"),
         _ => Err(Error::Unsupported(format!("break type {kind:?}"))),
     }
 }
