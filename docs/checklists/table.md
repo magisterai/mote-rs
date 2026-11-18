@@ -54,8 +54,8 @@ alignment from its style unless it states them, and DOCX writes both on the
 table, since Word takes neither from a style; the alignment that a style gives
 the table is not the alignment of the text of its cells. The
 [precedence tests](../../tests/table_style_precedence.rs) hold these rules, which
-Word's export of the
-[table-style-precedence probe](../../tests/office/probes/table-style-precedence.mote)
+Word's export of the review case
+[table style precedence](../../tests/cases/word-74-table-style-precedence.mote)
 shows.
 Two adjacent tables are parted by an empty paragraph in DOCX, without which
 Word would join them, and native output sets the same paragraph between them

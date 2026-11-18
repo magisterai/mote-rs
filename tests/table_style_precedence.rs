@@ -2,7 +2,7 @@
 //! regions of the style, the table and the cell itself. Word ranks a region
 //! above the formatting that the style gives every cell, except for the
 //! vertical alignment, and ranks the margin of a region above the margin of the
-//! table, as its exports of the table-style-precedence probe show.
+//! table, as its exports of the review case of table style precedence show.
 
 #[allow(dead_code)]
 #[path = "docx/support.rs"]

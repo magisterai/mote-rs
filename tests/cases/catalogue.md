@@ -70,6 +70,7 @@ Cases may deliberately exercise unsupported values; inspect their warning manife
 | `word-nested-table-row-splitting` | Document | 2 | [nested table row splitting](word-59-nested-table-row-splitting.mote) |
 | `word-table-style-effective-runs` | Document | 1 | [table style effective runs](word-60-table-style-effective-runs.mote) |
 | `word-table-borders` | Document | 1 | [table borders](word-61-table-borders.mote) |
+| `word-table-style-precedence` | Document | 3 | [table style precedence](word-74-table-style-precedence.mote) |
 | `powerpoint-table-fidelity` | Presentation | 2 | [table fidelity](powerpoint-06-table-fidelity.mote) |
 | `powerpoint-table-cell-flow` | Presentation | 2 | [table cell flow](powerpoint-17-table-cell-flow.mote) |
 | `powerpoint-table-borders` | Presentation | 3 | [table borders](powerpoint-26-table-borders.mote) |

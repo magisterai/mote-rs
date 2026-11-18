@@ -1048,6 +1048,16 @@
     "required_fonts": []
   },
   {
+    "identifier": "word-table-style-precedence",
+    "application": "word",
+    "name": "74_table_style_precedence",
+    "source": "word-74-table-style-precedence.mote",
+    "group": "tables",
+    "evaluation": "static",
+    "pages": 3,
+    "required_fonts": []
+  },
+  {
     "identifier": "markdown-table-slides",
     "application": "powerpoint",
     "name": "31_markdown_table_alignment",

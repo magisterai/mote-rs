@@ -66,7 +66,6 @@
   "probes/table-page-borders": 0.003,
   "probes/table-row-division": 0.016,
   "probes/table-row-height": 0.003,
-  "probes/table-style-precedence": 0.007,
   "word/01_plain_markdown_basics": 0.005,
   "word/02_plain_markdown_longform": 0.006,
   "word/03_nested_styles_layout": 0.001,
@@ -139,5 +138,6 @@
   "word/70_drawings_in_text": 0.006,
   "word/71_drawings_under_a_style": 0.003,
   "word/72_drawings_in_columns": 0.004,
-  "word/73_continuous_sections": 0.005
+  "word/73_continuous_sections": 0.005,
+  "word/74_table_style_precedence": 0.007
 }

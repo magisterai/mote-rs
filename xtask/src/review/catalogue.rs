@@ -160,7 +160,7 @@ mod tests {
                 .iter()
                 .filter(|case| case.application == Application::Word)
                 .count(),
-            73
+            74
         );
         assert_eq!(
             cases
