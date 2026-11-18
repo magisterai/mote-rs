@@ -7,7 +7,7 @@ use super::{
     blocks::{BlockNumbers, prepare_content},
     columns::ColumnSeparators,
     document::{LeadingSpace, PlacementContext, ensure_space, place_blocks, place_leading},
-    spacing::LeadingDrop,
+    spacing::{LeadingDrop, collapsed_spacing},
     tolerances::BALANCE_TOLERANCE,
 };
 use crate::{
@@ -467,7 +467,7 @@ fn advance_boundary(
     pending: f64,
     style: &ParagraphStyle,
 ) {
-    let leading = pending.max(style.spacing_before);
+    let leading = collapsed_spacing(pending, style.spacing_before);
     place_leading(
         cursor,
         pages,

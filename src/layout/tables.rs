@@ -4,7 +4,11 @@ mod cells;
 mod columns;
 pub(super) mod flow;
 mod pagination;
-use super::{LayoutError, LayoutStyleResolver, blocks::Block};
+use super::{
+    LayoutError, LayoutStyleResolver,
+    blocks::Block,
+    spacing::{NegativeSpaceAfter, carried_spacing, collapsed_spacing},
+};
 use crate::{
     measurement::TextMeasurer,
     media::ImageCatalog,
@@ -274,7 +278,7 @@ pub(super) fn prepare(
             let mut previous_after: f64 = 0.0;
             for block in &cell.blocks {
                 let (height, before, after) = cells::block_geometry(block);
-                cell.content_height += before.max(previous_after);
+                cell.content_height += collapsed_spacing(previous_after, before);
                 // Word sets the top border of a nested table above its first row,
                 // as it does for a table in the body.
                 if let Block::Table(nested) = block {
@@ -282,7 +286,7 @@ pub(super) fn prepare(
                 }
                 cell.content_tops.push(cell.content_height);
                 cell.content_height += height;
-                previous_after = after;
+                previous_after = carried_spacing(after, NegativeSpaceAfter::Kept);
             }
             cell.content_height += previous_after;
             let height = (cell.content_height + cell.margins[0] + cell.margins[2])

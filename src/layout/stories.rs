@@ -1,6 +1,7 @@
 //! Header/footer text uses full-width story bands independently of body columns.
 use super::{
     DocumentTextPlan, LayoutError, LayoutStyleResolver, PlacedTextLine, TextLine,
+    spacing::{NegativeSpaceAfter, carried_spacing, collapsed_spacing},
     tolerances::LINE_FIT_TOLERANCE,
 };
 use crate::{
@@ -158,7 +159,7 @@ fn measure(
         style.first_line = 0.0;
         let runs = super::resolve_inline(&paragraph.children, &style.text, styles);
         let before = style.spacing_before;
-        let after = style.spacing_after;
+        let after = carried_spacing(style.spacing_after, NegativeSpaceAfter::Kept);
         let borders = styles.borders(&paragraph);
         let paragraph = super::paragraphs::plan_resolved_paragraph(
             style,
@@ -173,8 +174,10 @@ fn measure(
         for (index, line) in paragraph.lines.into_iter().enumerate() {
             let leading = if index == 0 { before } else { 0.0 };
             let trailing = if index + 1 == count { after } else { 0.0 };
+            // The space after the paragraph above already lies below its last
+            // line, so the line takes only the excess of the collapsed space.
             let leading = if let Some(previous) = lines.last() {
-                (leading - previous.trailing).max(0.0)
+                collapsed_spacing(previous.trailing, leading) - previous.trailing
             } else {
                 leading
             };

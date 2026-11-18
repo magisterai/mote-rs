@@ -6,7 +6,7 @@ use super::{
 use super::{
     blocks::{Block, PreparedParagraph},
     columns::ColumnSeparators,
-    spacing::LeadingDrop,
+    spacing::{LeadingDrop, NegativeSpaceAfter, carried_spacing, collapsed_spacing},
     tolerances::{BLOCK_FIT_TOLERANCE, LEAST_AREA_HEIGHT},
 };
 use crate::{
@@ -87,7 +87,7 @@ pub(super) fn place_blocks(
                 if divider.width <= 0.0 {
                     continue;
                 }
-                let leading = (*pending_spacing).max(divider.before);
+                let leading = collapsed_spacing(*pending_spacing, divider.before);
                 let required = divider.width.max(kept_height(leading));
                 seek_room_below_leading(
                     cursor, pages, columns, geometry, boundary, leading, required,
@@ -101,14 +101,14 @@ pub(super) fn place_blocks(
                 cursor.y += divider.width;
                 cursor.body_started = true;
                 columns.note(cursor, geometry);
-                *pending_spacing = divider.after.max(0.0);
+                *pending_spacing = carried_spacing(divider.after, NegativeSpaceAfter::TakenAsNone);
             }
             Block::Chart(chart) => {
                 painting.clear_fill();
                 if chart.height <= 0.0 {
                     continue;
                 }
-                let leading = (*pending_spacing).max(chart.before);
+                let leading = collapsed_spacing(*pending_spacing, chart.before);
                 let required = chart.height.max(kept_height(leading));
                 seek_room_below_leading(
                     cursor, pages, columns, geometry, boundary, leading, required,
@@ -122,7 +122,7 @@ pub(super) fn place_blocks(
                 cursor.y += chart.height;
                 cursor.body_started = true;
                 columns.note(cursor, geometry);
-                *pending_spacing = chart.after.max(0.0);
+                *pending_spacing = carried_spacing(chart.after, NegativeSpaceAfter::TakenAsNone);
             }
             Block::Drawing(drawing) => {
                 painting.clear_fill();
@@ -222,7 +222,7 @@ pub(super) fn place_blocks(
             }
             Block::Image(image) => {
                 painting.clear_fill();
-                let leading = (*pending_spacing).max(image.before);
+                let leading = collapsed_spacing(*pending_spacing, image.before);
                 let required = image.height().max(kept_height(leading));
                 seek_room_below_leading(
                     cursor, pages, columns, geometry, boundary, leading, required,
@@ -239,7 +239,7 @@ pub(super) fn place_blocks(
                 cursor.y += image.height();
                 cursor.body_started = true;
                 columns.note(cursor, geometry);
-                *pending_spacing = image.after.max(0.0);
+                *pending_spacing = carried_spacing(image.after, NegativeSpaceAfter::TakenAsNone);
             }
             Block::Table(table) => {
                 painting.clear_fill();
@@ -292,7 +292,7 @@ pub(super) fn place_blocks(
                     *pending_spacing = 0.0;
                     painting.clear_fill();
                 }
-                let leading = (*pending_spacing).max(paragraph.style.spacing_before);
+                let leading = collapsed_spacing(*pending_spacing, paragraph.style.spacing_before);
                 let minimum = keep_height(
                     &blocks[index..],
                     geometry.content_bottom() - geometry.margin_top,
@@ -319,7 +319,10 @@ pub(super) fn place_blocks(
                         },
                         &mut painting,
                     )?;
-                    *pending_spacing = paragraph.style.spacing_after.max(0.0);
+                    *pending_spacing = carried_spacing(
+                        paragraph.style.spacing_after,
+                        NegativeSpaceAfter::TakenAsNone,
+                    );
                     if prepared.clear_fill_after {
                         painting.clear_fill();
                     }
@@ -394,7 +397,10 @@ pub(super) fn place_blocks(
                     }
                 }
                 *cursor = flow.final_cursor;
-                *pending_spacing = paragraph.style.spacing_after.max(0.0);
+                *pending_spacing = carried_spacing(
+                    paragraph.style.spacing_after,
+                    NegativeSpaceAfter::TakenAsNone,
+                );
                 if prepared.clear_fill_after {
                     painting.clear_fill();
                 }
@@ -536,7 +542,7 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
     }
     let mut count = 1;
     let mut required: f64 = first.lines.iter().map(|line| line.height).sum();
-    let mut previous_after = first.style.spacing_after;
+    let mut previous_after = carried_spacing(first.style.spacing_after, NegativeSpaceAfter::Kept);
     for block in &blocks[1..] {
         let Block::Paragraph(prepared) = block else {
             break;
@@ -546,10 +552,11 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
             break;
         }
         count += 1;
-        required += previous_after.max(paragraph.style.spacing_before);
+        required += collapsed_spacing(previous_after, paragraph.style.spacing_before);
         if paragraph.style.keep_with_next {
             required += paragraph.lines.iter().map(|line| line.height).sum::<f64>();
-            previous_after = paragraph.style.spacing_after;
+            previous_after =
+                carried_spacing(paragraph.style.spacing_after, NegativeSpaceAfter::Kept);
         } else {
             required += start_height(prepared);
             break;
@@ -617,10 +624,10 @@ fn kept_blocks_height(
         };
         if height > 0.0 {
             if let Some(previous_after) = previous_after {
-                required += previous_after.max(before);
+                required += collapsed_spacing(previous_after, before);
             }
             required += height;
-            previous_after = Some(after.max(0.0));
+            previous_after = Some(carried_spacing(after, NegativeSpaceAfter::TakenAsNone));
         }
         if !kept {
             break;
