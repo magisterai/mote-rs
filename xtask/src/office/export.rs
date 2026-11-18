@@ -8,6 +8,10 @@ use std::{
     time::{Duration, Instant},
 };
 
+/// The environment variable that names a directory to receive a copy of every
+/// exported PDF, for the inspection of what the positions of lines do not show.
+const KEPT_EXPORTS: &str = "MOTE_OFFICE_EXPORTS";
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub(crate) enum Application {
     Word,
@@ -105,6 +109,10 @@ end tell"#
         let result = self.run(&package_path, &pdf_path);
         let _ = fs::remove_file(&package_path);
         let _ = fs::remove_file(&pdf_path);
+        if let (Ok(pdf), Some(directory)) = (&result, std::env::var_os(KEPT_EXPORTS)) {
+            let kept = Path::new(&directory).join(format!("{stem}.pdf"));
+            fs::write(&kept, pdf).map_err(|error| format!("{}: {error}", kept.display()))?;
+        }
         result
     }
 
