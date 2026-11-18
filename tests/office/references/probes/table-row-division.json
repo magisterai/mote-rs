@@ -1,0 +1,382 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "ROW DIVISION: a table begins on a page that holds the first part of its first row, below its",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "header rows; a row of exact height is not divided, and a row of a least height begins only where",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.16,
+          "text": "that height fits.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 553.68,
+          "text": "Filler One of 602 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 689.04,
+          "text": "One exact",
+          "x": 78.24
+        },
+        {
+          "baseline": 689.04,
+          "text": "One exact right",
+          "x": 228.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "One next",
+          "x": 78.24
+        },
+        {
+          "baseline": 87.12,
+          "text": "One next right",
+          "x": 228.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 552.0,
+          "text": "Filler Three of 600 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Three least The cell runs on Three least right",
+          "x": 78.24
+        },
+        {
+          "baseline": 102.24,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 117.36,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 132.72,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 147.84,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 162.96,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 178.08,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 193.44,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 208.56,
+          "text": "column.",
+          "x": 78.24
+        },
+        {
+          "baseline": 232.32,
+          "text": "Three next",
+          "x": 78.24
+        },
+        {
+          "baseline": 232.32,
+          "text": "Three next right",
+          "x": 228.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 520.08,
+          "text": "Filler Four of 560 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 647.04,
+          "text": "Four head",
+          "x": 78.24
+        },
+        {
+          "baseline": 647.04,
+          "text": "Four head right",
+          "x": 228.24
+        },
+        {
+          "baseline": 670.8,
+          "text": "Four body The cell runs on Four body right",
+          "x": 78.24
+        },
+        {
+          "baseline": 685.92,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 701.04,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Four head",
+          "x": 78.24
+        },
+        {
+          "baseline": 87.12,
+          "text": "Four head right",
+          "x": 228.24
+        },
+        {
+          "baseline": 110.64,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 126.0,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 141.12,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 156.24,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 171.6,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 186.72,
+          "text": "column.",
+          "x": 78.24
+        },
+        {
+          "baseline": 210.48,
+          "text": "Four next",
+          "x": 78.24
+        },
+        {
+          "baseline": 210.48,
+          "text": "Four next right",
+          "x": 228.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 552.0,
+          "text": "Filler Five of 600 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "Five head",
+          "x": 78.24
+        },
+        {
+          "baseline": 87.12,
+          "text": "Five head right",
+          "x": 228.24
+        },
+        {
+          "baseline": 110.64,
+          "text": "Five body The cell runs on Five body right",
+          "x": 78.24
+        },
+        {
+          "baseline": 126.0,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 141.12,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 156.24,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 171.6,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 186.72,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 201.84,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 216.96,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 232.32,
+          "text": "column.",
+          "x": 78.24
+        },
+        {
+          "baseline": 255.84,
+          "text": "Five next",
+          "x": 78.24
+        },
+        {
+          "baseline": 255.84,
+          "text": "Five next right",
+          "x": 228.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 552.0,
+          "text": "Filler Six of 600 points.",
+          "x": 72.0
+        },
+        {
+          "baseline": 687.12,
+          "text": "Six body The cell runs on Six body right",
+          "x": 78.24
+        },
+        {
+          "baseline": 702.24,
+          "text": "over several lines of its",
+          "x": 78.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 87.12,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 102.24,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 117.36,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 132.72,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 147.84,
+          "text": "column. The cell runs on",
+          "x": 78.24
+        },
+        {
+          "baseline": 162.96,
+          "text": "over several lines of its",
+          "x": 78.24
+        },
+        {
+          "baseline": 178.08,
+          "text": "column.",
+          "x": 78.24
+        },
+        {
+          "baseline": 201.84,
+          "text": "Six next",
+          "x": 78.24
+        },
+        {
+          "baseline": 201.84,
+          "text": "Six next right",
+          "x": 228.24
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "050c92b65f4ed94b8135c36cf30cc6d687f801262905190927705c1480089b62"
+}

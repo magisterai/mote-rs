@@ -21,7 +21,12 @@ on a page only if the page holds its header rows and the row below them, as
 Word's export of the
 [table-header-rows probe](../../tests/office/probes/table-header-rows.mote) shows
 and the [page border tests](../../tests/table_page_borders.rs) hold. A header
-row that begins a page is not preceded by the header rows.
+row that begins a page is not preceded by the header rows. Of a row that can be
+divided the page need hold the first part only, with or without header rows
+above it. A row of exact height is not divided, and a row of a least height
+begins only on a page that holds that height, as Word's export of the
+[table-row-division probe](../../tests/office/probes/table-row-division.mote)
+shows.
 Repeated headers have distinct placements in successive columns on the same
 page; the two-column fixture has captured native geometry and rasters.
 Ordinary rows and merged groups can continue across pages and columns at safe

@@ -204,6 +204,18 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
                 spans: Vec::new(),
             }]);
         }
+        // Word begins a row of a least height in an area only if the area
+        // holds that height.
+        if output.is_empty()
+            && let Some((least, false)) = row.authored_height
+            && least.min(row.height) > available_height + ROW_FIT_TOLERANCE
+        {
+            if frame < available.len() - 1 {
+                frame += 1;
+                continue;
+            }
+            return None;
+        }
         let mut windows = vec![Window::default(); row.cells.len()];
         let mut next = cursors.clone();
         let mut height: f64 = 0.0;
@@ -305,6 +317,11 @@ pub(super) fn block_end(table: &TablePlan, start: usize) -> usize {
     }
     end
 }
+/// Returns whether a row may be divided between two areas. Word divides no
+/// row of exact height.
+fn divisible(row: &RowPlan) -> bool {
+    !row.cant_split && !matches!(row.authored_height, Some((_, true)))
+}
 pub(super) fn plan(
     table: &TablePlan,
     start: usize,
@@ -313,7 +330,7 @@ pub(super) fn plan(
     available: &[f64],
 ) -> Option<Vec<Slice>> {
     if end == start + 1 {
-        if start < headers || table.rows[start].cant_split {
+        if start < headers || !divisible(&table.rows[start]) {
             return None;
         }
         return row_slices(&table.rows[start], start, available);
@@ -323,7 +340,7 @@ pub(super) fn plan(
     let mut remaining = capacity(available, 0);
     for row_index in start..end {
         let row = &table.rows[row_index];
-        let slices = if row.cant_split {
+        let slices = if !divisible(row) {
             None
         } else {
             row_slices(

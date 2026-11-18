@@ -1,0 +1,48 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } })[ROW DIVISION: a table begins on a page that holds the first part of its first row, below its header rows; a row of exact height is not divided, and a row of a least height begins only where that height fits.]
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(602) } })[Filler One of 602 points.]
+
+#table[
+  #row(height = pt(24), height_rule = "exact")[#cell[One exact] #cell(width = pt(150))[One exact right]]
+  #row[#cell(width = pt(150))[One next] #cell(width = pt(150))[One next right]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(600) } })[Filler Three of 600 points.]
+
+#table[
+  #row(height = pt(60), height_rule = "at_least")[#cell(width = pt(150))[Three least The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column.] #cell(width = pt(150))[Three least right]]
+  #row[#cell(width = pt(150))[Three next] #cell(width = pt(150))[Three next right]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(560) } })[Filler Four of 560 points.]
+
+#table[
+  #row(repeat_header = true)[#cell(width = pt(150))[Four head] #cell(width = pt(150))[Four head right]]
+  #row[#cell[Four body The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column.] #cell(width = pt(150))[Four body right]]
+  #row[#cell(width = pt(150))[Four next] #cell(width = pt(150))[Four next right]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(600) } })[Filler Five of 600 points.]
+
+#table[
+  #row(repeat_header = true)[#cell(width = pt(150))[Five head] #cell(width = pt(150))[Five head right]]
+  #row[#cell[Five body The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column.] #cell(width = pt(150))[Five body right]]
+  #row[#cell(width = pt(150))[Five next] #cell(width = pt(150))[Five next right]]
+]
+
+#break(type = "page")
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(600) } })[Filler Six of 600 points.]
+
+#table[
+  #row[#cell(width = pt(150))[Six body The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column. The cell runs on over several lines of its column.] #cell(width = pt(150))[Six body right]]
+  #row[#cell(width = pt(150))[Six next] #cell(width = pt(150))[Six next right]]
+]

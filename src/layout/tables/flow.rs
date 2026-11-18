@@ -32,8 +32,13 @@ pub(in crate::layout) fn place(
         return Ok(warnings);
     }
     let border = table.top_border();
-    let opening = table.opening_rows();
-    let closing = table.closing_border_excess(opening - 1);
+    let headers = HeaderRows::of(table);
+    let closing = table.closing_border_excess(table.opening_rows() - 1);
+    let room = page_content_bottom(pages, geometry, boundary, cursor.page_number)
+        - cursor.y
+        - pending
+        - border
+        - closing;
     place_leading(
         cursor,
         pages,
@@ -42,13 +47,12 @@ pub(in crate::layout) fn place(
         boundary,
         LeadingSpace {
             height: pending,
-            fit_height: pending + border + table.opening_height() + closing,
+            fit_height: pending + border + headers.opening_height(room) + closing,
             dropped: LeadingDrop::InNewPageOrColumn,
         },
     );
     cursor.y += border;
     warn_of_cut_off_rows(table, cursor.page_number, false, &mut warnings);
-    let headers = HeaderRows::of(table);
     let mut collector = borders::Collector::default();
     let mut start = 0;
     let mut anchored = false;
@@ -244,6 +248,38 @@ impl<'plan> HeaderRows<'plan> {
             count,
             height: table.rows[..count].iter().map(|row| row.height).sum(),
         }
+    }
+    /// Returns the height that an area with `room` for rows must hold for the
+    /// table to begin there. Word keeps the header rows on the page of the row
+    /// that follows them, and of a row that can be divided the area need hold
+    /// the first part only.
+    fn opening_height(&self, room: f64) -> f64 {
+        let table = self.table;
+        // A table whose every row is a header row repeats none.
+        let (first, headers) = if self.count == table.rows.len() {
+            (0, 0.0)
+        } else {
+            (self.count, self.height)
+        };
+        let end = pagination::block_end(table, first);
+        let first_part = pagination::plan(
+            table,
+            first,
+            end,
+            first,
+            &[(room - headers).max(0.0), f64::MAX],
+        )
+        .and_then(|slices| slices.first().map(|slice| (slice.frame, slice.height)))
+        .filter(|(frame, _)| *frame == 0)
+        .map(|(_, height)| height);
+        headers
+            + first_part.unwrap_or_else(|| {
+                if first == 0 {
+                    table.rows[0].height
+                } else {
+                    table.rows[first..end].iter().map(|row| row.height).sum()
+                }
+            })
     }
     /// Begins an area to which the table has moved: sets the top border of the
     /// row at the top of the area, and repeats the header rows if the area
