@@ -58,6 +58,7 @@
   "probes/section-endnotes": 0.003,
   "probes/section-footnotes": 0.006,
   "probes/shape-text": 0.002,
+  "probes/table-page-borders": 0.003,
   "probes/table-row-height": 0.003,
   "word/01_plain_markdown_basics": 0.005,
   "word/02_plain_markdown_longform": 0.006,

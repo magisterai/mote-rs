@@ -1,0 +1,93 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(16) } } }
+)
+
+#set paragraph(style = "Normal")
+
+TABLE BORDERS AT A PAGE BREAK: the row that begins a page lies its top border below the top of the text area, and a repeated header row lies the top border of the table below it. Word draws the bottom border of the table beneath the last row on a page, so a row fits the foot of a page that holds it and the excess of that border over its own.
+
+#table(borders = { top = { width = pt(6), color = "#000000" }, bottom = { width = pt(6), color = "#000000" }, inside_h = { width = pt(0.5), color = "#94a3b8" }, inside_v = { width = pt(0.5), color = "#94a3b8" }, left = { width = pt(0.5), color = "#94a3b8" }, right = { width = pt(0.5), color = "#94a3b8" } })[
+  #row(repeat_header = true)[#cell[Header]#cell[Header beside]]
+  #row[#cell[Body 0]#cell[Beside]]
+  #row[#cell[Body 1]#cell[Beside]]
+  #row[#cell[Body 2]#cell[Beside]]
+  #row[#cell[Body 3]#cell[Beside]]
+  #row[#cell[Body 4]#cell[Beside]]
+  #row[#cell[Body 5]#cell[Beside]]
+  #row[#cell[Body 6]#cell[Beside]]
+  #row[#cell[Body 7]#cell[Beside]]
+  #row[#cell[Body 8]#cell[Beside]]
+  #row[#cell[Body 9]#cell[Beside]]
+  #row[#cell[Body 10]#cell[Beside]]
+  #row[#cell[Body 11]#cell[Beside]]
+  #row[#cell[Body 12]#cell[Beside]]
+  #row[#cell[Body 13]#cell[Beside]]
+  #row[#cell[Body 14]#cell[Beside]]
+  #row[#cell[Body 15]#cell[Beside]]
+  #row[#cell[Body 16]#cell[Beside]]
+  #row[#cell[Body 17]#cell[Beside]]
+  #row[#cell[Body 18]#cell[Beside]]
+  #row[#cell[Body 19]#cell[Beside]]
+  #row[#cell[Body 20]#cell[Beside]]
+  #row[#cell[Body 21]#cell[Beside]]
+  #row[#cell[Body 22]#cell[Beside]]
+  #row[#cell[Body 23]#cell[Beside]]
+  #row[#cell[Body 24]#cell[Beside]]
+  #row[#cell[Body 25]#cell[Beside]]
+  #row[#cell[Body 26]#cell[Beside]]
+  #row[#cell[Body 27]#cell[Beside]]
+  #row[#cell[Body 28]#cell[Beside]]
+  #row[#cell[Body 29]#cell[Beside]]
+  #row[#cell[Body 30]#cell[Beside]]
+  #row[#cell[Body 31]#cell[Beside]]
+  #row[#cell[Body 32]#cell[Beside]]
+  #row[#cell[Body 33]#cell[Beside]]
+  #row[#cell[Body 34]#cell[Beside]]
+  #row[#cell[Body 35]#cell[Beside]]
+  #row[#cell[Body 36]#cell[Beside]]
+  #row[#cell[Body 37]#cell[Beside]]
+  #row[#cell[Body 38]#cell[Beside]]
+  #row[#cell[Body 39]#cell[Beside]]
+  #row[#cell[Body 40]#cell[Beside]]
+  #row[#cell[Body 41]#cell[Beside]]
+  #row[#cell[Body 42]#cell[Beside]]
+  #row[#cell[Body 43]#cell[Beside]]
+  #row[#cell[Body 44]#cell[Beside]]
+  #row[#cell[Body 45]#cell[Beside]]
+  #row[#cell[Body 46]#cell[Beside]]
+  #row[#cell[Body 47]#cell[Beside]]
+  #row[#cell[Body 48]#cell[Beside]]
+  #row[#cell[Body 49]#cell[Beside]]
+  #row[#cell[Body 50]#cell[Beside]]
+  #row[#cell[Body 51]#cell[Beside]]
+  #row[#cell[Body 52]#cell[Beside]]
+  #row[#cell[Body 53]#cell[Beside]]
+  #row[#cell[Body 54]#cell[Beside]]
+  #row[#cell[Body 55]#cell[Beside]]
+  #row[#cell[Body 56]#cell[Beside]]
+  #row[#cell[Body 57]#cell[Beside]]
+  #row[#cell[Body 58]#cell[Beside]]
+  #row[#cell[Body 59]#cell[Beside]]
+  #row[#cell[Body 60]#cell[Beside]]
+  #row[#cell[Body 61]#cell[Beside]]
+  #row[#cell[Body 62]#cell[Beside]]
+  #row[#cell[Body 63]#cell[Beside]]
+  #row[#cell[Body 64]#cell[Beside]]
+  #row[#cell[Body 65]#cell[Beside]]
+  #row[#cell[Body 66]#cell[Beside]]
+  #row[#cell[Body 67]#cell[Beside]]
+  #row[#cell[Body 68]#cell[Beside]]
+  #row[#cell[Body 69]#cell[Beside]]
+]
+
+The line after.

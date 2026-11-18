@@ -76,6 +76,29 @@ fn segments(cell: &CellPlan) -> Vec<Segment> {
     }
     output
 }
+/// Returns the top border of the row of a nested table at which a cell resumes
+/// on a new page, which Word sets above that row as above the first row.
+fn resumed_border(cell: &CellPlan, resumed_at: f64) -> f64 {
+    for (index, block) in cell.blocks.iter().enumerate() {
+        let Block::Table(table) = block else {
+            continue;
+        };
+        let mut top = cell.margins[0] + cell.content_tops[index];
+        let mut row = 0;
+        while row < table.rows.len() {
+            if row > 0 && (top - resumed_at).abs() <= 0.01 {
+                return table.row_top_border(row);
+            }
+            let end = block_end(table, row);
+            top += table.rows[row..end]
+                .iter()
+                .map(|row| row.height)
+                .sum::<f64>();
+            row = end;
+        }
+    }
+    0.0
+}
 pub(super) fn content_top(cell: &CellPlan, height: f64, force_top: bool) -> f64 {
     if force_top {
         return cell.margins[0];
@@ -190,7 +213,7 @@ fn row_slices(row: &RowPlan, row_index: usize, available: &[f64]) -> Option<Vec<
                 continue;
             }
             let inset = if cursor > 0.01 {
-                cell.margins[0].max(0.0)
+                cell.margins[0].max(0.0) + resumed_border(cell, cursor)
             } else {
                 0.0
             };

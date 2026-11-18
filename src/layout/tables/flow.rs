@@ -3,6 +3,7 @@ use super::super::{
     TextPage,
     columns::ColumnSeparators,
     document::{ensure_space, next_area},
+    drawings::Drawing,
     painting::ParagraphPainting,
 };
 use super::*;
@@ -27,6 +28,7 @@ pub(in crate::layout) fn place(
         return Ok(warnings);
     }
     let border = table.top_border();
+    let closing = table.closing_border_excess(0);
     let previous = (cursor.page_number, cursor.column_index);
     ensure_space(
         cursor,
@@ -34,7 +36,7 @@ pub(in crate::layout) fn place(
         columns,
         geometry,
         boundary,
-        pending + border + table.rows[0].height,
+        pending + border + table.rows[0].height + closing,
     );
     if previous == (cursor.page_number, cursor.column_index) {
         cursor.y += pending;
@@ -56,13 +58,15 @@ pub(in crate::layout) fn place(
     while start < table.rows.len() {
         let end = pagination::block_end(table, start);
         let height: f64 = table.rows[start..end].iter().map(|row| row.height).sum();
+        let closing = table.closing_border_excess(end - 1);
         let mut available = vec![
             (super::super::document::page_content_bottom(
                 pages,
                 geometry,
                 boundary,
                 cursor.page_number,
-            ) - cursor.y)
+            ) - cursor.y
+                - closing)
                 .max(0.0),
         ];
         for _ in cursor.column_index + 1..geometry.column_count {
@@ -74,12 +78,14 @@ pub(in crate::layout) fn place(
                     cursor.page_number,
                 ) - cursor.current_top
                     - header_height
-                    - border)
+                    - border
+                    - closing)
                     .max(0.0),
             );
         }
         available.push(
-            (geometry.content_bottom() - geometry.margin_top - header_height - border).max(0.0),
+            (geometry.content_bottom() - geometry.margin_top - header_height - border - closing)
+                .max(0.0),
         );
         if let Some(slices) = pagination::plan(table, start, end, header_count, &available) {
             let mut frame = 0;
@@ -89,20 +95,21 @@ pub(in crate::layout) fn place(
                     next_area(cursor, pages, columns, geometry);
                     frame += 1;
                 }
-                // Word sets the top border of the row that begins a page below the
-                // top of the text area, as it does for the first row of the table.
-                if advanced {
-                    cursor.y += table.row_top_border(slice.row);
-                }
-                if advanced
+                let repeats_headers = advanced
+                    && header_count > 0
                     && header_height + slice.height
                         <= super::super::document::page_content_bottom(
                             pages,
                             geometry,
                             boundary,
                             cursor.page_number,
-                        ) - cursor.current_top
-                {
+                        ) - cursor.current_top;
+                // Word sets the top border of the row that begins a page below the
+                // top of the text area, as it does for the first row of the table.
+                if advanced {
+                    cursor.y += table.row_top_border(if repeats_headers { 0 } else { slice.row });
+                }
+                if repeats_headers {
                     for row in 0..header_count {
                         place_row(
                             table,
@@ -194,20 +201,29 @@ pub(in crate::layout) fn place(
                         height
                     };
                     let before = (cursor.page_number, cursor.column_index);
-                    ensure_space(cursor, pages, columns, geometry, boundary, required);
-                    if before != (cursor.page_number, cursor.column_index) {
-                        cursor.y += table.row_top_border(row);
-                    }
-                    if before != (cursor.page_number, cursor.column_index)
+                    ensure_space(
+                        cursor,
+                        pages,
+                        columns,
+                        geometry,
+                        boundary,
+                        required + closing,
+                    );
+                    let moved = before != (cursor.page_number, cursor.column_index);
+                    let repeats_headers = moved
                         && row >= header_count
+                        && header_count > 0
                         && header_height + required
                             <= super::super::document::page_content_bottom(
                                 pages,
                                 geometry,
                                 boundary,
                                 cursor.page_number,
-                            ) - cursor.current_top
-                    {
+                            ) - cursor.current_top;
+                    if moved {
+                        cursor.y += table.row_top_border(if repeats_headers { 0 } else { row });
+                    }
+                    if repeats_headers {
                         for header in 0..header_count {
                             place_row(
                                 table,
@@ -273,15 +289,18 @@ pub(in crate::layout) fn place(
     cursor.body_started = true;
     Ok(warnings)
 }
-fn place_row(
-    table: &TablePlan,
+/// Places a row and returns the drawings of a nested table's cells, which the
+/// enclosing cell places once its clip is lifted.
+fn place_row<'plan>(
+    table: &'plan TablePlan,
     row: usize,
     placement: RowPlacement,
     page: &mut TextPage,
     collector: &mut borders::Collector,
     page_index: usize,
-) -> Result<(), LayoutError> {
+) -> Result<Vec<&'plan Drawing>, LayoutError> {
     let [left, top] = placement.origin;
+    let mut drawings = Vec::new();
     for cell in &table.rows[row].cells {
         let horizontal = left + table.widths[..cell.column].iter().sum::<f64>();
         let width = table.widths[cell.column..cell.column + cell.column_span]
@@ -296,7 +315,7 @@ fn place_row(
             .iter()
             .map(|row| row.height)
             .sum();
-        place_cell(
+        drawings.extend(place_cell(
             cell,
             [horizontal, top, width, height],
             pagination::Window {
@@ -306,7 +325,7 @@ fn place_row(
             },
             placement.outer_clip,
             page,
-        )?;
+        )?);
         collector.cell(
             page_index,
             [horizontal, top, width, height],
@@ -315,7 +334,7 @@ fn place_row(
             true,
         );
     }
-    Ok(())
+    Ok(drawings)
 }
 /// Reports each row of the table, and of the tables nested in its cells, whose
 /// exact height cuts off its content.
@@ -352,13 +371,17 @@ fn cell_bounds(table: &TablePlan, cell: &CellPlan, left: f64, top: f64, height: 
         height,
     ]
 }
-fn place_cell(
-    cell: &CellPlan,
+/// Places a cell. A drawing lies at its own place on the page and not within
+/// the cell, so a cell of a table in the body places its drawings once its clip
+/// is lifted, and a cell of a nested table returns them to the enclosing cell.
+fn place_cell<'plan>(
+    cell: &'plan CellPlan,
     bounds: [f64; 4],
     window: pagination::Window,
     outer_clip: Option<[f64; 4]>,
     page: &mut TextPage,
-) -> Result<(), LayoutError> {
+) -> Result<Vec<&'plan Drawing>, LayoutError> {
+    let mut drawings: Vec<&Drawing> = Vec::new();
     let [left, top, width, height] = bounds;
     if let Some(color) = super::super::style_values::color(&cell.attributes, "fill") {
         page.operations
@@ -381,7 +404,7 @@ fn place_cell(
         clip_bottom = clip_bottom.min(outer_top + outer_height);
     }
     if clip_bottom <= clip_top + 0.01 || clip_right <= clip_left {
-        return Ok(());
+        return Ok(drawings);
     }
     let content_clip = [
         clip_left,
@@ -450,7 +473,7 @@ fn place_cell(
                 let nested_left = table.left(object_left, object_width);
                 let mut borders = borders::Collector::default();
                 for row in 0..table.rows.len() {
-                    place_row(
+                    drawings.extend(place_row(
                         table,
                         row,
                         RowPlacement {
@@ -461,20 +484,22 @@ fn place_cell(
                         page,
                         &mut borders,
                         0,
-                    )?;
+                    )?);
                     block_top += table.rows[row].height;
                 }
                 borders.append(std::slice::from_mut(page));
             }
-            Block::Chart(_) | Block::Drawing(_) => {
-                return Err(LayoutError::Unsupported(
-                    "native shapes in table cells are not yet supported".into(),
-                ));
-            }
-            Block::Break(_) => {}
+            Block::Drawing(drawing) => drawings.push(drawing),
+            // Cell content holds a chart as its fallback paragraph.
+            Block::Chart(_) | Block::Break(_) => {}
         }
         painting.clear_fill();
     }
     page.operations.push(PageOperation::PopClip);
-    Ok(())
+    if outer_clip.is_none() {
+        for drawing in drawings.drain(..) {
+            drawing.place(page);
+        }
+    }
+    Ok(drawings)
 }

@@ -49,7 +49,7 @@ A nested table lies the width of its top border below the content above it, and
 the row that begins a page lies the width of its top border below the top of the
 text area, as Word's export of the
 [nested-table-cell-end probe](../../tests/office/probes/nested-table-cell-end.mote)
-shows and the [top border tests](../../tests/table_top_borders.rs) hold. The fill of a list item in a cell is not painted, and is reported.
+shows and the [top border tests](../../tests/table_page_borders.rs) hold. The fill of a list item in a cell is not painted, and is reported.
 `text_direction` and `no_wrap` affect editable DOCX only and produce native support warnings.
 
 Microsoft Word visual review remains unreviewed.

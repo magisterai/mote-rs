@@ -27,6 +27,19 @@ Native PDF/PNG supports width selection, alignment, cell defaults, row-based
 conditional styling, nested tables, shared physical borders and page/column flow.
 The fill and the borders of a paragraph in a cell are painted as the
 [cell checklist](cell.md) describes.
+A table lies the width of its top border below the content above it, in the
+body and in a cell, and the row that begins a page lies the width of its top
+border below the top of the text area; a repeated header row there takes the top
+border of the table. Word draws the bottom border of the table beneath the last
+row on a page, so a row fits the foot of a page that holds it and the excess of
+that border over its own. The column that holds a nested table holds also the
+halves of its side borders that lie outside its grid. A cell border that states
+no colour takes the colour that DOCX writes for it. The
+[page border tests](../../tests/table_page_borders.rs) hold these rules, which
+Word's exports of the
+[nested-table-cell-end](../../tests/office/probes/nested-table-cell-end.mote) and
+[table-page-borders](../../tests/office/probes/table-page-borders.mote) probes
+show.
 `indent`, `cell_spacing` and `layout` affect editable DOCX only; native output warns
 that these properties have no effect. First/last-column regions and column banding
 also remain editable-output capabilities. See the [capture notes](../../tests/fixtures/tables/README.md)

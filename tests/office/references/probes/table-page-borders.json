@@ -1,0 +1,414 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 84.96,
+          "text": "TABLE BORDERS AT A PAGE BREAK: the row that begins a page lies its top border below the",
+          "x": 72.0
+        },
+        {
+          "baseline": 100.8,
+          "text": "top of the text area, and a repeated header row lies the top border of the table below it. W ord",
+          "x": 72.0
+        },
+        {
+          "baseline": 116.88,
+          "text": "draws the bottom border of the table beneath the last row on a page, so a row fits the foot of a",
+          "x": 72.0
+        },
+        {
+          "baseline": 132.96,
+          "text": "page that holds it and the excess of that border over its own.",
+          "x": 72.0
+        },
+        {
+          "baseline": 158.88,
+          "text": "Header Header beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 183.36,
+          "text": "Body 0 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 207.84,
+          "text": "Body 1 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 232.32,
+          "text": "Body 2 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 256.8,
+          "text": "Body 3 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 281.28,
+          "text": "Body 4 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 306.0,
+          "text": "Body 5 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 330.48,
+          "text": "Body 6 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 354.96,
+          "text": "Body 7 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 379.44,
+          "text": "Body 8 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 403.92,
+          "text": "Body 9 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 428.4,
+          "text": "Body 10 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 452.88,
+          "text": "Body 11 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 477.36,
+          "text": "Body 12 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 501.84,
+          "text": "Body 13 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 526.32,
+          "text": "Body 14 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 550.8,
+          "text": "Body 15 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 575.28,
+          "text": "Body 16 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 600.0,
+          "text": "Body 17 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 624.48,
+          "text": "Body 18 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 648.96,
+          "text": "Body 19 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 673.44,
+          "text": "Body 20 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 697.92,
+          "text": "Body 21 Beside",
+          "x": 78.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 94.8,
+          "text": "Header Header beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 119.28,
+          "text": "Body 22 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 144.0,
+          "text": "Body 23 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 168.48,
+          "text": "Body 24 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 192.96,
+          "text": "Body 25 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 217.44,
+          "text": "Body 26 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 241.92,
+          "text": "Body 27 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 266.4,
+          "text": "Body 28 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 290.88,
+          "text": "Body 29 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 315.36,
+          "text": "Body 30 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 339.84,
+          "text": "Body 31 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 364.32,
+          "text": "Body 32 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 388.8,
+          "text": "Body 33 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 413.28,
+          "text": "Body 34 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 438.0,
+          "text": "Body 35 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 462.48,
+          "text": "Body 36 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 486.96,
+          "text": "Body 37 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 511.44,
+          "text": "Body 38 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 535.92,
+          "text": "Body 39 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 560.4,
+          "text": "Body 40 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 584.88,
+          "text": "Body 41 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 609.36,
+          "text": "Body 42 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 633.84,
+          "text": "Body 43 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 658.32,
+          "text": "Body 44 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 682.8,
+          "text": "Body 45 Beside",
+          "x": 78.24
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 94.8,
+          "text": "Header Header beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 119.28,
+          "text": "Body 46 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 144.0,
+          "text": "Body 47 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 168.48,
+          "text": "Body 48 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 192.96,
+          "text": "Body 49 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 217.44,
+          "text": "Body 50 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 241.92,
+          "text": "Body 51 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 266.4,
+          "text": "Body 52 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 290.88,
+          "text": "Body 53 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 315.36,
+          "text": "Body 54 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 339.84,
+          "text": "Body 55 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 364.32,
+          "text": "Body 56 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 388.8,
+          "text": "Body 57 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 413.28,
+          "text": "Body 58 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 438.0,
+          "text": "Body 59 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 462.48,
+          "text": "Body 60 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 486.96,
+          "text": "Body 61 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 511.44,
+          "text": "Body 62 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 535.92,
+          "text": "Body 63 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 560.4,
+          "text": "Body 64 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 584.88,
+          "text": "Body 65 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 609.36,
+          "text": "Body 66 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 633.84,
+          "text": "Body 67 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 658.32,
+          "text": "Body 68 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 682.8,
+          "text": "Body 69 Beside",
+          "x": 78.24
+        },
+        {
+          "baseline": 708.96,
+          "text": "The line after.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "15f79f1b6a3a0c45280e405882a4bb2a877c498c4c24fc52499f789d9a2f9ad0"
+}

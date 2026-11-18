@@ -54,6 +54,21 @@ impl TablePlan {
     pub fn top_border(&self) -> f64 {
         self.row_top_border(0)
     }
+    /// Word draws the table's bottom border beneath the last row on every page,
+    /// in place of that row's own bottom border. The function returns the room
+    /// the row needs at the foot of a page beyond its own height: the excess of
+    /// the table's bottom border over the row's.
+    pub fn closing_border_excess(&self, row: usize) -> f64 {
+        let bottom_border = |row: Option<&RowPlan>| {
+            row.map_or(0.0, |row| {
+                row.cells
+                    .iter()
+                    .map(|cell| cell.borders[2].width)
+                    .fold(0.0, f64::max)
+            })
+        };
+        (bottom_border(self.rows.last()) - bottom_border(self.rows.get(row))).max(0.0)
+    }
     /// Returns the width of the top border of a row, which Word sets above the
     /// row that begins a page.
     pub fn row_top_border(&self, row: usize) -> f64 {
@@ -63,6 +78,20 @@ impl TablePlan {
                 .map(|cell| cell.borders[0].width)
                 .fold(0.0, f64::max)
         })
+    }
+    /// Returns the room the table takes in a cell: its grid and the halves of
+    /// its left and right borders that lie outside the grid, which Word adds
+    /// to the column that holds a nested table.
+    pub fn outer_width(&self) -> f64 {
+        let side = |edge: fn(&RowPlan) -> Option<&CellPlan>, border: usize| {
+            self.rows
+                .iter()
+                .filter_map(edge)
+                .map(|cell| cell.borders[border].width)
+                .fold(0.0, f64::max)
+                / 2.0
+        };
+        self.width() + side(|row| row.cells.first(), 3) + side(|row| row.cells.last(), 1)
     }
     /// Word sets the outer edge of a left-aligned table's left border on the
     /// margin, so the table starts half that border's width inside it.

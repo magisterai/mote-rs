@@ -32,8 +32,8 @@ pub(super) fn intrinsic(
                 images,
                 &mut numbers.clone(),
             )?;
-            preferred = preferred.max(nested.width() + inset).max(floor);
-            minimum = minimum.max(nested.width() + inset).max(floor);
+            preferred = preferred.max(nested.outer_width() + inset).max(floor);
+            minimum = minimum.max(nested.outer_width() + inset).max(floor);
             continue;
         }
         for block in super::super::blocks::prepare_content(
