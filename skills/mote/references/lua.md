@@ -88,9 +88,9 @@ end
 ## Limits
 
 - The pattern functions `string.find`, `string.match`, `string.gmatch` and
-  `string.gsub` are not available, nor are the `table`, `os`, `io` and `debug`
-  libraries, `require`, `load` or `print`.
+  `string.gsub` are not available, nor are the `table`, `os`, `io`, `debug` and
+  `coroutine` libraries, `require`, `load` or `print`.
 - A compilation may spend ten seconds in Lua, adjustable with `--lua-timeout`,
-  and allocate 256 MiB.
+  and allocate 256 MiB. A `pcall` does not catch the error of that limit.
 - A Lua table that is not a contiguous array becomes an object, and an empty
   table an empty object.

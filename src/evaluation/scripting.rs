@@ -23,6 +23,37 @@ use std::{
 /// The memory a compilation's Lua state may allocate, in bytes.
 const MEMORY_LIMIT: usize = 256 * 1024 * 1024;
 
+/// Replaces `pcall` and `xpcall` by functions that raise the failure of the
+/// time limit again after the protected call returns. A script catches its own
+/// errors as before, and cannot continue once the deadline has passed.
+///
+/// The native `xpcall` is not used: Lua calls its handler at the point of the
+/// error, where the error that the instruction hook raises has left the hook
+/// disabled, so that a handler which loops would never be interrupted. The
+/// replacement calls the handler after the protected call has returned.
+const PROTECTED_CALLS: &str = r#"
+local native_pcall, check_deadline = ...
+local function relay(...)
+  check_deadline()
+  return ...
+end
+local function handle(handler, succeeded, ...)
+  check_deadline()
+  if succeeded then
+    return true, ...
+  end
+  local _, result = native_pcall(handler, ...)
+  check_deadline()
+  return false, result
+end
+function pcall(callable, ...)
+  return relay(native_pcall(callable, ...))
+end
+function xpcall(callable, handler)
+  return handle(handler, native_pcall(callable))
+end
+"#;
+
 const HELPERS: &[&str] = &[
     "json",
     "csv",
@@ -60,9 +91,12 @@ impl Runtime {
     fn new(timeout: Option<Duration>) -> mlua::Result<Self> {
         let lua = Lua::new_with(StdLib::STRING | StdLib::MATH, LuaOptions::default())?;
         lua.set_memory_limit(MEMORY_LIMIT)?;
+        // A coroutine runs without the instruction hook of the state that
+        // created it, and so would run past the time limit.
         for name in [
             "_printregs",
             "collectgarbage",
+            "coroutine",
             "dofile",
             "getfenv",
             "load",
@@ -76,12 +110,16 @@ impl Runtime {
         }
         library::install(&lua)?;
         lua.load(static_paths::INDEX_FUNCTION).exec()?;
+        let deadline = timeout.and_then(|duration| Instant::now().checked_add(duration));
+        lua.load(PROTECTED_CALLS).call::<()>((
+            lua.globals().get::<mlua::Function>("pcall")?,
+            lua.create_function(move |_, ()| check_deadline(deadline))?,
+        ))?;
         let initial_globals = lua.create_table()?;
         for pair in lua.globals().pairs::<mlua::Value, mlua::Value>() {
             let (name, value) = pair?;
             initial_globals.raw_set(name, value)?;
         }
-        let deadline = timeout.and_then(|duration| Instant::now().checked_add(duration));
         lua.set_hook(
             HookTriggers::new().every_nth_instruction(1000),
             move |_, _| {

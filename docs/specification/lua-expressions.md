@@ -86,6 +86,10 @@ its first Lua evaluation. `--lua-timeout` accepts durations in `ms`, `s`, `m`, o
 `h`; a negative duration disables the budget and zero selects the default. The
 library uses `EvaluationOptions.lua_timeout`, where `None` disables the budget.
 The clock is shared across expressions, including time spent in resource helpers.
+A script cannot outrun the budget by catching its error: once the budget is
+spent, `pcall` and `xpcall` raise the error again when the protected call
+returns. The handler of `xpcall` is called after the protected call has
+returned, with the error as its argument.
 A blocking custom resolver remains responsible for its own I/O deadline.
 
 Errors identify the containing source expression. Parsing Lua-enabled source is

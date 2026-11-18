@@ -173,6 +173,81 @@ fn one_budget_covers_all_lua_expressions_and_cannot_be_swallowed() {
     );
 }
 
+/// Compiles a source with a Lua time limit of 50 milliseconds, on a thread of
+/// its own so that a script which outruns the limit fails the test and does
+/// not hang it, and returns the message of the error.
+fn timed_out(source: &'static str) -> String {
+    let (sender, receiver) = std::sync::mpsc::channel();
+    std::thread::spawn(move || {
+        let options = EvaluationOptions {
+            enable_lua: true,
+            lua_timeout: Some(Duration::from_millis(50)),
+            ..Default::default()
+        };
+        let _ = sender.send(mote::compile_with_options(source, options));
+    });
+    receiver
+        .recv_timeout(Duration::from_secs(20))
+        .unwrap_or_else(|_| panic!("the script outran the time limit: {source}"))
+        .unwrap_err()
+        .message
+}
+
+#[test]
+fn a_script_cannot_outrun_the_time_limit_by_a_protected_call_or_a_coroutine() {
+    for source in [
+        "#let(value=(function() while true do pcall(function() while true do end end) end end)())",
+        "#let(value=(function() while true do xpcall(function() while true do end end, function() end) end end)())",
+        "#let(value=(function() return xpcall(function() while true do end end, function() while true do end end) end)())",
+        "#let(value=(function() return xpcall(error, function() while true do end end) end)())",
+    ] {
+        assert!(
+            timed_out(source).contains("time budget exceeded"),
+            "{source}"
+        );
+    }
+    // A coroutine would run without the instruction hook, and is withheld.
+    let message = timed_out(
+        "#let(value=(function() local run = coroutine.wrap(function() while true do end end) run() end)())",
+    );
+    assert!(message.contains("nil"), "{message}");
+}
+
+#[test]
+fn a_protected_call_catches_the_errors_of_a_script_as_before() {
+    let options = EvaluationOptions {
+        enable_lua: true,
+        ..Default::default()
+    };
+    for (expression, expected) in [
+        ("select(1, pcall(error, 'failed'))", "false"),
+        ("select(2, pcall(function() return 'kept' end))", "kept"),
+        (
+            "select(3, pcall(function(first, second) return first, second end, 'one', 'two'))",
+            "two",
+        ),
+        (
+            "select(1, xpcall(function() error('failed') end, function() end))",
+            "false",
+        ),
+        (
+            "select(2, xpcall(function() error('failed', 0) end, function(message) return 'handled ' .. message end))",
+            "handled failed",
+        ),
+        (
+            "select(2, xpcall(function() return 'kept' end, function() end))",
+            "kept",
+        ),
+    ] {
+        let document = mote::compile_with_options(
+            &format!("#let(value = tostring({expression}))\n#paragraph[#value]"),
+            options,
+        )
+        .unwrap();
+        assert_eq!(document.content[0].to_text(), expected, "{expression}");
+    }
+}
+
 #[test]
 fn lua_cli_accepts_explicit_enablement_and_duration_controls() {
     use std::process::Command;

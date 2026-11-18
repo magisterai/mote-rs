@@ -30,6 +30,8 @@ content follows the inventories of its receiving directives.
   value helpers. Section retains raw syntax and is excluded. Property maps precede
   positional values and body content; ordinary attribute normalization still applies.
 - [x] One shared execution budget across a compilation, with located runtime errors.
+  A protected call does not catch the error of a spent budget, and no coroutine
+  is available to run outside it ([scripting tests](../../tests/scripting.rs)).
 - [x] Source-relative JSON uses the same resolver and snapshot from scripts.
 - [x] Returned content observes the enclosing body mode and output rules.
 
