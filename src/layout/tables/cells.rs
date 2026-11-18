@@ -331,13 +331,7 @@ pub(super) fn object_frame(
     }
     let mut element = element.clone();
     element.attributes = tables::cell_defaults(&element.attributes, attributes, false);
-    let style = styles.paragraph(&element);
-    let available = (width - style.indent_left - style.indent_right).max(width.min(12.0));
-    let origin = style.indent_left.min(width - available);
-    super::super::LineFrame {
-        x: origin + style.first_line,
-        width: available - style.first_line,
-    }
+    super::super::paragraphs::LineFrames::within(&styles.paragraph(&element), width).first
 }
 pub(super) fn object_inset(
     element: &Element,

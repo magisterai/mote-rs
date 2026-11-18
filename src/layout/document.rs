@@ -1,11 +1,12 @@
 use super::{
     DocumentTextPlan, FlowArea, FlowCursor, FlowOptions, FlowStep, LayoutError,
-    LayoutStyleResolver, LineBreak, LineFrame, PageGeometry, PlacedTextLine, TextLine, TextPage,
+    LayoutStyleResolver, LineBreak, PageGeometry, PlacedTextLine, TextLine, TextPage,
     plan_paragraph_flow, widows::minimum_start_line_count,
 };
 use super::{
     blocks::{Block, PreparedParagraph},
     columns::ColumnSeparators,
+    paragraphs::LineFrames,
     spacing::{LeadingDrop, NegativeSpaceAfter, carried_spacing, collapsed_spacing},
     tolerances::{BLOCK_FIT_TOLERANCE, LEAST_AREA_HEIGHT},
 };
@@ -195,7 +196,7 @@ pub(super) fn place_blocks(
                         boundary,
                         style.line_height,
                     );
-                    let frame = frame_for(&style, geometry.column_width());
+                    let frame = LineFrames::within(&style, geometry.column_width()).first;
                     pages[cursor.page_number - 1].push_line(PlacedTextLine {
                         top: cursor.y,
                         line: TextLine {
@@ -330,13 +331,7 @@ pub(super) fn place_blocks(
                 }
                 let heights: Vec<_> = paragraph.lines.iter().map(|line| line.height).collect();
                 let frames: Vec<_> = (0..heights.len())
-                    .map(|index| {
-                        if index == 0 {
-                            paragraph.first_frame
-                        } else {
-                            paragraph.continuation_frame
-                        }
-                    })
+                    .map(|index| paragraph.line_frame(index))
                     .collect();
                 let flow = plan_paragraph_flow(
                     *cursor,
@@ -408,14 +403,6 @@ pub(super) fn place_blocks(
         }
     }
     Ok(())
-}
-fn frame_for(style: &super::ParagraphStyle, width: f64) -> LineFrame {
-    let available = (width - style.indent_left - style.indent_right).max(width.min(12.0));
-    let origin = style.indent_left.min(width - available);
-    LineFrame {
-        x: origin + style.first_line,
-        width: available - style.first_line,
-    }
 }
 fn new_page(
     cursor: &mut FlowCursor,

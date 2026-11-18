@@ -267,11 +267,7 @@ impl ParagraphPainting {
             page.place_anchors(&prepared.anchors, [placement.frame.x, placement.top]);
         }
         let mut line = paragraph.lines[placement.line_index].clone();
-        let relative_frame = if placement.line_index == 0 {
-            paragraph.first_frame
-        } else {
-            paragraph.continuation_frame
-        };
+        let relative_frame = paragraph.line_frame(placement.line_index);
         let horizontal = placement.frame.x - relative_frame.x;
         line.translate(horizontal, placement.top);
         // The box of a paragraph joined to the one before it begins where that

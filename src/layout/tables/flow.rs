@@ -443,11 +443,7 @@ fn place_cell<'plan>(
                         block_top += line.height;
                         continue;
                     }
-                    let frame = if line_index == 0 {
-                        paragraph.text.first_frame
-                    } else {
-                        paragraph.text.continuation_frame
-                    };
+                    let frame = paragraph.text.line_frame(line_index);
                     painting.place_line(
                         page,
                         paragraph,

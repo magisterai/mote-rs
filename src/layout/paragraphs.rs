@@ -12,6 +12,28 @@ pub struct LineFrame {
     pub x: f64,
     pub width: f64,
 }
+/// The frames of the lines of a paragraph, relative to its container.
+pub(super) struct LineFrames {
+    pub first: LineFrame,
+    pub continuation: LineFrame,
+}
+impl LineFrames {
+    /// Returns the frames that the indents of `style` leave in a container of
+    /// the given width. The frames keep a least width of twelve points, or
+    /// the width of a narrower container.
+    pub(super) fn within(style: &ParagraphStyle, container_width: f64) -> Self {
+        let width = (container_width - style.indent_left - style.indent_right)
+            .max(container_width.min(12.0));
+        let origin = style.indent_left.min(container_width - width);
+        Self {
+            first: LineFrame {
+                x: origin + style.first_line,
+                width: width - style.first_line,
+            },
+            continuation: LineFrame { x: origin, width },
+        }
+    }
+}
 #[derive(Debug, Clone, PartialEq)]
 pub struct ParagraphText {
     pub style: ParagraphStyle,
@@ -33,6 +55,15 @@ impl ParagraphText {
         LineFrame {
             x: left,
             width: self.continuation_frame.x + self.continuation_frame.width - left,
+        }
+    }
+    /// Returns the frame of a line of the paragraph, relative to its
+    /// container.
+    pub(super) fn line_frame(&self, line_index: usize) -> LineFrame {
+        if line_index == 0 {
+            self.first_frame
+        } else {
+            self.continuation_frame
         }
     }
 }
@@ -78,14 +109,11 @@ pub(super) fn plan_resolved_paragraph(
     layout_kerning: bool,
     resolve_tabs: bool,
 ) -> Result<ParagraphText, LayoutError> {
-    let width =
-        (container_width - style.indent_left - style.indent_right).max(container_width.min(12.0));
-    let origin = style.indent_left.min(container_width - width);
-    let continuation_frame = LineFrame { x: origin, width };
-    let first_frame = LineFrame {
-        x: origin + style.first_line,
-        width: width - style.first_line,
-    };
+    let LineFrames {
+        first: first_frame,
+        continuation: continuation_frame,
+    } = LineFrames::within(&style, container_width);
+    let LineFrame { x: origin, width } = continuation_frame;
     let options = LineOptions {
         width,
         first_indent: style.first_line,

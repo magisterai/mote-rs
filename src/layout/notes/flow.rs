@@ -148,11 +148,7 @@ impl NoteLayout {
                     next_area(cursor, pages, columns, geometry);
                 }
             }
-            let mut frame = if index == 0 {
-                paragraph.first_frame
-            } else {
-                paragraph.continuation_frame
-            };
+            let mut frame = paragraph.line_frame(index);
             frame.x += geometry.column_left(cursor.column_index);
             painting.place_line(
                 &mut pages[cursor.page_number - 1],
