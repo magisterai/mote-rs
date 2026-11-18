@@ -193,3 +193,29 @@ fn a_cell_that_ends_with_a_nested_table_is_closed_by_a_collapsed_paragraph() {
     }
     assert_eq!(closed_after_table, 2);
 }
+#[test]
+fn a_shape_in_a_table_cell_is_drawn_at_its_own_place_on_the_page() {
+    let shape = "#shape(position = { x = inch(3), y = inch(4), width = inch(1), height = inch(0.5) }, fill = \"#2563eb\")[Shape]";
+    let paths = |source: &str| {
+        let resolver = FileAssetResolver::new(fixtures()).unwrap();
+        let document = mote::compile(source).unwrap();
+        let planned = mote::render::plan(&document, &resolver, None).unwrap();
+        assert_eq!(planned.warnings, Vec::<String>::new());
+        planned.output.pages[0]
+            .operations
+            .iter()
+            .filter(|operation| matches!(operation, mote::layout::PageOperation::Path(_)))
+            .map(|operation| format!("{operation:?}"))
+            .collect::<Vec<_>>()
+    };
+    let in_body = paths(&format!("{shape}\n"));
+    assert!(!in_body.is_empty());
+    let in_cell = paths(&format!(
+        "#table[\n#row[\n#cell[\n{shape}\n]\n#cell[Beside]\n]\n]\n"
+    ));
+    assert_eq!(in_cell, in_body);
+    let in_nested_cell = paths(&format!(
+        "#table[\n#row[\n#cell[\n#table[\n#row[\n#cell[\n{shape}\n]\n]\n]\n]\n]\n]\n"
+    ));
+    assert_eq!(in_nested_cell, in_body);
+}

@@ -147,11 +147,6 @@ pub(super) fn prepare_content(
                 builder.blocks.push(Block::Chart(Box::new(chart)));
             }
             ElementKind::Shape => {
-                if in_cell {
-                    return Err(LayoutError::Unsupported(
-                        "native shapes in table cells are not yet supported".into(),
-                    ));
-                }
                 let mut drawing =
                     super::drawings::Drawing::prepare(element, styles, builder.measurer)?;
                 drawing.anchors = std::mem::take(&mut builder.pending_anchors);

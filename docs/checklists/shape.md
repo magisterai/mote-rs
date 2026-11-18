@@ -59,7 +59,8 @@ Tables, images, nested drawings, figure/caption blocks and page breaks inside
 shape text are omitted with warnings. Field, note and anchor semantics contribute
 only their child text. Paragraph pagination properties have no drawing-text effect.
 Rotated PDF hyperlinks retain unrotated hit areas and warn about that limit.
-Table-cell shapes remain pending. Positioned slide shapes have
+A shape in a table cell is drawn at its own place on the page, as in the body,
+and is not cut off at the cell ([table tests](../../tests/tables.rs)). Positioned slide shapes have
 [editable and native captures](../../tests/fixtures/presentation-shapes/README.md). Microsoft Word
 render review is unreviewed; matching package captures do not establish visual
 Office conformance. Unknown metadata has no implied output effect.
