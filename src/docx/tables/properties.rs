@@ -81,7 +81,7 @@ fn border_side(side: &str, value: &Value) -> Result<String, Error> {
         .get("color")
         .map(values::color)
         .transpose()?
-        .unwrap_or_else(|| "BFBFBF".into());
+        .unwrap_or_else(|| tables::BORDER_COLOR.into());
     let space = property_values::number(&attributes, "space")
         .unwrap_or(0.0)
         .trunc() as i64;
@@ -94,9 +94,9 @@ pub(super) fn default_borders() -> String {
     let mut contents = String::new();
     for side in ["top", "left", "bottom", "right", "insideH", "insideV"] {
         let color = if side.starts_with("inside") {
-            "D9D9D9"
+            tables::INSIDE_BORDER_COLOR
         } else {
-            "BFBFBF"
+            tables::BORDER_COLOR
         };
         contents.push_str(&format!(
             "<w:{side} w:val=\"single\" w:sz=\"4\" w:color=\"{color}\"/>"

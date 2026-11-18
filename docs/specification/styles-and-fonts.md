@@ -141,8 +141,10 @@ colors, bold, italic, underline, small caps, and pagination booleans normalize.
 Other flat fields, including strike controls, remain as supplied; place strike
 controls inside `run` to normalize them.
 The additional flat `first_line_indent` and `hanging_indent` accept non-negative
-lengths and remain metadata; use `paragraph.indent.first_line` and
-`paragraph.indent.hanging` for the shared paragraph property model.
+lengths and indent the first line as `paragraph.indent.first_line` and
+`paragraph.indent.hanging` do. A declaration states an indent in one of the two
+forms, since a flat field beside the same field of `paragraph.indent` is an
+error in DOCX output.
 Extra declaration fields are retained. On both `font` and `style`, a field named
 `properties` remains an ordinary property; declarations do not flatten it.
 Accepted metadata does not imply a formatting effect or output support.

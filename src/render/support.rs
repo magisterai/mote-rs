@@ -105,6 +105,8 @@ pub(super) fn warnings(document: &Document) -> BTreeSet<String> {
                 "link",
                 "paragraph",
                 "run",
+                "first_line_indent",
+                "hanging_indent",
             ])
             .collect();
         unknown(&style.properties, &allowed, &path, &mut warnings);

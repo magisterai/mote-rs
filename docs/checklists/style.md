@@ -29,8 +29,10 @@
   pagination, and outline fields, plus `background` shading metadata.
 - [x] `run`: font, size, color, highlight, fill/background, bold, italic,
   underline, small caps, strike, and double strike.
-- [x] Flat run/paragraph properties and `first_line_indent`/`hanging_indent`
-  metadata; nested paragraph/run fields override flat counterparts.
+- [x] Flat run/paragraph properties, and flat `first_line_indent` and
+  `hanging_indent`, which indent the first line in DOCX and native output
+  ([styles](../../tests/layout_styles.rs)); nested paragraph/run fields override
+  flat counterparts.
 - [x] Replacement by name and document-wide availability, including forward
   references; retain declarations in the model and JSON inspection.
 

@@ -530,6 +530,12 @@ impl<'document> LayoutStyleResolver<'document> {
                 style.first_line = -value;
             }
         }
+        if let Some(value) = properties.get("first_line_indent").and_then(values::points) {
+            style.first_line = value;
+        }
+        if let Some(value) = properties.get("hanging_indent").and_then(values::points) {
+            style.first_line = -value;
+        }
     }
     fn apply_named_paragraph(&self, style: &mut ParagraphStyle, name: &str) {
         if self.find_declaration(name).is_some() {

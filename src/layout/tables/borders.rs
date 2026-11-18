@@ -81,7 +81,7 @@ pub(super) fn resolve(
     std::array::from_fn(|side| {
         let name = ["top", "right", "bottom", "left"][side];
         if let Some(value) = cell.and_then(|cell| cell.get(name).or_else(|| cell.get("all"))) {
-            return candidate(value, 2, "D1D5DB");
+            return candidate(value, 2, tables::BORDER_COLOR);
         }
         let aliases = if outside[side] {
             [name, "outside", "all", ""]
@@ -91,7 +91,7 @@ pub(super) fn resolve(
             ["insideV", "inside_v", "inside", "all"]
         };
         if let Some(value) = aliases.iter().find_map(|name| borders.get(*name)) {
-            return candidate(value, 1, "BFBFBF");
+            return candidate(value, 1, tables::BORDER_COLOR);
         }
         if use_defaults {
             Candidate {
@@ -99,7 +99,12 @@ pub(super) fn resolve(
                 priority: 0,
                 weight: 1,
                 width: 0.5,
-                color: if outside[side] { "BFBFBF" } else { "D9D9D9" }.into(),
+                color: if outside[side] {
+                    tables::BORDER_COLOR
+                } else {
+                    tables::INSIDE_BORDER_COLOR
+                }
+                .into(),
                 style: "single".into(),
             }
         } else {

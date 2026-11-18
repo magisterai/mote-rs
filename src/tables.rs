@@ -6,6 +6,12 @@ use crate::{
 };
 use std::collections::BTreeMap;
 
+/// The colour of a table border whose colour is not stated, and of the outside
+/// borders of a table that states none.
+pub(crate) const BORDER_COLOR: &str = "BFBFBF";
+/// The colour of the inside borders of a table that states no borders.
+pub(crate) const INSIDE_BORDER_COLOR: &str = "D9D9D9";
+
 #[derive(Clone)]
 pub(crate) struct GridCell {
     pub element: Element,

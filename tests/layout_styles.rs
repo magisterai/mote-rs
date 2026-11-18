@@ -63,3 +63,18 @@ fn native_styles_match_captured_source_cases() {
             .join("\n")
     );
 }
+
+#[test]
+fn flat_first_line_and_hanging_indents_of_a_style_move_the_first_line() {
+    let source = "#style(name = \"Lead\", type = \"paragraph\", first_line_indent = pt(40))\n#style(name = \"Hang\", type = \"paragraph\", paragraph = { indent = { left = pt(40) } }, hanging_indent = pt(40))\n\n#paragraph \"Lead\"[The first line is indented, and the paragraph runs on for long enough to reach a second line of the text area.]\n\n#paragraph \"Hang\"[The first line hangs at the margin, and the paragraph runs on for long enough to reach a second line of the text area.]\n";
+    let document = mote::compile(source).unwrap();
+    let resolver = mote::source::FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let planned = mote::render::plan(&document, &resolver, None).unwrap();
+    assert_eq!(planned.warnings, Vec::<String>::new());
+    let lefts: Vec<f64> = planned.output.pages[0]
+        .lines
+        .iter()
+        .map(|line| line.line.x)
+        .collect();
+    assert_eq!(lefts, [112.0, 72.0, 72.0, 112.0]);
+}
