@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 88.08,
+          "text": "SHAPE AT THE FOOT OF A PAGE: a shape that moves to a new page leaves the space",
+          "x": 72.0
+        },
+        {
+          "baseline": 108.0,
+          "text": "above it behind.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 89.04,
+          "text": "Box",
+          "x": 360.0
+        },
+        {
+          "baseline": 568.08,
+          "text": "Filler one of 620 points with 24 points after it.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "The text after the shape, on the second page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 89.04,
+          "text": "Box two",
+          "x": 360.0
+        },
+        {
+          "baseline": 552.0,
+          "text": "Filler two of 600 points with 24 points after it.",
+          "x": 72.0
+        },
+        {
+          "baseline": 707.52,
+          "text": "The text after the shape that stays on the page.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "877462cf927f20a2750f098bdfcac8a2c45ec6d043c9c9b24c698fc7dcc03719"
+}

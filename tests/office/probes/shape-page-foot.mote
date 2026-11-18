@@ -1,0 +1,17 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(20) } })[SHAPE AT THE FOOT OF A PAGE: a shape that moves to a new page leaves the space above it behind.]
+
+#paragraph(spacing = { after = pt(24), line = { rule = "exact", value = pt(620) } })[Filler one of 620 points with 24 points after it.]
+
+#shape(name = "Box", kind = "rect", position = { x = inch(5), y = inch(1), width = inch(1), height = inch(0.5) })[Box]
+
+#paragraph(spacing = { before = pt(0) })[The text after the shape, on the second page.]
+
+#break(type = "page")
+
+#paragraph(spacing = { after = pt(24), line = { rule = "exact", value = pt(600) } })[Filler two of 600 points with 24 points after it.]
+
+#shape(name = "Box two", kind = "rect", position = { x = inch(5), y = inch(1), width = inch(1), height = inch(0.5) })[Box two]
+
+#paragraph(spacing = { before = pt(0) })[The text after the shape that stays on the page.]

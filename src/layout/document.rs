@@ -123,28 +123,10 @@ pub(super) fn place_blocks(
             }
             Block::Drawing(drawing) => {
                 painting.clear_fill();
-                if *pending_spacing > 0.0 {
-                    place_leading(
-                        cursor,
-                        pages,
-                        columns,
-                        geometry,
-                        boundary,
-                        LeadingSpace {
-                            height: *pending_spacing,
-                            fit_height: *pending_spacing,
-                            dropped: LeadingDrop::Never,
-                        },
-                    );
-                }
-                *pending_spacing = 0.0;
-                ensure_space(
-                    cursor,
-                    pages,
-                    columns,
-                    geometry,
-                    boundary,
-                    DRAWING_HEIGHT.max(kept_height(0.0)),
+                let leading = std::mem::take(pending_spacing);
+                let required = DRAWING_HEIGHT.max(kept_height(leading));
+                seek_room_below_leading(
+                    cursor, pages, columns, geometry, boundary, leading, required,
                 );
                 drawing.place(&mut pages[cursor.page_number - 1]);
                 if let Some(cut_off) = &drawing.cut_off_text {

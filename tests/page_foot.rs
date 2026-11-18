@@ -242,3 +242,39 @@ fn a_column_foot_holds_a_line_less_its_trailing_space() {
     assert!(!column_of(fitting_filler(height - trailing)));
     assert!(column_of(moving_filler(height - trailing)));
 }
+
+#[test]
+fn a_shape_that_moves_to_a_new_page_leaves_the_space_above_it_behind() {
+    let source = |shape: &str| {
+        format!(
+            r#"#document(
+  page = {{ size = "letter", orientation = "portrait" }},
+  margin = {{ top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }}
+)
+
+#paragraph(spacing = {{ before = pt(0), after = pt(24), line = {{ rule = "exact", value = pt(640) }} }})[Filler.]
+
+{shape}
+
+#paragraph(spacing = {{ before = pt(0) }})[Closing.]
+"#
+        )
+    };
+    let closing_top = |shape: &str| {
+        let plan = planned(&source(shape));
+        assert_eq!(plan.pages.len(), 2);
+        plan.pages[1]
+            .lines
+            .iter()
+            .find(|placed| line_text(placed) == "Closing.")
+            .unwrap()
+            .top
+    };
+    // The page holds the filler and not the space after it, so the block below
+    // begins the second page. Word sets the paragraph that anchors a shape, one
+    // point high, at the top of that page, as the shape-page-foot probe shows.
+    let after_shape = closing_top(
+        r#"#shape(name = "Box", kind = "rect", position = { x = inch(5), y = inch(1), width = inch(1), height = inch(0.5) })[Box]"#,
+    );
+    assert!((after_shape - 73.0).abs() < 0.001, "{after_shape}");
+}

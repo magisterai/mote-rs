@@ -60,7 +60,11 @@ shape text are omitted with warnings. Field, note and anchor semantics contribut
 only their child text. Paragraph pagination properties have no drawing-text effect.
 Rotated PDF hyperlinks retain unrotated hit areas and warn about that limit.
 A shape in a table cell is drawn at its own place on the page, as in the body,
-and is not cut off at the cell ([table tests](../../tests/tables.rs)). Positioned slide shapes have
+and is not cut off at the cell ([table tests](../../tests/tables.rs)). A shape
+in the body that moves to a new page leaves the space above it behind, as any
+other block does and as Word's export of the
+[shape-page-foot probe](../../tests/office/probes/shape-page-foot.mote) shows
+([page foot tests](../../tests/page_foot.rs)). Positioned slide shapes have
 [editable and native captures](../../tests/fixtures/presentation-shapes/README.md). Microsoft Word
 render review is unreviewed; matching package captures do not establish visual
 Office conformance. Unknown metadata has no implied output effect.
