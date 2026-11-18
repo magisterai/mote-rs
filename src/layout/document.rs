@@ -99,9 +99,7 @@ pub(super) fn place_blocks(
                     cursor.y,
                     geometry.column_width(),
                 );
-                cursor.y += divider.width;
-                cursor.body_started = true;
-                columns.note(cursor, geometry);
+                pass_block(cursor, columns, geometry, divider.width);
                 *pending_spacing = carried_spacing(divider.after, NegativeSpaceAfter::TakenAsNone);
             }
             Block::Chart(chart) => {
@@ -120,9 +118,7 @@ pub(super) fn place_blocks(
                     cursor.y,
                 );
                 warnings.extend(chart.reduced_labels_warning(cursor.page_number));
-                cursor.y += chart.height;
-                cursor.body_started = true;
-                columns.note(cursor, geometry);
+                pass_block(cursor, columns, geometry, chart.height);
                 *pending_spacing = carried_spacing(chart.after, NegativeSpaceAfter::TakenAsNone);
             }
             Block::Drawing(drawing) => {
@@ -154,9 +150,7 @@ pub(super) fn place_blocks(
                 if let Some(cut_off) = &drawing.cut_off_text {
                     warnings.push(cut_off.warning(cursor.page_number));
                 }
-                cursor.y += DRAWING_HEIGHT;
-                cursor.body_started = true;
-                columns.note(cursor, geometry);
+                pass_block(cursor, columns, geometry, DRAWING_HEIGHT);
             }
 
             Block::Break(kind) => {
@@ -211,9 +205,7 @@ pub(super) fn place_blocks(
                             decorations: Vec::new(),
                         },
                     });
-                    cursor.y += style.line_height;
-                    cursor.body_started = true;
-                    columns.note(cursor, geometry);
+                    pass_block(cursor, columns, geometry, style.line_height);
                 } else if kind == "column" || kind == "next_column" {
                     next_area(cursor, pages, columns, geometry);
                 } else {
@@ -237,9 +229,7 @@ pub(super) fn place_blocks(
                     geometry.column_width(),
                     cursor.y,
                 )?);
-                cursor.y += image.height();
-                cursor.body_started = true;
-                columns.note(cursor, geometry);
+                pass_block(cursor, columns, geometry, image.height());
                 *pending_spacing = carried_spacing(image.after, NegativeSpaceAfter::TakenAsNone);
             }
             Block::Table(table) => {
@@ -489,6 +479,18 @@ fn seek_room_below_leading(
     }
     ensure_space(cursor, pages, columns, geometry, boundary, required);
 }
+/// Moves the cursor past a block of the given height that has been placed at
+/// the cursor.
+pub(super) fn pass_block(
+    cursor: &mut FlowCursor,
+    columns: &mut ColumnSeparators,
+    geometry: PageGeometry,
+    height: f64,
+) {
+    cursor.y += height;
+    cursor.body_started = true;
+    columns.note(cursor, geometry);
+}
 pub(super) fn next_area(
     cursor: &mut FlowCursor,
     pages: &mut Vec<TextPage>,
@@ -557,7 +559,7 @@ fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
 }
 
 /// The height by which a drawing anchored in the flow advances the flow.
-const DRAWING_HEIGHT: f64 = 1.0;
+pub(super) const DRAWING_HEIGHT: f64 = 1.0;
 
 /// Returns the height that the first block needs below its leading space if
 /// that block and the blocks kept with it are to share a page: the whole of

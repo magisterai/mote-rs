@@ -5,7 +5,8 @@ use crate::layout::{
     blocks::PreparedParagraph,
     columns::ColumnSeparators,
     document::{
-        LeadingSpace, ensure_space, fitting_height, next_area, page_content_bottom, place_leading,
+        LeadingSpace, ensure_space, fitting_height, next_area, page_content_bottom, pass_block,
+        place_leading,
     },
     painting::ParagraphPainting,
     sections::FlowBoundary,
@@ -162,9 +163,7 @@ impl NoteLayout {
                     height: line.height,
                 },
             );
-            cursor.y += line.height;
-            cursor.body_started = true;
-            columns.note(cursor, geometry);
+            pass_block(cursor, columns, geometry, line.height);
         }
         Ok(())
     }

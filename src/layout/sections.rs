@@ -6,7 +6,9 @@ use super::{
 use super::{
     blocks::{BlockNumbers, prepare_content},
     columns::ColumnSeparators,
-    document::{LeadingSpace, PlacementContext, ensure_space, place_blocks, place_leading},
+    document::{
+        LeadingSpace, PlacementContext, ensure_space, pass_block, place_blocks, place_leading,
+    },
     spacing::{LeadingDrop, collapsed_spacing},
     tolerances::BALANCE_TOLERANCE,
 };
@@ -488,9 +490,7 @@ fn advance_boundary(
         boundary,
         style.line_height,
     );
-    cursor.y += style.line_height;
-    cursor.body_started = true;
-    columns.note(cursor, geometry);
+    pass_block(cursor, columns, geometry, style.line_height);
     // The space after the paragraph is the space above whatever follows it,
     // and is dropped as that space is.
     place_leading(

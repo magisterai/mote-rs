@@ -2,7 +2,9 @@ use super::super::{
     FlowCursor, HighlightRectangle, LineFrame, LinePlacement, PageGeometry, PageOperation,
     TextPage,
     columns::ColumnSeparators,
-    document::{LeadingSpace, ensure_space, next_area, page_content_bottom, place_leading},
+    document::{
+        LeadingSpace, ensure_space, next_area, page_content_bottom, pass_block, place_leading,
+    },
     drawings::Drawing,
     painting::ParagraphPainting,
     spacing::LeadingDrop,
@@ -141,9 +143,7 @@ pub(in crate::layout) fn place(
                         true,
                     );
                 }
-                cursor.y += slice.height;
-                cursor.body_started = true;
-                columns.note(cursor, geometry);
+                pass_block(cursor, columns, geometry, slice.height);
             }
         } else {
             let oversized =

@@ -5,7 +5,7 @@ use crate::layout::{
 };
 use crate::layout::{
     columns::ColumnSeparators,
-    document::{ensure_space, next_area, page_content_bottom},
+    document::{ensure_space, next_area, page_content_bottom, pass_block},
     spacing::LeadingDrop,
     tolerances::{BLOCK_FIT_TOLERANCE, LINE_FIT_TOLERANCE},
 };
@@ -135,9 +135,7 @@ impl NoteLayout {
                     top: cursor.y,
                     line: line.clone(),
                 });
-                cursor.y += line.height;
-                cursor.body_started = true;
-                columns.note(cursor, geometry);
+                pass_block(cursor, columns, geometry, line.height);
             }
         }
         Ok(())
