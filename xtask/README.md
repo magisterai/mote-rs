@@ -102,9 +102,24 @@ from Office.
 
 `--record` exports the selected subjects through Microsoft Word or PowerPoint on
 macOS and replaces their references; the applications must be installed and may
-not be showing a modal dialog. `--allow` replaces the selected subjects'
-allowances with their present results. A test holds every subject within its
-allowance on any platform without Office.
+not be showing a modal dialog. A test holds every subject within its allowance
+on any platform without Office.
+
+`--allow` lowers the selected subjects' allowances to their present results and
+raises none. Each stored value becomes the lower of itself and the present
+result, rounded up to a tenth of a point, and a table lists every value that
+changed, with its value before and after. A subject without an allowance is
+recorded. A subject whose present result exceeds its allowance is refused: its
+allowance stands as it was, the subject is listed, the other subjects are
+written, and the exit status is nonzero. `--raise SUBJECT`, which requires
+`--allow` and may be repeated, names a review case by its identifier, or a probe
+as `probe:NAME`, whose exceeded values rise to the present result; the raised
+values are listed apart from the lowered ones.
+
+The comparison passes a result that exceeds its stored value by at most 0.05
+point, a margin that absorbs floating-point noise. `--allow` decides by the same
+comparison whether a subject exceeds its allowance, so that no result that
+passes can raise a stored value.
 
 ## Painter parity
 
@@ -115,9 +130,15 @@ differs only when its luminance lies outside the range of the other image's
 blocks around it, so that sub-pixel rounding is no difference while a moved or
 reshaped mark is. `--case NAME` selects a review case by its identifier, or a
 probe as `probe:NAME`, and an unknown name is an error. `--images DIRECTORY` writes both pictures and a map of the
-differing blocks, and `--allow` records the present shares in the
-[painter parity allowances](../tests/fixtures/painter-parity/README.md). A test
-holds every subject within its allowance.
+differing blocks. A test holds every subject within its
+[painter parity allowance](../tests/fixtures/painter-parity/README.md).
+
+`--allow` and `--raise SUBJECT` act on the painter parity allowances by the rule
+of the [Office comparison](#office-comparison): `--allow` lowers a stored share
+to the present one, rounded up to a tenth of a percent, records a subject
+without an allowance, and refuses a subject that exceeds its allowance unless
+`--raise` names it. The comparison passes a share that exceeds its stored value
+by at most a twentieth of a percent.
 
 ## Attribute inventory
 

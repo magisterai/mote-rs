@@ -1,5 +1,6 @@
 //! Repository tasks: the review catalogue, README generation, package validation, fixture verification,
 //! output and Office comparison, the specification attribute inventory and the verification of a change.
+mod allowance;
 mod arguments;
 mod captures;
 mod compare_measurements;

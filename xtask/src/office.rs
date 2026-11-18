@@ -8,7 +8,13 @@ mod export;
 pub(crate) mod lines;
 mod matching;
 
-use crate::{Outcome, arguments::Arguments, digest, repository, review::catalogue};
+use crate::{
+    Outcome,
+    allowance::{Field, Ledger, Scale},
+    arguments::Arguments,
+    digest, repository,
+    review::catalogue,
+};
 use export::Application;
 use lines::{Line, Page};
 use matching::Comparison;
@@ -21,7 +27,7 @@ use std::{
     process::ExitCode,
 };
 
-const HELP: &str = "Usage: cargo xtask office-compare [--case NAME]... [--probe NAME]... [--record] [--allow] [--detail]
+const HELP: &str = "Usage: cargo xtask office-compare [--case NAME]... [--probe NAME]... [--record] [--allow [--raise SUBJECT]...] [--detail]
 
 Compare the native layout of review cases and probes with their recorded Word or
 PowerPoint references in tests/office/references/, and report each subject whose
@@ -30,12 +36,17 @@ line positions exceed its allowance in tests/office/allowances.json.
 Without a selection, every case and probe is selected.
 --record exports the selected subjects through Word or PowerPoint (macOS only)
 and replaces their references.
---allow replaces the selected subjects' allowances with their present results.
+--allow lowers the selected subjects' allowances to their present results, lists
+every value that changed, and records a subject that has no allowance. A subject
+whose present result exceeds its allowance is refused, and the command fails.
+--raise SUBJECT, with --allow, lets the allowance of one subject rise to its
+present result; SUBJECT is a case identifier or probe:NAME.
 --detail lists unmatched lines and every line more than half a point from Office.
 ";
 
-/// A small margin above an allowance absorbs floating-point noise.
-const SLACK: f64 = 0.05;
+/// An offset is stored in tenths of a point. A small margin above the stored
+/// value absorbs floating-point noise.
+const OFFSET: Scale = Scale::new(10.0, 0.05);
 
 /// A review case or a probe: a source laid out natively and by an Office
 /// application.
@@ -256,42 +267,67 @@ struct Allowance {
 }
 
 impl Allowance {
-    fn measured(comparison: &Comparison) -> Self {
-        let ceiling = |value: f64| (value * 10.0).ceil() / 10.0;
+    /// The measurements that an allowance bounds, in the order of `values`.
+    fn fields(comparison: &Comparison) -> [Field; 5] {
+        let field = |name, scale, measured| Field {
+            name,
+            scale,
+            measured,
+        };
+        [
+            field("page_moves", Scale::COUNT, comparison.page_moves as f64),
+            field("unmatched", Scale::COUNT, comparison.unmatched as f64),
+            field("vertical", OFFSET, comparison.maximum_vertical),
+            field("median", OFFSET, comparison.median_vertical),
+            field("horizontal", OFFSET, comparison.maximum_horizontal),
+        ]
+    }
+
+    fn values(&self) -> [f64; 5] {
+        [
+            self.page_moves as f64,
+            self.unmatched as f64,
+            self.vertical,
+            self.median,
+            self.horizontal,
+        ]
+    }
+
+    fn from_values(values: &[f64]) -> Self {
         Self {
-            page_moves: comparison.page_moves,
-            unmatched: comparison.unmatched,
-            vertical: ceiling(comparison.maximum_vertical),
-            median: ceiling(comparison.median_vertical),
-            horizontal: ceiling(comparison.maximum_horizontal),
+            page_moves: values[0] as usize,
+            unmatched: values[1] as usize,
+            vertical: values[2],
+            median: values[3],
+            horizontal: values[4],
         }
     }
 
     fn exceeded_by(&self, comparison: &Comparison) -> Vec<String> {
-        let mut failures = Vec::new();
-        if comparison.office_pages != comparison.native_pages {
-            failures.push(format!(
-                "{} Office pages, {} native",
-                comparison.office_pages, comparison.native_pages
-            ));
-        }
-        if comparison.page_moves > self.page_moves {
-            failures.push(format!("{} lines on another page", comparison.page_moves));
-        }
-        if comparison.unmatched > self.unmatched {
-            failures.push(format!("{} unmatched lines", comparison.unmatched));
-        }
-        for (name, measured, allowed) in [
-            ("vertical", comparison.maximum_vertical, self.vertical),
-            ("median", comparison.median_vertical, self.median),
-            ("horizontal", comparison.maximum_horizontal, self.horizontal),
-        ] {
-            if measured > allowed + SLACK {
-                failures.push(format!("{name} {measured:.2}pt exceeds {allowed:.1}pt"));
+        let mut failures: Vec<String> = different_page_counts(comparison).into_iter().collect();
+        for (field, allowed) in Self::fields(comparison).iter().zip(self.values()) {
+            if field.scale.admits(allowed, field.measured) {
+                continue;
             }
+            failures.push(match field.name {
+                "page_moves" => format!("{} lines on another page", comparison.page_moves),
+                "unmatched" => format!("{} unmatched lines", comparison.unmatched),
+                name => format!("{name} {:.2}pt exceeds {allowed:.1}pt", field.measured),
+            });
         }
         failures
     }
+}
+
+/// No allowance admits a native layout whose number of pages differs from that
+/// of Office.
+fn different_page_counts(comparison: &Comparison) -> Option<String> {
+    (comparison.office_pages != comparison.native_pages).then(|| {
+        format!(
+            "{} Office pages, {} native",
+            comparison.office_pages, comparison.native_pages
+        )
+    })
 }
 
 fn allowances_path() -> PathBuf {
@@ -368,6 +404,7 @@ fn compare(subject: &Subject) -> Result<Option<Comparison>, String> {
 pub(crate) fn run(mut arguments: Arguments) -> Outcome {
     let all = subjects()?;
     let mut selected = Vec::new();
+    let mut raised = Vec::new();
     let (mut recording, mut allowing, mut detailed) = (false, false, false);
     while let Some(argument) = arguments.next() {
         match argument.as_str() {
@@ -387,17 +424,25 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
                 }
                 selected.push(identifier);
             }
+            "--raise" => {
+                let identifier = arguments.value("--raise")?;
+                if !all.iter().any(|(candidate, _)| *candidate == identifier) {
+                    return Err(format!("unknown subject: {identifier}"));
+                }
+                raised.push(identifier);
+            }
             "--record" => recording = true,
             "--allow" => allowing = true,
             "--detail" => detailed = true,
             other => return Err(format!("unknown option: {other}; use --help")),
         }
     }
-    let subjects: Vec<&Subject> = all
+    let (identifiers, subjects): (Vec<&String>, Vec<&Subject>) = all
         .iter()
         .filter(|(identifier, _)| selected.is_empty() || selected.contains(identifier))
-        .map(|(_, subject)| subject)
-        .collect();
+        .map(|(identifier, subject)| (identifier, subject))
+        .unzip();
+    crate::allowance::check_raised(&raised, &identifiers, allowing)?;
     if recording {
         for subject in &subjects {
             record(subject)?;
@@ -405,12 +450,13 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
         }
     }
     let mut allowances = read_allowances()?;
+    let mut ledger = Ledger::default();
     let mut failed = false;
     println!(
         "subject | pages | moved | unmatched | vertical | median | horizontal | first difference"
     );
     let comparisons = in_parallel(&subjects, compare);
-    for (subject, comparison) in subjects.iter().zip(comparisons) {
+    for ((subject, identifier), comparison) in subjects.iter().zip(identifiers).zip(comparisons) {
         let Some(comparison) = comparison? else {
             println!("{} | no reference", subject.key);
             continue;
@@ -433,7 +479,20 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
             }
         }
         if allowing {
-            allowances.insert(subject.key.clone(), Allowance::measured(&comparison));
+            let stored = allowances.get(&subject.key).map(Allowance::values);
+            if let Some(values) = ledger.allow(
+                &subject.key,
+                identifier,
+                &Allowance::fields(&comparison),
+                stored.as_ref().map(<[f64; 5]>::as_slice),
+                raised.contains(identifier),
+            ) {
+                allowances.insert(subject.key.clone(), Allowance::from_values(&values));
+            }
+            if let Some(difference) = different_page_counts(&comparison) {
+                failed = true;
+                println!("  no allowance admits {difference}");
+            }
             continue;
         }
         let failures = allowances.get(&subject.key).map_or_else(
@@ -447,6 +506,8 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
     }
     if allowing {
         write_allowances(&allowances)?;
+        print!("{}", ledger.report());
+        failed |= ledger.refused();
     }
     Ok(if failed {
         ExitCode::FAILURE
@@ -481,6 +542,98 @@ mod tests {
         }
         assert!(compared > 0, "no Office references are recorded");
         assert!(failures.is_empty(), "{}", failures.join("\n"));
+    }
+
+    fn comparison(counts: [usize; 2], offsets: [f64; 3]) -> Comparison {
+        Comparison {
+            page_moves: counts[0],
+            unmatched: counts[1],
+            maximum_vertical: offsets[0],
+            median_vertical: offsets[1],
+            maximum_horizontal: offsets[2],
+            ..Default::default()
+        }
+    }
+
+    #[test]
+    fn allowing_refuses_exactly_the_results_that_exceed_an_allowance() {
+        let allowance = Allowance {
+            page_moves: 1,
+            unmatched: 2,
+            vertical: 0.3,
+            median: 0.1,
+            horizontal: 0.5,
+        };
+        for (result, exceeds) in [
+            (comparison([1, 2], [0.3, 0.1, 0.5]), false),
+            (comparison([1, 2], [0.34, 0.14, 0.54]), false),
+            (comparison([0, 0], [0.0, 0.0, 0.0]), false),
+            (comparison([2, 2], [0.3, 0.1, 0.5]), true),
+            (comparison([1, 3], [0.3, 0.1, 0.5]), true),
+            (comparison([1, 2], [0.36, 0.1, 0.5]), true),
+            (comparison([1, 2], [0.3, 0.16, 0.5]), true),
+            (comparison([1, 2], [0.3, 0.1, 0.56]), true),
+        ] {
+            assert_eq!(
+                !allowance.exceeded_by(&result).is_empty(),
+                exceeds,
+                "{result:?}"
+            );
+            let allowed = Ledger::default().allow(
+                "subject",
+                "subject",
+                &Allowance::fields(&result),
+                Some(&allowance.values()),
+                false,
+            );
+            assert_eq!(allowed.is_none(), exceeds, "{result:?}");
+            let Some(values) = allowed else {
+                continue;
+            };
+            let lowered = Allowance::from_values(&values);
+            assert!(
+                values
+                    .iter()
+                    .zip(allowance.values())
+                    .all(|(after, before)| *after <= before),
+                "{result:?}: {lowered:?}"
+            );
+            assert!(lowered.exceeded_by(&result).is_empty(), "{result:?}");
+        }
+    }
+
+    #[test]
+    fn a_result_within_the_slack_of_its_allowance_leaves_the_allowance_as_it_is() {
+        let allowance = Allowance {
+            page_moves: 0,
+            unmatched: 0,
+            vertical: 0.3,
+            median: 0.1,
+            horizontal: 0.5,
+        };
+        let allowed = Ledger::default()
+            .allow(
+                "subject",
+                "subject",
+                &Allowance::fields(&comparison([0, 0], [0.31, 0.11, 0.51])),
+                Some(&allowance.values()),
+                false,
+            )
+            .unwrap();
+        assert_eq!(Allowance::from_values(&allowed), allowance);
+    }
+
+    #[test]
+    fn a_different_number_of_pages_exceeds_every_allowance() {
+        let result = Comparison {
+            office_pages: 2,
+            native_pages: 3,
+            ..Default::default()
+        };
+        assert_eq!(
+            Allowance::default().exceeded_by(&result),
+            ["2 Office pages, 3 native"]
+        );
     }
 
     #[test]

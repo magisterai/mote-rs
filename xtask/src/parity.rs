@@ -1,7 +1,12 @@
 //! Holds Mote's two native painters to the same picture: each page of the native
 //! PDF, rasterized by an independent interpreter, must agree with the page the PNG
 //! painter draws from the same plan.
-use crate::{Outcome, arguments::Arguments, office};
+use crate::{
+    Outcome,
+    allowance::{Field, Ledger, Scale, check_raised},
+    arguments::Arguments,
+    office,
+};
 use hayro::hayro_interpret::InterpreterSettings;
 use hayro::hayro_interpret::font::{FontData, FontQuery, StandardFont};
 use hayro::hayro_syntax::Pdf;
@@ -10,24 +15,28 @@ use hayro::{PixmapSettings, RenderCache, RenderSettings, render};
 use mote::render::{self as painters, PngOptions};
 use std::{collections::BTreeMap, io::Cursor, process::ExitCode, sync::Arc};
 
-const HELP: &str =
-    "Usage: cargo xtask painter-parity [--case NAME]... [--images DIRECTORY] [--allow]
+const HELP: &str = "Usage: cargo xtask painter-parity [--case NAME]... [--images DIRECTORY] [--allow [--raise SUBJECT]...]
 
 Rasterize the native PDF of every review case and probe with an independent PDF
 interpreter and compare each page with the native PNG painter's page.
 --case NAME selects a review case by identifier or a probe as probe:NAME.
 --images DIRECTORY writes each page's rasterized PDF, PNG painter page and a map
 of the differing blocks there.
---allow replaces the selected subjects' allowances in
-tests/fixtures/painter-parity/allowances.json with their present results.
+--allow lowers the selected subjects' allowances in
+tests/fixtures/painter-parity/allowances.json to their present results, lists
+every value that changed, and records a subject that has no allowance. A subject
+whose present result exceeds its allowance is refused, and the command fails.
+--raise SUBJECT, with --allow, lets the allowance of one subject rise to its
+present result; SUBJECT is a case identifier or probe:NAME.
 ";
 
 const DOTS_PER_INCH: u32 = 144;
 /// The luminance by which a block of two by two pixels may lie outside the range
 /// of its neighbours in the other image.
 const PIXEL_THRESHOLD: u8 = 64;
-/// A small margin above an allowance absorbs floating-point noise.
-const SLACK: f64 = 0.0005;
+/// A share is stored in tenths of a percent. A small margin above the stored
+/// value absorbs floating-point noise.
+const SHARE: Scale = Scale::new(1000.0, 0.0005);
 
 /// Supplies the system faces that the PNG painter uses for PDF standard fonts,
 /// so that both painters draw the same outlines.
@@ -236,14 +245,18 @@ fn read_allowances() -> Result<BTreeMap<String, f64>, String> {
     serde_json::from_str(&text).map_err(|error| error.to_string())
 }
 
-/// Rounds a share up to the next tenth of a percent.
-fn allowance(share: f64) -> f64 {
-    (share * 1000.0).ceil() / 1000.0
+fn worst_share(share: f64) -> Field {
+    Field {
+        name: "share",
+        scale: SHARE,
+        measured: share,
+    }
 }
 
 pub(crate) fn run(mut arguments: Arguments) -> Outcome {
     let all = office::subjects()?;
     let mut selected = Vec::new();
+    let mut raised = Vec::new();
     let mut images = None;
     let mut allowing = false;
     while let Some(argument) = arguments.next() {
@@ -259,24 +272,33 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
                 }
                 selected.push(identifier);
             }
+            "--raise" => {
+                let identifier = arguments.value("--raise")?;
+                if !all.iter().any(|(candidate, _)| *candidate == identifier) {
+                    return Err(format!("unknown subject: {identifier}"));
+                }
+                raised.push(identifier);
+            }
             "--images" => images = Some(arguments.path("--images")?),
             "--allow" => allowing = true,
             other => return Err(format!("unknown option: {other}; use --help")),
         }
     }
-    let subjects: Vec<&office::Subject> = all
+    let (identifiers, subjects): (Vec<&String>, Vec<&office::Subject>) = all
         .iter()
         .filter(|(identifier, _)| selected.is_empty() || selected.contains(identifier))
-        .map(|(_, subject)| subject)
-        .collect();
+        .map(|(identifier, subject)| (identifier, subject))
+        .unzip();
+    check_raised(&raised, &identifiers, allowing)?;
     let mut allowances = read_allowances()?;
+    let mut ledger = Ledger::default();
     let mut failed = false;
     let results = office::in_parallel(&subjects, |subject| compare(subject, images.as_deref()));
-    for (subject, shares) in subjects.iter().zip(results) {
+    for ((subject, identifier), shares) in subjects.iter().zip(identifiers).zip(results) {
         let shares = shares?;
         let worst = shares.iter().copied().fold(0.0, f64::max);
         let allowed = allowances.get(&subject.key).copied();
-        let exceeded = allowed.is_none_or(|allowed| worst > allowed + SLACK);
+        let exceeded = allowed.is_none_or(|allowed| !SHARE.admits(allowed, worst));
         println!(
             "{} | {}{}",
             subject.key,
@@ -292,10 +314,16 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
                 Some(_) => String::new(),
             }
         );
-        if allowing {
-            allowances.insert(subject.key.clone(), allowance(worst));
-        } else {
+        if !allowing {
             failed |= exceeded;
+        } else if let Some(values) = ledger.allow(
+            &subject.key,
+            identifier,
+            &[worst_share(worst)],
+            allowed.as_ref().map(std::slice::from_ref),
+            raised.contains(identifier),
+        ) {
+            allowances.insert(subject.key.clone(), values[0]);
         }
     }
     if allowing {
@@ -306,6 +334,8 @@ pub(crate) fn run(mut arguments: Arguments) -> Outcome {
             serde_json::to_string_pretty(&allowances).unwrap() + "\n",
         )
         .map_err(|error| error.to_string())?;
+        print!("{}", ledger.report());
+        failed |= ledger.refused();
     }
     Ok(if failed {
         ExitCode::FAILURE
@@ -333,7 +363,7 @@ mod tests {
             let worst = shares.unwrap().into_iter().fold(0.0, f64::max);
             match allowances.get(&subject.key) {
                 None => failures.push(format!("{}: no allowance", subject.key)),
-                Some(allowed) if worst > allowed + SLACK => failures.push(format!(
+                Some(allowed) if !SHARE.admits(*allowed, worst) => failures.push(format!(
                     "{}: {:.2}% of inked blocks differ, above {:.1}%",
                     subject.key,
                     worst * 100.0,

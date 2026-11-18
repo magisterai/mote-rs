@@ -35,6 +35,21 @@ An allowance records the present state, not an acceptable one. A layout fix
 lowers the allowances it improves, through `--allow`, and an allowance is raised
 only for a change that is itself supported by Office evidence.
 
+The command enforces the rule. `cargo xtask office-compare --allow` lowers a
+stored value to the present result and raises none: each value becomes the lower
+of itself and the present result, a count as it is measured and an offset
+rounded up to a tenth of a point. The command lists every value that changed,
+with its value before and after, and records a subject that has no allowance. A
+subject whose present result exceeds its allowance is refused: the allowance
+stands as it was, and the command fails. `--raise SUBJECT`, given with
+`--allow` and repeated for each further subject, names a subject whose allowance
+may rise to its present result, and the raised values are listed apart.
+
+The test passes an offset that exceeds its stored value by at most 0.05 point,
+a margin that absorbs floating-point noise, and `--allow` refuses exactly the
+results that the test fails. A result within the margin therefore leaves its
+allowance as it was.
+
 ## Probes
 
 A probe in [probes/](probes/) isolates one layout rule and sweeps its parameters.
