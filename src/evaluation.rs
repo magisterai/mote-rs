@@ -51,6 +51,10 @@ pub struct EvaluationOptions<'resolver> {
     /// The date that the binding `today` holds, as `YYYY-MM-DD`. None takes
     /// the local calendar date of the compilation.
     pub today: Option<&'resolver str>,
+    /// The directories searched, in order, for an import that is not found
+    /// beside its source. Each is a root reference for the asset resolver. The
+    /// library that Mote carries is searched after them.
+    pub import_paths: &'resolver [&'resolver str],
 }
 impl Default for EvaluationOptions<'_> {
     fn default() -> Self {
@@ -61,6 +65,7 @@ impl Default for EvaluationOptions<'_> {
             lua_timeout: Some(std::time::Duration::from_secs(10)),
             time: None,
             today: None,
+            import_paths: &[],
         }
     }
 }
@@ -122,6 +127,11 @@ fn evaluate_at(
     });
     state.enable_lua = options.enable_lua;
     state.lua_timeout = options.lua_timeout;
+    state.import_paths = options
+        .import_paths
+        .iter()
+        .map(|path| (*path).to_owned())
+        .collect();
     state
         .bindings
         .set("time".into(), Value::Number(time.unwrap_or(0.0)));

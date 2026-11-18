@@ -347,6 +347,7 @@ mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [OPTIONS] [SOURCE|-]
 | `--dpi N` | The PNG resolution, from 1 to 9600; the default is 72. PNG only. |
 | `--time SECONDS` | Renders at a time: the binding `time` holds it, and the effects of slide objects are drawn as they stand then. Without it, a deck is drawn as authored, or at its `render_at`. |
 | `--today DATE` | Sets the date that the binding `today` holds, as `YYYY-MM-DD`. Without it, the binding holds the local date of the compilation. |
+| `--import-path DIRECTORY` | Adds a directory searched for an import that is not found beside its source. The option may be repeated; the directories are searched in order, before the library that Mote carries. |
 | `--frames RATE` | Writes PNG frames at `RATE` frames a second: `-o frames/shot` produces `frames/shot-0001.png`, `frames/shot-0002.png` and so on. PNG only, and not with `--time`. |
 | `--from SECONDS`, `--to SECONDS` | The first and last times of `--frames`. The default is from 0 to the latest end of an effect or of a slide `duration`. |
 | `--layout document\|presentation` | The native layout for PDF and PNG. Without it, a source that declares `#presentation(...)` is laid out as slides and any other source as pages. |

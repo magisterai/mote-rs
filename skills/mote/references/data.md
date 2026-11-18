@@ -41,6 +41,7 @@ The #report.quarter total is #span(color = accent)[#format_money(total)], and th
   CSV value is a string. A path is relative to the source file.
 - The function `#import("shared.mote")` evaluates another source and makes its
   bindings, defaults, styles and fonts available, without inserting its text.
+  The `.mote` extension may be omitted.
 
 ## Conditions and loops
 

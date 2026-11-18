@@ -9,7 +9,7 @@ use mote::source::{
     AssetRequest, CachingAssetResolver, FileAssetResolver, SourceFile, load_source,
 };
 
-const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [--time SECONDS] [--frames RATE [--from SECONDS] [--to SECONDS]] [--today DATE] [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX, PPTX, PDF and PNG require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--time SECONDS renders at a time: the binding `time` holds it, and the effects of slide objects are drawn as they stand then.\n--frames RATE writes PNG frames PREFIX-0001.png, PREFIX-0002.png, ... at RATE frames a second, from --from (default 0) to --to (default the end of the animation).\n--today DATE sets the date that the binding `today` holds (default the local date).\n--layout document|presentation selects native layout explicitly.\nWithout --layout, an explicit presentation declaration selects slide layout.\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
+const HELP: &str = "Usage: mote [--format json|docx|pptx|pdf|png] [-o OUTPUT] [--dpi 72] [--time SECONDS] [--frames RATE [--from SECONDS] [--to SECONDS]] [--today DATE] [--import-path DIRECTORY]... [SOURCE|-]\n\nEvaluate Mote source and generate JSON, DOCX, PPTX, PDF or PNG pages.\nRead UTF-8 source from SOURCE, or standard input when omitted or '-'.\nDOCX, PPTX, PDF and PNG require an output path.\nPNG writes PREFIX-1.png, PREFIX-2.png, ... at the requested DPI (default 72).\n--time SECONDS renders at a time: the binding `time` holds it, and the effects of slide objects are drawn as they stand then.\n--frames RATE writes PNG frames PREFIX-0001.png, PREFIX-0002.png, ... at RATE frames a second, from --from (default 0) to --to (default the end of the animation).\n--today DATE sets the date that the binding `today` holds (default the local date).\n--import-path DIRECTORY adds a directory searched for an import that is not found beside its source; repeatable.\n--layout document|presentation selects native layout explicitly.\nWithout --layout, an explicit presentation declaration selects slide layout.\n--lua enables Lua expressions (disabled by default).\n--lua-timeout DURATION sets the shared budget (default 10s; negative disables).\nUnsupported native structure produces an error. PPTX currently supports explicit slides with positioned text.\n";
 
 fn main() -> ExitCode {
     match run_command() {
@@ -32,6 +32,7 @@ fn run_command() -> Result<(), String> {
     let mut enable_lua = false;
     let mut lua_timeout = Some(std::time::Duration::from_secs(10));
     let mut today = None;
+    let mut import_paths: Vec<String> = Vec::new();
     let mut time = None;
     let mut frame_rate = None;
     let mut frames_from = None;
@@ -53,6 +54,12 @@ fn run_command() -> Result<(), String> {
                     _ => frames_to = Some(seconds),
                 }
             }
+            Some("--import-path") => import_paths.push(
+                arguments
+                    .next()
+                    .and_then(|value| value.into_string().ok())
+                    .ok_or("--import-path requires a directory")?,
+            ),
             Some("--today") => {
                 today = Some(
                     arguments
@@ -171,6 +178,7 @@ fn run_command() -> Result<(), String> {
     };
     let name = source.name.to_string_lossy();
     let source_name = (source.name != "<stdin>").then_some(source.name.as_os_str());
+    let import_path_references: Vec<&str> = import_paths.iter().map(String::as_str).collect();
     let compile = |time: Option<f64>, report: bool| -> Result<mote::model::Document, String> {
         let document = mote::compile_with_options(
             &source.text,
@@ -181,6 +189,7 @@ fn run_command() -> Result<(), String> {
                 lua_timeout,
                 time,
                 today: today.as_deref(),
+                import_paths: &import_path_references,
             },
         )
         .map_err(|error| {

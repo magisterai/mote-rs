@@ -6,9 +6,23 @@ It accepts one string path, with no named arguments or content body, and inserts
 no content. Ordinary text in the imported file is discarded. Document-wide
 font, style, layout and configuration declarations remain effective.
 
-The path is relative to the source containing the import. The selected asset
+The path is first taken relative to the source containing the import. The selected asset
 resolver supplies both bytes and a stable logical name. A resolved source is
 imported once per compilation, even when reached through different aliases.
+A path that does not end in `.mote` is sought as written and then with that
+extension, so that `#import("components/card")` finds `components/card.mote`.
+
+A source that is not found beside the importing source is sought in each
+directory of the **import path**, in order, and then in the **library**, the
+sources that Mote itself carries. The caller states the import path, with
+`--import-path` on the command line; the import path is empty unless stated, so
+that the library alone is searched. A directory of the import path is resolved
+as a root reference, not relative to the importing source. A source beside the
+importing source therefore takes precedence over one of the same name in the
+library. A failure other than absence, such as a refusal of access, ends the
+search and is reported. A source of the library imports only other sources of
+the library, sought beside itself and then from the root of the library.
+
 An active import cycle is an error. A repeated import does not re-export bindings
 into another scope; import a shared preset in a scope that encloses its uses.
 

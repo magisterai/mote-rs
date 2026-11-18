@@ -6,6 +6,7 @@ pub mod evaluation;
 pub mod formatting;
 pub mod json;
 pub mod layout;
+mod library;
 pub mod measurement;
 pub mod media;
 pub mod model;

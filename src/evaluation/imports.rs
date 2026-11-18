@@ -34,22 +34,7 @@ pub(super) fn load(
     span: Span,
     state: &mut EvaluationState<'_>,
 ) -> Result<(), Diagnostic> {
-    let resolver = state.assets.ok_or_else(|| {
-        Diagnostic::new(
-            span,
-            "import requires an asset resolver; use compile_with_assets",
-        )
-    })?;
-    let source = Arc::new(
-        source::load_source(
-            resolver,
-            AssetRequest {
-                reference: OsStr::new(path),
-                source_name: state.source_name(),
-            },
-        )
-        .map_err(|error| Diagnostic::new(span, format!("cannot import {path:?}: {error}")))?,
-    );
+    let source = Arc::new(resolve(path, span, state)?);
     if state.importing.contains(&source.name) {
         return Err(Diagnostic::new(
             span,
@@ -96,4 +81,70 @@ pub(super) fn load(
     result
         .map(|_| ())
         .map_err(|error| error.with_source(source))
+}
+
+/// Finds the source that a path names: beside the importing source, then in
+/// each directory of the import path, then in the library that Mote carries.
+/// A path without the `.mote` extension is tried as written and then with it.
+fn resolve(
+    path: &str,
+    span: Span,
+    state: &EvaluationState<'_>,
+) -> Result<source::SourceFile, Diagnostic> {
+    let mut names = vec![path.to_owned()];
+    if !path.ends_with(".mote") {
+        names.push(format!("{path}.mote"));
+    }
+    // A source of the library reaches only the library, since no resolver knows its name.
+    if let Some(directory) = crate::library::directory(&state.source.name) {
+        return names
+            .iter()
+            .flat_map(|name| [format!("{directory}{name}"), name.clone()])
+            .find_map(|name| crate::library::source(&name))
+            .ok_or_else(|| {
+                Diagnostic::new(
+                    span,
+                    format!("cannot import {path:?}: the Mote library holds no such source"),
+                )
+            });
+    }
+    let mut missing = None;
+    if let Some(resolver) = state.assets {
+        let beside = names.iter().map(|name| (name.clone(), state.source_name()));
+        let on_path = state.import_paths.iter().flat_map(|directory| {
+            names
+                .iter()
+                .map(move |name| (format!("{}/{name}", directory.trim_end_matches('/')), None))
+        });
+        for (reference, source_name) in beside.chain(on_path) {
+            match source::load_source(
+                resolver,
+                AssetRequest {
+                    reference: OsStr::new(&reference),
+                    source_name,
+                },
+            ) {
+                Ok(source) => return Ok(source),
+                Err(error) if error.cause.kind() == std::io::ErrorKind::NotFound => {
+                    missing.get_or_insert(error);
+                }
+                Err(error) => {
+                    return Err(Diagnostic::new(
+                        span,
+                        format!("cannot import {path:?}: {error}"),
+                    ));
+                }
+            }
+        }
+    }
+    if let Some(source) = names.iter().find_map(|name| crate::library::source(name)) {
+        return Ok(source);
+    }
+    Err(Diagnostic::new(
+        span,
+        match missing {
+            Some(error) => format!("cannot import {path:?}: {error}"),
+            None => "import requires an asset resolver; use compile_with_assets".into(),
+        },
+    ))
 }

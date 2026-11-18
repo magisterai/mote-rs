@@ -182,3 +182,74 @@ fn images_returned_from_imported_functions_keep_their_resource_source() {
     );
     assert_eq!(image.attributes["src"].to_text(), "asset.png");
 }
+
+#[test]
+fn an_import_is_sought_beside_its_source_then_along_the_import_path_in_order() {
+    let requests = RefCell::new(Vec::new());
+    let resolver = |request: AssetRequest<'_>| {
+        let reference = request.reference.to_str().unwrap().to_owned();
+        requests
+            .borrow_mut()
+            .push((reference.clone(), request.source_name.is_some()));
+        let text = match reference.as_str() {
+            "local/card.mote" => "#let(card = \"beside\")",
+            "first/components/card.mote" => "#let(card = \"first\")",
+            "second/components/card.mote" => "#let(card = \"second\")",
+            "second/components/only" => "#let(only = \"second, as written\")",
+            "denied.mote" => {
+                return Err(std::io::Error::new(
+                    std::io::ErrorKind::PermissionDenied,
+                    "denied",
+                ));
+            }
+            _ => return Err(std::io::Error::new(std::io::ErrorKind::NotFound, "absent")),
+        };
+        Ok(ResolvedAsset {
+            name: reference.into(),
+            bytes: text.as_bytes().to_vec(),
+        })
+    };
+    let options = EvaluationOptions {
+        asset_resolver: Some(&resolver),
+        source_name: Some(std::ffi::OsStr::new("document.mote")),
+        import_paths: &["first", "second/"],
+        ..Default::default()
+    };
+    let text = |source: &str| {
+        mote::compile_with_options(source, options).map(|document| document.content[0].to_text())
+    };
+    assert_eq!(
+        text("#import(\"components/card\")\n#paragraph[#card]").unwrap(),
+        "first"
+    );
+    assert_eq!(
+        *requests.borrow(),
+        [
+            ("components/card".to_owned(), true),
+            ("components/card.mote".to_owned(), true),
+            ("first/components/card".to_owned(), false),
+            ("first/components/card.mote".to_owned(), false),
+        ]
+    );
+    assert_eq!(
+        text("#import(\"local/card\")\n#paragraph[#card]").unwrap(),
+        "beside"
+    );
+    assert_eq!(
+        text("#import(\"components/only\")\n#paragraph[#only]").unwrap(),
+        "second, as written"
+    );
+    let absent = text("#import(\"components/absent\")").unwrap_err();
+    assert!(
+        absent
+            .message
+            .starts_with("cannot import \"components/absent\""),
+        "{}",
+        absent.message
+    );
+    // A failure other than absence ends the search.
+    requests.borrow_mut().clear();
+    let denied = text("#import(\"denied.mote\")").unwrap_err();
+    assert!(denied.message.contains("denied"), "{}", denied.message);
+    assert_eq!(requests.borrow().len(), 1);
+}

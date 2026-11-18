@@ -20,6 +20,7 @@ pub(super) struct EvaluationState<'resolver> {
     pub source: std::sync::Arc<crate::source::SourceFile>,
     pub imported: std::collections::BTreeSet<std::ffi::OsString>,
     pub importing: Vec<std::ffi::OsString>,
+    pub import_paths: Vec<String>,
     document: Document,
     pub bindings: super::bindings::Bindings,
     pub enable_lua: bool,
