@@ -1,3 +1,141 @@
-#function gantt()
-  return document.paragraph("The gantt component is a placeholder and draws nothing yet.")
+#function gantt(rows, width, height, x, y, today, color, label_width, text_size, alignment)
+  local function points(length, fallback)
+    if type(length) == "number" then return length end
+    if type(length) ~= "table" or length.value == nil then return fallback end
+    local scale = { pt = 1, ["in"] = 72, cm = 72 / 2.54, mm = 72 / 25.4, twip = 1 / 20 }
+    return length.value * (scale[length.unit] or 1)
+  end
+  if type(rows) ~= "table" or #rows == 0 then error("gantt requires at least one row") end
+  local count = #rows
+  local function finish_of(row) return row["end"] or row.finish end
+
+  local first, last
+  for index, row in ipairs(rows) do
+    if row.start == nil then error("gantt row " .. index .. " has no start") end
+    local finish = finish_of(row) or row.start
+    if days_between(row.start, finish) < 0 then
+      error("gantt row " .. index .. " ends before it starts")
+    end
+    if first == nil or days_between(row.start, first) > 0 then first = row.start end
+    if last == nil or days_between(last, finish) > 0 then last = finish end
+  end
+
+  -- The axis is divided into days, weeks, months, quarters or years, by the
+  -- span of the rows.
+  local span = days_between(first, last) + 1
+  local unit = span <= 16 and "day" or span <= 120 and "week" or span <= 800 and "month"
+    or span <= 2400 and "quarter" or "year"
+  local function start_of_unit(day)
+    if unit == "day" then return day end
+    if unit == "week" then return add_days(day, 1 - date_part(day, "weekday")) end
+    local month = date_part(day, "month")
+    if unit == "quarter" then month = month - (month - 1) % 3 end
+    if unit == "year" then month = 1 end
+    return date(string.format("%04d-%02d-01", date_part(day, "year"), month))
+  end
+  local function next_unit(day)
+    if unit == "day" then return add_days(day, 1) end
+    if unit == "week" then return add_days(day, 7) end
+    return add_months(day, unit == "month" and 1 or unit == "quarter" and 3 or 12)
+  end
+  local function unit_label(day, leading)
+    if unit == "day" then return format_date(day, "D") end
+    if unit == "week" then return format_date(day, "D MMM") end
+    if unit == "month" then
+      return format_date(day, (leading or date_part(day, "month") == 1) and "MMM YYYY" or "MMM")
+    end
+    if unit == "quarter" then
+      return "Q" .. math.ceil(date_part(day, "month") / 3) .. format_date(day, " YY")
+    end
+    return format_date(day, "YYYY")
+  end
+  local axis_start = start_of_unit(first)
+  local ticks = { axis_start }
+  while days_between(ticks[#ticks], last) >= 0 do
+    ticks[#ticks + 1] = next_unit(ticks[#ticks])
+  end
+  local axis_days = days_between(axis_start, ticks[#ticks])
+
+  local frame_width = points(width, 468)
+  local frame_height = points(height, 28 + count * 24)
+  local header_height = math.min(frame_height * 0.16, 30)
+  local row_height = (frame_height - header_height) / count
+  local size = points(text_size, math.max(7, math.min(14, row_height * 0.42)))
+  local labels_width = points(label_width, frame_width * 0.24)
+  local plot_width = frame_width - labels_width
+  local function across(day)
+    return labels_width + plot_width * days_between(axis_start, day) / axis_days
+  end
+  local function rectangle(left, top, wide, high, properties, text)
+    properties.position = {
+      x = pt(left), y = pt(top), width = pt(math.max(wide, 0.1)), height = pt(math.max(high, 0.1))
+    }
+    if text == nil then return document.shape(properties) end
+    return document.shape(properties, document.paragraph(text))
+  end
+  local function words(bold, shade)
+    return {
+      size = pt(size), color = shade, bold = bold, alignment = "left", vertical_alignment = "center",
+      fit = "shrink",
+      margin = { left = pt(4), right = pt(4), top = pt(0), bottom = pt(0) }
+    }
+  end
+
+  local parts = {}
+  local function add(part) parts[#parts + 1] = part end
+  for index = 2, count, 2 do
+    add(rectangle(0, header_height + (index - 1) * row_height, frame_width, row_height, { fill = "#f3f4f6" }))
+  end
+  -- A label takes as many divisions as its text needs, the divisions between
+  -- two labels carry none, and a label that the frame cannot hold is left out.
+  local function label_width_of(text) return string.len(text) * size * 0.62 + 8 end
+  local division = plot_width / (#ticks - 1)
+  local widest = 0
+  for index = 2, #ticks - 1 do
+    widest = math.max(widest, label_width_of(unit_label(ticks[index], false)))
+  end
+  local stride = math.max(1, math.ceil(widest / division))
+  for index = 1, #ticks - 1 do
+    local left = across(ticks[index])
+    add(rectangle(left, header_height, 0.5, frame_height - header_height, { fill = "#d1d5db" }))
+    local text = unit_label(ticks[index], index == 1)
+    local room = across(ticks[math.min(index + stride, #ticks)]) - left
+    if (index - 1) % stride == 0 and (index == 1 or label_width_of(text) <= room) then
+      add(rectangle(left, 0, room, header_height, { text = words(true, "#4b5563") }, text))
+    end
+  end
+  if unit == "day" then
+    add(rectangle(0, 0, labels_width, header_height, { text = words(true, "#4b5563") },
+      format_date(first, "MMM YYYY")))
+  end
+  add(rectangle(0, header_height - 0.5, frame_width, 1, { fill = "#9ca3af" }))
+
+  for index, row in ipairs(rows) do
+    local top = header_height + (index - 1) * row_height
+    local shade = row.color or color or "#2563eb"
+    add(rectangle(0, top, labels_width, row_height, { text = words(false, "#1f2937") },
+      tostring(row.task or row.name or "")))
+    if finish_of(row) == nil then
+      local side = row_height * 0.5
+      add(rectangle(across(row.start) - side / 2, top + (row_height - side) / 2, side, side,
+        { kind = "diamond", fill = shade }))
+    else
+      local left = across(row.start)
+      add(rectangle(left, top + row_height * 0.2, across(add_days(finish_of(row), 1)) - left,
+        row_height * 0.6,
+        { kind = "round_rect", corner_radius = pt(math.min(4, row_height * 0.15)), fill = shade }))
+    end
+  end
+
+  if today ~= nil and days_between(axis_start, today) >= 0
+    and days_between(today, ticks[#ticks]) > 0 then
+    add(rectangle(across(today) - 0.75, header_height, 1.5, frame_height - header_height,
+      { fill = "#dc2626" }))
+  end
+
+  local position = { width = pt(frame_width), height = pt(frame_height) }
+  if x ~= nil or y ~= nil then
+    position.x, position.y = x or pt(0), y or pt(0)
+  end
+  return document.group({ name = "Gantt", position = position, alignment = alignment }, parts)
 end

@@ -256,21 +256,20 @@ fn an_import_is_sought_beside_its_source_then_along_the_import_path_in_order() {
 
 #[test]
 fn the_library_components_are_imported_without_a_resolver_and_require_lua() {
+    let document = mote::compile_with_options(
+        "#import(\"components/timeline\")\n#timeline()",
+        EvaluationOptions {
+            enable_lua: true,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(
+        document.content[0].to_text(),
+        "The timeline component is a placeholder and draws nothing yet."
+    );
     for name in ["gantt", "timeline"] {
-        let source = format!("#import(\"components/{name}\")\n#{name}()");
-        let document = mote::compile_with_options(
-            &source,
-            EvaluationOptions {
-                enable_lua: true,
-                ..Default::default()
-            },
-        )
-        .unwrap();
-        assert_eq!(
-            document.content[0].to_text(),
-            format!("The {name} component is a placeholder and draws nothing yet.")
-        );
-        let error = mote::compile(&source).unwrap_err();
+        let error = mote::compile(&format!("#import(\"components/{name}\")")).unwrap_err();
         assert_eq!(
             error.message,
             "function definitions require Lua to be enabled"

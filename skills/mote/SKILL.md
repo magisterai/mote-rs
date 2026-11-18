@@ -144,6 +144,8 @@ requires each of the corresponding pages.
 - [Shapes](references/shapes.md): rectangles, ellipses and other geometry with
   fills, borders and text, lines and arrows, and groups, fixed on a page or a
   slide or standing in the text of a document.
+- [Gantt charts](references/gantt.md): dated tasks drawn as bars and
+  milestones along a time axis, in a document or on a slide.
 - [Slides](references/slides.md): deck settings, themes, speaker notes,
   positioned boxes, built-in and custom slide layouts.
 - [Animation](references/animation.md): effects on slide objects, values
