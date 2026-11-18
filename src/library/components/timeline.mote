@@ -1,0 +1,3 @@
+#function timeline()
+  return document.paragraph("The timeline component is a placeholder and draws nothing yet.")
+end

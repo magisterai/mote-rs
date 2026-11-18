@@ -253,3 +253,31 @@ fn an_import_is_sought_beside_its_source_then_along_the_import_path_in_order() {
     assert!(denied.message.contains("denied"), "{}", denied.message);
     assert_eq!(requests.borrow().len(), 1);
 }
+
+#[test]
+fn the_library_components_are_imported_without_a_resolver_and_require_lua() {
+    for name in ["gantt", "timeline"] {
+        let source = format!("#import(\"components/{name}\")\n#{name}()");
+        let document = mote::compile_with_options(
+            &source,
+            EvaluationOptions {
+                enable_lua: true,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        assert_eq!(
+            document.content[0].to_text(),
+            format!("The {name} component is a placeholder and draws nothing yet.")
+        );
+        let error = mote::compile(&source).unwrap_err();
+        assert_eq!(
+            error.message,
+            "function definitions require Lua to be enabled"
+        );
+        assert_eq!(
+            error.source.as_ref().unwrap().name,
+            std::ffi::OsString::from(format!("mote:components/{name}.mote"))
+        );
+    }
+}

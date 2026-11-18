@@ -6,6 +6,14 @@ const PREFIX: &str = "mote:";
 
 /// The library: the path that an import names, and the source it gives.
 const SOURCES: &[(&str, &str)] = &[
+    (
+        "components/gantt.mote",
+        include_str!("library/components/gantt.mote"),
+    ),
+    (
+        "components/timeline.mote",
+        include_str!("library/components/timeline.mote"),
+    ),
     #[cfg(test)]
     (
         "components/sample.mote",

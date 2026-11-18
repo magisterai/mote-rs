@@ -1,0 +1,3 @@
+#function gantt()
+  return document.paragraph("The gantt component is a placeholder and draws nothing yet.")
+end

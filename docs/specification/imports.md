@@ -23,6 +23,10 @@ library. A failure other than absence, such as a refusal of access, ends the
 search and is reported. A source of the library imports only other sources of
 the library, sought beside itself and then from the root of the library.
 
+The library holds `components/gantt` and `components/timeline`. Each is at
+present a placeholder: its function, `gantt()` or `timeline()`, returns a
+paragraph that says so. Both define Lua functions, and so require Lua.
+
 An active import cycle is an error. A repeated import does not re-export bindings
 into another scope; import a shared preset in a scope that encloses its uses.
 

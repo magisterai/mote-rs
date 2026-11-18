@@ -11,7 +11,9 @@
 - [x] Seek a source beside the importing source, then in each directory of the
   stated import path, then in the library that Mote carries; end the search at
   a failure other than absence.
-- [ ] Library content: the library holds no source yet.
+- [ ] Library content: `components/gantt` and `components/timeline` are
+  placeholders, whose functions `gantt()` and `timeline()` return a paragraph
+  that says so and draw nothing.
 - [x] Import each resolved logical source once and reject active import cycles.
 - [x] Keep source provenance for deferred JSON/CSV requests, font/background declarations and diagnostics.
 - [x] Preserve element source locations through Lua conversion, including empty children and images returned by imported functions.
