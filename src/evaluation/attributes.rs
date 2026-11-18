@@ -274,7 +274,8 @@ fn validate_named_argument(
             Group => match name {
                 "name" | "rotation" => Some(ArgumentType::NumberOrString),
                 "animate" => Some(ArgumentType::Collection),
-                "offset" => Some(ArgumentType::Object),
+                "position" => Some(ArgumentType::Object),
+                "alignment" => Some(ArgumentType::String),
                 _ => None,
             },
             Line => match name {
@@ -461,7 +462,8 @@ pub(super) fn normalize_attribute(
         Group => match name {
             "name" => normalize_identifier(value, span, name).map(Value::String),
             "animate" => super::presentation::animation(value, span),
-            "offset" => super::presentation::displacement(value, span),
+            "position" => super::drawings::group_position(value, span),
+            "alignment" => normalize_enum(value, span, name, &["left", "center", "right"]),
             "rotation" => value
                 .to_text()
                 .trim()

@@ -1,0 +1,32 @@
+#document(page = { size = "letter" })
+
+INLINE DRAWINGS: a shape or a group whose position states no place stands in a paragraph of its own, which takes the height of its frame; one that states a place is fixed on the page and takes no room.
+
+#shape(position = { width = inch(3), height = inch(0.8) }, kind = "round_rect", fill = "#dcfce7", text = { size = pt(11), alignment = "center", vertical_alignment = "center" })[A shape in the text]
+
+The line after the shape.
+
+#group(alignment = "center")[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(2), height = pt(18) }, fill = "#2563eb")
+  #shape(position = { x = inch(1.5), y = inch(0.5), width = inch(3), height = pt(18) }, fill = "#059669", text = { size = pt(9), color = "#ffffff" })[A bar of a group]
+  #line(from = { x = inch(0), y = inch(1) }, to = { x = inch(4.5), y = inch(1) }, border = { width = pt(1.5), color = "#dc2626" }, arrow = "triangle")
+  #group(position = { x = inch(3), y = inch(0) })[
+    #shape(position = { x = inch(0), y = inch(0), width = pt(18), height = pt(18) }, kind = "diamond", fill = "#d97706")
+  ]
+]
+
+The line after the group, whose frame is the reach of its objects.
+
+#group(position = { width = inch(5), height = inch(1.5) }, alignment = "right")[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(2), height = inch(0.5) }, fill = "#e0e7ff", text = { size = pt(10) })[A stated frame]
+]
+
+The line after the group, whose frame is stated.
+
+#group(position = { x = inch(6), y = inch(9) })[
+  #shape(position = { x = inch(0), y = inch(0), width = inch(1.5), height = inch(0.5) }, fill = "#fde68a", text = { size = pt(10) })[A fixed group]
+]
+
+#shape(position = { x = inch(1), y = inch(9), width = inch(1.5), height = inch(0.5) }, fill = "#fecaca", text = { size = pt(10) })[A fixed shape]
+
+The last line, which the fixed drawings do not move.

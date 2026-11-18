@@ -35,12 +35,12 @@
         },
         {
           "baseline": 353.52,
-          "text": "An offset moves every object of",
+          "text": "A position moves every object",
           "x": 367.2
         },
         {
           "baseline": 372.48,
-          "text": "a group.",
+          "text": "of a group.",
           "x": 367.2
         }
       ],
@@ -48,5 +48,5 @@
     }
   ],
   "renderer": "Microsoft PowerPoint 16.114.1",
-  "source_sha256": "567a703287524943548219512d0fea4d248ca2c168740008109f7bf4765a4446"
+  "source_sha256": "ff8544d544aa3de1e92e3493381ca86ca08bdc9482c83f1f9e91cc1af20c3ae7"
 }

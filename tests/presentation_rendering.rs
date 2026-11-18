@@ -1167,26 +1167,6 @@ fn a_box_of_several_pieces_becomes_a_group_stacked_down_its_frame() {
 }
 
 #[test]
-fn a_document_places_the_objects_of_a_group_singly_and_says_so() {
-    let resolver = FileAssetResolver::new(".").unwrap();
-    let shape = "#shape(position={x=pt(100),y=pt(100),width=pt(40),height=pt(20)},fill='#dcfce7')";
-    let grouped = mote::compile(&format!("#paragraph[Text]#group[{shape}]")).unwrap();
-    let single = mote::compile(&format!("#paragraph[Text]{shape}")).unwrap();
-    let plan = render::plan(&grouped, &resolver, None).unwrap();
-    assert_eq!(
-        plan.output.pages[0].operations,
-        render::plan(&single, &resolver, None).unwrap().output.pages[0].operations
-    );
-    assert!(
-        plan.warnings.iter().any(|warning| warning
-            .ends_with("groups its objects on a slide only; a document places them singly")),
-        "{:?}",
-        plan.warnings
-    );
-    assert!(mote::docx::emit(&grouped).is_ok());
-}
-
-#[test]
 fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() {
     let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
     let deck = |objects: &str, time| {
@@ -1220,7 +1200,7 @@ fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() 
              #shape(position={{x=pt(50),y=pt(80),width=pt(60),height=pt(60)}},fill='#0000ff')]"
         )
     };
-    let fades = ",offset={x=pt(10)},animate={{effect='fade_in',duration=2},\
+    let fades = ",position={x=pt(10)},animate={{effect='fade_in',duration=2},\
                  {effect='fade_out',start=3,duration=1}}";
     let spinner = |animate: &str| {
         format!(
@@ -1251,7 +1231,7 @@ fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() 
     // A slide rendered without a time is the slide as authored.
     let authored = [
         mover("x=pt(20),y=pt(10)", ""),
-        card(",offset={x=pt(10)}"),
+        card(",position={x=pt(10)}"),
         spinner(""),
         rule(""),
         late(""),
@@ -1303,7 +1283,7 @@ fn effects_are_drawn_as_they_stand_at_a_time_and_written_as_powerpoint_timing() 
         operations(&deck(
             &[
                 mover("x=pt(120),y=pt(10)", ""),
-                card(",offset={x=pt(10)}"),
+                card(",position={x=pt(10)}"),
                 spinner(""),
                 late(""),
             ]
@@ -1624,7 +1604,7 @@ fn unknown_members_of_effects_displacements_and_field_text_warn_and_still_render
          {effect='fade_in',to=2},\
          {effect='move',by={x=pt(10),z=pt(10)},from='left'},\
          {effect='appear',duration=1}})\
-         #group(offset={x=pt(10),depth=pt(10)})[\
+         #group(position={x=pt(10),depth=pt(10)})[\
          #shape(position={x=pt(100),y=pt(10),width=pt(40),height=pt(20)})]]",
     )
     .unwrap();
@@ -1635,7 +1615,7 @@ fn unknown_members_of_effects_displacements_and_field_text_warn_and_still_render
         "content[0].slide[0].shape.animate[1].by.z",
         "content[0].slide[0].shape.animate[1].from",
         "content[0].slide[0].shape.animate[2].duration",
-        "content[0].slide[1].group.offset.depth",
+        "content[0].slide[1].group.position.depth",
         "presentation.field_text.weight",
     ]
     .map(|path| format!("{path} is retained without a presentation output effect"));

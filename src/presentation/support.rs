@@ -170,7 +170,10 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
     let attributes = &element.attributes;
     let mut allowed = Vec::new();
     effects(attributes, path, warnings);
-    for (name, fields) in [("offset", &["x", "y"][..]), ("field_text", FIELD_TEXT)] {
+    for (name, fields) in [
+        ("position", &["x", "y", "width", "height"][..]),
+        ("field_text", FIELD_TEXT),
+    ] {
         if matches!(element.kind, ElementKind::Group | ElementKind::Slide)
             && let Some(nested) = object(attributes, name)
         {
@@ -275,7 +278,7 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             }
         }
         ElementKind::Group => {
-            allowed.extend(["name", "animate", "offset", "rotation"]);
+            allowed.extend(["name", "animate", "rotation", "position", "alignment"]);
             if crate::drawings::ungrouped(&element.children).is_empty() {
                 warnings.insert(format!("{path} is empty and is omitted"));
             }

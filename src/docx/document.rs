@@ -39,13 +39,7 @@ pub(super) fn write_blocks(
     // end. A paragraph that holds the break alone needs a line of room, and
     // Word leaves a page empty where the page before the break has none.
     let mut after_paragraph = false;
-    if content.iter().any(|content| matches!(content, Content::Element(element) if element.kind == ElementKind::Group)) {
-        state
-            .resources
-            .warnings
-            .push("DOCX places the objects of a group singly".into());
-    }
-    for content in &crate::drawings::ungrouped(content) {
+    for content in content {
         if let Some(labels) = crate::references::standalone_labels(content) {
             state.resources.pending_bookmarks.extend(labels);
             continue;
@@ -168,7 +162,7 @@ pub(super) fn write_blocks(
                 at_flow_start = false;
                 continue;
             }
-            ElementKind::Shape => {
+            ElementKind::Shape | ElementKind::Group => {
                 body.push_str(&super::shapes::write(element, styles, state)?);
                 at_flow_start = false;
                 continue;

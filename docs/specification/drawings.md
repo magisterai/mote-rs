@@ -9,10 +9,20 @@ in the [shape](../checklists/shape.md) and [line](../checklists/line.md) checkli
 ## Shapes
 
 `shape` takes named arguments and an optional block body. Its required `position`
-object contains `width` and `height`; omitted `x` and `y` become zero inches.
-These four fields use the existing nonnegative length rules. Coordinates are
-measured from the page or slide origin, rather than the current text position.
-Plain text in a source body becomes a paragraph.
+object contains `width` and `height`, and may contain `x` and `y`. These four
+fields use the existing nonnegative length rules. Plain text in a source body
+becomes a paragraph.
+
+The **place** of an object is the pair `x` and `y` of its position. A position
+that states one of them takes zero inches for the other; a position that states
+neither keeps neither. On a slide, and within a group, an object without a place
+stands at the origin of its container. In a document, the place decides how the
+object stands:
+
+- an object with a place is **fixed**: its coordinates are measured from the
+  origin of the page on which it falls, and it takes no room in the text;
+- an object without a place is **set in the text**: it stands between the blocks
+  before and after it and takes the room of its frame.
 
 ```mote
 #shape(position = {x = inch(1), y = inch(2), width = inch(3), height = inch(1)},
@@ -108,7 +118,7 @@ Shared `size` and `length` fields apply to markers. `start_size`, `start_length`
 aliases normalize to `start_` and `end_`. Values `small`, `medium`, and `large`
 normalize to `sm`, `med`, and `lg`; the short forms are also accepted.
 
-Lines belong to presentation output; document output support must not be inferred
-from a valid line model. Lua provides `document.shape` and `document.line` with
+A line belongs to a slide, or to a [group](presentations.md#groups); a document
+draws a line as an object of a group alone. Lua provides `document.shape` and `document.line` with
 the same argument and normalization rules. As with other Lua block constructors,
 explicitly construct paragraphs when the shape body requires paragraph structure.

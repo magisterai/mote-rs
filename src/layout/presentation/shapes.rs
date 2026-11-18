@@ -61,7 +61,7 @@ pub(super) fn place(
     }
     Ok(cut_off)
 }
-pub(super) fn connector(attributes: &Properties) -> Vec<PageOperation> {
+pub(in crate::layout) fn connector(attributes: &Properties) -> Vec<PageOperation> {
     let endpoint = |name| {
         let fields = object(attributes, name);
         ["x", "y"].map(|field| geometry::points(fields.and_then(|fields| fields.get(field)), 0.0))

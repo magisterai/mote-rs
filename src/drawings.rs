@@ -3,7 +3,7 @@ pub(crate) mod drawingml;
 pub(crate) mod paragraphs;
 pub(crate) mod pictures;
 use crate::{
-    model::{Content, ElementKind, Properties, Unit, Value},
+    model::{Content, Element, ElementKind, Properties, Unit, Value},
     properties::object,
 };
 
@@ -20,6 +20,57 @@ pub(crate) fn ungrouped(content: &[Content]) -> Vec<Content> {
         }
     }
     output
+}
+
+/// Reports whether a document sets an object in the text: a shape or a group
+/// whose position states no place. An object that states a place is fixed on
+/// its page.
+pub(crate) fn flows(element: &Element) -> bool {
+    matches!(element.kind, ElementKind::Shape | ElementKind::Group)
+        && object(&element.attributes, "position")
+            .is_none_or(|position| !position.contains_key("x") && !position.contains_key("y"))
+}
+
+/// Returns the corner of a group within its container, in drawing units.
+pub(crate) fn group_corner(element: &Element) -> [i64; 2] {
+    let offset = object(&element.attributes, "position");
+    ["x", "y"].map(|name| {
+        length_in_drawing_units(offset.and_then(|offset| offset.get(name))).unwrap_or(0)
+    })
+}
+
+/// Returns the width and height of the frame of a group, in drawing units:
+/// those its position states, or else the reach of its objects to the right
+/// of and below its corner.
+pub(crate) fn group_size(element: &Element) -> [i64; 2] {
+    let position = object(&element.attributes, "position");
+    let reach = element
+        .children
+        .iter()
+        .filter_map(|child| match child {
+            Content::Element(child) => Some(reach(child)),
+            Content::Text(_) => None,
+        })
+        .fold([0, 0], |first, second| {
+            [first[0].max(second[0]), first[1].max(second[1])]
+        });
+    let stated = |name| length_in_drawing_units(position.and_then(|position| position.get(name)));
+    [
+        stated("width").unwrap_or(reach[0]),
+        stated("height").unwrap_or(reach[1]),
+    ]
+}
+
+/// Returns the right and bottom edges of an object within its container.
+fn reach(element: &Element) -> [i64; 2] {
+    match element.kind {
+        ElementKind::Group => {
+            let (corner, size) = (group_corner(element), group_size(element));
+            [corner[0] + size[0], corner[1] + size[1]]
+        }
+        _ => crate::presentation::extent(element)
+            .map_or([0, 0], |[_, _, right, bottom]| [right, bottom]),
+    }
 }
 
 pub(crate) fn text_properties(attributes: &Properties) -> Properties {

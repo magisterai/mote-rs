@@ -19,7 +19,7 @@ Comment
 #table[#row[#cell[C1]]]
 ] end.
 
-#shape(position = {width = inch(3), height = inch(2)}, kind = "round_rect")[
+#shape(position = {x = inch(0), y = inch(0), width = inch(3), height = inch(2)}, kind = "round_rect")[
 Inside
 
 #table[#row[#cell[S1]#cell[S2]]]

@@ -336,16 +336,21 @@ fn content(
                     attributes, &path, flattened, true, warnings,
                 ));
             }
+            // A document draws a line as an object of a group alone.
+            ElementKind::Line
+                if path
+                    .rsplit_once('[')
+                    .is_some_and(|(parent, _)| parent.ends_with(".group")) =>
+            {
+                allowed.extend(["from", "to", "border", "arrow", "cap", "opacity", "name"]);
+            }
             ElementKind::Line => {
                 warnings.insert(format!(
                     "{path} uses a visible [line] fallback; document drawing geometry is omitted"
                 ));
             }
             ElementKind::Group => {
-                allowed.push("name");
-                warnings.insert(format!(
-                    "{path} groups its objects on a slide only; a document places them singly"
-                ));
+                allowed.extend(["name", "position", "rotation", "alignment"]);
             }
             ElementKind::Paragraph
             | ElementKind::Heading
@@ -487,6 +492,19 @@ fn content(
             }
         } else if matches!(element.kind, ElementKind::Table | ElementKind::Cell) {
             table_fields(attributes, &path, warnings);
+        } else if element.kind == ElementKind::Line
+            && path
+                .rsplit_once('[')
+                .is_some_and(|(parent, _)| parent.ends_with(".group"))
+        {
+            if let Some(Value::Object(border)) = attributes.get("border") {
+                unknown(
+                    border,
+                    &["width", "color", "style", "opacity", "cap"],
+                    &format!("{path}.border"),
+                    warnings,
+                );
+            }
         } else if element.kind != ElementKind::Chart {
             nested(attributes, &path, list, item, warnings);
         }

@@ -8,32 +8,191 @@ use crate::{
     properties::{self, object, text},
 };
 
+const SHAPE_URI: &str = "http://schemas.microsoft.com/office/word/2010/wordprocessingShape";
+const GROUP_URI: &str = "http://schemas.microsoft.com/office/word/2010/wordprocessingGroup";
+
+/// Writes a shape or a group as one drawing in a paragraph of its own. A
+/// drawing that states a place is anchored there on the page, in a paragraph
+/// collapsed to a negligible height; a drawing that states none stands inline
+/// in a paragraph that its height sets.
 pub(super) fn write(
     element: &Element,
     styles: &Styles<'_>,
     state: &mut DocumentState,
 ) -> Result<String, Error> {
     let attributes = &element.attributes;
-    let position = object(attributes, "position").cloned().unwrap_or_default();
-    let coordinate = |name: &str, fallback| length(&position, name, fallback);
-    let horizontal = coordinate("x", 0)?;
-    let vertical = coordinate("y", 0)?;
-    let width = coordinate("width", 3657600)?;
-    let height = coordinate("height", 1828800)?;
     let identifier = state.resources.next_drawing();
     let mut name = text(attributes, "name");
     if name.is_empty() {
-        name = format!("Shape {identifier}");
+        name = format!(
+            "{} {identifier}",
+            if element.kind == ElementKind::Group {
+                "Group"
+            } else {
+                "Shape"
+            }
+        );
     }
     let name = xml::escape(&name)?;
     let (bookmarks, bookmark_identifiers) = super::references::start_pending(&mut state.resources)?;
-    let geometry = shape_properties(attributes, width, height)?;
-    let content = text_box(element, styles, state)?;
-    let body_properties = body_properties(attributes)?;
+    let ([horizontal, vertical], [width, height], uri, graphic) =
+        if element.kind == ElementKind::Group {
+            let size = drawings::group_size(element);
+            (
+                drawings::group_corner(element),
+                size,
+                GROUP_URI,
+                format!(
+                    "<wpg:wgp><wpg:cNvGrpSpPr/>{}{}</wpg:wgp>",
+                    group_properties(element, [0, 0], size)?,
+                    members(element, styles, state)?
+                ),
+            )
+        } else {
+            let position = object(attributes, "position").cloned().unwrap_or_default();
+            let coordinate = |name: &str, fallback| length(&position, name, fallback);
+            let size = [
+                coordinate("width", 3657600)?,
+                coordinate("height", 1828800)?,
+            ];
+            (
+                [coordinate("x", 0)?, coordinate("y", 0)?],
+                size,
+                SHAPE_URI,
+                format!(
+                    "<wps:wsp><wps:cNvSpPr/>{}</wps:wsp>",
+                    shape(element, [0, 0, size[0], size[1]], styles, state)?
+                ),
+            )
+        };
     let bookmark_ends = super::references::end_pending(&bookmark_identifiers);
+    let described = format!(
+        r#"<wp:extent cx="{width}" cy="{height}"/><wp:effectExtent l="0" t="0" r="0" b="0"/>"#
+    );
+    // The document root declares the shape namespace and leaves the group
+    // namespace to the one drawing that needs it.
+    let declaration = if element.kind == ElementKind::Group {
+        format!(" xmlns:wpg=\"{GROUP_URI}\" mc:Ignorable=\"wpg\"")
+    } else {
+        String::new()
+    };
+    let graphic = format!(
+        r#"<wp:docPr id="{identifier}" name="{name}"/><wp:cNvGraphicFramePr/><a:graphic><a:graphicData{declaration} uri="{uri}">{graphic}</a:graphicData></a:graphic>"#
+    );
+    if drawings::flows(element) {
+        let mut paragraph = Properties::new();
+        // The alignment of a shape is that of its text.
+        let alignment = text(attributes, "alignment");
+        if element.kind == ElementKind::Group && !alignment.is_empty() {
+            paragraph.insert("alignment".into(), crate::model::Value::String(alignment));
+        }
+        super::paragraph_properties::fit_drawing(&mut paragraph);
+        let paragraph = super::paragraph_properties::write(&paragraph)?;
+        return Ok(format!(
+            r#"<w:p><w:pPr>{paragraph}</w:pPr>{bookmarks}<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0">{described}{graphic}</wp:inline></w:drawing></w:r>{bookmark_ends}</w:p>"#
+        ));
+    }
     Ok(format!(
-        r#"<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/><w:szCs w:val="2"/></w:rPr></w:pPr>{bookmarks}<w:r><w:drawing><wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1"><wp:simplePos x="0" y="0"/><wp:positionH relativeFrom="page"><wp:posOffset>{horizontal}</wp:posOffset></wp:positionH><wp:positionV relativeFrom="page"><wp:posOffset>{vertical}</wp:posOffset></wp:positionV><wp:extent cx="{width}" cy="{height}"/><wp:effectExtent l="0" t="0" r="0" b="0"/><wp:wrapNone/><wp:docPr id="{identifier}" name="{name}"/><wp:cNvGraphicFramePr/><a:graphic><a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"><wps:wsp><wps:cNvSpPr/><wps:spPr>{geometry}</wps:spPr>{content}{body_properties}</wps:wsp></a:graphicData></a:graphic></wp:anchor></w:drawing></w:r>{bookmark_ends}</w:p>"#
+        r#"<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/><w:szCs w:val="2"/></w:rPr></w:pPr>{bookmarks}<w:r><w:drawing><wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1"><wp:simplePos x="0" y="0"/><wp:positionH relativeFrom="page"><wp:posOffset>{horizontal}</wp:posOffset></wp:positionH><wp:positionV relativeFrom="page"><wp:posOffset>{vertical}</wp:posOffset></wp:positionV>{described}<wp:wrapNone/>{graphic}</wp:anchor></w:drawing></w:r>{bookmark_ends}</w:p>"#
     ))
+}
+
+/// Writes the properties, the text and the body properties of a shape whose
+/// frame has the stated bounds within its container.
+fn shape(
+    element: &Element,
+    bounds: [i64; 4],
+    styles: &Styles<'_>,
+    state: &mut DocumentState,
+) -> Result<String, Error> {
+    Ok(format!(
+        "<wps:spPr>{}</wps:spPr>{}{}",
+        crate::drawings::drawingml::shape(&element.attributes, bounds)
+            .map_err(Error::InvalidValue)?,
+        text_box(element, styles, state)?,
+        body_properties(&element.attributes)?
+    ))
+}
+
+/// Writes the frame of a group at a corner within its container. The child
+/// frame begins at zero and has the size of the frame, so that the objects of
+/// the group are measured from its corner at their own scale.
+fn group_properties(element: &Element, corner: [i64; 2], size: [i64; 2]) -> Result<String, Error> {
+    let rotation = match properties::number(&element.attributes, "rotation") {
+        Some(degrees) if degrees != 0.0 => format!(
+            " rot=\"{}\"",
+            (degrees.rem_euclid(360.0) * 60000.0).round() as i64
+        ),
+        _ => String::new(),
+    };
+    let [width, height] = size;
+    Ok(format!(
+        "<wpg:grpSpPr><a:xfrm{rotation}><a:off x=\"{}\" y=\"{}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/><a:chOff x=\"0\" y=\"0\"/><a:chExt cx=\"{width}\" cy=\"{height}\"/></a:xfrm></wpg:grpSpPr>",
+        corner[0], corner[1]
+    ))
+}
+
+/// Writes the objects of a group in their order: shapes, lines and groups.
+fn members(
+    group: &Element,
+    styles: &Styles<'_>,
+    state: &mut DocumentState,
+) -> Result<String, Error> {
+    let mut output = String::new();
+    for child in &group.children {
+        let Content::Element(child) = child else {
+            continue;
+        };
+        let identifier = state.resources.next_drawing();
+        let stated = text(&child.attributes, "name");
+        let named = |kind: &str| {
+            xml::escape(&if stated.is_empty() {
+                format!("{kind} {identifier}")
+            } else {
+                stated.clone()
+            })
+        };
+        match child.kind {
+            ElementKind::Shape => {
+                let position = object(&child.attributes, "position")
+                    .cloned()
+                    .unwrap_or_default();
+                let coordinate = |name: &str, fallback| length(&position, name, fallback);
+                let bounds = [
+                    coordinate("x", 0)?,
+                    coordinate("y", 0)?,
+                    coordinate("width", 3657600)?,
+                    coordinate("height", 1828800)?,
+                ];
+                output.push_str(&format!(
+                    "<wps:wsp><wps:cNvPr id=\"{identifier}\" name=\"{}\"/><wps:cNvSpPr/>{}</wps:wsp>",
+                    named("Shape")?,
+                    shape(child, bounds, styles, state)?
+                ));
+            }
+            ElementKind::Line => output.push_str(&format!(
+                "<wps:wsp><wps:cNvPr id=\"{identifier}\" name=\"{}\"/><wps:cNvCnPr/><wps:spPr>{}</wps:spPr><wps:bodyPr/></wps:wsp>",
+                named("Line")?,
+                crate::drawings::drawingml::connector(&child.attributes)
+                    .map_err(Error::InvalidValue)?
+            )),
+            ElementKind::Group => output.push_str(&format!(
+                "<wpg:grpSp><wpg:cNvPr id=\"{identifier}\" name=\"{}\"/><wpg:cNvGrpSpPr/>{}{}</wpg:grpSp>",
+                named("Group")?,
+                group_properties(
+                    child,
+                    drawings::group_corner(child),
+                    drawings::group_size(child)
+                )?,
+                members(child, styles, state)?
+            )),
+            _ => state
+                .resources
+                .warnings
+                .push("DOCX omits a box in a group; a document sets no box".into()),
+        }
+    }
+    Ok(output)
 }
 
 fn length(properties: &Properties, name: &str, fallback: i64) -> Result<i64, Error> {
@@ -50,11 +209,6 @@ fn drawing_units(value: &crate::model::Value) -> Result<i64, Error> {
     } else {
         values::rounded(values::number(value)?)
     }
-}
-
-fn shape_properties(attributes: &Properties, width: i64, height: i64) -> Result<String, Error> {
-    crate::drawings::drawingml::shape(attributes, [0, 0, width, height])
-        .map_err(Error::InvalidValue)
 }
 
 fn text_box(

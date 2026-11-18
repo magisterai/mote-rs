@@ -127,6 +127,33 @@ pub(super) fn place_blocks(
                 pass_block(cursor, columns, geometry, chart.height);
                 *pending_spacing = carried_spacing(chart.after, NegativeSpaceAfter::TakenAsNone);
             }
+            Block::Drawing(drawing) if drawing.flow.is_some() => {
+                let flow = drawing.flow.as_ref().unwrap();
+                painting.clear_fill();
+                let leading = collapsed_spacing(*pending_spacing, 0.0);
+                let required = flow.height.max(kept_height(leading));
+                seek_room_below_leading(
+                    cursor, pages, columns, geometry, boundary, leading, required,
+                );
+                drawing.place_in_flow(
+                    flow,
+                    &mut pages[cursor.page_number - 1],
+                    geometry.column_left(cursor.column_index),
+                    geometry.column_width(),
+                    cursor.y,
+                );
+                warnings.extend(
+                    drawing
+                        .cut_off_text
+                        .iter()
+                        .map(|cut_off| cut_off.warning(cursor.page_number)),
+                );
+                pass_block(cursor, columns, geometry, flow.height);
+                *pending_spacing = carried_spacing(
+                    super::drawings::Flow::AFTER,
+                    NegativeSpaceAfter::TakenAsNone,
+                );
+            }
             Block::Drawing(drawing) => {
                 painting.clear_fill();
                 let leading = std::mem::take(pending_spacing);
@@ -135,9 +162,12 @@ pub(super) fn place_blocks(
                     cursor, pages, columns, geometry, boundary, leading, required,
                 );
                 drawing.place(&mut pages[cursor.page_number - 1]);
-                if let Some(cut_off) = &drawing.cut_off_text {
-                    warnings.push(cut_off.warning(cursor.page_number));
-                }
+                warnings.extend(
+                    drawing
+                        .cut_off_text
+                        .iter()
+                        .map(|cut_off| cut_off.warning(cursor.page_number)),
+                );
                 pass_block(cursor, columns, geometry, DRAWING_HEIGHT);
             }
 
@@ -544,7 +574,10 @@ fn kept_blocks_height(
             }
             Block::Divider(divider) => (divider.width, divider.before, divider.after),
             Block::Chart(chart) => (chart.height, chart.before, chart.after),
-            Block::Drawing(_) => (DRAWING_HEIGHT, 0.0, 0.0),
+            Block::Drawing(drawing) => match &drawing.flow {
+                Some(flow) => (flow.height, 0.0, super::drawings::Flow::AFTER),
+                None => (DRAWING_HEIGHT, 0.0, 0.0),
+            },
             Block::Image(image) => (image.height(), image.before, image.after),
             Block::Table(table) => (
                 table.top_border()

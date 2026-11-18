@@ -105,8 +105,9 @@ and the machine that opens the file supplies it.
 - A directive takes named arguments, and a positional value is usually an error.
 - A length without a unit is ambiguous: a bare page or margin number means
   twips, and a bare drawing size means EMUs.
-- A shape is placed at page or slide coordinates, and body text does not wrap
-  around it.
+- In a document, a shape or a group with `x` and `y` is fixed on the page, and
+  body text does not wrap around it; one without them stands in the text. A box
+  belongs to a slide alone.
 - A slide holds either positioned boxes and shapes or loose content, never both.
 - Arithmetic and comparisons in an argument or a `#let`, and `#function`
   definitions, are Lua, and a source that uses them is compiled with `--lua`.
@@ -140,8 +141,9 @@ requires each of the corresponding pages.
   endnotes, hyperlinks, labels and cross-references to titles, numbers and pages.
 - [Charts](references/charts.md): column, bar, line, area, pie and doughnut charts,
   with their data, colors, legends, labels and axes.
-- [Shapes](references/shapes.md): positioned rectangles, ellipses and other
-  geometry with fills, borders and text, and lines and arrows on slides.
+- [Shapes](references/shapes.md): rectangles, ellipses and other geometry with
+  fills, borders and text, lines and arrows, and groups, fixed on a page or a
+  slide or standing in the text of a document.
 - [Slides](references/slides.md): deck settings, themes, speaker notes,
   positioned boxes, built-in and custom slide layouts.
 - [Animation](references/animation.md): effects on slide objects, values

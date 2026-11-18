@@ -8381,16 +8381,6 @@
                     "text": "2in",
                     "unit": "in",
                     "value": 2.0
-                  },
-                  "x": {
-                    "text": "0in",
-                    "unit": "in",
-                    "value": 0.0
-                  },
-                  "y": {
-                    "text": "0in",
-                    "unit": "in",
-                    "value": 0.0
                   }
                 },
                 "text": {
@@ -8448,16 +8438,6 @@
                 "text": "2in",
                 "unit": "in",
                 "value": 2.0
-              },
-              "x": {
-                "text": "0in",
-                "unit": "in",
-                "value": 0.0
-              },
-              "y": {
-                "text": "0in",
-                "unit": "in",
-                "value": 0.0
               }
             },
             "text": {
@@ -11789,16 +11769,6 @@
                 "text": "3in",
                 "unit": "in",
                 "value": 3.0
-              },
-              "x": {
-                "text": "0in",
-                "unit": "in",
-                "value": 0.0
-              },
-              "y": {
-                "text": "0in",
-                "unit": "in",
-                "value": 0.0
               }
             }
           },
@@ -11890,16 +11860,6 @@
                     "text": "3in",
                     "unit": "in",
                     "value": 3.0
-                  },
-                  "x": {
-                    "text": "0in",
-                    "unit": "in",
-                    "value": 0.0
-                  },
-                  "y": {
-                    "text": "0in",
-                    "unit": "in",
-                    "value": 0.0
                   }
                 }
               },

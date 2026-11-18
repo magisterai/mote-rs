@@ -12,8 +12,12 @@ and [value-domain](attributes/values.md) inventories. An unchecked standard
 property has no implied Mote argument or output support.
 
 - [x] Named arguments only; optional block body; no positional arguments.
-- [x] `position` required: `width`, `height`; `x`, `y` default to zero inches.
-  All coordinates and dimensions use the existing length conversions.
+- [x] `position` required: `width`, `height`; optional `x`, `y`, of which one
+  stated alone takes zero inches for the other. All coordinates and dimensions
+  use the existing length conversions.
+- [x] In a document, a shape whose position states `x` or `y` is fixed on its
+  page, and a shape whose position states neither is set in the text and takes
+  the room of its frame. A shape in a table cell is fixed in either case.
 - [x] `name`: string or number, normalized to a string.
 - [x] `kind`: rectangle (`rect` alias), round_rect (`rounded`), ellipse (`oval`),
   triangle, diamond, hexagon, chevron, cloud, parallelogram, trapezoid.
@@ -46,10 +50,12 @@ property has no implied Mote argument or output support.
   A shape of a document is drawn as authored, with a native warning.
 - [x] Lua `document.shape` uses the same validation and typed attributes.
 
-DOCX emits absolute page anchors, editable Word shape text, preset geometry,
+DOCX emits an absolute page anchor for a fixed shape and an inline drawing in a
+paragraph of its own for a shape set in the text, with editable Word shape text, preset geometry,
 transforms, fills, borders, opacity, shadows, text margins and fit settings.
 Native document output paints preset paths, transforms, fills, borders, opacity
-and shadows with one-point anchor flow. Shape text supports preset-specific text
+and shadows, with one-point anchor flow for a fixed shape and the height of the
+frame and eight points beneath it for a shape set in the text. Shape text supports preset-specific text
 bounds, nested text defaults, paragraph and inline formatting, lists and task
 markers, margins, alignment, clipping, shrink-to-fit, text-height growth, and
 rotation. Text-height growth extends the content clip without enlarging the

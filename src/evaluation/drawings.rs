@@ -92,23 +92,68 @@ fn percent(value: Value) -> Value {
 }
 pub(super) fn position(value: Value, span: Span, owner: &str) -> Result<Value, Diagnostic> {
     let mut fields = require_object(value, span, "position")?;
-    for name in ["x", "y"] {
-        fields.entry(name.into()).or_insert(Value::Length {
-            value: 0.0,
-            unit: Unit::Inch,
-        });
-    }
     for name in ["width", "height"] {
         if !fields.contains_key(name) {
             return Err(Diagnostic::new(span, format!("{owner} requires {name}")));
         }
     }
+    // A box stands on a slide alone, where an omitted coordinate is zero.
+    if owner == "box.position" {
+        for name in ["x", "y"] {
+            fields.entry(name.into()).or_insert(Value::Length {
+                value: 0.0,
+                unit: Unit::Inch,
+            });
+        }
+    }
+    place(&mut fields, span)?;
+    Ok(Value::Object(fields))
+}
+/// Normalizes the lengths of a position. A position that states neither `x`
+/// nor `y` keeps neither, since a document sets such an object in the text; a
+/// position that states one of them takes zero for the other.
+fn place(fields: &mut Properties, span: Span) -> Result<(), Diagnostic> {
+    if fields.contains_key("x") || fields.contains_key("y") {
+        for name in ["x", "y"] {
+            fields.entry(name.into()).or_insert(Value::Length {
+                value: 0.0,
+                unit: Unit::Inch,
+            });
+        }
+    }
     for name in ["x", "y", "width", "height"] {
-        let value = fields.remove(name).unwrap();
-        fields.insert(
-            name.into(),
-            normalize_length(value, span, &format!("position.{name}"))?,
-        );
+        if let Some(value) = fields.remove(name) {
+            fields.insert(
+                name.into(),
+                normalize_length(value, span, &format!("position.{name}"))?,
+            );
+        }
+    }
+    Ok(())
+}
+/// Normalizes the position of a group, of which every member is optional.
+/// The corner may lie on either side of the origin of the container, since
+/// the objects of the group are measured from it.
+pub(super) fn group_position(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    let mut fields = require_object(value, span, "position")?;
+    let corner: Properties = ["x", "y"]
+        .into_iter()
+        .filter_map(|name| Some((name.to_owned(), fields.remove(name)?)))
+        .collect();
+    place(&mut fields, span)?;
+    if !corner.is_empty() {
+        let Value::Object(mut corner) =
+            super::presentation::displacement(Value::Object(corner), span)?
+        else {
+            unreachable!("a displacement is an object")
+        };
+        for name in ["x", "y"] {
+            corner.entry(name.into()).or_insert(Value::Length {
+                value: 0.0,
+                unit: Unit::Inch,
+            });
+        }
+        fields.extend(corner);
     }
     Ok(Value::Object(fields))
 }

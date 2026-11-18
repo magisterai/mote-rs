@@ -46,6 +46,7 @@
   "probes/exact-line-baseline": 0.004,
   "probes/figure-keep": 0.008,
   "probes/footnote-spacing": 0.003,
+  "probes/inline-drawings": 0.002,
   "probes/keep-with-next-blocks": 0.006,
   "probes/line-baseline": 0.006,
   "probes/nested-table-cell-end": 0.006,

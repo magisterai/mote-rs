@@ -244,13 +244,9 @@ impl Appearance {
     /// visibility brings it into view is out of view until that effect begins.
     pub fn at(element: &Element, time: Option<f64>) -> Self {
         let mut appearance = Self::default();
-        if let Some(offset) = object(&element.attributes, "offset") {
-            for (axis, name) in ["x", "y"].into_iter().enumerate() {
-                appearance.offset[axis] =
-                    super::units(offset.get(name)).unwrap_or(0) as f64 / 12700.0;
-            }
-        }
         if element.kind == crate::model::ElementKind::Group {
+            appearance.offset =
+                crate::drawings::group_corner(element).map(|value| value as f64 / 12700.0);
             appearance.rotation = number(&element.attributes, "rotation").unwrap_or(0.0);
         }
         let Some(time) = time else {

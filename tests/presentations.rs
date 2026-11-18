@@ -204,7 +204,7 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
          #shape(position={width=pt(40),height=pt(20)},animate={\
          {effect='fade_in'},\
          {effect='move',by={x=pt(30)},start=1,duration=2,easing='ease_in_out'}})[At #time]\
-         #group(offset={x=pt(5),y=pt(-5)},rotation='15deg',animate={effect='rotate',by=90})[\
+         #group(position={x=pt(5),y=pt(-5)},rotation='15deg',animate={effect='rotate',by=90})[\
          #line(from={x=pt(0),y=pt(0)},to={x=pt(10),y=pt(10)},animate={effect='disappear',start=2})]]";
     let document = mote::compile(source).unwrap();
     assert_eq!(document.time, Some(1.5));
@@ -230,7 +230,7 @@ fn effects_times_and_displacements_are_normalized_and_checked() {
     assert_eq!(shape["children"][0]["children"][1]["text"], "1.5");
     let group = &slide["children"][1];
     assert_eq!(group["attributes"]["rotation"], 15.0);
-    assert_eq!(group["attributes"]["offset"]["y"]["value"], -5.0);
+    assert_eq!(group["attributes"]["position"]["y"]["value"], -5.0);
     assert_eq!(
         group["attributes"]["animate"],
         serde_json::json!([{"effect": "rotate", "by": 90.0}])

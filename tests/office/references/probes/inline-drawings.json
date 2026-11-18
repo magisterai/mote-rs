@@ -1,0 +1,72 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "INLINE DRAW INGS: a shape or a group whose position states no place stands in a paragraph",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "of its own, which takes the height of its frame; one that states a place is fixed on the page and",
+          "x": 72.0
+        },
+        {
+          "baseline": 113.04,
+          "text": "takes no room.",
+          "x": 72.0
+        },
+        {
+          "baseline": 157.92,
+          "text": "A shape in the text",
+          "x": 136.82
+        },
+        {
+          "baseline": 201.84,
+          "text": "The line after the shape.",
+          "x": 72.0
+        },
+        {
+          "baseline": 258.72,
+          "text": "A bar of a group",
+          "x": 252.0
+        },
+        {
+          "baseline": 304.8,
+          "text": "The line after the group, whose frame is the reach of its objects.",
+          "x": 72.0
+        },
+        {
+          "baseline": 326.88,
+          "text": "A stated frame",
+          "x": 180.0
+        },
+        {
+          "baseline": 444.0,
+          "text": "The line after the group, whose frame is stated.",
+          "x": 72.0
+        },
+        {
+          "baseline": 469.2,
+          "text": "The last line, which the fixed drawings do not move.",
+          "x": 72.0
+        },
+        {
+          "baseline": 657.36,
+          "text": "A fixed shape",
+          "x": 72.0
+        },
+        {
+          "baseline": 657.36,
+          "text": "A fixed group",
+          "x": 432.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "6c7e33846f814ffe2feb4fa9c801c812e63fb7d25e5fec0088be4f4e312296d7"
+}

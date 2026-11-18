@@ -10,6 +10,6 @@
 #row(height = pt(30), height_rule = "exact")[#cell(vertical_alignment = "center")[Center]#cell(vertical_alignment = "top")[Top]]
 ]
 
-#shape(position = { width = inch(2), height = inch(1) }, rotation = -15, shadow = { angle = -45 })[Shadow]
+#shape(position = { x = inch(0), y = inch(0), width = inch(2), height = inch(1) }, rotation = -15, shadow = { angle = -45 })[Shadow]
 
 Radical $\sqrt{y}$ and $\sqrt[3]{x}$ with #span(size = pt(0.5))[minute text].

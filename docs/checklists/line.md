@@ -25,10 +25,11 @@ inventory, including properties without an authoring mapping.
 - [x] `animate`: effects on the clock of a slide; see [animation](slide.md#animation).
 - [x] Lua `document.line` uses the same validation and typed attributes.
 
-Output boundary: editable connectors and native line painting belong to
-presentation layout. The document output baseline does not emit editable lines;
-DOCX omits them with a warning, while native document output displays `[line]`
-and any retained child text with a warning. Shape borders are a separate
+Output boundary: a slide draws a line, and a document draws a line that is an
+object of a [group](group.md): DOCX writes the line as a connector shape of the
+group shape, and native document output paints it. A line that stands alone in
+a document is not drawn: DOCX omits it with a warning, while native document
+output displays `[line]` and any retained child text with a warning. Shape borders are a separate
 supported drawing property and must not be confused with line directives.
 
 Positioned-slide output covers the existing drawing vocabulary: geometry,

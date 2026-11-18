@@ -2,7 +2,8 @@
 
 A **deck** is a sequence of slides, declared by `#presentation`. A **slide** holds
 either loose content, which is laid out automatically, or positioned objects. A
-**box** is a positioned rectangle holding text, images, tables and charts. A
+**box** is a positioned rectangle holding text, images, tables and charts, on a
+slide alone; a document accepts no box, and uses a [shape](shapes.md) instead. A
 **layout** is a named arrangement of **slots**, boxes whose position is
 given once and filled on each slide.
 
@@ -80,7 +81,7 @@ separates slides.
   into one PowerPoint group, which is selected and moved as a unit there. The
   group without arguments moves nothing: each object keeps its own position on
   the slide, and PDF and PNG draw the objects exactly as they draw them
-  ungrouped. An `offset = { x = inch(4), y = inch(1) }` displaces every object
+  ungrouped. A `position = { x = inch(4), y = inch(1) }` displaces every object
   of the group, and a `rotation = 15` turns the group clockwise about its
   centre, so that one arrangement may be placed many times.
   Text, headings and lists go in a box or a shape of the group, never loose in

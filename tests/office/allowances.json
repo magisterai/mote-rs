@@ -328,6 +328,13 @@
     "unmatched": 0,
     "vertical": 0.3
   },
+  "probes/inline-drawings": {
+    "horizontal": 0.3,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
+  },
   "probes/keep-with-next-blocks": {
     "horizontal": 0.1,
     "median": 0.2,

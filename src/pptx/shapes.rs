@@ -4,7 +4,7 @@ use crate::{
     measurement::TextMeasurer,
     model::{Document, Element},
     presentation::Theme,
-    properties::{object, text},
+    properties::text,
 };
 
 pub(super) struct WrittenShape {
@@ -66,42 +66,8 @@ pub(super) fn connector(element: &Element, next_shape: &mut usize) -> Result<Str
     } else {
         name
     })?;
-    let endpoint = |name| {
-        let fields = object(attributes, name);
-        ["x", "y"].map(|field| {
-            crate::presentation::units(fields.and_then(|fields| fields.get(field))).unwrap_or(0)
-        })
-    };
-    let start = endpoint("from");
-    let end = endpoint("to");
-    let flip = if end[0] < start[0] {
-        " flipH=\"1\""
-    } else {
-        ""
-    };
-    let vertical_flip = if end[1] < start[1] {
-        " flipV=\"1\""
-    } else {
-        ""
-    };
-    let horizontal = start[0].min(end[0]);
-    let vertical = start[1].min(end[1]);
-    let width = (end[0] - start[0]).abs();
-    let height = (end[1] - start[1]).abs();
-    let mut border = object(attributes, "border").cloned().unwrap_or_default();
-    if let Some(opacity) = attributes.get("opacity") {
-        border
-            .entry("opacity".into())
-            .or_insert_with(|| opacity.clone());
-    }
-    let cap = text(attributes, "cap");
-    let cap = if cap.is_empty() {
-        text(&border, "cap")
-    } else {
-        cap
-    };
-    let line = drawingml::line(&border, &cap, object(attributes, "arrow")).map_err(Error)?;
+    let properties = drawingml::connector(attributes).map_err(Error)?;
     Ok(format!(
-        "<p:cxnSp><p:nvCxnSpPr><p:cNvPr id=\"{identifier}\" name=\"{name}\"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr><p:spPr><a:xfrm{flip}{vertical_flip}><a:off x=\"{horizontal}\" y=\"{vertical}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"line\"><a:avLst/></a:prstGeom>{line}</p:spPr></p:cxnSp>"
+        "<p:cxnSp><p:nvCxnSpPr><p:cNvPr id=\"{identifier}\" name=\"{name}\"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr><p:spPr>{properties}</p:spPr></p:cxnSp>"
     ))
 }

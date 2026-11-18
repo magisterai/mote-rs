@@ -232,10 +232,22 @@ Text, a heading, a list and every other block belong in a box or a shape of
 the group, where they are written exactly as in a box or a shape outside it. A
 group has no frame of its own in which loose content could be placed.
 
-A group without arguments moves nothing: each object within keeps the place
-its own `position`, or its `from` and `to`, gives it on the slide. `offset` is
-a table of the lengths `x` and `y`, of either sign and zero where omitted, by
-which every object of the group is displaced. `rotation` is a number of
+The objects of a group are measured from the **corner** of the group. A group
+without arguments has its corner at the origin of its container, so that each
+object within keeps the place its own `position`, or its `from` and `to`, gives
+it. `position` is a table whose members are all optional. `x` and `y` are
+lengths of either sign that state the corner; one stated alone takes zero for
+the other. `width` and `height` are nonnegative lengths that state the frame of
+the group; where they are omitted, the frame reaches from the corner to the
+furthest right and lowest edge of the objects. The frame neither moves, scales
+nor cuts off an object.
+
+On a slide the corner displaces every object of the group, and the frame has no
+effect. In a document a group follows the rule of a
+[shape](drawings.md#shapes): a group whose position states a place is fixed on
+its page, and a group whose position states none is set in the text, where it
+takes the room of its frame. `alignment` is `left`, `center` or `right`, and
+places a group set in the text within its column; the default is `left`. `rotation` is a number of
 degrees, or text with an optional `deg` suffix, by which the group is turned
 clockwise about the centre of the smallest rectangle that holds its objects.
 A group may thus be written once and placed many times. The Lua constructor is

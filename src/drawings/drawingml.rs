@@ -49,6 +49,49 @@ pub(crate) fn shape(attributes: &Properties, bounds: [i64; 4]) -> Result<String,
         "<a:xfrm{transform}><a:off x=\"{horizontal}\" y=\"{vertical}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"{preset}\">{adjustments}</a:prstGeom>{fill}{border}{shadow}"
     ))
 }
+/// Writes the shape properties of a straight line between the `from` and `to`
+/// points of a connector: its frame, turned over where the line runs leftward
+/// or upward, the line geometry and the stroke.
+pub(crate) fn connector(attributes: &Properties) -> Result<String, String> {
+    let endpoint = |name| {
+        let fields = object(attributes, name);
+        ["x", "y"].map(|field| {
+            crate::presentation::units(fields.and_then(|fields| fields.get(field))).unwrap_or(0)
+        })
+    };
+    let start = endpoint("from");
+    let end = endpoint("to");
+    let flip = if end[0] < start[0] {
+        " flipH=\"1\""
+    } else {
+        ""
+    };
+    let vertical_flip = if end[1] < start[1] {
+        " flipV=\"1\""
+    } else {
+        ""
+    };
+    let horizontal = start[0].min(end[0]);
+    let vertical = start[1].min(end[1]);
+    let width = (end[0] - start[0]).abs();
+    let height = (end[1] - start[1]).abs();
+    let mut border = object(attributes, "border").cloned().unwrap_or_default();
+    if let Some(opacity) = attributes.get("opacity") {
+        border
+            .entry("opacity".into())
+            .or_insert_with(|| opacity.clone());
+    }
+    let cap = text(attributes, "cap");
+    let cap = if cap.is_empty() {
+        text(&border, "cap")
+    } else {
+        cap
+    };
+    let line = line(&border, &cap, object(attributes, "arrow"))?;
+    Ok(format!(
+        "<a:xfrm{flip}{vertical_flip}><a:off x=\"{horizontal}\" y=\"{vertical}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/></a:xfrm><a:prstGeom prst=\"line\"><a:avLst/></a:prstGeom>{line}"
+    ))
+}
 pub(crate) fn solid_fill(color: &str, opacity: Option<f64>) -> Result<String, String> {
     let color = color_value(color)?;
     let alpha = opacity

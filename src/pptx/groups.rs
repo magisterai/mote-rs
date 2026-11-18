@@ -2,7 +2,7 @@
 use super::{Error, escape};
 use crate::{
     model::{Content, Element, ElementKind},
-    properties::{number, object, text},
+    properties::{number, text},
 };
 
 /// A step in writing the objects of a slide in their order.
@@ -39,8 +39,8 @@ pub(super) fn items<'content>(
 }
 
 /// Opens a group shape. The child frame is the frame about the objects, so
-/// that the objects within keep their slide coordinates; the frame of the
-/// group is that frame displaced by the `offset` of the group.
+/// that the objects within keep their coordinates; the frame of the group is
+/// that frame displaced by the corner that the position of the group states.
 pub(super) fn open(element: &Element, next_shape: &mut usize) -> Result<String, Error> {
     let identifier = *next_shape;
     *next_shape += 1;
@@ -52,11 +52,7 @@ pub(super) fn open(element: &Element, next_shape: &mut usize) -> Result<String, 
     })?;
     let [left, top, right, bottom] = crate::presentation::extent(element).unwrap_or_default();
     let (width, height) = (right - left, bottom - top);
-    let displacement = |name| {
-        object(&element.attributes, "offset")
-            .and_then(|offset| crate::presentation::units(offset.get(name)))
-            .unwrap_or(0)
-    };
+    let corner = crate::drawings::group_corner(element);
     let rotation = match number(&element.attributes, "rotation") {
         Some(degrees) if degrees != 0.0 => {
             format!(
@@ -68,7 +64,7 @@ pub(super) fn open(element: &Element, next_shape: &mut usize) -> Result<String, 
     };
     Ok(format!(
         "<p:grpSp><p:nvGrpSpPr><p:cNvPr id=\"{identifier}\" name=\"{name}\"/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr><a:xfrm{rotation}><a:off x=\"{}\" y=\"{}\"/><a:ext cx=\"{width}\" cy=\"{height}\"/><a:chOff x=\"{left}\" y=\"{top}\"/><a:chExt cx=\"{width}\" cy=\"{height}\"/></a:xfrm></p:grpSpPr>",
-        left + displacement("x"),
-        top + displacement("y"),
+        left + corner[0],
+        top + corner[1],
     ))
 }

@@ -84,7 +84,7 @@ pub(super) fn prepare_content(
     numbers: &mut BlockNumbers,
     in_cell: bool,
 ) -> Result<PreparedContent, LayoutError> {
-    let content = super::captions::expand(&crate::drawings::ungrouped(content));
+    let content = super::captions::expand(content);
     let mut builder = BlockBuilder {
         width,
         styles,
@@ -155,7 +155,7 @@ pub(super) fn prepare_content(
                 }
                 builder.blocks.push(Block::Chart(Box::new(chart)));
             }
-            ElementKind::Shape => {
+            ElementKind::Shape | ElementKind::Group => {
                 let mut drawing =
                     super::drawings::Drawing::prepare(element, styles, builder.measurer)?;
                 drawing.anchors = std::mem::take(&mut builder.pending_anchors);
